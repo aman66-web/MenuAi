@@ -1917,21 +1917,6 @@
    "modifiers": []
   },
   {
-   "id": "tofu-curry-sweet-chilli-chicken-with-yakisoba-noodles",
-   "name": "Tofu curry + Sweet chilli chicken (with yakisoba noodles)",
-   "category": "Mixed bento",
-   "serving": "",
-   "nutrients": {
-    "calories": 769,
-    "weight": 500
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "tofu-curry-korean-bbq-chicken-with-yakisoba-noodles",
    "name": "Tofu curry + Korean BBQ chicken (with yakisoba noodles)",
    "category": "Mixed bento",

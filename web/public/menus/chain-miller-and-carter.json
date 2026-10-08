@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Miller & Carter online a la carte menu with nutrition (live menu feed): menu '101. Miller & Carter DN26 Main *LIVE*', last modified 2026-10-06",
+  "title": "Miller & Carter online a la carte menu with nutrition (live menu feed): menu '101. Miller & Carter DN26 Main *LIVE*', last modified 2026-10-08",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=34879ecd-629a-5b27-8072-c2097a9fa610&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "A la carte menu only (the Sunday, set and drinks menus aren't included). Where you choose a side, sauce, butter or dressing it is listed separately and isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights.",
  "allergenGuide": {
-  "title": "Miller & Carter allergens in its online menu (M&B menu feed): menu '101. Miller & Carter DN26 Main *LIVE*', ingredients last modified 2026-10-06",
+  "title": "Miller & Carter allergens in its online menu (M&B menu feed): menu '101. Miller & Carter DN26 Main *LIVE*', ingredients last modified 2026-10-08",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic?id=34879ecd-629a-5b27-8072-c2097a9fa610&websitePageUrlPath=main-menu1&idType=Brand&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -115,35 +115,6 @@
      "wheat",
      "rye"
     ]
-   }
-  },
-  {
-   "id": "butternut-squash-and-goats-cheese-arancini",
-   "name": "Butternut Squash & Goat's Cheese Arancini",
-   "category": "While you wait",
-   "serving": "",
-   "nutrients": {
-    "calories": 362,
-    "protein": 8.4,
-    "carbs": 32.6,
-    "fat": 21.6,
-    "saturatedFat": 5.1,
-    "sugar": 6.7,
-    "salt": 1.04
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "mustard"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -901,12 +872,12 @@
    "serving": "",
    "nutrients": {
     "calories": 763,
-    "protein": 37.5,
+    "protein": 38.3,
     "carbs": 22.3,
-    "fat": 56.7,
-    "saturatedFat": 21,
+    "fat": 57.1,
+    "saturatedFat": 21.7,
     "sugar": 8,
-    "salt": 0.61
+    "salt": 0.37
    },
    "tags": [
     "contains_beef"
@@ -1020,34 +991,6 @@
     "saturatedFat": 3.6,
     "sugar": 16,
     "salt": 1.43
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "porterhouse-35oz",
-   "name": "Porterhouse 35oz",
-   "category": "Sharing steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 2181,
-    "protein": 232.5,
-    "carbs": 44.7,
-    "fat": 99.1,
-    "saturatedFat": 43.6,
-    "sugar": 16,
-    "salt": 24.83
    },
    "tags": [
     "contains_beef"
@@ -1867,12 +1810,12 @@
    "serving": "",
    "nutrients": {
     "calories": 156,
-    "protein": 6.1,
-    "carbs": 12.1,
-    "fat": 8,
-    "saturatedFat": 2.5,
+    "protein": 6.3,
+    "carbs": 12,
+    "fat": 8.1,
+    "saturatedFat": 2.4,
     "sugar": 5.9,
-    "salt": 1.14
+    "salt": 1.13
    },
    "tags": [
     "vegetarian"
@@ -2507,12 +2450,12 @@
    "serving": "",
    "nutrients": {
     "calories": 991,
-    "protein": 61.4,
-    "carbs": 50.7,
+    "protein": 61.5,
+    "carbs": 50.6,
     "fat": 59.5,
     "saturatedFat": 29,
     "sugar": 16.1,
-    "salt": 5.48
+    "salt": 5.47
    },
    "tags": [],
    "limitedTime": false,

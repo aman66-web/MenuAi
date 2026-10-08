@@ -1,14 +1,11 @@
 chain,kind,severity,code,item,name,category,detail
-flight-club,nutrition,medium,huge-protein,social-platter,Social Platter,Sharing platter,143.8 g protein
-flight-club,allergen,medium,name-implies-gluten,celebration-cake,Celebration Cake,Desserts,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-flight-club,allergen,medium,name-implies-gluten,pizza-dip-chimmi-churri,Pizza Dip - Chimmi Churri,Pizza dips,'Pizza' in the name but gluten is not marked (contains: ['sulphites'])
-flight-club,allergen,medium,name-implies-gluten,pizza-dip-garlic-mayo,Pizza Dip - Garlic Mayo,Pizza dips,"'Pizza' in the name but gluten is not marked (contains: ['eggs', 'milk', 'mustard'])"
-flight-club,allergen,medium,name-implies-gluten,pizza-dip-hot-sauce,Pizza Dip - Hot Sauce,Pizza dips,'Pizza' in the name but gluten is not marked (contains: ['milk'])
-flight-club,allergen,medium,name-implies-gluten,pizza-dip-jalapeno-creama,Pizza Dip - Jalapeno Creama,Pizza dips,'Pizza' in the name but gluten is not marked (contains: ['milk'])
-flight-club,allergen,medium,name-implies-gluten,pizza-dip-pesto,Pizza Dip - Pesto,Pizza dips,"'Pizza' in the name but gluten is not marked (contains: ['milk', 'nuts'])"
-flight-club,allergen,medium,name-implies-gluten,pizza-dip-red-pepper,Pizza Dip - Red Pepper,Pizza dips,'Pizza' in the name but gluten is not marked (contains: none)
-flight-club,allergen,medium,name-implies-gluten,rocky-road-brownies,Rocky road brownies,Desserts,"'brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-flight-club,allergen,medium,name-implies-gluten,waffle-fries,Waffle fries,Fries,"'Waffle' in the name but gluten is not marked (contains: ['celery', 'mustard'])"
 flight-club,nutrition,low,energy-gap-alcohol,inchs-cider,Inch's Cider,Drinks: Draught beer & cider,225 kcal vs 4P+4C+9F=92: energy not in the macros (alcohol?)
-flight-club,nutrition,low,huge,celebration-cake,Celebration Cake,Desserts,2555 kcal in one item
 flight-club,nutrition,low,huge,social-platter,Social Platter,Sharing platter,3951 kcal in one item
+flight-club,nutrition,reviewed,huge-protein,social-platter,Social Platter,Sharing platter,143.8 g protein
+flight-club,allergen,reviewed,name-implies-gluten,pizza-dip-chimmi-churri,Pizza Dip - Chimmi Churri,Pizza dips,'Pizza' in the name but gluten is not marked (contains: ['sulphites'])
+flight-club,allergen,reviewed,name-implies-gluten,pizza-dip-garlic-mayo,Pizza Dip - Garlic Mayo,Pizza dips,"'Pizza' in the name but gluten is not marked (contains: ['eggs', 'milk', 'mustard'])"
+flight-club,allergen,reviewed,name-implies-gluten,pizza-dip-hot-sauce,Pizza Dip - Hot Sauce,Pizza dips,'Pizza' in the name but gluten is not marked (contains: ['milk'])
+flight-club,allergen,reviewed,name-implies-gluten,pizza-dip-jalapeno-creama,Pizza Dip - Jalapeno Creama,Pizza dips,'Pizza' in the name but gluten is not marked (contains: ['milk'])
+flight-club,allergen,reviewed,name-implies-gluten,pizza-dip-pesto,Pizza Dip - Pesto,Pizza dips,"'Pizza' in the name but gluten is not marked (contains: ['milk', 'nuts'])"
+flight-club,allergen,reviewed,name-implies-gluten,pizza-dip-red-pepper,Pizza Dip - Red Pepper,Pizza dips,'Pizza' in the name but gluten is not marked (contains: none)
+flight-club,allergen,reviewed,name-implies-gluten,waffle-fries,Waffle fries,Fries,"'Waffle' in the name but gluten is not marked (contains: ['celery', 'mustard'])"

@@ -782,60 +782,6 @@
    }
   },
   {
-   "id": "mussels",
-   "name": "Mussels",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 531,
-    "protein": 32.3,
-    "carbs": 21.1,
-    "fat": 34.9,
-    "saturatedFat": 20.1,
-    "sugar": 3.5,
-    "salt": 4.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "molluscs"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "mussels-gluten-free",
-   "name": "Mussels (Gluten free)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 844,
-    "protein": 36.7,
-    "carbs": 65.3,
-    "fat": 47,
-    "saturatedFat": 21.3,
-    "sugar": 3.5,
-    "salt": 5.8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "molluscs"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "seabass",
    "name": "Seabass",
    "category": "Mains",
@@ -1855,34 +1801,6 @@
      "wheat",
      "rye"
     ]
-   }
-  },
-  {
-   "id": "vegetarian-breakfast-gluten-free",
-   "name": "Vegetarian Breakfast (Gluten-free)",
-   "category": "Breakfast",
-   "serving": "",
-   "nutrients": {
-    "calories": 579,
-    "protein": 10.7,
-    "carbs": 32.4,
-    "fat": 44.8,
-    "saturatedFat": 13.8,
-    "sugar": 8.7,
-    "salt": 1.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
    }
   },
   {

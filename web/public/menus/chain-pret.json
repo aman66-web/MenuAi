@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Pret A Manger UK website: product nutritional information, GB shops (pret.co.uk product pages, retrieved 2026-10-06; the pages carry no version date)",
+  "title": "Pret A Manger UK website: product nutritional information, GB shops (pret.co.uk product pages, retrieved 2026-10-08; the pages carry no version date)",
   "url": "https://www.pret.co.uk/en-GB/products",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Per-serving numbers from Pret's own product pages; Pret's allergen guide doesn't list nutrition.",
  "allergenGuide": {
   "title": "Pret's Allergen Guide, GB Pret shops (Allergen Guide 8th September 2026 V1)",
   "url": "https://assets.ctfassets.net/4zu8gvmtwqss/11hMIULPpeCprPZIUG76L2/0b636725a4e1551ed7a9817c02c98f31/Allergen_Guide_8th_September_2026_V1.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
   "complete": false
  },
@@ -4923,32 +4923,6 @@
     "fiber": 0,
     "salt": 0,
     "energyKj": 21
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
-  },
-  {
-   "id": "macchiato-soya-milk-decaf",
-   "name": "Macchiato (soya milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 4,
-    "protein": 0.3,
-    "carbs": 0.3,
-    "fat": 0.2,
-    "saturatedFat": 0,
-    "sodium": 0,
-    "sugar": 0.3,
-    "fiber": 0.1,
-    "salt": 0,
-    "energyKj": 7
    },
    "tags": [
     "vegetarian"

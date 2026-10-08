@@ -12,28 +12,29 @@
  ],
  "sample": false,
  "source": {
-  "title": "Hickory's Smokehouse menu with nutrition: Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (live page, no date printed; read 2026-10-06)",
+  "title": "Hickory's Smokehouse menu with nutrition: Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (live page, no date printed; read 2026-10-08)",
   "url": "https://menus.tenkites.com/hickorys/hickorys03",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Figures are per portion from Hickory's own menu page (hosted by Ten Kites), which prints no date. Alcoholic drinks and the Smokin' Deals bundles are not included; the Non-Gluten menu only adds dishes whose numbers differ.",
  "allergenGuide": {
-  "title": "Hickory's Smokehouse menu Dietary Information (allergens): Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (Ten Kites page, no date printed; read 2026-10-06)",
+  "title": "Hickory's Smokehouse menu Dietary Information (allergens): Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (Ten Kites page, no date printed; read 2026-10-08)",
   "url": "https://menus.tenkites.com/hickorys/hickorys03",
-  "checkedOn": "2026-10-06",
-  "mayContainPublished": true,
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
   "complete": true
  },
  "categories": [
   "Appetisers",
   "The Smokehouse",
-  "Steaks",
   "Burgers",
+  "Subs",
+  "Steak & Fish",
   "Mains",
-  "Lighter & loaded",
   "On the side",
   "Brunch",
   "Drinks",
+  "Lunch",
   "Desserts",
   "Kids"
  ],
@@ -70,9 +71,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -109,182 +108,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "frickles",
-   "name": "Frickles",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 684,
-    "protein": 5.4,
-    "carbs": 59.5,
-    "fat": 47.3,
-    "saturatedFat": 3.7,
-    "sugar": 8,
-    "salt": 6.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "giant-garlic-buttered-pretzel-bites",
-   "name": "Giant Garlic Buttered Pretzel Bites",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 895,
-    "protein": 25.8,
-    "carbs": 87.8,
-    "fat": 47.2,
-    "saturatedFat": 24.3,
-    "sugar": 12.2,
-    "salt": 4.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "spiced-pulled-pork-tostadas",
-   "name": "Spiced Pulled Pork Tostadas",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 985,
-    "protein": 51.6,
-    "carbs": 33,
-    "fat": 71.7,
-    "saturatedFat": 23.2,
-    "sugar": 15.7,
-    "salt": 5
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "brisket-popcorn-bites",
-   "name": "Brisket Popcorn Bites",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 647,
-    "protein": 25.1,
-    "carbs": 45.6,
-    "fat": 40.2,
-    "saturatedFat": 12.4,
-    "sugar": 7.2,
-    "salt": 6.4
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "southern-fried-chicken-in-a-basket",
-   "name": "Southern Fried Chicken 'In a Basket'",
-   "category": "Appetisers",
-   "serving": "",
-   "nutrients": {
-    "calories": 813,
-    "protein": 36.7,
-    "carbs": 79.1,
-    "fat": 38.5,
-    "saturatedFat": 3.4,
-    "sugar": 8.1,
-    "salt": 8.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -375,8 +199,177 @@
      "milk",
      "mustard"
     ],
-    "mayContain": [
+    "mayContain": []
+   }
+  },
+  {
+   "id": "southern-fried-onion-blossom",
+   "name": "Southern Fried Onion Blossom",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1212,
+    "protein": 21.1,
+    "carbs": 136.2,
+    "fat": 63.9,
+    "saturatedFat": 6.1,
+    "sugar": 37.1,
+    "salt": 13.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "frickles",
+   "name": "Frickles",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 684,
+    "protein": 5.4,
+    "carbs": 59.5,
+    "fat": 47.3,
+    "saturatedFat": 3.7,
+    "sugar": 8,
+    "salt": 6.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
      "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "giant-garlic-buttered-pretzel-bites",
+   "name": "Giant Garlic Buttered Pretzel Bites",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 895,
+    "protein": 25.8,
+    "carbs": 87.8,
+    "fat": 47.2,
+    "saturatedFat": 24.3,
+    "sugar": 12.2,
+    "salt": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "brisket-popcorn-bites",
+   "name": "Brisket Popcorn Bites",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 647,
+    "protein": 25.1,
+    "carbs": 45.6,
+    "fat": 40.2,
+    "saturatedFat": 12.4,
+    "sugar": 7.2,
+    "salt": 6.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-chicken-in-a-basket",
+   "name": "Southern Fried Chicken 'In a Basket'",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 813,
+    "protein": 36.7,
+    "carbs": 79.1,
+    "fat": 38.5,
+    "saturatedFat": 3.4,
+    "sugar": 8.1,
+    "salt": 8.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -407,9 +400,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -418,12 +409,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 924,
+    "calories": 908,
     "protein": 45.5,
-    "carbs": 35.3,
-    "fat": 67.5,
-    "saturatedFat": 23.6,
-    "sugar": 22,
+    "carbs": 35.5,
+    "fat": 65.6,
+    "saturatedFat": 23.5,
+    "sugar": 21.9,
     "salt": 5.2
    },
    "tags": [
@@ -439,9 +430,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -469,9 +458,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -480,13 +467,13 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 997,
+    "calories": 981,
     "protein": 52.7,
-    "carbs": 46.6,
-    "fat": 71.4,
-    "saturatedFat": 17.3,
+    "carbs": 46.8,
+    "fat": 69.5,
+    "saturatedFat": 17.2,
     "sugar": 29.4,
-    "salt": 9.4
+    "salt": 9.5
    },
    "tags": [],
    "limitedTime": false,
@@ -499,9 +486,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -529,9 +514,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -540,11 +523,11 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 1062,
+    "calories": 1046,
     "protein": 52.5,
-    "carbs": 64.5,
-    "fat": 71.4,
-    "saturatedFat": 17.4,
+    "carbs": 64.7,
+    "fat": 69.6,
+    "saturatedFat": 17.3,
     "sugar": 51,
     "salt": 8.9
    },
@@ -559,9 +542,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -590,10 +571,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "barley"
     ]
@@ -605,13 +583,13 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 1139,
+    "calories": 1123,
     "protein": 52.5,
-    "carbs": 84,
-    "fat": 71.3,
-    "saturatedFat": 17.3,
-    "sugar": 57.1,
-    "salt": 7.8
+    "carbs": 84.2,
+    "fat": 69.4,
+    "saturatedFat": 17.2,
+    "sugar": 57,
+    "salt": 7.9
    },
    "tags": [],
    "limitedTime": false,
@@ -625,10 +603,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "barley"
     ]
@@ -659,9 +634,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -670,12 +643,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 1644,
+    "calories": 1628,
     "protein": 99.7,
-    "carbs": 63.6,
-    "fat": 120,
-    "saturatedFat": 32.8,
-    "sugar": 39.4,
+    "carbs": 63.8,
+    "fat": 118.1,
+    "saturatedFat": 32.7,
+    "sugar": 39.3,
     "salt": 11.2
    },
    "tags": [],
@@ -689,9 +662,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -719,9 +690,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -730,11 +699,11 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 1755,
+    "calories": 1739,
     "protein": 99.4,
-    "carbs": 94.8,
-    "fat": 120,
-    "saturatedFat": 32.9,
+    "carbs": 95,
+    "fat": 118.1,
+    "saturatedFat": 32.8,
     "sugar": 78.4,
     "salt": 9.9
    },
@@ -749,9 +718,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -780,10 +747,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "barley"
     ]
@@ -795,13 +759,13 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 1837,
+    "calories": 1821,
     "protein": 99.4,
-    "carbs": 115.3,
-    "fat": 119.7,
-    "saturatedFat": 32.8,
-    "sugar": 79.4,
-    "salt": 8
+    "carbs": 115.5,
+    "fat": 117.8,
+    "saturatedFat": 32.7,
+    "sugar": 79.3,
+    "salt": 8.1
    },
    "tags": [],
    "limitedTime": false,
@@ -815,13 +779,70 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "barley"
     ]
+   }
+  },
+  {
+   "id": "hickorys-wood-smoked-pork-jalape-o-and-cheese-sausage-with-fries",
+   "name": "Hickory's Wood Smoked Pork, Jalapeño & Cheese Sausage with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1772,
+    "protein": 51.3,
+    "carbs": 88.2,
+    "fat": 134.9,
+    "saturatedFat": 35.9,
+    "sugar": 19.9,
+    "salt": 9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hickorys-wood-smoked-pork-jalape-o-and-cheese-sausage-with-salad",
+   "name": "Hickory's Wood Smoked Pork, Jalapeño & Cheese Sausage with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 1585,
+    "protein": 51,
+    "carbs": 56.5,
+    "fat": 129.3,
+    "saturatedFat": 35.3,
+    "sugar": 24.2,
+    "salt": 9.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -851,9 +872,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -862,11 +881,11 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 1643,
+    "calories": 1627,
     "protein": 89.8,
-    "carbs": 39.7,
-    "fat": 125.7,
-    "saturatedFat": 44.5,
+    "carbs": 39.9,
+    "fat": 123.8,
+    "saturatedFat": 44.4,
     "sugar": 24.3,
     "salt": 8.9
    },
@@ -883,9 +902,69 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk"
-    ]
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hog-heaven-with-fries",
+   "name": "Hog Heaven with Fries",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2301,
+    "protein": 99.2,
+    "carbs": 120.1,
+    "fat": 162.5,
+    "saturatedFat": 41.4,
+    "sugar": 52.4,
+    "salt": 10.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hog-heaven-with-salad",
+   "name": "Hog Heaven with Salad",
+   "category": "The Smokehouse",
+   "serving": "",
+   "nutrients": {
+    "calories": 2027,
+    "protein": 98.8,
+    "carbs": 87.2,
+    "fat": 148,
+    "saturatedFat": 40.2,
+    "sugar": 55.5,
+    "salt": 11.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -925,11 +1004,11 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 2379,
+    "calories": 2363,
     "protein": 123.1,
-    "carbs": 61.2,
-    "fat": 183.1,
-    "saturatedFat": 52.7,
+    "carbs": 61.4,
+    "fat": 181.2,
+    "saturatedFat": 52.6,
     "sugar": 32.1,
     "salt": 13.6
    },
@@ -948,76 +1027,6 @@
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "hog-heaven-with-fries",
-   "name": "Hog Heaven with Fries",
-   "category": "The Smokehouse",
-   "serving": "",
-   "nutrients": {
-    "calories": 2301,
-    "protein": 99.2,
-    "carbs": 120.1,
-    "fat": 162.5,
-    "saturatedFat": 41.4,
-    "sugar": 52.4,
-    "salt": 10.6
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "soya"
-    ]
-   }
-  },
-  {
-   "id": "hog-heaven-with-salad",
-   "name": "Hog Heaven with Salad",
-   "category": "The Smokehouse",
-   "serving": "",
-   "nutrients": {
-    "calories": 2043,
-    "protein": 98.8,
-    "carbs": 87,
-    "fat": 149.9,
-    "saturatedFat": 40.3,
-    "sugar": 55.5,
-    "salt": 11
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "soya"
-    ]
    }
   },
   {
@@ -1049,11 +1058,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1062,13 +1067,13 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 2318,
-    "protein": 106.7,
-    "carbs": 60.1,
-    "fat": 184.7,
-    "saturatedFat": 45.2,
+    "calories": 2302,
+    "protein": 106.6,
+    "carbs": 60.3,
+    "fat": 182.8,
+    "saturatedFat": 45.1,
     "sugar": 30.8,
-    "salt": 15.9
+    "salt": 16
    },
    "tags": [
     "contains_beef",
@@ -1085,11 +1090,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1121,11 +1122,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1134,12 +1131,12 @@
    "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 5580,
+    "calories": 5564,
     "protein": 313.5,
-    "carbs": 171.5,
-    "fat": 412.8,
-    "saturatedFat": 127.2,
-    "sugar": 102.2,
+    "carbs": 171.8,
+    "fat": 410.9,
+    "saturatedFat": 127.1,
+    "sugar": 102.1,
     "salt": 30.5
    },
    "tags": [
@@ -1157,11 +1154,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1193,9 +1186,7 @@
      "milk",
      "mustard"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -1258,13 +1249,7 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "eggs",
-     "mustard",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1290,58 +1275,26 @@
     "contains": [
      "sulphites"
     ],
-    "mayContain": [
-     "mustard"
-    ]
-   }
-  },
-  {
-   "id": "6-oz-aged-rump-steak-with-fries",
-   "name": "6 oz Aged Rump Steak with Fries",
-   "category": "Steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1066,
-    "protein": 38.7,
-    "carbs": 50,
-    "fat": 78,
-    "saturatedFat": 24.8,
-    "sugar": 3.5,
-    "salt": 4.1
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya"
-    ],
     "mayContain": []
    }
   },
   {
-   "id": "6-oz-aged-rump-steak-with-salad",
-   "name": "6 oz Aged Rump Steak with Salad",
-   "category": "Steaks",
+   "id": "the-carnivore-with-fries-gluten-free",
+   "name": "The Carnivore (with Fries, gluten free)",
+   "category": "The Smokehouse",
    "serving": "",
    "nutrients": {
-    "calories": 894,
-    "protein": 38.4,
-    "carbs": 18.2,
-    "fat": 74.3,
-    "saturatedFat": 24.3,
-    "sugar": 7.9,
-    "salt": 4.6
+    "calories": 2745,
+    "protein": 107.2,
+    "carbs": 90.4,
+    "fat": 217.4,
+    "saturatedFat": 47.8,
+    "sugar": 26.5,
+    "salt": 15.4
    },
    "tags": [
-    "contains_beef"
+    "contains_beef",
+    "contains_pork"
    ],
    "limitedTime": false,
    "rankable": true,
@@ -1352,133 +1305,6 @@
      "celery",
      "milk",
      "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "10-oz-new-york-strip-with-fries",
-   "name": "10 oz New York Strip with Fries",
-   "category": "Steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1293,
-    "protein": 67,
-    "carbs": 49.8,
-    "fat": 90.6,
-    "saturatedFat": 30.6,
-    "sugar": 3.5,
-    "salt": 4.3
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "10-oz-new-york-strip-with-salad",
-   "name": "10 oz New York Strip with Salad",
-   "category": "Steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1121,
-    "protein": 66.7,
-    "carbs": 17.9,
-    "fat": 86.9,
-    "saturatedFat": 30.1,
-    "sugar": 7.8,
-    "salt": 4.8
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "12-oz-aged-rump-steak-with-fries",
-   "name": "12 oz Aged Rump Steak with Fries",
-   "category": "Steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1401,
-    "protein": 70.9,
-    "carbs": 50,
-    "fat": 101,
-    "saturatedFat": 34.6,
-    "sugar": 3.5,
-    "salt": 4.3
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "12-oz-aged-rump-steak-with-salad",
-   "name": "12 oz Aged Rump Steak with Salad",
-   "category": "Steaks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1230,
-    "protein": 70.6,
-    "carbs": 18.2,
-    "fat": 97.3,
-    "saturatedFat": 34.2,
-    "sugar": 7.9,
-    "salt": 4.8
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya",
      "sulphites"
     ],
     "mayContain": []
@@ -1513,7 +1339,6 @@
      "eggs",
      "milk",
      "mustard",
-     "nuts",
      "sesame",
      "soya",
      "sulphites"
@@ -1521,13 +1346,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "walnut",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -1537,11 +1355,11 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 2496,
+    "calories": 2479,
     "protein": 103.5,
-    "carbs": 172.2,
-    "fat": 153.1,
-    "saturatedFat": 44.3,
+    "carbs": 172.4,
+    "fat": 151.2,
+    "saturatedFat": 44.2,
     "sugar": 32.3,
     "salt": 21.3
    },
@@ -1560,7 +1378,6 @@
      "eggs",
      "milk",
      "mustard",
-     "nuts",
      "sesame",
      "soya",
      "sulphites"
@@ -1568,13 +1385,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "walnut",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -1607,11 +1417,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "celery",
-     "sesame",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -1623,13 +1429,13 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1340,
+    "calories": 1324,
     "protein": 47.2,
-    "carbs": 62.6,
-    "fat": 99.7,
-    "saturatedFat": 28.7,
+    "carbs": 62.8,
+    "fat": 97.8,
+    "saturatedFat": 28.5,
     "sugar": 20.2,
-    "salt": 9
+    "salt": 9.1
    },
    "tags": [
     "contains_beef"
@@ -1647,10 +1453,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -1684,10 +1487,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -1699,11 +1499,11 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1524,
+    "calories": 1507,
     "protein": 64.4,
-    "carbs": 159.4,
-    "fat": 69.3,
-    "saturatedFat": 9.7,
+    "carbs": 159.6,
+    "fat": 67.4,
+    "saturatedFat": 9.6,
     "sugar": 22.3,
     "salt": 19.8
    },
@@ -1721,18 +1521,15 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
    }
   },
   {
-   "id": "the-bird-and-beast-with-fries",
-   "name": "The Bird & Beast with Fries",
+   "id": "the-bird-and-beast-burger-with-fries",
+   "name": "The Bird & Beast Burger with Fries",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
@@ -1760,27 +1557,24 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
    }
   },
   {
-   "id": "the-bird-and-beast-with-salad",
-   "name": "The Bird & Beast with Salad",
+   "id": "the-bird-and-beast-burger-with-salad",
+   "name": "The Bird & Beast Burger with Salad",
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1611,
+    "calories": 1595,
     "protein": 58.4,
-    "carbs": 132.1,
-    "fat": 93.5,
-    "saturatedFat": 21.3,
-    "sugar": 22.2,
+    "carbs": 132.3,
+    "fat": 91.6,
+    "saturatedFat": 21.2,
+    "sugar": 22.1,
     "salt": 16.2
    },
    "tags": [
@@ -1799,10 +1593,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -1835,7 +1626,6 @@
      "gluten",
      "milk",
      "mustard",
-     "nuts",
      "sesame",
      "soya",
      "sulphites"
@@ -1844,13 +1634,6 @@
     "cereals": [
      "wheat",
      "barley"
-    ],
-    "nuts": [
-     "walnut",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -1860,13 +1643,13 @@
    "category": "Burgers",
    "serving": "",
    "nutrients": {
-    "calories": 1393,
+    "calories": 1377,
     "protein": 49.4,
-    "carbs": 96.9,
-    "fat": 87.5,
-    "saturatedFat": 13.9,
-    "sugar": 27.9,
-    "salt": 11.8
+    "carbs": 97.1,
+    "fat": 85.6,
+    "saturatedFat": 13.8,
+    "sugar": 27.8,
+    "salt": 11.9
    },
    "tags": [
     "vegetarian"
@@ -1881,7 +1664,6 @@
      "gluten",
      "milk",
      "mustard",
-     "nuts",
      "sesame",
      "soya",
      "sulphites"
@@ -1890,13 +1672,468 @@
     "cereals": [
      "wheat",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "big-pig-bap",
+   "name": "Big Pig Bap",
+   "category": "Subs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1004,
+    "protein": 34.8,
+    "carbs": 59.2,
+    "fat": 69.3,
+    "saturatedFat": 12.1,
+    "sugar": 19.3,
+    "salt": 6.9
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
     ],
-    "nuts": [
-     "walnut",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-hickorys-hot-dog",
+   "name": "The Hickory's Hot Dog",
+   "category": "Subs",
+   "serving": "",
+   "nutrients": {
+    "calories": 966,
+    "protein": 30.6,
+    "carbs": 60,
+    "fat": 68.5,
+    "saturatedFat": 19.6,
+    "sugar": 10.4,
+    "salt": 6.1
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-tennessee-brisket-sub",
+   "name": "Smoked Tennessee Brisket Sub",
+   "category": "Subs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195,
+    "protein": 40.8,
+    "carbs": 67.5,
+    "fat": 86.7,
+    "saturatedFat": 30.8,
+    "sugar": 22.8,
+    "salt": 7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "6-oz-aged-rump-steak-with-fries",
+   "name": "6 oz Aged Rump Steak with Fries",
+   "category": "Steak & Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 1066,
+    "protein": 38.7,
+    "carbs": 50,
+    "fat": 78,
+    "saturatedFat": 24.8,
+    "sugar": 3.5,
+    "salt": 4.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "6-oz-aged-rump-steak-with-salad",
+   "name": "6 oz Aged Rump Steak with Salad",
+   "category": "Steak & Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 878,
+    "protein": 38.4,
+    "carbs": 18.4,
+    "fat": 72.4,
+    "saturatedFat": 24.2,
+    "sugar": 7.8,
+    "salt": 4.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "10-oz-new-york-strip-with-fries",
+   "name": "10 oz New York Strip with Fries",
+   "category": "Steak & Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 1293,
+    "protein": 67,
+    "carbs": 49.8,
+    "fat": 90.6,
+    "saturatedFat": 30.6,
+    "sugar": 3.5,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "10-oz-new-york-strip-with-salad",
+   "name": "10 oz New York Strip with Salad",
+   "category": "Steak & Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 1105,
+    "protein": 66.7,
+    "carbs": 18.1,
+    "fat": 85,
+    "saturatedFat": 30,
+    "sugar": 7.8,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12-oz-aged-rump-steak-with-fries",
+   "name": "12 oz Aged Rump Steak with Fries",
+   "category": "Steak & Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 1401,
+    "protein": 70.9,
+    "carbs": 50,
+    "fat": 101,
+    "saturatedFat": 34.6,
+    "sugar": 3.5,
+    "salt": 4.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12-oz-aged-rump-steak-with-salad",
+   "name": "12 oz Aged Rump Steak with Salad",
+   "category": "Steak & Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 1214,
+    "protein": 70.5,
+    "carbs": 18.4,
+    "fat": 95.4,
+    "saturatedFat": 34.1,
+    "sugar": 7.8,
+    "salt": 4.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cedar-plank-roasted-salmon",
+   "name": "Cedar Plank Roasted Salmon",
+   "category": "Steak & Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 1093,
+    "protein": 48.1,
+    "carbs": 87.1,
+    "fat": 60.6,
+    "saturatedFat": 18.7,
+    "sugar": 30.3,
+    "salt": 3.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gumbos-smoked-pulled-chicken-with-pork-jalape-o-and-cheese-sausage",
+   "name": "Gumbos (Smoked Pulled Chicken with Pork, Jalapeño & Cheese Sausage)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1152,
+    "protein": 48,
+    "carbs": 115,
+    "fat": 52.2,
+    "saturatedFat": 10.5,
+    "sugar": 15.5,
+    "salt": 7.2
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gumbos-south-louisiana-roast-okra",
+   "name": "Gumbos (South Louisiana Roast Okra)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 714,
+    "protein": 20.1,
+    "carbs": 107.1,
+    "fat": 18.8,
+    "saturatedFat": 2.3,
+    "sugar": 13.7,
+    "salt": 6.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-fried-waffle",
+   "name": "Chicken Fried Waffle",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1727,
+    "protein": 61.7,
+    "carbs": 249.4,
+    "fat": 53.7,
+    "saturatedFat": 9.9,
+    "sugar": 75.9,
+    "salt": 12.5
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-chicken-with-fries",
+   "name": "Southern Fried Chicken with Fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1898,
+    "protein": 95.4,
+    "carbs": 199.1,
+    "fat": 78.5,
+    "saturatedFat": 7.6,
+    "sugar": 16.1,
+    "salt": 18.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -1929,9 +2166,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "mustard"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -1943,13 +2178,13 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1397,
+    "calories": 1381,
     "protein": 41.6,
-    "carbs": 97.7,
-    "fat": 92.4,
-    "saturatedFat": 40,
-    "sugar": 28.5,
-    "salt": 8.3
+    "carbs": 98,
+    "fat": 90.6,
+    "saturatedFat": 39.9,
+    "sugar": 28.4,
+    "salt": 8.4
    },
    "tags": [
     "vegetarian"
@@ -2002,9 +2237,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "mustard"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -2017,11 +2250,11 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 2228,
+    "calories": 2212,
     "protein": 76.6,
-    "carbs": 221.6,
-    "fat": 114.4,
-    "saturatedFat": 42.2,
+    "carbs": 221.8,
+    "fat": 112.5,
+    "saturatedFat": 42.1,
     "sugar": 60.3,
     "salt": 17.4
    },
@@ -2090,11 +2323,11 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1684,
+    "calories": 1668,
     "protein": 58.1,
-    "carbs": 114,
-    "fat": 110,
-    "saturatedFat": 47.4,
+    "carbs": 114.3,
+    "fat": 108.1,
+    "saturatedFat": 47.3,
     "sugar": 40.5,
     "salt": 10.6
    },
@@ -2152,49 +2385,16 @@
    }
   },
   {
-   "id": "sizzling-fajitas-blackened-butt-steak",
-   "name": "Sizzling Fajitas (Blackened Butt Steak)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 1444,
-    "protein": 59.5,
-    "carbs": 94.2,
-    "fat": 90.2,
-    "saturatedFat": 34.7,
-    "sugar": 23.3,
-    "salt": 11.6
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "sizzling-fajitas-southern-fried-vegan-strips",
    "name": "Sizzling Fajitas (Southern Fried Vegan Strips)",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1543,
+    "calories": 1534,
     "protein": 31.6,
-    "carbs": 143.1,
-    "fat": 91.4,
-    "saturatedFat": 12.5,
+    "carbs": 143.2,
+    "fat": 90.4,
+    "saturatedFat": 12.4,
     "sugar": 36.8,
     "salt": 14.4
    },
@@ -2220,140 +2420,18 @@
    }
   },
   {
-   "id": "cedar-plank-roasted-salmon",
-   "name": "Cedar Plank Roasted Salmon",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 796,
-    "protein": 49.9,
-    "carbs": 26.4,
-    "fat": 54.5,
-    "saturatedFat": 16.6,
-    "sugar": 11,
-    "salt": 5.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "fish",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
-   "id": "south-coast-watermelon-salad-plain",
-   "name": "South Coast Watermelon Salad (Plain)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 393,
-    "protein": 12.9,
-    "carbs": 48.2,
-    "fat": 15.7,
-    "saturatedFat": 7.2,
-    "sugar": 21.1,
-    "salt": 4.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "south-coast-watermelon-salad-cajun-spiced-grilled-chicken",
-   "name": "South Coast Watermelon Salad (Cajun Spiced Grilled Chicken)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 892,
-    "protein": 50.5,
-    "carbs": 49.8,
-    "fat": 53.5,
-    "saturatedFat": 11.2,
-    "sugar": 21.3,
-    "salt": 6.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "south-coast-watermelon-salad-cedar-plank-roasted-salmon",
-   "name": "South Coast Watermelon Salad (Cedar Plank Roasted Salmon)",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 959,
-    "protein": 53,
-    "carbs": 51.3,
-    "fat": 61,
-    "saturatedFat": 12.2,
-    "sugar": 22.4,
-    "salt": 5.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "fish",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "hickorys-cobb-salad-as-it-comes",
    "name": "Hickory's Cobb Salad (As It Comes)",
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1207,
-    "protein": 26.8,
-    "carbs": 28.2,
-    "fat": 108.2,
-    "saturatedFat": 23.1,
-    "sugar": 14.6,
-    "salt": 3.8
+    "calories": 1248,
+    "protein": 35.8,
+    "carbs": 25.2,
+    "fat": 110.2,
+    "saturatedFat": 29.8,
+    "sugar": 13,
+    "salt": 4.5
    },
    "tags": [
     "vegetarian"
@@ -2379,147 +2457,76 @@
    "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1699,
-    "protein": 68,
-    "carbs": 41.9,
-    "fat": 138.6,
+    "calories": 1740,
+    "protein": 77.1,
+    "carbs": 39,
+    "fat": 140.6,
+    "saturatedFat": 35.5,
+    "sugar": 25.2,
+    "salt": 11
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "our-oklahoma-smash-burger-with-fries-gluten-free",
+   "name": "Our Oklahoma Smash Burger with Fries (gluten free)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1737,
+    "protein": 43.9,
+    "carbs": 102.8,
+    "fat": 125.8,
+    "saturatedFat": 30.6,
+    "sugar": 14.9,
+    "salt": 7.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "our-oklahoma-smash-burger-with-salad-gluten-free",
+   "name": "Our Oklahoma Smash Burger with Salad (gluten free)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1389,
+    "protein": 43.6,
+    "carbs": 71.2,
+    "fat": 102.4,
     "saturatedFat": 28.8,
-    "sugar": 26.9,
-    "salt": 10.3
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "eggs",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "the-hickorys-hot-dog",
-   "name": "The Hickory's Hot Dog",
-   "category": "Lighter & loaded",
-   "serving": "",
-   "nutrients": {
-    "calories": 966,
-    "protein": 30.6,
-    "carbs": 60,
-    "fat": 68.5,
-    "saturatedFat": 19.6,
-    "sugar": 10.4,
-    "salt": 6.1
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "loaded-potatoes-the-texi-can",
-   "name": "Loaded Potatoes (The Texi-Can)",
-   "category": "Lighter & loaded",
-   "serving": "",
-   "nutrients": {
-    "calories": 1005,
-    "protein": 24.2,
-    "carbs": 87.1,
-    "fat": 61.7,
-    "saturatedFat": 21.7,
-    "sugar": 17.6,
-    "salt": 5.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "loaded-potatoes-pulled-pork",
-   "name": "Loaded Potatoes (Pulled Pork)",
-   "category": "Lighter & loaded",
-   "serving": "",
-   "nutrients": {
-    "calories": 1225,
-    "protein": 44.6,
-    "carbs": 89.5,
-    "fat": 76.3,
-    "saturatedFat": 23.2,
-    "sugar": 17.2,
-    "salt": 8
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "smoked-tennessee-brisket-sub",
-   "name": "Smoked Tennessee Brisket Sub",
-   "category": "Lighter & loaded",
-   "serving": "",
-   "nutrients": {
-    "calories": 1195,
-    "protein": 40.8,
-    "carbs": 67.5,
-    "fat": 86.7,
-    "saturatedFat": 30.8,
-    "sugar": 22.8,
-    "salt": 7
+    "sugar": 19.2,
+    "salt": 7.8
    },
    "tags": [
     "contains_beef"
@@ -2531,35 +2538,27 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten",
+     "eggs",
      "milk",
      "mustard",
-     "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
-   "id": "big-pig-bap",
-   "name": "Big Pig Bap",
-   "category": "Lighter & loaded",
+   "id": "gumbos-smoked-pulled-chicken-with-pork-jalape-o-and-cheese-sausage-gluten-free-2",
+   "name": "Gumbos (Smoked Pulled Chicken with Pork Jalapeño & Cheese Sausage, gluten free)",
+   "category": "Mains",
    "serving": "",
    "nutrients": {
-    "calories": 1004,
-    "protein": 34.8,
-    "carbs": 59.2,
-    "fat": 69.3,
-    "saturatedFat": 12.1,
-    "sugar": 19.3,
-    "salt": 6.9
+    "calories": 1017,
+    "protein": 37.7,
+    "carbs": 81.8,
+    "fat": 57,
+    "saturatedFat": 10.6,
+    "sugar": 12.2,
+    "salt": 6.8
    },
    "tags": [
     "contains_pork"
@@ -2571,17 +2570,103 @@
    "allergens": {
     "contains": [
      "celery",
-     "gluten",
+     "milk",
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "milk",
-     "sesame"
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gumbos-south-louisiana-roast-okra-gluten-free",
+   "name": "Gumbos (South Louisiana Roast Okra, gluten free)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 578,
+    "protein": 9.9,
+    "carbs": 73.9,
+    "fat": 23.5,
+    "saturatedFat": 2.5,
+    "sugar": 10.4,
+    "salt": 6.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
     ],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hickorys-cobb-salad-as-it-comes-gluten-free",
+   "name": "Hickory's Cobb Salad (As It Comes, gluten free)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1191,
+    "protein": 26.8,
+    "carbs": 28.4,
+    "fat": 106.3,
+    "saturatedFat": 23,
+    "sugar": 14.6,
+    "salt": 3.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hickorys-cobb-salad-with-chargrilled-chicken-and-bourbon-bacon-gluten-free",
+   "name": "Hickory's Cobb Salad with Chargrilled Chicken & Bourbon Bacon (gluten free)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1683,
+    "protein": 68,
+    "carbs": 42.1,
+    "fat": 136.7,
+    "saturatedFat": 28.7,
+    "sugar": 26.9,
+    "salt": 10.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -2620,11 +2705,11 @@
    "category": "On the side",
    "serving": "",
    "nutrients": {
-    "calories": 110,
+    "calories": 94,
     "protein": 4.2,
-    "carbs": 13.2,
-    "fat": 4.4,
-    "saturatedFat": 0.5,
+    "carbs": 13.4,
+    "fat": 2.5,
+    "saturatedFat": 0.4,
     "sugar": 6,
     "salt": 1.3
    },
@@ -2645,18 +2730,18 @@
    }
   },
   {
-   "id": "smashed-cucumber",
-   "name": "Smashed Cucumber",
+   "id": "pickle-pot",
+   "name": "Pickle Pot",
    "category": "On the side",
    "serving": "",
    "nutrients": {
-    "calories": 74,
-    "protein": 2,
-    "carbs": 9.4,
-    "fat": 2.3,
-    "saturatedFat": 0.1,
-    "sugar": 3.1,
-    "salt": 1.6
+    "calories": 87,
+    "protein": 2.1,
+    "carbs": 14.1,
+    "fat": 1.7,
+    "saturatedFat": 0.3,
+    "sugar": 3.6,
+    "salt": 2.2
    },
    "tags": [
     "vegetarian"
@@ -2667,49 +2752,10 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "nuts"
-    ]
-   }
-  },
-  {
-   "id": "southern-fried-onion-blossom",
-   "name": "Southern Fried Onion Blossom",
-   "category": "On the side",
-   "serving": "",
-   "nutrients": {
-    "calories": 1123,
-    "protein": 16.5,
-    "carbs": 118.6,
-    "fat": 64,
-    "saturatedFat": 6.2,
-    "sugar": 36.6,
-    "salt": 8.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard"
-    ],
-    "mayContain": [
-     "soya",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2748,13 +2794,13 @@
    "category": "On the side",
    "serving": "",
    "nutrients": {
-    "calories": 544,
-    "protein": 12.6,
-    "carbs": 28.5,
-    "fat": 40.7,
-    "saturatedFat": 20.8,
-    "sugar": 11.8,
-    "salt": 4.1
+    "calories": 428,
+    "protein": 7.3,
+    "carbs": 26.7,
+    "fat": 30.8,
+    "saturatedFat": 13.8,
+    "sugar": 9.1,
+    "salt": 3.3
    },
    "tags": [
     "vegetarian"
@@ -2769,6 +2815,32 @@
      "mustard",
      "sulphites"
     ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "skin-on-fries",
+   "name": "Skin-on Fries",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 4.5,
+    "carbs": 45,
+    "fat": 25.9,
+    "saturatedFat": 2.1,
+    "sugar": 1.6,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
     "mayContain": []
    }
   },
@@ -2808,6 +2880,35 @@
    }
   },
   {
+   "id": "magic-dusted-fries",
+   "name": "Magic-Dusted Fries",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 450,
+    "protein": 4.8,
+    "carbs": 47.1,
+    "fat": 26,
+    "saturatedFat": 2.3,
+    "sugar": 2.7,
+    "salt": 1.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "brisket-mac-n-cheese",
    "name": "Brisket Mac 'n' Cheese",
    "category": "On the side",
@@ -2844,61 +2945,6 @@
    }
   },
   {
-   "id": "skin-on-fries",
-   "name": "Skin-on Fries",
-   "category": "On the side",
-   "serving": "",
-   "nutrients": {
-    "calories": 441,
-    "protein": 4.5,
-    "carbs": 45,
-    "fat": 25.9,
-    "saturatedFat": 2.1,
-    "sugar": 1.6,
-    "salt": 1.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "magic-dusted-fries",
-   "name": "Magic-Dusted Fries",
-   "category": "On the side",
-   "serving": "",
-   "nutrients": {
-    "calories": 450,
-    "protein": 4.8,
-    "carbs": 47.1,
-    "fat": 26,
-    "saturatedFat": 2.3,
-    "sugar": 2.7,
-    "salt": 1.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "mustard"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "cheesy-chilli-fries",
    "name": "Cheesy Chilli Fries",
    "category": "On the side",
@@ -2929,18 +2975,18 @@
    }
   },
   {
-   "id": "buttered-baked-potato",
-   "name": "Buttered Baked Potato",
+   "id": "sweet-potato-mash",
+   "name": "Sweet Potato Mash",
    "category": "On the side",
    "serving": "",
    "nutrients": {
-    "calories": 455,
-    "protein": 7.7,
-    "carbs": 67.9,
-    "fat": 16.8,
-    "saturatedFat": 7.3,
-    "sugar": 5.3,
-    "salt": 4.3
+    "calories": 399,
+    "protein": 3.9,
+    "carbs": 57.6,
+    "fat": 15.5,
+    "saturatedFat": 7,
+    "sugar": 12.5,
+    "salt": 0.9
    },
    "tags": [
     "vegetarian"
@@ -2951,9 +2997,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
-     "milk",
-     "mustard"
+     "milk"
     ],
     "mayContain": []
    }
@@ -3018,6 +3062,62 @@
    }
   },
   {
+   "id": "dirty-corn-ribs-gluten-free",
+   "name": "Dirty Corn Ribs (gluten free)",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 544,
+    "protein": 12.6,
+    "carbs": 28.5,
+    "fat": 40.7,
+    "saturatedFat": 20.8,
+    "sugar": 11.8,
+    "salt": 4.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "skin-on-fries-gluten-free",
+   "name": "Skin-On Fries (gluten free)",
+   "category": "On the side",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 4.5,
+    "carbs": 45,
+    "fat": 25.9,
+    "saturatedFat": 2.1,
+    "sugar": 1.6,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
    "id": "hickorys-muffins-streaky-bacon",
    "name": "Hickory's Muffins (Streaky Bacon)",
    "category": "Brunch",
@@ -3047,9 +3147,7 @@
      "mustard",
      "soya"
     ],
-    "mayContain": [
-     "sesame"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3087,9 +3185,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -3125,9 +3221,7 @@
      "mustard",
      "soya"
     ],
-    "mayContain": [
-     "sesame"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3165,27 +3259,25 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "sesame"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
    }
   },
   {
-   "id": "the-chicken-coop-pan-cake",
-   "name": "The Chicken Coop (Pan Cake)",
+   "id": "pulled-pork-waffle",
+   "name": "Pulled Pork (Waffle)",
    "category": "Brunch",
    "serving": "",
    "nutrients": {
-    "calories": 1680,
-    "protein": 72.9,
-    "carbs": 179.2,
-    "fat": 75.1,
-    "saturatedFat": 20.3,
-    "sugar": 23.7,
-    "salt": 20.2
+    "calories": 1733,
+    "protein": 46.7,
+    "carbs": 215.7,
+    "fat": 76,
+    "saturatedFat": 20.9,
+    "sugar": 44.5,
+    "salt": 20.3
    },
    "tags": [
     "contains_pork"
@@ -3203,9 +3295,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3213,18 +3303,18 @@
    }
   },
   {
-   "id": "the-chicken-coop-waffle",
-   "name": "The Chicken Coop (Waffle)",
+   "id": "pulled-pork-pan-cake",
+   "name": "Pulled Pork (Pan Cake)",
    "category": "Brunch",
    "serving": "",
    "nutrients": {
-    "calories": 1622,
-    "protein": 69.2,
-    "carbs": 178.4,
-    "fat": 70.1,
-    "saturatedFat": 19.4,
-    "sugar": 19.8,
-    "salt": 18.5
+    "calories": 1818,
+    "protein": 50.8,
+    "carbs": 220.8,
+    "fat": 82.1,
+    "saturatedFat": 22,
+    "sugar": 49,
+    "salt": 20.8
    },
    "tags": [
     "contains_pork"
@@ -3242,9 +3332,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3252,54 +3340,22 @@
    }
   },
   {
-   "id": "lemon-meringue-cheesecake-pan-cake",
-   "name": "Lemon Meringue Cheesecake (Pan Cake)",
+   "id": "cherry-pie-waffle",
+   "name": "Cherry Pie (Waffle)",
    "category": "Brunch",
    "serving": "",
    "nutrients": {
-    "calories": 964,
-    "protein": 12.9,
-    "carbs": 140.2,
-    "fat": 38.8,
-    "saturatedFat": 16.3,
-    "sugar": 99.2,
-    "salt": 1.6
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "lemon-meringue-cheesecake-waffle",
-   "name": "Lemon Meringue Cheesecake (Waffle)",
-   "category": "Brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 908,
+    "calories": 730,
     "protein": 9.3,
-    "carbs": 139.7,
-    "fat": 33.9,
-    "saturatedFat": 15.4,
-    "sugar": 95.3,
-    "salt": 1.1
+    "carbs": 123.7,
+    "fat": 21.3,
+    "saturatedFat": 6.2,
+    "sugar": 62.6,
+    "salt": 1.2
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -3308,11 +3364,82 @@
     "contains": [
      "gluten",
      "eggs",
-     "milk"
+     "milk",
+     "soya",
+     "sulphites"
     ],
-    "mayContain": [
-     "soya"
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cherry-pie-pan-cake",
+   "name": "Cherry Pie (Pan Cake)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 815,
+    "protein": 13.5,
+    "carbs": 128.8,
+    "fat": 27.4,
+    "saturatedFat": 7.3,
+    "sugar": 67.1,
+    "salt": 1.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
     ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "maple-smoky-bacon-and-egg-waffle",
+   "name": "Maple Smoky Bacon & Egg (Waffle)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1679,
+    "protein": 36,
+    "carbs": 193.7,
+    "fat": 85.1,
+    "saturatedFat": 26.6,
+    "sugar": 71.3,
+    "salt": 12.4
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3349,48 +3476,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "maple-smoky-bacon-and-egg-waffle",
-   "name": "Maple Smoky Bacon & Egg (Waffle)",
-   "category": "Brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 1679,
-    "protein": 36,
-    "carbs": 193.7,
-    "fat": 85.1,
-    "saturatedFat": 26.6,
-    "sugar": 71.3,
-    "salt": 12.4
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3427,51 +3513,9 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "chicken-fried-waffle",
-   "name": "Chicken Fried Waffle",
-   "category": "Brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 1727,
-    "protein": 61.7,
-    "carbs": 249.4,
-    "fat": 53.7,
-    "saturatedFat": 9.9,
-    "sugar": 75.9,
-    "salt": 12.5
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
+     "wheat"
     ]
    }
   },
@@ -3505,10 +3549,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [
-     "milk",
-     "sesame"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3574,9 +3615,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -3611,12 +3650,70 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
+   }
+  },
+  {
+   "id": "the-hickorys-breakfast-gluten-free",
+   "name": "The Hickory's Breakfast (gluten free)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1452,
+    "protein": 40.7,
+    "carbs": 105.7,
+    "fat": 93,
+    "saturatedFat": 20.8,
+    "sugar": 16.5,
+    "salt": 7.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smashed-avocado-and-poached-eggs-gluten-free",
+   "name": "Smashed Avocado & Poached Eggs (gluten free)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1029,
+    "protein": 21,
+    "carbs": 40.4,
+    "fat": 84.4,
+    "saturatedFat": 15.1,
+    "sugar": 4.9,
+    "salt": 3.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -3679,10 +3776,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "gluten",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3745,25 +3839,50 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [
-     "gluten",
-     "soya"
-    ]
+    "mayContain": []
    }
   },
   {
-   "id": "salted-maple-iced-coffee",
-   "name": "Salted Maple Iced Coffee",
+   "id": "bottomless-cup-of-joe",
+   "name": "Bottomless Cup Of Joe",
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 157,
-    "protein": 2.2,
-    "carbs": 32,
-    "fat": 1.9,
-    "saturatedFat": 1,
-    "sugar": 26.1,
-    "salt": 0.3
+    "calories": 66,
+    "protein": 3.5,
+    "carbs": 4.7,
+    "fat": 3.7,
+    "saturatedFat": 2.4,
+    "sugar": 4.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-cold-foam",
+   "name": "Iced Latte Cold Foam",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 401,
+    "protein": 7.4,
+    "carbs": 20.2,
+    "fat": 32.2,
+    "saturatedFat": 20.3,
+    "sugar": 17.7,
+    "salt": 0.1
    },
    "tags": [
     "vegetarian"
@@ -3775,12 +3894,41 @@
    "allergens": {
     "contains": [
      "gluten",
-     "soya"
+     "milk"
     ],
-    "mayContain": [
-     "milk",
-     "nuts"
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "iced-coffee-cold-foam",
+   "name": "Iced Coffee Cold Foam",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 286,
+    "protein": 1.2,
+    "carbs": 11.9,
+    "fat": 25.7,
+    "saturatedFat": 16.1,
+    "sugar": 9.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
     ],
+    "mayContain": [],
     "cereals": [
      "barley"
     ]
@@ -3839,18 +3987,18 @@
    }
   },
   {
-   "id": "one-in-a-melon",
-   "name": "One In A Melon",
+   "id": "pear-necessi-tea",
+   "name": "Pear Necessi-Tea",
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 122,
-    "protein": 0.7,
-    "carbs": 27.9,
-    "fat": 0.4,
-    "saturatedFat": 0.1,
-    "sugar": 26.3,
-    "salt": 0.1
+    "calories": 136,
+    "protein": 0.3,
+    "carbs": 32.7,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 30.3,
+    "salt": 0
    },
    "tags": [
     "vegetarian"
@@ -3861,6 +4009,34 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "berry-berry-nice",
+   "name": "Berry, Berry Nice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 460,
+    "protein": 1.1,
+    "carbs": 79.2,
+    "fat": 22.4,
+    "saturatedFat": 14.8,
+    "sugar": 74.8,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
     "mayContain": []
    }
   },
@@ -3889,11 +4065,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [
-     "milk",
-     "mustard",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -4058,46 +4230,17 @@
    }
   },
   {
-   "id": "root-beer-float",
-   "name": "Root Beer Float",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 320,
-    "protein": 0.9,
-    "carbs": 29,
-    "fat": 22.2,
-    "saturatedFat": 14.8,
-    "sugar": 26.3,
-    "salt": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "root-beer",
    "name": "Root Beer",
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 23,
+    "calories": 18,
     "protein": 0,
-    "carbs": 5.7,
+    "carbs": 4.4,
     "fat": 0,
     "saturatedFat": 0,
-    "sugar": 5.7,
+    "sugar": 4.4,
     "salt": 0
    },
    "tags": [
@@ -4108,38 +4251,7 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "grape-soda-float",
-   "name": "Grape Soda Float",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 395,
-    "protein": 0.9,
-    "carbs": 47.6,
-    "fat": 22.3,
-    "saturatedFat": 14.8,
-    "sugar": 44.8,
-    "salt": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk",
-     "sulphites"
-    ],
+    "contains": [],
     "mayContain": []
    }
   },
@@ -4274,49 +4386,10 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
-    ]
-   }
-  },
-  {
-   "id": "bigger-badder-biscoff-freakshake",
-   "name": "Bigger, Badder Biscoff (freakshake)",
-   "category": "Drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 1885,
-    "protein": 20.7,
-    "carbs": 222.2,
-    "fat": 100.4,
-    "saturatedFat": 45.3,
-    "sugar": 174.5,
-    "salt": 2.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "peanuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -4328,10 +4401,10 @@
    "nutrients": {
     "calories": 1670,
     "protein": 16.2,
-    "carbs": 251.1,
-    "fat": 66.6,
-    "saturatedFat": 35.8,
-    "sugar": 221.6,
+    "carbs": 251.6,
+    "fat": 66.4,
+    "saturatedFat": 35.1,
+    "sugar": 222.6,
     "salt": 1.1
    },
    "tags": [],
@@ -4344,30 +4417,312 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "peanuts",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
    }
   },
   {
-   "id": "bottomless-cup-of-joe",
-   "name": "Bottomless Cup Of Joe",
+   "id": "bigger-badder-biscoff-freakshake",
+   "name": "Bigger, Badder Biscoff (freakshake)",
    "category": "Drinks",
    "serving": "",
    "nutrients": {
-    "calories": 66,
-    "protein": 3.5,
-    "carbs": 4.7,
-    "fat": 3.7,
-    "saturatedFat": 2.4,
-    "sugar": 4.7,
-    "salt": 0
+    "calories": 1929,
+    "protein": 20.2,
+    "carbs": 236.9,
+    "fat": 99,
+    "saturatedFat": 44.9,
+    "sugar": 191.6,
+    "salt": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "coke-float",
+   "name": "Coke Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 410,
+    "protein": 1.2,
+    "carbs": 48.8,
+    "fat": 23.4,
+    "saturatedFat": 15.3,
+    "sugar": 44.1,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "grape-soda-float",
+   "name": "Grape Soda Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 439,
+    "protein": 1.2,
+    "carbs": 55.9,
+    "fat": 23.4,
+    "saturatedFat": 15.3,
+    "sugar": 51,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "root-beer-float",
+   "name": "Root Beer Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 1.2,
+    "carbs": 37.2,
+    "fat": 23.4,
+    "saturatedFat": 15.3,
+    "sugar": 32.6,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blueberry-float",
+   "name": "Blueberry Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 386,
+    "protein": 1.2,
+    "carbs": 42.4,
+    "fat": 23.4,
+    "saturatedFat": 15.3,
+    "sugar": 37.6,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cherry-float",
+   "name": "Cherry Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 524,
+    "protein": 1.2,
+    "carbs": 75.8,
+    "fat": 23.4,
+    "saturatedFat": 15.3,
+    "sugar": 70.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cloudy-float",
+   "name": "Cloudy Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 373,
+    "protein": 1.2,
+    "carbs": 39.1,
+    "fat": 23.4,
+    "saturatedFat": 15.3,
+    "sugar": 34.4,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "orange-float",
+   "name": "Orange Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 359,
+    "protein": 1.2,
+    "carbs": 36.2,
+    "fat": 23.4,
+    "saturatedFat": 15.3,
+    "sugar": 31.5,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-float",
+   "name": "Raspberry Float",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 547,
+    "protein": 1.9,
+    "carbs": 79.6,
+    "fat": 23.7,
+    "saturatedFat": 15.4,
+    "sugar": 74.2,
+    "salt": 0.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salted-maple-iced-coffee",
+   "name": "Salted Maple Iced Coffee",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 157,
+    "protein": 2.2,
+    "carbs": 32,
+    "fat": 1.9,
+    "saturatedFat": 1,
+    "sugar": 26.1,
+    "salt": 0.3
    },
    "tags": [
     "vegetarian"
@@ -4378,9 +4733,13 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk"
+     "gluten",
+     "soya"
     ],
-    "mayContain": []
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
    }
   },
   {
@@ -4514,8 +4873,7 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "milk",
-     "soya"
+     "milk"
     ],
     "mayContain": []
    }
@@ -4543,8 +4901,498 @@
    "modifiers": [],
    "allergens": {
     "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gumbos-smoked-pulled-chicken-with-pork-jalape-o-and-cheese-sausage-2",
+   "name": "Gumbos (Smoked Pulled Chicken with Pork, Jalapeño & Cheese Sausage)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 784,
+    "protein": 41.7,
+    "carbs": 58.6,
+    "fat": 41.2,
+    "saturatedFat": 6.1,
+    "sugar": 10.6,
+    "salt": 4.8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
      "milk",
-     "soya"
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gumbos-roast-okra",
+   "name": "Gumbos (Roast Okra)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 372,
+    "protein": 9.9,
+    "carbs": 51.8,
+    "fat": 11.9,
+    "saturatedFat": 1.4,
+    "sugar": 8.3,
+    "salt": 4.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hickorys-single-burger-with-fries",
+   "name": "Hickory's Single Burger with fries",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1332,
+    "protein": 29.5,
+    "carbs": 90.8,
+    "fat": 93.2,
+    "saturatedFat": 17.9,
+    "sugar": 15.1,
+    "salt": 7.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hickorys-single-burger-with-salad",
+   "name": "Hickory's Single Burger with salad.",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 985,
+    "protein": 29.2,
+    "carbs": 59.1,
+    "fat": 69.9,
+    "saturatedFat": 16.1,
+    "sugar": 19.5,
+    "salt": 8.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-single-chicken-burger-with-fries",
+   "name": "Southern Fried Single Chicken Burger with fries",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1370,
+    "protein": 39.6,
+    "carbs": 150.7,
+    "fat": 66.1,
+    "saturatedFat": 7.5,
+    "sugar": 16.4,
+    "salt": 14.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-single-chicken-burger-with-salad",
+   "name": "Southern Fried Single Chicken Burger with salad",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1182,
+    "protein": 39.3,
+    "carbs": 119.1,
+    "fat": 60.5,
+    "saturatedFat": 6.9,
+    "sugar": 20.8,
+    "salt": 15.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hickorys-baby-cobb-salad-plain",
+   "name": "Hickory's Baby Cobb Salad (Plain)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 630,
+    "protein": 18.3,
+    "carbs": 12.6,
+    "fat": 55.6,
+    "saturatedFat": 15.2,
+    "sugar": 6.5,
+    "salt": 2.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hickorys-baby-cobb-salad-with-southern-fried-chicken",
+   "name": "Hickory's Baby Cobb Salad with Southern Fried Chicken",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1043,
+    "protein": 50.3,
+    "carbs": 75.8,
+    "fat": 59.2,
+    "saturatedFat": 16.1,
+    "sugar": 7.6,
+    "salt": 9.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "loaded-potatoes-the-philly-shroom",
+   "name": "Loaded Potatoes (The Philly Shroom)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1539,
+    "protein": 35.6,
+    "carbs": 162.4,
+    "fat": 83.5,
+    "saturatedFat": 28.9,
+    "sugar": 24.1,
+    "salt": 15.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "loaded-potatoes-pulled-pork",
+   "name": "Loaded Potatoes (Pulled Pork)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1225,
+    "protein": 44.6,
+    "carbs": 89.5,
+    "fat": 76.3,
+    "saturatedFat": 23.2,
+    "sugar": 17.2,
+    "salt": 8
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hickorys-single-burger-with-fries-gluten-free",
+   "name": "Hickory's Single Burger with Fries (gluten free)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1398,
+    "protein": 25.9,
+    "carbs": 99.1,
+    "fat": 97.8,
+    "saturatedFat": 18.1,
+    "sugar": 14.2,
+    "salt": 6.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hickorys-single-burger-with-salad-gluten-free",
+   "name": "Hickory's Single Burger with Salad (gluten free)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1050,
+    "protein": 25.6,
+    "carbs": 67.5,
+    "fat": 74.5,
+    "saturatedFat": 16.3,
+    "sugar": 18.6,
+    "salt": 7.2
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "big-pig-bap-gluten-free",
+   "name": "Big Pig Bap (gluten free)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1069,
+    "protein": 31.2,
+    "carbs": 67.6,
+    "fat": 73.9,
+    "saturatedFat": 12.3,
+    "sugar": 18.4,
+    "salt": 5.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gumbos-smoked-pulled-chicken-with-pork-jalape-o-and-cheese-sausage-gluten-free",
+   "name": "Gumbos (Smoked Pulled Chicken with Pork, Jalapeño & Cheese Sausage, gluten free)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 716,
+    "protein": 36.5,
+    "carbs": 42,
+    "fat": 43.5,
+    "saturatedFat": 6.1,
+    "sugar": 9,
+    "salt": 4.6
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gumbos-roast-okra-gluten-free",
+   "name": "Gumbos (Roast Okra, gluten free)",
+   "category": "Lunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 304,
+    "protein": 4.7,
+    "carbs": 35.1,
+    "fat": 14.2,
+    "saturatedFat": 1.5,
+    "sugar": 6.6,
+    "salt": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
     ],
     "mayContain": []
    }
@@ -4582,95 +5430,18 @@
    }
   },
   {
-   "id": "just-peachy-jam-jar-cheesecake",
-   "name": "Just Peachy Jam Jar Cheesecake",
+   "id": "banana-pudding-jam-jar-cheesecake",
+   "name": "Banana Pudding Jam Jar Cheesecake",
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 833,
-    "protein": 9.8,
-    "carbs": 99.5,
-    "fat": 42.9,
-    "saturatedFat": 23.2,
-    "sugar": 66.3,
-    "salt": 1.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [
-     "mustard"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
-   }
-  },
-  {
-   "id": "campfire-smores",
-   "name": "Campfire S'mores",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 1299,
-    "protein": 15.8,
-    "carbs": 157.9,
-    "fat": 66.3,
-    "saturatedFat": 43.1,
-    "sugar": 90.1,
-    "salt": 1.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "alabama-chocolate-fudge-cake",
-   "name": "Alabama Chocolate Fudge Cake",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 1008,
-    "protein": 7,
-    "carbs": 149.7,
-    "fat": 39.7,
-    "saturatedFat": 13.3,
-    "sugar": 116.7,
-    "salt": 0.7
+    "calories": 965,
+    "protein": 10.4,
+    "carbs": 128,
+    "fat": 45.3,
+    "saturatedFat": 23.6,
+    "sugar": 83.2,
+    "salt": 1.2
    },
    "tags": [
     "vegetarian"
@@ -4686,9 +5457,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "nuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -4726,12 +5495,12 @@
    "category": "Desserts",
    "serving": "",
    "nutrients": {
-    "calories": 477,
-    "protein": 1.9,
-    "carbs": 95.3,
-    "fat": 13.9,
+    "calories": 481,
+    "protein": 2,
+    "carbs": 96.3,
+    "fat": 14.1,
     "saturatedFat": 12.5,
-    "sugar": 77.3,
+    "sugar": 79.2,
     "salt": 0.2
    },
    "tags": [],
@@ -4740,7 +5509,9 @@
    "components": [],
    "modifiers": [],
    "allergens": {
-    "contains": [],
+    "contains": [
+     "sulphites"
+    ],
     "mayContain": []
    }
   },
@@ -4773,6 +5544,65 @@
    }
   },
   {
+   "id": "campfire-smores",
+   "name": "Campfire S'mores",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1299,
+    "protein": 15.8,
+    "carbs": 157.9,
+    "fat": 66.3,
+    "saturatedFat": 43.1,
+    "sugar": 90.1,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "alabama-chocolate-fudge-cake",
+   "name": "Alabama Chocolate Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1083,
+    "protein": 8.1,
+    "carbs": 159.4,
+    "fat": 42.8,
+    "saturatedFat": 16.1,
+    "sugar": 124.4,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "cinnamon-sugar-coated-churros",
    "name": "Cinnamon Sugar-Coated Churros",
    "category": "Desserts",
@@ -4799,11 +5629,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "nuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -4834,128 +5660,7 @@
     "contains": [
      "soya"
     ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
-   "id": "hickorys-fro-co-straight-up-gluten-free",
-   "name": "Hickory's Fro-Co (Straight Up, gluten free)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 250,
-    "protein": 6.6,
-    "carbs": 29.5,
-    "fat": 11.2,
-    "saturatedFat": 2.9,
-    "sugar": 28.8,
-    "salt": 0.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "hickorys-fro-co-american-screwball-gluten-free",
-   "name": "Hickory's Fro-Co (American Screwball, gluten free)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 481,
-    "protein": 2,
-    "carbs": 96.3,
-    "fat": 14.1,
-    "saturatedFat": 12.5,
-    "sugar": 79.2,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "hickorys-fro-co-honeycomb-toffee-fudge-pieces-and-butterscotch-sauce-gluten-free",
-   "name": "Hickory's Fro-Co (Honeycomb, Toffee Fudge Pieces & Butterscotch Sauce, gluten free)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 583,
-    "protein": 7.9,
-    "carbs": 90.3,
-    "fat": 19.1,
-    "saturatedFat": 6.1,
-    "sugar": 75.3,
-    "salt": 0.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "alabama-chocolate-fudge-cake-gluten-free",
-   "name": "Alabama Chocolate Fudge Cake (gluten free)",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 991,
-    "protein": 8.7,
-    "carbs": 145.1,
-    "fat": 38.9,
-    "saturatedFat": 10.4,
-    "sugar": 115.4,
-    "salt": 0.7
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
    }
   },
   {
@@ -4998,12 +5703,12 @@
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 598,
+    "calories": 666,
     "protein": 19.7,
-    "carbs": 51.5,
+    "carbs": 68.4,
     "fat": 35.5,
     "saturatedFat": 10.1,
-    "sugar": 17.9,
+    "sugar": 29.1,
     "salt": 3.5
    },
    "tags": [
@@ -5019,9 +5724,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -5055,12 +5758,42 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
+    ]
+   }
+  },
+  {
+   "id": "pan-cakes-pan-cake-creation",
+   "name": "Pan Cakes (Pan Cake Creation)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 744,
+    "protein": 10.4,
+    "carbs": 114,
+    "fat": 26.4,
+    "saturatedFat": 10.2,
+    "sugar": 66,
+    "salt": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
     ]
    }
   },
@@ -5091,115 +5824,6 @@
      "eggs",
      "milk",
      "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "cheesy-pretzel-bites",
-   "name": "Cheesy Pretzel Bites",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 441,
-    "protein": 13.4,
-    "carbs": 40.5,
-    "fat": 24.3,
-    "saturatedFat": 12.6,
-    "sugar": 4.1,
-    "salt": 1.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
-   }
-  },
-  {
-   "id": "classic-corn-dog",
-   "name": "Classic Corn Dog",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 316,
-    "protein": 4.6,
-    "carbs": 11.5,
-    "fat": 27.8,
-    "saturatedFat": 4.1,
-    "sugar": 1.9,
-    "salt": 0.9
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs"
-    ],
-    "mayContain": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "hickorys-southern-fried-vegan-fillets",
-   "name": "Hickory’s Southern Fried Vegan Fillets",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 380,
-    "protein": 6,
-    "carbs": 19.2,
-    "fat": 29.7,
-    "saturatedFat": 2.4,
-    "sugar": 1.2,
-    "salt": 2.5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "soya"
     ],
     "mayContain": [],
     "cereals": [
@@ -5232,15 +5856,103 @@
      "gluten",
      "soya"
     ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "sesame",
-     "sulphites"
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-corn-dog",
+   "name": "Classic Corn Dog",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 316,
+    "protein": 4.6,
+    "carbs": 11.5,
+    "fat": 27.8,
+    "saturatedFat": 4.1,
+    "sugar": 1.9,
+    "salt": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
     ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheesy-pretzel-bites",
+   "name": "Cheesy Pretzel Bites",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 441,
+    "protein": 13.4,
+    "carbs": 40.5,
+    "fat": 24.3,
+    "saturatedFat": 12.6,
+    "sugar": 4.1,
+    "salt": 1.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "hickorys-southern-fried-vegan-fillets",
+   "name": "Hickory’s Southern Fried Vegan Fillets",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 6,
+    "carbs": 19.2,
+    "fat": 29.7,
+    "saturatedFat": 2.4,
+    "sugar": 1.2,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -5343,14 +6055,7 @@
      "sesame",
      "sulphites"
     ],
-    "mayContain": [
-     "celery",
-     "eggs",
-     "milk",
-     "mustard",
-     "nuts",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -5383,88 +6088,7 @@
      "sesame",
      "sulphites"
     ],
-    "mayContain": [
-     "celery",
-     "eggs",
-     "milk",
-     "mustard",
-     "nuts",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "southern-fried-chicken-burger-with-corn-ribs",
-   "name": "Southern Fried Chicken Burger with Corn Ribs",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 952,
-    "protein": 40.8,
-    "carbs": 100.8,
-    "fat": 41.7,
-    "saturatedFat": 4.9,
-    "sugar": 9.8,
-    "salt": 9.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "southern-fried-chicken-burger-with-fries-kids",
-   "name": "Southern Fried Chicken Burger with Fries (kids)",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 1127,
-    "protein": 41.2,
-    "carbs": 131.3,
-    "fat": 47.1,
-    "saturatedFat": 5.2,
-    "sugar": 4.8,
-    "salt": 8.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "milk",
-     "sesame",
-     "sulphites"
-    ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -5494,12 +6118,7 @@
      "gluten",
      "fish"
     ],
-    "mayContain": [
-     "crustaceans",
-     "milk",
-     "molluscs",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -5529,12 +6148,133 @@
      "gluten",
      "fish"
     ],
-    "mayContain": [
-     "crustaceans",
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-chicken-burger-with-corn-ribs",
+   "name": "Southern Fried Chicken Burger with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 886,
+    "protein": 38.9,
+    "carbs": 87,
+    "fat": 41.4,
+    "saturatedFat": 4.8,
+    "sugar": 9.6,
+    "salt": 7.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
      "milk",
-     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-chicken-burger-with-fries-kids",
+   "name": "Southern Fried Chicken Burger with Fries (kids)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1061,
+    "protein": 39.3,
+    "carbs": 117.4,
+    "fat": 46.9,
+    "saturatedFat": 5.2,
+    "sugar": 4.7,
+    "salt": 6.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-hot-dog-with-corn-ribs",
+   "name": "Classic Hot Dog with Corn Ribs",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 603,
+    "protein": 20.9,
+    "carbs": 59.5,
+    "fat": 31,
+    "saturatedFat": 10.9,
+    "sugar": 11.9,
+    "salt": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
      "soya"
     ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-hot-dog-with-fries",
+   "name": "Classic Hot Dog with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 937,
+    "protein": 21.3,
+    "carbs": 90,
+    "fat": 54.3,
+    "saturatedFat": 12.5,
+    "sugar": 6.9,
+    "salt": 3.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -5607,126 +6347,17 @@
    }
   },
   {
-   "id": "classic-hot-dog-with-corn-ribs",
-   "name": "Classic Hot Dog with Corn Ribs",
+   "id": "battered-chicken-nuggets-with-corn-ribs",
+   "name": "Battered Chicken Nuggets with Corn Ribs",
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 603,
-    "protein": 20.9,
-    "carbs": 59.5,
-    "fat": 31,
-    "saturatedFat": 10.9,
-    "sugar": 11.9,
-    "salt": 3.9
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "classic-hot-dog-with-fries",
-   "name": "Classic Hot Dog with Fries",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 937,
-    "protein": 21.3,
-    "carbs": 90,
-    "fat": 54.3,
-    "saturatedFat": 12.5,
-    "sugar": 6.9,
-    "salt": 3.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "popcorn-chicken-with-corn-ribs",
-   "name": "Popcorn Chicken with Corn Ribs",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 591,
-    "protein": 25.2,
-    "carbs": 41.7,
-    "fat": 34.5,
-    "saturatedFat": 4.4,
-    "sugar": 8.1,
-    "salt": 3.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "soya"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "sesame",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "popcorn-chicken-with-fries",
-   "name": "Popcorn Chicken with Fries",
-   "category": "Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 765,
-    "protein": 25.6,
-    "carbs": 72.2,
-    "fat": 40,
-    "saturatedFat": 4.7,
-    "sugar": 3.2,
+    "calories": 500,
+    "protein": 26.8,
+    "carbs": 31.2,
+    "fat": 28.4,
+    "saturatedFat": 3.5,
+    "sugar": 7.6,
     "salt": 2.7
    },
    "tags": [],
@@ -5736,19 +6367,38 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "celery",
-     "gluten",
-     "soya"
+     "gluten"
     ],
-    "mayContain": [
-     "crustaceans",
-     "eggs",
-     "fish",
-     "milk",
-     "mustard",
-     "sesame",
-     "sulphites"
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "battered-chicken-nuggets-with-fries",
+   "name": "Battered Chicken Nuggets with Fries",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 675,
+    "protein": 27.2,
+    "carbs": 61.7,
+    "fat": 33.9,
+    "saturatedFat": 3.8,
+    "sugar": 2.7,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
     ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -5812,13 +6462,13 @@
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 32,
+    "calories": 29,
     "protein": 0.6,
-    "carbs": 1.1,
-    "fat": 2.7,
+    "carbs": 1.7,
+    "fat": 2,
     "saturatedFat": 0.2,
-    "sugar": 0.9,
-    "salt": 0.1
+    "sugar": 1.1,
+    "salt": 0.2
    },
    "tags": [
     "vegetarian"
@@ -5829,7 +6479,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [
-     "mustard",
      "sulphites"
     ],
     "mayContain": []
@@ -5919,11 +6568,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "nuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -6092,10 +6737,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat",
      "barley"
@@ -6110,10 +6752,10 @@
    "nutrients": {
     "calories": 1078,
     "protein": 11.9,
-    "carbs": 151.7,
-    "fat": 47.2,
-    "saturatedFat": 25.8,
-    "sugar": 130.9,
+    "carbs": 151.8,
+    "fat": 47.1,
+    "saturatedFat": 25.7,
+    "sugar": 131.1,
     "salt": 0.8
    },
    "tags": [],
@@ -6126,12 +6768,7 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [
-     "mustard",
-     "nuts",
-     "peanuts",
-     "soya"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -6143,15 +6780,17 @@
    "category": "Kids",
    "serving": "",
    "nutrients": {
-    "calories": 1209,
-    "protein": 14,
-    "carbs": 129.8,
-    "fat": 70.1,
-    "saturatedFat": 31.8,
-    "sugar": 101.9,
+    "calories": 1181,
+    "protein": 13.9,
+    "carbs": 123.9,
+    "fat": 69.5,
+    "saturatedFat": 31.6,
+    "sugar": 96.9,
     "salt": 1.6
    },
-   "tags": [],
+   "tags": [
+    "vegetarian"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -6162,12 +6801,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "peanuts",
-     "sesame"
-    ],
+    "mayContain": [],
     "cereals": [
      "wheat"
     ]
@@ -6300,6 +6934,172 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hickorys-burger-with-fries-gluten-free",
+   "name": "Kids Hickory's Burger with Fries (gluten free)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1100,
+    "protein": 22.5,
+    "carbs": 85.2,
+    "fat": 72.5,
+    "saturatedFat": 14.9,
+    "sugar": 3.7,
+    "salt": 1.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hickorys-burger-with-corn-ribs-gluten-free",
+   "name": "Kids Hickory's Burger with Corn Ribs (gluten free)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 766,
+    "protein": 22.1,
+    "carbs": 54.7,
+    "fat": 49.2,
+    "saturatedFat": 13.3,
+    "sugar": 8.6,
+    "salt": 2.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hickorys-burger-with-cheese-and-fries-gluten-free",
+   "name": "Kids Hickory's Burger with Cheese & Fries (gluten free)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 1055,
+    "protein": 24.5,
+    "carbs": 85.9,
+    "fat": 65.9,
+    "saturatedFat": 15.6,
+    "sugar": 4.3,
+    "salt": 2.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-hickorys-burger-with-cheese-and-corn-ribs-gluten-free",
+   "name": "Kids Hickory's Burger with Cheese & Corn Ribs (gluten free)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 668,
+    "protein": 24.1,
+    "carbs": 55.4,
+    "fat": 36.7,
+    "saturatedFat": 13.4,
+    "sugar": 9.2,
+    "salt": 2.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-cod-fingers-with-fries-gluten-free",
+   "name": "Crispy Cod Fingers with Fries (gluten free)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 695,
+    "protein": 16.5,
+    "carbs": 67.7,
+    "fat": 38.3,
+    "saturatedFat": 2.9,
+    "sugar": 1.9,
+    "salt": 2.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-cod-fingers-with-salad-gluten-free",
+   "name": "Crispy Cod Fingers with Salad (gluten free)",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 521,
+    "protein": 16.1,
+    "carbs": 37.2,
+    "fat": 32.8,
+    "saturatedFat": 2.6,
+    "sugar": 6.9,
+    "salt": 2.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
     "mayContain": []
    }
   }

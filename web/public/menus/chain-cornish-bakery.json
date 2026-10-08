@@ -407,9 +407,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -525,32 +522,6 @@
     "nuts": [
      "almond",
      "walnut"
-    ]
-   }
-  },
-  {
-   "id": "chocolate-brownie",
-   "name": "Chocolate Brownie",
-   "category": "Pastries and Cakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 429
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "almond"
     ]
    }
   },

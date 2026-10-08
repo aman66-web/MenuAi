@@ -10,11 +10,18 @@
  ],
  "sample": false,
  "source": {
-  "title": "itsu UK website: menu nutrition facts, per dish (itsu.com/menu dish pages, retrieved 2026-10-06; the pages carry no version date)",
+  "title": "itsu UK website: menu nutrition facts, per dish (itsu.com/menu dish pages, retrieved 2026-10-08; the pages carry no version date)",
   "url": "https://www.itsu.com/menu/",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Per dish, as itsu prints it. Milky coffee, matcha and tea drinks are shown without the milk (itsu's values leave it out). Sushi values leave out the bottle of soy sauce that comes with it, per itsu's own page copy.",
+ "allergenGuide": {
+  "title": "itsu UK website: allergens on each menu dish page (itsu.com/menu, read 2026-10-08)",
+  "url": "https://www.itsu.com/menu/",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Rice bowls",
   "Noodles",
@@ -48,7 +55,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/4a98ac9b0bef.webp"
+   "image": "itsu/4a98ac9b0bef.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "veggie-balls-teriyaki",
@@ -72,7 +92,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/f21a48075f37.webp"
+   "image": "itsu/f21a48075f37.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "little-veggie-balls-teriyaki",
@@ -94,7 +127,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/19791eb32f1b.webp"
+   "image": "itsu/19791eb32f1b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "thai-chicken-curry",
@@ -116,7 +162,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/b018846a7484.webp"
+   "image": "itsu/b018846a7484.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "little-thai-chicken-curry",
@@ -138,7 +197,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/f53119f6f74c.webp"
+   "image": "itsu/f53119f6f74c.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "thai-king-prawn-curry",
@@ -160,7 +232,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/c20e86965bb3.webp"
+   "image": "itsu/c20e86965bb3.webp",
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "double-chicken-teriyaki",
@@ -182,7 +268,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/00d2738b5eb3.webp"
+   "image": "itsu/00d2738b5eb3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "little-chicken-teriyaki",
@@ -204,7 +303,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/bb65fc99d333.webp"
+   "image": "itsu/bb65fc99d333.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-teriyaki",
@@ -226,7 +338,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/2c874622c499.webp"
+   "image": "itsu/2c874622c499.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "spicy-chicken-teriyaki",
@@ -248,7 +373,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/26358d8d03b9.webp"
+   "image": "itsu/26358d8d03b9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "thai-veggie-balls-curry",
@@ -270,7 +408,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/ada3c8a00553.webp"
+   "image": "itsu/ada3c8a00553.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "little-thai-veggie-balls-curry",
@@ -292,7 +443,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/db51caeda0fb.webp"
+   "image": "itsu/db51caeda0fb.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "grilled-katsu-chicken-curry",
@@ -314,7 +478,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/13ad645bc123.webp"
+   "image": "itsu/13ad645bc123.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "little-grilled-katsu-chicken-curry",
@@ -336,7 +514,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/f916028278e3.webp"
+   "image": "itsu/f916028278e3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "thai-salmon-curry",
@@ -358,7 +550,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/599514dfa45a.webp"
+   "image": "itsu/599514dfa45a.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "little-rice-and-greens",
@@ -380,7 +586,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/1559cd0b42b5.webp"
+   "image": "itsu/1559cd0b42b5.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-gyoza-noodle-bowl",
@@ -402,7 +621,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/feb22c54ae88.webp"
+   "image": "itsu/feb22c54ae88.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chilli-chicken-gyoza-noodle-bowl",
@@ -424,7 +654,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/f254651595fb.webp"
+   "image": "itsu/f254651595fb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "veggie-gyoza-noodle-bowl",
@@ -446,7 +688,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/3726ab7fcc77.webp"
+   "image": "itsu/3726ab7fcc77.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "katsu-curry-noodles",
@@ -468,7 +721,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/f061772fa5da.webp"
+   "image": "itsu/f061772fa5da.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "korean-spicy-noodles",
@@ -490,7 +755,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/abee41420eae.webp"
+   "image": "itsu/abee41420eae.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "thai-noodles",
@@ -512,7 +789,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/e8785e044ab4.webp"
+   "image": "itsu/e8785e044ab4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "miso-soup",
@@ -534,7 +822,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/62c0b5092727.webp"
+   "image": "itsu/62c0b5092727.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "molluscs",
+     "mustard",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "loaded-chicken-miso-soup",
@@ -556,7 +856,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/f4876add2a4f.webp"
+   "image": "itsu/f4876add2a4f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "molluscs",
+     "mustard",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "king-prawn-miso-soup",
@@ -578,7 +890,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/817e45208ad0.webp"
+   "image": "itsu/817e45208ad0.webp",
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "molluscs",
+     "mustard",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "spicy-miso-soup",
@@ -600,7 +924,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/432b59f0ccf4.webp"
+   "image": "itsu/432b59f0ccf4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "molluscs"
+    ]
+   }
   },
   {
    "id": "famous-coconut-chicken-soup",
@@ -622,7 +959,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/2d2f0b72f1c0.webp"
+   "image": "itsu/2d2f0b72f1c0.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "veggie-balls-and-coconut-soup",
@@ -646,7 +996,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/2c79adab2787.webp"
+   "image": "itsu/2c79adab2787.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-noodle-soup",
@@ -668,7 +1031,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/31ab326f4c87.webp"
+   "image": "itsu/31ab326f4c87.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "detox-miso-noodle-soup",
@@ -690,7 +1064,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/18ad5617755a.webp"
+   "image": "itsu/18ad5617755a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "molluscs",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "the-salmon-dragon",
@@ -711,7 +1098,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "the-spicy-tuna-dragon",
@@ -732,7 +1132,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "the-salmon-baby-rolls",
@@ -754,7 +1171,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/9f81d90ee641.webp"
+   "image": "itsu/9f81d90ee641.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-avo-baby-rolls",
@@ -776,7 +1204,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/2dfafbba092d.webp"
+   "image": "itsu/2dfafbba092d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-sushi-festival",
@@ -798,7 +1236,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/04092e9e519f.webp"
+   "image": "itsu/04092e9e519f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-super-salmon-light",
@@ -819,7 +1268,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "the-tuna-and-salmon-sushi",
@@ -841,7 +1304,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/6c9692c71e42.webp"
+   "image": "itsu/6c9692c71e42.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-california-rolls",
@@ -862,7 +1336,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "the-tuna-and-salmon-sashimi",
@@ -884,7 +1377,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/3c3e2507622e.webp"
+   "image": "itsu/3c3e2507622e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "molluscs",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-salmon-and-avo-rolls",
@@ -906,7 +1412,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/6fd8656c7a9e.webp"
+   "image": "itsu/6fd8656c7a9e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "the-salmon-full-house",
@@ -927,7 +1447,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "the-best-of-itsu",
@@ -948,7 +1482,26 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "the-veggie-selection",
@@ -969,7 +1522,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "the-chicken-bento-salad",
@@ -991,7 +1558,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/edac98755cdc.webp"
+   "image": "itsu/edac98755cdc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "the-salmon-bento-salad",
@@ -1013,7 +1595,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/9980696c05d0.webp"
+   "image": "itsu/9980696c05d0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "tuna-salmon-bento-salad",
@@ -1035,7 +1633,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/65a1fc1e4fc3.webp"
+   "image": "itsu/65a1fc1e4fc3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "edamame",
@@ -1059,7 +1672,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/0d47adfee930.webp"
+   "image": "itsu/0d47adfee930.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "king-prawn-gyoza",
@@ -1081,7 +1702,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/e365dc349428.webp"
+   "image": "itsu/e365dc349428.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-and-spring-onion-gyoza",
@@ -1103,7 +1739,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/46842e7c6dc6.webp"
+   "image": "itsu/46842e7c6dc6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "vegetable-fusion-gyoza",
@@ -1125,7 +1776,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/e9b45f6a9030.webp"
+   "image": "itsu/e9b45f6a9030.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "pineapple-and-coconut-twist",
@@ -1147,7 +1813,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/f4410f5fe16a.webp"
+   "image": "itsu/f4410f5fe16a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "wild-berry-knot",
@@ -1169,7 +1847,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/4fb56db62f42.webp"
+   "image": "itsu/4fb56db62f42.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-egg-bun",
@@ -1191,7 +1878,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/5e763cbf3970.webp"
+   "image": "itsu/5e763cbf3970.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-bacon-and-egg-bun",
@@ -1215,7 +1915,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/7bffbf7cf3df.webp"
+   "image": "itsu/7bffbf7cf3df.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "smoked-salmon-and-egg-bun",
@@ -1237,7 +1950,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/0e5db17874fb.webp"
+   "image": "itsu/0e5db17874fb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "smoked-salmon-and-avo-egg-pot",
@@ -1259,7 +1986,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/a8238f6c2155.webp"
+   "image": "itsu/a8238f6c2155.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "roasted-bacon-egg-pot",
@@ -1283,7 +2022,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/90b4911d4a13.webp"
+   "image": "itsu/90b4911d4a13.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "little-sausages-egg-pot",
@@ -1307,7 +2055,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d7de453ea79c.webp"
+   "image": "itsu/d7de453ea79c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "spinach-and-seeds-egg-pot",
@@ -1329,7 +2088,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/098e959bc0bf.webp"
+   "image": "itsu/098e959bc0bf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
   },
   {
    "id": "spinach-and-avo-egg-pot",
@@ -1351,7 +2122,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d404d7193a5e.webp"
+   "image": "itsu/d404d7193a5e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
   },
   {
    "id": "soy-roasted-seeds-egg-pot",
@@ -1373,7 +2156,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/176987a101c8.webp"
+   "image": "itsu/176987a101c8.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "porridge-with-fresh-blueberries",
@@ -1395,7 +2187,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/8595e10a303f.webp"
+   "image": "itsu/8595e10a303f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "porridge-with-fresh-blueberries-and-superseeds",
@@ -1417,7 +2217,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/df4dae618dfb.webp"
+   "image": "itsu/df4dae618dfb.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "porridge-with-agave",
@@ -1439,7 +2247,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/db49d2336905.webp"
+   "image": "itsu/db49d2336905.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "raspberry-yoghurt-pot",
@@ -1461,7 +2277,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/a91a1f8c0e21.webp"
+   "image": "itsu/a91a1f8c0e21.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "mango-yoghurt-pot",
@@ -1483,7 +2313,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "itsu/8dc83d13212c.webp"
+   "image": "itsu/8dc83d13212c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "original-prawn-crackers",
@@ -1505,7 +2349,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/05de3d083815.webp"
+   "image": "itsu/05de3d083815.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chinese-prawn-crackers",
@@ -1527,7 +2379,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/a1a7f69716d4.webp"
+   "image": "itsu/a1a7f69716d4.webp",
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "thai-prawn-crackers",
@@ -1549,7 +2407,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/5cb2031aa166.webp"
+   "image": "itsu/5cb2031aa166.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "japanese-prawn-crackers",
@@ -1571,7 +2437,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/386445c6538b.webp"
+   "image": "itsu/386445c6538b.webp",
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-protein-balls",
@@ -1593,7 +2466,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/86ca664b1c88.webp"
+   "image": "itsu/86ca664b1c88.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "about-half-a-mango",
@@ -1615,7 +2498,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/5d888c5d5a96.webp"
+   "image": "itsu/5d888c5d5a96.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "sweet-chilli-toasted-cashews",
@@ -1637,7 +2528,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/512bcefde2ab.webp"
+   "image": "itsu/512bcefde2ab.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "chocolate-edamame",
@@ -1659,7 +2559,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/9473c98cbc1a.webp"
+   "image": "itsu/9473c98cbc1a.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "60-dark-chocolate-moons",
@@ -1681,7 +2593,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/ec34e1c03323.webp"
+   "image": "itsu/ec34e1c03323.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "angelic-almonds",
@@ -1703,7 +2625,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/dc05ca49415a.webp"
+   "image": "itsu/dc05ca49415a.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "umami-roasted-almonds",
@@ -1725,7 +2658,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/348413991bec.webp"
+   "image": "itsu/348413991bec.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "sushi-style-nori-crunch",
@@ -1747,7 +2689,26 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/bbe2c5d5688e.webp"
+   "image": "itsu/bbe2c5d5688e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "lemon-baked-pistachios",
@@ -1769,7 +2730,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/9bb7fa32e7e7.webp"
+   "image": "itsu/9bb7fa32e7e7.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "crispy-seaweed-thins-sea-salt",
@@ -1793,7 +2763,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/54dedc3dff41.webp"
+   "image": "itsu/54dedc3dff41.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "crispy-seaweed-thins-sweet-soy",
@@ -1817,7 +2795,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/fd13f9f2034f.webp"
+   "image": "itsu/fd13f9f2034f.webp",
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
   },
   {
    "id": "crispy-seaweed-thins-wasabi",
@@ -1841,7 +2828,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d34fa953c88e.webp"
+   "image": "itsu/d34fa953c88e.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "dark-chocolate-corn-cakes",
@@ -1863,7 +2859,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/48c43968466d.webp"
+   "image": "itsu/48c43968466d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "milk-chocolate-corn-cakes",
@@ -1885,7 +2890,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/a90d728b36bf.webp"
+   "image": "itsu/a90d728b36bf.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "salted-caramel-corn-cakes",
@@ -1907,7 +2921,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/4004fc03015a.webp"
+   "image": "itsu/4004fc03015a.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "yuzu-cheesecake-mochi",
@@ -1929,7 +2952,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/e5877fe6e37d.webp"
+   "image": "itsu/e5877fe6e37d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "iced-matcha-latte",
@@ -1951,7 +2984,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/321d4050faec.webp"
+   "image": "itsu/321d4050faec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-vanilla-matcha-latte",
@@ -1973,7 +3013,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/7e28dee2b28c.webp"
+   "image": "itsu/7e28dee2b28c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-blueberry-matcha-latte",
@@ -1995,7 +3042,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/35ceac17995d.webp"
+   "image": "itsu/35ceac17995d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-salted-caramel-matcha-latte",
@@ -2017,7 +3071,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/af30b92b249d.webp"
+   "image": "itsu/af30b92b249d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte",
@@ -2039,7 +3100,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/abbcbf2df9b1.webp"
+   "image": "itsu/abbcbf2df9b1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-matcha-latte",
@@ -2061,7 +3129,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/abbcbf2df9b1.webp"
+   "image": "itsu/abbcbf2df9b1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-matcha-latte",
@@ -2083,7 +3158,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d65d6a2d5552.webp"
+   "image": "itsu/d65d6a2d5552.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "blueberry-matcha-latte",
@@ -2105,7 +3187,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/dcd1d3d861d6.webp"
+   "image": "itsu/dcd1d3d861d6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte",
@@ -2127,7 +3216,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/522a97106a83.webp"
+   "image": "itsu/522a97106a83.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-vanilla-latte",
@@ -2149,7 +3245,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/7def589da216.webp"
+   "image": "itsu/7def589da216.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-salted-caramel-latte",
@@ -2171,7 +3274,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/bc1175ee9bfd.webp"
+   "image": "itsu/bc1175ee9bfd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-blueberry-latte",
@@ -2193,7 +3303,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/7ab4e4cee17e.webp"
+   "image": "itsu/7ab4e4cee17e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-americano",
@@ -2215,7 +3332,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/64aac5d74e97.webp"
+   "image": "itsu/64aac5d74e97.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte",
@@ -2237,7 +3361,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/3699af6279a5.webp"
+   "image": "itsu/3699af6279a5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-latte",
@@ -2259,7 +3390,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/3699af6279a5.webp"
+   "image": "itsu/3699af6279a5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-latte",
@@ -2281,7 +3419,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/3699af6279a5.webp"
+   "image": "itsu/3699af6279a5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white",
@@ -2303,7 +3448,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/fdfc00b4a468.webp"
+   "image": "itsu/fdfc00b4a468.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino",
@@ -2325,7 +3477,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/e645a1ad8c36.webp"
+   "image": "itsu/e645a1ad8c36.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-cappuccino",
@@ -2347,7 +3506,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/bf392d6bf810.webp"
+   "image": "itsu/bf392d6bf810.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-cappuccino",
@@ -2369,7 +3535,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/bf392d6bf810.webp"
+   "image": "itsu/bf392d6bf810.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "americano",
@@ -2391,7 +3564,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/a2448156e269.webp"
+   "image": "itsu/a2448156e269.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso",
@@ -2413,7 +3593,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d108787b1d19.webp"
+   "image": "itsu/d108787b1d19.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "english-breakfast-tea",
@@ -2435,7 +3622,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d860b4927dfd.webp"
+   "image": "itsu/d860b4927dfd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "green-tea",
@@ -2457,7 +3651,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/dcb47e5cabe7.webp"
+   "image": "itsu/dcb47e5cabe7.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "jasmine-green-tea",
@@ -2479,7 +3677,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/c959ae387521.webp"
+   "image": "itsu/c959ae387521.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peppermint-tea",
@@ -2501,7 +3703,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/0f35143728e0.webp"
+   "image": "itsu/0f35143728e0.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-passionfruit-bubble-tea",
@@ -2523,7 +3729,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d89719df202d.webp"
+   "image": "itsu/d89719df202d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lychee-rose-bubble-tea",
@@ -2545,7 +3755,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/b9f804ed83e3.webp"
+   "image": "itsu/b9f804ed83e3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemon-bubble-tea",
@@ -2567,7 +3781,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/34d0f2af12b1.webp"
+   "image": "itsu/34d0f2af12b1.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "itsu-still-water",
@@ -2589,7 +3807,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/dbfcbe97ea79.webp"
+   "image": "itsu/dbfcbe97ea79.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "itsu-sparkling-water",
@@ -2611,7 +3833,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/ec7d71ce3241.webp"
+   "image": "itsu/ec7d71ce3241.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "still-water-refill-flask",
@@ -2633,7 +3859,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/2db2d14945d6.webp"
+   "image": "itsu/2db2d14945d6.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sparkling-refill-flask",
@@ -2655,7 +3885,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/71157a02e458.webp"
+   "image": "itsu/71157a02e458.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-and-dragon-fruit-zen-water-can",
@@ -2677,7 +3911,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/151179694daf.webp"
+   "image": "itsu/151179694daf.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cucumber-and-mint-zen-water-can",
@@ -2699,7 +3937,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/dde8df690f51.webp"
+   "image": "itsu/dde8df690f51.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peach-and-lychee-zen-water-can",
@@ -2721,7 +3963,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/70cae347bbfd.webp"
+   "image": "itsu/70cae347bbfd.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "ginger-and-lime-zen-water-can",
@@ -2743,7 +3989,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/302c343096e9.webp"
+   "image": "itsu/302c343096e9.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemon-and-yuzu-zen-water-can",
@@ -2765,7 +4015,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/d7e2a43d2c8c.webp"
+   "image": "itsu/d7e2a43d2c8c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-mango-shot",
@@ -2787,7 +4041,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/e7e0aa216b6d.webp"
+   "image": "itsu/e7e0aa216b6d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "ginger-shot",
@@ -2809,7 +4067,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/441866ea9eb0.webp"
+   "image": "itsu/441866ea9eb0.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-and-elderflower-kombucha",
@@ -2831,7 +4093,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/b3b4dd4533dd.webp"
+   "image": "itsu/b3b4dd4533dd.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fiery-ginger-kombucha",
@@ -2853,7 +4119,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/7bb22638cd33.webp"
+   "image": "itsu/7bb22638cd33.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coca-cola-zero-sugar",
@@ -2875,7 +4145,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/da0db9f1e22b.webp"
+   "image": "itsu/da0db9f1e22b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke",
@@ -2897,7 +4171,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/e80bb3753f49.webp"
+   "image": "itsu/e80bb3753f49.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coca-cola",
@@ -2919,7 +4197,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/3370ea22c06d.webp"
+   "image": "itsu/3370ea22c06d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "asahi",
@@ -2941,7 +4223,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "itsu/11554de52778.webp"
+   "image": "itsu/11554de52778.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

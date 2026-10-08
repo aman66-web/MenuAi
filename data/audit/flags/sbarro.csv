@@ -1,27 +1,27 @@
 chain,kind,severity,code,item,name,category,detail
-sbarro,nutrition,medium,huge-protein,festive-pizza-17in,Festive Pizza 17in,Whole pizzas,161 g protein
-sbarro,nutrition,medium,huge-protein,ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,136 g protein
-sbarro,nutrition,medium,huge-protein,meat-feast-17in,Meat Feast 17in,Whole pizzas,139 g protein
-sbarro,nutrition,medium,huge-protein,pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,152 g protein
-sbarro,nutrition,medium,salt-very-high,bbq-chicken-14in,BBQ Chicken 14in,Whole pizzas,salt 12 g with 2290 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,cheese-pizza-14in,Cheese Pizza 14in,Whole pizzas,salt 10.1 g with 1870 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,cheeseburger-classic-spicy-bbq-12in,"Cheeseburger (Classic, Spicy, BBQ) 12in",Whole pizzas,salt 11.4 g with 2073 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,cheeseburger-classic-spicy-bbq-14in,"Cheeseburger (Classic, Spicy, BBQ) 14in",Whole pizzas,salt 13.8 g with 2538 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,festive-pizza-14in,Festive Pizza 14in,Whole pizzas,salt 11.95 g with 2020 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,festive-pizza-17in,Festive Pizza 17in,Whole pizzas,salt 17.98 g with 3050 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,firecracker-14in,Firecracker 14in,Whole pizzas,salt 11.5 g with 1808 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,ham-and-mushroom-14in,Ham & Mushroom 14in,Whole pizzas,salt 12 g with 2040 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,salt 18 g with 3050 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,meat-feast-12in,Meat Feast 12in,Whole pizzas,salt 10 g with 1630 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,meat-feast-14in,Meat Feast 14in,Whole pizzas,salt 14 g with 2240 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,meat-feast-17in,Meat Feast 17in,Whole pizzas,salt 19 g with 3270 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,pepperoni-12in,Pepperoni 12in,Whole pizzas,salt 10.8 g with 1730 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,pepperoni-14in,Pepperoni 14in,Whole pizzas,salt 15 g with 2410 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,pulled-chicken-and-pepperoni-pizza-12in,Pulled Chicken & Pepperoni Pizza 12in,Whole pizzas,salt 10.4 g with 1676 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,pulled-chicken-and-pepperoni-pizza-14in,Pulled Chicken & Pepperoni Pizza 14in,Whole pizzas,salt 14.6 g with 2252 kcal (6 g is the whole day's limit)
-sbarro,nutrition,medium,salt-very-high,pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,salt 21.9 g with 3312 kcal (6 g is the whole day's limit)
-sbarro,nutrition,low,huge,cheeseburger-classic-spicy-bbq-14in,"Cheeseburger (Classic, Spicy, BBQ) 14in",Whole pizzas,2538 kcal in one item
-sbarro,nutrition,low,huge,festive-pizza-17in,Festive Pizza 17in,Whole pizzas,3050 kcal in one item
-sbarro,nutrition,low,huge,ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,3050 kcal in one item
-sbarro,nutrition,low,huge,meat-feast-17in,Meat Feast 17in,Whole pizzas,3270 kcal in one item
-sbarro,nutrition,low,huge,pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,3312 kcal in one item
+sbarro,nutrition,reviewed,huge,cheeseburger-classic-spicy-bbq-14in,"Cheeseburger (Classic, Spicy, BBQ) 14in",Whole pizzas,2538 kcal in one item
+sbarro,nutrition,reviewed,huge,festive-pizza-17in,Festive Pizza 17in,Whole pizzas,3050 kcal in one item
+sbarro,nutrition,reviewed,huge,ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,3050 kcal in one item
+sbarro,nutrition,reviewed,huge,meat-feast-17in,Meat Feast 17in,Whole pizzas,3270 kcal in one item
+sbarro,nutrition,reviewed,huge,pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,3312 kcal in one item
+sbarro,nutrition,reviewed,huge-protein,festive-pizza-17in,Festive Pizza 17in,Whole pizzas,161 g protein
+sbarro,nutrition,reviewed,huge-protein,ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,136 g protein
+sbarro,nutrition,reviewed,huge-protein,meat-feast-17in,Meat Feast 17in,Whole pizzas,139 g protein
+sbarro,nutrition,reviewed,huge-protein,pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,152 g protein
+sbarro,nutrition,reviewed,salt-very-high,bbq-chicken-14in,BBQ Chicken 14in,Whole pizzas,salt 12 g with 2290 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,cheese-pizza-14in,Cheese Pizza 14in,Whole pizzas,salt 10.1 g with 1870 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,cheeseburger-classic-spicy-bbq-12in,"Cheeseburger (Classic, Spicy, BBQ) 12in",Whole pizzas,salt 11.4 g with 2073 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,cheeseburger-classic-spicy-bbq-14in,"Cheeseburger (Classic, Spicy, BBQ) 14in",Whole pizzas,salt 13.8 g with 2538 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,festive-pizza-14in,Festive Pizza 14in,Whole pizzas,salt 11.95 g with 2020 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,festive-pizza-17in,Festive Pizza 17in,Whole pizzas,salt 17.98 g with 3050 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,firecracker-14in,Firecracker 14in,Whole pizzas,salt 11.5 g with 1808 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,ham-and-mushroom-14in,Ham & Mushroom 14in,Whole pizzas,salt 12 g with 2040 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,ham-and-mushroom-17in,Ham & Mushroom 17in,Whole pizzas,salt 18 g with 3050 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,meat-feast-12in,Meat Feast 12in,Whole pizzas,salt 10 g with 1630 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,meat-feast-14in,Meat Feast 14in,Whole pizzas,salt 14 g with 2240 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,meat-feast-17in,Meat Feast 17in,Whole pizzas,salt 19 g with 3270 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,pepperoni-12in,Pepperoni 12in,Whole pizzas,salt 10.8 g with 1730 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,pepperoni-14in,Pepperoni 14in,Whole pizzas,salt 15 g with 2410 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,pulled-chicken-and-pepperoni-pizza-12in,Pulled Chicken & Pepperoni Pizza 12in,Whole pizzas,salt 10.4 g with 1676 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,pulled-chicken-and-pepperoni-pizza-14in,Pulled Chicken & Pepperoni Pizza 14in,Whole pizzas,salt 14.6 g with 2252 kcal (6 g is the whole day's limit)
+sbarro,nutrition,reviewed,salt-very-high,pulled-chicken-and-pepperoni-pizza-17in,Pulled Chicken & Pepperoni Pizza 17in,Whole pizzas,salt 21.9 g with 3312 kcal (6 g is the whole day's limit)

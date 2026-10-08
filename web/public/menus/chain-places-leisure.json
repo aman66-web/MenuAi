@@ -168,9 +168,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "walnut"
     ]
    }
   },
@@ -195,9 +192,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

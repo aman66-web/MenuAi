@@ -10,7 +10,7 @@
  ],
  "sample": false,
  "source": {
-  "title": "The Botanist Allergen Matrix with calories, 16 menus (Ten Kites page; no date printed, read 2026-10-08)",
+  "title": "The Botanist Allergen Matrix with calories, 18 menus (Ten Kites page; no date printed, read 2026-10-08)",
   "url": "https://menus.tenkites.com/nwtc/thebotanist",
   "checkedOn": "2026-10-08"
  },
@@ -29,7 +29,6 @@
   "Small Plates & Sharing Boards",
   "Main Event",
   "Main Event options",
-  "Our Famous Hanging Kebabs™: Kebab",
   "Our Famous Hanging Kebabs™: Sauce",
   "Our Famous Hanging Kebabs™: Side",
   "Signature Kebabs",
@@ -57,11 +56,14 @@
   "Group Dining Celebration Menu: The Main Event",
   "Group Dining Celebration Menu: The Main Event options",
   "Group Dining Celebration Menu: Our Famous Hanging Kebabs ™",
+  "Group Dining Celebration Menu - From November 18th: The Main Event",
   "Gardener's Table Finger Food: Mix & Match",
   "Gardener's Table Finger Food: Boards",
   "Gardener's Table Finger Food: Sandwiches",
   "Gardener's Table Finger Food: Condiments",
   "Pizza",
+  "Pizza: Christmas Specials",
+  "Pizza: Christmas Specials - Dips",
   "Condiments: Sauces",
   "Christmas Menu: Starters",
   "Christmas Menu: Mains",
@@ -325,42 +327,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ]
-   }
-  },
-  {
-   "id": "crispy-panko-halloumi-small-plates-and-sharing-boards",
-   "name": "Crispy Panko Halloumi",
-   "category": "Small Plates & Sharing Boards",
-   "serving": "",
-   "nutrients": {
-    "calories": 690
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "fish",
-     "lupin",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame"
     ]
    }
   },
@@ -887,42 +853,6 @@
      "nuts",
      "sesame",
      "soya"
-    ]
-   }
-  },
-  {
-   "id": "crispy-panko-halloumi-our-famous-hanging-kebabs-kebab",
-   "name": "Crispy Panko Halloumi",
-   "category": "Our Famous Hanging Kebabs™: Kebab",
-   "serving": "",
-   "nutrients": {
-    "calories": 945
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "fish",
-     "lupin",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame"
     ]
    }
   },
@@ -1746,29 +1676,6 @@
    }
   },
   {
-   "id": "sticky-toffee-pudding-puddings",
-   "name": "Sticky Toffee Pudding",
-   "category": "Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 492
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "vanilla-cheesecake",
    "name": "Vanilla Cheesecake",
    "category": "Puddings",
@@ -1845,30 +1752,6 @@
     "mayContain": [
      "sesame"
     ]
-   }
-  },
-  {
-   "id": "chocolate-chip-cookie-dough",
-   "name": "Chocolate Chip Cookie Dough",
-   "category": "Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 780
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -3684,6 +3567,42 @@
    }
   },
   {
+   "id": "8oz-sirloin-steak-group-dining-celebration-menu-from-november-18th-the-main-event",
+   "name": "8oz Sirloin Steak",
+   "category": "Group Dining Celebration Menu - From November 18th: The Main Event",
+   "serving": "",
+   "nutrients": {
+    "calories": 1702
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
    "id": "korean-fried-chicken-gardeners-table-finger-food-mix-and-match",
    "name": "Korean Fried Chicken",
    "category": "Gardener's Table Finger Food: Mix & Match",
@@ -3774,42 +3693,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "panko-halloumi-kebab",
-   "name": "Panko Halloumi Kebab",
-   "category": "Gardener's Table Finger Food: Mix & Match",
-   "serving": "",
-   "nutrients": {
-    "calories": 1268
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "crustaceans",
-     "fish",
-     "lupin",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sesame"
     ]
    }
   },
@@ -4147,7 +4030,7 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 545
+    "calories": 578
    },
    "tags": [
     "vegetarian"
@@ -4201,7 +4084,7 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 780
+    "calories": 797
    },
    "tags": [
     "vegetarian"
@@ -4229,7 +4112,7 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 671
+    "calories": 704
    },
    "tags": [
     "contains_pork"
@@ -4256,7 +4139,7 @@
    "category": "Pizza",
    "serving": "",
    "nutrients": {
-    "calories": 619
+    "calories": 652
    },
    "tags": [
     "contains_pork"
@@ -4275,6 +4158,135 @@
      "mustard",
      "soya"
     ]
+   }
+  },
+  {
+   "id": "hot-honey-pigs-in-blankets-pizza",
+   "name": "Hot Honey Pigs in Blankets Pizza",
+   "category": "Pizza: Christmas Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1035
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "roasted-butternut-and-camembert-pizza",
+   "name": "Roasted Butternut & Camembert Pizza",
+   "category": "Pizza: Christmas Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 888
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "garlic-aioli",
+   "name": "Garlic Aioli",
+   "category": "Pizza: Christmas Specials - Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "cranberry-bbq",
+   "name": "Cranberry BBQ",
+   "category": "Pizza: Christmas Specials - Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "harissa-hot-honey",
+   "name": "Harissa Hot Honey",
+   "category": "Pizza: Christmas Specials - Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 156
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
    }
   },
   {
@@ -4455,7 +4467,7 @@
    }
   },
   {
-   "id": "8oz-sirloin-steak",
+   "id": "8oz-sirloin-steak-christmas-menu-mains",
    "name": "8oz Sirloin Steak",
    "category": "Christmas Menu: Mains",
    "serving": "",
@@ -4542,33 +4554,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ]
-   }
-  },
-  {
-   "id": "sticky-toffee-pudding-christmas-menu-puddings",
-   "name": "Sticky Toffee Pudding",
-   "category": "Christmas Menu: Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 460
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
     ]
    }
   },

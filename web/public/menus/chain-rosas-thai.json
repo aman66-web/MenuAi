@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Rosa's Thai Nutritional Info and allergen guide, London: All Day, Desserts and Drinks menus (viewthe.menu/dy2v, accessed 2026-10-07, no date shown)",
+  "title": "Rosa's Thai Nutritional Info and allergen guide, London: All Day, Desserts and Drinks menus (viewthe.menu/dy2v, accessed 2026-10-08, no date shown)",
   "url": "https://viewthe.menu/dy2v",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Rosa's Thai prints calories only, per dish as listed (no portion basis, protein, carbs or fat), on its London menu page. Drinks with no calories printed, set menus (set lunch, Thai Feast, unlimited curries), the Little Rosa's kids menu and condiments are not listed.",
  "allergenGuide": {
-  "title": "Rosa's Thai allergen guide, London menus (viewthe.menu/dy2v, accessed 2026-10-07, no date shown)",
+  "title": "Rosa's Thai allergen guide, London menus (viewthe.menu/dy2v, accessed 2026-10-08, no date shown)",
   "url": "https://viewthe.menu/dy2v",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -453,10 +453,6 @@
      "nuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -716,9 +712,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -752,9 +745,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -823,9 +813,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -855,9 +842,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -892,9 +876,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -928,9 +909,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -997,9 +975,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "nuts": [
-     "cashew"
     ]
    }
   },
@@ -1740,9 +1715,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1774,9 +1746,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1809,9 +1778,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1842,9 +1808,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1878,9 +1841,6 @@
      "mustard",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ],
     "nuts": [
      "cashew"
@@ -1916,12 +1876,6 @@
      "mustard",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "cashew"
     ]
    }
   },
@@ -1955,48 +1909,8 @@
      "peanuts",
      "sesame"
     ],
-    "cereals": [
-     "wheat"
-    ],
     "nuts": [
      "cashew"
-    ]
-   }
-  },
-  {
-   "id": "pad-thai-veg-and-tofu",
-   "name": "Pad Thai - Veg & Tofu",
-   "category": "Noodles",
-   "serving": "",
-   "nutrients": {
-    "calories": 1247
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "molluscs",
-     "peanuts",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "fish",
-     "milk",
-     "mustard",
-     "nuts",
-     "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2030,9 +1944,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2066,9 +1977,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2100,9 +2008,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2135,9 +2040,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2172,9 +2074,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2205,9 +2104,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2239,9 +2135,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2271,9 +2164,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2308,9 +2198,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2341,9 +2228,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2503,9 +2387,6 @@
      "mustard",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2537,9 +2418,6 @@
      "mustard",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3456,7 +3334,7 @@
    "category": "Thai-inspired cocktails",
    "serving": "",
    "nutrients": {
-    "calories": 118
+    "calories": 119
    },
    "tags": [
     "vegetarian"

@@ -14,7 +14,7 @@
  "source": {
   "title": "Ping Pong Nutritional Information, \"Jun Full Menu 2025 - Nutr Info\" (guide dated June 2025, printed 09/06/2025)",
   "url": "https://www.pingpongdimsum.com/wp-content/uploads/2025/06/Nutr-Info-Jun-2025.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Guide dated June 2025, so some dishes may have changed since. Values are per portion as printed (portion sizes are not stated); there are no drinks, and a few dishes whose numbers the guide prints impossibly are left out.",
  "categories": [
@@ -621,27 +621,6 @@
    "modifiers": []
   },
   {
-   "id": "black-prawn-dumpling",
-   "name": "Black Prawn Dumpling",
-   "category": "Steamed dumplings",
-   "serving": "",
-   "nutrients": {
-    "calories": 132,
-    "protein": 7,
-    "carbs": 18,
-    "fat": 3.2,
-    "saturatedFat": 1.4,
-    "sugar": 1.8,
-    "fiber": 3.2,
-    "salt": 0.95
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "pork-prawn-shu-mai",
    "name": "Pork Prawn Shu Mai",
    "category": "Steamed dumplings",
@@ -814,27 +793,6 @@
    "tags": [
     "contains_beef"
    ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chicken-and-chinese-chive-gyoza",
-   "name": "Chicken & Chinese Chive Gyoza",
-   "category": "Griddled gyoza & dumplings",
-   "serving": "",
-   "nutrients": {
-    "calories": 147,
-    "protein": 7.6,
-    "carbs": 21.9,
-    "fat": 2.8,
-    "saturatedFat": 0.1,
-    "sugar": 3.1,
-    "fiber": 3,
-    "salt": 1.07
-   },
-   "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],

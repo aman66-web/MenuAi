@@ -12,14 +12,14 @@
  "source": {
   "title": "Comptoir Libanais Allergen & Calorie Menu, Spring 2026, Version 07 (PDF created 21 August 2026)",
   "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/08/Comptoir_AllergenMenu_Spring2026_v07.pdf",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed in the guide's kcals column (it gives no serving sizes), so protein, carbs and fat are not published. Dishes with no calorie figure in the guide (most alternative-milk coffees, cocktails, wine, beer, some lemonades) are not listed, and the guide's drinks pages carry no 'may contain' marks.",
  "allergenGuide": {
   "title": "Comptoir Libanais Allergen & Calorie Menu, Spring 2026, Version 07",
   "url": "https://bunny-wp-pullzone-5vpjsfiiqi.b-cdn.net/wp-content/uploads/2026/08/Comptoir_AllergenMenu_Spring2026_v07.pdf",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -2131,38 +2131,6 @@
      "mustard",
      "sesame",
      "soya"
-    ],
-    "mayContain": [
-     "nuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "soujok-shakshuka-sandwich",
-   "name": "Soujok Shakshuka Sandwich",
-   "category": "Breakfast: our favourites",
-   "serving": "",
-   "nutrients": {
-    "calories": 634
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "lupin",
-     "milk",
-     "mustard",
-     "sesame",
-     "soya",
-     "sulphites"
     ],
     "mayContain": [
      "nuts"

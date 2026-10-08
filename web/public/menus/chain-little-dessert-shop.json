@@ -532,31 +532,6 @@
    }
   },
   {
-   "id": "roche-krunch-kunafa-cake",
-   "name": "Roche Krunch Kunafa Cake",
-   "category": "Kunafa Kollection",
-   "serving": "",
-   "nutrients": {
-    "calories": 1580
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "nuts",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "peanuts"
-    ]
-   }
-  },
-  {
    "id": "pistachio-krunch-kunafa-cake",
    "name": "Pistachio Krunch Kunafa Cake",
    "category": "Kunafa Kollection",
@@ -1015,31 +990,6 @@
     "contains": [
      "gluten",
      "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
-   "id": "coconut-snowflake-crunch-loaded-crepe",
-   "name": "Coconut Snowflake Crunch Loaded Crepe",
-   "category": "Waffles, Crepes & Pancakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 470
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
      "soya"
     ],
     "mayContain": [
@@ -1971,31 +1921,6 @@
     "contains": [
      "gluten",
      "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "peanuts"
-    ]
-   }
-  },
-  {
-   "id": "strawberry-cheesecake",
-   "name": "Strawberry Cheesecake",
-   "category": "Cakes, Bakes & Milkcakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 490
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
      "soya"
     ],
     "mayContain": [

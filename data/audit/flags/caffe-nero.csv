@@ -1,2 +1,16 @@
 chain,kind,severity,code,item,name,category,detail
 caffe-nero,nutrition,low,sugar+fibre-gt-carbs,tomato-and-basil-soup,Tomato & Basil Soup,"Salads, soups & hot pots",sugars 10.9 + fibre 4.6 > carbohydrate 11.2 (starch would be negative)
+caffe-nero,allergen,reviewed,name-implies-fish,chicken-and-bacon-caesar-wrap,Chicken & Bacon Caesar Wrap,"Sandwiches, paninis & tostati","'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+caffe-nero,allergen,reviewed,name-implies-gluten,blueberry-oat-muffin-protein-balls,Blueberry Oat Muffin Protein Balls,Snacks,'Muffin' in the name but gluten is not marked (contains: ['nuts'])
+caffe-nero,allergen,reviewed,name-implies-gluten,iced-blueberry-muffin-matcha-almond-milk,Iced Blueberry Muffin Matcha (almond milk),Iced drinks,'Muffin' in the name but gluten is not marked (contains: ['nuts'])
+caffe-nero,allergen,reviewed,name-implies-gluten,iced-blueberry-muffin-matcha-coconut-milk,Iced Blueberry Muffin Matcha (coconut milk),Iced drinks,'Muffin' in the name but gluten is not marked (contains: ['soya'])
+caffe-nero,allergen,reviewed,name-implies-gluten,iced-blueberry-muffin-matcha-semi-skimmed-milk,Iced Blueberry Muffin Matcha (semi skimmed milk),Iced drinks,'Muffin' in the name but gluten is not marked (contains: ['milk'])
+caffe-nero,allergen,reviewed,name-implies-gluten,iced-blueberry-muffin-matcha-skimmed-milk,Iced Blueberry Muffin Matcha (skimmed milk),Iced drinks,'Muffin' in the name but gluten is not marked (contains: ['milk'])
+caffe-nero,allergen,reviewed,name-implies-gluten,iced-blueberry-muffin-matcha-soya-milk,Iced Blueberry Muffin Matcha (soya milk),Iced drinks,'Muffin' in the name but gluten is not marked (contains: ['soya'])
+caffe-nero,allergen,reviewed,name-implies-gluten,iced-blueberry-muffin-matcha-whole-milk,Iced Blueberry Muffin Matcha (whole milk),Iced drinks,'Muffin' in the name but gluten is not marked (contains: ['milk'])
+caffe-nero,allergen,reviewed,name-implies-gluten,wrapped-chocolate-brownie,Wrapped Chocolate Brownie,Cakes & sweet treats,'Brownie' in the name but gluten is not marked (contains: none)
+caffe-nero,allergen,reviewed,name-implies-nuts,pistachio-iced-latte-oat-milk,Pistachio Iced Latte (oat milk),Iced drinks,'Pistachio' in the name but nuts is not marked (contains: ['gluten'])
+caffe-nero,allergen,reviewed,name-implies-nuts,pistachio-iced-latte-semi-skimmed-milk,Pistachio Iced Latte (semi skimmed milk),Iced drinks,'Pistachio' in the name but nuts is not marked (contains: ['milk'])
+caffe-nero,allergen,reviewed,name-implies-nuts,pistachio-iced-latte-skimmed-milk,Pistachio Iced Latte (skimmed milk),Iced drinks,'Pistachio' in the name but nuts is not marked (contains: ['milk'])
+caffe-nero,allergen,reviewed,name-implies-nuts,pistachio-iced-latte-soya-milk,Pistachio Iced Latte (soya milk),Iced drinks,'Pistachio' in the name but nuts is not marked (contains: ['soya'])
+caffe-nero,allergen,reviewed,name-implies-nuts,pistachio-iced-latte-whole-milk,Pistachio Iced Latte (whole milk),Iced drinks,'Pistachio' in the name but nuts is not marked (contains: ['milk'])

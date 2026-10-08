@@ -237,51 +237,6 @@
    }
   },
   {
-   "id": "duck-bon-bons",
-   "name": "Duck Bon Bons",
-   "category": "Bar bundles",
-   "serving": "",
-   "nutrients": {
-    "calories": 320,
-    "protein": 12,
-    "carbs": 29.7,
-    "fat": 17.2,
-    "saturatedFat": 1.6,
-    "sugar": 10.9,
-    "salt": 2.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "nuts",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
-    ]
-   }
-  },
-  {
    "id": "cauli-bites",
    "name": "Cauli Bites",
    "category": "Bar bundles",
@@ -1426,32 +1381,6 @@
     "contains": [
      "eggs",
      "mustard"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "grilled-seabass-fillet",
-   "name": "Grilled Seabass Fillet",
-   "category": "Signature dishes",
-   "serving": "",
-   "nutrients": {
-    "calories": 742,
-    "protein": 12.1,
-    "carbs": 91.7,
-    "fat": 34.2,
-    "saturatedFat": 6.8,
-    "sugar": 46.3,
-    "salt": 7.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish"
     ],
     "mayContain": []
    }
@@ -2966,30 +2895,6 @@
    }
   },
   {
-   "id": "gluten-free-bread-and-butter",
-   "name": "Gluten Free Bread & Butter",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 140,
-    "protein": 0.1,
-    "carbs": 0.1,
-    "fat": 15.8,
-    "saturatedFat": 7.8,
-    "sugar": 0.1,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [],
-    "mayContain": []
-   }
-  },
-  {
    "id": "fish-butty",
    "name": "Fish Butty",
    "category": "Lunch: Sandwiches",
@@ -4252,32 +4157,6 @@
    "modifiers": [],
    "allergens": {
     "contains": [],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "grilled-seabass-fillet-add-on",
-   "name": "Grilled Seabass Fillet (add-on)",
-   "category": "Add-ons & extras",
-   "serving": "",
-   "nutrients": {
-    "calories": 364,
-    "protein": 3.1,
-    "carbs": 62.6,
-    "fat": 10.9,
-    "saturatedFat": 0.8,
-    "sugar": 41.6,
-    "salt": 3.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish"
-    ],
     "mayContain": []
    }
   },
@@ -5871,42 +5750,6 @@
    }
   },
   {
-   "id": "roast-turkey-festive-menu",
-   "name": "Roast Turkey (festive menu)",
-   "category": "Festive: Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 739,
-    "protein": 74.8,
-    "carbs": 59.7,
-    "fat": 31.7,
-    "saturatedFat": 6.4,
-    "sugar": 11.2,
-    "salt": 3.8
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "oats"
-    ]
-   }
-  },
-  {
    "id": "gluten-free-roast-turkey-festive-menu",
    "name": "Gluten Free Roast Turkey (festive menu)",
    "category": "Festive: Mains",
@@ -6005,35 +5848,6 @@
      "barley",
      "oats"
     ]
-   }
-  },
-  {
-   "id": "baked-seabass-fillet-festive-menu",
-   "name": "Baked Seabass Fillet (festive menu)",
-   "category": "Festive: Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 874,
-    "protein": 12.5,
-    "carbs": 112.9,
-    "fat": 37.4,
-    "saturatedFat": 12,
-    "sugar": 63.1,
-    "salt": 9.1
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish",
-     "milk",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
    }
   },
   {
@@ -6298,35 +6112,6 @@
      "barley",
      "oats"
     ]
-   }
-  },
-  {
-   "id": "roast-turkey-festive-kids-menu",
-   "name": "Roast Turkey (festive kids menu)",
-   "category": "Festive: Kids",
-   "serving": "",
-   "nutrients": {
-    "calories": 480,
-    "protein": 42.7,
-    "carbs": 30,
-    "fat": 25.5,
-    "saturatedFat": 6.7,
-    "sugar": 6.6,
-    "salt": 2.6
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
    }
   },
   {

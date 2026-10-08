@@ -10,16 +10,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Hungry Horse online pub menus with calories: main, children's, Sunday roast, curry night, breakfast, no-gluten and alcohol-free drinks menus, as published for 41 pubs (accessed 2026-10-07, no date shown)",
+  "title": "Hungry Horse online pub menus with calories: main, children's, Sunday roast, curry night, breakfast, no-gluten and alcohol-free drinks menus, as published for 41 pubs (accessed 2026-10-08, no date shown)",
   "url": "https://www.hungryhorse.co.uk/pubs/bedfordshire/chequers/menu",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Calories only: Hungry Horse prints no protein, carbs or fat. Each pub lists different dishes, so this is every dish on the menus of 41 pubs we read; yours may not serve all of them. Sugar and salt are printed for children's dishes only. Drinks with no calories printed (wines, cocktails, beers) are not listed; alcohol-free drink calories are in the menu data but not shown on the menu page.",
  "allergenGuide": {
-  "title": "Hungry Horse allergens & nutritional reports: each pub's allergen menu, found through the pub finder (accessed 2026-10-07, no date shown)",
+  "title": "Hungry Horse allergens & nutritional reports: each pub's allergen menu, found through the pub finder (accessed 2026-10-08, no date shown)",
   "url": "https://www.hungryhorse.co.uk/allergens",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
   "complete": false
  },

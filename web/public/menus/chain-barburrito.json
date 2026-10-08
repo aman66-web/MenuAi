@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "BarBurrito allergen & nutritional information (tkmenus.com/barburrito: Burritos, Bowls, Main Menu Extras, Nachos, Sides, Dessert Menu, Kids Menu and Drinks Menu; accessed 2026-10-07, no date shown)",
+  "title": "BarBurrito allergen & nutritional information (tkmenus.com/barburrito: Burritos, Bowls, Main Menu Extras, Nachos, Sides, Dessert Menu, Kids Menu and Drinks Menu; accessed 2026-10-08, no date shown)",
   "url": "https://tkmenus.com/barburrito",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "BarBurrito prints calories only, and none for a finished burrito, bowl or nachos: each part (wrap, rice, protein, salsa...) is listed with its own calories, so add up your build. Breakfast (airport stores only) is not included. Menus can differ between restaurants.",
  "allergenGuide": {
-  "title": "BarBurrito allergen information (tkmenus.com/barburrito, accessed 2026-10-07, no date shown)",
+  "title": "BarBurrito allergen information (tkmenus.com/barburrito, accessed 2026-10-08, no date shown)",
   "url": "https://tkmenus.com/barburrito",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -475,33 +475,6 @@
    }
   },
   {
-   "id": "cholula-sweet-lime-chicken",
-   "name": "Cholula Sweet Lime Chicken",
-   "category": "Build your own: proteins",
-   "serving": "",
-   "nutrients": {
-    "calories": 111
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "soya"
-    ]
-   }
-  },
-  {
    "id": "lil-chicken",
    "name": "Lil' Chicken",
    "category": "Build your own: proteins",
@@ -660,33 +633,6 @@
      "milk"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "lil-cholula-sweet-lime-chicken",
-   "name": "Lil' Cholula Sweet Lime Chicken",
-   "category": "Build your own: proteins",
-   "serving": "",
-   "nutrients": {
-    "calories": 67
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "soya"
-    ]
    }
   },
   {
@@ -945,33 +891,6 @@
      "milk"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "loaded-cholula-sweet-lime-chicken",
-   "name": "Loaded Cholula Sweet Lime Chicken",
-   "category": "Build your own: second proteins",
-   "serving": "",
-   "nutrients": {
-    "calories": 56
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "sulphites"
-    ],
-    "mayContain": [
-     "celery",
-     "gluten",
-     "eggs",
-     "milk",
-     "mustard",
-     "soya"
-    ]
    }
   },
   {
@@ -2245,59 +2164,6 @@
      "sulphites"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "loaded-fries-veg-and-guac-vg",
-   "name": "Loaded Fries - Veg & Guac VG",
-   "category": "Loaded fries",
-   "serving": "",
-   "nutrients": {
-    "calories": 734
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "loaded-fries-vg-steak-vegan-loaded-fries",
-   "name": "Loaded Fries - VG Steak (Vegan loaded fries)",
-   "category": "Loaded fries",
-   "serving": "",
-   "nutrients": {
-    "calories": 714
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "milk",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "gluten"
-    ]
    }
   },
   {

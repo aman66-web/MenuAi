@@ -193,11 +193,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -231,11 +226,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -298,11 +288,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -363,9 +348,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -397,9 +379,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -449,9 +428,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -832,9 +808,6 @@
     "mayContain": [
      "gluten",
      "sesame"
-    ],
-    "nuts": [
-     "pecan"
     ]
    }
   },
@@ -881,9 +854,6 @@
      "gluten",
      "peanuts",
      "sesame"
-    ],
-    "nuts": [
-     "walnut"
     ]
    }
   },
@@ -1095,11 +1065,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -1347,9 +1312,6 @@
     "cereals": [
      "wheat",
      "oats"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },

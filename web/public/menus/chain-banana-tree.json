@@ -13,13 +13,13 @@
  "source": {
   "title": "Banana Tree nutrition information (menus.tenkites.com/thebigtg/bananatree04: all day, express lunch, bottomless bowls, bottomless brunch, kids, desserts and drinks menus, \"Nutrition (per portion)\", pages dated 6 October 2026)",
   "url": "https://menus.tenkites.com/thebigtg/bananatree04",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Values are per portion as printed. Options offered on top of a dish (rice, sauces, extra protein) are listed separately under Options & add-ons.",
  "allergenGuide": {
   "title": "Banana Tree allergen and nutrition information (menus.tenkites.com/thebigtg/bananatree04, pages dated 6 October 2026)",
   "url": "https://menus.tenkites.com/thebigtg/bananatree04",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -76,9 +76,6 @@
      "milk",
      "molluscs",
      "soya"
-    ],
-    "cereals": [
-     "barley"
     ]
    }
   },
@@ -117,9 +114,6 @@
      "peanuts",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "barley"
     ]
    }
   },
@@ -257,9 +251,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -491,9 +482,6 @@
     "mayContain": [
      "eggs",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -569,10 +557,6 @@
      "peanuts",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -1002,9 +986,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1100,9 +1081,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -1983,9 +1961,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2061,9 +2036,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2243,9 +2215,6 @@
      "eggs",
      "molluscs",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2458,9 +2427,6 @@
      "molluscs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2522,9 +2488,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2591,9 +2554,6 @@
      "molluscs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2715,13 +2675,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -2760,13 +2713,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -2944,9 +2890,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3007,9 +2950,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -3046,12 +2986,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -3175,12 +3109,6 @@
      "mustard",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "cashew"
     ]
    }
   },
@@ -3215,9 +3143,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -4114,9 +4039,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "barley"
     ]
    }
   },
@@ -4286,10 +4208,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -4325,9 +4243,6 @@
      "nuts",
      "peanuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -4365,16 +4280,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -4446,9 +4351,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -4519,9 +4421,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

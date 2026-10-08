@@ -1,5 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
-little-dessert-shop,allergen,medium,name-implies-fish,kunafa-sushi-crepe,Kunafa Sushi Crepe,Kunafa Kollection,"'Sushi' in the name but fish is not marked (contains: ['gluten', 'milk', 'nuts', 'soya'])"
-little-dessert-shop,allergen,medium,name-implies-fish,strawberry-hazelnut-sushi-crepe,Strawberry Hazelnut Sushi Crepe,"Waffles, Crepes & Pancakes","'Sushi' in the name but fish is not marked (contains: ['gluten', 'milk', 'nuts', 'soya'])"
-little-dessert-shop,allergen,medium,name-implies-gluten,caramel-chocolate-cake,Caramel Chocolate Cake,"Cakes, Bakes & Milkcakes","'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
-little-dessert-shop,allergen,medium,name-implies-milk,strawberry-cheesecake,Strawberry Cheesecake,"Cakes, Bakes & Milkcakes","'Cheese' in the name but milk is not marked (contains: ['gluten', 'soya'])"
+little-dessert-shop,allergen,reviewed,name-implies-fish,kunafa-sushi-crepe,Kunafa Sushi Crepe,Kunafa Kollection,"'Sushi' in the name but fish is not marked (contains: ['gluten', 'milk', 'nuts', 'soya'])"
+little-dessert-shop,allergen,reviewed,name-implies-fish,strawberry-hazelnut-sushi-crepe,Strawberry Hazelnut Sushi Crepe,"Waffles, Crepes & Pancakes","'Sushi' in the name but fish is not marked (contains: ['gluten', 'milk', 'nuts', 'soya'])"
+little-dessert-shop,allergen,reviewed,name-implies-gluten,caramel-chocolate-cake,Caramel Chocolate Cake,"Cakes, Bakes & Milkcakes","'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"

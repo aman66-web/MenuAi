@@ -12,22 +12,21 @@
  ],
  "sample": false,
  "source": {
-  "title": "O'Neill's (High Street estate) Allergen & Nutrition Guide, Mitchells & Butlers (page stamped 2026-10-05)",
+  "title": "O'Neill's (High Street estate) Allergen & Nutrition Guide, Mitchells & Butlers (page stamped 2026-10-08)",
   "url": "https://allergens.mbplc.io/AllergenGuideHighSteetEstate.html",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "The guide covers the whole High Street estate, not only O'Neill's, and has no menu named Main Menu. Only the menus O'Neill's names on its own site (weekday lunch deal and breakfast) are included, so the burgers, pizzas and waffle fries of the main menu are missing.",
  "allergenGuide": {
-  "title": "O'Neill's (High Street estate) Allergen & Nutrition Guide, Mitchells & Butlers (live page)",
+  "title": "O'Neill's (High Street estate) Allergen & Nutrition Guide, Mitchells & Butlers (page stamped 2026-10-08)",
   "url": "https://allergens.mbplc.io/AllergenGuideHighSteetEstate.html",
-  "checkedOn": "2026-10-06",
-  "mayContainPublished": false,
-  "complete": false
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
  },
  "categories": [
   "Add-ons",
   "Mains",
-  "Sandwiches",
   "Sides & snacks",
   "Drinks",
   "Breakfast & brunch"
@@ -54,7 +53,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "burger-sauce",
@@ -76,7 +84,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "buttermilk-ranch-dip",
@@ -98,7 +112,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "add-ham",
@@ -120,7 +141,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "add-two-hash-browns",
@@ -142,7 +167,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "add-irish-pork-and-leek-sausage",
@@ -164,7 +193,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "add-vegan-sausage",
@@ -186,7 +225,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "add-free-range-fried-egg",
@@ -208,7 +254,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "add-grilled-tomato",
@@ -230,7 +282,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "add-heinz-baked-beans",
@@ -252,7 +308,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "add-flat-mushroom",
@@ -272,7 +332,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "white-toast",
@@ -294,7 +358,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "wholemeal-toast",
@@ -316,7 +391,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mixed-toast",
@@ -338,7 +426,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "fish-and-chips",
@@ -358,7 +459,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "veggie-sausages-and-mash",
@@ -380,49 +498,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "7oz-gammon-steak",
-   "name": "7oz Gammon Steak",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 825,
-    "protein": 57,
-    "carbs": 73,
-    "fat": 26,
-    "saturatedFat": 3.7,
-    "sugar": 15,
-    "salt": 2.6
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "scampi-and-chips",
-   "name": "Scampi & Chips",
-   "category": "Mains",
-   "serving": "",
-   "nutrients": {
-    "calories": 952,
-    "protein": 35,
-    "carbs": 97,
-    "fat": 28,
-    "saturatedFat": 3.9,
-    "sugar": 5,
-    "salt": 5.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sausage-and-mash",
@@ -444,133 +534,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cheese-and-ballymaloe-relish",
-   "name": "Cheese & Ballymaloe Relish",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 581,
-    "protein": 22,
-    "carbs": 71,
-    "fat": 23,
-    "saturatedFat": 11,
-    "sugar": 15,
-    "salt": 2.9
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "fish-finger-wrap",
-   "name": "Fish Finger Wrap",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 502,
-    "protein": 23,
-    "carbs": 61,
-    "fat": 17,
-    "saturatedFat": 3.3,
-    "sugar": 5.4,
-    "salt": 2.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "philly-steak-sandwich",
-   "name": "Philly Steak Sandwich",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 630,
-    "protein": 33,
-    "carbs": 68,
-    "fat": 24,
-    "saturatedFat": 7.6,
-    "sugar": 9.3,
-    "salt": 2
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "spicy-chicken-quesadilla",
-   "name": "Spicy Chicken Quesadilla",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 740,
-    "protein": 41,
-    "carbs": 66,
-    "fat": 34,
-    "saturatedFat": 17,
-    "sugar": 8.1,
-    "salt": 2.9
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "shiitake-mushroom-tortilla",
-   "name": "Shiitake Mushroom Tortilla",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 545,
-    "protein": 15,
-    "carbs": 71,
-    "fat": 21,
-    "saturatedFat": 6,
-    "sugar": 14,
-    "salt": 1.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chicken-fillet-roll",
-   "name": "Chicken Fillet Roll",
-   "category": "Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 663,
-    "protein": 20,
-    "carbs": 77,
-    "fat": 30,
-    "saturatedFat": 3.3,
-    "sugar": 7.3,
-    "salt": 2.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "seasoned-chunky-chips",
@@ -592,7 +570,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "dressed-side-salad",
@@ -614,7 +596,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "britvic-draught-indian-tonic-200ml",
@@ -634,7 +620,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "britvic-low-cal-tonic-water",
@@ -654,7 +646,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "r-whites-lemonade",
@@ -674,7 +670,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-can",
@@ -694,7 +696,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-can-sugar-free",
@@ -714,7 +722,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-pink",
@@ -734,7 +746,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemonade",
@@ -754,7 +770,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tea",
@@ -776,7 +798,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "black-americano",
@@ -798,7 +826,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "decaf-black-americano",
@@ -820,7 +852,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "decaf-large-black-americano",
@@ -842,7 +878,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "large-black-americano",
@@ -864,7 +904,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino",
@@ -886,7 +930,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-cappuccino",
@@ -908,7 +958,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte",
@@ -930,7 +986,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-cafe-latte",
@@ -952,7 +1014,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha",
@@ -974,7 +1042,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-mocha",
@@ -996,7 +1070,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tea-with-oat-alternative-to-milk",
@@ -1018,7 +1098,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "americano-with-oat-alternative-to-milk",
@@ -1040,7 +1129,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "large-americano-with-oat-alternative-to-milk",
@@ -1062,7 +1160,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "oat-alternative-to-milk",
@@ -1084,117 +1191,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "hearty-irish-breakfast",
-   "name": "Hearty Irish Breakfast",
-   "category": "Breakfast & brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 1114,
-    "protein": 65,
-    "carbs": 58,
-    "fat": 63,
-    "saturatedFat": 23,
-    "sugar": 6.3,
-    "salt": 6.3
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "the-mega-irish-breakfast",
-   "name": "The Mega Irish Breakfast",
-   "category": "Breakfast & brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 1530,
-    "protein": 90,
-    "carbs": 75,
-    "fat": 89,
-    "saturatedFat": 30,
-    "sugar": 6.8,
-    "salt": 8.9
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "small-irish-breakfast",
-   "name": "Small Irish Breakfast",
-   "category": "Breakfast & brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 557,
-    "protein": 32,
-    "carbs": 29,
-    "fat": 32,
-    "saturatedFat": 11,
-    "sugar": 3.1,
-    "salt": 3.2
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "hearty-veggie-breakfast",
-   "name": "Hearty Veggie Breakfast",
-   "category": "Breakfast & brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 1101,
-    "protein": 57,
-    "carbs": 57,
-    "fat": 72,
-    "saturatedFat": 16,
-    "sugar": 5.3,
-    "salt": 3.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "small-veggie-breakfast",
-   "name": "Small Veggie Breakfast",
-   "category": "Breakfast & brunch",
-   "serving": "",
-   "nutrients": {
-    "calories": 437,
-    "protein": 23,
-    "carbs": 26,
-    "fat": 26,
-    "saturatedFat": 6.7,
-    "sugar": 3.3,
-    "salt": 1.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "avocado-on-toast",
@@ -1216,7 +1222,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "french-toast-with-smoked-streaky-bacon-and-maple-syrup",
@@ -1238,7 +1256,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "french-toast-with-maple-syrup-and-red-fruits",
@@ -1260,7 +1289,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "creamy-porridge",
@@ -1282,7 +1322,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "the-works",
@@ -1304,7 +1354,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "bacon-and-egg-bap",
@@ -1326,7 +1388,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "sausage-and-egg-bap",
@@ -1348,7 +1421,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "veggie-sausage-and-egg-bap",
@@ -1370,7 +1455,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   }
  ],
  "combinations": []

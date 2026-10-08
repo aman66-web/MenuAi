@@ -15,14 +15,14 @@
  "source": {
   "title": "GAIL's Beverages Nutrition & Allergen Guide, Autumn 2026 (file CoffeeMatrix_Autumn_26.pdf, PDF created 10 September 2026; no date printed in the guide)",
   "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Autumn_26.pdf",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Hot and cold drinks only, from GAIL's drinks guide: calories per portion (the guide doesn't state portion sizes). GAIL's doesn't say whether the nutrition on its food pages is per portion or per 100 g, so no food is listed. Drinks with no figure (N/A) are left out.",
  "allergenGuide": {
   "title": "GAIL's Beverages Nutrition & Allergen Guide, Autumn 2026 (file CoffeeMatrix_Autumn_26.pdf, PDF created 10 September 2026; no date printed in the guide)",
   "url": "https://cdn.shopify.com/s/files/1/0717/9658/8827/files/CoffeeMatrix_Autumn_26.pdf",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
   "complete": true
  },
@@ -652,8 +652,8 @@
    }
   },
   {
-   "id": "decaf-cows-milk",
-   "name": "Decaf Cow’s Milk",
+   "id": "small-cappuccino-decaf-cows-milk",
+   "name": "Small Cappuccino, decaf cow’s milk",
    "category": "Coffee",
    "serving": "",
    "nutrients": {
@@ -4478,50 +4478,6 @@
    "allergens": {
     "contains": [
      "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "small-iced-matcha-latte-semi-skimmed-milk",
-   "name": "Small Iced Matcha Latte, semi skimmed milk",
-   "category": "Matcha",
-   "serving": "",
-   "nutrients": {
-    "calories": 103
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "small-iced-matcha-latte-oat-drink",
-   "name": "Small Iced Matcha Latte, oat drink",
-   "category": "Matcha",
-   "serving": "",
-   "nutrients": {
-    "calories": 84
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
     ],
     "mayContain": []
    }

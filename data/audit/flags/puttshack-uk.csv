@@ -1,2 +1,2 @@
 chain,kind,severity,code,item,name,category,detail
-puttshack-uk,allergen,medium,name-implies-fish,avocado-caesar-salad,Avocado Caesar Salad,Salads & bowls,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"
+puttshack-uk,allergen,reviewed,name-implies-fish,avocado-caesar-salad,Avocado Caesar Salad,Salads & bowls,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"

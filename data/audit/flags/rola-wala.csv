@@ -1,0 +1,6 @@
+chain,kind,severity,code,item,name,category,detail
+rola-wala,nutrition,low,sugar+fibre-gt-carbs,butter-chicken-spice-bowl-cauli,Butter Chicken Spice Bowl (cauli),Spice Bowls,sugars 12 + fibre 10 > carbohydrate 12 (starch would be negative)
+rola-wala,nutrition,low,sugar+fibre-gt-carbs,chicken-tikka-spice-bowl-cauli,Chicken Tikka Spice Bowl (cauli),Spice Bowls,sugars 13 + fibre 10 > carbohydrate 19 (starch would be negative)
+rola-wala,nutrition,low,sugar+fibre-gt-carbs,keralan-chickpea-spice-bowl-cauli,Keralan Chickpea Spice Bowl (cauli),Spice Bowls,sugars 12 + fibre 9 > carbohydrate 18 (starch would be negative)
+rola-wala,nutrition,low,sugar+fibre-gt-carbs,nagaland-lamb-spice-bowl-cauli,Nagaland Lamb Spice Bowl (cauli),Spice Bowls,sugars 13 + fibre 12 > carbohydrate 19 (starch would be negative)
+rola-wala,nutrition,low,sugar+fibre-gt-carbs,red-dal-spice-bowl-cauli,Red Dal Spice Bowl (cauli),Spice Bowls,sugars 19 + fibre 19 > carbohydrate 32 (starch would be negative)

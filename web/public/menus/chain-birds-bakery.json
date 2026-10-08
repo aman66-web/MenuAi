@@ -10,15 +10,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Birds Bakery (Birds (Derby) Ltd) Nutrition and allergen data, birdsbakery.com (website pages, no date printed; read 2026-10-06)",
+  "title": "Birds Bakery (Birds (Derby) Ltd) Nutrition and allergen data, birdsbakery.com (website pages, no date printed; read 2026-10-08)",
   "url": "https://birdsbakery.com/pages/nutrition-and-allergen-data",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Values are per item as the bakery's website prints them (per roll, product, portion or stated weight). Items it lists only per 100 g are left out, because we never convert. The website carries no date.",
  "allergenGuide": {
   "title": "Birds Bakery Nutrition and allergen data, birdsbakery.com (website pages, no date printed)",
   "url": "https://birdsbakery.com/pages/nutrition-and-allergen-data",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -228,45 +228,6 @@
     "mayContain": [
      "crustaceans",
      "milk",
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "blt-chia-roll",
-   "name": "BLT chia roll",
-   "category": "Rolls & sandwiches",
-   "serving": "1 roll",
-   "nutrients": {
-    "calories": 347,
-    "protein": 21.8,
-    "carbs": 29.4,
-    "fat": 17.7,
-    "saturatedFat": 6,
-    "sugar": 2.5,
-    "fiber": 2.5,
-    "salt": 2.5,
-    "energyKj": 1453
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "crustaceans",
-     "fish",
-     "mustard",
      "nuts",
      "peanuts",
      "sulphites"
@@ -2378,43 +2339,6 @@
    }
   },
   {
-   "id": "apple-crumble-danish",
-   "name": "Apple crumble danish",
-   "category": "Cakes & pastries",
-   "serving": "",
-   "nutrients": {
-    "calories": 310,
-    "protein": 3.9,
-    "carbs": 46.5,
-    "fat": 12.9,
-    "saturatedFat": 7.8,
-    "sugar": 22.8,
-    "fiber": 1.6,
-    "salt": 0.6,
-    "energyKj": 1301
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "soya",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "pink-elephants-foot",
    "name": "Pink elephants foot",
    "category": "Cakes & pastries",
@@ -2701,41 +2625,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "apricot-and-pumpkin-seed-flapjack",
-   "name": "Apricot & pumpkin seed flapjack",
-   "category": "Cakes & pastries",
-   "serving": "1 portion",
-   "nutrients": {
-    "calories": 319,
-    "protein": 4.6,
-    "carbs": 40.9,
-    "fat": 14.5,
-    "saturatedFat": 7.3,
-    "sugar": 28.5,
-    "fiber": 3.5,
-    "salt": 0.3,
-    "energyKj": 1336
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "eggs",
-     "nuts",
-     "peanuts",
-     "soya"
     ]
    }
   },

@@ -11,13 +11,13 @@
  "source": {
   "title": "Pizza Union Nutrition and Allergen Information (renewed 17.03.26)",
   "url": "https://www.pizzaunion.com/wp-content/pizza-union-nutrition-allergen-information.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Pizza Union's guide gives values per average portion with no weights, and toppings are listed separately (they are not added to the pizza figures). Wines, cocktails and teas have no data in the guide.",
  "allergenGuide": {
   "title": "Pizza Union Nutrition and Allergen Information (renewed 17.03.26)",
   "url": "https://www.pizzaunion.com/wp-content/pizza-union-nutrition-allergen-information.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -800,9 +800,6 @@
     "cereals": [
      "wheat",
      "barley"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -842,10 +839,6 @@
     "cereals": [
      "wheat",
      "barley"
-    ],
-    "nuts": [
-     "hazelnut",
-     "pistachio"
     ]
    }
   },

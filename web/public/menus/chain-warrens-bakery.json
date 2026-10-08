@@ -2462,10 +2462,6 @@
     ],
     "mayContain": [
      "nuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -2598,9 +2594,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -2734,12 +2727,6 @@
     "mayContain": [
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -2767,12 +2754,6 @@
     "mayContain": [
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -2800,13 +2781,6 @@
     "mayContain": [
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -2834,12 +2808,6 @@
     "mayContain": [
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -3151,9 +3119,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3180,9 +3145,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3209,9 +3171,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3239,12 +3198,6 @@
      "eggs",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -3272,9 +3225,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3301,9 +3251,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3357,9 +3304,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3480,9 +3424,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -3540,9 +3481,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -3570,10 +3508,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "pistachio"
     ]
    }
   },

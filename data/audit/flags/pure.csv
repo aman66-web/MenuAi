@@ -1,7 +1,6 @@
 chain,kind,severity,code,item,name,category,detail
 pure,nutrition,low,sugar+fibre-gt-carbs,berry-berry-good-large,Berry Berry Good (large),Smoothies,sugars 28.7 + fibre 12.8 > carbohydrate 34 (starch would be negative)
 pure,nutrition,low,sugar+fibre-gt-carbs,berry-berry-good-regular,Berry Berry Good (regular),Smoothies,sugars 14.3 + fibre 6.4 > carbohydrate 17 (starch would be negative)
-pure,nutrition,low,sugar+fibre-gt-carbs,deliciously-ella-cacao-and-almond-energy-ball,Deliciously Ella Cacao & Almond Energy Ball,Snacks,sugars 16.7 + fibre 3.8 > carbohydrate 17.9 (starch would be negative)
 pure,nutrition,low,sugar+fibre-gt-carbs,fibre-starter,Fibre Starter,Birchers & yoghurts,sugars 24.4 + fibre 14.2 > carbohydrate 33.8 (starch would be negative)
 pure,nutrition,low,sugar+fibre-gt-carbs,pure-bibimbap-undressed,Pure Bibimbap (undressed),Salads,sugars 4.7 + fibre 6.1 > carbohydrate 6.9 (starch would be negative)
 pure,nutrition,low,sugar+fibre-gt-carbs,rainbow-veg-dressed,Rainbow Veg (dressed),Salads,sugars 19.5 + fibre 12.9 > carbohydrate 26 (starch would be negative)

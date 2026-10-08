@@ -16,9 +16,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Rick Stein restaurant menus with calories (13 PDFs on rickstein.com, created 21 April to 4 October 2026; read 2026-10-07)",
+  "title": "Rick Stein restaurant menus with calories (13 PDFs on rickstein.com, created 21 April to 4 October 2026; read 2026-10-08)",
   "url": "https://rickstein.com/restaurants/",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, copied from each restaurant's own menu PDF: The Seafood Restaurant, St Petroc's Bistro and Rick Stein's Café (Padstow) and The Cornish Arms. Menus are samples and change often. Sandbanks, Barnes, Winchester, Fistral and Stein's Fish & Chips print no calories. The same dish can differ between restaurants.",
@@ -654,118 +654,6 @@
    "serving": "",
    "nutrients": {
     "calories": 1416
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-strawberry-ice-cream",
-   "name": "Treleavens strawberry ice cream",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 193
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-vanilla-ice-cream",
-   "name": "Treleavens vanilla ice cream",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 192
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-chocolate-ice-cream",
-   "name": "Treleavens chocolate ice cream",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 206
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-raspberry-ripple-ice-cream",
-   "name": "Treleavens raspberry ripple ice cream",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 170
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-mango-sorbet",
-   "name": "Treleavens mango sorbet",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 260
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-lemon-and-lime-sorbet",
-   "name": "Treleavens lemon and lime sorbet",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 116
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-raspberry-sorbet",
-   "name": "Treleavens raspberry sorbet",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 103
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "treleavens-rhubarb-sorbet",
-   "name": "Treleavens rhubarb sorbet",
-   "category": "Cornish Arms: Desserts",
-   "serving": "3 scoops",
-   "nutrients": {
-    "calories": 176
    },
    "tags": [],
    "limitedTime": false,

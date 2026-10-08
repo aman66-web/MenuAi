@@ -1,0 +1,349 @@
+{
+ "schemaVersion": 1,
+ "id": "rola-wala",
+ "name": "Rola Wala",
+ "cuisine": "Indian",
+ "builderType": "standard",
+ "aliases": [
+  "rola wala",
+  "rolawala",
+  "rola wala restaurants"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Rola Wala 2024 Nutrition calorie chart (RLW-Nutrition-2024-v3.0, PDF created 22 July 2024; still linked from its menu page)",
+  "url": "https://rolawala.com/wp-content/uploads/2024/07/RLW-Nutrition-2024-v3.0.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Figures are from Rola Wala's 2024 nutrition chart (July 2024), which its menu page still links. That page names some fillings differently (Pulled Lamb, Chickpea Masala) and has no Red Dal, so dishes may have changed. Beef Masala, Paneer Tikka Masala, Tikka Tacos, sides and drinks have no figures.",
+ "allergenGuide": {
+  "title": "Rola Wala Allergen Chart 2024 (pages 3-4 of RLW-Nutrition-2024-v3.0, 22 July 2024; one row per component, not per dish)",
+  "url": "https://rolawala.com/wp-content/uploads/2024/07/RLW-Nutrition-2024-v3.0.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Naan Rolls",
+  "Spice Bowls"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-tikka-naan-roll-plain",
+   "name": "Chicken Tikka Naan Roll (plain)",
+   "category": "Naan Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 555,
+    "protein": 32,
+    "carbs": 60,
+    "fat": 16,
+    "saturatedFat": 5,
+    "sugar": 6,
+    "fiber": 7,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-naan-roll-plain",
+   "name": "Butter Chicken Naan Roll (plain)",
+   "category": "Naan Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 552,
+    "protein": 28,
+    "carbs": 68,
+    "fat": 21,
+    "saturatedFat": 8,
+    "sugar": 13,
+    "fiber": 6,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nagaland-lamb-naan-roll-plain",
+   "name": "Nagaland Lamb Naan Roll (plain)",
+   "category": "Naan Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 538,
+    "protein": 34,
+    "carbs": 61,
+    "fat": 16,
+    "saturatedFat": 6,
+    "sugar": 6,
+    "fiber": 10,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "keralan-chickpea-naan-roll-plain",
+   "name": "Keralan Chickpea Naan Roll (plain)",
+   "category": "Naan Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 483,
+    "protein": 15,
+    "carbs": 81,
+    "fat": 9,
+    "saturatedFat": 2,
+    "sugar": 17,
+    "fiber": 9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-dal-naan-roll-plain",
+   "name": "Red Dal Naan Roll (plain)",
+   "category": "Naan Rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 498,
+    "protein": 18,
+    "carbs": 88,
+    "fat": 6,
+    "saturatedFat": 2,
+    "sugar": 20,
+    "fiber": 9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-spice-bowl-rice",
+   "name": "Chicken Tikka Spice Bowl (rice)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 494,
+    "protein": 30,
+    "carbs": 46,
+    "fat": 15,
+    "saturatedFat": 5,
+    "sugar": 10,
+    "fiber": 6,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-spice-bowl-rice",
+   "name": "Butter Chicken Spice Bowl (rice)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 462,
+    "protein": 25,
+    "carbs": 47,
+    "fat": 16,
+    "saturatedFat": 7,
+    "sugar": 11,
+    "fiber": 5,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nagaland-lamb-spice-bowl-rice",
+   "name": "Nagaland Lamb Spice Bowl (rice)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 477,
+    "protein": 29,
+    "carbs": 47,
+    "fat": 15,
+    "saturatedFat": 6,
+    "sugar": 10,
+    "fiber": 8,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "keralan-chickpea-spice-bowl-rice",
+   "name": "Keralan Chickpea Spice Bowl (rice)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 451,
+    "protein": 30,
+    "carbs": 46,
+    "fat": 12,
+    "saturatedFat": 4,
+    "sugar": 10,
+    "fiber": 5,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-dal-spice-bowl-rice",
+   "name": "Red Dal Spice Bowl (rice)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "protein": 13,
+    "carbs": 59,
+    "fat": 5,
+    "saturatedFat": 3,
+    "sugar": 16,
+    "fiber": 15,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-spice-bowl-cauli",
+   "name": "Chicken Tikka Spice Bowl (cauli)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 438,
+    "protein": 30,
+    "carbs": 19,
+    "fat": 21,
+    "saturatedFat": 6,
+    "sugar": 13,
+    "fiber": 10,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-chicken-spice-bowl-cauli",
+   "name": "Butter Chicken Spice Bowl (cauli)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 359,
+    "protein": 24,
+    "carbs": 12,
+    "fat": 18,
+    "saturatedFat": 7,
+    "sugar": 12,
+    "fiber": 10,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nagaland-lamb-spice-bowl-cauli",
+   "name": "Nagaland Lamb Spice Bowl (cauli)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 421,
+    "protein": 34,
+    "carbs": 19,
+    "fat": 21,
+    "saturatedFat": 7,
+    "sugar": 13,
+    "fiber": 12,
+    "salt": 3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "keralan-chickpea-spice-bowl-cauli",
+   "name": "Keralan Chickpea Spice Bowl (cauli)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 395,
+    "protein": 35,
+    "carbs": 18,
+    "fat": 18,
+    "saturatedFat": 5,
+    "sugar": 12,
+    "fiber": 9,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-dal-spice-bowl-cauli",
+   "name": "Red Dal Spice Bowl (cauli)",
+   "category": "Spice Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 338,
+    "protein": 18,
+    "carbs": 32,
+    "fat": 11,
+    "saturatedFat": 4,
+    "sugar": 19,
+    "fiber": 19,
+    "salt": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

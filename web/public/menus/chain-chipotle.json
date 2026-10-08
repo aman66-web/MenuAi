@@ -10,17 +10,17 @@
  ],
  "sample": false,
  "source": {
-  "title": "Chipotle UK nutrition facts, per serving of each ingredient (AUG 2022)",
-  "url": "https://www.chipotle.co.uk/nutrition-calculator",
-  "checkedOn": "2026-10-06"
+  "title": "Chipotle UK 14 allergens and nutrition facts chart, per serving (UK270726, Aug 2026)",
+  "url": "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf",
+  "checkedOn": "2026-10-08"
  },
- "note": "Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them together. The sheet is dated August 2022, so some ingredients may have changed since.",
+ "note": "Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them together. Its chart says food is prepared in open-plan kitchens where multiple allergens are present, so it cannot guarantee any item is free from specific allergens.",
  "allergenGuide": {
   "title": "Chipotle UK 14 allergens and nutrition facts chart (UK270726)",
   "url": "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Ingredients"
@@ -31,7 +31,7 @@
    "id": "flour-tortilla-burrito",
    "name": "Flour Tortilla (burrito)",
    "category": "Ingredients",
-   "serving": "",
+   "serving": "1 tortilla",
    "nutrients": {
     "calories": 297,
     "protein": 7.9,
@@ -40,13 +40,50 @@
     "saturatedFat": 0.7,
     "sugar": 1.8,
     "fiber": 4.4,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1243,
+    "weight": 95
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flour-tortillas-taco-3",
+   "name": "Flour Tortillas (taco, 3)",
+   "category": "Ingredients",
+   "serving": "3 tortillas",
+   "nutrients": {
+    "calories": 240,
+    "protein": 6,
+    "carbs": 39,
+    "fat": 7.5,
+    "saturatedFat": 0.5,
+    "sugar": 1,
+    "fiber": 2.8,
+    "salt": 0.5,
+    "energyKj": 1004,
+    "weight": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coriander-lime-white-rice",
@@ -61,13 +98,19 @@
     "saturatedFat": 0.5,
     "sugar": 0.1,
     "fiber": 1.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 774,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coriander-lime-brown-rice",
@@ -82,13 +125,19 @@
     "saturatedFat": 0.4,
     "sugar": 0.1,
     "fiber": 2.3,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 774,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "black-beans",
@@ -103,13 +152,19 @@
     "saturatedFat": 1,
     "sugar": 0.9,
     "fiber": 8.6,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 397,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pinto-beans",
@@ -124,13 +179,19 @@
     "saturatedFat": 0.2,
     "sugar": 0.1,
     "fiber": 11.2,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 397,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fajita-vegetables",
@@ -145,13 +206,19 @@
     "saturatedFat": 0.1,
     "sugar": 1.4,
     "fiber": 0.6,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 88,
+    "weight": 57
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "barbacoa",
@@ -166,13 +233,19 @@
     "saturatedFat": 1.3,
     "sugar": 0.1,
     "fiber": 0.8,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 644,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken",
@@ -187,13 +260,19 @@
     "saturatedFat": 2.4,
     "sugar": 0.1,
     "fiber": 1,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 774,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "carnitas",
@@ -208,13 +287,19 @@
     "saturatedFat": 3.9,
     "sugar": 0.1,
     "fiber": 1,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 879,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "steak",
@@ -229,7 +314,9 @@
     "saturatedFat": 1.9,
     "sugar": 0.2,
     "fiber": 1,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 690,
+    "weight": 113
    },
    "tags": [
     "contains_beef"
@@ -237,7 +324,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sofritas-braised-tofu",
@@ -252,13 +343,21 @@
     "saturatedFat": 0.7,
     "sugar": 2.2,
     "fiber": 1.2,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 351,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chilli-corn-salsa",
@@ -273,13 +372,19 @@
     "saturatedFat": 0.2,
     "sugar": 0.9,
     "fiber": 1.3,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 159,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "roasted-tomato-green-chilli-salsa",
@@ -291,16 +396,22 @@
     "protein": 0.3,
     "carbs": 1,
     "fat": 0.1,
-    "saturatedFat": 0,
+    "saturatedFat": 0.1,
     "sugar": 0.9,
     "fiber": 0.4,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 25,
+    "weight": 59
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "roasted-tomato-red-chilli-salsa",
@@ -312,20 +423,26 @@
     "protein": 0.3,
     "carbs": 1.4,
     "fat": 0.3,
-    "saturatedFat": 0,
+    "saturatedFat": 0.1,
     "sugar": 0.7,
     "fiber": 0.2,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 38,
+    "weight": 59
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
-   "id": "cheese",
-   "name": "Cheese",
+   "id": "monterey-jack-cheese",
+   "name": "Monterey Jack Cheese",
    "category": "Ingredients",
    "serving": "",
    "nutrients": {
@@ -336,13 +453,21 @@
     "saturatedFat": 4.8,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 393,
+    "weight": 28
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sour-cream",
@@ -356,14 +481,22 @@
     "fat": 3.9,
     "saturatedFat": 2.7,
     "sugar": 1.1,
-    "fiber": 0,
-    "salt": 0.1
+    "fiber": 0.5,
+    "salt": 0.1,
+    "energyKj": 188,
+    "weight": 57
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "guacamole-topping-side",
@@ -378,13 +511,19 @@
     "saturatedFat": 2.8,
     "sugar": 0.8,
     "fiber": 3.3,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 607,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "guacamole-large",
@@ -399,13 +538,19 @@
     "saturatedFat": 5.6,
     "sugar": 1.6,
     "fiber": 6.6,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1213,
+    "weight": 226
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chips-regular",
@@ -420,19 +565,52 @@
     "saturatedFat": 1.7,
     "sugar": 1.2,
     "fiber": 0,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1745,
+    "weight": 113
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chips-large",
+   "name": "Chips (large)",
+   "category": "Ingredients",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 627,
+    "protein": 6.9,
+    "carbs": 81,
+    "fat": 32.5,
+    "saturatedFat": 2.6,
+    "sugar": 1.8,
+    "fiber": 0,
+    "salt": 1.96,
+    "energyKj": 2623,
+    "weight": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chipotle-honey-vinaigrette",
    "name": "Chipotle Honey Vinaigrette",
    "category": "Ingredients",
-   "serving": "",
+   "serving": "59 ml",
    "nutrients": {
     "calories": 259,
     "protein": 0.2,
@@ -441,13 +619,18 @@
     "saturatedFat": 2.4,
     "sugar": 6.2,
     "fiber": 0.5,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 1084
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

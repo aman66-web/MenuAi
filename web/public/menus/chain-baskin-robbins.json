@@ -538,42 +538,6 @@
    }
   },
   {
-   "id": "pistachio-almond",
-   "name": "Pistachio Almond",
-   "category": "Ice cream scoops",
-   "serving": "1 scoop (113 g / 4 oz)",
-   "nutrients": {
-    "calories": 281,
-    "protein": 5.9,
-    "carbs": 22.4,
-    "fat": 18.7,
-    "saturatedFat": 8.4,
-    "sugar": 18.5,
-    "fiber": 1.7,
-    "salt": 0.2,
-    "energyKj": 1174,
-    "weight": 113
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "baskin-robbins/93fa40893d82.webp",
-   "allergens": {
-    "contains": [
-     "milk",
-     "nuts"
-    ],
-    "mayContain": [],
-    "nuts": [
-     "almond"
-    ]
-   }
-  },
-  {
    "id": "pralines-n-cream",
    "name": "Pralines 'N Cream",
    "category": "Ice cream scoops",

@@ -1,1 +1,3 @@
 chain,kind,severity,code,item,name,category,detail
+tortilla,allergen,reviewed,name-implies-eggs,large-chipotle-mayo-ve,Large Chipotle Mayo (Ve),Dips & sauces,'Mayo' in the name but eggs is not marked (contains: ['sulphites'])
+tortilla,allergen,reviewed,name-implies-eggs,medium-chipotle-mayo-ve,Medium Chipotle Mayo (Ve),Dips & sauces,'Mayo' in the name but eggs is not marked (contains: ['sulphites'])

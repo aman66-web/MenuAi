@@ -1,3 +1,3 @@
 chain,kind,severity,code,item,name,category,detail
-gails,allergen,medium,name-implies-eggs,tiramisu-cold-brew,Tiramisu Cold Brew,Coffee,'Tiramisu' in the name but eggs is not marked (contains: ['milk'])
-gails,allergen,medium,name-implies-eggs,tiramisu-cold-brew-decaf-cows-milk,"Tiramisu Cold Brew, decaf cow’s milk",Coffee,'Tiramisu' in the name but eggs is not marked (contains: ['milk'])
+gails,allergen,reviewed,name-implies-eggs,tiramisu-cold-brew,Tiramisu Cold Brew,Coffee,'Tiramisu' in the name but eggs is not marked (contains: ['milk'])
+gails,allergen,reviewed,name-implies-eggs,tiramisu-cold-brew-decaf-cows-milk,"Tiramisu Cold Brew, decaf cow’s milk",Coffee,'Tiramisu' in the name but eggs is not marked (contains: ['milk'])

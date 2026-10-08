@@ -1579,10 +1579,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "rye",
-     "oats"
     ]
    }
   },
@@ -1694,9 +1690,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1726,9 +1719,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1752,10 +1742,7 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2050,10 +2037,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2794,9 +2778,6 @@
     "mayContain": [
      "milk",
      "sesame"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -3928,9 +3909,6 @@
      "nuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3960,9 +3938,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3991,9 +3966,6 @@
      "nuts",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   }

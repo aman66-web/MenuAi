@@ -71,9 +71,6 @@
     ],
     "mayContain": [
      "milk"
-    ],
-    "cereals": [
-     "barley"
     ]
    }
   },
@@ -772,9 +769,6 @@
     "mayContain": [
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1856,72 +1850,6 @@
    }
   },
   {
-   "id": "celebration-cake",
-   "name": "Celebration Cake",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 2555,
-    "protein": 14.4,
-    "carbs": 324.6,
-    "fat": 135,
-    "saturatedFat": 67.8,
-    "sugar": 250.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
-   "id": "rocky-road-brownies",
-   "name": "Rocky road brownies",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 493,
-    "protein": 5.2,
-    "carbs": 61.7,
-    "fat": 27.7,
-    "saturatedFat": 16.3,
-    "sugar": 49.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ]
-   }
-  },
-  {
    "id": "sweet-tooth-brioche",
    "name": "Sweet tooth brioche",
    "category": "Desserts",
@@ -2180,9 +2108,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2216,9 +2141,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2342,9 +2264,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

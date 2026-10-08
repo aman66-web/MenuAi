@@ -1,70 +1,78 @@
 chain,kind,severity,code,item,name,category,detail
-hickorys,allergen,high,free-from-gluten-contains,alabama-chocolate-fudge-cake-gluten-free,Alabama Chocolate Fudge Cake (gluten free),Desserts,named 'gluten free' but allergens say it contains gluten
-hickorys,nutrition,medium,fat-implausible,go-big-or-go-home-with-fries,Go Big Or Go Home with Fries,Burgers,fat 156.8 g in one item
-hickorys,nutrition,medium,fat-implausible,go-big-or-go-home-with-salad,Go Big Or Go Home with Salad,Burgers,fat 153.1 g in one item
-hickorys,nutrition,medium,fat-implausible,hog-heaven-with-fries,Hog Heaven with Fries,The Smokehouse,fat 162.5 g in one item
-hickorys,nutrition,medium,fat-implausible,memphis-style-baby-back-ribs-bbq-full-rack-with-fries,Memphis Style Baby Back Ribs (BBQ Full Rack) with Fries,The Smokehouse,fat 152.1 g in one item
-hickorys,nutrition,medium,fat-implausible,memphis-style-baby-back-ribs-bourbon-full-rack-with-fries,Memphis Style Baby Back Ribs (Bourbon Full Rack) with Fries,The Smokehouse,fat 152.1 g in one item
-hickorys,nutrition,medium,fat-implausible,memphis-style-baby-back-ribs-maple-full-rack-with-fries,Memphis Style Baby Back Ribs (Maple Full Rack) with Fries,The Smokehouse,fat 151.8 g in one item
-hickorys,nutrition,medium,fat-implausible,the-bird-in-the-herd-with-fries,The Bird in the Herd with Fries,The Smokehouse,fat 195.7 g in one item
-hickorys,nutrition,medium,fat-implausible,the-bird-in-the-herd-with-salad,The Bird in the Herd with Salad,The Smokehouse,fat 183.1 g in one item
-hickorys,nutrition,medium,fat-implausible,the-carnivore-with-fries,The Carnivore with Fries,The Smokehouse,fat 221.5 g in one item
-hickorys,nutrition,medium,fat-implausible,the-carnivore-with-salad,The Carnivore with Salad,The Smokehouse,fat 184.7 g in one item
-hickorys,nutrition,medium,fat-implausible,the-great-american-breakfast,The Great American Breakfast,Brunch,fat 177.2 g in one item
-hickorys,nutrition,medium,fat-implausible,the-southern-sharer,The Southern Sharer,Appetisers,fat 269.9 g in one item
-hickorys,nutrition,medium,huge-protein,the-bird-in-the-herd-with-fries,The Bird in the Herd with Fries,The Smokehouse,123.4 g protein
-hickorys,nutrition,medium,huge-protein,the-bird-in-the-herd-with-salad,The Bird in the Herd with Salad,The Smokehouse,123.1 g protein
-hickorys,nutrition,medium,huge-protein,the-smokehouse-platter-with-fries,The Smokehouse Platter with Fries,The Smokehouse,318.3 g protein
-hickorys,nutrition,medium,huge-protein,the-smokehouse-platter-with-salad,The Smokehouse Platter with Salad,The Smokehouse,313.5 g protein
-hickorys,nutrition,medium,salt-very-high,chicken-fried-waffle,Chicken Fried Waffle,Brunch,salt 12.5 g with 1727 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,go-big-or-go-home-with-fries,Go Big Or Go Home with Fries,Burgers,salt 20.7 g with 2667 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,go-big-or-go-home-with-salad,Go Big Or Go Home with Salad,Burgers,salt 21.3 g with 2496 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,hickorys-cobb-salad-with-chargrilled-chicken-and-bourbon-bacon,Hickory's Cobb Salad with Chargrilled Chicken & Bourbon Bacon,Mains,salt 10.3 g with 1699 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,hickorys-muffins-the-ultimate-xxl-muffin,Hickory's Muffins (The Ultimate XXL Muffin),Brunch,salt 10.4 g with 1755 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,hickorys-muffins-the-ultimate-xxl-muffin-gluten-free,"Hickory's Muffins (The Ultimate XXL Muffin, gluten free)",Brunch,salt 10.1 g with 1668 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,hog-heaven-with-fries,Hog Heaven with Fries,The Smokehouse,salt 10.6 g with 2301 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,hog-heaven-with-salad,Hog Heaven with Salad,The Smokehouse,salt 11 g with 2043 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,honeybird-cinna-bun,HoneyBird Cinna-Bun,Brunch,salt 11.7 g with 1918 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,mac-n-cheese-3am-mac-n-cheese-with-fries,Mac 'n' Cheese (3am Mac 'n' Cheese) with Fries,Mains,salt 16.8 g with 2398 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,mac-n-cheese-3am-mac-n-cheese-with-salad,Mac 'n' Cheese (3am Mac 'n' Cheese) with Salad,Mains,salt 17.4 g with 2228 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,mac-n-cheese-tennessee-brisket-mac-with-fries,Mac 'n' Cheese (Tennessee Brisket Mac) with Fries,Mains,salt 10 g with 2016 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,mac-n-cheese-tennessee-brisket-mac-with-salad,Mac 'n' Cheese (Tennessee Brisket Mac) with Salad,Mains,salt 10.6 g with 1684 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,maple-smoky-bacon-and-egg-pan-cake,Maple Smoky Bacon & Egg (Pan Cake),Brunch,salt 12.9 g with 1734 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,maple-smoky-bacon-and-egg-waffle,Maple Smoky Bacon & Egg (Waffle),Brunch,salt 12.4 g with 1679 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,memphis-style-baby-back-ribs-bbq-full-rack-with-fries,Memphis Style Baby Back Ribs (BBQ Full Rack) with Fries,The Smokehouse,salt 10.6 g with 2072 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,memphis-style-baby-back-ribs-bbq-full-rack-with-salad,Memphis Style Baby Back Ribs (BBQ Full Rack) with Salad,The Smokehouse,salt 11.2 g with 1644 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,sizzling-fajitas-blackened-butt-steak,Sizzling Fajitas (Blackened Butt Steak),Mains,salt 11.6 g with 1444 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,sizzling-fajitas-chargrilled-cajun-chicken,Sizzling Fajitas (Chargrilled Cajun Chicken),Mains,salt 11 g with 1364 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,sizzling-fajitas-southern-fried-vegan-strips,Sizzling Fajitas (Southern Fried Vegan Strips),Mains,salt 14.4 g with 1543 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,smoked-wings-kansas-bbq,Smoked Wings (Kansas BBQ),Appetisers,salt 10.2 g with 1396 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,southern-fried-chicken-burger-with-fries,Southern Fried Chicken Burger with Fries,Burgers,salt 19.2 g with 1695 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,southern-fried-chicken-burger-with-salad,Southern Fried Chicken Burger with Salad,Burgers,salt 19.8 g with 1524 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-bird-and-beast-with-fries,The Bird & Beast with Fries,Burgers,salt 15.6 g with 1783 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-bird-and-beast-with-salad,The Bird & Beast with Salad,Burgers,salt 16.2 g with 1611 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-bird-in-the-herd-with-fries,The Bird in the Herd with Fries,The Smokehouse,salt 13 g with 2630 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-bird-in-the-herd-with-salad,The Bird in the Herd with Salad,The Smokehouse,salt 13.6 g with 2379 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-carnivore-with-fries,The Carnivore with Fries,The Smokehouse,salt 15.7 g with 2768 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-carnivore-with-salad,The Carnivore with Salad,The Smokehouse,salt 15.9 g with 2318 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-chicken-coop-pan-cake,The Chicken Coop (Pan Cake),Brunch,salt 20.2 g with 1680 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-chicken-coop-waffle,The Chicken Coop (Waffle),Brunch,salt 18.5 g with 1622 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-great-american-breakfast,The Great American Breakfast,Brunch,salt 11.4 g with 2680 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-hickorys-veggie-burger-with-fries,The Hickory's Veggie Burger with Fries,Burgers,salt 11.3 g with 1724 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-hickorys-veggie-burger-with-salad,The Hickory's Veggie Burger with Salad,Burgers,salt 11.8 g with 1393 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-smokehouse-platter-with-fries,The Smokehouse Platter with Fries,The Smokehouse,salt 30.6 g with 6113 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-smokehouse-platter-with-salad,The Smokehouse Platter with Salad,The Smokehouse,salt 30.5 g with 5580 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,salt-very-high,the-southern-sharer,The Southern Sharer,Appetisers,salt 20.6 g with 3488 kcal (6 g is the whole day's limit)
-hickorys,nutrition,medium,sugar-implausible,bigger-badder-biscoff-freakshake,"Bigger, Badder Biscoff (freakshake)",Drinks,sugar 174.5 g in one item
-hickorys,nutrition,medium,sugar-implausible,chocolate-classic-shake,Chocolate (classic shake),Drinks,sugar 125.6 g in one item
-hickorys,nutrition,medium,sugar-implausible,cookie-monster-freakshake,Cookie Monster (freakshake),Drinks,sugar 201.6 g in one item
-hickorys,nutrition,medium,sugar-implausible,crazy-carnival-freakshake,Crazy Carnival (freakshake),Drinks,sugar 221.6 g in one item
-hickorys,nutrition,medium,sugar-implausible,crazy-carnival-freakshake-kids,"Crazy Carnival (freakshake, kids)",Kids,sugar 130.9 g in one item
-hickorys,nutrition,medium,sugar-implausible,strawberry-classic-shake,Strawberry (classic shake),Drinks,sugar 132.9 g in one item
-hickorys,nutrition,medium,sugar-implausible,the-cookie-creation,The Cookie Creation,Desserts,sugar 121.5 g in one item
-hickorys,nutrition,medium,sugar-implausible,vanilla-classic-shake,Vanilla (classic shake),Drinks,sugar 123.7 g in one item
 hickorys,nutrition,low,huge,go-big-or-go-home-with-fries,Go Big Or Go Home with Fries,Burgers,2667 kcal in one item
 hickorys,nutrition,low,huge,the-bird-in-the-herd-with-fries,The Bird in the Herd with Fries,The Smokehouse,2630 kcal in one item
 hickorys,nutrition,low,huge,the-carnivore-with-fries,The Carnivore with Fries,The Smokehouse,2768 kcal in one item
+hickorys,nutrition,low,huge,the-carnivore-with-fries-gluten-free,"The Carnivore (with Fries, gluten free)",The Smokehouse,2745 kcal in one item
 hickorys,nutrition,low,huge,the-great-american-breakfast,The Great American Breakfast,Brunch,2680 kcal in one item
 hickorys,nutrition,low,huge,the-smokehouse-platter-with-fries,The Smokehouse Platter with Fries,The Smokehouse,6113 kcal in one sharing item
-hickorys,nutrition,low,huge,the-smokehouse-platter-with-salad,The Smokehouse Platter with Salad,The Smokehouse,5580 kcal in one sharing item
+hickorys,nutrition,low,huge,the-smokehouse-platter-with-salad,The Smokehouse Platter with Salad,The Smokehouse,5564 kcal in one sharing item
 hickorys,nutrition,low,huge,the-southern-sharer,The Southern Sharer,Appetisers,3488 kcal in one item
+hickorys,nutrition,reviewed,fat-implausible,go-big-or-go-home-with-fries,Go Big Or Go Home with Fries,Burgers,fat 156.8 g in one item
+hickorys,nutrition,reviewed,fat-implausible,go-big-or-go-home-with-salad,Go Big Or Go Home with Salad,Burgers,fat 151.2 g in one item
+hickorys,nutrition,reviewed,fat-implausible,hog-heaven-with-fries,Hog Heaven with Fries,The Smokehouse,fat 162.5 g in one item
+hickorys,nutrition,reviewed,fat-implausible,memphis-style-baby-back-ribs-bbq-full-rack-with-fries,Memphis Style Baby Back Ribs (BBQ Full Rack) with Fries,The Smokehouse,fat 152.1 g in one item
+hickorys,nutrition,reviewed,fat-implausible,memphis-style-baby-back-ribs-bourbon-full-rack-with-fries,Memphis Style Baby Back Ribs (Bourbon Full Rack) with Fries,The Smokehouse,fat 152.1 g in one item
+hickorys,nutrition,reviewed,fat-implausible,memphis-style-baby-back-ribs-maple-full-rack-with-fries,Memphis Style Baby Back Ribs (Maple Full Rack) with Fries,The Smokehouse,fat 151.8 g in one item
+hickorys,nutrition,reviewed,fat-implausible,the-bird-in-the-herd-with-fries,The Bird in the Herd with Fries,The Smokehouse,fat 195.7 g in one item
+hickorys,nutrition,reviewed,fat-implausible,the-bird-in-the-herd-with-salad,The Bird in the Herd with Salad,The Smokehouse,fat 181.2 g in one item
+hickorys,nutrition,reviewed,fat-implausible,the-carnivore-with-fries,The Carnivore with Fries,The Smokehouse,fat 221.5 g in one item
+hickorys,nutrition,reviewed,fat-implausible,the-carnivore-with-fries-gluten-free,"The Carnivore (with Fries, gluten free)",The Smokehouse,fat 217.4 g in one item
+hickorys,nutrition,reviewed,fat-implausible,the-carnivore-with-salad,The Carnivore with Salad,The Smokehouse,fat 182.8 g in one item
+hickorys,nutrition,reviewed,fat-implausible,the-great-american-breakfast,The Great American Breakfast,Brunch,fat 177.2 g in one item
+hickorys,nutrition,reviewed,fat-implausible,the-southern-sharer,The Southern Sharer,Appetisers,fat 269.9 g in one item
+hickorys,nutrition,reviewed,huge-protein,the-bird-in-the-herd-with-fries,The Bird in the Herd with Fries,The Smokehouse,123.4 g protein
+hickorys,nutrition,reviewed,huge-protein,the-bird-in-the-herd-with-salad,The Bird in the Herd with Salad,The Smokehouse,123.1 g protein
+hickorys,nutrition,reviewed,huge-protein,the-smokehouse-platter-with-fries,The Smokehouse Platter with Fries,The Smokehouse,318.3 g protein
+hickorys,nutrition,reviewed,huge-protein,the-smokehouse-platter-with-salad,The Smokehouse Platter with Salad,The Smokehouse,313.5 g protein
+hickorys,allergen,reviewed,name-implies-gluten,alabama-chocolate-fudge-cake,Alabama Chocolate Fudge Cake,Desserts,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+hickorys,nutrition,reviewed,salt-very-high,chicken-fried-waffle,Chicken Fried Waffle,Mains,salt 12.5 g with 1727 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,go-big-or-go-home-with-fries,Go Big Or Go Home with Fries,Burgers,salt 20.7 g with 2667 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,go-big-or-go-home-with-salad,Go Big Or Go Home with Salad,Burgers,salt 21.3 g with 2479 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,hickorys-cobb-salad-with-chargrilled-chicken-and-bourbon-bacon,Hickory's Cobb Salad with Chargrilled Chicken & Bourbon Bacon,Mains,salt 11 g with 1740 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,hickorys-cobb-salad-with-chargrilled-chicken-and-bourbon-bacon-gluten-free,Hickory's Cobb Salad with Chargrilled Chicken & Bourbon Bacon (gluten free),Mains,salt 10.4 g with 1683 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,hickorys-muffins-the-ultimate-xxl-muffin,Hickory's Muffins (The Ultimate XXL Muffin),Brunch,salt 10.4 g with 1755 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,hickorys-muffins-the-ultimate-xxl-muffin-gluten-free,"Hickory's Muffins (The Ultimate XXL Muffin, gluten free)",Brunch,salt 10.1 g with 1668 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,hog-heaven-with-fries,Hog Heaven with Fries,The Smokehouse,salt 10.6 g with 2301 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,hog-heaven-with-salad,Hog Heaven with Salad,The Smokehouse,salt 11.1 g with 2027 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,honeybird-cinna-bun,HoneyBird Cinna-Bun,Brunch,salt 11.7 g with 1918 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,loaded-potatoes-the-philly-shroom,Loaded Potatoes (The Philly Shroom),Lunch,salt 15.6 g with 1539 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,mac-n-cheese-3am-mac-n-cheese-with-fries,Mac 'n' Cheese (3am Mac 'n' Cheese) with Fries,Mains,salt 16.8 g with 2398 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,mac-n-cheese-3am-mac-n-cheese-with-salad,Mac 'n' Cheese (3am Mac 'n' Cheese) with Salad,Mains,salt 17.4 g with 2212 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,mac-n-cheese-tennessee-brisket-mac-with-fries,Mac 'n' Cheese (Tennessee Brisket Mac) with Fries,Mains,salt 10 g with 2016 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,mac-n-cheese-tennessee-brisket-mac-with-salad,Mac 'n' Cheese (Tennessee Brisket Mac) with Salad,Mains,salt 10.6 g with 1668 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,maple-smoky-bacon-and-egg-pan-cake,Maple Smoky Bacon & Egg (Pan Cake),Brunch,salt 12.9 g with 1734 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,maple-smoky-bacon-and-egg-waffle,Maple Smoky Bacon & Egg (Waffle),Brunch,salt 12.4 g with 1679 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,memphis-style-baby-back-ribs-bbq-full-rack-with-fries,Memphis Style Baby Back Ribs (BBQ Full Rack) with Fries,The Smokehouse,salt 10.6 g with 2072 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,memphis-style-baby-back-ribs-bbq-full-rack-with-salad,Memphis Style Baby Back Ribs (BBQ Full Rack) with Salad,The Smokehouse,salt 11.2 g with 1628 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,pulled-pork-pan-cake,Pulled Pork (Pan Cake),Brunch,salt 20.8 g with 1818 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,pulled-pork-waffle,Pulled Pork (Waffle),Brunch,salt 20.3 g with 1733 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,sizzling-fajitas-chargrilled-cajun-chicken,Sizzling Fajitas (Chargrilled Cajun Chicken),Mains,salt 11 g with 1364 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,sizzling-fajitas-southern-fried-vegan-strips,Sizzling Fajitas (Southern Fried Vegan Strips),Mains,salt 14.4 g with 1534 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,smoked-wings-kansas-bbq,Smoked Wings (Kansas BBQ),Appetisers,salt 10.2 g with 1396 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,southern-fried-chicken-burger-with-fries,Southern Fried Chicken Burger with Fries,Burgers,salt 19.2 g with 1695 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,southern-fried-chicken-burger-with-salad,Southern Fried Chicken Burger with Salad,Burgers,salt 19.8 g with 1507 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,southern-fried-chicken-with-fries,Southern Fried Chicken with Fries,Mains,salt 18.2 g with 1898 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,southern-fried-onion-blossom,Southern Fried Onion Blossom,Appetisers,salt 13.5 g with 1212 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,southern-fried-single-chicken-burger-with-fries,Southern Fried Single Chicken Burger with fries,Lunch,salt 14.8 g with 1370 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,southern-fried-single-chicken-burger-with-salad,Southern Fried Single Chicken Burger with salad,Lunch,salt 15.4 g with 1182 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-bird-and-beast-burger-with-fries,The Bird & Beast Burger with Fries,Burgers,salt 15.6 g with 1783 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-bird-and-beast-burger-with-salad,The Bird & Beast Burger with Salad,Burgers,salt 16.2 g with 1595 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-bird-in-the-herd-with-fries,The Bird in the Herd with Fries,The Smokehouse,salt 13 g with 2630 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-bird-in-the-herd-with-salad,The Bird in the Herd with Salad,The Smokehouse,salt 13.6 g with 2363 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-carnivore-with-fries,The Carnivore with Fries,The Smokehouse,salt 15.7 g with 2768 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-carnivore-with-fries-gluten-free,"The Carnivore (with Fries, gluten free)",The Smokehouse,salt 15.4 g with 2745 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-carnivore-with-salad,The Carnivore with Salad,The Smokehouse,salt 16 g with 2302 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-great-american-breakfast,The Great American Breakfast,Brunch,salt 11.4 g with 2680 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-hickorys-veggie-burger-with-fries,The Hickory's Veggie Burger with Fries,Burgers,salt 11.3 g with 1724 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-hickorys-veggie-burger-with-salad,The Hickory's Veggie Burger with Salad,Burgers,salt 11.9 g with 1377 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-smokehouse-platter-with-fries,The Smokehouse Platter with Fries,The Smokehouse,salt 30.6 g with 6113 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-smokehouse-platter-with-salad,The Smokehouse Platter with Salad,The Smokehouse,salt 30.5 g with 5564 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,salt-very-high,the-southern-sharer,The Southern Sharer,Appetisers,salt 20.6 g with 3488 kcal (6 g is the whole day's limit)
+hickorys,nutrition,reviewed,sugar-implausible,bigger-badder-biscoff-freakshake,"Bigger, Badder Biscoff (freakshake)",Drinks,sugar 191.6 g in one item
+hickorys,nutrition,reviewed,sugar-implausible,chocolate-classic-shake,Chocolate (classic shake),Drinks,sugar 125.6 g in one item
+hickorys,nutrition,reviewed,sugar-implausible,cookie-monster-freakshake,Cookie Monster (freakshake),Drinks,sugar 201.6 g in one item
+hickorys,nutrition,reviewed,sugar-implausible,crazy-carnival-freakshake,Crazy Carnival (freakshake),Drinks,sugar 222.6 g in one item
+hickorys,nutrition,reviewed,sugar-implausible,crazy-carnival-freakshake-kids,"Crazy Carnival (freakshake, kids)",Kids,sugar 131.1 g in one item
+hickorys,nutrition,reviewed,sugar-implausible,strawberry-classic-shake,Strawberry (classic shake),Drinks,sugar 132.9 g in one item
+hickorys,nutrition,reviewed,sugar-implausible,the-cookie-creation,The Cookie Creation,Desserts,sugar 121.5 g in one item
+hickorys,nutrition,reviewed,sugar-implausible,vanilla-classic-shake,Vanilla (classic shake),Drinks,sugar 123.7 g in one item

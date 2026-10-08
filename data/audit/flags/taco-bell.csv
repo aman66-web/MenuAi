@@ -1,4 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
-taco-bell,nutrition,medium,energy-gap,black-beans,Black Beans,Sides,83 kcal vs 4P+4C+9F=61 (27% off)
 taco-bell,nutrition,low,fibre-gt-carbs,black-beans,Black Beans,Sides,fibre 11 g > carbohydrate 6.5 g
 taco-bell,nutrition,low,fibre-gt-carbs,extra-black-beans,Extra Black Beans,Sauces & add-ons,fibre 3.7 g > carbohydrate 2.2 g
+taco-bell,nutrition,reviewed,energy-gap,black-beans,Black Beans,Sides,83 kcal vs 4P+4C+9F=61 (27% off)

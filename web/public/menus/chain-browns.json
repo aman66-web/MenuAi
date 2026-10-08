@@ -15,7 +15,7 @@
   "url": "https://allergens.mbplc.io/AllergenGuideBrownsEstate.html",
   "checkedOn": "2026-10-06"
  },
- "note": "Gluten-free versions of dishes and the pre-booked group, tour, wedding and celebration menus are not included. A dish on the lunch, Sunday, Classics, bar snacks or children's menu is listed separately only where its numbers differ. Cocktails and Champagne have no nutrition table.",
+ "note": "Gluten-free versions of dishes and the pre-booked group, tour, wedding and celebration menus are not included. A dish on the lunch, Sunday, Classics, bar snacks or children's menu is listed separately only where its numbers differ. Cocktails and Champagne have no nutrition table. From the guide as of 5 Oct 2026: it no longer lists these menus (8 Oct), so figures may be out of date.",
  "allergenGuide": {
   "title": "Browns Allergen & Nutrition Guide, Mitchells & Butlers (live page)",
   "url": "https://allergens.mbplc.io/AllergenGuideBrownsEstate.html",
@@ -569,28 +569,6 @@
    "modifiers": []
   },
   {
-   "id": "baked-scallops",
-   "name": "Baked Scallops",
-   "category": "Starters & sharing",
-   "serving": "",
-   "nutrients": {
-    "calories": 485,
-    "protein": 17,
-    "carbs": 25,
-    "fat": 35,
-    "saturatedFat": 17,
-    "sugar": 16,
-    "salt": 46.4
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "sticky-hot-honey-chicken",
    "name": "Sticky Hot Honey Chicken",
    "category": "Starters & sharing",
@@ -603,26 +581,6 @@
     "saturatedFat": 5.1,
     "sugar": 19,
     "salt": 0.97
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "crispy-calamari",
-   "name": "Crispy Calamari",
-   "category": "Starters & sharing",
-   "serving": "",
-   "nutrients": {
-    "calories": 301,
-    "protein": 7.8,
-    "carbs": 21,
-    "fat": 12,
-    "saturatedFat": 1.1,
-    "sugar": 1.8,
-    "salt": 2.4
    },
    "tags": [],
    "limitedTime": false,
@@ -1546,28 +1504,6 @@
    },
    "tags": [
     "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "add-bacon-and-cheese",
-   "name": "Add Bacon & Cheese",
-   "category": "Add-ons",
-   "serving": "",
-   "nutrients": {
-    "calories": 174,
-    "protein": 15,
-    "carbs": 0.8,
-    "fat": 8.9,
-    "saturatedFat": 7,
-    "sugar": 0.1,
-    "salt": 1.8
-   },
-   "tags": [
-    "contains_pork"
    ],
    "limitedTime": false,
    "rankable": false,

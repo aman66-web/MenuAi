@@ -1,5 +1,5 @@
 chain,kind,severity,code,item,name,category,detail
-nicholsons,nutrition,medium,energy-gap,add-beef-patty,Add Beef Patty,Add-ons,271 kcal vs 4P+4C+9F=191 (29% off)
-nicholsons,nutrition,medium,energy-gap,add-scampi,Add Scampi,Add-ons,156 kcal vs 4P+4C+9F=116 (26% off)
-nicholsons,nutrition,medium,energy-gap,wholetail-scottish-scampi,Wholetail Scottish Scampi,Childrens,178 kcal vs 4P+4C+9F=137 (23% off)
 nicholsons,nutrition,low,energy-gap-alcohol,decaf-iced-black-coffee,Decaf Iced Black Coffee,Drinks,50 kcal vs 4P+4C+9F=35: energy not in the macros (alcohol?)
+nicholsons,allergen,reviewed,name-implies-gluten,lamb-shank-shepherds-pie,Lamb Shank Shepherd's Pie,Mains,"'Pie' in the name but gluten is not marked (contains: ['celery', 'milk'])"
+nicholsons,allergen,reviewed,name-implies-gluten,long-stem-broccoli-our-pie-collection,Long-Stem Broccoli (Our Pie Collection),Sides & snacks,'Pie' in the name but gluten is not marked (contains: none)
+nicholsons,allergen,reviewed,name-implies-gluten,rabbit-pie,Rabbit Pie,Mains,"'Pie' in the name but gluten is not marked (contains: ['celery', 'milk', 'mustard'])"

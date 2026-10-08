@@ -36,36 +36,6 @@
  "components": [],
  "items": [
   {
-   "id": "mac-n-cheese-bites",
-   "name": "Mac 'n' Cheese Bites",
-   "category": "Shareables",
-   "serving": "",
-   "nutrients": {
-    "calories": 962
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk"
-    ],
-    "mayContain": [
-     "mustard",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "buttermilk-chicken-tenders",
    "name": "Buttermilk Chicken Tenders",
    "category": "Shareables",
@@ -296,35 +266,6 @@
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "eggs",
-     "mustard",
-     "nuts",
-     "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "texas-bbq-flatbread",
-   "name": "Texas BBQ Flatbread",
-   "category": "Flatbreads",
-   "serving": "",
-   "nutrients": {
-    "calories": 1120
-   },
-   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],

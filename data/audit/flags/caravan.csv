@@ -1,12 +1,12 @@
 chain,kind,severity,code,item,name,category,detail
-caravan,allergen,medium,name-implies-milk,chai-latte-excluding-milk,Chai latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
-caravan,allergen,medium,name-implies-milk,charred-hispi-cabbage-den-miso-macadamia-cheese-mint-basil-spring-onion,"Charred hispi cabbage, den miso, macadamia ‘cheese’, mint, basil, spring onion",Small plates,"'cheese' in the name but milk is not marked (contains: ['celery', 'mustard', 'nuts', 'soya'])"
-caravan,allergen,medium,name-implies-milk,dirty-chai-latte-excluding-milk,Dirty chai latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
-caravan,allergen,medium,name-implies-milk,focus-flat-white-excluding-milk,Focus flat white (excluding milk),Coffee,'flat white' in the name but milk is not marked (contains: none)
-caravan,allergen,medium,name-implies-milk,islands-hot-chocolate-excluding-milk,Island's hot chocolate (excluding milk),Not coffee,'hot chocolate' in the name but milk is not marked (contains: none)
-caravan,allergen,medium,name-implies-milk,matcha-iced-latte-excluding-milk,Matcha iced latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
-caravan,allergen,medium,name-implies-milk,matcha-latte-excluding-milk,Matcha latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
-caravan,allergen,medium,name-implies-milk,mocha-excluding-milk,Mocha (excluding milk),Coffee,'Mocha' in the name but milk is not marked (contains: none)
 caravan,nutrition,low,huge,flat-iron-half-chicken-lime-slaw-sichuan-salt-crispy-curry-leaves-feasting-size,"Flat-iron half chicken, lime slaw, sichuan salt, crispy curry leaves (Feasting size)",Shared mains,3581 kcal in one item
 caravan,allergen,low,name-implies-sulphites,botivo-spritz,Botivo spritz,Cocktails 0.0%,'spritz' in the name but sulphites is not marked (contains: none)
 caravan,nutrition,low,zero-named-has-kcal,diet-coca-cola-mixer,Diet coca cola (mixer),"Mixers, cordials and syrups",named diet/zero/no sugar but 66 kcal
+caravan,allergen,reviewed,name-implies-milk,chai-latte-excluding-milk,Chai latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
+caravan,allergen,reviewed,name-implies-milk,charred-hispi-cabbage-den-miso-macadamia-cheese-mint-basil-spring-onion,"Charred hispi cabbage, den miso, macadamia ‘cheese’, mint, basil, spring onion",Small plates,"'cheese' in the name but milk is not marked (contains: ['celery', 'mustard', 'nuts', 'soya'])"
+caravan,allergen,reviewed,name-implies-milk,dirty-chai-latte-excluding-milk,Dirty chai latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
+caravan,allergen,reviewed,name-implies-milk,focus-flat-white-excluding-milk,Focus flat white (excluding milk),Coffee,'flat white' in the name but milk is not marked (contains: none)
+caravan,allergen,reviewed,name-implies-milk,islands-hot-chocolate-excluding-milk,Island's hot chocolate (excluding milk),Not coffee,'hot chocolate' in the name but milk is not marked (contains: none)
+caravan,allergen,reviewed,name-implies-milk,matcha-iced-latte-excluding-milk,Matcha iced latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
+caravan,allergen,reviewed,name-implies-milk,matcha-latte-excluding-milk,Matcha latte (excluding milk),Not coffee,'latte' in the name but milk is not marked (contains: none)
+caravan,allergen,reviewed,name-implies-milk,mocha-excluding-milk,Mocha (excluding milk),Coffee,'Mocha' in the name but milk is not marked (contains: none)

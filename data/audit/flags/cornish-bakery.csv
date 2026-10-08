@@ -1,3 +1,2 @@
 chain,kind,severity,code,item,name,category,detail
-cornish-bakery,allergen,medium,name-implies-eggs,apple-rhubarb-and-custard,"Apple, Rhubarb & Custard",Pastries and Cakes,"'Custard' in the name but eggs is not marked (contains: ['gluten', 'milk'])"
-cornish-bakery,allergen,medium,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Pastries and Cakes,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+cornish-bakery,allergen,reviewed,name-implies-eggs,apple-rhubarb-and-custard,"Apple, Rhubarb & Custard",Pastries and Cakes,"'Custard' in the name but eggs is not marked (contains: ['gluten', 'milk'])"

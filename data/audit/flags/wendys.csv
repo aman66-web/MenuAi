@@ -1,4 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
-wendys,nutrition,medium,salt-very-high,4-pc-chicken-tenders,4 Pc Chicken Tenders,Chicken,salt 5.3 g with 350 kcal (6 g is the whole day's limit)
-wendys,nutrition,medium,salt-very-high,8-pc-buffalo-saucy-boneless-bites,8 Pc Buffalo Saucy Boneless Bites,Chicken,salt 5 g with 337 kcal (6 g is the whole day's limit)
 wendys,nutrition,low,sugar+fibre-gt-carbs,apple-slices,Apple Slices,Sides,sugars 9.3 + fibre 2.2 > carbohydrate 9.3 (starch would be negative)
+wendys,nutrition,reviewed,salt-very-high,4-pc-chicken-tenders,4 Pc Chicken Tenders,Chicken,salt 5.3 g with 350 kcal (6 g is the whole day's limit)
+wendys,nutrition,reviewed,salt-very-high,8-pc-buffalo-saucy-boneless-bites,8 Pc Buffalo Saucy Boneless Bites,Chicken,salt 5 g with 337 kcal (6 g is the whole day's limit)

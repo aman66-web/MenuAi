@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Chilango publishes its burritos, bowls, salads and tacos only as separate ingredients, so only its four set boxes and its sides are listed. Its guide was last updated in November 2024.",
+ "allergenGuide": {
+  "title": "Chilango Nutrition & Allergen Information (updated 19 November 2024)",
+  "url": "https://a.storyblok.com/f/293792/x/c1bd09189b/chilango-nutrition-guide_19-nov-2024.pdf",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Boxes",
   "Sides",
@@ -36,13 +43,18 @@
     "saturatedFat": 0,
     "sugar": 0.1,
     "fiber": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 21
    },
    "tags": [
     "vegetarian"
    ],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "black-beans",
@@ -57,13 +69,24 @@
     "saturatedFat": 0.2,
     "sugar": 1.3,
     "fiber": 8,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 437
    },
    "tags": [
     "vegetarian"
    ],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "fajita-peppers-and-onions",
@@ -78,13 +101,24 @@
     "saturatedFat": 0.1,
     "sugar": 4.7,
     "fiber": 2.5,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 185
    },
    "tags": [
     "vegetarian"
    ],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-protein-box",
@@ -99,11 +133,20 @@
     "saturatedFat": 6.3,
     "sugar": 1.3,
     "fiber": 0,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1765
    },
    "tags": [],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pico-de-gallo",
@@ -118,13 +161,20 @@
     "saturatedFat": 0,
     "sugar": 1.6,
     "fiber": 0.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 40
    },
    "tags": [
     "vegetarian"
    ],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "steak",
@@ -139,13 +189,22 @@
     "saturatedFat": 8.6,
     "sugar": 0,
     "fiber": 0,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1151
    },
    "tags": [
     "contains_beef"
    ],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "monterey-jack-cheese",
@@ -160,13 +219,20 @@
     "saturatedFat": 1.5,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 134
    },
    "tags": [
     "vegetarian"
    ],
    "removable": true,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sour-cream",
@@ -181,13 +247,20 @@
     "saturatedFat": 1.7,
     "sugar": 0.8,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 117
    },
    "tags": [
     "vegetarian"
    ],
    "removable": true,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "guacamole",
@@ -202,13 +275,20 @@
     "saturatedFat": 3.2,
     "sugar": 0.7,
     "fiber": 3.7,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 665
    },
    "tags": [
     "vegetarian"
    ],
    "removable": true,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken",
@@ -223,11 +303,20 @@
     "saturatedFat": 3.1,
     "sugar": 0.7,
     "fiber": 0,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 883
    },
    "tags": [],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coriander-lime-rice",
@@ -242,13 +331,20 @@
     "saturatedFat": 0.2,
     "sugar": 0.2,
     "fiber": 1,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 1200
    },
    "tags": [
     "vegetarian"
    ],
    "removable": false,
-   "allowDouble": false
+   "allowDouble": false,
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "items": [
@@ -265,7 +361,8 @@
     "saturatedFat": 6.6,
     "sugar": 9,
     "fiber": 11.2,
-    "salt": 3.1
+    "salt": 3.1,
+    "energyKj": 2448
    },
    "tags": [],
    "limitedTime": false,
@@ -292,7 +389,20 @@
      "qty": 1
     }
    ],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "keto-box",
@@ -307,7 +417,8 @@
     "saturatedFat": 15,
     "sugar": 3.2,
     "fiber": 4.4,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2128
    },
    "tags": [
     "contains_beef"
@@ -340,7 +451,17 @@
      "qty": 1
     }
    ],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans"
+    ]
+   }
   },
   {
    "id": "low-carb-box",
@@ -355,7 +476,8 @@
     "saturatedFat": 6.4,
     "sugar": 7.8,
     "fiber": 6.9,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1794
    },
    "tags": [],
    "limitedTime": false,
@@ -382,7 +504,18 @@
      "qty": 1
     }
    ],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "vegan-box",
@@ -397,7 +530,8 @@
     "saturatedFat": 3.7,
     "sugar": 8.6,
     "fiber": 15.9,
-    "salt": 4.3
+    "salt": 4.3,
+    "energyKj": 2548
    },
    "tags": [
     "vegetarian"
@@ -430,7 +564,20 @@
      "qty": 1
     }
    ],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "tortilla-chips",
@@ -445,7 +592,8 @@
     "saturatedFat": 2.1,
     "sugar": 0.8,
     "fiber": 4.9,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1803
    },
    "tags": [
     "vegetarian"
@@ -453,7 +601,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "baked-fries-with-bbq-salsa",
@@ -468,13 +620,26 @@
     "saturatedFat": 1,
     "sugar": 17,
     "fiber": 3.7,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 1211
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "baked-fries-with-chipotle-crema",
@@ -489,13 +654,25 @@
     "saturatedFat": 4.3,
     "sugar": 3.3,
     "fiber": 3.3,
-    "salt": 4.2
+    "salt": 4.2,
+    "energyKj": 2594
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pico-de-gallo-salsa-pot",
@@ -510,13 +687,21 @@
     "saturatedFat": 0,
     "sugar": 2.2,
     "fiber": 0.8,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 56,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "asada-salsa-pot",
@@ -531,13 +716,24 @@
     "saturatedFat": 0,
     "sugar": 1.8,
     "fiber": 0.7,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 52,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "verde-salsa-pot",
@@ -552,13 +748,21 @@
     "saturatedFat": 0.1,
     "sugar": 2.9,
     "fiber": 1.3,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 99,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bbq-salsa-pot",
@@ -573,13 +777,23 @@
     "saturatedFat": 0,
     "sugar": 16,
     "fiber": 0.7,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 306,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chipotle-crema-pot",
@@ -594,13 +808,21 @@
     "saturatedFat": 3.3,
     "sugar": 2.2,
     "fiber": 0.3,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 1689,
+    "weight": 70
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "guacamole-pot-80-g",
@@ -615,13 +837,21 @@
     "saturatedFat": 3,
     "sugar": 0.6,
     "fiber": 3.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 626,
+    "weight": 80
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "guacamole-pot-170-g",
@@ -636,13 +866,21 @@
     "saturatedFat": 6.5,
     "sugar": 1.4,
     "fiber": 7.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 1329,
+    "weight": 170
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "homemade-lemonade",
@@ -657,13 +895,20 @@
     "saturatedFat": 0,
     "sugar": 72.7,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 1323
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": [
@@ -703,7 +948,8 @@
     "saturatedFat": 6.8,
     "sugar": 9.1,
     "fiber": 12.1,
-    "salt": 5.7
+    "salt": 5.7,
+    "energyKj": 3627
    },
    "tags": [],
    "itemCount": 1
@@ -748,7 +994,8 @@
     "saturatedFat": 15.2,
     "sugar": 3.3,
     "fiber": 5.3,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 3307
    },
    "tags": [
     "contains_beef"
@@ -791,7 +1038,8 @@
     "saturatedFat": 13.5,
     "sugar": 3.2,
     "fiber": 4.4,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1994
    },
    "tags": [
     "contains_beef"
@@ -834,7 +1082,8 @@
     "saturatedFat": 13.7,
     "sugar": 3.3,
     "fiber": 5.3,
-    "salt": 3.8
+    "salt": 3.8,
+    "energyKj": 3173
    },
    "tags": [
     "contains_beef"
@@ -877,7 +1126,8 @@
     "saturatedFat": 13.3,
     "sugar": 2.4,
     "fiber": 4.4,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2011
    },
    "tags": [
     "contains_beef"
@@ -920,7 +1170,8 @@
     "saturatedFat": 13.5,
     "sugar": 2.5,
     "fiber": 5.3,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 3190
    },
    "tags": [
     "contains_beef"
@@ -963,7 +1214,8 @@
     "saturatedFat": 11.8,
     "sugar": 2.5,
     "fiber": 0.7,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1463
    },
    "tags": [
     "contains_beef"
@@ -1006,7 +1258,8 @@
     "saturatedFat": 12,
     "sugar": 2.6,
     "fiber": 1.6,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 2642
    },
    "tags": [
     "contains_beef"
@@ -1041,7 +1294,8 @@
     "saturatedFat": 8.6,
     "sugar": 1.7,
     "fiber": 0.7,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1212
    },
    "tags": [
     "contains_beef"
@@ -1076,7 +1330,8 @@
     "saturatedFat": 8.8,
     "sugar": 1.8,
     "fiber": 1.6,
-    "salt": 3.8
+    "salt": 3.8,
+    "energyKj": 2391
    },
    "tags": [
     "contains_beef"
@@ -1119,7 +1374,8 @@
     "saturatedFat": 6.6,
     "sugar": 7.9,
     "fiber": 7.8,
-    "salt": 4.5
+    "salt": 4.5,
+    "energyKj": 2973
    },
    "tags": [],
    "itemCount": 1
@@ -1156,7 +1412,8 @@
     "saturatedFat": 3.2,
     "sugar": 7.1,
     "fiber": 3.2,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1129
    },
    "tags": [],
    "itemCount": 1
@@ -1193,7 +1450,8 @@
     "saturatedFat": 3.4,
     "sugar": 7.2,
     "fiber": 4.1,
-    "salt": 4.5
+    "salt": 4.5,
+    "energyKj": 2308
    },
    "tags": [],
    "itemCount": 1
@@ -1234,7 +1492,8 @@
     "saturatedFat": 0.5,
     "sugar": 7.9,
     "fiber": 12.2,
-    "salt": 4.3
+    "salt": 4.3,
+    "energyKj": 1883
    },
    "tags": [
     "vegetarian"

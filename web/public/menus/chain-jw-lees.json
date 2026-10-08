@@ -98,29 +98,6 @@
    }
   },
   {
-   "id": "crispy-fried-whitebait-lemon-and-dill-aioli",
-   "name": "Crispy fried whitebait, lemon & dill aioli",
-   "category": "Main menu: Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 462
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish"
-    ],
-    "mayContain": [
-     "molluscs"
-    ]
-   }
-  },
-  {
    "id": "sticky-pork-belly-bites-with-stout-bbq-glaze",
    "name": "Sticky pork belly bites with stout BBQ glaze",
    "category": "Main menu: Starters",
@@ -146,9 +123,6 @@
      "milk",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -282,9 +256,6 @@
      "eggs",
      "peanuts",
      "sesame"
-    ],
-    "nuts": [
-     "walnut"
     ]
    }
   },
@@ -665,9 +636,6 @@
      "eggs",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -762,9 +730,6 @@
      "eggs",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -885,9 +850,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1269,9 +1231,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1365,31 +1324,6 @@
     "mayContain": [
      "eggs",
      "nuts"
-    ]
-   }
-  },
-  {
-   "id": "baked-apple-crumble-with-hot-custard-or-pouring-cream",
-   "name": "Baked apple crumble with hot custard or pouring cream",
-   "category": "Main menu: Puddings",
-   "serving": "",
-   "nutrients": {
-    "calories": 469
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [
-     "eggs",
-     "soya"
     ]
    }
   },
@@ -1881,26 +1815,6 @@
    }
   },
   {
-   "id": "cheese-and-red-onion-chutney-sandwich",
-   "name": "Cheese & red onion chutney sandwich",
-   "category": "Pub lunch: Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 814
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "honey-baked-ham-and-mustard-sandwich",
    "name": "Honey baked ham & mustard sandwich",
    "category": "Pub lunch: Sandwiches",
@@ -1920,26 +1834,6 @@
      "gluten",
      "milk",
      "mustard"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "tuna-mayonnaise-sandwich",
-   "name": "Tuna mayonnaise sandwich",
-   "category": "Pub lunch: Sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 684
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish"
     ],
     "mayContain": []
    }
@@ -2420,9 +2314,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

@@ -1,3 +1,2 @@
 chain,kind,severity,code,item,name,category,detail
-bistrot-pierre,allergen,medium,name-implies-sesame,houmous,Houmous,Petit plats,"'Houmous' in the name but sesame is not marked (contains: ['gluten', 'sulphites'])"
 bistrot-pierre,nutrition,low,huge,french-afternoon-tea,French Afternoon Tea,Afternoon tea,2787 kcal in one item

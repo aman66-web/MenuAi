@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Pure menu pages: nutrition per portion (pure.co.uk/menus; accessed 2026-10-06, no date shown)",
+  "title": "Pure menu pages: nutrition per portion (pure.co.uk/menus; accessed 2026-10-08, no date shown)",
   "url": "https://www.pure.co.uk/menus/",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Values are per portion as printed on Pure's own menu pages (an average, as food is made by hand in store); no portion weights are printed. Airport and selected-store items are left out.",
  "allergenGuide": {
   "title": "Pure menu pages: allergens per item (the bold \"Contains\" line and the ingredients in bold; pure.co.uk/menus, no date shown)",
   "url": "https://www.pure.co.uk/menus/",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
   "complete": false
  },
@@ -2463,54 +2463,52 @@
    "image": "pure/8600f747d0df.webp"
   },
   {
-   "id": "brave-paprika-and-chilli-peas",
-   "name": "Brave Paprika and Chilli Peas",
+   "id": "boundless-chipotle-lime-chips",
+   "name": "Boundless Chipotle Lime Chips",
    "category": "Snacks",
    "serving": "",
    "nutrients": {
-    "calories": 132,
-    "protein": 7,
-    "carbs": 14,
-    "fat": 3.9,
-    "saturatedFat": 0.4,
-    "sugar": 0.9,
-    "fiber": 7,
-    "salt": 0.53,
-    "energyKj": 554
+    "calories": 100,
+    "protein": 2.4,
+    "carbs": 16.2,
+    "fat": 3.3,
+    "saturatedFat": 0.3,
+    "sugar": 0.5,
+    "fiber": 2.5,
+    "salt": 0.23,
+    "energyKj": 419
    },
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": false,
+   "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "pure/2304522d9775.webp"
+   "modifiers": []
   },
   {
-   "id": "brave-sea-salt-and-vinegar-peas",
-   "name": "Brave Sea Salt and Vinegar Peas",
+   "id": "boundless-smoked-bacon-chips",
+   "name": "Boundless Smoked Bacon Chips",
    "category": "Snacks",
    "serving": "",
    "nutrients": {
-    "calories": 134,
-    "protein": 6.7,
-    "carbs": 14.4,
-    "fat": 3.9,
-    "saturatedFat": 0.4,
-    "sugar": 0.7,
-    "fiber": 6.7,
-    "salt": 0.77,
-    "energyKj": 561
+    "calories": 96,
+    "protein": 2.2,
+    "carbs": 16.3,
+    "fat": 2.7,
+    "saturatedFat": 0.3,
+    "sugar": 0.9,
+    "fiber": 1.4,
+    "salt": 0.19,
+    "energyKj": 404
    },
    "tags": [
     "vegetarian"
    ],
-   "limitedTime": false,
+   "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "pure/7ba979387e84.webp"
+   "modifiers": []
   },
   {
    "id": "brown-bag-crisps-cheddar-and-onion",
@@ -2613,127 +2611,158 @@
    "image": "pure/4188fdf1c310.webp"
   },
   {
-   "id": "deliciously-ella-apple-raisin-and-cinnamon-oat-bar",
-   "name": "Deliciously Ella Apple, Raisin and Cinnamon Oat Bar",
+   "id": "forest-feast-belgian-dark-chocolate-sour-cherries",
+   "name": "Forest Feast Belgian Dark Chocolate Sour Cherries",
    "category": "Snacks",
    "serving": "",
    "nutrients": {
-    "calories": 213,
-    "protein": 2.8,
-    "carbs": 29.7,
-    "fat": 8.7,
-    "saturatedFat": 4.8,
-    "sugar": 14.5,
-    "fiber": 2.5,
-    "salt": 0.15,
-    "energyKj": 894
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pure/8fbf11a54cc0.webp"
-  },
-  {
-   "id": "deliciously-ella-cacao-and-almond-energy-ball",
-   "name": "Deliciously Ella Cacao & Almond Energy Ball",
-   "category": "Snacks",
-   "serving": "",
-   "nutrients": {
-    "calories": 162,
-    "protein": 3.9,
-    "carbs": 17.9,
-    "fat": 7.8,
-    "saturatedFat": 1.6,
-    "sugar": 16.7,
-    "fiber": 3.8,
-    "salt": 0.02,
-    "energyKj": 679
+    "calories": 190,
+    "protein": 2.1,
+    "carbs": 21.6,
+    "fat": 10,
+    "saturatedFat": 6,
+    "sugar": 18.8,
+    "fiber": 3,
+    "salt": 0.04,
+    "energyKj": 794
    },
    "tags": [],
-   "limitedTime": false,
+   "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "pure/e81ec67cb571.webp"
+   "modifiers": []
   },
   {
-   "id": "deliciously-ella-peanut-butter-oat-bar",
-   "name": "Deliciously Ella Peanut Butter Oat Bar",
+   "id": "forest-feast-salted-dark-chocolate-almonds",
+   "name": "Forest Feast Salted Dark Chocolate Almonds",
    "category": "Snacks",
    "serving": "",
    "nutrients": {
-    "calories": 230,
-    "protein": 5.1,
-    "carbs": 25,
-    "fat": 11.8,
-    "saturatedFat": 5.1,
+    "calories": 226,
+    "protein": 4.8,
+    "carbs": 12.4,
+    "fat": 17.2,
+    "saturatedFat": 6,
+    "sugar": 11.2,
+    "fiber": 3,
+    "salt": 0.29,
+    "energyKj": 942
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "forest-feast-sea-salt-and-black-peppercorn",
+   "name": "Forest Feast Sea Salt & Black Peppercorn",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 200,
+    "protein": 7.2,
+    "carbs": 8.4,
+    "fat": 16.4,
+    "saturatedFat": 1.8,
+    "sugar": 2.6,
+    "fiber": 2.6,
+    "salt": 0.55,
+    "energyKj": 837
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "forest-feast-sea-salt-and-cider-vinegar-nut-mix",
+   "name": "Forest Feast Sea Salt & Cider Vinegar Nut Mix",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 225,
+    "protein": 8,
+    "carbs": 7.6,
+    "fat": 18.8,
+    "saturatedFat": 1.8,
+    "sugar": 1.8,
+    "fiber": 3,
+    "salt": 0.52,
+    "energyKj": 942
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-and-nut-protein-bar-dark-chocolate",
+   "name": "Pip & Nut Protein Bar – Dark Chocolate",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 220,
+    "protein": 9.7,
+    "carbs": 15.6,
+    "fat": 12,
+    "saturatedFat": 3.1,
     "sugar": 10.6,
-    "fiber": 2.5,
-    "salt": 0.24,
-    "energyKj": 963
+    "fiber": 2.3,
+    "salt": 0.63,
+    "energyKj": 912
    },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
+   "tags": [],
+   "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "pure/a2b5789d2fae.webp"
+   "modifiers": []
   },
   {
-   "id": "eat-real-hummus-chips-tomato-and-basil",
-   "name": "Eat Real – Hummus Chips Tomato & Basil",
+   "id": "pip-and-nut-protein-bar-peanut-butter",
+   "name": "Pip & Nut Protein Bar – Peanut Butter",
    "category": "Snacks",
    "serving": "",
    "nutrients": {
-    "calories": 100,
-    "protein": 2,
-    "carbs": 15,
-    "fat": 3.6,
-    "saturatedFat": 0.3,
-    "sugar": 0.6,
-    "fiber": 0.8,
-    "salt": 0.23,
-    "energyKj": 418
+    "calories": 223,
+    "protein": 11,
+    "carbs": 14.7,
+    "fat": 12.9,
+    "saturatedFat": 4.1,
+    "sugar": 8.7,
+    "fiber": 2.3,
+    "salt": 0.45,
+    "energyKj": 931
    },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
+   "tags": [],
+   "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "pure/c3b9cbf1f1cf.webp"
+   "modifiers": []
   },
   {
-   "id": "eat-real-quinoa-chips-sour-cream-and-chive",
-   "name": "Eat Real – Quinoa Chips Sour Cream & Chive",
+   "id": "pip-and-nut-stuffed-bar-almond",
+   "name": "Pip & Nut Stuffed Bar – Almond",
    "category": "Snacks",
    "serving": "",
    "nutrients": {
-    "calories": 90,
-    "protein": 1.8,
-    "carbs": 14,
-    "fat": 3.6,
-    "saturatedFat": 0.3,
-    "sugar": 0.7,
-    "fiber": 0.8,
-    "salt": 0.42,
-    "energyKj": 380
+    "calories": 224,
+    "protein": 5.9,
+    "carbs": 20.7,
+    "fat": 12.6,
+    "saturatedFat": 2.7,
+    "sugar": 9.9,
+    "fiber": 3,
+    "salt": 0.05,
+    "energyKj": 932
    },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
+   "tags": [],
+   "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": [],
-   "image": "pure/1af8fd5fe188.webp"
+   "modifiers": []
   },
   {
    "id": "pip-and-nut-dark-chocolate-almond-butter-cups",
@@ -2856,31 +2885,6 @@
    "components": [],
    "modifiers": [],
    "image": "pure/fb2003d8dfff.webp"
-  },
-  {
-   "id": "deliciously-ella-salted-caramel-almonds",
-   "name": "Deliciously Ella Salted Caramel Almonds",
-   "category": "Snacks",
-   "serving": "",
-   "nutrients": {
-    "calories": 176,
-    "protein": 4.2,
-    "carbs": 8.5,
-    "fat": 14.2,
-    "saturatedFat": 4.4,
-    "sugar": 5.3,
-    "fiber": 3.6,
-    "salt": 0.07,
-    "energyKj": 734
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pure/8c419bce2861.webp"
   },
   {
    "id": "cappuccino",

@@ -30,7 +30,6 @@
   "Salads & flatbreads",
   "Large plates",
   "Steaks",
-  "Burgers & sandwiches",
   "Sides & fries",
   "Small plates",
   "Sunday roasts",
@@ -151,32 +150,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "hot-smoked-salmon-and-kimchi-salad",
-   "name": "Hot smoked salmon & kimchi salad",
-   "category": "Nibbles & small plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 283
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "fish",
-     "soya"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -803,28 +776,6 @@
    }
   },
   {
-   "id": "roasted-salmon",
-   "name": "Roasted salmon",
-   "category": "Large plates",
-   "serving": "",
-   "nutrients": {
-    "calories": 669
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish",
-     "milk",
-     "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "flash-grilled-minute-steak",
    "name": "Flash grilled minute steak",
    "category": "Large plates",
@@ -1044,30 +995,6 @@
     "mayContain": [
      "gluten"
     ]
-   }
-  },
-  {
-   "id": "fable-mushroom-burger",
-   "name": "Fable mushroom burger",
-   "category": "Burgers & sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 797
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": []
    }
   },
   {

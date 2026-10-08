@@ -14,13 +14,13 @@
  "source": {
   "title": "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce: Main Food Menu July 2026 and the July 2026 lunch, brunch, bottomless brunch, midweek eats, kids', no-gluten, afternoon tea and drinks menus; data correct as of 6 October 2026)",
   "url": "https://tkmenus.com/theslugandlettuce",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Values are per dish as served, with the standard garnishes and accompaniments on the menu. Dishes printed 'Excluding ...' leave out the topper or side named, which is listed under Options & add-ons.",
  "allergenGuide": {
   "title": "Slug & Lettuce allergen & nutritional data (tkmenus.com/theslugandlettuce, July 2026 menus, data correct as of 6 October 2026)",
   "url": "https://tkmenus.com/theslugandlettuce",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -165,9 +165,6 @@
     "mayContain": [
      "celery",
      "mustard"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1985,9 +1982,6 @@
      "mustard",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2348,10 +2342,7 @@
      "gluten",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2693,10 +2684,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2727,10 +2715,7 @@
      "mustard",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2762,10 +2747,7 @@
      "mustard",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2798,10 +2780,7 @@
      "mustard",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -5432,10 +5411,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -5504,10 +5480,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -5748,10 +5721,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -6211,9 +6181,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -6648,9 +6615,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

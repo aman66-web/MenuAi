@@ -76,64 +76,6 @@
    }
   },
   {
-   "id": "chicken-wings-500g",
-   "name": "Chicken Wings 500g",
-   "category": "Starters & sharers",
-   "serving": "",
-   "nutrients": {
-    "calories": 588,
-    "protein": 5,
-    "carbs": 92.5,
-    "fat": 20.4,
-    "saturatedFat": 2.5,
-    "sugar": 80.9,
-    "salt": 16
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "mustard",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "chicken-wings-1kg",
-   "name": "Chicken Wings 1kg",
-   "category": "Starters & sharers",
-   "serving": "",
-   "nutrients": {
-    "calories": 1176,
-    "protein": 9.9,
-    "carbs": 185,
-    "fat": 40.8,
-    "saturatedFat": 5.1,
-    "sugar": 161.8,
-    "salt": 32
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "mustard",
-     "soya"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "classic-prawn-cocktail",
    "name": "Classic Prawn Cocktail",
    "category": "Starters & sharers",
@@ -158,35 +100,6 @@
      "crustaceans",
      "eggs",
      "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "crispy-squid",
-   "name": "Crispy Squid",
-   "category": "Starters & sharers",
-   "serving": "",
-   "nutrients": {
-    "calories": 411,
-    "protein": 9.6,
-    "carbs": 15.5,
-    "fat": 34.6,
-    "saturatedFat": 3.1,
-    "sugar": 1.4,
-    "salt": 3.8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "molluscs",
-     "mustard",
-     "sulphites"
     ],
     "mayContain": []
    }
@@ -1296,34 +1209,6 @@
    }
   },
   {
-   "id": "blt-turkey-baguette",
-   "name": "BLT Turkey Baguette",
-   "category": "Wraps, baguettes & cobs",
-   "serving": "",
-   "nutrients": {
-    "calories": 1406,
-    "protein": 49.1,
-    "carbs": 110.7,
-    "fat": 83.7,
-    "saturatedFat": 15.9,
-    "salt": 7.7
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": []
-   }
-  },
-  {
    "id": "prawn-marie-rose-baguette",
    "name": "Prawn Marie Rose Baguette",
    "category": "Wraps, baguettes & cobs",
@@ -1441,33 +1326,6 @@
      "milk",
      "mustard",
      "sulphites"
-    ],
-    "mayContain": []
-   }
-  },
-  {
-   "id": "tuna-and-sweetcorn-mayonnaise-jacket",
-   "name": "Tuna & Sweetcorn Mayonnaise (jacket)",
-   "category": "Jackets",
-   "serving": "",
-   "nutrients": {
-    "calories": 879,
-    "protein": 28.7,
-    "carbs": 89.5,
-    "fat": 43.2,
-    "saturatedFat": 5.5,
-    "sugar": 7.7,
-    "salt": 6.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "fish",
-     "mustard"
     ],
     "mayContain": []
    }

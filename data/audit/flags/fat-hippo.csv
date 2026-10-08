@@ -1,6 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
-fat-hippo,nutrition,medium,energy-gap,milky-bar-hard-shake,Milky Bar (hard shake),Hard shakes,721 kcal vs 4P+4C+9F=515 (29% off)
-fat-hippo,nutrition,medium,energy-gap,the-irish-one-hard-shake,The Irish One (hard shake),Hard shakes,634 kcal vs 4P+4C+9F=484 (24% off)
 fat-hippo,nutrition,low,energy-gap-alcohol,apple-fruit-juice,Apple Fruit Juice,Soft drinks,105 kcal vs 4P+4C+9F=80: energy not in the macros (alcohol?)
 fat-hippo,nutrition,low,energy-gap-alcohol,baby-shaft-shot,Baby Shaft (shot),Cocktails & shots,381 kcal vs 4P+4C+9F=236: energy not in the macros (alcohol?)
 fat-hippo,nutrition,low,energy-gap-alcohol,espresso-shortini,Espresso Shortini,Cocktails & shots,233 kcal vs 4P+4C+9F=76: energy not in the macros (alcohol?)
@@ -8,3 +6,5 @@ fat-hippo,nutrition,low,energy-gap-alcohol,kids-orange-cordial,Kids Orange Cordi
 fat-hippo,nutrition,low,energy-gap-alcohol,pint-orange-cordial,Pint: Orange Cordial,Soft drinks,165 kcal vs 4P+4C+9F=128: energy not in the macros (alcohol?)
 fat-hippo,nutrition,low,sugar+fibre-gt-carbs,love-me-blender,Love Me Blender,Shakes,sugars 72 + fibre 9 > carbohydrate 77 (starch would be negative)
 fat-hippo,nutrition,low,sugar+fibre-gt-carbs,purple-slaw-side,Purple Slaw Side,Sides,sugars 7 + fibre 6 > carbohydrate 8 (starch would be negative)
+fat-hippo,nutrition,reviewed,energy-gap,milky-bar-hard-shake,Milky Bar (hard shake),Hard shakes,721 kcal vs 4P+4C+9F=515 (29% off)
+fat-hippo,nutrition,reviewed,energy-gap,the-irish-one-hard-shake,The Irish One (hard shake),Hard shakes,634 kcal vs 4P+4C+9F=484 (24% off)

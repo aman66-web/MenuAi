@@ -212,9 +212,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -284,9 +281,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -325,10 +319,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -367,10 +357,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -407,10 +393,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -447,10 +429,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -489,10 +467,6 @@
      "eggs",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -531,10 +505,6 @@
      "eggs",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -571,10 +541,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -611,10 +577,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -899,10 +861,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -934,10 +893,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1564,9 +1520,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1605,9 +1558,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1647,9 +1597,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -1686,9 +1633,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "pecan"
     ]
    }
   },
@@ -1725,9 +1669,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1764,9 +1705,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1844,9 +1782,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -1886,9 +1821,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },

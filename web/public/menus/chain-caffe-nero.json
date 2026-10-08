@@ -16,6 +16,13 @@
   "checkedOn": "2026-10-06"
  },
  "note": "Values are per product as the chain's website shows them. Drinks are listed by milk; where the chain prints one row with no cup size, none is shown. Plain Mocha and Hot Chocolate are without whipped cream, which is listed as an extra.",
+ "allergenGuide": {
+  "title": "Caffè Nero UK website: allergens printed with each product, milk and size (caffenero.com/uk/menu pages, retrieved 2026-10-06), cross-checked against the Allergen, Nutritional & Ingredient Guide (GB) issued 09/09/26",
+  "url": "https://www.caffenero.com/uk/menu",
+  "checkedOn": "2026-10-06",
+  "mayContainPublished": false,
+  "complete": true
+ },
  "categories": [
   "Breakfast",
   "Pastries",
@@ -43,7 +50,8 @@
     "saturatedFat": 12.8,
     "sugar": 5.1,
     "fiber": 1.5,
-    "salt": 1.5
+    "salt": 1.5,
+    "energyKj": 1623
    },
    "tags": [
     "contains_pork"
@@ -52,7 +60,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/90549d198538.webp"
+   "image": "caffe-nero/90549d198538.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-ciabatta",
@@ -67,7 +86,8 @@
     "saturatedFat": 6.6,
     "sugar": 2.9,
     "fiber": 3.9,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 1600
    },
    "tags": [
     "contains_pork"
@@ -76,7 +96,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/99cce7f838c0.webp"
+   "image": "caffe-nero/99cce7f838c0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "butchers-sausage-ciabatta",
@@ -91,7 +122,8 @@
     "saturatedFat": 7.8,
     "sugar": 4,
     "fiber": 3.5,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1787
    },
    "tags": [
     "contains_pork"
@@ -100,7 +132,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/6eada3273d25.webp"
+   "image": "caffe-nero/6eada3273d25.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "berry-granola",
@@ -115,7 +158,8 @@
     "saturatedFat": 7.4,
     "sugar": 15.4,
     "fiber": 0.9,
-    "salt": 0.12
+    "salt": 0.12,
+    "energyKj": 1190
    },
    "tags": [
     "vegetarian"
@@ -124,7 +168,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/415818cb7ca0.webp"
+   "image": "caffe-nero/415818cb7ca0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "fruit-salad",
@@ -139,7 +193,8 @@
     "saturatedFat": 0.1,
     "sugar": 16.1,
     "fiber": 2.7,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 326
    },
    "tags": [
     "vegetarian"
@@ -147,7 +202,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "porridge-semi-skimmed-milk",
@@ -162,7 +221,8 @@
     "saturatedFat": 2.7,
     "sugar": 9.5,
     "fiber": 3.4,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 993
    },
    "tags": [
     "vegetarian"
@@ -171,7 +231,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8a96bb4d515.webp"
+   "image": "caffe-nero/d8a96bb4d515.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "porridge-skimmed-milk",
@@ -186,7 +256,8 @@
     "saturatedFat": 0.8,
     "sugar": 9.7,
     "fiber": 3.4,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 892
    },
    "tags": [
     "vegetarian"
@@ -195,7 +266,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8a96bb4d515.webp"
+   "image": "caffe-nero/d8a96bb4d515.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "porridge-whole-milk",
@@ -210,7 +291,8 @@
     "saturatedFat": 5.2,
     "sugar": 9.3,
     "fiber": 3.4,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 1128
    },
    "tags": [
     "vegetarian"
@@ -219,7 +301,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8a96bb4d515.webp"
+   "image": "caffe-nero/d8a96bb4d515.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "porridge-soya-milk",
@@ -234,7 +326,8 @@
     "saturatedFat": 1.2,
     "sugar": 5.5,
     "fiber": 4.6,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 952
    },
    "tags": [
     "vegetarian"
@@ -243,7 +336,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8a96bb4d515.webp"
+   "image": "caffe-nero/d8a96bb4d515.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "porridge-oat-milk",
@@ -258,7 +361,8 @@
     "saturatedFat": 1.2,
     "sugar": 7.1,
     "fiber": 5.4,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 1096
    },
    "tags": [
     "vegetarian"
@@ -267,7 +371,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8a96bb4d515.webp"
+   "image": "caffe-nero/d8a96bb4d515.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "porridge-coconut-milk",
@@ -282,7 +395,8 @@
     "saturatedFat": 2,
     "sugar": 7.1,
     "fiber": 3.8,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 875
    },
    "tags": [
     "vegetarian"
@@ -291,7 +405,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8a96bb4d515.webp"
+   "image": "caffe-nero/d8a96bb4d515.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "porridge-almond-milk",
@@ -306,7 +430,8 @@
     "saturatedFat": 0.8,
     "sugar": 5.5,
     "fiber": 3.8,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 801
    },
    "tags": [
     "vegetarian"
@@ -315,7 +440,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8a96bb4d515.webp"
+   "image": "caffe-nero/d8a96bb4d515.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "pastel-de-nata",
@@ -330,7 +468,8 @@
     "saturatedFat": 7.4,
     "sugar": 7.6,
     "fiber": 0.7,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 995
    },
    "tags": [
     "vegetarian"
@@ -339,7 +478,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4a8df5fbcc5c.webp"
+   "image": "caffe-nero/4a8df5fbcc5c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pistachio-croissant",
@@ -354,7 +504,8 @@
     "saturatedFat": 10,
     "sugar": 14,
     "fiber": 1.3,
-    "salt": 0.59
+    "salt": 0.59,
+    "energyKj": 1537
    },
    "tags": [
     "vegetarian"
@@ -363,7 +514,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/8cc662b926ad.webp"
+   "image": "caffe-nero/8cc662b926ad.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "almond-croissant",
@@ -378,7 +544,8 @@
     "saturatedFat": 7.4,
     "sugar": 11.4,
     "fiber": 2,
-    "salt": 0.61
+    "salt": 0.61,
+    "energyKj": 1412
    },
    "tags": [
     "vegetarian"
@@ -387,7 +554,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bdeb417c44b2.webp"
+   "image": "caffe-nero/bdeb417c44b2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "apricot-croissant",
@@ -402,7 +584,8 @@
     "saturatedFat": 7,
     "sugar": 12,
     "fiber": 2,
-    "salt": 0.74
+    "salt": 0.74,
+    "energyKj": 1092
    },
    "tags": [
     "vegetarian"
@@ -411,7 +594,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/983b0aa85daf.webp"
+   "image": "caffe-nero/983b0aa85daf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "butter-croissant",
@@ -426,7 +620,8 @@
     "saturatedFat": 7.7,
     "sugar": 4,
     "fiber": 1.3,
-    "salt": 0.58
+    "salt": 0.58,
+    "energyKj": 927
    },
    "tags": [
     "vegetarian"
@@ -435,7 +630,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/274f58fb997c.webp"
+   "image": "caffe-nero/274f58fb997c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cinnamon-swirl",
@@ -450,7 +656,8 @@
     "saturatedFat": 11,
     "sugar": 19,
     "fiber": 2.4,
-    "salt": 0.58
+    "salt": 0.58,
+    "energyKj": 1477
    },
    "tags": [
     "vegetarian"
@@ -459,7 +666,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bff1d38efc49.webp"
+   "image": "caffe-nero/bff1d38efc49.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pain-aux-raisin",
@@ -474,7 +692,8 @@
     "saturatedFat": 8.7,
     "sugar": 18,
     "fiber": 2.1,
-    "salt": 0.77
+    "salt": 0.77,
+    "energyKj": 1340
    },
    "tags": [
     "vegetarian"
@@ -483,7 +702,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/606536472227.webp"
+   "image": "caffe-nero/606536472227.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pain-au-chocolat",
@@ -498,7 +728,8 @@
     "saturatedFat": 7.7,
     "sugar": 8,
     "fiber": 1.9,
-    "salt": 0.61
+    "salt": 0.61,
+    "energyKj": 1174
    },
    "tags": [
     "vegetarian"
@@ -507,7 +738,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/79e1090226c9.webp"
+   "image": "caffe-nero/79e1090226c9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "raspberry-croissant",
@@ -522,7 +765,8 @@
     "saturatedFat": 6.6,
     "sugar": 14,
     "fiber": 2,
-    "salt": 0.41
+    "salt": 0.41,
+    "energyKj": 1245
    },
    "tags": [
     "vegetarian"
@@ -531,7 +775,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/218af8d0d7ab.webp"
+   "image": "caffe-nero/218af8d0d7ab.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt"
+    ]
+   }
   },
   {
    "id": "cinnamon-bun",
@@ -546,7 +800,8 @@
     "saturatedFat": 8.9,
     "sugar": 32,
     "fiber": 2.9,
-    "salt": 0.69
+    "salt": 0.69,
+    "energyKj": 2266
    },
    "tags": [
     "vegetarian"
@@ -555,7 +810,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a466ceb1d8d7.webp"
+   "image": "caffe-nero/a466ceb1d8d7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "butternut-squash-and-pesto-seeded-panini",
@@ -570,7 +836,8 @@
     "saturatedFat": 2.1,
     "sugar": 11,
     "fiber": 5.7,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1796
    },
    "tags": [
     "vegetarian"
@@ -579,29 +846,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ec06bbd606ec.webp"
-  },
-  {
-   "id": "spicy-chicken-and-red-pepper-focaccia",
-   "name": "Spicy Chicken & Red Pepper Focaccia",
-   "category": "Sandwiches, paninis & tostati",
-   "serving": "",
-   "nutrients": {
-    "calories": 635,
-    "protein": 19.5,
-    "carbs": 62.3,
-    "fat": 33.3,
-    "saturatedFat": 2.9,
-    "sugar": 5.8,
-    "fiber": 4.3,
-    "salt": 0.88
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/bcfd89bca55c.webp"
+   "image": "caffe-nero/ec06bbd606ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "ham-and-mozzarella-panini",
@@ -616,7 +871,8 @@
     "saturatedFat": 8.3,
     "sugar": 7.1,
     "fiber": 3.1,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 1987
    },
    "tags": [
     "contains_pork"
@@ -625,7 +881,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a12fb1fd479f.webp"
+   "image": "caffe-nero/a12fb1fd479f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "brie-and-bacon-panini",
@@ -640,7 +906,8 @@
     "saturatedFat": 10.3,
     "sugar": 11.6,
     "fiber": 4.9,
-    "salt": 2.75
+    "salt": 2.75,
+    "energyKj": 2214
    },
    "tags": [
     "contains_pork"
@@ -649,7 +916,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a2131d5a0d66.webp"
+   "image": "caffe-nero/a2131d5a0d66.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mozzarella-and-tomato-panini",
@@ -664,7 +941,8 @@
     "saturatedFat": 8.3,
     "sugar": 6.5,
     "fiber": 3.3,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 2132
    },
    "tags": [
     "vegetarian"
@@ -673,31 +951,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/288260ebc45d.webp"
-  },
-  {
-   "id": "plant-based-mushroom-and-tomato-ragu-panini",
-   "name": "Plant Based Mushroom & Tomato Ragu Panini",
-   "category": "Sandwiches, paninis & tostati",
-   "serving": "",
-   "nutrients": {
-    "calories": 330,
-    "protein": 13.3,
-    "carbs": 50,
-    "fat": 7.8,
-    "saturatedFat": 0.9,
-    "sugar": 6.7,
-    "fiber": 4.3,
-    "salt": 1.14
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/ade8cb38fc28.webp"
+   "image": "caffe-nero/288260ebc45d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tuna-melt-panini",
@@ -712,14 +976,28 @@
     "saturatedFat": 2.9,
     "sugar": 4.6,
     "fiber": 4.9,
-    "salt": 1.59
+    "salt": 1.59,
+    "energyKj": 2057
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/7dc3b34591c8.webp"
+   "image": "caffe-nero/7dc3b34591c8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-and-pesto-tostati",
@@ -734,14 +1012,27 @@
     "saturatedFat": 2.2,
     "sugar": 3.4,
     "fiber": 2.1,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1508
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/84358c294c90.webp"
+   "image": "caffe-nero/84358c294c90.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "four-cheese-and-balsamic-onion-chutney-tostati-melt",
@@ -756,7 +1047,8 @@
     "saturatedFat": 11.2,
     "sugar": 11,
     "fiber": 2.3,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1832
    },
    "tags": [
     "vegetarian"
@@ -765,7 +1057,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a1ca69fa9d57.webp"
+   "image": "caffe-nero/a1ca69fa9d57.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "gluten-free-mozzarella-tomato-and-pesto-tostati",
@@ -780,7 +1083,8 @@
     "saturatedFat": 9.2,
     "sugar": 3,
     "fiber": 10.4,
-    "salt": 2.22
+    "salt": 2.22,
+    "energyKj": 1952
    },
    "tags": [
     "vegetarian"
@@ -789,7 +1093,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d618b8cbe326.webp"
+   "image": "caffe-nero/d618b8cbe326.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-and-tomato-tostati",
@@ -804,7 +1115,8 @@
     "saturatedFat": 5.9,
     "sugar": 5.1,
     "fiber": 2.7,
-    "salt": 1.39
+    "salt": 1.39,
+    "energyKj": 1522
    },
    "tags": [
     "vegetarian"
@@ -813,7 +1125,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f21d4ee94360.webp"
+   "image": "caffe-nero/f21d4ee94360.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-and-bacon-tostati-melt",
@@ -828,7 +1152,8 @@
     "saturatedFat": 8.4,
     "sugar": 5.8,
     "fiber": 2.2,
-    "salt": 1.67
+    "salt": 1.67,
+    "energyKj": 1762
    },
    "tags": [
     "contains_pork"
@@ -837,7 +1162,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/54c7a9e0ddeb.webp"
+   "image": "caffe-nero/54c7a9e0ddeb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ham-and-cheese-tostati-melt",
@@ -852,7 +1187,8 @@
     "saturatedFat": 7.8,
     "sugar": 5.5,
     "fiber": 2.9,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1587
    },
    "tags": [
     "contains_pork"
@@ -861,7 +1197,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/8ce0fb8f11e5.webp"
+   "image": "caffe-nero/8ce0fb8f11e5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mozzarella-and-roasted-tomato-tostati-melt",
@@ -876,7 +1222,8 @@
     "saturatedFat": 8,
     "sugar": 6.9,
     "fiber": 3.3,
-    "salt": 1.43
+    "salt": 1.43,
+    "energyKj": 1660
    },
    "tags": [
     "vegetarian"
@@ -885,7 +1232,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/68a88bbf9143.webp"
+   "image": "caffe-nero/68a88bbf9143.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "italian-prosciutto-and-yellow-datterini-tomato-flatbread",
@@ -900,7 +1258,8 @@
     "saturatedFat": 6.3,
     "sugar": 3.1,
     "fiber": 1.5,
-    "salt": 3.5
+    "salt": 3.5,
+    "energyKj": 1879
    },
    "tags": [
     "contains_pork"
@@ -909,7 +1268,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e237b404fdfa.webp"
+   "image": "caffe-nero/e237b404fdfa.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "nero-deli-italian-fennel-salami-cotto-ham-and-mozzarella-focaccia",
@@ -924,7 +1294,8 @@
     "saturatedFat": 3.6,
     "sugar": 0.4,
     "fiber": 17.8,
-    "salt": 3.2
+    "salt": 3.2,
+    "energyKj": 1999
    },
    "tags": [
     "contains_pork"
@@ -933,7 +1304,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/6c4e75e44783.webp"
+   "image": "caffe-nero/6c4e75e44783.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "nero-deli-italian-mozzarella-pesto-and-tomato-pizzetta",
@@ -948,7 +1330,8 @@
     "saturatedFat": 8.2,
     "sugar": 3.2,
     "fiber": 2.1,
-    "salt": 2.72
+    "salt": 2.72,
+    "energyKj": 2128
    },
    "tags": [
     "vegetarian"
@@ -957,7 +1340,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/7ff9270d1793.webp"
+   "image": "caffe-nero/7ff9270d1793.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-and-bacon-caesar-wrap",
@@ -972,7 +1366,8 @@
     "saturatedFat": 6.1,
     "sugar": 3.6,
     "fiber": 2.9,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 2173
    },
    "tags": [
     "contains_pork"
@@ -981,7 +1376,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/7ee4faa2c5b3.webp"
+   "image": "caffe-nero/7ee4faa2c5b3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pork-and-pancetta-sausage-roll",
@@ -996,7 +1403,8 @@
     "saturatedFat": 15.1,
     "sugar": 2.6,
     "fiber": 2.4,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1871
    },
    "tags": [
     "contains_pork"
@@ -1005,7 +1413,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/cce6739a480d.webp"
+   "image": "caffe-nero/cce6739a480d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "roasted-vegetable-plant-based-savoury-roll",
@@ -1020,7 +1439,8 @@
     "saturatedFat": 7.8,
     "sugar": 4.9,
     "fiber": 4.2,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1353
    },
    "tags": [
     "vegetarian"
@@ -1029,7 +1449,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/df693cd9017f.webp"
+   "image": "caffe-nero/df693cd9017f.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "blt-sandwich",
@@ -1044,7 +1473,8 @@
     "saturatedFat": 4.1,
     "sugar": 5.3,
     "fiber": 6.6,
-    "salt": 1.93
+    "salt": 1.93,
+    "energyKj": 1798
    },
    "tags": [
     "contains_pork"
@@ -1053,7 +1483,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3e69ce7418b3.webp"
+   "image": "caffe-nero/3e69ce7418b3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "tuna-and-cucumber-sandwich",
@@ -1068,14 +1510,28 @@
     "saturatedFat": 1.9,
     "sugar": 5.4,
     "fiber": 6.6,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 2019
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/666ee66c688e.webp"
+   "image": "caffe-nero/666ee66c688e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "free-range-egg-mayo-sandwich",
@@ -1090,7 +1546,8 @@
     "saturatedFat": 2.2,
     "sugar": 2.9,
     "fiber": 3.7,
-    "salt": 1.18
+    "salt": 1.18,
+    "energyKj": 2063
    },
    "tags": [
     "vegetarian"
@@ -1099,7 +1556,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e3fdcd1d9fd5.webp"
+   "image": "caffe-nero/e3fdcd1d9fd5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "feta-and-grain-salad",
@@ -1114,7 +1584,8 @@
     "saturatedFat": 6.4,
     "sugar": 5.9,
     "fiber": 13.5,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1846
    },
    "tags": [
     "vegetarian"
@@ -1122,7 +1593,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "tomato-and-basil-soup",
@@ -1137,7 +1618,8 @@
     "saturatedFat": 0.4,
     "sugar": 10.9,
     "fiber": 4.6,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 550
    },
    "tags": [
     "vegetarian"
@@ -1146,7 +1628,11 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e306b8f611e3.webp"
+   "image": "caffe-nero/e306b8f611e3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "arrabbiata-meatball-pasta",
@@ -1161,7 +1647,8 @@
     "saturatedFat": 2.9,
     "sugar": 0.8,
     "fiber": 6.1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1568
    },
    "tags": [
     "contains_pork"
@@ -1170,7 +1657,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/67f29c225336.webp"
+   "image": "caffe-nero/67f29c225336.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sourdough-bread-roll",
@@ -1185,7 +1682,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.9,
     "fiber": 2.2,
-    "salt": 0.85
+    "salt": 0.85,
+    "energyKj": 738
    },
    "tags": [
     "vegetarian"
@@ -1194,7 +1692,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/6d6e1a8d697f.webp"
+   "image": "caffe-nero/6d6e1a8d697f.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "forest-feast-matcha-chocolate-almonds",
@@ -1209,7 +1716,8 @@
     "saturatedFat": 5.6,
     "sugar": 14,
     "fiber": 1.5,
-    "salt": 0.06
+    "salt": 0.06,
+    "energyKj": 971
    },
    "tags": [
     "vegetarian"
@@ -1218,7 +1726,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/5a8b233a371d.webp"
+   "image": "caffe-nero/5a8b233a371d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "lindor-pistachio-bar",
@@ -1233,14 +1752,30 @@
     "saturatedFat": 11.4,
     "sugar": 17.5,
     "fiber": 0.6,
-    "salt": 0.08
+    "salt": 0.08,
+    "energyKj": 948
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/200dbab6e9c2.webp"
+   "image": "caffe-nero/200dbab6e9c2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "lindt-lindor-salted-caramel-chocolate-bar",
@@ -1254,7 +1789,8 @@
     "fat": 17,
     "saturatedFat": 13,
     "sugar": 17,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 982
    },
    "tags": [
     "vegetarian"
@@ -1263,7 +1799,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/458f5852fc59.webp"
+   "image": "caffe-nero/458f5852fc59.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "lindt-lindor-milk-chocolate-bar",
@@ -1277,7 +1824,8 @@
     "fat": 17,
     "saturatedFat": 13,
     "sugar": 17,
-    "salt": 0.08
+    "salt": 0.08,
+    "energyKj": 958
    },
    "tags": [
     "vegetarian"
@@ -1286,7 +1834,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/02b3ba951578.webp"
+   "image": "caffe-nero/02b3ba951578.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "forest-feast-dark-chocolate-cherries",
@@ -1301,7 +1860,8 @@
     "saturatedFat": 6,
     "sugar": 19,
     "fiber": 3.1,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 794
    },
    "tags": [
     "vegetarian"
@@ -1310,7 +1870,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/6fa241ed30f4.webp"
+   "image": "caffe-nero/6fa241ed30f4.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "forest-feast-dried-mango-slices",
@@ -1325,7 +1891,8 @@
     "saturatedFat": 0.1,
     "sugar": 21,
     "fiber": 2.8,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 462
    },
    "tags": [
     "vegetarian"
@@ -1334,7 +1901,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/417b2ca3bf5f.webp"
+   "image": "caffe-nero/417b2ca3bf5f.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "forest-feast-salted-dark-chocolate-almonds",
@@ -1349,14 +1922,25 @@
     "saturatedFat": 6,
     "sugar": 11,
     "fiber": 3,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 942
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/474fc33ea781.webp"
+   "image": "caffe-nero/474fc33ea781.webp",
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "deliciously-ella-cacao-and-almond-oat-bar",
@@ -1371,7 +1955,8 @@
     "saturatedFat": 4.8,
     "sugar": 12.8,
     "fiber": 2.6,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 910
    },
    "tags": [
     "vegetarian"
@@ -1380,7 +1965,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f7cda8a750de.webp"
+   "image": "caffe-nero/f7cda8a750de.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "deliciously-ella-apple-and-raisin-oat-bar",
@@ -1395,7 +1993,8 @@
     "saturatedFat": 4.7,
     "sugar": 14.5,
     "fiber": 2.5,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 894
    },
    "tags": [
     "vegetarian"
@@ -1404,7 +2003,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0822849887d9.webp"
+   "image": "caffe-nero/0822849887d9.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "lemon-and-pistachio-protein-balls",
@@ -1419,7 +2027,8 @@
     "saturatedFat": 2.4,
     "sugar": 16.9,
     "fiber": 2.9,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 813
    },
    "tags": [
     "vegetarian"
@@ -1428,7 +2037,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/242d90eae942.webp"
+   "image": "caffe-nero/242d90eae942.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "cashew",
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "blueberry-oat-muffin-protein-balls",
@@ -1443,7 +2062,8 @@
     "saturatedFat": 1,
     "sugar": 15.7,
     "fiber": 3.5,
-    "salt": 0.06
+    "salt": 0.06,
+    "energyKj": 733
    },
    "tags": [
     "vegetarian"
@@ -1452,7 +2072,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/8fbf8af0c20a.webp"
+   "image": "caffe-nero/8fbf8af0c20a.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "cashew"
+    ]
+   }
   },
   {
    "id": "almond-biscotti",
@@ -1476,31 +2106,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/485dbf3c67ca.webp"
-  },
-  {
-   "id": "gingerbread-biscuit",
-   "name": "Gingerbread Biscuit",
-   "category": "Snacks",
-   "serving": "",
-   "nutrients": {
-    "calories": 239,
-    "protein": 3,
-    "carbs": 40.3,
-    "fat": 6.9,
-    "saturatedFat": 2.2,
-    "sugar": 19.8,
-    "fiber": 2.1,
-    "salt": 0.19
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/ce5b9094f661.webp"
+   "image": "caffe-nero/485dbf3c67ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "shortbread",
@@ -1515,7 +2136,8 @@
     "saturatedFat": 9.2,
     "sugar": 11.4,
     "fiber": 0.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1100
    },
    "tags": [
     "vegetarian"
@@ -1524,7 +2146,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/785e2c6fa5bf.webp"
+   "image": "caffe-nero/785e2c6fa5bf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "stem-ginger-biscuits",
@@ -1539,7 +2171,8 @@
     "saturatedFat": 1.7,
     "sugar": 11.3,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 558
    },
    "tags": [
     "vegetarian"
@@ -1548,7 +2181,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/5c37382b4954.webp"
+   "image": "caffe-nero/5c37382b4954.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "caramel-waffles",
@@ -1563,7 +2205,8 @@
     "saturatedFat": 7,
     "sugar": 29.6,
     "fiber": 1.2,
-    "salt": 0.45
+    "salt": 0.45,
+    "energyKj": 1393
    },
    "tags": [
     "vegetarian"
@@ -1572,7 +2215,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3debb2beaf10.webp"
+   "image": "caffe-nero/3debb2beaf10.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sea-salted-popcorn",
@@ -1587,7 +2241,8 @@
     "saturatedFat": 0.3,
     "sugar": 0.1,
     "fiber": 2.2,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 368
    },
    "tags": [
     "vegetarian"
@@ -1596,7 +2251,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/33448a928651.webp"
+   "image": "caffe-nero/33448a928651.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sweet-and-salty-popcorn",
@@ -1611,7 +2270,8 @@
     "saturatedFat": 0.5,
     "sugar": 3.4,
     "fiber": 3.8,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 583
    },
    "tags": [
     "vegetarian"
@@ -1620,7 +2280,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c4652c0cfd58.webp"
+   "image": "caffe-nero/c4652c0cfd58.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lightly-salted-kettle-chips",
@@ -1635,7 +2299,8 @@
     "saturatedFat": 1.2,
     "sugar": 0.1,
     "fiber": 1.6,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 827
    },
    "tags": [
     "vegetarian"
@@ -1643,7 +2308,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mature-cheddar-and-red-onion-kettle-chips",
@@ -1658,7 +2327,8 @@
     "saturatedFat": 1.2,
     "sugar": 0.6,
     "fiber": 1.9,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 826
    },
    "tags": [
     "vegetarian"
@@ -1666,7 +2336,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sea-salt-and-balsamic-vinegar-kettle-chips",
@@ -1681,7 +2357,8 @@
     "saturatedFat": 1,
     "sugar": 1,
     "fiber": 1.8,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 853
    },
    "tags": [
     "vegetarian"
@@ -1689,7 +2366,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemon-and-blueberry-cake",
@@ -1704,7 +2385,8 @@
     "saturatedFat": 4.5,
     "sugar": 47.7,
     "fiber": 1.3,
-    "salt": 0.09
+    "salt": 0.09,
+    "energyKj": 2070
    },
    "tags": [
     "vegetarian"
@@ -1713,7 +2395,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a6757e8b7f2d.webp"
+   "image": "caffe-nero/a6757e8b7f2d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "banana-and-walnut-loaf-cake",
@@ -1728,7 +2421,8 @@
     "saturatedFat": 2.1,
     "sugar": 18,
     "fiber": 1.4,
-    "salt": 0.46
+    "salt": 0.46,
+    "energyKj": 1254
    },
    "tags": [
     "vegetarian"
@@ -1737,7 +2431,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/44f906825129.webp"
+   "image": "caffe-nero/44f906825129.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
   },
   {
    "id": "belgian-chocolate-fudge-cake",
@@ -1752,7 +2461,8 @@
     "saturatedFat": 8.9,
     "sugar": 33,
     "fiber": 2.1,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 1758
    },
    "tags": [
     "vegetarian"
@@ -1761,31 +2471,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c1807d1374.webp"
-  },
-  {
-   "id": "cappuccino-cake",
-   "name": "Cappuccino Cake",
-   "category": "Cakes & sweet treats",
-   "serving": "",
-   "nutrients": {
-    "calories": 389,
-    "protein": 3.8,
-    "carbs": 49.5,
-    "fat": 19,
-    "saturatedFat": 4.2,
-    "sugar": 32.8,
-    "fiber": 2.1,
-    "salt": 0.41
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/36ded0a23627.webp"
+   "image": "caffe-nero/69c1807d1374.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "carrot-cake",
@@ -1800,7 +2498,8 @@
     "saturatedFat": 4.2,
     "sugar": 38.8,
     "fiber": 2.2,
-    "salt": 0.72
+    "salt": 0.72,
+    "energyKj": 1972
    },
    "tags": [
     "vegetarian"
@@ -1809,7 +2508,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/970af37feb02.webp"
+   "image": "caffe-nero/970af37feb02.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut",
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "lemon-drizzle-loaf-cake",
@@ -1824,7 +2539,8 @@
     "saturatedFat": 1.3,
     "sugar": 22.6,
     "fiber": 0.9,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 1281
    },
    "tags": [
     "vegetarian"
@@ -1833,7 +2549,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e9d4a3b0ef61.webp"
+   "image": "caffe-nero/e9d4a3b0ef61.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "honeycomb-cheesecake",
@@ -1848,7 +2575,8 @@
     "saturatedFat": 11.5,
     "sugar": 18.5,
     "fiber": 0,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 1348
    },
    "tags": [
     "vegetarian"
@@ -1857,7 +2585,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/19d579a9c777.webp"
+   "image": "caffe-nero/19d579a9c777.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "plant-based-apple-crumble-and-custard-tart",
@@ -1872,7 +2611,8 @@
     "saturatedFat": 7.8,
     "sugar": 14.5,
     "fiber": 2.6,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 1324
    },
    "tags": [
     "vegetarian"
@@ -1881,7 +2621,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/22e0d16a785c.webp"
+   "image": "caffe-nero/22e0d16a785c.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "italian-cream-bun-maritozzo",
@@ -1896,7 +2645,8 @@
     "saturatedFat": 10.8,
     "sugar": 9.9,
     "fiber": 0.6,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 1260
    },
    "tags": [
     "vegetarian"
@@ -1905,7 +2655,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0dff872ae865.webp"
+   "image": "caffe-nero/0dff872ae865.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sicilian-lemon-meringue-cheesecake",
@@ -1920,7 +2681,8 @@
     "saturatedFat": 8.9,
     "sugar": 35,
     "fiber": 0.9,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 1591
    },
    "tags": [
     "vegetarian"
@@ -1929,7 +2691,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c1350876d5b.webp"
+   "image": "caffe-nero/9c1350876d5b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "italian-tiramisu",
@@ -1944,7 +2717,8 @@
     "saturatedFat": 9.7,
     "sugar": 30.8,
     "fiber": 1.3,
-    "salt": 0.12
+    "salt": 0.12,
+    "energyKj": 1231
    },
    "tags": [
     "vegetarian"
@@ -1953,7 +2727,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/50f4c4574944.webp"
+   "image": "caffe-nero/50f4c4574944.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pistachio-and-chocolate-mousse-cake",
@@ -1968,14 +2753,32 @@
     "saturatedFat": 9.8,
     "sugar": 14,
     "fiber": 1.4,
-    "salt": 0.06
+    "salt": 0.06,
+    "energyKj": 983
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/8d076f40278e.webp"
+   "image": "caffe-nero/8d076f40278e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut",
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "ultimate-chocolate-muffin",
@@ -1990,7 +2793,8 @@
     "saturatedFat": 7.7,
     "sugar": 47.2,
     "fiber": 2.3,
-    "salt": 0.45
+    "salt": 0.45,
+    "energyKj": 2304
    },
    "tags": [
     "vegetarian"
@@ -1999,7 +2803,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e8ad7acddc5e.webp"
+   "image": "caffe-nero/e8ad7acddc5e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sicilian-lemon-muffin",
@@ -2014,7 +2830,8 @@
     "saturatedFat": 3.1,
     "sugar": 36.5,
     "fiber": 0.7,
-    "salt": 0.55
+    "salt": 0.55,
+    "energyKj": 1927
    },
    "tags": [
     "vegetarian"
@@ -2023,7 +2840,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/94854aebc26e.webp"
+   "image": "caffe-nero/94854aebc26e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "blueberry-muffin",
@@ -2038,7 +2867,8 @@
     "saturatedFat": 2.4,
     "sugar": 36,
     "fiber": 1,
-    "salt": 0.62
+    "salt": 0.62,
+    "energyKj": 1919
    },
    "tags": [
     "vegetarian"
@@ -2047,7 +2877,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9330765ca63d.webp"
+   "image": "caffe-nero/9330765ca63d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "fruit-scone",
@@ -2062,7 +2903,8 @@
     "saturatedFat": 2.2,
     "sugar": 20.5,
     "fiber": 2.1,
-    "salt": 1.06
+    "salt": 1.06,
+    "energyKj": 1260
    },
    "tags": [
     "vegetarian"
@@ -2071,7 +2913,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a7bc8917376e.webp"
+   "image": "caffe-nero/a7bc8917376e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "rocky-road",
@@ -2086,7 +2939,8 @@
     "saturatedFat": 8.4,
     "sugar": 25.3,
     "fiber": 1.2,
-    "salt": 0.12
+    "salt": 0.12,
+    "energyKj": 1312
    },
    "tags": [
     "vegetarian"
@@ -2095,7 +2949,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/89568c126ce2.webp"
+   "image": "caffe-nero/89568c126ce2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "granola-flapjack",
@@ -2110,7 +2975,8 @@
     "saturatedFat": 4.1,
     "sugar": 17,
     "fiber": 2,
-    "salt": 0.09
+    "salt": 0.09,
+    "energyKj": 1227
    },
    "tags": [
     "vegetarian"
@@ -2119,7 +2985,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/6df342c1151b.webp"
+   "image": "caffe-nero/6df342c1151b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "belgian-chocolate-brownie",
@@ -2134,7 +3014,8 @@
     "saturatedFat": 10.6,
     "sugar": 24.3,
     "fiber": 0.9,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 1314
    },
    "tags": [
     "vegetarian"
@@ -2143,7 +3024,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9fb506b721a4.webp"
+   "image": "caffe-nero/9fb506b721a4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "caramel-shortbread",
@@ -2158,7 +3051,8 @@
     "saturatedFat": 9.9,
     "sugar": 24.1,
     "fiber": 0.7,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1259
    },
    "tags": [
     "vegetarian"
@@ -2167,7 +3061,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d8f7bedeb76a.webp"
+   "image": "caffe-nero/d8f7bedeb76a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "fruit-teacake",
@@ -2182,7 +3088,8 @@
     "saturatedFat": 0.5,
     "sugar": 27.5,
     "fiber": 3.4,
-    "salt": 0.61
+    "salt": 0.61,
+    "energyKj": 1104
    },
    "tags": [
     "vegetarian"
@@ -2191,7 +3098,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/7b279b47a9bd.webp"
+   "image": "caffe-nero/7b279b47a9bd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "wrapped-flapjack",
@@ -2206,7 +3123,8 @@
     "saturatedFat": 3.6,
     "sugar": 12.5,
     "fiber": 2,
-    "salt": 0.08
+    "salt": 0.08,
+    "energyKj": 945
    },
    "tags": [
     "vegetarian"
@@ -2215,7 +3133,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f106fe99ed22.webp"
+   "image": "caffe-nero/f106fe99ed22.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "wrapped-chocolate-brownie",
@@ -2230,7 +3154,8 @@
     "saturatedFat": 3.3,
     "sugar": 15.4,
     "fiber": 1.3,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 947
    },
    "tags": [
     "vegetarian"
@@ -2239,7 +3164,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/212bd183c050.webp"
+   "image": "caffe-nero/212bd183c050.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "milk-chocolate-chunk-cookie",
@@ -2254,7 +3183,8 @@
     "saturatedFat": 8.8,
     "sugar": 29,
     "fiber": 1.8,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 1583
    },
    "tags": [
     "vegetarian"
@@ -2263,7 +3193,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/32c71661d96e.webp"
+   "image": "caffe-nero/32c71661d96e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "triple-chocolate-chunk-cookie",
@@ -2278,7 +3219,8 @@
     "saturatedFat": 9.1,
     "sugar": 29,
     "fiber": 2.4,
-    "salt": 0.68
+    "salt": 0.68,
+    "energyKj": 1581
    },
    "tags": [
     "vegetarian"
@@ -2287,7 +3229,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/577dd85702c9.webp"
+   "image": "caffe-nero/577dd85702c9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cinnamon-roll-latte-semi-skimmed-milk",
@@ -2302,7 +3256,8 @@
     "saturatedFat": 2.6,
     "sugar": 26.3,
     "fiber": 0.9,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 822
    },
    "tags": [
     "vegetarian"
@@ -2311,7 +3266,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp"
+   "image": "caffe-nero/3a019c8f46bf.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-roll-latte-skimmed-milk",
@@ -2326,7 +3287,8 @@
     "saturatedFat": 0.4,
     "sugar": 26.6,
     "fiber": 0.9,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 705
    },
    "tags": [
     "vegetarian"
@@ -2335,7 +3297,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp"
+   "image": "caffe-nero/3a019c8f46bf.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-roll-latte-whole-milk",
@@ -2350,7 +3318,8 @@
     "saturatedFat": 5.5,
     "sugar": 26.1,
     "fiber": 0.9,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 978
    },
    "tags": [
     "vegetarian"
@@ -2359,7 +3328,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp"
+   "image": "caffe-nero/3a019c8f46bf.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-roll-latte-soya-milk",
@@ -2374,7 +3349,8 @@
     "saturatedFat": 0.7,
     "sugar": 21.4,
     "fiber": 2.3,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 763
    },
    "tags": [
     "vegetarian"
@@ -2383,7 +3359,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp"
+   "image": "caffe-nero/3a019c8f46bf.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-roll-latte-oat-milk",
@@ -2398,7 +3380,8 @@
     "saturatedFat": 0.7,
     "sugar": 23.3,
     "fiber": 3.2,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 924
    },
    "tags": [
     "vegetarian"
@@ -2407,7 +3390,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp"
+   "image": "caffe-nero/3a019c8f46bf.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "cinnamon-roll-latte-coconut-milk",
@@ -2422,7 +3414,8 @@
     "saturatedFat": 1.7,
     "sugar": 23.3,
     "fiber": 1.4,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 666
    },
    "tags": [
     "vegetarian"
@@ -2431,7 +3424,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp"
+   "image": "caffe-nero/3a019c8f46bf.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-roll-latte-almond-milk",
@@ -2446,7 +3445,8 @@
     "saturatedFat": 0.4,
     "sugar": 21.4,
     "fiber": 1.4,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 579
    },
    "tags": [
     "vegetarian"
@@ -2455,151 +3455,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3a019c8f46bf.webp"
-  },
-  {
-   "id": "spiced-pecan-latte-semi-skimmed-milk",
-   "name": "Spiced Pecan Latte (semi skimmed milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 203,
-    "protein": 9.5,
-    "carbs": 30.3,
-    "fat": 4.6,
-    "saturatedFat": 2.6,
-    "sugar": 28.4,
-    "fiber": 1,
-    "salt": 0.29
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp"
-  },
-  {
-   "id": "spiced-pecan-latte-skimmed-milk",
-   "name": "Spiced Pecan Latte (skimmed milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 175,
-    "protein": 9.6,
-    "carbs": 30.6,
-    "fat": 1.3,
-    "saturatedFat": 0.4,
-    "sugar": 28.7,
-    "fiber": 1,
-    "salt": 0.29
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp"
-  },
-  {
-   "id": "spiced-pecan-latte-whole-milk",
-   "name": "Spiced Pecan Latte (whole milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 240,
-    "protein": 9.3,
-    "carbs": 30,
-    "fat": 9,
-    "saturatedFat": 5.5,
-    "sugar": 28.1,
-    "fiber": 1,
-    "salt": 0.28
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp"
-  },
-  {
-   "id": "spiced-pecan-latte-soya-milk",
-   "name": "Spiced Pecan Latte (soya milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 188,
-    "protein": 9.1,
-    "carbs": 25.9,
-    "fat": 4.9,
-    "saturatedFat": 0.7,
-    "sugar": 23.5,
-    "fiber": 2.3,
-    "salt": 0.22
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp"
-  },
-  {
-   "id": "spiced-pecan-latte-oat-milk",
-   "name": "Spiced Pecan Latte (oat milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 227,
-    "protein": 3.3,
-    "carbs": 35.1,
-    "fat": 7.4,
-    "saturatedFat": 0.7,
-    "sugar": 25.4,
-    "fiber": 3.3,
-    "salt": 0.33
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp"
-  },
-  {
-   "id": "spiced-pecan-latte-coconut-milk",
-   "name": "Spiced Pecan Latte (coconut milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 165,
-    "protein": 4.9,
-    "carbs": 27.3,
-    "fat": 3.8,
-    "saturatedFat": 1.7,
-    "sugar": 25.4,
-    "fiber": 1.4,
-    "salt": 0.26
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp"
+   "image": "caffe-nero/3a019c8f46bf.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "spiced-pecan-latte-almond-milk",
@@ -2614,7 +3479,8 @@
     "saturatedFat": 0.3,
     "sugar": 23.5,
     "fiber": 1.4,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 611
    },
    "tags": [
     "vegetarian"
@@ -2623,7 +3489,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3410e6f902c.webp"
+   "image": "caffe-nero/a3410e6f902c.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "banoffee-matcha-latte-semi-skimmed-milk",
@@ -2638,7 +3513,8 @@
     "saturatedFat": 2.8,
     "sugar": 28.6,
     "fiber": 1.2,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 867
    },
    "tags": [
     "vegetarian"
@@ -2647,7 +3523,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp"
+   "image": "caffe-nero/25c57520594a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-matcha-latte-skimmed-milk",
@@ -2662,7 +3544,8 @@
     "saturatedFat": 0.4,
     "sugar": 28.9,
     "fiber": 1.2,
-    "salt": 0.45
+    "salt": 0.45,
+    "energyKj": 739
    },
    "tags": [
     "vegetarian"
@@ -2671,7 +3554,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp"
+   "image": "caffe-nero/25c57520594a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-matcha-latte-whole-milk",
@@ -2686,7 +3575,8 @@
     "saturatedFat": 5.9,
     "sugar": 28.3,
     "fiber": 1.2,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 1037
    },
    "tags": [
     "vegetarian"
@@ -2695,7 +3585,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp"
+   "image": "caffe-nero/25c57520594a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-matcha-latte-soya-milk",
@@ -2710,7 +3606,8 @@
     "saturatedFat": 0.8,
     "sugar": 23.2,
     "fiber": 2.7,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 801
    },
    "tags": [
     "vegetarian"
@@ -2719,7 +3616,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp"
+   "image": "caffe-nero/25c57520594a.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-matcha-latte-coconut-milk",
@@ -2734,7 +3637,8 @@
     "saturatedFat": 1.8,
     "sugar": 25.2,
     "fiber": 1.7,
-    "salt": 0.41
+    "salt": 0.41,
+    "energyKj": 696
    },
    "tags": [
     "vegetarian"
@@ -2743,7 +3647,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp"
+   "image": "caffe-nero/25c57520594a.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-matcha-latte-almond-milk",
@@ -2758,7 +3668,8 @@
     "saturatedFat": 0.3,
     "sugar": 23.2,
     "fiber": 1.7,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 601
    },
    "tags": [
     "vegetarian"
@@ -2767,7 +3678,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/25c57520594a.webp"
+   "image": "caffe-nero/25c57520594a.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "espresso-single",
@@ -2782,7 +3702,8 @@
     "saturatedFat": 0,
     "sugar": 0.4,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 34
    },
    "tags": [
     "vegetarian"
@@ -2791,7 +3712,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2b36bcb9e135.webp"
+   "image": "caffe-nero/2b36bcb9e135.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-double",
@@ -2806,7 +3731,8 @@
     "saturatedFat": 0,
     "sugar": 0.8,
     "fiber": 0,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 68
    },
    "tags": [
     "vegetarian"
@@ -2815,7 +3741,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2b36bcb9e135.webp"
+   "image": "caffe-nero/2b36bcb9e135.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-regular",
@@ -2830,7 +3760,8 @@
     "saturatedFat": 0,
     "sugar": 0.8,
     "fiber": 0,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 68
    },
    "tags": [
     "vegetarian"
@@ -2839,7 +3770,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ce5f737dfbeb.webp"
+   "image": "caffe-nero/ce5f737dfbeb.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-grande",
@@ -2854,7 +3789,8 @@
     "saturatedFat": 0.1,
     "sugar": 1.2,
     "fiber": 0,
-    "salt": 0.06
+    "salt": 0.06,
+    "energyKj": 102
    },
    "tags": [
     "vegetarian"
@@ -2863,7 +3799,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ce5f737dfbeb.webp"
+   "image": "caffe-nero/ce5f737dfbeb.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cortado-semi-skimmed-milk",
@@ -2878,7 +3818,8 @@
     "saturatedFat": 1.1,
     "sugar": 4.8,
     "fiber": 0,
-    "salt": 0.12
+    "salt": 0.12,
+    "energyKj": 231
    },
    "tags": [
     "vegetarian"
@@ -2887,7 +3828,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0eb0142daeef.webp"
+   "image": "caffe-nero/0eb0142daeef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cortado-skimmed-milk",
@@ -2902,7 +3849,8 @@
     "saturatedFat": 0.2,
     "sugar": 5,
     "fiber": 0,
-    "salt": 0.12
+    "salt": 0.12,
+    "energyKj": 181
    },
    "tags": [
     "vegetarian"
@@ -2911,7 +3859,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0eb0142daeef.webp"
+   "image": "caffe-nero/0eb0142daeef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cortado-whole-milk",
@@ -2926,7 +3880,8 @@
     "saturatedFat": 2.3,
     "sugar": 4.8,
     "fiber": 0,
-    "salt": 0.12
+    "salt": 0.12,
+    "energyKj": 298
    },
    "tags": [
     "vegetarian"
@@ -2935,31 +3890,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0eb0142daeef.webp"
-  },
-  {
-   "id": "cortado-soya-milk",
-   "name": "Cortado (soya milk)",
-   "category": "Coffee",
-   "serving": "",
-   "nutrients": {
-    "calories": 50,
-    "protein": 3,
-    "carbs": 3.7,
-    "fat": 2.1,
-    "saturatedFat": 0.3,
-    "sugar": 2.9,
-    "fiber": 0.6,
-    "salt": 0.09
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/0eb0142daeef.webp"
+   "image": "caffe-nero/0eb0142daeef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cortado-oat-milk",
@@ -2974,7 +3911,8 @@
     "saturatedFat": 0.3,
     "sugar": 3.7,
     "fiber": 1.2,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 282
    },
    "tags": [
     "vegetarian"
@@ -2983,7 +3921,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0eb0142daeef.webp"
+   "image": "caffe-nero/0eb0142daeef.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "cortado-coconut-milk",
@@ -2998,7 +3945,8 @@
     "saturatedFat": 0.7,
     "sugar": 3.7,
     "fiber": 0.2,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 173
    },
    "tags": [
     "vegetarian"
@@ -3007,7 +3955,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0eb0142daeef.webp"
+   "image": "caffe-nero/0eb0142daeef.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cortado-almond-milk",
@@ -3022,7 +3976,8 @@
     "saturatedFat": 0.1,
     "sugar": 2.9,
     "fiber": 0.4,
-    "salt": 0.09
+    "salt": 0.09,
+    "energyKj": 136
    },
    "tags": [
     "vegetarian"
@@ -3031,7 +3986,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0eb0142daeef.webp"
+   "image": "caffe-nero/0eb0142daeef.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "macchiato-semi-skimmed-milk-single",
@@ -3046,7 +4010,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.8,
     "fiber": 0.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 53
    },
    "tags": [
     "vegetarian"
@@ -3055,7 +4020,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-semi-skimmed-milk-double",
@@ -3070,7 +4041,8 @@
     "saturatedFat": 0.1,
     "sugar": 1.2,
     "fiber": 0.3,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 87
    },
    "tags": [
     "vegetarian"
@@ -3079,7 +4051,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-skimmed-milk-single",
@@ -3094,7 +4072,8 @@
     "saturatedFat": 0,
     "sugar": 0.8,
     "fiber": 0.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 48
    },
    "tags": [
     "vegetarian"
@@ -3103,7 +4082,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-skimmed-milk-double",
@@ -3118,7 +4103,8 @@
     "saturatedFat": 0.1,
     "sugar": 1.2,
     "fiber": 0.3,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 82
    },
    "tags": [
     "vegetarian"
@@ -3127,7 +4113,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-whole-milk-single",
@@ -3142,7 +4134,8 @@
     "saturatedFat": 0.2,
     "sugar": 0.8,
     "fiber": 0.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 60
    },
    "tags": [
     "vegetarian"
@@ -3151,7 +4144,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-whole-milk-double",
@@ -3166,7 +4165,8 @@
     "saturatedFat": 0.3,
     "sugar": 1.2,
     "fiber": 0.3,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 94
    },
    "tags": [
     "vegetarian"
@@ -3175,31 +4175,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
-  },
-  {
-   "id": "macchiato-soya-milk-single",
-   "name": "Macchiato (soya milk, single)",
-   "category": "Coffee",
-   "serving": "Single",
-   "nutrients": {
-    "calories": 12,
-    "protein": 0.9,
-    "carbs": 1.2,
-    "fat": 0.4,
-    "saturatedFat": 0.1,
-    "sugar": 0.6,
-    "fiber": 0.2,
-    "salt": 0.02
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-soya-milk-double",
@@ -3214,7 +4196,8 @@
     "saturatedFat": 0.1,
     "sugar": 1,
     "fiber": 0.4,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 85
    },
    "tags": [
     "vegetarian"
@@ -3223,7 +4206,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-oat-milk-single",
@@ -3238,7 +4227,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.7,
     "fiber": 0.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 59
    },
    "tags": [
     "vegetarian"
@@ -3247,7 +4237,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "macchiato-oat-milk-double",
@@ -3262,7 +4261,8 @@
     "saturatedFat": 0.1,
     "sugar": 1.1,
     "fiber": 0.4,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 92
    },
    "tags": [
     "vegetarian"
@@ -3271,7 +4271,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "macchiato-coconut-milk-single",
@@ -3286,7 +4295,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.7,
     "fiber": 0.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 48
    },
    "tags": [
     "vegetarian"
@@ -3295,7 +4305,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-coconut-milk-double",
@@ -3310,7 +4326,8 @@
     "saturatedFat": 0.1,
     "sugar": 1.1,
     "fiber": 0.3,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 82
    },
    "tags": [
     "vegetarian"
@@ -3319,7 +4336,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-almond-milk-single",
@@ -3334,7 +4357,8 @@
     "saturatedFat": 0,
     "sugar": 0.6,
     "fiber": 0.2,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 44
    },
    "tags": [
     "vegetarian"
@@ -3343,7 +4367,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "macchiato-almond-milk-double",
@@ -3358,7 +4391,8 @@
     "saturatedFat": 0.1,
     "sugar": 1,
     "fiber": 0.3,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 78
    },
    "tags": [
     "vegetarian"
@@ -3367,7 +4401,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4d71082ee28f.webp"
+   "image": "caffe-nero/4d71082ee28f.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "cappuccino-semi-skimmed-milk-regular",
@@ -3382,7 +4425,8 @@
     "saturatedFat": 1.7,
     "sugar": 7.9,
     "fiber": 0,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 377
    },
    "tags": [
     "vegetarian"
@@ -3391,7 +4435,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-semi-skimmed-milk-grande",
@@ -3406,7 +4456,8 @@
     "saturatedFat": 2.6,
     "sugar": 11.4,
     "fiber": 0,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 533
    },
    "tags": [
     "vegetarian"
@@ -3415,7 +4466,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-skimmed-milk-regular",
@@ -3430,7 +4487,8 @@
     "saturatedFat": 0.2,
     "sugar": 8,
     "fiber": 0,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 299
    },
    "tags": [
     "vegetarian"
@@ -3439,7 +4497,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-skimmed-milk-grande",
@@ -3454,7 +4518,8 @@
     "saturatedFat": 0.3,
     "sugar": 11.7,
     "fiber": 0,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 415
    },
    "tags": [
     "vegetarian"
@@ -3463,7 +4528,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-whole-milk-regular",
@@ -3478,7 +4549,8 @@
     "saturatedFat": 3.6,
     "sugar": 7.7,
     "fiber": 0,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 482
    },
    "tags": [
     "vegetarian"
@@ -3487,7 +4559,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-whole-milk-grande",
@@ -3502,7 +4580,8 @@
     "saturatedFat": 5.4,
     "sugar": 11.2,
     "fiber": 0,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 691
    },
    "tags": [
     "vegetarian"
@@ -3511,7 +4590,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-soya-milk-regular",
@@ -3526,7 +4611,8 @@
     "saturatedFat": 0.5,
     "sugar": 4.7,
     "fiber": 0.9,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 346
    },
    "tags": [
     "vegetarian"
@@ -3535,7 +4621,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-soya-milk-grande",
@@ -3550,7 +4642,8 @@
     "saturatedFat": 0.8,
     "sugar": 6.7,
     "fiber": 1.4,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 486
    },
    "tags": [
     "vegetarian"
@@ -3559,7 +4652,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-oat-milk-regular",
@@ -3574,7 +4673,8 @@
     "saturatedFat": 0.5,
     "sugar": 6,
     "fiber": 1.9,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 457
    },
    "tags": [
     "vegetarian"
@@ -3583,7 +4683,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "cappuccino-oat-milk-grande",
@@ -3598,7 +4707,8 @@
     "saturatedFat": 0.8,
     "sugar": 8.6,
     "fiber": 2.7,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 653
    },
    "tags": [
     "vegetarian"
@@ -3607,7 +4717,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "cappuccino-coconut-milk-regular",
@@ -3622,7 +4741,8 @@
     "saturatedFat": 1.1,
     "sugar": 6,
     "fiber": 0.3,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 286
    },
    "tags": [
     "vegetarian"
@@ -3631,7 +4751,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-coconut-milk-grande",
@@ -3646,7 +4772,8 @@
     "saturatedFat": 1.7,
     "sugar": 8.6,
     "fiber": 0.5,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 396
    },
    "tags": [
     "vegetarian"
@@ -3655,7 +4782,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-almond-milk-regular",
@@ -3670,7 +4803,8 @@
     "saturatedFat": 0.2,
     "sugar": 4.7,
     "fiber": 0.6,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 228
    },
    "tags": [
     "vegetarian"
@@ -3679,7 +4813,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "cappuccino-almond-milk-grande",
@@ -3694,7 +4837,8 @@
     "saturatedFat": 0.3,
     "sugar": 6.7,
     "fiber": 0.8,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 309
    },
    "tags": [
     "vegetarian"
@@ -3703,7 +4847,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/c277239cd23d.webp"
+   "image": "caffe-nero/c277239cd23d.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "latte-semi-skimmed-milk-regular",
@@ -3718,7 +4871,8 @@
     "saturatedFat": 2.6,
     "sugar": 11.4,
     "fiber": 0,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 533
    },
    "tags": [
     "vegetarian"
@@ -3727,7 +4881,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-semi-skimmed-milk-grande",
@@ -3742,7 +4902,8 @@
     "saturatedFat": 3.8,
     "sugar": 16.7,
     "fiber": 0,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 765
    },
    "tags": [
     "vegetarian"
@@ -3751,7 +4912,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-skimmed-milk-regular",
@@ -3766,7 +4933,8 @@
     "saturatedFat": 0.3,
     "sugar": 11.7,
     "fiber": 0,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 415
    },
    "tags": [
     "vegetarian"
@@ -3775,7 +4943,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-skimmed-milk-grande",
@@ -3790,7 +4964,8 @@
     "saturatedFat": 0.5,
     "sugar": 17.1,
     "fiber": 0,
-    "salt": 0.41
+    "salt": 0.41,
+    "energyKj": 588
    },
    "tags": [
     "vegetarian"
@@ -3799,7 +4974,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-whole-milk-regular",
@@ -3814,7 +4995,8 @@
     "saturatedFat": 5.4,
     "sugar": 11.2,
     "fiber": 0,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 691
    },
    "tags": [
     "vegetarian"
@@ -3823,7 +5005,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-whole-milk-grande",
@@ -3838,7 +5026,8 @@
     "saturatedFat": 8.1,
     "sugar": 16.4,
     "fiber": 0,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 1002
    },
    "tags": [
     "vegetarian"
@@ -3847,7 +5036,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-soya-milk-regular",
@@ -3862,7 +5057,8 @@
     "saturatedFat": 0.8,
     "sugar": 6.7,
     "fiber": 1.4,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 486
    },
    "tags": [
     "vegetarian"
@@ -3871,7 +5067,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-soya-milk-grande",
@@ -3886,7 +5088,8 @@
     "saturatedFat": 1.1,
     "sugar": 9.6,
     "fiber": 2.1,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 694
    },
    "tags": [
     "vegetarian"
@@ -3895,7 +5098,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-oat-milk-regular",
@@ -3910,7 +5119,8 @@
     "saturatedFat": 0.8,
     "sugar": 8.6,
     "fiber": 2.7,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 653
    },
    "tags": [
     "vegetarian"
@@ -3919,7 +5129,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "latte-oat-milk-grande",
@@ -3934,7 +5153,8 @@
     "saturatedFat": 1.1,
     "sugar": 12.5,
     "fiber": 3.8,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 946
    },
    "tags": [
     "vegetarian"
@@ -3943,7 +5163,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "latte-coconut-milk-regular",
@@ -3958,7 +5187,8 @@
     "saturatedFat": 1.7,
     "sugar": 8.6,
     "fiber": 0.5,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 396
    },
    "tags": [
     "vegetarian"
@@ -3967,7 +5197,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-coconut-milk-grande",
@@ -3982,7 +5218,8 @@
     "saturatedFat": 2.5,
     "sugar": 12.5,
     "fiber": 0.7,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 560
    },
    "tags": [
     "vegetarian"
@@ -3991,7 +5228,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-almond-milk-regular",
@@ -4006,7 +5249,8 @@
     "saturatedFat": 0.3,
     "sugar": 6.7,
     "fiber": 0.8,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 309
    },
    "tags": [
     "vegetarian"
@@ -4015,7 +5259,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "latte-almond-milk-grande",
@@ -4030,7 +5283,8 @@
     "saturatedFat": 0.4,
     "sugar": 9.6,
     "fiber": 1,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 429
    },
    "tags": [
     "vegetarian"
@@ -4039,7 +5293,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ba0c0f2deca1.webp"
+   "image": "caffe-nero/ba0c0f2deca1.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "flat-white-whole-milk",
@@ -4054,7 +5317,8 @@
     "saturatedFat": 3.4,
     "sugar": 7.2,
     "fiber": 0,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 445
    },
    "tags": [
     "vegetarian"
@@ -4063,7 +5327,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/60e94df1ae8e.webp"
+   "image": "caffe-nero/60e94df1ae8e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-con-panna",
@@ -4078,7 +5348,8 @@
     "saturatedFat": 8.8,
     "sugar": 1.7,
     "fiber": 0,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 616
    },
    "tags": [
     "vegetarian"
@@ -4087,7 +5358,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/72f60e5ab8e0.webp"
+   "image": "caffe-nero/72f60e5ab8e0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-semi-skimmed-milk-regular",
@@ -4102,7 +5379,8 @@
     "saturatedFat": 2.5,
     "sugar": 19.6,
     "fiber": 1.3,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 702
    },
    "tags": [
     "vegetarian"
@@ -4111,7 +5389,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-semi-skimmed-milk-grande",
@@ -4126,7 +5410,8 @@
     "saturatedFat": 3.1,
     "sugar": 24.7,
     "fiber": 1.7,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 874
    },
    "tags": [
     "vegetarian"
@@ -4135,7 +5420,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-skimmed-milk-regular",
@@ -4150,7 +5441,8 @@
     "saturatedFat": 0.6,
     "sugar": 19.8,
     "fiber": 1.3,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 602
    },
    "tags": [
     "vegetarian"
@@ -4159,7 +5451,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-skimmed-milk-grande",
@@ -4174,7 +5472,8 @@
     "saturatedFat": 0.7,
     "sugar": 24.9,
     "fiber": 1.7,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 746
    },
    "tags": [
     "vegetarian"
@@ -4183,7 +5482,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-whole-milk-regular",
@@ -4198,7 +5503,8 @@
     "saturatedFat": 4.9,
     "sugar": 19.4,
     "fiber": 1.3,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 836
    },
    "tags": [
     "vegetarian"
@@ -4207,7 +5513,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-whole-milk-grande",
@@ -4222,7 +5534,8 @@
     "saturatedFat": 8.4,
     "sugar": 26.2,
     "fiber": 1.6,
-    "salt": 0.41
+    "salt": 0.41,
+    "energyKj": 1242
    },
    "tags": [
     "vegetarian"
@@ -4231,7 +5544,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-soya-milk-regular",
@@ -4246,7 +5565,8 @@
     "saturatedFat": 0.9,
     "sugar": 15.6,
     "fiber": 2.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 662
    },
    "tags": [
     "vegetarian"
@@ -4255,7 +5575,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-soya-milk-grande",
@@ -4270,7 +5596,8 @@
     "saturatedFat": 1.1,
     "sugar": 19.6,
     "fiber": 3.2,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 823
    },
    "tags": [
     "vegetarian"
@@ -4279,7 +5606,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-oat-milk-regular",
@@ -4294,7 +5627,8 @@
     "saturatedFat": 0.9,
     "sugar": 17.2,
     "fiber": 3.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 804
    },
    "tags": [
     "vegetarian"
@@ -4303,7 +5637,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "mocha-oat-milk-grande",
@@ -4318,7 +5661,8 @@
     "saturatedFat": 1.1,
     "sugar": 21.6,
     "fiber": 4.5,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 1004
    },
    "tags": [
     "vegetarian"
@@ -4327,7 +5671,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "mocha-coconut-milk-regular",
@@ -4342,7 +5695,8 @@
     "saturatedFat": 1.7,
     "sugar": 17.2,
     "fiber": 1.7,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 586
    },
    "tags": [
     "vegetarian"
@@ -4351,7 +5705,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-coconut-milk-grande",
@@ -4366,7 +5726,8 @@
     "saturatedFat": 2.2,
     "sugar": 21.6,
     "fiber": 2.2,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 726
    },
    "tags": [
     "vegetarian"
@@ -4375,7 +5736,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-almond-milk-regular",
@@ -4390,7 +5757,8 @@
     "saturatedFat": 0.5,
     "sugar": 15.6,
     "fiber": 2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 512
    },
    "tags": [
     "vegetarian"
@@ -4399,7 +5767,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "mocha-almond-milk-grande",
@@ -4414,7 +5791,8 @@
     "saturatedFat": 0.6,
     "sugar": 19.6,
     "fiber": 2.5,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 632
    },
    "tags": [
     "vegetarian"
@@ -4423,7 +5801,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3f65cd1aa956.webp"
+   "image": "caffe-nero/3f65cd1aa956.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "white-chocolate-mocha-semi-skimmed-milk",
@@ -4438,7 +5825,8 @@
     "saturatedFat": 15.5,
     "sugar": 37.1,
     "fiber": 0,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 1855
    },
    "tags": [
     "vegetarian"
@@ -4447,7 +5835,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c6992f246b.webp"
+   "image": "caffe-nero/69c6992f246b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "white-chocolate-mocha-skimmed-milk",
@@ -4462,7 +5857,8 @@
     "saturatedFat": 12.7,
     "sugar": 37.4,
     "fiber": 0,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1708
    },
    "tags": [
     "vegetarian"
@@ -4471,7 +5867,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c6992f246b.webp"
+   "image": "caffe-nero/69c6992f246b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "white-chocolate-mocha-whole-milk",
@@ -4486,7 +5889,8 @@
     "saturatedFat": 19.1,
     "sugar": 36.8,
     "fiber": 0,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 2053
    },
    "tags": [
     "vegetarian"
@@ -4495,7 +5899,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c6992f246b.webp"
+   "image": "caffe-nero/69c6992f246b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "white-chocolate-mocha-soya-milk",
@@ -4510,7 +5921,8 @@
     "saturatedFat": 13.2,
     "sugar": 31.2,
     "fiber": 1.8,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 1796
    },
    "tags": [
     "vegetarian"
@@ -4519,7 +5931,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c6992f246b.webp"
+   "image": "caffe-nero/69c6992f246b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "white-chocolate-mocha-oat-milk",
@@ -4534,7 +5953,8 @@
     "saturatedFat": 13.2,
     "sugar": 33.5,
     "fiber": 3.2,
-    "salt": 0.46
+    "salt": 0.46,
+    "energyKj": 2006
    },
    "tags": [
     "vegetarian"
@@ -4543,7 +5963,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c6992f246b.webp"
+   "image": "caffe-nero/69c6992f246b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "white-chocolate-mocha-coconut-milk",
@@ -4558,7 +5989,8 @@
     "saturatedFat": 14.4,
     "sugar": 33.5,
     "fiber": 0.6,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 1684
    },
    "tags": [
     "vegetarian"
@@ -4567,7 +5999,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c6992f246b.webp"
+   "image": "caffe-nero/69c6992f246b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "white-chocolate-mocha-almond-milk",
@@ -4582,7 +6021,8 @@
     "saturatedFat": 12.6,
     "sugar": 31.2,
     "fiber": 0.9,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 1575
    },
    "tags": [
     "vegetarian"
@@ -4591,7 +6031,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/69c6992f246b.webp"
+   "image": "caffe-nero/69c6992f246b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "luxury-mocha",
@@ -4606,7 +6057,8 @@
     "saturatedFat": 14.7,
     "sugar": 22.6,
     "fiber": 3.8,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 1503
    },
    "tags": [
     "vegetarian"
@@ -4615,7 +6067,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e26c8ffa3484.webp"
+   "image": "caffe-nero/e26c8ffa3484.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "luxury-hot-chocolate",
@@ -4630,7 +6089,8 @@
     "saturatedFat": 16.3,
     "sugar": 30.2,
     "fiber": 5,
-    "salt": 0.82
+    "salt": 0.82,
+    "energyKj": 1744
    },
    "tags": [
     "vegetarian"
@@ -4639,7 +6099,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/48d8e18a191f.webp"
+   "image": "caffe-nero/48d8e18a191f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "luxury-caramelatte-semi-skimmed-milk",
@@ -4654,7 +6121,8 @@
     "saturatedFat": 14.5,
     "sugar": 32.6,
     "fiber": 0,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 1661
    },
    "tags": [
     "vegetarian"
@@ -4663,7 +6131,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3d48673f6a0.webp"
+   "image": "caffe-nero/a3d48673f6a0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "luxury-caramelatte-skimmed-milk",
@@ -4678,7 +6152,8 @@
     "saturatedFat": 11.7,
     "sugar": 32.9,
     "fiber": 0,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 1514
    },
    "tags": [
     "vegetarian"
@@ -4687,7 +6162,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3d48673f6a0.webp"
+   "image": "caffe-nero/a3d48673f6a0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "luxury-caramelatte-whole-milk",
@@ -4702,7 +6183,8 @@
     "saturatedFat": 18.1,
     "sugar": 32.3,
     "fiber": 0,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 1859
    },
    "tags": [
     "vegetarian"
@@ -4711,7 +6193,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3d48673f6a0.webp"
+   "image": "caffe-nero/a3d48673f6a0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "luxury-caramelatte-soya-milk",
@@ -4726,7 +6214,8 @@
     "saturatedFat": 12.2,
     "sugar": 26.7,
     "fiber": 1.8,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 1602
    },
    "tags": [
     "vegetarian"
@@ -4735,7 +6224,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3d48673f6a0.webp"
+   "image": "caffe-nero/a3d48673f6a0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "luxury-caramelatte-oat-milk",
@@ -4750,7 +6246,8 @@
     "saturatedFat": 12.2,
     "sugar": 29,
     "fiber": 3.3,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 1811
    },
    "tags": [
     "vegetarian"
@@ -4759,7 +6256,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3d48673f6a0.webp"
+   "image": "caffe-nero/a3d48673f6a0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "luxury-caramelatte-coconut-milk",
@@ -4774,7 +6281,8 @@
     "saturatedFat": 13.4,
     "sugar": 29,
     "fiber": 0.6,
-    "salt": 0.35
+    "salt": 0.35,
+    "energyKj": 1490
    },
    "tags": [
     "vegetarian"
@@ -4783,7 +6291,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3d48673f6a0.webp"
+   "image": "caffe-nero/a3d48673f6a0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "luxury-caramelatte-almond-milk",
@@ -4798,7 +6313,8 @@
     "saturatedFat": 11.6,
     "sugar": 26.7,
     "fiber": 0.9,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 1380
    },
    "tags": [
     "vegetarian"
@@ -4807,7 +6323,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a3d48673f6a0.webp"
+   "image": "caffe-nero/a3d48673f6a0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "matcha-latte-semi-skimmed-milk-regular",
@@ -4822,7 +6348,8 @@
     "saturatedFat": 2.4,
     "sugar": 10.2,
     "fiber": 0.9,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 478
    },
    "tags": [
     "vegetarian"
@@ -4831,7 +6358,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-semi-skimmed-milk-grande",
@@ -4846,7 +6379,8 @@
     "saturatedFat": 3.8,
     "sugar": 15.9,
     "fiber": 0.9,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 729
    },
    "tags": [
     "vegetarian"
@@ -4855,7 +6389,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-skimmed-milk-regular",
@@ -4879,7 +6419,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-skimmed-milk-grande",
@@ -4894,7 +6440,8 @@
     "saturatedFat": 0.5,
     "sugar": 21.7,
     "fiber": 0.9,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 646
    },
    "tags": [
     "vegetarian"
@@ -4903,7 +6450,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-whole-milk-regular",
@@ -4918,7 +6471,8 @@
     "saturatedFat": 5.2,
     "sugar": 15.4,
     "fiber": 0.9,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 725
    },
    "tags": [
     "vegetarian"
@@ -4927,7 +6481,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-whole-milk-grande",
@@ -4942,7 +6502,8 @@
     "saturatedFat": 8.1,
     "sugar": 21,
     "fiber": 0.9,
-    "salt": 0.38
+    "salt": 0.38,
+    "energyKj": 1060
    },
    "tags": [
     "vegetarian"
@@ -4951,7 +6512,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-soya-milk-regular",
@@ -4966,7 +6533,8 @@
     "saturatedFat": 0.7,
     "sugar": 11.1,
     "fiber": 2.3,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 528
    },
    "tags": [
     "vegetarian"
@@ -4975,7 +6543,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-soya-milk-grande",
@@ -4990,7 +6564,8 @@
     "saturatedFat": 1.1,
     "sugar": 14.3,
     "fiber": 3,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 752
    },
    "tags": [
     "vegetarian"
@@ -4999,7 +6574,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-oat-milk-regular",
@@ -5014,7 +6595,8 @@
     "saturatedFat": 0.7,
     "sugar": 12.9,
     "fiber": 3.2,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 689
    },
    "tags": [
     "vegetarian"
@@ -5023,7 +6605,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "matcha-latte-oat-milk-grande",
@@ -5038,7 +6629,8 @@
     "saturatedFat": 1.1,
     "sugar": 11.7,
     "fiber": 4.4,
-    "salt": 0.47
+    "salt": 0.47,
+    "energyKj": 909
    },
    "tags": [
     "vegetarian"
@@ -5047,7 +6639,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "matcha-latte-coconut-milk-regular",
@@ -5062,7 +6663,8 @@
     "saturatedFat": 1.6,
     "sugar": 12.9,
     "fiber": 1.3,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 441
    },
    "tags": [
     "vegetarian"
@@ -5071,7 +6673,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-coconut-milk-grande",
@@ -5086,7 +6694,8 @@
     "saturatedFat": 2.5,
     "sugar": 17.1,
     "fiber": 1.6,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 618
    },
    "tags": [
     "vegetarian"
@@ -5095,7 +6704,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-almond-milk-regular",
@@ -5110,7 +6725,8 @@
     "saturatedFat": 0.2,
     "sugar": 11.1,
     "fiber": 1.3,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 357
    },
    "tags": [
     "vegetarian"
@@ -5119,7 +6735,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "matcha-latte-almond-milk-grande",
@@ -5134,7 +6759,8 @@
     "saturatedFat": 0.4,
     "sugar": 14.3,
     "fiber": 1.6,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 487
    },
    "tags": [
     "vegetarian"
@@ -5143,7 +6769,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9c95e150e9b8.webp"
+   "image": "caffe-nero/9c95e150e9b8.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "hot-chocolate-semi-skimmed-milk-regular",
@@ -5158,7 +6793,8 @@
     "saturatedFat": 3.1,
     "sugar": 30.2,
     "fiber": 2.6,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 944
    },
    "tags": [
     "vegetarian"
@@ -5167,7 +6803,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-semi-skimmed-milk-grande",
@@ -5182,7 +6825,8 @@
     "saturatedFat": 4.6,
     "sugar": 45.3,
     "fiber": 3.9,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 1416
    },
    "tags": [
     "vegetarian"
@@ -5191,7 +6835,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-skimmed-milk-regular",
@@ -5206,7 +6857,8 @@
     "saturatedFat": 0.8,
     "sugar": 30.4,
     "fiber": 2.6,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 826
    },
    "tags": [
     "vegetarian"
@@ -5215,7 +6867,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-skimmed-milk-grande",
@@ -5230,7 +6889,8 @@
     "saturatedFat": 1.3,
     "sugar": 45.7,
     "fiber": 3.9,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 1239
    },
    "tags": [
     "vegetarian"
@@ -5239,7 +6899,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-whole-milk-regular",
@@ -5254,7 +6921,8 @@
     "saturatedFat": 5.9,
     "sugar": 30,
     "fiber": 2.6,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 1102
    },
    "tags": [
     "vegetarian"
@@ -5263,7 +6931,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-whole-milk-grande",
@@ -5278,7 +6953,8 @@
     "saturatedFat": 8.9,
     "sugar": 45,
     "fiber": 3.9,
-    "salt": 0.42
+    "salt": 0.42,
+    "energyKj": 1654
    },
    "tags": [
     "vegetarian"
@@ -5287,7 +6963,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-soya-milk-regular",
@@ -5302,7 +6985,8 @@
     "saturatedFat": 1.2,
     "sugar": 25.5,
     "fiber": 4,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 897
    },
    "tags": [
     "vegetarian"
@@ -5311,7 +6995,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-soya-milk-grande",
@@ -5326,7 +7016,8 @@
     "saturatedFat": 1.9,
     "sugar": 38.2,
     "fiber": 6,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 1346
    },
    "tags": [
     "vegetarian"
@@ -5335,7 +7026,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-oat-milk-regular",
@@ -5350,7 +7047,8 @@
     "saturatedFat": 1.2,
     "sugar": 27.4,
     "fiber": 5,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 1065
    },
    "tags": [
     "vegetarian"
@@ -5359,7 +7057,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "hot-chocolate-oat-milk-grande",
@@ -5374,7 +7082,8 @@
     "saturatedFat": 1.9,
     "sugar": 41.1,
     "fiber": 7.5,
-    "salt": 0.51
+    "salt": 0.51,
+    "energyKj": 1597
    },
    "tags": [
     "vegetarian"
@@ -5383,7 +7092,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "hot-chocolate-coconut-milk-regular",
@@ -5398,7 +7117,8 @@
     "saturatedFat": 2.2,
     "sugar": 27.4,
     "fiber": 3.1,
-    "salt": 0.27
+    "salt": 0.27,
+    "energyKj": 807
    },
    "tags": [
     "vegetarian"
@@ -5407,7 +7127,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-coconut-milk-grande",
@@ -5422,7 +7148,8 @@
     "saturatedFat": 3.3,
     "sugar": 41.1,
     "fiber": 4.6,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1211
    },
    "tags": [
     "vegetarian"
@@ -5431,7 +7158,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-almond-milk-regular",
@@ -5446,7 +7179,8 @@
     "saturatedFat": 0.8,
     "sugar": 25.5,
     "fiber": 3.1,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 720
    },
    "tags": [
     "vegetarian"
@@ -5455,7 +7189,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "hot-chocolate-almond-milk-grande",
@@ -5470,7 +7214,8 @@
     "saturatedFat": 1.2,
     "sugar": 38.2,
     "fiber": 4.6,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 1080
    },
    "tags": [
     "vegetarian"
@@ -5479,7 +7224,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/2db63ec3ce7e.webp"
+   "image": "caffe-nero/2db63ec3ce7e.webp",
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "chai-latte-semi-skimmed-milk",
@@ -5494,7 +7249,8 @@
     "saturatedFat": 4.4,
     "sugar": 32.9,
     "fiber": 0.6,
-    "salt": 0.49
+    "salt": 0.49,
+    "energyKj": 1073
    },
    "tags": [
     "vegetarian"
@@ -5503,7 +7259,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3c963295fd40.webp"
+   "image": "caffe-nero/3c963295fd40.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-skimmed-milk",
@@ -5518,7 +7280,8 @@
     "saturatedFat": 0.5,
     "sugar": 33.4,
     "fiber": 0.6,
-    "salt": 0.49
+    "salt": 0.49,
+    "energyKj": 871
    },
    "tags": [
     "vegetarian"
@@ -5527,7 +7290,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3c963295fd40.webp"
+   "image": "caffe-nero/3c963295fd40.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-whole-milk",
@@ -5542,7 +7311,8 @@
     "saturatedFat": 9.4,
     "sugar": 32.4,
     "fiber": 0.6,
-    "salt": 0.48
+    "salt": 0.48,
+    "energyKj": 1345
    },
    "tags": [
     "vegetarian"
@@ -5551,7 +7321,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3c963295fd40.webp"
+   "image": "caffe-nero/3c963295fd40.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-soya-milk",
@@ -5566,7 +7342,8 @@
     "saturatedFat": 1.2,
     "sugar": 24.4,
     "fiber": 2.9,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 968
    },
    "tags": [
     "vegetarian"
@@ -5575,7 +7352,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3c963295fd40.webp"
+   "image": "caffe-nero/3c963295fd40.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-oat-milk",
@@ -5590,7 +7373,8 @@
     "saturatedFat": 1.2,
     "sugar": 27.5,
     "fiber": 4.5,
-    "salt": 0.56
+    "salt": 0.56,
+    "energyKj": 1246
    },
    "tags": [
     "vegetarian"
@@ -5599,7 +7383,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3c963295fd40.webp"
+   "image": "caffe-nero/3c963295fd40.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "chai-latte-coconut-milk",
@@ -5614,7 +7407,8 @@
     "saturatedFat": 2.8,
     "sugar": 27.5,
     "fiber": 1.4,
-    "salt": 0.44
+    "salt": 0.44,
+    "energyKj": 802
    },
    "tags": [
     "vegetarian"
@@ -5623,7 +7417,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3c963295fd40.webp"
+   "image": "caffe-nero/3c963295fd40.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-almond-milk",
@@ -5638,7 +7438,8 @@
     "saturatedFat": 0.4,
     "sugar": 24.4,
     "fiber": 1.4,
-    "salt": 0.36
+    "salt": 0.36,
+    "energyKj": 651
    },
    "tags": [
     "vegetarian"
@@ -5647,7 +7448,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3c963295fd40.webp"
+   "image": "caffe-nero/3c963295fd40.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "iced-americano",
@@ -5662,7 +7472,8 @@
     "saturatedFat": 0,
     "sugar": 0.8,
     "fiber": 0,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 68
    },
    "tags": [
     "vegetarian"
@@ -5671,7 +7482,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/be69678c5120.webp"
+   "image": "caffe-nero/be69678c5120.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-semi-skimmed-milk",
@@ -5686,7 +7501,8 @@
     "saturatedFat": 1.8,
     "sugar": 8,
     "fiber": 0,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 383
    },
    "tags": [
     "vegetarian"
@@ -5695,7 +7511,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/1ddb5b51fe9b.webp"
+   "image": "caffe-nero/1ddb5b51fe9b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-skimmed-milk",
@@ -5710,7 +7532,8 @@
     "saturatedFat": 0.2,
     "sugar": 8.2,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 303
    },
    "tags": [
     "vegetarian"
@@ -5719,7 +7542,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/1ddb5b51fe9b.webp"
+   "image": "caffe-nero/1ddb5b51fe9b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-whole-milk",
@@ -5734,7 +7563,8 @@
     "saturatedFat": 3.7,
     "sugar": 7.8,
     "fiber": 0,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 490
    },
    "tags": [
     "vegetarian"
@@ -5743,7 +7573,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/1ddb5b51fe9b.webp"
+   "image": "caffe-nero/1ddb5b51fe9b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-soya-milk",
@@ -5758,7 +7594,8 @@
     "saturatedFat": 0.5,
     "sugar": 4.8,
     "fiber": 1,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 351
    },
    "tags": [
     "vegetarian"
@@ -5767,7 +7604,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/1ddb5b51fe9b.webp"
+   "image": "caffe-nero/1ddb5b51fe9b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-oat-milk",
@@ -5782,7 +7625,8 @@
     "saturatedFat": 0.5,
     "sugar": 6.1,
     "fiber": 1.9,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 465
    },
    "tags": [
     "vegetarian"
@@ -5791,7 +7635,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/1ddb5b51fe9b.webp"
+   "image": "caffe-nero/1ddb5b51fe9b.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "iced-latte-coconut-milk",
@@ -5806,7 +7659,8 @@
     "saturatedFat": 1.2,
     "sugar": 6.1,
     "fiber": 0.3,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 290
    },
    "tags": [
     "vegetarian"
@@ -5815,7 +7669,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/1ddb5b51fe9b.webp"
+   "image": "caffe-nero/1ddb5b51fe9b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-almond-milk",
@@ -5830,7 +7690,8 @@
     "saturatedFat": 0.2,
     "sugar": 4.8,
     "fiber": 0.6,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 231
    },
    "tags": [
     "vegetarian"
@@ -5839,7 +7700,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/1ddb5b51fe9b.webp"
+   "image": "caffe-nero/1ddb5b51fe9b.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "iced-flat-white-whole-milk",
@@ -5854,7 +7724,8 @@
     "saturatedFat": 3.7,
     "sugar": 7.8,
     "fiber": 0,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 490
    },
    "tags": [
     "vegetarian"
@@ -5863,7 +7734,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e577e9036596.webp"
+   "image": "caffe-nero/e577e9036596.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-cappuccino-skimmed-milk",
@@ -5878,7 +7755,8 @@
     "saturatedFat": 0.3,
     "sugar": 9.5,
     "fiber": 0.5,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 335
    },
    "tags": [
     "vegetarian"
@@ -5887,151 +7765,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/a569e8bbc71d.webp"
-  },
-  {
-   "id": "iced-spiced-pecan-latte-semi-skimmed-milk",
-   "name": "Iced Spiced Pecan Latte (semi skimmed milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 159,
-    "protein": 6.5,
-    "carbs": 26,
-    "fat": 3.1,
-    "saturatedFat": 1.8,
-    "sugar": 24.7,
-    "fiber": 0.3,
-    "salt": 0.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp"
-  },
-  {
-   "id": "iced-spiced-pecan-latte-skimmed-milk",
-   "name": "Iced Spiced Pecan Latte (skimmed milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 140,
-    "protein": 6.5,
-    "carbs": 26.1,
-    "fat": 0.9,
-    "saturatedFat": 0.2,
-    "sugar": 24.8,
-    "fiber": 0.3,
-    "salt": 0.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp"
-  },
-  {
-   "id": "iced-spiced-pecan-latte-whole-milk",
-   "name": "Iced Spiced Pecan Latte (whole milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 185,
-    "protein": 6.4,
-    "carbs": 25.8,
-    "fat": 6.2,
-    "saturatedFat": 3.7,
-    "sugar": 24.5,
-    "fiber": 0.3,
-    "salt": 0.19
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp"
-  },
-  {
-   "id": "iced-spiced-pecan-latte-soya-milk",
-   "name": "Iced Spiced Pecan Latte (soya milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 151,
-    "protein": 6.4,
-    "carbs": 23.1,
-    "fat": 3.4,
-    "saturatedFat": 0.5,
-    "sugar": 21.5,
-    "fiber": 1.3,
-    "salt": 0.15
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp"
-  },
-  {
-   "id": "iced-spiced-pecan-latte-oat-milk",
-   "name": "Iced Spiced Pecan Latte (oat milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 178,
-    "protein": 2.4,
-    "carbs": 29.5,
-    "fat": 5.2,
-    "saturatedFat": 0.5,
-    "sugar": 22.8,
-    "fiber": 1.9,
-    "salt": 0.23
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp"
-  },
-  {
-   "id": "iced-spiced-pecan-latte-coconut-milk",
-   "name": "Iced Spiced Pecan Latte (coconut milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 135,
-    "protein": 3.5,
-    "carbs": 24.1,
-    "fat": 2.6,
-    "saturatedFat": 1.2,
-    "sugar": 22.8,
-    "fiber": 0.7,
-    "salt": 0.18
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp"
+   "image": "caffe-nero/a569e8bbc71d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-spiced-pecan-latte-almond-milk",
@@ -6046,7 +7786,8 @@
     "saturatedFat": 0.2,
     "sugar": 21.5,
     "fiber": 0.7,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 510
    },
    "tags": [
     "vegetarian"
@@ -6055,7 +7796,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/15e7f8b002d3.webp"
+   "image": "caffe-nero/15e7f8b002d3.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "iced-honey-foamed-americano",
@@ -6070,7 +7820,8 @@
     "saturatedFat": 0,
     "sugar": 13.3,
     "fiber": 0.3,
-    "salt": 0.04
+    "salt": 0.04,
+    "energyKj": 284
    },
    "tags": [
     "vegetarian"
@@ -6079,7 +7830,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/ecf9da62e3ac.webp"
+   "image": "caffe-nero/ecf9da62e3ac.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-banoffee-matcha-latte-semi-skimmed-milk",
@@ -6094,7 +7849,8 @@
     "saturatedFat": 1.8,
     "sugar": 24.4,
     "fiber": 1,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 677
    },
    "tags": [
     "vegetarian"
@@ -6103,7 +7859,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp"
+   "image": "caffe-nero/636ddfcdf00f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-banoffee-matcha-latte-skimmed-milk",
@@ -6118,7 +7880,8 @@
     "saturatedFat": 0.2,
     "sugar": 24.6,
     "fiber": 1,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 596
    },
    "tags": [
     "vegetarian"
@@ -6127,7 +7890,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp"
+   "image": "caffe-nero/636ddfcdf00f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-banoffee-matcha-latte-whole-milk",
@@ -6142,7 +7911,8 @@
     "saturatedFat": 3.8,
     "sugar": 24.2,
     "fiber": 1,
-    "salt": 0.33
+    "salt": 0.33,
+    "energyKj": 785
    },
    "tags": [
     "vegetarian"
@@ -6151,7 +7921,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp"
+   "image": "caffe-nero/636ddfcdf00f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-banoffee-matcha-latte-soya-milk",
@@ -6166,7 +7942,8 @@
     "saturatedFat": 0.5,
     "sugar": 21,
     "fiber": 2,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 635
    },
    "tags": [
     "vegetarian"
@@ -6175,7 +7952,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp"
+   "image": "caffe-nero/636ddfcdf00f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-banoffee-matcha-latte-oat-milk",
@@ -6190,7 +7973,8 @@
     "saturatedFat": 0.5,
     "sugar": 22.2,
     "fiber": 2.6,
-    "salt": 0.37
+    "salt": 0.37,
+    "energyKj": 747
    },
    "tags": [
     "vegetarian"
@@ -6199,7 +7983,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp"
+   "image": "caffe-nero/636ddfcdf00f.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "iced-banoffee-matcha-latte-coconut-milk",
@@ -6214,7 +8007,8 @@
     "saturatedFat": 1.1,
     "sugar": 22.2,
     "fiber": 1.3,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 568
    },
    "tags": [
     "vegetarian"
@@ -6223,7 +8017,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp"
+   "image": "caffe-nero/636ddfcdf00f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-banoffee-matcha-latte-almond-milk",
@@ -6238,7 +8038,8 @@
     "saturatedFat": 0.2,
     "sugar": 21,
     "fiber": 1.3,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 507
    },
    "tags": [
     "vegetarian"
@@ -6247,7 +8048,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/636ddfcdf00f.webp"
+   "image": "caffe-nero/636ddfcdf00f.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "honeycomb-iced-matcha-latte-semi-skimmed-milk",
@@ -6262,7 +8072,8 @@
     "saturatedFat": 1.7,
     "sugar": 19.7,
     "fiber": 0.7,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 557
    },
    "tags": [
     "vegetarian"
@@ -6271,7 +8082,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bf56bff598de.webp"
+   "image": "caffe-nero/bf56bff598de.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-iced-matcha-latte-skimmed-milk",
@@ -6286,7 +8103,8 @@
     "saturatedFat": 0.2,
     "sugar": 20.1,
     "fiber": 0.7,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 486
    },
    "tags": [
     "vegetarian"
@@ -6295,7 +8113,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bf56bff598de.webp"
+   "image": "caffe-nero/bf56bff598de.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-iced-matcha-latte-whole-milk",
@@ -6310,7 +8134,8 @@
     "saturatedFat": 3.8,
     "sugar": 19.7,
     "fiber": 0.7,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 675
    },
    "tags": [
     "vegetarian"
@@ -6319,7 +8144,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bf56bff598de.webp"
+   "image": "caffe-nero/bf56bff598de.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-soya-milk",
@@ -6334,7 +8165,8 @@
     "saturatedFat": 0.5,
     "sugar": 16.5,
     "fiber": 1.7,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 525
    },
    "tags": [
     "vegetarian"
@@ -6343,7 +8175,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bf56bff598de.webp"
+   "image": "caffe-nero/bf56bff598de.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-oat-milk",
@@ -6358,7 +8196,8 @@
     "saturatedFat": 0.5,
     "sugar": 17.8,
     "fiber": 2.3,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 639
    },
    "tags": [
     "vegetarian"
@@ -6367,7 +8206,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bf56bff598de.webp"
+   "image": "caffe-nero/bf56bff598de.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-coconut-milk",
@@ -6382,7 +8230,8 @@
     "saturatedFat": 1.1,
     "sugar": 17.8,
     "fiber": 1.1,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 464
    },
    "tags": [
     "vegetarian"
@@ -6391,7 +8240,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bf56bff598de.webp"
+   "image": "caffe-nero/bf56bff598de.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-iced-matcha-latte-alpro-almond-milk",
@@ -6406,7 +8261,8 @@
     "saturatedFat": 0.2,
     "sugar": 16.5,
     "fiber": 1.1,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 405
    },
    "tags": [
     "vegetarian"
@@ -6415,7 +8271,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/bf56bff598de.webp"
+   "image": "caffe-nero/bf56bff598de.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-semi-skimmed-milk",
@@ -6430,7 +8295,8 @@
     "saturatedFat": 1.7,
     "sugar": 21.7,
     "fiber": 1.1,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 602
    },
    "tags": [
     "vegetarian"
@@ -6439,7 +8305,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3b2ccdf9fba9.webp"
+   "image": "caffe-nero/3b2ccdf9fba9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-skimmed-milk",
@@ -6454,7 +8326,8 @@
     "saturatedFat": 0.2,
     "sugar": 21.9,
     "fiber": 1.1,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 522
    },
    "tags": [
     "vegetarian"
@@ -6463,7 +8336,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3b2ccdf9fba9.webp"
+   "image": "caffe-nero/3b2ccdf9fba9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-whole-milk",
@@ -6478,7 +8357,8 @@
     "saturatedFat": 3.7,
     "sugar": 21.6,
     "fiber": 1.1,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 710
    },
    "tags": [
     "vegetarian"
@@ -6487,7 +8367,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3b2ccdf9fba9.webp"
+   "image": "caffe-nero/3b2ccdf9fba9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-soya-milk",
@@ -6502,7 +8388,8 @@
     "saturatedFat": 0.5,
     "sugar": 18.5,
     "fiber": 2,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 570
    },
    "tags": [
     "vegetarian"
@@ -6511,7 +8398,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3b2ccdf9fba9.webp"
+   "image": "caffe-nero/3b2ccdf9fba9.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-oat-milk",
@@ -6526,7 +8419,8 @@
     "saturatedFat": 0.5,
     "sugar": 19.8,
     "fiber": 2.7,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 684
    },
    "tags": [
     "vegetarian"
@@ -6535,7 +8429,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3b2ccdf9fba9.webp"
+   "image": "caffe-nero/3b2ccdf9fba9.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-coconut-milk",
@@ -6550,7 +8453,8 @@
     "saturatedFat": 1.1,
     "sugar": 19.8,
     "fiber": 1.4,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 510
    },
    "tags": [
     "vegetarian"
@@ -6559,7 +8463,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3b2ccdf9fba9.webp"
+   "image": "caffe-nero/3b2ccdf9fba9.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-vanilla-iced-matcha-latte-almond-milk",
@@ -6574,7 +8484,8 @@
     "saturatedFat": 0.2,
     "sugar": 18.5,
     "fiber": 1.4,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 450
    },
    "tags": [
     "vegetarian"
@@ -6583,7 +8494,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/3b2ccdf9fba9.webp"
+   "image": "caffe-nero/3b2ccdf9fba9.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte-semi-skimmed-milk",
@@ -6598,7 +8518,8 @@
     "saturatedFat": 1.7,
     "sugar": 13.1,
     "fiber": 0.7,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 445
    },
    "tags": [
     "vegetarian"
@@ -6607,7 +8528,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/12e6818194a3.webp"
+   "image": "caffe-nero/12e6818194a3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte-skimmed-milk",
@@ -6622,7 +8549,8 @@
     "saturatedFat": 0.2,
     "sugar": 13.3,
     "fiber": 0.7,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 365
    },
    "tags": [
     "vegetarian"
@@ -6631,7 +8559,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/12e6818194a3.webp"
+   "image": "caffe-nero/12e6818194a3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte-whole-milk",
@@ -6646,7 +8580,8 @@
     "saturatedFat": 3.7,
     "sugar": 13,
     "fiber": 0.7,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 552
    },
    "tags": [
     "vegetarian"
@@ -6655,7 +8590,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/12e6818194a3.webp"
+   "image": "caffe-nero/12e6818194a3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte-soya-milk",
@@ -6670,7 +8611,8 @@
     "saturatedFat": 0.5,
     "sugar": 9.9,
     "fiber": 1.7,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 413
    },
    "tags": [
     "vegetarian"
@@ -6679,7 +8621,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/12e6818194a3.webp"
+   "image": "caffe-nero/12e6818194a3.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte-oat-milk",
@@ -6694,7 +8642,8 @@
     "saturatedFat": 0.5,
     "sugar": 11.2,
     "fiber": 2.3,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 527
    },
    "tags": [
     "vegetarian"
@@ -6703,7 +8652,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/12e6818194a3.webp"
+   "image": "caffe-nero/12e6818194a3.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte-coconut-milk",
@@ -6718,7 +8676,8 @@
     "saturatedFat": 1.1,
     "sugar": 11.2,
     "fiber": 1.1,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 352
    },
    "tags": [
     "vegetarian"
@@ -6727,7 +8686,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/12e6818194a3.webp"
+   "image": "caffe-nero/12e6818194a3.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte-almond-milk",
@@ -6742,7 +8707,8 @@
     "saturatedFat": 0.2,
     "sugar": 9.9,
     "fiber": 1.1,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 293
    },
    "tags": [
     "vegetarian"
@@ -6751,7 +8717,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/12e6818194a3.webp"
+   "image": "caffe-nero/12e6818194a3.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "iced-blueberry-muffin-matcha-semi-skimmed-milk",
@@ -6766,7 +8741,8 @@
     "saturatedFat": 1.8,
     "sugar": 24.6,
     "fiber": 0.7,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 653
    },
    "tags": [
     "vegetarian"
@@ -6775,7 +8751,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/098be627be8b.webp"
+   "image": "caffe-nero/098be627be8b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-blueberry-muffin-matcha-skimmed-milk",
@@ -6790,7 +8772,8 @@
     "saturatedFat": 0.2,
     "sugar": 24.8,
     "fiber": 0.7,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 572
    },
    "tags": [
     "vegetarian"
@@ -6799,7 +8782,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/098be627be8b.webp"
+   "image": "caffe-nero/098be627be8b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-blueberry-muffin-matcha-whole-milk",
@@ -6814,7 +8803,8 @@
     "saturatedFat": 3.8,
     "sugar": 24.4,
     "fiber": 0.7,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 761
    },
    "tags": [
     "vegetarian"
@@ -6823,7 +8813,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/098be627be8b.webp"
+   "image": "caffe-nero/098be627be8b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-blueberry-muffin-matcha-soya-milk",
@@ -6838,7 +8834,8 @@
     "saturatedFat": 0.5,
     "sugar": 21.2,
     "fiber": 1.7,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 611
    },
    "tags": [
     "vegetarian"
@@ -6847,7 +8844,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/098be627be8b.webp"
+   "image": "caffe-nero/098be627be8b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-blueberry-muffin-matcha-oat-milk",
@@ -6862,7 +8865,8 @@
     "saturatedFat": 0.5,
     "sugar": 22.5,
     "fiber": 2.3,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 723
    },
    "tags": [
     "vegetarian"
@@ -6871,7 +8875,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/098be627be8b.webp"
+   "image": "caffe-nero/098be627be8b.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "iced-blueberry-muffin-matcha-coconut-milk",
@@ -6886,7 +8899,8 @@
     "saturatedFat": 1.1,
     "sugar": 22.5,
     "fiber": 1.1,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 544
    },
    "tags": [
     "vegetarian"
@@ -6895,7 +8909,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/098be627be8b.webp"
+   "image": "caffe-nero/098be627be8b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-blueberry-muffin-matcha-almond-milk",
@@ -6910,7 +8930,8 @@
     "saturatedFat": 0.2,
     "sugar": 21.2,
     "fiber": 1.1,
-    "salt": 0.14
+    "salt": 0.14,
+    "energyKj": 483
    },
    "tags": [
     "vegetarian"
@@ -6919,7 +8940,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/098be627be8b.webp"
+   "image": "caffe-nero/098be627be8b.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-semi-skimmed-milk",
@@ -6934,7 +8964,8 @@
     "saturatedFat": 12.8,
     "sugar": 53.3,
     "fiber": 0.4,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 1877
    },
    "tags": [
     "vegetarian"
@@ -6943,7 +8974,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/05de240857f0.webp"
+   "image": "caffe-nero/05de240857f0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-skimmed-milk",
@@ -6958,7 +8996,8 @@
     "saturatedFat": 11.5,
     "sugar": 53.4,
     "fiber": 0.4,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 1806
    },
    "tags": [
     "vegetarian"
@@ -6967,7 +9006,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/05de240857f0.webp"
+   "image": "caffe-nero/05de240857f0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-whole-milk",
@@ -6982,7 +9028,8 @@
     "saturatedFat": 14.5,
     "sugar": 53.2,
     "fiber": 0.4,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 1972
    },
    "tags": [
     "vegetarian"
@@ -6991,7 +9038,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/05de240857f0.webp"
+   "image": "caffe-nero/05de240857f0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-soya-milk",
@@ -7006,7 +9060,8 @@
     "saturatedFat": 11.7,
     "sugar": 50.5,
     "fiber": 1.3,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 1849
    },
    "tags": [
     "vegetarian"
@@ -7015,7 +9070,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/05de240857f0.webp"
+   "image": "caffe-nero/05de240857f0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-oat-milk",
@@ -7030,7 +9092,8 @@
     "saturatedFat": 11.7,
     "sugar": 51.6,
     "fiber": 1.9,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 1950
    },
    "tags": [
     "vegetarian"
@@ -7039,7 +9102,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/05de240857f0.webp"
+   "image": "caffe-nero/05de240857f0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-coconut-milk",
@@ -7054,7 +9128,8 @@
     "saturatedFat": 12.3,
     "sugar": 51.6,
     "fiber": 0.7,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 1795
    },
    "tags": [
     "vegetarian"
@@ -7063,7 +9138,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/05de240857f0.webp"
+   "image": "caffe-nero/05de240857f0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-luxury-frappe-almond-milk",
@@ -7078,7 +9160,8 @@
     "saturatedFat": 11.4,
     "sugar": 50.5,
     "fiber": 0.7,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 1742
    },
    "tags": [
     "vegetarian"
@@ -7087,7 +9170,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/05de240857f0.webp"
+   "image": "caffe-nero/05de240857f0.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-semi-skimmed-milk",
@@ -7102,7 +9196,8 @@
     "saturatedFat": 13,
     "sugar": 53.4,
     "fiber": 0.7,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 1965
    },
    "tags": [
     "vegetarian"
@@ -7111,7 +9206,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/39047fb4e35d.webp"
+   "image": "caffe-nero/39047fb4e35d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-skimmed-milk",
@@ -7126,7 +9227,8 @@
     "saturatedFat": 11.5,
     "sugar": 53.5,
     "fiber": 0.7,
-    "salt": 0.51
+    "salt": 0.51,
+    "energyKj": 1885
    },
    "tags": [
     "vegetarian"
@@ -7135,7 +9237,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/39047fb4e35d.webp"
+   "image": "caffe-nero/39047fb4e35d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-whole-milk",
@@ -7150,7 +9258,8 @@
     "saturatedFat": 15,
     "sugar": 53.2,
     "fiber": 0.7,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 2072
    },
    "tags": [
     "vegetarian"
@@ -7159,7 +9268,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/39047fb4e35d.webp"
+   "image": "caffe-nero/39047fb4e35d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-soya-milk",
@@ -7174,7 +9289,8 @@
     "saturatedFat": 11.8,
     "sugar": 50.2,
     "fiber": 1.7,
-    "salt": 0.46
+    "salt": 0.46,
+    "energyKj": 1933
    },
    "tags": [
     "vegetarian"
@@ -7183,31 +9299,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/39047fb4e35d.webp"
-  },
-  {
-   "id": "espresso-and-caramel-luxury-frappe-oat-milk",
-   "name": "Espresso & Caramel Luxury Frappe (oat milk)",
-   "category": "Iced drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 488,
-    "protein": 3.3,
-    "carbs": 65.6,
-    "fat": 23.3,
-    "saturatedFat": 11.8,
-    "sugar": 51.4,
-    "fiber": 2.3,
-    "salt": 0.54
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "caffe-nero/39047fb4e35d.webp"
+   "image": "caffe-nero/39047fb4e35d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-coconut-milk",
@@ -7222,7 +9321,8 @@
     "saturatedFat": 12.5,
     "sugar": 51.4,
     "fiber": 1,
-    "salt": 0.49
+    "salt": 0.49,
+    "energyKj": 1872
    },
    "tags": [
     "vegetarian"
@@ -7231,7 +9331,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/39047fb4e35d.webp"
+   "image": "caffe-nero/39047fb4e35d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-and-caramel-luxury-frappe-almond-milk",
@@ -7246,7 +9353,8 @@
     "saturatedFat": 11.5,
     "sugar": 50.2,
     "fiber": 1,
-    "salt": 0.46
+    "salt": 0.46,
+    "energyKj": 1813
    },
    "tags": [
     "vegetarian"
@@ -7255,7 +9363,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/39047fb4e35d.webp"
+   "image": "caffe-nero/39047fb4e35d.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "frappe-latte-semi-skimmed-milk",
@@ -7270,7 +9388,8 @@
     "saturatedFat": 1.8,
     "sugar": 22.2,
     "fiber": 0.5,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 775
    },
    "tags": [
     "vegetarian"
@@ -7279,7 +9398,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9cf191685496.webp"
+   "image": "caffe-nero/9cf191685496.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "frappe-latte-skimmed-milk",
@@ -7294,7 +9419,8 @@
     "saturatedFat": 0.3,
     "sugar": 22.4,
     "fiber": 0.5,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 694
    },
    "tags": [
     "vegetarian"
@@ -7303,7 +9429,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9cf191685496.webp"
+   "image": "caffe-nero/9cf191685496.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "frappe-latte-whole-milk",
@@ -7318,7 +9450,8 @@
     "saturatedFat": 3.8,
     "sugar": 22,
     "fiber": 0.5,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 882
    },
    "tags": [
     "vegetarian"
@@ -7327,7 +9460,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9cf191685496.webp"
+   "image": "caffe-nero/9cf191685496.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "frappe-latte-soya-milk",
@@ -7342,7 +9481,8 @@
     "saturatedFat": 0.5,
     "sugar": 18.8,
     "fiber": 1.4,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 733
    },
    "tags": [
     "vegetarian"
@@ -7351,7 +9491,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9cf191685496.webp"
+   "image": "caffe-nero/9cf191685496.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "frappe-latte-oat-milk",
@@ -7366,7 +9512,8 @@
     "saturatedFat": 0.5,
     "sugar": 20.1,
     "fiber": 2.1,
-    "salt": 0.29
+    "salt": 0.29,
+    "energyKj": 845
    },
    "tags": [
     "vegetarian"
@@ -7375,7 +9522,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9cf191685496.webp"
+   "image": "caffe-nero/9cf191685496.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "frappe-latte-coconut-milk",
@@ -7390,7 +9546,8 @@
     "saturatedFat": 1.2,
     "sugar": 20.1,
     "fiber": 0.8,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 666
    },
    "tags": [
     "vegetarian"
@@ -7399,7 +9556,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9cf191685496.webp"
+   "image": "caffe-nero/9cf191685496.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "frappe-latte-almond-milk",
@@ -7414,7 +9577,8 @@
     "saturatedFat": 0.2,
     "sugar": 18.8,
     "fiber": 0.8,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 605
    },
    "tags": [
     "vegetarian"
@@ -7423,7 +9587,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/9cf191685496.webp"
+   "image": "caffe-nero/9cf191685496.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "mocha-frappe-semi-skimmed-milk",
@@ -7438,7 +9611,8 @@
     "saturatedFat": 2.3,
     "sugar": 26.5,
     "fiber": 1.7,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 910
    },
    "tags": [
     "vegetarian"
@@ -7447,7 +9621,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e995d0f0733f.webp"
+   "image": "caffe-nero/e995d0f0733f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-frappe-skimmed-milk",
@@ -7462,7 +9643,8 @@
     "saturatedFat": 1.2,
     "sugar": 26.5,
     "fiber": 1.7,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 852
    },
    "tags": [
     "vegetarian"
@@ -7471,7 +9653,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e995d0f0733f.webp"
+   "image": "caffe-nero/e995d0f0733f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-frappe-whole-milk",
@@ -7486,7 +9675,8 @@
     "saturatedFat": 3.6,
     "sugar": 26.1,
     "fiber": 1.7,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 975
    },
    "tags": [
     "vegetarian"
@@ -7495,7 +9685,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e995d0f0733f.webp"
+   "image": "caffe-nero/e995d0f0733f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-frappe-soya-milk",
@@ -7510,7 +9707,8 @@
     "saturatedFat": 1.4,
     "sugar": 24,
     "fiber": 2.3,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 879
    },
    "tags": [
     "vegetarian"
@@ -7519,7 +9717,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e995d0f0733f.webp"
+   "image": "caffe-nero/e995d0f0733f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-frappe-oat-milk",
@@ -7534,7 +9738,8 @@
     "saturatedFat": 1.4,
     "sugar": 24.9,
     "fiber": 2.8,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 956
    },
    "tags": [
     "vegetarian"
@@ -7543,7 +9748,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e995d0f0733f.webp"
+   "image": "caffe-nero/e995d0f0733f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "mocha-frappe-coconut-milk",
@@ -7558,7 +9773,8 @@
     "saturatedFat": 1.9,
     "sugar": 24.9,
     "fiber": 1.9,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 833
    },
    "tags": [
     "vegetarian"
@@ -7567,7 +9783,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e995d0f0733f.webp"
+   "image": "caffe-nero/e995d0f0733f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-frappe-almond-milk",
@@ -7582,7 +9804,8 @@
     "saturatedFat": 1.2,
     "sugar": 24,
     "fiber": 1.9,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 791
    },
    "tags": [
     "vegetarian"
@@ -7591,7 +9814,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/e995d0f0733f.webp"
+   "image": "caffe-nero/e995d0f0733f.webp",
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "iced-brown-sugar-oat-latte-semi-skimmed-milk",
@@ -7606,7 +9839,8 @@
     "saturatedFat": 1.8,
     "sugar": 18.6,
     "fiber": 0.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 573
    },
    "tags": [
     "vegetarian"
@@ -7615,7 +9849,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/305192bf7378.webp"
+   "image": "caffe-nero/305192bf7378.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-brown-sugar-oat-latte-skimmed-milk",
@@ -7630,7 +9870,8 @@
     "saturatedFat": 0.3,
     "sugar": 18.8,
     "fiber": 0.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 492
    },
    "tags": [
     "vegetarian"
@@ -7639,7 +9880,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/305192bf7378.webp"
+   "image": "caffe-nero/305192bf7378.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-brown-sugar-oat-latte-whole-milk",
@@ -7654,7 +9901,8 @@
     "saturatedFat": 3.8,
     "sugar": 18.4,
     "fiber": 0.3,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 680
    },
    "tags": [
     "vegetarian"
@@ -7663,7 +9911,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/305192bf7378.webp"
+   "image": "caffe-nero/305192bf7378.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-brown-sugar-oat-latte-soya-milk",
@@ -7678,7 +9932,8 @@
     "saturatedFat": 0.5,
     "sugar": 15.2,
     "fiber": 1.3,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 531
    },
    "tags": [
     "vegetarian"
@@ -7687,7 +9942,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/305192bf7378.webp"
+   "image": "caffe-nero/305192bf7378.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-brown-sugar-oat-latte-oat-milk",
@@ -7702,7 +9963,8 @@
     "saturatedFat": 0.5,
     "sugar": 16.4,
     "fiber": 1.9,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 643
    },
    "tags": [
     "vegetarian"
@@ -7711,7 +9973,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/305192bf7378.webp"
+   "image": "caffe-nero/305192bf7378.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "iced-brown-sugar-oat-latte-coconut-milk",
@@ -7726,7 +9997,8 @@
     "saturatedFat": 1.2,
     "sugar": 16.4,
     "fiber": 0.6,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 464
    },
    "tags": [
     "vegetarian"
@@ -7735,7 +10007,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/305192bf7378.webp"
+   "image": "caffe-nero/305192bf7378.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-brown-sugar-oat-latte-almond-milk",
@@ -7750,7 +10028,8 @@
     "saturatedFat": 0.2,
     "sugar": 15.2,
     "fiber": 0.6,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 403
    },
    "tags": [
     "vegetarian"
@@ -7759,7 +10038,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/305192bf7378.webp"
+   "image": "caffe-nero/305192bf7378.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "pistachio-iced-latte-semi-skimmed-milk",
@@ -7774,7 +10062,8 @@
     "saturatedFat": 1.8,
     "sugar": 21.4,
     "fiber": 0.3,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 615
    },
    "tags": [
     "vegetarian"
@@ -7783,7 +10072,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d73f91e172b8.webp"
+   "image": "caffe-nero/d73f91e172b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pistachio-iced-latte-skimmed-milk",
@@ -7798,7 +10093,8 @@
     "saturatedFat": 0.2,
     "sugar": 21.6,
     "fiber": 0.3,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 535
    },
    "tags": [
     "vegetarian"
@@ -7807,7 +10103,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d73f91e172b8.webp"
+   "image": "caffe-nero/d73f91e172b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pistachio-iced-latte-whole-milk",
@@ -7822,7 +10124,8 @@
     "saturatedFat": 3.7,
     "sugar": 21.3,
     "fiber": 0.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 722
    },
    "tags": [
     "vegetarian"
@@ -7831,7 +10134,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d73f91e172b8.webp"
+   "image": "caffe-nero/d73f91e172b8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pistachio-iced-latte-soya-milk",
@@ -7846,7 +10155,8 @@
     "saturatedFat": 0.5,
     "sugar": 18.2,
     "fiber": 1.3,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 583
    },
    "tags": [
     "vegetarian"
@@ -7855,7 +10165,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d73f91e172b8.webp"
+   "image": "caffe-nero/d73f91e172b8.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pistachio-iced-latte-oat-milk",
@@ -7870,7 +10186,8 @@
     "saturatedFat": 0.5,
     "sugar": 19.5,
     "fiber": 1.9,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 696
    },
    "tags": [
     "vegetarian"
@@ -7879,7 +10196,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d73f91e172b8.webp"
+   "image": "caffe-nero/d73f91e172b8.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "pistachio-iced-latte-coconut-milk",
@@ -7894,7 +10220,8 @@
     "saturatedFat": 1.2,
     "sugar": 19.5,
     "fiber": 0.7,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 522
    },
    "tags": [
     "vegetarian"
@@ -7903,7 +10230,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d73f91e172b8.webp"
+   "image": "caffe-nero/d73f91e172b8.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pistachio-iced-latte-almond-milk",
@@ -7918,7 +10251,8 @@
     "saturatedFat": 0.2,
     "sugar": 18.2,
     "fiber": 0.7,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 463
    },
    "tags": [
     "vegetarian"
@@ -7927,7 +10261,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/d73f91e172b8.webp"
+   "image": "caffe-nero/d73f91e172b8.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "vanilla-iced-latte-semi-skimmed-milk",
@@ -7942,7 +10285,8 @@
     "saturatedFat": 1.8,
     "sugar": 19.9,
     "fiber": 0.3,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 591
    },
    "tags": [
     "vegetarian"
@@ -7951,7 +10295,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0b08fd566f45.webp"
+   "image": "caffe-nero/0b08fd566f45.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-latte-skimmed-milk",
@@ -7966,7 +10316,8 @@
     "saturatedFat": 0.2,
     "sugar": 20,
     "fiber": 0.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 511
    },
    "tags": [
     "vegetarian"
@@ -7975,7 +10326,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0b08fd566f45.webp"
+   "image": "caffe-nero/0b08fd566f45.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-latte-whole-milk",
@@ -7990,7 +10347,8 @@
     "saturatedFat": 3.7,
     "sugar": 19.7,
     "fiber": 0.3,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 698
    },
    "tags": [
     "vegetarian"
@@ -7999,7 +10357,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0b08fd566f45.webp"
+   "image": "caffe-nero/0b08fd566f45.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-latte-soya-milk",
@@ -8014,7 +10378,8 @@
     "saturatedFat": 0.5,
     "sugar": 16.7,
     "fiber": 1.3,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 559
    },
    "tags": [
     "vegetarian"
@@ -8023,7 +10388,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0b08fd566f45.webp"
+   "image": "caffe-nero/0b08fd566f45.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-latte-oat-milk",
@@ -8038,7 +10409,8 @@
     "saturatedFat": 0.5,
     "sugar": 18,
     "fiber": 1.9,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 672
    },
    "tags": [
     "vegetarian"
@@ -8047,7 +10419,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0b08fd566f45.webp"
+   "image": "caffe-nero/0b08fd566f45.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "vanilla-iced-latte-coconut-milk",
@@ -8062,7 +10443,8 @@
     "saturatedFat": 1.2,
     "sugar": 18,
     "fiber": 0.6,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 498
    },
    "tags": [
     "vegetarian"
@@ -8071,7 +10453,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0b08fd566f45.webp"
+   "image": "caffe-nero/0b08fd566f45.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-latte-almond-milk",
@@ -8086,7 +10474,8 @@
     "saturatedFat": 0.2,
     "sugar": 16.7,
     "fiber": 0.6,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 439
    },
    "tags": [
     "vegetarian"
@@ -8095,7 +10484,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/0b08fd566f45.webp"
+   "image": "caffe-nero/0b08fd566f45.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "caramel-iced-latte-semi-skimmed-milk",
@@ -8110,7 +10508,8 @@
     "saturatedFat": 1.8,
     "sugar": 19.7,
     "fiber": 0.3,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 585
    },
    "tags": [
     "vegetarian"
@@ -8119,7 +10518,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4c33976e7c7e.webp"
+   "image": "caffe-nero/4c33976e7c7e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-iced-latte-skimmed-milk",
@@ -8134,7 +10539,8 @@
     "saturatedFat": 0.2,
     "sugar": 19.8,
     "fiber": 0.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 505
    },
    "tags": [
     "vegetarian"
@@ -8143,7 +10549,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4c33976e7c7e.webp"
+   "image": "caffe-nero/4c33976e7c7e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-iced-latte-whole-milk",
@@ -8158,7 +10570,8 @@
     "saturatedFat": 3.7,
     "sugar": 19.5,
     "fiber": 0.3,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 692
    },
    "tags": [
     "vegetarian"
@@ -8167,7 +10580,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4c33976e7c7e.webp"
+   "image": "caffe-nero/4c33976e7c7e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-iced-latte-soya-milk",
@@ -8182,7 +10601,8 @@
     "saturatedFat": 0.5,
     "sugar": 16.5,
     "fiber": 1.3,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 553
    },
    "tags": [
     "vegetarian"
@@ -8191,7 +10611,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4c33976e7c7e.webp"
+   "image": "caffe-nero/4c33976e7c7e.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-iced-latte-oat-milk",
@@ -8206,7 +10632,8 @@
     "saturatedFat": 0.5,
     "sugar": 17.7,
     "fiber": 1.9,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 666
    },
    "tags": [
     "vegetarian"
@@ -8215,7 +10642,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4c33976e7c7e.webp"
+   "image": "caffe-nero/4c33976e7c7e.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "caramel-iced-latte-coconut-milk",
@@ -8230,7 +10666,8 @@
     "saturatedFat": 1.2,
     "sugar": 17.7,
     "fiber": 0.6,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 492
    },
    "tags": [
     "vegetarian"
@@ -8239,7 +10676,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4c33976e7c7e.webp"
+   "image": "caffe-nero/4c33976e7c7e.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-iced-latte-almond-milk",
@@ -8254,7 +10697,8 @@
     "saturatedFat": 0.2,
     "sugar": 16.5,
     "fiber": 0.6,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 433
    },
    "tags": [
     "vegetarian"
@@ -8263,7 +10707,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/4c33976e7c7e.webp"
+   "image": "caffe-nero/4c33976e7c7e.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "vanilla-milkshake-semi-skimmed-milk",
@@ -8278,7 +10731,8 @@
     "saturatedFat": 1.7,
     "sugar": 35,
     "fiber": 0.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 803
    },
    "tags": [
     "vegetarian"
@@ -8287,7 +10741,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/749a129f8774.webp"
+   "image": "caffe-nero/749a129f8774.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-milkshake-skimmed-milk",
@@ -8302,7 +10762,8 @@
     "saturatedFat": 0.2,
     "sugar": 35.2,
     "fiber": 0.2,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 723
    },
    "tags": [
     "vegetarian"
@@ -8311,7 +10772,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/749a129f8774.webp"
+   "image": "caffe-nero/749a129f8774.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-milkshake-whole-milk",
@@ -8326,7 +10793,8 @@
     "saturatedFat": 3.7,
     "sugar": 34.9,
     "fiber": 0.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 910
    },
    "tags": [
     "vegetarian"
@@ -8335,7 +10803,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/749a129f8774.webp"
+   "image": "caffe-nero/749a129f8774.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-milkshake-soya-milk",
@@ -8350,7 +10824,8 @@
     "saturatedFat": 0.5,
     "sugar": 31.8,
     "fiber": 1.1,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 771
    },
    "tags": [
     "vegetarian"
@@ -8359,7 +10834,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/749a129f8774.webp"
+   "image": "caffe-nero/749a129f8774.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-milkshake-oat-milk",
@@ -8374,7 +10855,8 @@
     "saturatedFat": 0.5,
     "sugar": 33.1,
     "fiber": 1.8,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 884
    },
    "tags": [
     "vegetarian"
@@ -8383,7 +10865,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/749a129f8774.webp"
+   "image": "caffe-nero/749a129f8774.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "vanilla-milkshake-coconut-milk",
@@ -8398,7 +10889,8 @@
     "saturatedFat": 1.1,
     "sugar": 33.1,
     "fiber": 0.5,
-    "salt": 0.19
+    "salt": 0.19,
+    "energyKj": 710
    },
    "tags": [
     "vegetarian"
@@ -8407,7 +10899,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/749a129f8774.webp"
+   "image": "caffe-nero/749a129f8774.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-milkshake-almond-milk",
@@ -8422,7 +10920,8 @@
     "saturatedFat": 0.2,
     "sugar": 31.8,
     "fiber": 0.5,
-    "salt": 0.16
+    "salt": 0.16,
+    "energyKj": 651
    },
    "tags": [
     "vegetarian"
@@ -8431,7 +10930,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/749a129f8774.webp"
+   "image": "caffe-nero/749a129f8774.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "strawberry-milkshake-semi-skimmed-milk",
@@ -8446,7 +10954,8 @@
     "saturatedFat": 1.7,
     "sugar": 38.3,
     "fiber": 1,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 893
    },
    "tags": [
     "vegetarian"
@@ -8455,7 +10964,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f6a630af6350.webp"
+   "image": "caffe-nero/f6a630af6350.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-skimmed-milk",
@@ -8470,7 +10985,8 @@
     "saturatedFat": 0.2,
     "sugar": 38.5,
     "fiber": 1,
-    "salt": 0.22
+    "salt": 0.22,
+    "energyKj": 813
    },
    "tags": [
     "vegetarian"
@@ -8479,7 +10995,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f6a630af6350.webp"
+   "image": "caffe-nero/f6a630af6350.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-whole-milk",
@@ -8494,7 +11016,8 @@
     "saturatedFat": 3.7,
     "sugar": 38.2,
     "fiber": 1,
-    "salt": 0.21
+    "salt": 0.21,
+    "energyKj": 1000
    },
    "tags": [
     "vegetarian"
@@ -8503,7 +11026,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f6a630af6350.webp"
+   "image": "caffe-nero/f6a630af6350.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-soya-milk",
@@ -8518,7 +11047,8 @@
     "saturatedFat": 0.5,
     "sugar": 35.1,
     "fiber": 2,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 861
    },
    "tags": [
     "vegetarian"
@@ -8527,7 +11057,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f6a630af6350.webp"
+   "image": "caffe-nero/f6a630af6350.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-oat-milk",
@@ -8542,7 +11078,8 @@
     "saturatedFat": 0.5,
     "sugar": 36.4,
     "fiber": 2.6,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 975
    },
    "tags": [
     "vegetarian"
@@ -8551,7 +11088,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f6a630af6350.webp"
+   "image": "caffe-nero/f6a630af6350.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "strawberry-milkshake-coconut-milk",
@@ -8566,7 +11112,8 @@
     "saturatedFat": 1.1,
     "sugar": 36.4,
     "fiber": 1.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 800
    },
    "tags": [
     "vegetarian"
@@ -8575,7 +11122,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f6a630af6350.webp"
+   "image": "caffe-nero/f6a630af6350.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-almond-milk",
@@ -8590,7 +11143,8 @@
     "saturatedFat": 0.2,
     "sugar": 35.1,
     "fiber": 1.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 741
    },
    "tags": [
     "vegetarian"
@@ -8599,7 +11153,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/f6a630af6350.webp"
+   "image": "caffe-nero/f6a630af6350.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "chocolate-milkshake-semi-skimmed-milk",
@@ -8614,7 +11177,8 @@
     "saturatedFat": 2.4,
     "sugar": 40.7,
     "fiber": 3.3,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 1066
    },
    "tags": [
     "vegetarian"
@@ -8623,7 +11187,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/dba050191190.webp"
+   "image": "caffe-nero/dba050191190.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-milkshake-skimmed-milk",
@@ -8638,7 +11208,8 @@
     "saturatedFat": 0.9,
     "sugar": 40.9,
     "fiber": 3.3,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 986
    },
    "tags": [
     "vegetarian"
@@ -8647,7 +11218,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/dba050191190.webp"
+   "image": "caffe-nero/dba050191190.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-milkshake-whole-milk",
@@ -8662,7 +11239,8 @@
     "saturatedFat": 4.3,
     "sugar": 40.5,
     "fiber": 3.3,
-    "salt": 0.24
+    "salt": 0.24,
+    "energyKj": 1173
    },
    "tags": [
     "vegetarian"
@@ -8671,7 +11249,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/dba050191190.webp"
+   "image": "caffe-nero/dba050191190.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-milkshake-soya-milk",
@@ -8686,7 +11270,8 @@
     "saturatedFat": 1.1,
     "sugar": 37.5,
     "fiber": 4.3,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1034
    },
    "tags": [
     "vegetarian"
@@ -8695,7 +11280,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/dba050191190.webp"
+   "image": "caffe-nero/dba050191190.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-milkshake-oat-milk",
@@ -8710,7 +11301,8 @@
     "saturatedFat": 1.1,
     "sugar": 38.8,
     "fiber": 4.9,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 1148
    },
    "tags": [
     "vegetarian"
@@ -8719,7 +11311,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/dba050191190.webp"
+   "image": "caffe-nero/dba050191190.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "chocolate-milkshake-coconut-milk",
@@ -8734,7 +11335,8 @@
     "saturatedFat": 1.8,
     "sugar": 38.8,
     "fiber": 3.6,
-    "salt": 0.23
+    "salt": 0.23,
+    "energyKj": 973
    },
    "tags": [
     "vegetarian"
@@ -8743,7 +11345,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/dba050191190.webp"
+   "image": "caffe-nero/dba050191190.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-milkshake-almond-milk",
@@ -8758,7 +11366,8 @@
     "saturatedFat": 0.8,
     "sugar": 37.5,
     "fiber": 3.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 914
    },
    "tags": [
     "vegetarian"
@@ -8767,7 +11376,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/dba050191190.webp"
+   "image": "caffe-nero/dba050191190.webp",
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "mango-and-passionfruit-fruit-booster",
@@ -8782,7 +11400,8 @@
     "saturatedFat": 0.1,
     "sugar": 32.1,
     "fiber": 2,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 687
    },
    "tags": [
     "vegetarian"
@@ -8791,7 +11410,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "caffe-nero/993b5d23636d.webp"
+   "image": "caffe-nero/993b5d23636d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "honey",
@@ -8806,7 +11429,8 @@
     "saturatedFat": 0,
     "sugar": 24,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 411
    },
    "tags": [
     "vegetarian"
@@ -8814,7 +11438,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-conserve",
@@ -8829,7 +11457,8 @@
     "saturatedFat": 0,
     "sugar": 17.1,
     "fiber": 1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 305
    },
    "tags": [
     "vegetarian"
@@ -8837,7 +11466,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-conserve",
@@ -8852,7 +11485,8 @@
     "saturatedFat": 0,
     "sugar": 17.7,
     "fiber": 0.4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 307
    },
    "tags": [
     "vegetarian"
@@ -8860,7 +11494,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "clotted-cream",
@@ -8874,7 +11512,8 @@
     "fat": 25.4,
     "saturatedFat": 15.9,
     "sugar": 0.9,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 965
    },
    "tags": [
     "vegetarian"
@@ -8882,7 +11521,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "whipped-cream",
@@ -8897,7 +11542,8 @@
     "saturatedFat": 11.3,
     "sugar": 1.2,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 705
    },
    "tags": [
     "vegetarian"
@@ -8905,7 +11551,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "plant-based-creamy-topping",
@@ -8920,7 +11572,8 @@
     "saturatedFat": 9.9,
     "sugar": 0.6,
     "fiber": 0.2,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 546
    },
    "tags": [
     "vegetarian"
@@ -8928,7 +11581,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "marshmallows",
@@ -8943,13 +11600,18 @@
     "saturatedFat": 0.1,
     "sugar": 4.1,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 84
    },
    "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

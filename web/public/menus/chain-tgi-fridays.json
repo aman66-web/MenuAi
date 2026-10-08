@@ -12,16 +12,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "TGI Fridays allergen and calorie guide: Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-07, no date shown)",
+  "title": "TGI Fridays allergen and calorie guide: Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-08, no date shown)",
   "url": "https://viewthe.menu/2alz",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Calories only (per dish, from TGI Fridays' own allergen guide): protein, carbs and fat are not published. Drinks and cocktails are not in the guide, and it doesn't say whether grills include their two sides. Several different dishes print identical calories (all four steaks print 679): ask the restaurant if it matters.",
  "allergenGuide": {
-  "title": "TGI Fridays allergen and intolerance guide with calories, Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-07, no date shown)",
+  "title": "TGI Fridays allergen and intolerance guide with calories, Main Menu and Kids Menu (viewthe.menu/2alz, accessed 2026-10-08, no date shown)",
   "url": "https://viewthe.menu/2alz",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -182,11 +182,6 @@
      "eggs",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -311,9 +306,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -751,10 +743,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -815,9 +803,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -851,32 +836,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "vegan-bbq-burger",
-   "name": "Vegan BBQ Burger",
-   "category": "Burgers & sandwiches",
-   "serving": "",
-   "nutrients": {
-    "calories": 676
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery"
-    ],
-    "mayContain": [
-     "milk",
-     "mustard",
-     "sesame"
     ]
    }
   },
@@ -944,11 +903,6 @@
      "molluscs",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -982,11 +936,6 @@
      "molluscs",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -1951,9 +1900,6 @@
      "mustard",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2074,11 +2020,6 @@
      "eggs",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -2106,11 +2047,6 @@
      "milk",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley"
     ]
    }
   },
@@ -2646,9 +2582,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2781,9 +2714,6 @@
      "molluscs",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2839,9 +2769,6 @@
      "eggs",
      "milk",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3026,9 +2953,6 @@
      "milk",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3056,9 +2980,6 @@
      "eggs",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

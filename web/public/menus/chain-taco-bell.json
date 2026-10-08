@@ -10,9 +10,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Taco Bell UK Full Nutrition Information (last updated 30 September 2026)",
+  "title": "Taco Bell UK Full Nutrition Information (last updated 7 October 2026)",
   "url": "https://www.tacobell.co.uk/nutrition-information/",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-08"
  },
  "note": "Fixed meals, sharing boxes and drinks aren't included.",
  "allergenGuide": {

@@ -1,8 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
-greggs,nutrition,medium,huge-protein,bbq-chicken-bacon-pizza-box-6-pack,BBQ Chicken & Bacon Pizza Box 6 Pack,Pizza boxes,161 g protein
-greggs,nutrition,medium,huge-protein,buffalo-chicken-pizza-box-6-pack,Buffalo Chicken Pizza Box 6 Pack,Pizza boxes,165 g protein
-greggs,nutrition,medium,huge-protein,pepperoni-pizza-box-6-pack,Pepperoni Pizza Box 6 Pack,Pizza boxes,124 g protein
-greggs,nutrition,medium,huge-protein,spicy-chicken-pizza-box-6-pack,Spicy Chicken Pizza Box 6 Pack,Pizza boxes,140 g protein
 greggs,nutrition,low,huge,bbq-chicken-bacon-pizza-box-4-pack,BBQ Chicken & Bacon Pizza Box 4 Pack,Pizza boxes,2663 kcal in one item
 greggs,nutrition,low,huge,bbq-chicken-bacon-pizza-box-6-pack,BBQ Chicken & Bacon Pizza Box 6 Pack,Pizza boxes,3995 kcal in one item
 greggs,nutrition,low,huge,buffalo-chicken-pizza-box-4-pack,Buffalo Chicken Pizza Box 4 Pack,Pizza boxes,2692 kcal in one item
@@ -13,3 +9,7 @@ greggs,nutrition,low,huge,pepperoni-pizza-box-6-pack,Pepperoni Pizza Box 6 Pack,
 greggs,nutrition,low,huge,spicy-chicken-pizza-box-6-pack,Spicy Chicken Pizza Box 6 Pack,Pizza boxes,3639 kcal in one item
 greggs,nutrition,low,huge,veggie-feast-pizza-box-6-pack,Veggie Feast Pizza Box 6 Pack,Pizza boxes,3685 kcal in one item
 greggs,nutrition,low,identical-numbers,caramel-latte-regular,Caramel Latte (regular),Hot drinks,"4 differently named items share these exact numbers (e.g. ['Caramel Latte (regular)', 'Caramel Latte Decaf (regular)', 'Vanilla Latte (regular)'])"
+greggs,nutrition,reviewed,huge-protein,bbq-chicken-bacon-pizza-box-6-pack,BBQ Chicken & Bacon Pizza Box 6 Pack,Pizza boxes,161 g protein
+greggs,nutrition,reviewed,huge-protein,buffalo-chicken-pizza-box-6-pack,Buffalo Chicken Pizza Box 6 Pack,Pizza boxes,165 g protein
+greggs,nutrition,reviewed,huge-protein,pepperoni-pizza-box-6-pack,Pepperoni Pizza Box 6 Pack,Pizza boxes,124 g protein
+greggs,nutrition,reviewed,huge-protein,spicy-chicken-pizza-box-6-pack,Spicy Chicken Pizza Box 6 Pack,Pizza boxes,140 g protein

@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Franco Manca menu with calories, francomanca.co.uk/menu (accessed 2026-10-07, no date shown)",
+  "title": "Franco Manca menu with calories, francomanca.co.uk/menu (accessed 2026-10-08, no date shown)",
   "url": "https://www.francomanca.co.uk/menu/",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Franco Manca prints calories only, beside each dish, so protein, carbs and fat are not published. Drinks without calories (wine, most cocktails and beers) are not listed. Pizzerias can differ slightly. Its allergen-list FAQ says swapping to a gluten-free base adds 53 kcal.",
  "allergenGuide": {
   "title": "Franco Manca allergen list, July 2026 v2 (FM-ALLERGEN-LIST-JULY-2026-v2.pdf, 18 pages)",
   "url": "https://www.francomanca.co.uk/wp-content/uploads/2026/08/FM-ALLERGEN-LIST-JULY-2026-v2.pdf",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": false
  },

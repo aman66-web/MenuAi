@@ -95,28 +95,6 @@
    "image": "fat-hippo/1d1c33d50819.webp"
   },
   {
-   "id": "freddies-fingers-buffalo",
-   "name": "Freddies Fingers: Buffalo",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 521,
-    "protein": 66,
-    "carbs": 7,
-    "fat": 35,
-    "saturatedFat": 3,
-    "sugar": 5,
-    "fiber": 0,
-    "salt": 1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/8dec0df81707.webp"
-  },
-  {
    "id": "freddies-fingers-crack",
    "name": "Freddies Fingers: Crack",
    "category": "Starters",
@@ -615,30 +593,6 @@
    "image": "fat-hippo/e94db08c9833.webp"
   },
   {
-   "id": "dirty-tater-tots-upgrade",
-   "name": "Dirty Tater Tots (upgrade)",
-   "category": "Upgrades",
-   "serving": "",
-   "nutrients": {
-    "calories": 495,
-    "protein": 8,
-    "carbs": 55,
-    "fat": 37,
-    "saturatedFat": 2,
-    "sugar": 3,
-    "fiber": 8,
-    "salt": 1
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/823b2a68e556.webp"
-  },
-  {
    "id": "5oz-beef-patty-upgrade",
    "name": "5oz Beef Patty (upgrade)",
    "category": "Upgrades",
@@ -812,28 +766,6 @@
    "rankable": true,
    "components": [],
    "modifiers": []
-  },
-  {
-   "id": "handcut-fries",
-   "name": "Handcut Fries",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 113,
-    "protein": 3,
-    "carbs": 26,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 1,
-    "fiber": 0,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/ffc4bfbfe2a8.webp"
   },
   {
    "id": "tater-tots",

@@ -814,30 +814,6 @@
    "modifiers": []
   },
   {
-   "id": "doritos-cool-original",
-   "name": "Doritos Cool Original",
-   "category": "Pre-packed snacks",
-   "serving": "180g",
-   "nutrients": {
-    "calories": 747,
-    "protein": 8.9,
-    "carbs": 87.2,
-    "fat": 38.3,
-    "saturatedFat": 2.7,
-    "sodium": 888,
-    "sugar": 4.1,
-    "fiber": 8.4,
-    "salt": 2.2,
-    "energyKj": 3126,
-    "weight": 180
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "jacobs-sea-salt-and-vinegar-cracker-crisps",
    "name": "Jacobs Sea salt and Vinegar Cracker Crisps",
    "category": "Pre-packed snacks",

@@ -1,8 +1,12 @@
 chain,kind,severity,code,item,name,category,detail
-itsu,nutrition,medium,energy-gap,edamame,Edamame,Sushi & salads,132 kcal vs 4P+4C+9F=98 (26% off)
 itsu,nutrition,low,energy-gap-alcohol,asahi,Asahi,Cold drinks,135 kcal vs 4P+4C+9F=41: energy not in the macros (alcohol?)
 itsu,nutrition,low,fibre-gt-carbs,edamame,Edamame,Sushi & salads,fibre 17.4 g > carbohydrate 3.4 g
 itsu,nutrition,low,fibre-gt-carbs,lemon-baked-pistachios,Lemon Baked Pistachios,Desserts & snacks,fibre 6.8 g > carbohydrate 2.2 g
 itsu,nutrition,low,fibre-gt-carbs,the-tuna-and-salmon-sashimi,The Tuna & Salmon Sashimi,Sushi & salads,fibre 5.4 g > carbohydrate 3.7 g
 itsu,nutrition,low,fibre-gt-carbs,umami-roasted-almonds,Umami Roasted Almonds,Desserts & snacks,fibre 4.4 g > carbohydrate 3 g
 itsu,nutrition,low,sugar+fibre-gt-carbs,angelic-almonds,Angelic Almonds,Desserts & snacks,sugars 15 + fibre 2.1 > carbohydrate 15 (starch would be negative)
+itsu,nutrition,reviewed,energy-gap,edamame,Edamame,Sushi & salads,132 kcal vs 4P+4C+9F=98 (26% off)
+itsu,allergen,reviewed,name-implies-gluten,dark-chocolate-corn-cakes,Dark Chocolate Corn Cakes,Desserts & snacks,'Cake' in the name but gluten is not marked (contains: ['soya'])
+itsu,allergen,reviewed,name-implies-gluten,milk-chocolate-corn-cakes,Milk Chocolate Corn Cakes,Desserts & snacks,"'Cake' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+itsu,allergen,reviewed,name-implies-gluten,salted-caramel-corn-cakes,Salted Caramel Corn Cakes,Desserts & snacks,"'Cake' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+itsu,allergen,reviewed,name-implies-gluten,sweet-chilli-toasted-cashews,Sweet Chilli Toasted Cashews,Desserts & snacks,'Toast' in the name but gluten is not marked (contains: ['nuts'])

@@ -11,9 +11,9 @@
  ],
  "sample": false,
  "source": {
-  "title": "Nando's UK menu and nutrition information (nandos.co.uk/food/menu, published 2 October 2026)",
+  "title": "Nando's UK menu and nutrition information (nandos.co.uk/food/menu, published 7 October 2026)",
   "url": "https://www.nandos.co.uk/food/menu",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-08"
  },
  "note": "Sharing platters aren't included: Nando's publishes their values for the chicken only. Add items to build a total.",
  "categories": [
@@ -826,29 +826,6 @@
    "modifiers": []
   },
   {
-   "id": "spicy-rice-bowl",
-   "name": "Spicy Rice Bowl",
-   "category": "Salads & Bowls",
-   "serving": "",
-   "nutrients": {
-    "calories": 600,
-    "protein": 15.1,
-    "carbs": 21.5,
-    "fat": 31.7,
-    "saturatedFat": 3.5,
-    "sugar": 8.3,
-    "fiber": 3.6,
-    "salt": 3.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
    "id": "mediterranean-salad",
    "name": "Mediterranean Salad",
    "category": "Salads & Bowls",
@@ -931,29 +908,6 @@
     "sugar": 9.9,
     "fiber": 9.8,
     "salt": 1.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "beanie-wrap",
-   "name": "Beanie Wrap",
-   "category": "Veggie",
-   "serving": "",
-   "nutrients": {
-    "calories": 644,
-    "protein": 21.5,
-    "carbs": 37,
-    "fat": 26.5,
-    "saturatedFat": 7.2,
-    "sugar": 10.7,
-    "fiber": 11.3,
-    "salt": 2.4
    },
    "tags": [
     "vegetarian"
@@ -1221,29 +1175,6 @@
     "saturatedFat": 0.3,
     "sugar": 3.5,
     "fiber": 0.9,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cucumber-sticks-nandinos-side",
-   "name": "Cucumber Sticks (Nandinos side)",
-   "category": "Nandinos (Kids)",
-   "serving": "",
-   "nutrients": {
-    "calories": 3,
-    "protein": 1.7,
-    "carbs": 0.1,
-    "fat": 0.1,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 2.7,
     "salt": 0
    },
    "tags": [

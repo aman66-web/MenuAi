@@ -13,13 +13,13 @@
  "source": {
   "title": "Greene King Pub & Social Core Menu Nutritional Information, Spring Summer 2024 (Version 1)",
   "url": "https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/b538641dcd674078a9ed2355770d6eb6?v=c6782b60",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Pub & Social menu only, from Greene King's spring/summer 2024 guide. Where the guide asks you to choose a sauce, side or bread, the dish is listed without it and the choice is an add-on, so those dishes are not suggested as orders.",
  "allergenGuide": {
   "title": "Greene King allergen information: each pub's allergen menu, via the pub finder (no date shown)",
   "url": "https://www.greeneking.co.uk/allergens",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
   "complete": false
  },
@@ -1528,7 +1528,9 @@
     "salt": 1.54,
     "energyKj": 1335
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -1572,9 +1574,7 @@
     "salt": 0.8,
     "energyKj": 684
    },
-   "tags": [
-    "contains_beef"
-   ],
+   "tags": [],
    "limitedTime": false,
    "rankable": false,
    "components": [],

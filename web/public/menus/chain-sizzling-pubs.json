@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Sizzling Pubs online main menu with nutrition, one venue (live menu feed): menu '11. Suburban DN26 Main *LIVE*', last modified 2026-10-06",
+  "title": "Sizzling Pubs online main menu with nutrition, one venue (live menu feed): menu '11. Suburban DN26 Main *LIVE*', last modified 2026-10-08",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic/?id=1001316&websitePageUrlPath=main-menu1&idType=TradingEntity&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "From the menu of one Sizzling Pubs venue, used as published: other venues' menus and values may differ. Main menu only. A side, sauce, swap or topping you choose isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights.",
  "allergenGuide": {
-  "title": "Sizzling Pubs allergens in its online menu (M&B menu feed): menu '11. Suburban DN26 Main *LIVE*', ingredients last modified 2026-10-06",
+  "title": "Sizzling Pubs allergens in its online menu (M&B menu feed): menu '11. Suburban DN26 Main *LIVE*', ingredients last modified 2026-10-08",
   "url": "https://api-production.mbplc.io/webappbff/api/v1/menus/dynamic/?id=1001316&websitePageUrlPath=main-menu1&idType=TradingEntity&salesChannel=DynamicWebMenus",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -160,12 +160,12 @@
    "serving": "",
    "nutrients": {
     "calories": 771,
-    "protein": 56.9,
-    "carbs": 70.8,
-    "fat": 20,
+    "protein": 57.1,
+    "carbs": 70.7,
+    "fat": 20.2,
     "saturatedFat": 6.4,
-    "sugar": 9.8,
-    "salt": 2.87
+    "sugar": 9.9,
+    "salt": 2.86
    },
    "tags": [
     "contains_pork"
@@ -188,11 +188,11 @@
    "serving": "",
    "nutrients": {
     "calories": 708,
-    "protein": 32.7,
-    "carbs": 61.3,
-    "fat": 29.1,
+    "protein": 33,
+    "carbs": 61.2,
+    "fat": 29.3,
     "saturatedFat": 13.8,
-    "sugar": 7.1,
+    "sugar": 7.2,
     "salt": 4.06
    },
    "tags": [
@@ -320,12 +320,12 @@
    "serving": "",
    "nutrients": {
     "calories": 629,
-    "protein": 34.2,
-    "carbs": 52.9,
-    "fat": 28.7,
-    "saturatedFat": 6.1,
-    "sugar": 6.7,
-    "salt": 3.81
+    "protein": 34.5,
+    "carbs": 52.8,
+    "fat": 28.9,
+    "saturatedFat": 6,
+    "sugar": 6.8,
+    "salt": 3.8
    },
    "tags": [
     "vegetarian"
@@ -525,9 +525,9 @@
    "serving": "",
    "nutrients": {
     "calories": 875,
-    "protein": 59.7,
-    "carbs": 89.4,
-    "fat": 22.8,
+    "protein": 59.9,
+    "carbs": 89.3,
+    "fat": 22.9,
     "saturatedFat": 11.7,
     "sugar": 25.8,
     "salt": 4.28
@@ -557,12 +557,12 @@
    "serving": "",
    "nutrients": {
     "calories": 838,
-    "protein": 49.2,
-    "carbs": 88.4,
-    "fat": 30.3,
+    "protein": 49.4,
+    "carbs": 88.3,
+    "fat": 30.2,
     "saturatedFat": 3.6,
     "sugar": 15.7,
-    "salt": 3.28
+    "salt": 3.27
    },
    "tags": [],
    "limitedTime": false,
@@ -592,12 +592,12 @@
    "serving": "",
    "nutrients": {
     "calories": 731,
-    "protein": 45.8,
+    "protein": 45.9,
     "carbs": 95.2,
-    "fat": 17,
+    "fat": 16.9,
     "saturatedFat": 2,
     "sugar": 16.9,
-    "salt": 3.41
+    "salt": 3.4
    },
    "tags": [],
    "limitedTime": false,
@@ -625,12 +625,12 @@
    "serving": "",
    "nutrients": {
     "calories": 995,
-    "protein": 44.7,
-    "carbs": 107.5,
-    "fat": 41.1,
+    "protein": 44.9,
+    "carbs": 107.4,
+    "fat": 41,
     "saturatedFat": 20.1,
     "sugar": 32.3,
-    "salt": 6.15
+    "salt": 6.13
    },
    "tags": [
     "vegetarian"
@@ -657,12 +657,12 @@
    "serving": "",
    "nutrients": {
     "calories": 898,
-    "protein": 24.6,
-    "carbs": 132.6,
+    "protein": 24.7,
+    "carbs": 132.5,
     "fat": 26.5,
     "saturatedFat": 6.6,
     "sugar": 38.3,
-    "salt": 3.77
+    "salt": 3.76
    },
    "tags": [
     "vegetarian"
@@ -853,13 +853,13 @@
    "category": "Sizzling skillets",
    "serving": "",
    "nutrients": {
-    "calories": 943,
-    "protein": 43,
-    "carbs": 102.9,
-    "fat": 37.2,
-    "saturatedFat": 6.2,
-    "sugar": 47,
-    "salt": 4.69
+    "calories": 908,
+    "protein": 45.3,
+    "carbs": 105.3,
+    "fat": 32,
+    "saturatedFat": 5.4,
+    "sugar": 45.8,
+    "salt": 4.83
    },
    "tags": [],
    "limitedTime": false,
@@ -889,7 +889,7 @@
     "fat": 25.3,
     "saturatedFat": 3.8,
     "sugar": 12.4,
-    "salt": 0.89
+    "salt": 0.91
    },
    "tags": [],
    "limitedTime": false,
@@ -1445,12 +1445,12 @@
    "serving": "",
    "nutrients": {
     "calories": 1579,
-    "protein": 45.7,
+    "protein": 45.9,
     "carbs": 181.4,
-    "fat": 67.6,
+    "fat": 67.5,
     "saturatedFat": 16.3,
-    "sugar": 23,
-    "salt": 7.6
+    "sugar": 22.9,
+    "salt": 7.58
    },
    "tags": [],
    "limitedTime": false,
@@ -1519,12 +1519,12 @@
    "serving": "",
    "nutrients": {
     "calories": 1427,
-    "protein": 50,
+    "protein": 50.2,
     "carbs": 148,
-    "fat": 61,
+    "fat": 60.9,
     "saturatedFat": 11.1,
     "sugar": 23,
-    "salt": 6.72
+    "salt": 6.71
    },
    "tags": [
     "contains_beef",
@@ -2313,12 +2313,12 @@
    "serving": "",
    "nutrients": {
     "calories": 73,
-    "protein": 1.6,
-    "carbs": 6.5,
-    "fat": 3.8,
+    "protein": 2.1,
+    "carbs": 6.4,
+    "fat": 3.6,
     "saturatedFat": 0.3,
-    "sugar": 4.3,
-    "salt": 0.14
+    "sugar": 4.2,
+    "salt": 0.1
    },
    "tags": [
     "vegetarian"
@@ -2476,13 +2476,13 @@
    "category": "Snacks & starters",
    "serving": "",
    "nutrients": {
-    "calories": 787,
-    "protein": 18.7,
-    "carbs": 88.9,
-    "fat": 37.5,
-    "saturatedFat": 5.5,
-    "sugar": 11,
-    "salt": 3.82
+    "calories": 778,
+    "protein": 19.3,
+    "carbs": 89.5,
+    "fat": 36.2,
+    "saturatedFat": 5.3,
+    "sugar": 10.7,
+    "salt": 3.85
    },
    "tags": [],
    "limitedTime": false,
@@ -2638,12 +2638,12 @@
    "serving": "",
    "nutrients": {
     "calories": 402,
-    "protein": 24.1,
+    "protein": 24.2,
     "carbs": 30.5,
     "fat": 19.9,
     "saturatedFat": 6.2,
     "sugar": 10.3,
-    "salt": 0.75
+    "salt": 0.74
    },
    "tags": [
     "contains_pork"
@@ -2736,13 +2736,13 @@
    "category": "Snacks & starters",
    "serving": "",
    "nutrients": {
-    "calories": 377,
-    "protein": 19.4,
-    "carbs": 32.3,
-    "fat": 18.3,
-    "saturatedFat": 3.1,
-    "sugar": 11.4,
-    "salt": 1.79
+    "calories": 359,
+    "protein": 20.6,
+    "carbs": 33.5,
+    "fat": 15.7,
+    "saturatedFat": 2.7,
+    "sugar": 10.7,
+    "salt": 1.86
    },
    "tags": [],
    "limitedTime": false,
@@ -2765,13 +2765,13 @@
    "category": "Snacks & starters",
    "serving": "",
    "nutrients": {
-    "calories": 1146,
-    "protein": 72.9,
-    "carbs": 73.6,
-    "fat": 60.9,
-    "saturatedFat": 12,
-    "sugar": 19.6,
-    "salt": 5.73
+    "calories": 1129,
+    "protein": 74,
+    "carbs": 74.8,
+    "fat": 58.3,
+    "saturatedFat": 11.6,
+    "sugar": 19,
+    "salt": 5.8
    },
    "tags": [],
    "limitedTime": false,
@@ -3298,13 +3298,13 @@
    "category": "Hot drinks",
    "serving": "",
    "nutrients": {
-    "calories": 106,
-    "protein": 6.4,
-    "carbs": 11.2,
-    "fat": 3.5,
-    "saturatedFat": 2.1,
-    "sugar": 10.6,
-    "salt": 0.28
+    "calories": 98,
+    "protein": 6.3,
+    "carbs": 9.6,
+    "fat": 3.4,
+    "saturatedFat": 1.9,
+    "sugar": 9.2,
+    "salt": 0.26
    },
    "tags": [
     "vegetarian"
@@ -3326,13 +3326,13 @@
    "category": "Hot drinks",
    "serving": "",
    "nutrients": {
-    "calories": 220,
-    "protein": 7.7,
-    "carbs": 33.1,
-    "fat": 5.7,
-    "saturatedFat": 3.8,
-    "sugar": 30.6,
-    "salt": 0.57
+    "calories": 210,
+    "protein": 8.3,
+    "carbs": 32.4,
+    "fat": 4.4,
+    "saturatedFat": 2.5,
+    "sugar": 31.1,
+    "salt": 0.42
    },
    "tags": [
     "vegetarian"

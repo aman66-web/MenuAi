@@ -44,35 +44,6 @@
  "components": [],
  "items": [
   {
-   "id": "houmous",
-   "name": "Houmous",
-   "category": "Petit plats",
-   "serving": "",
-   "nutrients": {
-    "calories": 584
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts",
-     "peanuts"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "nocellara-olives",
    "name": "Nocellara Olives",
    "category": "Petit plats",
@@ -738,35 +709,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "lamb-tagine",
-   "name": "Lamb Tagine",
-   "category": "Plats",
-   "serving": "",
-   "nutrients": {
-    "calories": 532
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "celery",
-     "gluten",
-     "mustard",
-     "soya",
-     "sulphites"
-    ],
-    "mayContain": [
-     "nuts"
     ]
    }
   },
@@ -821,9 +763,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1233,10 +1172,6 @@
     "mayContain": [
      "gluten",
      "peanuts"
-    ],
-    "nuts": [
-     "almond",
-     "pistachio"
     ]
    }
   },
@@ -1457,9 +1392,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -1883,9 +1815,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2002,11 +1931,6 @@
     ],
     "mayContain": [
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "oats"
     ]
    }
   },
@@ -2060,10 +1984,7 @@
      "sesame",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2093,9 +2014,6 @@
     "mayContain": [
      "celery",
      "mustard"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2125,9 +2043,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2672,10 +2587,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {

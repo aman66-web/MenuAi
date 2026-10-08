@@ -1,1 +1,3 @@
 chain,kind,severity,code,item,name,category,detail
+vintage-inns,allergen,low,name-implies-sulphites,indulgent-beef-and-red-wine-lasagne,Indulgent Beef & Red Wine Lasagne,Mains,"'Wine' in the name but sulphites is not marked (contains: ['eggs', 'gluten', 'milk'])"
+vintage-inns,allergen,reviewed,name-implies-fish,caesar-salad,Caesar Salad,Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk', 'mustard'])"

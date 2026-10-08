@@ -13,9 +13,16 @@
  "source": {
   "title": "Tortilla Nutrition & Allergen Information (updated 17 September 2026)",
   "url": "https://a.storyblok.com/f/158888/x/192342b9c3/tortilla-nutrition-guide.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Tortilla publishes its burritos, bowls, salads, tacos, nachos, quesadillas and fuel bowls only as separate ingredients, never as finished dishes, so those are not listed here. Breakfast items sold at Canary Wharf only are left out.",
+ "allergenGuide": {
+  "title": "Tortilla Nutrition & Allergen Information (updated 17 September 2026)",
+  "url": "https://a.storyblok.com/f/158888/x/192342b9c3/tortilla-nutrition-guide.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Breakfast",
   "Sides",
@@ -39,7 +46,8 @@
     "saturatedFat": 12,
     "sugar": 10,
     "fiber": 5,
-    "salt": 5
+    "salt": 5,
+    "energyKj": 3092
    },
    "tags": [
     "contains_pork"
@@ -47,7 +55,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
   },
   {
    "id": "large-bacon-breakfast-burrito",
@@ -62,7 +81,8 @@
     "saturatedFat": 13,
     "sugar": 11,
     "fiber": 6,
-    "salt": 6
+    "salt": 6,
+    "energyKj": 3455
    },
    "tags": [
     "contains_pork"
@@ -70,7 +90,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
   },
   {
    "id": "medium-veggie-breakfast-burrito",
@@ -85,7 +116,8 @@
     "saturatedFat": 10,
     "sugar": 7,
     "fiber": 4,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 2600
    },
    "tags": [
     "vegetarian"
@@ -93,30 +125,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "large-veggie-breakfast-burrito",
-   "name": "Large Veggie Breakfast Burrito",
-   "category": "Breakfast",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 729,
-    "protein": 26,
-    "carbs": 63,
-    "fat": 32,
-    "saturatedFat": 11,
-    "sugar": 10,
-    "fiber": 6,
-    "salt": 3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
   },
   {
    "id": "medium-bacon-and-chorizo-bowl",
@@ -131,7 +151,8 @@
     "saturatedFat": 10,
     "sugar": 7,
     "fiber": 9,
-    "salt": 5
+    "salt": 5,
+    "energyKj": 2475
    },
    "tags": [
     "contains_pork"
@@ -139,7 +160,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-bacon-and-chorizo-bowl",
@@ -154,7 +184,8 @@
     "saturatedFat": 16,
     "sugar": 8,
     "fiber": 10,
-    "salt": 6
+    "salt": 6,
+    "energyKj": 3375
    },
    "tags": [
     "contains_pork"
@@ -162,7 +193,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-veggie-bowl",
@@ -177,7 +217,8 @@
     "saturatedFat": 4,
     "sugar": 6,
     "fiber": 9,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1649
    },
    "tags": [
     "vegetarian"
@@ -185,7 +226,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-veggie-bowl",
@@ -200,7 +249,8 @@
     "saturatedFat": 4,
     "sugar": 7,
     "fiber": 10,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 1891
    },
    "tags": [
     "vegetarian"
@@ -208,7 +258,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bacon-breakfast-bun",
@@ -223,7 +281,8 @@
     "saturatedFat": 12,
     "sugar": 7,
     "fiber": 2,
-    "salt": 4
+    "salt": 4,
+    "energyKj": 2315
    },
    "tags": [
     "contains_pork"
@@ -231,7 +290,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pork-and-pico-de-gallo-breakfast-bun",
@@ -246,7 +317,8 @@
     "saturatedFat": 7,
     "sugar": 8,
     "fiber": 3,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1822
    },
    "tags": [
     "contains_pork"
@@ -254,7 +326,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "veggie-breakfast-bun",
@@ -269,7 +353,8 @@
     "saturatedFat": 8,
     "sugar": 9,
     "fiber": 3,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1827
    },
    "tags": [
     "vegetarian"
@@ -277,7 +362,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tortilla-chips-bag",
@@ -292,7 +389,8 @@
     "saturatedFat": 2,
     "sugar": 1,
     "fiber": 7,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1773
    },
    "tags": [
     "vegetarian"
@@ -300,7 +398,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tortilla-chips-side-portion",
@@ -315,7 +417,8 @@
     "saturatedFat": 1,
     "sugar": 0,
     "fiber": 4,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 887
    },
    "tags": [
     "vegetarian"
@@ -323,7 +426,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-guacamole",
@@ -338,7 +445,8 @@
     "saturatedFat": 4,
     "sugar": 1,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 787
    },
    "tags": [
     "vegetarian"
@@ -346,7 +454,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-guacamole",
@@ -361,7 +475,8 @@
     "saturatedFat": 8,
     "sugar": 3,
     "fiber": 1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 1574
    },
    "tags": [
     "vegetarian"
@@ -369,7 +484,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-ghost-chilli-ranch",
@@ -384,7 +505,8 @@
     "saturatedFat": 4,
     "sugar": 2,
     "fiber": 0,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1254
    },
    "tags": [
     "vegetarian"
@@ -392,7 +514,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "large-ghost-chilli-ranch",
@@ -407,7 +544,8 @@
     "saturatedFat": 8,
     "sugar": 5,
     "fiber": 1,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 2507
    },
    "tags": [
     "vegetarian"
@@ -415,7 +553,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "medium-chipotle-cheese-sauce",
@@ -430,7 +583,8 @@
     "saturatedFat": 6,
     "sugar": 2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 595
    },
    "tags": [
     "vegetarian"
@@ -438,7 +592,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-chipotle-cheese-sauce",
@@ -453,7 +613,8 @@
     "saturatedFat": 13,
     "sugar": 4,
     "fiber": 0,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1190
    },
    "tags": [
     "vegetarian"
@@ -461,7 +622,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-sour-cream",
@@ -476,7 +643,8 @@
     "saturatedFat": 7,
     "sugar": 3,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 494
    },
    "tags": [
     "vegetarian"
@@ -484,7 +652,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-sour-cream",
@@ -499,7 +673,8 @@
     "saturatedFat": 13,
     "sugar": 6,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 989
    },
    "tags": [
     "vegetarian"
@@ -507,7 +682,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-chipotle-mayo-ve",
@@ -522,7 +703,8 @@
     "saturatedFat": 3,
     "sugar": 2,
     "fiber": 0,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1508
    },
    "tags": [
     "vegetarian"
@@ -530,7 +712,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-chipotle-mayo-ve",
@@ -545,7 +733,8 @@
     "saturatedFat": 6,
     "sugar": 3,
     "fiber": 0,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 3016
    },
    "tags": [
     "vegetarian"
@@ -553,7 +742,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pina-picante-hot-sauce",
@@ -568,7 +763,8 @@
     "saturatedFat": 0,
     "sugar": 2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 45
    },
    "tags": [
     "vegetarian"
@@ -576,7 +772,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "valentina-hot-sauce",
@@ -591,7 +793,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 15
    },
    "tags": [
     "vegetarian"
@@ -599,7 +802,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-salsa-de-pina",
@@ -614,7 +823,8 @@
     "saturatedFat": 0,
     "sugar": 17,
     "fiber": 1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 325
    },
    "tags": [
     "vegetarian"
@@ -622,7 +832,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-salsa-de-pina",
@@ -637,7 +853,8 @@
     "saturatedFat": 0,
     "sugar": 25,
     "fiber": 1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 487
    },
    "tags": [
     "vegetarian"
@@ -645,7 +862,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-pico-de-gallo",
@@ -660,7 +883,8 @@
     "saturatedFat": 0,
     "sugar": 4,
     "fiber": 1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 104
    },
    "tags": [
     "vegetarian"
@@ -668,7 +892,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-pico-de-gallo",
@@ -683,7 +913,8 @@
     "saturatedFat": 0,
     "sugar": 8,
     "fiber": 3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 209
    },
    "tags": [
     "vegetarian"
@@ -691,7 +922,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-sweetcorn-salsa",
@@ -706,7 +943,8 @@
     "saturatedFat": 0,
     "sugar": 3,
     "fiber": 2,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 182
    },
    "tags": [
     "vegetarian"
@@ -714,7 +952,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-sweetcorn-salsa",
@@ -729,7 +973,8 @@
     "saturatedFat": 0,
     "sugar": 6,
     "fiber": 3,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 364
    },
    "tags": [
     "vegetarian"
@@ -737,7 +982,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-salsa-ranchera-mild",
@@ -752,7 +1003,8 @@
     "saturatedFat": 0,
     "sugar": 2,
     "fiber": 1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 118
    },
    "tags": [
     "vegetarian"
@@ -760,7 +1012,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "large-salsa-ranchera-mild",
@@ -775,7 +1031,8 @@
     "saturatedFat": 0,
     "sugar": 4,
     "fiber": 1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 235
    },
    "tags": [
     "vegetarian"
@@ -783,7 +1040,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-salsa-verde-medium",
@@ -798,7 +1059,8 @@
     "saturatedFat": 0,
     "sugar": 3,
     "fiber": 1,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 86
    },
    "tags": [
     "vegetarian"
@@ -806,7 +1068,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-salsa-verde-medium",
@@ -821,7 +1089,8 @@
     "saturatedFat": 0,
     "sugar": 6,
     "fiber": 1,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 171
    },
    "tags": [
     "vegetarian"
@@ -829,7 +1098,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "medium-salsa-roja-hot",
@@ -844,7 +1119,8 @@
     "saturatedFat": 0,
     "sugar": 1,
     "fiber": 3,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 154
    },
    "tags": [
     "vegetarian"
@@ -852,7 +1128,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-salsa-roja-hot",
@@ -867,7 +1149,8 @@
     "saturatedFat": 1,
     "sugar": 2,
     "fiber": 7,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 307
    },
    "tags": [
     "vegetarian"
@@ -875,7 +1158,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "3-churros-and-chocolate-sauce",
@@ -890,7 +1179,8 @@
     "saturatedFat": 2,
     "sugar": 12,
     "fiber": 3,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1296
    },
    "tags": [
     "vegetarian"
@@ -898,7 +1188,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "5-churros-and-chocolate-sauce",
@@ -913,7 +1218,8 @@
     "saturatedFat": 3,
     "sugar": 16,
     "fiber": 4,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 2189
    },
    "tags": [
     "vegetarian"
@@ -921,7 +1227,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "dessert-quesadilla",
@@ -936,7 +1257,8 @@
     "saturatedFat": 4,
     "sugar": 16,
     "fiber": 2,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1198
    },
    "tags": [
     "vegetarian"
@@ -944,7 +1266,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
   },
   {
    "id": "hibiscus-lemonade",
@@ -959,7 +1290,8 @@
     "saturatedFat": 0,
     "sugar": 33,
     "fiber": 1.7,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 640
    },
    "tags": [
     "vegetarian"
@@ -967,7 +1299,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
   }
  ],
  "combinations": []

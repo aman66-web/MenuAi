@@ -1,7 +1,6 @@
 chain,kind,severity,code,item,name,category,detail
-rosas-thai,allergen,high,vegetarian-contains-fish,pad-thai-veg-and-tofu,Pad Thai - Veg & Tofu,Noodles,tagged vegetarian but allergens say it contains ['molluscs']
-rosas-thai,allergen,medium,name-implies-gluten,toasted-rice-and-pandan-old-fashioned,Toasted Rice & Pandan Old Fashioned,Thai-inspired cocktails,'Toast' in the name but gluten is not marked (contains: none)
-rosas-thai,allergen,medium,name-implies-gluten,tom-yum-noodle-soup-prawns,Tom Yum Noodle Soup - Prawns,Noodle soups,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'milk', 'sulphites'])"
-rosas-thai,allergen,medium,name-implies-gluten,tom-yum-noodle-soup-veg-and-tofu,Tom Yum Noodle Soup - Veg & Tofu,Noodle soups,"'Noodle' in the name but gluten is not marked (contains: ['milk', 'soya', 'sulphites'])"
-rosas-thai,allergen,medium,name-implies-milk,traditional-thai-ice-cream-bun-mango,Traditional Thai Ice Cream Bun - Mango,Thai-inspired desserts,"'Ice Cream' in the name but milk is not marked (contains: ['gluten', 'peanuts'])"
-rosas-thai,allergen,medium,name-implies-milk,vanilla-ice-cream,Vanilla Ice Cream,Thai-inspired desserts,'Ice Cream' in the name but milk is not marked (contains: ['soya'])
+rosas-thai,allergen,reviewed,name-implies-gluten,toasted-rice-and-pandan-old-fashioned,Toasted Rice & Pandan Old Fashioned,Thai-inspired cocktails,'Toast' in the name but gluten is not marked (contains: none)
+rosas-thai,allergen,reviewed,name-implies-gluten,tom-yum-noodle-soup-prawns,Tom Yum Noodle Soup - Prawns,Noodle soups,"'Noodle' in the name but gluten is not marked (contains: ['crustaceans', 'milk', 'sulphites'])"
+rosas-thai,allergen,reviewed,name-implies-gluten,tom-yum-noodle-soup-veg-and-tofu,Tom Yum Noodle Soup - Veg & Tofu,Noodle soups,"'Noodle' in the name but gluten is not marked (contains: ['milk', 'soya', 'sulphites'])"
+rosas-thai,allergen,reviewed,name-implies-milk,traditional-thai-ice-cream-bun-mango,Traditional Thai Ice Cream Bun - Mango,Thai-inspired desserts,"'Ice Cream' in the name but milk is not marked (contains: ['gluten', 'peanuts'])"
+rosas-thai,allergen,reviewed,name-implies-milk,vanilla-ice-cream,Vanilla Ice Cream,Thai-inspired desserts,'Ice Cream' in the name but milk is not marked (contains: ['soya'])

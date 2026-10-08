@@ -1,18 +1,17 @@
 chain,kind,severity,code,item,name,category,detail
-mcmullens,nutrition,medium,huge-protein,full-rack-bbq-baby-back-ribs,Full Rack BBQ Baby Back Ribs,Signature dishes,127.6 g protein
-mcmullens,nutrition,medium,huge-protein,gluten-free-half-roast-chicken,Gluten Free Half Roast Chicken,Sunday roasts,155.9 g protein
-mcmullens,nutrition,medium,huge-protein,gluten-free-ultimate-half-roast-chicken,Gluten Free Ultimate Half Roast Chicken,Sunday roasts,213.5 g protein
-mcmullens,nutrition,medium,huge-protein,gluten-free-ultimate-roast-beef,Gluten Free Ultimate Roast Beef,Sunday roasts,144.6 g protein
-mcmullens,nutrition,medium,huge-protein,half-roast-chicken,Half Roast Chicken,Sunday roasts,162.9 g protein
-mcmullens,nutrition,medium,huge-protein,ultimate-half-roast-chicken,Ultimate Half Roast Chicken,Sunday roasts,227.5 g protein
-mcmullens,nutrition,medium,huge-protein,ultimate-roast-beef,Ultimate Roast Beef,Sunday roasts,155.8 g protein
-mcmullens,allergen,medium,name-implies-eggs,banana-and-custard-kids,Banana & Custard (kids),Kids: Desserts,"'Custard' in the name but eggs is not marked (contains: ['milk', 'soya'])"
-mcmullens,allergen,medium,name-implies-gluten,brownie-bites-kids,Brownie Bites (kids),Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
-mcmullens,allergen,medium,name-implies-gluten,chocolate-brownie-festive-kids-menu,Chocolate Brownie (festive kids menu),Festive: Kids,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
-mcmullens,allergen,medium,name-implies-gluten,mini-chocolate-brownie,Mini Chocolate Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
-mcmullens,allergen,medium,name-implies-milk,gluten-free-bread-and-butter,Gluten Free Bread & Butter,Sides,'Butter' in the name but milk is not marked (contains: none)
-mcmullens,allergen,medium,name-implies-milk,raspberries-and-ice-cream-kids,Raspberries & Ice Cream (kids),Kids: Desserts,'Ice Cream' in the name but milk is not marked (contains: none)
-mcmullens,nutrition,medium,salt-very-high,cauli-bites,Cauli Bites,Bar bundles,salt 5.7 g with 384 kcal (6 g is the whole day's limit)
-mcmullens,nutrition,medium,salt-very-high,ultimate-half-roast-chicken,Ultimate Half Roast Chicken,Sunday roasts,salt 10.2 g with 2062 kcal (6 g is the whole day's limit)
-mcmullens,nutrition,medium,salt-very-high,ultimate-sweet-potato-and-chestnut-nut-loaf,Ultimate Sweet Potato & Chestnut Nut Loaf,Sunday roasts,salt 10.4 g with 1594 kcal (6 g is the whole day's limit)
-mcmullens,nutrition,medium,sugar-implausible,the-ultimate-banana-split,The Ultimate Banana Split,Desserts,sugar 169.8 g in one item
+mcmullens,nutrition,reviewed,huge-protein,full-rack-bbq-baby-back-ribs,Full Rack BBQ Baby Back Ribs,Signature dishes,127.6 g protein
+mcmullens,nutrition,reviewed,huge-protein,gluten-free-half-roast-chicken,Gluten Free Half Roast Chicken,Sunday roasts,155.9 g protein
+mcmullens,nutrition,reviewed,huge-protein,gluten-free-ultimate-half-roast-chicken,Gluten Free Ultimate Half Roast Chicken,Sunday roasts,213.5 g protein
+mcmullens,nutrition,reviewed,huge-protein,gluten-free-ultimate-roast-beef,Gluten Free Ultimate Roast Beef,Sunday roasts,144.6 g protein
+mcmullens,nutrition,reviewed,huge-protein,half-roast-chicken,Half Roast Chicken,Sunday roasts,162.9 g protein
+mcmullens,nutrition,reviewed,huge-protein,ultimate-half-roast-chicken,Ultimate Half Roast Chicken,Sunday roasts,227.5 g protein
+mcmullens,nutrition,reviewed,huge-protein,ultimate-roast-beef,Ultimate Roast Beef,Sunday roasts,155.8 g protein
+mcmullens,allergen,reviewed,name-implies-eggs,banana-and-custard-kids,Banana & Custard (kids),Kids: Desserts,"'Custard' in the name but eggs is not marked (contains: ['milk', 'soya'])"
+mcmullens,allergen,reviewed,name-implies-gluten,brownie-bites-kids,Brownie Bites (kids),Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+mcmullens,allergen,reviewed,name-implies-gluten,chocolate-brownie-festive-kids-menu,Chocolate Brownie (festive kids menu),Festive: Kids,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+mcmullens,allergen,reviewed,name-implies-gluten,mini-chocolate-brownie,Mini Chocolate Brownie,Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+mcmullens,allergen,reviewed,name-implies-milk,raspberries-and-ice-cream-kids,Raspberries & Ice Cream (kids),Kids: Desserts,'Ice Cream' in the name but milk is not marked (contains: none)
+mcmullens,nutrition,reviewed,salt-very-high,cauli-bites,Cauli Bites,Bar bundles,salt 5.7 g with 384 kcal (6 g is the whole day's limit)
+mcmullens,nutrition,reviewed,salt-very-high,ultimate-half-roast-chicken,Ultimate Half Roast Chicken,Sunday roasts,salt 10.2 g with 2062 kcal (6 g is the whole day's limit)
+mcmullens,nutrition,reviewed,salt-very-high,ultimate-sweet-potato-and-chestnut-nut-loaf,Ultimate Sweet Potato & Chestnut Nut Loaf,Sunday roasts,salt 10.4 g with 1594 kcal (6 g is the whole day's limit)
+mcmullens,nutrition,reviewed,sugar-implausible,the-ultimate-banana-split,The Ultimate Banana Split,Desserts,sugar 169.8 g in one item

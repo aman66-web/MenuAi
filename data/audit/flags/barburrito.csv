@@ -1,11 +1,10 @@
 chain,kind,severity,code,item,name,category,detail
-barburrito,allergen,high,vegan-contains-animal,loaded-fries-vg-steak-vegan-loaded-fries,Loaded Fries - VG Steak (Vegan loaded fries),Loaded fries,named vegan/plant-based but allergens say it contains ['milk']
-barburrito,allergen,medium,name-implies-eggs,chipotle-mayo,Chipotle Mayo,Build your own: sauces,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
-barburrito,allergen,medium,name-implies-eggs,chipotle-mayo-dip,Chipotle Mayo Dip,Tortilla & dips,'Mayo' in the name but eggs is not marked (contains: none)
-barburrito,allergen,medium,name-implies-eggs,dips-chipotle-mayo,Dips - Chipotle Mayo,Dips,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
-barburrito,allergen,medium,name-implies-eggs,dips-garlic-lime-mayo,Dips - Garlic Lime Mayo,Dips,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"
-barburrito,allergen,medium,name-implies-eggs,garlic-lime-mayo,Garlic Lime Mayo,Build your own: sauces,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"
-barburrito,allergen,medium,name-implies-eggs,lil-chipotle-mayo,Lil' Chipotle Mayo,Build your own: sauces,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
-barburrito,allergen,medium,name-implies-eggs,lil-garlic-lime-mayo,Lil' Garlic Lime Mayo,Build your own: sauces,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"
-barburrito,allergen,medium,name-implies-eggs,sides-chipotle-mayo,Sides - Chipotle Mayo,Extras and pots,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
-barburrito,allergen,medium,name-implies-eggs,sides-garlic-lime-mayo,Sides - Garlic Lime Mayo,Extras and pots,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"
+barburrito,allergen,reviewed,name-implies-eggs,chipotle-mayo,Chipotle Mayo,Build your own: sauces,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+barburrito,allergen,reviewed,name-implies-eggs,chipotle-mayo-dip,Chipotle Mayo Dip,Tortilla & dips,'Mayo' in the name but eggs is not marked (contains: none)
+barburrito,allergen,reviewed,name-implies-eggs,dips-chipotle-mayo,Dips - Chipotle Mayo,Dips,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+barburrito,allergen,reviewed,name-implies-eggs,dips-garlic-lime-mayo,Dips - Garlic Lime Mayo,Dips,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"
+barburrito,allergen,reviewed,name-implies-eggs,garlic-lime-mayo,Garlic Lime Mayo,Build your own: sauces,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"
+barburrito,allergen,reviewed,name-implies-eggs,lil-chipotle-mayo,Lil' Chipotle Mayo,Build your own: sauces,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+barburrito,allergen,reviewed,name-implies-eggs,lil-garlic-lime-mayo,Lil' Garlic Lime Mayo,Build your own: sauces,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"
+barburrito,allergen,reviewed,name-implies-eggs,sides-chipotle-mayo,Sides - Chipotle Mayo,Extras and pots,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+barburrito,allergen,reviewed,name-implies-eggs,sides-garlic-lime-mayo,Sides - Garlic Lime Mayo,Extras and pots,"'Mayo' in the name but eggs is not marked (contains: ['mustard', 'sulphites'])"

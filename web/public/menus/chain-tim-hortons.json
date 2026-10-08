@@ -11,11 +11,18 @@
  ],
  "sample": false,
  "source": {
-  "title": "Tim Hortons UK website: product nutritional information, Great Britain menu (timhortons.co.uk/information pages, retrieved 2026-10-06; the pages carry no version date)",
+  "title": "Tim Hortons UK website: product nutritional information, Great Britain menu (timhortons.co.uk/information pages, retrieved 2026-10-08; the pages carry no version date)",
   "url": "https://timhortons.co.uk/information/56",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Values are per serving as the chain prints them and do not include dips. Items sold only in Northern Ireland or selected stores, and boxes of donuts and Timbits (no values printed), are left out.",
+ "allergenGuide": {
+  "title": "Tim Hortons UK website: allergens printed on each product and size page (timhortons.co.uk/information pages, retrieved 2026-10-08), cross-checked against the Nutrition PDF's allergen table, C5 - 8.10.26 v7; 'may contain' = the PDF's 'Maybe' cells",
+  "url": "https://timhortons.co.uk/information/56",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Breakfast",
   "Burgers & sandwiches",
@@ -44,14 +51,29 @@
     "saturatedFat": 12,
     "sugar": 5.2,
     "fiber": 5,
-    "salt": 4.3
+    "salt": 4.3,
+    "energyKj": 2862,
+    "weight": 286
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/789b2077fd6c.webp"
+   "image": "tim-hortons/789b2077fd6c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-roll-loin",
@@ -66,7 +88,9 @@
     "saturatedFat": 8.6,
     "sugar": 3.8,
     "fiber": 3.2,
-    "salt": 4.6
+    "salt": 4.6,
+    "energyKj": 2277,
+    "weight": 190
    },
    "tags": [
     "contains_pork"
@@ -75,7 +99,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/2d61e2a6191b.webp"
+   "image": "tim-hortons/2d61e2a6191b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "original-breakfast-wrap",
@@ -90,14 +126,29 @@
     "saturatedFat": 7.6,
     "sugar": 4.1,
     "fiber": 4.5,
-    "salt": 2.5
+    "salt": 2.5,
+    "energyKj": 2109,
+    "weight": 202
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/518693e59004.webp"
+   "image": "tim-hortons/518693e59004.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "big-breakfast-wrap",
@@ -112,14 +163,29 @@
     "saturatedFat": 8.9,
     "sugar": 4.1,
     "fiber": 4.5,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 2326,
+    "weight": 212
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/9c25733590f4.webp"
+   "image": "tim-hortons/9c25733590f4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "loaded-veggie-wrap",
@@ -134,7 +200,9 @@
     "saturatedFat": 9.1,
     "sugar": 3.5,
     "fiber": 5.9,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2066,
+    "weight": 209
    },
    "tags": [
     "vegetarian"
@@ -143,7 +211,24 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/898444f38892.webp"
+   "image": "tim-hortons/898444f38892.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "egg-and-cheese-muffin",
@@ -158,7 +243,9 @@
     "saturatedFat": 3.6,
     "sugar": 3.2,
     "fiber": 0.9,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1215,
+    "weight": 117
    },
    "tags": [
     "vegetarian"
@@ -167,7 +254,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d37ab528a70a.webp"
+   "image": "tim-hortons/d37ab528a70a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "bacon-egg-and-cheese-muffin-streaky-bacon",
@@ -182,7 +281,9 @@
     "saturatedFat": 4.6,
     "sugar": 3.5,
     "fiber": 1,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1394,
+    "weight": 131
    },
    "tags": [
     "contains_pork"
@@ -191,7 +292,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/0b3a6a46c6cc.webp"
+   "image": "tim-hortons/0b3a6a46c6cc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "bacon-egg-and-cheese-muffin-stack-streaky-bacon",
@@ -206,7 +319,9 @@
     "saturatedFat": 4.8,
     "sugar": 3.6,
     "fiber": 2.2,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 1771,
+    "weight": 179
    },
    "tags": [
     "contains_pork"
@@ -215,7 +330,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3c4b1c57591f.webp"
+   "image": "tim-hortons/3c4b1c57591f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "double-bacon-egg-and-cheese-muffin-streaky-bacon",
@@ -230,7 +357,9 @@
     "saturatedFat": 5.7,
     "sugar": 3.9,
     "fiber": 1,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1573,
+    "weight": 145
    },
    "tags": [
     "contains_pork"
@@ -239,7 +368,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6d603bd74a7c.webp"
+   "image": "tim-hortons/6d603bd74a7c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "double-bacon-and-egg-muffin-stack-streaky-bacon",
@@ -254,7 +395,9 @@
     "saturatedFat": 5.9,
     "sugar": 4,
     "fiber": 2.3,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1951,
+    "weight": 193
    },
    "tags": [
     "contains_pork"
@@ -263,7 +406,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/192e9626d0f1.webp"
+   "image": "tim-hortons/192e9626d0f1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "sausage-and-egg-with-cheese-muffin",
@@ -278,7 +433,9 @@
     "saturatedFat": 7.7,
     "sugar": 4.2,
     "fiber": 1.8,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1807,
+    "weight": 162
    },
    "tags": [
     "contains_pork"
@@ -287,7 +444,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/64685cbcc9ec.webp"
+   "image": "tim-hortons/64685cbcc9ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "sausage-and-egg-with-cheese-muffin-stack",
@@ -302,7 +471,9 @@
     "saturatedFat": 7.9,
     "sugar": 4.3,
     "fiber": 3,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 2184,
+    "weight": 210
    },
    "tags": [
     "contains_pork"
@@ -311,7 +482,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7b3d924fe835.webp"
+   "image": "tim-hortons/7b3d924fe835.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "double-sausage-and-egg-with-cheese-muffin",
@@ -326,7 +509,9 @@
     "saturatedFat": 12,
     "sugar": 5.2,
     "fiber": 2.7,
-    "salt": 2.7
+    "salt": 2.7,
+    "energyKj": 2399,
+    "weight": 207
    },
    "tags": [
     "contains_pork"
@@ -335,7 +520,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/65f39d77ebda.webp"
+   "image": "tim-hortons/65f39d77ebda.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "double-sausage-and-egg-with-cheese-muffin-stack",
@@ -350,7 +547,9 @@
     "saturatedFat": 12,
     "sugar": 5.3,
     "fiber": 3.9,
-    "salt": 2.8
+    "salt": 2.8,
+    "energyKj": 2777,
+    "weight": 255
    },
    "tags": [
     "contains_pork"
@@ -359,7 +558,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/245eaee82f02.webp"
+   "image": "tim-hortons/245eaee82f02.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "veggie-egg-with-cheese-muffin",
@@ -374,7 +585,9 @@
     "saturatedFat": 9.3,
     "sugar": 3.6,
     "fiber": 3.2,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1764,
+    "weight": 170
    },
    "tags": [
     "vegetarian"
@@ -383,7 +596,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/323dbb3d37db.webp"
+   "image": "tim-hortons/323dbb3d37db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "veggie-egg-with-cheese-muffin-stack",
@@ -398,7 +625,9 @@
     "saturatedFat": 9.5,
     "sugar": 3.7,
     "fiber": 4.5,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 2141,
+    "weight": 217
    },
    "tags": [
     "vegetarian"
@@ -407,7 +636,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/71e4e6f8d0db.webp"
+   "image": "tim-hortons/71e4e6f8d0db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "grilled-breakfast-bagel-with-sausage",
@@ -422,7 +665,9 @@
     "saturatedFat": 7.2,
     "sugar": 7.9,
     "fiber": 4.4,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 2228,
+    "weight": 210
    },
    "tags": [
     "contains_pork"
@@ -431,7 +676,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8845edb43fd7.webp"
+   "image": "tim-hortons/8845edb43fd7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "grilled-breakfast-bagel-with-bacon-streaky-bacon",
@@ -446,7 +703,9 @@
     "saturatedFat": 4.1,
     "sugar": 7.3,
     "fiber": 3.6,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1815,
+    "weight": 179
    },
    "tags": [
     "contains_pork"
@@ -455,7 +714,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/1214735bbfe5.webp"
+   "image": "tim-hortons/1214735bbfe5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "grilled-breakfast-bagel-with-veggie-sausage",
@@ -470,7 +741,9 @@
     "saturatedFat": 8.8,
     "sugar": 7.3,
     "fiber": 5.9,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 2185,
+    "weight": 217
    },
    "tags": [
     "vegetarian"
@@ -479,7 +752,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f5a80841cb02.webp"
+   "image": "tim-hortons/f5a80841cb02.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "plain-bagel",
@@ -494,7 +781,9 @@
     "saturatedFat": 0.2,
     "sugar": 5.7,
     "fiber": 3.5,
-    "salt": 0.74
+    "salt": 0.74,
+    "energyKj": 1220,
+    "weight": 114
    },
    "tags": [
     "vegetarian"
@@ -503,7 +792,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/17282a7c0437.webp"
+   "image": "tim-hortons/17282a7c0437.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "bagel-with-butter",
@@ -518,7 +819,9 @@
     "saturatedFat": 0.9,
     "sugar": 5.7,
     "fiber": 3.5,
-    "salt": 0.83
+    "salt": 0.83,
+    "energyKj": 1483,
+    "weight": 121
    },
    "tags": [
     "vegetarian"
@@ -527,7 +830,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/70d32bbd7e5e.webp"
+   "image": "tim-hortons/70d32bbd7e5e.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "bagel-with-cream-cheese",
@@ -542,7 +857,9 @@
     "saturatedFat": 2.6,
     "sugar": 6.4,
     "fiber": 3.6,
-    "salt": 0.86
+    "salt": 0.86,
+    "energyKj": 1376,
+    "weight": 130
    },
    "tags": [
     "vegetarian"
@@ -551,7 +868,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/ea5185257054.webp"
+   "image": "tim-hortons/ea5185257054.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "bacon-and-maple-pancakes",
@@ -566,7 +895,9 @@
     "saturatedFat": 2.2,
     "sugar": 30,
     "fiber": 1.7,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1714,
+    "weight": 161
    },
    "tags": [
     "contains_pork"
@@ -575,7 +906,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7c8e7c154696.webp"
+   "image": "tim-hortons/7c8e7c154696.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-syrup-pancakes",
@@ -590,7 +932,9 @@
     "saturatedFat": 0.9,
     "sugar": 30,
     "fiber": 1.7,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1497,
+    "weight": 150
    },
    "tags": [
     "vegetarian"
@@ -599,7 +943,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/08ddc4f9b8b9.webp"
+   "image": "tim-hortons/08ddc4f9b8b9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-hazelnut-and-cookie-pancakes",
@@ -614,7 +969,9 @@
     "saturatedFat": 2.4,
     "sugar": 26,
     "fiber": 2,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1606,
+    "weight": 145
    },
    "tags": [
     "vegetarian"
@@ -623,7 +980,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/31937f08c253.webp"
+   "image": "tim-hortons/31937f08c253.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "hash-brown",
@@ -638,7 +1008,9 @@
     "saturatedFat": 0.2,
     "sugar": 0.1,
     "fiber": 1.2,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 378,
+    "weight": 48
    },
    "tags": [
     "vegetarian"
@@ -647,7 +1019,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/1adf16383a26.webp"
+   "image": "tim-hortons/1adf16383a26.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "bacon-and-cheese-breakfast-snack-wrap",
@@ -662,7 +1040,8 @@
     "saturatedFat": 5.2,
     "sugar": 4.9,
     "fiber": 0.8,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 1076
    },
    "tags": [
     "contains_pork"
@@ -671,7 +1050,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/455f9600a8db.webp"
+   "image": "tim-hortons/455f9600a8db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sausage-and-cheese-breakfast-snack-wrap",
@@ -686,7 +1079,8 @@
     "saturatedFat": 6.3,
     "sugar": 5.8,
     "fiber": 1.5,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1185
    },
    "tags": [
     "contains_pork"
@@ -695,7 +1089,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/58b49f23e973.webp"
+   "image": "tim-hortons/58b49f23e973.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "veggie-breakfast-snack-wrap",
@@ -710,7 +1118,8 @@
     "saturatedFat": 7.7,
     "sugar": 5.3,
     "fiber": 4,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1248
    },
    "tags": [
     "vegetarian"
@@ -719,7 +1128,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/dabfbc1dd82c.webp"
+   "image": "tim-hortons/dabfbc1dd82c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "egg-and-cheese-breakfast-snack-wrap",
@@ -734,7 +1159,8 @@
     "saturatedFat": 3.5,
     "sugar": 5.5,
     "fiber": 0.7,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 860
    },
    "tags": [
     "vegetarian"
@@ -743,7 +1169,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/425283152cd2.webp"
+   "image": "tim-hortons/425283152cd2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-and-cheese-muffin-streaky-bacon",
@@ -758,7 +1199,8 @@
     "saturatedFat": 7.2,
     "sugar": 2.9,
     "fiber": 1,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 2604
    },
    "tags": [
     "contains_pork"
@@ -767,7 +1209,25 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/b2f1227650a2.webp"
+   "image": "tim-hortons/b2f1227650a2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "big-breakfast-wrap-streaky-bacon",
@@ -782,7 +1242,8 @@
     "saturatedFat": 9.1,
     "sugar": 4.7,
     "fiber": 4.5,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 2398
    },
    "tags": [
     "contains_pork"
@@ -791,7 +1252,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8ab51d3794ec.webp"
+   "image": "tim-hortons/8ab51d3794ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tims-double-cheeseburger",
@@ -806,14 +1280,29 @@
     "saturatedFat": 10,
     "sugar": 15,
     "fiber": 4.5,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2206,
+    "weight": 237
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/938ca3ec9782.webp"
+   "image": "tim-hortons/938ca3ec9782.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "nacho-double-cheeseburger",
@@ -828,14 +1317,28 @@
     "saturatedFat": 7.4,
     "sugar": 13,
     "fiber": 3.7,
-    "salt": 3.8
+    "salt": 3.8,
+    "energyKj": 1811,
+    "weight": 201
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/9f2f81c028bc.webp"
+   "image": "tim-hortons/9f2f81c028bc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "tims-bacon-double-cheeseburger",
@@ -850,7 +1353,9 @@
     "saturatedFat": 11,
     "sugar": 15,
     "fiber": 4.5,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 2423,
+    "weight": 247
    },
    "tags": [
     "contains_pork"
@@ -859,7 +1364,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4dc75c17aace.webp"
+   "image": "tim-hortons/4dc75c17aace.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "tims-triple-cheeseburger",
@@ -874,14 +1392,29 @@
     "saturatedFat": 15,
     "sugar": 16,
     "fiber": 4.7,
-    "salt": 3.6
+    "salt": 3.6,
+    "energyKj": 2887,
+    "weight": 300
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/caa48ff3f73e.webp"
+   "image": "tim-hortons/caa48ff3f73e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "nacho-chicken-sandwich",
@@ -896,14 +1429,29 @@
     "saturatedFat": 9,
     "sugar": 14,
     "fiber": 4.9,
-    "salt": 6
+    "salt": 6,
+    "energyKj": 2574,
+    "weight": 283
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8ea697b89b85.webp"
+   "image": "tim-hortons/8ea697b89b85.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "tims-crispy-chicken-sandwich",
@@ -918,14 +1466,29 @@
     "saturatedFat": 3.7,
     "sugar": 11,
     "fiber": 4.3,
-    "salt": 2.6
+    "salt": 2.6,
+    "energyKj": 2319,
+    "weight": 229
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/91b20a10103a.webp"
+   "image": "tim-hortons/91b20a10103a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "nacho-chicken-stack",
@@ -940,14 +1503,31 @@
     "saturatedFat": 9.2,
     "sugar": 14,
     "fiber": 6.1,
-    "salt": 6.2
+    "salt": 6.2,
+    "energyKj": 2952,
+    "weight": 331
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c760490097a1.webp"
+   "image": "tim-hortons/c760490097a1.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tims-crispy-chicken-stack",
@@ -962,14 +1542,30 @@
     "saturatedFat": 5.6,
     "sugar": 12,
     "fiber": 5.5,
-    "salt": 3.3
+    "salt": 3.3,
+    "energyKj": 2875,
+    "weight": 289
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/a29bb921956e.webp"
+   "image": "tim-hortons/a29bb921956e.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "crispy-meatless-sandwich",
@@ -984,7 +1580,9 @@
     "saturatedFat": 2.6,
     "sugar": 12,
     "fiber": 9.5,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1992,
+    "weight": 225
    },
    "tags": [
     "vegetarian"
@@ -993,7 +1591,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d48a89fdb864.webp"
+   "image": "tim-hortons/d48a89fdb864.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "nacho-cheese-melt",
@@ -1008,7 +1620,9 @@
     "saturatedFat": 15,
     "sugar": 5.3,
     "fiber": 2.9,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 2274,
+    "weight": 212
    },
    "tags": [
     "vegetarian"
@@ -1017,7 +1631,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/12abec554e76.webp"
+   "image": "tim-hortons/12abec554e76.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-and-herb-melt",
@@ -1032,7 +1658,9 @@
     "saturatedFat": 12,
     "sugar": 4.9,
     "fiber": 2.6,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 1975,
+    "weight": 171
    },
    "tags": [
     "vegetarian"
@@ -1041,7 +1669,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/67581cbfdb06.webp"
+   "image": "tim-hortons/67581cbfdb06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ham-hock-and-cheese-melt",
@@ -1056,7 +1696,9 @@
     "saturatedFat": 11,
     "sugar": 4.3,
     "fiber": 2.6,
-    "salt": 3
+    "salt": 3,
+    "energyKj": 1987,
+    "weight": 206
    },
    "tags": [
     "contains_pork"
@@ -1065,7 +1707,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/18ca48e957c6.webp"
+   "image": "tim-hortons/18ca48e957c6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-bbq-chicken-melt",
@@ -1080,14 +1734,28 @@
     "saturatedFat": 11,
     "sugar": 9.3,
     "fiber": 2.4,
-    "salt": 2.2
+    "salt": 2.2,
+    "energyKj": 2121,
+    "weight": 211
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/97bbdeb91d6b.webp"
+   "image": "tim-hortons/97bbdeb91d6b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tims-savers-hamburger",
@@ -1102,14 +1770,29 @@
     "saturatedFat": 4.6,
     "sugar": 12,
     "fiber": 3.2,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1316,
+    "weight": 138
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d4d135595d92.webp"
+   "image": "tim-hortons/d4d135595d92.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "tims-savers-cheeseburger",
@@ -1124,29 +1807,46 @@
     "saturatedFat": 6.3,
     "sugar": 13,
     "fiber": 3.2,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1494,
+    "weight": 150
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/fe8278753a7e.webp"
+   "image": "tim-hortons/fe8278753a7e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "blt-chicken-wrap",
    "name": "BLT Chicken Wrap",
    "category": "Wraps",
-   "serving": "182 g",
+   "serving": "224 g",
    "nutrients": {
-    "calories": 394,
-    "protein": 17,
+    "calories": 445,
+    "protein": 23,
     "carbs": 44,
-    "fat": 16,
-    "saturatedFat": 2.5,
-    "sugar": 3.3,
-    "fiber": 3.5,
-    "salt": 2
+    "fat": 19,
+    "saturatedFat": 3.7,
+    "sugar": 3.9,
+    "fiber": 3.7,
+    "salt": 2.3,
+    "energyKj": 1864,
+    "weight": 224
    },
    "tags": [
     "contains_pork"
@@ -1155,7 +1855,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/73b9730cb99b.webp"
+   "image": "tim-hortons/73b9730cb99b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-bbq-chicken-wrap",
@@ -1170,14 +1881,27 @@
     "saturatedFat": 4.2,
     "sugar": 6.9,
     "fiber": 3.3,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 1626,
+    "weight": 160
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6882e770d7b7.webp"
+   "image": "tim-hortons/6882e770d7b7.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "sweet-chilli-mayo-chicken-wrap",
@@ -1192,14 +1916,27 @@
     "saturatedFat": 2.1,
     "sugar": 3.3,
     "fiber": 3.4,
-    "salt": 2
+    "salt": 2,
+    "energyKj": 1866,
+    "weight": 174
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5284f59207f2.webp"
+   "image": "tim-hortons/5284f59207f2.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "nacho-chicken-wrap",
@@ -1214,14 +1951,29 @@
     "saturatedFat": 3.4,
     "sugar": 4.3,
     "fiber": 3.7,
-    "salt": 3.5
+    "salt": 3.5,
+    "energyKj": 1565,
+    "weight": 187
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/9fc0ed02b555.webp"
+   "image": "tim-hortons/9fc0ed02b555.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "smoky-chipotle-chicken-wrap",
@@ -1236,14 +1988,28 @@
     "saturatedFat": 3.8,
     "sugar": 3.4,
     "fiber": 3.3,
-    "salt": 2.3
+    "salt": 2.3,
+    "energyKj": 1683,
+    "weight": 159
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/923f2b8b008a.webp"
+   "image": "tim-hortons/923f2b8b008a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vlt-vegan-wrap",
@@ -1258,7 +2024,9 @@
     "saturatedFat": 2,
     "sugar": 4.2,
     "fiber": 9.1,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 1820,
+    "weight": 301
    },
    "tags": [
     "vegetarian"
@@ -1267,7 +2035,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/669802b56b18.webp"
+   "image": "tim-hortons/669802b56b18.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "tims-savers-crispy-chicken-snack-wrap",
@@ -1282,14 +2064,31 @@
     "saturatedFat": 1,
     "sugar": 1.5,
     "fiber": 0.8,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 608,
+    "weight": 61
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4e8c4aff9c16.webp"
+   "image": "tim-hortons/4e8c4aff9c16.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "5-piece-tims-chicken-tenders",
@@ -1304,14 +2103,26 @@
     "saturatedFat": 1.8,
     "sugar": 0,
     "fiber": 1.9,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 1222,
+    "weight": 148
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c6b521b0612b.webp"
+   "image": "tim-hortons/c6b521b0612b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "3-piece-tims-chicken-tenders",
@@ -1326,14 +2137,26 @@
     "saturatedFat": 1.1,
     "sugar": 0,
     "fiber": 1.2,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 733,
+    "weight": 89
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/bbc155db2cc4.webp"
+   "image": "tim-hortons/bbc155db2cc4.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tims-savers-2-chicken-tenders-and-dip",
@@ -1348,14 +2171,27 @@
     "saturatedFat": 1.5,
     "sugar": 1,
     "fiber": 0.9,
-    "salt": 0.91
+    "salt": 0.91,
+    "energyKj": 944,
+    "weight": 84
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/49734493321b.webp"
+   "image": "tim-hortons/49734493321b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "nacho-chicken-loaded-fries",
@@ -1370,14 +2206,29 @@
     "saturatedFat": 15,
     "sugar": 5.3,
     "fiber": 2.9,
-    "salt": 3.4
+    "salt": 3.4,
+    "energyKj": 2274,
+    "weight": 212
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/feea2b4fdad9.webp"
+   "image": "tim-hortons/feea2b4fdad9.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-bbq-loaded-lattice-fries",
@@ -1392,7 +2243,9 @@
     "saturatedFat": 6,
     "sugar": 6.9,
     "fiber": 4.8,
-    "salt": 2.1
+    "salt": 2.1,
+    "energyKj": 1663,
+    "weight": 150
    },
    "tags": [
     "vegetarian"
@@ -1401,7 +2254,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/277db31cdb16.webp"
+   "image": "tim-hortons/277db31cdb16.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "5-fajita-spiced-chicken-tenders",
@@ -1416,14 +2279,26 @@
     "saturatedFat": 1.8,
     "sugar": 0.2,
     "fiber": 2.7,
-    "salt": 3.7
+    "salt": 3.7,
+    "energyKj": 1501,
+    "weight": 177
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/68d4cf9a3c7f.webp"
+   "image": "tim-hortons/68d4cf9a3c7f.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "3-fajita-spiced-chicken-tenders",
@@ -1438,14 +2313,26 @@
     "saturatedFat": 1.1,
     "sugar": 0.2,
     "fiber": 1.8,
-    "salt": 2.9
+    "salt": 2.9,
+    "energyKj": 1247,
+    "weight": 142
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7485f453f607.webp"
+   "image": "tim-hortons/7485f453f607.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "nacho-chilli-cheese-bites-8pc",
@@ -1460,7 +2347,9 @@
     "saturatedFat": 11,
     "sugar": 1.3,
     "fiber": 4.9,
-    "salt": 2.4
+    "salt": 2.4,
+    "energyKj": 2531,
+    "weight": 204
    },
    "tags": [
     "vegetarian"
@@ -1469,7 +2358,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/adbd17995396.webp"
+   "image": "tim-hortons/adbd17995396.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "nacho-chilli-cheese-bites-4pc",
@@ -1484,7 +2385,9 @@
     "saturatedFat": 5.3,
     "sugar": 0.6,
     "fiber": 2.5,
-    "salt": 1.2
+    "salt": 1.2,
+    "energyKj": 1265,
+    "weight": 102
    },
    "tags": [
     "vegetarian"
@@ -1493,7 +2396,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/aa370f7698b6.webp"
+   "image": "tim-hortons/aa370f7698b6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "lattice-fries",
@@ -1508,7 +2423,9 @@
     "saturatedFat": 1.2,
     "sugar": 0.4,
     "fiber": 6,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 1349,
+    "weight": 129
    },
    "tags": [
     "vegetarian"
@@ -1517,7 +2434,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/10d0842ab454.webp"
+   "image": "tim-hortons/10d0842ab454.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "timmies-minis-chicken-mayo-sandwich",
@@ -1532,14 +2458,29 @@
     "saturatedFat": 1.9,
     "sugar": 9.4,
     "fiber": 3.5,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 1491
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f5ac08bb3331.webp"
+   "image": "tim-hortons/f5ac08bb3331.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "timmies-minis-cheeseburger",
@@ -1554,14 +2495,27 @@
     "saturatedFat": 5.9,
     "sugar": 15,
     "fiber": 3.1,
-    "salt": 1.9
+    "salt": 1.9,
+    "energyKj": 1594
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4bae5cbb3305.webp"
+   "image": "tim-hortons/4bae5cbb3305.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "timmies-minis-2-chicken-tenders",
@@ -1576,14 +2530,25 @@
     "saturatedFat": 0.7,
     "sugar": 0,
     "fiber": 0.8,
-    "salt": 0.66
+    "salt": 0.66,
+    "energyKj": 489
    },
    "tags": [],
    "limitedTime": false,
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/1ee4ffe03315.webp"
+   "image": "tim-hortons/1ee4ffe03315.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "timmies-minis-cheese-melt",
@@ -1598,7 +2563,8 @@
     "saturatedFat": 5.4,
     "sugar": 2,
     "fiber": 1.2,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 888
    },
    "tags": [
     "vegetarian"
@@ -1607,7 +2573,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/64edaf3ce32e.webp"
+   "image": "tim-hortons/64edaf3ce32e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "timmies-minis-lattice-fries",
@@ -1622,7 +2600,8 @@
     "saturatedFat": 0.6,
     "sugar": 0.2,
     "fiber": 3,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 675
    },
    "tags": [
     "vegetarian"
@@ -1631,7 +2610,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8e677c8b8649.webp"
+   "image": "tim-hortons/8e677c8b8649.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "stanley-spider-deluxe-donut",
@@ -1646,7 +2634,9 @@
     "saturatedFat": 4.9,
     "sugar": 30,
     "fiber": 1.2,
-    "salt": 0.66
+    "salt": 0.66,
+    "energyKj": 1429,
+    "weight": 94
    },
    "tags": [
     "vegetarian"
@@ -1655,7 +2645,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/2dd5b41bc5c3.webp"
+   "image": "tim-hortons/2dd5b41bc5c3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-syrup-caramel-and-fudge-pancakes",
@@ -1670,7 +2675,9 @@
     "saturatedFat": 7.5,
     "sugar": 47,
     "fiber": 1.8,
-    "salt": 1.6
+    "salt": 1.6,
+    "energyKj": 2195,
+    "weight": 200
    },
    "tags": [
     "vegetarian"
@@ -1679,7 +2686,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/16169c79056e.webp"
+   "image": "tim-hortons/16169c79056e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-hazelnut-pancakes-made-with-oreo",
@@ -1694,7 +2712,9 @@
     "saturatedFat": 8.8,
     "sugar": 46,
     "fiber": 3.7,
-    "salt": 1.8
+    "salt": 1.8,
+    "energyKj": 2654,
+    "weight": 213
    },
    "tags": [
     "vegetarian"
@@ -1703,7 +2723,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/32983f7017bf.webp"
+   "image": "tim-hortons/32983f7017bf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "monty-the-moose-deluxe-donut",
@@ -1718,7 +2751,9 @@
     "saturatedFat": 6.9,
     "sugar": 27,
     "fiber": 1.2,
-    "salt": 0.72
+    "salt": 0.72,
+    "energyKj": 1569,
+    "weight": 100
    },
    "tags": [
     "vegetarian"
@@ -1727,7 +2762,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8234c06da5a6.webp"
+   "image": "tim-hortons/8234c06da5a6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-deluxe-donut",
@@ -1742,7 +2792,9 @@
     "saturatedFat": 5,
     "sugar": 34,
     "fiber": 1.1,
-    "salt": 0.67
+    "salt": 0.67,
+    "energyKj": 1581,
+    "weight": 109
    },
    "tags": [
     "vegetarian"
@@ -1751,7 +2803,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/b1a9280123fd.webp"
+   "image": "tim-hortons/b1a9280123fd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-brownie-donut",
@@ -1766,7 +2834,9 @@
     "saturatedFat": 7,
     "sugar": 34,
     "fiber": 2.3,
-    "salt": 0.64
+    "salt": 0.64,
+    "energyKj": 1671,
+    "weight": 113
    },
    "tags": [
     "vegetarian"
@@ -1775,7 +2845,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/9b6a5894390f.webp"
+   "image": "tim-hortons/9b6a5894390f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pumpkin-spice-deluxe-donut",
@@ -1790,7 +2875,9 @@
     "saturatedFat": 7,
     "sugar": 24,
     "fiber": 1.1,
-    "salt": 0.63
+    "salt": 0.63,
+    "energyKj": 1354,
+    "weight": 79
    },
    "tags": [
     "vegetarian"
@@ -1799,7 +2886,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8ee4f2eb53fd.webp"
+   "image": "tim-hortons/8ee4f2eb53fd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-and-caramel-donut",
@@ -1814,7 +2915,9 @@
     "saturatedFat": 7.4,
     "sugar": 39,
     "fiber": 0.9,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 1723,
+    "weight": 123
    },
    "tags": [
     "vegetarian"
@@ -1823,7 +2926,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6fd4a01bae85.webp"
+   "image": "tim-hortons/6fd4a01bae85.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "caramel-apple-fritter",
@@ -1838,7 +2957,9 @@
     "saturatedFat": 6,
     "sugar": 48,
     "fiber": 1.8,
-    "salt": 0.94
+    "salt": 0.94,
+    "energyKj": 2051,
+    "weight": 155
    },
    "tags": [
     "vegetarian"
@@ -1847,7 +2968,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c79958d20cc7.webp"
+   "image": "tim-hortons/c79958d20cc7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "boston-cream-donut",
@@ -1862,7 +2998,9 @@
     "saturatedFat": 5.1,
     "sugar": 18,
     "fiber": 1,
-    "salt": 0.59
+    "salt": 0.59,
+    "energyKj": 1188,
+    "weight": 91
    },
    "tags": [
     "vegetarian"
@@ -1871,7 +3009,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/b3c5662978ce.webp"
+   "image": "tim-hortons/b3c5662978ce.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "canadian-maple-donut",
@@ -1886,7 +3036,9 @@
     "saturatedFat": 4.8,
     "sugar": 19,
     "fiber": 0.7,
-    "salt": 0.61
+    "salt": 0.61,
+    "energyKj": 1175,
+    "weight": 91
    },
    "tags": [
     "vegetarian"
@@ -1895,7 +3047,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/0d9e3930644b.webp"
+   "image": "tim-hortons/0d9e3930644b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "maple-dip-donut",
@@ -1910,7 +3074,9 @@
     "saturatedFat": 4.2,
     "sugar": 14,
     "fiber": 0.7,
-    "salt": 0.54
+    "salt": 0.54,
+    "energyKj": 1053,
+    "weight": 70
    },
    "tags": [
     "vegetarian"
@@ -1919,7 +3085,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/b001befc1088.webp"
+   "image": "tim-hortons/b001befc1088.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vanilla-dip-donut",
@@ -1934,7 +3115,9 @@
     "saturatedFat": 4.2,
     "sugar": 23,
     "fiber": 0.8,
-    "salt": 0.51
+    "salt": 0.51,
+    "energyKj": 1215,
+    "weight": 80
    },
    "tags": [
     "vegetarian"
@@ -1943,7 +3126,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4a3fe5981218.webp"
+   "image": "tim-hortons/4a3fe5981218.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-dip-donut",
@@ -1958,7 +3156,9 @@
     "saturatedFat": 4.5,
     "sugar": 13,
     "fiber": 1,
-    "salt": 0.52
+    "salt": 0.52,
+    "energyKj": 1066,
+    "weight": 70
    },
    "tags": [
     "vegetarian"
@@ -1967,7 +3167,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/a0d3ed897dc0.webp"
+   "image": "tim-hortons/a0d3ed897dc0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "old-fashioned-glazed-donut",
@@ -1982,7 +3197,9 @@
     "saturatedFat": 5.9,
     "sugar": 26,
     "fiber": 1.1,
-    "salt": 0.61
+    "salt": 0.61,
+    "energyKj": 1279,
+    "weight": 75
    },
    "tags": [
     "vegetarian"
@@ -1991,7 +3208,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6f76ab1bb97e.webp"
+   "image": "tim-hortons/6f76ab1bb97e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "apple-fritter-donut",
@@ -2006,7 +3237,9 @@
     "saturatedFat": 4.2,
     "sugar": 23,
     "fiber": 1.6,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1371,
+    "weight": 104
    },
    "tags": [
     "vegetarian"
@@ -2015,7 +3248,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6e6eb78e47f3.webp"
+   "image": "tim-hortons/6e6eb78e47f3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "honey-cruller",
@@ -2030,7 +3277,9 @@
     "saturatedFat": 11,
     "sugar": 17,
     "fiber": 0.2,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 1373,
+    "weight": 67
    },
    "tags": [
     "vegetarian"
@@ -2039,7 +3288,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/83a29c28662b.webp"
+   "image": "tim-hortons/83a29c28662b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "old-fashioned-glazed-timbits",
@@ -2054,7 +3317,9 @@
     "saturatedFat": 1.4,
     "sugar": 8.2,
     "fiber": 0.3,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 341,
+    "weight": 22
    },
    "tags": [
     "vegetarian"
@@ -2063,7 +3328,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/95bd0cab5527.webp"
+   "image": "tim-hortons/95bd0cab5527.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-glazed-timbits",
@@ -2078,7 +3357,9 @@
     "saturatedFat": 1.4,
     "sugar": 8.1,
     "fiber": 0.4,
-    "salt": 0.17
+    "salt": 0.17,
+    "energyKj": 337,
+    "weight": 22
    },
    "tags": [
     "vegetarian"
@@ -2087,7 +3368,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/219e9ee2a9df.webp"
+   "image": "tim-hortons/219e9ee2a9df.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "honey-dip-timbits",
@@ -2102,7 +3394,8 @@
     "saturatedFat": 0.6,
     "sugar": 6.3,
     "fiber": 0.2,
-    "salt": 0.06
+    "salt": 0.06,
+    "weight": 16
    },
    "tags": [
     "vegetarian"
@@ -2111,7 +3404,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/de95c1fcf6fb.webp"
+   "image": "tim-hortons/de95c1fcf6fb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "apple-pie-timbits",
@@ -2126,7 +3433,9 @@
     "saturatedFat": 1,
     "sugar": 8.1,
     "fiber": 0.2,
-    "salt": 0.11
+    "salt": 0.11,
+    "energyKj": 323,
+    "weight": 26
    },
    "tags": [
     "vegetarian"
@@ -2135,7 +3444,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/1ff3c4c8ebbb.webp"
+   "image": "tim-hortons/1ff3c4c8ebbb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "honey-cruller-timbits",
@@ -2150,7 +3470,9 @@
     "saturatedFat": 1.7,
     "sugar": 6,
     "fiber": 0.1,
-    "salt": 0.07
+    "salt": 0.07,
+    "energyKj": 284,
+    "weight": 15
    },
    "tags": [
     "vegetarian"
@@ -2159,7 +3481,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/932e004dc1b1.webp"
+   "image": "tim-hortons/932e004dc1b1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "white-birthday-cake-timbits",
@@ -2174,7 +3510,9 @@
     "saturatedFat": 1.4,
     "sugar": 9.8,
     "fiber": 0.3,
-    "salt": 0.15
+    "salt": 0.15,
+    "energyKj": 373,
+    "weight": 24
    },
    "tags": [
     "vegetarian"
@@ -2183,7 +3521,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c441ce0e56f0.webp"
+   "image": "tim-hortons/c441ce0e56f0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "apple-fritter-timbits",
@@ -2198,7 +3550,9 @@
     "saturatedFat": 0.8,
     "sugar": 6.5,
     "fiber": 0.3,
-    "salt": 0.09
+    "salt": 0.09,
+    "energyKj": 276,
+    "weight": 19
    },
    "tags": [
     "vegetarian"
@@ -2207,7 +3561,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/19c4cf8a14d6.webp"
+   "image": "tim-hortons/19c4cf8a14d6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "raspberry-donut",
@@ -2222,7 +3590,8 @@
     "saturatedFat": 3.5,
     "sugar": 16,
     "fiber": 0.7,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 1031
    },
    "tags": [
     "vegetarian"
@@ -2231,7 +3600,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/088341ea6129.webp"
+   "image": "tim-hortons/088341ea6129.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "raspberry-vanilla-donut",
@@ -2246,7 +3626,8 @@
     "saturatedFat": 4.4,
     "sugar": 28,
     "fiber": 0.8,
-    "salt": 0.53
+    "salt": 0.53,
+    "energyKj": 1350
    },
    "tags": [
     "vegetarian"
@@ -2255,7 +3636,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7c897d2b9049.webp"
+   "image": "tim-hortons/7c897d2b9049.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "americano-small",
@@ -2270,7 +3665,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -2279,7 +3675,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-medium",
@@ -2294,7 +3694,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -2303,7 +3704,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-large",
@@ -2318,7 +3723,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -2327,7 +3733,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "original-blend-coffee-small",
@@ -2342,7 +3752,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 12
    },
    "tags": [
     "vegetarian"
@@ -2351,7 +3762,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "original-blend-coffee-medium",
@@ -2366,7 +3781,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 12
    },
    "tags": [
     "vegetarian"
@@ -2375,7 +3791,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "original-blend-coffee-large",
@@ -2390,7 +3810,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.03
+    "salt": 0.03,
+    "energyKj": 21
    },
    "tags": [
     "vegetarian"
@@ -2399,7 +3820,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "dark-roast-coffee-small",
@@ -2414,7 +3839,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 12
    },
    "tags": [
     "vegetarian"
@@ -2423,7 +3849,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "dark-roast-coffee-medium",
@@ -2438,7 +3868,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 17
    },
    "tags": [
     "vegetarian"
@@ -2447,7 +3878,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f3fcb4109644.webp"
+   "image": "tim-hortons/f3fcb4109644.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-macchiato-small",
@@ -2462,7 +3897,8 @@
     "saturatedFat": 2.2,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 538
    },
    "tags": [
     "vegetarian"
@@ -2471,7 +3907,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/557020d7c528.webp"
+   "image": "tim-hortons/557020d7c528.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-macchiato-medium",
@@ -2486,7 +3928,8 @@
     "saturatedFat": 3.6,
     "sugar": 19,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 682
    },
    "tags": [
     "vegetarian"
@@ -2495,7 +3938,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/557020d7c528.webp"
+   "image": "tim-hortons/557020d7c528.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-macchiato-large",
@@ -2510,7 +3959,8 @@
     "saturatedFat": 3.9,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 809
    },
    "tags": [
     "vegetarian"
@@ -2519,7 +3969,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/557020d7c528.webp"
+   "image": "tim-hortons/557020d7c528.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-small",
@@ -2534,7 +3990,8 @@
     "saturatedFat": 1.6,
     "sugar": 7.6,
     "fiber": 0,
-    "salt": 0.18
+    "salt": 0.18,
+    "energyKj": 316
    },
    "tags": [
     "vegetarian"
@@ -2543,7 +4000,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6b5930a11394.webp"
+   "image": "tim-hortons/6b5930a11394.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-medium",
@@ -2558,7 +4021,8 @@
     "saturatedFat": 2.4,
     "sugar": 11,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 460
    },
    "tags": [
     "vegetarian"
@@ -2567,7 +4031,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6b5930a11394.webp"
+   "image": "tim-hortons/6b5930a11394.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-large",
@@ -2582,7 +4052,8 @@
     "saturatedFat": 3.1,
     "sugar": 14,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 587
    },
    "tags": [
     "vegetarian"
@@ -2591,7 +4062,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6b5930a11394.webp"
+   "image": "tim-hortons/6b5930a11394.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white",
@@ -2606,7 +4083,8 @@
     "saturatedFat": 2.7,
     "sugar": 12,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 505
    },
    "tags": [
     "vegetarian"
@@ -2615,7 +4093,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/e830ecdae905.webp"
+   "image": "tim-hortons/e830ecdae905.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-latte-small",
@@ -2630,7 +4114,8 @@
     "saturatedFat": 7.2,
     "sugar": 20,
     "fiber": 0.1,
-    "salt": 0.26
+    "salt": 0.26,
+    "energyKj": 885
    },
    "tags": [
     "vegetarian"
@@ -2639,7 +4124,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/744b97a18939.webp"
+   "image": "tim-hortons/744b97a18939.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-latte-medium",
@@ -2654,7 +4145,8 @@
     "saturatedFat": 7.6,
     "sugar": 25,
     "fiber": 0.1,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 1028
    },
    "tags": [
     "vegetarian"
@@ -2663,7 +4155,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/744b97a18939.webp"
+   "image": "tim-hortons/744b97a18939.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-latte-large",
@@ -2678,7 +4176,8 @@
     "saturatedFat": 8.3,
     "sugar": 32,
     "fiber": 0.1,
-    "salt": 0.39
+    "salt": 0.39,
+    "energyKj": 1233
    },
    "tags": [
     "vegetarian"
@@ -2687,7 +4186,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/744b97a18939.webp"
+   "image": "tim-hortons/744b97a18939.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "maple-caramel-smores-latte-small",
@@ -2702,7 +4207,8 @@
     "saturatedFat": 8.3,
     "sugar": 46,
     "fiber": 0.8,
-    "salt": 0.64
+    "salt": 0.64,
+    "energyKj": 1546
    },
    "tags": [
     "vegetarian"
@@ -2711,7 +4217,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/620322ff837a.webp"
+   "image": "tim-hortons/620322ff837a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-latte-medium",
@@ -2726,7 +4243,8 @@
     "saturatedFat": 9.1,
     "sugar": 63,
     "fiber": 1.2,
-    "salt": 0.84
+    "salt": 0.84,
+    "energyKj": 1967
    },
    "tags": [
     "vegetarian"
@@ -2735,7 +4253,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/620322ff837a.webp"
+   "image": "tim-hortons/620322ff837a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-latte-large",
@@ -2750,7 +4279,8 @@
     "saturatedFat": 10,
     "sugar": 81,
     "fiber": 1.6,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 2440
    },
    "tags": [
     "vegetarian"
@@ -2759,7 +4289,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/620322ff837a.webp"
+   "image": "tim-hortons/620322ff837a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "matcha-latte-small",
@@ -2774,7 +4315,8 @@
     "saturatedFat": 2.3,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 670
    },
    "tags": [
     "vegetarian"
@@ -2783,7 +4325,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d626cdc070fb.webp"
+   "image": "tim-hortons/d626cdc070fb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-medium",
@@ -2798,7 +4346,8 @@
     "saturatedFat": 2.8,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 863
    },
    "tags": [
     "vegetarian"
@@ -2807,7 +4356,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d626cdc070fb.webp"
+   "image": "tim-hortons/d626cdc070fb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-large",
@@ -2822,7 +4377,8 @@
     "saturatedFat": 3.7,
     "sugar": 38,
     "fiber": 0,
-    "salt": 0.45
+    "salt": 0.45,
+    "energyKj": 1132
    },
    "tags": [
     "vegetarian"
@@ -2831,7 +4387,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d626cdc070fb.webp"
+   "image": "tim-hortons/d626cdc070fb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-small",
@@ -2846,7 +4408,8 @@
     "saturatedFat": 2.2,
     "sugar": 9.9,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 415
    },
    "tags": [
     "vegetarian"
@@ -2855,7 +4418,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/82ab50d093a2.webp"
+   "image": "tim-hortons/82ab50d093a2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-medium",
@@ -2870,7 +4439,8 @@
     "saturatedFat": 2.9,
     "sugar": 13,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 559
    },
    "tags": [
     "vegetarian"
@@ -2879,7 +4449,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/82ab50d093a2.webp"
+   "image": "tim-hortons/82ab50d093a2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-large",
@@ -2894,7 +4470,8 @@
     "saturatedFat": 3.6,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 686
    },
    "tags": [
     "vegetarian"
@@ -2903,7 +4480,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/82ab50d093a2.webp"
+   "image": "tim-hortons/82ab50d093a2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-french-vanilla-small",
@@ -2918,7 +4501,8 @@
     "saturatedFat": 15,
     "sugar": 41,
     "fiber": 0.8,
-    "salt": 0.89
+    "salt": 0.89,
+    "energyKj": 1658
    },
    "tags": [
     "vegetarian"
@@ -2927,7 +4511,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/77a6f47182e0.webp"
+   "image": "tim-hortons/77a6f47182e0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-french-vanilla-medium",
@@ -2942,7 +4532,8 @@
     "saturatedFat": 18,
     "sugar": 51,
     "fiber": 0.9,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1966
    },
    "tags": [
     "vegetarian"
@@ -2951,7 +4542,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/77a6f47182e0.webp"
+   "image": "tim-hortons/77a6f47182e0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-french-vanilla-large",
@@ -2966,7 +4563,8 @@
     "saturatedFat": 21,
     "sugar": 65,
     "fiber": 1.1,
-    "salt": 1.4
+    "salt": 1.4,
+    "energyKj": 2431
    },
    "tags": [
     "vegetarian"
@@ -2975,7 +4573,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/77a6f47182e0.webp"
+   "image": "tim-hortons/77a6f47182e0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "french-vanilla-latte-small",
@@ -2990,7 +4594,8 @@
     "saturatedFat": 4.9,
     "sugar": 41,
     "fiber": 2.3,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1146
    },
    "tags": [
     "vegetarian"
@@ -2999,7 +4604,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d6aa76a24d52.webp"
+   "image": "tim-hortons/d6aa76a24d52.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "french-vanilla-latte-medium",
@@ -3014,7 +4625,8 @@
     "saturatedFat": 5.9,
     "sugar": 50,
     "fiber": 2.9,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 1375
    },
    "tags": [
     "vegetarian"
@@ -3023,7 +4635,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d6aa76a24d52.webp"
+   "image": "tim-hortons/d6aa76a24d52.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "french-vanilla-latte-large",
@@ -3038,7 +4656,8 @@
     "saturatedFat": 6.9,
     "sugar": 58,
     "fiber": 3.3,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1607
    },
    "tags": [
     "vegetarian"
@@ -3047,7 +4666,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d6aa76a24d52.webp"
+   "image": "tim-hortons/d6aa76a24d52.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "french-vanilla-small",
@@ -3062,7 +4687,8 @@
     "saturatedFat": 4.9,
     "sugar": 41,
     "fiber": 2.3,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1142
    },
    "tags": [
     "vegetarian"
@@ -3071,7 +4697,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c0213188a187.webp"
+   "image": "tim-hortons/c0213188a187.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "french-vanilla-medium",
@@ -3086,7 +4718,8 @@
     "saturatedFat": 5.8,
     "sugar": 50,
     "fiber": 2.8,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 1371
    },
    "tags": [
     "vegetarian"
@@ -3095,7 +4728,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c0213188a187.webp"
+   "image": "tim-hortons/c0213188a187.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "french-vanilla-large",
@@ -3110,7 +4749,8 @@
     "saturatedFat": 6.8,
     "sugar": 58,
     "fiber": 3.3,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1599
    },
    "tags": [
     "vegetarian"
@@ -3119,7 +4759,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c0213188a187.webp"
+   "image": "tim-hortons/c0213188a187.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-small",
@@ -3134,7 +4780,8 @@
     "saturatedFat": 4.9,
     "sugar": 44,
     "fiber": 2.4,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1132
    },
    "tags": [
     "vegetarian"
@@ -3143,7 +4790,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/0f774d412b3c.webp"
+   "image": "tim-hortons/0f774d412b3c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "mocha-medium",
@@ -3158,7 +4813,8 @@
     "saturatedFat": 5.9,
     "sugar": 53,
     "fiber": 2.9,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1357
    },
    "tags": [
     "vegetarian"
@@ -3167,7 +4823,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/0f774d412b3c.webp"
+   "image": "tim-hortons/0f774d412b3c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "mocha-large",
@@ -3182,7 +4846,8 @@
     "saturatedFat": 6.9,
     "sugar": 62,
     "fiber": 3.3,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1583
    },
    "tags": [
     "vegetarian"
@@ -3191,7 +4856,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/0f774d412b3c.webp"
+   "image": "tim-hortons/0f774d412b3c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "hot-chocolate-small",
@@ -3206,7 +4879,8 @@
     "saturatedFat": 11,
     "sugar": 56,
     "fiber": 3.2,
-    "salt": 1.1
+    "salt": 1.1,
+    "energyKj": 1536
    },
    "tags": [
     "vegetarian"
@@ -3215,7 +4889,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/33c8f3808821.webp"
+   "image": "tim-hortons/33c8f3808821.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-medium",
@@ -3230,7 +4911,8 @@
     "saturatedFat": 13,
     "sugar": 67,
     "fiber": 3.8,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1828
    },
    "tags": [
     "vegetarian"
@@ -3239,7 +4921,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/33c8f3808821.webp"
+   "image": "tim-hortons/33c8f3808821.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-large",
@@ -3254,7 +4943,8 @@
     "saturatedFat": 17,
     "sugar": 90,
     "fiber": 5.1,
-    "salt": 1.7
+    "salt": 1.7,
+    "energyKj": 2450
    },
    "tags": [
     "vegetarian"
@@ -3263,7 +4953,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/33c8f3808821.webp"
+   "image": "tim-hortons/33c8f3808821.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso",
@@ -3278,7 +4975,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 4
    },
    "tags": [
     "vegetarian"
@@ -3287,7 +4985,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/91d7e7a21ba5.webp"
+   "image": "tim-hortons/91d7e7a21ba5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "breakfast-tea-small",
@@ -3302,7 +5004,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3310,7 +5013,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "breakfast-tea-medium",
@@ -3325,7 +5034,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3333,7 +5043,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "breakfast-tea-large",
@@ -3348,7 +5064,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3356,7 +5073,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "green-tea-small",
@@ -3371,7 +5094,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3380,7 +5104,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f8d48f83cad3.webp"
+   "image": "tim-hortons/f8d48f83cad3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "green-tea-medium",
@@ -3395,7 +5123,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3404,7 +5133,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f8d48f83cad3.webp"
+   "image": "tim-hortons/f8d48f83cad3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "green-tea-large",
@@ -3419,7 +5152,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3428,7 +5162,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f8d48f83cad3.webp"
+   "image": "tim-hortons/f8d48f83cad3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peppermint-tea-small",
@@ -3443,7 +5181,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3452,7 +5191,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f326a180c202.webp"
+   "image": "tim-hortons/f326a180c202.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peppermint-tea-medium",
@@ -3467,7 +5210,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3476,7 +5220,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f326a180c202.webp"
+   "image": "tim-hortons/f326a180c202.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "peppermint-tea-large",
@@ -3491,7 +5239,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 0
    },
    "tags": [
     "vegetarian"
@@ -3500,7 +5249,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f326a180c202.webp"
+   "image": "tim-hortons/f326a180c202.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-iced-latte-small",
@@ -3515,7 +5268,8 @@
     "saturatedFat": 2.3,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 670
    },
    "tags": [
     "vegetarian"
@@ -3524,7 +5278,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/412095275275.webp"
+   "image": "tim-hortons/412095275275.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-iced-latte-medium",
@@ -3539,7 +5299,8 @@
     "saturatedFat": 2.8,
     "sugar": 44,
     "fiber": 0,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 1126
    },
    "tags": [
     "vegetarian"
@@ -3548,7 +5309,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/412095275275.webp"
+   "image": "tim-hortons/412095275275.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-iced-latte-large",
@@ -3563,7 +5330,8 @@
     "saturatedFat": 3.7,
     "sugar": 77,
     "fiber": 0,
-    "salt": 0.05
+    "salt": 0.05,
+    "energyKj": 1833
    },
    "tags": [
     "vegetarian"
@@ -3572,7 +5340,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/412095275275.webp"
+   "image": "tim-hortons/412095275275.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-medium",
@@ -3587,7 +5361,8 @@
     "saturatedFat": 2.2,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 415
    },
    "tags": [
     "vegetarian"
@@ -3596,7 +5371,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5e8ec5e73def.webp"
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-large",
@@ -3611,7 +5392,8 @@
     "saturatedFat": 3,
     "sugar": 17,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 559
    },
    "tags": [
     "vegetarian"
@@ -3620,7 +5402,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5e8ec5e73def.webp"
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-latte-small",
@@ -3635,7 +5423,8 @@
     "saturatedFat": 1.5,
     "sugar": 23,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 447
    },
    "tags": [
     "vegetarian"
@@ -3644,7 +5433,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5e8ec5e73def.webp"
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-latte-medium",
@@ -3659,7 +5454,8 @@
     "saturatedFat": 2.2,
     "sugar": 31,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 671
    },
    "tags": [
     "vegetarian"
@@ -3668,7 +5464,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5e8ec5e73def.webp"
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-latte-large",
@@ -3683,7 +5485,8 @@
     "saturatedFat": 3,
     "sugar": 37,
     "fiber": 0,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 901
    },
    "tags": [
     "vegetarian"
@@ -3692,7 +5495,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5e8ec5e73def.webp"
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-vanilla-latte-medium",
@@ -3707,7 +5516,8 @@
     "saturatedFat": 2.2,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 415
    },
    "tags": [
     "vegetarian"
@@ -3716,7 +5526,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5e8ec5e73def.webp"
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-vanilla-latte-large",
@@ -3731,7 +5547,8 @@
     "saturatedFat": 3,
     "sugar": 17,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 559
    },
    "tags": [
     "vegetarian"
@@ -3740,7 +5557,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/5e8ec5e73def.webp"
+   "image": "tim-hortons/5e8ec5e73def.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-french-vanilla-small",
@@ -3755,7 +5578,8 @@
     "saturatedFat": 8,
     "sugar": 25,
     "fiber": 0,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 1117
    },
    "tags": [
     "vegetarian"
@@ -3764,7 +5588,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d98de901b251.webp"
+   "image": "tim-hortons/d98de901b251.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-french-vanilla-medium",
@@ -3779,7 +5609,8 @@
     "saturatedFat": 10,
     "sugar": 31,
     "fiber": 0,
-    "salt": 0.8
+    "salt": 0.8,
+    "energyKj": 1506
    },
    "tags": [
     "vegetarian"
@@ -3788,7 +5619,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d98de901b251.webp"
+   "image": "tim-hortons/d98de901b251.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-french-vanilla-large",
@@ -3803,7 +5640,8 @@
     "saturatedFat": 16,
     "sugar": 50,
     "fiber": 0.4,
-    "salt": 1.3
+    "salt": 1.3,
+    "energyKj": 1690
    },
    "tags": [
     "vegetarian"
@@ -3812,7 +5650,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d98de901b251.webp"
+   "image": "tim-hortons/d98de901b251.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-french-vanilla-latte-small",
@@ -3827,7 +5671,8 @@
     "saturatedFat": 4.9,
     "sugar": 41,
     "fiber": 2.3,
-    "salt": 0.7
+    "salt": 0.7,
+    "energyKj": 1146
    },
    "tags": [
     "vegetarian"
@@ -3836,7 +5681,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7b46c58a074a.webp"
+   "image": "tim-hortons/7b46c58a074a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-french-vanilla-latte-medium",
@@ -3851,7 +5702,8 @@
     "saturatedFat": 5.9,
     "sugar": 50,
     "fiber": 2.9,
-    "salt": 0.9
+    "salt": 0.9,
+    "energyKj": 1375
    },
    "tags": [
     "vegetarian"
@@ -3860,7 +5712,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7b46c58a074a.webp"
+   "image": "tim-hortons/7b46c58a074a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-french-vanilla-latte-large",
@@ -3875,7 +5733,8 @@
     "saturatedFat": 6.9,
     "sugar": 58,
     "fiber": 3.3,
-    "salt": 1
+    "salt": 1,
+    "energyKj": 1607
    },
    "tags": [
     "vegetarian"
@@ -3884,7 +5743,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/7b46c58a074a.webp"
+   "image": "tim-hortons/7b46c58a074a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-macchiato-small",
@@ -3899,7 +5764,8 @@
     "saturatedFat": 2.2,
     "sugar": 16,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 538
    },
    "tags": [
     "vegetarian"
@@ -3908,7 +5774,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4d0376c1e6ef.webp"
+   "image": "tim-hortons/4d0376c1e6ef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-macchiato-medium",
@@ -3923,7 +5795,8 @@
     "saturatedFat": 3.9,
     "sugar": 19,
     "fiber": 0,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 682
    },
    "tags": [
     "vegetarian"
@@ -3932,7 +5805,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4d0376c1e6ef.webp"
+   "image": "tim-hortons/4d0376c1e6ef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-macchiato-large",
@@ -3947,7 +5826,8 @@
     "saturatedFat": 3.6,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 809
    },
    "tags": [
     "vegetarian"
@@ -3956,7 +5836,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4d0376c1e6ef.webp"
+   "image": "tim-hortons/4d0376c1e6ef.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "maple-caramel-smores-frapp-small",
@@ -3971,7 +5857,8 @@
     "saturatedFat": 6.3,
     "sugar": 53,
     "fiber": 0.8,
-    "salt": 0.31
+    "salt": 0.31,
+    "energyKj": 1425
    },
    "tags": [
     "vegetarian"
@@ -3980,7 +5867,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6369ecaec1f5.webp"
+   "image": "tim-hortons/6369ecaec1f5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-frapp-medium",
@@ -3995,7 +5895,8 @@
     "saturatedFat": 6.7,
     "sugar": 73,
     "fiber": 1.3,
-    "salt": 0.43
+    "salt": 0.43,
+    "energyKj": 1873
    },
    "tags": [
     "vegetarian"
@@ -4004,7 +5905,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6369ecaec1f5.webp"
+   "image": "tim-hortons/6369ecaec1f5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-frapp-large",
@@ -4019,7 +5933,8 @@
     "saturatedFat": 7,
     "sugar": 98,
     "fiber": 2,
-    "salt": 0.58
+    "salt": 0.58,
+    "energyKj": 2444
    },
    "tags": [
     "vegetarian"
@@ -4028,7 +5943,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6369ecaec1f5.webp"
+   "image": "tim-hortons/6369ecaec1f5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "matcha-frapp-small",
@@ -4043,7 +5971,8 @@
     "saturatedFat": 5.9,
     "sugar": 30,
     "fiber": 0.3,
-    "salt": 0.13
+    "salt": 0.13,
+    "energyKj": 921
    },
    "tags": [
     "vegetarian"
@@ -4052,7 +5981,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c5a55302fba3.webp"
+   "image": "tim-hortons/c5a55302fba3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-frapp-medium",
@@ -4067,7 +6002,8 @@
     "saturatedFat": 6.1,
     "sugar": 67,
     "fiber": 0.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1615
    },
    "tags": [
     "vegetarian"
@@ -4076,7 +6012,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c5a55302fba3.webp"
+   "image": "tim-hortons/c5a55302fba3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-frapp-large",
@@ -4091,7 +6033,8 @@
     "saturatedFat": 6.4,
     "sugar": 105,
     "fiber": 0.6,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 2357
    },
    "tags": [
     "vegetarian"
@@ -4100,7 +6043,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c5a55302fba3.webp"
+   "image": "tim-hortons/c5a55302fba3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-cream-frapp-small",
@@ -4115,7 +6064,8 @@
     "saturatedFat": 6,
     "sugar": 34,
     "fiber": 0.2,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1050
    },
    "tags": [
     "vegetarian"
@@ -4124,7 +6074,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/210dfdada58a.webp"
+   "image": "tim-hortons/210dfdada58a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "caramel-cream-frapp-medium",
@@ -4139,7 +6099,8 @@
     "saturatedFat": 6.6,
     "sugar": 50,
     "fiber": 0.3,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 1441
    },
    "tags": [
     "vegetarian"
@@ -4148,7 +6109,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/210dfdada58a.webp"
+   "image": "tim-hortons/210dfdada58a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "caramel-cream-frapp-large",
@@ -4163,7 +6134,8 @@
     "saturatedFat": 7.3,
     "sugar": 66,
     "fiber": 0.5,
-    "salt": 0.6
+    "salt": 0.6,
+    "energyKj": 1838
    },
    "tags": [
     "vegetarian"
@@ -4172,7 +6144,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/210dfdada58a.webp"
+   "image": "tim-hortons/210dfdada58a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chocolate-cream-frapp-small",
@@ -4187,7 +6169,8 @@
     "saturatedFat": 9.5,
     "sugar": 36,
     "fiber": 1.1,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1299
    },
    "tags": [
     "vegetarian"
@@ -4196,7 +6179,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/e6ecbace7829.webp"
+   "image": "tim-hortons/e6ecbace7829.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chocolate-cream-frapp-medium",
@@ -4211,7 +6204,8 @@
     "saturatedFat": 12,
     "sugar": 50,
     "fiber": 1.6,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1725
    },
    "tags": [
     "vegetarian"
@@ -4220,7 +6214,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/e6ecbace7829.webp"
+   "image": "tim-hortons/e6ecbace7829.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chocolate-cream-frapp-large",
@@ -4235,7 +6239,8 @@
     "saturatedFat": 14,
     "sugar": 64,
     "fiber": 2.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 2156
    },
    "tags": [
     "vegetarian"
@@ -4244,7 +6249,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/e6ecbace7829.webp"
+   "image": "tim-hortons/e6ecbace7829.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-iced-capp-small",
@@ -4259,7 +6274,8 @@
     "saturatedFat": 11,
     "sugar": 72,
     "fiber": 1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 2005
    },
    "tags": [
     "vegetarian"
@@ -4268,7 +6284,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/168acb34db76.webp"
+   "image": "tim-hortons/168acb34db76.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-iced-capp-medium",
@@ -4283,7 +6312,8 @@
     "saturatedFat": 13,
     "sugar": 94,
     "fiber": 1.4,
-    "salt": 0.32
+    "salt": 0.32,
+    "energyKj": 2538
    },
    "tags": [
     "vegetarian"
@@ -4292,7 +6322,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/168acb34db76.webp"
+   "image": "tim-hortons/168acb34db76.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "maple-caramel-smores-iced-capp-large",
@@ -4307,7 +6350,8 @@
     "saturatedFat": 17,
     "sugar": 122,
     "fiber": 1.9,
-    "salt": 0.46
+    "salt": 0.46,
+    "energyKj": 3377
    },
    "tags": [
     "vegetarian"
@@ -4316,7 +6360,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/168acb34db76.webp"
+   "image": "tim-hortons/168acb34db76.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "strawberries-and-cream-frapp-small",
@@ -4331,7 +6388,8 @@
     "saturatedFat": 5.6,
     "sugar": 30,
     "fiber": 0.3,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1000
    },
    "tags": [
     "vegetarian"
@@ -4340,7 +6398,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/906ed34958d6.webp"
+   "image": "tim-hortons/906ed34958d6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "strawberries-and-cream-frapp-medium",
@@ -4355,7 +6423,8 @@
     "saturatedFat": 6,
     "sugar": 43,
     "fiber": 0.5,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1354
    },
    "tags": [
     "vegetarian"
@@ -4364,7 +6433,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/906ed34958d6.webp"
+   "image": "tim-hortons/906ed34958d6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "strawberries-and-cream-frapp-large",
@@ -4379,7 +6458,8 @@
     "saturatedFat": 6.5,
     "sugar": 56,
     "fiber": 0.8,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1715
    },
    "tags": [
     "vegetarian"
@@ -4388,7 +6468,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/906ed34958d6.webp"
+   "image": "tim-hortons/906ed34958d6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "cookies-and-cream-frapp-small",
@@ -4403,7 +6493,8 @@
     "saturatedFat": 6.4,
     "sugar": 31,
     "fiber": 0.6,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1125
    },
    "tags": [
     "vegetarian"
@@ -4412,7 +6503,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/fe3138b376f7.webp"
+   "image": "tim-hortons/fe3138b376f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cookies-and-cream-frapp-medium",
@@ -4427,7 +6531,8 @@
     "saturatedFat": 7.2,
     "sugar": 45,
     "fiber": 1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1584
    },
    "tags": [
     "vegetarian"
@@ -4436,7 +6541,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/fe3138b376f7.webp"
+   "image": "tim-hortons/fe3138b376f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cookies-and-cream-frapp-large",
@@ -4451,7 +6569,8 @@
     "saturatedFat": 8.1,
     "sugar": 59,
     "fiber": 1.5,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 1977
    },
    "tags": [
     "vegetarian"
@@ -4460,7 +6579,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/fe3138b376f7.webp"
+   "image": "tim-hortons/fe3138b376f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "caramel-iced-capp-small",
@@ -4475,7 +6607,8 @@
     "saturatedFat": 14,
     "sugar": 34,
     "fiber": 0.1,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1438
    },
    "tags": [
     "vegetarian"
@@ -4484,7 +6617,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/173d8acbb30e.webp"
+   "image": "tim-hortons/173d8acbb30e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "caramel-iced-capp-medium",
@@ -4499,7 +6642,8 @@
     "saturatedFat": 17,
     "sugar": 52,
     "fiber": 0.1,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 2006
    },
    "tags": [
     "vegetarian"
@@ -4508,7 +6652,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/173d8acbb30e.webp"
+   "image": "tim-hortons/173d8acbb30e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "caramel-iced-capp-large",
@@ -4523,7 +6677,8 @@
     "saturatedFat": 21,
     "sugar": 70,
     "fiber": 0.1,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 2577
    },
    "tags": [
     "vegetarian"
@@ -4532,7 +6687,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/173d8acbb30e.webp"
+   "image": "tim-hortons/173d8acbb30e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "cookies-and-cream-iced-capp-small",
@@ -4547,7 +6712,8 @@
     "saturatedFat": 14,
     "sugar": 27,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1347
    },
    "tags": [
     "vegetarian"
@@ -4556,7 +6722,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/ee0fd5de921f.webp"
+   "image": "tim-hortons/ee0fd5de921f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cookies-and-cream-iced-capp-medium",
@@ -4571,7 +6750,8 @@
     "saturatedFat": 18,
     "sugar": 39,
     "fiber": 0.4,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 1856
    },
    "tags": [
     "vegetarian"
@@ -4580,7 +6760,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/ee0fd5de921f.webp"
+   "image": "tim-hortons/ee0fd5de921f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cookies-and-cream-iced-capp-large",
@@ -4595,7 +6788,8 @@
     "saturatedFat": 22,
     "sugar": 52,
     "fiber": 0.6,
-    "salt": 0.3
+    "salt": 0.3,
+    "energyKj": 2370
    },
    "tags": [
     "vegetarian"
@@ -4604,7 +6798,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/ee0fd5de921f.webp"
+   "image": "tim-hortons/ee0fd5de921f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "original-iced-capp-small",
@@ -4619,7 +6826,8 @@
     "saturatedFat": 8,
     "sugar": 22,
     "fiber": 0,
-    "salt": 0.5
+    "salt": 0.5,
+    "energyKj": 884
    },
    "tags": [
     "vegetarian"
@@ -4628,7 +6836,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "original-iced-capp-medium",
@@ -4643,7 +6861,8 @@
     "saturatedFat": 11,
     "sugar": 32,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1275
    },
    "tags": [
     "vegetarian"
@@ -4652,7 +6871,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "original-iced-capp-large",
@@ -4667,7 +6896,8 @@
     "saturatedFat": 15,
     "sugar": 42,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1671
    },
    "tags": [
     "vegetarian"
@@ -4676,7 +6906,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "light-iced-capp-small",
@@ -4691,7 +6931,8 @@
     "saturatedFat": 0.7,
     "sugar": 21,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 423
    },
    "tags": [
     "vegetarian"
@@ -4700,7 +6941,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "light-iced-capp-medium",
@@ -4715,7 +6966,8 @@
     "saturatedFat": 1,
     "sugar": 32,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 635
    },
    "tags": [
     "vegetarian"
@@ -4724,7 +6976,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "light-iced-capp-large",
@@ -4739,7 +7001,8 @@
     "saturatedFat": 1.4,
     "sugar": 43,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 846
    },
    "tags": [
     "vegetarian"
@@ -4748,7 +7011,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "coconut-iced-capp-small",
@@ -4763,7 +7036,8 @@
     "saturatedFat": 0.4,
     "sugar": 26,
     "fiber": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 512
    },
    "tags": [
     "vegetarian"
@@ -4772,7 +7046,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "coconut-iced-capp-medium",
@@ -4787,7 +7070,8 @@
     "saturatedFat": 0.6,
     "sugar": 37,
     "fiber": 0.1,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 694
    },
    "tags": [
     "vegetarian"
@@ -4796,7 +7080,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "coconut-iced-capp-large",
@@ -4811,7 +7104,8 @@
     "saturatedFat": 0.8,
     "sugar": 44,
     "fiber": 0.2,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 873
    },
    "tags": [
     "vegetarian"
@@ -4820,7 +7114,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/d85d1158e427.webp"
+   "image": "tim-hortons/d85d1158e427.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "lemonade-refresher-small",
@@ -4835,7 +7138,8 @@
     "saturatedFat": 0,
     "sugar": 8.6,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 183
    },
    "tags": [
     "vegetarian"
@@ -4844,7 +7148,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/459f9b8eaba9.webp"
+   "image": "tim-hortons/459f9b8eaba9.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemonade-refresher-medium",
@@ -4859,7 +7167,8 @@
     "saturatedFat": 0,
     "sugar": 12,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 245
    },
    "tags": [
     "vegetarian"
@@ -4868,7 +7177,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/459f9b8eaba9.webp"
+   "image": "tim-hortons/459f9b8eaba9.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemonade-refresher-large",
@@ -4883,7 +7196,8 @@
     "saturatedFat": 0,
     "sugar": 14,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 306
    },
    "tags": [
     "vegetarian"
@@ -4892,7 +7206,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/459f9b8eaba9.webp"
+   "image": "tim-hortons/459f9b8eaba9.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-lemonade-refresher-small",
@@ -4907,7 +7225,8 @@
     "saturatedFat": 0,
     "sugar": 12,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 284
    },
    "tags": [
     "vegetarian"
@@ -4916,7 +7235,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3bddf6349824.webp"
+   "image": "tim-hortons/3bddf6349824.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-lemonade-refresher-medium",
@@ -4931,7 +7254,8 @@
     "saturatedFat": 0,
     "sugar": 18,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 447
    },
    "tags": [
     "vegetarian"
@@ -4940,7 +7264,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3bddf6349824.webp"
+   "image": "tim-hortons/3bddf6349824.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cherry-crush-cooler-small",
@@ -4955,7 +7283,8 @@
     "saturatedFat": 0,
     "sugar": 29,
     "fiber": 1.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 567
    },
    "tags": [
     "vegetarian"
@@ -4964,7 +7293,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c30b46c0e553.webp"
+   "image": "tim-hortons/c30b46c0e553.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "cherry-crush-cooler-medium",
@@ -4979,7 +7314,8 @@
     "saturatedFat": 0,
     "sugar": 41,
     "fiber": 1.7,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 784
    },
    "tags": [
     "vegetarian"
@@ -4988,7 +7324,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c30b46c0e553.webp"
+   "image": "tim-hortons/c30b46c0e553.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "cherry-crush-cooler-large",
@@ -5003,7 +7345,8 @@
     "saturatedFat": 0,
     "sugar": 54,
     "fiber": 2.1,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1096
    },
    "tags": [
     "vegetarian"
@@ -5012,7 +7355,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/c30b46c0e553.webp"
+   "image": "tim-hortons/c30b46c0e553.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "tropical-cooler-small",
@@ -5027,7 +7376,8 @@
     "saturatedFat": 0,
     "sugar": 29,
     "fiber": 1.3,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 567
    },
    "tags": [
     "vegetarian"
@@ -5036,7 +7386,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/eef4a1ee856c.webp"
+   "image": "tim-hortons/eef4a1ee856c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "tropical-cooler-medium",
@@ -5051,7 +7407,8 @@
     "saturatedFat": 0,
     "sugar": 41,
     "fiber": 1.7,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 784
    },
    "tags": [
     "vegetarian"
@@ -5060,7 +7417,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/eef4a1ee856c.webp"
+   "image": "tim-hortons/eef4a1ee856c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "tropical-cooler-large",
@@ -5075,7 +7438,8 @@
     "saturatedFat": 0,
     "sugar": 54,
     "fiber": 2.1,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1096
    },
    "tags": [
     "vegetarian"
@@ -5084,7 +7448,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/eef4a1ee856c.webp"
+   "image": "tim-hortons/eef4a1ee856c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "tims-shake-brownie-small",
@@ -5099,7 +7469,8 @@
     "saturatedFat": 11,
     "sugar": 36,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1272
    },
    "tags": [
     "vegetarian"
@@ -5108,7 +7479,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3363bb89ef75.webp"
+   "image": "tim-hortons/3363bb89ef75.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tims-shake-brownie-medium",
@@ -5123,7 +7506,8 @@
     "saturatedFat": 17,
     "sugar": 53,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1845
    },
    "tags": [
     "vegetarian"
@@ -5132,7 +7516,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3363bb89ef75.webp"
+   "image": "tim-hortons/3363bb89ef75.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tims-shake-brownie-large",
@@ -5147,7 +7543,8 @@
     "saturatedFat": 21,
     "sugar": 71,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 2464
    },
    "tags": [
     "vegetarian"
@@ -5156,7 +7553,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3363bb89ef75.webp"
+   "image": "tim-hortons/3363bb89ef75.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tims-shake-chocolate-small",
@@ -5171,7 +7580,8 @@
     "saturatedFat": 10,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1040
    },
    "tags": [
     "vegetarian"
@@ -5180,7 +7590,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/de513c74c6f0.webp"
+   "image": "tim-hortons/de513c74c6f0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "tims-shake-chocolate-medium",
@@ -5195,7 +7613,8 @@
     "saturatedFat": 16,
     "sugar": 44,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1586
    },
    "tags": [
     "vegetarian"
@@ -5204,7 +7623,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/de513c74c6f0.webp"
+   "image": "tim-hortons/de513c74c6f0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "tims-shake-chocolate-large",
@@ -5219,7 +7646,8 @@
     "saturatedFat": 20,
     "sugar": 64,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 2009
    },
    "tags": [
     "vegetarian"
@@ -5228,7 +7656,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/de513c74c6f0.webp"
+   "image": "tim-hortons/de513c74c6f0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "tims-shake-strawberry-small",
@@ -5243,7 +7679,8 @@
     "saturatedFat": 8,
     "sugar": 29,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 879
    },
    "tags": [
     "vegetarian"
@@ -5252,7 +7689,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6e726c43dff0.webp"
+   "image": "tim-hortons/6e726c43dff0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "tims-shake-strawberry-medium",
@@ -5267,7 +7712,8 @@
     "saturatedFat": 11,
     "sugar": 44,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 1452
    },
    "tags": [
     "vegetarian"
@@ -5276,7 +7722,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6e726c43dff0.webp"
+   "image": "tim-hortons/6e726c43dff0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "tims-shake-strawberry-large",
@@ -5291,7 +7745,8 @@
     "saturatedFat": 15,
     "sugar": 64,
     "fiber": 0,
-    "salt": 0.2
+    "salt": 0.2,
+    "energyKj": 2046
    },
    "tags": [
     "vegetarian"
@@ -5300,7 +7755,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6e726c43dff0.webp"
+   "image": "tim-hortons/6e726c43dff0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "coca-cola-medium",
@@ -5315,7 +7778,8 @@
     "saturatedFat": 0,
     "sugar": 42,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 720
    },
    "tags": [
     "vegetarian"
@@ -5324,7 +7788,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8bf2ffc0d0c2.webp"
+   "image": "tim-hortons/8bf2ffc0d0c2.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coca-cola-large",
@@ -5339,7 +7807,8 @@
     "saturatedFat": 0,
     "sugar": 53,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 900
    },
    "tags": [
     "vegetarian"
@@ -5348,7 +7817,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/8bf2ffc0d0c2.webp"
+   "image": "tim-hortons/8bf2ffc0d0c2.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coca-cola-zero-sugar-medium",
@@ -5363,7 +7836,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.08
+    "salt": 0.08,
+    "energyKj": 6
    },
    "tags": [
     "vegetarian"
@@ -5372,7 +7846,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3198c5466e54.webp"
+   "image": "tim-hortons/3198c5466e54.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coca-cola-zero-sugar-large",
@@ -5387,7 +7865,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.1
+    "salt": 0.1,
+    "energyKj": 7
    },
    "tags": [
     "vegetarian"
@@ -5396,7 +7875,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3198c5466e54.webp"
+   "image": "tim-hortons/3198c5466e54.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke-medium",
@@ -5411,7 +7894,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 6
    },
    "tags": [
     "vegetarian"
@@ -5420,7 +7904,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3382e5645017.webp"
+   "image": "tim-hortons/3382e5645017.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke-large",
@@ -5435,7 +7923,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 7
    },
    "tags": [
     "vegetarian"
@@ -5444,7 +7933,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/3382e5645017.webp"
+   "image": "tim-hortons/3382e5645017.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fanta-orange-zero-medium",
@@ -5459,7 +7952,8 @@
     "saturatedFat": 0,
     "sugar": 2,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 52
    },
    "tags": [
     "vegetarian"
@@ -5468,7 +7962,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4aa595ef276a.webp"
+   "image": "tim-hortons/4aa595ef276a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fanta-orange-zero-large",
@@ -5483,7 +7981,8 @@
     "saturatedFat": 0,
     "sugar": 3,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 65
    },
    "tags": [
     "vegetarian"
@@ -5492,7 +7991,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/4aa595ef276a.webp"
+   "image": "tim-hortons/4aa595ef276a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sprite-zero-medium",
@@ -5507,7 +8010,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.28
+    "salt": 0.28,
+    "energyKj": 20
    },
    "tags": [
     "vegetarian"
@@ -5516,7 +8020,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/1933b4dd94f5.webp"
+   "image": "tim-hortons/1933b4dd94f5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sprite-zero-large",
@@ -5531,7 +8039,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0.35
+    "salt": 0.35,
+    "energyKj": 25
    },
    "tags": [
     "vegetarian"
@@ -5540,7 +8049,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/1933b4dd94f5.webp"
+   "image": "tim-hortons/1933b4dd94f5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "dr-pepper-zero-medium",
@@ -5555,7 +8068,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 8
    },
    "tags": [
     "vegetarian"
@@ -5564,7 +8078,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6b87bd98c675.webp"
+   "image": "tim-hortons/6b87bd98c675.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "dr-pepper-zero-large",
@@ -5579,7 +8097,8 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 10
    },
    "tags": [
     "vegetarian"
@@ -5588,7 +8107,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6b87bd98c675.webp"
+   "image": "tim-hortons/6b87bd98c675.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "vegan-mayo",
@@ -5603,7 +8126,9 @@
     "saturatedFat": 0.8,
     "sugar": 1,
     "fiber": 0.1,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 455,
+    "weight": 25
    },
    "tags": [
     "vegetarian"
@@ -5612,7 +8137,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/2499cd9f3e5c.webp"
+   "image": "tim-hortons/2499cd9f3e5c.webp",
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chipotle-mayonnaise",
@@ -5627,7 +8158,9 @@
     "saturatedFat": 1.1,
     "sugar": 0.9,
     "fiber": 0.1,
-    "salt": 0.25
+    "salt": 0.25,
+    "energyKj": 582,
+    "weight": 25
    },
    "tags": [
     "vegetarian"
@@ -5636,7 +8169,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/6d2048780788.webp"
+   "image": "tim-hortons/6d2048780788.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sweet-chilli-sauce",
@@ -5651,7 +8191,9 @@
     "saturatedFat": 0,
     "sugar": 0,
     "fiber": 0.1,
-    "salt": 0.4
+    "salt": 0.4,
+    "energyKj": 246,
+    "weight": 25
    },
    "tags": [
     "vegetarian"
@@ -5660,7 +8202,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/15d594b9b247.webp"
+   "image": "tim-hortons/15d594b9b247.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "maple-bbq-sauce",
@@ -5675,7 +8221,9 @@
     "saturatedFat": 0,
     "sugar": 9.7,
     "fiber": 0.2,
-    "salt": 0.34
+    "salt": 0.34,
+    "energyKj": 194,
+    "weight": 25
    },
    "tags": [
     "vegetarian"
@@ -5684,7 +8232,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/491bbebdbf05.webp"
+   "image": "tim-hortons/491bbebdbf05.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tomato-ketchup",
@@ -5699,7 +8251,9 @@
     "saturatedFat": 0,
     "sugar": 7.9,
     "fiber": 0.4,
-    "salt": 0.54
+    "salt": 0.54,
+    "energyKj": 155,
+    "weight": 25
    },
    "tags": [
     "vegetarian"
@@ -5708,7 +8262,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/f637cb354502.webp"
+   "image": "tim-hortons/f637cb354502.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "oat-milk",
@@ -5723,7 +8281,8 @@
     "saturatedFat": 0,
     "sugar": 0.1,
     "fiber": 0,
-    "salt": 0
+    "salt": 0,
+    "energyKj": 9
    },
    "tags": [
     "vegetarian"
@@ -5731,7 +8290,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "coconut-milk",
@@ -5746,7 +8318,8 @@
     "saturatedFat": 0,
     "sugar": 0.1,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 5
    },
    "tags": [
     "vegetarian"
@@ -5754,7 +8327,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "semi-skimmed-milk-small",
@@ -5769,7 +8352,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.6,
     "fiber": 0,
-    "salt": 0.01
+    "salt": 0.01,
+    "energyKj": 23
    },
    "tags": [
     "vegetarian"
@@ -5778,7 +8362,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/fd7378fede4a.webp"
+   "image": "tim-hortons/fd7378fede4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "semi-skimmed-milk-medium",
@@ -5793,7 +8383,8 @@
     "saturatedFat": 0.1,
     "sugar": 0.7,
     "fiber": 0,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 31
    },
    "tags": [
     "vegetarian"
@@ -5802,7 +8393,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/fd7378fede4a.webp"
+   "image": "tim-hortons/fd7378fede4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "semi-skimmed-milk-large",
@@ -5817,7 +8414,8 @@
     "saturatedFat": 0.2,
     "sugar": 0.9,
     "fiber": 0,
-    "salt": 0.02
+    "salt": 0.02,
+    "energyKj": 39
    },
    "tags": [
     "vegetarian"
@@ -5826,7 +8424,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "tim-hortons/fd7378fede4a.webp"
+   "image": "tim-hortons/fd7378fede4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

@@ -1,6 +1,6 @@
 chain,kind,severity,code,item,name,category,detail
-abokado,nutrition,medium,kj-kcal,sashimi-salmon-sushi,Sashimi Salmon Sushi,Sushi,1201 kJ vs 264 kcal (expected about 1105 kJ)
 abokado,nutrition,low,fibre-gt-carbs,extra-avocado,Extra - Avocado,Extras & pots,fibre 2.3 g > carbohydrate 1 g
 abokado,nutrition,low,fibre-gt-carbs,scrambled-eggs-smashed-avo,Scrambled Eggs - Smashed Avo,Breakfast,fibre 2.6 g > carbohydrate 1.3 g
 abokado,nutrition,low,identical-numbers,gyoza-spicy,Gyoza - Spicy,Sides & snacks,"4 differently named items share these exact numbers (e.g. ['Gyoza - Spicy', 'Gyoza - Sweet Chilli', 'Gyoza - Teriyaki'])"
 abokado,nutrition,low,sugar+fibre-gt-carbs,mango-and-lime-pot,Mango & Lime Pot,Sides & snacks,sugars 23.5 + fibre 4.4 > carbohydrate 23.9 (starch would be negative)
+abokado,nutrition,reviewed,kj-kcal,sashimi-salmon-sushi,Sashimi Salmon Sushi,Sushi,1201 kJ vs 264 kcal (expected about 1105 kJ)

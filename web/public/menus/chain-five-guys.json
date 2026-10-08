@@ -13,9 +13,16 @@
  "source": {
   "title": "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20260805)",
   "url": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf",
-  "checkedOn": "2026-10-05"
+  "checkedOn": "2026-10-08"
  },
  "note": "Milkshake mix-in values vary with how many you add and aren't added to the shake.",
+ "allergenGuide": {
+  "title": "Five Guys UK Allergen, Ingredient & Nutrition Guide, UK locations only (FGUK_20260805)",
+  "url": "https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
  "categories": [
   "Burgers",
   "Hot dogs",
@@ -50,7 +57,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/5f725da33e97.webp"
+   "image": "five-guys/5f725da33e97.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "little-hamburger",
@@ -74,7 +95,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/9462f599c1c7.webp"
+   "image": "five-guys/9462f599c1c7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "cheeseburger",
@@ -98,7 +133,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/c0a877ceb889.webp"
+   "image": "five-guys/c0a877ceb889.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "little-cheeseburger",
@@ -122,7 +171,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/6f7ecd429600.webp"
+   "image": "five-guys/6f7ecd429600.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "bacon-burger",
@@ -147,7 +210,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/350a4775ad2b.webp"
+   "image": "five-guys/350a4775ad2b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "bacon-cheeseburger",
@@ -172,7 +249,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/566dbca46818.webp"
+   "image": "five-guys/566dbca46818.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "little-bacon-cheeseburger",
@@ -197,7 +288,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/f233198033fb.webp"
+   "image": "five-guys/f233198033fb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "hot-dog",
@@ -221,7 +326,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/2385199d90f1.webp"
+   "image": "five-guys/2385199d90f1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "cheese-dog",
@@ -245,7 +364,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/b1dc7908b3e7.webp"
+   "image": "five-guys/b1dc7908b3e7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "bacon-dog",
@@ -270,7 +403,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/3878854d8602.webp"
+   "image": "five-guys/3878854d8602.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "bacon-cheese-dog",
@@ -295,7 +442,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/7eb93c603a5b.webp"
+   "image": "five-guys/7eb93c603a5b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "veggie-sandwich",
@@ -317,7 +478,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/b36048ed7050.webp"
+   "image": "five-guys/b36048ed7050.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "cheese-veggie-sandwich",
@@ -339,7 +514,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/17dd43a14196.webp"
+   "image": "five-guys/17dd43a14196.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "grilled-cheese",
@@ -361,7 +550,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/85517c32b70e.webp"
+   "image": "five-guys/85517c32b70e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "blt-bacon-lettuce-and-tomato",
@@ -384,7 +586,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
   },
   {
    "id": "lettuce-wrap",
@@ -407,7 +622,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mini-fries",
@@ -428,7 +656,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "milk"
+    ]
+   }
   },
   {
    "id": "little-fries",
@@ -449,7 +686,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "milk"
+    ]
+   }
   },
   {
    "id": "regular-fries",
@@ -470,7 +716,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "milk"
+    ]
+   }
   },
   {
    "id": "large-fries",
@@ -491,7 +746,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "milk"
+    ]
+   }
   },
   {
    "id": "five-guys-milkshake-base",
@@ -512,7 +776,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "five-guys-milkshake-base-little",
@@ -533,7 +809,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "whipped-cream-milkshake",
@@ -554,28 +842,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "banana-mix-in",
-   "name": "Banana mix-in",
-   "category": "Milkshake mix-ins",
-   "serving": "",
-   "nutrients": {
-    "calories": 194,
-    "protein": 0,
-    "carbs": 36,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 36,
-    "fiber": 0,
-    "salt": 0.14
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chocolate-mix-in",
@@ -596,7 +875,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "lotus-biscoff-mix-in",
@@ -617,7 +908,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "oreo-cookie-pieces-mix-in",
@@ -638,7 +941,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "jimmys-iced-coffee-mix-in",
@@ -659,7 +974,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "pistachio-mix-in",
@@ -680,7 +1007,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "reeses-peanut-butter-cups-mix-in",
@@ -701,7 +1040,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "peanut-butter-mix-in",
@@ -722,7 +1073,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "peanuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "salted-caramel-mix-in",
@@ -743,7 +1106,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "strawberry-mix-in",
@@ -764,7 +1139,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "myprotein-mix-in-12-g",
@@ -785,7 +1172,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "whipped-cream-little-shake",
@@ -806,7 +1205,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "banana-mix-in-little-shake",
@@ -827,7 +1238,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chocolate-mix-in-little-shake",
@@ -848,7 +1271,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "lotus-biscoff-mix-in-little-shake",
@@ -869,7 +1304,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "oreo-cookie-pieces-mix-in-little-shake",
@@ -890,7 +1337,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "jimmys-iced-coffee-mix-in-little-shake",
@@ -911,7 +1370,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "pistachio-mix-in-little-shake",
@@ -932,7 +1403,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "reeses-peanut-butter-cups-mix-in-little-shake",
@@ -953,7 +1436,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "peanut-butter-mix-in-little-shake",
@@ -974,7 +1469,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "peanuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "salted-caramel-mix-in-little-shake",
@@ -995,7 +1502,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "strawberry-mix-in-little-shake",
@@ -1016,7 +1535,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "myprotein-mix-in-6-g-little-shake",
@@ -1037,7 +1568,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "bbq-sauce",
@@ -1059,7 +1602,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/1f4b8a91f196.webp"
+   "image": "five-guys/1f4b8a91f196.webp",
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
   },
   {
    "id": "cheese-pasteurised",
@@ -1080,7 +1631,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "green-peppers",
@@ -1102,7 +1661,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/cf6865d10f21.webp"
+   "image": "five-guys/cf6865d10f21.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "grilled-mushrooms",
@@ -1124,7 +1696,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/ecdd10793b7d.webp"
+   "image": "five-guys/ecdd10793b7d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "hot-sauce",
@@ -1146,7 +1731,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/c3ec8504e41f.webp"
+   "image": "five-guys/c3ec8504e41f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "hp-brown-sauce",
@@ -1167,7 +1759,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard"
+    ]
+   }
   },
   {
    "id": "jalapeno-peppers",
@@ -1189,7 +1789,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/6c6aa82dd282.webp"
+   "image": "five-guys/6c6aa82dd282.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "tomato-ketchup",
@@ -1210,7 +1822,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "lettuce",
@@ -1232,7 +1850,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/60184ad7d28f.webp"
+   "image": "five-guys/60184ad7d28f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mayonnaise",
@@ -1253,7 +1883,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mustard",
@@ -1275,7 +1918,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/c0604d77e736.webp"
+   "image": "five-guys/c0604d77e736.webp",
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "fresh-onions",
@@ -1296,7 +1945,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "grilled-onions",
@@ -1318,7 +1979,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/7f5f8842702a.webp"
+   "image": "five-guys/7f5f8842702a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "pickles",
@@ -1340,7 +2014,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/3b111d2a8855.webp"
+   "image": "five-guys/3b111d2a8855.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "relish",
@@ -1362,7 +2048,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/446e876a082b.webp"
+   "image": "five-guys/446e876a082b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "tomatoes",
@@ -1384,28 +2083,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "five-guys/c190e7bc237e.webp"
-  },
-  {
-   "id": "crispy-fried-onions",
-   "name": "Crispy Fried Onions",
-   "category": "Toppings & sauces",
-   "serving": "",
-   "nutrients": {
-    "calories": 47,
-    "protein": 0.5,
-    "carbs": 3.2,
-    "fat": 3.5,
-    "saturatedFat": 1.7,
-    "sugar": 0.7,
-    "fiber": 0.4,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "image": "five-guys/c190e7bc237e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "cajun-seasoning",
@@ -1426,7 +2116,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bacon",
@@ -1449,7 +2145,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "beef-burger-patty",
@@ -1472,7 +2172,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "hot-dog-sausage-only",
@@ -1495,7 +2203,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
   },
   {
    "id": "burger-bun",
@@ -1516,7 +2233,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "hot-dog-bun",
@@ -1537,7 +2268,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
   }
  ],
  "combinations": []

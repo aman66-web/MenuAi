@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Pepe's Piri Piri Nutrition & Allergens UK page (accessed 2026-10-06, no date shown)",
+  "title": "Pepe's Piri Piri Nutrition & Allergens UK page (accessed 2026-10-08, no date shown)",
   "url": "https://pepes.co.uk/nutrition-allergens-uk/",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Pepe's lists a flavour amount (ml) for many chicken items and the sauce flavours separately per 10 ml; the page doesn't say whether item values include the flavour, so none is added. Pepe's says its nutrition and allergen information doesn't apply to its Belfast stores.",
  "allergenGuide": {
-  "title": "Pepe's Piri Piri Nutrition & Allergens UK page (accessed 2026-10-06, no date shown)",
+  "title": "Pepe's Piri Piri Nutrition & Allergens UK page (accessed 2026-10-08, no date shown)",
   "url": "https://pepes.co.uk/nutrition-allergens-uk/",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
   "complete": true
  },
@@ -35,7 +35,8 @@
   "Desserts",
   "Ben & Jerry's ice cream",
   "Drinks",
-  "Sauce flavours (per 10 ml)"
+  "Sauce flavours (per 10 ml)",
+  "Current promotion"
  ],
  "components": [],
  "items": [
@@ -1729,64 +1730,6 @@
    }
   },
   {
-   "id": "wings-x-18-serves-2",
-   "name": "Wings x 18 (serves 2)",
-   "category": "Grilled platters",
-   "serving": "",
-   "nutrients": {
-    "calories": 791,
-    "protein": 84.8,
-    "carbs": 8.2,
-    "fat": 48.9,
-    "saturatedFat": 12.2,
-    "sugar": 0.8,
-    "salt": 8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "wings-x-28-serves-3",
-   "name": "Wings x 28 (serves 3)",
-   "category": "Grilled platters",
-   "serving": "",
-   "nutrients": {
-    "calories": 1238,
-    "protein": 132.6,
-    "carbs": 12.6,
-    "fat": 75.8,
-    "saturatedFat": 18.9,
-    "sugar": 1.3,
-    "salt": 1.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten"
-    ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
    "id": "cheese-slice",
    "name": "Cheese Slice",
    "category": "Extras & sides",
@@ -3276,6 +3219,114 @@
     "cereals": [
      "wheat"
     ]
+   }
+  },
+  {
+   "id": "bbq-chicken-and-cheese-melt",
+   "name": "BBQ Chicken & Cheese Melt",
+   "category": "Current promotion",
+   "serving": "",
+   "nutrients": {
+    "calories": 622,
+    "protein": 44.3,
+    "carbs": 55.8,
+    "fat": 26,
+    "saturatedFat": 13.9,
+    "sugar": 21.8,
+    "salt": 1.82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bbq-paneer-and-cheese-melt",
+   "name": "BBQ Paneer & Cheese Melt",
+   "category": "Current promotion",
+   "serving": "",
+   "nutrients": {
+    "calories": 697,
+    "protein": 31.1,
+    "carbs": 57.4,
+    "fat": 38.9,
+    "saturatedFat": 22.7,
+    "sugar": 22.7,
+    "salt": 3.09
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-cheese-and-tomato-salsa-melt",
+   "name": "Chicken Cheese & Tomato Salsa Melt",
+   "category": "Current promotion",
+   "serving": "",
+   "nutrients": {
+    "calories": 560,
+    "protein": 44.2,
+    "carbs": 40.6,
+    "fat": 25.8,
+    "saturatedFat": 14,
+    "sugar": 8.4,
+    "salt": 1.87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "paneer-cheese-and-tomato-salsa-melt",
+   "name": "Paneer Cheese & Tomato Salsa Melt",
+   "category": "Current promotion",
+   "serving": "",
+   "nutrients": {
+    "calories": 636,
+    "protein": 31,
+    "carbs": 42.4,
+    "fat": 39,
+    "saturatedFat": 22.8,
+    "sugar": 9.3,
+    "salt": 3.14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
    }
   }
  ],

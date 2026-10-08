@@ -13,14 +13,14 @@
  "source": {
   "title": "dim t main menu calorie information (14.08.2026 v1), checked against the August 2026 menu",
   "url": "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-calories-14.08.2026-v1.pdf",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "dim t prints calories only, one value per dish as served: no protein, carbs, fat or portion sizes (dim sum baskets and ice cream scoops excepted). Not listed: drinks, kids and lunch menus, and Thai spicy basil fried rice and Pad kee mao (values differ between its calorie list and its menu). Crispy Thai fish is not on the August 2026 menu.",
  "allergenGuide": {
   "title": "dim t main menu allergen information (V1, 14.08.2026, 25 pages)",
   "url": "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-allergens-14.08.2026-v1.pdf",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": false
  },
