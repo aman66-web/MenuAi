@@ -103,6 +103,14 @@ HOLDBACK = {
         "Printed 358 kcal, but the same page prints its four parts (Macaron 121, Brulee Tart 115, Chocolate Mousse 282, Mango sorbet 82) as 600 kcal together",
     ("allday", "DESSERTS", "Lemon Sorbet"):
         "Printed 0 kcal for a sorbet, while the same page prints 68 kcal for Raspberry Sorbet and 82 kcal for the Mango sorbet in Cafe Gourmand",
+    ("allday", "PETIT PLATS", "HOUMOUS"):
+        "Allergen row contradicts the dish: the All Day / Bar Pierre menus describe it as 'Haricot blanc houmous, sourdough, harissa, toasted "
+        "seeds' and mark no sesame (not even may contain), while the same chain's Petit Pierre page marks Sesame Seeds as contained in its "
+        "'Haricot blanc houmous' (re-read 2026-10-08)",
+    ("allday", "PLATS", "LAMB TAGINE"):
+        "Allergen row contradicts the dish's own description: 'mint yoghurt' is named but the row marks no milk (not even may contain; "
+        "it marks soya, so the yoghurt might be a soya one, but the page does not say). Not published until the chain's page says which "
+        "(re-read 2026-10-08)",
 }
 NOTE = ("Calories only, per serving, from Bistrot Pierre's own allergen pages (shown with 'View nutrition information'): protein, carbs, fat "
         "and portion sizes are not published. Drinks and the one-off Soirée Gastronomique menu are not in the guide. The afternoon tea page is "
@@ -259,6 +267,12 @@ def build(pages: Dict[str, Path]) -> Tuple[List[dict], List[Tuple[str, str]], Li
             allergens = tb.allergens_from_rec(rec, where)
             if allergens is None:
                 raise SystemExit(f"{where}: does not carry all 14 allergen columns")
+            # tb.allergens_from_rec leaves out of may_contain whatever the dish already contains. Put the page's own may-contain keys
+            # back (Houmous: contains Cereals (Wheat), may contain Cereals (Barley, Oats, Rye)), so that common.write_allergens
+            # sees both lines and publishes the generic allergen without naming only the contained kinds.
+            if rec["allergen_src"].get("contains") is not None and rec["allergen_src"].get("may"):
+                raw_may, _, _ = tb._printed_list(rec["allergen_src"]["may"], where, None)
+                allergens["may_contain"] = set(allergens["may_contain"]) | raw_may
             name = NAME_OVERRIDES.get(special) or tidy(rec["name"])
             if special in NAME_OVERRIDES:
                 seen_special.add(special)

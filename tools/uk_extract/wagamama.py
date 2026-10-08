@@ -208,7 +208,11 @@ def recipe_allergens(recipe: dict, flags: dict) -> dict:
                 if val != "yes":
                     raise SystemExit(f"{recipe['name']!r}: {cspec!r} is marked as contained but {key!r} only as 'may contain'.")
                 (cereals if key == "gluten" else nuts).add(cspec)
-    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+            elif val == "yes":
+                may.add(key)  # contains one kind (wheat) and may contain another (barley, oats, rye): the page prints the allergen in BOTH lists
+    # common.write_allergens keeps a key that is in both lists as "contains" and then leaves the named cereals / nuts out, so the
+    # may-contain warning for the other kinds is never hidden behind the contained one (it also removes the key from may_contain).
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}
 
 
 def main() -> int:

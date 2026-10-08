@@ -1,4 +1,6 @@
 item_id,reason
+butternut-squash-and-goats-cheese-arancini,Allergen row contradicts the dish description: 'crispy arancini ... served with smoked garlic and lemon aioli' but the feed marks neither gluten nor egg (it lists milk and mustard only).
 salt-and-pepper-calamari,The feed prints 340 kcal; its own macros add up to about 241 kcal (and its kJ to about 290 kcal).
+porterhouse-35oz,"The feed prints 31.82 g of salt for one steak (an earlier copy of the same feed, 2026-10-06, printed 24.83 g): several days' worth of salt, not possible, so none of its numbers is trusted."
 maple-cured-streaky-bacon,The feed prints 80 kcal; its own macros add up to about 51 kcal (and its kJ to about 139 kcal).
 ice-cream-and-sorbet,The feed prints 40 kcal for a dessert of three scoops and a chocolate twirl; the scoops are chosen separately and their values aren't added in.

@@ -52,6 +52,8 @@ CHAIN = mb.Chain(
         ("Hot Drinks", None): Place(DRINKS, "Drink", rankable=False, meat=False),
     },
     not_items={("Burger Bar", "Upgrade Your Fries"): SWAP},
+    # The live feed spelt this "Cappuccino" on 6 October and "Cappucino" on 8 October (a typo on the venue's menu); the id stays "cappuccino".
+    rename={"Cappucino": "Cappuccino"},
     holdback={
         "Scampi and Chips": "The feed prints 826 kcal; its own macros add up to about 672 kcal (and its kJ to about 607 kcal).",
     },

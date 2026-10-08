@@ -89,6 +89,19 @@ HOLDBACK = {
                      "43.7 g protein. The two rows contradict each other and the page does not say which is wrong."),
     "Large Fish & Chips": ("Printed 1,237 kcal / 43.7 g protein, fewer than the regular 'Fish & Chips' (1,658 kcal / 72.3 g protein) "
                            "although it has the larger fillet. The page does not say which row is wrong."),
+    # Added by the independent accuracy re-check of 2026-10-08.
+    "Chicken Wings 500g": ("Printed 588 kcal with 5.0 g protein, 92.5 g carbohydrate (80.9 g sugars) and 16.0 g salt for 500 g of chicken "
+                           "wings: these cannot be the wings themselves (they look like a sauce portion), and the Contains line (celery, "
+                           "mustard, soya, gluten) lists neither milk nor egg although the dish comes with ranch dressing."),
+    "Chicken Wings 1kg": ("Printed 1,176 kcal with 9.9 g protein, 185.0 g carbohydrate (161.8 g sugars) and 32.0 g salt for 1 kg of "
+                          "chicken wings: exactly double the 500 g row and not possible for the wings themselves; the Contains line lists "
+                          "neither milk nor egg although the dish comes with ranch dressing."),
+    "Crispy Squid": ("Allergen row contradicts the dish name/ingredients: served with lemon mayonnaise but the page's Contains line "
+                     "(molluscs, mustard, sulphites, gluten) does not list eggs."),
+    "BLT Turkey Baguette": ("Allergen row contradicts the dish name/ingredients: a 'mayonnaise baguette' but the page's Contains line "
+                            "(milk, gluten) does not list eggs."),
+    "Tuna & Sweetcorn Mayonnaise (jacket)": ("Allergen row contradicts the dish name: 'Mayonnaise' in the name but the page's Contains "
+                                             "line (fish, mustard) does not list eggs."),
 }
 
 

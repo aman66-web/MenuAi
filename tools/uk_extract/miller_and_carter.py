@@ -72,6 +72,9 @@ CHAIN = mb.Chain(
         "Salt & Pepper Calamari": "The feed prints 340 kcal; its own macros add up to about 241 kcal (and its kJ to about 290 kcal).",
         "Maple-Cured Streaky Bacon": "The feed prints 80 kcal; its own macros add up to about 51 kcal (and its kJ to about 139 kcal).",
         "Ice Cream & Sorbet": "The feed prints 40 kcal for a dessert of three scoops and a chocolate twirl; the scoops are chosen separately and their values aren't added in.",
+        # Independent re-read 2026-10-08 (the feed was edited that evening, last modified 2026-10-08T19:03). Neither is chosen, nothing is corrected.
+        "Porterhouse 35oz": "The feed prints 31.82 g of salt for one steak (an earlier copy of the same feed, 2026-10-06, printed 24.83 g): several days' worth of salt, not possible, so none of its numbers is trusted.",
+        "Butternut Squash & Goat's Cheese Arancini": "Allergen row contradicts the dish description: 'crispy arancini ... served with smoked garlic and lemon aioli' but the feed marks neither gluten nor egg (it lists milk and mustard only).",
     },
     note_txt=("A la carte menu only (the Sunday, set and drinks menus aren't included). Where you choose a side, sauce, butter or "
               "dressing it is listed separately and isn't added in, to the numbers or to the allergens. Weights in names (oz) are approximate uncooked weights."),

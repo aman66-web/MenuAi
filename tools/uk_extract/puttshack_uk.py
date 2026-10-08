@@ -116,6 +116,16 @@ ITEMS = [
     E("Desserts", "NEW YORK CHEESECAKE", "New York Cheesecake", "NEW YORK CHEESECAKE", (G_DESS, "NEW YORK CHEESECAKE")),
     E("Desserts", "DOUBLE CHOCOLATE BROWNIE", "Double Chocolate Brownie", "DOUBLE CHOCOLATE BROWNIE", (G_DESS, "DOUBLE CHOCOLATE BROWNIE")),
 ]
+# Dishes held back because their allergen row contradicts the dish's own listed ingredient (never guessed at; independent re-read 2026-10-08).
+# Each dish lists a sauce whose own row in the same guide marks MUSTARD (and egg) as contained, but the dish's row marks mustard only as
+# "may contain" (and, for the flatbread, egg only as "may contain"): the guide's allergen row understates it.
+ALLERGEN_HOLDBACK = {
+    "mac-n-cheese-bites": "Allergen row contradicts the dish's ingredients: the dish is served with aioli, whose own row in the guide marks egg and "
+                          "mustard as contained, but this row marks mustard only as 'may contain'.",
+    "texas-bbq-flatbread": "Allergen row contradicts the dish's ingredients: the dish is topped with ranch, whose own row in the guide marks egg, dairy "
+                           "and mustard as contained, but this row marks egg and mustard only as 'may contain' (the same generic caption as the other "
+                           "four flatbreads).",
+}
 # Rows the guide prints that are not dishes on the page (add-ons): allowed, not published.
 ADDON_ROWS = {"RANCH SAUCE", "BBQ SAUCE", "CHIPOTLE MAYO", "BBQ CHICKEN", "PULLED PORK", "AIOLI", "DRY CURED STREAKY BACON", "AMERICAN CHEESE",
               "ONION RINGS (2 UNITS)", "PIRI PIRI CHICKEN"}
@@ -206,6 +216,14 @@ def build(folder: Path):
         if e["name"] == "Halloumi Fries":
             first_halloumi = it
         items.append(it)
+    ids = {it["id"] for it in items}
+    if set(ALLERGEN_HOLDBACK) - ids:
+        raise SystemExit(f"ALLERGEN_HOLDBACK names dishes that no longer exist: {sorted(set(ALLERGEN_HOLDBACK) - ids)}")
+    held = {h[0] for h in holdback}
+    for item_id, why in ALLERGEN_HOLDBACK.items():
+        if item_id not in held:
+            holdback.append((item_id, why))
+            report.append(f"HELD BACK {item_id}: allergen row contradicts the dish's own sauce")
     extra = sorted(r for r in guide if r not in used_rows and not (r[0] == "ADD ON'S" and r[1] in ADDON_ROWS))
     if extra:
         raise SystemExit(f"The allergen guide has rows nobody uses: {extra}. New dish? Update ITEMS / ADDON_ROWS.")

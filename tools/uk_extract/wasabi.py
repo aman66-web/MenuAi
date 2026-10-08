@@ -88,6 +88,8 @@ HOLDBACK = {
         "Printed energy per portion (817 kcal) contradicts the same row's per-100 g energy and weight (161 kcal per 100 g x 478 g is about 770 kcal; the with-dressing row, 508 g, is consistent at 825 kcal).",
     (13, "Tofu curry yakisoba bento"):
         "The row's kcal figure (172 kcal per 100 g) is about 55% above its own kJ (453 kJ per 100 g = 108 kcal) and above its protein, carbohydrate and fat (about 118 kcal per 100 g); the portion energy follows the kcal figure.",
+    (16, "Tofu curry + Sweet chilli chicken"):
+        "The row's kcal figure (154 kcal per 100 g) is about 18% above its own kJ (526 kJ per 100 g = 126 kcal) and about 15% above its protein, carbohydrate and fat (about 130 kcal per 100 g), which agree with each other; the portion energy (769 kcal) follows the kcal figure.",
     (18, "Tofu curry yakisoba bento"):
         "The row's kcal figure (164 kcal per 100 g) is about 50% above its own kJ (449 kJ per 100 g = 107 kcal) and above its protein, carbohydrate and fat (about 116 kcal per 100 g); the portion energy follows the kcal figure.",
     (25, "Babyccino"):
@@ -172,7 +174,10 @@ def problems(row: dict) -> list[str]:
     kj, p, cb, f = (num(c[x]) for x in ("kj100", "protein100", "carbs100", "fat100"))
     if None not in (k100, kj, p, cb, f) and k100 >= 20:
         from_kj, from_macros = kj / 4.184, 4 * p + 4 * cb + 9 * f
-        far = lambda a, b: abs(a - b) / max(a, 1) > 0.25  # noqa: E731
+        # "agrees" means within 15% (accuracy re-check of 8 Oct 2026): a kJ figure that disagrees alone is not a reason to hold a row back
+        # (we publish no kJ), but a kcal figure that more than 15% off BOTH its kJ and its own protein + carbs + fat, while those two agree with
+        # each other, is contradicted by the guide's own row.
+        far = lambda a, b: abs(a - b) / max(a, 1) > 0.15  # noqa: E731
         if far(k100, from_kj) and far(k100, from_macros) and abs(from_kj - from_macros) / max(from_kj, from_macros) < 0.15 and from_macros < 1000:
             out.append(f"{k100:g} kcal per 100 g vs {kj:g} kJ ({from_kj:.0f} kcal) and macros ({from_macros:.0f} kcal)")
     return out

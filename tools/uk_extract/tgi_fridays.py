@@ -90,6 +90,9 @@ HOLDBACK = {
     "Boneless Wings with BBQ Sauce": "the guide prints this name twice with different calories (549 and 503) and nothing says which is meant",
     "Boneless Wings with BBQ Sauce (second listing, 503 kcal)":
         "the guide prints this name twice with different calories (549 and 503) and nothing says which is meant",
+    "Vegan BBQ Burger":
+        "allergen row contradicts the dish name/ingredients: the guide marks only celery (may contain milk, mustard, sesame) for a burger, "
+        "with no gluten or cereal, while every other burger in the guide marks gluten and its gluten-free burgers are labelled as such",
     "Add Cajun Spiced Chicken Fajita Mix (for cheese nachos)":
         "printed 972 kcal, exactly the Cheese Nachos' own 972: the guide doesn't say whether this is the add-on's own value or a dish total",
     "Dirt & Worm Pie (kids)": "guide prints 541 kcal; TGI Fridays' own kids menu PDF (September 2026) prints 270 kcal for its Dirt and Worm Pie",

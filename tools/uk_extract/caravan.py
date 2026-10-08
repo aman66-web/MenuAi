@@ -34,7 +34,8 @@ allergens but is a cooking marker (the page's disclaimer: fried items are cooked
 non-plant-based matter), not one of the 14: it is not published as an allergen and note.txt says so. A dish whose every column says "no"
 and that prints no line contains none of the 14. Named cereals and nuts are published for "Contains" only; those printed only under "May
 contain" can't be expressed (the format names contained cereals and nuts only), and where a key is both contained and may-contained (wheat
-contained, barley only possible) the key shows as contained.
+contained, barley only possible) the key shows as contained and the named kinds are dropped (the generic allergen is published, so
+the may-contain of the other kinds is not hidden: common.write_allergens).
 
 Tags: vegetarian when the dish's own "Vegetarian" or "Plant-Based" column is marked. contains_pork / contains_beef only when the dish NAME
 says so (bacon, ham, jamon, sausage, chorizo, pork ...; beef, steak ...); the pages print no ingredients. A name in square brackets such
@@ -200,6 +201,13 @@ def build(instances: list[dict]) -> tuple[list[dict], list[str], list[str], list
             left_out.append(f"allergen or diet marks differ: {first['name']!r} in " + ", ".join(sorted({where(g) for g in group})))
             continue
         name = display_name(first["name"])
+        # "Contains Cereals with Gluten (Wheat)" with "May contain Cereals with Gluten (Barley, Oats, Rye)" (or the same for Tree Nuts):
+        # the page prints a contains AND a may-contain for one allergen. List the key in may_contain as well, so common.write_allergens
+        # drops the named kinds and publishes the generic allergen (the named kinds would hide the may-contain of the others).
+        allergens = {**first["allergens"], "may_contain": set(first["allergens"]["may_contain"])}
+        for head, key in (("cereals with gluten", "gluten"), ("tree nuts", "nuts")):
+            if key in allergens["contains"] and any(h.lower() == head for h, _inner in first["lines"]["may"]):
+                allergens["may_contain"].add(key)
         veg = first["vegetarian"] or first["plant_based"]
         if veg and {"fish", "crustaceans", "molluscs"} & set(first["allergens"]["contains"]):
             report.append(f"CLASH, not tagged vegetarian although the chain marks it so (it contains fish, crustaceans or molluscs): {name}")
@@ -219,7 +227,7 @@ def build(instances: list[dict]) -> tuple[list[dict], list[str], list[str], list
         limited = bool(re.search(r"\[[^\]]*special\]", first["name"], re.I))
         items.append({"name": name, "id": slug(fold(name)), "category": first["category"], "serving": "", "calories": kcals[0],
                       "tags": "|".join((["vegetarian"] if veg else []) + meat), "rankable": False, "limited_time": limited,
-                      "notes": notes, "allergens": first["allergens"]})
+                      "notes": notes, "allergens": allergens})
     return items, report, left_out, no_calories
 
 

@@ -1,2 +1,4 @@
 item_id,reason
 onion-rings,The page prints 664 kcal but the chain's own menu PDF prints 644 kcal for the same dish; not chosen between
+mac-n-cheese-bites,"Allergen row contradicts the dish's ingredients: the dish is served with aioli, whose own row in the guide marks egg and mustard as contained, but this row marks mustard only as 'may contain'."
+texas-bbq-flatbread,"Allergen row contradicts the dish's ingredients: the dish is topped with ranch, whose own row in the guide marks egg, dairy and mustard as contained, but this row marks egg and mustard only as 'may contain' (the same generic caption as the other four flatbreads)."

@@ -53,6 +53,11 @@ KIDS_FIRST = {"Brunch", "Appetisers", "Mains", "Sides", "Desserts", "Drinks"}
 ALCOHOL_SECTIONS = {"Cocktails", "Wine", "Beer and Cider", "Spirits", "Bourbon Flight"}
 ALCOHOL_NAMES = {"Boozy Root Beer Float", "Bloody Mary", "Bloody Maria", "Red Snapper"}
 DRINK_KIND = {"Classic Shakes": "classic shake", "Freakshakes": "freakshake", "Slushie": "slushie"}
+# On 6 Oct 2026 the page printed "May contain: ..." under about 100 dishes; by 8 Oct 2026 every dish prints only "Contains:" (its menu filter
+# still offers "exclude dishes that May Contain", but no published food or soft-drink item has a may-contain line any more: the only two left are
+# an alcoholic drink on the Brunch tab and one on the Drinks tab, which are not published). So the guide gives no traces information for the items
+# we publish and the app must say so rather than imply "no traces" (docs/DATA.md "Allergens").
+MAY_CONTAIN_PUBLISHED = False
 TAB_LINK = re.compile(r'<a[^>]*data-menu-identifier="([^"]+)"[^>]*>\s*<span[^>]*>\s*([^<]+?)\s*</span>', re.S)
 GENERIC_GROUPS = {"Enjoy:", "Choose from:", "Enjoy with:"}
 # not an order on their own
@@ -64,8 +69,8 @@ NOTES = {"The Southern Sharer": "Described as a loaded tray to share",
 # The same pages print each dish's "Dietary Information" ("Contains: ..." naming the cereals and nuts, "May contain: ...")
 # and carry the label ids of the page's own allergen filter; tenkites_c.allergens_checked cross-checks the two.
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
-ALLERGEN_TITLE = "Hickory's Smokehouse menu Dietary Information (allergens): Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (Ten Kites page, no date printed; read 2026-10-08)"
-SOURCE_TITLE = "Hickory's Smokehouse menu with nutrition: Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (live page, no date printed; read 2026-10-08)"
+ALLERGEN_TITLE = "Hickory's Smokehouse menu Dietary Information (allergens): Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (Ten Kites page, no date printed; read 2026-10-08)"
+SOURCE_TITLE = "Hickory's Smokehouse menu with nutrition: Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (live page, no date printed; read 2026-10-08)"
 NOTE = ("Figures are per portion from Hickory's own menu page (hosted by Ten Kites), which prints no date. Alcoholic drinks and "
         "the Smokin' Deals bundles are not included; the Non-Gluten menu only adds dishes whose numbers differ.")
 
@@ -209,7 +214,7 @@ def main() -> int:
                                                                                    "hickory's smokehouse"],
                              items=items, out=args.out, note=NOTE, holdback=holdback,
                              allergen_guide={"title": ALLERGEN_TITLE, "url": BASE, "checked_on": args.checked_on,
-                                             "may_contain_published": True})
+                                             "may_contain_published": MAY_CONTAIN_PUBLISHED})
     for fname, _, _ in PAGES.values():
         print(f"{fname} sha256 {tk.sha256_text_file(args.pages / fname)}")
     print("\n".join(report))

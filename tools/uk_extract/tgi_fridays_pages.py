@@ -120,7 +120,14 @@ def allergens_of(rec: dict, labels: dict, where: str) -> dict:
         raise SystemExit(f"{where}: no allergen pop-up or label ids: allergens would be unchecked")
     src = {"marks": None, "contains": rec["contains_text"] or "", "may": rec["may_text"] or "",
            "ids_all": rec["ids_all"], "ids_no_may": rec["ids_no_may"]}
-    return tk.allergens_from_rec({"allergen_src": src, "label_map": labels}, where)
+    got = tk.allergens_from_rec({"allergen_src": src, "label_map": labels}, where)
+    # tk.allergens_from_rec leaves a key out of "may contain" when "Contains" has it too, so a dish that contains Cereals with Gluten
+    # (Wheat) and may contain Cereals with Gluten (Barley) would show only the contained kind. Put such a key back (cereals, tree
+    # nuts) so common.write_allergens sees it in both lines, drops the specific kinds and publishes the generic allergen.
+    c_keys, _, _ = tk._printed_list(src["contains"], where, None)
+    m_keys, _, _ = tk._printed_list(src["may"], where, None)
+    got["may_contain"] = set(got["may_contain"]) | (c_keys & m_keys & {"gluten", "nuts"})
+    return got
 
 
 if __name__ == "__main__":

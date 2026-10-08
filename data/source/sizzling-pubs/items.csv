@@ -1,105 +1,105 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-fish-and-chips,Fish and Chips,Sizzle 'N' Save mains,,744.9625,35.352,91.9044,19.8064,5.0599,,3.1706,4.2609,,,false,true,,,Menu choices not added in: Swap your Peas?; Add Bread & Butter?; Add Curry Sauce?
-beef-and-red-wine-lasagne,Beef and Red Wine Lasagne,Sizzle 'N' Save mains,,893.1,35.8,91,41.5,15.94,,5.472,6.68,,contains_beef,false,true,,,
-cheddar-mac-n-cheese,Cheddar Mac 'n' Cheese,Sizzle 'N' Save mains,,945.27,37.112,99.281,43.478,20.261,,3.9295,11.671,,vegetarian,false,true,,,Menu choices not added in: Add a topping
-7oz-gammon-steak,7oz Gammon Steak,Sizzle 'N' Save mains,,771.0688,56.8501,70.794,20.0471,6.4106,,2.8662,9.8495,,contains_pork,false,true,,,
-sausage-and-mash,Sausage and Mash,Sizzle 'N' Save mains,,707.722,32.6936,61.2915,29.1386,13.8434,,4.0627,7.0936,,contains_pork,false,true,,,Feed kJ (4100.31) does not match its kcal (707.722); kJ is not used
-rainbow-lasagne-vegetarian,Rainbow Lasagne (vegetarian),Sizzle 'N' Save mains,,817.7,26.82,97.92,33.66,9.84,,3.9496,14.84,,vegetarian,false,true,,,
-chicken-salad,Chicken Salad,Sizzle 'N' Save mains,,345.2772,40.1761,22.9618,8.7424,1.3731,,2.2511,14.1519,,,false,true,,,
-jacket-potato-with-cheese-and-beans,Jacket Potato with Cheese and Beans,Sizzle 'N' Save mains,,677.25,33.306,58.777,33.054,18.887,,2.294,6.745,,vegetarian,false,true,,,
-vegetarian-sausage-and-mash,Vegetarian Sausage and Mash,Sizzle 'N' Save mains,,629.38,34.185,52.884,28.699,6.057,,3.8057,6.713,,vegetarian,false,true,,,
-rainbow-lasagne-vegan,Rainbow Lasagne (vegan),Sizzle 'N' Save mains,,463.98,14.6701,61.9899,15.5449,2.34,,3.11,18.825,,vegetarian,false,true,,,
-chicken-tikka-masala,Chicken Tikka Masala,Pub favourites,,757.67,36.635,97.78,24.572,4.323,,3.7763,13.78,,,false,true,,,Menu choices not added in: Add vegetable samosa
-curry-house-feast,Curry House Feast,Pub favourites,,1379.72,73.125,156.84,50.182,6.503,,7.4825,40.58,,,false,true,,,Menu choices not added in: Add vegetable samosa
-sweet-potato-and-aubergine-curry,Sweet Potato and Aubergine Curry,Pub favourites,,784.49,18.134,123.997,23.278,2.7,,2.5534,14.385,,vegetarian,false,true,,,
-caesar-salad,Caesar Salad,Pub favourites,,710.3006,32.6888,49.71,39.6386,6.4599,,4,5.35,,contains_pork,false,true,,,Menu choices not added in: Top your salad
-scampi-and-chips,Scampi and Chips,Pub favourites,,825.9615,27.6264,93.9908,20.6491,6.3284,,4.3235,7.5736,,,false,true,,,Feed kJ (2537.641) does not match its kcal (825.9615); kJ is not used. Menu choices not added in: Swap your Peas?; Add Bread & Butter?; Add Curry Sauce?
-hunters-chicken,Hunter's Chicken,Pub favourites,,875.3181,59.6544,89.3759,22.7515,11.7158,,4.2834,25.7914,,contains_pork,false,true,,,
-moroccan-chicken-flatbread,Moroccan Chicken Flatbread,Flatbreads,,837.6472,49.22,88.3739,30.2826,3.6311,,3.282,15.7379,,,false,true,,,
-tandoori-chicken-flatbread,Tandoori Chicken Flatbread,Flatbreads,,730.555,45.775,95.19,16.975,2.02,,3.4118,16.94,,,false,true,,,
-halloumi-flatbread,Halloumi Flatbread,Flatbreads,,995.13,44.7,107.47,41.1,20.145,,6.1452,32.32,,vegetarian,false,true,,,
-mushroom-flatbread,Mushroom Flatbread,Flatbreads,,898.38,24.59,132.57,26.52,6.61,,3.7717,38.31,,vegetarian,false,true,,,
-kung-pao-prawns,Kung Pao Prawns,Sizzling skillets,,480.3401,31.284,75.3109,4.0889,0.015,,4.8683,27.691,,,false,true,,,Menu choices not added in: Choose your fries or rice
-pork-tomahawk,Pork Tomahawk,Sizzling skillets,,639.6637,68.0528,33.8399,24.3717,6.5602,,6.6236,25.9,,contains_pork,false,true,,,Menu choices not added in: Choose your fries or rice
-sizzling-katsu-chicken,Sizzling Katsu Chicken,Sizzling skillets,,893.3401,49.384,77.3559,39.8889,15.51,,5.1658,17.836,,,false,true,,,Menu choices not added in: Choose your fries or rice
-tandoori-chicken,Tandoori Chicken,Sizzling skillets,,539.6901,60.064,28.4569,18.3079,4.54,,2.461,21.505,,,false,true,,,Menu choices not added in: Choose your fries or rice
-sweet-chilli-halloumi,Sweet Chilli Halloumi,Sizzling skillets,,861.1901,50.954,40.7689,53.3059,31.316,,6.1828,35.007,,vegetarian,false,true,,,Menu choices not added in: Choose your fries or rice
-crispy-sweet-chilli-chicken,Crispy Sweet Chilli Chicken,Sizzling skillets,,942.9486,43.0055,102.8792,37.2094,6.2437,,4.6899,46.9946,,,false,true,,,Menu choices not added in: Choose your fries or rice
-seasoned-salmon,Seasoned Salmon,Sizzling skillets,,501.7141,46.592,16.6319,25.2809,3.817,,0.8911,12.362,,,false,true,,,Menu choices not added in: Choose your fries or rice
-moroccan-chicken,Moroccan Chicken,Sizzling skillets,,248.2173,36.97,14.8258,2.7705,0.5471,,1.0508,12.1699,,,false,true,,,Menu choices not added in: Choose your fries or rice
-steak-and-sticky-chicken,Steak and Sticky Chicken,Sizzling skillets,,1682.4526,61.7788,143.7844,88.4591,25.7894,,5.0754,28.879,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-barbacoa-beef-steak,Barbacoa Beef Steak,Sizzling skillets,,1485.7178,55.4587,107.3036,85.4248,27.1425,,4.114,19.1028,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-steak-and-hunters-deluxe,Steak and Hunter's Deluxe,Sizzling skillets,,1725.2162,77.9071,122.1736,94.3285,34.325,,6.7855,19.9928,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-steak-and-chicken,Steak and Chicken,Sizzling skillets,,1000.4244,68.475,83.9368,40.6494,10.9554,,3.2553,10.763,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-surf-n-turf,Surf 'n' Turf,Sizzling skillets,,1177.1837,47.0508,109.8303,48.131,11.7559,,5.5493,9.8876,,contains_beef,false,true,,,Feed kJ (3896.166) does not match its kcal (1177.1837); kJ is not used. Menu choices not added in: Swap your Fries?; Choose your sauce
-classic-mixed-grill,Classic Mixed Grill,Sizzling skillets,,1279.0783,79.5246,98.0237,53.3724,13.6485,,5.0589,9.9272,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-mega-mixed-grill,Mega Mixed Grill,Sizzling skillets,,1551.8988,124.276,97.7038,60.5953,16.4163,,6.8407,6.7067,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-8oz-sirloin,8oz Sirloin,Sizzling skillets,,1282.5178,43.5787,92.6436,74.8448,23.5425,,3.329,9.0228,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-8oz-rump,8oz Rump,Sizzling skillets,,1127.0796,48.4974,92.6436,56.1532,15.4084,,3.3405,9.0228,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
-5oz-rump,5oz Rump,Sizzling skillets,,974.1977,33.3625,92.6436,45.9932,10.8787,,3.2484,9.0228,,contains_beef,false,true,,,Feed kJ (3358.92) does not match its kcal (974.1977); kJ is not used. Menu choices not added in: Swap your Fries?; Choose your sauce
-creamy-peppercorn-sauce,Creamy Peppercorn Sauce,Sauces,,85,2,5,6,4,,1,2,,,false,false,,,
-red-wine-sauce,Red Wine Sauce,Sauces,,46.5,1.5,9.75,0,0,,1.5,6,,,false,false,,,
-port-and-stilton-sauce,Port and Stilton Sauce,Sauces,,92,2.4,3.2,8,4,,0.8,0.8,,vegetarian,false,false,,,
-curry-sauce,Curry Sauce,Sauces,,85,1,8,5,1,,2,4,,vegetarian,false,false,,,
-add-gravy,Add Gravy,Sauces,,61,1,5,4,2,,2,2,,,false,false,,,
-k-pop-crunch,K-Pop Crunch,Burger bar,,1578.7889,45.7106,181.4322,67.599,16.3382,,7.5972,22.9764,,,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-big-beef,The Big Beef,Burger bar,,1784.6017,99.0706,158.608,68.9126,14.6969,,11.7823,22.7464,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-sticky-pig,The Sticky Pig,Burger bar,,1427.3469,50.0071,148.0451,60.9821,11.1351,,6.7185,23.0364,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-honey-clucker,Honey Clucker,Burger bar,,1617.3889,44.8606,204.1022,62.439,16.0382,,7.8023,58.4464,,,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-old-faithful-fried-buttermilk-chicken,The Old Faithful Fried Buttermilk Chicken,Burger bar,,1127.2946,39.294,133.5814,41.5325,11.2451,,6.9907,21.1673,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-old-faithful-double-fried-buttermilk-chicken,The Old Faithful Double Fried Buttermilk Chicken,Burger bar,,1347.2946,53.924,150.9614,51.4325,15.3151,,8.0082,21.6073,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-old-faithful-grilled-chicken,The Old Faithful Grilled Chicken,Burger bar,,1061.8118,57.54,117.0233,33.6051,7.6683,,6.9595,21.5492,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-old-faithful-double-grilled-chicken,The Old Faithful Double Grilled Chicken,Burger bar,,1216.329,90.416,117.8452,35.5776,8.1614,,7.9458,22.3711,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-old-faithful-beef,The Old Faithful Beef,Burger bar,,1113.0526,48.1406,124.4542,37.1256,7.2621,,7.3932,20.7273,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-the-old-faithful-double-beef,The Old Faithful Double Beef,Burger bar,,1318.8106,71.6172,132.7071,42.6188,7.349,,8.8132,20.7273,,contains_pork|contains_beef,false,true,,,Feed kJ (6404.5289) does not match its kcal (1318.8106); kJ is not used. Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
-green-machine-vegetarian,Green Machine (vegetarian),Burger bar,,1300.6905,22.6635,170.8038,50.3213,14.1765,,5.5302,23.9917,,vegetarian,false,true,,,Menu choices not added in: Swap your Fries?
-green-machine-vegan,Green Machine (vegan),Burger bar,,1181.4,25.025,152.525,47.88,14.135,,5.0633,22.885,,vegetarian,false,true,,,
-hunters-fries-topper,Hunter's Fries - Topper,Add-ons,,186.1284,13.5484,19.49,4.8237,2.0125,,2.484,15.13,,contains_pork,false,false,,,Feed kJ (960.37) does not match its kcal (186.1284); kJ is not used
-smokehouse-fries-topper,Smokehouse Fries - Topper,Add-ons,,268.13,13.47,18.75,15.11,4.6,,1.285,11.17,,contains_beef,false,false,,,
-nacho-fries-topper,Nacho Fries Topper,Add-ons,,140.48,3.14,11.321,8.549,1.69,,2.2114,4.649,,vegetarian,false,false,,,
-chip-shop-fries-topper,Chip Shop Fries Topper,Add-ons,,241.23,3.89,19.09,15.83,5.15,,4.555,7.99,,,false,false,,,
-chips,Chips,Sides,,402.8325,3.765,58.47,10.7673,4.4532,,1.2424,0.5465,,vegetarian,false,true,,,Feed kJ (1237.54) does not match its kcal (402.8325); kJ is not used
-waffle-fries,Waffle Fries,Sides,,546.0875,6.9458,65.688,25.2123,3.7298,,2.5,2.296,,vegetarian,false,true,,,Feed kJ (1837.5) does not match its kcal (546.0875); kJ is not used
-cheesy-chips,Cheesy Chips,Sides,,637.4225,19.365,59.67,29.3663,15.8532,,1.6174,0.5465,,vegetarian,false,true,,,Feed kJ (2210.1) does not match its kcal (637.4225); kJ is not used
-skin-on-fries,Skin-on Fries,Sides,,479.2905,3.3885,65.7788,17.4413,1.5415,,2.4419,1.1067,,vegetarian,false,true,,,Feed kJ (1471.5) does not match its kcal (479.2905); kJ is not used
-garlic-bread,Garlic Bread,Sides,,331.8,8,46.4,12.2,2.24,,0.872,2.68,,vegetarian,false,true,,,
-cheesy-garlic-bread,Cheesy Garlic Bread,Sides,,449.1,15.7999,46.9999,21.5001,7.94,,1.472,2.68,,vegetarian,false,true,,,
-onion-rings,Onion Rings,Sides,,382.8092,4.7699,38.8498,22.1575,3.42,,1.2741,4.3422,,vegetarian,false,true,,,Feed kJ (1039.2) does not match its kcal (382.8092); kJ is not used
-corn-cobettes,Corn Cobettes,Sides,,385.05,16.722,41.756,14.01,3.64,,0.133,12.566,,vegetarian,false,true,,,
-mac-n-cheese,Mac 'n' Cheese,Sides,,305.99,14.524,26.362,15.606,8.992,,1.5251,4.482,,vegetarian,false,true,,,
-dressed-side-salad,Dressed Side Salad,Sides,,95.38,3.65,11.07,3.385,0.44,,0.6325,6.665,,vegetarian,false,true,,,
-slaw,Slaw,Sides,,72.9,1.6,6.5,3.8,0.3,,0.143,4.3,,vegetarian,false,true,,,
-hunters-waffle-fries,Hunter's Waffle Fries,Sides,,732.2159,20.4942,85.178,30.0359,5.7422,,4.984,17.426,,contains_pork,false,true,,,
-smokehouse-waffle-fries,Smokehouse Waffle Fries,Sides,,860.3175,20.7758,90.288,42.6323,9.4798,,3.985,17.876,,contains_beef,false,true,,,
-nacho-waffle-fries,Nacho Waffle Fries,Sides,,686.5675,10.0858,77.009,33.7613,5.4198,,4.7114,6.945,,vegetarian,false,true,,,Feed kJ (2420.82) does not match its kcal (686.5675); kJ is not used
-chip-shop-waffle-fries,Chip Shop Waffle Fries,Sides,,787.3175,10.8358,84.778,41.0423,8.8798,,7.055,10.286,,,false,true,,,
-spicy-chicken-nachos,Spicy Chicken Nachos,Snacks & starters,,786.5296,18.7244,88.9203,37.4606,5.5009,,3.8189,11.0172,,,false,true,,,
-nachos,Nachos,Snacks & starters,,570.68,8.81,68.021,27.449,3.94,,2.8414,6.089,,vegetarian,false,true,,,
-beer-battered-mushrooms,Beer-Battered Mushrooms,Snacks & starters,,421.5867,4.3626,29.2476,31.6146,3.0731,,1.8185,1.3927,,vegetarian,false,true,,,
-panko-prawns,Panko Prawns,Snacks & starters,,193.217,8.9411,37.8351,0.5905,0.2197,,1.9675,18.7491,,,false,true,,,
-halloumi-fries,Halloumi Fries,Snacks & starters,,614.385,26.2445,30.082,42.8505,23.523,,3.5063,17.866,,vegetarian,false,true,,,
-pulled-pork-tacos,Pulled Pork Tacos,Snacks & starters,,401.59,24.09,30.547,19.912,6.22,,0.7544,10.336,,contains_pork,false,true,,,
-korean-chicken-wings,Korean Chicken Wings,Snacks & starters,,471.6274,36.4757,19.4859,26.9789,6.522,,2.7749,6.69,,,false,true,,,
-southern-fried-chicken,Southern-Fried Chicken,Snacks & starters,,297.3348,17.6002,31.4908,11.3042,2.0669,,1.8034,11.9063,,,false,true,,,
-salt-and-chilli-chicken-fries,Salt and Chilli Chicken Fries,Snacks & starters,,376.6193,19.4448,32.3126,18.2743,3.1219,,1.7892,11.3503,,,false,true,,,
-chick-n-mix,Chick 'n' Mix,Snacks & starters,,1146.0015,72.8527,73.6073,60.9494,12.0107,,5.7307,19.5846,,,false,false,,,
-caramelised-waffle,Caramelised Waffle,Desserts,,1057.37,11.712,113.769,61.139,25.489,,1.2976,70.197,,vegetarian,false,false,,,
-chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,1012.68,12.284,134.732,46.276,15.788,,0.3452,99.408,,vegetarian,false,false,,,
-bramley-apple-pie,Bramley Apple Pie,Desserts,,357.492,6.5416,51.2072,13.208,4.0832,,0,25.2704,,vegetarian,false,false,,,
-lemon-meringue-pie,Lemon Meringue Pie,Desserts,,516.8,7.16,63.649,25.376,14.131,,0.1154,48.166,,vegetarian,false,false,,,
-pimp-your-brownie,Pimp Your Brownie,Desserts,,1017.9952,11.0371,146.8826,42.4412,23.8128,,0.5579,106.8405,,vegetarian,false,false,,,
-sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,780.7,7.99,107.824,34.996,15.016,,0.7886,83.816,,vegetarian,false,false,,,
-strawberry-and-vanilla-mousse,Strawberry and Vanilla Mousse,Desserts,,372.1536,2.3745,54.7259,15.5659,10.1425,,0.3687,31.6914,,vegetarian,false,false,,,
-mini-chocolate-brownie,Mini Chocolate Brownie,Desserts,,418.576,4.273,48.6032,22.771,13.475,,0.1299,32.8478,,vegetarian,false,false,,,Menu choices not added in: Choose your Hot Drink
-mini-millionaires-shortbread,Mini Millionaire's Shortbread,Desserts,,343.17,2.097,40.516,19.034,12.334,,0.1997,27.104,,vegetarian,false,false,,,Menu choices not added in: Choose your Hot Drink
-cadbury-lovers-sundae,Cadbury Lovers' Sundae,Desserts,,892.5275,11.3073,107.1025,46.25,30.76,,0.4488,91.455,,vegetarian,false,false,,,
-berry-mess-sundae,Berry Mess Sundae,Desserts,,612.8348,7.102,83.2728,27.6167,18.9066,,0.3503,70.2483,,vegetarian,false,false,,,
-millionaires-sundae,Millionaire's Sundae,Desserts,,907.9275,8.2803,117.3725,44.915,28.81,,0.8994,84,,vegetarian,false,false,,,
-espresso,Espresso,Hot drinks,,11.104,0.5056,0.4,0.4608,0.2112,,0.0008,0.016,,vegetarian,false,false,,,
-americano,Americano,Hot drinks,,11.104,0.5056,0.4,0.4608,0.2112,,0.0008,0.016,,vegetarian,false,false,,,
-latte,Latte,Hot drinks,,110.084,7.3736,10.5,3.8948,2.2312,,0.3038,10.116,,vegetarian,false,false,,,Feed kJ (645.24) does not match its kcal (110.084); kJ is not used
-cappuccino,Cappuccino,Hot drinks,,105.944,6.3626,11.22,3.5468,2.0812,,0.284,10.626,,vegetarian,false,false,,,Feed kJ (628.05) does not match its kcal (105.944); kJ is not used
-mocha,Mocha,Hot drinks,,219.604,7.7356,33.1,5.6508,3.8112,,0.5678,30.616,,vegetarian,false,false,,,Feed kJ (1107.82) does not match its kcal (219.604); kJ is not used
-flat-white,Flat White,Hot drinks,,84.604,5.6056,7.9,3.0108,1.7112,,0.2258,7.516,,vegetarian,false,false,,,Feed kJ (538.12) does not match its kcal (84.604); kJ is not used
-tea,Tea,Hot drinks,,27.44,1.9065,2.8,0.952,0.56,,0.084,2.8,,vegetarian,false,false,,,
-hot-chocolate,Hot Chocolate,Hot drinks,,180.9,2.295,26.898,6.524,4.561,,0.181,25.908,,vegetarian,false,false,,,
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+fish-and-chips,Fish and Chips,Sizzle 'N' Save mains,,744.9625,35.352,91.9044,19.8064,5.0599,,3.1706,4.2609,,,,,,,,,false,true,,,Menu choices not added in: Swap your Peas?; Add Bread & Butter?; Add Curry Sauce?
+beef-and-red-wine-lasagne,Beef and Red Wine Lasagne,Sizzle 'N' Save mains,,893.1,35.8,91,41.5,15.94,,5.472,6.68,,,,,,,,contains_beef,false,true,,,
+cheddar-mac-n-cheese,Cheddar Mac 'n' Cheese,Sizzle 'N' Save mains,,945.27,37.112,99.281,43.478,20.261,,3.9295,11.671,,,,,,,,vegetarian,false,true,,,Menu choices not added in: Add a topping
+7oz-gammon-steak,7oz Gammon Steak,Sizzle 'N' Save mains,,771.0688,57.1351,70.68,20.2181,6.3536,,2.8605,9.9065,,,,,,,,contains_pork,false,true,,,
+sausage-and-mash,Sausage and Mash,Sizzle 'N' Save mains,,707.722,32.9786,61.1775,29.3096,13.7864,,4.057,7.1506,,,,,,,,contains_pork,false,true,,,Feed kJ (4100.31) does not match its kcal (707.722); kJ is not used
+rainbow-lasagne-vegetarian,Rainbow Lasagne (vegetarian),Sizzle 'N' Save mains,,817.7,26.82,97.92,33.66,9.84,,3.9496,14.84,,,,,,,,vegetarian,false,true,,,
+chicken-salad,Chicken Salad,Sizzle 'N' Save mains,,345.2772,40.1761,22.9618,8.7424,1.3731,,2.2511,14.1519,,,,,,,,,false,true,,,
+jacket-potato-with-cheese-and-beans,Jacket Potato with Cheese and Beans,Sizzle 'N' Save mains,,677.25,33.306,58.777,33.054,18.887,,2.294,6.745,,,,,,,,vegetarian,false,true,,,
+vegetarian-sausage-and-mash,Vegetarian Sausage and Mash,Sizzle 'N' Save mains,,629.38,34.47,52.77,28.87,6,,3.8,6.77,,,,,,,,vegetarian,false,true,,,
+rainbow-lasagne-vegan,Rainbow Lasagne (vegan),Sizzle 'N' Save mains,,463.98,14.6701,61.9899,15.5449,2.34,,3.11,18.825,,,,,,,,vegetarian,false,true,,,
+chicken-tikka-masala,Chicken Tikka Masala,Pub favourites,,757.67,36.635,97.78,24.572,4.323,,3.7763,13.78,,,,,,,,,false,true,,,Menu choices not added in: Add vegetable samosa
+curry-house-feast,Curry House Feast,Pub favourites,,1379.72,73.125,156.84,50.182,6.503,,7.4825,40.58,,,,,,,,,false,true,,,Menu choices not added in: Add vegetable samosa
+sweet-potato-and-aubergine-curry,Sweet Potato and Aubergine Curry,Pub favourites,,784.49,18.134,123.997,23.278,2.7,,2.5534,14.385,,,,,,,,vegetarian,false,true,,,
+caesar-salad,Caesar Salad,Pub favourites,,710.3006,32.6888,49.71,39.6386,6.4599,,4,5.35,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Top your salad
+scampi-and-chips,Scampi and Chips,Pub favourites,,825.9615,27.9114,93.8768,20.8201,6.2714,,4.3178,7.6306,,,,,,,,,false,true,,,Feed kJ (2537.641) does not match its kcal (825.9615); kJ is not used. Menu choices not added in: Swap your Peas?; Add Bread & Butter?; Add Curry Sauce?
+hunters-chicken,Hunter's Chicken,Pub favourites,,875.3181,59.9394,89.2619,22.9225,11.6588,,4.2777,25.8484,,,,,,,,contains_pork,false,true,,,
+moroccan-chicken-flatbread,Moroccan Chicken Flatbread,Flatbreads,,837.6472,49.37,88.3439,30.2226,3.6311,,3.2691,15.7079,,,,,,,,,false,true,,,
+tandoori-chicken-flatbread,Tandoori Chicken Flatbread,Flatbreads,,730.555,45.925,95.16,16.915,2.02,,3.3989,16.91,,,,,,,,,false,true,,,
+halloumi-flatbread,Halloumi Flatbread,Flatbreads,,995.13,44.85,107.44,41.04,20.145,,6.1323,32.29,,,,,,,,vegetarian,false,true,,,
+mushroom-flatbread,Mushroom Flatbread,Flatbreads,,898.38,24.74,132.54,26.46,6.61,,3.7588,38.28,,,,,,,,vegetarian,false,true,,,
+kung-pao-prawns,Kung Pao Prawns,Sizzling skillets,,480.3401,31.284,75.3109,4.0889,0.015,,4.8683,27.691,,,,,,,,,false,true,,,Menu choices not added in: Choose your fries or rice
+pork-tomahawk,Pork Tomahawk,Sizzling skillets,,639.6637,68.0528,33.8399,24.3717,6.5602,,6.6236,25.9,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Choose your fries or rice
+sizzling-katsu-chicken,Sizzling Katsu Chicken,Sizzling skillets,,893.3401,49.384,77.3559,39.8889,15.51,,5.1658,17.836,,,,,,,,,false,true,,,Menu choices not added in: Choose your fries or rice
+tandoori-chicken,Tandoori Chicken,Sizzling skillets,,539.6901,60.064,28.4569,18.3079,4.54,,2.461,21.505,,,,,,,,,false,true,,,Menu choices not added in: Choose your fries or rice
+sweet-chilli-halloumi,Sweet Chilli Halloumi,Sizzling skillets,,861.1901,50.954,40.7689,53.3059,31.316,,6.1828,35.007,,,,,,,,vegetarian,false,true,,,Menu choices not added in: Choose your fries or rice
+crispy-sweet-chilli-chicken,Crispy Sweet Chilli Chicken,Sizzling skillets,,908.4771,45.255,105.2964,32.0079,5.3825,,4.8323,45.786,,,,,,,,,false,true,,,Menu choices not added in: Choose your fries or rice
+seasoned-salmon,Seasoned Salmon,Sizzling skillets,,501.7141,46.592,16.6119,25.2909,3.802,,0.9134,12.362,,,,,,,,,false,true,,,Menu choices not added in: Choose your fries or rice
+moroccan-chicken,Moroccan Chicken,Sizzling skillets,,248.2173,36.97,14.8258,2.7705,0.5471,,1.0508,12.1699,,,,,,,,,false,true,,,Menu choices not added in: Choose your fries or rice
+steak-and-sticky-chicken,Steak and Sticky Chicken,Sizzling skillets,,1682.4526,61.7788,143.7844,88.4591,25.7894,,5.0754,28.879,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+barbacoa-beef-steak,Barbacoa Beef Steak,Sizzling skillets,,1485.7178,55.4587,107.3036,85.4248,27.1425,,4.114,19.1028,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+steak-and-hunters-deluxe,Steak and Hunter's Deluxe,Sizzling skillets,,1725.2162,77.9071,122.1736,94.3285,34.325,,6.7855,19.9928,,,,,,,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+steak-and-chicken,Steak and Chicken,Sizzling skillets,,1000.4244,68.475,83.9368,40.6494,10.9554,,3.2553,10.763,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+surf-n-turf,Surf 'n' Turf,Sizzling skillets,,1177.1837,47.0508,109.8303,48.131,11.7559,,5.5493,9.8876,,,,,,,,contains_beef,false,true,,,Feed kJ (3896.166) does not match its kcal (1177.1837); kJ is not used. Menu choices not added in: Swap your Fries?; Choose your sauce
+classic-mixed-grill,Classic Mixed Grill,Sizzling skillets,,1279.0783,79.5246,98.0237,53.3724,13.6485,,5.0589,9.9272,,,,,,,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+mega-mixed-grill,Mega Mixed Grill,Sizzling skillets,,1551.8988,124.276,97.7038,60.5953,16.4163,,6.8407,6.7067,,,,,,,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+8oz-sirloin,8oz Sirloin,Sizzling skillets,,1282.5178,43.5787,92.6436,74.8448,23.5425,,3.329,9.0228,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+8oz-rump,8oz Rump,Sizzling skillets,,1127.0796,48.4974,92.6436,56.1532,15.4084,,3.3405,9.0228,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Choose your sauce
+5oz-rump,5oz Rump,Sizzling skillets,,974.1977,33.3625,92.6436,45.9932,10.8787,,3.2484,9.0228,,,,,,,,contains_beef,false,true,,,Feed kJ (3358.92) does not match its kcal (974.1977); kJ is not used. Menu choices not added in: Swap your Fries?; Choose your sauce
+creamy-peppercorn-sauce,Creamy Peppercorn Sauce,Sauces,,85,2,5,6,4,,1,2,,,,,,,,,false,false,,,
+red-wine-sauce,Red Wine Sauce,Sauces,,46.5,1.5,9.75,0,0,,1.5,6,,,,,,,,,false,false,,,
+port-and-stilton-sauce,Port and Stilton Sauce,Sauces,,92,2.4,3.2,8,4,,0.8,0.8,,,,,,,,vegetarian,false,false,,,
+curry-sauce,Curry Sauce,Sauces,,85,1,8,5,1,,2,4,,,,,,,,vegetarian,false,false,,,
+add-gravy,Add Gravy,Sauces,,61,1,5,4,2,,2,2,,,,,,,,,false,false,,,
+k-pop-crunch,K-Pop Crunch,Burger bar,,1578.7889,45.8606,181.4022,67.539,16.3382,,7.5843,22.9464,,,,,,,,,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-big-beef,The Big Beef,Burger bar,,1784.6017,99.0706,158.608,68.9126,14.6969,,11.7823,22.7464,,,,,,,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-sticky-pig,The Sticky Pig,Burger bar,,1427.3469,50.1571,148.0151,60.9221,11.1351,,6.7056,23.0064,,,,,,,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+honey-clucker,Honey Clucker,Burger bar,,1617.3889,44.8606,204.1022,62.439,16.0382,,7.8023,58.4464,,,,,,,,,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-old-faithful-fried-buttermilk-chicken,The Old Faithful Fried Buttermilk Chicken,Burger bar,,1127.2946,39.294,133.5814,41.5325,11.2451,,6.9907,21.1673,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-old-faithful-double-fried-buttermilk-chicken,The Old Faithful Double Fried Buttermilk Chicken,Burger bar,,1347.2946,53.924,150.9614,51.4325,15.3151,,8.0082,21.6073,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-old-faithful-grilled-chicken,The Old Faithful Grilled Chicken,Burger bar,,1061.8118,57.54,117.0233,33.6051,7.6683,,6.9595,21.5492,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-old-faithful-double-grilled-chicken,The Old Faithful Double Grilled Chicken,Burger bar,,1216.329,90.416,117.8452,35.5776,8.1614,,7.9458,22.3711,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-old-faithful-beef,The Old Faithful Beef,Burger bar,,1113.0526,48.1406,124.4542,37.1256,7.2621,,7.3932,20.7273,,,,,,,,contains_pork|contains_beef,false,true,,,Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+the-old-faithful-double-beef,The Old Faithful Double Beef,Burger bar,,1318.8106,71.6172,132.7071,42.6188,7.349,,8.8132,20.7273,,,,,,,,contains_pork|contains_beef,false,true,,,Feed kJ (6404.5289) does not match its kcal (1318.8106); kJ is not used. Menu choices not added in: Swap your Fries?; Pimp your fries?; Would you like to add toppings to your burger?
+green-machine-vegetarian,Green Machine (vegetarian),Burger bar,,1300.6905,22.6635,170.8038,50.3213,14.1765,,5.5302,23.9917,,,,,,,,vegetarian,false,true,,,Menu choices not added in: Swap your Fries?
+green-machine-vegan,Green Machine (vegan),Burger bar,,1181.4,25.025,152.525,47.88,14.135,,5.0633,22.885,,,,,,,,vegetarian,false,true,,,
+hunters-fries-topper,Hunter's Fries - Topper,Add-ons,,186.1284,13.5484,19.49,4.8237,2.0125,,2.484,15.13,,,,,,,,contains_pork,false,false,,,Feed kJ (960.37) does not match its kcal (186.1284); kJ is not used
+smokehouse-fries-topper,Smokehouse Fries - Topper,Add-ons,,268.13,13.47,18.75,15.11,4.6,,1.285,11.17,,,,,,,,contains_beef,false,false,,,
+nacho-fries-topper,Nacho Fries Topper,Add-ons,,140.48,3.14,11.321,8.549,1.69,,2.2114,4.649,,,,,,,,vegetarian,false,false,,,
+chip-shop-fries-topper,Chip Shop Fries Topper,Add-ons,,241.23,3.89,19.09,15.83,5.15,,4.555,7.99,,,,,,,,,false,false,,,
+chips,Chips,Sides,,402.8325,3.765,58.47,10.7673,4.4532,,1.2424,0.5465,,,,,,,,vegetarian,false,true,,,Feed kJ (1237.54) does not match its kcal (402.8325); kJ is not used
+waffle-fries,Waffle Fries,Sides,,546.0875,6.9458,65.688,25.2123,3.7298,,2.5,2.296,,,,,,,,vegetarian,false,true,,,Feed kJ (1837.5) does not match its kcal (546.0875); kJ is not used
+cheesy-chips,Cheesy Chips,Sides,,637.4225,19.365,59.67,29.3663,15.8532,,1.6174,0.5465,,,,,,,,vegetarian,false,true,,,Feed kJ (2210.1) does not match its kcal (637.4225); kJ is not used
+skin-on-fries,Skin-on Fries,Sides,,479.2905,3.3885,65.7788,17.4413,1.5415,,2.4419,1.1067,,,,,,,,vegetarian,false,true,,,Feed kJ (1471.5) does not match its kcal (479.2905); kJ is not used
+garlic-bread,Garlic Bread,Sides,,331.8,8,46.4,12.2,2.24,,0.872,2.68,,,,,,,,vegetarian,false,true,,,
+cheesy-garlic-bread,Cheesy Garlic Bread,Sides,,449.1,15.7999,46.9999,21.5001,7.94,,1.472,2.68,,,,,,,,vegetarian,false,true,,,
+onion-rings,Onion Rings,Sides,,382.8092,4.7699,38.8498,22.1575,3.42,,1.2741,4.3422,,,,,,,,vegetarian,false,true,,,Feed kJ (1039.2) does not match its kcal (382.8092); kJ is not used
+corn-cobettes,Corn Cobettes,Sides,,385.05,16.722,41.756,14.01,3.64,,0.133,12.566,,,,,,,,vegetarian,false,true,,,
+mac-n-cheese,Mac 'n' Cheese,Sides,,305.99,14.524,26.362,15.606,8.992,,1.5251,4.482,,,,,,,,vegetarian,false,true,,,
+dressed-side-salad,Dressed Side Salad,Sides,,95.38,3.65,11.07,3.385,0.44,,0.6325,6.665,,,,,,,,vegetarian,false,true,,,
+slaw,Slaw,Sides,,72.9,2.1,6.4,3.6,0.3,,0.1,4.2,,,,,,,,vegetarian,false,true,,,
+hunters-waffle-fries,Hunter's Waffle Fries,Sides,,732.2159,20.4942,85.178,30.0359,5.7422,,4.984,17.426,,,,,,,,contains_pork,false,true,,,
+smokehouse-waffle-fries,Smokehouse Waffle Fries,Sides,,860.3175,20.7758,90.288,42.6323,9.4798,,3.985,17.876,,,,,,,,contains_beef,false,true,,,
+nacho-waffle-fries,Nacho Waffle Fries,Sides,,686.5675,10.0858,77.009,33.7613,5.4198,,4.7114,6.945,,,,,,,,vegetarian,false,true,,,Feed kJ (2420.82) does not match its kcal (686.5675); kJ is not used
+chip-shop-waffle-fries,Chip Shop Waffle Fries,Sides,,787.3175,10.8358,84.778,41.0423,8.8798,,7.055,10.286,,,,,,,,,false,true,,,
+spicy-chicken-nachos,Spicy Chicken Nachos,Snacks & starters,,777.9118,19.2868,89.5246,36.1603,5.2856,,3.8545,10.715,,,,,,,,,false,true,,,
+nachos,Nachos,Snacks & starters,,570.68,8.81,68.021,27.449,3.94,,2.8414,6.089,,,,,,,,vegetarian,false,true,,,
+beer-battered-mushrooms,Beer-Battered Mushrooms,Snacks & starters,,421.5867,4.3626,29.2476,31.6146,3.0731,,1.8185,1.3927,,,,,,,,vegetarian,false,true,,,
+panko-prawns,Panko Prawns,Snacks & starters,,193.217,8.9411,37.8351,0.5905,0.2197,,1.9675,18.7491,,,,,,,,,false,true,,,
+halloumi-fries,Halloumi Fries,Snacks & starters,,614.385,26.2445,30.082,42.8505,23.523,,3.5063,17.866,,,,,,,,vegetarian,false,true,,,
+pulled-pork-tacos,Pulled Pork Tacos,Snacks & starters,,401.59,24.24,30.517,19.852,6.22,,0.7415,10.306,,,,,,,,contains_pork,false,true,,,
+korean-chicken-wings,Korean Chicken Wings,Snacks & starters,,471.6274,36.4757,19.4859,26.9789,6.522,,2.7749,6.69,,,,,,,,,false,true,,,
+southern-fried-chicken,Southern-Fried Chicken,Snacks & starters,,297.3348,17.6002,31.4908,11.3042,2.0669,,1.8034,11.9063,,,,,,,,,false,true,,,
+salt-and-chilli-chicken-fries,Salt and Chilli Chicken Fries,Snacks & starters,,359.3835,20.5695,33.5213,15.6735,2.6913,,1.8604,10.746,,,,,,,,,false,true,,,
+chick-n-mix,Chick 'n' Mix,Snacks & starters,,1128.7657,73.9774,74.8159,58.3486,11.5801,,5.8019,18.9803,,,,,,,,,false,false,,,
+caramelised-waffle,Caramelised Waffle,Desserts,,1057.37,11.712,113.769,61.139,25.489,,1.2976,70.197,,,,,,,,vegetarian,false,false,,,
+chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,1012.68,12.284,134.732,46.276,15.788,,0.3452,99.408,,,,,,,,vegetarian,false,false,,,
+bramley-apple-pie,Bramley Apple Pie,Desserts,,357.492,6.5416,51.2072,13.208,4.0832,,0,25.2704,,,,,,,,vegetarian,false,false,,,
+lemon-meringue-pie,Lemon Meringue Pie,Desserts,,516.8,7.16,63.649,25.376,14.131,,0.1154,48.166,,,,,,,,vegetarian,false,false,,,
+pimp-your-brownie,Pimp Your Brownie,Desserts,,1017.9952,11.0371,146.8826,42.4412,23.8128,,0.5579,106.8405,,,,,,,,vegetarian,false,false,,,
+sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,780.7,7.99,107.824,34.996,15.016,,0.7886,83.816,,,,,,,,vegetarian,false,false,,,
+strawberry-and-vanilla-mousse,Strawberry and Vanilla Mousse,Desserts,,372.1536,2.3745,54.7259,15.5659,10.1425,,0.3687,31.6914,,,,,,,,vegetarian,false,false,,,
+mini-chocolate-brownie,Mini Chocolate Brownie,Desserts,,418.576,4.273,48.6032,22.771,13.475,,0.1299,32.8478,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Choose your Hot Drink
+mini-millionaires-shortbread,Mini Millionaire's Shortbread,Desserts,,343.17,2.097,40.516,19.034,12.334,,0.1997,27.104,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Choose your Hot Drink
+cadbury-lovers-sundae,Cadbury Lovers' Sundae,Desserts,,892.5275,11.3073,107.1025,46.25,30.76,,0.4488,91.455,,,,,,,,vegetarian,false,false,,,
+berry-mess-sundae,Berry Mess Sundae,Desserts,,612.8348,7.102,83.2728,27.6167,18.9066,,0.3503,70.2483,,,,,,,,vegetarian,false,false,,,
+millionaires-sundae,Millionaire's Sundae,Desserts,,907.9275,8.2803,117.3725,44.915,28.81,,0.8994,84,,,,,,,,vegetarian,false,false,,,
+espresso,Espresso,Hot drinks,,11.104,0.5056,0.4,0.4608,0.2112,,0.0008,0.016,,,,,,,,vegetarian,false,false,,,
+americano,Americano,Hot drinks,,11.104,0.5056,0.4,0.4608,0.2112,,0.0008,0.016,,,,,,,,vegetarian,false,false,,,
+latte,Latte,Hot drinks,,110.084,7.3736,10.5,3.8948,2.2312,,0.3038,10.116,,,,,,,,vegetarian,false,false,,,Feed kJ (645.24) does not match its kcal (110.084); kJ is not used
+cappuccino,Cappuccino,Hot drinks,,97.614,6.3066,9.616,3.3618,1.9182,,0.2593,9.202,,,,,,,,vegetarian,false,false,,,Feed kJ (592.89) does not match its kcal (97.614); kJ is not used
+mocha,Mocha,Hot drinks,,210.304,8.2756,32.38,4.3608,2.5212,,0.4208,31.096,,,,,,,,vegetarian,false,false,,,Feed kJ (1068.82) does not match its kcal (210.304); kJ is not used
+flat-white,Flat White,Hot drinks,,84.604,5.6056,7.9,3.0108,1.7112,,0.2258,7.516,,,,,,,,vegetarian,false,false,,,Feed kJ (538.12) does not match its kcal (84.604); kJ is not used
+tea,Tea,Hot drinks,,27.44,1.9065,2.8,0.952,0.56,,0.084,2.8,,,,,,,,vegetarian,false,false,,,
+hot-chocolate,Hot Chocolate,Hot drinks,,180.9,2.295,26.898,6.524,4.561,,0.181,25.908,,,,,,,,vegetarian,false,false,,,

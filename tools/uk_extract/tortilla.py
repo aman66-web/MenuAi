@@ -109,7 +109,12 @@ SPEC: dict[str, tuple] = {
 # Rows left out because the guide itself limits them to one restaurant or to Northern Ireland.
 EXCLUDED_SUFFIXES = ("(Canary Wharf only)", "(Belfast)")
 # Items whose printed numbers cannot be right: not published (docs/DATA.md holdback.csv). Never corrected.
-HOLDBACK = [("queso-fundido", QUESO)]
+# Held back (accuracy re-check, 2026-10-08): the Large Veggie Breakfast Burrito prints 729 kcal, but its own kJ (2666, about 637 kcal)
+# and its own protein, carbs and fat (about 644 kcal) agree with each other and not with the kcal; we publish both kcal and kJ, so a
+# number we publish is contradicted. The Medium (615 kcal / 2600 kJ) and the Large Bacon (807 kcal / 3455 kJ) are consistent.
+VEGGIE_BURRITO = ("The guide prints 729 kcal but 2666 kJ (about 637 kcal), and its own protein, carbohydrate and fat add up to about "
+                  "644 kcal: the kcal is contradicted by both. Not corrected, not chosen between")
+HOLDBACK = [("queso-fundido", QUESO), ("large-veggie-breakfast-burrito", VEGGIE_BURRITO)]
 NOTE = ("Tortilla publishes its burritos, bowls, salads, tacos, nachos, quesadillas and fuel bowls only as separate ingredients, "
         "never as finished dishes, so those are not listed here. Breakfast items sold at Canary Wharf only are left out.")
 # Allergens come from the same PDF. Its own spellings that common.allergen_words doesn't know (printed in the Contains / May
