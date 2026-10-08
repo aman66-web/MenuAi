@@ -1,0 +1,76 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,butlins,Butlin's,Holiday resort,Bourne Leisure,https://www.butlins.com,https://www.butlins.com/discover-butlins/food-and-drink/restaurants,platform:viewthe.menu,per-dish kcal and macros on viewthe.menu pages (checked The Diner); 3 resorts
+,buzz-bingo,Buzz Bingo,Bingo club food,Buzz Bingo,https://www.buzzbingo.com,https://www.buzzbingo.com/library/Clubs/food-and-drink/kcal-info-june25.pdf,pdf,kcal per dish PDF (also per-club sheets); no allergen matrix online; about 60 clubs
+,puttshack,Puttshack,Leisure venue,Puttshack,https://www.puttshack.com,https://www.puttshack.com/wp-content/uploads/2025/04/PUTTSHACK_ALLERGENS___DIETARY.pdf,pdf,kcal per dish plus dietary key in PDF; separate kids and drinks PDFs; about 6 UK sites
+,places-leisure,Places Leisure cafes,Leisure centre cafe,Places for People,https://www.placesleisure.org,https://www.placesleisure.org/media/dgthlodd/allergen-calories-cafeology-unlabelled-food-july-2025.pdf,pdf,"calorie and allergen charts per cafe range (hot drinks, food, kids); about 100 centres"
+,thistle-hotels,Thistle Hotels,Hotel restaurant,Thistle Hotels,https://www.thistle.com,https://www.thistle.com/wp-content/uploads/sites/4/2025/02/menu.pdf,pdf,kcal per dish on hotel menu PDFs; menus differ by hotel; allergens in info pack on request
+,apex-hotels,Apex Hotels,Hotel restaurant,Apex Hotel Group,https://www.apexhotels.co.uk,https://www.apexhotels.co.uk/destinations/london/apex-temple-court-hotel/dining/,web,"kcal per dish on menu PDFs (Lampery, Orange Artichoke, Quayside); allergens on request; about 8 hotels"
+,natural-history-museum,Natural History Museum cafes,Museum cafe,Natural History Museum,https://www.nhm.ac.uk,https://www.nhm.ac.uk/content/dam/nhm-www/visit/Eatdrinkandshop/menus/Central-Hall-Cafe-menu.pdf,pdf,kcal per dish in cafe menu PDFs (checked); single site
+,imperial-war-museums,Imperial War Museums,Museum cafe,IWM,https://www.iwm.org.uk,https://www.iwm.org.uk/sites/default/files/files/2026-08/19%20Squadron%20Restaurant%20Menu.pdf,pdf,kcal per dish on restaurant menu PDF (checked); 5 branches
+,royal-museums-greenwich,Royal Museums Greenwich cafes,Museum cafe,RMG,https://www.rmg.co.uk,https://www.rmg.co.uk/plan-your-visit/eat-drink,web,Parkside Cafe menu PDF lists kcal per dish; other cafes menus only
+,grosvenor-casinos,Grosvenor Casinos,Casino restaurant,Rank Group,https://www.grosvenorcasinos.com,https://www.grosvenorcasinos.com/local-casinos/on-the-menu,web,venue menu PDFs show kcal per dish; allergens on request; site returns 403 to script so URL from search results
+,kew-gardens,Kew Gardens cafes,Garden cafe,Royal Botanic Gardens Kew,https://www.kew.org,https://www.kew.org/kew-gardens/eating-and-drinking,web,menu PDFs print kcal per dish; site returns 403 to script so URL from search results; single site
+,cadbury-world,Cadbury World,Attraction,Mondelez,https://www.cadburyworld.co.uk,https://cadburyworld.co.uk/media/hfmlirgt/a4-menu-off-peak.pdf,pdf,cafe menu PDF with kcal and QR for allergens; single site
+,jockey-club-racecourses,Jockey Club Racecourses,Racecourse catering,The Jockey Club,https://www.thejockeyclub.co.uk,https://www.thejockeyclub.co.uk/the-experience/food-drink/,web,15 courses; sample hospitality menus only (Warwick one shows kcal); allergen by contacting each course
+,center-parcs,Center Parcs UK,Holiday resort,Center Parcs,https://www.centerparcs.co.uk,https://www.centerparcs.co.uk/information/allergen-information.html,platform:saffronfdh,allergen portal per outlet and village; nutrition filter exists but values not shown to fetcher; 5 villages
+,forest-holidays,Forest Holidays,Holiday cabins,Forest Holidays,https://www.forestholidays.co.uk,https://www.forestholidays.co.uk/food-and-drink/,platform:igfd.menu,allergen menus per location on igfd.menu; menu PDFs print kcal; about 11 locations
+,boom-battle-bar,Boom Battle Bar,Leisure venue,Boom Battle Bar,https://boombattlebar.com/uk,https://boombattlebar.com/uk/allergen-matrix/,web,allergen matrix by venue group; kcal only on some brunch menus; about 24 venues
+,topgolf-uk,Topgolf UK,Leisure venue,Topgolf,https://topgolf.com/uk,https://topgolf.com/uk/menu/,web,"page titled Menu and Nutritional Info; allergen guidance, kcal unverified; about 5 UK sites"
+,travelodge,Travelodge,Hotel restaurant,Travelodge Hotels,https://www.travelodge.co.uk,https://www.travelodge.co.uk/about/allergen-information/,pdf,allergen chart PDFs per menu (dinner kids breakfast drinks); no kcal; dinner menu marks under 600 calories
+,rhs-gardens,RHS Gardens,Garden cafe,Royal Horticultural Society,https://www.rhs.org.uk,https://www.rhs.org.uk/gardens/rosemoor/food-drink/the-garden-restaurant,web,kcal and allergens on Rosemoor menu only; other 4 gardens give allergy advice only
+,all-star-lanes,All Star Lanes,Bowling,All Star Lanes,https://www.allstarlanes.co.uk,https://www.allstarlanes.co.uk/food-drink,pdf,allergen guide PDFs per site and menu (food kids drinks); no kcal seen; about 4 sites
+,planet-ice,Planet Ice,Ice rink cafe,Planet Ice,https://planet-ice.co.uk,https://planet-ice.co.uk/food-and-drink,pdf,master allergen matrix PDF (checked); no kcal; about 10 rinks
+,hoburne,Hoburne Holidays,Holiday park,Hoburne,https://www.hoburne.com,https://www.hoburne.com/holidays/food-and-drink/about-our-food-and-drink/,pdf,allergen sheet PDFs per park and menu; no kcal; 7 parks
+,snow-centre,The Snow Centre (Lodge Bar and Kitchen),Indoor ski cafe,The Snow Centre,https://thesnowcentre.com,https://thesnowcentre.com/hemel-hempstead/plan-your-visit/the-lodge/the-lodge-bar-and-kitchen-allergen-information/,web,per-item allergen page (checked); no kcal; Hemel Hempstead and Manchester only
+,scott-cinemas,Scott Cinemas,Cinema,Scott Cinemas,https://www.scottcinemas.co.uk,https://www.scottcinemas.co.uk/nutritional-information,web,NUTRI DATA link on home page; page needs a cinema pick and returned 403 to fetch tool so content unchecked
+,blackpool-pleasure-beach,Blackpool Pleasure Beach,Theme park,Pleasure Beach,https://www.blackpoolpleasurebeach.com,https://www.blackpoolpleasurebeach.com/allergen-information/,pdf,one allergen PDF per outlet (22); no kcal; single park
+,paultons-park,Paultons Park,Theme park,Paultons,https://paultonspark.co.uk,https://paultonspark.co.uk/food-and-drink/,web,online menus per outlet with allergen filter; page says kcal may vary; single park
+,electric-shuffle,Electric Shuffle,Leisure venue,Electric Shuffle,https://electricshuffle.com/uk,https://electricshuffle.com/food-menu,web,online menu hides dishes by 14 allergens; UK PDF menu uses V/Ve/NGC codes; site returns 403 to script so URL from search results; about 5 UK sites
+,diggerland,Diggerland,Theme park,Diggerland,https://www.diggerland.com,https://www.diggerland.com/food-outlets/,web,"View Allergen Info button on food outlets page (franchised cafes, 4 parks); content unchecked"
+,lightwater-valley,Lightwater Valley,Theme park,Lightwater Valley,https://lightwatervalley.co.uk,https://lightwatervalley.co.uk/places-to-eat,platform:ifoodi,dietary requirements tool on ifoodi (system.ifoodi.com/console/qr/lightwater_valley); single park
+,royal-opera-house,Royal Opera House restaurants,Theatre venue,Royal Opera House,https://www.rbo.org.uk,https://www.rbo.org.uk/visit/eat-and-drink,web,menu pages have Show calories toggle; cafe menu lists kcal per drink; single venue
+,mecca-bingo,Mecca Bingo,Bingo club food,Rank Group,https://www.meccabingo.com,,none,allergens via QR code on menu; no kcal published online; about 40 clubs
+,genting-casinos,Genting Casinos,Casino restaurant,Genting UK,https://www.gentingcasinos.co.uk,,none,per-casino menu PDFs on whats-on pages; no kcal or allergen table seen
+,de-vere-hotels,De Vere Hotels,Hotel restaurant,De Vere Group,https://www.devere.co.uk,,none,dining page has no allergen or nutrition link
+,radisson-hotels,Radisson Hotels,Hotel restaurant,Radisson Hotel Group,https://www.radissonhotels.com/en-gb,,none,site blocked
+,macdonald-hotels,Macdonald Hotels & Resorts,Hotel restaurant,Macdonald Hotels,https://www.macdonaldhotels.co.uk,,none,site blocked
+,ihg-hotels,IHG Hotels & Resorts,Hotel restaurant,IHG,https://www.ihg.com/hotels/gb/en/reservation,,none,no food or allergen link on home page; Holiday Inn already known
+,hyatt-hotels,Hyatt Hotels,Hotel restaurant,Hyatt,https://www.hyatt.com/en-GB/home,,none,home returned 429 once; dish menus sit behind View Menu per hotel; few UK sites
+,principal-hotels,Principal Hotels,Hotel restaurant,Principal,https://www.the-principal.com,,none,no allergen or nutrition link found; search returned nothing
+,motel-one,Motel One,Hotel restaurant,Motel One,https://www.motel-one.com/en,,none,only a 2019 London bar menu PDF with allergen key; breakfast has no allergen list
+,maldron-clayton-hotels,Maldron and Clayton Hotels,Hotel restaurant,Dalata Hotel Group,https://www.maldronhotels.com,,none,UK allergies page /menu-allergens-UK/ exists but shows no data to fetcher; Clayton menus use QR for allergens; about 11 UK hotels
+,accor-ibis-novotel,ibis and Novotel (Accor),Hotel restaurant,Accor,https://all.accor.com/a/en/brands/novotel.html,,none,no food allergen or nutrition link found
+,wyndham-hotels,Wyndham Hotels (Ramada Days Inn),Hotel restaurant,Wyndham,https://www.wyndhamhotels.com/en-uk,,none,no food information link on home page
+,yotel,YOTEL,Hotel restaurant,YOTEL,https://www.yotel.com/en,,none,no food information link on home page
+,roomzzz,Roomzzz,Aparthotel,Roomzzz,https://www.roomzzz.com,,none,no food information link on home page
+,yha-england-wales,YHA England and Wales,Hostel cafe,YHA,https://www.yha.org.uk,,none,site blocked
+,the-pig-hotels,The Pig Hotels,Hotel restaurant,The Pig,https://www.thepighotel.com,,none,site blocked
+,champneys,Champneys,Spa resort,Champneys,https://www.champneys.com,,none,menus and Lighter Choice range but no kcal or allergen table found; 4 resorts
+,bluestone-wales,Bluestone Wales,Holiday resort,Bluestone,https://www.bluestonewales.com,,none,sample menu PDFs; gluten-free marks only; single resort
+,flamingo-land,Flamingo Land,Theme park,Flamingo Land,https://www.flamingoland.co.uk,,none,dietary labels per outlet only; phone for allergens
+,eden-project,Eden Project,Attraction,Eden Project,https://www.edenproject.com,,none,menu PDFs per outlet; current Biome Kitchen PDF has no kcal text; staff for allergens; single site
+,blenheim-palace,Blenheim Palace,Attraction,Blenheim,https://www.blenheimpalace.com,,none,cafe pages carry no allergen or nutrition link; single site
+,historic-royal-palaces,Historic Royal Palaces,Attraction,HRP,https://www.hrp.org.uk,,none,site blocked; allergen folders on site per search results
+,science-museum-group,Science Museum Group,Museum cafe,Science Museum Group,https://www.sciencemuseum.org.uk,,none,allergen champions on site; menus on benugo.com (Benugo already known)
+,v-and-a,V&A cafes,Museum cafe,Victoria and Albert Museum,https://www.vam.ac.uk,,none,allergy advice text only; no kcal or allergen table
+,tate,Tate cafes,Museum cafe,Tate,https://www.tate.org.uk,,none,allergen information on request; sample menus only
+,british-museum,British Museum,Museum cafe,British Museum,https://www.britishmuseum.org,,none,site blocked
+,zsl-zoos,ZSL London Zoo and Whipsnade,Zoo,ZSL,https://www.zsl.org/zsl-london-zoo,,none,site blocked; food pages offer menu PDFs and a non-gluten/dairy-free menu per search results
+,edinburgh-zoo,Edinburgh Zoo (RZSS),Zoo,RZSS,https://www.edinburghzoo.org.uk,,none,"two menu PDFs, no kcal (checked); allergen guidance on request"
+,chester-zoo,Chester Zoo,Zoo,Chester Zoo,https://www.chesterzoo.org,,none,dietary options only; no allergen or kcal data found
+,longleat,Longleat,Safari park,Longleat,https://www.longleat.co.uk,,none,site blocked; allergen lists in restaurants per help centre
+,woburn-safari-park,Woburn Safari Park,Safari park,Woburn,https://www.woburnsafari.co.uk,,none,"menu PDF with dietary updates, no kcal (checked)"
+,drayton-manor,Drayton Manor,Theme park,Drayton Manor,https://www.draytonmanor.com,,none,home page returned an empty shell; nothing found
+,wwt-wetland-centres,WWT Wetland Centres,Wildlife cafe,WWT,https://www.wwt.org.uk,,none,10 centres; eat-drink pages give dietary options and a sample menu only
+,historic-environment-scotland,Historic Environment Scotland cafes,Attraction cafe,HES,https://www.historicenvironment.scot,,none,menu PDF says ask staff for allergens; no kcal
+,the-o2,The O2,Venue,AEG,https://www.theo2.co.uk,,none,restaurants and arena food pages have no allergen or nutrition link
+,southbank-centre,Southbank Centre,Venue,Southbank Centre,https://www.southbankcentre.co.uk,,none,site blocked
+,royal-albert-hall,Royal Albert Hall,Venue,Royal Albert Hall,https://www.royalalberthall.com,,none,site blocked
+,flip-out,Flip Out,Trampoline park,Flip Out,https://www.flipout.co.uk,,none,cafe menu PDFs say ask staff for allergens; about 10 parks
+,junkyard-golf-club,Junkyard Golf Club,Leisure venue,Junkyard Golf Club,https://www.junkyardgolfclub.co.uk,,none,menus link a separate allergen advice page not found; about 6 venues
+,bounce,Bounce,Leisure venue,Bounce,https://www.bouncepingpong.com,,none,menu has V/NG codes only; 3 London sites
+,savoy-cinemas,Savoy Cinemas,Cinema,Savoy,https://www.savoycinemas.co.uk,,none,no food information found
+,movie-house-cinemas,Movie House Cinemas,Cinema,Movie House,https://moviehouse.co.uk,,none,no food information link on home page
+,zip-world,Zip World,Adventure park cafe,Zip World,https://www.zipworld.co.uk,,none,"cafe pages show menus only, no allergen data seen"
+,nuffield-health,Nuffield Health,Gym cafe,Nuffield Health,https://www.nuffieldhealth.com,,none,hospital patient menus only; gym cafes give no allergen or kcal data
+,pure-gym,PureGym,Gym,PureGym,https://www.puregym.com,,none,no cafes; nutrition links are blog advice only
