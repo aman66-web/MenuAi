@@ -1,0 +1,46 @@
+batch,id,name,cuisine,parent_hint,site
+,german-doner-kebab,German Doner Kebab,Kebab,GDK Group,https://gdk.uk.com
+,slim-chickens,Slim Chickens,Fried chicken,Slim Chickens Inc,https://www.slimchickens.co.uk
+,cake-box,Cake Box,Dessert,Cake Box Holdings,https://www.cakebox.com
+,greenhalghs,Greenhalgh's,Bakery,Greenhalgh's Craft Bakery,https://www.greenhalghs.com
+,hotel-chocolat,Hotel Chocolat,Chocolate cafe,Hotel Chocolat Group,https://www.hotelchocolat.com
+,fireaway-pizza,Fireaway Pizza,Pizza,Fireaway Pizza Ltd,https://www.fireaway.co.uk
+,caprinos-pizza,Caprinos Pizza,Pizza,Caprinos Foods,https://www.caprinos.co.uk
+,favorite-fried-chicken,Favorite Fried Chicken,Fried chicken,,https://www.favoritechicken.co.uk
+,blank-street-coffee,Blank Street Coffee,Coffee,Blank Street,https://www.blankstreet.com
+,t4,T4,Bubble tea,,https://www.t4.com
+,jollibee,Jollibee,Fried chicken,Jollibee Foods Corporation,https://www.jollibee.co.uk
+,miss-millies,Miss Millie's,Fried chicken,,https://www.missmillies.co.uk
+,apache-pizza,Apache Pizza,Pizza,Apache Pizza Ltd,https://www.apache-pizza.com
+,baynes,Bayne's the Family Bakers,Bakery,Baynes Bakers,https://baynes.co.uk
+,thomas-the-baker,Thomas the Baker,Bakery,,https://www.thomasthebaker.co.uk
+,wild-bean-cafe,Wild Bean Cafe,Forecourt cafe,bp,https://www.bp.com/en_gb/united-kingdom/home/products-and-services/bp-retail/wildbean-cafe.html
+,amorino,Amorino,Ice cream,Amorino UK,https://www.amorino.com/uk
+,heavenly-desserts,Heavenly Desserts,Dessert,,https://www.heavenlydesserts.co.uk
+,little-dessert-shop,Little Dessert Shop,Dessert,,https://www.littledessertshop.co.uk
+,chocoberry,Chocoberry,Dessert,,https://www.chocoberry.co.uk
+,haute-dolci,Haute Dolci,Dessert,,https://www.hautedolci.co.uk
+,fluffy-fluffy,Fluffy Fluffy,Dessert,,https://www.fluffyfluffy.co.uk
+,treatz,Treatz,Dessert,,https://www.treatz.co.uk
+,snowflake,Snowflake,Gelato and dessert,Snowflake Gelato,https://www.snowflakegelato.co.uk
+,cheat-daze,Cheat Daze,Dessert,,https://www.cheatdaze.co.uk
+,bens-cookies,Ben's Cookies,Cookies,,https://www.benscookies.com
+,atis,Atis,Salad,,https://www.atis.co.uk
+,the-salad-project,The Salad Project,Salad,,https://www.thesaladproject.co.uk
+,cornish-bakery,The Cornish Bakery,Bakery,The Cornish Bakery,https://www.thecornishbakery.com
+,costco-food-court,Costco Food Court,Food court,Costco Wholesale UK,https://www.costco.co.uk
+,spar,SPAR,Convenience store,SPAR UK,https://www.spar.co.uk
+,heytea,Heytea,Bubble tea,Heytea,https://www.heytea.com
+,crosstown,Crosstown,Doughnuts and ice cream,Crosstown,https://www.crosstown.co.uk
+,rodeo-doughnuts,Rodeo Doughnuts,Doughnuts,,https://www.rodeo.co.uk
+,grind,Grind,Coffee,Grind,https://www.grind.co.uk
+,amt-coffee,AMT Coffee,Coffee,,https://www.amtcoffee.co.uk
+,daves-hot-chicken,Dave's Hot Chicken,Fried chicken,Azzurri Group,https://www.daveshotchicken.co.uk
+,the-coffee-house,The Coffee House,Coffee,,https://www.thecoffeehouse.co.uk
+,dallas-chicken-and-pizza,Dallas Chicken & Pizza,Fried chicken and pizza,,https://www.dallaschickenandpizza.co.uk
+,soho-coffee-co,SOHO Coffee Co.,Coffee,BTC Hospitality,https://www.sohocoffee.co.uk
+,four-star-pizza,Four Star Pizza,Pizza,,https://www.fourstarpizza.com
+,ashers-bakery,Ashers Bakery,Bakery,,https://www.ashersbakery.co.uk
+,roosters-piri-piri,Roosters Piri Piri,Chicken,,https://www.roosterspiripiri.co.uk
+,kebabish-original,Kebabish Original,Kebab,,https://www.kebabishoriginal.co.uk
+,the-urban-chocolatier,The Urban Chocolatier,Dessert,,https://www.theurbanchocolatier.co.uk
