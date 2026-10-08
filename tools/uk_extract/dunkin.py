@@ -157,7 +157,7 @@ def words_of(text: str, where: str) -> list[str]:
 def _sets(contains_text: str | None, may_text: str | None, where: str) -> tuple[frozenset, frozenset, frozenset, frozenset]:
     c, cer, nuts = allergen_words(words_of(contains_text or "", where), where, DUNKIN_WORDS)
     m, _, _ = allergen_words(words_of(may_text or "", where), where, DUNKIN_WORDS)
-    return frozenset(c), frozenset(m - c), frozenset(cer), frozenset(nuts)
+    return frozenset(c), frozenset(m), frozenset(cer), frozenset(nuts)  # m keeps keys also in c: write_allergens decides how to publish them
 
 
 def page_allergens(r: dict) -> tuple[tuple | None, str]:

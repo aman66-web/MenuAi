@@ -66,10 +66,16 @@ MAY_CONTAIN_PUBLISHED = True  # the matrix prints "*" = may contain traces
 PUBLISH_ALLERGENS = True    # 2026-10-08: published. The matrix has no fish, crustacean or mollusc columns, so those three are never marked and the
                             # app shows them as "Not listed" (it says that is not "free from"); the chain note says so too. False = link only.
 EXCLUDE_SELECT_STORES = False
+# Held back (docs/ACCURACY_AUDIT.md policy 3): the dish's own name or text implies an allergen that the matrix cannot mark (it has no fish column).
+HOLDBACK = {
+    "kebab-caesar-salad": "Allergens would read 'fish: not listed' for a dish tossed in Caesar dressing (classically made with anchovy): the "
+                          "allergen matrix has no fish column, so it cannot say, and the dish's own text does not give the dressing's ingredients.",
+}
 ALIASES = ["chaiiwala"]
-NOTE = ("Calories only: Chaiiwala prints kcal on its menu pages (drinks for Regular and Large), no protein, carbs or fat. Dishes with no kcal "
-        "printed (fridge drinks, Grab & Go, a few others) are not listed. Some dishes are sold in select stores only. The allergen matrix "
-        "has no fish, crustacean or mollusc columns, so those read Not listed, not free from.")
+NOTE = ("Calories only: kcal on the menu pages (drinks Regular and Large), no protein, carbs or fat. Dishes with no kcal printed are not "
+        "listed; some are sold in select stores only. The allergen matrix has no fish, crustacean or mollusc columns, so those read Not "
+        "listed, not free from. Kebab Caesar Salad is not shown (Caesar dressing, no fish column).")
+assert len(NOTE) < 400
 
 # Menu section id (from the page) -> category shown. A new section stops the run.
 SECTIONS = {
@@ -316,7 +322,9 @@ def check_matrix(records: list[dict], cards: list[dict], matrix: dict[str, dict]
 def allergens_for(cells: dict[str, str], where: str) -> dict:
     contains, cereals, nuts = allergen_words([c for c, v in cells.items() if v == "contains"], where, EXTRA_WORDS)
     may, _, _ = allergen_words([c for c, v in cells.items() if v == "may"], where, EXTRA_WORDS)
-    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+    # may_contain keeps keys that are also in contains: a dish that contains one cereal / tree nut and "may contain" another kind then gets
+    # the generic allergen (write_allergens, docs/ACCURACY_AUDIT.md policy 2) instead of hiding the other kind's warning.
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}
 
 
 # ---------------------------------------------------------------------------------------------------- items
@@ -429,9 +437,14 @@ def main() -> int:
     check_matrix(records, read_cards(menu_html), matrix, pdf_rows)
     items, report = build(menu_html, matrix)
     guide = {"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": MAY_CONTAIN_PUBLISHED}
+    names = {slug(i["name"]) for i in items}
+    unknown = set(HOLDBACK) - names
+    if unknown:
+        raise SystemExit(f"HOLDBACK names items that are not in the menu any more: {sorted(unknown)}")
+    held = [(k, v) for k, v in HOLDBACK.items()] if PUBLISH_ALLERGENS else []
     out = write_chain_folder(chain_id=CHAIN_ID, name="Chaiiwala", cuisine="Indian", source_title=SOURCE_TITLE, source_url=BASE + "/menu",
                              checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, allergen_guide=guide,
-                             nutrition_level="calories")
+                             nutrition_level="calories", holdback=held)
     counts: dict[str, int] = {}
     for i in items:
         counts[i["category"]] = counts.get(i["category"], 0) + 1
