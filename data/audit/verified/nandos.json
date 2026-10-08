@@ -1,0 +1,13 @@
+{
+ "chain": "nandos",
+ "date": "2026-10-08",
+ "source_read": "https://www.nandos.co.uk/food/menu/index.html (live page, rendered in Chromium and every product panel opened: Nutritional information tab, Regular and Large) plus its data feed https://www.nandos.co.uk/food/menu/page-data/index/page-data.1791365082461.json (Last-Modified 2026-10-07), downloaded fresh 2026-10-08",
+ "compared_items": 131,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 3,
+ "marked_ok": 2,
+ "not_verifiable": "allergens: none are published for this chain (the page's Allergens tab is not extracted; link-only), so none were compared. Spice-level macros (fat, carbohydrate, protein, salt) are in the feed but the page shows only each spice's kcal (all 6 match); 1 kombucha and 4 wines with no stated volume are not published (existing rule), and the 5 sharing platters (values cover the chicken only)",
+ "notes": "The feed is byte-identical to the one data/source was built from (the site only re-deployed on 7 Oct), so re-running nandos.py reproduces items.csv exactly. All 131 published rows were compared with the numbers printed in the rendered product panels (8 nutrients, every Regular/Large size, duplicates such as the Nandinos wings and Chips/Spicy Rice/Coleslaw checked by position): 0 differ. 3 rows held back by a new rule in nandos.py (holdback.csv): Beanie Wrap (644 kcal and 2696 kJ agree, but protein+carbs+fat give 472 kcal) and Spicy Rice Bowl (600 kcal / 2506 kJ vs 432 kcal from the macros) are 27-28% off on the page itself; Cucumber Sticks (Nandinos side) prints 3 kcal / 27 kJ with 1.7 g protein (7 kcal). Remaining 8 check_chain warnings are the alcoholic drinks (alcohol energy is in no macro column; ABV is in the feed)."
+}

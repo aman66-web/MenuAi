@@ -1,0 +1,13 @@
+{
+ "chain": "carluccios",
+ "date": "2026-10-08",
+ "source_read": "https://menus.tenkites.com/brg/carluccios (hub page re-downloaded 8 Oct; robots.txt of menus.tenkites.com allows it; re-running tools/uk_extract/carluccios.py on it reproduces data/source byte for byte)",
+ "compared_items": 45,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 1,
+ "not_verifiable": "",
+ "notes": "All 45 published rows matched against an independent parse of the page (41 dish pop-ups + the 7 data-recipe objects for the steak, its sides and sauces) on kcal, protein, carbs, sugars, fat, sat fat, fibre, salt and kJ, and on Contains / May contain incl. cereals and tree nuts; no drift since the earlier copy. A description keyword scan found only pine nuts (Goat's Cheese Salad, Tenderstem Broccoli) with no nut mark: pine nuts are not one of the 14 allergens and the chain prints no mark, so left as printed (founder may want to know). Seafood Linguine prints salt 10.6 g (kcal/macros/kJ agree), marked ok."
+}
