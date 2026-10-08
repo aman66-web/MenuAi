@@ -23,6 +23,19 @@ The allergen guide prints each drink once (no Regular/Large, no decaf), lists pi
 spells many products differently ("Bacon & Omelette with cheese Breakfast Roll" for "Bacon & Omelette Breakfast Roll",
 "Gingerbread Man" for "Gingerbread Men", "&" for "and"). Matching those by hand would be fuzzy matching, so it is not done.
 --allergen-pdf is read only for the guide's version and date (page 1: "Version 13 01.10.26"), which go into its title.
+
+Re-checked 2026-10-08 (allergen pass, data/audit/verified/greggs-allergens.json): same answer. The fresh Version 13 (01.10.26) guide is a
+19-page matrix (pages 5-19, 367 rows; a tick = contains, a second glyph = may contain) of products, not of sizes or variants, and it is
+printed three weeks after the nutrition guide. Of the 263 published items 148 have a row under exactly their own name (case, "&"/"and",
+(NEW)/(GF)/(HS) markers and the trademark sign ignored), 26 more are drinks that tie only by dropping "Regular"/"Large" (the guide prints
+each drink once, with no sizes), and 89 have no row of their own: 18 pizza boxes (2/4/6 packs of the guide's single pizza rows), 26 decaf
+drinks (the guide has only a "Decaf Black Coffee" row), 8 omelette rolls and baguettes (the guide's rows say "with cheese"), 2 mineral
+waters, 3 crisps, 7 add-ons (the guide has "Cream", "Vanilla Syrup", the nutrition guide "Extra Cream", "Extra Vanilla Syrup"), and plural or
+count variants (Belgian Buns, Gingerbread Men, Glazed Ring Doughnuts (2 pack), Yum Yums (2 pack), Sausage Roll 4 Pack, ...). That is 44% of
+the items without an exact row (34% even if every size were assumed to share its drink's row), more than the one third the contract allows,
+and tying them would mean inferring that a size, a decaf, a pack or a missing "with cheese" does not change the allergens. The product pages
+on greggs.com/menu/product/ (146 in the sitemap, robots allow them) print a "Contains" list only ("Soya, Wheat") and point to this guide.
+So the app links to the guide (all or nothing); nothing was written.
 """
 from __future__ import annotations
 import argparse

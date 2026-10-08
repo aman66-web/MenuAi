@@ -1,0 +1,10 @@
+{
+ "chain": "greggs",
+ "date": "2026-10-08",
+ "source_read": "https://a.storyblok.com/f/94904/x/c38f77c7c1/allergen-guide.pdf (Customer Allergen Information Guide, Version 13, 01.10.26, 19 pages, created 29 Sep 2026; fresh download today, sha256 e75a084cffe45f25e9343cefe3e46395c0cb1701f715b8420ceb14acc8c94d36) and https://a.storyblok.com/f/94904/x/7dd8489dab/nutritional-information.pdf (sha256 57de70013d0191ccd08d65e7e1a3395c7ee6a07ffc8e21c2861dfedd665efc80), both linked from https://www.greggs.com/nutrition (robots.txt allows it; a.storyblok.com serves no robots.txt: 403 AccessDenied), plus greggs.com/menu and one product page (robots allow /menu).",
+ "compared_items": 263,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "decision": "NOT PUBLISHED: link-only stays (all-or-nothing rule, more than a third of items without an exact allergen row). No allergens.csv was written and no data changed.",
+ "notes": "The allergen guide is a product matrix (ticks = contains, a second glyph = may contain; 367 rows on pages 5-19), not per size or variant. Tie of the 263 published nutrition items to a row by exact normalised name: 148 tie; 26 hot/iced drinks tie only if Regular/Large is ignored (the guide prints each drink once); 89 have no row of their own (18 pizza boxes 2/4/6 pack, 26 decaf drinks, 8 omelette rolls/baguettes whose rows read 'with cheese', 2 mineral waters, 3 crisps, 7 add-ons such as Extra Cream / Extra Vanilla Syrup, and plural/pack variants). 115 of 263 (44%) lack an exact row; 89 (34%) even if every size were assumed to share its drink's row. Founder option, not done: accept qualifier-level ties (size, decaf, pack, 'with cheese') as 'same product', which is an inference about allergens that the guide does not state. The 146 product pages on greggs.com/menu/product/ print only a 'Contains' list (e.g. Bacon Breakfast Roll: Soya, Wheat) and refer to the allergen guide for detail, so they cannot complete the set either. The nutrition guide (printed Sep 2026) and the allergen guide (01.10.26) are also three weeks apart; the allergen guide lists 8 new products the nutrition guide does not have."
+}
