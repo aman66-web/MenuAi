@@ -1,0 +1,13 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,the-real-greek,The Real Greek,Greek,,https://www.therealgreek.com/,https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Allergen%E2%80%93Menu-Spring%E2%80%9326.pdf,pdf,"macronutrient allergen menu: kcal, protein, fat, carbs per dish (read)"
+,blacklock,Blacklock,Steakhouse,,https://theblacklock.com/,https://viewthe.menu/by8v,platform:viewthe.menu,menus page links full allergy and nutrition list per site; energy values shown on the viewthe.menu page (read)
+,fishworks,Fishworks,Seafood,Boparan Restaurant Group,https://www.fishworks.co.uk/,https://menus.tenkites.com/brg/fishworks,platform:tenkites,allergen filter and calories on Ten Kites menu; only a few sites
+,marugame-udon,Marugame Udon,Japanese (udon),Toridoll,https://marugame.co.uk/,https://marugame.co.uk/wp-content/uploads/2026/09/Marugame_Customer_Allergen_Matrix.pdf,pdf,allergen matrix PDF linked from menu page; no calories seen
+,spaghetti-house,Spaghetti House,Italian,,https://www.spaghettihouse.co.uk/,https://www.spaghettihouse.co.uk/s/Allergen-Matrix-September-26-005.pdf,pdf,allergen matrix PDF on menus page
+,kricket,Kricket,Indian,,https://kricketrestaurants.com/,https://menu.menuguide.pro/html/1341AF8/1341AF8.html,platform:menuguide,online allergy menus for all four sites; no nutrition
+,ambiente-tapas,Ambiente Tapas,Spanish tapas,,https://www.ambiente-tapas.co.uk/,https://www.ambiente-tapas.co.uk/dietary,web,"allergy, vegetarian and vegan menu page"
+,cafe-andaluz,Cafe Andaluz,Spanish tapas,,https://www.cafeandaluz.com/,https://www.cafeandaluz.com/allergens,web,"allergen page, choose restaurant first; found by path, menu page names the guide without a link"
+,pasta-evangelists,Pasta Evangelists,Italian (fresh pasta),,https://pastaevangelists.com/,https://pastaevangelists.com/allergens,web,allergens page per dining location
+,maroush,Maroush,Lebanese,,https://www.maroush.com/,https://www.maroush.com/wp-content/uploads/2024/07/Maroush-House-Menu-Sept-2022-with-sandwishes8pp-1.pdf,pdf,main menu PDF lists allergens per dish; dated Sept 2022; no calories
+,caravan,Caravan,Global small plates/brunch,,https://caravanandco.com/,https://caravanandco.com/pages/nutrition,web,Nutritional + Allergen Info page with per-site allergen guides (flipsnack/web)
+,lunya,Lunya,Spanish/Catalan,,https://lunya.co.uk/,https://lunya.co.uk/lunya-liverpool/lunya-hanover-allergen-matrix-november-2025/,web,allergen matrix and dietary advice pages per site; only a few sites
