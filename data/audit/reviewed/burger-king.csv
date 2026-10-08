@@ -1,0 +1,6 @@
+item,code,verdict,evidence
+bacon-caesar-angus,sodium-very-high,ok,"PDF page 1 (BEEF) row 1: sodium 2700 mg, salt 6.8 g (consistent: 2700 mg is about 6.8 g salt), per 100 g sodium 1100 mg x 253 g = 2783 mg"
+bacon-caesar-crispy-chicken,sodium-very-high,ok,"PDF page 2 (CHICKEN) row 1: sodium 3100 mg, salt 7.7 g (consistent), per 100 g sodium 1200 mg x 246 g = 2952 mg"
+burger-buddies-box-9,sodium-very-high,ok,"PDF page 1 (BEEF): serving 1128 g, sodium 3461 mg, salt 9.7 g (consistent), per 100 g sodium 307 mg x 1128 g = 3463 mg"
+chicken-royale-double-with-cheese-bacon,sodium-very-high,ok,"PDF page 2 (CHICKEN): sodium 2454 mg, salt 6.2 g (consistent), per 100 g sodium 709 mg x 346 g = 2453 mg"
+chocolate-milkshake-22oz,sugar-implausible,ok,"PDF page 6 (SWEETS): serving 783 g, carbs 174 g of which sugars 124 g, per 100 g sugars 16 g x 783 g = 125 g; kcal 968 matches macros (about 970)"

@@ -98,10 +98,15 @@ def write_allergens(out: Path, chain_id: str, rows: list[tuple[str, dict]], guid
         w.writerow(["id", "contains", "may_contain", "cereals", "nuts"])
         for item_id, a in rows:
             contains = set(a.get("contains", ()))
-            may = set(a.get("may_contain", ())) - contains
+            may_raw = set(a.get("may_contain", ()))
+            may = may_raw - contains
+            # A dish that contains one tree nut (or cereal) and "may contain" another is stored once as "contains": the model cannot
+            # hold the same key in both columns. Naming only the contained kind would hide the may-contain warning for the other
+            # kinds, so when the guide prints both the specific kinds are left out and the app shows the generic allergen.
+            both = may_raw & contains
             w.writerow([item_id, "|".join(sorted(contains)), "|".join(sorted(may)),
-                        "|".join(sorted(a.get("cereals", ()))) if "gluten" in contains else "",
-                        "|".join(sorted(a.get("nuts", ()))) if "nuts" in contains else ""])
+                        "|".join(sorted(a.get("cereals", ()))) if "gluten" in contains and "gluten" not in both else "",
+                        "|".join(sorted(a.get("nuts", ()))) if "nuts" in contains and "nuts" not in both else ""])
 
 
 def write_chain_folder(*, chain_id: str, name: str, cuisine: str, source_title: str, source_url: str, checked_on: str,
