@@ -1,0 +1,123 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+gardeners-breakfast-platter,Gardener’s Breakfast Platter,Breakfast,,1298,,,,,,,,,,,,,,,contains_pork,false,false,,,"SS26-Breakfast-Menu.pdf: printed 'GARDENER’S BREAKFAST PLATTER' 1298; Free range eggs, bacon, Cumberland sausage, ..."
+add-2-slices-of-farmhouse-toast-to-a-platter,Add 2 slices of Farmhouse Toast (to a platter),Breakfast,,361,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Breakfast-Menu.pdf: printed 'Add 2 slices of Farmhouse Toast (V)' 361; Printed under both the Gardener's and the Vegetarian platter with the same figure
+vegetarian-breakfast-platter,Vegetarian Breakfast Platter,Breakfast,,1148,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Breakfast-Menu.pdf: printed 'VEGETARIAN BREAKFAST PLATTER (V)' 1148
+vegan-breakfast-platter,Vegan Breakfast Platter,Breakfast,,1021,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Breakfast-Menu.pdf: printed 'VEGAN BREAKFAST PLATTER (Ve)' 1021
+welsh-rarebit-and-poached-egg,Welsh Rarebit and Poached Egg,Breakfast,,784,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Breakfast-Menu.pdf: printed 'WELSH RAREBIT AND POACHED EGG' 784; With smoked streaky bacon; the website page also prints 784 kcal
+eggs-royale,Eggs Royale,Breakfast,,559,,,,,,,,,,,,,,,,false,false,,,SS26-Breakfast-Menu.pdf: printed 'EGGS ROYALE' 559
+eggs-benedict,Eggs Benedict,Breakfast,,580,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Breakfast-Menu.pdf: printed 'EGGS BENEDICT' 580; Mustard glazed gammon
+eggs-florentine,Eggs Florentine,Breakfast,,476,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Breakfast-Menu.pdf: printed 'EGGS FLORENTINE (V)' 476
+mushrooms-on-sourdough,Mushrooms on Sourdough,Breakfast,,560,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Breakfast-Menu.pdf: printed 'MUSHROOMS ON SOURDOUGH (V)' 560
+scrambled-eggs-on-sourdough,Scrambled Eggs on Sourdough,Breakfast,,860,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Breakfast-Menu.pdf: printed 'SCRAMBLED EGGS ON SOURDOUGH (V)' 860; 860 kcal printed as is (the menu's Mushrooms on Sourdough prints 560, the children's scrambled eggs on toast 540)"
+add-bacon-to-scrambled-eggs-on-sourdough,Add bacon (to Scrambled Eggs on Sourdough),Breakfast,,236,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Breakfast-Menu.pdf: printed 'Add bacon' 236; Printed 'Add bacon 236 kcals for £1.75': the bacon's own calories
+sausage-or-bacon-ciabatta-with-2-cumberland-sausages,Sausage or Bacon Ciabatta with 2 Cumberland sausages,Breakfast,,1061,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Breakfast-Menu.pdf: printed '2 Cumberland sausages' 1061
+sausage-or-bacon-ciabatta-with-3-rashers-of-back-bacon,Sausage or Bacon Ciabatta with 3 rashers of back bacon,Breakfast,,863,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Breakfast-Menu.pdf: printed '3 rashers of back bacon' 863
+sausage-or-bacon-ciabatta-with-2-vegan-sausages,Sausage or Bacon Ciabatta with 2 vegan sausages,Breakfast,,610,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Breakfast-Menu.pdf: printed 'or 2 vegan sausages (Ve)' 610
+pancake-stack-with-natural-yoghurt-forest-fruits-blueberries-and-honey,"Pancake Stack with natural yoghurt, forest fruits, blueberries and honey",Breakfast,,404,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Breakfast-Menu.pdf: printed 'natural yoghurt topped with forest fruits, fresh blueberries and honey (V)' 404"
+pancake-stack-with-streaky-bacon-sour-cream-maple-syrup-and-cinnamon,"Pancake Stack with streaky bacon, sour cream, maple syrup and cinnamon",Breakfast,,661,,,,,,,,,,,,,,,contains_pork,false,false,,,"SS26-Breakfast-Menu.pdf: printed 'streaky bacon, sour cream, maple syrup and cinnamon' 661"
+flat-mushroom-brie-and-chilli-jam-toasted-ciabatta,"Flat Mushroom, Brie and Chilli Jam Toasted Ciabatta",Hot sandwiches,,639,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Lunch-Menu.pdf: printed 'FLAT MUSHROOM, BRIE AND CHILLI JAM TOASTED CIABATTA (V)' 639"
+sausage-and-caramelised-onion-chutney-toasted-ciabatta,Sausage and Caramelised Onion Chutney Toasted Ciabatta,Hot sandwiches,,951,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Lunch-Menu.pdf: printed 'SAUSAGE AND CARAMELISED ONION CHUTNEY TOASTED CIABATTA' 951
+tuna-melt-toasted-ciabatta,Tuna Melt Toasted Ciabatta,Hot sandwiches,,671,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'TUNA MELT TOASTED CIABATTA' 671
+bbq-vegetable-toasted-ciabatta,BBQ Vegetable Toasted Ciabatta,Hot sandwiches,,609,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'BBQ VEGETABLE TOASTED CIABATTA (Ve)' 609
+hot-flaked-smoked-salmon-cream-cheese-and-cucumber-sandwich,"Hot Flaked Smoked Salmon, Cream Cheese and Cucumber Sandwich",Cold sandwiches,,512,,,,,,,,,,,,,,,,false,false,,,"SS26-Lunch-Menu.pdf: printed 'HOT FLAKED SMOKED SALMON, CREAM CHEESE AND CUCUMBER' 512"
+egg-mayonnaise-and-baby-spinach-sandwich,Egg Mayonnaise and Baby Spinach Sandwich,Cold sandwiches,,588,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'EGG MAYONNAISE AND BABY SPINACH (V)' 588
+tuna-mayonnaise-with-cucumber-sandwich,Tuna Mayonnaise with Cucumber Sandwich,Cold sandwiches,,560,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'TUNA MAYONNAISE WITH CUCUMBER' 560
+cheddar-with-apple-and-spring-onion-coleslaw-sandwich,Cheddar with Apple and Spring Onion Coleslaw Sandwich,Cold sandwiches,,471,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'CHEDDAR WITH APPLE AND SPRING ONION COLESLAW (V)' 471
+ham-lettuce-and-tomato-sandwich,"Ham, Lettuce and Tomato Sandwich",Cold sandwiches,,517,,,,,,,,,,,,,,,contains_pork,false,false,,,"SS26-Lunch-Menu.pdf: printed 'HAM, LETTUCE AND TOMATO' 517"
+coronation-chicken-jacket-potato,Coronation Chicken Jacket Potato,Jacket potatoes,,678,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'CORONATION CHICKEN (GF)' 678
+tuna-mayonnaise-jacket-potato,Tuna Mayonnaise Jacket Potato,Jacket potatoes,,557,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'TUNA MAYONNAISE (GF)' 557
+apple-and-spring-onion-coleslaw-jacket-potato,Apple and Spring Onion Coleslaw Jacket Potato,Jacket potatoes,,390,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Lunch-Menu.pdf: printed 'APPLE AND SPRING ONION COLESLAW (V, GF)' 390"
+cheddar-and-beans-jacket-potato,Cheddar and Beans Jacket Potato,Jacket potatoes,,734,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Lunch-Menu.pdf: printed 'CHEDDAR AND BEANS (V, GF)' 734"
+mixed-bean-chilli-jacket-potato,Mixed Bean Chilli Jacket Potato,Jacket potatoes,,782,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Lunch-Menu.pdf: printed 'MIXED BEAN CHILLI (Ve, GF)' 782"
+butter-served-with-the-soups-sourdough-roll,Butter (served with the soup’s sourdough roll),Soup,,91,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'Choose from butter' 91; Printed 'Choose from butter (91 kcal) or vegan spread (45 kcal)'; the soup itself prints 'Calories vary'
+vegan-spread-served-with-the-soups-sourdough-roll,Vegan spread (served with the soup’s sourdough roll),Soup,,45,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'or vegan spread' 45
+fish-and-chips,Fish and Chips,Main courses,,1060,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'FISH AND CHIPS (GF)' 1060
+chicken-and-chorizo-rigatoni,Chicken and Chorizo Rigatoni,Main courses,,1126,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Lunch-Menu.pdf: printed 'CHICKEN AND CHORIZO RIGATONI' 1126
+bacon-and-cheese-burger,Bacon and Cheese Burger,Main courses,,975,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"SS26-Lunch-Menu.pdf: printed 'BACON AND CHEESE BURGER' 975; Two 3oz beef burgers, smoked streaky bacon; the website page also prints 975 kcal"
+beyond-meat-burger,Beyond Meat Burger,Main courses,,846,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'BEYOND MEAT BURGER (Ve)' 846
+fish-goujon-burger,Fish Goujon Burger,Main courses,,822,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'FISH GOUJON BURGER' 822
+oriental-rice-noodle-salad,Oriental Rice Noodle Salad,Salads and flatbreads,,553,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Lunch-Menu.pdf: printed 'ORIENTAL RICE NOODLE SALAD (Ve, GF)' 553; The website page also prints 553 kcal"
+add-halloumi-to-oriental-rice-noodle-salad,Add halloumi (to Oriental Rice Noodle Salad),Salads and flatbreads,,320,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'Add halloumi' 320; Printed 'Add halloumi 320 kcal for £2.95'; no dietary mark printed
+crispy-chicken-and-bacon-salad,Crispy Chicken and Bacon Salad,Salads and flatbreads,,650,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Lunch-Menu.pdf: printed 'CRISPY CHICKEN AND BACON SALAD (GF)' 650
+tuna-and-egg-salad,Tuna and Egg Salad,Salads and flatbreads,,441,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'TUNA AND EGG SALAD (GF)' 441
+chicken-tikka-flatbread,Chicken Tikka Flatbread,Salads and flatbreads,,600,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'CHICKEN TIKKA FLATBREAD' 600
+halloumi-and-hot-honey-flatbread,Halloumi and Hot Honey Flatbread,Salads and flatbreads,,910,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'HALLOUMI AND HOT HONEY FLATBREAD (V)' 910
+sweet-potato-falafel-flatbread,Sweet Potato Falafel Flatbread,Salads and flatbreads,,602,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'SWEET POTATO FALAFEL FLATBREAD (Ve)' 602
+chips,Chips,Side dishes,,270,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'CHIPS (GF)' 270
+cheesy-chips,Cheesy Chips,Side dishes,,456,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'CHEESY CHIPS (GF)' 456
+crispy-homemade-potato-wedges,Crispy Homemade Potato Wedges,Side dishes,,281,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'CRISPY HOMEMADE POTATO WEDGES (GF)' 281
+dressed-salad,Dressed Salad,Side dishes,,67,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Lunch-Menu.pdf: printed 'DRESSED SALAD OR VEGETABLE PORTION (Ve, GF)' 67/45; Printed '67/45 kcal': first = dressed salad, second = vegetable portion, in the printed order of the words"
+vegetable-portion,Vegetable Portion,Side dishes,,45,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Lunch-Menu.pdf: printed 'DRESSED SALAD OR VEGETABLE PORTION (Ve, GF)' 67/45; Printed '67/45 kcal': first = dressed salad, second = vegetable portion, in the printed order of the words"
+bread-and-butter-2-slices,"Bread and Butter, 2 slices",Side dishes,,361,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'BREAD AND BUTTER - 2 SLICES (V)' 361
+garlic-bread,Garlic Bread,Side dishes,,528,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Lunch-Menu.pdf: printed 'GARLIC BREAD (Ve)' 528
+homemade-onion-rings,Homemade Onion Rings,Side dishes,,236,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'HOMEMADE ONION RINGS (GF)' 236
+crispy-breaded-half-chicken-breast,Crispy Breaded Half Chicken Breast,Side dishes,,327,,,,,,,,,,,,,,,,false,false,,,SS26-Lunch-Menu.pdf: printed 'CRISPY BREADED HALF CHICKEN BREAST (GF)' 327
+english-breakfast,English Breakfast,Children’s breakfast,,681,,,,,,,,,,,,,,,contains_pork,false,false,,,"SS26-Childrens-Menu.pdf: printed 'English breakfast' 681; Sausage, fried egg, hash brown and baked beans"
+banana-yoghurt-and-honey-pancakes,"Banana, Yoghurt and Honey Pancakes",Children’s breakfast,,291,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Childrens-Menu.pdf: printed 'Banana, yoghurt and honey pancakes (V)' 291"
+baked-beans-on-toast,Baked Beans on Toast,Children’s breakfast,,379,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Childrens-Menu.pdf: printed 'Baked beans on toast (V)' 379
+scrambled-eggs-on-toast,Scrambled Eggs on Toast,Children’s breakfast,,540,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Childrens-Menu.pdf: printed 'Scrambled eggs on toast (V)' 540
+cheese-on-toast-soldiers,Cheese on Toast Soldiers,Children’s breakfast,,331,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Childrens-Menu.pdf: printed 'Cheese on toast soldiers (V)' 331
+breaded-chicken-strips-with-chips-and-beans,Breaded Chicken Strips with Chips and Beans,Children’s hot meal deal,,468,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Breaded chicken strips with chips and beans (GF)' 468
+fish-goujons-with-chips-and-peas,Fish Goujons with Chips and Peas,Children’s hot meal deal,,431,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Fish goujons with chips and peas (GF)' 431
+cheese-burger-and-chips,Cheese Burger and Chips,Children’s hot meal deal,,640,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Cheese burger and chips' 640; The menu does not say beef: no tag
+tomato-and-sausage-rigatoni-pasta,Tomato and Sausage Rigatoni Pasta,Children’s hot meal deal,,558,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Childrens-Menu.pdf: printed 'Tomato and sausage rigatoni pasta' 558
+jacket-potato-with-cheese-and-beans,Jacket Potato with Cheese and Beans,Children’s hot meal deal,,553,,,,,,,,,,,,,,,vegetarian,false,false,,,"SS26-Childrens-Menu.pdf: printed 'Jacket potato with cheese and beans (V, GF)' 553"
+cheese-sandwich,Cheese Sandwich,Children’s sandwiches,,585,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Childrens-Menu.pdf: printed 'Cheese sandwich (V)' 585
+ham-sandwich,Ham Sandwich,Children’s sandwiches,,471,,,,,,,,,,,,,,,contains_pork,false,false,,,SS26-Childrens-Menu.pdf: printed 'Ham sandwich' 471
+tuna-mayonnaise-sandwich,Tuna Mayonnaise Sandwich,Children’s sandwiches,,521,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Tuna mayonnaise sandwich' 521
+pom-bears,Pom Bears,Children’s snacks,,95,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Pom Bears' 95; Printed in Snacks and in the Cold meal deal with the same figure
+mini-cheddars,Mini Cheddars,Children’s snacks,,179,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Mini Cheddars' 179; Printed in Snacks and in the Cold meal deal with the same figure
+jelly-pot,Jelly Pot,Children’s snacks,,39,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Jelly pot' 39; Printed in Snacks and in the Cold meal deal with the same figure
+kids-cake,Kids Cake,Children’s snacks,,92,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Kids cake' 92
+pip-rainbow-lolly,Pip Rainbow Lolly,Children’s snacks,,19,,,,,,,,,,,,,,,,false,false,,,SS26-Childrens-Menu.pdf: printed 'Pip rainbow lolly' 19
+salad-cold-meal-deal,Salad (cold meal deal),Children’s cold meal deal,,67,,,,,,,,,,,,,,,,false,false,,,"SS26-Childrens-Menu.pdf: printed 'kcal, Salad' 67; Printed only in the Cold meal deal's 'Sandwich or salad' choice"
+brownie-and-ice-cream,Brownie and Ice Cream,Children’s desserts,,448,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Childrens-Menu.pdf: printed 'Brownie and ice cream (V)' 448
+banana-and-chocolate-pancakes,Banana and Chocolate Pancakes,Children’s desserts,,278,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Childrens-Menu.pdf: printed 'Banana and chocolate pancakes (V)' 278
+cake-and-custard,Cake and Custard,Children’s desserts,,143,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Childrens-Menu.pdf: printed 'Cake and custard (V)' 143
+flat-white,Flat White,Hot drinks,,74,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'FLAT WHITE' 74; One figure and one price (under the 'small' column)
+latte-small,Latte (small),Hot drinks,Small,106,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'LATTE' 106/152; Printed '106/152 kcal' under small / regular
+latte-regular,Latte (regular),Hot drinks,Regular,152,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'LATTE' 106/152; Printed '106/152 kcal' under small / regular
+cappuccino-small,Cappuccino (small),Hot drinks,Small,112,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'CAPPUCCINO' 112/154; Printed '112/154 kcal' under small / regular
+cappuccino-regular,Cappuccino (regular),Hot drinks,Regular,154,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'CAPPUCCINO' 112/154; Printed '112/154 kcal' under small / regular
+americano-small,Americano (small),Hot drinks,Small,28,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'AMERICANO' 28/28; Printed '28/28 kcal': the same figure for both sizes
+americano-regular,Americano (regular),Hot drinks,Regular,28,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'AMERICANO' 28/28; Printed '28/28 kcal': the same figure for both sizes
+mocha-small,Mocha (small),Hot drinks,Small,167,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'MOCHA' 167/213; Printed '167/213 kcal' under small / regular
+mocha-regular,Mocha (regular),Hot drinks,Regular,213,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'MOCHA' 167/213; Printed '167/213 kcal' under small / regular
+espresso,Espresso,Hot drinks,,0,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'ESPRESSO' 0; Printed '0 kcal' beside a 'double' price
+syrup-shot-caramel-hazelnut-or-vanilla,"Syrup Shot (caramel, hazelnut or vanilla)",Hot drinks,,64,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'SYRUP SHOT' 64
+hot-chocolate,Hot Chocolate,Hot drinks,,251,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'HOT CHOCOLATE' 251
+luxury-hot-chocolate,Luxury Hot Chocolate,Hot drinks,,402,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'LUXURY HOT CHOCOLATE' 402
+tea,Tea,Hot drinks,,28,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'TEA' 28
+speciality-teas,Speciality Teas,Hot drinks,,0,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'SPECIALITY TEAS' 0; Printed '0 kcal'
+iced-latte,Iced Latte,Seasonal drinks,,78,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'ICED LATTE' 78
+chai-latte,Chai Latte,Seasonal drinks,,228,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'CHAI LATTE' 228
+mango-and-lime-cooler,Mango and Lime Cooler,Seasonal drinks,,98,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Drinks-Menu.pdf: printed 'MANGO AND LIME (Ve)' 98
+strawberry-and-mint-cooler,Strawberry and Mint Cooler,Seasonal drinks,,118,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Drinks-Menu.pdf: printed 'STRAWBERRY AND MINT (Ve)' 118
+elderflower-and-apple-cooler,Elderflower and Apple Cooler,Seasonal drinks,,113,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'ELDERFLOWER AND APPLE' 113
+peach-iced-tea,Peach Iced Tea,Seasonal drinks,,98,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Drinks-Menu.pdf: printed 'PEACH ICED TEA (Ve)' 98; Listed under 'Our refreshing coolers'
+chocolate-milkshake,Chocolate Milkshake,Seasonal drinks,,334,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Drinks-Menu.pdf: printed 'CHOCOLATE (V)' 334; Under 'Our homemade cream topped milkshakes'
+strawberry-milkshake,Strawberry Milkshake,Seasonal drinks,,278,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Drinks-Menu.pdf: printed 'STRAWBERRY (V)' 278
+vanilla-milkshake,Vanilla Milkshake,Seasonal drinks,,294,,,,,,,,,,,,,,,vegetarian,false,false,,,SS26-Drinks-Menu.pdf: printed 'VANILLA (V)' 294
+cherry-bakewell-milkshake,Cherry Bakewell Milkshake,Seasonal drinks,,361,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'CHERRY BAKEWELL' 361
+luscombe-elderflower-bubbly,Luscombe Elderflower Bubbly,Cold drinks,,54,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'LUSCOMBE ELDERFLOWER BUBBLY' 54
+luscombe-sicilian-lemonade,Luscombe Sicilian Lemonade,Cold drinks,,86,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'LUSCOMBE SICILIAN LEMONADE' 86
+breckland-orchard-plum-and-cherry,Breckland Orchard Plum & Cherry,Cold drinks,,129,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'BRECKLAND ORCHARD PLUM & CHERRY' 129
+breckland-orchard-zero-sugar-strawberry-and-rhubarb,Breckland Orchard Zero Sugar Strawberry & Rhubarb,Cold drinks,,8,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'BRECKLAND ORCHARD ZERO SUGAR STRAWBERRY & RHUBARB' 8
+fentimans-ginger-beer,Fentimans Ginger Beer,Cold drinks,,107,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'FENTIMANS GINGER BEER' 107
+fentimans-lemon-shandy,Fentimans Lemon Shandy,Cold drinks,,102,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'FENTIMANS LEMON SHANDY' 102
+franklin-and-sons-dandelion-and-burdock,Franklin & Sons Dandelion & Burdock,Cold drinks,,55,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'FRANKLIN & SONS DANDELION & BURDOCK' 55
+pepsi,Pepsi,Cold drinks,,59,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'PEPSI' 59
+pepsi-max,Pepsi Max,Cold drinks,,1,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'PEPSI MAX' 1
+thirsty-planet-sparkling-still-mineral-water,Thirsty Planet Sparkling/Still Mineral Water,Cold drinks,,0,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'THIRSTY PLANET SPARKLING/ STILL MINERAL WATER' 0; Printed '0 kcal'
+frobishers-orange-juice,Frobishers Orange Juice,Cold drinks,,90,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'FROBISHERS ORANGE JUICE' 90
+frobishers-apple-juice,Frobishers Apple Juice,Cold drinks,,105,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'FROBISHERS APPLE JUICE' 105
+peroni-zero,Peroni Zero,Cold drinks,,75,,,,,,,,,,,,,,,,false,false,,,SS26-Drinks-Menu.pdf: printed 'PERONI ZERO' 75
+creamy-stilton-mushrooms,Creamy Stilton Mushrooms,Festive Feast,,996,,,,,,,,,,,,,,,vegetarian,true,false,,,"AW26-festive-menu-with-hyperlink_V2.pdf: printed 'CREAMY STILTON MUSHROOMS (V, GF*)' 996"
+beetroot-and-pumpkin-seed-arancini-balls,Beetroot and Pumpkin Seed Arancini Balls,Festive Feast,,372,,,,,,,,,,,,,,,vegetarian,true,false,,,"AW26-festive-menu-with-hyperlink_V2.pdf: printed 'BEETROOT AND PUMPKIN SEED ARANCINI BALLS (V, GF)' 372"
+roast-turkey-with-all-the-trimmings,Roast Turkey with all the Trimmings,Festive Feast,,1031,,,,,,,,,,,,,,,contains_pork,true,false,,,AW26-festive-menu-with-hyperlink_V2.pdf: printed 'ROAST TURKEY WITH ALL THE TRIMMINGS (GF*)' 1031; Description: pig in blanket
+add-mustard-glazed-gammon-to-roast-turkey,Add mustard glazed gammon (to Roast Turkey),Festive Feast,,221,,,,,,,,,,,,,,,contains_pork,true,false,,,AW26-festive-menu-with-hyperlink_V2.pdf: printed 'Add mustard glazed gammon for (GF)' 221; Printed 'Add mustard glazed gammon for £2.50 (GF) 221 kcal'
+sea-bass,Sea Bass,Festive Feast,,684,,,,,,,,,,,,,,,,true,false,,,AW26-festive-menu-with-hyperlink_V2.pdf: printed 'SEA BASS (GF)' 684
+vegetable-wellington,Vegetable Wellington,Festive Feast,,925,,,,,,,,,,,,,,,vegetarian,true,false,,,AW26-festive-menu-with-hyperlink_V2.pdf: printed 'VEGETABLE WELLINGTON (Ve)' 925
+christmas-pudding,Christmas Pudding,Festive Feast,,469,,,,,,,,,,,,,,,vegetarian,true,false,,,"AW26-festive-menu-with-hyperlink_V2.pdf: printed 'CHRISTMAS PUDDING (V, GF)' 469"
+rhubarb-and-ginger-torte,Rhubarb and Ginger Torte,Festive Feast,,1214,,,,,,,,,,,,,,,vegetarian,true,false,,,"AW26-festive-menu-with-hyperlink_V2.pdf: printed 'RHUBARB AND GINGER TORTE (Ve, GF)' 1214"
+sticky-toffee-pudding,Sticky Toffee Pudding,Festive Feast,,718,,,,,,,,,,,,,,,,true,false,,,"AW26-festive-menu-with-hyperlink_V2.pdf: printed 'STICKY TOFFEE PUDDING (Ve*)' 718; Marked (Ve*) = vegan substitute available on request: the dish itself is not marked vegan, so no vegetarian tag"

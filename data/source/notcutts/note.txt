@@ -1,0 +1,1 @@
+Notcutts prints calories only, on a menu it calls a sample: calories vary by restaurant. Sandwich sides are printed separately (chips 270 kcal, dressed salad 67 kcal) and the menu doesn't say whether a sandwich's figure includes its side. Dishes printed 'from', 'calories vary' or with no figure (alcohol, soup of the day) are not listed. Festive Feast is limited time.
