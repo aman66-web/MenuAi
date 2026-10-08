@@ -27,7 +27,11 @@ ids to PUBS (and EXPECTED_FILES) and re-running extends it; reading all 199 pubs
 Read on 2026-10-07 (Main Menu versionId 750930, Kids' 753129, Sunday Roasts 749443, Curry & Drink 746797, Drinks 746784, Breakfast 749444,
 Scottish breakfast 751814, No Gluten Containing 749441, as listed by getmenus): the 86 files have a combined SHA-256 of
 74bf37417381c8b945af0e65c1a5845fa373a9a10e9946b53b7fc4258e091d40 (SHA-256 of the sorted "<file sha256>  <file name>  (<pub>, <menu>)" lines
-that this script prints). The JSON carries no date of its own, so the chain.csv title says "accessed 2026-10-07, no date shown".
+that this script prints). The JSON carries no date of its own, so the chain.csv title says "accessed <the --checked-on day>, no date shown".
+Re-read in full on 2026-10-08 (independent accuracy check): the 86 files then had a combined SHA-256 of
+af9eae9f0dcecff9c1e07a5acff77465f38b8d16585665cfecbe2c14b1bd40e4; no calorie changed, only the "seen on N of 41 pubs" counts in the notes of
+seven Main Menu items (a few pubs added or dropped a side). fetch() reads robots.txt with the same browser User-Agent as the data (the site
+answers Python's default agent with 403, which urllib.robotparser treats as "everything disallowed") and matches it with robots_rfc.py.
 
 Calories of the Drinks Menu (alcohol-free beers, ciders, mocktails): the feed carries them, but the pub page does NOT display a calorie figure for
 that menu (the other menus show "NNN kcal"), so these 10 items are the one place where the feed is ahead of the page. Delete the category
@@ -175,10 +179,12 @@ def file_name(site: str, menu: str) -> str:
 def fetch(cache: Path) -> None:
     """Download the files in PUBS that are not in the cache: 1 request per second, robots.txt checked first, stop at the first refusal."""
     import urllib.request
-    import urllib.robotparser
-    rp = urllib.robotparser.RobotFileParser()
-    rp.set_url(BASE + "/robots.txt")
-    rp.read()
+    import robots_rfc
+    # robots.txt is read with the same browser User-Agent as the data (the site answers Python's default agent with 403, which the
+    # standard-library parser would treat as "everything disallowed") and matched the RFC 9309 way (tools/uk_extract/robots_rfc.py).
+    req = urllib.request.Request(BASE + "/robots.txt", headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        rules = robots_rfc.parse(r.read().decode("utf-8", "replace"))
     cache.mkdir(parents=True, exist_ok=True)
     for site, (_, menus) in PUBS.items():
         for m in menus:
@@ -186,7 +192,7 @@ def fetch(cache: Path) -> None:
             if dest.exists():
                 continue
             url = f"{BASE}/api/menus/getmenudetails/{site}/{m}"
-            if not rp.can_fetch(UA, url):
+            if not robots_rfc.allowed(rules, f"/api/menus/getmenudetails/{site}/{m}"):
                 raise SystemExit(f"robots.txt now disallows {url}: stop, do not work round it")
             time.sleep(1.0)
             req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})

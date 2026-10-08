@@ -41,7 +41,8 @@ Allergens (docs/DATA.md "Allergens") are complete: every published dish has its 
 "not known" state, so a dish with no allergen line at all is a dish the portal lists as free of all 14 (the dish page's ingredient list is
 used only as a tripwire: a dish whose ingredient text names an allergen in capitals that its allergen marks do not contain stops the run).
 The named cereals and tree nuts printed under a "Contains" line are published; named ones printed only as "May Contain" cannot be expressed,
-so a dish that contains one nut or cereal but only MAY contain others shows the contained ones; its key (gluten / nuts) is still "contains".
+so a dish that contains one nut or cereal and MAY contain others shows only the generic allergen (gluten / nuts, "contains"): the named
+kinds are dropped by common.write_allergens (the script lists the key in may_contain too) so the may-contain of the others is not hidden.
 
 Tags: the portal prints no diet flags, so `vegetarian` is only set when the dish NAME says vegan/vegetarian (and no fish, crustacean or
 mollusc allergen contradicts it). contains_pork / contains_beef only when the dish NAME says so (ingredients are not read).
@@ -155,6 +156,13 @@ HOLDBACK = {  # dishes whose own printed figures contradict each other (the reas
     "Cumberland Sausage Meal", "Sausage & Bacon Bap", "Brie & Cranberry Focaccia", "Harissa Chickpea & Sweet Potato Salad",
     "Granola Breakfast Glass", "Masala Chai Regular", "Regular Dark Hot Chocolate", "Large Dark Hot Chocolate", "Regular Milk Hot Chocolate",
     "Large Milk Hot Chocolate", "Vanilla Syrup", "Flavouring Syrup", "Pumpkin Spice Syrup",
+}
+# Dishes held back because their ALLERGEN marks contradict the dish itself (the audit's name-implies-* flags, re-read by a second
+# reader on 2026-10-08): name -> why. Never corrected; restoring one is deleting its line here once the portal confirms.
+HOLDBACK_ALLERGEN = {
+    "Strawberry & Pistachio Polenta Cake": ("The portal prints no gluten mark (neither contains nor may contain) for a cake and prints no ingredient "
+                                            "list for it to confirm that it is made without wheat (it names Almonds and Pistachio Nuts only); "
+                                            "allergens are safety information, so it is left out until the portal confirms"),
 }
 EXPLORE = False  # set by --explore: print the sanity flags instead of stopping
 
@@ -540,7 +548,7 @@ def implied_weights(pr: dict) -> list:
 
 def make_items(result: dict, info: dict) -> tuple:
     items, stats = [], collections.Counter()
-    flagged_unexpected, held_names = [], set()
+    flagged_unexpected, held_names, held_allergen = [], set(), set()
     for key, ok in result["candidates"]:
         if key not in info["result"]:
             continue
@@ -567,6 +575,12 @@ def make_items(result: dict, info: dict) -> tuple:
         lost = lost_may_specifics(r)
         if lost:
             stats["dishes with 'may contain' nuts/cereals not expressible"] += 1
+            # The portal prints a CONTAINS and a MAY CONTAIN of the same allergen ("Contains Wheat" with "May Contain Barley", "Contains
+            # Almonds" with "May Contain Hazelnuts"): list the key in may_contain too, so common.write_allergens drops the named kinds
+            # and publishes the generic allergen (named kinds alone would hide the may-contain of the others).
+            may_keys = {("gluten" if parent == "Cereals containing Gluten" else "nuts") for (parent, word), st in r["sub_states"].items()
+                        if st == "may" and r["states"].get(parent) == "contains" and word in lost}
+            allergens["may_contain"] = set(allergens["may_contain"]) | may_keys
         tags = []
         if VEGGIE_NAME.search(name):
             if allergens["contains"] & {"fish", "crustaceans", "molluscs"}:
@@ -617,6 +631,10 @@ def make_items(result: dict, info: dict) -> tuple:
                                         + printed + "; left out until the portal is corrected")
             else:
                 item["_hold_reason"] = "Its own figures contradict each other (" + "; ".join(sf) + "); " + printed + "; left out until the portal is corrected"
+        elif name in HOLDBACK_ALLERGEN:
+            item["_hold_reason"] = HOLDBACK_ALLERGEN[name] + (f"; printed per portion: {r['kcal']} kcal, {r['kj']} kJ, protein {pt['protein']} g, carbohydrate {pt['carb']} g, "
+                                                              f"sugars {r['sugar']} g, fat {r['fat']} g, saturates {r['sat_fat']} g, fibre {pt['fibre']} g, salt {r['salt']} g")
+            held_allergen.add(name)
         elif sf:
             flagged_unexpected.append((name, sf))
         elif pipeline_energy_warning(r, pr):
@@ -632,6 +650,8 @@ def make_items(result: dict, info: dict) -> tuple:
                          + "\n".join(f"  {n}: {f}" for n, f in flagged_unexpected))
     if held_names != set(HOLDBACK) and not EXPLORE:
         raise SystemExit(f"HOLDBACK names not found among the published dishes: {sorted(set(HOLDBACK) - held_names)}")
+    if set(HOLDBACK_ALLERGEN) - held_allergen:
+        raise SystemExit(f"HOLDBACK_ALLERGEN names not found among the published dishes: {sorted(set(HOLDBACK_ALLERGEN) - held_allergen)}")
     stale = sorted(NOT_A_MEAL - {it["name"] for it in items})
     if stale:
         raise SystemExit(f"NOT_A_MEAL names no published dish: {stale}")
@@ -687,7 +707,7 @@ def main() -> None:
     if len(set(ids2)) != len(ids2):
         dup = sorted(i for i, c in collections.Counter(ids2).items() if c > 1)
         raise SystemExit(f"Two dishes share the item id(s) {dup}: give them explicit ids")
-    holdback = [(slug(it['name']), it['_hold_reason']) for it in items if it['name'] in HOLDBACK]
+    holdback = [(slug(it['name']), it['_hold_reason']) for it in items if "_hold_reason" in it]
     guide = {"title": ALLERGEN_GUIDE_TITLE.format(checked_on=args.checked_on), "url": ALLERGEN_GUIDE_URL, "checked_on": args.checked_on,
              "may_contain_published": MAY_CONTAIN_PUBLISHED}
     if len(NOTE) >= 400:

@@ -64,7 +64,7 @@ NOTE = ("The guide covers the whole High Street estate, not only O'Neill's, and 
 # Accuracy audit 2026-10-08. The guide prints kJ and kcal for every dish and for many they disagree (kJ is the odd one out and we
 # publish no kJ, so a dish whose kcal agrees with its own protein, carbohydrate and fat stays). What holds a dish back (never corrected,
 # never chosen between) is the kcal we publish being contradicted twice: its own protein + carbohydrate + fat give a figure more than
-# 15% away (more than 30% on its own) AND the printed kJ does not corroborate the kcal either (more than 15% away), as for Scampi &
+# 15% away (more than 20% on its own) AND the printed kJ does not corroborate the kcal either (more than 15% away), as for Scampi &
 # Chips (2939 kJ = 702 kcal, printed 952 kcal, macros 780 kcal). The wrapper replaces mb_guide's check for this chain's run only (the
 # module is shared with the other M&B chains).
 _impossible_mb = mb_guide._impossible
@@ -85,7 +85,7 @@ def _impossible_audited(n: dict, category: str = "") -> str:
         return ""
     macro_gap = abs(kcal - macro) / kcal
     kj_gap = abs(kcal - kj / 4.184) / kcal
-    if macro_gap > 0.30 or (macro_gap > 0.15 and kj_gap > 0.15):
+    if macro_gap > 0.20 or (macro_gap > 0.15 and kj_gap > 0.15):
         return (f"the guide prints {n['kcal']} kcal, but its own protein, carbohydrate and fat add up to about {round(macro)} kcal"
                 f" and its {n['kj']} kJ is about {round(kj / 4.184)} kcal")
     return ""

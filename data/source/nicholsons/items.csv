@@ -136,7 +136,6 @@ earl-grey,Earl Grey,Drinks,,20,1.4,2,0.7,0.4,,0.06,2,,,,,,,,vegetarian,false,fal
 espresso,Espresso,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
 flat-white,Flat White,Drinks,,72,4.8,6.7,2.6,1.5,,0.19,6.3,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers); printed kJ 487 and kcal 72 do not agree"
 green-tea,Green Tea,Drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-hot-chocolate,Hot Chocolate,Drinks,,250,9.9,38,5.8,3.4,,0.34,37,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
 latte,Latte,Drinks,,110,7.4,11,3.9,2.2,,0.3,10,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+5 more menu entries, same numbers); printed kJ 645 and kcal 110 do not agree"
 mocha,Mocha,Drinks,,179,7.9,25,4.7,2.7,,0.27,24,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers); printed kJ 938 and kcal 179 do not agree"
 peppermint-tea,Peppermint Tea,Drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"

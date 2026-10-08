@@ -101,7 +101,6 @@ green-tea,Green Tea,Drinks,,93,0.6,15,3.4,2,,0.04,14,,,,,,,,,false,false,,,"Main
 americano,Americano,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers)"
 macchiato,Macchiato,Drinks,,36,2.2,2.9,1.3,0.7,,0.08,2.5,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 332 and kcal 36 do not agree"
 cappuccino,Cappuccino,Drinks,,112,7.8,10,4.1,2.3,,0.27,9.1,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 653 and kcal 112 do not agree"
-hot-chocolate,Hot Chocolate,Drinks,,255,9,32,9,5.4,,0.29,31,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+6 more menu entries, same numbers)"
 iced-coffee,Iced Coffee,Drinks,,99,6.6,9.4,3.5,2,,0.27,9,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 600 and kcal 99 do not agree"
 flat-white,Flat White,Drinks,,72,4.8,6.7,2.6,1.5,,0.19,6.3,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 487 and kcal 72 do not agree"
 mocha,Mocha,Drinks,,177,7.3,21,6.3,3.7,,0.25,20,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 926 and kcal 177 do not agree"

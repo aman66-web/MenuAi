@@ -1,5 +1,5 @@
 id,contains,may_contain,cereals,nuts
-tyrrells-sea-salt-cider-vinegar-crisps,gluten,milk,barley,
+tyrrells-sea-salt-cider-vinegar-crisps,gluten,milk,,
 tyrrells-lightly-sea-salt-crisps,,milk,,
 tyrrells-mature-cheddar-chive-crisps,milk,,,
 tyrrells-sweet-chilli-and-red-pepper-crisps,milk,,,
@@ -21,7 +21,7 @@ sweet-chilli-cauliflower-wings,,mustard|nuts|peanuts|soya,,
 korean-chicken-sliders,eggs|gluten|milk|mustard|sesame|soya|sulphites,celery|crustaceans|molluscs,wheat,
 halloumi-sliders,eggs|gluten|milk|nuts,mustard|sesame|soya,wheat,cashew
 bbq-pulled-pork-sliders,eggs|gluten|milk|mustard,sesame|soya,wheat,
-smashed-beef-sliders,celery|eggs|gluten|milk|mustard|sulphites,sesame|soya,wheat,
+smashed-beef-sliders,celery|eggs|gluten|milk|mustard|sulphites,sesame|soya,,
 cheese-stuffed-posh-dog,celery|eggs|gluten|milk|mustard,,wheat,
 posh-fish-finger,celery|eggs|fish|gluten|milk|mustard,crustaceans|molluscs|sesame,wheat,
 bang-bang-cauliflower,mustard|sesame|soya|sulphites,celery|eggs|milk,,
@@ -66,11 +66,11 @@ extra-hash-brown,,,,
 extra-sausage,gluten,,wheat,
 extra-bacon,,,,
 full-scottish-breakfast,eggs|gluten|milk|nuts|peanuts|sulphites,soya,barley|oats|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-square-sausage-roll,celery|gluten|sulphites,milk|soya,wheat,
-square-sausage-and-egg-roll,celery|eggs|gluten|sulphites,milk|soya,wheat,
+square-sausage-roll,celery|gluten|sulphites,milk|soya,,
+square-sausage-and-egg-roll,celery|eggs|gluten|sulphites,milk|soya,,
 full-scottish-roll,celery|eggs|gluten|nuts|peanuts|sulphites,milk|soya,barley|oats|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 extra-black-pudding,gluten|nuts|peanuts,,barley|oats|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-extra-square-sausage,gluten|sulphites,milk|soya,wheat,
+extra-square-sausage,gluten|sulphites,milk|soya,,
 inchs-cider,sulphites,,,
 belu-still-water,,,,
 belu-sparkling-water,,,,

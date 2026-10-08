@@ -137,7 +137,12 @@ def _text(lines) -> str:
 
 
 def read_allergen_matrix(pdf: Path) -> list[dict]:
-    """Rows top to bottom: {"section", "label", "marks": {allergen key: "•" | "1" | "2"}}. Stops on any surprise."""
+    """Rows top to bottom: {"section", "label", "marks": {allergen key: "•" | "1" | "2"}, "top", "bottom"}. Stops on any surprise.
+
+    A row is the label text (one to four lines, left column); a mark belongs to the row whose label block (top of its first line to
+    the bottom of its last line) holds the mark's vertical centre. Every mark must land in exactly one row and in exactly one of the
+    14 columns, and row blocks must not overlap, otherwise the run stops.
+    """
     words = read_words(pdf)
     ing = [w for w in words if w[4] == "INGREDIENT" and w[0] < 400]
     if len(ing) != 1:
@@ -158,42 +163,52 @@ def read_allergen_matrix(pdf: Path) -> list[dict]:
             raise SystemExit(f"Allergen grid column {k + 1}: expected the header to start with {frag!r} near x={c:.0f}; the grid changed.")
 
     region = [w for w in words if y0 < w[1] < y1]
-    headings = [w for w in region if w[3] - w[1] > HEADING_H]
+    margin = lambda w: w[4].startswith(("FGJV", "FGUK", "|"))  # noqa: E731  (print marks in the right margin)
+    headings = [w for w in region if w[3] - w[1] > HEADING_H and not margin(w)]
     marks = [w for w in region if w[0] >= 380 and w[4] in ("•", "1", "2") and w[3] - w[1] <= HEADING_H]
     labels = [w for w in region if w[0] < 380 and w[3] - w[1] <= HEADING_H]
-    others = [w for w in region if w[0] >= 380 and w not in marks and w not in headings and not w[4].startswith(("FGJV", "FGUK", "|"))]
+    others = [w for w in region if w[0] >= 380 and w not in marks and w not in headings and not margin(w)]
     if others:
         raise SystemExit(f"Unexpected text inside the allergen grid: {[w[4] for w in others]}")
-
     rows: list[dict] = []
     for line in _lines(labels):
         y = sum(_mid(w) for w in line) / len(line)
+        top, bottom = min(w[1] for w in line), max(w[3] for w in line)
         if rows and y - rows[-1]["_last"] <= LINE_JOIN:
             rows[-1]["_lines"].append(line)
             rows[-1]["_last"] = y
+            rows[-1]["top"], rows[-1]["bottom"] = min(rows[-1]["top"], top), max(rows[-1]["bottom"], bottom)
         else:
-            rows.append({"_lines": [line], "_last": y})
+            rows.append({"_lines": [line], "_last": y, "top": top, "bottom": bottom})
+    for a, b in zip(rows, rows[1:]):
+        if a["bottom"] > b["top"]:
+            raise SystemExit(f"Allergen grid rows overlap near y={b['top']:.0f}: the grid changed.")
     head_lines = _lines(headings)
     for r in rows:
-        r["y"] = sum(_mid(w) for line in r["_lines"] for w in line) / sum(len(line) for line in r["_lines"])
         r["label"] = _text(r["_lines"])
-        above = [line for line in head_lines if _mid(line[0]) < r["y"]]
+        centre = (r["top"] + r["bottom"]) / 2
+        above = [line for line in head_lines if _mid(line[0]) < centre]
         r["section"] = " ".join(w[4] for w in above[-1]) if above else ""
         r["marks"] = {}
-    for line in _lines(marks):
-        y = sum(_mid(w) for w in line) / len(line)
-        r = min(rows, key=lambda r: abs(r["y"] - y))
-        if abs(r["y"] - y) > 3.0 or r["marks"]:
-            raise SystemExit(f"A line of allergen marks at y={y:.0f} does not sit on one product row: the grid changed.")
-        for w in line:
-            k = round(((w[0] + w[2]) / 2 - MATRIX_X0) / MATRIX_STEP)
-            if not 0 <= k < len(MATRIX_COLUMNS) or abs((w[0] + w[2]) / 2 - (MATRIX_X0 + k * MATRIX_STEP)) > MARK_REACH:
-                raise SystemExit(f"Row {r['label']!r}: a mark at x={w[0]:.0f} is not in an allergen column: the grid changed.")
-            key = MATRIX_COLUMNS[k][0]
-            if key in r["marks"]:
-                raise SystemExit(f"Row {r['label']!r}: two marks in the {key} column.")
-            r["marks"][key] = w[4]
-    return [{"section": r["section"], "label": r["label"], "marks": r["marks"]} for r in rows]
+    placed = 0
+    for w in marks:
+        m = _mid(w)
+        hit = [r for r in rows if r["top"] - 2.0 <= m <= r["bottom"] + 2.0]
+        if len(hit) != 1:
+            raise SystemExit(f"A mark {w[4]!r} at y={m:.0f} does not sit on exactly one product row ({len(hit)}): the grid changed.")
+        r = hit[0]
+        x = (w[0] + w[2]) / 2
+        k = round((x - MATRIX_X0) / MATRIX_STEP)
+        if not 0 <= k < len(MATRIX_COLUMNS) or abs(x - (MATRIX_X0 + k * MATRIX_STEP)) > MARK_REACH:
+            raise SystemExit(f"Row {r['label']!r}: a mark at x={w[0]:.0f} is not in an allergen column: the grid changed.")
+        key = MATRIX_COLUMNS[k][0]
+        if key in r["marks"]:
+            raise SystemExit(f"Row {r['label']!r}: two marks in the {key} column.")
+        r["marks"][key] = w[4]
+        placed += 1
+    if placed != len(marks):
+        raise SystemExit("Some allergen marks were not placed on a row: the grid changed.")
+    return [{"section": r["section"], "label": r["label"], "marks": r["marks"], "top": r["top"], "bottom": r["bottom"]} for r in rows]
 
 
 def read_ingredients(pdf: Path) -> list[dict]:
@@ -236,7 +251,8 @@ def read_ingredients(pdf: Path) -> list[dict]:
 
 
 # Capitalised words in the ingredient listing that are not allergen names (checked against the rendered listing).
-NOT_ALLERGEN_CAPS = {"OIL", "EDTA"}
+# "BUN:", "SAUSAGE PATTY:", "BACON:", "CHEESE:" head each component's own ingredients in the Heathrow breakfast rows (rendered page checked)
+NOT_ALLERGEN_CAPS = {"OIL", "EDTA", "BUN", "SAUSAGE", "PATTY", "BACON", "CHEESE"}
 
 
 def bold_allergen_words(text: str, where: str) -> list[str]:

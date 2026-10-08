@@ -1,3 +1,10 @@
 item_id,reason
+houmous-and-flatbread,allergen row contradicts the dish: the guide's dish is houmous but its allergen row lists no sesame (not even as may contain)
 salt-and-pepper-calamari,"the guide prints 260 kcal; its own protein, carbohydrate and fat add up to about 180 kcal"
+oyster-mushroom-tempura,allergen row contradicts the dish: the guide names it tempura (a batter) but its allergen row lists no gluten
+fish-and-chips,"allergen row contradicts the dish: the guide describes ""Battered haddock"" but its allergen row lists no gluten"
 smoked-streaky-bacon,guide prints saturates 2.1 g greater than total fat 0.6 g
+veggie-breakfast,"the guide prints ""Please refer to your style of egg for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"
+crispy-chicken-nuggets,"the guide prints ""Please refer to your choice of side for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"
+mini-beef-burger,"the guide prints ""Please refer to your choice of side for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"
+fish-goujons,"the guide prints ""Please refer to your choice of side for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"

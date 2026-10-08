@@ -1,13 +1,13 @@
 {
  "chain": "chipotle",
  "date": "2026-10-08",
- "source_read": "https://www.chipotle.co.uk/nutrition-calculator (AUG 2022 sheet, re-downloaded 2026-10-08, byte-identical to the earlier copy, Last-Modified 14 Dec 2023); also read by eye the chain's current chart https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf (UK270726, Aug 2026, image-only)",
+ "source_read": "https://www.chipotle.co.uk/content/dam/chipotle/menu/nutrition/2026/eu/Allergen-UK270726.pdf (downloaded fresh 2026-10-08 with one GET; robots.txt of www.chipotle.co.uk disallows only /error-page; Last-Modified 1 Sep 2026, PDF created 6 Aug 2026, footer code UK270726, sha256 fc07272f..., byte-identical to the copy read earlier today; image-only, no text layer)",
  "compared_items": 25,
- "nutrition_mismatches": 0,
+ "nutrition_mismatches": 5,
  "allergen_mismatches": 0,
- "fixed": 0,
- "held_back": 2,
+ "fixed": 5,
+ "held_back": 3,
  "marked_ok": 2,
- "not_verifiable": "allergens: none are published for Chipotle (link-only to the chain's chart), so there is nothing to verify; nutrition: all 25 sheet rows matched the sheet",
- "notes": "All 25 rows (8 values each) matched an independent pdftotext -layout read and the rendered page. The current 2026 chart repeats the other 20 published rows exactly but prints different figures for Flour Tortilla (taco) (3 for 240 kcal vs 94 each) and Chips (large) (170 g 627 kcal vs 834): both held back. The 2026 chart also has a readable 14-allergen grid and serving weights (image-only: needs OCR/vision extraction to use)."
+ "not_verifiable": "",
+ "notes": "Source is now the chart itself (tools/uk_extract/chipotle.py transcribes its table, tied to the file's sha256): all 25 rows x 9 per-serving figures read by eye twice from 250 and 330 dpi renders and cross-checked by per-cell tesseract OCR (201 of 225 cells identical; the 24 differences are OCR dropping lone zeros/decimal points or misreading a digit, each re-read by eye and against the chart's own per-100 g kcal and the Atwater sum), plus a pixel scan of the 14-column grid: exactly 6 crosses on the whole chart (Milk: Monterey Jack Cheese, Sour Cream, Queso Blanco; Cereals & Gluten: both Flour Tortillas; Soya: Sofritas), so 22 published items now carry allergens (gluten x2, milk x2, soya x1; none named for cereal; the chart prints no may-contain) plus kJ and serving weight where in grams. Republished with the chart's figures: Flour Tortilla (taco) is printed for 3 tortillas (240 kcal), Chips (large) is 170 g 627 kcal, and the AUG 2022 '<0.1' saturates (two roasted salsas) and '<0.5' fibre (sour cream) are printed 0.1 and 0.5. Still held back (chart prints the same contradictions): Fresh Tomato Salsa (sugars > carbohydrate) and both Romaine lines (15 and 4 kcal with 0 g macros). Black/Pinto Beans 95 kcal (kJ agrees; fibre carries the gap) stay marked ok. Not extracted yet: the chart's Hard Shell Taco, Chips (Kids), Super Greens, Queso Blanco, three limited-time chicken rows and the drinks."
 }

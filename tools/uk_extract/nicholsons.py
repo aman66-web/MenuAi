@@ -43,7 +43,7 @@ NAME_CATEGORIES = {
 # Accuracy audit 2026-10-08. The guide prints kJ and kcal for every dish and for many they disagree (kJ is the odd one out and we
 # publish no kJ, so a dish whose kcal agrees with its own protein, carbohydrate and fat stays). What holds a dish back (never corrected,
 # never chosen between) is the kcal we publish being contradicted twice: its own protein + carbohydrate + fat give a figure more than
-# 15% away (more than 30% on its own) AND the printed kJ does not corroborate the kcal either (more than 15% away), as for Add Beef
+# 15% away (more than 20% on its own) AND the printed kJ does not corroborate the kcal either (more than 15% away), as for Add Beef
 # Patty (1950 kJ = 466 kcal, printed 271 kcal, macros 191 kcal). The wrapper replaces mb_guide's check for this chain's run only (the
 # module is shared with the other M&B chains).
 _impossible_mb = mb_guide._impossible
@@ -64,13 +64,26 @@ def _impossible_audited(n: dict, category: str = "") -> str:
         return ""
     macro_gap = abs(kcal - macro) / kcal
     kj_gap = abs(kcal - kj / 4.184) / kcal
-    if macro_gap > 0.30 or (macro_gap > 0.15 and kj_gap > 0.15):
+    if macro_gap > 0.20 or (macro_gap > 0.15 and kj_gap > 0.15):
         return (f"the guide prints {n['kcal']} kcal, but its own protein, carbohydrate and fat add up to about {round(macro)} kcal"
                 f" and its {n['kj']} kJ is about {round(kj / 4.184)} kcal")
     return ""
 
 
 mb_guide._impossible = _impossible_audited
+
+# Dishes whose PRINTED allergen row contradicts the dish's own name or description, so the dish is not shown (a wrong "no gluten" is worse
+# than a missing dish). Re-read 2026-10-08 against the live guide, nothing corrected or inferred. Chain-specific, so they live here and not
+# in mb_guide.ALLERGEN_HOLDBACKS (shared with the other Mitchells & Butlers chains). Kept on purpose: the two mash-topped pies (no pastry),
+# the pesto dishes (pine nuts are not one of the tree nuts the law lists), the vegan creamy mushrooms (marked VE), the gochujang-mayo dishes
+# (the guide lists no egg for either, so it is a consistent egg-free mayo) and the nachos / tortilla chips (maize).
+ALLERGEN_HOLDBACKS = {
+    "sticky toffee pudding": "allergen row contradicts the dish: a sticky toffee pudding is a flour sponge but the guide's allergen row lists "
+                             "eggs and milk and no gluten (the Sunday menu prints the same row)",
+    "8oz chargrilled sirloin steak": "allergen row contradicts the dish: the guide offers \"a choice of peppercorn or bone marrow bearnaise sauce\" "
+                                     "with it but its allergen row says it contains no major allergens (the guide's own rows for those sauces "
+                                     "list milk, celery, sulphites and gluten for the peppercorn and eggs and milk for the bearnaise)",
+}
 
 NOTE = ("Specials are seasonal and change often. Pre-booked buffet, celebration, BBQ and canape menus are not included. Where the guide flags a "
         "dish as having choices of sides or sauces, its numbers may not include them.")
@@ -80,4 +93,5 @@ if __name__ == "__main__":
     sys.exit(mb_guide.main_for(
         chain_id="nicholsons", chain_name="Nicholson's", cuisine="Pub", aliases=["nicholsons", "nicholson's", "nicholsons pubs"],
         source_url=SOURCE_URL, brand_label="Nicholson's", menus=MENUS, excluded_menus=EXCLUDED_MENUS, note=NOTE,
-        category_overrides=CATEGORY_OVERRIDES, name_categories=NAME_CATEGORIES, expected_brand_stamp="Nicholsons"))
+        category_overrides=CATEGORY_OVERRIDES, name_categories=NAME_CATEGORIES, expected_brand_stamp="Nicholsons",
+        allergen_holdbacks=ALLERGEN_HOLDBACKS))

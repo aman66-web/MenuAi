@@ -1,6 +1,12 @@
 item_id,reason
+8oz-chargrilled-sirloin-steak,"allergen row contradicts the dish: the guide offers ""a choice of peppercorn or bone marrow bearnaise sauce"" with it but its allergen row says it contains no major allergens (the guide's own rows for those sauces list milk, celery, sulphites and gluten for the peppercorn and eggs and milk for the bearnaise)"
 smoked-back-bacon,guide prints saturates 1.1 g greater than total fat 0.3 g
+sticky-toffee-pudding,allergen row contradicts the dish: a sticky toffee pudding is a flour sponge but the guide's allergen row lists eggs and milk and no gluten (the Sunday menu prints the same row)
 add-avocado-and-bacon,"the guide prints 121 kcal, but its own protein, carbohydrate and fat add up to about 102 kcal and its 690 kJ is about 165 kcal"
 add-beef-patty,"the guide prints 271 kcal, but its own protein, carbohydrate and fat add up to about 191 kcal and its 1950 kJ is about 466 kcal"
 add-scampi,"the guide prints 156 kcal, but its own protein, carbohydrate and fat add up to about 116 kcal and its 413 kJ is about 99 kcal"
 wholetail-scottish-scampi,"the guide prints 178 kcal, but its own protein, carbohydrate and fat add up to about 137 kcal and its 506 kJ is about 121 kcal"
+the-nicholsons-breakfast,"the guide prints ""Please refer to your style of egg for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"
+nicholsons-vegetarian-breakfast,"the guide prints ""Please refer to your style of eggs for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"
+crispy-buttermilk-chicken-sandwich,"the guide prints ""Please refer to your choice of side for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"
+fish-finger-sandwich,"the guide prints ""Please refer to your choice of side for additional allergen information"" beside this dish: its allergen row leaves out the choices, so it is not shown as a complete list"

@@ -13,10 +13,19 @@ Drinks and a few dishes have an EMPTY nutrition div: they have no published numb
 This module only READS the page and returns the cells exactly as printed (units stripped, nothing rounded,
 converted or filled). Naming, categories and exclusions are decided by the per-chain scripts. Standard library only.
 
-Allergens: the same page prints each dish's allergens, but this reader does not parse them yet (on 2026-10-06 the page answered
-this machine with a Cloudflare 403, so its allergen markup could not be seen). Until it does, main_for writes allergen_guide.csv
-only (a link to this guide, may_contain_published = no) and no allergens.csv, so the app links to the guide instead of listing
-allergens. Never fill allergens in by hand.
+Allergens (docs/DATA.md "Allergens"): every dish card also prints its allergens, which this reader copies:
+
+    <span><span style="color: darkred">warning sign</span> Contains</span> <span class="containsClass allergen-pill-style">Milk</span> ...
+    <span><span style="color: darkorange">warning sign</span> May Contains</span> <span class="allergen-pill-style">Celery</span> ...
+    or, for a dish with none of the 14: <span>... Contains no major allergens</span>
+
+A pill reads "Cereals Containing Gluten (Barley, Wheat)" or "Tree Nuts (Almond, Hazelnuts, Walnuts)" when the guide names the kinds,
+plain "Tree Nuts" / "Cereals Containing Gluten" otherwise. Read as printed, nothing inferred: a card whose allergen lines are not one
+of the four known shapes, a pill whose colour class disagrees with its label, or a word outside common._A stops the run. The guide
+says on some dishes "Click through to view full allergen and dietary information including choices" or "Please refer to your choice of
+side for additional allergen information": that dish's printed row is NOT everything you may be served, so the dish is held back
+(holdback.csv) rather than shown with an allergen list that looks complete. A dish printed in several menus with different allergens
+is not published. Allergen data is written all or nothing: main_for stops unless every published item has its row.
 """
 from __future__ import annotations
 import argparse
@@ -28,7 +37,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import slug, write_chain_folder  # noqa: E402
+from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 # Table header text -> our key. Anything else in a header row stops the parse (the layout changed).
 HEADERS = {"kj/kcal": "energy", "fat": "fat", "saturates": "sat", "carbohydrate": "carbs", "sugars": "sugars",
@@ -70,6 +79,21 @@ class _Parser(HTMLParser):
         self._card_depth = -1
         self._nut_depth = -1
         self._menu_depth = -1
+        self._icon_depth = -1  # span depth of the warning-sign span inside an allergen label, -1 when not inside one
+        self._label: dict | None = None  # the allergen label being read: {"color", "text", "outer"}
+        self._line: dict | None = None  # the allergen line that pills attach to
+        self._pill: dict | None = None
+
+    def _end_allergen_label(self) -> None:
+        label, self._label = self._label, None
+        text = " ".join(label["text"].replace("\xa0", " ").split()).lower()
+        kinds = {("darkred", "contains"): "contains", ("darkred", "contains no major allergens"): "none",
+                 ("darkorange", "may contains"): "may"}
+        kind = kinds.get((label["color"], text))
+        if kind is None:
+            raise GuideLayoutError(f"{self._card['name']!r}: unknown allergen label {label['text']!r} ({label['color']})")
+        self._line = {"kind": kind, "pills": []}
+        self._card["allergen_lines"].append(self._line)
 
     # -- helpers
     def handle_starttag(self, tag, attrs):
@@ -84,8 +108,9 @@ class _Parser(HTMLParser):
                 self._section = ""
             elif cls == "recipe-card":
                 self._card = {"menu": self._menu["title"] if self._menu else "", "menu_id": self._menu["id"] if self._menu else "",
-                              "section": self._section, "name": "", "desc": "", "nutrition_rows": []}
+                              "section": self._section, "name": "", "desc": "", "nutrition_rows": [], "allergen_lines": []}
                 self._card_depth = self._div_depth
+                self._icon_depth, self._label, self._line, self._pill = -1, None, None, None
                 self._seen_b = False
                 self._desc, self._desc_state = [], 0
             elif cls == "nutrition" and self._card is not None:
@@ -105,6 +130,16 @@ class _Parser(HTMLParser):
             self._note = {"menu": self._menu["title"] if self._menu else "", "section": self._section, "kind": cls, "text": ""}
         elif tag == "span":
             self._span_depth += 1
+            if self._card is not None and not self._in_nutrition:
+                if "allergen-pill-style" in cls.split():
+                    if self._line is None:
+                        raise GuideLayoutError(f"{self._card['name']!r}: an allergen pill outside an allergen line")
+                    self._pill = {"contains_class": "containsClass" in cls.split(), "text": ""}
+                else:
+                    m = re.search(r"color:\s*(darkred|darkorange)\b", a.get("style") or "")
+                    if m and self._label is None:
+                        self._icon_depth = self._span_depth
+                        self._label = {"color": m.group(1), "text": "", "outer": self._span_depth - 1}
         elif tag == "tr" and self._in_nutrition:
             self._row = []
         elif tag == "td" and self._in_nutrition and self._row is not None:
@@ -117,6 +152,8 @@ class _Parser(HTMLParser):
                 if self._card is not None:
                     self._card["nutrition_rows"] = self._nut_rows
             if self._card is not None and self._div_depth == self._card_depth:
+                if self._pill is not None or self._label is not None:
+                    raise GuideLayoutError(f"{self._card['name']!r}: an allergen label or pill was left open")
                 self._card["desc"] = " ".join("".join(self._desc).split())
                 self.cards.append(self._card)
                 self._card = None
@@ -144,6 +181,13 @@ class _Parser(HTMLParser):
         elif tag == "span":
             if self._card is not None and self._desc_state in (1, 2) and self._span_depth == self._b_span_depth:
                 self._desc_state = 3
+            if self._pill is not None:
+                pill, self._pill = self._pill, None
+                self._line["pills"].append((" ".join(pill["text"].split()), pill["contains_class"]))
+            elif self._icon_depth == self._span_depth:
+                self._icon_depth = -1
+            elif self._label is not None and self._icon_depth == -1 and self._span_depth == self._label["outer"]:
+                self._end_allergen_label()
             self._span_depth -= 1
         elif tag == "td" and self._cell is not None and self._row is not None:
             self._row.append(" ".join("".join(self._cell).replace("\xa0", " ").split()))
@@ -168,6 +212,10 @@ class _Parser(HTMLParser):
             self._desc.append(data)  # text after the bold name's <br> inside the same <span>
         if self._cell is not None:
             self._cell.append(data)
+        if self._pill is not None:
+            self._pill["text"] += data
+        elif self._label is not None and self._icon_depth == -1:
+            self._label["text"] += data
         if not self.stamp and "Mitchells & Butlers" in data:
             self.stamp = " ".join(data.split())
 
@@ -219,11 +267,77 @@ def read_nutrition(card: dict) -> dict | None:
     return out
 
 
+ALG_PAREN = re.compile(r"^(.*?)\s*\(([^()]*)\)\s*$")
+ALG_SHAPES = (["contains"], ["contains", "may"], ["none"], ["none", "may"])
+
+
+def _words(words: list, where: str) -> tuple:
+    """common.allergen_words, but an unknown word is a GuideLayoutError (the run stops with the guide's own word in the message)."""
+    try:
+        return allergen_words(words, where)
+    except SystemExit as e:
+        raise GuideLayoutError(str(e)) from None
+
+
+def read_allergens(card: dict) -> dict:
+    """The allergens of one card exactly as printed: {"contains", "may_contain", "cereals", "nuts"} (frozensets of keys).
+
+    Every card with a nutrition table must print "Contains <pills>" or "Contains no major allergens", optionally followed by
+    "May Contains <pills>"; anything else, an unknown allergen word, a pill whose colour class disagrees with its label, or a
+    bracketed list on a may-contain pill (never seen: it would be dropped silently) raises GuideLayoutError."""
+    name = card["name"]
+    lines = card.get("allergen_lines") or []
+    kinds = [ln["kind"] for ln in lines]
+    if kinds not in ALG_SHAPES:
+        raise GuideLayoutError(f"{name!r}: allergen lines {kinds} are not one of the shapes this reader knows {list(ALG_SHAPES)}")
+    where = f"{name!r} (allergens)"
+    contains: set = set()
+    may: set = set()
+    cereals: set = set()
+    nuts: set = set()
+    for ln in lines:
+        kind = ln["kind"]
+        if kind == "none":
+            if ln["pills"]:
+                raise GuideLayoutError(f"{name!r}: 'Contains no major allergens' is followed by allergens {ln['pills']}")
+            continue
+        if not ln["pills"]:
+            raise GuideLayoutError(f"{name!r}: a {kind!r} allergen label with no allergen after it")
+        for text, contains_class in ln["pills"]:
+            if contains_class != (kind == "contains"):
+                raise GuideLayoutError(f"{name!r}: allergen {text!r} is styled as {'contains' if contains_class else 'may contain'} "
+                                       f"but sits under the {kind!r} label")
+            m = ALG_PAREN.match(text)
+            base, inner = (m.group(1), [x.strip() for x in m.group(2).split(",")]) if m else (text, [])
+            keys, _, _ = _words([base], where)
+            if len(keys) != 1:
+                raise GuideLayoutError(f"{name!r}: allergen {text!r} does not name exactly one of the 14")
+            if inner:
+                if kind != "contains":
+                    raise GuideLayoutError(f"{name!r}: a may-contain allergen {text!r} names kinds; this reader would drop them")
+                if not all(inner):
+                    raise GuideLayoutError(f"{name!r}: allergen {text!r} has an empty kind")
+                ikeys, icereals, inuts = _words(inner, where)
+                if ikeys != keys or not (icereals or inuts):
+                    raise GuideLayoutError(f"{name!r}: the kinds in {text!r} are not kinds of {sorted(keys)}")
+                cereals |= icereals
+                nuts |= inuts
+            (contains if kind == "contains" else may).update(keys)
+    return {"contains": frozenset(contains), "may_contain": frozenset(may), "cereals": frozenset(cereals), "nuts": frozenset(nuts)}
+
+
+def _alg_sig(a: dict) -> tuple:
+    return tuple(tuple(sorted(a[k])) for k in ("contains", "may_contain", "cereals", "nuts"))
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 # From parsed cards to a chain folder. The per-chain scripts only say WHICH menus count, how sections map to categories
 # and what the chain is called; everything below is shared so all M&B brands are treated the same way.
 # ----------------------------------------------------------------------------------------------------------------------
 NOTE_CUT = re.compile(r"\s*(Click through to view.*|(?:Please|Also) (?:refer|see) .*)$", re.I)
+# Animal-derived allergens that a dish the guide itself marks vegan (VE) or vegetarian (V) cannot print as contained.
+VEGAN_ANIMAL = {"milk", "eggs", "fish", "crustaceans", "molluscs"}
+VEGETARIAN_ANIMAL = {"fish", "crustaceans", "molluscs"}
 FOOTNOTE_CUT = re.compile(r"\s\^\s.*$")
 DIET_RE = re.compile(r"\s*\((V|VE|VG)\)", re.I)
 MARKS_RE = re.compile(r"[*†‡#^▲​]+")
@@ -257,6 +371,33 @@ VEG_WORDS = re.compile(r"\b(vegan|veggie|vegetarian|plant|meat-free|meat free)\b
 
 class ChainScriptError(Exception):
     pass
+
+
+# Dishes whose PRINTED allergen row contradicts the dish's own name or description, so the dish is not shown (a wrong "no gluten" is worse
+# than a missing dish). Re-read 2026-10-08 against the rendered guide, with the guide's own words quoted; nothing is corrected or inferred.
+# Keyed by chain id, then the published dish name in lower case. Dishes with an innocent reading stay (a vegan lasagne with no milk, "butterflied",
+# a shepherd's pie topped with mash, oat lattes, rice-noodle Pad Thai). A name listed here that the guide no longer prints is reported by main_for.
+ALLERGEN_HOLDBACKS: dict = {
+    "all-bar-one": {
+        "fish & chips": "allergen row contradicts the dish: the guide describes \"Battered haddock\" but its allergen row lists no gluten",
+        "houmous & flatbread": "allergen row contradicts the dish: the guide's dish is houmous but its allergen row lists no sesame (not even as may contain)",
+        "oyster mushroom tempura": "allergen row contradicts the dish: the guide names it tempura (a batter) but its allergen row lists no gluten",
+    },
+    "ember-inns": {
+        "scrambled eggs on toast": "allergen row contradicts the dish: the guide describes \"white or wholemeal bloomer toast\" but its allergen row lists no gluten",
+        "veg sticks & houmous": "allergen row contradicts the dish: the guide's dish is houmous but its allergen row says it contains no major allergens (no sesame)",
+        "thick cut gammon steak": "allergen row contradicts the dish: the guide offers \"fried eggs\" with it but its allergen row says it contains no major allergens (no egg)",
+        "grilled bacon chop": "allergen row contradicts the dish: the guide offers \"fried eggs\" with it but its allergen row says it contains no major allergens (no egg)",
+        "cheeseburger sliders": "allergen row contradicts the dish: the guide serves it in \"brioche buns\" but its allergen row lists no egg (every other brioche dish in this guide lists egg)",
+        "chicken burger sliders": "allergen row contradicts the dish: the guide serves it in \"brioche buns\" but its allergen row lists no egg or milk (every other brioche dish in this guide lists egg)",
+    },
+    # Browns' allergens are NOT published (its live guide no longer lists the menus the numbers came from); these apply if the 5 Oct 2026 copy is used.
+    "browns": {
+        "traditional fish & chips": "allergen row contradicts the dish: it is fish and chips but its allergen row lists no gluten",
+        "battered haddock & peas": "allergen row contradicts the dish: the guide names it \"Battered Haddock\" but its allergen row lists no gluten",
+        "pan-roasted cod": "allergen row contradicts the dish: the guide serves it with tartare sauce but its allergen row lists no egg",
+    },
+}
 
 
 def clean_name(raw: str) -> tuple[str, str]:
@@ -309,7 +450,8 @@ def _impossible(n: dict, category: str = "") -> str:
 
 
 def extract_items(html: str, *, menus: dict[str, dict], excluded_menus: dict[str, str], category_overrides: dict[str, str] | None = None,
-                  row_exclusions=None, no_desc_sections: dict[str, str] | None = None, name_categories: dict[str, str] | None = None) -> dict:
+                  row_exclusions=None, no_desc_sections: dict[str, str] | None = None, name_categories: dict[str, str] | None = None,
+                  allergen_holdbacks: dict[str, str] | None = None) -> dict:
     """Turn a parsed guide into item dicts. Returns {"items", "holdback", "log", "stamp", "ambiguous"}: nothing is written here.
 
     menus: title -> {"category": forced category (optional), "label": suffix for names that clash with the standard menu,
@@ -342,6 +484,7 @@ def extract_items(html: str, *, menus: dict[str, dict], excluded_menus: dict[str
         if any(str(v).startswith("-") for v in nut.values()):
             log["row with negative numbers (a swap difference between two dishes, not a dish)"] += 1
             continue
+        alg = read_allergens(card)  # a dish whose numbers parsed but whose allergens did not stops the run
         category = category_for(card["section"], overrides)
         if category is None:
             raise ChainScriptError(f"no category for section {card['section']!r} (menu {title!r}): add it to category_overrides")
@@ -357,7 +500,8 @@ def extract_items(html: str, *, menus: dict[str, dict], excluded_menus: dict[str
         rec = records.setdefault(key, {"name": name, "desc": card["desc"], "entries": []})
         rec["entries"].append({"menu": title, "section": card["section"], "category": category, "veg": bool(diet), "diet": diet, "nut": nut,
                                "label": rule.get("label", ""), "limited": rule.get("limited", False),
-                               "choices": bool(NOTE_CUT.search(card["name"]))})
+                               "choices": bool(NOTE_CUT.search(card["name"])), "alg": alg,
+                               "choice_note": (NOTE_CUT.search(card["name"]).group(1).strip() if NOTE_CUT.search(card["name"]) else "")})
     # 1. one product per (name+description, label group, numbers); a dish printed in several menus with the same numbers is one item
     products: list[dict] = []
     ambiguous: list = []
@@ -366,12 +510,14 @@ def extract_items(html: str, *, menus: dict[str, dict], excluded_menus: dict[str
         for e in rec["entries"]:
             groups.setdefault(e["label"], collections.OrderedDict()).setdefault(_sig(e["nut"]), []).append(e)
         for label, by_sig in groups.items():
+            ignored: list = []  # entries whose numbers were set aside for the primary menu's; their allergens must still agree
             if len(by_sig) > 1:
                 # other menus print other numbers for the same dish: if the primary menu(s) print exactly one set, use it
                 prim = {sg for sg, es in by_sig.items() if any(menus[e["menu"]].get("primary") for e in es)}
                 if len(prim) == 1:
                     sg = next(iter(prim))
                     log["same name printed with other numbers in a non-primary menu: the primary menu's numbers are used, the others ignored"] += len(by_sig) - 1
+                    ignored += [e for sg2, es in by_sig.items() if sg2 != sg for e in es]
                     by_sig = {sg: by_sig[sg]}
             if len(by_sig) > 1:
                 # the same dish in different sections (a starter portion and a side portion): the section tells them apart
@@ -379,19 +525,20 @@ def extract_items(html: str, *, menus: dict[str, dict], excluded_menus: dict[str
                 diets = [{e["diet"] for e in es} for es in by_sig.values()]
                 if len(secs) == len(set(secs)) or (all(len(d) == 1 for d in diets) and len({next(iter(d)) for d in diets}) == len(diets)):
                     for sg, es in by_sig.items():
-                        products.append({"name": rec["name"], "desc": rec["desc"], "label": label, "sig": sg, "entries": es})
+                        products.append({"name": rec["name"], "desc": rec["desc"], "label": label, "sig": sg, "entries": es, "ignored": []})
                     continue
             if len(by_sig) > 1:
                 ambiguous.append((rec["name"], label, [(e["menu"], e["section"], _sig(e["nut"])) for g in by_sig.values() for e in g]))
                 log["same name and description printed with different numbers in the same kind of menu (cannot tell them apart): not published"] += 1
                 continue
             (sig, ents), = by_sig.items()
-            products.append({"name": rec["name"], "desc": rec["desc"], "label": label, "sig": sig, "entries": ents})
+            products.append({"name": rec["name"], "desc": rec["desc"], "label": label, "sig": sig, "entries": ents, "ignored": ignored})
     merged: dict = collections.OrderedDict()
     for pr in products:  # the same dish with the same numbers in different menus is one item (a label is kept only if every menu has one)
         k = (pr["name"].lower(), pr["sig"])
         if k in merged:
             merged[k]["entries"].extend(pr["entries"])
+            merged[k]["ignored"].extend(pr["ignored"])
             if not pr["label"]:
                 merged[k]["label"] = ""
         else:
@@ -437,9 +584,22 @@ def extract_items(html: str, *, menus: dict[str, dict], excluded_menus: dict[str
             log["different numbers under one name that the guide gives no way to tell apart: not published"] += 1
         drop = {id(pr) for pr in group}
         products = [pr for pr in products if id(pr) not in drop]
-    # 3. rows
+    # 3. allergens must agree: one dish printed in several menus (or with other numbers in a menu we set aside) has ONE allergen row
+    consistent, conflicts = [], []
+    for pr in products:
+        sigs = {_alg_sig(e["alg"]) for e in pr["entries"]}
+        other = {_alg_sig(e["alg"]) for e in pr["ignored"]} - sigs
+        if len(sigs) > 1 or other:
+            conflicts.append((pr["name"], sorted({f"{e['menu']} / {e['section']}" for e in pr["entries"] + pr["ignored"]})))
+            log["same dish printed with different allergens in different menus (no single row is true for all): not published"] += 1
+        else:
+            consistent.append(pr)
+    products = consistent
+    # 4. rows
     items, holdback = [], []
     used_ids: dict[str, int] = {}
+    reviewed = {k.lower(): v for k, v in (allergen_holdbacks or {}).items()}
+    used_reviewed: set = set()
     for pr in products:
         ents = pr["entries"]
         first = ents[0]
@@ -472,18 +632,39 @@ def extract_items(html: str, *, menus: dict[str, dict], excluded_menus: dict[str
         except (KeyError, ValueError, ZeroDivisionError):
             pass
         cat = next((e["category"] for e in ents if not e["category"].startswith("~")), first["category"]).lstrip("~")
+        alg = first["alg"]
+        reasons = []
+        choice_notes = sorted({e["choice_note"] for e in ents if e["choices"]})
+        if choice_notes:
+            reasons.append(f"the guide prints \"{choice_notes[0].rstrip('. ')}\" beside this dish: its allergen row leaves out the choices, "
+                           f"so it is not shown as a complete list")
+        if pr["name"].lower() in reviewed:
+            reasons.append(reviewed[pr["name"].lower()])
+            used_reviewed.add(pr["name"].lower())
+        diets = {e["diet"] for e in ents}
+        if "VE" in diets and alg["contains"] & VEGAN_ANIMAL:
+            reasons.append(f"the guide marks this dish vegan (VE) but its own allergen row says it contains {', '.join(sorted(alg['contains'] & VEGAN_ANIMAL))}")
+        elif diets & {"V", "VE"} and alg["contains"] & VEGETARIAN_ANIMAL:
+            reasons.append(f"the guide marks this dish vegetarian but its own allergen row says it contains {', '.join(sorted(alg['contains'] & VEGETARIAN_ANIMAL))}")
         item = {
             "id": item_id, "name": pr["name"], "category": cat, "serving": "", "calories": nut["kcal"], "protein_g": nut["protein"],
             "carbs_g": nut["carbs"], "fat_g": nut["fat"], "sat_fat_g": nut["sat"], "sodium_mg": "", "salt_g": nut["salt"],
             "sugar_g": nut["sugars"], "fiber_g": "", "tags": "|".join(tags),
             "limited_time": all(e["limited"] for e in ents), "rankable": cat not in NON_RANKABLE,
             "notes": note, "_desc": pr["desc"],
+            "allergens": {"contains": set(alg["contains"]), "may_contain": set(alg["may_contain"]),
+                          "cereals": set(alg["cereals"]), "nuts": set(alg["nuts"])},
         }
         items.append(item)
         bad = _impossible(nut, cat)
         if bad:
-            holdback.append((item_id, bad))
-    return {"items": items, "holdback": holdback, "log": log, "stamp": page["stamp"], "ambiguous": ambiguous}
+            reasons.insert(0, bad)
+        if reasons:
+            holdback.append((item_id, "; ".join(reasons)))
+    may_printed = any(ln["kind"] == "may" for c in page["cards"] for ln in c["allergen_lines"])
+    return {"items": items, "holdback": holdback, "log": log, "stamp": page["stamp"], "ambiguous": ambiguous,
+            "allergen_conflicts": conflicts, "may_contain_published": may_printed,
+            "unused_allergen_holdbacks": sorted(set(reviewed) - used_reviewed)}
 
 
 def default_row_exclusions(name: str, card: dict) -> str | None:
@@ -501,7 +682,7 @@ def sha_of(path: Path) -> str:
 def main_for(*, chain_id: str, chain_name: str, cuisine: str, aliases: list[str], source_url: str, brand_label: str, menus: dict,
              excluded_menus: dict, category_overrides: dict | None = None, row_exclusions=default_row_exclusions, note: str = "",
              expected_brand_stamp: str = "", no_desc_sections: dict | None = None,
-             name_categories: dict | None = None) -> int:
+             name_categories: dict | None = None, allergen_holdbacks: dict | None = None) -> int:
     ap = argparse.ArgumentParser(description=f"Build data/source/{chain_id}/ from the M&B allergen guide ({source_url})")
     ap.add_argument("html", type=Path, help="the downloaded guide page")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day the guide was downloaded")
@@ -511,7 +692,8 @@ def main_for(*, chain_id: str, chain_name: str, cuisine: str, aliases: list[str]
     try:
         res = extract_items(html, menus=menus, excluded_menus=excluded_menus, category_overrides=category_overrides,
                             row_exclusions=row_exclusions, no_desc_sections=no_desc_sections,
-                            name_categories={k.lower(): v for k, v in (name_categories or {}).items()})
+                            name_categories={k.lower(): v for k, v in (name_categories or {}).items()},
+                            allergen_holdbacks={**ALLERGEN_HOLDBACKS.get(chain_id, {}), **(allergen_holdbacks or {})})
     except (GuideLayoutError, ChainScriptError) as e:
         print(f"{chain_id}: stopped. The guide no longer matches this script: {e}", file=sys.stderr)
         return 1
@@ -524,17 +706,29 @@ def main_for(*, chain_id: str, chain_name: str, cuisine: str, aliases: list[str]
     items = res["items"]
     for it in items:
         it.pop("_desc", None)
+    # all or nothing (docs/DATA.md "Allergens"): every published item has a row copied from the guide, or the run stops
+    missing = [it["name"] for it in items if not isinstance(it.get("allergens"), dict)]
+    if missing:
+        print(f"{chain_id}: stopped. {len(missing)} published items have no allergen row (e.g. {missing[:3]}): not writing a partial list", file=sys.stderr)
+        return 1
     guide_title = f"{brand_label} Allergen & Nutrition Guide, Mitchells & Butlers (page stamped {page_date})"
     out = write_chain_folder(
         chain_id=chain_id, name=chain_name, cuisine=cuisine, source_title=guide_title,
         source_url=source_url, checked_on=args.checked_on, aliases=aliases, items=items, out=args.out, note=note,
         holdback=res["holdback"],
-        # link only: the items carry no "allergens" (see the module docstring), so no allergens.csv is written
-        allergen_guide={"title": guide_title, "url": source_url, "checked_on": args.checked_on, "may_contain_published": False})
+        # every item carries its printed allergens, so allergens.csv is written beside allergen_guide.csv (see the module docstring)
+        allergen_guide={"title": guide_title, "url": source_url, "checked_on": args.checked_on,
+                        "may_contain_published": bool(res["may_contain_published"])})
     print(f"wrote {len(items)} items ({len(res['holdback'])} held back) to {out}; page stamp {stamp!r}; sha256 {sha_of(args.html)}")
     print(f"  {sum('flags this dish as having choices' in i['notes'] for i in items)} published items are dishes the guide flags as having choices")
     for reason, n in sorted(res["log"].items()):
         print(f"  left out {n:4d} rows: {reason}")
     for name, label, ents in res["ambiguous"]:
         print(f"  ambiguous {name!r} [{label}]: {ents}")
+    for name in res["unused_allergen_holdbacks"]:
+        print(f"  note: the reviewed allergen holdback for {name!r} matched no dish in this page (the guide changed?): re-check it")
+    for name, where in res["allergen_conflicts"]:
+        print(f"  allergens differ between menus, not published: {name!r} in {where}")
+    n_alg = sum(1 for it in items if it["allergens"]["contains"] or it["allergens"]["may_contain"])
+    print(f"  allergens copied for all {len(items)} published items ({n_alg} list at least one; may-contain printed by the guide: {res['may_contain_published']})")
     return 0

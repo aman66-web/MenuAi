@@ -2,12 +2,12 @@
  "chain": "nicholsons",
  "date": "2026-10-08",
  "source_read": "https://allergens.mbplc.io/AllergenGuideNicholsonsEstate.html (live page stamped 2026-10-08 06:25, downloaded fresh 2026-10-08 with curl; robots.txt on the host is a 404, no rules)",
- "compared_items": 193,
+ "compared_items": 192,
  "nutrition_mismatches": 0,
  "allergen_mismatches": 0,
  "fixed": 0,
- "held_back": 3,
- "marked_ok": 0,
- "not_verifiable": "allergens: none are published for this chain (the guide's allergen markup is not extracted, link to the guide only), so none were compared",
- "notes": "Fresh page identical to data/source in every published number (re-run of nicholsons.py changed only the page stamp). An independent regex parse of the page found every one of the 193 published rows (calories, fat, saturates, carbs, sugars, protein, salt) under the same dish name; vegetarian tags match the guide's V/VE marks. 3 more dishes held back (Add Beef Patty, Add Scampi, Wholetail Scottish Scampi): printed kcal is 23-29% away from their own protein+carbs+fat AND their printed kJ does not corroborate it; rule added to nicholsons.py (wrapper, mb_guide.py untouched). 47 dishes whose kJ disagrees with kcal but whose kcal agrees with their macros stay (kJ is not published). Two check_chain warnings explained: Add Avocado & Bacon (121 kcal vs macros 102, 16%, kJ is the outlier) and Decaf Iced Black Coffee (50 kcal, kJ 206 agrees, printed twice identically)."
+ "held_back": 6,
+ "marked_ok": 3,
+ "not_verifiable": "",
+ "notes": "Fresh page identical to data/source in every published number (only the page stamp changed). An independent regex parse of the page found all 193 rows (calories, fat, saturates, carbs, sugars, protein, salt) under the same dish name, and all 181 published rows' allergens (contains / may contain / cereal and nut kinds, policy 2 applied) match the guide's own pills (0 real differences). Vegetarian tags match the V/VE marks. Held back by this check, all in nicholsons.py (mb_guide.py untouched): 4 dishes whose kcal is contradicted by their own macros AND kJ (Add Beef Patty, Add Scampi, Wholetail Scottish Scampi, Add Avocado & Bacon; rule: macros >20% off, or >15% off with kJ also >15% off); and 2 dishes whose allergen row contradicts the dish: Sticky Toffee Pudding (a sponge: eggs and milk but no gluten) and 8oz Chargrilled Sirloin Steak (sauce choice of peppercorn/bearnaise, row says no allergens while the guide's own rows for those sauces list milk, egg, celery, gluten). The guide's 4 'please refer to your choice' dishes are held by mb_guide's own rule. Kept after reading: the two mash-topped pies and the broccoli 'pie collection' side (3 audit flags marked ok), the pesto dishes (pine nuts are not one of the 14), vegan creamy mushrooms (marked VE), gochujang-mayo dishes (guide lists no egg for both). 47 dishes whose kJ disagrees with kcal but whose kcal agrees with their macros stay. check_chain warning explained: Decaf Iced Black Coffee 50 kcal (kJ 206 agrees, printed twice identically)."
 }

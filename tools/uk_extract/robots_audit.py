@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import csv
 import glob
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -32,6 +33,21 @@ def main() -> int:
                 u = r.get("source_url") or r.get("url") or ""
                 if u.startswith("http") and "example.com" not in u:
                     by_host.setdefault(urllib.parse.urlsplit(u).netloc, []).append((chain, u))
+    # also every address written into a chain's own extraction scripts (a PDF the script downloads is often not the page chain.csv names:
+    # Starbucks' chain.csv names an allowed HTML page while its two guide PDFs are disallowed)
+    url_re = re.compile(r"https?://[A-Za-z0-9._~:/?#@!$&'()*+,;=%\-]+")
+    for d in glob.glob(str(ROOT / "data" / "source" / "*")):
+        chain = Path(d).name
+        if chain.startswith("_") or chain in ("cluck-house", "bowl-and-co"):
+            continue
+        for sf in glob.glob(str(ROOT / "tools" / "uk_extract" / (chain.replace("-", "_") + "*.py"))):
+            if "images_" in sf or "robots" in sf:
+                continue
+            for u in url_re.findall(Path(sf).read_text(encoding="utf-8", errors="replace")):
+                u = u.rstrip(".,;)'\"")
+                if "{" in u or "example.com" in u or "schema.org" in u or "w3.org" in u:
+                    continue
+                by_host.setdefault(urllib.parse.urlsplit(u).netloc, []).append((chain, u))
     bad, unreadable = [], []
     for host in sorted(by_host):
         try:

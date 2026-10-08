@@ -14,9 +14,21 @@ finished items (e.g. Hot Dog 477 kcal printed vs 215 bun + 192 sausage = 407; Li
 Hamburger 457 + cheese 64 = 521), and the guide does not say which toppings the printed items include. A components
 recipe would therefore show numbers Five Guys does not publish, so the printed item values are used as they are.
 
+Allergens (docs/DATA.md "Allergens", all or nothing): the same PDF prints an "ALLERGEN GUIDE - UK LOCATIONS ONLY" matrix, one row per
+product and one column per allergen of the 14. A red dot means "CONTAINS AN ALLERGEN" (-> contains); the digit 1 means "Not suitable for
+this allergen sufferer due to manufacturing and preparation methods" (-> may contain, as Cooplands' "Not suitable for someone with a ..."
+is); the digit 2 ("Due to cooking methods used not suitable ... during Breakfast operation hours") is in the legend but no row uses it,
+and the run stops if one ever does. The matrix names no cereal or tree-nut kinds, so none are published. Every published item is tied by
+ALLERGEN_ROW to ONE matrix row of the same printed name (a few names differ only by a qualifier, each with its reason there); an item whose
+name matches no matrix row is held back, never guessed. Self-checks: the matrix has the expected 76 rows, every mapped row exists exactly
+once, the rows nobody maps are the ones expected, and every allergen the guide's own ingredient listing prints in bold for a product is a
+red dot in the matrix row of that product (the guide may not contradict itself).
+
 Source: https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/FGUK_FOH_allergen_ingredient_nutrition_Myprotein_shake_DIGITAL_20260805.pdf
 (linked as "UK Nutrition & Allergen Guide" on https://www.fiveguys.co.uk/nutritional-allergy-information/; re-published every few months).
 """
+from __future__ import annotations
+
 import argparse
 import csv
 import hashlib
@@ -27,7 +39,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import five_guys_pdf  # noqa: E402
-from common import write_allergens  # noqa: E402
+from common import allergen_words, write_allergens  # noqa: E402
 
 CHAIN_ID = "five-guys"
 SOURCE_URL = ("https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/"
@@ -176,9 +188,12 @@ HOLDBACK = [
     ("banana-mix-in", "The guide prints 194 kcal (814 kJ) with 36 g carbohydrate, 0 g fat and 0 g protein (about 144 kcal), "
                       "and 2.5 g fat for the little-shake banana at half the amount."),
 ]
+HOLDBACK.append(("crispy-fried-onions", "The guide's allergen matrix has no row with this exact name (it prints 'Crispy Onions'), so its allergens "
+                 "are not published; the nutrition table and the ingredient listing both print 'Crispy Fried Onions'."))
 NOTE = "Milkshake mix-in values vary with how many you add and aren't added to the shake."
-# The nutrition PDF is also the chain's allergen guide (a matrix of contains / cannot-guarantee marks per item). We do not copy the
-# matrix, so the app shows only a link to it. It prints a 'not suitable ... manufacturing and preparation' mark, i.e. cross-contact.
+# The nutrition PDF is also the chain's allergen guide. Its matrix is copied by read_allergen_matrix (see the module docstring):
+# the digit-1 mark ("not suitable ... due to manufacturing and preparation methods") is stored as "may contain", so the guide does print
+# traces/cross-contact information.
 ALLERGEN_GUIDE = {"title": SOURCE_TITLE, "url": SOURCE_URL,
                   "may_contain_published": True}
 ITEM_FIELDS = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
@@ -194,6 +209,171 @@ def slug(name: str) -> str:
 def norm(label: str) -> str:
     """Compare labels ignoring asterisks, the (R) sign, hyphenation, spacing and case."""
     return re.sub(r"[^a-z0-9]", "", label.lower().replace("&apos;", "'"))
+
+
+# ------------------------------------------------------------------------------------------------ allergens
+# item name (as in ROWS) -> (matrix section, matrix row label as printed, why the printed label differs from the item name).
+# The section is the start of the heading above the row. An empty reason means the labels are equal after norm() (case, asterisks, the
+# (R) sign and punctuation ignored). Anything else needs a reason that the self-check below accepts.
+_SECTIONS = {"BURGERS": ["Hamburger", "Little Hamburger", "Cheeseburger", "Little Cheeseburger", "Bacon Burger", "Little Bacon Burger",
+                         "Bacon Cheeseburger", "Little Bacon Cheeseburger"],
+             "HOT DOGS": ["Hot Dog", "Cheese Dog", "Bacon Dog", "Bacon Cheese Dog"],
+             "SANDWICHES": ["Veggie Sandwich", "Cheese Veggie Sandwich", "Grilled Cheese"],
+             "MEAT": ["Bacon", "Beef Burger Patty"],
+             "BUN": ["Burger Bun", "Hot Dog Bun"],
+             "FRIES": ["Cajun seasoning"],
+             "TOPPINGS": ["BBQ Sauce", "Cheese (pasteurised)", "Grilled Mushrooms", "Hot Sauce", "HP Brown Sauce", "Tomato Ketchup", "Lettuce",
+                          "Mayonnaise", "Mustard", "Fresh Onions", "Grilled Onions", "Pickles", "Relish"],
+             "MILKSHAKES": ["Five Guys Milkshake Base"]}
+ALLERGEN_ROW: dict = {n: (sec, n, "") for sec, names in _SECTIONS.items() for n in names}
+ALLERGEN_ROW.update({
+    # the shake/mix-in rows: our names add "mix-in" or "(little shake)"; the section heading is "MILKSHAKES (INCLUDING BIG KIDS SHAKE AND
+    # LITTLE SHAKE) + MIX-INS", so one row per product covers the regular and the little shake (checked below for every "little" item)
+    "Jimmy’s Iced Coffee mix-in": ("MILKSHAKES", "Jimmy’s Iced Coffee", "our 'mix-in' suffix"),
+    "Chocolate mix-in": ("MILKSHAKES", "Chocolate", "our 'mix-in' suffix"),
+    "Salted Caramel mix-in": ("MILKSHAKES", "Salted Caramel", "our 'mix-in' suffix"),
+    "Strawberry mix-in": ("MILKSHAKES", "Strawberry", "our 'mix-in' suffix"),
+    "Pistachio mix-in": ("MILKSHAKES", "Pistachio", "our 'mix-in' suffix"),
+    "Peanut Butter mix-in": ("MILKSHAKES", "Peanut Butter", "our 'mix-in' suffix"),
+    "Reese's Peanut Butter Cups mix-in": ("MILKSHAKES", "Reese's Peanut Butter Cups", "our 'mix-in' suffix"),
+    "Lotus Biscoff mix-in": ("MILKSHAKES", "Lotus Biscoff", "our 'mix-in' suffix"),
+    "Oreo Cookie Pieces mix-in": ("MILKSHAKES", "Oreo Cookie Pieces", "our 'mix-in' suffix"),
+    "Banana mix-in": ("MILKSHAKES", "Banana", "our 'mix-in' suffix"),
+    "Flake (milkshake)": ("MILKSHAKES", "Flake", "our '(milkshake)' suffix"),
+    "Whipped Cream (milkshake)": ("MILKSHAKES", "Whipped Cream", "our '(milkshake)' suffix"),
+    "Myprotein mix-in (12 g)": ("MILKSHAKES", "Myprotein", "our 'mix-in' and amount; the matrix has one Myprotein row"),
+    "Five Guys Milkshake Base (little)": ("MILKSHAKES", "Five Guys Milkshake Base", "heading says the rows include the little shake"),
+    "Whipped Cream (little shake)": ("MILKSHAKES", "Whipped Cream", "heading says the rows include the little shake"),
+    "Flake (little shake)": ("MILKSHAKES", "Flake", "heading says the rows include the little shake"),
+    "Banana mix-in (little shake)": ("MILKSHAKES", "Banana", "heading says the rows include the little shake"),
+    "Chocolate mix-in (little shake)": ("MILKSHAKES", "Chocolate", "heading says the rows include the little shake"),
+    "Lotus Biscoff mix-in (little shake)": ("MILKSHAKES", "Lotus Biscoff", "heading says the rows include the little shake"),
+    "Oreo Cookie Pieces mix-in (little shake)": ("MILKSHAKES", "Oreo Cookie Pieces", "heading says the rows include the little shake"),
+    "Jimmy’s Iced Coffee mix-in (little shake)": ("MILKSHAKES", "Jimmy’s Iced Coffee", "heading says the rows include the little shake"),
+    "Pistachio mix-in (little shake)": ("MILKSHAKES", "Pistachio", "heading says the rows include the little shake"),
+    "Reese's Peanut Butter Cups mix-in (little shake)": ("MILKSHAKES", "Reese's Peanut Butter Cups", "heading says the rows include the little shake"),
+    "Peanut Butter mix-in (little shake)": ("MILKSHAKES", "Peanut Butter", "heading says the rows include the little shake"),
+    "Salted Caramel mix-in (little shake)": ("MILKSHAKES", "Salted Caramel", "heading says the rows include the little shake"),
+    "Strawberry mix-in (little shake)": ("MILKSHAKES", "Strawberry", "heading says the rows include the little shake"),
+    "Myprotein mix-in (6 g, little shake)": ("MILKSHAKES", "Myprotein", "heading says the rows include the little shake; one Myprotein row"),
+    # qualifiers the matrix prints after the name
+    "Green Peppers": ("TOPPINGS", "Green Peppers (including diced)", "the matrix adds '(including diced)'"),
+    "Jalapeño Peppers": ("TOPPINGS", "Jalapeño Peppers (including diced)", "the matrix adds '(including diced)'"),
+    "Tomatoes": ("TOPPINGS", "Tomatoes (including diced)", "the matrix adds '(including diced)'"),
+    # the matrix has ONE row for the product in every size; the heading is "FRIES COOKED IN PEANUT OIL"
+    "Mini Fries": ("FRIES", "Fries", "one matrix row covers every size"),
+    "Little Fries": ("FRIES", "Fries", "one matrix row covers every size"),
+    "Regular Fries": ("FRIES", "Fries", "one matrix row covers every size"),
+    "Large Fries": ("FRIES", "Fries", "one matrix row covers every size"),
+    # names we expanded or kept from the nutrition table
+    "Hot Dog (sausage only)": ("MEAT", "Hot Dog", "the MEAT section's Hot Dog is the sausage alone"),
+    "BLT (Bacon, Lettuce and Tomato)": ("SANDWICHES", "BLT **", "the guide's ingredient listing spells it 'BLT (Bacon, Lettuce and Tomato)'"),
+    "Lettuce Wrap": ("SANDWICHES", "Lettuce Wrap Patty, Tomatoes, Pickles, Grilled Onions, Green Peppers, Grilled Mushrooms",
+                     "the matrix label continues with the toppings, as the nutrition table's does"),
+    # NOT mapped, so held back (HOLDBACK): "Crispy Fried Onions" (the matrix prints "Crispy Onions")
+})
+# Matrix rows no published item uses, each with the reason: a new matrix row that shows up here unexpectedly stops the run.
+EXPECTED_UNUSED = {
+    ("MEAT", "Sausage Patty*"): "Heathrow breakfast part, not in the nutrition table",
+    ("FRIES", "Loaded Fries*"): "participating locations only, left out of the menu",
+    ("FRIES", "Loaded Cajun Fries*"): "participating locations only, left out of the menu",
+    ("FRIES", "Hash Browns*"): "Heathrow only, left out of the menu",
+    ("TOPPINGS", "Crispy Onions"): "item held back: the name differs ('Crispy Fried Onions')",
+    ("TOPPINGS", "Grilled Toppings"): "no nutrition row",
+    ("MILKSHAKES", "Flake"): "both Flake items are held back (fat 18 g with 43 kcal)",
+    ("MILKSHAKES", "Watermelon*"): "participating locations only, left out of the menu",
+    ("BURGERS", "Little Bacon Burger"): "item held back (the nutrition table prints 367 g of carbohydrate)",
+    ("BREAKFAST", "Sausage, Egg & Cheese Sandwich*"): "Heathrow only",
+    ("BREAKFAST", "Bacon, Egg & Cheese Sandwich*"): "Heathrow only",
+    ("BREAKFAST", "Little Sausage, Egg and Cheese Sandwich*"): "Heathrow only",
+    ("BREAKFAST", "Little Bacon, Egg & Cheese Sandwich*"): "Heathrow only",
+    ("BREAKFAST", "Little Sausage Sandwich*"): "Heathrow only",
+    ("BREAKFAST", "Little Egg Sandwich*"): "Heathrow only",
+    ("BREAKFAST", "Latte*"): "Heathrow / participating locations only",
+    ("BREAKFAST", "Cappuccino*"): "Heathrow / participating locations only",
+    ("BREAKFAST", "Flat White*"): "Heathrow / participating locations only",
+    ("BREAKFAST", "Americano Black*"): "Heathrow / participating locations only",
+    ("BREAKFAST", "Americano White*"): "Heathrow / participating locations only",
+    ("BREAKFAST", "Double Espresso*"): "Heathrow / participating locations only",
+    ("BREAKFAST", "Breakfast Tea*"): "Heathrow / participating locations only",
+    ("OTHER ITEMS", "Bulk Peanuts Without Shell ***"): "per-serving numbers not printed, left out of the menu",
+    ("OTHER ITEMS", "Egg*"): "participating locations only, left out of the menu",
+}
+EXPECTED_MATRIX_ROWS = 76
+# The ingredient listing's label for a matrix label that is spelled differently (norm() form -> norm() form).
+INGREDIENT_ALIAS = {"fries": "fiveguysstyle", "crispyonions": "crispyfriedonions", "bulkpeanutswithoutshell": "bulkpeanuts",
+                    "oreocookiepieces": "oreocookie"}
+MARK_MEANING = {"•": "contains", "1": "may_contain"}  # "2" (breakfast hours) has no meaning here: any row using it stops the run
+
+
+def _find_row(matrix: list, section: str, label: str) -> dict:
+    hit = [r for r in matrix if r["section"].startswith(section) and norm(r["label"]) == norm(label)]
+    if len(hit) != 1:
+        raise SystemExit(f"Allergen matrix: expected exactly one row {label!r} under {section!r}, found {len(hit)}. The guide changed: re-check ALLERGEN_ROW.")
+    return hit[0]
+
+
+def check_matrix_against_ingredients(matrix: list, ingredients: list) -> int:
+    """The guide's own ingredient listing prints allergens in capitals. Each such allergen must be a red dot in the matrix row of the same
+    product (a dot the listing does not show is fine: milkshake mix-ins are marked for the milk of the shake). Returns the rows compared."""
+    used, compared, bad = set(), 0, []
+    for row in matrix:
+        want = INGREDIENT_ALIAS.get(norm(row["label"]), norm(row["label"]))
+        found = None
+        for i, ing in enumerate(ingredients):
+            have = norm(ing["label"])
+            if i not in used and (have == want or have.startswith(want) or want.startswith(have)):
+                found = i
+                break
+        if found is None:
+            continue
+        used.add(found)
+        keys, _, _ = allergen_words(five_guys_pdf.bold_allergen_words(ingredients[found]["text"], ingredients[found]["label"]), ingredients[found]["label"])
+        dots = {k for k, v in row["marks"].items() if v == "•"}
+        compared += 1
+        if keys - dots:
+            bad.append(f"{row['label']}: the ingredient listing prints {sorted(keys - dots)} in capitals but the matrix has no dot for it")
+    if bad:
+        raise SystemExit("The guide contradicts itself (matrix vs ingredient listing); hold these back or ask:\n  " + "\n  ".join(bad))
+    return compared
+
+
+def build_allergens(pdf: Path, items: list, held: set) -> tuple:
+    """-> (rows for write_allergens, report lines). Stops (SystemExit) unless every published item has exactly one matrix row."""
+    matrix = five_guys_pdf.read_allergen_matrix(pdf)
+    if len(matrix) != EXPECTED_MATRIX_ROWS:
+        raise SystemExit(f"The allergen matrix has {len(matrix)} rows but this script expects {EXPECTED_MATRIX_ROWS}: the guide changed, re-check ALLERGEN_ROW.")
+    for r in matrix:
+        for key, mark in r["marks"].items():
+            if mark not in MARK_MEANING:
+                raise SystemExit(f"Allergen matrix row {r['label']!r} uses the mark {mark!r} for {key}: its meaning (legend 2: breakfast hours) is not handled; decide first.")
+    compared = check_matrix_against_ingredients(matrix, five_guys_pdf.read_ingredients(pdf))
+    rows, used = [], set()
+    for it in items:
+        if it["id"] in held:
+            continue
+        if it["name"] not in ALLERGEN_ROW:
+            raise SystemExit(f"{it['name']!r} has no allergen matrix row: map it in ALLERGEN_ROW or hold it back in HOLDBACK.")
+        section, label, why = ALLERGEN_ROW[it["name"]]
+        if not why and norm(it["name"]) != norm(label):
+            raise SystemExit(f"{it['name']!r} is mapped to {label!r} without a reason: names must be equal or the difference explained.")
+        row = _find_row(matrix, section, label)
+        if ("little shake" in it["name"].lower() or it["name"].endswith("(little)")) and "LITTLE SHAKE" not in row["section"]:
+            raise SystemExit(f"{it['name']!r}: the matrix section {row['section']!r} does not say it includes the little shake.")
+        used.add((section, label))
+        contains = {k for k, v in row["marks"].items() if MARK_MEANING[v] == "contains"}
+        may = {k for k, v in row["marks"].items() if MARK_MEANING[v] == "may_contain"}
+        rows.append((it["id"], {"contains": contains, "may_contain": may}))
+    unused = {(r["section"], r["label"]) for r in matrix} - {(_find_row(matrix, sec, lab)["section"], _find_row(matrix, sec, lab)["label"]) for sec, lab in used}
+    expected = {(_find_row(matrix, sec, lab)["section"], _find_row(matrix, sec, lab)["label"]) for sec, lab in EXPECTED_UNUSED}
+    if unused != expected:
+        raise SystemExit("The matrix rows used by no item differ from EXPECTED_UNUSED: "
+                         f"unexpected {sorted(unused - expected)}, now used {sorted(expected - unused)}.")
+    published = [i for i in items if i["id"] not in held]
+    assert len(rows) == len(published), "every published item must have an allergen row"
+    lines = [f"allergens: {len(rows)} published items each tied to one matrix row ({len(matrix)} matrix rows, {len(unused)} used by no item); "
+             f"{compared} matrix rows agree with the ingredient listing's capitalised allergens"]
+    return rows, lines
 
 
 def main() -> int:
@@ -236,6 +416,8 @@ def main() -> int:
     assert len(ids) == len(set(ids)), f"duplicate ids: {sorted({i for i in ids if ids.count(i) > 1})}"
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))  # stable: keeps the PDF order inside a category
 
+    allergen_rows, allergen_report = build_allergens(args.pdf, items, {i for i, _ in HOLDBACK})
+
     args.out.mkdir(parents=True, exist_ok=True)
     with open(args.out / "items.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=ITEM_FIELDS)
@@ -250,7 +432,7 @@ def main() -> int:
         w.writerow(["item_id", "reason"])
         w.writerows(HOLDBACK)
     (args.out / "note.txt").write_text(NOTE + "\n", encoding="utf-8")
-    write_allergens(args.out, CHAIN_ID, [], {**ALLERGEN_GUIDE, "checked_on": args.checked_on})
+    write_allergens(args.out, CHAIN_ID, allergen_rows, {**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     (args.out / "components.csv").write_text(
         "id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,removable,allow_double\n", encoding="utf-8")
     (args.out / "modifiers.csv").write_text(
@@ -260,6 +442,7 @@ def main() -> int:
     by_cat = {c: sum(1 for i in items if i["category"] == c) for c in CATEGORY_ORDER}
     print(f"wrote {len(items)} items to {args.out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()})")
     print("by category:", ", ".join(f"{c} {n}" for c, n in by_cat.items()))
+    print("\n".join(allergen_report))
     print(f"left out {len(excluded)} printed rows:")
     for label, why in excluded:
         print(f"  - {label}: {why}")
