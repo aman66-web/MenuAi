@@ -1,7 +1,7 @@
 # Held back: source file's host disallows automated downloads (robots.txt)
 
 On 2026-10-08 a check of every chain's source address against its host's robots.txt, using a matcher that understands the `*` and `$`
-wildcards (Python's urllib.robotparser does not, which is how these slipped through), found six chains whose official PDF was
+wildcards (Python's urllib.robotparser does not, which is how these slipped through), found six chains (a seventh, Starbucks, was found later the same day) whose official PDF was
 downloaded by script from a host that disallows it:
 
 | Chain | Host and rule |
@@ -9,6 +9,7 @@ downloaded by script from a host that disallows it:
 | Zizzi, ASK Italian, Coco di Mama, Ole & Steen | `cdn.sanity.io`: `Disallow: /*.pdf` (only `/files/cgnmnbqj/` is allowed) |
 | Pizza Express | `content-cdn.pizzaexpress.com`: `Disallow: /*.pdf` (only `/files/cgnmnbqj/` is allowed) |
 | Subway | `media.subway.com`: `Disallow: /` |
+| Starbucks (added 2026-10-08 by the accuracy re-check) | `www.starbucks.co.uk`: `Disallow: /*.pdf` (both the Beverages and Food guide PDFs are .pdf files; the chain page that links them is allowed, the files are not) |
 
 The standing rule (docs/UK_DATA_PLAYBOOK.md): a robots.txt Disallow stops us and we never work round it. So these chains are not in the
 app (`tools/build_menus.py` reads only `data/source/`). Nothing was changed or deleted: each folder here is exactly what was published.
