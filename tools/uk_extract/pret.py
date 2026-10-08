@@ -14,15 +14,19 @@ polyunsaturated and trans fat rows some drink variants print). The `perServing` 
 flags and the tag word lists below are typed by hand. If the site adds categories/subcategories, changes nutrient
 labels, or the item count changes, this script stops so a human re-checks (see EXPECTED_ITEMS, `--expect`).
 
-Allergens (docs/DATA.md "Allergens"): each product record in the same data carries an `allergens` list, read here per item
-(product_allergens). A chain gets allergens.csv only when EVERY item has them (all or nothing); otherwise only
-allergen_guide.csv is written, so the app links to Pret's own Allergen Guide. As of 2026-10-06 Pret is link-only, because:
-  * barista drinks: the data prints allergens once per product, not per milk / decaf variant (an oat or soya latte is not
-    described), and the Allergen Guide PDF, which does print each milk, names the rows differently ("Latte Oat (instead of
-    milk)" against the site's "Latte" + milk flag), so its rows could only be joined by a hand-typed name map (not allowed);
-  * branded drinks whose page says "see can / bottle" and items whose page prints "Ingredient data not found";
-  * Pret also declares Pine Nuts, which is not one of the 14 allergens (founder's decision how to show it).
-The script prints every blocked item with its reason on each run.
+Allergens (docs/DATA.md "Allergens"), copied from Pret's own data, all or nothing (every published item has a row):
+  * a product's own record (the data behind its product page) carries an `allergens` list; its ingredients list prints the allergen words
+    in bold. A plain product, and the DEFAULT variant of a barista drink (the one the page shows), take that list. The script checks that
+    the bold words equal the list, and that Pret's Allergen Guide PDF (the matrix read by pret_allergen_pdf.py, saved as allergen-guide.pdf
+    by --fetch) prints the same allergens whenever it has a row with the same name: a disagreement holds the item back.
+  * a barista drink in a non-default milk (oat, soya, skimmed...) has no allergens on its page, but the guide prints one row per milk
+    ("Latte Oat (instead of milk)"). The row is found by the drink's name plus the milk's printed label (MILK_LABELS; GUIDE_DRINK_NAME
+    for the one spelling slip); no row, or more than one, holds the item back.
+  * held back (holdback.csv, never guessed): decaf variants (the guide has no decaf rows), drinks the guide prints under another name
+    (a black americano with milk is its "White Americano"; the "add milk if White" tea and filter rows), branded bottles and cans (the
+    page says "see can / bottle"), and items declaring Pine Nuts (Pret declares them "in addition" to the 14; the data model has no
+    key for them). The guide prints no "may contain" information, so may_contain_published is no.
+The script prints every held-back item with its reason on each run.
 """
 from __future__ import annotations
 import argparse
@@ -34,6 +38,7 @@ import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import pret_allergen_pdf  # noqa: E402
 import pret_feed  # noqa: E402
 from common import ITEM_FIELDS, allergen_words, write_allergens  # noqa: E402
 
@@ -49,6 +54,21 @@ ALLERGEN_GUIDE_TITLE = "Pret's Allergen Guide, GB Pret shops (Allergen Guide 8th
 # Printed allergen labels that are not one of the 14 (the guide: "In addition we also declare Pine Nuts as an allergen.").
 NOT_OF_THE_14 = {"Pine Nuts"}
 PACK_ONLY = re.compile(r"please see (?:can|bottle)|see (?:can|bottle)|ingredient data not found", re.I)
+EXPECTED_MATRIX_ROWS = 475   # product rows of the 20 table pages of the 8 September 2026 guide (pret_allergen_pdf.read_matrix)
+NOTE = ("Numbers and allergens are Pret's own (product pages and Allergen Guide). Left out because Pret gives no allergen row for them: "
+        "decaf drinks, some milk choices of tea, filter coffee and iced Americano, branded bottles and cans, items with pine nuts.")
+# How the guide prints each milk choice after the drink's name (the guide's own wording; one or more spellings per choice). A drink in
+# a milk the guide prints under none of these has no row and is held back.
+MILK_LABELS = {
+    "semi-skimmed milk": ("Semi Skimmed milk", "Semi Skimmed"),
+    "skimmed milk": ("Skimmed milk", "Skimmed"),
+    "oat milk": ("Oat (instead of milk)",),
+    "soya milk": ("Soya (instead of milk)",),
+    "black": ("Black",),
+}
+# The site's drink name -> the name the guide prints for it, where they differ by a spelling slip only (checked: the guide has one such
+# drink and the site one; the default-milk row agrees with the product record, see guide_agrees).
+GUIDE_DRINK_NAME = {"Pumpkin Spice Latte": "Pumpkin Spiced Latte"}
 EXPECTED_ITEMS = 329  # set after the reviewed run of 2026-10-05; if the menu changes the script stops: re-check, then pass --expect N
 
 # Display categories, in display order.
@@ -167,19 +187,103 @@ def plain(html: str) -> str:
     return re.sub(r"<[^>]+>", "", html or "")
 
 
-def product_allergens(p: dict, who: str) -> tuple[dict | None, str]:
+def gnorm(label: str) -> str:
+    """Compare drink/product names ignoring case, punctuation, spacing, zero-width characters and the apostrophe style."""
+    return re.sub(r"[^a-z0-9]", "", label.replace("\u200b", "").lower())
+
+
+PINE = {"pine nuts": ("pine nuts", None)}   # lets allergen_words read the guide's extra column; the caller must never publish it
+
+
+def guide_index(matrix: list[dict]) -> dict[str, dict]:
+    """normalised name -> the guide's row. The same name printed twice must carry the same marks (else it is ambiguous and left out)."""
+    index: dict[str, dict] = {}
+    ambiguous: set[str] = set()
+    for r in matrix:
+        k = gnorm(r["name"])
+        if k in index and sorted(index[k]["marks"]) != sorted(r["marks"]):
+            ambiguous.add(k)
+        index.setdefault(k, r)
+    for k in ambiguous:
+        del index[k]
+    return index
+
+
+def guide_sets(row: dict, who: str) -> tuple[set[str], set[str], set[str], bool]:
+    """(keys, cereals, tree nuts, declares_pine_nuts) from a guide row's ticks (an unknown allergen word stops the run)."""
+    marks = [m for m in row["marks"] if m != "pine nuts"]
+    keys, cereals, nuts = allergen_words(marks, who)
+    return keys, cereals, nuts, "pine nuts" in row["marks"]
+
+
+def record_allergens(p: dict, who: str) -> tuple[dict | None, str]:
     """(allergens, "") from a product record's own `allergens` list, or (None, why) when it does not describe the item.
-    An empty list counts as "none of the 14" only when the page prints a real ingredients list."""
+    An empty list counts as "none of the 14" only when the page prints a real ingredients list, and the allergen words printed in bold in
+    that list must be exactly the allergens listed (the page's two statements agree)."""
     labels = [a["label"] for a in p.get("allergens") or []]
-    if p.get("variants"):
-        return None, "barista drink: allergens printed per product, not per milk/decaf variant"
-    if PACK_ONLY.search(plain(p.get("ingredients"))) or not plain(p.get("ingredients")).strip():
+    ing = p.get("ingredients") or ""
+    if PACK_ONLY.search(plain(ing)) or not plain(ing).strip():
         return None, "page prints no ingredients/allergens (see pack, or 'Ingredient data not found')"
     odd = sorted(set(labels) & NOT_OF_THE_14)
     if odd:
-        return None, f"declares {', '.join(odd)} (not one of the 14): needs the founder's decision"
+        return None, f"declares {', '.join(odd)} (not one of the 14 allergens the data model holds)"
     keys, cereals, nuts = allergen_words(labels, who)
+    bold = [w.strip() for b in re.findall(r"<b>(.*?)</b>", ing, flags=re.S) for w in re.split(r"[,/]", b) if w.strip()]
+    bkeys, bcereals, bnuts = allergen_words(bold, who + " (bold words in the ingredients)")
+    if (bkeys, bcereals, bnuts) != (keys, cereals, nuts):
+        return None, (f"the page's allergen list {sorted(keys)} disagrees with the allergens printed in bold in its ingredients {sorted(bkeys)}")
     return {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}, ""
+
+
+def guide_row_for(name: str, milk: str | None, index: dict[str, dict], bare_if_black: bool = False) -> tuple[dict | None, str]:
+    """The guide's row for a drink name in a milk choice (milk None = the drink has no milk choice in its name): exactly one row whose
+    normalised name equals the drink name plus one of the milk's printed labels (or, with no milk, the bare name)."""
+    base = GUIDE_DRINK_NAME.get(name, name)
+    labels = MILK_LABELS.get(milk) if milk else ("",)
+    if labels is None:
+        return None, f"no printed guide label is known for the milk choice {milk!r}"
+    if bare_if_black and milk == "black":   # the guide prints a plain black drink as "Americano Black" or just "Espresso"
+        labels = labels + ("",)
+    hits = {gnorm(f"{base} {lab}") for lab in labels} & set(index)
+    if len(hits) > 1:
+        return None, f"more than one guide row matches {name} + {milk}: {sorted(hits)}"
+    return (index[next(iter(hits))], "") if hits else (None, "")
+
+
+def item_allergens(p: dict, v: dict | None, name: str, base: str, milk: str | None, caf: str | None, default_row: bool,
+                   index: dict[str, dict], stats: dict) -> tuple[dict | None, str]:
+    """-> (allergens, "") for one published item, or (None, why it is held back). See the module docstring for the rules."""
+    if caf:
+        return None, "decaf drink: Pret's allergen guide prints no row for decaf variants (only the regular drink in each milk), so none is given"
+    if v is None or default_row:
+        rec, why = record_allergens(p, name)
+        if rec is None:
+            return None, why
+        # corroboration: the guide's row with the same name (for a barista default, name + its milk's printed label), when there is one
+        row, why = guide_row_for(name if v is None else base, None if v is None else milk, index, bare_if_black=True)
+        if why:
+            return None, why
+        if row is not None:
+            g, gc, gn, pine = guide_sets(row, name)
+            if pine or (g, gc, gn) != (rec["contains"], rec["cereals"], rec["nuts"]):
+                return None, (f"the product page lists {sorted(rec['contains'])} but Pret's guide row {row['name']!r} marks "
+                              f"{sorted(row['marks'])}: the two disagree, so neither is published")
+            stats["checked_against_guide"] += 1
+        else:
+            stats["record_only"] += 1
+        return rec, ""
+    # a non-default milk of a barista drink: the guide's row is the only source
+    row, why = guide_row_for(base, milk, index)
+    if why:
+        return None, why
+    if row is None:
+        return None, (f"Pret's guide has no row named '{GUIDE_DRINK_NAME.get(base, base)}' + the printed label of {milk} "
+                      f"({' / '.join(MILK_LABELS.get(milk, ()))}): it prints this drink under another name or not at all")
+    g, gc, gn, pine = guide_sets(row, name)
+    if pine:
+        return None, "the guide row declares Pine Nuts (not one of the 14 allergens the data model holds)"
+    stats["from_guide_row"] += 1
+    return {"contains": g, "may_contain": set(), "cereals": gc, "nuts": gn}, ""
 
 
 def read_nutrition(rows: list, who: str) -> dict[str, str] | None:
@@ -239,7 +343,7 @@ def collect(rawdir: Path):
     return out
 
 
-def build_items(rawdir: Path):
+def build_items(rawdir: Path, index: dict[str, dict], stats: dict):
     items, excluded, notes_log, allergens = [], [], [], []
     products = collect(rawdir)
     print(f"products read: {len(products)} unique ({sum(1 for p, *_ in products if p.get('variants'))} with drink variants)")
@@ -253,7 +357,7 @@ def build_items(rawdir: Path):
             if not p["nutritionals"]:
                 excluded.append((name, sku, "no nutrition table printed"))
                 continue
-            entries = [(name, p["nutritionals"], None)]
+            entries = [(name, p["nutritionals"], None, None, None, True)]
         else:
             default = [v for v in variants if v.get("defaultVariant")]
             if len(default) != 1:
@@ -269,8 +373,8 @@ def build_items(rawdir: Path):
                 # The default row is what the product page shows on load: a black drink's default has no milk suffix.
                 parts = [x for x in ((None if milk in (None, "black") and default_row else milk), caf) if x]
                 iname = f"{name} ({', '.join(parts)})" if parts else name
-                entries.append((iname, v["nutritionals"], v))
-        for iname, table, v in entries:
+                entries.append((iname, v["nutritionals"], v, milk, caf, default_row))
+        for iname, table, v, milk, caf, default_row in entries:
             n = read_nutrition(table, iname)
             if n is None:
                 printed = [{c["name"]: c["value"] for c in r}.get("nutrient") for r in table]
@@ -320,7 +424,7 @@ def build_items(rawdir: Path):
                 if abs(kcal - (p4 + 2 * num(n["fiber_g"]))) <= 0.10 * kcal:
                     notes.append("kcal is above 4P+4C+9F because UK labels count fibre separately from carbohydrate (about 2 kcal/g); "
                                  "kcal entered as printed")
-            allergens.append(product_allergens(p, iname))
+            allergens.append(item_allergens(p, v, iname, name, milk, caf, default_row, index, stats))
             items.append({
                 "id": slug(iname), "name": iname, "category": display, "serving": "",
                 "calories": n["calories"], "protein_g": n["protein_g"], "carbs_g": n["carbs_g"], "fat_g": n["fat_g"],
@@ -356,12 +460,23 @@ def main() -> int:
     rawdir = args.fetch or args.raw
     if args.fetch:
         pret_feed.fetch(rawdir)
-    items, excluded, notes_log, allergens = build_items(rawdir)
     pdfs = pret_feed.allergen_guide_pdfs(rawdir)
-    if pdfs is not None and pdfs != [ALLERGEN_GUIDE_URL]:
-        print(f"The Allergen Guide page links {pdfs}, not {ALLERGEN_GUIDE_URL}: a new guide is out. Update ALLERGEN_GUIDE_URL and "
-              "ALLERGEN_GUIDE_TITLE (the guide's own printed name and version) in pret.py.", file=sys.stderr)
+    if pdfs != [ALLERGEN_GUIDE_URL]:
+        print(f"The Allergen Guide page links {pdfs}, not {ALLERGEN_GUIDE_URL} (or the page was not saved in {rawdir}: run with --fetch): "
+              "a new guide may be out. Update ALLERGEN_GUIDE_URL and ALLERGEN_GUIDE_TITLE (the guide's own printed name and version) in pret.py.",
+              file=sys.stderr)
         return 1
+    guide_pdf = rawdir / pret_feed.ALLERGEN_PDF_FILE
+    if not guide_pdf.exists():
+        print(f"{guide_pdf} is missing: run with --fetch (it saves the Allergen Guide PDF too).", file=sys.stderr)
+        return 1
+    matrix = pret_allergen_pdf.read_matrix(guide_pdf)
+    if len(matrix) != EXPECTED_MATRIX_ROWS:
+        print(f"The guide's matrix has {len(matrix)} product rows, expected {EXPECTED_MATRIX_ROWS}: the guide changed. Re-check the join in "
+              "pret.py (MILK_LABELS, GUIDE_DRINK_NAME) against the new guide, then update EXPECTED_MATRIX_ROWS.", file=sys.stderr)
+        return 1
+    stats = {"checked_against_guide": 0, "record_only": 0, "from_guide_row": 0}
+    items, excluded, notes_log, allergens = build_items(rawdir, guide_index(matrix), stats)
     if args.expect and len(items) != args.expect:
         print(f"{len(items)} items extracted but {args.expect} were expected. The menu changed: re-check the names, categories and "
               "the excluded list (run once with the new count in --expect to see it), then update EXPECTED_ITEMS.", file=sys.stderr)
@@ -382,16 +497,33 @@ def main() -> int:
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
-    if HELD_BACK:
+    # Allergens are all or nothing: an item whose allergens cannot be taken from Pret's own data is held back (never guessed).
+    # An item already held back for its energy figures keeps that reason first.
+    held: dict[str, str] = {}
+    for item_id, why in HELD_BACK:
+        held[item_id] = why
+    allergen_held = [(i["id"], why) for i, (a, why) in zip(items, allergens) if a is None]
+    for item_id, why in allergen_held:
+        text = f"Allergens cannot be published for this item, so it is held back: {why}."
+        held[item_id] = f"{held[item_id]} Also: {text}" if item_id in held else text
+    if held:
         with open(args.out / "holdback.csv", "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
             w.writerow(["item_id", "reason"])
-            w.writerows(HELD_BACK)
+            w.writerows(sorted(held.items(), key=lambda kv: [i["id"] for i in items].index(kv[0])))
     else:
         (args.out / "holdback.csv").unlink(missing_ok=True)
-    write_allergens(args.out, CHAIN_ID, [(i["id"], a) for i, (a, _) in zip(items, allergens)],
+    (args.out / "note.txt").write_text(NOTE + "\n", encoding="utf-8")
+    published = [(i["id"], a) for i, (a, _) in zip(items, allergens) if i["id"] not in held]
+    if any(a is None for _, a in published):
+        raise SystemExit("Internal check failed: a published item has no allergens.")
+    if len({i for i, _ in published}) != len(published) or len(published) != len(items) - len(held):
+        raise SystemExit("Internal check failed: the allergen rows do not match the published items one to one.")
+    write_allergens(args.out, CHAIN_ID, published,
                     {"title": ALLERGEN_GUIDE_TITLE, "url": ALLERGEN_GUIDE_URL, "checked_on": args.checked_on,
                      "may_contain_published": False})
+    if not (args.out / "allergens.csv").exists():
+        raise SystemExit("Internal check failed: allergens.csv was not written.")
 
     digests = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(rawdir.glob("*.json"))}
     combined = hashlib.sha256("".join(f"{k}:{v}\n" for k, v in digests.items()).encode()).hexdigest()
@@ -408,16 +540,16 @@ def main() -> int:
     print("log:")
     for e in notes_log:
         print("  ", e)
-    blocked = [(i["id"], why) for i, (a, why) in zip(items, allergens) if a is None]
-    print(f"allergens: {len(items) - len(blocked)} items read from their product record, {len(blocked)} blocked"
-          + (" -> allergens.csv NOT written (all or nothing); allergen_guide.csv links the guide" if blocked else ""))
+    print(f"allergens: {len(published)} published items each with a row ({stats['checked_against_guide']} from the product page and agreeing "
+          f"with the guide's row of the same name, {stats['record_only']} from the product page alone, {stats['from_guide_row']} from the guide's "
+          f"row for the drink's milk); {len(allergen_held)} held back for allergens, {len(held)} held back in all (holdback.csv)")
     by_why: dict[str, list[str]] = {}
-    for item_id, why in blocked:
+    for item_id, why in allergen_held:
         by_why.setdefault(why, []).append(item_id)
-    for why, ids in by_why.items():
-        print(f"  {len(ids)} {why}: {', '.join(ids)}")
-    if pdfs is None:
-        print(f"note: {pret_feed.ALLERGEN_PAGE_FILE} not saved in {rawdir}, so the guide link was not re-checked")
+    for why, ids in sorted(by_why.items(), key=lambda kv: -len(kv[1])):
+        print(f"  {len(ids)} {why[:170]}: {', '.join(ids)}")
+    used = {r["name"] for r in matrix}
+    print(f"guide matrix: {len(matrix)} product rows from {pret_allergen_pdf.LAST_TABLE_PAGE - pret_allergen_pdf.FIRST_TABLE_PAGE + 1} table pages")
     print("sha256 of each saved category file:")
     for k, v in digests.items():
         print(f"  {v}  {k}")
