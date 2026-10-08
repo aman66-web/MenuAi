@@ -28,6 +28,9 @@ empty and may_contain_published = no. Three printed forms of the same marks are 
 they disagree: the cells, the row's data-mandatory-allergens / data-removable-allergens attributes and the "Contains" / "Removable
 Ingredients" lists of its details row.
 
+Held back (HOLDBACK below; independent re-read of the page on 2026-10-08, restoring one = deleting its line in holdback.csv): dishes whose own
+allergen row contradicts the dish's name or the page's other rows. Each is still in items.csv (the pipeline leaves it out of the app).
+
 Names are as printed, except for plain spelling slips (TIDY below; the printed form is kept in the item's notes). Tags: vegetarian only
 where the dish's own name says Vegan (the matrix has no vegetarian mark; the website menu page's diet flags are not used: it marks the
 Chicken Caesar Salad vegetarian); contains_pork / contains_beef only when the dish name says so. Everything is non-rankable (calories only).
@@ -97,6 +100,23 @@ PORK = re.compile(r"\b(pork|bacon|ham|pepperoni|sausages?|salsiccia|salami|chori
 BEEF = re.compile(r"\b(beef|(?<!tuna )(?<!salmon )steak|manzo|chateaubriand|rib-eye)\b", re.I)
 # Dishes whose name says there is meat but not which: listed in the report as "meat type not stated".
 MEAT_UNSTATED = re.compile(r"\b(meatballs?|burger|rag[uù]|carbonara|lasagne|bolognese)\b", re.I)
+# item id -> why it is not published. Allergen information is safety information: where the matrix prints no mark that the dish's name makes the
+# normal case, and nothing on the page explains it, the dish is not published (nothing is corrected or guessed).
+HOLDBACK = {
+    "aioli-30ml": "The matrix prints no allergen at all for the stand-alone Aioli (30 ml) (A la carte and Cheadle menus), yet the dishes it is served with "
+                  "(Truffled Mushroom Arancini, Lemon & Pepper Calamari) are marked Eggs and Mustard: aioli is a mayonnaise-type sauce, so the row contradicts the dish name. Not corrected.",
+    "italian-gelato-madagascan-vanilla": "Gelato marked with no milk (and no other allergen) on the Dessert, Gold set and Menu Fisso menus, while the other gelati "
+                  "(Honeycomb, Cherry & Custard, Fior di Panna) are marked Milk; the same dish is marked Gluten on the Kids menu. The page contradicts itself and "
+                  "prints no dairy-free wording, so no version is published. Not corrected.",
+    "italian-gelato-madagascan-vanilla-kids-menu": "The Kids menu marks this gelato Gluten while the Dessert, Gold set and Menu Fisso menus mark nothing for the same dish "
+                  "and calories (134 kcal); it is also marked with no milk like no other gelato. The page contradicts itself. Not corrected.",
+    "italian-gelato-dark-chocolate": "Gelato marked Soya only, with no milk, while the other gelati (Honeycomb, Cherry & Custard, Fior di Panna) are marked Milk; the page "
+                  "prints no dairy-free wording for it. The row contradicts the dish name, so it is not published. Not corrected.",
+    "italian-gelato-cherry-and-custard": "Gelato marked Milk only, with no egg, although its name says custard; the page prints no ingredient text that explains the "
+                  "missing egg mark. The row contradicts the dish name, so it is not published. Not corrected.",
+    "hazelnut-syrup": "The Hazelnut Syrup is marked with no allergen at all (no Tree Nuts) although the page marks Tree Nuts on every other nut dish; the row contradicts "
+                  "the dish name and the page prints no wording that explains it. Not corrected.",
+}
 KCAL_ONE = re.compile(r"^Normal: (\d[\d,]*) kcal$")
 KCAL_SIZES = re.compile(r"^Normal: Small: (\d[\d,]*) Large: (\d[\d,]*) kcal$")
 
@@ -312,9 +332,12 @@ def main() -> int:
              "checked_on": args.checked_on, "may_contain_published": False}
     for it in items:
         it.pop("_sheet", None)
+    ids = {it["id"] for it in items}
+    if set(HOLDBACK) - ids:
+        raise SystemExit(f"Held-back items not found on the page any more: {sorted(set(HOLDBACK) - ids)}: re-check HOLDBACK")
     out = write_chain_folder(chain_id=CHAIN_ID, name="Gusto Italian", cuisine="Italian", source_title=title, source_url=PAGE_URL,
                              checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, allergen_guide=guide,
-                             nutrition_level="calories")
+                             holdback=sorted(HOLDBACK.items()), nutrition_level="calories")
     cats = {}
     for it in items:
         cats[it["category"]] = cats.get(it["category"], 0) + 1

@@ -1,0 +1,63 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,oodles-wok,Oodles Wok,Asian fusion wok,,https://oodleswok.co.uk,https://oodleswok.co.uk/nutritional-information,web,"FULL macros per portion size (kcal, kJ, protein, fat, sat fat, carbs, sugars, fibre, salt) in page + PDF /assets/oodles-wok-nutrition-jan-2025.pdf; lab analysed Jan 2025; halal; about 5 sites Leeds Newcastle Oldham Preston"
+,moose-coffee,Moose Coffee,Cafe and brunch,,https://www.moosecoffee.co,https://www.moosecoffee.co/s/AllergensFB-AUG26.pdf,pdf,allergen matrix PDF Aug 2026 (food and drink); Manchester Liverpool Leeds; 4+ sites
+,mooboo,Mooboo,Bubble tea,,https://www.mooboo.co,https://www.mooboo.co/wp-content/uploads/2026/09/Latest-Allergen-List-September-2026.pdf,pdf,drinks allergen list PDF Sept 2026 linked from menu page; many UK sites incl Gateshead Liverpool Preston York
+,manjaros,Manjaros,Afro-Caribbean,,https://manjaros.co.uk,https://manjaros.co.uk/wp-content/themes/manjaros/assets/1-Master-A3-Allergy-Sheet.pdf,pdf,master allergen sheet PDF; restaurants Leeds Newcastle Middlesbrough Darlington Billingham Preston
+,icestone-desserts,Icestone Desserts,Dessert parlour,,https://icestonedesserts.co.uk,https://icestonedesserts.co.uk/wp-content/uploads/2024/08/NEW-ICESTONE-ALLERGEN-CHART_Combined_14082024.pdf,pdf,allergen chart PDF Aug 2024; stores Leeds Manchester Newcastle Batley; 4+ sites
+,waterfields,Waterfields,Bakery,,https://www.waterfields-bakers.co.uk,https://www.waterfields-bakers.co.uk/pages/allergen-information,web,allergen information page by product group (no nutrition seen); 36 shops across the North West
+,riva-blu,Riva Blu,Southern Italian,,https://www.rivablu.co.uk,https://www.rivablu.co.uk/allergens/riva-blu-manchester,pdf,allergen PDF per restaurant (URL pattern /allergens/riva-blu-<site>); Manchester Leeds Liverpool Hull
+,pizza-punks,Pizza Punks,Pizza,,https://pizzapunks.co.uk,https://pizzapunks.co.uk/allergens/,web,"allergen guide PDFs Jun 2026 (food, Belfast, drinks); 6 sites incl Newcastle Leeds Liverpool"
+,gills-fish-and-chips,Gills Fish and Chips,Fish and chips,,https://www.gillsfishandchips.uk,https://www.gillsfishandchips.uk/allergens,web,allergen PDF /s/AllergensUpdatedOct25-1.pdf (Oct 2025); about 3 shops Newcastle Gateshead
+,le-feast,Le Feast,Coffee and food,,https://lefeast.co.uk,https://lefeast.co.uk/allergens,web,Nutrition and allergens page with Summer 2026 allergen guide PDF (assets/documents/le-feast-allergen-guide-summer-2026.pdf); cafes at North West train stations; site count unverified
+,tomahawk-steakhouse,Tomahawk Steakhouse,Steakhouse,,https://tomahawk-steakhouse.co.uk,https://tomahawk-steakhouse.co.uk/pdf/TOMAHAWK-STEAKHOUSE-TAKEAWAY-ALLERGEN-MATRIX.pdf,pdf,takeaway allergen matrix PDF linked on its home page (scripted fetch got 403 so unread); 5 sites Newcastle Gateshead Morpeth Yarm
+,jamaica-blue,Jamaica Blue,Coffee,Retail Food Group,https://www.jamaicablue.co.uk,https://allergens-jamaicablue.co.uk/,platform:rfg-allergens-app,JS app titled Allergens and Nutrition Information (same app as Muffin Break); UK sites incl Warrington; count unverified
+,banyan,Banyan,Bar and kitchen,Living Ventures,https://www.banyanbar.co.uk,https://www.banyanbar.co.uk/allergens,web,allergens page with location selector (JS); Cheshire Lancashire Yorkshire sites
+,chatwins,Chatwins Bakery,Bakery,,https://www.chatwins.co.uk,,none,Cheshire family bakery; 15 shops seen on OpenStreetMap; home page has no allergen or nutrition link
+,galloways-bakers,Galloways Bakers,Bakery,,https://www.gallowaysbakers.co.uk,,none,"Wigan area bakery; 17 shops seen; JS site, no allergen page found"
+,gerrards-bakery,Gerrards Bakery,Bakery,,https://gerrardsbakery.co.uk,,none,Wirral and Cheshire bakery since 1838; 7 shops seen; no allergen page found
+,milligans-bakery,Milligans Bakery,Bakery,,https://www.milligansbakery.co.uk,,none,North East bakery; 11 shops seen; site blocked (403)
+,hursts-bakery,Hurst's Bakery,Bakery,,https://www.hurstsbakery.co.uk,,none,Wirral bakery; 5 shops seen; site blocked (403)
+,bluebird-bakery,Bluebird Bakery,Bakery,,https://bluebirdbakery.co.uk,,none,Holmfirth Leeds York; 5 shops seen; no allergen page found
+,dicksons-bakery,Dicksons,Bakery,,https://midickson.com,,none,Tyneside bakery since 1953; 9 shops seen; no allergen page found
+,brysons-of-keswick,Bryson's of Keswick,Bakery and cafe,,https://www.brysonsofkeswick.co.uk,,none,Lake District craft bakers and coffee shops; 3 sites seen; no allergen page found
+,bothams-of-whitby,Botham's of Whitby,Bakery and tea rooms,,https://www.botham.co.uk,,none,Whitby bakery and tea rooms; 3 sites seen; no allergen page found
+,running-fox-bakery,Running Fox Bakery,Bakery and cafe,,https://www.runningfoxbakery.co.uk,,none,Yorkshire; 3 sites seen; site certificate error on fetch
+,seniors-bakery,Seniors,Bakery,,,,none,Fylde coast bakery shops (Blackpool Lytham Poulton Thornton); 5 seen on OpenStreetMap; own site not found
+,routledges-bakery,Routledges,Bakery,,,,none,Cumbria bakery shops; 6 seen on OpenStreetMap; own site not found
+,staniforths-bakery,Staniforths,Bakery,,,,none,South Yorkshire bakery shops (Sheffield Barnsley Rotherham Mexborough); 10 seen on OpenStreetMap; own site not found
+,teasdales-bakery,Teasdales,Bakery,,,,none,Doncaster Rotherham Brigg bakery shops; 4 seen on OpenStreetMap; own site not found
+,aagrah,Aagrah,Indian,,https://www.aagrah.com,,none,Yorkshire Indian restaurant group (Bradford Leeds Shipley Wakefield); 6 seen; site blocked (403)
+,sambuca-restaurants,Sambuca,Italian,,https://sambucarestaurants.co.uk,,none,North East Italian restaurants; 10 seen (Newcastle Leeds Peterlee Blyth); no allergen page found
+,valentinos,Valentinos,Italian,,https://www.valentinos.org.uk,,none,Valentinos Ristorante Group; 9 seen (Leeds Huddersfield Chorley Bishop Auckland); no allergen page found
+,fatsos,Fatso's,Pizza and diner,,https://fatsos.co.uk,,none,Tees Valley and Manchester; 11 seen; no allergen page found
+,nq64,NQ64,Arcade bar,,https://nq64.co.uk,,none,Manchester Liverpool Newcastle; 4 seen; site blocked (bot challenge page)
+,frurt,Frurt,Juice and smoothies,,https://www.frurt.com,,none,Preston Prestwich Sheffield Stockport; 6 seen; site blocked (403)
+,barton-rouge,Barton Rouge,Bar and kitchen,,https://www.bartonrouge.co.uk,,none,Chester Liverpool Widnes; 4 seen; site blocked (403)
+,crispy-cod,Crispy Cod,Fish and chips,,https://www.lovecrispycod.com,,none,"Billingham Blaydon Formby; 5 seen; JS site, no allergen page found"
+,nabzys,Nabzy's,Chicken and pizza takeaway,,https://www.nabzys.co.uk,,none,"North West takeaways (Bolton Chorley Liverpool Preston); allergy policy page only, no allergen list"
+,head-of-steam,Head of Steam,Pub,Camerons Brewery,https://www.theheadofsteam.co.uk,,none,North East and Yorkshire bar chain; 8 seen; no allergen page found
+,market-town-taverns,Market Town Taverns,Pub,,https://www.markettowntaverns.co.uk,,none,Yorkshire pub and bar group; 4+ seen; site certificate error on fetch
+,sir-john-fitzgerald,Sir John Fitzgerald,Pub,,https://sjf.co.uk,,none,Newcastle pub group (about 20 pubs); no allergen page found
+,dorbiere,Dorbiere,Pub,,https://www.dorbiere.co.uk,,none,North East pub group; 6 seen; no allergen page found
+,lake-district-inns,Lake District Inns,Pub,,https://www.lakedistrictinns.co.uk,,none,Lake District inns; 3 seen; no allergen page found
+,english-lakes-hotels,English Lakes Hotels Resorts and Venues,Hotel,,https://englishlakes.co.uk,,none,Lake District and Lancashire hotels; 4 seen; no allergen page found
+,blind-tiger-inns,Blind Tiger Inns,Pub,,https://blindtigerinns.co.uk,,none,North West pub group; 4 seen; subpages blocked (403)
+,north-bar,North Bar,Bar,,https://northbar.com,,none,Leeds and Preston; 4 seen; no allergen page found
+,seven-bro7hers,Seven Bro7hers Beerhouse,Pub,,https://www.sevenbro7hers.com,,none,"Manchester beerhouses; 3 seen; shop site, no allergen page found"
+,zaap-thai,Zaap Thai,Thai,,https://zaapthai.co.uk,,none,Manchester Leeds Sheffield Liverpool; 5 seen; no allergen page found
+,kickback-coffee,Kickback Coffee,Coffee,,https://kickbackcoffee.co.uk,,none,"3 cafes seen; roaster shop site, no allergen page found"
+,200-degrees-coffee,200 Degrees Coffee,Coffee,,https://200degs.com,,none,Nottingham based roaster with 5 cafes seen in the North; no allergen page found
+,pesto-restaurants,Pesto,Italian,,https://www.pestorestaurants.co.uk,,none,North West pub restaurants; 3 seen; no allergen page found
+,veeno,Veeno,Italian wine cafe,,https://www.veenobars.com,,none,Leeds Manchester and others; no allergen page found
+,rio-brazilian-steakhouse,Rio Brazilian Steakhouse,Brazilian,,https://www.rio-steakhouse.co.uk,,none,Newcastle and others; 3 seen; no allergen page found
+,tattu,Tattu,Chinese,Permanently Unique Group,https://tattu.co.uk,,none,Manchester Leeds Birmingham Edinburgh; menus page has no calories or allergen link seen
+,sapporo-teppanyaki,Sapporo Teppanyaki,Japanese,,https://www.sapporo.co.uk,,none,Manchester Liverpool Leeds teppanyaki; home page has no allergen link
+,concept-taverns,Concept Taverns,Bar,Roxy Leisure Group,https://www.concepttaverns.co.uk,,none,12 craft beer bars across Yorkshire; no allergen page found
+,crafted-social,Crafted Social,Pub,,https://crafted-social.co.uk,,none,North West pub group (about 20 pubs seen on OpenStreetMap); connection reset on fetch
+,vixen-pubs,Vixen Pubs,Pub,,https://vixen-pubs.co.uk,,none,Yorkshire and Lancashire pub group; 7 seen; connection reset on fetch
+,ossett-brewery-pubs,Ossett Brewery pubs,Pub,,https://www.ossett-brewery.co.uk,,none,West Yorkshire pub company; 13 pubs seen; no allergen page found
+,kirkstall-brewery-pubs,Kirkstall Brewery,Pub,,https://www.kirkstallbrewery.com,,none,Leeds taproom and pubs; 4 seen; no allergen page found
+,brew-york,Brew York,Pub,,https://brewyork.co.uk,,none,York beer hall and pubs; 5 seen; no allergen page found
+,spitting-feathers,Spitting Feathers,Pub,,https://spittingfeathers.co.uk,,none,Cheshire brewery taprooms; 3 seen; no allergen page found
+,leeds-brewery-pubs,Leeds Brewery pubs,Pub,,https://www.leedsbrewery.co.uk,,none,Leeds pubs; home page has no allergen link
+,proper-pubs,Proper Pubs,Pub,,https://proper-pubs.com,,none,Lancashire and Yorkshire pubs; 4 seen; not fetched

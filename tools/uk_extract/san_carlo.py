@@ -501,8 +501,12 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
         cocktail = p["kind"] == "cocktails" or "cocktail" in p["name"].lower()     # alcohol adds energy the table does not list
         kc, pr, cb, ft = f("calories"), f("protein_g"), f("carbs_g"), f("fat_g")
         implied = 4 * pr + 4 * cb + 9 * ft
-        if not cocktail and abs(kc - implied) >= 50 and abs(kc - implied) / kc >= 0.35:
+        # 30%, not 35% (accuracy audit 2026-10-08): the audit's "high" band, tools/audit/accuracy_audit.py. Found at 30-32%: Filetto alla Griglia
+        # (749 kcal vs 977 from its macros) and Spaghetti Pomodoro e Basilico (820 vs 559).
+        if not cocktail and abs(kc - implied) >= 50 and abs(kc - implied) / kc > 0.30:
             why.append(f"the page prints {kc:g} kcal, but its own protein, carbohydrate and fat add up to about {implied:.0f} kcal")
+        if item_id in ALLERGEN_HOLD:
+            why.append(ALLERGEN_HOLD[item_id])
         if why:
             holdback.append((item_id, "; ".join(why)))
         items.append(item)
@@ -513,6 +517,13 @@ def build(pages: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
     items.sort(key=lambda it: order.index(it["category"]))      # stable: dishes keep the order the menu prints them in
     return items, holdback, report
 
+
+# Accuracy audit 2026-10-08 (all 11 restaurants' pages re-read in full: every published figure and allergen mark matched a printed row).
+# Held back, never corrected: the guide's own allergen row cannot be reconciled with the dish name, in every restaurant that prints it.
+ALLERGEN_HOLD = {
+    "monkfish-in-salsa-verde": "allergen row contradicts the dish name: a monkfish dish with no fish marked in any restaurant's page",
+    "cookie-sauce": "allergen row contradicts the dish name: a cookie sauce with no cereal (gluten) marked and nothing on the page saying it has no cookie in it",
+}
 
 SOURCE_URL = "https://sancarlo.co.uk/menus/"
 SOURCE_TITLE = ("San Carlo allergen and calorie information, Web Menu pages of 10 restaurants and the Bristol Allergen Page "
