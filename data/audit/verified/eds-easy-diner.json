@@ -2,12 +2,12 @@
  "chain": "eds-easy-diner",
  "date": "2026-10-08",
  "source_read": "https://menus.tenkites.com/brg/eds (five ?mguid menu pages, re-downloaded 2026-10-08, robots.txt allows)",
- "compared_items": 203,
+ "compared_items": 204,
  "nutrition_mismatches": 0,
  "allergen_mismatches": 0,
  "fixed": 0,
  "held_back": 1,
  "marked_ok": 4,
  "not_verifiable": "",
- "notes": "All 203 dishes (every non-calories-only dish on the 5 pages) match on 9 nutrients, 14 allergen contains/may states, cereal/nut detail and vegetarian tag; fresh pages reproduce data/source exactly; held back Peanut Butter Pretzel Shake (no pretzel/gluten in its own ingredients)."
+ "notes": "All 204 dish blocks on the 5 pages (every dish with full nutrition, covering all 169 distinct items) match on 9 nutrients, 14 allergen contains/may states, cereal/nut detail and the vegetarian tag; fresh pages reproduce data/source exactly; held back Peanut Butter Pretzel Shake (its own ingredients have no pretzel or gluten). Budweiser kcal gap is alcohol energy (not in the macros)."
 }

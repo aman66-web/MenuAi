@@ -69,8 +69,20 @@ MENUS = OrderedDict([
     ("17734", ("Otherist drinks menu", 33, "DM-AW26-Otherist-FoodDrink-v6-1.pdf")),
     ("18350", ("Wine Menu", 40, "DM-AW26-Collection-Wines-v8.pdf")),
 ])
-EXPECTED_PUBLISHED = 93
-EXPECTED_HELD = 40
+EXPECTED_PUBLISHED = 89
+EXPECTED_HELD = 44
+# Held back after the independent accuracy check (2026-10-08): every figure and label below IS what the page prints (re-read afresh), but
+# the label contradicts the dish itself or the chain's own other labels, so we do not show it. normalised name -> reason. Nothing is corrected.
+CONTRADICTION_HOLDBACK = {
+    "winter berry crumble": "allergen row contradicts the dish name: the page marks this crumble (Dessert menus) 'Contains Soybeans' only, with no gluten "
+                            "although a crumble topping is made from flour or oats, and prints no gluten-friendly wording (other dishes say 'Gluten friendly')",
+    "winterberry & apple crumble": "allergen row contradicts the dish name: the page marks this crumble (Children's menu) 'Contains Soybeans' only, with no "
+                                   "gluten although a crumble topping is made from flour or oats, and prints no gluten-friendly wording",
+    "buttermilk chicken bites": "allergen row contradicts the dish name: buttermilk is a dairy product but the page marks no milk (Contains Wheat, Eggs, "
+                                "Soybeans only), while the same chain's Buttermilk chicken burger is marked Contains Milk",
+    "stickey toffee pudding": "the page's own dietary filter marks this Children's dessert 'vegan' while its allergen labels mark Milk and Eggs (the adult "
+                              "Sticky toffee pudding with the same labels is marked vegetarian only)",
+}
 SOURCE_TITLE = ("Drake & Morgan food and drink menus with calories and allergens on drakeandmorgan.co.uk, AW26 collection "
                 "(PDFs: All Day v8, Reduced All Day v8, Brunch v6, Breakfast v7, Desserts v6, Reduced Desserts v6, Drinks v13, Kids v4, "
                 "Otherist v6; bar menu pages accessed 2026-10-08, no date shown)")
@@ -214,6 +226,8 @@ def build(menus: dict, venue_menus: dict) -> tuple[list, list, dict]:
                            "; ".join(f"{MENUS[o['menu']][0]} ({o['menu']})" for o in occs))
         if any("/" in o["price"] or "double up" in o["price"].lower() for o in with_kcal):
             reasons.append(f"one calorie figure beside several prices ({first['price']!r}); the page doesn't say which size or variant it is for")
+        if key in CONTRADICTION_HOLDBACK:
+            reasons.append(CONTRADICTION_HOLDBACK[key])
         sharing = any(SHARING.search(o["desc"]) for o in occs)
         if len(kcals) == 1 and kcals[0] > PLAUSIBLE_KCAL and not sharing:
             reasons.append(f"printed {kcals[0]} kcal for one portion, more than a day's 2,000 kcal reference intake, and the page doesn't say it is for sharing")
