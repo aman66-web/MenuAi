@@ -1,0 +1,75 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+five-wings-fried-chicken-club,Five Wings (Fried Chicken Club),Fried Chicken Club,,740,,,,,,,,,,,,,,,,false,false,,,Printed 'Five Wings 740 Kcal' under Fried Chicken Club
+ten-wings-fried-chicken-club,Ten Wings (Fried Chicken Club),Fried Chicken Club,,1391,,,,,,,,,,,,,,,,false,false,,,Printed 'Ten Wings 1391 Kcal' under Fried Chicken Club
+five-tenders,Five Tenders,Fried Chicken Club,,674,,,,,,,,,,,,,,,,false,false,,,Printed 'Five Tenders 674 Kcal' under Fried Chicken Club
+eight-wings,Eight Wings,Fried Chicken Club,,1131,,,,,,,,,,,,,,,,false,false,,,Printed 'Eight Wings 1131 Kcal' under Fried Chicken Club
+three-tenders,Three Tenders,Fried Chicken Club,,440,,,,,,,,,,,,,,,,false,false,,,Printed 'Three Tenders 440 Kcal' under Fried Chicken Club
+eight-tenders,Eight Tenders,Fried Chicken Club,,1024,,,,,,,,,,,,,,,,false,false,,,Printed 'Eight Tenders 1024 Kcal' under Fried Chicken Club
+nachos,Nachos,Small Plates,,1081,,,,,,,,,,,,,,,,false,false,,,Printed 'Nachos 1081 Kcal' under Small Plates
+cheeky-chops,Cheeky Chops,Small Plates,,929,,,,,,,,,,,,,,,,false,false,,,Printed 'Cheeky Chops 929 Kcal' under Small Plates
+garlic-and-olives,Garlic & Olives,Small Plates,,246,,,,,,,,,,,,,,,,false,false,,,Printed 'Garlic & Olives 246 Kcal' under Small Plates
+hummus-and-bread,Hummus & Bread,Small Plates,,616,,,,,,,,,,,,,,,,false,false,,,Printed 'Hummus & Bread 616 Kcal' under Small Plates
+prawn-to-be-wild,Prawn To Be Wild,Small Plates,,504,,,,,,,,,,,,,,,,false,false,,,Printed 'Prawn To Be Wild 504 Kcal' under Small Plates
+lady-fingers,Lady Fingers,Small Plates,,453,,,,,,,,,,,,,,,,false,false,,,Printed 'Lady Fingers 453 Kcal' under Small Plates
+quarter-chicken,Quarter Chicken,Proper Peri Chicken,,1007,,,,,,,,,,,,,,,,false,false,,,Printed 'Quarter Chicken 1007 Kcal' under Proper Peri Chicken
+half-chicken,Half Chicken,Proper Peri Chicken,,1656,,,,,,,,,,,,,,,,false,false,,,Printed 'Half Chicken 1656 Kcal' under Proper Peri Chicken
+whole-chicken,Whole Chicken,Proper Peri Chicken,,3001,,,,,,,,,,,,,,,,false,false,,,Printed 'Whole Chicken 3001 Kcal' under Proper Peri Chicken
+butterfly-chicken,Butterfly Chicken,Proper Peri Chicken,,863,,,,,,,,,,,,,,,,false,false,,,Printed 'Butterfly Chicken 863 Kcal' under Proper Peri Chicken
+three-wings,Three Wings,Proper Peri Chicken,,986,,,,,,,,,,,,,,,,false,false,,,Printed 'Three Wings 986 Kcal' under Proper Peri Chicken
+five-wings-proper-peri-chicken,Five Wings (Proper Peri Chicken),Proper Peri Chicken,,1454,,,,,,,,,,,,,,,,false,false,,,Printed 'Five Wings 1454 Kcal' under Proper Peri Chicken
+ten-wings-proper-peri-chicken,Ten Wings (Proper Peri Chicken),Proper Peri Chicken,,2478,,,,,,,,,,,,,,,,false,false,,,Printed 'Ten Wings 2478 Kcal' under Proper Peri Chicken
+chicken-thighs,Chicken Thighs,Proper Peri Chicken,,799,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Thighs 799 Kcal' under Proper Peri Chicken
+bun-true-love,Bun True Love,Buns & Bread,,516,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Bun True Love 516 Kcal' under Buns & Bread
+big-poppa,Big Poppa,Buns & Bread,,1026,,,,,,,,,,,,,,,,false,false,,,Printed 'Big Poppa 1026 Kcal' under Buns & Bread
+butterfly-bun,Butterfly Bun,Buns & Bread,,953,,,,,,,,,,,,,,,,false,false,,,Printed 'Butterfly Bun 953 Kcal' under Buns & Bread
+thats-a-wrap,That's A Wrap,Buns & Bread,,941,,,,,,,,,,,,,,,,false,false,,,Printed 'That's A Wrap 941 Kcal' under Buns & Bread; same printed figure (941) as Don't Flap Wrap
+thic-chick,Thic Chick,Buns & Bread,,1057,,,,,,,,,,,,,,,,false,false,,,Printed 'Thic Chick 1057 Kcal' under Buns & Bread
+dont-flap-wrap,Don't Flap Wrap,Buns & Bread,,941,,,,,,,,,,,,,,,,false,false,,,Printed 'Don't Flap Wrap 941 Kcal' under Buns & Bread; same printed figure (941) as That's A Wrap
+chicken-date,Chicken Date,Afrikana Specials,,1271,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Date 1271 Kcal' under Afrikana Specials
+steak-it-on-me,Steak It On Me,Afrikana Specials,,1153,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Steak It On Me 1153 Kcal' under Afrikana Specials
+island-fish-and-chips,Island Fish & Chips,Afrikana Specials,,1044,,,,,,,,,,,,,,,,false,false,,,Printed 'Island Fish & Chips 1044 Kcal' under Afrikana Specials
+all-at-steak,All At Steak,Afrikana Specials,,833,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'All At Steak 833 Kcal' under Afrikana Specials
+jammin-jambalaya,Jammin' Jambalaya,Afrikana Specials,,782,,,,,,,,,,,,,,,,false,false,,,Printed 'Jammin' Jambalaya 782 Kcal' under Afrikana Specials
+the-salmon-cure,The Salmon Cure,Afrikana Specials,,748,,,,,,,,,,,,,,,,false,false,,,Printed 'The Salmon Cure 748 Kcal' under Afrikana Specials
+just-kebabin,Just Kebabin',Afrikana Specials,,1311,,,,,,,,,,,,,,,,false,false,,,Printed 'Just Kebabin' 1311 Kcal' under Afrikana Specials
+we-goat-your-back,We 'Goat' Your Back,Afrikana Specials,,1185,,,,,,,,,,,,,,,,false,false,,,Printed 'We 'Goat' Your Back 1185 Kcal' under Afrikana Specials
+fried-chicken-is-life,Fried Chicken Is Life,Afrikana Specials,,1237,,,,,,,,,,,,,,,,false,false,,,Printed 'Fried Chicken Is Life 1237 Kcal' under Afrikana Specials
+bunny-chow,Bunny Chow,Afrikana Specials,,1279,,,,,,,,,,,,,,,,false,false,,,Printed 'Bunny Chow 1279 Kcal' under Afrikana Specials
+what-cheese-said,What Cheese Said,Afrikana Specials,,905,,,,,,,,,,,,,,,,false,false,,,Printed 'What Cheese Said 905 Kcal' under Afrikana Specials
+flamin-ribs,Flamin' Ribs,Afrikana Specials,,1088,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Flamin' Ribs 1088 Kcal' under Afrikana Specials
+meat-club-feast,Meat Club Feast,Sharing Platters,,6804,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Meat Club Feast 6804 Kcal' under Sharing Platters
+meat-me-for-two,Meat Me For Two,Sharing Platters,,4955,,,,,,,,,,,,,,,,false,false,,,Printed 'Meat Me For Two 4955 Kcal' under Sharing Platters
+kickin-in-kenya,Kickin' In Kenya,Sharing Platters,,4486,,,,,,,,,,,,,,,,false,false,,,Printed 'Kickin' In Kenya 4486 Kcal' under Sharing Platters
+chit-chats-and-chicken,Chit-Chats & Chicken,Sharing Platters,,4089,,,,,,,,,,,,,,,,false,false,,,Printed 'Chit-Chats & Chicken 4089 Kcal' under Sharing Platters
+chicken-n-rice,Chicken 'N Rice,Rice Bowls & Salad,,747,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken 'N Rice 747 Kcal' under Rice Bowls & Salad
+afrikana-salad,Afrikana Salad,Rice Bowls & Salad,,275,,,,,,,,,,,,,,,,false,false,,,Printed 'Afrikana Salad 275 Kcal' under Rice Bowls & Salad
+fries,Fries,Regular Sides,,312,,,,,,,,,,,,,,,,false,false,,,"Printed 'Fries 312 Kcal' under Regular Sides; same printed figure (312) as Afrikana Fries, Halloumi Fries"
+afrikana-fries,Afrikana Fries,Regular Sides,,312,,,,,,,,,,,,,,,,false,false,,,"Printed 'Afrikana Fries 312 Kcal' under Regular Sides; same printed figure (312) as Fries, Halloumi Fries"
+afrikana-rice,Afrikana Rice,Regular Sides,,154,,,,,,,,,,,,,,,,false,false,,,Printed 'Afrikana Rice 154 Kcal' under Regular Sides
+plantain,Plantain,Regular Sides,,306,,,,,,,,,,,,,,,,false,false,,,Printed 'Plantain 306 Kcal' under Regular Sides
+rice-n-peas,Rice 'N Peas,Regular Sides,,359,,,,,,,,,,,,,,,,false,false,,,Printed 'Rice 'N Peas 359 Kcal' under Regular Sides
+fresh-coleslaw,Fresh Coleslaw,Regular Sides,,170,,,,,,,,,,,,,,,,false,false,,,Printed 'Fresh Coleslaw 170 Kcal' under Regular Sides
+sweet-potato-fries,Sweet Potato Fries,Regular Sides,,266,,,,,,,,,,,,,,,,false,false,,,Printed 'Sweet Potato Fries 266 Kcal' under Regular Sides
+flatbread,Flatbread,Regular Sides,,270,,,,,,,,,,,,,,,,false,false,,,Printed 'Flatbread 270 Kcal' under Regular Sides
+side-salad,Side Salad,Regular Sides,,179,,,,,,,,,,,,,,,,false,false,,,Printed 'Side Salad 179 Kcal' under Regular Sides
+loaded-fries-topped-with-chicken,Loaded Fries topped with chicken,Signature Sides,,667,,,,,,,,,,,,,,,,false,false,,,Printed 'Loaded Fries 667 / 885 Kcal' under Signature Sides; option 'Topped with chicken' (667) from the description
+loaded-fries-topped-with-pulled-beef,Loaded Fries topped with pulled beef,Signature Sides,,885,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Loaded Fries 667 / 885 Kcal' under Signature Sides; option 'Topped with pulled beef' (885) from the description
+loaded-mac-n-cheese-topped-with-chicken,Loaded Mac 'N Cheese topped with chicken,Signature Sides,,972,,,,,,,,,,,,,,,,false,false,,,Printed 'Loaded Mac 'N Cheese 972 / 1043 Kcal' under Signature Sides; option 'Topped with chicken' (972) from the description
+loaded-mac-n-cheese-topped-with-pulled-beef,Loaded Mac 'N Cheese topped with pulled beef,Signature Sides,,1043,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Loaded Mac 'N Cheese 972 / 1043 Kcal' under Signature Sides; option 'Topped with pulled beef' (1043) from the description
+mac-n-cheese,Mac 'N Cheese,Signature Sides,,922,,,,,,,,,,,,,,,,false,false,,,Printed 'Mac 'N Cheese 922 Kcal' under Signature Sides
+halloumi-fries,Halloumi Fries,Signature Sides,,312,,,,,,,,,,,,,,,,false,false,,,"Printed 'Halloumi Fries 312 Kcal' under Signature Sides; same printed figure (312) as Fries, Afrikana Fries"
+garlic-broccoli,Garlic Broccoli,Signature Sides,,230,,,,,,,,,,,,,,,,false,false,,,Printed 'Garlic Broccoli 230 Kcal' under Signature Sides
+corn-ribs,Corn Ribs,Signature Sides,,567,,,,,,,,,,,,,,,,false,false,,,Printed 'Corn Ribs 567 Kcal' under Signature Sides
+meant-to-bean,Meant To Bean,Green Bites (V),,625,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Meant To Bean 625 Kcal' under Green Bites (V)
+potato-pea-curry,Potato Pea Curry,Green Bites (V),,931,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Potato Pea Curry 931 Kcal' under Green Bites (V)
+edgy-veggie-wrap,Edgy-Veggie Wrap,Green Bites (V),,790,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Edgy-Veggie Wrap 790 Kcal' under Green Bites (V)
+halloumi-n-rice,Halloumi 'N Rice,Green Bites (V),,936,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Halloumi 'N Rice 936 Kcal' under Green Bites (V)
+lil-fish-fry,Lil' Fish Fry,Kids,,475,,,,,,,,,,,,,,,,false,false,,,Printed 'Lil' Fish Fry 475 Kcal' under Kids
+tiny-tenders,Tiny Tenders,Kids,,591,,,,,,,,,,,,,,,,false,false,,,Printed 'Tiny Tenders 591 Kcal' under Kids
+hulk-smash,Hulk Smash,Kids,,671,,,,,,,,,,,,,,,,false,false,,,Printed 'Hulk Smash 671 Kcal' under Kids
+chickadee,Chickadee,Kids,,641,,,,,,,,,,,,,,,,false,false,,,Printed 'Chickadee 641 Kcal' under Kids
+youre-so-lavly,You're So Lavly,Desserts,,738,,,,,,,,,,,,,,,,false,false,,,Printed 'You're So Lavly 738 Kcal' under Desserts
+stack-it-up,Stack It Up,Desserts,,862,,,,,,,,,,,,,,,,false,false,,,Printed 'Stack It Up 862 Kcal' under Desserts
+the-og-cheesecake,The OG Cheesecake,Desserts,,600,,,,,,,,,,,,,,,,false,false,,,Printed 'The OG Cheesecake 600 Kcal' under Desserts
+red-velvet-affair,Red Velvet Affair,Desserts,,580,,,,,,,,,,,,,,,,false,false,,,Printed 'Red Velvet Affair 580 Kcal' under Desserts; same printed figure (580) as Cookies & Dreams
+cookies-and-dreams,Cookies & Dreams,Desserts,,580,,,,,,,,,,,,,,,,false,false,,,Printed 'Cookies & Dreams 580 Kcal' under Desserts; same printed figure (580) as Red Velvet Affair
