@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/wasabi/ from Wasabi's official nutritional information guide (a CALORIES-ONLY chain).
 
-    python3 tools/uk_extract/wasabi.py path/to/guide.pdf --checked-on 2026-10-07 [--per-item-allergens] [--out DIR]
+    python3 tools/uk_extract/wasabi.py path/to/guide.pdf --checked-on 2026-10-08 [--link-only] [--out DIR]
 
 Source (the file Wasabi's own website links as its nutrition guide):
     https://www.wasabi.uk.com/wp-content/uploads/2026/09/WAS_Nutritional_Guide_210926v3.pdf
@@ -36,14 +36,16 @@ The script stops if the set of rows with such problems changes, so a human decid
 Allergens (docs/DATA.md "Allergens"). The guide prints, for every row of every table except the 29 MIXED BENTO rows (pages 15-17
 carry no allergen or dietary columns at all), the allergens of the product as the guide's own key letters (WG, BG, Cel, C, E, F,
 L, Mi, Mo, Mu, TN, PN, SS, S, So2) plus, on sushi, salad and platter rows, a second cell "condiments only", and free text on
-drinks and pots ("May contain milk", "Oats (may contain gluten)"...). Allergens are all or nothing, so by default only the
-guide's link is published (allergen_guide.csv, `may_contain_published = yes`: some rows print "may contain").
-`--per-item-allergens` instead DROPS the 29 mixed bento items and publishes allergens.csv for every other item:
-    contains = the product cell plus the condiments cell of the same row (an item is sold with its sachets: the with-dressing
-               rows' weights and energy include the dressing),
-    may_contain = the guide's own "may contain" text (never inferred).
-Every allergen text must be one of the printed key letters or one of the exact phrases in PHRASES; anything else stops the run.
-The key letters are checked on every run in both modes.
+drinks and pots ("May contain milk", "Oats (may contain gluten)"...). Allergens are all or nothing per chain, so:
+  * every item built from a row with allergen columns gets its allergens copied from that row (allergens.csv):
+        contains    = the product cell plus the condiments cell of the same row (an item is sold with its sachets: the with-dressing
+                      rows' weights and energy include the dressing; the "(excl. dressing)" rows keep the union too, the safe direction),
+        may_contain = the guide's own "may contain" text (never inferred); "n/a" in a cell is the guide's own "none listed",
+  * the 29 mixed bento items have no allergen row anywhere in the guide, so they are held back (holdback.csv) with that reason; they
+    stay in items.csv so restoring them is deleting their lines once Wasabi prints allergens for them,
+  * an allergen text must be one of the printed key letters or one of the exact phrases in PHRASES, else the run stops, and a row's
+    "Contains Gluten" mark must agree with its letters.
+`--link-only` instead publishes only the guide's link (allergen_guide.csv) and keeps the mixed bento items published.
 """
 from __future__ import annotations
 import argparse
@@ -53,7 +55,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import wasabi_pdf as pdf_reader  # noqa: E402
-from common import allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import allergen_words, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "wasabi"
 SOURCE_URL = "https://www.wasabi.uk.com/wp-content/uploads/2026/09/WAS_Nutritional_Guide_210926v3.pdf"
@@ -62,6 +64,7 @@ ALLERGEN_GUIDE_TITLE = "Wasabi nutritional information guide, Version 34 (releas
 ALIASES = ["wasabi", "wasabi sushi & bento", "wasabi sushi and bento", "wasabi sushi bento"]
 NOTE = ("Wasabi prints calories per portion, but protein, carbs, fat, sugar and salt only per 100 g, so only calories and the portion "
         "weight are published. Rows marked (excl. dressing) leave the sachet or dressing out; sachets and sauces are listed separately.")
+NOTE_ALLERGENS = " Mixed bento is not listed: Wasabi's guide prints no allergens for it."
 EXPECTED_ITEMS = 214            # items built from the 199 table rows (see build_items)
 EXPECTED_MIXED_BENTO = 29       # rows of pages 15-17 (no allergen columns)
 
@@ -184,7 +187,7 @@ def problems(row: dict) -> list[str]:
 
 
 # ------------------------------------------------------------------------------------------------------------------ items
-def build_items(rows: list[dict], per_item_allergens: bool) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
+def build_items(rows: list[dict]) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
     items: list[dict] = []
     skipped: list[str] = []
     problem_rows = {}
@@ -198,7 +201,7 @@ def build_items(rows: list[dict], per_item_allergens: bool) -> tuple[list[dict],
     allergens_by_row: dict[int, dict] = {}
     for i, row in enumerate(rows):
         if row["layout"] != "mixed":
-            allergens_by_row[i] = allergens_for(row)  # parsed (and checked) in both modes
+            allergens_by_row[i] = allergens_for(row)  # parsed (and checked) whichever mode is used
     for i, row in enumerate(rows):
         c = row["cells"]
         printed = " ".join(row["name"].split())
@@ -217,8 +220,6 @@ def build_items(rows: list[dict], per_item_allergens: bool) -> tuple[list[dict],
         base = dict(category=row["category"], tags="|".join(tags), rankable=False, section=row["category"], row_key=(row["page"], printed),
                     allergens=allergens_by_row.get(i), held=held)
         if row["layout"] == "mixed":
-            if per_item_allergens:
-                continue
             name = f"{name} (with {row['base'].lower()})"
             items.append(dict(base, name=name, calories=c["kcal"], weight_g=c["weight"], notes="; ".join(notes)))
         elif row["layout"] == "bain":
@@ -253,9 +254,8 @@ def build_items(rows: list[dict], per_item_allergens: bool) -> tuple[list[dict],
     names = [it["name"].lower() for it in items]
     if len(set(names)) != len(names):
         raise SystemExit("Item names are not unique after adding sections: " + str(sorted({n for n in names if names.count(n) > 1})))
-    expected = EXPECTED_ITEMS - (EXPECTED_MIXED_BENTO if per_item_allergens else 0)
-    if len(items) != expected:
-        raise SystemExit(f"Expected {expected} items, built {len(items)}: the guide changed, re-check the script")
+    if len(items) != EXPECTED_ITEMS:
+        raise SystemExit(f"Expected {EXPECTED_ITEMS} items, built {len(items)}: the guide changed, re-check the script")
     for it in items:  # ids first (write_chain_folder derives them the same way), then the holdback list
         it["id"] = slug(it["name"])
     ids = [it["id"] for it in items]
@@ -265,12 +265,16 @@ def build_items(rows: list[dict], per_item_allergens: bool) -> tuple[list[dict],
     return items, holdback, skipped
 
 
+MIXED_BENTO_REASON = ("Allergens cannot be published for this item, so it is held back: the guide's mixed bento tables (pages 15-17) print no allergen "
+                      "columns, so there is no allergen row for it (the same dishes elsewhere in the guide are different portions with their own rows).")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path, help="the guide PDF (SOURCE_URL)")
     ap.add_argument("--checked-on", required=True, help="the day the PDF was downloaded/read, YYYY-MM-DD")
-    ap.add_argument("--per-item-allergens", action="store_true",
-                    help="publish per-item allergens and drop the 29 mixed bento items (they print no allergens): see the docstring")
+    ap.add_argument("--link-only", action="store_true",
+                    help="publish only the link to the guide's allergen columns (no allergens.csv) and keep the 29 mixed bento items published")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
     print(f"guide PDF sha256 {sha256_file(args.pdf)}  {args.pdf}")
@@ -278,19 +282,42 @@ def main() -> None:
     mixed = sum(1 for r in rows if r["layout"] == "mixed")
     if mixed != EXPECTED_MIXED_BENTO:
         raise SystemExit(f"Expected {EXPECTED_MIXED_BENTO} mixed bento rows, found {mixed}")
-    items, holdback, skipped = build_items(rows, args.per_item_allergens)
+    items, holdback, skipped = build_items(rows)
     guide = {"title": ALLERGEN_GUIDE_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True}
-    for it in items:
-        if not args.per_item_allergens:
+    held = dict(holdback)
+    note = NOTE
+    published: list[tuple[str, dict]] = []
+    if args.link_only:
+        for it in items:
             it["allergens"] = None  # link only: the 29 mixed bento rows print no allergens, so all or nothing
+    else:
+        no_row = [it for it in items if it["allergens"] is None]
+        if len(no_row) != EXPECTED_MIXED_BENTO or any(it["category"] != "Mixed bento" for it in no_row):
+            raise SystemExit("Items without an allergen row must be exactly the mixed bento items.")
+        for it in no_row:
+            held[it["id"]] = f"{held[it['id']]} Also: {MIXED_BENTO_REASON}" if it["id"] in held else MIXED_BENTO_REASON
+        note = NOTE + NOTE_ALLERGENS
+        published = [(it["id"], it["allergens"]) for it in items if it["id"] not in held]
+        if any(a is None for _, a in published) or len({i for i, _ in published}) != len(published):
+            raise SystemExit("Internal check failed: every published item needs exactly one allergen row.")
+        if len(published) != len(items) - len(held):
+            raise SystemExit("Internal check failed: allergen rows and published items do not match one to one.")
+        for it in items:
+            it["allergens"] = None  # write_chain_folder would skip allergens.csv for the held-back mixed bento; written below instead
     out = write_chain_folder(chain_id=CHAIN_ID, name="Wasabi", cuisine="Japanese", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
-                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=holdback,
+                             checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=note,
+                             holdback=sorted(held.items(), key=lambda kv: [i["id"] for i in items].index(kv[0])),
                              allergen_guide=guide, nutrition_level="calories")
+    if not args.link_only:
+        write_allergens(out, CHAIN_ID, published, guide)  # allergens.csv for the published items only, all or nothing
+        if not (out / "allergens.csv").exists():
+            raise SystemExit("Internal check failed: allergens.csv was not written.")
     cats: dict[str, int] = {}
     for it in items:
         cats[it["category"]] = cats.get(it["category"], 0) + 1
-    print(f"wrote {len(items)} items ({len(holdback)} held back) to {out}: " + ", ".join(f"{c} {n}" for c, n in cats.items()))
-    print("allergens: " + ("per item (mixed bento dropped)" if args.per_item_allergens else "guide link only (mixed bento prints none)"))
+    print(f"wrote {len(items)} items ({len(held)} held back) to {out}: " + ", ".join(f"{c} {n}" for c, n in cats.items()))
+    print("allergens: " + ("guide link only (--link-only)" if args.link_only else
+          f"{len(published)} published items each with a row copied from the guide; {EXPECTED_MIXED_BENTO} mixed bento items held back (no allergen row in the guide)"))
     for s in skipped:
         print("not listed: " + s)
 
