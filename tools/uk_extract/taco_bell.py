@@ -12,6 +12,13 @@ Numbers are copied from the table as printed (kcal, fat, saturates, carbs, sugar
 Only the NAMES, categories, servings and rankable flags below are typed by hand. The script stops if the table's row count,
 its columns, or any item name no longer matches PLAN, so a human re-checks the names before the next run.
 
+Allergens (docs/DATA.md "Allergens"; optional third argument --allergens DIR, added 2026-10-08): the chain's allergen page
+https://www.tacobell.co.uk/allergen-information/ frames Nutritionix's allergen tool for the same menu. With `allergenFree=0` the tool lists
+every item and prints, for each chosen allergen, an explicit cell "X does not contain Milk." or "Warning! X Contains Milk." One page is
+saved per allergen (14 pages, see taco_bell_allergens.py) and every published item is tied by its category and exact printed name to its row
+in all 14 pages. Nothing is inferred: no cell is read from silence. A repeated item (Cravings Value Menu) must have the same cells as the
+row we kept or it is held back. The tool prints no "may contain" information, so none is published (allergen_guide.csv says `no`).
+
 Left out on purpose (see EXCLUDED_CATEGORIES and DUPLICATES):
   Meals            fixed meal/box/bundle combos ("Meal with Fries", "for 2", "Match Day for 4"): the table does not say what
                    they contain, and the playbook skips combos.
@@ -27,10 +34,13 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import taco_bell_allergens  # noqa: E402
 import taco_bell_page  # noqa: E402
+from common import allergen_words, write_allergens  # noqa: E402
 
 CHAIN_ID = "taco-bell"
 SOURCE_URL = "https://www.tacobell.co.uk/nutrition-information/"
+ALLERGEN_URL = "https://www.tacobell.co.uk/allergen-information/"
 EXPECTED_ROWS = 477
 
 TA, BU, SP, CH, SI, DE, DR, SA = "Tacos", "Burritos", "Specialties", "Chicken", "Sides", "Desserts", "Drinks", "Sauces & add-ons"
@@ -285,6 +295,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("html", type=Path, help="the downloaded nutrition table page")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day you compared the page with the live menu")
+    ap.add_argument("--allergens", type=Path, default=None,
+                    help="folder with the 14 saved allergen pages (<name>.html, see taco_bell_allergens.py); without it allergens are not touched")
     ap.add_argument("--out", type=Path, default=Path(__file__).resolve().parents[2] / "data" / "source" / CHAIN_ID)
     args = ap.parse_args()
     datetime.date.fromisoformat(args.checked_on)
@@ -299,6 +311,8 @@ def main() -> int:
 
     by_key = {(r["category"], r["name"]): r for r in rows}
     items, kept_by_name = [], {}
+    source_row: dict[str, tuple[str, str]] = {}      # item id -> (page category, printed name) of the row it was read from
+    repeats: dict[str, list[tuple[str, str]]] = {}   # item id -> the rows that repeat it under another page category
     for page_cat, entries in PLAN.items():
         for printed_name, category, serving, rankable, note in entries:
             printed = by_key[(page_cat, printed_name)]
@@ -308,6 +322,7 @@ def main() -> int:
                     if first[f] != printed[f]:
                         print(f"{printed_name!r} appears twice with different {f}: {first[f]} vs {printed[f]}", file=sys.stderr)
                         return 1
+                repeats.setdefault(slug(RENAME.get(printed_name, printed_name)), []).append((page_cat, printed_name))
                 continue
             name = RENAME.get(printed_name, printed_name)
             items.append({
@@ -318,6 +333,7 @@ def main() -> int:
                 "limited_time": "false", "rankable": str(rankable).lower(), "components": "", "added_on": "", "notes": note,
             })
             kept_by_name[printed_name] = printed
+            source_row[slug(name)] = (page_cat, printed_name)
     ids = [i["id"] for i in items]
     assert len(ids) == len(set(ids)), "duplicate ids"
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))  # stable: keeps the table's order inside a category
@@ -345,12 +361,41 @@ def main() -> int:
         print(f"hold-back list names items that are not in the table any more: {sorted(missing)}", file=sys.stderr)
         return 1
     held += [(i["id"], HOLD_DRINK) for i in items if i["category"] == DR]
+    allergen_report = ""
+    if args.allergens:
+        allergen_updated, order, grid = taco_bell_allergens.read_grid(args.allergens)
+        if allergen_updated != updated:
+            print(f"The allergen pages are dated {allergen_updated} but the nutrition table is dated {updated}: download both again.", file=sys.stderr)
+            return 1
+        if set(order) != {(r["category"], r["name"]) for r in rows} or len(order) != len(rows):
+            print("The allergen table lists different rows from the nutrition table: re-check both pages.", file=sys.stderr)
+            return 1
+        extra_held, allergen_rows = [], []
+        held_ids = {i for i, _ in held}
+        for it in items:
+            if it["id"] in held_ids:
+                continue
+            cells = grid[source_row[it["id"]]]
+            if any(grid[r] != cells for r in repeats.get(it["id"], [])):
+                extra_held.append((it["id"], "Taco Bell's allergen table prints this item twice (under two menu sections) with different allergens, "
+                                             "so neither row is chosen and no allergens are published for it."))
+                continue
+            contains = {taco_bell_allergens.ALLERGEN_PAGES[k] for k, v in cells.items() if v == "contains"}
+            keys, _, _ = allergen_words(sorted(contains), f"allergen row {source_row[it['id']]}")
+            allergen_rows.append((it["id"], {"contains": keys, "may_contain": set()}))
+        held += extra_held
+        publish_ids = {i for i, _ in allergen_rows}
+        assert publish_ids == {it["id"] for it in items} - {i for i, _ in held}, "every published item must have an allergen row"
+        guide = {"title": f"Taco Bell UK Allergen Information (last updated {updated_date.day} {updated_date:%B %Y})", "url": ALLERGEN_URL,
+                 "checked_on": args.checked_on, "may_contain_published": False}
+        write_allergens(args.out, CHAIN_ID, allergen_rows, guide)
+        allergen_report = f"; allergens for {len(allergen_rows)} published items ({len(extra_held)} more held back for repeated rows that disagree)"
     with open(args.out / "holdback.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f, lineterminator="\n")
         w.writerow(["item_id", "reason"])
         w.writerows(held)
     print(f"wrote {len(items)} items to {args.out} (page sha256 {hashlib.sha256(args.html.read_bytes()).hexdigest()}, "
-          f"table last updated {updated_date.isoformat()})")
+          f"table last updated {updated_date.isoformat()}){allergen_report}")
     return 0
 
 

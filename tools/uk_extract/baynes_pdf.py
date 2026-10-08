@@ -17,14 +17,17 @@ them ("Pepperoni & Mozzarella Roll Melt") or split around them ("Burnt Orange Ho
 Rows are joined to their name text by the rules in `_resolve`; the three names split in two lines are listed in WRAPS. If a text line
 cannot be placed the run stops.
 
-ALLERGEN PDF (https://docs.baynes.co.uk/Allergens-Website.pdf, 4 pages, "MASTER Allergens.xlsx"): the 14 allergens are coloured
-cells (a green fill = contained), which have no text, so they are NOT read (names also differ from the nutrition PDF: see baynes.py).
-Only the last column, "Suitable for Vegetarians" (YES / NO / NO** / YES*), is text: read_vegetarian() returns it by section and name.
+ALLERGEN PDF (https://docs.baynes.co.uk/Allergens-Website.pdf, 4 pages, "MASTER Allergens.xlsx"): the allergens are coloured cells
+of a 17-column grid (a green fill = contained, a grey fill = not marked) with no text in them, so they are read from the page's own
+vector shapes (`pdftocairo -svg`): see read_allergens(). The last column, "Suitable for Vegetarians" (YES / NO / NO** / YES*), is text:
+read_vegetarian() returns it by section and name; read_allergens() also checks every cell's fill against that text (a YES row has the
+peach fill, a NO row the grey one), which proves each row's cells were read at the right height.
 """
 from __future__ import annotations
 import html
 import re
 import subprocess
+import tempfile
 from pathlib import Path
 
 WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
@@ -246,6 +249,134 @@ def read_vegetarian(pdf: Path) -> tuple[dict, dict]:
         if len(flags) != 1 or flags[0] not in FLAGS:
             raise SystemExit(f"{where}: unexpected text in the vegetarian column: {flags!r}")
         return flags[0]
+
+    events = _name_events(pages, row_of_line, skip, X_FLAG_MIN, "allergen PDF")
+    rows = _resolve(events, "allergen PDF")
+    out: dict = {}
+    for r in rows:
+        key = (r["sub"] or r["top"], r["name"])
+        if key in out:
+            raise SystemExit(f"allergen PDF: {key} is printed twice")
+        out[key] = r["payload"]
+    return meta, out
+
+
+# ----------------------------------------------------------------------------------------------------- allergen cells
+# The 17 allergen columns left to right, as the rotated header text prints them (checked against the header words of every page).
+# "Oats/Rye/Barley/Wheat Gluten" are four cereal columns; "(Tree) Nuts" names no nut; no column names "spelt", "kamut" or a nut.
+ALLERGEN_HEADERS = ("(Tree) Nuts", "Celery", "Crustaceans", "Eggs", "Fish", "Oats Gluten", "Rye Gluten", "Barley Gluten", "Wheat Gluten",
+                    "Lupin", "Milk", "Molluscs", "Mustard", "Peanut", "Sesame", "Soya", "Sulphites")
+GRID_X0 = 148.99            # left edge of the first allergen cell (points); 17 equal cells end at GRID_X1, the vegetarian cell follows
+GRID_X1 = 501.63
+VEG_X = (501.51, 535.67)    # the "Suitable for Vegetarians" cell
+CELL_W = (GRID_X1 - GRID_X0) / len(ALLERGEN_HEADERS)
+PATH = re.compile(r'<path fill-rule="[^"]*" fill="rgb\(([\d.]+)%, ([\d.]+)%, ([\d.]+)%\)" fill-opacity="1" d="([^"]*)"')
+SUBRECT = re.compile(r"M ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) Z")
+# Fills as pdftocairo prints them (percent of 255). Two light greys are used (different Excel cell styles) and both mean "not marked".
+GREEN, PEACH = (0.0, 49.8, 0.0), (95.7, 69.0, 51.8)
+GREYS = ((82.35, 82.35, 82.35), (85.10, 85.10, 85.10))
+
+
+def _near(c: tuple, ref: tuple, tol: float = 0.3) -> bool:
+    return all(abs(a - b) <= tol for a, b in zip(c, ref))
+
+
+def _page_rects(pdf: Path, page: int) -> list[tuple]:
+    """Filled rectangles of one page in painting order: (r, g, b percent, x0, y0, x1, y1). Hairlines (table borders) are left out."""
+    with tempfile.TemporaryDirectory() as d:
+        svg = Path(d) / "p.svg"
+        subprocess.run(["pdftocairo", "-svg", "-f", str(page), "-l", str(page), str(pdf), str(svg)], check=True, capture_output=True)
+        text = svg.read_text(encoding="utf-8")
+    out = []
+    for m in PATH.finditer(text):
+        rgb = tuple(float(m.group(i)) for i in (1, 2, 3))
+        for sm in SUBRECT.finditer(m.group(4)):  # one path can hold several rectangles (all painted with the same fill)
+            xs = [float(sm.group(i)) for i in (1, 3, 5, 7)]
+            ys = [float(sm.group(i)) for i in (2, 4, 6, 8)]
+            if max(xs) - min(xs) >= 2 and max(ys) - min(ys) >= 2:
+                out.append(rgb + (min(xs), min(ys), max(xs), max(ys)))
+    return out
+
+
+def _fill_at(rects: list[tuple], x: float, y: float):
+    """Colour of the topmost rectangle that covers the point (None if nothing does)."""
+    hit = None
+    for r in rects:
+        if r[3] + 0.05 < x < r[5] - 0.05 and r[4] + 0.05 < y < r[6] - 0.05:
+            hit = r[:3]
+    return hit
+
+
+def _header_labels(words: list[tuple]) -> list[str]:
+    """The 17 rotated column labels of one page, left to right ("Oats Gluten": the rotated words read bottom to top)."""
+    cols: dict = {}
+    for w in words:
+        if w[3] - w[1] > MAX_WORD_HEIGHT and GRID_X0 < (w[0] + w[2]) / 2 < GRID_X1:
+            cols.setdefault(min(int(((w[0] + w[2]) / 2 - GRID_X0) / CELL_W), len(ALLERGEN_HEADERS) - 1), []).append(w)
+    return [" ".join(w[4] for w in sorted(cols.get(i, []), key=lambda w: -w[1])) for i in range(len(ALLERGEN_HEADERS))]
+
+
+def read_allergens(pdf: Path) -> tuple[dict, dict]:
+    """The allergen PDF's grid. -> (meta, {(heading, printed name): {"flag": printed vegetarian text, "cells": [bool x 17]}}).
+
+    A row's cells are read from the page's vector fills at the height of the row's "Suitable for Vegetarians" text, in the middle of each
+    of the 17 columns (sampled at three heights; they must agree). Stops if a fill is neither green nor one of the two greys, if a point
+    is covered by no fill, if a page's header words are not the 17 expected labels, or if a row's vegetarian cell fill disagrees with its
+    text. A name printed twice under one heading stops the run (read_vegetarian does the same)."""
+    pages = _pages(pdf)
+    meta: dict = {}
+    for pno, words in enumerate(pages, 1):
+        labels = _header_labels(words)
+        if labels != list(ALLERGEN_HEADERS):
+            raise SystemExit(f"allergen PDF page {pno}: header labels {labels!r} differ from the expected {list(ALLERGEN_HEADERS)!r}: the grid changed")
+    rects_by_page = {pno: _page_rects(pdf, pno) for pno in range(1, len(pages) + 1)}
+
+    def skip(line: list[tuple]) -> bool:
+        texts = [w[4] for w in line]
+        if texts[0] == "VERSION":
+            meta["version"] = texts[1]
+            meta["issue_date"] = texts[texts.index("OF") + 2] if "OF" in texts else ""
+            return True
+        if texts[0] == "ALLERGEN" or texts == ["ALLERGENS"]:
+            if texts[0] == "ALLERGEN":
+                meta["header_date"] = texts[-1]
+            return True
+        if line[0][1] < 150 and line[0][0] < 40 and len(texts) > 8:
+            return True
+        return False
+
+    def row_of_line(line: list[tuple], where: str):
+        flags = [w for w in line if w[0] >= X_FLAG_MIN]
+        if not flags:
+            return None
+        if len(flags) != 1 or flags[0][4] not in FLAGS:
+            raise SystemExit(f"{where}: unexpected text in the vegetarian column: {[w[4] for w in flags]!r}")
+        pno = int(where.rsplit(" ", 1)[1])
+        rects = rects_by_page[pno]
+        yc = (flags[0][1] + flags[0][3]) / 2
+        cells = []
+        for i in range(len(ALLERGEN_HEADERS)):
+            xc = GRID_X0 + (i + 0.5) * CELL_W
+            fills = [_fill_at(rects, xc, yc + dy) for dy in (-2.0, 0.0, 2.0)]
+            kinds = set()
+            for f in fills:
+                if f is None:
+                    raise SystemExit(f"{where}: no fill under the cell {ALLERGEN_HEADERS[i]!r} of the row with flag {flags[0][4]!r} at y={yc:.1f}")
+                if _near(f, GREEN):
+                    kinds.add("yes")
+                elif any(_near(f, g) for g in GREYS):
+                    kinds.add("no")
+                else:
+                    raise SystemExit(f"{where}: unknown fill {f} under {ALLERGEN_HEADERS[i]!r} at y={yc:.1f}")
+            if len(kinds) != 1:
+                raise SystemExit(f"{where}: the three samples of the cell {ALLERGEN_HEADERS[i]!r} at y={yc:.1f} disagree")
+            cells.append(kinds == {"yes"})
+        vf = [_fill_at(rects, (VEG_X[0] + VEG_X[1]) / 2, yc + dy) for dy in (-2.0, 0.0, 2.0)]
+        want_peach = flags[0][4].startswith("YES")
+        for f in vf:
+            if f is None or not (_near(f, PEACH) if want_peach else any(_near(f, g) for g in GREYS)):
+                raise SystemExit(f"{where}: the vegetarian cell fill {f} does not fit the printed {flags[0][4]!r} at y={yc:.1f}: the row height is off")
+        return {"flag": flags[0][4], "cells": cells}
 
     events = _name_events(pages, row_of_line, skip, X_FLAG_MIN, "allergen PDF")
     rows = _resolve(events, "allergen PDF")

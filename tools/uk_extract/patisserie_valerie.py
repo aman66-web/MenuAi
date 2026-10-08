@@ -29,10 +29,15 @@ children's sandwiches): there is no figure for that row alone.
 Held back (holdback.csv, never corrected): a product printed with different figures in the guide (the same name, or the same Nutritics
 code, with different Kcal in different places or menus), and four rows whose figure looks wrong or unclear against its own siblings in the guide (MANUAL_HOLDBACK).
 
-Allergens (docs/DATA.md "Allergens") are LINK ONLY. The grid (Y / N / MC marks plus a "May contain" text column) cannot be read
-completely: of the 526 rows, 167 print "May contain" text with no MC mark in the grid and 20 print an MC mark with no text, and 14 rows
-(the Valerie menu, Eggs Benedict, Pain Au Raisin) leave one or more allergen cells blank instead of Y/N. Allergens are safety
-information: no reconciling, no guessing, so only the guide's link is published.
+Allergens (docs/DATA.md "Allergens", all or nothing, added 2026-10-08): copied from the same rows by patisserie_valerie_allergens.py. Each
+row's 21 grid cells are read three ways that must agree (the text mark, the cell's fill colour from the vector drawing, and the column the mark
+sits in by its header word); a Y cell is "contains", an MC cell is "may contain", and the allergens named in the row's free-text "May contain"
+cell (tied to its row by the table's own borders, so cells merged across rows and wrapped lines are read whole) are "may contain" too: the grid
+and that column disagree on many rows (of 497 readable rows, 186 name allergens the grid does not mark MC, 19 have an MC the text does not name), so both are
+published and nothing is dropped or reconciled. Every published dish needs ONE readable row, identical wherever the guide prints the dish and
+for every dish sharing its Nutritics code; otherwise the dish is held back (never chosen between): blank cells (the Valerie menu leaves Lupin
+and Molluscs blank, Eggs Benedict leaves Peanuts blank, Pain Au Raisin leaves Milk blank), a mark whose text and fill colour disagree (18 cells),
+or two printed rows for one recipe that disagree (Egg & Cress sandwiches, code AUAT001).
 Also printed but not a product: Kiosk menu "Rasberry Croissant" (a name with no figures and no marks).
 """
 from __future__ import annotations
@@ -44,8 +49,9 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import patisserie_valerie_allergens as alg_reader  # noqa: E402
 import patisserie_valerie_pdf as pdf_reader  # noqa: E402
-from common import ROOT, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "patisserie-valerie"
 PAGE_URL = "https://patisserie-valerie.co.uk/pages/nutritional-and-allergen-information"
@@ -56,11 +62,11 @@ SOURCE_TITLE = ("Patisserie Valerie Nutritional and Allergen Information, Autumn
                 "Valerie menus, created 29 September 2026)")
 GUIDE_TITLE = "Patisserie Valerie Nutritional and Allergen Information, Autumn 2026 (five allergen PDFs, created 29 September 2026)"
 ALIASES = ["patisserie valerie", "patisserie valerie cafe", "patisserie valerie café", "valerie"]
-# The five PDFs print "May contain" text, so traces information is published (but it cannot be tied to the grid reliably).
+# The five PDFs print "May contain" marks (MC) and text, so traces information is published (both are used: see the module docstring).
 MAY_CONTAIN_PUBLISHED = True
-NOTE = ("Calories only: the chain's Autumn 2026 allergen PDFs print one Kcal figure per product and no other nutrients, sizes or "
-        "weights (unless a name or note says so). Products printed with different figures in different places are held back. "
-        "Alcoholic drinks and drinks printed 'see menu' have no figure.")
+NOTE = ("Calories only: the chain's Autumn 2026 allergen guide prints one Kcal figure per product and no other nutrients or sizes. "
+        "Allergens are its grid plus its 'May contain' column, shown together (they don't always agree). "
+        "Dishes printed with different figures, or with blank or conflicting allergen cells, are left out.")
 
 # printed section heading (lower-case) -> category shown. A heading matches when it is exactly one of EXACT, else when it starts with
 # one of PREFIXES (first match wins). Headings are taken from the PDFs as printed (some are cut short by the chain's own layout).
@@ -214,10 +220,13 @@ def build(pdfs: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
     excluded: list[tuple[str, str, str]] = []
     for stem, (menu, expected) in PDFS.items():
         rows, _loose = pdf_reader.read_rows(pdfs / f"{stem}.pdf")
+        arows = alg_reader.read_allergen_rows(pdfs / f"{stem}.pdf")
+        if len(arows) != len(rows) or any((a["page"], round(a["y"], 2), a["name"]) != (r["page"], round(r["y"], 2), r["name"]) for a, r in zip(arows, rows)):
+            raise SystemExit(f"{stem}.pdf: the allergen rows do not line up with the product rows.")
         if len(rows) != expected:
             raise SystemExit(f"{stem}.pdf has {len(rows)} product rows but this script expects {expected}: the guide changed, re-check "
                              "CATEGORIES, the exclusions and MANUAL_HOLDBACK before running again.")
-        for r in rows:
+        for r, ar in zip(rows, arows):
             cat = category_of(r["section"])
             shown, printed = tidy(r["name"])
             read = read_kcal(r["kcal"])
@@ -228,7 +237,8 @@ def build(pdfs: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
             if first[:1] not in (["Y"], ["N"]):
                 raise SystemExit(f"{stem}.pdf p{r['page']}: no Suitable-for-Vegetarians mark on {r['name']!r}")
             occurrences.append({"menu": menu, "stem": stem, "page": r["page"], "section": r["section"], "cat": cat, "name": shown, "printed": printed,
-                                "code": " ".join(r["code"].split()), "value": read[0], "serving": read[1], "note": read[2], "veg": first[0]})
+                                "code": " ".join(r["code"].split()), "value": read[0], "serving": read[1], "note": read[2], "veg": first[0],
+                                "alg": alg_reader.record(ar)})
     # one item per (name, figure): the same line printed in several menus is one item
     items: list[dict] = []
     by_key: dict[tuple[str, int], dict] = {}
@@ -241,6 +251,7 @@ def build(pdfs: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
             if where not in it["_menus"]:
                 it["_menus"].append(where)
             it["_veg"].add(o["veg"])
+            it["_alg"].append((where, o["alg"]))
             continue
         base = slug(o["name"])
         n = seen_ids.get(base, 0)
@@ -253,7 +264,7 @@ def build(pdfs: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
                 serving = "Regular"
         it = {"id": base if n == 0 else f"{base}-{n + 1}", "name": o["name"], "category": o["cat"], "serving": serving, "calories": o["value"],
               "limited_time": o["cat"] in LIMITED_TIME, "rankable": False, "_menus": [f"{o['menu']} p{o['page']}"], "_veg": {o["veg"]},
-              "_code": o["code"], "_notes": [x for x in (o["note"], f"printed name: {o['printed']}" if o["printed"] else "") if x],
+              "_code": o["code"], "_alg": [(f"{o['menu']} p{o['page']}", o["alg"])], "_notes": [x for x in (o["note"], f"printed name: {o['printed']}" if o["printed"] else "") if x],
               "_section": o["section"]}
         by_key[key] = it
         items.append(it)
@@ -289,6 +300,43 @@ def build(pdfs: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
         if hit is None:
             raise SystemExit(f"MANUAL_HOLDBACK row {name!r} ({value}) is no longer in the guide: re-check the list.")
         holdback.setdefault(hit["id"], reason)
+    # allergens (docs/DATA.md "Allergens", all or nothing): every published dish needs ONE readable row copied from the guide, identical
+    # wherever the guide prints the dish. A dish whose row cannot be read with certainty, or whose rows differ between menus, is held back.
+    def alg_key(rec: dict) -> tuple:
+        return (frozenset(rec["contains"]), frozenset(rec["may_contain"]), frozenset(rec["cereals"]))
+
+    def describe(rec: dict) -> str:
+        may = rec["may_contain"] - rec["contains"]
+        return ("contains " + (", ".join(sorted(rec["contains"])) or "none of the 14")) + "; may contain " + (", ".join(sorted(may)) or "none")
+
+    alg_held: dict[str, str] = {}
+    for it in items:
+        if it["id"] in holdback:
+            continue
+        recs = it["_alg"]
+        unreadable = [(w, r) for w, r in recs if r["why"]]
+        if unreadable:
+            alg_held[it["id"]] = ("The guide's allergen row for this dish cannot be read with certainty ("
+                                  + "; ".join(f"{r['why']}, {w}" for w, r in unreadable) + "). Not published.")
+        elif len({alg_key(r) for _, r in recs}) > 1:
+            alg_held[it["id"]] = ("The guide prints this dish with different allergen rows in different menus ("
+                                  + "; ".join(f"{w}: {describe(r)}" for w, r in recs) + "). Not published.")
+        else:
+            rec = recs[0][1]
+            it["allergens"] = {"contains": rec["contains"], "may_contain": rec["may_contain"], "cereals": rec["cereals"]}
+    # the same Nutritics code is the same recipe: two published dishes sharing a code must carry the same allergen row, else neither is shown
+    by_alg_code: dict[str, list] = {}
+    for it in items:
+        if it["id"] not in holdback and it["id"] not in alg_held and it["_code"]:
+            by_alg_code.setdefault(it["_code"], []).append(it)
+    for code, grp in by_alg_code.items():
+        if len({alg_key(i["allergens"]) for i in grp}) > 1:
+            for i in grp:
+                alg_held[i["id"]] = (f"The guide prints Nutritics code {code} (one recipe) for {' and '.join(repr(g['name']) for g in grp)} "
+                                     "with different allergen rows (" + "; ".join(f"{g['name']}: {describe(g['allergens'])}" for g in grp)
+                                     + "), so neither row can be trusted. Not published.")
+    for hid, why in alg_held.items():
+        holdback[hid] = why
     # tags from the chain's own marks and words
     for it in items:
         tags = []
@@ -305,6 +353,9 @@ def build(pdfs: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
         it["tags"] = "|".join(tags)
         it["notes"] = "; ".join(it["_notes"] + [f"printed in: {', '.join(it['_menus'])}", f"section: {it['_section']}"] + ([f"Nutritics code {it['_code']}"] if it["_code"] else []))
     published = [i for i in items if i["id"] not in holdback]
+    assert all(isinstance(i.get("allergens"), dict) for i in published), "every published item must have an allergen row"
+    report.append(f"allergens: {len(published)} published items each have one readable row (identical in every menu that prints the dish); "
+                  f"{len(alg_held)} dishes held back for their allergen rows")
     report.append(f"rows read: {sum(n for _, n in PDFS.values())}; excluded (no usable figure): {len(excluded)}; unique products with a figure: {len(items)}; "
                   f"held back: {len(holdback)}; published: {len(published)}")
     reasons: dict[str, list[str]] = {}
@@ -339,6 +390,9 @@ def main() -> int:
     out = write_chain_folder(chain_id=CHAIN_ID, name="Patisserie Valerie", cuisine="Bakery", source_title=SOURCE_TITLE, source_url=PAGE_URL,
                              checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=holdback,
                              allergen_guide=guide, nutrition_level="calories")
+    # allergens.csv holds the published dishes only (held-back dishes carry no row: their rows are unreadable or disagree)
+    held = {hid for hid, _ in holdback}
+    write_allergens(out, CHAIN_ID, [(i["id"], i["allergens"]) for i in items if i["id"] not in held], guide)
     print("\n".join(report))
     cats: dict[str, int] = {}
     for it in items:

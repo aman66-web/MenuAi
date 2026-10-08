@@ -23,12 +23,22 @@ SAME printed name (a name that differs in any way, such as "Apple Puff" / "Apple
 only when the item's name says so (pork, bacon, ham, pepperoni, salami, chorizo, gammon, sausage -> pork unless the name says beef;
 beef, steak -> beef).
 
-Allergens (docs/DATA.md "Allergens") are LINK-ONLY. The allergen PDF marks the 14 allergens as coloured cells, and its product names do
-not match the nutrition PDF exactly: 35 of the 178 rows of the nutrition PDF have no row of the same name in it ("Apple Puff" / "Apple Turnover",
-"Shell Steak Pie" / "Steak Pie", "Gingerbread" / "Plain Gingerbread", "White French Cake with Lilac Drizzle" / "French Cake with Lilac
-Drizzle**", "Hot Chocolate" / "Hot Chocolate (12oz)", "Flat White (8oz)" / "Flat White Regular", the oat drinks, the hot roll
-components, and the whole Filled Dark Fired Rolls section, which the allergen PDF does not have). Allergens are safety information: no
-matching by similar names, so only the guide's link is published (all or nothing). The script prints the unmatched rows on every run.
+Allergens (docs/DATA.md "Allergens"), copied from the allergen PDF's grid. Its 17 allergen columns are coloured cells (green = contained,
+grey = not marked, no text), read from the page's vector fills at the height of each row (baynes_pdf.read_allergens; the vegetarian cell's
+fill is checked against its printed YES/NO on every row, which proves the height). The four gluten columns name the cereal (oats, rye,
+barley, wheat), "(Tree) Nuts" names no nut. A nutrition row gets the allergen row with the SAME section heading and the SAME printed name,
+no other matching: a name that differs in any way ("Apple Puff" / "Apple Turnover", "Flat White (8oz)" / "Flat White Regular", "Tetley Tea
+Large (Black)" / "Tetley Tea Large", the whole "Filled Dark Fired Rolls" section, which the allergen PDF does not have) has no exact row, so
+that item is NOT published (holdback.csv; 32 of 178 rows, one of them because its row contradicts its name). The one tolerance: a printed portion in brackets after a name in the nutrition
+PDF ("Bacon (1 slice)", "Black Pudding (1 slice)", "Pork Link Sausage (1 sausage)", "Sliced Sausage (1 slice)") is ignored when looking up the
+allergen row ("Bacon", ...), because the portion is not a different product (listed as a judgement call in data/audit/verified/baynes-allergens.json).
+One row is held back because its cells contradict its own name (docs/ACCURACY_AUDIT.md policy 3): "Hazelnut Hot Chocolate with Cream" marks
+milk only, no tree nut (ALLERGEN_HOLDBACK). Nothing is corrected.
+"May contain": the grid has no may-contain column. The PDF's own sentence says its oat alternative hot drinks "may contain traces of Cow's Milk",
+and a footnote "*May contain Milk" marks the five "... Oat Milk Drink" coffees; the only published row it covers is "Tea with Oat Drink"
+(an oat alternative hot drink by its own name), recorded as may contain milk. The script stops if any other published item names an oat
+drink. The general paragraph (nuts, cereals, egg, soya, milk, fish, celery, mustard, sesame and sulphites are used in the bakery and
+separation can't be guaranteed) is not item data and is not copied per item; the note says so.
 
 rankable: filled rolls, baguettes and batons, hot rolls (melts), soup, and the savouries are meals; breads, cakes, biscuits, treats,
 tea breads, drinks, celebration cakes and the parts of a hot filled roll are not. The Large and Medium Steak Pie print very large totals
@@ -37,12 +47,13 @@ tea breads, drinks, celebration cakes and the parts of a hot filled roll are not
 from __future__ import annotations
 import argparse
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import baynes_pdf as pdf_reader  # noqa: E402
-from common import sha256_file, slug, write_chain_folder  # noqa: E402
+from common import allergen_words, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "baynes"
 NUTRITION_URL = "https://baynes.co.uk/wp-content/uploads/2026/10/Nutritional-Website-1.pdf"
@@ -55,8 +66,24 @@ ALLERGEN_TITLE = "Baynes Allergen Information (MASTER Allergens.xlsx, version 10
 # The allergen PDF prints one general warning (the bakery uses peanuts, nuts, gluten cereals, egg, soya, milk, fish, celery, mustard, sesame
 # and sulphites at more than 10 ppm and cannot guarantee separation) and "May contain Milk" for the oat drinks: traces information is printed.
 MAY_CONTAIN_PUBLISHED = True
-NOTE = ("Baynes' own per-product figures, a guideline only (the bakery says its products are hand-crafted and vary). Loaves, large pies, "
-        "gateaux and celebration cakes print very large totals, so check the size. No fibre or weights are published. Allergens: see the guide.")
+# The grid's column headers as printed, in words common.allergen_words does not know on its own (an unknown word stops the run).
+HEADER_WORDS = {"(tree) nuts": ("nuts", None), "oats gluten": ("gluten", "oats"), "rye gluten": ("gluten", "rye"),
+                "barley gluten": ("gluten", "barley"), "wheat gluten": ("gluten", "wheat"), "peanut": ("peanuts", None)}
+# Rows the PDF's own sentence about oat alternative hot drinks covers and that are published (see the module docstring): may contain milk.
+OAT_MAY_CONTAIN = {("Tea & Hot Chocolate", "Tea with Oat Drink"): {"milk"}}
+OAT_FOOTNOTE = "*May contain Milk"
+OAT_SENTENCE = "Oat alternative hot drink offerings"
+# Rows whose allergen cells contradict the product's own name: not published (docs/ACCURACY_AUDIT.md policy 3). Nothing is corrected.
+ALLERGEN_HOLDBACK = {
+    ("Tea & Hot Chocolate", "Hazelnut Hot Chocolate with Cream"):
+        "The allergen guide's row for this drink marks milk only, although the drink's name says hazelnut and the guide marks no tree nuts: "
+        "the row contradicts the product's own name, so it is not published. Not corrected.",
+}
+# A portion printed in brackets after a nutrition row's name is not part of the allergen row's name (see the module docstring).
+PORTION = re.compile(r"^(.*?)\s*\((1 slice|1 sausage)\)$")
+NOTE = ("Baynes' own per-product figures, a guideline only (hand-crafted, so they vary). Loaves, large pies, gateaux and celebration cakes "
+        "print very large totals, so check the size. No fibre or weights. Allergens are copied from Baynes' allergen guide; a product with no "
+        "exact row in it isn't listed. The bakery can't guarantee separation of allergens.")
 
 # printed heading -> (category shown, rankable, limited_time). "Seasonal" / "Halloween range" are the guide's own labels.
 CATEGORIES = {
@@ -134,7 +161,19 @@ EXPECTED_COUNTS = {
 }
 
 
-def build_items(rows: list[dict], vegetarian: dict) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
+def allergens_of(grow: dict, where: str) -> dict:
+    """One grid row -> write_allergens' dict. Every green cell is 'contains'; the four gluten columns name the cereal."""
+    contains, cereals, nuts = set(), set(), set()
+    for header, marked in zip(pdf_reader.ALLERGEN_HEADERS, grow["cells"]):
+        if marked:
+            k, c, n = allergen_words([header], f"{where} column {header!r}", HEADER_WORDS)
+            contains |= k
+            cereals |= c
+            nuts |= n
+    return {"contains": contains, "may_contain": set(), "cereals": cereals, "nuts": nuts}
+
+
+def build_items(rows: list[dict], vegetarian: dict, grid: dict) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
     if len(rows) != EXPECTED_ROWS:
         raise SystemExit(f"The nutrition PDF has {len(rows)} product rows, this script expects {EXPECTED_ROWS}: the menu changed. Re-check the "
                          "tables (names, categories, holdbacks) and update EXPECTED_ROWS / EXPECTED_COUNTS.")
@@ -161,6 +200,9 @@ def build_items(rows: list[dict], vegetarian: dict) -> tuple[list[dict], list[tu
     items, holdback, report = [], [], []
     unmatched = []
     used_holdbacks = set()
+    allergen_rows: dict = {}   # grid key -> the (heading, printed name) nutrition row that took it (one row per product)
+    no_allergen_row = []       # (item id, reason): no allergen row with this exact section and name, or a row that contradicts the name
+    used_allergen_holdbacks = set()
     for r in rows:
         heading = r["sub"] or r["top"]
         printed = r["name"]
@@ -188,10 +230,36 @@ def build_items(rows: list[dict], vegetarian: dict) -> tuple[list[dict], list[tu
                 "rankable": rankable and (heading, printed) not in NOT_RANKABLE,
                 "notes": "; ".join(x for x in (f"Printed '{printed}' under '{heading}'" if printed != name else "", ROW_NOTES.get((heading, printed), "")) if x)}
         key = (heading, printed)
+        gkey = key
+        if gkey not in grid:
+            pm = PORTION.match(printed)
+            if pm and (heading, pm.group(1)) in grid:
+                gkey = (heading, pm.group(1))
+        grow = grid.get(gkey)
+        if grow is None:
+            why = (f"The allergen guide has no 'Filled Dark Fired Rolls' section, so no allergens can be copied for this roll." if heading == "Filled Dark Fired Rolls" else
+                   f"The allergen guide has no row named '{printed}' under '{heading}' (names must match exactly), so no allergens can be copied for it.")
+            no_allergen_row.append((item["id"], why + " Not published."))
+        elif key in ALLERGEN_HOLDBACK:
+            used_allergen_holdbacks.add(key)
+            allergen_rows[gkey] = key
+            no_allergen_row.append((item["id"], ALLERGEN_HOLDBACK[key]))
+        else:
+            if gkey in allergen_rows:
+                raise SystemExit(f"{key} and {allergen_rows[gkey]} would both take the allergen row {gkey}: re-check the names")
+            allergen_rows[gkey] = key
+            item["allergens"] = allergens_of(grow, f"{heading} / {printed}")
+            if key in OAT_MAY_CONTAIN:
+                item["allergens"]["may_contain"] = set(OAT_MAY_CONTAIN[key])
+                item["notes"] = "; ".join(x for x in (item["notes"], "The guide says its oat alternative hot drinks may contain traces of cow's milk (recorded as may contain milk)") if x)
+            elif re.search(r"\boat\b", printed, re.I):
+                raise SystemExit(f"{printed!r} names an oat drink but the guide's oat-drink sentence is not applied to it: decide (OAT_MAY_CONTAIN)")
         if key in HOLDBACK:
             used_holdbacks.add(key)
             holdback.append((item["id"], HOLDBACK[key]))
         items.append(item)
+    if used_allergen_holdbacks != set(ALLERGEN_HOLDBACK):
+        raise SystemExit(f"Allergen-held-back rows not found in the PDF: {sorted(set(ALLERGEN_HOLDBACK) - used_allergen_holdbacks)}")
     if used_holdbacks != set(HOLDBACK):
         raise SystemExit(f"Held-back rows not found in the PDF: {sorted(set(HOLDBACK) - used_holdbacks)}")
     for key in ROW_NOTES:
@@ -201,13 +269,27 @@ def build_items(rows: list[dict], vegetarian: dict) -> tuple[list[dict], list[tu
     if len(set(ids)) != len(ids):
         raise SystemExit("Item ids are not unique: " + ", ".join(sorted({i for i in ids if ids.count(i) > 1})))
     report.append(f"vegetarian column: {len(rows) - len(unmatched)} of {len(rows)} rows have a row of the same section and name; no row for: " + "; ".join(unmatched))
+    # Allergens are all or nothing: more than a third without an exact row means link only.
+    if len(no_allergen_row) * 3 > len(items):
+        raise SystemExit(f"{len(no_allergen_row)} of {len(items)} items have no exact allergen row: more than a third, so publish the guide link only")
+    held = dict(holdback)
+    for iid, why in no_allergen_row:
+        held[iid] = f"{held[iid]} Also: {why}" if iid in held else why
+    holdback = list(held.items())
+    held_ids = set(held)
+    unpublished_rows = [it["id"] for it in items if it["id"] not in held_ids and "allergens" not in it]
+    if unpublished_rows:
+        raise SystemExit(f"published items without allergens: {unpublished_rows}")
+    unused = sorted(set(grid) - set(allergen_rows))
+    report.append(f"allergen grid: {len(allergen_rows)} of its {len(grid)} rows are used; {len(no_allergen_row)} of {len(items)} nutrition rows have no exact row "
+                  f"(held back, including {len(used_allergen_holdbacks)} whose row contradicts the name); rows of the allergen PDF with no nutrition row: " + "; ".join(f"{h} / {n}" for h, n in unused))
     return items, holdback, report
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path, help="the nutrition PDF (NUTRITION_URL)")
-    ap.add_argument("--allergen-pdf", type=Path, required=True, help="the allergen PDF (ALLERGEN_URL): read for the vegetarian column only")
+    ap.add_argument("--allergen-pdf", type=Path, required=True, help="the allergen PDF (ALLERGEN_URL): its grid gives the allergens and the vegetarian column")
     ap.add_argument("--checked-on", required=True, help="the day the PDFs were downloaded/read, YYYY-MM-DD")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
@@ -219,12 +301,25 @@ def main() -> int:
         if m.get("version") != EXPECTED_VERSION or m.get("issue_date") != EXPECTED_ISSUE:
             raise SystemExit(f"The {label} PDF is version {m.get('version')} issued {m.get('issue_date')}, this script was written for version "
                              f"{EXPECTED_VERSION} issued {EXPECTED_ISSUE}: re-check the tables, then update EXPECTED_VERSION / EXPECTED_ISSUE.")
-    items, holdback, report = build_items(rows, vegetarian)
+    gmeta, grid = pdf_reader.read_allergens(args.allergen_pdf)
+    if gmeta.get("version") != EXPECTED_VERSION or gmeta.get("issue_date") != EXPECTED_ISSUE:
+        raise SystemExit(f"The allergen grid is version {gmeta.get('version')} issued {gmeta.get('issue_date')}: re-check the script")
+    if {k: v["flag"] for k, v in grid.items()} != vegetarian:
+        raise SystemExit("The vegetarian column read by read_vegetarian and by read_allergens differs: the PDF's layout changed")
+    text = subprocess.run(["pdftotext", "-layout", str(args.allergen_pdf), "-"], check=True, capture_output=True, text=True).stdout
+    flat = " ".join(text.split())
+    if OAT_FOOTNOTE not in flat or OAT_SENTENCE not in flat:
+        raise SystemExit("The allergen PDF no longer prints the oat-drink sentence or its '*May contain Milk' footnote: re-check OAT_MAY_CONTAIN")
+    items, holdback, report = build_items(rows, vegetarian, grid)
     guide = {"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": MAY_CONTAIN_PUBLISHED}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Baynes", cuisine="Bakery", source_title=SOURCE_TITLE, source_url=NUTRITION_URL,
                              checked_on=args.checked_on, aliases=["baynes", "baynes bakery", "baynes bakers", "baynes the bakers", "baynes the family bakers",
                                                                   "bayne's", "bayne's the family bakers"],
-                             items=items, out=args.out, note=NOTE, holdback=holdback, allergen_guide=guide)
+                             items=items, out=args.out, note=NOTE, holdback=holdback, allergen_guide=None)
+    # Held-back items have no row, so write_chain_folder (which needs a row for every item) can't write allergens.csv: do it here for the
+    # published items. build_items has already stopped if a published item lacks one.
+    held_ids = {i for i, _ in holdback}
+    write_allergens(out, CHAIN_ID, [(it["id"], it["allergens"]) for it in items if it["id"] not in held_ids], guide)
     print("\n".join(report))
     print("meat type not stated: " + ", ".join(MEAT_NOT_STATED))
     for item_id, reason in holdback:

@@ -86,9 +86,10 @@ def read_rows(pdf: Path) -> tuple:
         for m in marks:
             if recs and abs(recs[-1]["y"] - m["yc"]) < 2.0:
                 recs[-1]["marks"].append((m["x0"], m["t"]))
+                recs[-1]["boxes"].append((m["x0"], m["x1"], m["t"]))
             else:
                 recs.append({"file": pdf.name, "page": pno, "y": m["yc"], "marks": [(m["x0"], m["t"])], "name": [], "code": [], "kcal": [],
-                             "may": [], "other": []})
+                             "may": [], "other": [], "boxes": [(m["x0"], m["x1"], m["t"])]})
         mark_ids = {id(m) for m in marks}
         rest = [w for w in words if id(w) not in mark_ids]
         for w in rest:
@@ -137,7 +138,7 @@ def read_rows(pdf: Path) -> tuple:
                 def j(key):
                     return " ".join(w["t"] for w in sorted(obj[key], key=lambda w: (round(w["yc"]), w["x0"])))
                 row = {"file": pdf.name, "page": pno, "y": y, "section": section, "name": j("name"), "code": j("code"), "kcal": j("kcal"),
-                       "marks": obj["marks"], "col0": col0, "may": j("may"), "other": j("other")}
+                       "marks": obj["marks"], "boxes": obj["boxes"], "col0": col0, "may": j("may"), "other": j("other")}
                 # "1 x 207 (half 104)" is cut by the column boundary ("1" lands in the code cell)
                 if row["kcal"].startswith("x ") and row["code"].split()[-1:] == ["1"]:
                     row["kcal"] = "1 " + row["kcal"]

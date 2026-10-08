@@ -1,0 +1,10 @@
+{
+ "chain": "rick-steins",
+ "date": "2026-10-08",
+ "source_read": "https://rickstein.com/restaurants/ and the four restaurant pages the menus come from (the-seafood-restaurant, st-petrocs-bistro, rick-steins-cafe, the-cornish-arms), the page and post sitemaps (robots.txt disallows only /cdn-cgi/), and all 13 menu PDFs the script reads (fresh download 2026-10-08, one GET each, 1 request a second; all 13 sha256 hashes equal the ones recorded in tools/uk_extract/rick_steins.py)",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "decision": "NOT PUBLISHED: Rick Stein publishes no per-dish allergen data anywhere on its site, so there is nothing to copy. No allergen_guide.csv or allergens.csv was written (there is no guide to link to) and no data changed.",
+ "notes": "Every menu PDF carries only 'Please ask for information on allergens' (or 'Please ask for any allergen information'). No dish has an allergen mark, code, letter or icon (page 1 of the Cornish Arms a la carte rendered and read: calories in brackets, nothing else). The four restaurant pages list 'Allergens Catered For' as a facility tick only (no document), none of the 24 PDF links on them is an allergen or ingredient document, and neither the sitemaps nor the other restaurant pages (Sandbanks, Barnes, Winchester, Fistral, Stein's Fish & Chips, which print no calories either) name an allergen guide. The menus' 'Please ask' wording is the official position, so the app shows no allergen section beyond the existing generic text."
+}
