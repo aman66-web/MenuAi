@@ -1,0 +1,13 @@
+{
+ "chain": "mowgli",
+ "date": "2026-10-08",
+ "source_read": "https://mowglistreetfood.com/menus/food/ (downloaded fresh 2026-10-08; robots.txt allows it; allergen link https://mowglistreetfood.com/allergens/ and the Brighton matrix PDF re-checked: HTTP 200)",
+ "compared_items": 46,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 0,
+ "not_verifiable": "allergens: link-only by design (the Brighton matrix PDF is linked, no per-dish marks are published), so none were compared; no protein/carbs/fat/serving is printed (calories-only chain)",
+ "notes": "Fresh page differs from the earlier copy only in WooCommerce script versions; the script reproduced data/source exactly. Independent read: page rendered in Chromium and every dish (46 menu-item cards + 4 featured Light Kitchen headings = 50 printed calorie figures, 4 kids ice-cream cones repeated under Sweet) compared on name, kcal and vegetarian mark/data-vegetarian: 0 differences. The calorie spans are display:none until a visitor ticks 'Calorie information' (opt-in toggle); the docstring of mowgli.py still says 'SCRATCH COPY, NOT INSTALLED' although the chain is installed: founder to confirm they accept the toggle as published."
+}

@@ -6,8 +6,8 @@
  "nutrition_mismatches": 0,
  "allergen_mismatches": 0,
  "fixed": 0,
- "held_back": 1,
+ "held_back": 4,
  "marked_ok": 3,
  "not_verifiable": "",
- "notes": "Every one of the 260 popovers on the six used tabs parsed by an independent parser (name, 7 nutrients, Contains/May contain incl. cereals and tree nuts, Suitable for tags); all 140 rows in items.csv (139 published + the held-back Olives) match a source popover on all 7 numbers, allergens and vegetarian tag; schema.org JSON-LD agrees to rounding. Passion Fruitini, Tanqueary 0% Gin and the three Cawston Press sparkling waters print all 14 allergens as Contains (the chain's own placeholder, over-warns, kept as printed). Olives stays held back (237 kcal vs macros 48 kcal)."
+ "notes": "Every one of the 260 popovers on the six used tabs parsed by an independent parser (name, 7 nutrients, Contains/May contain incl. cereals and tree nuts, Suitable for); all 140 rows in items.csv match a source popover on all 7 numbers, allergens and vegetarian tag (no drift: re-running the script on the fresh pages reproduced data/source); JSON-LD agrees to rounding. Held back (cafe_rouge.py HOLDBACK): Olives (237 kcal vs macros 48 kcal, earlier), plus new: Vegetarian Breakfast (Gluten-free) (description 'one fried egg' but the Contains line has no eggs), Mussels and Mussels (Gluten free) (cooked in white wine, no sulphites marked, unlike the chain's other wine dishes). Known and kept: the cooked-egg breakfasts (Grand Breakfast, Vegetarian Breakfast, Little English, Veggie Breakfast) list eggs only under May contain although the description names a fried egg (still flagged, but understated: founder may want to ask the chain); Passion Fruitini, Tanqueary 0% Gin and 3 Cawston Press sparkling waters print all 14 allergens as Contains (the chain's own placeholder, over-warns)."
 }
