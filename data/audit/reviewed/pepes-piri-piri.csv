@@ -1,0 +1,10 @@
+item,code,verdict,evidence
+1-2-chicken,huge-protein,ok,"pepes.co.uk/nutrition-allergens-uk card '1/2 Chicken': Kcal 798, Fat 32.0, Carbohydrates 2.5, Protein 125.6, Salt 4.1 (4P+4C+9F = 800 kcal, so protein is consistent with the kcal; half a chicken)"
+whole-chicken,huge-protein,ok,"card 'Whole Chicken': Kcal 1596, Fat 64.0, Carbohydrates 5.0, Protein 251.2, Salt 8.2 (4P+4C+9F = 1601 kcal); identical to the page's 'Pepe's Original' card; a whole chicken"
+pepes-original,huge-protein,ok,"card 'Pepe's Original': Kcal 1596, Fat 64.0, Carbohydrates 5.0, Protein 251.2, Salt 8.2 (4P+4C+9F = 1601 kcal); same figures as the 'Whole Chicken' card"
+platter-combo-serves-2-3,huge-protein,ok,"card 'Combo (Serves 2-3)': Kcal 1979, Protein 152.9, Carbohydrates 140.9, Fat 88.4 (4P+4C+9F = 1971 kcal); a platter for 2-3 people, not rankable"
+family-platter-serves-3-4,huge-protein,ok,"card 'Family (Serves 3-4)': Kcal 3397, Protein 287.3, Carbohydrates 217.3, Fat 149.9, Salt 13.7 (4P+4C+9F = 3367 kcal); a platter for 3-4 people, not rankable"
+family-platter-serves-3-4,salt-very-high,ok,card 'Family (Serves 3-4)': Salt (g) 13.7 with Kcal 3397 for 3-4 people (about 3.4-4.6 g each); consistent with the 1.5-8 g salt of the single dishes
+mega-platter-serves-5-6,huge-protein,ok,"card 'Mega (Serves 5-6)': Kcal 6005, Protein 547.1, Carbohydrates 440.4, Fat 222.4 (4P+4C+9F = 5952 kcal); a platter for 5-6 people, not rankable"
+mega-platter-serves-5-6,salt-very-high,ok,card 'Mega (Serves 5-6)': Salt (g) 24.9 with Kcal 6005 for 5-6 people (about 4-5 g each); consistent with the Combo and Family platters
+pepsi-1-5l,sugar-implausible,ok,"card 'Pepsi 1.5L': Kcal 615, Carbohydrates 165.0, Sugars 165.0 for a 1.5 L bottle (11 g per 100 ml); the bottle is not a single serving and is not rankable"
