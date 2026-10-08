@@ -15,6 +15,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import tenkites_a as t  # noqa: E402
 
+# tenkites_a leaves its "current section" at "suitable" after the "Suitable for:" line, so the next `section-values` element
+# on the page (the line "This dish contains none of the listed allergens", which has no section class of its own) replaced the
+# dish's Suitable-for list and the vegetarian tag was lost for every dish without allergens (found by the independent check,
+# 2026-10-08). Ignoring that line as a value fixes it here; tenkites_a is shared by other chains, so it is not edited.
+_NONE_LINE = "This dish contains none of the listed allergens"
+_captured = t._Parser._captured
+
+
+def _captured_ignoring_none_line(self, key, text):
+    if key == "sect_suitable" and text == _NONE_LINE:
+        return
+    _captured(self, key, text)
+
+
+t._Parser._captured = _captured_ignoring_none_line
+
 URL = "https://menus.tenkites.com/thebigtg/chiquito02"
 TABS = {"Main Menu": "use", "Lunch": "use", "Dessert": "use", "Kids": "use", "Drinks": "use"}
 EXPECTED = {"Main Menu": 112, "Lunch": 44, "Dessert": 14, "Kids": 42, "Drinks": 103}
@@ -141,8 +157,15 @@ def classify(rec: dict):
 
 
 # The 1,152 kcal "Vegan Cheese" add-on that was held back here is no longer on the page (2026-10-06 refresh: both vegan
-# cheese add-ons were removed), so nothing is held back.
-HOLDBACK: dict = {}
+# cheese add-ons were removed), so that row is gone. Held back instead (2026-10-08): the four bottled waters, whose allergen
+# row is a placeholder that lists everything the page's filter knows.
+_ALL_14 = "The page prints all 14 allergens, every cereal and every tree nut as 'Contains' for a bottle of water: allergen row contradicts the dish name/ingredients."
+HOLDBACK: dict = {
+    "Bottled Water: Still": _ALL_14,
+    "Bottled Water: Still Large": _ALL_14,
+    "Bottled Water: Sparkling Regular": _ALL_14,
+    "Bottled Water: Sparkling Large": _ALL_14,
+}
 NOTE = ("Per portion as printed on the chain's menu pages. Each part of a meal is listed on its own: sides, sauces, tortillas, "
         "toppings and build-your-own parts are separate rows, so add the parts you order. Wines, cocktails and most drinks "
         "print no numbers and are not listed.")

@@ -1,0 +1,5 @@
+item_id,reason
+apple-tango-regular,"The PDF prints 30 kJ with 12 kcal: 12 kcal is about 50 kJ, so kJ and kcal contradict (and carbohydrate 1.5 g would give about 6 kcal)."
+apple-tango-large,"The PDF prints 68 kJ with 18 kcal: 18 kcal is about 75 kJ, so kJ and kcal contradict (and carbohydrate 2.3 g would give about 9 kcal)."
+lipton-ice-tea-regular,"The PDF prints salt 0.90 g for the regular size but 0.13 g for the large: the larger size cannot have much less salt, so the sizes contradict and neither is chosen."
+lipton-ice-tea-large,"The PDF prints salt 0.90 g for the regular size but 0.13 g for the large: the larger size cannot have much less salt, so the sizes contradict and neither is chosen."

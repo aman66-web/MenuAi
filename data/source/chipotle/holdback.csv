@@ -2,3 +2,5 @@ item_id,reason
 fresh-tomato-salsa,The sheet prints sugars (1.5 g) higher than carbohydrate (1.1 g); sugars are part of carbohydrate.
 romaine-lettuce-salad,"The sheet prints 15 kcal with 0 g carbohydrate, protein and fat, and 1.1 g sugars (sugars are part of carbohydrate)."
 romaine-lettuce-topping,"The sheet prints 4 kcal with 0 g carbohydrate, protein and fat, and 0.3 g sugars (sugars are part of carbohydrate)."
+flour-tortilla-taco,"The AUG 2022 sheet prints 94 kcal for one taco tortilla, but the chain's current chart (UK270726, Aug 2026) prints 3 taco tortillas (75 g) as 240 kcal, about 80 each: the two official documents disagree."
+chips-large,"The AUG 2022 sheet prints 834 kcal for large chips (exactly double the regular), but the chain's current chart (UK270726, Aug 2026) prints large chips as 170 g, 627 kcal: the two official documents disagree."

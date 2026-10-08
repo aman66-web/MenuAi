@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/giraffe/ from Giraffe's own "Dietary Information" menus (hosted by Ten Kites). A CALORIES-ONLY chain.
 
-    python3 tools/uk_extract/giraffe.py --pages DIR --checked-on 2026-10-07 [--fetch] [--out DIR]
+    python3 tools/uk_extract/giraffe.py --pages DIR --checked-on 2026-10-08 [--fetch] [--out DIR]
 
 Source: https://menus.tenkites.com/brg/giraffeadults, the page www.giraffe.net links as "Dietary Information". It holds six menus
 (Breakfast, Main, Dessert, Gluten Free, Kid's, Drinks), the first at that URL and the others at ?mguid=<menu id> (the ids are
@@ -102,6 +102,8 @@ BRUNCH = "the same page prints {other} kcal for the same dish with no egg and mo
 NACHOS = "the same page prints 982 kcal for Fully Loaded Nachos, and a dish 'with {meat}' cannot be fewer calories"
 SALAD = "the same menu prints 459 kcal for Moroccan Caesar Salad; a salad 'with {add}' cannot be fewer calories (looks like the add-on's own figure)"
 JUICE = "{kcal} kcal printed for a juice; every other juice on the page prints 71-123"
+CAESAR = ("allergen row contradicts the dish name/ingredients: the page marks no fish (in 'Contains' or 'could also include') for a Caesar "
+          "salad and prints no ingredients; Giraffe's own site says only 'smoked Caesar dressing'")
 HOLDBACK = {
     ("Breakfast Menu", "BREAKFAST", "Giraffe Brunch (Poached Egg)"): BRUNCH.format(other=665),
     ("Breakfast Menu", "BREAKFAST", "Bigger Giraffe Brunch (Poached Egg)"): BRUNCH.format(other="1,150"),
@@ -119,6 +121,12 @@ HOLDBACK = {
     ("Drinks Menu", "KIDS DRINKS", "Cranberry Juice"): JUICE.format(kcal=360),
     ("Drinks Menu", "SPIRITS", "Havana 3 Year Old rum 25ml"): "16 kcal per 25ml printed; the other spirits on the page print 55-63 kcal per 25ml",
     ("Drinks Menu", "SPIRITS", "Havana 3 Year Old rum 50ml"): "32 kcal per 50ml printed; the other spirits on the page print 110-126 kcal per 50ml",
+    # added after the independent allergen re-read of 2026-10-08 (data/audit/verified/giraffe.json): the allergen row contradicts the
+    # dish's own name and the page prints no ingredients to say which is right, so neither is published (nothing is corrected)
+    ("Main Menu", "Mains", "Moroccan Caesar Salad"): CAESAR,
+    ("Gluten Free Menu", "Mains", "Moroccan Caesar Salad"): CAESAR,
+    ("Drinks Menu", "COCKTAILS", "Hazelnut Espresso Martini"): ("allergen row contradicts the dish name/ingredients: the page prints 'This dish contains none of the "
+                                                               "listed allergens' (no tree nuts) for a hazelnut-named cocktail and prints no ingredients"),
 }
 # Listed in the notes column (not exported) because the figure looks odd, but nothing on the page contradicts it.
 ODD = {

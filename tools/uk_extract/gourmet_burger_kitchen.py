@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/gourmet-burger-kitchen/ from Gourmet Burger Kitchen's official allergen and nutrition menus.
 
-    python3 tools/uk_extract/gourmet_burger_kitchen.py --checked-on 2026-10-06 [--pages DIR] [--out DIR]
+    python3 tools/uk_extract/gourmet_burger_kitchen.py --checked-on 2026-10-08 [--pages DIR] [--out DIR]
 
 Source: https://menus.tenkites.com/brg/gourmetburgerkitchen (the allergen/dietary menu linked from gbk.co.uk/dietary-information;
 one page per menu, chosen with ?mguid=<menu id>). Pages are saved once into --pages (default: a temp folder; delete it to
@@ -50,6 +50,12 @@ HOLDBACK: dict[str, str] = {
     "Cappuccino (Oat Milk)": OAT.format(kj="426", kcal="1,022", est="99"),
     "Flat White (Oat Milk)": OAT.format(kj="426", kcal="1,022", est="99"),
     "Hot Chocolate (Oat Milk)": OAT.format(kj="1,214", kcal="1,208", est="276"),
+    # added after the independent re-read of 2026-10-08 (data/audit/verified/gourmet-burger-kitchen.json): the page's own figures for
+    # these rows contradict each other, so none of them is published (nothing is corrected)
+    "Firey Red Root Relish": "The menu prints saturates 2.1 g but total fat 0.1 g, and saturates cannot exceed fat; its kcal (33) and kJ (141) match the 0.1 g of fat.",
+    "Paprika Onions": "The menu prints sugars 27.9 g but carbohydrate 11.7 g, and sugars cannot exceed carbohydrate; its kcal (170) matches the 11.7 g.",
+    "BBQ Sauce": "The menu prints 393 kJ (about 94 kcal) but 101 kcal; its macros add up to about 93 kcal, so the kcal does not match the page's own kJ or macros (every other row agrees within 2.4%).",
+    "Oreo® shake": "The menu prints 3,828 kJ (about 915 kcal) but 823 kcal; its macros add up to about 908 kcal, so the kcal does not match the page's own kJ or macros (every other row agrees within 2.4%).",
 }
 # Notes for rows the check report flags or that look odd: entered as printed, explained here
 NOTES: dict[str, str] = {
@@ -60,7 +66,9 @@ NOTES: dict[str, str] = {
 # Each dish's pop-up prints a Contain / May Contain table and the dish carries label ids; tenkites_b.allergens_from_rec checks
 # they agree. The table doesn't name cereals, so the cereals come from the label ids, named by the page's own allergen filter
 # (Wheat, Barley, Rye, Oats), and only when every id is named there.
-ALLERGEN_TITLE = "Gourmet Burger Kitchen allergen menus (menus.tenkites.com/brg/gourmetburgerkitchen, files dated 6 October 2026)"
+# The pages offer PDF downloads named "GOURMETBURGERKITCHEN-MainMenu_<day>.pdf": the day is just when the page was served (re-read
+# 2026-10-08 gave 2026-10-08), not a publication date, so the titles say "accessed <day>, no date shown" as Bill's and Giraffe's do.
+ALLERGEN_TITLE = "Gourmet Burger Kitchen allergen menus (menus.tenkites.com/brg/gourmetburgerkitchen; accessed {checked}, no date shown)"
 ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as printed on these pages
 
 EXPECTED_ROWS = 268
@@ -146,12 +154,12 @@ def main() -> int:
     folder = write_chain_folder(
         chain_id=CHAIN_ID, name="Gourmet Burger Kitchen", cuisine="Burgers",
         source_title="Gourmet Burger Kitchen allergen and nutrition menus (menus.tenkites.com/brg/gourmetburgerkitchen: main, kids, "
-                     "drinks and no gluten menus, files dated 6 October 2026)",
+                     f"drinks and no gluten menus; accessed {args.checked_on}, no date shown)",
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["gbk", "gourmet burger kitchen", "gbk burgers"], items=items, out=args.out,
         holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
         note="GBK calculates these values using typical weights and measures. Dishes that differ on the no gluten, kids or drinks menus appear once per version.",
-        allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
+        allergen_guide={"title": ALLERGEN_TITLE.format(checked=args.checked_on), "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in labels:
         print(f"{label:9} sha256 {sha256_file(paths[label])[:16]}  {tk.page_title(paths[label])}")

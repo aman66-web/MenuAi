@@ -216,9 +216,13 @@ ANOMALIES = {
     "Chicken salad (Gỏi gà)": "Saturates and fibre are printed as the same number (1.3)",
 }
 
-# Items the guide prints impossibly: (item id, reason). Nothing is corrected. The guide's inconsistencies above are moderate
-# (a fifth to a third off, unlike the 3x-10x errors held back for other chains), so none are held back.
-HOLDBACK: list[tuple[str, str]] = []
+# Items the guide prints impossibly: (item id, reason). Nothing is corrected. The guide's other inconsistencies are moderate (a fifth to
+# under a third off 4P+4C+9F, unlike the 3x-10x errors held back for other chains) and stay as printed. Accuracy audit 2026-10-08: a printed
+# kcal MORE than 30% away from 4 x protein + 4 x carbs + 9 x fat is held back (the audit's "high" band, tools/audit/accuracy_audit.py).
+HOLDBACK: list[tuple[str, str]] = [
+    ("rice-bowl-this-isnt-chicken-and-veg",
+     "the guide prints 205 kcal, but its own protein, carbohydrate and fat (21.8 g, 27 g, 8.1 g) add up to about 268 kcal"),
+]
 
 # Limits printed in the guide's own section headings and footnotes: starters "Excludes dipping sauces", curry and rice bowls
 # "Excludes rice (see below)", bún "* All exclude veggie spring roll"; noodles, bún and salads "Includes sauces / dressings".

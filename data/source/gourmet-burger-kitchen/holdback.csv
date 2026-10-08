@@ -4,3 +4,7 @@ latte-oat-milk,"The menu prints 426 kJ and 1,022 kcal, which cannot both be righ
 cappuccino-oat-milk,"The menu prints 426 kJ and 1,022 kcal, which cannot both be right; its own macros add up to about 99 kcal."
 flat-white-oat-milk,"The menu prints 426 kJ and 1,022 kcal, which cannot both be right; its own macros add up to about 99 kcal."
 hot-chocolate-oat-milk,"The menu prints 1,214 kJ and 1,208 kcal, which cannot both be right; its own macros add up to about 276 kcal."
+firey-red-root-relish,"The menu prints saturates 2.1 g but total fat 0.1 g, and saturates cannot exceed fat; its kcal (33) and kJ (141) match the 0.1 g of fat."
+paprika-onions,"The menu prints sugars 27.9 g but carbohydrate 11.7 g, and sugars cannot exceed carbohydrate; its kcal (170) matches the 11.7 g."
+bbq-sauce,"The menu prints 393 kJ (about 94 kcal) but 101 kcal; its macros add up to about 93 kcal, so the kcal does not match the page's own kJ or macros (every other row agrees within 2.4%)."
+oreo-shake,"The menu prints 3,828 kJ (about 915 kcal) but 823 kcal; its macros add up to about 908 kcal, so the kcal does not match the page's own kJ or macros (every other row agrees within 2.4%)."

@@ -1,0 +1,5 @@
+item,code,verdict,evidence
+cappuccino-oats-milk,name-implies-milk,ok,"Beverage page (drinks.html) 'MAL Cappuccino (Oats milk)': sub-recipe 'Milk Oat' marks Cereals with Gluten (Oats) only; oat drink, no dairy milk, page marks no milk"
+flat-white-oats-milk,name-implies-milk,ok,"Beverage page 'MAL Flat White (Oats milk)': sub-recipe 'Milk Oat' marks Cereals with Gluten (Oats) only; oat drink, no dairy milk"
+latte-oats-milk,name-implies-milk,ok,"Beverage page 'MAL Latte (Oats milk)': sub-recipe 'Milk Oat' marks Cereals with Gluten (Oats) only; oat drink, no dairy milk"
+macchiato-oats-milk,name-implies-milk,ok,"Beverage page 'MAL Macchiato (Oats milk)': sub-recipe 'Milk Oat' marks Cereals with Gluten (Oats) only; oat drink, no dairy milk"

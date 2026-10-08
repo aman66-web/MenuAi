@@ -1,26 +1,26 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-flour-tortilla-burrito,Flour Tortilla (burrito),Ingredients,,297,7.9,49.2,8.8,0.7,,1.5,1.8,4.4,,false,false,,,Printed with * (contains wheat)
-flour-tortilla-taco,Flour Tortilla (taco),Ingredients,,94,2.5,15.5,2.8,0.2,,0.5,0.6,1.4,,false,false,,,Printed with * (contains wheat)
-coriander-lime-white-rice,Coriander-Lime White Rice,Ingredients,,185,4.1,41.5,2.0,0.5,,1.2,0.1,1.2,,false,false,,,
-coriander-lime-brown-rice,Coriander-Lime Brown Rice,Ingredients,,185,3.8,32.8,1.7,0.4,,1.1,0.1,2.3,,false,false,,,Printed kcal (185) is higher than 4P + 4C + 9F gives (about 162)
-black-beans,Black Beans,Ingredients,,95,7.2,4.9,2.4,1.0,,0.5,0.9,8.6,,false,false,,,"Printed kcal (95) is higher than 4P + 4C + 9F gives (about 70), which the check flags; fibre (8.6) is a separate column and higher than carbohydrate (4.9), and at 2 kcal/g it would add about 17 kcal. Entered as printed"
-pinto-beans,Pinto Beans,Ingredients,,95,6.7,6.2,0.6,0.2,,0.5,0.1,11.2,,false,false,,,"Printed kcal (95) is higher than 4P + 4C + 9F gives (about 57), which the check flags; fibre (11.2) is a separate column and higher than carbohydrate (6.2), and at 2 kcal/g it would add about 22 kcal (still about 16 short). The Black Beans row prints the same 95 kcal. Entered as printed"
-fajita-vegetables,Fajita Vegetables,Ingredients,,21,0.4,2.1,1.1,0.1,,0.4,1.4,0.6,,false,false,,,
-barbacoa,Barbacoa,Ingredients,,154,29.7,1.0,3.8,1.3,,0.3,0.1,0.8,,false,false,,,"Meat type not stated, so no meat tag. Triage found the 2026 menu card lists Braised Beef, not Barbacoa (not re-checked here), so this may no longer be sold; salt (0.3) is far lower than the other meats (2.0-2.2)"
-chicken,Chicken,Ingredients,,185,27.3,1.0,8.4,2.4,,2.2,0.1,1.0,,false,false,,,
-carnitas,Carnitas,Ingredients,,210,25.8,1.0,11.9,3.9,,2.0,0.1,1.0,,false,false,,,"Meat type not stated, so no meat tag"
-steak,Steak,Ingredients,,165,28.8,1.0,5.5,1.9,,2.1,0.2,1.0,contains_beef,false,false,,,
-sofritas-braised-tofu,Sofritas (braised tofu),Ingredients,,84,7.0,3.0,4.6,0.7,,1.0,2.2,1.2,,false,false,,,"The sheet has no vegetarian marking, so no vegetarian tag"
-fresh-tomato-salsa,Fresh Tomato Salsa,Ingredients,,15,0.8,1.1,0.5,0.1,,0.2,1.5,1.2,,false,false,,,Sugars (1.5) are printed higher than carbohydrate (1.1)
-chilli-corn-salsa,Chilli-Corn Salsa,Ingredients,,38,1.3,5.9,0.8,0.2,,0.4,0.9,1.3,,false,false,,,
-roasted-tomato-green-chilli-salsa,Roasted Tomato Green-Chilli Salsa,Ingredients,,6,0.3,1.0,0.1,<0.1,,0.3,0.9,0.4,,false,false,,,Printed with ** (cross-contamination note); saturates printed as <0.1
-roasted-tomato-red-chilli-salsa,Roasted Tomato Red-Chilli Salsa,Ingredients,,9,0.3,1.4,0.3,<0.1,,0.7,0.7,0.2,,false,false,,,Printed with ** (cross-contamination note); saturates printed as <0.1
-cheese,Cheese,Ingredients,,94,5.8,0.1,7.8,4.8,,0.5,0,0,,false,false,,,The allergen table names it Monterey Jack Cheese
-sour-cream,Sour Cream,Ingredients,,45,0.9,1.4,3.9,2.7,,0.1,1.1,<0.5,,false,false,,,Fibre printed as <0.5
-guacamole-topping-side,Guacamole (topping/side),Ingredients,,145,1.5,2.8,13.5,2.8,,0.7,0.8,3.3,,false,false,,,
-guacamole-large,Guacamole (large),Ingredients,Large,290,3,5.6,27,5.6,,1.4,1.6,6.6,,false,false,,,Every value is exactly double the topping/side row
-romaine-lettuce-salad,Romaine Lettuce (salad),Ingredients,,15,0,0,0,0,,0,1.1,0,,false,false,,,"Printed with 15 kcal but 0 g protein, carbohydrate and fat, and sugars (1.1) higher than carbohydrate (0)"
-romaine-lettuce-topping,Romaine Lettuce (topping),Ingredients,,4,0,0,0,0,,0,0.3,0,,false,false,,,"Printed with 4 kcal but 0 g protein, carbohydrate and fat, and sugars (0.3) higher than carbohydrate (0)"
-chips-regular,Chips (regular),Ingredients,Regular,417,4.6,54.1,21.6,1.7,,1.3,1.2,0,,false,false,,,Fibre printed as 0
-chips-large,Chips (large),Ingredients,Large,834,9.2,108.2,43.2,3.4,,2.6,2.4,0,,false,false,,,Every value is exactly double the regular row; fibre printed as 0
-chipotle-honey-vinaigrette,Chipotle Honey Vinaigrette,Ingredients,,259,0.2,13.1,22.9,2.4,,2.9,6.2,0.5,,false,false,,,
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+flour-tortilla-burrito,Flour Tortilla (burrito),Ingredients,,297,7.9,49.2,8.8,0.7,,1.5,1.8,4.4,,,,,,,,false,false,,,Printed with * (contains wheat)
+flour-tortilla-taco,Flour Tortilla (taco),Ingredients,,94,2.5,15.5,2.8,0.2,,0.5,0.6,1.4,,,,,,,,false,false,,,Printed with * (contains wheat)
+coriander-lime-white-rice,Coriander-Lime White Rice,Ingredients,,185,4.1,41.5,2.0,0.5,,1.2,0.1,1.2,,,,,,,,false,false,,,
+coriander-lime-brown-rice,Coriander-Lime Brown Rice,Ingredients,,185,3.8,32.8,1.7,0.4,,1.1,0.1,2.3,,,,,,,,false,false,,,Printed kcal (185) is higher than 4P + 4C + 9F gives (about 162)
+black-beans,Black Beans,Ingredients,,95,7.2,4.9,2.4,1.0,,0.5,0.9,8.6,,,,,,,,false,false,,,"Printed kcal (95) is higher than 4P + 4C + 9F gives (about 70), which the check flags; fibre (8.6) is a separate column and higher than carbohydrate (4.9), and at 2 kcal/g it would add about 17 kcal. Entered as printed"
+pinto-beans,Pinto Beans,Ingredients,,95,6.7,6.2,0.6,0.2,,0.5,0.1,11.2,,,,,,,,false,false,,,"Printed kcal (95) is higher than 4P + 4C + 9F gives (about 57), which the check flags; fibre (11.2) is a separate column and higher than carbohydrate (6.2), and at 2 kcal/g it would add about 22 kcal (still about 16 short). The Black Beans row prints the same 95 kcal. Entered as printed"
+fajita-vegetables,Fajita Vegetables,Ingredients,,21,0.4,2.1,1.1,0.1,,0.4,1.4,0.6,,,,,,,,false,false,,,
+barbacoa,Barbacoa,Ingredients,,154,29.7,1.0,3.8,1.3,,0.3,0.1,0.8,,,,,,,,false,false,,,"Meat type not stated, so no meat tag. Triage found the 2026 menu card lists Braised Beef, not Barbacoa (not re-checked here), so this may no longer be sold; salt (0.3) is far lower than the other meats (2.0-2.2)"
+chicken,Chicken,Ingredients,,185,27.3,1.0,8.4,2.4,,2.2,0.1,1.0,,,,,,,,false,false,,,
+carnitas,Carnitas,Ingredients,,210,25.8,1.0,11.9,3.9,,2.0,0.1,1.0,,,,,,,,false,false,,,"Meat type not stated, so no meat tag"
+steak,Steak,Ingredients,,165,28.8,1.0,5.5,1.9,,2.1,0.2,1.0,,,,,,,contains_beef,false,false,,,
+sofritas-braised-tofu,Sofritas (braised tofu),Ingredients,,84,7.0,3.0,4.6,0.7,,1.0,2.2,1.2,,,,,,,,false,false,,,"The sheet has no vegetarian marking, so no vegetarian tag"
+fresh-tomato-salsa,Fresh Tomato Salsa,Ingredients,,15,0.8,1.1,0.5,0.1,,0.2,1.5,1.2,,,,,,,,false,false,,,Sugars (1.5) are printed higher than carbohydrate (1.1)
+chilli-corn-salsa,Chilli-Corn Salsa,Ingredients,,38,1.3,5.9,0.8,0.2,,0.4,0.9,1.3,,,,,,,,false,false,,,
+roasted-tomato-green-chilli-salsa,Roasted Tomato Green-Chilli Salsa,Ingredients,,6,0.3,1.0,0.1,<0.1,,0.3,0.9,0.4,,,,,,,,false,false,,,Printed with ** (cross-contamination note); saturates printed as <0.1
+roasted-tomato-red-chilli-salsa,Roasted Tomato Red-Chilli Salsa,Ingredients,,9,0.3,1.4,0.3,<0.1,,0.7,0.7,0.2,,,,,,,,false,false,,,Printed with ** (cross-contamination note); saturates printed as <0.1
+cheese,Cheese,Ingredients,,94,5.8,0.1,7.8,4.8,,0.5,0,0,,,,,,,,false,false,,,The allergen table names it Monterey Jack Cheese
+sour-cream,Sour Cream,Ingredients,,45,0.9,1.4,3.9,2.7,,0.1,1.1,<0.5,,,,,,,,false,false,,,Fibre printed as <0.5
+guacamole-topping-side,Guacamole (topping/side),Ingredients,,145,1.5,2.8,13.5,2.8,,0.7,0.8,3.3,,,,,,,,false,false,,,
+guacamole-large,Guacamole (large),Ingredients,Large,290,3,5.6,27,5.6,,1.4,1.6,6.6,,,,,,,,false,false,,,Every value is exactly double the topping/side row
+romaine-lettuce-salad,Romaine Lettuce (salad),Ingredients,,15,0,0,0,0,,0,1.1,0,,,,,,,,false,false,,,"Printed with 15 kcal but 0 g protein, carbohydrate and fat, and sugars (1.1) higher than carbohydrate (0)"
+romaine-lettuce-topping,Romaine Lettuce (topping),Ingredients,,4,0,0,0,0,,0,0.3,0,,,,,,,,false,false,,,"Printed with 4 kcal but 0 g protein, carbohydrate and fat, and sugars (0.3) higher than carbohydrate (0)"
+chips-regular,Chips (regular),Ingredients,Regular,417,4.6,54.1,21.6,1.7,,1.3,1.2,0,,,,,,,,false,false,,,Fibre printed as 0
+chips-large,Chips (large),Ingredients,Large,834,9.2,108.2,43.2,3.4,,2.6,2.4,0,,,,,,,,false,false,,,Every value is exactly double the regular row; fibre printed as 0
+chipotle-honey-vinaigrette,Chipotle Honey Vinaigrette,Ingredients,,259,0.2,13.1,22.9,2.4,,2.9,6.2,0.5,,,,,,,,false,false,,,

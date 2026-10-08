@@ -178,6 +178,19 @@ ROWS: list[tuple | None] = [
 ]
 
 CATEGORY_ORDER = [B, W, R, C, S, A, D, DR, SA]
+
+# Rows the PDF prints with figures that contradict each other (accuracy check 2026-10-08, rendered pages read): not published, listed in the
+# check report, never corrected. Restore by deleting the id's line from holdback.csv once KFC corrects the PDF.
+HOLDBACK = {
+    "Apple Tango (regular)": "The PDF prints 30 kJ with 12 kcal: 12 kcal is about 50 kJ, so kJ and kcal contradict (and carbohydrate 1.5 g would "
+                             "give about 6 kcal).",
+    "Apple Tango (large)": "The PDF prints 68 kJ with 18 kcal: 18 kcal is about 75 kJ, so kJ and kcal contradict (and carbohydrate 2.3 g would "
+                           "give about 9 kcal).",
+    "Lipton Ice Tea (regular)": "The PDF prints salt 0.90 g for the regular size but 0.13 g for the large: the larger size cannot have much less "
+                                "salt, so the sizes contradict and neither is chosen.",
+    "Lipton Ice Tea (large)": "The PDF prints salt 0.90 g for the regular size but 0.13 g for the large: the larger size cannot have much less "
+                              "salt, so the sizes contradict and neither is chosen.",
+}
 # Printed as "<cereal> gluten" in the allergen cells.
 CEREALS = ("wheat", "barley", "oat", "rye", "spelt")
 ALLERGEN_TITLE = "KFC UK & Ireland Allergen & Nutrition Information (September 2026)"
@@ -261,6 +274,15 @@ def main() -> int:
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
     write_allergens(args.out, CHAIN_ID, [(i["id"], allergens[i["id"]]) for i in items],
                     {"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
+    held = {i["name"]: i["id"] for i in items}
+    missing = [n for n in HOLDBACK if n not in held]
+    if missing:
+        print(f"HOLDBACK names rows that are no longer in the PDF: {missing}", file=sys.stderr)
+        return 1
+    with open(args.out / "holdback.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["item_id", "reason"])
+        w.writerows((held[n], why) for n, why in HOLDBACK.items())
     print(f"wrote {len(items)} items to {args.out} (PDF sha256 {hashlib.sha256(args.pdf.read_bytes()).hexdigest()[:16]})")
     return 0
 

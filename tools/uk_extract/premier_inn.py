@@ -302,6 +302,15 @@ def problems(counts: dict, digest: str) -> list[str]:
     return out
 
 
+# Items whose own printed figures contradict each other, found by the accuracy audit on 2026-10-08 (the PDFs were re-read in full: every
+# published row matched the guide). Not corrected: the kJ agrees with the kcal, but the printed protein, carbohydrate and fat add up to
+# about 90 kcal, 53% more than the printed 59 kcal. Restoring one is deleting its entry here.
+AUDIT_HELD = {
+    "add-corn-ribs": ("The guide prints 59 kcal (246 kJ) but its own protein, carbohydrate and fat (2.7 g, 16.7 g, 1.4 g) add up to about "
+                      "90 kcal, so we can't tell which figure is right"),
+}
+
+
 def build(cands):
     """Turn raw rows into (items, held_back, exclusions)."""
     exclusions: Counter = Counter()
@@ -406,6 +415,12 @@ def build(cands):
     items.sort(key=lambda i: CATEGORY_ORDER.index(i["category"]))
     ids = [i["id"] for i in items]
     assert len(ids) == len(set(ids)), "duplicate ids: " + repr([k for k, n in Counter(ids).items() if n > 1])
+    for i in items:   # accuracy audit 2026-10-08: the guide's own figures contradict each other (held back, never corrected)
+        if i["id"] in AUDIT_HELD and "_held" not in i:
+            i["_held"] = AUDIT_HELD[i["id"]]
+            i["notes"] += "; HELD BACK: the guide's own figures contradict each other"
+    missing = [k for k in AUDIT_HELD if k not in {i["id"] for i in items}]
+    assert not missing, f"AUDIT_HELD names items that no longer exist: {missing}"
     held = [(i["id"], i["_held"]) for i in items if "_held" in i]
     return items, held, exclusions
 

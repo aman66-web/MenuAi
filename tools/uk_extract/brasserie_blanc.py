@@ -142,7 +142,8 @@ NAME_FIXES = [("Grapefuit", "Grapefruit"), ("Margarita(on", "Margarita (on"),
 SHARING_DISH = re.compile(r"\b(pour deux|for two|plateau)\b", re.I)
 
 # ---------------------------------------------------------------- held back (checked on every run)
-HOLD_ENERGY = 0.35      # the row's kcal and its own 4P+4C+9F differ by more than this share of the kcal
+HOLD_ENERGY = 0.30      # the row's kcal and its own 4P+4C+9F differ by more than this share of the kcal (8 Oct 2026 check: was 0.35;
+#                          Tartine a l'Avocat prints 380 kcal for 20.2 g protein, 38 g carbs, 29.9 g fat = 502 kcal, 32% apart)
 HOLD_SALT_G = 15.0      # grams of salt in one portion
 HOLD_NAMES = {          # (name as printed on the page, block) -> reason: contradicted by other figures on the same page
     ("three scoops & biscuit", "SELECTION DE GLACES"):

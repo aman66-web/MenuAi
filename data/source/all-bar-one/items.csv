@@ -1,150 +1,150 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-sticky-jasmine-rice,Sticky Jasmine Rice,Sides & snacks,,361,6.6,59,11,1.1,,0.89,0.8,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers)"
-wok-fried-greens,Wok Fried Greens,Sides & snacks,,195,10,24,5.2,0.5,,1.8,19,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers)"
-grain-salad,Grain Salad,Sides & snacks,,248,7.1,42,4.4,0.3,,0.61,5.4,,vegetarian,false,true,,,"Main Menu / Side Dishes (+5 more menu entries, same numbers)"
-bread-and-oil,Bread & Oil,Sides & snacks,,731,9.1,55,53,8,,1.4,5.1,,vegetarian,false,true,,,"Main Menu / Side Dishes (+2 more menu entries, same numbers)"
-crispy-potatoes,Crispy Potatoes,Sides & snacks,,398,5.2,45,21,13,,4.1,3.8,,vegetarian,false,true,,,"Main Menu / Side Dishes (+2 more menu entries, same numbers)"
-sweet-potato-fries,Sweet Potato Fries,Sides & snacks,,470,1.8,58,24,1.8,,0.68,16,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers); printed kJ 1447 and kcal 470 do not agree"
-seasoned-skin-on-fries-vegan,Seasoned Skin-On Fries (vegan),Sides & snacks,,501,3.1,61,24,1.8,,0.93,0.7,,vegetarian,false,true,,,"Main Menu / Side Dishes (+4 more menu entries, same numbers); printed kJ 1685 and kcal 501 do not agree"
-seasoned-skin-on-fries,Seasoned Skin-On Fries,Sides & snacks,,786,19,77,41,8.8,,1.3,16,,contains_beef,false,true,,,"Main Menu / Side Dishes (+2 more menu entries, same numbers); printed kJ 2878 and kcal 786 do not agree"
-parmesan-and-truffle-infused-oil-fries,Parmesan & Truffle-infused Oil Fries,Sides & snacks,,558,6.3,61,29,4.1,,1.1,0.7,,,false,true,,,"Main Menu / Side Dishes (+4 more menu entries, same numbers); printed kJ 1924 and kcal 558 do not agree"
-mac-and-cheese,Mac & Cheese,Sides & snacks,,425,22,32,23,13,,2.2,5.4,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers)"
-fried-free-range-egg,Fried Free Range Egg,Add-ons,,87,6,0,8.1,1.1,,0.19,0,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers); printed kJ 269 and kcal 87 do not agree"
-add-sour-cream,Add Sour Cream,Add-ons,,57,0.9,1.2,5.4,3.4,,0.03,1.2,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-onion-rings,Onion Rings,Add-ons,,580,9.9,51,37,5.7,,2.6,2.2,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers); printed kJ 1569 and kcal 580 do not agree"
-add-smoked-salmon,Add Smoked Salmon,Add-ons,,215,25,6.3,10,2.5,,4.1,1.3,,,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-house-salad,House Salad,Add-ons,,190,1.5,3.5,19,1.3,,0.11,3.3,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-add-beef-dripping,Add Beef Dripping,Add-ons,,123,0.8,7.2,9.6,4.8,,2.4,4,,contains_beef,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-add-jalape-os,Add Jalapeños,Add-ons,,61,0.3,14,0.3,0,,0,12,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-add-little-moons-raspberry-mochi,Add Little Moons Raspberry Mochi,Add-ons,,69,1,13,1.6,1.3,,0,7.4,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-add-chimichurri,Add Chimichurri,Add-ons,,203,0.8,3,21,1.5,,0.75,0.8,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-add-bbq-beef-brisket,Add BBQ Beef Brisket,Add-ons,,245,16,7.7,17,7,,0.4,7,,contains_beef,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-add-miso-salmon,Add Miso Salmon,Add-ons,,412,30,15,26,4.4,,2.2,13,,,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-add-sticky-jasmine-rice,Add Sticky Jasmine Rice,Add-ons,,310,4.6,57,7.2,0.6,,0.71,0.2,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
-smoked-streaky-bacon,Smoked Streaky Bacon,Add-ons,,105,12,0,0.6,2.1,,1.8,0,,contains_pork,false,false,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers); printed kJ 762 and kcal 105 do not agree"
-king-prawns,King Prawns,Add-ons,,55,12,0,0.8,0.1,,0.72,0,,,false,false,,,"Main Menu / Our Favourites (+2 more menu entries, same numbers)"
-add-bread,Add Bread,Add-ons,,207,7.2,39,2.1,0.4,,1.1,0.1,,vegetarian,false,false,,,"Main Menu / Addons (+1 more menu entries, same numbers)"
-mushrooms,Mushrooms,Add-ons,,120,4.1,1.3,10,0.9,,0.03,0.7,,vegetarian,false,false,,,Brunch / Extras
-toasted-sourdough,Toasted Sourdough,Add-ons,,400,6,37,25,16,,0.84,0.7,,vegetarian,false,false,,,Brunch / Extras
-hash-browns,Hash Browns,Add-ons,,333,4.5,42,16,2.5,,0.66,1.4,,vegetarian,false,false,,,"Brunch / Extras (+1 more menu entries, same numbers); printed kJ 1234 and kcal 333 do not agree"
-house-baked-beans,House Baked Beans,Add-ons,,58,2.6,9.6,0.4,0.1,,0.3,3.8,,vegetarian,false,false,,,Brunch / Extras
-british-pork-sausage,British Pork Sausage,Add-ons,,201,9.8,5.8,14,5,,0.88,0.2,,contains_pork,false,false,,,Brunch / Extras; printed kJ 1022 and kcal 201 do not agree
-child-add-fries,Child Add Fries,Add-ons,,156,1,19,7.6,0.6,,0.29,0.2,,vegetarian,false,false,,,Small Appetites / Choices; printed kJ 524 and kcal 156 do not agree
-add-kids-broccoli,Add Kids Broccoli,Add-ons,,29,3,1.5,0.8,0,,0,1.5,,vegetarian,false,false,,,Small Appetites / Choices
-child-add-sticky-rice,Child Add Sticky Rice,Add-ons,,155,2.3,28,3.6,0.3,,0.36,0.1,,vegetarian,false,false,,,Small Appetites / Choices
-patatas-bravas,Patatas Bravas,Starters & sharing,,354,4.7,37,20,2.5,,3.3,8.4,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-karaage-sticky-chicken,Karaage Sticky Chicken,Starters & sharing,,502,32,42,23,5.6,,0.43,27,,,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-baked-feta,Baked Feta,Starters & sharing,,561,24,50,29,17,,3.8,26,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
-haggis-bon-bons,Haggis Bon Bons,Starters & sharing,,350,15,31,18,7.9,,3.5,30,,,false,true,,,"Main Menu / Sharing Plates (+1 more menu entries, same numbers)"
-beef-brisket-tacos,Beef Brisket Tacos,Starters & sharing,,572,24,52,29,11,,1.8,17,,contains_beef,false,true,,,Main Menu / Sharing Plates
-halloumi-fries,Halloumi Fries,Starters & sharing,,508,29,12,38,18,,4.7,4.6,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-houmous-and-flatbread,Houmous & Flatbread,Starters & sharing,,684,16,67,38,4.7,,1.9,5.3,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
-salt-and-pepper-calamari,Salt & Pepper Calamari,Starters & sharing,,260,7.5,33,2,0.3,,2.5,17,,,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers); printed kJ 928 and kcal 260 do not agree"
-harissa-chicken-skewers,Harissa Chicken Skewers,Starters & sharing,,479,37,17,28,7.9,,1.4,7.2,,,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
-oyster-mushroom-tempura,Oyster Mushroom Tempura,Starters & sharing,,187,6.6,31,3.6,0.3,,1.6,7.2,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+1 more menu entries, same numbers)"
-hot-honey-chorizo,Hot Honey Chorizo,Starters & sharing,,702,20,45,49,20,,3.1,29,,contains_pork,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
-small-nachos,Small Nachos,Starters & sharing,,722,22,73,37,19,,2.2,35,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-large-nachos,Large Nachos,Starters & sharing,,1120,40,109,57,30,,3.9,37,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
-teriyaki-duck-breast,Teriyaki Duck Breast,Starters & sharing,,981,30,44,76,22,,1.9,30,,,false,true,,,Main Menu / Sharing Plates
-garlic-and-chilli-king-prawns,Garlic & Chilli King Prawns,Starters & sharing,,865,85,43,39,23,,4.2,2.7,,,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-8oz-sirloin-steak,8oz Sirloin Steak,Starters & sharing,,771,37,3.3,67,22,,1,0.8,,contains_beef,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-crispy-chicken-thighs,Crispy Chicken Thighs,Starters & sharing,,1546,93,51,108,23,,1.3,46,,contains_pork,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-roasted-aubergine,Roasted Aubergine,Starters & sharing,,189,5.5,32,2.9,0.5,,1.8,27,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
-small-garlic-and-chilli-king-prawns,Small Garlic & Chilli King Prawns,Starters & sharing,,475,43,22,23,14,,2.2,2,,,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
-serrano-ham-croquettes,Serrano Ham Croquettes,Starters & sharing,,378,11,28,24,6.7,,1.9,4.2,,contains_pork,false,true,,,Main Menu / Sharing Plates
-crispy-cauliflower-bites,Crispy Cauliflower Bites,Starters & sharing,,406,9,64,12,0.9,,4.2,20,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+1 more menu entries, same numbers)"
-balmoral-chicken,Balmoral Chicken,Mains,,811,63,43,41,21,,4.6,6.1,,contains_pork,false,true,,,"Main Menu / Our Favourites (+3 more menu entries, same numbers)"
-falafel-and-cathedral-city-burger,Falafel & Cathedral City® Burger,Mains,,1136,16,142,51,17,,3.4,24,,vegetarian,false,true,,,"Main Menu / Our Favourites (+4 more menu entries, same numbers); printed kJ 4348 and kcal 1136 do not agree"
-bang-bang-salad,Bang Bang Salad,Mains,,265,7.3,38,8.2,4.4,,1.9,30,,vegetarian,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers)"
-chicken-milanese,Chicken Milanese,Mains,,1405,44,103,88,11,,5.3,6.2,,,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers); printed kJ 4922 and kcal 1405 do not agree"
-fish-and-chips,Fish & Chips,Mains,,923,50,82,35,4.4,,2.6,4.1,,,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers); printed kJ 3157 and kcal 923 do not agree"
-miso-salmon,Miso Salmon,Mains,,852,38,88,39,5.6,,4.9,26,,,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers)"
-pad-thai,Pad Thai,Mains,,559,21,89,13,1.5,,6.9,40,,vegetarian,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers)"
-chicken-caesar-salad,Chicken Caesar Salad,Mains,,753,55,17,51,8,,1.5,3.1,,,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers)"
-signature-burger,Signature Burger,Mains,,1563,56,143,79,14,,5.1,20,,contains_beef,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers)"
-crispy-miso-chicken-burger,Crispy Miso Chicken Burger,Mains,,1221,35,141,54,11,,5.9,20,,,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers); printed kJ 4702 and kcal 1221 do not agree"
-falafel-and-halloumi-burger,Falafel & Halloumi Burger,Mains,,1352,38,136,68,19,,5.4,28,,vegetarian,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers); printed kJ 5245 and kcal 1352 do not agree"
-classic-cheeseburger,Classic Cheeseburger,Mains,,1201,45,113,57,12,,4,13,,contains_beef,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers)"
-buttermilk-chicken-and-cheese-burger,Buttermilk Chicken & Cheese Burger,Mains,,1402,47,120,78,22,,5.7,10,,contains_pork,false,true,,,"Main Menu / Our Favourites (+3 more menu entries, same numbers); printed kJ 5443 and kcal 1402 do not agree"
-overnight-oats,Overnight Oats,Mains,,470,9.3,63,18,9.1,,0.21,11,,vegetarian,false,true,,,Brunch / Feel-Good Faves
-smashed-avo-on-toast,Smashed Avo On Toast,Mains,,563,15,43,36,12,,2.3,4.5,,vegetarian,false,true,,,Brunch / Feel-Good Faves
-fresh-fruit-and-yoghurt,Fresh Fruit & Yoghurt,Mains,,469,9.8,53,23,16,,0.24,47,,vegetarian,false,true,,,Brunch / Feel-Good Faves
-fresh-fruit-and-coconut-cr-me,Fresh Fruit & Coconut Crème,Mains,,414,4.6,44,22,19,,0.08,33,,vegetarian,false,true,,,Brunch / Feel-Good Faves
-miso-mushrooms-on-toast,Miso Mushrooms On Toast,Mains,,412,19,55,12,1.9,,2.7,15,,vegetarian,false,true,,,Brunch / Feel-Good Faves
-sticky-toffee-rum-pudding,Sticky Toffee Rum Pudding,Desserts,,694,6.5,103,28,15,,0.77,80,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
-triple-chocolate-brownie,Triple Chocolate Brownie,Desserts,,894,10,121,40,14,,0.21,97,,vegetarian,false,false,,,"Main Menu / Desserts (+1 more menu entries, same numbers)"
-lemon-and-blueberry-sheezecake,Lemon & Blueberry Sheezecake,Desserts,,507,3.4,54,30,19,,0.53,33,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
-churros,Churros,Desserts,,447,6.5,88,2,0.6,,1.3,39,,,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers); printed kJ 1522 and kcal 447 do not agree"
-popcorn-chocolate-brownie,Popcorn Chocolate Brownie,Desserts,,1006,11,129,48,18,,1.4,103,,vegetarian,false,false,,,Main Menu / Desserts
-maple-and-bacon-french-toast,Maple & Bacon French Toast,Desserts,,825,28,80,43,19,,4.4,49,,contains_pork,false,false,,,"Brunch / Sweet (+1 more menu entries, same numbers)"
-peach-and-raspberry-french-toast,Peach & Raspberry French Toast,Desserts,,991,19,122,45,29,,1.9,81,,vegetarian,false,false,,,"Brunch / Sweet (+1 more menu entries, same numbers)"
-fresh-fruit,Fresh Fruit,Desserts,,99,1.3,20,0.6,0.1,,0,19,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
-peaches-and-ice-cream,Peaches & Ice Cream,Desserts,,288,4,38,13,7.8,,0.13,34,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
-popcorn-chocolate-brownie-small-appetites,Popcorn Chocolate Brownie (Small Appetites),Desserts,,516,6.4,60,27,11,,0.45,48,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
-vanilla-ice-cream,Vanilla Ice Cream,Desserts,,473,6.8,54,26,16,,0.26,45,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
-vanilla-syrup,Vanilla Syrup,Drinks,,67,0,17,0,0,,0.01,17,,,false,false,,,"Main Menu / HOT DRINKS (+7 more menu entries, same numbers)"
-caramel-syrup,Caramel Syrup,Drinks,,63,0,16,0,0,,0.01,16,,,false,false,,,"Main Menu / HOT DRINKS (+7 more menu entries, same numbers)"
-oat-iced-latte,Oat Iced Latte,Drinks,,92,0.2,18,2.3,0.2,,0.14,15,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-iced-oat-vanilla-latte,Iced Oat Vanilla Latte,Drinks,,138,0.2,29,2.3,0.3,,0.15,26,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-oat-matcha-latte,Oat Matcha Latte,Drinks,,88,0.5,12,3.9,0.4,,0.24,7.9,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-iced-latte,Iced Latte,Drinks,,87,2.6,16,1.3,0.8,,0.11,16,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-iced-vanilla-latte,Iced Vanilla Latte,Drinks,,133,2.6,28,1.3,0.8,,0.12,27,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-matcha-cappuccino,Matcha Cappuccino,Drinks,,134,7.3,18,3.7,2.1,,0.31,18,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers)"
-matcha-cappuccino-with-oat-drink,Matcha Cappuccino with oat drink,Drinks,,148,0.8,21,6.3,0.7,,0.39,14,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-espresso,Espresso,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers)"
-breakfast-tea,Breakfast Tea,Drinks,,118,2.3,18,4.3,2.5,,0.11,17,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-earl-grey-tea,Earl Grey Tea,Drinks,,118,2.3,18,4.3,2.5,,0.11,17,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-roobibos-tea,Roobibos Tea,Drinks,,118,2.3,18,4.3,2.5,,0.11,17,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-camomile-tea,Camomile Tea,Drinks,,93,0.6,15,3.4,2,,0.04,14,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-peppermint-tea,Peppermint Tea,Drinks,,93,0.6,15,3.4,2,,0.04,14,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-green-tea,Green Tea,Drinks,,93,0.6,15,3.4,2,,0.04,14,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
-americano,Americano,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers)"
-macchiato,Macchiato,Drinks,,36,2.2,2.9,1.3,0.7,,0.08,2.5,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 332 and kcal 36 do not agree"
-cappuccino,Cappuccino,Drinks,,112,7.8,10,4.1,2.3,,0.27,9.1,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 653 and kcal 112 do not agree"
-hot-chocolate,Hot Chocolate,Drinks,,255,9,32,9,5.4,,0.29,31,,,false,false,,,"Main Menu / HOT DRINKS (+6 more menu entries, same numbers)"
-iced-coffee,Iced Coffee,Drinks,,99,6.6,9.4,3.5,2,,0.27,9,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 600 and kcal 99 do not agree"
-flat-white,Flat White,Drinks,,72,4.8,6.7,2.6,1.5,,0.19,6.3,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 487 and kcal 72 do not agree"
-mocha,Mocha,Drinks,,177,7.3,21,6.3,3.7,,0.25,20,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 926 and kcal 177 do not agree"
-latte,Latte,Drinks,,110,7.4,11,3.9,2.2,,0.3,10,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 645 and kcal 110 do not agree"
-espresso-shot,Espresso Shot,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+5 more menu entries, same numbers)"
-spinach-avocado-and-ginger,"Spinach, Avocado & Ginger",Drinks,,190,3.1,32,4.9,2.4,,0.04,30,,vegetarian,false,false,,,Brunch / Brunch Drinks
-passionfruit-pineapple-and-mango,"Passionfruit, Pineapple & Mango",Drinks,,162,1.7,37,0.3,0,,0,37,,vegetarian,false,false,,,Brunch / Brunch Drinks
-strawberry-raspberry-and-blackberry,"Strawberry, Raspberry & Blackberry",Drinks,,139,1.7,28,0.6,0,,0,28,,vegetarian,false,false,,,Brunch / Brunch Drinks
-ginger-and-lemon-kick,Ginger & Lemon Kick,Drinks,,18,0,4,0,0,,0.02,3.8,,vegetarian,false,false,,,Brunch / Brunch Drinks
-matcha-and-pineapple-lift,Matcha & Pineapple Lift,Drinks,,14,0,3.4,0,0,,0,3.4,,vegetarian,false,false,,,Brunch / Brunch Drinks
-turmeric-and-orange-boost,Turmeric & Orange Boost,Drinks,,9,0.1,2,0,0,,0,2,,vegetarian,false,false,,,Brunch / Brunch Drinks
-matcha-latte,Matcha Latte,Drinks,,79,4.5,10,2.3,1.3,,0.19,10,,,false,false,,,"Brunch / Hot Drinks (+1 more menu entries, same numbers)"
-peach-iced-tea,Peach Iced Tea,Drinks,,75,0.1,17,0,0,,0.02,15,,,false,false,,,Brunch / Hot Drinks
-decaf-pod-shot,Decaf Pod Shot,Drinks,,10,0.4,0.5,0.4,0.2,,0.01,0,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
-sugar-allowance,Sugar Allowance,Drinks,,0,0,0,0,0,,0,0,,,false,false,,,Hot Drinks / Coffee
-vanilla-iced-latte-lavazza,Vanilla Iced Latte (Lavazza),Drinks,,208,5.8,27,8.2,5.2,,0.25,25,,,false,false,,,Hot Drinks / Coffee; printed kJ 1055 and kcal 208 do not agree
-iced-latte-lavazza,Iced Latte (Lavazza),Drinks,,141,6.4,9.8,8.1,5.3,,0.25,9.4,,,false,false,,,Hot Drinks / Coffee; printed kJ 771 and kcal 141 do not agree
-oat-macchiato,Oat Macchiato,Drinks,,84,2.6,5.4,3.8,1.2,,0.1,1.7,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
-oat-latte,Oat Latte,Drinks,,169,2.9,16,8.4,1.7,,0.39,6.5,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
-oat-americano,Oat Americano,Drinks,,39,0.6,3.8,2,0.4,,0.1,1.6,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers); printed kJ 347 and kcal 39 do not agree"
-iced-oat-coffee,Iced Oat Coffee,Drinks,,156,2.9,14,7.7,1.6,,0.35,5.8,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
-oat-mocha,Oat Mocha,Drinks,,230,5.5,24,9.7,3.7,,0.3,18,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
-oat-flat-white,Oat Flat White,Drinks,,126,2.8,10,6.1,1.4,,0.24,4.1,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
-oat-cappuccino,Oat Cappuccino,Drinks,,112,0.9,12,5.9,0.8,,0.34,5.8,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers); printed kJ 652 and kcal 112 do not agree"
-oat-hot-chocolate,Oat Hot Chocolate,Drinks,,274,5.9,35,11,4.8,,0.34,29,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers); printed kJ 1332 and kcal 274 do not agree"
-iced-coffee-with-milk,Iced Coffee With Milk,Drinks,,98,6.5,9.5,3.5,2,,0.28,9,,,false,false,,,Hot Drinks / Coffee; printed kJ 576 and kcal 98 do not agree
-full-breakfast,Full Breakfast,Breakfast & brunch,,860,43,63,38,18,,4.5,8.4,,contains_pork,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers); printed kJ 4284 and kcal 860 do not agree"
-all-bar-one-brunch,All Bar One Brunch,Breakfast & brunch,,901,28,40,71,22,,2.8,23,,contains_pork,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers)"
-veggie-breakfast,Veggie Breakfast,Breakfast & brunch,,700,24,55,41,16,,2.6,10,,vegetarian,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-ultimate-breakfast-sandwich-with-smoked-streaky-bacon,Ultimate Breakfast Sandwich with smoked streaky bacon,Breakfast & brunch,,752,36,70,24,16,,6.6,27,,contains_pork,false,true,,,Brunch / Breakfast; printed kJ 3839 and kcal 752 do not agree
-ultimate-breakfast-sandwich-with-british-pork-sausages,Ultimate Breakfast Sandwich with British pork sausages,Breakfast & brunch,,928,29,82,50,21,,4.5,27,,contains_pork,false,true,,,Brunch / Breakfast; printed kJ 4252 and kcal 928 do not agree
-breakfast-quesadilla,Breakfast Quesadilla,Breakfast & brunch,,1074,31,107,54,15,,3.6,8.6,,vegetarian,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers); printed kJ 4083 and kcal 1074 do not agree"
-brunch-club-sharing-board,Brunch Club Sharing Board,Breakfast & brunch,,2263,86,186,121,57,,9.5,74,,contains_pork,false,true,,,Brunch / Breakfast
-eggs-benedict,Eggs Benedict,Breakfast & brunch,,724,31,37,44,19,,3.7,2.8,,contains_pork,false,true,,,Brunch / Eggs; printed kJ 3337 and kcal 724 do not agree
-eggs-royale,Eggs Royale,Breakfast & brunch,,722,31,40,48,18,,3.8,3.4,,,false,true,,,Brunch / Eggs
-eggs-florentine,Eggs Florentine,Breakfast & brunch,,723,22,39,53,22,,2.1,4.3,,vegetarian,false,true,,,Brunch / Eggs
-mushroom-and-cathedral-city-quesadilla,Mushroom & Cathedral City® Quesadilla,Breakfast & brunch,,901,11,94,52,24,,3,16,,vegetarian,false,true,,,"Bottomless Brunch / Lunch (+1 more menu entries, same numbers); printed kJ 3414 and kcal 901 do not agree"
-chicken-quesadilla,Chicken Quesadilla,Breakfast & brunch,,768,32,79,34,10,,3,6.5,,,false,true,,,"Bottomless Brunch / Lunch (+1 more menu entries, same numbers); printed kJ 2945 and kcal 768 do not agree"
-scrambled-eggs-on-toast,Scrambled Eggs On Toast,Small Appetites,,430,18,37,25,7.7,,0.94,1.1,,vegetarian,false,true,,,Small Appetites / BREAKFAST; printed kJ 1614 and kcal 430 do not agree
-baked-beans-on-toast,Baked Beans On Toast,Small Appetites,,250,9.1,48,1.1,0.3,,0.77,5.3,,vegetarian,false,true,,,Small Appetites / BREAKFAST
-small-breakfast,Small Breakfast,Small Appetites,,406,20,29,22,6.2,,1.4,2.4,,contains_pork,false,true,,,Small Appetites / BREAKFAST
-crispy-chicken-nuggets,Crispy Chicken Nuggets,Small Appetites,,292,28,21,9.5,1.7,,0.88,2.5,,,false,true,,,Small Appetites / MAINS; the guide flags this dish as having choices (its numbers may not include them); printed kJ 998 and kcal 292 do not agree
-mini-beef-burger,Mini Beef Burger,Small Appetites,,321,20,34,9.2,0.9,,1.1,7.5,,contains_beef,false,true,,,Small Appetites / MAINS; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1717 and kcal 321 do not agree
-mushroom-and-cathedral-city-quesadilla-small-appetites,Mushroom & Cathedral City® Quesadilla (Small Appetites),Small Appetites,,357,8,29,22,12,,1.4,4.6,,vegetarian,false,true,,,Small Appetites / MAINS
-fish-goujons,Fish Goujons,Small Appetites,,271,26,18,7.3,0.5,,0.92,2.6,,,false,true,,,Small Appetites / MAINS; the guide flags this dish as having choices (its numbers may not include them); printed kJ 987 and kcal 271 do not agree
-mac-and-cheese-small-appetites,Mac & Cheese (Small Appetites),Small Appetites,,390,22,29,20,11,,1.8,6.1,,vegetarian,false,true,,,Small Appetites / MAINS
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+sticky-jasmine-rice,Sticky Jasmine Rice,Sides & snacks,,361,6.6,59,11,1.1,,0.89,0.8,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers)"
+wok-fried-greens,Wok Fried Greens,Sides & snacks,,195,11,24,5.1,0.5,,2,19,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers)"
+grain-salad,Grain Salad,Sides & snacks,,248,7.1,42,4.4,0.3,,0.61,5.4,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+5 more menu entries, same numbers)"
+bread-and-oil,Bread & Oil,Sides & snacks,,731,9.1,55,53,8,,1.4,5.1,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+2 more menu entries, same numbers)"
+crispy-potatoes,Crispy Potatoes,Sides & snacks,,398,5.2,45,21,13,,4.1,3.8,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+2 more menu entries, same numbers)"
+sweet-potato-fries,Sweet Potato Fries,Sides & snacks,,470,1.8,58,24,1.8,,0.68,16,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers); printed kJ 1447 and kcal 470 do not agree"
+seasoned-skin-on-fries-vegan,Seasoned Skin-On Fries (vegan),Sides & snacks,,501,3.1,61,24,1.8,,0.93,0.7,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+4 more menu entries, same numbers); printed kJ 1685 and kcal 501 do not agree"
+seasoned-skin-on-fries,Seasoned Skin-On Fries,Sides & snacks,,786,19,77,41,8.8,,1.3,16,,,,,,,,contains_beef,false,true,,,"Main Menu / Side Dishes (+2 more menu entries, same numbers); printed kJ 2878 and kcal 786 do not agree"
+parmesan-and-truffle-infused-oil-fries,Parmesan & Truffle-infused Oil Fries,Sides & snacks,,558,6.3,61,29,4.1,,1.1,0.7,,,,,,,,,false,true,,,"Main Menu / Side Dishes (+4 more menu entries, same numbers); printed kJ 1924 and kcal 558 do not agree"
+mac-and-cheese,Mac & Cheese,Sides & snacks,,425,22,32,23,13,,2.2,5.4,,,,,,,,vegetarian,false,true,,,"Main Menu / Side Dishes (+3 more menu entries, same numbers)"
+fried-free-range-egg,Fried Free Range Egg,Add-ons,,87,6,0,8.1,1.1,,0.19,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers); printed kJ 269 and kcal 87 do not agree"
+add-sour-cream,Add Sour Cream,Add-ons,,57,0.9,1.2,5.4,3.4,,0.03,1.2,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+onion-rings,Onion Rings,Add-ons,,580,9.9,51,37,5.7,,2.6,2.2,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers); printed kJ 1569 and kcal 580 do not agree"
+add-smoked-salmon,Add Smoked Salmon,Add-ons,,215,25,6.3,10,2.5,,4.1,1.3,,,,,,,,,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+house-salad,House Salad,Add-ons,,190,1.5,3.5,19,1.3,,0.11,3.3,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+add-beef-dripping,Add Beef Dripping,Add-ons,,123,0.8,7.2,9.6,4.8,,2.4,4,,,,,,,,contains_beef,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+add-jalape-os,Add Jalapeños,Add-ons,,61,0.3,14,0.3,0,,0,12,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+add-little-moons-raspberry-mochi,Add Little Moons Raspberry Mochi,Add-ons,,69,1,13,1.6,1.3,,0,7.4,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+add-chimichurri,Add Chimichurri,Add-ons,,203,0.8,3,21,1.5,,0.75,0.8,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+add-bbq-beef-brisket,Add BBQ Beef Brisket,Add-ons,,245,16,7.7,17,7,,0.4,7,,,,,,,,contains_beef,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+add-miso-salmon,Add Miso Salmon,Add-ons,,412,30,15,26,4.4,,2.2,13,,,,,,,,,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+add-sticky-jasmine-rice,Add Sticky Jasmine Rice,Add-ons,,310,4.6,57,7.2,0.6,,0.71,0.2,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+2 more menu entries, same numbers)"
+smoked-streaky-bacon,Smoked Streaky Bacon,Add-ons,,105,12,0,0.6,2.1,,1.8,0,,,,,,,,contains_pork,false,false,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers); printed kJ 762 and kcal 105 do not agree"
+king-prawns,King Prawns,Add-ons,,55,12,0,0.8,0.1,,0.72,0,,,,,,,,,false,false,,,"Main Menu / Our Favourites (+2 more menu entries, same numbers)"
+add-bread,Add Bread,Add-ons,,207,7.2,39,2.1,0.4,,1.1,0.1,,,,,,,,vegetarian,false,false,,,"Main Menu / Addons (+1 more menu entries, same numbers)"
+mushrooms,Mushrooms,Add-ons,,120,4.1,1.3,10,0.9,,0.03,0.7,,,,,,,,vegetarian,false,false,,,Brunch / Extras
+toasted-sourdough,Toasted Sourdough,Add-ons,,400,6,37,25,16,,0.84,0.7,,,,,,,,vegetarian,false,false,,,Brunch / Extras
+hash-browns,Hash Browns,Add-ons,,333,4.5,42,16,2.5,,0.66,1.4,,,,,,,,vegetarian,false,false,,,"Brunch / Extras (+1 more menu entries, same numbers); printed kJ 1234 and kcal 333 do not agree"
+house-baked-beans,House Baked Beans,Add-ons,,58,2.6,9.6,0.4,0.1,,0.3,3.8,,,,,,,,vegetarian,false,false,,,Brunch / Extras
+british-pork-sausage,British Pork Sausage,Add-ons,,201,9.8,5.8,14,5,,0.88,0.2,,,,,,,,contains_pork,false,false,,,Brunch / Extras; printed kJ 1022 and kcal 201 do not agree
+child-add-fries,Child Add Fries,Add-ons,,156,1,19,7.6,0.6,,0.29,0.2,,,,,,,,vegetarian,false,false,,,Small Appetites / Choices; printed kJ 524 and kcal 156 do not agree
+add-kids-broccoli,Add Kids Broccoli,Add-ons,,29,3,1.5,0.8,0,,0,1.5,,,,,,,,vegetarian,false,false,,,Small Appetites / Choices
+child-add-sticky-rice,Child Add Sticky Rice,Add-ons,,155,2.3,28,3.6,0.3,,0.36,0.1,,,,,,,,vegetarian,false,false,,,Small Appetites / Choices
+patatas-bravas,Patatas Bravas,Starters & sharing,,354,4.7,37,20,2.5,,3.3,8.4,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+karaage-sticky-chicken,Karaage Sticky Chicken,Starters & sharing,,502,32,42,23,5.6,,0.43,27,,,,,,,,,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+baked-feta,Baked Feta,Starters & sharing,,561,24,50,29,17,,3.8,26,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
+haggis-bon-bons,Haggis Bon Bons,Starters & sharing,,350,15,31,18,7.9,,3.5,30,,,,,,,,,false,true,,,"Main Menu / Sharing Plates (+1 more menu entries, same numbers)"
+beef-brisket-tacos,Beef Brisket Tacos,Starters & sharing,,572,24,52,29,11,,1.8,17,,,,,,,,contains_beef,false,true,,,Main Menu / Sharing Plates
+halloumi-fries,Halloumi Fries,Starters & sharing,,508,29,12,38,18,,4.7,4.6,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+houmous-and-flatbread,Houmous & Flatbread,Starters & sharing,,684,16,67,38,4.7,,1.9,5.3,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
+salt-and-pepper-calamari,Salt & Pepper Calamari,Starters & sharing,,260,7.5,33,2,0.3,,2.5,17,,,,,,,,,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers); printed kJ 928 and kcal 260 do not agree"
+harissa-chicken-skewers,Harissa Chicken Skewers,Starters & sharing,,479,37,17,28,7.9,,1.4,7.2,,,,,,,,,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
+oyster-mushroom-tempura,Oyster Mushroom Tempura,Starters & sharing,,187,6.6,31,3.6,0.3,,1.6,7.2,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+1 more menu entries, same numbers)"
+hot-honey-chorizo,Hot Honey Chorizo,Starters & sharing,,702,20,45,49,20,,3.1,29,,,,,,,,contains_pork,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
+small-nachos,Small Nachos,Starters & sharing,,722,22,73,37,19,,2.2,35,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+large-nachos,Large Nachos,Starters & sharing,,1120,40,109,57,30,,3.9,37,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
+teriyaki-duck-breast,Teriyaki Duck Breast,Starters & sharing,,981,30,44,76,22,,1.9,30,,,,,,,,,false,true,,,Main Menu / Sharing Plates
+garlic-and-chilli-king-prawns,Garlic & Chilli King Prawns,Starters & sharing,,865,85,43,39,23,,4.2,2.7,,,,,,,,,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+8oz-sirloin-steak,8oz Sirloin Steak,Starters & sharing,,771,37,3.3,67,22,,1,0.8,,,,,,,,contains_beef,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+crispy-chicken-thighs,Crispy Chicken Thighs,Starters & sharing,,1546,93,51,108,23,,1.3,46,,,,,,,,contains_pork,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+roasted-aubergine,Roasted Aubergine,Starters & sharing,,189,5.5,32,2.9,0.5,,1.9,27,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+3 more menu entries, same numbers)"
+small-garlic-and-chilli-king-prawns,Small Garlic & Chilli King Prawns,Starters & sharing,,475,43,22,23,14,,2.2,2,,,,,,,,,false,true,,,"Main Menu / Sharing Plates (+2 more menu entries, same numbers)"
+serrano-ham-croquettes,Serrano Ham Croquettes,Starters & sharing,,378,11,28,24,6.7,,1.9,4.2,,,,,,,,contains_pork,false,true,,,Main Menu / Sharing Plates
+crispy-cauliflower-bites,Crispy Cauliflower Bites,Starters & sharing,,406,9,64,12,0.9,,4.3,20,,,,,,,,vegetarian,false,true,,,"Main Menu / Sharing Plates (+1 more menu entries, same numbers)"
+balmoral-chicken,Balmoral Chicken,Mains,,811,63,43,41,21,,4.6,6.1,,,,,,,,contains_pork,false,true,,,"Main Menu / Our Favourites (+3 more menu entries, same numbers)"
+falafel-and-cathedral-city-burger,Falafel & Cathedral City® Burger,Mains,,1136,16,142,51,17,,3.4,24,,,,,,,,vegetarian,false,true,,,"Main Menu / Our Favourites (+4 more menu entries, same numbers); printed kJ 4348 and kcal 1136 do not agree"
+bang-bang-salad,Bang Bang Salad,Mains,,265,7.3,38,8.1,4.4,,2,30,,,,,,,,vegetarian,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers)"
+chicken-milanese,Chicken Milanese,Mains,,1405,44,103,88,11,,5.3,6.2,,,,,,,,,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers); printed kJ 4922 and kcal 1405 do not agree"
+fish-and-chips,Fish & Chips,Mains,,923,50,82,35,4.4,,2.6,4.1,,,,,,,,,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers); printed kJ 3157 and kcal 923 do not agree"
+miso-salmon,Miso Salmon,Mains,,852,38,88,39,5.6,,4.9,26,,,,,,,,,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers)"
+pad-thai,Pad Thai,Mains,,559,21,89,13,1.5,,7.1,41,,,,,,,,vegetarian,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers)"
+chicken-caesar-salad,Chicken Caesar Salad,Mains,,753,55,17,51,8,,1.5,3.1,,,,,,,,,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers)"
+signature-burger,Signature Burger,Mains,,1563,56,143,79,14,,5.1,20,,,,,,,,contains_beef,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers)"
+crispy-miso-chicken-burger,Crispy Miso Chicken Burger,Mains,,1221,35,141,54,11,,6,20,,,,,,,,,false,true,,,"Main Menu / Our Favourites (+5 more menu entries, same numbers); printed kJ 4702 and kcal 1221 do not agree"
+falafel-and-halloumi-burger,Falafel & Halloumi Burger,Mains,,1352,38,136,68,19,,5.4,28,,,,,,,,vegetarian,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers); printed kJ 5245 and kcal 1352 do not agree"
+classic-cheeseburger,Classic Cheeseburger,Mains,,1201,45,113,57,12,,4,13,,,,,,,,contains_beef,false,true,,,"Main Menu / Our Favourites (+7 more menu entries, same numbers)"
+buttermilk-chicken-and-cheese-burger,Buttermilk Chicken & Cheese Burger,Mains,,1402,47,120,78,22,,5.7,10,,,,,,,,contains_pork,false,true,,,"Main Menu / Our Favourites (+3 more menu entries, same numbers); printed kJ 5443 and kcal 1402 do not agree"
+overnight-oats,Overnight Oats,Mains,,470,9.3,63,18,9.1,,0.21,11,,,,,,,,vegetarian,false,true,,,Brunch / Feel-Good Faves
+smashed-avo-on-toast,Smashed Avo On Toast,Mains,,563,15,43,36,12,,2.3,4.5,,,,,,,,vegetarian,false,true,,,Brunch / Feel-Good Faves
+fresh-fruit-and-yoghurt,Fresh Fruit & Yoghurt,Mains,,469,9.8,53,23,16,,0.24,47,,,,,,,,vegetarian,false,true,,,Brunch / Feel-Good Faves
+fresh-fruit-and-coconut-cr-me,Fresh Fruit & Coconut Crème,Mains,,414,4.6,44,22,19,,0.08,33,,,,,,,,vegetarian,false,true,,,Brunch / Feel-Good Faves
+miso-mushrooms-on-toast,Miso Mushrooms On Toast,Mains,,412,19,55,12,1.9,,2.7,15,,,,,,,,vegetarian,false,true,,,Brunch / Feel-Good Faves
+sticky-toffee-rum-pudding,Sticky Toffee Rum Pudding,Desserts,,694,6.5,103,28,15,,0.77,80,,,,,,,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
+triple-chocolate-brownie,Triple Chocolate Brownie,Desserts,,894,10,121,40,14,,0.21,97,,,,,,,,vegetarian,false,false,,,"Main Menu / Desserts (+1 more menu entries, same numbers)"
+lemon-and-blueberry-sheezecake,Lemon & Blueberry Sheezecake,Desserts,,507,3.4,54,30,19,,0.53,33,,,,,,,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
+churros,Churros,Desserts,,447,6.5,88,2,0.6,,1.3,39,,,,,,,,,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers); printed kJ 1522 and kcal 447 do not agree"
+popcorn-chocolate-brownie,Popcorn Chocolate Brownie,Desserts,,1006,11,129,48,18,,1.4,103,,,,,,,,vegetarian,false,false,,,Main Menu / Desserts
+maple-and-bacon-french-toast,Maple & Bacon French Toast,Desserts,,825,28,80,43,19,,4.4,49,,,,,,,,contains_pork,false,false,,,"Brunch / Sweet (+1 more menu entries, same numbers)"
+peach-and-raspberry-french-toast,Peach & Raspberry French Toast,Desserts,,991,19,122,45,29,,1.9,81,,,,,,,,vegetarian,false,false,,,"Brunch / Sweet (+1 more menu entries, same numbers)"
+fresh-fruit,Fresh Fruit,Desserts,,99,1.3,20,0.6,0.1,,0,19,,,,,,,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
+peaches-and-ice-cream,Peaches & Ice Cream,Desserts,,288,4,38,13,7.8,,0.13,34,,,,,,,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
+popcorn-chocolate-brownie-small-appetites,Popcorn Chocolate Brownie (Small Appetites),Desserts,,516,6.4,60,27,11,,0.45,48,,,,,,,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
+vanilla-ice-cream,Vanilla Ice Cream,Desserts,,473,6.8,54,26,16,,0.26,45,,,,,,,,vegetarian,false,false,,,Small Appetites / SWEET TREATS
+vanilla-syrup,Vanilla Syrup,Drinks,,67,0,17,0,0,,0.01,17,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+7 more menu entries, same numbers)"
+caramel-syrup,Caramel Syrup,Drinks,,63,0,16,0,0,,0.01,16,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+7 more menu entries, same numbers)"
+oat-iced-latte,Oat Iced Latte,Drinks,,92,0.2,18,2.3,0.2,,0.14,15,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+iced-oat-vanilla-latte,Iced Oat Vanilla Latte,Drinks,,138,0.2,29,2.3,0.3,,0.15,26,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+oat-matcha-latte,Oat Matcha Latte,Drinks,,88,0.5,12,3.9,0.4,,0.24,7.9,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+iced-latte,Iced Latte,Drinks,,87,2.6,16,1.3,0.8,,0.11,16,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+iced-vanilla-latte,Iced Vanilla Latte,Drinks,,133,2.6,28,1.3,0.8,,0.12,27,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+matcha-cappuccino,Matcha Cappuccino,Drinks,,134,7.3,18,3.7,2.1,,0.31,18,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers)"
+matcha-cappuccino-with-oat-drink,Matcha Cappuccino with oat drink,Drinks,,148,0.8,21,6.3,0.7,,0.39,14,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+espresso,Espresso,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers)"
+breakfast-tea,Breakfast Tea,Drinks,,118,2.3,18,4.3,2.5,,0.11,17,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+earl-grey-tea,Earl Grey Tea,Drinks,,118,2.3,18,4.3,2.5,,0.11,17,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+roobibos-tea,Roobibos Tea,Drinks,,118,2.3,18,4.3,2.5,,0.11,17,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+camomile-tea,Camomile Tea,Drinks,,93,0.6,15,3.4,2,,0.04,14,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+peppermint-tea,Peppermint Tea,Drinks,,93,0.6,15,3.4,2,,0.04,14,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+green-tea,Green Tea,Drinks,,93,0.6,15,3.4,2,,0.04,14,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+3 more menu entries, same numbers)"
+americano,Americano,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers)"
+macchiato,Macchiato,Drinks,,36,2.2,2.9,1.3,0.7,,0.08,2.5,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 332 and kcal 36 do not agree"
+cappuccino,Cappuccino,Drinks,,112,7.8,10,4.1,2.3,,0.27,9.1,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 653 and kcal 112 do not agree"
+hot-chocolate,Hot Chocolate,Drinks,,255,9,32,9,5.4,,0.29,31,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+6 more menu entries, same numbers)"
+iced-coffee,Iced Coffee,Drinks,,99,6.6,9.4,3.5,2,,0.27,9,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 600 and kcal 99 do not agree"
+flat-white,Flat White,Drinks,,72,4.8,6.7,2.6,1.5,,0.19,6.3,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 487 and kcal 72 do not agree"
+mocha,Mocha,Drinks,,177,7.3,21,6.3,3.7,,0.25,20,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 926 and kcal 177 do not agree"
+latte,Latte,Drinks,,110,7.4,11,3.9,2.2,,0.3,10,,,,,,,,,false,false,,,"Main Menu / HOT DRINKS (+4 more menu entries, same numbers); printed kJ 645 and kcal 110 do not agree"
+espresso-shot,Espresso Shot,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / HOT DRINKS (+5 more menu entries, same numbers)"
+spinach-avocado-and-ginger,"Spinach, Avocado & Ginger",Drinks,,190,3.1,32,4.9,2.4,,0.04,30,,,,,,,,vegetarian,false,false,,,Brunch / Brunch Drinks
+passionfruit-pineapple-and-mango,"Passionfruit, Pineapple & Mango",Drinks,,162,1.7,37,0.3,0,,0,37,,,,,,,,vegetarian,false,false,,,Brunch / Brunch Drinks
+strawberry-raspberry-and-blackberry,"Strawberry, Raspberry & Blackberry",Drinks,,139,1.7,28,0.6,0,,0,28,,,,,,,,vegetarian,false,false,,,Brunch / Brunch Drinks
+ginger-and-lemon-kick,Ginger & Lemon Kick,Drinks,,18,0,4,0,0,,0.02,3.8,,,,,,,,vegetarian,false,false,,,Brunch / Brunch Drinks
+matcha-and-pineapple-lift,Matcha & Pineapple Lift,Drinks,,14,0,3.4,0,0,,0,3.4,,,,,,,,vegetarian,false,false,,,Brunch / Brunch Drinks
+turmeric-and-orange-boost,Turmeric & Orange Boost,Drinks,,9,0.1,2,0,0,,0,2,,,,,,,,vegetarian,false,false,,,Brunch / Brunch Drinks
+matcha-latte,Matcha Latte,Drinks,,79,4.5,10,2.3,1.3,,0.19,10,,,,,,,,,false,false,,,"Brunch / Hot Drinks (+1 more menu entries, same numbers)"
+peach-iced-tea,Peach Iced Tea,Drinks,,75,0.1,17,0,0,,0.02,15,,,,,,,,,false,false,,,Brunch / Hot Drinks
+decaf-pod-shot,Decaf Pod Shot,Drinks,,10,0.4,0.5,0.4,0.2,,0.01,0,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
+sugar-allowance,Sugar Allowance,Drinks,,0,0,0,0,0,,0,0,,,,,,,,,false,false,,,Hot Drinks / Coffee
+vanilla-iced-latte-lavazza,Vanilla Iced Latte (Lavazza),Drinks,,208,5.8,27,8.2,5.2,,0.25,25,,,,,,,,,false,false,,,Hot Drinks / Coffee; printed kJ 1055 and kcal 208 do not agree
+iced-latte-lavazza,Iced Latte (Lavazza),Drinks,,141,6.4,9.8,8.1,5.3,,0.25,9.4,,,,,,,,,false,false,,,Hot Drinks / Coffee; printed kJ 771 and kcal 141 do not agree
+oat-macchiato,Oat Macchiato,Drinks,,84,2.6,5.4,3.8,1.2,,0.1,1.7,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
+oat-latte,Oat Latte,Drinks,,169,2.9,16,8.4,1.7,,0.39,6.5,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
+oat-americano,Oat Americano,Drinks,,39,0.6,3.8,2,0.4,,0.1,1.6,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers); printed kJ 347 and kcal 39 do not agree"
+iced-oat-coffee,Iced Oat Coffee,Drinks,,156,2.9,14,7.7,1.6,,0.35,5.8,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
+oat-mocha,Oat Mocha,Drinks,,230,5.5,24,9.7,3.7,,0.3,18,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
+oat-flat-white,Oat Flat White,Drinks,,126,2.8,10,6.1,1.4,,0.24,4.1,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers)"
+oat-cappuccino,Oat Cappuccino,Drinks,,112,0.9,12,5.9,0.8,,0.34,5.8,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers); printed kJ 652 and kcal 112 do not agree"
+oat-hot-chocolate,Oat Hot Chocolate,Drinks,,274,5.9,35,11,4.8,,0.34,29,,,,,,,,,false,false,,,"Hot Drinks / Coffee (+1 more menu entries, same numbers); printed kJ 1332 and kcal 274 do not agree"
+iced-coffee-with-milk,Iced Coffee With Milk,Drinks,,98,6.5,9.5,3.5,2,,0.28,9,,,,,,,,,false,false,,,Hot Drinks / Coffee; printed kJ 576 and kcal 98 do not agree
+full-breakfast,Full Breakfast,Breakfast & brunch,,860,43,63,38,18,,4.5,8.4,,,,,,,,contains_pork,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers); printed kJ 4284 and kcal 860 do not agree"
+all-bar-one-brunch,All Bar One Brunch,Breakfast & brunch,,901,28,40,71,22,,2.8,23,,,,,,,,contains_pork,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers)"
+veggie-breakfast,Veggie Breakfast,Breakfast & brunch,,700,24,55,41,16,,2.6,10,,,,,,,,vegetarian,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+ultimate-breakfast-sandwich-with-smoked-streaky-bacon,Ultimate Breakfast Sandwich with smoked streaky bacon,Breakfast & brunch,,752,36,70,24,16,,6.6,27,,,,,,,,contains_pork,false,true,,,Brunch / Breakfast; printed kJ 3839 and kcal 752 do not agree
+ultimate-breakfast-sandwich-with-british-pork-sausages,Ultimate Breakfast Sandwich with British pork sausages,Breakfast & brunch,,928,29,82,50,21,,4.5,27,,,,,,,,contains_pork,false,true,,,Brunch / Breakfast; printed kJ 4252 and kcal 928 do not agree
+breakfast-quesadilla,Breakfast Quesadilla,Breakfast & brunch,,1074,31,107,54,15,,3.6,8.6,,,,,,,,vegetarian,false,true,,,"Brunch / Breakfast (+1 more menu entries, same numbers); printed kJ 4083 and kcal 1074 do not agree"
+brunch-club-sharing-board,Brunch Club Sharing Board,Breakfast & brunch,,2263,86,186,121,57,,9.5,74,,,,,,,,contains_pork,false,true,,,Brunch / Breakfast
+eggs-benedict,Eggs Benedict,Breakfast & brunch,,724,31,37,44,19,,3.7,2.8,,,,,,,,contains_pork,false,true,,,Brunch / Eggs; printed kJ 3337 and kcal 724 do not agree
+eggs-royale,Eggs Royale,Breakfast & brunch,,722,31,40,48,18,,3.8,3.4,,,,,,,,,false,true,,,Brunch / Eggs
+eggs-florentine,Eggs Florentine,Breakfast & brunch,,723,22,39,53,22,,2.1,4.3,,,,,,,,vegetarian,false,true,,,Brunch / Eggs
+mushroom-and-cathedral-city-quesadilla,Mushroom & Cathedral City® Quesadilla,Breakfast & brunch,,901,11,94,52,24,,3,16,,,,,,,,vegetarian,false,true,,,"Bottomless Brunch / Lunch (+1 more menu entries, same numbers); printed kJ 3414 and kcal 901 do not agree"
+chicken-quesadilla,Chicken Quesadilla,Breakfast & brunch,,768,32,79,34,10,,3,6.5,,,,,,,,,false,true,,,"Bottomless Brunch / Lunch (+1 more menu entries, same numbers); printed kJ 2945 and kcal 768 do not agree"
+scrambled-eggs-on-toast,Scrambled Eggs On Toast,Small Appetites,,430,18,37,25,7.7,,0.94,1.1,,,,,,,,vegetarian,false,true,,,Small Appetites / BREAKFAST; printed kJ 1614 and kcal 430 do not agree
+baked-beans-on-toast,Baked Beans On Toast,Small Appetites,,250,9.1,48,1.1,0.3,,0.77,5.3,,,,,,,,vegetarian,false,true,,,Small Appetites / BREAKFAST
+small-breakfast,Small Breakfast,Small Appetites,,406,20,29,22,6.2,,1.4,2.4,,,,,,,,contains_pork,false,true,,,Small Appetites / BREAKFAST
+crispy-chicken-nuggets,Crispy Chicken Nuggets,Small Appetites,,292,28,21,9.5,1.7,,0.88,2.5,,,,,,,,,false,true,,,Small Appetites / MAINS; the guide flags this dish as having choices (its numbers may not include them); printed kJ 998 and kcal 292 do not agree
+mini-beef-burger,Mini Beef Burger,Small Appetites,,321,20,34,9.2,0.9,,1.1,7.5,,,,,,,,contains_beef,false,true,,,Small Appetites / MAINS; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1717 and kcal 321 do not agree
+mushroom-and-cathedral-city-quesadilla-small-appetites,Mushroom & Cathedral City® Quesadilla (Small Appetites),Small Appetites,,357,8,29,22,12,,1.4,4.6,,,,,,,,vegetarian,false,true,,,Small Appetites / MAINS
+fish-goujons,Fish Goujons,Small Appetites,,271,26,18,7.3,0.5,,0.92,2.6,,,,,,,,,false,true,,,Small Appetites / MAINS; the guide flags this dish as having choices (its numbers may not include them); printed kJ 987 and kcal 271 do not agree
+mac-and-cheese-small-appetites,Mac & Cheese (Small Appetites),Small Appetites,,390,22,29,20,11,,1.8,6.1,,,,,,,,vegetarian,false,true,,,Small Appetites / MAINS

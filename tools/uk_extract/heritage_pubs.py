@@ -116,6 +116,19 @@ NOTES = {
 }
 
 
+# Dishes whose own allergen row contradicts the dish (independent accuracy check, 8 October 2026): the chain's page marks no gluten
+# for a breaded fish finger, a brownie, a cookie and a stuffing, and gives no ingredient text or gluten-free wording that would
+# explain it (the crumbles, by contrast, are on the chain's own "No Gluten-Containing Ingredients" menu, so they stay). Not
+# corrected, not guessed: held back, so a coeliac visitor is never shown "no gluten" for them.
+ALLERGEN_HOLDBACK = {
+    "baked-fish-fingers": "the chain's allergen row for Baked Fish Fingers marks only Fish (no gluten) and gives no ingredients or gluten-free wording",
+    "chocolate-brownie-vg": "the chain's allergen row for Chocolate Brownie (VG) marks no allergen it contains (not even gluten) and gives no ingredients or gluten-free wording",
+    "salted-caramel-chocolate-brownie-vg": "the chain's allergen row for Salted Caramel Chocolate Brownie (VG) marks no allergen it contains (not even gluten) and gives no ingredients or gluten-free wording",
+    "chocolate-chunk-cookie-v": "the chain's allergen row for Chocolate Chunk Cookie (V) marks only Soya (no gluten) and gives no ingredients or gluten-free wording",
+    "pork-orange-and-fig-stuffing": "the chain's allergen row for Pork, Orange & Fig Stuffing marks no allergen at all (no gluten) and gives no ingredients or gluten-free wording",
+}
+
+
 def clean_name(raw: str) -> str:
     """The page's name, tidied: ', see below' dropped from '(Excluding ..., see below)' and 'Excluding' capitalised."""
     n = " ".join(raw.split())
@@ -276,6 +289,12 @@ def main() -> int:
                                            "which cannot be right, so it is not published"))
         except ValueError:
             pass
+    by_id = {i["id"] for i in items}
+    gone = [i for i in ALLERGEN_HOLDBACK if i not in by_id]
+    if gone:
+        print(f"ALLERGEN_HOLDBACK names no longer on the menu (the pages changed): {gone}", file=sys.stderr)
+        return 1
+    holdback.extend((i, why + ": the row contradicts the dish, so it is not published") for i, why in ALLERGEN_HOLDBACK.items())
     names = {i["name"] for i in items}
     missing = [n for n in NOTES if n not in names]
     if missing:

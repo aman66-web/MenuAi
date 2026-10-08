@@ -120,6 +120,20 @@ IMPLAUSIBLE = {
     "MAL DISH Two fried eggs": "79 kcal for two fried eggs is implausibly low; not published until Malmaison confirms",
 }
 
+# dishes whose allergen row contradicts the dish's own name (verified 2026-10-08 against a fresh read of the page): never corrected,
+# held back (restoring one = deleting its line in holdback.csv). The page's plain "Ice Cream" scoops mark soya only (no milk, no egg),
+# but its sub-recipe is a nameless "x1 ball of icecream", the dessert menu names its other ice cream "milk ice cream" (milk, eggs) and
+# the printed menu lists "ICE CREAM & SORBET" as [VGIA] (= vegan alternative available) at 70 kcal per scoop (the page: 66): the page
+# does not say this scoop is the vegan one, so a milk-free "Ice Cream" is not published.
+_ICE = ("allergen row contradicts the dish name: 'Ice Cream' is marked soya only (no milk, no eggs) but the page does not say it is "
+        "the vegan ice cream (its other ice cream is called 'milk ice cream'; Malmaison's printed menu marks 'ICE CREAM & SORBET' "
+        "[VGIA], vegan alternative available); not published until Malmaison confirms")
+ALLERGEN_CONTRADICTS = {
+    "MAL DISH - Ice Cream 1 scoop": _ICE,
+    "MAL DISH - Ice Cream 2 Scoop": _ICE,
+    "MAL DISH - Ice Cream 3 Scoop": _ICE,
+}
+
 # page dish (exact name on the page) -> printed-menu checks [(pdf, heading text, option number)]. Names only: the calories
 # are read from the PDF by malmaison_pages.pdf_kcal, which stops if a heading is missing or not unique.
 A, B = "alc", "bar"
@@ -252,6 +266,8 @@ def build(pages_dir: Path, pdfs_dir: Path) -> tuple[list[dict], list[tuple[str, 
                 reasons.append("0 kcal printed for a dish" + ("" if d["ingredients"] else " that has no ingredients listed") + " (impossible)")
             if raw in IMPLAUSIBLE:
                 reasons.append(IMPLAUSIBLE[raw])
+            if raw in ALLERGEN_CONTRADICTS:
+                reasons.append(ALLERGEN_CONTRADICTS[raw])
             for pdf_name, heading, idx in PDF_CHECKS.get(raw, []):
                 used_checks.add(raw)
                 printed = mp.pdf_kcal(pdf[pdf_name], heading, idx, where)

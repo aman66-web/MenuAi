@@ -1,0 +1,13 @@
+{
+ "chain": "all-bar-one",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.mbplc.io/AllergenGuideAllBarOneEstate.html (live page stamped 2026-10-08, downloaded fresh 2026-10-08)",
+ "compared_items": 149,
+ "nutrition_mismatches": 6,
+ "allergen_mismatches": 0,
+ "fixed": 6,
+ "held_back": 27,
+ "marked_ok": 0,
+ "not_verifiable": "allergens: none are published for this chain (the guide cannot be mapped completely), so none were compared",
+ "notes": "The live guide had been regenerated since 6 Oct: 6 dishes (Wok Fried Greens, Roasted Aubergine, Crispy Cauliflower Bites, Bang Bang Salad, Pad Thai, Crispy Miso Chicken Burger; 10 values) differed, refreshed by re-running all_bar_one.py on the fresh page. All other 143 items match an independent parse. 27 more dishes held back: the guide's kJ and kcal disagree by more than 15% (kcal agrees with the macros, kJ is the outlier) or kcal is 30%+ off its macros (Salt & Pepper Calamari). Likely affects the other M&B guides too."
+}

@@ -97,6 +97,13 @@ HOLDBACK = [
     ("fresh-tomato-salsa", "The sheet prints sugars (1.5 g) higher than carbohydrate (1.1 g); sugars are part of carbohydrate."),
     ("romaine-lettuce-salad", "The sheet prints 15 kcal with 0 g carbohydrate, protein and fat, and 1.1 g sugars (sugars are part of carbohydrate)."),
     ("romaine-lettuce-topping", "The sheet prints 4 kcal with 0 g carbohydrate, protein and fat, and 0.3 g sugars (sugars are part of carbohydrate)."),
+    # accuracy check 2026-10-08: the chain's CURRENT chart (ALLERGEN_URL, UK270726, 6 Aug 2026; a drawing with no text layer, so a script
+    # cannot read it, but it reads fine by eye) repeats the other 20 rows' figures exactly and prints different ones for these two. The two
+    # official documents disagree, so neither is chosen. Restore by deleting the line once the sheet is re-issued or the chart can be read.
+    ("flour-tortilla-taco", "The AUG 2022 sheet prints 94 kcal for one taco tortilla, but the chain's current chart (UK270726, Aug 2026) prints "
+                            "3 taco tortillas (75 g) as 240 kcal, about 80 each: the two official documents disagree."),
+    ("chips-large", "The AUG 2022 sheet prints 834 kcal for large chips (exactly double the regular), but the chain's current chart (UK270726, "
+                    "Aug 2026) prints large chips as 170 g, 627 kcal: the two official documents disagree."),
 ]
 
 NOTE = ("Chipotle UK publishes values for single ingredients only, not finished burritos or bowls, and we don't add them "

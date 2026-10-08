@@ -57,7 +57,11 @@ PREFIX = {
 }
 
 # Rows the guide itself prints impossibly: left out of the published menu (never corrected), listed in the check report.
-HOLDBACK: dict[str, str] = {}
+HOLDBACK: dict[str, str] = {
+    # independent accuracy check, 8 Oct 2026 (drinks page, re-read with a second parser): the printed row has saturates 26 g against
+    # fat 0.1 g and sugars 7.0 g against carbohydrate 32 g (its sibling Feeling Fruity Cooler - Strawberry prints sugars 25 g, saturates 0 g)
+    "Feeling Fruity Cooler - Mixed Berry": "The guide prints saturates 26 g with total fat 0.1 g (saturates cannot exceed fat), and sugars 7 g against 32 g carbohydrate, so the row's figures contradict each other.",
+}
 
 # The same pages print each dish's allergens three ways (the 14 yes/may/no columns, the card's "Contains:" / "May contain:"
 # lines naming the cereals and tree nuts, and the dish's label ids); tenkites_b.allergens_from_rec checks they agree.
