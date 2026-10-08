@@ -1,0 +1,17 @@
+item_id,reason
+smoked-cheese-and-caramelised-onion-focaccia,"Its own figures contradict each other: calories 967.6 vs 4P+4C+9F = 775 (with fibre 786), 20% lower; printed per serving: 967.6 kcal, 4048.44 kJ, fat 34.8 g, saturates 19.2 g, carbohydrate 89.4 g, protein 26 g; left out until the chain corrects its sheet"
+chipotle-chicken-and-avocado-wrap,"Its own figures contradict each other: calories 395.5 vs 4P+4C+9F = 290 (with fibre 297), 27% lower; printed per serving: 395.5 kcal, fat 8.8 g, carbohydrate 31.7 g, protein 21 g; left out until the chain corrects its sheet"
+breakfast-roll,Salt prints 23.76 g for a 648 kcal roll while the Breakfast Baguette prints 7.66 g and the Big Breakfast Baguette 9.1 g: not a credible figure (looks like a misplaced decimal); not corrected
+big-breakfast-roll,Salt prints 26.72 g for a 977 kcal roll while the Breakfast Baguette prints 7.66 g and the Big Breakfast Baguette 9.1 g: not a credible figure (looks like a misplaced decimal); not corrected
+apple-and-mixed-spice-strudel,"Sugars print 113.6 g beside carbohydrate 74.7 g, which is impossible (and calories 584.12 vs 4P+4C+9F = 452); not corrected"
+cornflake-cake,"Its own figures contradict each other: calories 440.23 vs 4P+4C+9F = 284 (with fibre 286), 35% lower; the Two Cornflake Cakes row prints the same 440 kcal as this single cake; left out until the chain corrects its sheet"
+two-cornflake-cakes,"Its own figures contradict each other: calories 440 vs 4P+4C+9F = 284 (with fibre 286), 35% lower; it prints the same figures as the single Cornflake Cake; left out until the chain corrects its sheet"
+crusty-roll,"Salt prints 251.27 g, which is impossible, beside 2,247.68 kcal and 102.9 g fat for a roll (the 4 Crusty Rolls row prints 192.06 kcal); not corrected"
+iced-latte,"Saturates print 18.3 g beside fat 11 g, which is impossible (and calories 171.6 vs 4P+4C+9F = 320); not corrected"
+iced-americano,"Saturates print 16.5 g beside fat 8.4 g, which is impossible (and calories 92.4 vs 4P+4C+9F = 241); not corrected"
+latte,"Saturates print 7.7 g beside fat 7 g, which is impossible (and calories 161 vs 4P+4C+9F = 202); not corrected"
+cappuccino,"Saturates print 6.7 g beside fat 5.9 g, which is impossible (and calories 128.8 vs 4P+4C+9F = 168); not corrected"
+flat-white,"Saturates print 6.5 g beside fat 5.5 g, which is impossible (and calories 117 vs 4P+4C+9F = 159); not corrected"
+americano,"Saturates print 4.6 g beside fat 2.3 g, which is impossible (and calories 26 vs 4P+4C+9F = 66); not corrected"
+double-espresso,"Saturates print 4.5 g beside fat 2.2 g, which is impossible (and calories 25.2 vs 4P+4C+9F = 65); not corrected"
+espresso,"Saturates print 2.3 g beside fat 1.1 g, which is impossible (and calories 12.38 vs 4P+4C+9F = 32); not corrected"

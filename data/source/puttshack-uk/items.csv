@@ -1,0 +1,38 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+mac-n-cheese-bites,Mac 'n' Cheese Bites,Shareables,,962,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: MAC ‘N’ CHEESE BITES 962 kcal; menu PDF marks: V; page marks (not used): V
+buttermilk-chicken-tenders,Buttermilk Chicken Tenders,Shareables,,852,,,,,,,,,,,,,,,,false,false,,,Page: BUTTERMILK CHICKEN TENDERS 852 kcal; menu PDF marks: H NG; page marks (not used): NG H
+smokey-corn-riblets,Smokey Corn Riblets,Shareables,,388,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: SMOKEY CORN RIBLETS 388 kcal; menu PDF marks: VG NG; page marks (not used): V VG gf n
+loaded-nachos,Loaded Nachos,Shareables,,1202,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: LOADED NACHOS 1202 kcal; menu PDF marks: V NG; page marks (not used): V NG
+halloumi-fries,Halloumi Fries,Shareables,,708,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: HALLOUMI FRIES 708 kcal; menu PDF marks: V NG; page marks (not used): V NG
+franks-fiery-wings,Frank's Fiery Wings,Shareables,,1066,,,,,,,,,,,,,,,,false,false,,,Page: FRANK’S FIERY WINGS 1066 kcal; menu PDF marks: H NG; page marks (not used): H NG
+korean-kick-wings,Korean Kick Wings,Shareables,,1079,,,,,,,,,,,,,,,,false,false,,,Page: KOREAN KICK WINGS 1079 kcal; menu PDF marks: H NG; page marks (not used): H NG
+skewer-tower,Skewer Tower,Shareables,,2400,,,,,,,,,,,,,,,,false,false,,,Page: SKEWER TOWER 2400 kcal; menu PDF marks: H; page marks (not used): H
+pepperoni-flatbread,Pepperoni Flatbread,Flatbreads,,1100,,,,,,,,,,,,,,,contains_pork,false,false,,,Page: PEPPERONI 1100 kcal; menu PDF marks: none; page marks (not used): V VG gf n
+the-veggie-flatbread,The Veggie Flatbread,Flatbreads,,1044,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: THE VEGGIE 1044 kcal; menu PDF marks: V VG; page marks (not used): V VG
+margherita-flatbread,Margherita Flatbread,Flatbreads,,954,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: MARGHERITA 954 kcal; menu PDF marks: V VG; page marks (not used): V VG
+texas-bbq-flatbread,Texas BBQ Flatbread,Flatbreads,,1120,,,,,,,,,,,,,,,,false,false,,,Page: TEXAS BBQ 1120 kcal; menu PDF marks: H; page marks (not used): H
+wild-mushroom-flatbread,Wild Mushroom Flatbread,Flatbreads,,1100,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: WILD MUSHROOM 1100 kcal; menu PDF marks: V VG; page marks (not used): V VG
+avocado-caesar-salad,Avocado Caesar Salad,Salads & bowls,,577,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: AVOCADO CAESAR SALAD 577 kcal; menu PDF marks: V; page marks (not used): V
+super-food-grain-bowl,Super Food Grain Bowl,Salads & bowls,,380,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: SUPER FOOD GRAIN BOWL 380 kcal; menu PDF marks: VG NG; page marks (not used): VG NG
+og-cheese-burger,OG Cheese Burger,Handhelds,,850,,,,,,,,,,,,,,,contains_beef,false,false,,,Page: OG CHEESE BURGER 850 kcal; menu PDF marks: H; page marks (not used): H
+nashville-hot-honey-chicken-burger,Nashville Hot Honey Chicken Burger,Handhelds,,1300,,,,,,,,,,,,,,,,false,false,,,Page: NASHVILLE HOT HONEY CHICKEN BURGER 1300 kcal; menu PDF marks: H; page marks (not used): H
+bbq-bacon-jalapeno-cheeseburger,BBQ Bacon Jalapeño Cheeseburger,Handhelds,,1292,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,Page: BBQ BACON JALAPEÑO CHEESEBURGER 1292 kcal; menu PDF marks: none; page marks (not used): V VG gf n
+plant-power-burger,Plant Power Burger,Handhelds,,817,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: PLANT POWER BURGER 817 kcal; menu PDF marks: VG; page marks (not used): V VG
+chicken-tinga-tacos,Chicken Tinga Tacos,Handhelds,,874,,,,,,,,,,,,,,,,false,false,,,Page: CHICKEN TINGA TACOS 874 kcal; menu PDF marks: H; page marks (not used): H
+mango-habanero-shrimp-tacos,Mango Habanero Shrimp Tacos,Handhelds,,607,,,,,,,,,,,,,,,,false,false,,,Page: MANGO HABANERO SHRIMP TACOS 607 kcal; menu PDF marks: none; page marks (not used): none
+polish-boy-street-dog,Polish Boy Street Dog,Handhelds,,552,,,,,,,,,,,,,,,contains_pork,false,false,,,Page: POLISH BOY STREET DOG 552 kcal; menu PDF marks: none; page marks (not used): none
+buffalo-chicken-street-dog,Buffalo Chicken Street Dog,Handhelds,,646,,,,,,,,,,,,,,,,false,false,,,Page: BUFFALO CHICKEN STREET DOG 646 kcal; menu PDF marks: none; page marks (not used): none
+house-seasoned-fries,House Seasoned Fries,Sides,,490,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: HOUSE SEASONED FRIES 490 kcal; menu PDF marks: VG NG; page marks (not used): VG NG
+sweet-potato-fries,Sweet Potato Fries,Sides,,447,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: SWEET POTATO FRIES 447 kcal; menu PDF marks: VG NG; page marks (not used): VG NG
+potato-tots,Potato Tots,Sides,,646,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: POTATO TOTS 646 kcal; menu PDF marks: VG NG; page marks (not used): VG NG
+onion-rings,Onion Rings,Sides,,664,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: ONION RINGS 664 kcal; menu PDF marks: VG; page marks (not used): VG
+rainbow-slaw,Rainbow Slaw,Sides,,240,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: RAINBOW SLAW 240 kcal; menu PDF marks: VG NG; page marks (not used): VG ng
+bbq-sauce,BBQ Sauce,Sauces,,60,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: BBQ 60 kcal; menu PDF marks: VG; page marks (not used): none
+peri-peri-sauce,Peri Peri Sauce,Sauces,,38,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: Peri Peri 38 kcal; menu PDF marks: VG; page marks (not used): none
+tzatziki,Tzatziki,Sauces,,24,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: Tzatziki 24 kcal; menu PDF marks: V; page marks (not used): none
+aioli,Aioli,Sauces,,194,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: Aioli 194 kcal; menu PDF marks: V; page marks (not used): none
+chipotle-mayo,Chipotle Mayo,Sauces,,182,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: Chipotle Mayo 182 kcal; menu PDF marks: V; page marks (not used): none
+ranch-sauce,Ranch Sauce,Sauces,,88,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: Ranch 88 kcal; menu PDF marks: V; page marks (not used): none
+strawberries-and-cream-cookie-dough-sundae,"Strawberries & Cream, Cookie Dough Sundae",Desserts,,1458,,,,,,,,,,,,,,,vegetarian,false,false,,,"Page: STRAWBERRIES & CREAM, COOKIE DOUGH SUNDAE 1458 kcal; menu PDF marks: V; page marks (not used): V"
+new-york-cheesecake,New York Cheesecake,Desserts,,580,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: NEW YORK CHEESECAKE 580 kcal; menu PDF marks: V; page marks (not used): V
+double-chocolate-brownie,Double Chocolate Brownie,Desserts,,699,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: DOUBLE CHOCOLATE BROWNIE 699 kcal; menu PDF marks: V; page marks (not used): V

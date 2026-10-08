@@ -1,0 +1,136 @@
+# Wenzel's the Bakers: "NUTRITIONAL INFORMATION (PER SERVING)", page 8 of the Allergen Sheet PDF, version 07, 19/06/2026 (SHA-256 99cdafd5985aa2ee4260afcb0a61e5d609f2238731058e09960c549fe5ba511f).
+# The page is ONE IMAGE (1754x1240 px, about 150 ppi, no text layer) holding three side-by-side tables (L, M, R; read top to bottom). The numbers below were READ BY EYE
+# from that image rendered/upscaled (pdfimages + 4x and 6x Lanczos crops), TWICE (a blind second pass over every cell from 6x crops: 882 cells, 0 differences), then checked three more ways:
+# (1) kJ / kcal = 4.184 (+-0.3%) on all 126 rows, enforced by wenzels.py on every run; (2) 4P+4C+9F against kcal (the pipeline check); (3) a pixel-spacing check of every decimal point
+# (glyph widths fitted over all 1,134 cells: no cell off by more than 1.6 px, a misplaced "." would be 1.8 px). Tesseract could not read the narrow 1s and decimal points and was used only for a
+# digit-level cross-check. Column order as printed: Energy kcal, Energy kJ, Fat, Saturates, Carbohydrates, Fibre, Sugars, Protein, Salt (all g except energy). Values are copied as printed,
+# unrounded. Names: tidy capitalisation; a hyphen that only broke a line ("Sweet-corn", "Sour-dough") is joined and the printed typo "Foaccia" is spelt Focaccia (that row is held back anyway).
+# The printed "BELGIAN BUN" row has a name and no figures: it is listed as excluded so the script stops if the table changes. category and rankable are hand-written grouping (the page has no sections).
+table,row,product,category,rankable,status,kcal,kj,fat,sat,carbs,fibre,sugars,protein,salt
+L,1,Seasoned Wedges,Hot snacks & sides,false,publish,186.34,779.65,5.1,0.6,30.8,4,1.1,3.1,0.97
+L,2,Chicken Goujons,Hot snacks & sides,false,publish,277.35,1160.43,13.2,2.1,18.4,0,0.8,21.9,1.16
+L,3,Sausage Roll,Savoury bakes,true,publish,297,1242.65,15.4,7.8,28.6,1.4,0,10.9,1.43
+L,4,Cheese & Onion Slice,Savoury bakes,true,publish,507.3,2122.53,35.9,20.2,36.1,1.9,2.7,8.5,1.12
+L,5,Chicken Slice,Savoury bakes,true,publish,393,1644.31,19.2,9.2,36.9,2.4,1.5,16.8,1.5
+L,6,Steak Slice,Savoury bakes,true,publish,504,2108.74,33.6,17.6,35.2,2.6,2.7,13.8,1.36
+L,7,Jamaican Beef Pattie,Savoury bakes,true,publish,428.4,1792.43,22.3,10.8,49.3,0,5,9.4,1.54
+L,8,Vegan Roll,Savoury bakes,true,publish,394.5,1650.59,21.2,9.3,31.7,2.7,3,18,1.65
+L,9,"Tomato, Mozzarella and Pesto Panini",Paninis,true,publish,521.85,2183.42,21.1,6.8,62.4,0.4,4.5,18.7,2.27
+L,10,Ham and Cheddar Panini,Paninis,true,publish,496.93,2079.16,14.3,7.2,63.6,0,3.9,27.6,4.22
+L,11,Piri Piri Chicken Panini,Paninis,true,publish,535.9,2242.21,14.4,6.1,67.6,0,7.7,31.7,2.72
+L,12,Southern Fried Chicken Panini,Paninis,true,publish,582.8,2438.44,17.6,6.7,75.1,0,6.7,29.5,3.22
+L,13,Margherita Pizza,Pizzas,true,publish,608.4,2545.55,23.4,14.3,66.8,5.7,1,29.4,2.2
+L,14,Pepperoni Pizza,Pizzas,true,publish,715.35,2993.02,33.1,18,67.8,5.7,1.7,33.9,2.83
+L,15,Peri-Peri Chicken Pizza,Pizzas,true,publish,598,2502.03,19.8,9.4,69.9,4.4,5.7,34.8,2.04
+L,16,Premium Pepperoni Filled Baguette,Baguettes,true,publish,707.4,2959.76,26.7,15.1,77.2,5.1,2.7,33.5,3.78
+L,17,Premium Ham Filled Baguette,Baguettes,true,publish,675,2824.2,20.1,12.6,77.7,4.8,3,40.5,5.09
+L,18,Premium Piri Piri Filled Baguette,Baguettes,true,publish,751.68,3145.02,23.1,12.8,88,5.5,10.9,42.1,4.53
+L,19,Premium Vegetable Filled Baguette,Baguettes,true,publish,640.49,2679.81,19.2,12,80.6,6.3,4.8,30.7,4.68
+L,20,Tomato Mozzarella & Pesto Focaccia,Focaccia,true,publish,755.2,3159.76,38.1,12.1,74.9,5.3,2.7,28.9,2.15
+L,21,Smoked Cheese & Caramelised Onion Focaccia,Focaccia,true,publish,967.6,4048.44,34.8,19.2,89.4,5.6,14.5,26,2.39
+L,22,Roasted Chicken & Nduja Mayo Focaccia,Focaccia,true,publish,548.1,2293.25,10.4,3.5,79.5,5.2,4.4,35.4,1.2
+L,23,Brioche Egg Mayo and Spring Onion Knot,Brioche knots,true,publish,471.38,1972.25,29.1,5.3,38.8,1.6,4.9,14.9,1.42
+L,24,Brioche Ham Cheese and Gherkin Knot,Brioche knots,true,publish,423.3,1771.09,20.2,9.5,39.3,1.5,6.3,20.4,3.09
+L,25,Cheese & Salad Baguette,Baguettes,true,publish,559,2338.86,18.2,8.3,76.7,5.1,3.9,19.9,2.58
+L,26,Chicken & Bacon Baguette,Baguettes,true,publish,350,1464.4,14.4,1.7,38.6,2,1.2,16.2,1.7
+L,27,Chicken Club Baguette,Baguettes,true,publish,811.25,3394.27,37.8,9.7,77.3,4.1,2.7,39.2,3.96
+L,28,Chicken Salad Baguette,Baguettes,true,publish,664.6,2780.68,25,1.8,80.5,5.3,4.9,28.5,3.29
+L,29,Egg & Cress Baguette,Baguettes,true,publish,580.8,2430.07,21.6,2.6,75.6,4.1,2.6,20.2,3.74
+L,30,Egg Mayo & Salad Baguette,Baguettes,true,publish,565.07,2364.24,19.4,2.4,77.5,4.9,3.9,19.7,3.02
+L,31,Egg & Tomato Baguette,Baguettes,true,publish,582.4,2436.76,21.6,2.9,75.9,4.2,3.1,20,2.34
+L,32,Ham & Cheese Baguette,Baguettes,true,publish,597.6,2500.36,19.2,8.6,75.4,3.8,2.4,29,4.29
+L,33,Ham Salad Baguette,Baguettes,true,publish,508.4,2127.15,9.3,2.2,78.7,4.7,4.3,25.4,4.37
+L,34,Peri Peri Chicken Baguette,Baguettes,true,publish,548.1,2293.25,7.5,0.9,89.6,4.6,13.6,29,3.68
+L,35,Southern Fried Chicken Baguette,Baguettes,true,publish,660.4,2763.11,25.7,2.3,85,4.4,3.1,22.1,2.76
+L,36,Korean Chicken Baguette,Baguettes,true,publish,497.82,2082.9,4.5,1.6,79.4,4,9.8,31,2.7
+L,37,Tuna & Sweetcorn Baguette,Baguettes,true,publish,628,2627.55,21.8,1.6,80.5,5.6,4.9,26.1,2.91
+M,1,Tuna Salad Baguette,Baguettes,true,publish,613.18,2565.56,21.3,1.7,79.1,5.2,4.5,25.8,2.72
+M,2,Chicken & Sweetcorn Baguette,Baguettes,true,publish,683.2,2858.51,25.8,2,82.3,5.6,5,28.8,2.81
+M,3,Chipotle Chicken & Avocado Wrap,Wraps,true,publish,395.5,1654.77,8.8,1.8,31.7,3.3,6.1,21,1.43
+M,4,Fajita Chicken Wrap,Wraps,true,publish,440,1840.96,7.5,1,57.5,1.8,8,32.8,4.7
+M,5,Pulled Pork & Apple Slaw Wrap,Wraps,true,publish,236.35,988.89,6.7,1.3,31.5,1.5,8.4,12.3,1.81
+M,6,White Cheese Salad Bloomer,Bloomers,true,publish,243,1016.71,9,4.8,29.8,1.6,1.1,10,0.41
+M,7,Multiseed Cheese Salad Bloomer,Bloomers,true,publish,255,1066.92,13,5.3,23.8,3.2,1.9,10,0.97
+M,8,White Chicken & Bacon Bloomer,Bloomers,true,publish,351,1468.58,17.6,2.6,30.8,1.2,0.6,17.8,0.66
+M,9,Multiseed Chicken & Bacon Bloomer,Bloomers,true,publish,328.28,1373.52,18.3,2.6,24.5,2.8,1.3,16.6,1.14
+M,10,White Tuna Salad Bloomer,Bloomers,true,publish,510.9,2137.61,19.4,2.1,61.6,3.4,2.9,23.1,0.79
+M,11,Multiseed Tuna Salad Bloomer,Bloomers,true,publish,502.5,2102.46,24.3,2.3,49,6.3,3.5,22.8,1.83
+M,12,White Ham & Cheese Bloomer,Bloomers,true,publish,314.69,1316.64,13.4,6.8,29.5,1.2,0.7,18.5,1.81
+M,13,Multiseed Ham & Cheese Bloomer,Bloomers,true,publish,324.41,1357.31,18,7.3,24.2,0,1.3,19.7,2.2
+M,14,White Chicken Club Bloomer,Bloomers,true,publish,373,1560.63,19,5,29.9,1.3,0.9,18.7,0.87
+M,15,Multiseed Chicken Club Bloomer,Bloomers,true,publish,367,1535.53,21.1,5.1,24.7,2.8,1.6,18.5,1.33
+M,16,White Chicken Mayo Salad Bloomer,Bloomers,true,publish,284.36,1189.74,11.9,1.2,31.5,1.6,1.3,12.9,0.35
+M,17,Multiseed Chicken Mayo Salad Bloomer,Bloomers,true,publish,284,1188.26,14.4,1.3,25.6,3.2,2.1,13,0.89
+M,18,Multiseed Ham Salad Bloomer,Bloomers,true,publish,335.22,1402.56,10,2,44.6,5.8,3.8,15.8,2.16
+M,19,White Ham Salad Bloomer,Bloomers,true,publish,364.65,1525.7,5.5,1.8,60.8,3.3,2.7,16.6,1.17
+M,20,Tuna Nicoise Salad,Salads,true,publish,349.75,1463.36,19,3.4,12.3,5.5,10.7,32.2,1.67
+M,21,Falafel and Feta Salad,Salads,true,publish,425.13,1778.74,31.3,11,19.3,4.6,5.7,13.3,2.41
+M,22,Chicken Avocado and Bacon Salad,Salads,true,publish,303.09,1268.14,14.1,5.5,15.6,7.8,11.8,28.9,1.02
+M,23,Big Breakfast Baguette,Breakfast,true,publish,1141.44,4775.78,55.1,17.8,100.8,7.2,5,56.2,9.1
+M,24,Breakfast Baguette,Breakfast,true,publish,839.9,3514.14,38.1,13.7,75.5,4.4,3.3,45.9,7.66
+M,25,Breakfast Roll,Breakfast,true,publish,648.29,2712.45,35.9,15.9,45.1,5.4,2.5,34,23.76
+M,26,Big Breakfast Roll,Breakfast,true,publish,976.71,4086.57,61.6,23.1,49.6,6.3,4.3,52,26.72
+M,27,The Wenzel's Breakfast,Breakfast,true,publish,404,1690.34,22,6.7,29.6,5.6,4.2,18.7,3
+M,28,All Day Breakfast White Bloomer,Breakfast,true,publish,996.15,4167.89,63.1,18.7,50.5,2.6,3.5,55.2,7.41
+M,29,All Day Breakfast Multiseed Bloomer,Breakfast,true,publish,1030.95,4313.49,63.1,19.6,66.6,2.2,3,54.4,7.33
+M,30,Hashbrowns,Hot snacks & sides,false,publish,37.25,155.85,1.7,0.2,4.7,0.6,0.2,0.5,0.12
+M,31,Croissant,Cakes & sweet bakes,false,publish,221,924.66,11.2,8,24.8,0.7,4.3,4.8,0.61
+M,32,Double Chocolate Muffin,Cakes & sweet bakes,false,publish,451.62,1889.58,23,3.9,55.3,2.3,33,6.1,0.27
+M,33,Almond Muffin,Cakes & sweet bakes,false,publish,433.19,1812.46,23.2,2.3,50.7,1.5,27.9,6.5,0.24
+M,34,Lemon & Blackberry Crumble Muffin,Cakes & sweet bakes,false,publish,435.74,1823.15,21.2,2.4,59.5,1.6,29.3,5.9,0.27
+M,35,Chocolate Viennese,Cakes & sweet bakes,false,publish,448,1874.43,28.1,10.6,46,1.8,15,3.8,0.57
+M,36,Strawberry Viennese,Cakes & sweet bakes,false,publish,419,1753.1,24.4,9.1,48.3,1.4,19.8,3.2,0.56
+M,37,Lemon Viennese,Cakes & sweet bakes,false,publish,422.52,1767.82,24.9,9.2,47.5,1.4,19.4,3.4,0.56
+M,38,Iced Ring Donut,Cakes & sweet bakes,false,publish,294.59,1232.56,6.3,2.8,53.4,1.3,20.6,5.7,0.13
+M,39,Sugar Ring Donut,Cakes & sweet bakes,false,publish,380.72,1592.92,9.1,3.7,65,2.1,18,8.6,0.2
+M,40,Jam Doughnut,Cakes & sweet bakes,false,publish,292.97,1225.8,5.7,2.5,55.1,1.4,22.4,5.3,0.13
+R,1,Iced England Doughnut,Cakes & sweet bakes,false,publish,458.04,1916.44,21.3,9.1,58.1,2.2,15.2,7.4,0.18
+R,2,Yummie,Cakes & sweet bakes,false,publish,457.77,1915.32,16.8,7.7,68.2,1.8,24.7,7.6,0.17
+R,3,Cinnamon Yummie,Cakes & sweet bakes,false,publish,367.5,1537.62,13.5,6.2,54.7,1.4,20.3,6.1,0.15
+R,4,Maple and Pecan Yummie,Cakes & sweet bakes,false,publish,502.64,2103.05,21.5,7.7,70,1.8,35,6.4,0.2
+R,5,Tottenham Slice,Cakes & sweet bakes,false,publish,448.54,1876.67,21.4,2.2,60.8,1.2,35,4.8,1.14
+R,6,Marble Cake Slice,Cakes & sweet bakes,false,publish,517.5,2165.22,26.1,2.8,64.9,1.6,36.1,6.9,0.33
+R,7,Victoria Sponge Cake Slice,Cakes & sweet bakes,false,publish,365.34,1528.58,17.2,2.8,49.9,0.8,31.7,4,0.21
+R,8,Marble Slab Cake,Cakes & sweet bakes,false,publish,1490.4,6235.83,75.2,7.9,186.8,4.7,104,19.8,0.95
+R,9,Almond Madeira,Cakes & sweet bakes,false,publish,25.77,107.83,1.4,0.1,2.9,0.1,1.6,0.4,0.01
+R,10,Cherry Bakewell Tart,Cakes & sweet bakes,false,publish,344.97,1443.37,12.3,4.2,55.1,0.6,28.6,3.3,0.32
+R,11,Apple & Mixed Spice Strudel,Cakes & sweet bakes,false,publish,584.12,2443.95,13.9,5.9,74.7,5,113.6,7,0.52
+R,12,Cornflake Cake,Cakes & sweet bakes,false,publish,440.23,1841.91,11.2,9.5,43.5,0.9,22.4,2.3,0.27
+R,13,Fairy Cake,Cakes & sweet bakes,false,publish,242.82,1015.96,8.4,0.9,40,0.4,28.3,2.2,0.1
+R,14,Two Cornflake Cakes,Cakes & sweet bakes,false,publish,440,1840.96,11.2,9.5,43.5,1,22.5,2.2,0.27
+R,14b,BELGIAN BUN,,,exclude: name printed with no figures,,,,,,,,,
+R,15,Demi White Baguette,Bread & rolls,false,publish,335.4,1403.31,1.4,0.1,68,3.6,1.7,10.7,1.69
+R,16,Multiseed Baguette,Bread & rolls,false,publish,510.34,2135.28,14.4,1.9,70.1,7.8,2.1,18.1,0.97
+R,17,Small Bloomer Loaf,Bread & rolls,false,publish,1107.76,4634.87,4,0.8,221.6,10.5,1.6,41.6,1.3
+R,18,Multiseed Bloomer,Bread & rolls,false,publish,2225.15,9310.03,50.2,7.2,339.8,39.9,13.6,84.5,7.5
+R,19,Sourdough Loaf,Bread & rolls,false,publish,1553.87,6501.39,4.9,1.1,318.9,13.5,2.7,55.2,0.11
+R,20,Multiseed Sourdough,Bread & rolls,false,publish,1996.13,8351.79,38.6,6.1,320.7,25,8.8,77.1,3.92
+R,21,Signature Sourdough,Bread & rolls,false,publish,1589.66,6651.13,24.6,3.7,302.1,22.3,12.5,57.2,0.09
+R,22,Large Bloomer Loaf,Bread & rolls,false,publish,2289.66,9579.94,16.4,6.4,490.8,27.4,3.6,60.2,2.85
+R,23,Seeded Bloomer Loaf,Bread & rolls,false,publish,2546.19,10653.26,18.3,6.4,491.8,23.8,3.7,92.5,2.91
+R,24,Crusty Roll,Bread & rolls,false,publish,2247.68,9404.3,102.9,70,230.5,34.6,18.1,80.7,251.27
+R,25,Soft Roll,Bread & rolls,false,publish,198.2,829.25,0.6,0.1,40.2,1.8,0.3,7.2,0.19
+R,26,4 Soft Rolls,Bread & rolls,false,publish,196.14,820.66,0.9,0.3,39.3,1.7,1,7,0.82
+R,27,4 Crusty Rolls,Bread & rolls,false,publish,192.06,803.59,1.2,0.5,37.7,1.6,0.3,6.8,0.16
+R,28,Iced Latte,Drinks,false,publish,171.6,717.97,11,18.3,40.9,11,7.9,14.3,0.18
+R,29,Iced Americano,Drinks,false,publish,92.4,386.6,8.4,16.5,33,11,0,8.4,0.02
+R,30,Strawberry Matcha Latte,Drinks,false,publish,210,878.64,2.8,1.8,39.8,0,38.5,6.5,0.17
+R,31,Vanilla Matcha Latte,Drinks,false,publish,207.5,868.18,2.8,1.8,38.8,0,32,6.3,0.25
+R,32,Ice Matcha Latte,Drinks,false,publish,125,523,3.3,2,16.8,0,15.8,7.3,0.2
+R,33,Pink Lemonade,Drinks,false,publish,78,326.35,0,0,17.9,0,17.9,0,0.08
+R,34,Dragon Fruit and Mango Chiller,Drinks,false,publish,5.2,21.76,0,0,1,0,1,0,0.01
+R,35,Mango and Passion Fruit Chiller,Drinks,false,publish,10.4,43.51,0,0,1.8,0,1.6,0.3,0.03
+R,36,Salted Caramel Frappe,Drinks,false,publish,315,1317.96,7.2,5.7,54.6,0,48,7.5,1.04
+R,37,Vanilla Cream Frappe,Drinks,false,publish,359.9,1505.82,13.6,11.8,52.8,0,48.1,7.1,0.45
+R,38,Coffee Frappe,Drinks,false,publish,220,920.48,7.7,7.2,33.6,1.1,29.7,7.4,0.33
+R,39,Mocha Frappe,Drinks,false,publish,260.4,1089.51,8.7,7.8,40.9,1.2,35.7,8.1,0.44
+R,40,Latte,Drinks,false,publish,161,673.62,7,7.7,22.4,3.2,13.3,12.3,0.32
+R,41,Cappuccino,Drinks,false,publish,128.8,538.9,5.9,6.7,19,3.1,10.1,9.8,0.24
+R,42,Mochaccino,Drinks,false,publish,507,2121.29,15.6,10.7,66.3,1,62.4,27.3,1.51
+R,43,Macchiato,Drinks,false,publish,272.8,1141.4,9.9,6.8,28.5,0.6,26.7,20.5,0.61
+R,44,Flat White,Drinks,false,publish,117,489.53,5.5,6.5,18.2,3.1,9.1,9.1,0.22
+R,45,Americano,Drinks,false,publish,26,108.78,2.3,4.6,9.1,2.9,0,2.3,0.03
+R,46,Double Espresso,Drinks,false,publish,25.2,105.44,2.2,4.5,9,3,0,2.2,0.01
+R,47,Espresso,Drinks,false,publish,12.38,51.78,1.1,2.3,4.5,1.5,0,1.1,0
+R,48,Hot Chocolate,Drinks,false,publish,247,1033.45,4.9,3.9,44.9,0,42.9,4.6,1.07
+R,49,Breakfast Tea,Drinks,false,publish,9.89,41.38,0.3,0.2,1,0,1,0.7,0.02
