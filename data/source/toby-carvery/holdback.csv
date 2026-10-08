@@ -1,0 +1,3 @@
+item_id,reason
+toffee-apple-crumble,"allergen row contradicts the dish name: a crumble with a crumble topping and no cereal (gluten) marked (and no milk marked for a toffee dish the menu lists as vegetarian, not vegan), with no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false)."
+chocolate-fudge-cake,allergen row contradicts the dish name: a fudge cake with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).

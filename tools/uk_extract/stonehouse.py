@@ -72,6 +72,9 @@ CHAIN = mb.Chain(
     notes={"Meat Free Carvery": "Much larger than the carved-meat carvery rows (1,458 kcal against 175-350): not comparable with them"},
     holdback={
         "Wholetail Scampi": "The feed prints 951 kcal; its own macros add up to about 774 kcal (and its kJ to about 679 kcal).",
+        "Chocolate Fudge Cake": ("allergen row contradicts the dish name/ingredients: the feed marks eggs, milk and soya (tree nut may "
+                                 "be present) but no gluten or cereal for a cake, and the item carries no gluten-free claim "
+                                 "(noGlutenContainingIngs is false)."),
     },
     note_txt=("From the menu of one Stonehouse restaurant, used as published: other restaurants' menus and values may differ. Main menu "
               "(Mon-Sat) only. A side, sauce or topping you choose isn't added in, to the numbers or to the allergens. Carvery meat "

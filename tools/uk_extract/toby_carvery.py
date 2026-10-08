@@ -51,7 +51,12 @@ CHAIN = mb.Chain(
     notes={
         "Liqueur Hot Chocolate": "Printed values are identical to the Hot Chocolate row",
     },
-    holdback={},
+    # Allergen rows that contradict the dish's own name (accuracy re-check, 2026-10-08): the feed marks no gluten for a cake or a
+    # crumble, and the feed's own noGlutenContainingIngs claim is false for both. Not corrected, not chosen between: not published.
+    holdback={
+        "Chocolate Fudge Cake": "allergen row contradicts the dish name: a fudge cake with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).",
+        "Toffee Apple Crumble": "allergen row contradicts the dish name: a crumble with a crumble topping and no cereal (gluten) marked (and no milk marked for a toffee dish the menu lists as vegetarian, not vegan), with no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false).",
+    },
     note_txt=("Main menu and puddings only. Carvery meats and sandwich fillings are listed without the bread, roast potatoes, "
               "vegetables, Yorkshire pudding and gravy that come with them (Toby publishes those at the carvery deck), so a plate is "
               "higher and their allergens aren't included. A sauce, custard or topping you choose isn't added in either."),

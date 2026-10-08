@@ -64,7 +64,6 @@ INCLUDE: list[tuple[str, str, str, bool, str]] = [
     ("ham-cheese-filled-roll-white", "Ham & cheese filled roll (white)", RS, True, "Per Product"),
     ("ham-salad-filled-roll-white", "Ham salad filled roll (white)", RS, True, "Per roll"),
     ("tuna-mayo-cucumber-filled-roll-white", "Tuna mayo & cucumber filled roll (white)", RS, True, "Per roll"),
-    ("blt-chia-roll", "BLT chia roll", RS, True, "Per roll"),
     ("chicken-caesar-chia-roll", "Chicken Caesar chia roll", RS, True, "Per roll"),
     ("mixed-cheese-onion-sandwich-with-jalapeno-relish-on-chia-bread",
      "Mixed cheese & onion sandwich with jalapeno relish on chia bread", RS, True, "Per roll"),
@@ -124,7 +123,6 @@ INCLUDE: list[tuple[str, str, str, bool, str]] = [
     ("cream-swiss-bun", "Cream swiss bun", CK, False, "Per Product"),
     ("cinnamon-bun", "Cinnamon bun", CK, False, "Per Product"),
     ("chocolate-twist", "Chocolate twist", CK, False, "Per Per Twist"),
-    ("apple-crumble-danish", "Apple crumble danish", CK, False, "Per Product"),
     ("pink-elephants-foot-1", "Pink elephants foot", CK, False, "Per Product"),
     ("strawberry-weekend-special", "Strawberry weekend special", CK, False, "Per Product"),
     ("mini-strawberry-sponge", "Mini strawberry sponge", CK, False, "Per Portion"),
@@ -133,7 +131,6 @@ INCLUDE: list[tuple[str, str, str, bool, str]] = [
     ("paw-cupcake", "Paw cupcake", CK, False, "Per Per Cupcake"),
     ("large-honeycomb-brownie", "Honeycomb brownie slice", CK, False, "Per Portion"),
     ("cookie-cream-brownie", "Cookie & cream brownie", CK, False, "Per Portion"),
-    ("apricot-pumpkin-seed-flapjack", "Apricot & pumpkin seed flapjack", CK, False, "Per Portion"),
     ("mrs-bs-rocky-road-tray", "Mrs B's rocky road tray", CK, False, "Per Slice (75g)"),
     ("mince-pie-1", "Mince pie", CK, False, "Per Product"),
     ("summer-gingerbread-person", "Summer gingerbread person", CK, False, "Per Product"),
@@ -170,6 +167,16 @@ HOLD: list[tuple[str, str, str, str, str]] = [
     ("raspberry-pistachio-danish", "Raspberry & pistachio danish", CK, "Per Product",
      "Protein is printed as 0.08 g for a pastry made with flour, egg, milk and nuts, which is not credible: not published "
      "until the chain fixes its guide"),
+    ("blt-chia-roll", "BLT chia roll", RS, "Per roll",
+     "Allergen row contradicts the dish's own ingredients: the page's Allergens line is 'Gluten, Milk, Soya' but its ingredient "
+     "list names EGG (in capitals, as it does for the other allergens). Not published until the chain fixes its page"),
+    ("apple-crumble-danish", "Apple crumble danish", CK, "Per Product",
+     "Allergen row contradicts the dish's own ingredients: the page's Allergens line is 'Eggs, Gluten, Milk' but its ingredient "
+     "list names Sodium Metabisulphite (a sulphite preservative in the apple); sulphites appear only as 'may contain traces'. "
+     "Not published until the chain fixes its page"),
+    ("apricot-pumpkin-seed-flapjack", "Apricot & pumpkin seed flapjack", CK, "Per Portion",
+     "Allergen row contradicts the dish's own ingredients: the page's Allergens line is just 'Gluten' but its ingredient list "
+     "names Butter (MILK) and Preservative (SULPHUR DIOXIDE). Not published until the chain fixes its page"),
 ]
 
 # --- identical (or nearly identical) repeats of an item listed elsewhere on the site: dropped, after checking ---------------

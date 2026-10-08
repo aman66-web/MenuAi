@@ -54,6 +54,10 @@ CHAIN = mb.Chain(
     holdback={
         "Salt & Pepper Calamari": "The feed prints 479 kcal; its own macros add up to about 386 kcal (and its kJ to about 430 kcal).",
         "Trio of Ice Cream & Sorbet": "The feed prints 0.9 kcal for three scoops of ice cream or sorbet; the scoops are chosen separately and their values aren't added in.",
+        # Allergen rows that contradict the dish itself (accuracy re-check, 2026-10-08). Not corrected, not chosen between.
+        "Fish & Chips": "allergen row contradicts the dish name/ingredients: the feed marks eggs, fish and mustard but no gluten or cereal for 'freshly battered haddock' (and its noGlutenContainingIngs claim is false); Harvester, Stonehouse and Sizzling Pubs mark gluten on their battered fish.",
+        "Double Chocolate Brownie": "allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.",
+        "Mini Double Chocolate Brownie": "allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.",
     },
     note_txt=("Main menu (Mon-Sat) only; the Sunday menu isn't included. A steak sauce or other choice you add isn't included. "
               "Today's Soup and the Pie of the Day aren't listed because they change daily. Weights in names (oz) are approximate uncooked weights."),

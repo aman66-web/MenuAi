@@ -1,51 +1,51 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-tomato-soup,Tomato Soup,Starters,,307.019,7.6653,48.0778,9.5561,2.962,,0.5229,11.7175,,vegetarian,false,true,,,
-prawn-cocktail,Prawn Cocktail,Starters,,466.86,18.491,40.3584,24.4901,4.3417,,2.0657,15.3964,,,false,true,,,
-ciabatta-garlic-bread,Ciabatta Garlic Bread,Toby tasters,,553.181,10.7727,62.0362,28.3999,3.6,,1.0939,3.4265,,vegetarian,false,true,,,
-poppin-chicken,Poppin' Chicken,Toby tasters,,311.58,17.141,28.166,14.444,2.404,,1.2835,8.648,,,false,true,,,
-cheesy-mushrooms,Cheesy Mushrooms,Toby tasters,,396.2005,13.0154,33.9811,22.4079,6.301,,1.2604,2.5213,,vegetarian,false,true,,,
-caramelised-onion-and-shallot-tarte-tatin,Caramelised Onion & Shallot Tarte Tatin,Toby tasters,,356.63,7.831,41.396,17.249,10.454,,1.0214,22.598,,vegetarian,false,true,,,
-mini-pigs-in-blankets,Mini Pigs in Blankets,Toby tasters,,287.84,23.184,0.336,20.496,7.616,,2.137,0.336,,contains_pork,false,true,,,
-loaded-mac-and-cheese,Loaded Mac & Cheese,Toby tasters,,353.58,16.886,36.156,15.014,4.704,,1.522,2.428,,,false,true,,,
-bacon-and-cheddar-loaded-roasties,Bacon & Cheddar Loaded Roasties,Toby tasters,,438.0009,13.2119,76.8924,7.3711,3.0074,,2.1379,4.2194,,contains_pork,false,true,,,
-sage-and-onion-loaded-roasties,Sage & Onion Loaded Roasties,Toby tasters,,443.3509,10.0959,91.0594,2.8961,0.3834,,2.2441,4.9634,,vegetarian,false,true,,,
-mac-and-cheese-yorkie-wrap,Mac & Cheese Yorkie Wrap,Yorkie wraps & sandwiches,,836.5221,26.3947,109.5297,30.4705,9.0272,,2.2631,6.3117,,vegetarian,false,true,,,
-hand-carved-gammon-and-mustard,Hand-Carved Gammon & Mustard,Yorkie wraps & sandwiches,,302.4233,44.041,3.904,12.3266,4.1635,,8.3891,3.263,,contains_pork,false,false,,,Menu choices not added in: Choose your bread
-roast-pork-stuffing-and-apple-sauce,"Roast Pork, Stuffing & Apple Sauce",Yorkie wraps & sandwiches,,345.2014,17.243,21.8168,21.337,7.292,,0.7,5.4952,,contains_pork,false,false,,,Menu choices not added in: Choose your bread
-roast-turkey-club,Roast Turkey Club,Yorkie wraps & sandwiches,,418.3403,39.2321,20.6369,19.9649,3.4717,,3.9451,4.2981,,,false,false,,,Menu choices not added in: Choose your bread
-hunters-gammon-and-turkey,Hunters Gammon & Turkey,Yorkie wraps & sandwiches,,484.8857,62.8081,13.6357,20.2664,9.4688,,6.5826,11.6349,,contains_pork,false,false,,,Menu choices not added in: Choose your bread
-ultimate-roast-beef,Ultimate Roast Beef,Yorkie wraps & sandwiches,,403.34,38.948,6.8,23,10.07,,0.93,5.2,,contains_beef,false,false,,,Menu choices not added in: Choose your bread
-famous-yorkie-and-gravy,Famous Yorkie & Gravy,Add-ons,,220,5.316,24.283,11.074,1.068,,2.7881,1.739,,vegetarian,false,false,,,
-small-bowl-of-soup,Small Bowl of Soup,Add-ons,,97.5,2.5,17.5,2.5,0,,0,10,,vegetarian,false,false,,,
-roast-turkey,Roast Turkey,Carvery,,321.906,65.4622,0.7938,7.2722,2.42,,0.3544,0.525,,,false,false,,,Feed kJ (981.31) does not match its kcal (321.906); kJ is not used
-roast-beef,Roast Beef,Carvery,,392.3636,51.4478,1.0319,18.4884,8.8002,,0.1214,0.7891,,contains_beef,false,false,,,
-roast-gammon,Roast Gammon,Carvery,,384.8471,57.2942,4.0016,15.6043,5.3886,,10.4264,3.653,,contains_pork,false,false,,,
-roast-pork,Roast Pork,Carvery,,474.3679,29.1856,3.0879,39.4864,13.7344,,0,2.1681,,contains_pork,false,false,,,
-spicy-butternut-squash-tart,Spicy Butternut Squash Tart,"Vegetarian, vegan & fish",,882.78,20.956,72.726,55.084,18.614,,3.4054,24.498,,vegetarian,false,true,,,
-melt-in-the-middle-roast,Melt in the Middle Roast,"Vegetarian, vegan & fish",,469.02,8.858,53.326,23.616,1.802,,1.1068,15.816,,vegetarian,false,true,,,
-cheese-potato-and-leek-pie,"Cheese, Potato & Leek Pie","Vegetarian, vegan & fish",,891.78,21.866,79.916,52.484,24.424,,1.6504,6.278,,vegetarian,false,true,,,
-salmon-and-dill-wellington,Salmon & Dill Wellington,"Vegetarian, vegan & fish",,809.52,27.743,46.186,56.611,15.682,,1.4728,2.956,,,false,true,,,
-bramley-apple-pie,Bramley Apple Pie,Puddings,,445.0906,4.0834,62.6802,18.9878,6.9418,,0.0204,23.6837,,vegetarian,false,false,,,Menu choices not added in: Served with?
-toffee-apple-crumble,Toffee Apple Crumble,Puddings,,464,2.18,85.12,12.52,4.04,,0.9782,48.32,,vegetarian,false,false,,,Menu choices not added in: Served with?
-chocolate-fudge-cake,Chocolate Fudge Cake,Puddings,,579.8466,5.1856,72.2844,29.8566,6.2856,,0.3929,54.999,,vegetarian,false,false,,,Menu choices not added in: Served with?
-baked-vanilla-cheesecake,Baked Vanilla Cheesecake,Puddings,,757.4625,7.2838,85.8225,42.4188,26.7438,,0.5511,62.585,,vegetarian,false,false,,,
-dairy-ice-cream,Dairy Ice Cream,Puddings,,165,4.75,19.875,7.375,4.75,,0.1563,19.625,,vegetarian,false,false,,,Menu choices not added in: Pick a Sauce
-vegan-vanilla-ice-cream,Vegan Vanilla Ice Cream,Puddings,,144.7,0.72,20.41,6.65,5.72,,0.1212,14.91,,vegetarian,false,false,,,
-chocolate-brownie-sundae,Chocolate Brownie Sundae,Puddings,,540.6713,9.2253,87.2735,16.8006,7.7917,,0.5675,67.494,,vegetarian,false,false,,,
-honeycomb-dream-sundae,Honeycomb Dream Sundae,Puddings,,354.3675,6.3333,60.1835,9.766,6.267,,0.6885,51.843,,vegetarian,false,false,,,
-berry-best-sundae,Berry Best Sundae,Puddings,,241.78,6.552,30.806,9.886,6.232,,0.206,29.578,,vegetarian,false,false,,,
-sticky-toffee-pudding,Sticky Toffee Pudding,Puddings,,707.875,6.15,91.4834,34.8542,3.4084,,1.0417,57.6001,,vegetarian,false,false,,,Menu choices not added in: Served with?
-chocolate-and-cookie-dough-brownie,Chocolate & Cookie Dough Brownie,Puddings,,525.6076,5.624,74.265,22.1792,9.0095,,0.5193,53.687,,vegetarian,false,false,,,
-mini-chocolate-brownie,Mini Chocolate Brownie,Puddings,,264.7538,2.842,37.4375,11.1146,4.5047,,0.2597,27.1485,,vegetarian,false,false,,,
-pot-of-tea,Pot of Tea,Hot drinks,,24.5,1.7025,2.5,0.85,0.5,,0.075,2.5,,vegetarian,false,false,,,
-herbal-tea,Herbal Tea,Hot drinks,,0,0,0,0,0,,0,0,,vegetarian,false,false,,,
-black-americano,Black Americano,Hot drinks,,10.5184,0.5046,0.4742,0.4074,0.1824,,0.0001,0.0152,,vegetarian,false,false,,,Menu choices not added in: Add Syrup?
-white-americano,White Americano,Hot drinks,,59.5184,3.9046,5.4742,2.1074,1.1824,,0.1501,5.0152,,vegetarian,false,false,,,Feed kJ (423.512) does not match its kcal (59.5184); kJ is not used. Menu choices not added in: Add Syrup?
-hot-chocolate,Hot Chocolate,Hot drinks,,212.91,4.386,29.3175,8.458,6.14,,0.437,27.2175,,vegetarian,false,false,,,
-espresso,Espresso,Hot drinks,,8.65,0.415,0.39,0.335,0.15,,0.0001,0.0125,,vegetarian,false,false,,,
-cappuccino,Cappuccino,Hot drinks,,92.663,6.1721,9.077,3.2293,1.858,,0.2565,8.6785,,vegetarian,false,false,,,Feed kJ (532.094) does not match its kcal (92.663); kJ is not used. Menu choices not added in: Add Syrup?
-latte,Latte,Hot drinks,,107.63,7.283,10.49,3.769,2.17,,0.3031,10.1125,,vegetarian,false,false,,,Feed kJ (594.995) does not match its kcal (107.63); kJ is not used. Menu choices not added in: Add Syrup?
-flat-white,Flat White,Hot drinks,,84.0184,5.6046,7.9742,2.9574,1.6824,,0.2251,7.5152,,vegetarian,false,false,,,Feed kJ (526.512) does not match its kcal (84.0184); kJ is not used. Menu choices not added in: Add Syrup?
-iced-coffee,Iced Coffee,Hot drinks,,82.15,5.515,7.89,2.885,1.65,,0.2251,7.5125,,vegetarian,false,false,,,Feed kJ (487.875) does not match its kcal (82.15); kJ is not used. Menu choices not added in: Add Syrup?
-lavazza-liqueur-coffee,Lavazza Liqueur Coffee,Hot drinks,,60.1,0.835,1.8075,5.235,3.65,,0.0141,1.43,,vegetarian,false,false,,,Feed kJ (391.5) does not match its kcal (60.1); kJ is not used. Menu choices not added in: Add Syrup?
-liqueur-hot-chocolate,Liqueur Hot Chocolate,Hot drinks,,212.91,4.386,29.3175,8.458,6.14,,0.437,27.2175,,vegetarian,false,false,,,Printed values are identical to the Hot Chocolate row
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+tomato-soup,Tomato Soup,Starters,,307.019,7.6653,48.0778,9.5561,2.962,,0.5229,11.7175,,,,,,,,vegetarian,false,true,,,
+prawn-cocktail,Prawn Cocktail,Starters,,466.86,18.491,40.3584,24.4901,4.3417,,2.0657,15.3964,,,,,,,,,false,true,,,
+ciabatta-garlic-bread,Ciabatta Garlic Bread,Toby tasters,,553.181,10.7727,62.0362,28.3999,3.6,,1.0939,3.4265,,,,,,,,vegetarian,false,true,,,
+poppin-chicken,Poppin' Chicken,Toby tasters,,311.58,17.141,28.166,14.444,2.404,,1.2835,8.648,,,,,,,,,false,true,,,
+cheesy-mushrooms,Cheesy Mushrooms,Toby tasters,,396.2005,13.0154,33.9811,22.4079,6.301,,1.2604,2.5213,,,,,,,,vegetarian,false,true,,,
+caramelised-onion-and-shallot-tarte-tatin,Caramelised Onion & Shallot Tarte Tatin,Toby tasters,,356.63,7.831,41.396,17.249,10.454,,1.0214,22.598,,,,,,,,vegetarian,false,true,,,
+mini-pigs-in-blankets,Mini Pigs in Blankets,Toby tasters,,287.84,23.184,0.336,20.496,7.616,,2.137,0.336,,,,,,,,contains_pork,false,true,,,
+loaded-mac-and-cheese,Loaded Mac & Cheese,Toby tasters,,353.58,16.886,36.156,15.014,4.704,,1.522,2.428,,,,,,,,,false,true,,,
+bacon-and-cheddar-loaded-roasties,Bacon & Cheddar Loaded Roasties,Toby tasters,,438.0009,13.2119,76.8924,7.3711,3.0074,,2.1379,4.2194,,,,,,,,contains_pork,false,true,,,
+sage-and-onion-loaded-roasties,Sage & Onion Loaded Roasties,Toby tasters,,445.1509,10.1359,91.3594,3.0361,0.2834,,2.3441,5.2034,,,,,,,,vegetarian,false,true,,,
+mac-and-cheese-yorkie-wrap,Mac & Cheese Yorkie Wrap,Yorkie wraps & sandwiches,,836.5221,26.3947,109.5297,30.4705,9.0272,,2.2631,6.3117,,,,,,,,vegetarian,false,true,,,
+hand-carved-gammon-and-mustard,Hand-Carved Gammon & Mustard,Yorkie wraps & sandwiches,,302.4233,44.041,3.904,12.3266,4.1635,,8.3891,3.263,,,,,,,,contains_pork,false,false,,,Menu choices not added in: Choose your bread
+roast-pork-stuffing-and-apple-sauce,"Roast Pork, Stuffing & Apple Sauce",Yorkie wraps & sandwiches,,347.0014,17.283,22.1168,21.477,7.192,,0.8,5.7352,,,,,,,,contains_pork,false,false,,,Menu choices not added in: Choose your bread
+roast-turkey-club,Roast Turkey Club,Yorkie wraps & sandwiches,,420.1403,39.2721,20.9369,20.1049,3.3717,,4.0451,4.5381,,,,,,,,,false,false,,,Menu choices not added in: Choose your bread
+hunters-gammon-and-turkey,Hunters Gammon & Turkey,Yorkie wraps & sandwiches,,484.8857,62.8081,13.6357,20.2664,9.4688,,6.5826,11.6349,,,,,,,,contains_pork,false,false,,,Menu choices not added in: Choose your bread
+ultimate-roast-beef,Ultimate Roast Beef,Yorkie wraps & sandwiches,,403.34,38.948,6.8,23,10.07,,0.93,5.2,,,,,,,,contains_beef,false,false,,,Menu choices not added in: Choose your bread
+famous-yorkie-and-gravy,Famous Yorkie & Gravy,Add-ons,,220,5.316,24.283,11.074,1.068,,2.7881,1.739,,,,,,,,vegetarian,false,false,,,
+small-bowl-of-soup,Small Bowl of Soup,Add-ons,,97.5,2.5,17.5,2.5,0,,0,10,,,,,,,,vegetarian,false,false,,,
+roast-turkey,Roast Turkey,Carvery,,321.906,65.4622,0.7938,7.2722,2.42,,0.3544,0.525,,,,,,,,,false,false,,,Feed kJ (981.31) does not match its kcal (321.906); kJ is not used
+roast-beef,Roast Beef,Carvery,,392.3636,51.4478,1.0319,18.4884,8.8002,,0.1214,0.7891,,,,,,,,contains_beef,false,false,,,
+roast-gammon,Roast Gammon,Carvery,,384.8471,57.2942,4.0016,15.6043,5.3886,,10.4264,3.653,,,,,,,,contains_pork,false,false,,,
+roast-pork,Roast Pork,Carvery,,474.3679,29.1856,3.0879,39.4864,13.7344,,0,2.1681,,,,,,,,contains_pork,false,false,,,
+spicy-butternut-squash-tart,Spicy Butternut Squash Tart,"Vegetarian, vegan & fish",,882.78,20.956,72.726,55.084,18.614,,3.4054,24.498,,,,,,,,vegetarian,false,true,,,
+melt-in-the-middle-roast,Melt in the Middle Roast,"Vegetarian, vegan & fish",,469.02,8.858,53.326,23.616,1.802,,1.1068,15.816,,,,,,,,vegetarian,false,true,,,
+cheese-potato-and-leek-pie,"Cheese, Potato & Leek Pie","Vegetarian, vegan & fish",,891.78,21.866,79.916,52.484,24.424,,1.6504,6.278,,,,,,,,vegetarian,false,true,,,
+salmon-and-dill-wellington,Salmon & Dill Wellington,"Vegetarian, vegan & fish",,809.52,27.743,46.186,56.611,15.682,,1.4728,2.956,,,,,,,,,false,true,,,
+bramley-apple-pie,Bramley Apple Pie,Puddings,,445.0906,4.0834,62.6802,18.9878,6.9418,,0.0204,23.6837,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Served with?
+toffee-apple-crumble,Toffee Apple Crumble,Puddings,,464,2.18,85.12,12.52,4.04,,0.9782,48.32,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Served with?
+chocolate-fudge-cake,Chocolate Fudge Cake,Puddings,,579.8466,5.1856,72.2844,29.8566,6.2856,,0.3929,54.999,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Served with?
+baked-vanilla-cheesecake,Baked Vanilla Cheesecake,Puddings,,757.4625,7.2838,85.8225,42.4188,26.7438,,0.5511,62.585,,,,,,,,vegetarian,false,false,,,
+dairy-ice-cream,Dairy Ice Cream,Puddings,,165,4.75,19.875,7.375,4.75,,0.1563,19.625,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Pick a Sauce
+vegan-vanilla-ice-cream,Vegan Vanilla Ice Cream,Puddings,,144.7,0.72,20.41,6.65,5.72,,0.1212,14.91,,,,,,,,vegetarian,false,false,,,
+chocolate-brownie-sundae,Chocolate Brownie Sundae,Puddings,,540.6713,9.1573,87.3415,16.9366,7.8257,,0.473,67.562,,,,,,,,vegetarian,false,false,,,
+honeycomb-dream-sundae,Honeycomb Dream Sundae,Puddings,,354.3675,6.3333,60.1835,9.766,6.267,,0.6885,51.843,,,,,,,,vegetarian,false,false,,,
+berry-best-sundae,Berry Best Sundae,Puddings,,241.78,6.552,30.806,9.886,6.232,,0.206,29.578,,,,,,,,vegetarian,false,false,,,
+sticky-toffee-pudding,Sticky Toffee Pudding,Puddings,,707.875,6.2334,91.4,34.9375,3.1584,,1.2333,57.6001,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Served with?
+chocolate-and-cookie-dough-brownie,Chocolate & Cookie Dough Brownie,Puddings,,525.6076,5.488,74.401,22.4512,9.0775,,0.3302,53.823,,,,,,,,vegetarian,false,false,,,
+mini-chocolate-brownie,Mini Chocolate Brownie,Puddings,,264.7538,2.774,37.5055,11.2506,4.5387,,0.1652,27.2165,,,,,,,,vegetarian,false,false,,,
+pot-of-tea,Pot of Tea,Hot drinks,,24.5,1.7025,2.5,0.85,0.5,,0.075,2.5,,,,,,,,vegetarian,false,false,,,
+herbal-tea,Herbal Tea,Hot drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,
+black-americano,Black Americano,Hot drinks,,10.5184,0.5046,0.4742,0.4074,0.1824,,0.0001,0.0152,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Add Syrup?
+white-americano,White Americano,Hot drinks,,59.5184,3.9046,5.4742,2.1074,1.1824,,0.1501,5.0152,,,,,,,,vegetarian,false,false,,,Feed kJ (423.512) does not match its kcal (59.5184); kJ is not used. Menu choices not added in: Add Syrup?
+hot-chocolate,Hot Chocolate,Hot drinks,,212.91,4.386,29.3175,8.458,6.14,,0.437,27.2175,,,,,,,,vegetarian,false,false,,,
+espresso,Espresso,Hot drinks,,8.65,0.415,0.39,0.335,0.15,,0.0001,0.0125,,,,,,,,vegetarian,false,false,,,
+cappuccino,Cappuccino,Hot drinks,,92.663,6.1721,9.077,3.2293,1.858,,0.2565,8.6785,,,,,,,,vegetarian,false,false,,,Feed kJ (532.094) does not match its kcal (92.663); kJ is not used. Menu choices not added in: Add Syrup?
+latte,Latte,Hot drinks,,107.63,7.283,10.49,3.769,2.17,,0.3031,10.1125,,,,,,,,vegetarian,false,false,,,Feed kJ (594.995) does not match its kcal (107.63); kJ is not used. Menu choices not added in: Add Syrup?
+flat-white,Flat White,Hot drinks,,84.0184,5.6046,7.9742,2.9574,1.6824,,0.2251,7.5152,,,,,,,,vegetarian,false,false,,,Feed kJ (526.512) does not match its kcal (84.0184); kJ is not used. Menu choices not added in: Add Syrup?
+iced-coffee,Iced Coffee,Hot drinks,,82.15,5.515,7.89,2.885,1.65,,0.2251,7.5125,,,,,,,,vegetarian,false,false,,,Feed kJ (487.875) does not match its kcal (82.15); kJ is not used. Menu choices not added in: Add Syrup?
+lavazza-liqueur-coffee,Lavazza Liqueur Coffee,Hot drinks,,60.1,0.835,1.8075,5.235,3.65,,0.0141,1.43,,,,,,,,vegetarian,false,false,,,Feed kJ (391.5) does not match its kcal (60.1); kJ is not used. Menu choices not added in: Add Syrup?
+liqueur-hot-chocolate,Liqueur Hot Chocolate,Hot drinks,,212.91,4.386,29.3175,8.458,6.14,,0.437,27.2175,,,,,,,,vegetarian,false,false,,,Printed values are identical to the Hot Chocolate row

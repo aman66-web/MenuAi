@@ -141,6 +141,13 @@ HOLDBACK: dict = {
     'Tomato & Red Pepper Soup (festive kids menu)': 'The page prints 53.3 g of salt for one portion of soup, which cannot be right.',
     'Gluten Free Tomato & Red Pepper Soup (festive kids menu)': 'The page prints 52.9 g of salt for one portion of soup, which cannot be right.',
     'Cauliflower Cheese': 'The page prints 178.8 g of protein in a 1093 kcal portion of cauliflower cheese (65% of its energy, with only 33.4 g of fat), against 15.5 g of protein for its Mac \'n\' Cheese side: not credible. Held back as a judgement call.',
+    'Gluten Free Bread & Butter': 'The page prints 0.1 g carbohydrate, 0.1 g protein and 15.8 g fat (the numbers of the butter alone, nothing of a gluten free bread) and no allergens, for a dish named Bread & Butter: the record looks unfinished, so its numbers and allergens are not published. Held back as a judgement call (independent re-read 2026-10-08).',
+    'Grilled Seabass Fillet': 'The page prints 12.1 g protein, 91.7 g carbohydrate and 46.3 g sugars for a fish fillet dish (a fillet alone has more protein than that) and its description says buttered new potatoes but no milk is marked: the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08).',
+    'Grilled Seabass Fillet (add-on)': 'The page prints 3.1 g protein, 62.6 g carbohydrate and 41.6 g sugars for a seabass fillet add-on: the figures cannot be a fish fillet. Held back as a judgement call (independent re-read 2026-10-08).',
+    'Baked Seabass Fillet (festive menu)': 'The page prints 12.5 g protein, 112.9 g carbohydrate and 63.1 g sugars for a seabass dish, like the two other seabass rows (a fillet alone has more protein than that): the record does not fit the dish. Held back as a judgement call (independent re-read 2026-10-08).',
+    'Duck Bon Bons': 'Allergen row contradicts the dish ingredients: the description names a smoky mayo but the page marks no egg. Held back (independent re-read 2026-10-08).',
+    'Roast Turkey (festive menu)': 'Allergen row contradicts the dish description: it names a buttery roast gravy but the page marks no milk. Held back (independent re-read 2026-10-08).',
+    'Roast Turkey (festive kids menu)': 'Allergen row contradicts the dish description: it names a buttery roast gravy but the page marks no milk. Held back (independent re-read 2026-10-08).',
     'Beef Meatballs': 'The page lists all 14 allergens for this beef meatball, tomato sauce and garlic ciabatta dish and prints 3.7 g of protein: the record looks unfinished. Held back as a judgement call.',
 }
 

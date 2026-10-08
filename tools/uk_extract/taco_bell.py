@@ -41,6 +41,16 @@ EXCLUDED_CATEGORIES = {"Meals": 315, "Single Portions": 13}
 
 Q = ("Printed values are far higher than every other item (and than the same quesadilla inside the Meals rows, which imply "
      "about 540 kcal). Entered exactly as printed; looks like an error in the source")
+# Rows the chain's own table makes impossible: held back, never corrected (data/source/taco-bell/holdback.csv is written from these).
+HOLD_QUESADILLA = "The table prints 1,849-2,708 kcal for one quesadilla; its own meal rows containing a quesadilla imply about 540 kcal."
+HOLD_DRINK = ("Taco Bell's drinks table has impossible values (e.g. 803 kcal for a large iced tea, a 'sugar free' drink with 21 g of "
+              "sugar), so none of its drinks are published until Taco Bell confirms them.")
+# The quesadillas printed with the impossible values (the "Baby Quesadilla" has ordinary numbers and is published).
+HELD_QUESADILLAS = {
+    "Grilled Cheese Quesadilla - Beef", "Grilled Cheese Quesadilla - Black Beans", "Grilled Cheese Quesadilla - Chicken",
+    "Quesadilla - Beef", "Quesadilla - Black Beans", "Quesadilla - Cheese", "Quesadilla - Double Beef",
+    "Quesadilla - Double Black Beans", "Quesadilla - Double Grilled Chicken", "Quesadilla - Grilled Chicken",
+}
 SHARER = "Called a 'Sharer'; how many people it feeds is not stated, so it is not suggested as one person's order"
 NOSIZE = "Container size is not stated; values are per can/bottle as sold"
 BEANS = "Printed fibre is more than the printed total carbohydrate"
@@ -329,6 +339,16 @@ def main() -> int:
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
+    held = [(i["id"], HOLD_QUESADILLA) for i in sorted(items, key=lambda x: x["id"]) if i["name"] in HELD_QUESADILLAS]
+    missing = HELD_QUESADILLAS - {i["name"] for i in items}
+    if missing:
+        print(f"hold-back list names items that are not in the table any more: {sorted(missing)}", file=sys.stderr)
+        return 1
+    held += [(i["id"], HOLD_DRINK) for i in items if i["category"] == DR]
+    with open(args.out / "holdback.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f, lineterminator="\n")
+        w.writerow(["item_id", "reason"])
+        w.writerows(held)
     print(f"wrote {len(items)} items to {args.out} (page sha256 {hashlib.sha256(args.html.read_bytes()).hexdigest()}, "
           f"table last updated {updated_date.isoformat()})")
     return 0

@@ -107,19 +107,36 @@ HOLDBACK = {
     "Banoffee Matcha Latte (oat milk)":
         "Website prints 26.3 g carbohydrate, which does not fit its 232 kcal; the Sept 2026 PDF guide prints 36.3 g. "
         "The two official sources disagree.",
+    "Macchiato (soya milk, single)":
+        "The website prints the allergen Milk for this row but Soy for the double soya macchiato, and the Sept 2026 PDF guide "
+        "prints SOYA for 'Macchiato - Soya': the chain's own sources disagree on its allergen.",
+    "Gingerbread Biscuit":
+        "The website prints the allergens Eggs and Gluten, but the Sept 2026 PDF guide's ingredient list for this biscuit names "
+        "'Glucose Syrup (WHEAT, SULPHUR DIOXIDE)': the allergen row contradicts the chain's own ingredient text.",
+    "Cortado (soya milk)":
+        "Website prints protein 3.0 g per product, the same figure as per 100 ml although every other nutrient is about 1.3 times "
+        "larger per product; the Sept 2026 PDF guide prints 3.8 g. The two official sources disagree.",
+    "Spicy Chicken & Red Pepper Focaccia":
+        "Salt per product (0.88 g) contradicts the same table's per-100 g salt (1.04 g) at the printed 635 kcal per product "
+        "(298 kcal per 100 g, so about 2.2 g); the website and the Sept 2026 PDF guide both print it.",
+    "Espresso & Caramel Luxury Frappe (oat milk)":
+        "Website prints 488 kcal, 3.3 g protein and 65.6 g carbohydrate; the Sept 2026 PDF guide prints 491 kcal, 2.5 g protein "
+        "and 67.5 g carbohydrate for this row. The two official sources disagree.",
 }
+# Spiced Pecan Latte (hot and iced), every milk except almond (whose row already marks nuts): the name says pecan, neither the
+# website nor the Sept 2026 guide marks tree nuts for these rows, and neither says the pecan is only a flavouring (the guide does
+# say "Pistachio achieved by flavouring" for the pistachio lattes, which stay published). Not clear, so not published (2026-10-08).
+for _base in ("Spiced Pecan Latte", "Iced Spiced Pecan Latte"):
+    for _milk in ("semi skimmed milk", "skimmed milk", "whole milk", "soya milk", "oat milk", "coconut milk"):
+        HOLDBACK[f"{_base} ({_milk})"] = (
+            "The name says pecan but neither the website nor the Sept 2026 PDF guide marks tree nuts for this row, and neither says "
+            "the pecan syrup is only a flavouring: not clear that the nut allergen is complete.")
 # Per-item notes (not exported): odd numbers that are published exactly as printed.
 NOTES = {
     "Mocha (whole milk, grande)":
         "Website prints fibre 1.6 g; the Sept 2026 PDF guide prints 26.2 g for this row (sugars 26.2 g repeated).",
-    "Spicy Chicken & Red Pepper Focaccia":
-        "Salt per product (0.88 g) does not fit the per-100g salt (1.04 g) and the portion size; the website and the "
-        "Sept 2026 PDF guide both print 0.88 g.",
     "Feta & Grain Salad":
         "Fat and carbohydrate are both printed as 27.2 g (website and the Sept 2026 PDF guide); calories fit.",
-    "Espresso & Caramel Luxury Frappe (oat milk)":
-        "Website and the Sept 2026 PDF guide print different values (website 488 kcal, 3.3 g protein, 65.6 g carbs; "
-        "guide 491 kcal, 2.5 g, 67.5 g). Website used.",
 }
 
 PORK = re.compile(r"\b(bacon|ham|pork|sausage|pancetta|prosciutto|salami|chorizo|nduja|pepperoni)\b", re.I)
@@ -340,14 +357,15 @@ def build(rows: list[dict]):
         if BEEF.search(text):
             tags.append("contains_beef")
         notes = []
-        if kj_disagrees(v):
-            notes.append(f"printed kJ ({v['kj']}) and kcal ({v['calories']}) do not agree")
+        kj_ok = not kj_disagrees(v)
+        if not kj_ok:   # kcal fits the dish's own protein/carbs/fat; the contradicted kJ is simply not published (accuracy re-check 2026-10-08)
+            notes.append(f"printed kJ ({v['kj']}) and kcal ({v['calories']}) do not agree: kJ not published, kcal kept (it fits the printed protein, carbohydrate and fat)")
         if name in NOTES:
             notes.append(NOTES[name])
         item = {"id": slug(name), "name": name, "category": category, "serving": r["size"], "calories": v["calories"],
                 "protein_g": v["protein_g"], "carbs_g": v["carbs_g"], "fat_g": v["fat_g"], "sat_fat_g": v.get("sat_fat_g", ""),
                 "salt_g": v.get("salt_g", ""), "sugar_g": v.get("sugar_g", ""), "fiber_g": v.get("fiber_g", ""),
-                "energy_kj": v["kj"], "tags": "|".join(tags), "rankable": rankable, "notes": "; ".join(notes), "allergens": allergens,
+                "energy_kj": v["kj"] if kj_ok else "", "tags": "|".join(tags), "rankable": rankable, "notes": "; ".join(notes), "allergens": allergens,
                 "_milk": milk, "_text": text, "_pid": r["pid"], "_base": base, "_printed_allergens": r["allergens"]}
         seen[name] = {"values": v, "page": r["page"], "allergens": allergens}
         items.append(item)
@@ -385,6 +403,8 @@ def check_allergens(items: list[dict], guide_rows: list[tuple[str, set[str]]]) -
         by_name.setdefault(_norm(name), []).append(keys)
     checked, problems = 0, []
     for it in items:
+        if it["name"] in HOLDBACK:   # not published, so its allergen conflict is listed in holdback.csv instead
+            continue
         if it["_milk"] and it["_milk"] not in GUIDE_MILK:
             continue
         key = _norm(f"{it['_base']} - {GUIDE_MILK[it['_milk']]}" if it["_milk"] else it["_base"])

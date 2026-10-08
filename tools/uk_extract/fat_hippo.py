@@ -288,6 +288,30 @@ PARTS_CONTRADICT = {
                                 "Sauce 69 = 514), but its own protein, carbohydrate and fat (7 g, 56 g, 41 g) add up to about 621 kcal; 41 g of fat is "
                                 "more than the Tater Tots' 21 g plus 140 kcal of toppings can supply.",
 }
+# Held back by the 8 Oct 2026 verification: the page prints two figures for the same dish that cannot both be its portion, and the
+# smaller one cannot be true on its own terms (0 g fat for freshly chipped, fried fries). Never chosen between.
+SAME_DISH_CONTRADICT = {
+    "handcut-fries": "The page prints 113 kcal with 0 g fat for the HANDCUT FRIES side, but 424 kcal with 14 g fat for the same Hand Cut Fries "
+                     "as the burger-meal upgrade and the kids' portion; fried fries with no fat cannot be right, and the page does not say "
+                     "which figure is the side.",
+}
+# 8 Oct 2026 verification: for FOOD (not drinks, which can carry energy the macros don't show: alcohol, organic acids in juice and
+# cordial) a kcal more than 15% (and 15 kcal) away from 4 x protein + 4 x carbohydrate + 9 x fat is held back as well, the same bar the
+# other chains' checks use. The two rows it adds both print a kcal equal to the sum of their listed parts while the macros disagree.
+DRINK_CATEGORIES = {DCO, DHS, DSH, DSO, KD, KSH}
+
+
+def food_gap(row: dict) -> str | None:
+    if row["category"] in DRINK_CATEGORIES or row["_alcohol"]:
+        return None
+    cal, p, c, f = (float(row[k]) for k in ("calories", "protein_g", "carbs_g", "fat_g"))
+    est = 4 * p + 4 * c + 9 * f
+    if abs(est - cal) > 0.15 * cal and abs(est - cal) > 15:
+        return (f"The page prints {row['calories']} kcal; its own protein, carbohydrate and fat ({row['protein_g']} g, {row['carbs_g']} g, "
+                f"{row['fat_g']} g) add up to about {est:.0f} kcal ({abs(est - cal) / cal:.0%} off).")
+    return None
+
+
 CRUMB_NOTE = ("Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; "
               "tagged contains_pork.")
 
@@ -492,7 +516,8 @@ def main() -> int:
         if row["_alcohol"]:
             notes.append("Alcoholic: the calories include alcohol, so they are higher than 4P+4C+9F.")
         cal, est = float(row["calories"]), 4 * float(row["protein_g"]) + 4 * float(row["carbs_g"]) + 9 * float(row["fat_g"])
-        reason = impossible(row["_panel"], row["_alcohol"]) or PARTS_CONTRADICT.get(row["id"])
+        reason = (impossible(row["_panel"], row["_alcohol"]) or PARTS_CONTRADICT.get(row["id"])
+                  or SAME_DISH_CONTRADICT.get(row["id"]) or food_gap(row))
         if reason:
             holdback.append((row["id"], reason))
         elif not row["_alcohol"] and ((cal >= 50 and abs(est - cal) / cal > 0.15) or (cal < 50 and est > cal + 25)):

@@ -1,64 +1,64 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-bbq-guinness-sauce,BBQ Guinness sauce,Add-ons,,82,0.6,19,0.2,0,,0.57,16,,vegetarian,false,false,,,Meal & A Drink / Mains
-burger-sauce,Burger Sauce,Add-ons,,107,0.1,5.2,9.5,0.7,,0.5,4.4,,vegetarian,false,false,,,Meal & A Drink / Mains
-buttermilk-ranch-dip,Buttermilk Ranch Dip,Add-ons,,140,0.6,1.8,14,1.2,,0.6,1.2,,vegetarian,false,false,,,Meal & A Drink / Mains
-add-ham,Add Ham,Add-ons,,253,24,0,18,5.7,,2.4,0,,contains_pork,false,false,,,Meal & A Drink / Sarnies
-add-two-hash-browns,Add Two Hash Browns,Add-ons,,189,1.9,24,9,1.3,,0.27,0.3,,vegetarian,false,false,,,Breakfast Menu / Brioche Baps; printed kJ 696 and kcal 189 do not agree
-add-bacon,Add - Bacon,Add-ons,,54,11,0,0.2,0.9,,1.3,0,,contains_pork,false,false,,,Breakfast Menu / Add ons; printed kJ 390 and kcal 54 do not agree
-add-irish-pork-and-leek-sausage,Add - Irish Pork & Leek Sausage,Add-ons,,176,7.4,5.2,12,4.2,,0.96,0.4,,contains_pork,false,false,,,Breakfast Menu / Add ons; printed kJ 896 and kcal 176 do not agree
-add-vegan-sausage,Add - Vegan Sausage,Add-ons,,110,8.5,2.5,7,0.5,,0.5,0.5,,vegetarian,false,false,,,Breakfast Menu / Add ons
-add-free-range-fried-egg,Add - Free Range Fried Egg,Add-ons,,92,6.6,0,8.3,1.7,,0.2,0,,vegetarian,false,false,,,Breakfast Menu / Add ons; printed kJ 283 and kcal 92 do not agree
-add-grilled-tomato,Add - Grilled Tomato,Add-ons,,18,0.6,2.7,0.4,0.1,,0,0.9,,vegetarian,false,false,,,Breakfast Menu / Add ons
-add-heinz-baked-beans,Add - Heinz Baked Beans,Add-ons,,68,4.8,9.9,0.2,0.1,,0.42,2,,vegetarian,false,false,,,Breakfast Menu / Add ons
-add-flat-mushroom,Add - Flat Mushroom,Add-ons,,14,1.5,0.5,0.4,0.1,,0.01,0.2,,,false,false,,,Breakfast Menu / Add ons
-white-toast,White Toast,Add-ons,,468,11,73,14,5.8,,0.86,15,,vegetarian,false,false,,,Breakfast Menu / Add ons
-wholemeal-toast,Wholemeal Toast,Add-ons,,438,13,61,14,5.8,,1.2,14,,vegetarian,false,false,,,Breakfast Menu / Add ons
-mixed-toast,Mixed Toast,Add-ons,,453,12,67,14,5.8,,1.1,15,,vegetarian,false,false,,,Breakfast Menu / Add ons
-fish-and-chips,Fish & Chips,Mains,,846,42,102,21,0.8,,3.4,8,,,false,true,,,Meal & A Drink / Mains; printed kJ 3142 and kcal 846 do not agree
-veggie-sausages-and-mash,Veggie Sausages & Mash,Mains,,902,38,74,48,9.1,,4.7,8,,vegetarian,false,true,,,Meal & A Drink / Mains; printed kJ 3397 and kcal 902 do not agree
-7oz-gammon-steak,7oz Gammon Steak,Mains,,825,57,73,26,3.7,,2.6,15,,contains_pork,false,true,,,Meal & A Drink / Mains; the guide flags this dish as having choices (its numbers may not include them)
-scampi-and-chips,Scampi & Chips,Mains,,952,35,97,28,3.9,,5.1,5,,,false,true,,,Meal & A Drink / Mains; printed kJ 2939 and kcal 952 do not agree
-sausage-and-mash,Sausage & Mash,Mains,,1223,34,78,84,27,,6.1,7.3,,contains_pork,false,true,,,Meal & A Drink / Mains; printed kJ 4716 and kcal 1223 do not agree
-cheese-and-ballymaloe-relish,Cheese & Ballymaloe Relish,Sandwiches,,581,22,71,23,11,,2.9,15,,vegetarian,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
-fish-finger-wrap,Fish Finger Wrap,Sandwiches,,502,23,61,17,3.3,,2.1,5.4,,,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
-philly-steak-sandwich,Philly Steak Sandwich,Sandwiches,,630,33,68,24,7.6,,2,9.3,,contains_beef,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
-spicy-chicken-quesadilla,Spicy Chicken Quesadilla,Sandwiches,,740,41,66,34,17,,2.9,8.1,,,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
-shiitake-mushroom-tortilla,Shiitake Mushroom Tortilla,Sandwiches,,545,15,71,21,6,,1.6,14,,vegetarian,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
-chicken-fillet-roll,Chicken Fillet Roll,Sandwiches,,663,20,77,30,3.3,,2.5,7.3,,,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
-seasoned-chunky-chips,Seasoned Chunky Chips,Sides & snacks,,375,2.8,54,11,0,,0,1.2,,vegetarian,false,true,,,Meal & A Drink / Sarnies; printed kJ 1158 and kcal 375 do not agree
-dressed-side-salad,Dressed Side Salad,Sides & snacks,,196,1.6,5,18,1.3,,1.3,3.5,,vegetarian,false,true,,,Meal & A Drink / Sarnies
-britvic-draught-indian-tonic-200ml,Britvic Draught Indian Tonic 200ml,Drinks,,2,0,0,0,0,,0.25,0,,,false,false,,,Meal & A Drink / Drinks
-britvic-low-cal-tonic-water,Britvic Low Cal Tonic Water,Drinks,,3,0.1,0.1,0,0,,0,0.1,,,false,false,,,Meal & A Drink / Drinks
-r-whites-lemonade,R White’s Lemonade®,Drinks,,7,0.2,0.5,0.1,0,,0.22,0.5,,,false,false,,,Meal & A Drink / Drinks
-red-bull-can,Red Bull Can,Drinks,,115,0,28,0,0,,0,28,,,false,false,,,Meal & A Drink / Drinks
-red-bull-can-sugar-free,Red Bull Can Sugar Free,Drinks,,8,0,0,0,0,,0.25,0,,,false,false,,,Meal & A Drink / Drinks
-red-bull-pink,Red Bull Pink,Drinks,,5,0,0,0,0,,0.25,0,,,false,false,,,Meal & A Drink / Drinks
-lemonade,Lemonade,Drinks,,14,0.2,0.5,0.1,0,,0.64,0.5,,,false,false,,,Meal & A Drink / Drinks
-tea,Tea,Drinks,,27,1.9,2.8,1,0.6,,0.08,2.8,,vegetarian,false,false,,,"Meal & A Drink / Drinks (+1 more menu entries, same numbers)"
-black-americano,Black Americano,Drinks,,9,0.4,0.4,0.3,0.2,,0,0,,vegetarian,false,false,,,"Meal & A Drink / Drinks (+1 more menu entries, same numbers)"
-decaf-black-americano,Decaf Black Americano,Drinks,,2,0.1,0.1,0,0,,0,0.1,,vegetarian,false,false,,,Breakfast Menu / But first coffee
-decaf-large-black-americano,Decaf Large Black Americano,Drinks,,2,0.1,0.1,0,0,,0,0.1,,vegetarian,false,false,,,Breakfast Menu / But first coffee
-large-black-americano,Large Black Americano,Drinks,,10,0.5,0.4,0.4,0.2,,0,0,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers)"
-cappuccino,Cappuccino,Drinks,,103,6.3,11,3.4,2,,0.28,11,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 578 and kcal 103 do not agree
-large-cappuccino,Large Cappuccino,Drinks,,136,8.5,15,4.6,2.7,,0.38,14,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers); printed kJ 733 and kcal 136 do not agree"
-latte,Latte,Drinks,,108,7.3,10,3.8,2.2,,0.3,10,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 595 and kcal 108 do not agree
-large-cafe-latte,Large Cafe Latte,Drinks,,146,10,14,5.1,3,,0.42,14,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers); printed kJ 775 and kcal 146 do not agree"
-mocha,Mocha,Drinks,,137,5.7,19,3.8,2.4,,0.36,18,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 719 and kcal 137 do not agree
-large-mocha,Large Mocha,Drinks,,155,6.9,21,4.4,2.8,,0.41,20,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers); printed kJ 813 and kcal 155 do not agree"
-tea-with-oat-alternative-to-milk,Tea With Oat Alternative to Milk,Drinks,,13,0.2,1.4,0.6,0.1,,0.03,0.7,,vegetarian,false,false,,,Breakfast Menu / But first coffee
-americano-with-oat-alternative-to-milk,Americano With Oat Alternative to Milk,Drinks,,21,0.6,1.8,1,0.2,,0.03,0.7,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 232 and kcal 21 do not agree
-large-americano-with-oat-alternative-to-milk,Large Americano With Oat Alternative to Milk,Drinks,,22,0.7,1.9,1,0.2,,0.03,0.7,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 253 and kcal 22 do not agree
-oat-alternative-to-milk,Oat Alternative to Milk,Drinks,,13,0.2,1.4,0.6,0.1,,0.03,0.7,,vegetarian,false,false,,,Breakfast Menu / But first coffee
-hearty-irish-breakfast,Hearty Irish Breakfast,Breakfast & brunch,,1114,65,58,63,23,,6.3,6.3,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-the-mega-irish-breakfast,The Mega Irish Breakfast,Breakfast & brunch,,1530,90,75,89,30,,8.9,6.8,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 6928 and kcal 1530 do not agree"
-small-irish-breakfast,Small Irish Breakfast,Breakfast & brunch,,557,32,29,32,11,,3.2,3.1,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-hearty-veggie-breakfast,Hearty Veggie Breakfast,Breakfast & brunch,,1101,57,57,72,16,,3.2,5.3,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4152 and kcal 1101 do not agree"
-small-veggie-breakfast,Small Veggie Breakfast,Breakfast & brunch,,437,23,26,26,6.7,,1.4,3.3,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 1676 and kcal 437 do not agree"
-avocado-on-toast,Avocado on Toast,Breakfast & brunch,,330,11,40,12,2.4,,1.4,8.1,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
-french-toast-with-smoked-streaky-bacon-and-maple-syrup,French Toast with smoked streaky bacon and maple syrup,Breakfast & brunch,,745,22,86,34,16,,3.4,55,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
-french-toast-with-maple-syrup-and-red-fruits,French Toast with maple syrup and red fruits,Breakfast & brunch,,599,14,91,19,10,,1.7,60,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
-creamy-porridge,Creamy Porridge,Breakfast & brunch,,191,8.8,29,4.4,2.2,,0,11,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
-the-works,The Works,Breakfast & brunch,,733,48,42,37,13,,5.2,5.5,,contains_pork,false,true,,,Breakfast Menu / Brioche Baps; printed kJ 3624 and kcal 733 do not agree
-bacon-and-egg-bap,Bacon & Egg Bap,Breakfast & brunch,,381,33,32,12,4.6,,3.3,4.8,,contains_pork,false,true,,,Breakfast Menu / Brioche Baps; printed kJ 1831 and kcal 381 do not agree
-sausage-and-egg-bap,Sausage & Egg Bap,Breakfast & brunch,,626,26,42,36,11,,2.6,5.5,,contains_pork,false,true,,,Breakfast Menu / Brioche Baps; printed kJ 2844 and kcal 626 do not agree
-veggie-sausage-and-egg-bap,Veggie Sausage & Egg Bap,Breakfast & brunch,,493,28,37,26,3.8,,1.7,5.8,,vegetarian,false,true,,,Breakfast Menu / Brioche Baps
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+bbq-guinness-sauce,BBQ Guinness sauce,Add-ons,,82,0.6,19,0.2,0,,0.57,16,,,,,,,,vegetarian,false,false,,,Meal & A Drink / Mains
+burger-sauce,Burger Sauce,Add-ons,,107,0.1,5.2,9.5,0.7,,0.5,4.4,,,,,,,,vegetarian,false,false,,,Meal & A Drink / Mains
+buttermilk-ranch-dip,Buttermilk Ranch Dip,Add-ons,,140,0.6,1.8,14,1.2,,0.6,1.2,,,,,,,,vegetarian,false,false,,,Meal & A Drink / Mains
+add-ham,Add Ham,Add-ons,,253,24,0,18,5.7,,2.4,0,,,,,,,,contains_pork,false,false,,,Meal & A Drink / Sarnies
+add-two-hash-browns,Add Two Hash Browns,Add-ons,,189,1.9,24,9,1.3,,0.27,0.3,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Brioche Baps; printed kJ 696 and kcal 189 do not agree
+add-bacon,Add - Bacon,Add-ons,,54,11,0,0.2,0.9,,1.3,0,,,,,,,,contains_pork,false,false,,,Breakfast Menu / Add ons; printed kJ 390 and kcal 54 do not agree
+add-irish-pork-and-leek-sausage,Add - Irish Pork & Leek Sausage,Add-ons,,176,7.4,5.2,12,4.2,,0.96,0.4,,,,,,,,contains_pork,false,false,,,Breakfast Menu / Add ons; printed kJ 896 and kcal 176 do not agree
+add-vegan-sausage,Add - Vegan Sausage,Add-ons,,110,8.5,2.5,7,0.5,,0.5,0.5,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Add ons
+add-free-range-fried-egg,Add - Free Range Fried Egg,Add-ons,,92,6.6,0,8.3,1.7,,0.2,0,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Add ons; printed kJ 283 and kcal 92 do not agree
+add-grilled-tomato,Add - Grilled Tomato,Add-ons,,18,0.6,2.7,0.4,0.1,,0,0.9,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Add ons
+add-heinz-baked-beans,Add - Heinz Baked Beans,Add-ons,,68,4.8,9.9,0.2,0.1,,0.42,2,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Add ons
+add-flat-mushroom,Add - Flat Mushroom,Add-ons,,14,1.5,0.5,0.4,0.1,,0.01,0.2,,,,,,,,,false,false,,,Breakfast Menu / Add ons
+white-toast,White Toast,Add-ons,,468,11,73,14,5.8,,0.86,15,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Add ons
+wholemeal-toast,Wholemeal Toast,Add-ons,,438,13,61,14,5.8,,1.2,14,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Add ons
+mixed-toast,Mixed Toast,Add-ons,,453,12,67,14,5.8,,1.1,15,,,,,,,,vegetarian,false,false,,,Breakfast Menu / Add ons
+fish-and-chips,Fish & Chips,Mains,,846,42,102,21,0.8,,3.4,8,,,,,,,,,false,true,,,Meal & A Drink / Mains; printed kJ 3142 and kcal 846 do not agree
+veggie-sausages-and-mash,Veggie Sausages & Mash,Mains,,902,38,74,48,9.1,,4.7,8,,,,,,,,vegetarian,false,true,,,Meal & A Drink / Mains; printed kJ 3397 and kcal 902 do not agree
+7oz-gammon-steak,7oz Gammon Steak,Mains,,825,57,73,26,3.7,,2.6,15,,,,,,,,contains_pork,false,true,,,Meal & A Drink / Mains; the guide flags this dish as having choices (its numbers may not include them)
+scampi-and-chips,Scampi & Chips,Mains,,952,35,97,28,3.9,,5.1,5,,,,,,,,,false,true,,,Meal & A Drink / Mains; printed kJ 2939 and kcal 952 do not agree
+sausage-and-mash,Sausage & Mash,Mains,,1223,34,78,84,27,,6.1,7.3,,,,,,,,contains_pork,false,true,,,Meal & A Drink / Mains; printed kJ 4716 and kcal 1223 do not agree
+cheese-and-ballymaloe-relish,Cheese & Ballymaloe Relish,Sandwiches,,581,22,71,23,11,,2.9,15,,,,,,,,vegetarian,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
+fish-finger-wrap,Fish Finger Wrap,Sandwiches,,502,23,61,17,3.3,,2.1,5.4,,,,,,,,,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
+philly-steak-sandwich,Philly Steak Sandwich,Sandwiches,,630,33,68,24,7.6,,2,9.3,,,,,,,,contains_beef,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
+spicy-chicken-quesadilla,Spicy Chicken Quesadilla,Sandwiches,,740,41,66,34,17,,2.9,8.1,,,,,,,,,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
+shiitake-mushroom-tortilla,Shiitake Mushroom Tortilla,Sandwiches,,545,15,71,21,6,,1.6,14,,,,,,,,vegetarian,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
+chicken-fillet-roll,Chicken Fillet Roll,Sandwiches,,663,20,77,30,3.3,,2.5,7.3,,,,,,,,,false,true,,,Meal & A Drink / Sarnies; the guide flags this dish as having choices (its numbers may not include them)
+seasoned-chunky-chips,Seasoned Chunky Chips,Sides & snacks,,375,2.8,54,11,0,,0,1.2,,,,,,,,vegetarian,false,true,,,Meal & A Drink / Sarnies; printed kJ 1158 and kcal 375 do not agree
+dressed-side-salad,Dressed Side Salad,Sides & snacks,,196,1.6,5,18,1.3,,1.3,3.5,,,,,,,,vegetarian,false,true,,,Meal & A Drink / Sarnies
+britvic-draught-indian-tonic-200ml,Britvic Draught Indian Tonic 200ml,Drinks,,2,0,0,0,0,,0.25,0,,,,,,,,,false,false,,,Meal & A Drink / Drinks
+britvic-low-cal-tonic-water,Britvic Low Cal Tonic Water,Drinks,,3,0.1,0.1,0,0,,0,0.1,,,,,,,,,false,false,,,Meal & A Drink / Drinks
+r-whites-lemonade,R White’s Lemonade®,Drinks,,7,0.2,0.5,0.1,0,,0.22,0.5,,,,,,,,,false,false,,,Meal & A Drink / Drinks
+red-bull-can,Red Bull Can,Drinks,,115,0,28,0,0,,0,28,,,,,,,,,false,false,,,Meal & A Drink / Drinks
+red-bull-can-sugar-free,Red Bull Can Sugar Free,Drinks,,8,0,0,0,0,,0.25,0,,,,,,,,,false,false,,,Meal & A Drink / Drinks
+red-bull-pink,Red Bull Pink,Drinks,,5,0,0,0,0,,0.25,0,,,,,,,,,false,false,,,Meal & A Drink / Drinks
+lemonade,Lemonade,Drinks,,14,0.2,0.5,0.1,0,,0.64,0.5,,,,,,,,,false,false,,,Meal & A Drink / Drinks
+tea,Tea,Drinks,,27,1.9,2.8,1,0.6,,0.08,2.8,,,,,,,,vegetarian,false,false,,,"Meal & A Drink / Drinks (+1 more menu entries, same numbers)"
+black-americano,Black Americano,Drinks,,9,0.4,0.4,0.3,0.2,,0,0,,,,,,,,vegetarian,false,false,,,"Meal & A Drink / Drinks (+1 more menu entries, same numbers)"
+decaf-black-americano,Decaf Black Americano,Drinks,,2,0.1,0.1,0,0,,0,0.1,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee
+decaf-large-black-americano,Decaf Large Black Americano,Drinks,,2,0.1,0.1,0,0,,0,0.1,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee
+large-black-americano,Large Black Americano,Drinks,,10,0.5,0.4,0.4,0.2,,0,0,,,,,,,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers)"
+cappuccino,Cappuccino,Drinks,,103,6.3,11,3.4,2,,0.28,11,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 578 and kcal 103 do not agree
+large-cappuccino,Large Cappuccino,Drinks,,136,8.5,15,4.6,2.7,,0.38,14,,,,,,,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers); printed kJ 733 and kcal 136 do not agree"
+latte,Latte,Drinks,,108,7.3,10,3.8,2.2,,0.3,10,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 595 and kcal 108 do not agree
+large-cafe-latte,Large Cafe Latte,Drinks,,146,10,14,5.1,3,,0.42,14,,,,,,,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers); printed kJ 775 and kcal 146 do not agree"
+mocha,Mocha,Drinks,,137,5.7,19,3.8,2.4,,0.36,18,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 719 and kcal 137 do not agree
+large-mocha,Large Mocha,Drinks,,155,6.9,21,4.4,2.8,,0.41,20,,,,,,,,vegetarian,false,false,,,"Breakfast Menu / But first coffee (+1 more menu entries, same numbers); printed kJ 813 and kcal 155 do not agree"
+tea-with-oat-alternative-to-milk,Tea With Oat Alternative to Milk,Drinks,,13,0.2,1.4,0.6,0.1,,0.03,0.7,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee
+americano-with-oat-alternative-to-milk,Americano With Oat Alternative to Milk,Drinks,,21,0.6,1.8,1,0.2,,0.03,0.7,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 232 and kcal 21 do not agree
+large-americano-with-oat-alternative-to-milk,Large Americano With Oat Alternative to Milk,Drinks,,22,0.7,1.9,1,0.2,,0.03,0.7,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee; printed kJ 253 and kcal 22 do not agree
+oat-alternative-to-milk,Oat Alternative to Milk,Drinks,,13,0.2,1.4,0.6,0.1,,0.03,0.7,,,,,,,,vegetarian,false,false,,,Breakfast Menu / But first coffee
+hearty-irish-breakfast,Hearty Irish Breakfast,Breakfast & brunch,,1114,65,58,63,23,,6.3,6.3,,,,,,,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+the-mega-irish-breakfast,The Mega Irish Breakfast,Breakfast & brunch,,1530,90,75,89,30,,8.9,6.8,,,,,,,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 6928 and kcal 1530 do not agree"
+small-irish-breakfast,Small Irish Breakfast,Breakfast & brunch,,557,32,29,32,11,,3.2,3.1,,,,,,,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+hearty-veggie-breakfast,Hearty Veggie Breakfast,Breakfast & brunch,,1101,57,57,72,16,,3.2,5.3,,,,,,,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4152 and kcal 1101 do not agree"
+small-veggie-breakfast,Small Veggie Breakfast,Breakfast & brunch,,437,23,26,26,6.7,,1.4,3.3,,,,,,,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 1676 and kcal 437 do not agree"
+avocado-on-toast,Avocado on Toast,Breakfast & brunch,,330,11,40,12,2.4,,1.4,8.1,,,,,,,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
+french-toast-with-smoked-streaky-bacon-and-maple-syrup,French Toast with smoked streaky bacon and maple syrup,Breakfast & brunch,,745,22,86,34,16,,3.4,55,,,,,,,,contains_pork,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
+french-toast-with-maple-syrup-and-red-fruits,French Toast with maple syrup and red fruits,Breakfast & brunch,,599,14,91,19,10,,1.7,60,,,,,,,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
+creamy-porridge,Creamy Porridge,Breakfast & brunch,,191,8.8,29,4.4,2.2,,0,11,,,,,,,,vegetarian,false,true,,,"Breakfast Menu / Breakfast (+1 more menu entries, same numbers)"
+the-works,The Works,Breakfast & brunch,,733,48,42,37,13,,5.2,5.5,,,,,,,,contains_pork,false,true,,,Breakfast Menu / Brioche Baps; printed kJ 3624 and kcal 733 do not agree
+bacon-and-egg-bap,Bacon & Egg Bap,Breakfast & brunch,,381,33,32,12,4.6,,3.3,4.8,,,,,,,,contains_pork,false,true,,,Breakfast Menu / Brioche Baps; printed kJ 1831 and kcal 381 do not agree
+sausage-and-egg-bap,Sausage & Egg Bap,Breakfast & brunch,,626,26,42,36,11,,2.6,5.5,,,,,,,,contains_pork,false,true,,,Breakfast Menu / Brioche Baps; printed kJ 2844 and kcal 626 do not agree
+veggie-sausage-and-egg-bap,Veggie Sausage & Egg Bap,Breakfast & brunch,,493,28,37,26,3.8,,1.7,5.8,,,,,,,,vegetarian,false,true,,,Breakfast Menu / Brioche Baps

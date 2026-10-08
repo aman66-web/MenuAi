@@ -99,7 +99,10 @@ def read_page(path: Path, strict: bool = True) -> list[dict]:
             if [x for x in heads if x] != ["Per portion", "Per 100g"]:
                 raise ValueError(f"{path}: {name!r} table columns are {heads}, not Per portion / Per 100g")
             label = text(label_html)
-            tables.append(("" if label == "Nutritional Information" else label, rows))
+            # a single table whose heading was pasted over with the allergen line ("Contains Almonds, Soya", seen on one Forest Feast
+            # snack 2026-10-08) is still the item's one nutrition table
+            default = label == "Nutritional Information" or (label.startswith("Contains ") and nut_html.count("<table") == 1)
+            tables.append(("" if default else label, rows))
         n_tables = len(re.findall(r"<table", nut_html))
         if n_tables != len(tables):
             raise ValueError(f"{path}: {name!r} has {n_tables} tables but {len(tables)} were read")

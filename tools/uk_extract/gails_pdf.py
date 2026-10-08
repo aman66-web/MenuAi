@@ -16,7 +16,8 @@ NUMBER = re.compile(r"^(<?\d+(\.\d+)?|>\d+(\.\d+)?|N/A)$")
 # Column edges (points), taken from the header words on every data page: TITLE at x 101, "KCAL PER 100g" at 213, "KCAL PER PORTION"
 # at 299, ALLERGENS at 398, DIETARY at 505. The script checks that the header is where it expects it on every page.
 X_TITLE_MAX, X_PER100_MAX, X_PORTION_MAX, X_ALLERGEN_MAX = 200.0, 265.0, 352.0, 500.0
-HEADER_Y_MAX = 70.0     # the header band ends above the first row (first row's title starts at about y 73)
+HEADER_Y_MAX = 63.0     # header words (TITLE, KCAL PER 100g ...) start at y 43-58 on every data page; the first row's first title line
+                        # starts at y 69-75 (it was 69.2 on page 4, where a 70.0 cut-off lost "SMALL CAPPUCCINO" from the first row)
 FOOTER_Y_MIN = 775.0    # "Our food and drinks are made by hand ..." / "V Vegetarian VN Vegan" / "Adults need around 2000kcal a day."
 MAX_DY = 9.0            # a word further than this from every row's number line is an error, never guessed
 

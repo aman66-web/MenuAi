@@ -111,24 +111,24 @@ double-chocolate-and-vanilla-cookie,Double Chocolate & Vanilla Cookie,Sweet trea
 oat-and-cranberry-cookie,Oat & Cranberry Cookie,Sweet treats,,246,3.2,37.1,9.1,5.0,,0.48,23.1,1.6,1036,,,,,,vegetarian,false,false,,,
 salted-caramel-brownie,Salted Caramel Brownie,Sweet treats,,270,1.9,30.5,15.2,9.1,,0.32,26.5,1.1,1127,,,,,,vegetarian,false,false,,,
 maple-flapjack,Maple Flapjack,Sweet treats,,239,6.0,62.2,18.7,9.5,,0.36,34.2,4.7,1010,,,,,,vegetarian,false,false,,,kcal 239 differs from its macros (4P+4C+9F = 441) by 85%; printed as is; The Per 100g column does not fit the Per portion column here; per portion is used
-brave-paprika-and-chilli-peas,Brave Paprika and Chilli Peas,Snacks,,132,7,14,3.9,0.4,,0.53,0.9,7,554,,,,,,vegetarian,false,false,,,
-brave-sea-salt-and-vinegar-peas,Brave Sea Salt and Vinegar Peas,Snacks,,134,6.7,14.4,3.9,0.4,,0.77,0.7,6.7,561,,,,,,vegetarian,false,false,,,kcal 134 differs from its macros (4P+4C+9F = 120) by 11%; printed as is
+boundless-chipotle-lime-chips,Boundless Chipotle Lime Chips,Snacks,,100,2.4,16.2,3.3,0.3,,0.23,0.5,2.5,419,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
+boundless-smoked-bacon-chips,Boundless Smoked Bacon Chips,Snacks,,96,2.2,16.3,2.7,0.3,,0.19,0.9,1.4,404,,,,,,vegetarian,true,false,,,Listed under 'New this Season' on the menus page
 brown-bag-crisps-cheddar-and-onion,Brown Bag Crisps – Cheddar & Onion,Snacks,,200,2.2,23.4,10.8,0.9,,0.68,0.7,1.0,834,,,,,,vegetarian,false,false,,,
 brown-bag-crisps-lightly-salted,Brown Bag Crisps – Lightly Salted,Snacks,,206,2.0,23.4,11.5,0.9,,0.48,0.1,1.0,860,,,,,,vegetarian,false,false,,,
 brown-bag-crisps-sea-salt-and-malt-vinegar,Brown Bag Crisps – Sea Salt & Malt Vinegar,Snacks,,196,1.9,23.3,10.6,0.9,,1.20,1.2,0.9,822,,,,,,vegetarian,false,false,,,
 brown-crisps-smoked-chilli,Brown Crisps – Smoked Chilli,Snacks,,199,2.1,23.6,10.7,0.9,,0.76,1.4,1.0,831,,,,,,vegetarian,false,false,,,
-deliciously-ella-apple-raisin-and-cinnamon-oat-bar,"Deliciously Ella Apple, Raisin and Cinnamon Oat Bar",Snacks,,213,2.8,29.7,8.7,4.8,,0.15,14.5,2.5,894,,,,,,vegetarian,false,false,,,
-deliciously-ella-cacao-and-almond-energy-ball,Deliciously Ella Cacao & Almond Energy Ball,Snacks,,162,3.9,17.9,7.8,1.6,,0.02,16.7,3.8,679,,,,,,,false,false,,,
-deliciously-ella-chocolate-orange-dipped-almonds,Deliciously Ella Chocolate Orange Dipped Almonds,Snacks,,179,3.7,7.7,12.8,4.0,,0.04,4.8,3.2,663,,,,,,,false,false,,,kcal 179 differs from its macros (4P+4C+9F = 161) by 10%; printed as is
-deliciously-ella-peanut-butter-oat-bar,Deliciously Ella Peanut Butter Oat Bar,Snacks,,230,5.1,25,11.8,5.1,,0.24,10.6,2.5,963,,,,,,vegetarian,false,false,,,
-eat-real-hummus-chips-tomato-and-basil,Eat Real – Hummus Chips Tomato & Basil,Snacks,,100,2.0,15,3.6,0.3,,0.23,0.6,0.8,418,,,,,,vegetarian,false,false,,,
-eat-real-quinoa-chips-sour-cream-and-chive,Eat Real – Quinoa Chips Sour Cream & Chive,Snacks,,90,1.8,14,3.6,0.3,,0.42,0.7,0.8,380,,,,,,vegetarian,false,false,,,
+forest-feast-belgian-dark-chocolate-sour-cherries,Forest Feast Belgian Dark Chocolate Sour Cherries,Snacks,,190,2.1,21.6,10,6,,0.04,18.8,3.0,794,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
+forest-feast-salted-dark-chocolate-almonds,Forest Feast Salted Dark Chocolate Almonds,Snacks,,226,4.8,12.4,17.2,6.0,,0.29,11.2,3.0,942,,,,,,,true,false,,,"The Per 100g column does not fit the Per portion column here; per portion is used; Listed under 'New this Season' on the menus page; The page prints no ingredients list for this item, so its pork/beef tags could not be checked"
+forest-feast-sea-salt-and-black-peppercorn,Forest Feast Sea Salt & Black Peppercorn,Snacks,,200,7.2,8.4,16.4,1.8,,0.55,2.6,2.6,837,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
+forest-feast-sea-salt-and-cider-vinegar-nut-mix,Forest Feast Sea Salt & Cider Vinegar Nut Mix,Snacks,,225,8.0,7.6,18.8,1.8,,0.52,1.8,3.0,942,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
+pip-and-nut-protein-bar-dark-chocolate,Pip & Nut Protein Bar – Dark Chocolate,Snacks,,220,9.7,15.6,12.0,3.1,,0.63,10.6,2.3,912,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
+pip-and-nut-protein-bar-peanut-butter,Pip & Nut Protein Bar – Peanut Butter,Snacks,,223,11.0,14.7,12.9,4.1,,0.45,8.7,2.3,931,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
+pip-and-nut-stuffed-bar-almond,Pip & Nut Stuffed Bar – Almond,Snacks,,224,5.9,20.7,12.6,2.7,,0.05,9.9,3.0,932,,,,,,,true,false,,,Listed under 'New this Season' on the menus page
 pip-and-nut-dark-chocolate-almond-butter-cups,Pip & Nut Dark Chocolate Almond Butter Cups,Snacks,,204,3.8,10.3,15.8,6.6,,0.07,8.9,2.3,845,,,,,,vegetarian,false,false,,,
 pip-and-nut-milk-chocolate-peanut-butter-cups,Pip & Nut Milk Chocolate Peanut Butter Cups,Snacks,,202,3.9,12.8,14.7,6.5,,0.1,11.9,1.4,839,,,,,,vegetarian,false,false,,,
 tonys-chocolonely-dark-almond-sea-salt,Tony’s Chocolonely Dark Almond Sea Salt,Snacks,,253,3.5,20.7,16.5,8.6,,0.24,19.5,0.0,,,,,,,vegetarian,false,false,,,kJ printed as '1.058': left blank
 tonys-chocolonely-milk-caramel-sea-salt,Tony’s Chocolonely Milk Caramel Sea Salt,Snacks,,252,3.2,25.5,15.0,9.1,,0.32,24.0,0.0,,,,,,,vegetarian,false,false,,,kJ printed as '1.056': left blank
 tonys-chocolonely-milk-chocolate,Tony’s Chocolonely Milk Chocolate,Snacks,,256,3.6,24.4,15.5,9.4,,0.10,23.8,0.0,,,,,,,vegetarian,false,false,,,kJ printed as '1.072': left blank
-deliciously-ella-salted-caramel-almonds,Deliciously Ella Salted Caramel Almonds,Snacks,,176,4.2,8.5,14.2,4.4,,0.07,5.3,3.6,734,,,,,,vegetarian,false,false,,,
 cappuccino,Cappuccino,Coffee,,137,7.8,9.4,7.8,4.8,,0.22,9.4,,597,,,,,,vegetarian,false,false,,,
 cortado,Cortado,Coffee,,63,3.3,4.5,3.5,2.3,,0.1,4.5,,262,,,,,,vegetarian,false,false,,,
 flat-white,Flat White,Coffee,,107,5.9,7.4,5.9,3.7,,0.18,7.4,,464,,,,,,vegetarian,false,false,,,

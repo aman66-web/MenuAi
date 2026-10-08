@@ -169,6 +169,7 @@ def row_allergens(row: dict, where: str) -> tuple[dict, str]:
                 if keys != {key}:
                     raise SystemExit(f"{where}: may-contain label {after!r} under {key} names {sorted(keys)}")
                 extra_notes.append(f"{key}: may contain {', '.join(sorted(c | n))} (printed)")
+                may.add(key)  # contains AND may contain the same key: common.write_allergens then drops the cereal/nut kinds
         else:
             raise SystemExit(f"{where}: unexpected label {label!r} in the {key} column")
     return dict(contains=contains, may_contain=may, cereals=cereals, nuts=nuts), "; ".join(extra_notes)

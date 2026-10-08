@@ -3,7 +3,7 @@ frickles,Frickles,Starters,,118,1,12,14,0,,1,11,1,,,,,,,,false,false,,,
 corn-ribs,Corn Ribs,Starters,,325,7,24,41,6,,0,9,1,,,,,,,vegetarian,false,false,,,Also listed under Veggie / Vegan Starters with identical numbers; one row kept.
 trash-browns,Trash Browns,Starters,,486,5,57,25,3,,1,14,5,,,,,,,contains_pork,false,false,,,"Also listed under Veggie / Vegan Starters with identical numbers; one row kept. Listed under Veggie / Vegan Starters, but it contains the Cheesy Garlic Crumb that the Special menu page calls a 'cheesy garlic bacon crumb'; not tagged vegetarian. Contains the Cheesy Garlic Crumb, which the Special menu page calls a 'cheesy garlic bacon crumb'; tagged contains_pork."
 cheeseballs,Cheeseballs,Starters,,789,51,8,70,29,,3,7,0,,,,,,,vegetarian,false,false,,,Also listed under Veggie / Vegan Starters with identical numbers; one row kept.
-freddies-fingers-buffalo,Freddies Fingers: Buffalo,Starters,,521,66,7,35,3,,1,5,0,,,,,,,,false,false,,,Printed 521 kcal vs 607 kcal from its own macros (17% off); entered as printed.
+freddies-fingers-buffalo,Freddies Fingers: Buffalo,Starters,,521,66,7,35,3,,1,5,0,,,,,,,,false,false,,,
 freddies-fingers-crack,Freddies Fingers: Crack,Starters,,572,69,3,37,5,,0,0,0,,,,,,,,false,false,,,
 freddies-fingers-white-rabbit,Freddies Fingers: White Rabbit,Starters,,453,65,13,15,8,,0,13,0,,,,,,,,false,false,,,
 vegan-frickles,Vegan Frickles,Starters,,118,1,12,14,0,,1,11,1,,,,,,,vegetarian,false,false,,,
@@ -28,7 +28,7 @@ tater-tots-upgrade,Tater Tots (upgrade),Upgrades,,374,5,50,21,2,,1,1,7,,,,,,,veg
 superfries-me-upgrade,Superfries Me! (upgrade),Upgrades,,832,14,105,48,2,,1,7,11,,,,,,,contains_pork,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 dirty-hand-cut-fries-upgrade,Dirty Hand Cut Fries (upgrade),Upgrades,,545,10,73,30,0,,0,3,8,,,,,,,contains_pork,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 vegan-dirty-hand-cut-fries-upgrade,Vegan Dirty Hand Cut Fries (upgrade),Upgrades,,564,9,74,34,1,,1,5,7,,,,,,,vegetarian,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
-dirty-tater-tots-upgrade,Dirty Tater Tots (upgrade),Upgrades,,495,8,55,37,2,,1,3,8,,,,,,,contains_pork,false,false,,,Burger-meal upgrade option (the page's Upgrades section). Printed 495 kcal vs 585 kcal from its own macros (18% off); entered as printed.
+dirty-tater-tots-upgrade,Dirty Tater Tots (upgrade),Upgrades,,495,8,55,37,2,,1,3,8,,,,,,,contains_pork,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 vegan-dirty-tots-upgrade,Vegan Dirty Tots (upgrade),Upgrades,,514,7,56,41,3,,2,5,7,,,,,,,vegetarian,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 5oz-beef-patty-upgrade,5oz Beef Patty (upgrade),Upgrades,,290,20,0,23,10,,0,0,0,,,,,,,contains_beef,false,false,,,Burger-meal upgrade option (the page's Upgrades section).
 vegan-patty-upgrade,Vegan Patty (upgrade),Upgrades,,214,10,10,38,4,,1,0,4,,,,,,,vegetarian,false,false,,,Burger-meal upgrade option (the page's Upgrades section).

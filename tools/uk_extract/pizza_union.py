@@ -183,7 +183,8 @@ def allergens_from_text(text: str, where: str) -> dict:
         raise SystemExit(f"{where}: two may-contain lists in {text!r}")
     contains, cereals, nuts = _keys(parts[0], where)
     may = _keys(parts[1], where)[0] if len(parts) == 2 else set()
-    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+    # `may` is returned whole (not minus `contains`): common.write_allergens needs to see a key in both lists to drop the nut/cereal kinds
+    return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}
 
 
 NOTE = ("Pizza Union's guide gives values per average portion with no weights, and toppings are listed separately (they are "

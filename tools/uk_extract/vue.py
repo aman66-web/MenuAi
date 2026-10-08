@@ -29,6 +29,8 @@ Rows (the CSV lists EVERY row of the PDF, in order; 'exclude' rows carry no numb
   it is NOT published (the salt figure, which is printed on every row, is). Nothing is converted. Where sodium is plausible it is copied
   (e.g. Nacho Libre 813 mg beside 3 g salt is printed that way and is kept as printed, see the report).
 - Held back (holdback.csv): The Brooklyn (Large): carbohydrate prints "9" beside sugars 9.96 and 676 kcal, which is impossible.
+  Doritos Cool Original (180g): every figure on the row is 1.5 x the per-100 g line (a 150 g bag), so the 180 g label and the numbers conflict
+  (found by the 8 Oct 2026 accuracy re-check; every other pack row is exactly weight/100 x its per-100 g line).
 - Allergens: link only. Vue's food allergen matrix is dated 30 April 2024 (ten months older), names the kitchen's items ("Large Hotdog
   (Bun & Frankfurter No Sauces)", "Large Chicken Hotdog") and has no row for The Yankee, The Brooklyn, Nacho Libre, West Side Sizzler or
   Harlem Hot: it cannot be matched row by row, and allergens are all-or-nothing.
@@ -74,6 +76,9 @@ SECTIONS = {
 HOLDBACK = {  # (section, product, size) -> reason
     ("HOTDOGCOMBINATIONS", "The Brooklyn", "Large"):
         "Carbohydrate prints 9 g beside sugars 9.96 g and 676 kcal (4P+4C+9F is 491): the guide's own row is impossible",
+    ("PRE-PACKED", "Doritos Cool Original", "180g"):
+        "The pack row is labelled 180 g but every figure on it (kJ, kcal, protein, carbs, fat, salt) is exactly 1.5 x the guide's own "
+        "per-100 g line, i.e. a 150 g bag: size and numbers contradict each other",
 }
 NUM_KEYS = ["kj", "kcal", "protein", "carbs", "sugars", "fat", "sat", "fibre", "sodium", "salt"]
 PORK = re.compile(r"\b(pork|bacon|ham|sausage|pepperoni|salami|chorizo)\b", re.I)

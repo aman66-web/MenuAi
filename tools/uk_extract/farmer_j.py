@@ -20,7 +20,7 @@ from common import slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "farmer-j"
 BASE = "https://menus.tenkites.com/farmerjuk/farmerjallergypages"
 PAGES = {  # file name -> (url, dishes expected on the page)
-    "farmerj_breakfast.html": (BASE, 20),
+    "farmerj_breakfast.html": (BASE, 22),
     "farmerj_lunch.html": (BASE + "?mguid=6d41200b-d23a-43f8-a888-0cf03b6d0753", 42),
     "farmerj_allday.html": (BASE + "?mguid=5d133f8d-c028-43a4-ae20-f32607011cc0", 12),
 }
@@ -34,6 +34,10 @@ SECTIONS = {
     "Set Fieldtrays": ("Set fieldtrays", True), "Set Fieldbowls": ("Set fieldbowls", True),
     "Snacks": ("Snacks", False), "SEASONAL DRINKS": ("Seasonal drinks", False),
 }
+# Re-check 2026-10-08: the live Breakfast page gained "Extra Egg" and "Extra Avocado" and now prints the sourdough extra as
+# "Seeded Sourdough + Salted Butter Nov'26" (new figures: 266 kcal, saturates 5.5 g; the old row printed 268 and 5.9). The "Nov'26" is a
+# recipe-version tag, not part of the dish's name: the item keeps its name and id and the row's note says how the page prints it.
+PRINTED_AS = {"Seeded Sourdough + Salted Butter Nov'26": "Seeded Sourdough + Salted Butter"}
 # The same pages print each dish's 14 allergen columns, a "Contains:" line naming cereals and nuts, and "May contain traces of".
 ALLERGEN_TITLE = "Farmer J Allergen & Nutrition pages (Ten Kites)"
 SOURCE_TITLE = "Farmer J Allergen & Nutrition pages: Breakfast, Lunch & Dinner and All Day menus (September 2026)"
@@ -43,6 +47,7 @@ NOTE = ("Figures are per serving from Farmer J's own nutrition pages, which say 
 
 def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]]:
     items, report = [], []
+    printed_as: list[tuple[str, str]] = []
     for fname, (_, expected) in PAGES.items():
         text = (pages_dir / fname).read_text(encoding="utf-8")
         rows = tk.read_table_layout(text)
@@ -57,6 +62,9 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
                 report.append(f"skipped {r['name']!r}: {missing} not printed")
                 continue
             category, rankable = SECTIONS[r["section"]]
+            if r["name"] in PRINTED_AS:
+                printed_as.append((PRINTED_AS[r["name"]], r["name"]))
+                r["name"] = PRINTED_AS[r["name"]]
             tags = ["vegetarian"] if r["vegetarian"] else []
             meat, unspecified = tk.meat_tags(r["name"], r["desc"], r["ingredients"], vegetarian=bool(r["vegetarian"]))
             if unspecified:
@@ -68,6 +76,9 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
     report += [f"dropped exact duplicate: {n}" for n in dropped]
     for it in kept:
         notes = tk.annotate(it)
+        for name, printed in printed_as:
+            if it["name"] == name:
+                notes.append(f"the page prints this dish as '{printed}' (the Nov'26 tag is a recipe version, not part of the name)")
         it["notes"] = "; ".join(notes)
         report += [f"{it['name']}: {n}" for n in notes]
     return kept, [], report

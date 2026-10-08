@@ -25,6 +25,8 @@ NOT PUBLISHED, and why (read before changing anything):
   the same list) is therefore not used either.
 - Drink rows printed N/A (filter coffee box and the Sproud filter coffees): no figure.
 - Four matcha tea rows whose per-portion column prints ">1" beside 12 kcal per 100 g: written to items.csv as printed and held back.
+- The Small Iced Matcha Latte rows for semi skimmed milk (103 kcal) and oat drink (84): every other drink with both versions prints more for
+  oat than semi skimmed, so the two rows look swapped in the guide; written to items.csv as printed and held back.
 """
 from __future__ import annotations
 import argparse
@@ -144,11 +146,16 @@ def build(rows: list, headings: dict) -> tuple:
     items = kept
     if sum(1 for x in report if x.startswith("dropped exact repeat")) != len(EXPECTED_REPEATS):
         raise SystemExit("the repeated rows changed: expected exactly the two Regular Iced Mocha rows printed twice")
-    # Small Iced Matcha Latte: semi skimmed (50 per 100 g) prints higher than oat (41), the reverse of every sibling drink: kept as printed.
+    # Small Iced Matcha Latte: semi skimmed (50 per 100 g, 103 per portion) prints higher than oat (41, 84). In the other 51 drinks (decaf
+    # versions counted separately) that have both versions the oat drink always prints more than the semi skimmed one (the small matcha latte: 113 vs 92), so the two rows
+    # look swapped in the guide. Neither number is corrected or chosen: both rows are held back (second reader, 2026-10-08).
     for it in items:
         if it["name"] in ("Small Iced Matcha Latte, semi skimmed milk", "Small Iced Matcha Latte, oat drink"):
-            it["notes"] += "; semi skimmed prints higher than oat here, the reverse of the other matcha lattes: kept as printed"
-            report.append(f"odd (kept as printed): {it['name']} {it['calories']} kcal")
+            it["notes"] += "; semi skimmed prints higher than oat here, the reverse of every other drink: held back"
+            holdback.append((slug(it["name"]), f"The guide prints {it['calories']} kcal for this version of the small iced matcha latte, but in the other "
+                             "51 drinks (decaf versions counted separately) that have both an oat and a semi skimmed version the oat drink always prints more than the semi skimmed "
+                             "one (small matcha latte: oat 113, semi skimmed 92), so the two rows look swapped. Neither is chosen or corrected."))
+            report.append(f"held back (looks swapped with its sibling): {it['name']} {it['calories']} kcal")
     report += [f"not listed (N/A): {n}" for n in skipped_na]
     return items, holdback, report
 

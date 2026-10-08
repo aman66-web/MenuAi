@@ -24,9 +24,11 @@ The per-portion kJ (energy_kj) and the stated portion weight (weight_g) are copi
 
 Allergens come from the same item pages: IKEA prints each item's allergens ("allergens") and what it "may contain traces of"
 ("allergensTracesOf") by name. The names are mapped with common.allergen_words (an unknown name stops the script). IKEA names
-no cereal or nut there, so none is named here. Each item's list is cross-checked with the allergens IKEA marks in bold in the
-same item's ingredient statement (BOLD_EXTRA maps IKEA's bold words); if the two printed forms disagree, or IKEA hides an
-item's allergens, the script stops so a human decides.
+no cereal there (only "cereals containing gluten"), so none is named; it does name some tree nuts (almonds, hazelnut), which are
+kept (common.write_allergens drops the kinds when the same item also "may contain" nuts). Each item's list is cross-checked with the
+allergens IKEA marks in bold in the same item's ingredient statement (see item_allergens, ALLERGEN_EXTRA, BOLD_EXTRA,
+STRUCTURED_ONLY); a bold allergen that the structured list lacks, or IKEA hiding an item's allergens, stops the script so a human
+decides. Bold words after a "may contain ..." marker are added to the item's may-contain list.
 """
 from __future__ import annotations
 import argparse
@@ -350,31 +352,88 @@ def impossible_energy(n: dict[str, str], grams: Decimal) -> str | None:
     return None
 
 
-# IKEA's own spellings of allergen words in bold in its ingredient statements (beyond common.allergen_words). Only words seen
-# in IKEA's statements belong here; an unknown bold word stops the script.
-BOLD_EXTRA: dict[str, tuple[str, str | None]] = {}
+def kj_disagrees(n: dict[str, str]) -> bool:
+    """Printed kJ that is not within 7% of kcal x 4.184 (the band tools/audit/accuracy_audit.py uses)."""
+    kcal, kj = Decimal(n["calories"]), Decimal(n["_kj"])
+    return kcal >= 20 and not Decimal("0.93") <= kj / (kcal * Decimal("4.184")) <= Decimal("1.07")
+
+
+def kcal_agrees_with_macros(n: dict[str, str]) -> bool:
+    """Printed kcal within 15% of 4 x protein + 4 x carbohydrate + 9 x fat."""
+    kcal = Decimal(n["calories"])
+    est = 4 * Decimal(n["protein_g"]) + 4 * Decimal(n["carbs_g"]) + 9 * Decimal(n["fat_g"])
+    return abs(kcal - est) <= Decimal("0.15") * kcal
+
+
+# IKEA's own spellings of allergen words in its structured lists (ALLERGEN_EXTRA) and in the bold words of its ingredient statements
+# (BOLD_EXTRA), beyond common.allergen_words. Only words seen on IKEA's pages belong here; an unknown word stops the script.
+ALLERGEN_EXTRA: dict[str, tuple[str, str | None]] = {
+    "cashew nut": ("nuts", "cashew"), "macadamia nut and queensland nut": ("nuts", "macadamia"),
+}
+BOLD_EXTRA: dict[str, tuple[str, str | None]] = {
+    **ALLERGEN_EXTRA,
+    "buttermilk": ("milk", None), "wheat flour": ("gluten", "wheat"), "wheat gluten": ("gluten", "wheat"),
+    "wehat": ("gluten", "wheat"),  # IKEA's own typo for WHEAT, in the bold words of one ingredient statement
+    "gluten": ("gluten", None), "hazlenut": ("nuts", "hazelnut"), "soy beans": ("soya", None), "soybean": ("soya", None),
+    "soya beans": ("soya", None), "sulphur dioxide": ("sulphites", None), "sesame seed": ("sesame", None),
+    "crustacean": ("crustaceans", None),
+}
+# Bold text on IKEA's pages that is a warning but not one of the 14 allergens (skipped, printed in the run report).
+IGNORED_BOLD = ("contains fava beans",)
+# Where an ingredient statement starts listing what the item only MAY contain: bold words after it (in the same paragraph) are traces.
+TRACE_MARKER = re.compile(r"may\s+(?:also\s+)?contain|contains?\s+traces|also\s+traces|traces\s+of", re.I)
+# Allergens IKEA's structured list ("allergens") marks although the item's ingredient text does not put that word in bold. The
+# structured list is the longer one, so it is published as printed; each difference was read on the page by a person.
+STRUCTURED_ONLY: dict[str, tuple[set[str], str]] = {
+    "PRF13760754": ({"fish"}, "the statement names the fish as 'Salmon (FISH)' in capitals, not in bold"),
+    "PRF13774547": ({"sulphites"}, "the statement does not name sulphites anywhere"),
+    "PRF13808495": ({"sulphites"}, "the statement does not name sulphites anywhere"),
+    "PRF13808836": ({"sulphites"}, "the statement does not name sulphites anywhere"),
+}
 
 
 class Contradiction(StructureChanged):
     pass
 
 
+def _bold_words(statement: str) -> tuple[list[str], list[str]]:
+    """The bold allergen words of an ingredient statement: (those before a 'may contain' marker, those after it)."""
+    contained, traces = [], []
+    for para in re.split(r"\n\s*\n", statement or ""):
+        marker = TRACE_MARKER.search(para)
+        for tok in re.finditer(r"<strong>(.*?)</strong>", para, re.S):
+            words = [re.sub(r"[().:*]", "", w).strip() for w in re.split(r",|\band\b|&", re.sub(r"<[^>]+>", "", tok.group(1)))]
+            words = [w for w in words if w and not w.lower().startswith(IGNORED_BOLD)]
+            (traces if marker and tok.start() > marker.start() else contained).extend(words)
+    return contained, traces
+
+
 def item_allergens(item: dict) -> dict:
-    """IKEA's printed allergens for the item, cross-checked with the bold words of its ingredient statement."""
+    """IKEA's printed allergens for the item, cross-checked with the bold words of its ingredient statement.
+    contains = IKEA's structured "allergens" list (must include every bold word that is not after a 'may contain' marker; a
+    structured word with no bold word is allowed only where STRUCTURED_ONLY records why). may contain = the structured
+    "allergensTracesOf" list plus any bold word after a 'may contain' marker in the statement (the longer list is the safe one:
+    both are printed on the same page; e.g. the hot dogs' statement says traces of soya beans, the structured list does not)."""
     where = f"IKEA item {item['id']} ({item['title']})"
     if item["hideAllergen"] or item["hideAllergenTracesOf"]:
         raise StructureChanged(f"{where}: IKEA hides this item's allergens on its page")
     if any(a.get("isTrace") for a in item["allergens"]) or any(not a.get("isTrace") for a in item["allergensTracesOf"]):
         raise StructureChanged(f"{where}: an allergen and trace list are mixed up ({item['allergens']!r} / {item['allergensTracesOf']!r})")
-    contains, cereals, nuts = allergen_words([a["description"] for a in item["allergens"]], where)
-    may, _, _ = allergen_words([a["description"] for a in item["allergensTracesOf"]], where)
-    bold_words = []
-    for b in re.findall(r"<strong>(.*?)</strong>", item["ingredientStatement"] or "", re.S):
-        bold_words += [w for w in re.split(r",|\band\b|&", re.sub(r"<[^>]+>", "", b)) if w.strip()]
-    bold, _, _ = allergen_words(bold_words, f"{where} (bold in the ingredients)", extra=BOLD_EXTRA)
-    if bold != contains:
-        raise Contradiction(f"{where}: allergens {sorted(contains)} but the ingredients put {sorted(bold)} in bold")
-    return {"contains": contains, "may_contain": may - contains, "cereals": cereals, "nuts": nuts}
+    contains, cereals, nuts = allergen_words([a["description"] for a in item["allergens"]], where, extra=ALLERGEN_EXTRA)
+    may, _, _ = allergen_words([a["description"] for a in item["allergensTracesOf"]], where, extra=ALLERGEN_EXTRA)
+    bold_contained, bold_traces = _bold_words(item["ingredientStatement"] or "")
+    bold, _, _ = allergen_words(bold_contained, f"{where} (bold in the ingredients)", extra=BOLD_EXTRA)
+    bold_may, _, _ = allergen_words(bold_traces, f"{where} (bold after 'may contain' in the ingredients)", extra=BOLD_EXTRA)
+    if bold - contains:
+        raise Contradiction(f"{where}: the ingredients put {sorted(bold - contains)} in bold but the allergens list is {sorted(contains)}")
+    unbolded = contains - bold
+    allowed, _why = STRUCTURED_ONLY.get(item["id"], (set(), ""))
+    if unbolded != allowed:
+        raise Contradiction(f"{where}: allergens {sorted(contains)} but the ingredients put only {sorted(bold)} in bold (STRUCTURED_ONLY allows "
+                            f"{sorted(allowed)}): read the page and decide")
+    # may_contain is returned as printed (not minus `contains`): common.write_allergens needs the overlap to drop the tree-nut kinds when
+    # IKEA lists one nut as contained and another as "may contain" (it removes the overlap itself).
+    return {"contains": contains, "may_contain": may | bold_may, "cereals": cereals, "nuts": nuts}
 
 
 PORK_RE = re.compile(r"\b(pork|bacon|ham|gammon|salami|chorizo|pepperoni)\b", re.I)
@@ -463,7 +522,8 @@ def item_notes(it: dict, n: dict[str, str], held: bool) -> str:
     notes = [f"On IKEA's {', '.join(x['areas'])} menu(s); sold in {x['gb_stores']} of {x['of']} Great Britain stores"]
     kcal, kj = Decimal(n["calories"]), Decimal(n["_kj"])
     if kcal > 0 and not Decimal("4.0") <= kj / kcal <= Decimal("4.35"):
-        notes.append(f"printed kJ ({kj}) and kcal ({kcal}) do not agree (kJ/kcal = {kj / kcal:.2f}); kcal is the number used")
+        notes.append(f"printed kJ ({kj}) and kcal ({kcal}) do not agree (kJ/kcal = {kj / kcal:.2f}); kcal is the number used"
+                     + ("" if held or not kj_disagrees(n) else ", the kJ is not published"))
     if kcal == 0 and kj > 0:
         notes.append(f"printed as 0 kcal but {kj} kJ")
     p, c, f = (Decimal(n[k]) for k in ("protein_g", "carbs_g", "fat_g"))
@@ -486,7 +546,7 @@ def build(items_by_id: dict[str, dict], keep: dict[str, dict], checked_on: str, 
         lines += [f"  GONE {i}: {SPEC_BY_ID[i][2]!r}" for i in sorted(spec_ids - published_ids)]
         raise StructureChanged("the menu changed: the published items no longer match SPEC. Add a name/category line for each NEW item "
                                "and delete each GONE one, then run again:\n" + "\n".join(lines))
-    rows, holdback, not_stated, unflagged_veg = [], [], [], []
+    rows, holdback, not_stated, unflagged_veg, kj_not_published = [], [], [], [], []
     for item_id, title, name, category, rankable in SPEC:
         it = keep[item_id]
         if it["title"] != title:
@@ -507,10 +567,19 @@ def build(items_by_id: dict[str, dict], keep: dict[str, dict], checked_on: str, 
         problem = impossible_energy(n, Decimal(it["servingSizeDisplayValue"].split()[0]))
         if problem:
             holdback.append((item_id, item_id_out, name, problem))
+        kj_out = n.get("_kj", "")
+        if kj_out and not problem and kj_disagrees(n):
+            # IKEA's own kJ and kcal disagree. If the kcal agrees with the same page's protein, carbohydrate and fat the dish is kept with
+            # its kcal and the kJ that contradicts it is simply not published (never converted or corrected); otherwise a person decides.
+            if not kcal_agrees_with_macros(n):
+                raise StructureChanged(f"item {item_id} ({name}): printed kJ {kj_out} and kcal {n['calories']} disagree and the kcal does not "
+                                       "match protein/carbs/fat either: hold the item back (EXPECTED_HELDBACK) or decide")
+            kj_not_published.append(f"{name} (kJ {kj_out} vs kcal {n['calories']})")
+            kj_out = ""
         rows.append({
             "id": item_id_out, "name": name, "category": category, "serving": it["servingSizeDisplayValue"],
             **{k: n.get(k, "") for k in ("calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "salt_g", "sugar_g")},
-            "energy_kj": n.get("_kj", ""), "weight_g": it["servingSizeDisplayValue"].split()[0],
+            "energy_kj": kj_out, "weight_g": it["servingSizeDisplayValue"].split()[0],
             "allergens": item_allergens(it),
             "tags": "|".join(tags), "rankable": rankable, "notes": item_notes(it, n, bool(problem)),
         })
@@ -527,7 +596,7 @@ def build(items_by_id: dict[str, dict], keep: dict[str, dict], checked_on: str, 
         items=rows, out=out, note=NOTE, holdback=[(h[1], h[3]) for h in holdback],
         allergen_guide={"title": f"IKEA UK food pages: allergens and traces on each item page (live pages, accessed {checked_on})",
                         "url": SOURCE_URL, "checked_on": checked_on, "may_contain_published": True})
-    return rows, holdback, not_stated, unflagged_veg
+    return rows, holdback, not_stated, unflagged_veg, kj_not_published
 
 
 # ---------------------------------------------------------------------------------------------------------------- main
@@ -565,7 +634,7 @@ def main() -> int:
         market = json.loads((args.cache / "listing-restaurant.json").read_text(encoding="utf-8"))["props"]["pageProps"]["products"]
         packaged = sum(1 for p in market if {a["slug"] for a in p["item"]["salesAreas"]} <= NOT_PUBLISHED_AREAS)
         keep, excluded = classify(listed, items)
-        rows, holdback, not_stated, unflagged_veg = build(items, keep, args.checked_on, args.out)
+        rows, holdback, not_stated, unflagged_veg, kj_not_published = build(items, keep, args.checked_on, args.out)
     except (Blocked, StructureChanged) as err:
         print(f"STOPPED: {err}", file=sys.stderr)
         return 1
@@ -586,6 +655,7 @@ def main() -> int:
           f"{sum('vegetarian' in r['tags'] for r in rows)} vegetarian")
     for _, out_id, name, problem in holdback:
         print(f"  HELD BACK {out_id}: {problem}")
+    print(f"kJ not published because it contradicts the printed kcal, which matches protein/carbs/fat ({len(kj_not_published)}): {kj_not_published}")
     print(f"meat type not stated ({len(not_stated)}): {not_stated}")
     print(f"description says 'vegetarian' but the title does not, so not tagged: {unflagged_veg}")
     print(f"cache digest (sha256 over the raw page JSON files, name+bytes, sorted): {digest.hexdigest()}")

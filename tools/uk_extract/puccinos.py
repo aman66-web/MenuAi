@@ -80,6 +80,9 @@ HOLDBACK = {
                          "zero energy, so this looks like an empty placeholder row.",
     "iced-americano-coconut-milk": "Numbers and the allergen text (Tree nuts, Almonds) are identical to the Almond Milk row above it and unlike "
                                    "every other coconut milk drink: the row looks copied from the almond one.",
+    "dark-chocolate-sauce-extra": "The row looks copied from the Caramel Sauce row: every per-100 g figure is identical to it (318 kcal, 74 g carbohydrate, "
+                                  "72 g sugars, 0 g protein, 0.13 g salt) while the Caramel Sauce is marked 'Contains: Milk' and this row's allergen cell "
+                                  "is blank, so neither its numbers nor its blank allergens are published.",
     "salted-caramel-latte-semi-skimmed-milk-small": CONTRADICTS + "the Small row is identical to the Skimmed Milk Small row (same fat, same energy) "
                                                     "although the Regular and Large rows show skimmed milk well below semi-skimmed.",
     "salted-caramel-latte-skimmed-milk-small": CONTRADICTS + "the Small row is identical to the Semi Skimmed Milk Small row (same fat, same energy) "
@@ -93,6 +96,18 @@ HOLDBACK = {
     "caramelised-orange-hot-chocolate-almond-milk-regular": CONTRADICTS + "Regular (345 kcal) is printed as larger than Large (305 kcal).",
     "caramelised-orange-hot-chocolate-almond-milk-large": CONTRADICTS + "Regular (345 kcal) is printed as larger than Large (305 kcal).",
 }
+
+# Drinks whose NAME promises an allergen the guide's allergen column does not mark and that the guide's own wording does not explain:
+# held back (never guessed at). (The guide says its Brodies and Sweetbird syrups are free from the major allergens "including Hazelnut and
+# Sugar-Free Hazelnut", so the hazelnut and other flavoured-syrup drinks stay published; "Toasted Marshmallow" is a flavour, not toast.)
+NAME_HOLDBACK = [
+    (re.compile(r"\bpistachio\b", re.I),
+     "Allergen row not trusted: the drink is named Pistachio but the guide marks no tree nut and no 'may contain' for it. The guide's note that its "
+     "syrups are free from the major allergens names only the Hazelnut syrups, so a pistachio ingredient is not explained: not published."),
+    (re.compile(r"\bStupid Little Biscuit Frappe\b", re.I),
+     "Allergen row not trusted: the drink is named after the chain's own Stupid Little Biscuit, which the guide marks as containing gluten (wheat), "
+     "but the drink's allergens list no wheat: not published."),
+]
 
 # Odd rows that ARE published (notes are not exported). Keys must be real ids.
 NOTES = {
@@ -342,6 +357,10 @@ def main() -> int:
     ids = [it["id"] for it in items]
     if len(ids) != len(set(ids)):
         fail(f"duplicate ids: {sorted({i for i in ids if ids.count(i) > 1})}")
+    for it in items:
+        for rx, reason in NAME_HOLDBACK:
+            if rx.search(it["name"]):
+                HOLDBACK.setdefault(it["id"], reason)
     unknown = set(HOLDBACK) - set(ids)
     if unknown:
         fail(f"HOLDBACK names items that no longer exist: {sorted(unknown)}")

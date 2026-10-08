@@ -139,6 +139,23 @@ def category(label: str, rec: dict, name: str) -> str:
     raise SystemExit(f"unmapped section {rec['course']!r} on menu {label!r}: add it to category() after checking the page")
 
 
+def allergens_of(label: str, rec: dict) -> dict | None:
+    """The dish's allergens as the pop-up prints them, plus one rule of ours: when the page names cereals (or tree nuts) in BOTH its
+    "Contains:" and its "May contain:" line ("Contains: Cereals (Barley)", "May contain: Cereals (Wheat)"), the allergen goes into
+    may_contain as well, so common.write_allergens drops the named kinds and the app shows the generic allergen (naming only the
+    contained kind would hide the may-contain warning for the others). tenkites_b.allergens_from_rec removes that overlap itself."""
+    where = f"{label} {rec['name']}"
+    found = tk.allergens_from_rec(rec, where)
+    if found is None:
+        return None
+    printed_may = rec["allergen_src"].get("may") or ""
+    may_keys = tk._printed_list(printed_may, where, None)[0] if printed_may else set()
+    both = {k for k in ("gluten", "nuts") if k in found["contains"] and k in may_keys}
+    if both:
+        found = dict(found, may_contain=set(found["may_contain"]) | both)
+    return found
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day the pages were read")
@@ -156,7 +173,7 @@ def main() -> int:
         labels, paths, "modal", name_of, category, skip_fn=skip,
         key_fn=same_dish, veg_fn=lambda rec: bool({"V", "VG"} & set(rec["check"]["labels"])),
         text_fn=lambda rec: " ".join([] if is_option_of_dish(rec) else [clean_group(rec["group"])]) + " " + rec["name"] + " " + rec["desc"],
-        allergen_fn=lambda label, rec: tk.allergens_from_rec(rec, f"{label} {rec['name']}"))
+        allergen_fn=allergens_of)
     if total != EXPECTED_ROWS:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and the mappings against the pages, then update EXPECTED_ROWS.", file=sys.stderr)

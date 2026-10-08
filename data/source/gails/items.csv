@@ -27,7 +27,7 @@ small-cappuccino-cows-milk,"Small Cappuccino, cow’s milk",Coffee,,109,,,,,,,,,
 small-cappuccino-semi-skimmed-milk,"Small Cappuccino, semi skimmed milk",Coffee,,81,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3; per-portion value printed '81'
 small-cappuccino-oat-drink,"Small Cappuccino, oat drink",Coffee,,100,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3; per-portion value printed '100'
 small-cappuccino-soya-drink,"Small Cappuccino, soya drink",Coffee,,97,,,,,,,,,,,,,,,vegetarian,false,false,,,page 3; per-portion value printed '97'
-decaf-cows-milk,Decaf Cow’s Milk,Coffee,,107,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4; per-portion value printed '107'
+small-cappuccino-decaf-cows-milk,"Small Cappuccino, decaf cow’s milk",Coffee,,107,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4; per-portion value printed '107'
 small-cappuccino-decaf-semi-skimmed-milk,"Small Cappuccino, decaf semi skimmed milk",Coffee,,80,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4; per-portion value printed '80'
 small-cappuccino-decaf-oat-drink,"Small Cappuccino, decaf oat drink",Coffee,,99,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4; per-portion value printed '99'
 small-cappuccino-decaf-soya-drink,"Small Cappuccino, decaf soya drink",Coffee,,95,,,,,,,,,,,,,,,vegetarian,false,false,,,page 4; per-portion value printed '95'
@@ -202,8 +202,8 @@ regular-iced-matcha-latte-semi-skimmed-milk,"Regular Iced Matcha Latte, semi ski
 regular-iced-matcha-latte-oat-drink,"Regular Iced Matcha Latte, oat drink",Matcha,,162,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13; per-portion value printed '162'
 regular-iced-matcha-latte-soya-drink,"Regular Iced Matcha Latte, soya drink",Matcha,,157,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13; per-portion value printed '157'
 small-iced-matcha-latte-cows-milk,"Small Iced Matcha Latte, cow’s milk",Matcha,,112,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13; per-portion value printed '112'
-small-iced-matcha-latte-semi-skimmed-milk,"Small Iced Matcha Latte, semi skimmed milk",Matcha,,103,,,,,,,,,,,,,,,vegetarian,false,false,,,"page 13; per-portion value printed '103'; semi skimmed prints higher than oat here, the reverse of the other matcha lattes: kept as printed"
-small-iced-matcha-latte-oat-drink,"Small Iced Matcha Latte, oat drink",Matcha,,84,,,,,,,,,,,,,,,vegetarian,false,false,,,"page 13; per-portion value printed '84'; semi skimmed prints higher than oat here, the reverse of the other matcha lattes: kept as printed"
+small-iced-matcha-latte-semi-skimmed-milk,"Small Iced Matcha Latte, semi skimmed milk",Matcha,,103,,,,,,,,,,,,,,,vegetarian,false,false,,,"page 13; per-portion value printed '103'; semi skimmed prints higher than oat here, the reverse of every other drink: held back"
+small-iced-matcha-latte-oat-drink,"Small Iced Matcha Latte, oat drink",Matcha,,84,,,,,,,,,,,,,,,vegetarian,false,false,,,"page 13; per-portion value printed '84'; semi skimmed prints higher than oat here, the reverse of every other drink: held back"
 small-iced-matcha-latte-soya-drink,"Small Iced Matcha Latte, soya drink",Matcha,,100,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13; per-portion value printed '100'
 small-matcha-tea,Small Matcha Tea,Matcha,,>1,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13; per-portion value printed '>1'
 regular-matcha-tea,Regular Matcha Tea,Matcha,,>1,,,,,,,,,,,,,,,vegetarian,false,false,,,page 13; per-portion value printed '>1'

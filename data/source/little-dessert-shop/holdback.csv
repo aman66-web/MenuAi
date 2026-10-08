@@ -1,0 +1,4 @@
+item_id,reason
+strawberry-cheesecake,"Allergen row contradicts the dish name/description: a cheesecake described as 'buttery biscuit base. Smooth, creamy' but the allergens table marks no milk (it ticks gluten and soya only)"
+roche-krunch-kunafa-cake,Allergen row contradicts the dish description: 'layered with smooth milk chocolate ganache' but the allergens table marks no milk (the two other Krunch Kunafa Cakes tick milk)
+coconut-snowflake-crunch-loaded-crepe,Allergen row contradicts the dish description: 'coconut white chocolate ... white chocolate curls ... a scoop of ice cream' but the allergens table marks no milk

@@ -200,6 +200,13 @@ def build(pages: Dict[str, Path]) -> Tuple[List[dict], List[Tuple[str, str]], Li
             allergens = tb.allergens_from_rec(rec, where)
             if allergens is None:
                 raise SystemExit(f"{where}: does not carry all 14 allergen columns")
+            # The card's "May contain:" line can name a kind of an allergen the dish already CONTAINS ("Contains Cereals with Gluten
+            # (Barley, Rye, Wheat)" with "May contain Cereals with Gluten (Oats)"; "Contains Tree Nuts (Pecan)" with "may contain Tree
+            # Nuts (Almond, Brazil ...)"). tenkites_b keeps the contained kinds and drops that may-contain; list the key in
+            # may_contain as well, so common.write_allergens drops the named kinds and publishes the generic allergen instead.
+            may_line = rec["allergen_src"].get("may")
+            if may_line is not None:
+                allergens["may_contain"] = set(allergens["may_contain"]) | (tb._printed_list(may_line, where, None)[0] & set(allergens["contains"]))
             if rec["yes_labels"] and any(x in ("Vegan", "Vegetarian") for x in rec["yes_labels"]):
                 raise SystemExit(f"{where}: the page now ticks a Vegan / Vegetarian column: read it and tag vegetarian dishes")
             text = rec["name"] + " " + rec["ingredients"]

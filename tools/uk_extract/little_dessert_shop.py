@@ -72,6 +72,14 @@ STORES = [
 ]
 EXPECTED_ALLERGEN_ROWS = 207
 EXPECTED_ITEMS = 104
+# Dishes whose allergen row marks no milk at all (not even "may contain") although the dish's own description on the site names milk
+# or a dairy ingredient. Neither is chosen (nothing is corrected): they stay in items.csv and are listed in holdback.csv, so the
+# pipeline does not publish them. Found by the independent re-read of 2026-10-08; restore by deleting the line once the chain fixes its table.
+HOLDBACK = {
+    "strawberry-cheesecake": "Allergen row contradicts the dish name/description: a cheesecake described as 'buttery biscuit base. Smooth, creamy' but the allergens table marks no milk (it ticks gluten and soya only)",
+    "roche-krunch-kunafa-cake": "Allergen row contradicts the dish description: 'layered with smooth milk chocolate ganache' but the allergens table marks no milk (the two other Krunch Kunafa Cakes tick milk)",
+    "coconut-snowflake-crunch-loaded-crepe": "Allergen row contradicts the dish description: 'coconut white chocolate ... white chocolate curls ... a scoop of ice cream' but the allergens table marks no milk",
+}
 
 
 def fetch_missing(cache: Path) -> None:
@@ -221,9 +229,12 @@ def main() -> int:
     guide = {"title": "Little Dessert Shop allergens page (accessed %s, no date shown)" % args.checked_on, "url": ALLERGENS_URL,
              "checked_on": args.checked_on, "may_contain_published": True}
     title = "Little Dessert Shop store menu pages with calories and allergens page (accessed %s, no date shown)" % args.checked_on
+    stale = [h for h in HOLDBACK if h not in ids]
+    if stale:
+        raise SystemExit(f"HOLDBACK names items that are not on the menu any more: {stale}")
     out = write_chain_folder(chain_id=CHAIN_ID, name="Little Dessert Shop", cuisine="Desserts", source_title=title,
                              source_url=f"{BASE}/menu/1/city-centre-wolverhampton", checked_on=args.checked_on, aliases=ALIASES, items=items,
-                             out=args.out, note=note, allergen_guide=guide, nutrition_level="calories")
+                             out=args.out, note=note, allergen_guide=guide, nutrition_level="calories", holdback=list(HOLDBACK.items()))
     cats = {}
     for it in items:
         cats[it["category"]] = cats.get(it["category"], 0) + 1

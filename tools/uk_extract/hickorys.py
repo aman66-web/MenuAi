@@ -4,8 +4,11 @@
     python3 tools/uk_extract/hickorys.py --pages DIR --checked-on 2026-10-06 [--fetch]
 
 DIR holds the six saved tabs of https://menus.tenkites.com/hickorys/hickorys03 (the page the official hickorys.co.uk
-menus page loads): Food, Brunch, Desserts, Kids, Drinks and Non-Gluten. --fetch downloads them first (one request per
-second). Numbers are copied from each dish's "Nutrition (per portion)" table exactly as printed (kcal, protein, carb,
+menus page loads): Main Menu, Brunch & Lunch, Desserts, Kids, Drinks and Non Gluten (named Food, Brunch and Non-Gluten before
+8 Oct 2026). --fetch downloads them first (one request per second): the base page lists every tab with its own
+data-menu-identifier, and each tab is the same page requested with ?mguid=<that identifier>, exactly what the page's own
+menu selector does when a visitor taps a tab (the identifiers change when Hickory's republishes, so they are never typed here).
+Numbers are copied from each dish's "Nutrition (per portion)" table exactly as printed (kcal, protein, carb,
 sugars, fat, saturates, salt; fibre is not printed). A dish with choices ("with Fries" / "with Salad", sauces, sizes) has
 one printed table per choice; each choice is one item. Only names, categories and the choices below are typed by hand.
 If a tab gains or loses dishes, or a new section appears, the run stops so a human re-checks.
@@ -16,6 +19,7 @@ table is printed as "-".
 """
 from __future__ import annotations
 import argparse
+import html
 import re
 import sys
 from pathlib import Path
@@ -26,29 +30,30 @@ from common import slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "hickorys"
 BASE = "https://menus.tenkites.com/hickorys/hickorys03"
-PAGES = {  # tab -> (file, url, dishes/choices expected on the tab)
-    "food": ("hickorys.html", BASE, 88),
-    "brunch": ("hickorys_brunch.html", BASE + "?mguid=2e489b83-106e-454b-95b3-6d6acc6bf03c", 21),
-    "desserts": ("hickorys_desserts.html", BASE + "?mguid=0748a2f7-bc8f-4a9f-b098-e9081083ca77", 11),
-    "drinks": ("hickorys_drinks.html", BASE + "?mguid=b9bace70-7eff-40f5-a56a-6191d5bb0db1", 106),
-    "kids": ("hickorys_kids.html", BASE + "?mguid=38b7c19e-6c9e-47a5-915c-064080b2df5a", 42),
-    "nongluten": ("hickorys_nongluten.html", BASE + "?mguid=d9baafab-60f3-4f97-94aa-f1e4bd156222", 67),
+PAGES = {  # tab -> (file, printed tab name on the page, dishes/choices expected on the tab)
+    "food": ("hickorys.html", "Main Menu", 88),
+    "brunch": ("hickorys_brunch.html", "Brunch & Lunch", 38),
+    "desserts": ("hickorys_desserts.html", "Desserts", 11),
+    "drinks": ("hickorys_drinks.html", "Drinks", 121),
+    "kids": ("hickorys_kids.html", "Kids", 43),
+    "nongluten": ("hickorys_nongluten.html", "Non Gluten", 78),
 }
 # (tab, first printed section) -> category shown
 CATEGORY = {
-    ("food", "Appetisers"): "Appetisers", ("food", "The Smokehouse"): "The Smokehouse", ("food", "Steaks"): "Steaks",
-    ("food", "Burgers"): "Burgers", ("food", "Mains"): "Mains", ("food", "Lighter & Loaded"): "Lighter & loaded",
+    ("food", "Appetisers"): "Appetisers", ("food", "The Smokehouse"): "The Smokehouse", ("food", "Steak & Fish"): "Steak & Fish",
+    ("food", "Burgers"): "Burgers", ("food", "Mains"): "Mains", ("food", "Subs"): "Subs",
     ("food", "On The Side"): "On the side",
-    ("brunch", "Food"): "Brunch", ("brunch", "Drinks"): "Drinks",
+    ("brunch", "Brunch"): "Brunch", ("brunch", "Lunch"): "Lunch", ("brunch", "Drinks"): "Drinks",
     ("desserts", "Desserts"): "Desserts",
-    ("nongluten", "Brunch"): "Brunch", ("nongluten", "Appetisers"): "Appetisers", ("nongluten", "The SmokeHouse"): "The Smokehouse",
-    ("nongluten", "Burgers & Mains"): "Mains", ("nongluten", "Lighter & Loaded"): "Lighter & loaded",
-    ("nongluten", "On The Side"): "On the side", ("nongluten", "Desserts"): "Desserts",
+    ("nongluten", "Brunch"): "Brunch", ("nongluten", "Lunch"): "Lunch", ("nongluten", "Appetisers"): "Appetisers",
+    ("nongluten", "SmokeHouse"): "The Smokehouse", ("nongluten", "Mains"): "Mains", ("nongluten", "Steaks"): "Steak & Fish",
+    ("nongluten", "On The Side"): "On the side", ("nongluten", "Kids"): "Kids", ("nongluten", "Desserts"): "Desserts",
 }
 KIDS_FIRST = {"Brunch", "Appetisers", "Mains", "Sides", "Desserts", "Drinks"}
-ALCOHOL_SECTIONS = {"Cocktails", "Wine", "Beer and Cider", "Spirits"}
-ALCOHOL_NAMES = {"Boozy Root Beer Float", "Bloody Mary"}
+ALCOHOL_SECTIONS = {"Cocktails", "Wine", "Beer and Cider", "Spirits", "Bourbon Flight"}
+ALCOHOL_NAMES = {"Boozy Root Beer Float", "Bloody Mary", "Bloody Maria", "Red Snapper"}
 DRINK_KIND = {"Classic Shakes": "classic shake", "Freakshakes": "freakshake", "Slushie": "slushie"}
+TAB_LINK = re.compile(r'<a[^>]*data-menu-identifier="([^"]+)"[^>]*>\s*<span[^>]*>\s*([^<]+?)\s*</span>', re.S)
 GENERIC_GROUPS = {"Enjoy:", "Choose from:", "Enjoy with:"}
 # not an order on their own
 NOT_RANKABLE = {"Pot of Tennessee Bourbon Gravy": "a sauce", "The Southern Sharer": "a sharing tray",
@@ -59,8 +64,8 @@ NOTES = {"The Southern Sharer": "Described as a loaded tray to share",
 # The same pages print each dish's "Dietary Information" ("Contains: ..." naming the cereals and nuts, "May contain: ...")
 # and carry the label ids of the page's own allergen filter; tenkites_c.allergens_checked cross-checks the two.
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}   # printed with a space after the slash
-ALLERGEN_TITLE = "Hickory's Smokehouse menu Dietary Information (allergens): Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (Ten Kites page, no date printed; read 2026-10-06)"
-SOURCE_TITLE = "Hickory's Smokehouse menu with nutrition: Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (live page, no date printed; read 2026-10-06)"
+ALLERGEN_TITLE = "Hickory's Smokehouse menu Dietary Information (allergens): Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (Ten Kites page, no date printed; read 2026-10-08)"
+SOURCE_TITLE = "Hickory's Smokehouse menu with nutrition: Food, Brunch, Desserts, Kids, Drinks and Non-Gluten (live page, no date printed; read 2026-10-08)"
 NOTE = ("Figures are per portion from Hickory's own menu page (hosted by Ten Kites), which prints no date. Alcoholic drinks and "
         "the Smokin' Deals bundles are not included; the Non-Gluten menu only adds dishes whose numbers differ.")
 
@@ -175,6 +180,20 @@ def impossible_rows(items: list[dict]) -> list[tuple[str, str]]:
     return out
 
 
+def fetch_tabs(pages_dir: Path) -> None:
+    """Save the base page (the Main Menu tab), read every tab's data-menu-identifier from its menu selector, then save each
+    other tab as the same page requested with ?mguid=<identifier> (one request per second)."""
+    base_file = pages_dir / PAGES["food"][0]
+    tk.fetch(BASE, base_file)
+    found = {html.unescape(name): ident for ident, name in TAB_LINK.findall(base_file.read_text(encoding="utf-8"))}
+    wanted = {name for _, name, _ in PAGES.values()} | {"Smokin' Deals"}
+    if set(found) != wanted:
+        raise SystemExit(f"The menu selector lists {sorted(found)} but this script expects {sorted(wanted)}: re-check PAGES.")
+    for key, (fname, name, _) in PAGES.items():
+        if key != "food":
+            tk.fetch(f"{BASE}?mguid={found[name]}", pages_dir / fname)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--pages", type=Path, required=True)
@@ -183,8 +202,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
     if args.fetch:
-        for fname, url, _ in PAGES.values():
-            tk.fetch(url, args.pages / fname)
+        fetch_tabs(args.pages)
     items, holdback, report = build(args.pages)
     out = write_chain_folder(chain_id=CHAIN_ID, name="Hickory's Smokehouse", cuisine="Barbecue", source_title=SOURCE_TITLE,
                              source_url=BASE, checked_on=args.checked_on, aliases=["hickorys", "hickory's", "hickorys smokehouse",

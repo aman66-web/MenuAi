@@ -1,3 +1,6 @@
 item_id,reason
 salt-and-pepper-calamari,The feed prints 479 kcal; its own macros add up to about 386 kcal (and its kJ to about 430 kcal).
+fish-and-chips,"allergen row contradicts the dish name/ingredients: the feed marks eggs, fish and mustard but no gluten or cereal for 'freshly battered haddock' (and its noGlutenContainingIngs claim is false); Harvester, Stonehouse and Sizzling Pubs mark gluten on their battered fish."
+double-chocolate-brownie,allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.
 trio-of-ice-cream-and-sorbet,The feed prints 0.9 kcal for three scoops of ice cream or sorbet; the scoops are chosen separately and their values aren't added in.
+mini-double-chocolate-brownie,allergen row contradicts the dish name: a brownie with no cereal (gluten) marked and no non-gluten-containing label (the feed's noGlutenContainingIngs claim is false); the other Mitchells & Butlers brands mark gluten on their brownies.

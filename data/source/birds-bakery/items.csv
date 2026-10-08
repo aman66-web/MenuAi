@@ -4,7 +4,6 @@ egg-mayo-filled-roll-white,Egg mayo filled roll (white),Rolls & sandwiches,1 rol
 ham-and-cheese-filled-roll-white,Ham & cheese filled roll (white),Rolls & sandwiches,,447,25.82,35.18,24.88,11.92,,2.63,0.91,1.25,1916,,,,,,contains_pork,false,true,,,Basis printed: 'Per Product'
 ham-salad-filled-roll-white,Ham salad filled roll (white),Rolls & sandwiches,1 roll,346,15.1,44.3,11.5,3.7,,1.9,1.7,2.6,1445,,,,,,contains_pork,false,true,,,Basis printed: 'Per roll'
 tuna-mayo-and-cucumber-filled-roll-white,Tuna mayo & cucumber filled roll (white),Rolls & sandwiches,1 roll,422,19.6,44.5,17.9,2.2,,1.8,1.7,1.7,1766,,,,,,,false,true,,,Basis printed: 'Per roll'
-blt-chia-roll,BLT chia roll,Rolls & sandwiches,1 roll,347,21.8,29.4,17.7,5.95,,2.5,2.5,2.5,1453,,,,,,contains_pork,false,true,,,Basis printed: 'Per roll'
 chicken-caesar-chia-roll,Chicken Caesar chia roll,Rolls & sandwiches,1 roll,365,19.7,16.0,19.5,1.7,,0.7,2.1,2.1,1528,,,,,,,false,true,,,Basis printed: 'Per roll'; Carbohydrate 16.0 g is low for a roll and the calories are about 15 percent above 4 x protein + 4 x carbohydrate + 9 x fat; copied as printed
 mixed-cheese-and-onion-sandwich-with-jalapeno-relish-on-chia-bread,Mixed cheese & onion sandwich with jalapeno relish on chia bread,Rolls & sandwiches,1 roll,751,25.1,53.8,42.0,10.7,,2.1,7.8,5.6,3113,,,,,,vegetarian,false,true,,,Basis printed: 'Per roll'
 cheese-and-tomato-chia-sandwich,Cheese & tomato chia sandwich,Rolls & sandwiches,1 roll,440,20.5,44.5,20.7,10.1,,1.9,4.3,4.3,1844,,,,,,vegetarian,false,true,,,Basis printed: 'Per roll'
@@ -18,6 +17,7 @@ cheese-little-bites,Cheese little bites,Rolls & sandwiches,1 roll,161,5.8,19.5,6
 egg-mayo-little-bites,Egg mayo little bites,Rolls & sandwiches,1 roll,147,5.6,20.3,4.5,1.0,,0.6,0.1,0.8,613,,,,,,vegetarian,false,false,,,Basis printed: 'Per roll'; listed more than once on the site with the same numbers
 ham-little-bites,Ham little bites,Rolls & sandwiches,,159,6.85,19.26,5.09,1.8,,0.96,0.14,0.82,660,,,,,,contains_pork,false,false,,,Basis printed: 'Per Product'; listed more than once on the site with the same numbers
 tuna-mayo-little-bites,Tuna mayo little bites,Rolls & sandwiches,,209,9.3,20.03,9.62,1.12,,0.82,0.79,0.7,865,,,,,,,false,false,,,Basis printed: 'Per Product'; listed more than once on the site with the same numbers
+blt-chia-roll,BLT chia roll,Rolls & sandwiches,1 roll,347,21.8,29.4,17.7,5.95,,2.5,2.5,2.5,1453,,,,,,contains_pork,false,false,,,Basis printed: 'Per roll'
 bacon-cob-white,Bacon cob (white),Cobs,,299,16.4,35.31,12.48,3.34,,2.0,0.9,1.01,1303,,,,,,contains_pork,false,true,,,Basis printed: 'Per Product'; printed kJ (1303) and kcal (299) differ by more than 4 percent
 sausage-cob-white,Sausage cob (white),Cobs,,446,28.14,42.12,20.6,5.37,,1.86,0.88,1.33,1919,,,,,,contains_pork,false,true,,,Basis printed: 'Per Product'
 roast-pork-cob-white,Roast pork cob (white),Cobs,1 portion,457,54.08,34.94,13.04,2.23,,0.71,0.67,1.01,1969,,,,,,contains_pork,false,true,,,Basis printed: 'Per Portion'; protein 54.08 g is very high for one item; copied as printed
@@ -64,7 +64,6 @@ lemon-crumble-ring-doughnut,Lemon crumble ring doughnut,Cakes & pastries,,313,5.
 cream-swiss-bun,Cream swiss bun,Cakes & pastries,,348,4.3,48.2,15.1,9.9,,0.4,22.3,1.0,1458,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'
 cinnamon-bun,Cinnamon bun,Cakes & pastries,,393,5.19,47.86,19.75,12.14,,0.76,19.76,2.42,1616,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'; listed more than once on the site with the same numbers
 chocolate-twist,Chocolate twist,Cakes & pastries,1 twist,282,4.5,28.7,14.7,9.0,,0.6,13.5,1.2,1180,,,,,,vegetarian,false,false,,,Basis printed: 'Per Per Twist'
-apple-crumble-danish,Apple crumble danish,Cakes & pastries,,310,3.9,46.5,12.9,7.8,,0.6,22.8,1.6,1301,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'
 pink-elephants-foot,Pink elephants foot,Cakes & pastries,,93,1.04,8.13,6.03,3.06,,0.08,5.6,0.71,367,,,,,,,false,false,,,Basis printed: 'Per Product'; printed kJ (367) and kcal (93) differ by more than 4 percent
 strawberry-weekend-special,Strawberry weekend special,Cakes & pastries,,310,3.47,27.1,20.1,10.2,,0.27,18.67,2.37,1224,,,,,,,false,false,,,Basis printed: 'Per Product'; printed kJ (1224) and kcal (310) differ by more than 4 percent
 mini-strawberry-sponge,Mini strawberry sponge,Cakes & pastries,1 portion,188,2.5,25.1,7.9,5.3,,0.4,13.4,3.0,787,,,,,,vegetarian,false,false,,,Basis printed: 'Per Portion'
@@ -73,12 +72,13 @@ chocolate-nest-cupcake,Chocolate nest cupcake,Cakes & pastries,,426,2.65,52.61,2
 paw-cupcake,Paw cupcake,Cakes & pastries,1 cupcake,454,3.0,53.6,25.1,11.7,,0.1,46.8,1.0,1905,,,,,,vegetarian,false,false,,,Basis printed: 'Per Per Cupcake'
 honeycomb-brownie-slice,Honeycomb brownie slice,Cakes & pastries,1 portion,376,5.57,44.81,18.88,11.49,,0.44,33.85,2.09,1572,,,,,,vegetarian,false,false,,,Basis printed: 'Per Portion'; listed more than once on the site with the same numbers
 cookie-and-cream-brownie,Cookie & cream brownie,Cakes & pastries,1 portion,404,4.7,43.6,23.0,13.8,,0.5,35.3,0.6,1688,,,,,,vegetarian,false,false,,,Basis printed: 'Per Portion'
-apricot-and-pumpkin-seed-flapjack,Apricot & pumpkin seed flapjack,Cakes & pastries,1 portion,319,4.6,40.9,14.5,7.3,,0.3,28.5,3.5,1336,,,,,,vegetarian,false,false,,,Basis printed: 'Per Portion'; listed more than once on the site with the same numbers
 mrs-bs-rocky-road-tray,Mrs B's rocky road tray,Cakes & pastries,1 slice (75 g),379,3.7,39.76,22.32,13.27,,0.41,27.54,2.32,1587,75,,,,,contains_pork,false,false,,,"Basis printed: 'Per Slice (75g)'; listed more than once on the site with the same numbers; Named as a tray, but the guide's numbers are per slice (75 g); shown as printed"
 mince-pie,Mince pie,Cakes & pastries,,216,2.3,31.6,8.65,3.45,,0.1,17.85,0.85,903,,,,,,contains_pork,false,false,,,Basis printed: 'Per Product'
 summer-gingerbread-person,Summer gingerbread person,Cakes & pastries,,266,3.55,36.86,11.06,4.17,,0.31,14.86,0.84,1104,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'
 birds-gingerbread-person,Birds gingerbread person,Cakes & pastries,1 portion,266,3.54,36.9,11.1,4.17,,0.31,14.9,0.84,1104,,,,,,vegetarian,false,false,,,Basis printed: 'Per Portion'
 raspberry-and-pistachio-danish,Raspberry & pistachio danish,Cakes & pastries,,374,0.08,43.9,19.12,10.36,,0.34,16.13,2.61,1530,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'
+apple-crumble-danish,Apple crumble danish,Cakes & pastries,,310,3.9,46.5,12.9,7.8,,0.6,22.8,1.6,1301,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'
+apricot-and-pumpkin-seed-flapjack,Apricot & pumpkin seed flapjack,Cakes & pastries,1 portion,319,4.6,40.9,14.5,7.3,,0.3,28.5,3.5,1336,,,,,,vegetarian,false,false,,,Basis printed: 'Per Portion'; listed more than once on the site with the same numbers
 milk-chocolate-mouse,Milk chocolate mouse,Chocolate,,130,1.58,13.05,8.04,4.83,,0.05,12.66,0.47,541,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'
 birds-chocolate-lolly,Birds chocolate lolly,Chocolate,,194,2.33,18.54,12.0,7.21,,0.07,16.59,0.69,808,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'
 boy-girl-football-lolly,Boy/girl football lolly,Chocolate,,170,2.1,15.3,10.9,6.6,,0.07,15.0,0.6,708,,,,,,vegetarian,false,false,,,Basis printed: 'Per Product'

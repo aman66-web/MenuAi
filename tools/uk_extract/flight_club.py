@@ -78,7 +78,12 @@ DRINK_SERVINGS = {"Glass", "Bottle", "Pot"}   # first word of the printed descri
 ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}
 
 # Rows the page prints impossibly: left out of the published menu (never corrected), listed in the check report.
-HOLDBACK: dict[str, str] = {}
+HOLDBACK: dict[str, str] = {
+    "Celebration Cake": ("allergen row contradicts the dish name: a cake with no cereal (gluten) marked (the page prints 'Contains: Eggs, Milk, Soya'; "
+                         "'Suitable for: Vegetarian') and nothing on the page says it is gluten-free"),
+    "Rocky road brownies": ("allergen row contradicts the dish name: a brownie with no cereal (gluten) marked (the page prints 'Contains: Eggs, Milk, Soya'; "
+                            "'Suitable for: Vegetarian') and nothing on the page says it is gluten-free"),
+}
 
 ALLERGEN_TITLE = ("Flight Club allergy and dietary information on its online menu (menus.tenkites.com/redengine/flightclub: Bar Snacks, "
                   "Sharing Plates, Sides, Sharing Pizza Paddles, Sweet Treats, Breakfast and Drinks tabs; live page, no date shown)")

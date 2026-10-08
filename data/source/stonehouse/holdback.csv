@@ -1,2 +1,3 @@
 item_id,reason
 wholetail-scampi,The feed prints 951 kcal; its own macros add up to about 774 kcal (and its kJ to about 679 kcal).
+chocolate-fudge-cake,"allergen row contradicts the dish name/ingredients: the feed marks eggs, milk and soya (tree nut may be present) but no gluten or cereal for a cake, and the item carries no gluten-free claim (noGlutenContainingIngs is false)."

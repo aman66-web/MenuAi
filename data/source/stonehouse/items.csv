@@ -1,86 +1,86 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-beer-battered-salt-and-pepper-mushrooms,Beer Battered Salt & Pepper Mushrooms,Small plates,,316.7917,4.0481,28.0326,20.8171,2.1701,,1.519,0.8097,,vegetarian,false,true,,,Menu choices not added in: Choose your dip
-halloumi-fries,Halloumi Fries,Small plates,,705.72,30.27,34.837,49.033,26.88,,4.7658,19.863,,vegetarian,false,true,,,
-garlic-bread,Garlic Bread,Small plates,,457.2897,11.3629,70.7196,13.7332,3.4681,,0.7871,1.0952,,vegetarian,false,true,,,Menu choices not added in: Top It Off
-crispy-chicken,Crispy Chicken,Small plates,,347.7,20.98,30.517,15.723,3.38,,1.5048,0.293,,,false,true,,,Menu choices not added in: Choose your sauce
-doritos-cool-original-nachos,Doritos Cool Original Nachos,Small plates,,464.82,7.13,47.147,26.203,6.08,,2.5797,5.803,,vegetarian,false,true,,,Menu choices not added in: Load Them Up!
-bourbon-bbq-glazed-riblets,Bourbon BBQ Glazed Riblets,Small plates,,630.32,52.31,20.417,38.313,13.5,,0.5908,17.633,,contains_pork,false,true,,,
-camembert-cheese-fondue,Camembert Cheese Fondue,Small plates,,722.5797,23.4128,89.9465,29.7462,13.4681,,1.7939,17.3183,,vegetarian,false,true,,,
-harissa-garlic-prawns,Harissa Garlic Prawns,Small plates,,714.4797,19.4229,64.6866,41.3162,11.0781,,2.463,1.5032,,,false,true,,,
-veggie-dippers,Veggie Dippers,Small plates,,219.052,3.798,28.708,9.118,1.136,,1.466,3.682,,vegetarian,false,true,,,
-stonehouse-beef-stack,Stonehouse Beef Stack,Burger bar,,1602.0516,57.7588,131.9977,90.2113,28.8078,,6.5305,21.3508,,contains_beef,false,true,,,Menu choices not added in: Fries or Tots
-buffalo-franks-burger,Buffalo FRANK's Burger,Burger bar,,1247.9981,29.3653,137.0325,60.5005,10.2626,,6.6568,13.1279,,,false,true,,,Menu choices not added in: Fries or Tots
-bacon-and-cheese-burger,Bacon & Cheese Burger,Burger bar,,1467.4516,51.3388,119.0477,83.9213,20.3578,,5.986,22.1108,,contains_pork,false,true,,,Menu choices not added in: Fries or Tots
-crispy-bbq-chicken,Crispy BBQ Chicken,Burger bar,,1426.4981,38.2753,147.9825,71.6305,10.2026,,6.1093,23.6579,,contains_pork,false,true,,,Menu choices not added in: Fries or Tots
-simply-cheeseburger,Simply Cheeseburger,Burger bar,,1279.9516,42.1888,107.4977,72.3413,20.3578,,4.5835,11.5808,,,false,true,,,Menu choices not added in: Fries or Tots
-simply-chicken-burger,Simply Chicken Burger,Burger bar,,963.3078,43.3367,103.5141,38.2574,4.1211,,2.8519,11.2972,,,false,true,,,Menu choices not added in: Fries or Tots
-pumpkin-patch-burger,Pumpkin Patch Burger,Burger bar,,956.95,14.59,123.44,42.48,13.42,,8.0732,11.45,,vegetarian,false,true,,,
-traditional-carvery,Traditional Carvery,Carvery,,350.5811,56.5427,1.9315,12.8298,5.0769,,3.5157,1.6529,,,false,false,,,Menu choices not added in: Go large?; Add pigs in blankets
-go-large-trade-up,Go Large Trade Up,Carvery,,358.1406,26.1678,13.7337,21.9994,7.5873,,2.2999,1.364,,contains_pork,false,false,,,
-small-carvery,Small Carvery,Carvery,,175.2906,28.2713,0.9657,6.4149,2.5385,,1.7578,0.8264,,,false,false,,,Menu choices not added in: Add pigs in blankets
-meat-free-carvery,Meat Free Carvery,Carvery,,1457.8526,29.106,231.904,41.6959,6.2511,,5.4545,29.34,,vegetarian,false,false,,,"Much larger than the carved-meat carvery rows (1,458 kcal against 175-350): not comparable with them"
-three-pigs-in-blankets,Three Pigs in Blankets,Carvery,,167.16,5.292,2.352,15.162,5.586,,0.8295,0.252,,contains_pork,false,false,,,
-mushroom-suet-pudding,Mushroom Suet Pudding,Carvery,,755.49,10.05,72.527,47.513,17.5,,2.5008,12.523,,vegetarian,false,true,,,
-margherita,Margherita,Handmade pizza,,999.1235,43.145,134.9801,30.4032,14.8862,,2.817,7.6552,,vegetarian,false,true,,,
-the-butchers-board,The Butcher's Board,Handmade pizza,,1375.569,62.6315,156.9515,53.5852,23.8996,,4.8972,24.2662,,contains_pork|contains_beef,false,true,,,
-pepperoni,Pepperoni,Handmade pizza,,1387.6735,59.055,135.5201,66.3602,23.6662,,6.0164,8.4142,,contains_pork,false,true,,,
-mezze-meat-feast,Mezze Meat Feast,Handmade pizza,,1293.264,59.6865,138.899,53.9777,21.8696,,5.6562,9.9337,,contains_pork,false,true,,,
-veggie-supreme,Veggie Supreme,Handmade pizza,,1059.119,45.7415,144.5315,31.1182,15.0696,,2.8416,14.8972,,vegetarian,false,true,,,
-hawaiian,Hawaiian,Handmade pizza,,1275.511,54.1583,169.3595,40.8096,18.9024,,4.5186,41.5542,,contains_pork,false,true,,,
-the-stonecarver,The Stonecarver,Handmade pizza,,1497.678,71.3465,187.3427,49.7015,21.2277,,8.0799,18.4433,,contains_pork,false,true,,,
-hot-honey-porker,Hot Honey Porker,Handmade pizza,,1468.9735,66.825,161.5901,60.2602,23.6262,,5.5946,32.9842,,contains_pork,false,true,,,
-stuff-your-crust,Stuff your Crust,Add-ons,,313,20,0,26,16,,3,0,,vegetarian,false,false,,,
-chilli-cheese-with-franks-redhot,Chilli Cheese with FRANK's RedHot,Add-ons,,76.4,1.94,4.8,5.15,1.06,,3.05,1.2,,vegetarian,false,false,,,
-add-cheeseburger-melt,Add Cheeseburger Melt,Add-ons,,184.9,9.95,3.5,14.45,5.65,,1.225,0.65,,,false,false,,,
-caramel-syrup,Caramel Syrup,Add-ons,,63.4,0,15.86,0,0,,0.006,15.86,,,false,false,,,
-vanilla-syrup,Vanilla Syrup,Add-ons,,67.2,0,16.8,0,0,,0.006,16.78,,,false,false,,,
-gingerbread-syrup,Gingerbread Syrup,Add-ons,,67,0,16.74,0,0,,0.006,16.7,,,false,false,,,
-ranch,Ranch,Sauces & dips,,139.8,0.6,1.8,14.4,1.2,,0.6,1.2,,vegetarian,false,false,,,
-bbq,BBQ,Sauces & dips,,23.7,0.09,5.775,0.015,0,,0.2175,5.265,,vegetarian,false,false,,,
-blue-cheese,Blue Cheese,Sauces & dips,,70.5,0.6,2.4,6.6,0.6,,0.6,1.5,,vegetarian,false,false,,,
-roquito-hot-honey,Roquito Hot Honey,Sauces & dips,,91.2,0,22.8,0,0,,0.009,22.8,,vegetarian,false,false,,,
-franks-redhot,FRANK's RedHot,Sauces & dips,,9,0.24,0.6,0.45,0.06,,1.95,0,,vegetarian,false,false,,,
-sour-cream,Sour Cream,Sauces & dips,,57,0.93,1.2,5.4,3.39,,0.03,1.2,,vegetarian,false,false,,,
-garlic-mayo,Garlic Mayo,Sauces & dips,,139.6,0.4,1.6,14.4,1.2,,0.4,0.8,,vegetarian,false,false,,,
-wholetail-scampi,Wholetail Scampi,Pub classics,,951.155,29.755,111.6287,23.2112,3.5231,,5.5443,4.5475,,,false,true,,,Feed kJ (2842.0278) does not match its kcal (951.155); kJ is not used. Menu choices not added in: Choose your peas
-house-salad,House Salad,Pub classics,,134.1,2.23,12.43,7.81,0.58,,0.7947,11.65,,,false,true,,,Menu choices not added in: Choose your topping:
-mac-n-cheese,Mac 'n' Cheese,Pub classics,,988.4297,41.0679,125.6166,34.8462,17.9531,,3.766,11.8932,,vegetarian,false,true,,,
-bbq-pork-mac-n-cheese,BBQ Pork Mac 'n' Cheese,Pub classics,,1197.5597,54.3979,141.1066,45.2662,21.4031,,4.467,26.0232,,contains_pork,false,true,,,
-beef-lasagne,Beef Lasagne,Pub classics,,1229.9197,60.7379,118.9236,55.4392,27.9231,,6.1118,15.8562,,contains_beef,false,true,,,
-baked-vegetable-lasagne,Baked Vegetable Lasagne,Pub classics,,1094.3897,27.6928,144.2195,42.6932,10.9781,,3.8991,22.7053,,vegetarian,false,true,,,
-ham-hock-and-cheddar-pie,Ham Hock & Cheddar Pie,Pub classics,,1187.8549,46.6575,112.9653,58.1512,26.6431,,3.242,16.7891,,contains_pork,false,true,,,
-hand-battered-fish,Hand Battered Fish,Pub classics,,934.607,49.1354,117.1441,22.465,2.2417,,1.9537,4.6431,,,false,true,,,Menu choices not added in: Choose your peas
-feta-and-spinach-pasta-bake,Feta & Spinach Pasta Bake,Pub classics,,1110.1397,48.4128,115.5545,48.5982,24.5681,,4.6912,8.0103,,vegetarian,false,true,,,
-fries,Fries,Sides,,556.2375,3.4673,67.2405,27.1215,2.055,,1.0313,0.75,,vegetarian,false,true,,,Feed kJ (1872.4475) does not match its kcal (556.2375); kJ is not used. Menu choices not added in: Load Them Up!
-potato-tots,Potato Tots,Sides,,472.7265,5.4585,56.4533,24.4948,3.3334,,1.692,2.0685,,vegetarian,false,true,,,
-crispy-onion-rings,Crispy Onion Rings,Sides,,478.5116,5.9624,48.5622,27.6969,4.275,,1.5926,5.4278,,vegetarian,false,true,,,Feed kJ (1299) does not match its kcal (478.5116); kJ is not used
-roasties,Roasties,Sides,,204.77,4.5,45,0.002,0,,1.65,2.25,,vegetarian,false,true,,,
-side-salad,Side Salad,Sides,,95.8,1.525,9.25,5.42,0.425,,0.5653,8.53,,vegetarian,false,true,,,
-sharing-salad,Sharing Salad,Sides,,308.14,5.694,32.06,15.949,1.25,,1.6258,29.461,,vegetarian,false,true,,,
-house-slaw,House Slaw,Sides,,73.632,0.9336,4.8528,5.304,0.3648,,0.288,1.8816,,vegetarian,false,true,,,
-veggie-fingers-bap,Veggie Fingers Bap,Hot roast meat baps,,895.5855,16.7669,116.3781,37.6613,5.8977,,7.4432,9.411,,vegetarian,false,true,,,
-crispy-chicken-bap,Crispy Chicken Bap,Hot roast meat baps,,1076.8113,27.3316,125.9622,47.7606,5.0408,,3.3088,6.3022,,,false,true,,,
-honey-and-marmalade-glazed-gammon,Honey and Marmalade Glazed Gammon,Hot roast meat baps,,481.1694,36.7157,38.9529,19.257,5.7382,,6.2871,4.2761,,contains_pork,false,true,,,
-roast-beef-with-beef-dripping-glaze,Roast Beef with Beef Dripping Glaze,Hot roast meat baps,,513.2773,37.5391,37.9918,21.7945,7.9498,,0.9149,3.3153,,contains_beef,false,true,,,
-roast-turkey,Roast Turkey,Hot roast meat baps,,585.0065,61.3521,45.6005,17.5221,4.9779,,1.533,3.8753,,,false,true,,,
-baked-vanilla-cheesecake,Baked Vanilla Cheesecake,Desserts,,619.9525,6.3878,72.625,33.5748,20.4498,,0.5326,51.4795,,vegetarian,false,false,,,
-bramley-apple-crumble,Bramley Apple Crumble,Desserts,,408.2,4.06,76.254,9.066,3.126,,0.1352,49.146,,vegetarian,false,false,,,
-chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,739.3466,6.2256,88.1194,40.0166,13.4656,,0.4229,67.034,,vegetarian,false,false,,,
-warm-chocolate-cookie-and-ice-cream,Warm Chocolate Cookie and Ice Cream,Desserts,,992.2,12.5,120.3,50.18,29.69,,1.601,88.5,,vegetarian,false,false,,,
-home-baked-sticky-toffee-pudding,Home-Baked Sticky Toffee Pudding,Desserts,,905.375,10.275,117.2184,43.4942,8.5234,,0.7833,82.8651,,vegetarian,false,false,,,
-home-baked-chocolate-brownie,Home-baked Chocolate Brownie,Desserts,,715.249,9.61,106.4,27.0459,11.1956,,0.3516,80.105,,vegetarian,false,false,,,
-mini-chocolate-brownie,Mini Chocolate Brownie,Desserts,,310.8038,3.052,46.634,12.0506,5.1407,,0.1652,33.187,,vegetarian,false,false,,,Menu choices not added in: Choose your drink
-xxx-cookie-bubble-waffle-sundae,XXX Cookie Bubble Waffle Sundae,Waffles & sundaes,,1074.6546,13.5028,143.3666,48.5902,24.827,,1.4816,108.356,,vegetarian,false,false,,,
-banoffee-bubble-waffle-sundae,Banoffee Bubble Waffle Sundae,Waffles & sundaes,,964.93,12.155,131.437,42.671,18.725,,1.2648,109.078,,vegetarian,false,false,,,
-eton-mess-bubble-waffle-sundae,Eton Mess Bubble Waffle Sundae,Waffles & sundaes,,861.85,11.13,132.612,30.598,15.158,,1.1832,123.903,,vegetarian,false,false,,,
-rocky-road-bubble-waffle-sundae,Rocky Road Bubble Waffle Sundae,Waffles & sundaes,,1015.0138,14.187,134.032,45.4876,21.9827,,0.8704,112.794,,,false,false,,,
-espresso,Espresso,Hot drinks,,8.65,0.415,0.39,0.335,0.15,,0.0001,0.0125,,vegetarian,false,false,,,
-white-americano,White Americano,Hot drinks,,59.5184,3.9046,5.4742,2.1074,1.1824,,0.1501,5.0152,,vegetarian,false,false,,,Feed kJ (423.512) does not match its kcal (59.5184); kJ is not used. Menu choices not added in: Add Syrup
-flat-white,Flat White,Hot drinks,,84.0184,5.6046,7.9742,2.9574,1.6824,,0.2251,7.5152,,vegetarian,false,false,,,Feed kJ (526.512) does not match its kcal (84.0184); kJ is not used. Menu choices not added in: Add Syrup
-cappuccino,Cappuccino,Hot drinks,,92.663,6.1721,9.077,3.2293,1.858,,0.2565,8.6785,,vegetarian,false,false,,,Feed kJ (532.094) does not match its kcal (92.663); kJ is not used. Menu choices not added in: Add Syrup
-latte,Latte,Hot drinks,,107.63,7.283,10.49,3.769,2.17,,0.3031,10.1125,,vegetarian,false,false,,,Feed kJ (594.995) does not match its kcal (107.63); kJ is not used. Menu choices not added in: Add Syrup
-iced-coffee,Iced Coffee,Hot drinks,,82.15,5.515,7.89,2.885,1.65,,0.2251,7.5125,,vegetarian,false,false,,,Feed kJ (487.875) does not match its kcal (82.15); kJ is not used. Menu choices not added in: Add Syrup
-hot-chocolate,Hot Chocolate,Hot drinks,,264.36,4.806,30.735,13.358,9.64,,0.451,28.635,,vegetarian,false,false,,,Menu choices not added in: Add Syrup
-tea,Tea,Hot drinks,,27.44,1.9065,2.8,0.952,0.56,,0.084,2.8,,vegetarian,false,false,,,
-decaff-tea,Decaff Tea,Hot drinks,,0.0626,0.0031,0.0031,0.0031,0.0031,,0,0.0031,,vegetarian,false,false,,,
-flavoured-tea,Flavoured Tea,Hot drinks,,0,0,0,0,0,,0,0,,vegetarian,false,false,,,
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+beer-battered-salt-and-pepper-mushrooms,Beer Battered Salt & Pepper Mushrooms,Small plates,,316.7917,4.0481,28.0326,20.8171,2.1701,,1.519,0.8097,,,,,,,,vegetarian,false,true,,,Menu choices not added in: Choose your dip
+halloumi-fries,Halloumi Fries,Small plates,,705.72,30.27,34.837,49.033,26.88,,4.7658,19.863,,,,,,,,vegetarian,false,true,,,
+garlic-bread,Garlic Bread,Small plates,,457.2897,11.3629,70.7196,13.7332,3.4681,,0.7871,1.0952,,,,,,,,vegetarian,false,true,,,Menu choices not added in: Top It Off
+crispy-chicken,Crispy Chicken,Small plates,,347.7,20.98,30.517,15.723,3.38,,1.5048,0.293,,,,,,,,,false,true,,,Menu choices not added in: Choose your sauce
+doritos-cool-original-nachos,Doritos Cool Original Nachos,Small plates,,464.82,7.13,47.147,26.203,6.08,,2.5797,5.803,,,,,,,,vegetarian,false,true,,,Menu choices not added in: Load Them Up!
+bourbon-bbq-glazed-riblets,Bourbon BBQ Glazed Riblets,Small plates,,630.32,52.31,20.417,38.313,13.5,,0.5908,17.633,,,,,,,,contains_pork,false,true,,,
+camembert-cheese-fondue,Camembert Cheese Fondue,Small plates,,722.5797,23.4128,89.9465,29.7462,13.4681,,1.7939,17.3183,,,,,,,,vegetarian,false,true,,,
+harissa-garlic-prawns,Harissa Garlic Prawns,Small plates,,714.4797,19.4229,64.6866,41.3162,11.0781,,2.463,1.5032,,,,,,,,,false,true,,,
+veggie-dippers,Veggie Dippers,Small plates,,219.052,3.798,28.708,9.118,1.136,,1.466,3.682,,,,,,,,vegetarian,false,true,,,
+stonehouse-beef-stack,Stonehouse Beef Stack,Burger bar,,1602.0516,57.7588,131.9977,90.2113,28.8078,,6.5305,21.3508,,,,,,,,contains_beef,false,true,,,Menu choices not added in: Fries or Tots
+buffalo-franks-burger,Buffalo FRANK's Burger,Burger bar,,1247.9981,29.3653,137.0325,60.5005,10.2626,,6.6568,13.1279,,,,,,,,,false,true,,,Menu choices not added in: Fries or Tots
+bacon-and-cheese-burger,Bacon & Cheese Burger,Burger bar,,1467.4516,51.3388,119.0477,83.9213,20.3578,,5.986,22.1108,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Fries or Tots
+crispy-bbq-chicken,Crispy BBQ Chicken,Burger bar,,1426.4981,38.2753,147.9825,71.6305,10.2026,,6.1093,23.6579,,,,,,,,contains_pork,false,true,,,Menu choices not added in: Fries or Tots
+simply-cheeseburger,Simply Cheeseburger,Burger bar,,1279.9516,42.1888,107.4977,72.3413,20.3578,,4.5835,11.5808,,,,,,,,,false,true,,,Menu choices not added in: Fries or Tots
+simply-chicken-burger,Simply Chicken Burger,Burger bar,,963.3078,43.3367,103.5141,38.2574,4.1211,,2.8519,11.2972,,,,,,,,,false,true,,,Menu choices not added in: Fries or Tots
+pumpkin-patch-burger,Pumpkin Patch Burger,Burger bar,,956.95,14.59,123.44,42.48,13.42,,8.0732,11.45,,,,,,,,vegetarian,false,true,,,
+traditional-carvery,Traditional Carvery,Carvery,,350.5811,56.5427,1.9315,12.8298,5.0769,,3.5157,1.6529,,,,,,,,,false,false,,,Menu choices not added in: Go large?; Add pigs in blankets
+go-large-trade-up,Go Large Trade Up,Carvery,,358.1406,26.1678,13.7337,21.9994,7.5873,,2.2999,1.364,,,,,,,,contains_pork,false,false,,,
+small-carvery,Small Carvery,Carvery,,175.2906,28.2713,0.9657,6.4149,2.5385,,1.7578,0.8264,,,,,,,,,false,false,,,Menu choices not added in: Add pigs in blankets
+meat-free-carvery,Meat Free Carvery,Carvery,,1460.1926,29.5488,232.1376,42.1124,6.043,,5.5767,29.7302,,,,,,,,vegetarian,false,false,,,"Much larger than the carved-meat carvery rows (1,458 kcal against 175-350): not comparable with them"
+three-pigs-in-blankets,Three Pigs in Blankets,Carvery,,167.16,5.292,2.352,15.162,5.586,,0.8295,0.252,,,,,,,,contains_pork,false,false,,,
+mushroom-suet-pudding,Mushroom Suet Pudding,Carvery,,755.49,10.05,72.527,47.513,17.5,,2.5008,12.523,,,,,,,,vegetarian,false,true,,,
+margherita,Margherita,Handmade pizza,,999.1235,43.145,134.9801,30.4032,14.8862,,2.817,7.6552,,,,,,,,vegetarian,false,true,,,
+the-butchers-board,The Butcher's Board,Handmade pizza,,1375.569,62.6315,156.9515,53.5852,23.8996,,4.8972,24.2662,,,,,,,,contains_pork|contains_beef,false,true,,,
+pepperoni,Pepperoni,Handmade pizza,,1387.6735,59.055,135.5201,66.3602,23.6662,,6.0164,8.4142,,,,,,,,contains_pork,false,true,,,
+mezze-meat-feast,Mezze Meat Feast,Handmade pizza,,1293.264,59.6865,138.899,53.9777,21.8696,,5.6562,9.9337,,,,,,,,contains_pork,false,true,,,
+veggie-supreme,Veggie Supreme,Handmade pizza,,1059.119,45.7415,144.5315,31.1182,15.0696,,2.8416,14.8972,,,,,,,,vegetarian,false,true,,,
+hawaiian,Hawaiian,Handmade pizza,,1275.511,54.1583,169.3595,40.8096,18.9024,,4.5186,41.5542,,,,,,,,contains_pork,false,true,,,
+the-stonecarver,The Stonecarver,Handmade pizza,,1500.018,71.3985,187.7327,49.8835,21.0977,,8.2099,18.7553,,,,,,,,contains_pork,false,true,,,
+hot-honey-porker,Hot Honey Porker,Handmade pizza,,1468.9735,66.825,161.5901,60.2602,23.6262,,5.5946,32.9842,,,,,,,,contains_pork,false,true,,,
+stuff-your-crust,Stuff your Crust,Add-ons,,313,20,0,26,16,,3,0,,,,,,,,vegetarian,false,false,,,
+chilli-cheese-with-franks-redhot,Chilli Cheese with FRANK's RedHot,Add-ons,,76.4,1.94,4.8,5.15,1.06,,3.05,1.2,,,,,,,,vegetarian,false,false,,,
+add-cheeseburger-melt,Add Cheeseburger Melt,Add-ons,,184.9,9.95,3.5,14.45,5.65,,1.225,0.65,,,,,,,,,false,false,,,
+caramel-syrup,Caramel Syrup,Add-ons,,63.4,0,15.86,0,0,,0.006,15.86,,,,,,,,,false,false,,,
+vanilla-syrup,Vanilla Syrup,Add-ons,,67.2,0,16.8,0,0,,0.006,16.78,,,,,,,,,false,false,,,
+gingerbread-syrup,Gingerbread Syrup,Add-ons,,67,0,16.74,0,0,,0.006,16.7,,,,,,,,,false,false,,,
+ranch,Ranch,Sauces & dips,,139.8,0.6,1.8,14.4,1.2,,0.6,1.2,,,,,,,,vegetarian,false,false,,,
+garlic-mayo,Garlic Mayo,Sauces & dips,,139.6,0.4,1.6,14.4,1.2,,0.4,0.8,,,,,,,,vegetarian,false,false,,,
+sour-cream,Sour Cream,Sauces & dips,,57,0.93,1.2,5.4,3.39,,0.03,1.2,,,,,,,,vegetarian,false,false,,,
+franks-redhot,FRANK's RedHot,Sauces & dips,,9,0.24,0.6,0.45,0.06,,1.95,0,,,,,,,,vegetarian,false,false,,,
+roquito-hot-honey,Roquito Hot Honey,Sauces & dips,,91.2,0,22.8,0,0,,0.009,22.8,,,,,,,,vegetarian,false,false,,,
+blue-cheese,Blue Cheese,Sauces & dips,,70.5,0.6,2.4,6.6,0.6,,0.6,1.5,,,,,,,,vegetarian,false,false,,,
+bbq,BBQ,Sauces & dips,,23.7,0.09,5.775,0.015,0,,0.2175,5.265,,,,,,,,vegetarian,false,false,,,
+wholetail-scampi,Wholetail Scampi,Pub classics,,951.155,29.755,111.6287,23.2112,3.5231,,5.5443,4.5475,,,,,,,,,false,true,,,Feed kJ (2842.0278) does not match its kcal (951.155); kJ is not used. Menu choices not added in: Choose your peas
+house-salad,House Salad,Pub classics,,134.1,2.23,12.43,7.81,0.58,,0.7947,11.65,,,,,,,,,false,true,,,Menu choices not added in: Choose your topping:
+mac-n-cheese,Mac 'n' Cheese,Pub classics,,988.4297,41.0679,125.6166,34.8462,17.9531,,3.766,11.8932,,,,,,,,vegetarian,false,true,,,
+bbq-pork-mac-n-cheese,BBQ Pork Mac 'n' Cheese,Pub classics,,1197.5597,54.3979,141.1066,45.2662,21.4031,,4.467,26.0232,,,,,,,,contains_pork,false,true,,,
+beef-lasagne,Beef Lasagne,Pub classics,,1229.9197,60.7379,118.9236,55.4392,27.9231,,6.1118,15.8562,,,,,,,,contains_beef,false,true,,,
+baked-vegetable-lasagne,Baked Vegetable Lasagne,Pub classics,,1094.3897,27.6928,144.2195,42.6932,10.9781,,3.8991,22.7053,,,,,,,,vegetarian,false,true,,,
+ham-hock-and-cheddar-pie,Ham Hock & Cheddar Pie,Pub classics,,1187.8549,46.97,112.8403,58.3386,26.5807,,3.2358,16.8515,,,,,,,,contains_pork,false,true,,,
+hand-battered-fish,Hand Battered Fish,Pub classics,,934.607,49.1354,117.1441,22.465,2.2417,,1.9537,4.6431,,,,,,,,,false,true,,,Menu choices not added in: Choose your peas
+feta-and-spinach-pasta-bake,Feta & Spinach Pasta Bake,Pub classics,,1110.1397,48.4128,115.5545,48.5982,24.5681,,4.6912,8.0103,,,,,,,,vegetarian,false,true,,,
+fries,Fries,Sides,,556.2375,3.4673,67.2405,27.1215,2.055,,1.0313,0.75,,,,,,,,vegetarian,false,true,,,Feed kJ (1872.4475) does not match its kcal (556.2375); kJ is not used. Menu choices not added in: Load Them Up!
+potato-tots,Potato Tots,Sides,,472.7265,5.4585,56.4533,24.4948,3.3334,,1.692,2.0685,,,,,,,,vegetarian,false,true,,,
+crispy-onion-rings,Crispy Onion Rings,Sides,,478.5116,5.9624,48.5622,27.6969,4.275,,1.5926,5.4278,,,,,,,,vegetarian,false,true,,,Feed kJ (1299) does not match its kcal (478.5116); kJ is not used
+roasties,Roasties,Sides,,204.77,4.5,45,0.002,0,,1.65,2.25,,,,,,,,vegetarian,false,true,,,
+side-salad,Side Salad,Sides,,95.8,1.525,9.25,5.42,0.425,,0.5653,8.53,,,,,,,,vegetarian,false,true,,,
+sharing-salad,Sharing Salad,Sides,,308.14,5.694,32.06,15.949,1.25,,1.6258,29.461,,,,,,,,vegetarian,false,true,,,
+house-slaw,House Slaw,Sides,,73.632,0.9336,4.8528,5.304,0.3648,,0.288,1.8816,,,,,,,,vegetarian,false,true,,,
+veggie-fingers-bap,Veggie Fingers Bap,Hot roast meat baps,,895.5855,16.7669,116.3781,37.6613,5.8977,,7.4432,9.411,,,,,,,,vegetarian,false,true,,,
+crispy-chicken-bap,Crispy Chicken Bap,Hot roast meat baps,,1076.8113,27.3316,125.9622,47.7606,5.0408,,3.3088,6.3022,,,,,,,,,false,true,,,
+honey-and-marmalade-glazed-gammon,Honey and Marmalade Glazed Gammon,Hot roast meat baps,,481.1694,36.7157,38.9529,19.257,5.7382,,6.2871,4.2761,,,,,,,,contains_pork,false,true,,,
+roast-beef-with-beef-dripping-glaze,Roast Beef with Beef Dripping Glaze,Hot roast meat baps,,513.2773,37.5391,37.9918,21.7945,7.9498,,0.9149,3.3153,,,,,,,,contains_beef,false,true,,,
+roast-turkey,Roast Turkey,Hot roast meat baps,,585.9065,61.3721,45.7505,17.5921,4.9279,,1.583,3.9953,,,,,,,,,false,true,,,
+chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,739.3466,6.2256,88.1194,40.0166,13.4656,,0.4229,67.034,,,,,,,,vegetarian,false,false,,,
+bramley-apple-crumble,Bramley Apple Crumble,Desserts,,408.2,4.06,76.254,9.066,3.126,,0.1352,49.146,,,,,,,,vegetarian,false,false,,,
+baked-vanilla-cheesecake,Baked Vanilla Cheesecake,Desserts,,619.9525,6.3878,72.625,33.5748,20.4498,,0.5326,51.4795,,,,,,,,vegetarian,false,false,,,
+warm-chocolate-cookie-and-ice-cream,Warm Chocolate Cookie and Ice Cream,Desserts,,992.2,12.5,120.3,50.18,29.69,,1.601,88.5,,,,,,,,vegetarian,false,false,,,
+home-baked-sticky-toffee-pudding,Home-Baked Sticky Toffee Pudding,Desserts,,905.375,10.3584,117.135,43.5775,8.2734,,0.9749,82.8651,,,,,,,,vegetarian,false,false,,,
+home-baked-chocolate-brownie,Home-baked Chocolate Brownie,Desserts,,715.249,9.47,106.54,27.3259,11.2656,,0.157,80.245,,,,,,,,vegetarian,false,false,,,
+mini-chocolate-brownie,Mini Chocolate Brownie,Desserts,,310.8038,2.984,46.702,12.1866,5.1747,,0.0706,33.255,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Choose your drink
+xxx-cookie-bubble-waffle-sundae,XXX Cookie Bubble Waffle Sundae,Waffles & sundaes,,1074.6546,13.5028,143.3666,48.5902,24.827,,1.4816,108.356,,,,,,,,vegetarian,false,false,,,
+banoffee-bubble-waffle-sundae,Banoffee Bubble Waffle Sundae,Waffles & sundaes,,964.93,12.175,131.417,42.691,18.665,,1.3108,109.078,,,,,,,,vegetarian,false,false,,,
+eton-mess-bubble-waffle-sundae,Eton Mess Bubble Waffle Sundae,Waffles & sundaes,,861.85,11.13,132.612,30.598,15.158,,1.1832,123.903,,,,,,,,vegetarian,false,false,,,
+rocky-road-bubble-waffle-sundae,Rocky Road Bubble Waffle Sundae,Waffles & sundaes,,1015.0138,14.119,134.1,45.6236,22.0167,,0.7758,112.862,,,,,,,,,false,false,,,
+espresso,Espresso,Hot drinks,,8.65,0.415,0.39,0.335,0.15,,0.0001,0.0125,,,,,,,,vegetarian,false,false,,,
+white-americano,White Americano,Hot drinks,,59.5184,3.9046,5.4742,2.1074,1.1824,,0.1501,5.0152,,,,,,,,vegetarian,false,false,,,Feed kJ (423.512) does not match its kcal (59.5184); kJ is not used. Menu choices not added in: Add Syrup
+flat-white,Flat White,Hot drinks,,84.0184,5.6046,7.9742,2.9574,1.6824,,0.2251,7.5152,,,,,,,,vegetarian,false,false,,,Feed kJ (526.512) does not match its kcal (84.0184); kJ is not used. Menu choices not added in: Add Syrup
+cappuccino,Cappuccino,Hot drinks,,92.663,6.1721,9.077,3.2293,1.858,,0.2565,8.6785,,,,,,,,vegetarian,false,false,,,Feed kJ (532.094) does not match its kcal (92.663); kJ is not used. Menu choices not added in: Add Syrup
+latte,Latte,Hot drinks,,107.63,7.283,10.49,3.769,2.17,,0.3031,10.1125,,,,,,,,vegetarian,false,false,,,Feed kJ (594.995) does not match its kcal (107.63); kJ is not used. Menu choices not added in: Add Syrup
+iced-coffee,Iced Coffee,Hot drinks,,82.15,5.515,7.89,2.885,1.65,,0.2251,7.5125,,,,,,,,vegetarian,false,false,,,Feed kJ (487.875) does not match its kcal (82.15); kJ is not used. Menu choices not added in: Add Syrup
+hot-chocolate,Hot Chocolate,Hot drinks,,264.36,4.806,30.735,13.358,9.64,,0.451,28.635,,,,,,,,vegetarian,false,false,,,Menu choices not added in: Add Syrup
+tea,Tea,Hot drinks,,27.44,1.9065,2.8,0.952,0.56,,0.084,2.8,,,,,,,,vegetarian,false,false,,,
+decaff-tea,Decaff Tea,Hot drinks,,0.0626,0.0031,0.0031,0.0031,0.0031,,0,0.0031,,,,,,,,vegetarian,false,false,,,
+flavoured-tea,Flavoured Tea,Hot drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,

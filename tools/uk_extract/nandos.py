@@ -172,6 +172,33 @@ def _energy_note(f: dict) -> str:
     return f"Printed {kcal} kcal is not close to what the printed protein, carbohydrate and fat give ({est:.0f} kcal); entered as printed"
 
 
+def holdback_reason(row: nf.Row) -> str:
+    """Why a row is not published although the page prints it: the page's own figures contradict each other (never corrected, never
+    chosen between). Accuracy audit 2026-10-08. Two tests, both on what the product panel prints:
+      * protein alone would supply more energy than the printed kcal (a data-entry error somewhere in the row), or
+      * for food and soft drinks of 50 kcal or more, the kcal differs by more than 20% from 4 x protein + 4 x carbohydrate + 9 x fat
+        (alcoholic drinks are skipped: alcohol's energy is in no macro column) or by more than 15% when the printed kJ is also more
+        than 15% away from the kcal. Nando's kJ agrees with its kcal on every published row, so the first form is the one that fires."""
+    f = row.facts
+    try:
+        kcal = f["energyKcal"]
+        prot, carb, fat = f["proteinMg"] / 1000, f["totalCarbsMg"] / 1000, f["fatMg"] / 1000
+    except (KeyError, TypeError):
+        return ""
+    if 4 * prot > kcal * 1.02 + 1:
+        return f"the page prints {kcal} kcal but {prot:g} g of protein alone would supply about {round(4 * prot)} kcal"
+    if row.abv:  # the feed gives every alcoholic drink its ABV (0 for soft drinks)
+        return ""
+    est = 4 * prot + 4 * carb + 9 * fat
+    kj = f.get("energyKj")
+    macro_gap = abs(kcal - est) / kcal if kcal else 0
+    kj_gap = abs(kcal - kj / 4.184) / kcal if (kcal and kj) else 0
+    if kcal >= 50 and (macro_gap > 0.20 or (macro_gap > 0.15 and kj_gap > 0.15)):
+        return (f"the page prints {kcal} kcal, but its own protein, carbohydrate and fat add up to about {round(est)} kcal"
+                + (f" ({kj} kJ is about {round(kj / 4.184)} kcal)" if kj else ""))
+    return ""
+
+
 def notes_for(row: nf.Row, serving_notes: list[str]) -> str:
     notes = list(serving_notes)
     if row.key in NOTE_EXTRA:
@@ -233,6 +260,7 @@ def main() -> int:
         return 1
 
     items = []
+    holdback = []
     for r in rows:
         if r.key in SKIP:
             continue
@@ -254,6 +282,9 @@ def main() -> int:
             "limited_time": str(bool(r.lozenge and "limited" in r.lozenge.lower()) or r.key in LIMITED_BY_BANNER).lower(),
             "rankable": str(rankable_for(r)).lower(), "components": "", "added_on": "", "notes": notes_for(r, serving_notes),
         })
+        why = holdback_reason(r)
+        if why:
+            holdback.append((items[-1]["id"], why))
     ids = [i["id"] for i in items]
     assert len(ids) == len(set(ids)), f"duplicate ids: {sorted({i for i in ids if ids.count(i) > 1})}"
     names = [i["name"] for i in items]
@@ -274,12 +305,21 @@ def main() -> int:
         w = csv.writer(f)
         w.writerow(["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample"])
         w.writerow([CHAIN_ID, "Nando's", "Chicken", "standard", title, SOURCE_URL, args.checked_on, "nandos|nando's|nandos restaurant", ""])
+    hb = args.out / "holdback.csv"
+    if holdback:
+        with open(hb, "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(["item_id", "reason"])
+            w.writerows(holdback)
+    elif hb.exists():
+        hb.unlink()
     (args.out / "components.csv").write_text(
         "id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,removable,allow_double\n", encoding="utf-8")
     (args.out / "modifiers.csv").write_text(
         "item_id,id,label,kind,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags\n", encoding="utf-8")
     (args.out / "combos.csv").write_text("id,name,item_ids\n", encoding="utf-8")
 
+    print(f"held back (page's own figures contradict each other): {holdback}")
     print(f"wrote {len(items)} items to {args.out} (feed sha256 {hashlib.sha256(feed_path.read_bytes()).hexdigest()[:16]})")
     print("left out of the feed: " + "; ".join(f"{g}: {len(v)}" for g, v in left_out["grouped"].items()))
     print(f"  trial: {left_out['trial']}  no nutrition: {left_out['no_nutrition']}  skipped by rule 4: {sorted(SKIP)}")

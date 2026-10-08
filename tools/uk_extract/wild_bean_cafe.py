@@ -180,7 +180,10 @@ def read_cell(key: str, text: str, where: str, page_text: str) -> tuple:
                 raise SystemExit(f"{where}: {key} cell names {head!r}: only cereals and tree nuts are named")
             words = [w for w in re.split(r"[,/]|\band\b", head) if w.strip()]
             _, cereals, nuts = allergen_words(words, f"{where} {key}")
-        return "contains", cereals, nuts
+        # "Hazelnuts. May contain other nuts" / "Wheat. May contain other cereals containing gluten": the guide prints a contains AND a
+        # may-contain for the same key (state "contains+may"): read_allergens lists the key in both sets, and common.write_allergens then
+        # drops the named kind (publishing the generic allergen) so the may-contain warning for the other kinds is not hidden.
+        return ("contains+may" if re.search(r"\bmay\b", rest, flags=re.I) else "contains"), cereals, nuts
     if re.fullmatch(r"may contain( traces)?", t, flags=re.I):
         return "may", set(), set()
     raise SystemExit(f"{where}: unreadable {key} cell {t!r}")
@@ -190,10 +193,12 @@ def read_allergens(grid_col: list, where: str, page_text: str) -> dict:
     contains, may, cereals, nuts = set(), set(), set(), set()
     for key, text in grid_col:
         state, c, n = read_cell(key, text, where, page_text)
-        if state == "contains":
+        if state in ("contains", "contains+may"):
             contains.add(key)
             cereals |= c
             nuts |= n
+            if state == "contains+may":
+                may.add(key)
         elif state == "may":
             may.add(key)
     return {"contains": contains, "may_contain": may, "cereals": cereals, "nuts": nuts}

@@ -50,7 +50,7 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 # tiles (= items with a details block) each page must show
 EXPECTED_TILES = {"hot-lunch": 21, "hot-drinks": 16, "salads-grain-bowls": 8, "cold-breakfast": 22, "hot-breakfast": 25,
-                  "breads": 24, "sides-desserts": 8, "snacks-treats": 29, "cold-drinks": 23}
+                  "breads": 24, "sides-desserts": 8, "snacks-treats": 30, "cold-drinks": 23}
 OUTPUT_PAGE_ORDER = ["hot-breakfast", "cold-breakfast", "breads", "hot-lunch", "salads-grain-bowls", "sides-desserts",
                      "snacks-treats", "hot-drinks", "cold-drinks"]
 
@@ -121,8 +121,14 @@ NO_MACROS = {
     ("cold-drinks", "Iced Americano"): "kcal and every other value printed as '-'",
     ("cold-drinks", "Wild Berry Kombucha"): "no nutrition table",
     ("cold-drinks", "Ginger Shot"): "fat printed as '-'",
+    ("snacks-treats", "Slow Dried Mango"): "no nutrition table",
     ("snacks-treats", "Propercorn Sweet & Salty"): "no nutrition table",
     ("snacks-treats", "Propercorn Lightly Sea Salted"): "no nutrition table",
+}
+
+# Items whose page prints no ingredients list (so the pork/beef tags cannot be checked): kept, with this note (checked by hand 2026-10-08).
+NO_INGREDIENTS_OK = {
+    "Forest Feast Salted Dark Chocolate Almonds": "The page prints no ingredients list for this item, so its pork/beef tags could not be checked",
 }
 
 # A printed value that is not a plain number but whose digits are unambiguous: (page, name, table label, key) -> (printed, used, why).
@@ -144,7 +150,6 @@ HOLDBACK = {
     "hot-chocolate": "The page prints 273 kcal (1,140 kJ) but its own protein, carbohydrate and fat (10 g, 19.1 g, 20.3 g) add up to about 299 kcal, and the per 100 g column (81 kcal) is far below its own macros (about 119 kcal).",
     "berry-delightful": "The page prints values that do not fit one portion size: 287 kcal and 15.8 g fat imply about 191 g, but 35.6 g carbohydrate implies about 292 g (per 100 g column); its macros add up to about 314 kcal.",
     "so-cluckin-good": "The page prints 9.7 g protein per portion, identical to its per 100 g figure, while its fat and carbohydrate are 2.7 times their per 100 g figures; with 9.7 g its macros add up to about 449 kcal against the 503 kcal printed.",
-    "deliciously-ella-chocolate-orange-dipped-almonds": "The page prints 179 kcal but 663 kJ (about 158 kcal), and its own protein, carbohydrate and fat (3.7 g, 7.7 g, 12.8 g) add up to about 161 kcal.",
     "pure-and-pip-organic-dairy-milk": "The page prints salt as 073 g (the oat milk version of the same porridge prints 0.73 g), which cannot be right for a 397 kcal porridge.",
     "british-sausage-and-egg": "The page prints identical numbers (564 kcal, 19.4 g protein, 51.5 g carbohydrate, 29.9 g fat) for this and for Smoked Salmon & Spinach, which have different fillings, so neither can be checked.",
     "smoked-salmon-and-spinach": "The page prints identical numbers (564 kcal, 19.4 g protein, 51.5 g carbohydrate, 29.9 g fat) for this and for British Sausage & Egg, which have different fillings, so neither can be checked.",
@@ -392,6 +397,8 @@ def build_items(folder: Path):
                 if it["marks"] & {"Vegetarian", "Vegan"}:
                     tags.append("vegetarian")
                 ing = it["ingredients"]
+                # "Smoky Bacon Flavour Seasoning" is a flavouring, not meat (the page marks such a snack Vegetarian): only real meat words count
+                ing = re.sub(r"\b(?:bacon|ham|pork|beef|sausage|chorizo)\s+flavou?r(?:ed|ing)?\b", " ", ing, flags=re.I)
                 if re.search(r"\b(bacon|ham|pork|sausage|salami|chorizo|pepperoni|gammon|pancetta)\b", ing, re.I):
                     tags.append("contains_pork")
                 if re.search(r"\b(beef|steak|brisket|veal)\b", ing, re.I):
@@ -399,7 +406,9 @@ def build_items(folder: Path):
                 if "vegetarian" in tags and len(tags) > 1:
                     sys.exit(f"{printed_name!r} is marked vegetarian but its ingredients name meat: check by hand")
                 if not ing:
-                    sys.exit(f"{printed_name!r} has no ingredients text, so its meat tags can't be checked")
+                    if printed_name not in NO_INGREDIENTS_OK:
+                        sys.exit(f"{printed_name!r} has no ingredients text, so its meat tags can't be checked")
+                    notes.append(NO_INGREDIENTS_OK[printed_name])
                 allergens, why = allergens_for(it, label, f"{page} {printed_name!r} {label}".strip())
                 items.append({
                     "id": make_id(name), "name": name, "category": category, "serving": serving, **vals, "tags": "|".join(tags),

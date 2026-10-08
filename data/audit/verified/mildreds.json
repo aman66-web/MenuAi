@@ -1,0 +1,13 @@
+{
+ "chain": "mildreds",
+ "date": "2026-10-08",
+ "source_read": "https://www.mildreds.com/{soho,camden,covent-garden,kings-cross,victoria}/ (downloaded fresh 2026-10-08; robots.txt allows everything)",
+ "compared_items": 48,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 0,
+ "not_verifiable": "allergens: link-only by design (each restaurant's Ingredifind guide is linked, no per-dish marks are published), so none were compared; no protein/carbs/fat/kJ/serving size is printed (calories-only chain)",
+ "notes": "Fresh re-run of the script on the five pages reproduced data/source exactly (the script's own per-page kcal-line counts 59/47/67/58/70 held). Independent read: pages rendered in Chromium (JS blocked) and the visible text parsed by paragraph, calories attached by walking back from each '(N kcal)' line: all 48 published dishes carry exactly the printed value on every page that prints it (Chick+n Caesar Burger, the croissant and the sourdough continental lines checked by hand because their printed names differ slightly); the visible kcal-line counts equal the script's. The 7 unpublished calorie lines (3-value olive pickle mix, load 'em up, two waffles, three set-breakfast options) are as the script describes."
+}
