@@ -1,0 +1,78 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+large-traditional-pasty,Large Traditional Pasty,Pasties,,1039,,,,,,,,,,,,,,,,false,false,,,p.1; printed 'Large Traditional' under 'Pasties'; meat type not stated
+traditional-pasty,Traditional Pasty,Pasties,,690,,,,,,,,,,,,,,,,false,false,,,p.1; printed 'Traditional' under 'Pasties'; meat type not stated
+chicken-masala-pasty,Chicken Masala Pasty,Pasties,,756,,,,,,,,,,,,,,,,false,false,,,p.1; printed 'Chicken Masala' under 'Pasties'
+chorizo-and-mozzarella-pasty,Chorizo & Mozzarella Pasty,Pasties,,806,,,,,,,,,,,,,,,contains_pork,false,false,,,p.1; printed 'Chorizo & Mozzarella' under 'Pasties'
+cornish-cheddar-and-onion-pasty,Cornish Cheddar & Onion Pasty,Pasties,,780,,,,,,,,,,,,,,,,false,false,,,p.1; printed 'Cornish Cheddar & Onion' under 'Pasties'
+garden-vegetable-pasty,Garden Vegetable Pasty,Pasties,,663,,,,,,,,,,,,,,,,false,false,,,p.1; printed 'Garden Vegetable' under 'Pasties'
+cauliflower-and-onion-bhaji-pasty,Cauliflower & Onion Bhaji Pasty,Pasties,,766,,,,,,,,,,,,,,,,false,false,,,p.1; printed 'Cauliflower & Onion Bhaji' under 'Pasties'
+sausage-roll,Sausage Roll,Pasties,,632,,,,,,,,,,,,,,,contains_pork,false,false,,,p.1; printed 'Sausage Roll' under 'Pasties'
+cinnamon-bun,Cinnamon Bun,Pastries,,361,,,,,,,,,,,,,,,,false,false,,,p.2; printed 'Cinnamon Bun' under 'Pastries'
+croissant,Croissant,Pastries,,303,,,,,,,,,,,,,,,,false,false,,,p.2; printed 'Croissant' under 'Pastries'
+pain-au-chocolat,Pain au Chocolat,Pastries,,306,,,,,,,,,,,,,,,,false,false,,,p.2; printed 'Pain au Chocolat' under 'Pastries'
+pain-aux-raisins,Pain aux Raisins,Pastries,,317,,,,,,,,,,,,,,,,false,false,,,p.2; printed 'Pain aux Raisins' under 'Pastries'
+chocolate-torsade,Chocolate Torsade,Pastries,,370,,,,,,,,,,,,,,,,false,false,,,p.2; printed 'Chocolate Torsade' under 'Pastries'
+cherry-and-almond-croissant,Cherry & Almond Croissant,Pastries,,606,,,,,,,,,,,,,,,,false,false,,,p.2; printed 'Cherry & Almond Croissant' under 'Pastries'; may contain nuts (Hazelnuts); nuts cell printed 'Contains (Almonds) May Contain (Hazelnuts)'
+vegan-raspberry-croissant,Vegan Raspberry Croissant,Pastries,,301,,,,,,,,,,,,,,,vegetarian,false,false,,,p.2; printed 'Vegan Raspberry Croissant' under 'Pastries'
+pastel-de-nata,Pastel De Nata,Pastries,,303,,,,,,,,,,,,,,,,false,false,,,p.2; printed 'Pastel De Nata' under 'Pastries'
+apple-rhubarb-and-custard,"Apple, Rhubarb & Custard",Pastries and Cakes,,497,,,,,,,,,,,,,,,,false,false,,,"p.3; printed 'Apple, Rhubarb & Custard' under 'Pastries and Cakes'"
+carrot-cake,Carrot Cake,Pastries and Cakes,,660,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Carrot cake' under 'Pastries and Cakes'
+chocolate-brownie,Chocolate Brownie,Pastries and Cakes,,429,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Chocolate Brownie' under 'Pastries and Cakes'
+cornish-pudding,Cornish Pudding,Pastries and Cakes,,547,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Cornish Pudding' under 'Pastries and Cakes'
+fruit-scone,Fruit Scone,Pastries and Cakes,,347,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Fruit Scone' under 'Pastries and Cakes'
+apple-crumble-scone,Apple Crumble Scone,Pastries and Cakes,,442,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Apple Crumble Scone' under 'Pastries and Cakes'
+lemon-and-berry-danish,Lemon & Berry Danish,Pastries and Cakes,,372,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Lemon & Berry Danish' under 'Pastries and Cakes'
+pistachio-croissant,Pistachio Croissant,Pastries and Cakes,,695,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Pistachio Croissant' under 'Pastries and Cakes'
+orange-creme-brulee,Orange Crème Brûlée,Pastries and Cakes,,505,,,,,,,,,,,,,,,,false,false,,,p.3; printed 'Orange Crème Brûlée' under 'Pastries and Cakes'
+bacon-and-cheese-croissant,Bacon & Cheese Croissant,Breakfast & Lunch,,545,,,,,,,,,,,,,,,contains_pork,false,false,,,p.4; printed 'Bacon & Cheese Croissant' under 'Breakfast & Lunch'
+shakshuka-croissant,Shakshuka Croissant,Breakfast & Lunch,,445,,,,,,,,,,,,,,,,false,false,,,p.4; printed 'Shakshuka Croissant' under 'Breakfast & Lunch'
+british-ham-hock-and-dijon-mayo,British Ham Hock & Dijon Mayo,Breakfast & Lunch,,505,,,,,,,,,,,,,,,contains_pork,false,false,,,p.4; printed 'British Ham Hock & Dijon Mayo' under 'Breakfast & Lunch'
+hot-honey-and-cornish-cheddar,Hot Honey & Cornish Cheddar,Breakfast & Lunch,,518,,,,,,,,,,,,,,,,false,false,,,p.4; printed 'Hot Honey & Cornish Cheddar' under 'Breakfast & Lunch'
+cheese-straw,Cheese Straw,Breakfast & Lunch,,365,,,,,,,,,,,,,,,,false,false,,,p.4; printed 'Cheese Straw' under 'Breakfast & Lunch'
+farmhouse-sausage-roll,Farmhouse Sausage Roll,Breakfast & Lunch,,475,,,,,,,,,,,,,,,contains_pork,false,false,,,p.4; printed 'Farmhouse Sausage Roll' under 'Breakfast & Lunch'
+spinach-pie,Spinach Pie,Breakfast & Lunch,,352,,,,,,,,,,,,,,,,false,false,,,p.4; printed 'Spinach Pie' under 'Breakfast & Lunch'
+pea-and-feta-tortilla,Pea & Feta Tortilla,Breakfast & Lunch,,368,,,,,,,,,,,,,,,,false,false,,,p.4; printed 'Pea & Feta Tortilla' under 'Breakfast & Lunch'
+smoked-cheddar-ploughman,Smoked Cheddar Ploughman,Breakfast & Lunch,,466,,,,,,,,,,,,,,,,false,false,,,p.4; printed 'Smoked Cheddar Ploughman' under 'Breakfast & Lunch'
+stokes-brown-sauce-sachet,Stokes Brown Sauce Sachet,"Sauces, Jams, Chutney, Creams",,62,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Stokes Brown Sauce Sachet' under 'Sauces, Jams, Chutney, Creams'"
+stokes-brown-sauce-ramekin,Stokes Brown Sauce Ramekin,"Sauces, Jams, Chutney, Creams",,68,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Stokes Brown Sauce Ramekin' under 'Sauces, Jams, Chutney, Creams'"
+stokes-tomato-sauce-sachet,Stokes Tomato Sauce Sachet,"Sauces, Jams, Chutney, Creams",,48,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Stokes Tomato Sauce Sachet' under 'Sauces, Jams, Chutney, Creams'"
+stokes-tomato-sauce-ramekin,Stokes Tomato Sauce Ramekin,"Sauces, Jams, Chutney, Creams",,42,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Stokes Tomato Sauce Ramekin' under 'Sauces, Jams, Chutney, Creams'"
+bodd-strawberry-jam-jar,Bodd Strawberry Jam Jar,"Sauces, Jams, Chutney, Creams",,84,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Bodd Strawberry Jam Jar' under 'Sauces, Jams, Chutney, Creams'"
+strawberry-jam-ramekin,Strawberry Jam Ramekin,"Sauces, Jams, Chutney, Creams",,104,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Strawberry Jam Ramekin' under 'Sauces, Jams, Chutney, Creams'"
+onion-chutney-ramekin,Onion Chutney Ramekin,"Sauces, Jams, Chutney, Creams",,45,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Onion Chutney Ramekin' under 'Sauces, Jams, Chutney, Creams'"
+roddas-clotted-cream-pot,Rodda's Clotted Cream Pot,"Sauces, Jams, Chutney, Creams",,234,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Rodda's Clotted Cream Pot' under 'Sauces, Jams, Chutney, Creams'"
+roddas-clotted-cream-ramekin,Rodda's Clotted Cream Ramekin,"Sauces, Jams, Chutney, Creams",,205,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Rodda's Clotted Cream Ramekin' under 'Sauces, Jams, Chutney, Creams'"
+butter-portions,Butter Portions,"Sauces, Jams, Chutney, Creams",,52,,,,,,,,,,,,,,,,false,false,,,"p.5; printed 'Butter Portions' under 'Sauces, Jams, Chutney, Creams'"
+double-espresso-decaf-coffee,Double Espresso / Decaf Coffee,Hot Drinks,,3,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Double Espresso / Decaf Coffee' under 'Hot Drinks'
+piccolo-including-cows-milk,Piccolo (including cows milk),Hot Drinks,4oz,45,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Piccolo 4oz (including cows milk)' under 'Hot Drinks'
+flat-white-including-cows-milk,Flat White (including cows milk),Hot Drinks,6oz,101,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Flat White 6oz (including cows milk)' under 'Hot Drinks'
+babycino-frothed-milk,Babycino (frothed milk),Hot Drinks,4oz,63,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Babycino 4oz (frothed milk)' under 'Hot Drinks'
+americano,Americano,Hot Drinks,8oz,3,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Americano 8oz' under 'Hot Drinks'
+cappuccino-incl-cows-milk-topped-with-chocolate-powder,Cappuccino (incl. cows milk) topped with chocolate powder,Hot Drinks,8oz,128,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Cappuccino 8oz (incl. cows milk) topped with chocolate powder)' under 'Hot Drinks'; the printed row ends with a stray ')'
+latte-incl-cows-milk,Latte (incl. cows milk),Hot Drinks,10oz,162,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Latte 10oz (incl. cows milk)' under 'Hot Drinks'
+mocha-incl-cows-milk,Mocha (incl. cows milk),Hot Drinks,10oz,208,,,,,,,,,,,,,,,,false,false,,,p.6; printed 'Mocha 10oz (incl. cows milk)' under 'Hot Drinks'
+white-mocha-incl-cows-milk,White Mocha (incl. cows milk),Hot Drinks,10oz,195,,,,,,,,,,,,,,,,false,false,,,p.7; printed 'White Mocha 10oz (incl. cows milk)' under 'Hot Drinks'
+chai-latte-cows-milk-topped-with-chocolate-powder-and-cinnamon,Chai Latte (cows milk) topped with chocolate powder & cinnamon,Hot Drinks,,241,,,,,,,,,,,,,,,,false,false,,,p.7; printed 'Chai Latte (cows milk) topped with chocolate powder & cinnamon' under 'Hot Drinks'
+italian-hot-chocolate,Italian Hot Chocolate,Hot Drinks,,246,,,,,,,,,,,,,,,,false,false,,,p.7; printed 'Italian Hot Chocolate' under 'Hot Drinks'
+regular-hot-chocolate,Regular Hot Chocolate,Hot Drinks,,296,,,,,,,,,,,,,,,,false,false,,,p.7; printed 'Regular Hot Chocolate' under 'Hot Drinks'
+white-hot-chocolate,White Hot Chocolate,Hot Drinks,,273,,,,,,,,,,,,,,,,false,false,,,p.7; printed 'White Hot Chocolate' under 'Hot Drinks'
+caramel-syrup,Caramel Syrup,Milk & Syrups,,49,,,,,,,,,,,,,,,,false,false,,,p.8; printed 'Caramel Syrup' under 'Milk & Syrups'
+vanilla-syrup,Vanilla Syrup,Milk & Syrups,,49,,,,,,,,,,,,,,,,false,false,,,p.8; printed 'Vanilla Syrup' under 'Milk & Syrups'
+white-chocolate-syrup,White Chocolate Syrup,Milk & Syrups,,121,,,,,,,,,,,,,,,,false,false,,,p.8; printed 'White Chocolate Syrup' under 'Milk & Syrups'
+whipped-cream-with-maple-syrup,Whipped Cream with Maple Syrup,Milk & Syrups,,229,,,,,,,,,,,,,,,,false,false,,,p.8; printed 'Whipped Cream with Maple Syrup' under 'Milk & Syrups'
+breakfast-tea-no-milk,Breakfast Tea (no milk),Teas,,0,,,,,,,,,,,,,,,,false,false,,,p.9; printed 'Breakfast (no milk)' under 'Teas'
+breakfast-decaf-tea-no-milk,Breakfast Decaf Tea (no milk),Teas,,0,,,,,,,,,,,,,,,,false,false,,,p.9; printed 'Breakfast Decaf (no milk)' under 'Teas'
+rooibos-tea-no-milk,Rooibos Tea (no milk),Teas,,0,,,,,,,,,,,,,,,,false,false,,,p.9; printed 'Rooibos (no milk)' under 'Teas'
+green-tea-no-milk,Green Tea (no milk),Teas,,0,,,,,,,,,,,,,,,,false,false,,,p.9; printed 'Green Tea (no milk)' under 'Teas'
+peppermint-tea-no-milk,Peppermint Tea (no milk),Teas,,0,,,,,,,,,,,,,,,,false,false,,,p.9; printed 'Peppermint (no milk)' under 'Teas'
+earl-grey-tea-no-milk,Earl Grey Tea (no milk),Teas,,0,,,,,,,,,,,,,,,,false,false,,,p.9; printed 'Earl Grey (no milk)' under 'Teas'
+chamomile-tea-no-milk,Chamomile Tea (no milk),Teas,,0,,,,,,,,,,,,,,,,false,false,,,p.9; printed 'Chamomile (no milk)' under 'Teas'
+cloudy-lemonade,Cloudy Lemonade,Iced Drinks,,68,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Cloudy Lemonade' under 'Iced Drinks'
+strawberry-lemonade,Strawberry Lemonade,Iced Drinks,,42,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Strawberry Lemonade' under 'Iced Drinks'
+iced-latte,Iced Latte,Iced Drinks,,120,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Iced Latte' under 'Iced Drinks'
+iced-mocha,Iced Mocha,Iced Drinks,,190,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Iced Mocha' under 'Iced Drinks'
+iced-chai,Iced Chai,Iced Drinks,,213,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Iced Chai' under 'Iced Drinks'
+iced-americano,Iced Americano,Iced Drinks,,3,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Iced Americano' under 'Iced Drinks'
+iced-chocolate,Iced Chocolate,Iced Drinks,,189,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Iced Chocolate' under 'Iced Drinks'
+iced-dirty-chai,Iced Dirty Chai,Iced Drinks,,218,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Iced Dirty Chai' under 'Iced Drinks'
+strawberry-coconut-matcha,Strawberry Coconut Matcha,Iced Drinks,,130,,,,,,,,,,,,,,,,false,false,,,p.10; printed 'Strawberry Coconut Matcha' under 'Iced Drinks'

@@ -1,0 +1,1 @@
+Calories only: the bakery's allergen matrix prints one calorie figure per item ("Kcal each") and no protein, carbs, fat or salt. Sizes are given only for hot drinks (oz). Milks print no calories and are not listed; the matrix sends soft drinks and pre-packed retail items to their packs. Matrix dated 26 February 2026.

@@ -1,0 +1,16 @@
+item_id,reason
+flat-white-skimmed-milk,"The guide prints saturates as '0,3', which is not a number, so the row can't be copied as printed."
+latte-whole-milk-small,The guide prints 1278 kcal against 538 kJ (538 kJ is about 129 kcal). The guide prints 1278 kcal; its own macros add up to about 131 kcal.
+house-32-mocha-skimmed-milk-large,"The guide prints salt as '0/5', which is not a number, so the row can't be copied as printed."
+macchiato-coconut-milk-large,"The guide prints salt as '0,0', which is not a number, so the row can't be copied as printed."
+iced-brown-sugar-latte-whole-milk,The guide prints 186 kcal; its own macros add up to about 243 kcal.
+iced-brown-sugar-latte-skimmed-milk,The guide prints 103 kcal; its own macros add up to about 166 kcal.
+iced-brown-sugar-latte-oat-milk,The guide prints 163 kcal; its own macros add up to about 217 kcal.
+iced-brown-sugar-latte-soya-milk,The guide prints 126 kcal; its own macros add up to about 179 kcal.
+cornish-sea-salt-caramel-hot-chocolate-soya-milk,"The guide prints saturates as '2.', which is not a number, so the row can't be copied as printed."
+house-32-iced-chocolate-whole-milk,The guide prints saturates 62 g above total fat 9.8 g.
+iced-blueberry-muffin-matcha-skimmed-milk,The guide prints sugars 36.3 g above carbohydrate 27.4 g. The guide prints 187 kcal; its own macros add up to about 148 kcal.
+matcha-oat-milk,The guide prints 162 kcal against 6712 kJ (6712 kJ is about 1604 kcal).
+masala-chai-latte-whole-milk,"The guide prints protein as '8,6', which is not a number, so the row can't be copied as printed."
+masala-chai-latte-skimmed-milk,The guide prints 136 kcal; its own macros add up to about 104 kcal.
+brown-sugar-1-pump,The guide prints 6 kcal; its own macros add up to about 25 kcal.

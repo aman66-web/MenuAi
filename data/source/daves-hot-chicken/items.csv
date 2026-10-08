@@ -1,0 +1,55 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+daves-1-mild-reaper-spices,Dave's #1 (Mild > Reaper Spices),Mains,,1506,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+daves-2-mild-reaper-spices,Dave's #2 (Mild > Reaper Spices),Mains,,1825,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+daves-3-mild-reaper-spices,Dave's #3 (Mild > Reaper Spices),Mains,,1666,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+daves-4-mild-reaper-spices,Dave's #4 (Mild > Reaper Spices),Mains,,1334,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+10pc-daves-bites-w-fries-medium-and-hot-spices,10pc Dave's Bites w/ Fries (Medium & Hot Spices),Mains,,1322,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+top-loaded-fries-small-medium-and-hot-spices,Top-Loaded Fries - Small (Medium & Hot Spices),Mains,,967,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+top-loaded-fries-regular-medium-and-hot,Top-Loaded Fries - Regular (Medium & Hot),Mains,,1934,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+top-loaded-fries-large-medium-and-hot-spices,Top-Loaded Fries - Large (Medium & Hot Spices),Mains,,2991,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+saucy-bites-hot-honey-with-fries,Saucy Bites - Hot Honey with Fries,Mains,,1146,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+saucy-bites-spicy-bbq-with-fries,Saucy Bites - Spicy BBQ with Fries,Mains,,1091,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+saucy-bites-spicy-buffalo-with-fries,Saucy Bites - Spicy Buffalo with Fries,Mains,,1027,,,,,,,,,,,,,,,,false,false,,,page section: Mains
+hot-box-sliders,Hot Box - Sliders,Feed a crowd,,5763,,,,,,,,,,,,,,,,false,false,,,page section: Feed a crowd
+hot-box-tenders,Hot Box - Tenders,Feed a crowd,,3700,,,,,,,,,,,,,,,,false,false,,,page section: Feed a crowd
+hot-box-fries,Hot Box - Fries,Feed a crowd,,2659,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Feed a crowd
+cheese-fries,Cheese Fries,Sides,,715,,,,,,,,,,,,,,,,false,false,,,page section: Sides
+fries,Fries,Sides,,665,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Sides
+kale-slaw,Kale Slaw,Sides,,234,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Sides
+mac-and-cheese,Mac & Cheese,Sides,,421,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Sides
+pickles,Pickles,Sides,,11,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Sides
+single-slider-mild-reaper-spices,Single Slider (Mild > Reaper Spices),Sides,,587,,,,,,,,,,,,,,,,false,false,,,page section: Sides
+single-tender-mild-reaper-spices,Single Tender (Mild > Reaper Spices),Sides,,475,,,,,,,,,,,,,,,,false,false,,,page section: Sides
+daves-sauce-pot-6oz,Dave's Sauce Pot (6oz),Sides,,819,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Sides
+daves-bites-medium-and-hot-spices,Dave's Bites (Medium & Hot Spices),Sides,,657,,,,,,,,,,,,,,,,false,false,,,page section: Sides
+saucy-bites-hot-honey-bites-only,Saucy Bites - Hot Honey (Bites only),Sides,,482,,,,,,,,,,,,,,,,false,false,,,page section: Sides
+saucy-bites-spicy-bbq-bites-only,Saucy Bites - Spicy BBQ (Bites only),Sides,,426,,,,,,,,,,,,,,,,false,false,,,page section: Sides
+saucy-bites-spicy-buffalo-bites-only,Saucy Bites - Spicy Buffalo (Bites only),Sides,,362,,,,,,,,,,,,,,,,false,false,,,page section: Sides
+lrg-lucky-charms-top-loaded-shake,LRG Lucky Charms Top-loaded shake,Top-loaded shakes,,121,,,,,,,,,,,,,,,,false,false,,,page section: Top-Loaded Shakes; far below the plain shakes (630-828 kcal): the page doesn't say what the figure covers
+lrg-m-and-m-top-loaded-shake,LRG M&M Top-loaded shake,Top-loaded shakes,,374,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Top-Loaded Shakes; far below the plain shakes (630-828 kcal): the page doesn't say what the figure covers
+lrg-oreo-top-loaded-shake,LRG Oreo Top-loaded shake,Top-loaded shakes,,239,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Top-Loaded Shakes; far below the plain shakes (630-828 kcal): the page doesn't say what the figure covers
+chocolate-shake-large,Chocolate Shake - Large,Shakes,,818,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Shakes
+strawberry-shake-large,Strawberry Shake - Large,Shakes,,793,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Shakes
+vanilla-shake-large,Vanilla Shake - Large,Shakes,,828,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Shakes
+strawberry-shake-regular,Strawberry Shake - Regular,Shakes,,650,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Shakes
+vanilla-shake-regular,Vanilla Shake - Regular,Shakes,,679,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Shakes
+chocolate-shake-regular,Chocolate Shake - Regular,Shakes,,630,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Shakes
+blue-raspberry-slusher,Blue Raspberry Slusher,Slushers,,213,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Slushers
+strawberry-drift-slusher,Strawberry Drift Slusher,Slushers,,218,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Slushers
+blue-raspberry-creme-slusher,Blue Raspberry Creme Slusher,Top-loaded slushers,,432,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Top loaded slushers
+blue-raspberry-x-strawberry-pearls-slusher,Blue Raspberry X Strawberry Pearls Slusher,Top-loaded slushers,,249,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Top loaded slushers
+rocket-creme-slusher,Rocket Creme Slusher,Top-loaded slushers,,434,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Top loaded slushers
+strawberries-and-creme-slusher,Strawberries & Creme Slusher,Top-loaded slushers,,437,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Top loaded slushers
+strawberry-drift-x-mango-pearls-slusher,Strawberry Drift X Mango Pearls Slusher,Top-loaded slushers,,254,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Top loaded slushers
+sparkling-water-330ml-can,Sparkling Water - 330ml can,Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+still-water-330ml-can,Still Water - 330ml Can,Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+coca-cola-regular,Coca Cola - Regular,Drinks,,199,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+coca-cola-zero-regular,Coca Cola Zero - Regular,Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+diet-coke-regular,Diet Coke - Regular,Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+dr-pepper-zero-regular,Dr Pepper Zero - Regular,Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+fanta-regular,Fanta - Regular,Drinks,,132,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+sprite-zero-regular,Sprite Zero - Regular,Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+lipton-lemon-iced-tea,Lipton Lemon Iced Tea,Drinks,,60,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+lipton-peach-iced-tea,Lipton Peach Iced Tea,Drinks,,60,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+red-bull-250ml,Red Bull 250ml,Drinks,,122,,,,,,,,,,,,,,,vegetarian,false,false,,,page section: Drinks
+monster-mango-loco-500ml,Monster Mango Loco (500ml),Drinks,,240,,,,,,,,,,,,,,,,false,false,,,page section: Drinks
