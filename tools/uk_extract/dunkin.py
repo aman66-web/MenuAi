@@ -206,8 +206,11 @@ def record_allergens(r: dict, prod: dict | None) -> tuple[dict | None, str]:
     b, why_b = product_allergens(prod, r["name"])
     if a is None or b is None:
         return None, f"Allergens not published: {_printed(r, prod)}. A missing list is not read as 'none'."
-    if a != b:
+    def effective(x):  # a key printed as both contained and "may contain" means contained; the pages may differ in that redundant mention only
+        return (x[0], x[1] - x[0], x[2], x[3])
+    if effective(a) != effective(b):
         def show(x):
+            x = effective(x)
             return f"contains {sorted(x[0]) or 'none'}, may contain {sorted(x[1]) or 'none'}"
         return None, f"Allergens not published: {_printed(r, prod)}: the pages disagree ({show(a)} against {show(b)}), so neither is chosen"
     return {"contains": set(a[0]), "may_contain": set(a[1]), "cereals": set(a[2]), "nuts": set(a[3])}, ""
