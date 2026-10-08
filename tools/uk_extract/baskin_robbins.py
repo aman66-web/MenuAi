@@ -89,6 +89,9 @@ HOLDBACK: dict[str, str] = {
     "caramel-cookies-n-cream": ("The chain's own flavour page (read 2026-10-06) prints 280 kcal for 'Caramel Cookies N Cream' "
                                 "(a salted caramel and cookies flavour); the 2025 index row (dated Feb-24) prints 266.6 and may be "
                                 "an older product with the same name. Held back until the chain's two sources agree."),
+    "pistachio-almond": ("Allergen row contradicts the dish name: the flavour is named Pistachio Almond but the sheet ticks TREE NUT and "
+                         "ALMONDS only and prints 'O' (not present) in its PISTACHIO NUTS column (independent re-read 2026-10-08). "
+                         "Publishing 'almond' as the only nut named could mislead someone avoiding pistachio."),
 }
 
 # Printed oddities, entered as printed (printed name -> note, unexported).

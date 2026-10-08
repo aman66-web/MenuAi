@@ -2,7 +2,7 @@
 """Build data/source/wagamama/ from Wagamama UK's own menu page, which carries every item's nutrition.
 
     curl -sSL -A 'Mozilla/5.0 ...' -o menu.html https://www.wagamama.com/menu      # one request, no crawl
-    python3 tools/uk_extract/wagamama.py menu.html --checked-on 2026-10-06
+    python3 tools/uk_extract/wagamama.py menu.html --checked-on 2026-10-08
 
 Numbers are copied from the page's embedded menu data exactly as printed (kcal, kJ, protein, carbs, fat, saturates, sugars,
 fibre, salt, all PER SERVING; per-100g values and the page's sodium are not used). Only names, categories and grouping are handled here.
@@ -13,8 +13,9 @@ If Wagamama adds, removes or moves items the counts below no longer match and th
 Allergens come from the same page: every recipe carries the menu's own allergen flags (the 14 allergens, with the named
 cereals and tree nuts as sub-flags), each "yes" (shown on the site as contains) or "maybe" (shown as "may contain allergens").
 The flag names are read from the page and mapped with common.allergen_words; an unknown flag name or value stops the script.
-Wagamama's allergen table (ALLERGEN_TABLE, the same "17 June 2026" menu) prints the same flags for the food dishes and was
-used to cross-check them on 2026-10-06. Two of the page's notices are not allergens and are reported, not read:
+Wagamama's allergen table (ALLERGEN_TABLE, the "17 June 2026" menu) printed the same flags for the food dishes and was
+used to cross-check them on 2026-10-06. Read again on 2026-10-08 from the page's new menu "07/10/2026 - UK - main website" (10 dishes
+gone, 22 new, 10 with new numbers, 3 of those with new allergens; the section table, GF_SAME_AS and the counts below were updated). Two of the page's notices are not allergens and are reported, not read:
 "for allergen information please check the label" (bottled soft drinks, beers, wines: the flags still list what the
 drink contains, e.g. gluten for beer) and "do not display the allergen/nutrition" (an item the site hides: held back).
 
@@ -23,6 +24,9 @@ What is left out, and why (every rule is counted, so a change in any of them sto
   * Gluten free menu entries that are the same recipe as a standard item (same id) or a separate recipe whose numbers are
     identical to the standard dish (GF_SAME_AS): listing them twice would only duplicate rows. A gluten free recipe whose numbers
     DIFFER from the standard dish is published as its own item, named "... (gluten free menu)".
+  * Held back (published to the CSV, listed in holdback.csv, never shown): items the site hides ("do not display the allergen/
+    nutrition"), items whose own figures contradict each other (contradiction(): kJ vs kcal, saturates > fat, sugars > carbohydrate,
+    kcal vs 4P+4C+9F) and the records in CONTRADICTED.
 """
 from __future__ import annotations
 import argparse
@@ -46,26 +50,29 @@ NOT_ALLERGEN_FLAGS = {"vegan", "vegetarian", "vegan hero", "new", "refreshed", "
 
 # page section path -> (expected recipe count, category, rankable, limited_time, name prefix, name suffix)
 # rankable: false for drinks, desserts and extras (sauces, pickles, a single egg); true for everything else (the chain's sides
-# are real servings, as for the other chains).
+# are real servings, as for the other chains). limited_time is false everywhere: the menu "07/10/2026" has no limited-time section;
+# an item is marked limited_time only when its own description says so (LIMITED_WORDING).
+# The drinks sub-section "coffee by UESHIMA" (hot and iced coffee, tea, matcha) is filed under "Coffee + tea", the category it had
+# before the 7 Oct 2026 menu: the heading is a partner's name, the items are coffee and tea.
 S = [
-    (("limited time only", "buldak"), 2, "Limited time", True, True, "", ""),
     (("lunch time",), 5, "Lunch time", True, False, "", ""),
     (("sides", "lighter bites"), 5, "Lighter bites", True, False, "", ""),
     (("sides", "gyoza"), 4, "Gyoza", True, False, "", " gyoza"),
-    (("sides", "big flavour bites"), 9, "Big flavour bites", True, False, "", ""),
-    (("sides", "bao buns"), 5, "Bao buns", True, False, "", " bao bun"),
+    (("sides", "big flavour bites"), 10, "Big flavour bites", True, False, "", ""),
+    (("sides", "bao buns"), 4, "Bao buns", True, False, "", " bao bun"),
+    (("the main event", "chef's picks"), 3, "Chef's picks", True, False, "", ""),
     (("the main event", "curries"), 10, "Curries", True, False, "", ""),
     (("the main event", "donburi"), 6, "Donburi", True, False, "", ""),
     (("the main event", "ramen"), 6, "Ramen", True, False, "", ""),
     (("the main event", "teppanyaki"), 10, "Teppanyaki", True, False, "", ""),
-    (("extras",), 9, "Extras", False, False, "", ""),
+    (("extras",), 12, "Extras", False, False, "", ""),
     (("desserts + sweet treats",), 12, "Desserts", False, False, "", ""),
     (("drinks", "freshly made juices"), 5, "Juices", False, False, "", " juice"),
     (("drinks", "soft drinks"), 12, "Soft drinks", False, False, "", ""),
-    (("drinks", "cocktails"), 4, "Cocktails", False, False, "", ""),
-    (("drinks", "beers + cider"), 5, "Beers + cider", False, False, "", ""),
+    (("drinks", "cocktails"), 6, "Cocktails", False, False, "", ""),
+    (("drinks", "beers + cider"), 4, "Beers + cider", False, False, "", ""),
     (("drinks", "wine + sake"), 7, "Wine + sake", False, False, "", ""),
-    (("drinks", "coffee + tea"), 8, "Coffee + tea", False, False, "", ""),
+    (("drinks", "coffee by UESHIMA"), 10, "Coffee + tea", False, False, "", ""),
     (("kids", "katsu"), 4, "Kids", True, False, "Kids ", ""),
     (("kids", "ramen"), 4, "Kids", True, False, "Kids ", ""),
     (("kids", "noodles"), 4, "Kids", True, False, "Kids ", ""),
@@ -74,9 +81,15 @@ S = [
     (("kids", "drinks"), 6, "Kids", False, False, "Kids ", ""),
     # The gluten free menu repeats many standard items; see GF_SAME_AS and the rules in main().
     (("gluten free", "sides"), 6, "Gluten free menu", True, False, "", " (gluten free menu)"),
-    (("gluten free", "the main event"), 14, "Gluten free menu", True, False, "", " (gluten free menu)"),
+    (("gluten free", "the main event"), 15, "Gluten free menu", True, False, "", " (gluten free menu)"),
+    (("gluten free", "extras"), 3, "Gluten free menu", False, False, "", " (gluten free menu)"),
     (("gluten free", "desserts + sweet treats"), 3, "Gluten free menu", False, False, "", " (gluten free menu)"),
-    (("gluten free", "drinks"), 37, "Gluten free menu", False, False, "", " (gluten free menu)"),
+    (("gluten free", "drinks", "freshly made juices"), 5, "Gluten free menu", False, False, "", " (gluten free menu)"),
+    (("gluten free", "drinks", "soft drinks"), 12, "Gluten free menu", False, False, "", " (gluten free menu)"),
+    (("gluten free", "drinks", "cocktails"), 6, "Gluten free menu", False, False, "", " (gluten free menu)"),
+    (("gluten free", "drinks", "cider"), 1, "Gluten free menu", False, False, "", " (gluten free menu)"),
+    (("gluten free", "drinks", "wine"), 6, "Gluten free menu", False, False, "", " (gluten free menu)"),
+    (("gluten free", "drinks", "coffee by UESHIMA"), 10, "Gluten free menu", False, False, "", " (gluten free menu)"),
 ]
 RULES = {path: rest for path, *rest in S}
 
@@ -86,7 +99,9 @@ GF_SAME_AS = {
     "079343b0": "a3417688", "9dcf7e05": "fb38b3d2", "3decdf59": "f4a7debd", "e739cdd0": "0ce6d91c", "ad6aa444": "9f0af8db",
     "bcdf1718": "3905de0c", "58deb023": "6be06de5", "63f31115": "0aa79163", "7338d320": "c58e57b5", "d09f5dc8": "f60c968a",
     "a6f07f7d": "728dbcfb", "705c94da": "dc6bb597", "77f7461e": "4763aa8d", "6014b9d4": "d7797223", "dd8d177b": "f530a70e",
-    "3c496ac9": "1f433859", "20c6a835": "97642a43", "703ba388": "2a8d0628", "a97719a3": "319717a5",
+    "3c496ac9": "1f433859", "20c6a835": "97642a43", "703ba388": "2a8d0628",
+    # added with the 7 Oct 2026 menu: the gluten free duck akakare, three dips and the miso chocolate brownie
+    "8df3a9be": "a510fcd4", "f9146a4c": "24454ee0", "e21009bb": "09e96ac1", "08036591": "540b6c54", "bf90a080": "0c4bb849",
 }
 
 # Names that can't be derived from the page's name alone (two recipes with the same name): id prefix -> printed distinction.
@@ -94,6 +109,8 @@ NAME_OVERRIDE = {
     "e1e2ccb8": "Kids yasai cha han (vegetarian)",   # the page's internal name: "kids - mini cha han vegetarian"
     "f6fd1c7d": "Kids yasai cha han (vegan)",        # the page's internal name: "kids - mini cha han vegan"
     "13c2c384": "Signature seafood ramen (gluten free menu, may contain small bones)",  # avoids "(...) (gluten free menu)"
+    "b540f325": "Revive juice (regular)",            # the page's name: "revive - regular"
+    "9f2647c3": "Revive juice (gluten free menu)",   # the page's name: "revive" (record "juice - revie (parent)"), held back, see CONTRADICTED
 }
 
 # Printed nutrient labels on the page -> items.csv columns. Anything else on the page must be one of IGNORED or we stop.
@@ -102,6 +119,9 @@ COLUMNS = {
     "sat fat (g)": "sat_fat_g", "of which sugars (g)": "sugar_g", "fibre (g)": "fiber_g", "salt (g)": "salt_g",
 }
 IGNORED = {"Energy (kj)", "sodium (g)"}  # kJ is read separately (energy_kj); sodium is printed in g (we never convert sodium to salt or the reverse)
+
+# The menu has no limited-time section any more; the one item that says so itself ("available while stocks last") is marked.
+LIMITED_WORDING = re.compile(r"while stocks? last|limited time|limited edition", re.I)   # not "seasonal greens" (a kids ramen ingredient)
 
 PORK = re.compile(r"\bpork\b|bacon|\bham\b|sausage|chorizo|salami|pepperoni|pancetta", re.I)
 BEEF = re.compile(r"\bbeef\b|brisket|steak", re.I)
@@ -225,6 +245,7 @@ def main() -> int:
     for r in recipes:
         _, _, rankable, limited, prefix, suffix = RULES[r["section"]]
         category = RULES[r["section"]][1]
+        limited = limited or bool(LIMITED_WORDING.search(r["desc"] + " " + r["pro_desc"]))
         nums = numbers(r)
         first_time = r["ident"] not in seen_ids
         seen_ids.add(r["ident"])
@@ -271,7 +292,7 @@ def main() -> int:
         })
 
     # 2. The rules above must leave exactly what was reviewed.
-    expected = {"published": 139, "unpublished": 27, "same_id": 25, "same_numbers": 19, "variants": 4}
+    expected = {"published": 146, "unpublished": 29, "same_id": 26, "same_numbers": 23, "variants": 5}
     got = {"published": len(items), "unpublished": len(unpublished), "same_id": len(same_id), "same_numbers": len(same_numbers),
            "variants": len(variants)}
     if got != expected:
@@ -296,17 +317,17 @@ def main() -> int:
     # Items the site itself hides ("do not display the allergen/nutrition") are held back; "check the label" items are reported.
     holdback = HOLDBACK + [(slug(i["name"]), "Wagamama's own menu data marks this item 'do not display the allergen/nutrition'")
                            for i in items if HIDDEN in i["_notices"]]
-    # Independent accuracy check, 8 Oct 2026: (1) the page prints Energy (kj) and Energy (kcal) side by side and for some dishes
-    # they disagree by more than 7% (same gate as tools/audit/accuracy_audit.py); the page's own figures contradict each other,
-    # so the dish is held back, nothing is chosen or corrected. (2) STALE_ON_LIVE_PAGE, see below.
+    # Rows where the chain's own figures contradict each other are held back; nothing is chosen or corrected. The tests are the
+    # "high" tests of tools/audit/accuracy_audit.py (saturates > fat, sugars > carbohydrate, calories vs 4P+4C+9F more than 30% off)
+    # and a stricter energy test: the page prints Energy (kj) and Energy (kcal) side by side and a dish is held back when
+    # kJ / (kcal x 4.184) is outside KJ_KCAL_BAND (the audit's own "expected" band; it only calls a dish high outside 0.85-1.15).
     for i in items:
-        kcal, kj = float(i["calories"]), float(i["energy_kj"])
-        if kcal >= 20 and not 0.93 <= kj / (kcal * 4.184) <= 1.07:
-            holdback.append((slug(i["name"]), f"The page prints {kj:g} kJ and {kcal:g} kcal for this dish, which disagree "
-                                              f"({kcal:g} kcal is about {kcal * 4.184:.0f} kJ), so its energy cannot be trusted."))
+        why = contradiction(i)
+        if why:
+            holdback.append((slug(i["name"]), why))
     for i in items:
-        if i["_ident"] in STALE_ON_LIVE_PAGE:
-            holdback.append((slug(i["name"]), STALE_ON_LIVE_PAGE[i["_ident"]]))
+        if i["_ident"] in CONTRADICTED:
+            holdback.append((slug(i["name"]), CONTRADICTED[i["_ident"]]))
     holdback = list({hid: why for hid, why in reversed(holdback)}.items())[::-1]   # one row per item (the first reason given is kept)
     for i in items:
         if CHECK_LABEL in i["_notices"]:
@@ -340,25 +361,34 @@ NOTE = ("Alcoholic drinks are not listed because Wagamama publishes no nutrition
         "Gluten free menu dishes appear only where their numbers differ from the standard dish.")
 HOLDBACK: list[tuple[str, str]] = []
 
-# The data in data/source/wagamama was read from the page saved on 6 Oct 2026 (menu "17/06/2026 - UK - main website"). On 8 Oct the live
-# page serves a new menu ("07/10/2026 - UK - main website": 10 recipes gone, 22 new, 10 changed, 3 of those with different allergens).
-# Until the script's section table (S, GF_SAME_AS, the expected counts) is updated and the new page extracted, every dish that the
-# live page no longer prints, or prints with other numbers or allergens, is held back so out-of-date figures are not shown.
-# ident (first 8 characters) -> reason. Remove this table when the new page has been extracted.
-_GONE = "wagamama.com no longer lists this dish (removed in the 7 Oct 2026 menu update), so the saved page's figures are out of date."
-def _changed(old: str, new: str, allergens: bool) -> str:
-    energy = f"{old} kcal in the saved page, {new} kcal live" if old != new else f"{old} kcal in both, other figures differ"
-    return (f"wagamama.com now prints different figures for this dish ({energy})"
-            + (" and different allergens" if allergens else "") + ", so the saved page's figures are out of date.")
-STALE_ON_LIVE_PAGE = {
-    "d20b2add": _GONE, "79e48b98": _GONE, "51b6580b": _GONE, "f9b8205f": _GONE, "319717a5": _GONE, "87b34af5": _GONE,
-    "e2650438": _GONE, "643623a4": _GONE, "eebd1e74": _GONE, "a97719a3": _GONE,
-    "0e44a062": _changed("521", "521", False), "0f108188": _changed("1,223", "1,216", False),
-    "b2bf6f93": _changed("1,350", "1,343", False), "bc268c77": _changed("713", "632", True),
-    "ff5794ba": _changed("456", "498", True), "853dfc7e": _changed("541", "589", False),
-    "ca11c46a": _changed("949", "920", True), "b9d63ef2": _changed("539", "600", False),
-    "4b9c6627": _changed("517", "578", False), "71355b8a": _changed("1,003", "950", False),
+# Energy test: kJ / (kcal x 4.184) must lie in this band (accuracy_audit.py expects 0.93-1.07 and only calls it "high" outside 0.85-1.15).
+KJ_KCAL_BAND = (0.93, 1.07)
+
+# Records the page itself contradicts, by recipe id (first 8 characters) -> reason. Each is published to the CSV as printed and held back.
+CONTRADICTED = {
+    "9f2647c3": ("The gluten free menu's record for the Revive juice (named 'revive (parent)' in Wagamama's menu data) prints 0 kcal and 0 g of "
+                 "everything, while the main menu prints 165 kcal for the same juice (revive - regular, same ingredients), so its figures "
+                 "cannot be trusted."),
 }
+
+
+def contradiction(item: dict) -> str:
+    """Why an item's own printed figures cannot all be right, or '' (thresholds as in tools/audit/accuracy_audit.py, high severity)."""
+    kcal, kj = float(item["calories"]), float(item["energy_kj"])
+    protein, carbs, fat = float(item["protein_g"]), float(item["carbs_g"]), float(item["fat_g"])
+    sat, sugars = float(item["sat_fat_g"]), float(item["sugar_g"])
+    if kcal >= 20 and not KJ_KCAL_BAND[0] <= kj / (kcal * 4.184) <= KJ_KCAL_BAND[1]:
+        return (f"The page prints {kj:g} kJ and {kcal:g} kcal for this dish, which disagree "
+                f"({kcal:g} kcal is about {kcal * 4.184:.0f} kJ), so its energy cannot be trusted.")
+    if sat > fat + 0.6:
+        return f"The page prints {sat:g} g saturates but only {fat:g} g fat for this dish, so its figures cannot be trusted."
+    if sugars > carbs + 1.0:
+        return f"The page prints {sugars:g} g sugars but only {carbs:g} g carbohydrate for this dish, so its figures cannot be trusted."
+    est = 4 * protein + 4 * carbs + 9 * fat
+    if kcal >= 50 and abs(kcal - est) / kcal > 0.30:
+        return (f"The page prints {kcal:g} kcal but its protein, carbohydrate and fat (4P+4C+9F) add up to {est:.0f} kcal, "
+                "so its figures cannot be trusted.")
+    return ""
 
 if __name__ == "__main__":
     sys.exit(main())

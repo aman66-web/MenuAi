@@ -84,8 +84,7 @@ ROWS = [
     ("179", "vegetable bun vg", "Vegetable Bun", "BUNS", "", True, False, V, ""),
     ("354", "shanghai chilli spinach mushroom wonton vg", "Shanghai Chilli Spinach Mushroom Wonton", "STEAMED DUMPLINGS", "", True, False, V, ""),
     ("132", "black prawn dumpling gf", "Black Prawn Dumpling", "STEAMED DUMPLINGS", "", True, False, "",
-     "Protein is printed as 7 g per portion but 6.3 g per 100 g, while every other column implies a 90 g portion; the "
-     "per-portion kcal fits the per-portion protein, so published as printed"),
+     "HELD BACK, see holdback.csv"),
     ("6", "prawn and chive dumpling gf", "Prawn and Chive Dumpling", "STEAMED DUMPLINGS", "", True, False, "", "HELD BACK, see holdback.csv"),
     ("11", "pork prawn shu mai", "Pork Prawn Shu Mai", "STEAMED DUMPLINGS", "", True, False, P, ""),
     ("7", "har gau gf", "Har Gau", "STEAMED DUMPLINGS", "", True, False, "", ""),
@@ -99,8 +98,7 @@ ROWS = [
     ("225", "spinach and mushroom griddled dumpling vg", "Spinach and Mushroom Griddled Dumpling", "GRIDDLED GYOZA & DUMPLING", "", True, False, V, ""),
     ("124", "griddled spicy beef gyoza", "Griddled Spicy Beef Gyoza", "GRIDDLED GYOZA & DUMPLING", "", True, False, BF, ""),
     ("280", "chicken & chinese chive gyoza", "Chicken & Chinese Chive Gyoza", "GRIDDLED GYOZA & DUMPLING", "", True, False, "",
-     "Saturates are printed as 0.134 g per portion but 0.314 g per 100 g, although every other column is identical "
-     "(a 100 g portion); published as printed"),
+     "HELD BACK, see holdback.csv"),
     ("281", "edamame & vegetable gyoza", "Edamame & Vegetable Gyoza", "GRIDDLED GYOZA & DUMPLING", "", True, False, "",
      "Portion and per-100 g columns are identical (a 100 g portion)"),
     ("227", "apple gyoza v (6pcs) (dim summer specials)", "Apple Gyoza (6 pieces)", "DESSERTS", "6 pieces", False, True, V,
@@ -191,6 +189,14 @@ HELD = {
     "honey-chicken-rice-pot": (
         "The guide prints 329.5 kcal; its own macros (16.7 g protein, 61.4 g carbohydrate, 9.8 g fat) add up to about 401 kcal.",
         lambda r: energy_gap(r["p"]) > 0.15),
+    "black-prawn-dumpling": (
+        "The guide prints protein 7 g per portion but 6.3 g per 100 g, while its other columns show a portion of about 90 g "
+        "(132 kcal against 147 kcal per 100 g, fat 3.15 g against 3.5 g), which would be about 5.7 g protein.",
+        lambda r: r["p"]["protein"] == "7" and r["h"]["protein"] == "6.3"),
+    "chicken-and-chinese-chive-gyoza": (
+        "The guide prints saturates 0.134 g per portion but 0.314 g per 100 g, although every other column is identical "
+        "per portion and per 100 g (a 100 g portion).",
+        lambda r: r["p"]["sat"] == "0.134" and r["h"]["sat"] == "0.314"),
     "ice-cream-sorbet-black-coconut": (
         "The guide prints the same protein (3.5 g) per portion and per 100 g, while its other columns show a portion of "
         "about 60 g (87 kcal against 145 kcal per 100 g, fat 4.68 g against 7.8 g).",

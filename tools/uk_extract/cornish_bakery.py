@@ -22,6 +22,10 @@ What is published, what is not:
 - 2 rows are listed but HELD BACK (holdback.csv): their "No Allergens" cell reads "see pack" (Double Espresso / Decaf Coffee, Stokes Brown
   Sauce Sachet). The matrix itself sends the reader to the pack, so its row is not a complete allergen statement, and the allergens are
   safety information: not published (never completed or guessed).
+- Chocolate Brownie is HELD BACK too (HOLD_NAME): the matrix marks no gluten for it, which contradicts the dish name (a brownie is normally
+  made with wheat flour) and nothing in the matrix or on the chain's site (no gluten-free label, no ingredients) settles it (accuracy re-check
+  2026-10-08). 'Apple, Rhubarb & Custard' prints no egg mark and is published: the chain's own site lists its at-home Apple & Rhubarb pasty
+  'drizzled with custard' as custard powder (milk, no egg) with the same allergens (Gluten (Wheat), Milk).
 - Sizes: only hot drinks carry a size, in oz ("Latte 10oz"): copied to `serving` as printed ("10oz"). Everything else is "Kcal each" as
   sold (a pasty, a slice, a sachet, a ramekin): `serving` stays blank. Syrups, sauces, jam and cream print a figure per "each" too.
 - Names: pasties get the word "Pasty" (the section heading is "Pasties"; "Traditional" alone says nothing), teas get "Tea" (section
@@ -61,6 +65,12 @@ NOTE = ("Calories only: the bakery's allergen matrix prints one calorie figure p
 EXPECTED_ROWS = 81
 NO_CALORIES = {"Whole Cows Milk", "Skimmed Cows Milk", "Oatly Oat Milk", "Soya Milk"}
 HOLD_SEE_PACK = "The matrix's 'No Allergens' cell for this row reads 'see pack': the allergen information is on the pack, so the row is not a complete allergen statement. Not published."
+
+# Rows whose own allergen cells contradict the dish name and that nothing in the matrix or on the chain's site can settle: not published.
+HOLD_NAME = {
+    "Chocolate Brownie": "Allergen row contradicts the dish name: a brownie is normally made with wheat flour, but the matrix marks no gluten for it "
+                         "(it marks eggs, milk, almonds and soya), prints no 'gluten free' label or ingredients, so its gluten status can't be confirmed. Not published.",
+}
 
 PORK = re.compile(r"\b(pork|chorizo|sausage|bacon|ham|pepperoni|salami)\b", re.I)
 BEEF = re.compile(r"\b(beef|steak)\b", re.I)
@@ -218,7 +228,7 @@ def build(rows: list) -> tuple:
         a = read_allergens(r)
         note += a.pop("notes")
         state = a.pop("state")
-        hold = HOLD_SEE_PACK if state == "see pack" else ""
+        hold = HOLD_SEE_PACK if state == "see pack" else HOLD_NAME.get(e["printed"], "")
         if hold:
             report.append(f"HELD BACK {e['name']}: {hold}")
         items.append(dict(name=e["name"], id=e["id"], category=HEADERS[e["page"]], calories=r["kcal"], serving=e["serving"], tags="|".join(tags),

@@ -118,6 +118,9 @@ HELD = {
     ("TAKEAWAY GRILLS (with flatbread)", "Mixed Grill with Wings"):
         "Printed 1135, identical to the plain dine-in Mixed Grill (1135) on the same page, while every other takeaway grill is its dine-in "
         "figure + 241 (the Warm Olive Oil Bread figure) and the dine-in 'Mixed Grill with Wings' row prints xxx: the figure looks copied from another row.",
+    ("Our Favourites", "Soujok Shakshuka Sandwich"):
+        "Allergen row contradicts the dish name: 'Shakshuka' is an egg dish (the guide marks eggs for 'Shakshuka & Soujok' and 'Soujok & Shakshuka Croissant') "
+        "but the guide marks no egg for this sandwich, and the chain prints no ingredient list for it, so the egg status can't be confirmed.",
     **{("WRAP PLATTERS", n): ("The chain's own menus page (https://www.comptoirlibanais.com/menus/) says 'Choose any wrap served with hommos & salad "
                               "(293 kcal)' for Wrap Platters; the guide's figure for this platter is far higher, so the two figures contradict.")
        for n in ("Chicken Taouk", "Lamb Kofta", "Halloumi", "Falafel")},

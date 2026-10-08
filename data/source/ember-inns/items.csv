@@ -1,257 +1,257 @@
-id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,limited_time,rankable,components,added_on,notes
-king-prawn-cocktail,King Prawn Cocktail,Starters & sharing,,356,15,34,17,6.3,,2.1,9,,,false,true,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
-garden-pea-falafels,Garden Pea Falafels,Starters & sharing,,364,9.2,36,19,1.7,,1.4,5.6,,vegetarian,false,true,,,Main Menu / Starters
-chicken-wings,Chicken Wings,Starters & sharing,,319,31,8.7,17,5.2,,1.7,1.8,,,false,true,,,"Main Menu / Starters (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-chicken-tenders-starters,Chicken Tenders (Starters),Starters & sharing,,363,22,32,16,3.2,,1.6,0.1,,,false,true,,,"Main Menu / Starters (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-beer-battered-mushrooms,Beer Battered Mushrooms,Starters & sharing,,415,4.2,30,31,3.8,,2,1.6,,vegetarian,false,true,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
-salt-and-pepper-calamari,Salt & Pepper Calamari,Starters & sharing,,223,6.3,29,1.9,0.4,,3.5,20,,,false,true,,,"Main Menu / Starters (+1 more menu entries, same numbers); printed kJ 801 and kcal 223 do not agree"
-halloumi-fries,Halloumi Fries,Starters & sharing,,494,30,26,30,18,,3.4,19,,vegetarian,false,true,,,Main Menu / Starters
-leek-and-potato-soup,Leek & Potato Soup,Starters & sharing,,340,8,39,16,6.9,,2.5,4.3,,vegetarian,false,true,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
-garlic-focaccia-starters,Garlic Focaccia (Starters),Starters & sharing,,425,7.7,43,24,6.9,,2.1,0.3,,vegetarian,false,true,,,"Main Menu / Starters (+2 more menu entries, same numbers)"
-garlic-focaccia-with-cheese-starters,Garlic Focaccia with Cheese (Starters),Starters & sharing,,621,21,44,40,16,,3.1,0.3,,vegetarian,false,true,,,"Main Menu / Starters (+2 more menu entries, same numbers)"
-leek-and-potato-soup-vegan,Leek & Potato Soup (vegan),Starters & sharing,,266,7.9,39,7.7,1.7,,2.3,4.2,,vegetarian,false,true,,,"Main Menu / Starters (+2 more menu entries, same numbers)"
-summer-sharing-platter,Summer Sharing Platter,Starters & sharing,,1800,46,173,101,23,,9,17,,,false,true,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
-sharing-nachos,Sharing Nachos,Starters & sharing,,798,19,93,37,14,,4.6,13,,vegetarian,false,true,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
-chick-n-mix,Chick 'n' Mix,Starters & sharing,,1361,107,81,66,17,,6.6,3.6,,,false,true,,,Main Menu / Our Sharers; the guide flags this dish as having choices (its numbers may not include them)
-moroccan-spiced-chicken-skewer,Moroccan Spiced Chicken Skewer,Starters & sharing,,874,54,107,24,3.4,,3.8,21,,,false,true,,,Main Menu / Our Skewers
-lamb-kofta-skewer,Lamb Kofta Skewer,Starters & sharing,,997,40,124,36,11,,5.7,21,,,false,true,,,Main Menu / Our Skewers; printed kJ 4498 and kcal 997 do not agree
-chargrilled-halloumi-and-red-pepper-skewer,Chargrilled Halloumi & Red Pepper Skewer,Starters & sharing,,1081,47,111,48,20,,5.8,26,,vegetarian,false,true,,,Main Menu / Our Skewers
-stilton-and-port-mushrooms,Stilton & Port Mushrooms,Starters & sharing,,341,14,27,19,9.1,,2.2,1.8,,vegetarian,true,true,,,Seasonal Specials / Starters
-panko-breaded-butterflied-prawns,Panko-Breaded Butterflied Prawns,Starters & sharing,,181,9.1,34,0.8,0.3,,1.5,16,,,false,true,,,Pub Specials / Starters
-baked-camembert,Baked Camembert,Starters & sharing,,1006,55,60,60,47,,6.3,15,,vegetarian,false,true,,,Pub Specials / Starters
-spicy-chicken-fries-with-sweet-chilli-sauce,Spicy Chicken Fries with Sweet Chilli Sauce,Starters & sharing,,544,27,49,26,4.4,,4.7,20,,,false,true,,,Pub Specials / Starters
-garlic-focaccia-on-the-side,Garlic Focaccia (On the Side),Sides & snacks,,213,3.8,22,12,3.5,,1.1,0.2,,vegetarian,false,true,,,"Main Menu / On the Side (+2 more menu entries, same numbers)"
-dirty-topped-fries,Dirty-Topped Fries,Sides & snacks,,719,7.2,79,36,10,,5,7.7,,contains_beef,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 2468 and kcal 719 do not agree"
-garlic-focaccia-with-cheese-on-the-side,Garlic Focaccia with Cheese (On the Side),Sides & snacks,,310,10,22,20,8.2,,1.6,0.2,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
-mixed-greens,Mixed Greens,Sides & snacks,,87,3.1,5.9,4.9,0.6,,0.07,3.2,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
-cajun-topped-fries,Cajun-Topped Fries,Sides & snacks,,591,4.1,74,26,2.1,,3.9,4.4,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1937 and kcal 591 do not agree"
-cheeseburger-topped-fries,Cheeseburger-Topped Fries,Sides & snacks,,679,13,75,30,3.6,,3.6,5.7,,contains_beef,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 2489 and kcal 679 do not agree"
-seasoned-chips,Seasoned Chips,Sides & snacks,,403,3.8,58,11,4.5,,2.4,0.5,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1238 and kcal 403 do not agree"
-seasoned-fries,Seasoned Fries,Sides & snacks,,479,3.4,66,17,1.5,,4.4,1.1,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1472 and kcal 479 do not agree"
-coleslaw,Coleslaw,Sides & snacks,,190,2.3,13,13,1,,0.88,8.8,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
-dressed-side-salad,Dressed Side Salad,Sides & snacks,,75,1.4,16,0.4,0.1,,0.04,14,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
-mac-and-cheese-on-the-side,Mac & Cheese (On the Side),Sides & snacks,,356,18,34,16,9.9,,1.9,2.9,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
-beer-battered-onion-rings,Beer Battered Onion Rings,Sides & snacks,,570,12,50,35,6.1,,2.6,4.6,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1539 and kcal 570 do not agree"
-yorkshire-puddings,Yorkshire Puddings,Sides & snacks,,290,5.7,43,10,2.3,,1.1,2.3,,vegetarian,false,true,,,Roasts & Classics / Set Menu
-pork-leek-and-apple-stuffing,"Pork, Leek & Apple Stuffing",Sides & snacks,,525,18,29,37,13,,1.8,6,,contains_pork,false,true,,,Roasts & Classics / Set Menu
-cauliflower-cheese,Cauliflower Cheese,Sides & snacks,,310,16,10,23,13,,1.8,3.6,,vegetarian,false,true,,,Roasts & Classics / Set Menu
-braised-red-cabbage,Braised Red Cabbage,Sides & snacks,,160,1,32,2.6,0.2,,0.51,29,,vegetarian,false,true,,,Roasts & Classics / Set Menu
-roast-potatoes-and-gravy,Roast Potatoes & Gravy,Sides & snacks,,301,4.7,35,15,3.1,,3,2.9,,,false,true,,,Roasts & Classics / Set Menu
-hot-sauce-and-fiery-tzatziki,Hot Sauce & Fiery Tzatziki,Add-ons,,83,0.6,8.5,5.1,0.5,,0.33,4.1,,,false,false,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
-bbq-and-ranch-sauce,BBQ & Ranch Sauce,Add-ons,,125,0.5,8.9,9.6,0.8,,0.69,7.8,,,false,false,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
-bbq-and-ranch-sauce-large,BBQ & Ranch Sauce (Large),Add-ons,,499,2.1,36,38,3.2,,2.8,31,,,false,false,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
-hot-sauce-and-tzatziki-large,Hot Sauce & Tzatziki (Large),Add-ons,,248,1.7,26,15,1.6,,0.99,12,,,false,false,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
-extra-sliced-white-bloomer-bread-and-butter,Extra - Sliced White Bloomer Bread and Butter,Add-ons,,345,9.2,54,9.7,5.6,,0.77,3.6,,vegetarian,false,false,,,Main Menu / Our Classics
-extra-sliced-seeded-wholemeal-bread-and-butter,Extra - Sliced Seeded Wholemeal Bread and Butter,Add-ons,,379,11,49,14,6.1,,1.1,3.5,,vegetarian,false,false,,,Main Menu / Our Classics
-poppadoms-and-chutney,Poppadoms & Chutney,Add-ons,,281,9.9,43,7.5,0.9,,2.5,15,,vegetarian,false,false,,,Main Menu / Our Classics
-add-curry-sauce,ADD Curry Sauce,Add-ons,,85,1,8,5,1,,2,4,,vegetarian,false,false,,,Main Menu / Our Classics
-upgrade-8oz-sirloin-steak,Upgrade 8oz Sirloin Steak,Add-ons,,1417,56,92,83,30,,2.6,7.8,,contains_beef,false,false,,,Main Menu / From Our Grill; the guide flags this dish as having choices (its numbers may not include them); printed kJ 5254 and kcal 1417 do not agree
-beef-dripping-gravy,Beef Dripping Gravy,Add-ons,,157,2,8,13,7,,2,5,,contains_beef,false,false,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers)"
-stilton-and-port-sauce,Stilton & Port Sauce,Add-ons,,92,2.4,3.2,8,4,,0.8,0.8,,vegetarian,false,false,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers)"
-peppercorn-sauce,Peppercorn Sauce,Add-ons,,85,2,5,6,4,,1,2,,,false,false,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers)"
-double-up-8oz-rump-steak,DOUBLE UP 8oz Rump Steak,Add-ons,,408,40,0,27,12,,0.25,0,,contains_beef,false,false,,,Main Menu / From Our Grill; printed kJ 1864 and kcal 408 do not agree
-double-up-5oz-rump-steak,DOUBLE UP 5oz Rump Steak,Add-ons,,255,25,0,17,7.6,,0.15,0,,contains_beef,false,false,,,Main Menu / From Our Grill; printed kJ 1166 and kcal 255 do not agree
-upgrade-to-cajun-fries,Upgrade to Cajun Fries,Add-ons,,112,0.7,8.3,8.3,0.6,,1.5,3.3,,,false,false,,,"Main Menu / Burgers (+1 more menu entries, same numbers)"
-upgrade-to-dirty-fries,Upgrade to Dirty Fries,Add-ons,,240,3.8,13,19,8.7,,2.5,6.5,,,false,false,,,"Main Menu / Burgers (+1 more menu entries, same numbers)"
-upgrade-to-cheeseburger-fries,Upgrade to Cheeseburger Fries,Add-ons,,200,9.4,8.7,12,2.1,,1.2,4.6,,,false,false,,,"Main Menu / Burgers (+1 more menu entries, same numbers); printed kJ 1018 and kcal 200 do not agree"
-add-garden-pea-falafel,ADD Garden Pea Falafel,Add-ons,,229,5.3,22,13,1.1,,0.73,2.3,,vegetarian,false,false,,,"Main Menu / Salads (+2 more menu entries, same numbers)"
-add-chargrilled-halloumi-and-red-pepper-skewer,Add Chargrilled Halloumi & Red Pepper Skewer,Add-ons,,416,29,6.5,30,18,,3.3,6.3,,vegetarian,false,false,,,"Main Menu / Salads (+1 more menu entries, same numbers)"
-add-moroccan-spiced-chicken-skewer,Add Moroccan Spiced Chicken Skewer,Add-ons,,209,37,2.3,5.8,1.3,,1.3,1.3,,,false,false,,,"Main Menu / Salads (+1 more menu entries, same numbers)"
-add-lamb-kofta-skewer,Add Lamb Kofta Skewer,Add-ons,,332,22,20,18,8.5,,3.2,1.8,,,false,false,,,"Main Menu / Salads (+1 more menu entries, same numbers); printed kJ 1698 and kcal 332 do not agree"
-add-grilled-salmon-fillet,Add Grilled Salmon Fillet,Add-ons,,396,42,0,25,3.8,,0.31,0,,,false,false,,,Main Menu / Salads; printed kJ 1790 and kcal 396 do not agree
-add-bbq-sauce,Add BBQ Sauce,Add-ons,,158,0.6,39,0.1,0,,1.5,35,,vegetarian,false,false,,,Main Menu / Fixed Price Set Menu
-add-hot-sauce,ADD Hot Sauce,Add-ons,,86,0.5,18,1.5,0,,0.5,7.5,,vegetarian,false,false,,,Main Menu / Fixed Price Set Menu
-add-gravy,Add Gravy,Add-ons,,43,0.7,3.5,2.8,1.4,,1.4,1.4,,,false,false,,,Main Menu / Fixed Price Set Menu
-add-cheese-and-bacon,Add Cheese and Bacon,Add-ons,,119,15,0,5.7,4.3,,1.7,0,,contains_pork,false,false,,,Main Menu / Fixed Price Set Menu; printed kJ 660 and kcal 119 do not agree
-whipped-cream,Whipped Cream,Add-ons,,180,0.8,1.2,19,12,,0,1.2,,vegetarian,false,false,,,Main Menu / Fixed Price Set Menu
-add-seeded-wholemeal-toast-and-butter,Add Seeded Wholemeal Toast and Butter,Add-ons,,301,5.7,25,19,11,,0.76,1.9,,vegetarian,false,false,,,Brunch Menu / Brunch
-add-white-toast-and-butter,Add white toast and butter,Add-ons,,284,4.7,27,17,11,,0.61,1.9,,vegetarian,false,false,,,Brunch Menu / Brunch
-hash-brown,Hash Brown,Add-ons,,216,2.8,27,10,1.7,,0.3,0,,vegetarian,false,false,,,Brunch Menu / Add a little extra; printed kJ 798 and kcal 216 do not agree
-bacon,Bacon,Add-ons,,54,11,0,0.2,0.9,,1.3,0,,contains_pork,false,false,,,Brunch Menu / Add a little extra; printed kJ 390 and kcal 54 do not agree
-sausage,Sausage,Add-ons,,183,7.4,8.8,12,4.2,,1.3,0,,contains_pork,false,false,,,Brunch Menu / Add a little extra; printed kJ 933 and kcal 183 do not agree
-halloumi,Halloumi,Add-ons,,159,12,1.3,12,7.3,,1.3,1.3,,vegetarian,false,false,,,Brunch Menu / Add a little extra
-biscoff-biscuits,Biscoff® Biscuits,Add-ons,,18,0.2,2.7,0.7,0.3,,0.03,1.4,,vegetarian,false,false,,,"Hot Drinks / Accompaniment (+1 more menu entries, same numbers)"
-crispy-sweet-chilli-chicken-sandwich,Crispy Sweet Chilli Chicken Sandwich,Sandwiches,,1301,34,173,47,6.3,,7.7,30,,,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4929 and kcal 1301 do not agree
-chargrilled-steak-sandwich,Chargrilled Steak Sandwich,Sandwiches,,1043,37,120,40,10,,4.6,11,,contains_beef,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 3939 and kcal 1043 do not agree
-garden-pea-falafel-wrap,Garden Pea Falafel Wrap,Sandwiches,,1161,21,156,44,6,,4.4,16,,vegetarian,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4335 and kcal 1161 do not agree
-chicken-blt-sandwich,Chicken BLT Sandwich,Sandwiches,,1036,55,113,33,4.6,,7.1,4.6,,contains_pork,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 3977 and kcal 1036 do not agree
-our-fish-finger-sandwich,Our Fish Finger Sandwich,Sandwiches,,1101,26,141,39,4.4,,6.5,4.5,,,false,true,,,"Main Menu / Sandwiches (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 3775 and kcal 1101 do not agree"
-garden-pea-falafel-wrap-vegan,Garden Pea Falafel Wrap (vegan),Sandwiches,,757,19,106,27,4.5,,2,29,,vegetarian,false,true,,,Main Menu / Sandwiches
-hunters-chicken-schnitzel,Hunter's Chicken Schnitzel,Mains,,1456,67,133,67,19,,9.2,29,,contains_pork,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5194 and kcal 1456 do not agree"
-scampi-and-chips,Scampi & Chips,Mains,,901,31,96,24,5.3,,3.2,6.1,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 2767 and kcal 901 do not agree"
-katsu-chicken-rice-bowl,Katsu Chicken Rice Bowl,Mains,,802,29,105,29,4.8,,4.3,12,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers)"
-gammon-steak,Gammon Steak,Mains,,697,50,65,16,5.2,,2.7,4.1,,contains_pork,false,true,,,Main Menu / Our Classics; the guide flags this dish as having choices (its numbers may not include them)
-chicken-tikka-masala,Chicken Tikka Masala,Mains,,995,41,114,39,16,,2.8,17,,,false,true,,,Main Menu / Our Classics
-roasted-cauliflower-dopiaza,Roasted Cauliflower Dopiaza,Mains,,803,18,116,27,3.8,,2.3,16,,vegetarian,false,true,,,Main Menu / Our Classics
-garlic-chicken-schnitzel,Garlic Chicken Schnitzel,Mains,,1440,48,109,85,21,,6.6,8.4,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4941 and kcal 1440 do not agree"
-grilled-salmon-fillet,Grilled Salmon Fillet,Mains,,871,45,40,58,15,,1.1,3.6,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers)"
-sausages-and-mash-our-classics,Sausages & Mash (Our Classics),Mains,,1163,36,88,69,22,,7.2,13,,contains_pork,false,true,,,Main Menu / Our Classics
-steak-and-doom-bar-ale-pie,Steak & Doom Bar® Ale Pie,Mains,,1237,37,122,64,29,,5.1,16,,contains_beef,false,true,,,Main Menu / Our Classics; the guide flags this dish as having choices (its numbers may not include them)
-haddock-and-chips,Haddock & Chips,Mains,,950,53,114,18,5.3,,3.9,4.1,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 3262 and kcal 950 do not agree"
-halloumi-and-chips,Halloumi & Chips,Mains,,1124,42,117,47,23,,4.8,7.3,,vegetarian,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4258 and kcal 1124 do not agree"
-beef-and-red-wine-lasagne,Beef & Red Wine Lasagne,Mains,,726,26,75,35,12,,5,22,,contains_beef,false,true,,,"Main Menu / Our Classics (+2 more menu entries, same numbers)"
-rainbow-lasagne,Rainbow Lasagne,Mains,,444,12,67,13,2,,2.5,27,,vegetarian,false,true,,,"Main Menu / Our Classics (+2 more menu entries, same numbers)"
-gunpowder-potato-samosas,Gunpowder Potato Samosas,Mains,,330,3.7,43,15,1.6,,1.5,17,,vegetarian,false,true,,,Main Menu / Our Classics
-mixed-grill,Mixed Grill,Mains,,1856,122,110,93,28,,7.1,8.6,,contains_pork|contains_beef,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-pork-tomahawk,Pork Tomahawk,Mains,,1285,78,97,57,15,,7.8,9.1,,contains_pork,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4706 and kcal 1285 do not agree"
-full-rack-of-ribs,Full Rack of Ribs,Mains,,1543,79,117,79,21,,5.8,46,,,false,true,,,Main Menu / From Our Grill; the guide flags this dish as having choices (its numbers may not include them); printed kJ 5909 and kcal 1543 do not agree
-8oz-sirloin-steak,8oz Sirloin Steak,Mains,,1358,50,91,79,28,,2,7.8,,contains_beef,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5008 and kcal 1358 do not agree"
-8oz-rump-steak,8oz Rump Steak,Mains,,1203,55,91,61,20,,2,7.8,,contains_beef,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4316 and kcal 1203 do not agree"
-surf-and-turf,Surf & Turf,Mains,,1262,61,92,64,22,,2.6,7.8,,contains_beef,false,true,,,Main Menu / From Our Grill; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4562 and kcal 1262 do not agree
-chicken-tenders-fixed-price-set-menu,Chicken Tenders (Fixed Price Set Menu),Mains,,487,23,41,26,4,,2.3,7.9,,,false,true,,,Main Menu / Fixed Price Set Menu
-nachos,Nachos,Mains,,471,11,58,20,7.8,,2.6,7.3,,vegetarian,false,true,,,"Main Menu / Fixed Price Set Menu (+1 more menu entries, same numbers)"
-fish-and-chips,Fish & Chips,Mains,,838,33,114,18,5.1,,2.7,4.1,,,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 2933 and kcal 838 do not agree
-chorizo-mac-and-cheese,Chorizo Mac & Cheese,Mains,,957,38,72,56,27,,4.9,4.6,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu
-sausages-and-mash-fixed-price-set-menu,Sausages & Mash (Fixed Price Set Menu),Mains,,695,23,54,39,14,,4.6,11,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu; printed kJ 3245 and kcal 695 do not agree
-hand-carved-ham-egg-and-chips,"Hand-Carved Ham, Egg & Chips",Mains,,990,50,65,54,15,,4.3,4.1,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 3481 and kcal 990 do not agree
-chargrilled-chicken-breast,Chargrilled Chicken Breast,Mains,,646,40,66,17,5.5,,1.4,4.9,,,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 2261 and kcal 646 do not agree
-mac-and-cheese-fixed-price-set-menu,Mac & Cheese (Fixed Price Set Menu),Mains,,894,39,87,42,22,,4.7,5.1,,vegetarian,false,true,,,Main Menu / Fixed Price Set Menu
-thick-cut-gammon-steak,Thick Cut Gammon Steak,Mains,,697,50,65,16,5.2,,3.1,4.1,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu
-chicken-schnitzel-burger,Chicken Schnitzel Burger,Mains,,1378,52,138,63,13,,7.1,8.6,,,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4707 and kcal 1378 do not agree
-hand-carved-roast-beef,Hand-Carved Roast Beef,Mains,,1249,54,80,76,31,,4.6,23,,contains_beef,false,true,,,Roasts & Classics / Set Menu
-hand-carved-turkey-roasts-and-classics-menu,Hand-Carved Turkey (Roasts & Classics menu),Mains,,964,54,86,42,11,,5.9,24,,contains_pork,false,true,,,Roasts & Classics / Set Menu
-hand-carved-gammon,Hand-Carved Gammon,Mains,,1036,45,85,55,15,,7.7,24,,contains_pork,false,true,,,Roasts & Classics / Set Menu
-sunday-trio-of-meats,Sunday Trio of Meats,Mains,,1323,72,86,73,26,,7.2,24,,contains_pork|contains_beef,false,true,,,Roasts & Classics / Set Menu
-root-vegetable-wellington-roasts-and-classics-menu,Root Vegetable Wellington (Roasts & Classics menu),Mains,,1131,19,143,50,9.3,,3.8,33,,vegetarian,false,true,,,Roasts & Classics / Set Menu
-chargrilled-lamb-steak,Chargrilled Lamb Steak,Mains,,816,46,54,44,21,,3.8,27,,,true,true,,,Seasonal Specials / Mains
-crispy-duck-stir-fry,Crispy Duck Stir-Fry,Mains,,1000,145,121,7.2,0.7,,7.2,36,,,true,true,,,Seasonal Specials / Mains; printed kJ 5138 and kcal 1000 do not agree
-french-cut-gammon-shank,French-cut Gammon Shank,Mains,,789,80,35,35,16,,2,8.8,,contains_pork,true,true,,,Seasonal Specials / Mains
-chargrilled-chicken-and-chorizo,Chargrilled Chicken & Chorizo,Mains,,688,42,41,38,13,,3.1,4.9,,contains_pork,true,true,,,Seasonal Specials / Mains
-our-classic-fish-pie,Our Classic Fish Pie,Mains,,780,40,47,46,20,,4.3,20,,,true,true,,,Seasonal Specials / Mains
-blackened-cod-loin,Blackened Cod Loin,Mains,,888,51,30,61,32,,4.5,5.5,,contains_pork,true,true,,,Seasonal Specials / Mains
-crispy-duck-and-mango-salad,Crispy Duck & Mango Salad,Mains,,467,69,62,0.9,0,,3.5,56,,,true,true,,,Seasonal Specials / Mains; printed kJ 2431 and kcal 467 do not agree
-pork-tomahawk-with-dauphinoise-potatoes,Pork Tomahawk with Dauphinoise Potatoes,Mains,,1009,78,33,62,28,,10.3,8.9,,contains_pork,true,true,,,Seasonal Specials / Mains
-lamb-shank,Lamb Shank,Mains,,960,62,48,55,26,,7.1,18,,,true,true,,,Seasonal Specials / Mains
-salmon-with-scottish-mussels,Salmon with Scottish Mussels,Mains,,876,56,40,53,20,,3.2,3.1,,,true,true,,,Seasonal Specials / Mains
-lamb-jalfrezi,Lamb Jalfrezi,Mains,,863,28,110,32,7.4,,3.7,13,,,false,true,,,Pub Specials / Mains
-maple-glazed-pork-belly,Maple Glazed Pork Belly,Mains,,1611,43,47,137,51,,5.4,21,,contains_pork,false,true,,,Pub Specials / Mains
-grilled-bacon-chop,Grilled Bacon Chop,Mains,,695,52,65,16,8.1,,6.4,4.1,,contains_pork,false,true,,,Pub Specials / Mains
-falafel-and-spinach-burger,Falafel & Spinach Burger,Mains,,1100,15,135,49,11,,4.7,12,,vegetarian,false,true,,,Pub Specials / Mains; printed kJ 4064 and kcal 1100 do not agree
-seabass-with-mussels,Seabass with Mussels,Mains,,867,49,40,58,23,,3.3,3.1,,,false,true,,,Pub Specials / Mains; printed kJ 3281 and kcal 867 do not agree
-grilled-seabass-fillets,Grilled Seabass Fillets,Mains,,834,41,38,59,18,,1.7,2,,,false,true,,,Pub Specials / Mains; printed kJ 3142 and kcal 834 do not agree
-roast-belly-pork,Roast Belly Pork,Mains,,1902,50,85,149,50,,6.5,24,,contains_pork,false,true,,,Pub Specials / Mains
-tandoori-chicken-skewer,Tandoori Chicken Skewer,Mains,,1327,55,176,38,4.4,,6.2,25,,,false,true,,,Pub Specials / Mains; printed kJ 5045 and kcal 1327 do not agree
-peri-peri-chicken-skewer,Peri Peri Chicken Skewer,Mains,,1356,58,175,41,3.7,,6.4,21,,,false,true,,,Pub Specials / Mains; printed kJ 5162 and kcal 1356 do not agree
-ultimate-burger,Ultimate Burger,Burgers,,1857,79,156,89,21,,11.5,17,,contains_pork|contains_beef,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-bombay-halloumi-stack,Bombay Halloumi Stack,Burgers,,1323,40,145,59,22,,7.5,37,,vegetarian,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5005 and kcal 1323 do not agree"
-lamb-and-tzatziki-burger,Lamb & Tzatziki Burger,Burgers,,1153,34,104,61,19,,5.8,9.1,,,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4275 and kcal 1153 do not agree"
-bbq-chicken-and-maple-bacon-stack,BBQ Chicken & Maple Bacon Stack,Burgers,,1575,62,155,73,16,,8.6,24,,contains_pork,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5530 and kcal 1575 do not agree"
-cheese-and-bacon-beef-burger,Cheese & Bacon Beef Burger,Burgers,,1048,47,113,36,7.2,,6.6,9.5,,contains_pork|contains_beef,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-cheese-and-bacon-chicken-burger,Cheese & Bacon Chicken Burger,Burgers,,992,56,104,32,7.6,,5.8,9.4,,contains_pork,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 3790 and kcal 992 do not agree"
-double-cheese-and-bacon-burger,Double Cheese & Bacon Burger,Burgers,,1253,71,121,41,7.3,,8,9.5,,contains_pork,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 6123 and kcal 1253 do not agree"
-double-chicken-cheese-and-bacon-burger,Double Chicken Cheese & Bacon Burger,Burgers,,1146,89,105,34,8.1,,6.8,10,,contains_pork,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4442 and kcal 1146 do not agree"
-chicken-bacon-and-avocado-salad,"Chicken, Bacon & Avocado Salad",Salads,,532,48,20,26,7.1,,2.4,17,,contains_pork,false,true,,,"Main Menu / Salads (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-avocado-and-mixed-grain-salad,Avocado & Mixed Grain Salad,Salads,,536,9.9,45,33,6.5,,1.1,23,,vegetarian,false,true,,,"Main Menu / Salads (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-chicken-caesar-salad,Chicken Caesar Salad,Salads,,760,53,23,49,7,,3.4,3.6,,contains_pork,false,true,,,"Main Menu / Salads (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,266,2.7,42,9.3,2.9,,0.64,34,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+3 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-toffee-apple-crumble-tart,Toffee Apple Crumble Tart,Desserts,,292,2.7,43,12,4.1,,0.17,24,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+5 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-belgian-chocolate-brownie,Belgian Chocolate Brownie,Desserts,,852,11,116,38,20,,0.37,81,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+3 more menu entries, same numbers)"
-cr-me-br-l-e,Crème Brûlée,Desserts,,403,5.1,55,18,6.7,,0.3,49,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+3 more menu entries, same numbers)"
-vanilla-pod-ice-cream,Vanilla Pod Ice Cream,Desserts,,445,8.4,50,24,15,,0.33,41,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+1 more menu entries, same numbers)"
-banoffee-sundae,Banoffee Sundae,Desserts,,1122,14,133,59,35,,1.5,109,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
-tiramisu,Tiramisu,Desserts,,629,5,58,41,19,,0.32,45,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
-chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,812,5.6,107,40,20,,0.75,79,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-cherry-eton-mess-sundae,Cherry Eton Mess Sundae,Desserts,,733,7,63,50,31,,0.2,54,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
-mini-belgian-chocolate-brownie,Mini Belgian Chocolate Brownie,Desserts,,537,7.6,71,25,14,,0.27,51,,vegetarian,false,false,,,Main Menu / Desserts
-mini-cr-me-br-l-e,Mini Crème Brûlée,Desserts,,205,2.8,27,9.4,3.5,,0.13,25,,vegetarian,false,false,,,Main Menu / Desserts
-mini-cherry-eton-mess,Mini Cherry Eton Mess,Desserts,,479,5.7,44,31,19,,0.18,37,,vegetarian,false,false,,,Main Menu / Desserts
-mini-tiramisu,Mini Tiramisu,Desserts,,315,2.6,29,21,9.5,,0.16,22,,,false,false,,,Main Menu / Desserts
-chocolate-fudge-cake-vegan,Chocolate Fudge Cake (vegan),Desserts,,633,4.8,105,21,7.6,,0.75,78,,vegetarian,false,false,,,Main Menu / Desserts
-lemon-tart,Lemon Tart,Desserts,,568,6.2,86,22,10,,0.3,67,,vegetarian,true,false,,,Seasonal Specials / Desserts
-cherry-pavlova,Cherry Pavlova,Desserts,,820,7.9,83,51,31,,0.23,73,,vegetarian,true,false,,,Seasonal Specials / Desserts
-cookie-and-ice-cream,Cookie & Ice Cream,Desserts,,810,13,95,41,25,,0.97,70,,,false,false,,,Pub Specials / Desserts
-biscoff-sundae,Biscoff® Sundae,Desserts,,1191,12,86,89,39,,0.75,62,,vegetarian,false,false,,,Pub Specials / Desserts
-apple-and-cinnamon-pie,Apple & Cinnamon Pie,Desserts,,446,4.1,63,19,6.9,,0.02,24,,vegetarian,false,false,,,Pub Specials / Desserts
-americano,Americano,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
-iced-black-coffee,Iced Black Coffee,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+2 more menu entries, same numbers)"
-cappuccino,Cappuccino,Drinks,,149,7.1,20,3.8,2.2,,0.33,20,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 812 and kcal 149 do not agree"
-white-americano,White Americano,Drinks,,60,3.9,5.4,2.2,1.2,,0.15,5,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 435 and kcal 60 do not agree"
-iced-coffee,Iced Coffee,Drinks,,85,5.6,7.9,3,1.7,,0.23,7.5,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+5 more menu entries, same numbers); printed kJ 538 and kcal 85 do not agree"
-espresso,Espresso,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
-flat-white,Flat White,Drinks,,85,5.6,7.9,3,1.7,,0.23,7.5,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 538 and kcal 85 do not agree"
-latte,Latte,Drinks,,110,7.4,11,3.9,2.2,,0.3,10,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 645 and kcal 110 do not agree"
-hot-chocolate,Hot Chocolate,Drinks,,122,1.8,25,0.9,0.6,,0.17,24,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+6 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-tea,Tea,Drinks,,0,0,0,0,0,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+9 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-mocha,Mocha,Drinks,,155,7.5,21,3.9,2.3,,0.35,20,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 834 and kcal 155 do not agree"
-earl-grey-tea,Earl Grey Tea,Drinks,,0,0,0,0,0,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
-peppermint-tea,Peppermint Tea,Drinks,,0,0,0,0,0,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
-green-tea,Green Tea,Drinks,,0,0,0,0,0,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
-fruit-tea,Fruit Tea,Drinks,,0,0,0,0,0,,0,0,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
-caramel-syrup-shot,Caramel Syrup Shot,Drinks,,32,0,7.9,0,0,,0,7.9,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
-vanilla-syrup-shot,Vanilla Syrup Shot,Drinks,,34,0,8.4,0,0,,0,8.4,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
-glass-of-milk,Glass of Milk,Drinks,,140,9.7,14,4.8,2.9,,0.43,14,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+1 more menu entries, same numbers)"
-orange-juice,Orange Juice,Drinks,,172,3.1,38,0.4,0.4,,0,38,,vegetarian,false,false,,,Bottomless Brunch / Drinks
-apple-juice,Apple Juice,Drinks,,175,0.1,44,0,0,,0,44,,,false,false,,,Bottomless Brunch / Drinks
-cranberry-juice,Cranberry Juice,Drinks,,80,0.1,20,0,0,,0,19,,,false,false,,,Bottomless Brunch / Drinks
-pineapple-juice,Pineapple Juice,Drinks,,207,0.1,52,0,0,,0,52,,,false,false,,,Bottomless Brunch / Drinks
-floater-coffee,Floater Coffee,Drinks,,298,1.7,6.7,29,18,,0,6.3,,vegetarian,false,false,,,Hot Drinks / Coffees; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1415 and kcal 298 do not agree
-liqueur-coffee,Liqueur Coffee,Drinks,,298,1.7,6.7,29,18,,0,6.3,,vegetarian,false,false,,,Hot Drinks / Coffees; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1415 and kcal 298 do not agree
-decaf-iced-black-coffee,Decaf Iced Black Coffee,Drinks,,11,0.4,0.4,0.5,0.2,,0,0,,,false,false,,,Hot Drinks / Coffees
-decaf-espresso,Decaf Espresso,Drinks,,11,0.4,0.4,0.5,0.2,,0,0,,vegetarian,false,false,,,Hot Drinks / Coffees
-decaf-cappuccino,Decaf Cappuccino,Drinks,,149,7,20,3.8,2.1,,0.33,19,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 809 and kcal 149 do not agree
-decaf-latte,Decaf Latte,Drinks,,110,7.3,10,3.9,2.2,,0.3,10,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 642 and kcal 110 do not agree
-decaf-flat-white,Decaf Flat White,Drinks,,84,5.5,7.9,3,1.7,,0.23,7.5,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 535 and kcal 84 do not agree
-decaf-white-americano,Decaf White Americano,Drinks,,60,3.8,5.4,2.2,1.2,,0.15,5,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 432 and kcal 60 do not agree
-decaf-americano,Decaf Americano,Drinks,,11,0.4,0.4,0.5,0.2,,0,0,,vegetarian,false,false,,,Hot Drinks / Coffees
-iced-decaf-coffee,Iced Decaf Coffee,Drinks,,84,5.5,7.9,3,1.7,,0.23,7.5,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 535 and kcal 84 do not agree
-oat-americano,Oat Americano,Drinks,,67,0.7,7.1,3.5,0.5,,0.19,3.2,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 464 and kcal 67 do not agree
-oat-flat-white,Oat Flat White,Drinks,,95,0.8,10,5,0.7,,0.29,4.8,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 582 and kcal 95 do not agree
-oat-latte,Oat Latte,Drinks,,124,0.9,14,6.5,0.8,,0.38,6.5,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 704 and kcal 124 do not agree
-iced-oat-coffee,Iced Oat Coffee,Drinks,,95,0.8,10,5,0.7,,0.29,4.8,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 582 and kcal 95 do not agree
-decaf-oat-flat-white,Decaf Oat Flat White,Drinks,,95,0.7,10,5,0.7,,0.29,4.8,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 579 and kcal 95 do not agree
-decaf-oat-latte,Decaf Oat Latte,Drinks,,124,0.8,14,6.5,0.8,,0.39,6.5,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 701 and kcal 124 do not agree
-decaf-oat-americano,Decaf Oat Americano,Drinks,,67,0.6,7.1,3.5,0.5,,0.19,3.2,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 461 and kcal 67 do not agree
-garlic-focaccia-little-ones,Garlic Focaccia (Little Ones),Little Ones,,286,4.8,23,19,7.5,,1.1,1.4,,vegetarian,false,true,,,Little Ones / Little One's
-veg-sticks-and-houmous,Veg Sticks & Houmous,Little Ones,,117,3.8,9.8,6.5,0.7,,0.5,4.2,,vegetarian,false,true,,,Little Ones / Little One's
-chicken-tenders-little-ones,Chicken Tenders (Little Ones),Little Ones,,319,17,36,12,2.4,,1.6,11,,,false,true,,,Little Ones / Little One's
-heinz-tomato-soup,Heinz® Tomato Soup,Little Ones,,105,2.4,17,2.7,0.3,,1.2,9.9,,vegetarian,false,true,,,Little Ones / Little One's
-tomato-pasta-little-ones-vegan,Tomato Pasta (Little Ones) (vegan),Little Ones,,283,5,38,13,0,,0,7.5,,vegetarian,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
-cheese-and-tomato-pizza,Cheese & Tomato Pizza,Little Ones,,228,8.4,29,8.4,3.7,,0.93,2.8,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
-pork-sausages-little-ones-two-grilled-pork-sausages,"Pork Sausages (Little Ones, Two grilled pork sausages)",Little Ones,,185,7.4,5.6,15,5.2,,0.9,2.6,,contains_pork,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
-whitby-cod-goujons-little-ones-two-cod-goujons,"Whitby™ Cod Goujons (Little Ones, Two cod goujons)",Little Ones,,149,6.6,13,6.4,0.9,,0.91,0.1,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them); printed kJ 437 and kcal 149 do not agree
-chicken-breast-tenders,Chicken Breast Tenders,Little Ones,,271,17,24,12,2.4,,1.2,0,,,false,true,,,Little Ones / Little One's
-whitby-breaded-scampi,Whitby™ Breaded Scampi,Little Ones,,225,15,21,2.1,0.1,,1.2,3.7,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them); printed kJ 670 and kcal 225 do not agree
-mild-chicken-curry,Mild Chicken Curry,Little Ones,,424,21,59,11,4.8,,1.6,8,,,false,true,,,Little Ones / Little One's
-chargrilled-bbq-chicken,Chargrilled BBQ Chicken,Little Ones,,232,36,10,4.9,2.2,,1.5,9.4,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
-pork-sausages-little-ones-with-garden-peas-and-gravy,Pork Sausages (Little Ones) with garden peas and gravy,Little Ones,,321,14,14,22,7.9,,1.2,7,,contains_pork,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
-whitby-cod-goujons-little-ones-with-garden-peas,Whitby™ Cod Goujons (Little Ones) with garden peas,Little Ones,,249,12,23,9,1.3,,1.2,3.7,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them); printed kJ 796 and kcal 249 do not agree
-tomato-pasta-little-ones,Tomato Pasta (Little Ones),Little Ones,,389,6.9,48,19,1.7,,0.53,7.6,,vegetarian,false,true,,,Little Ones / Little One's
-chicken-burger-sliders,Chicken Burger Sliders,Little Ones,,325,15,41,11,2.3,,1.2,3.5,,,false,true,,,Little Ones / Little One's
-cheeseburger-sliders,Cheeseburger Sliders,Little Ones,,299,21,26,8.8,2.4,,0.93,4.3,,contains_beef,false,true,,,Little Ones / Little One's; printed kJ 1628 and kcal 299 do not agree
-fries,Fries,Little Ones,,213,1.5,29,7.8,0.7,,1.1,0.5,,vegetarian,false,true,,,Little Ones / Little One's; printed kJ 654 and kcal 213 do not agree
-baby-potatoes,Baby Potatoes,Little Ones,,95,0,16,3,1,,0,0,,vegetarian,false,true,,,Little Ones / Little One's
-chips,Chips,Little Ones,,161,1.5,23,4.3,1.8,,0.17,0.2,,vegetarian,false,true,,,Little Ones / Little One's; printed kJ 495 and kcal 161 do not agree
-mashed-potato,Mashed Potato,Little Ones,,94,1.9,12,3.8,2.7,,0.48,1.8,,vegetarian,false,true,,,Little Ones / Little One's
-rice,Rice,Little Ones,,247,6.8,49,3.4,0,,0,0,,vegetarian,false,true,,,Little Ones / Little One's
-salad-bowl,Salad Bowl,Little Ones,,13,0.8,1.5,0.1,0,,0.03,1.5,,vegetarian,false,true,,,Little Ones / Little One's
-garden-peas,Garden Peas,Little Ones,,50,3.3,6.7,0.4,0.1,,0.01,3.5,,vegetarian,false,true,,,Little Ones / Little One's
-baked-beans,Baked Beans,Little Ones,,52,3.7,7.6,0.2,0.1,,0.32,1.5,,vegetarian,false,true,,,Little Ones / Little One's
-chicken-breast,Chicken Breast,Little Ones,,507,40,47,16,2.5,,2.9,8.4,,,false,true,,,Little Ones / Little One's
-hand-carved-turkey-little-ones,Hand-Carved Turkey (Little Ones),Little Ones,,494,30,47,19,4,,2.9,7.5,,,false,true,,,Little Ones / Little One's
-hand-carved-beef,Hand-Carved Beef,Little Ones,,668,28,47,39,15,,2.3,7.9,,contains_beef,false,true,,,Little Ones / Little One's
-root-vegetable-wellington-little-ones,Root Vegetable Wellington (Little Ones),Little Ones,,625,11,79,27,5.2,,2.5,13,,vegetarian,false,true,,,Little Ones / Little One's
-vanilla-ice-cream,Vanilla Ice Cream,Little Ones,,473,8.5,56,24,15,,0.33,46,,vegetarian,false,true,,,Little Ones / Little One's
-chocolate-ice-cream,Chocolate Ice Cream,Little Ones,,598,9.6,50,39,24,,0.27,42,,vegetarian,false,true,,,Little Ones / Little One's
-cherry-eton-mess-sundae-little-ones,Cherry Eton Mess Sundae (Little Ones),Little Ones,,328,3.7,30,22,13,,0.11,26,,vegetarian,false,true,,,Little Ones / Little One's
-little-judes-fruit-and-veg-rocket-ice-lolly,Little Jude's Fruit & Veg Rocket Ice Lolly,Little Ones,,26,0,6.6,0,0,,0,5.5,,vegetarian,false,true,,,Little Ones / Little One's
-belgian-chocolate-brownie-sundae,Belgian Chocolate Brownie Sundae,Little Ones,,552,6.3,55,34,20,,0.2,38,,vegetarian,false,true,,,Little Ones / Little One's
-fruit-shoot-apple-and-blackcurrant,Fruit Shoot® Apple & Blackcurrant,Little Ones,,8,0,2.2,0,0,,0.19,2.2,,,false,true,,,Little Ones / Little One's
-fruit-shoot-orange,Fruit Shoot® Orange,Little Ones,,19,0,2.8,0,0,,0,2.8,,,false,true,,,Little Ones / Little One's
-j2o-apple-and-raspberry-275ml,J2O Apple & Raspberry 275ml,Little Ones,,53,0.1,11,0,0,,0.17,11,,,false,true,,,Little Ones / Little One's
-j2o-orange-and-passionfruit-275ml,J2O Orange & Passionfruit 275ml,Little Ones,,66,0.3,14,0,0,,22,14,,,false,true,,,Little Ones / Little One's
-classic-breakfast,Classic Breakfast,Little Ones,,418,18,24,28,7.9,,1.1,4.2,,contains_pork,false,true,,,Brunch Menu / Little One's Breakfasts; printed kJ 1590 and kcal 418 do not agree
-vegetarian-breakfast-little-ones-breakfasts,Vegetarian Breakfast (Little One's Breakfasts),Little Ones,,406,23,22,26,9.9,,1.9,3.7,,vegetarian,false,true,,,Brunch Menu / Little One's Breakfasts; printed kJ 1543 and kcal 406 do not agree
-classic-full-english-breakfast,Classic Full English Breakfast,Breakfast & brunch,,925,56,40,57,15,,6.1,2.9,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); printed kJ 4274 and kcal 925 do not agree"
-large-full-english-breakfast,Large Full English Breakfast,Breakfast & brunch,,1378,77,76,80,22,,9,2.9,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); printed kJ 6395 and kcal 1378 do not agree"
-vegetarian-breakfast-brunch,Vegetarian Breakfast (Brunch),Breakfast & brunch,,569,34,25,37,14,,2.5,5.7,,vegetarian,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 2120 and kcal 569 do not agree"
-breakfast-bap,Breakfast Bap,Breakfast & brunch,,890,38,66,50,18,,5,5.3,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); printed kJ 4071 and kcal 890 do not agree"
-smashed-avocado-brunch,Smashed Avocado Brunch,Breakfast & brunch,,757,28,65,41,9.8,,2.1,9.2,,vegetarian,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers)"
-smashed-avocado-brunch-vegan,Smashed Avocado Brunch (vegan),Breakfast & brunch,,621,15,65,31,6.7,,1.7,9.2,,vegetarian,false,true,,,Brunch Menu / Brunch
-steak-and-eggs,Steak & Eggs,Breakfast & brunch,,1080,58,66,61,17,,3.1,1.2,,contains_beef,false,true,,,Brunch Menu / Brunch; printed kJ 3939 and kcal 1080 do not agree
-eggs-benedict,Eggs Benedict,Breakfast & brunch,,671,35,34,43,16,,3.7,4,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers)"
-bacon-stacked-buttermilk-pancakes,Bacon Stacked Buttermilk Pancakes,Breakfast & brunch,,762,20,107,27,6.3,,3.6,51,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers)"
-bacon-sandwich,Bacon Sandwich,Breakfast & brunch,,310,33,0.1,17,13,,4.2,0.1,,contains_pork,false,true,,,Brunch Menu / Brunch; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1781 and kcal 310 do not agree
-egg-sandwich,Egg Sandwich,Breakfast & brunch,,332,13,0.1,33,14,,0.7,0.1,,vegetarian,false,true,,,Brunch Menu / Brunch; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1176 and kcal 332 do not agree
-sausage-sandwich,Sausage Sandwich,Breakfast & brunch,,515,15,18,41,19,,2.9,0.1,,contains_pork,false,true,,,Brunch Menu / Brunch; printed kJ 2477 and kcal 515 do not agree
-beans-on-toast,Beans On Toast,Breakfast & brunch,,542,20,73,17,8.7,,1.8,7.7,,vegetarian,false,true,,,Brunch Menu / More Brunch
-scrambled-eggs-on-toast,Scrambled Eggs on Toast,Breakfast & brunch,,406,21,2.1,38,13,,0.88,2.1,,vegetarian,false,true,,,Brunch Menu / More Brunch; printed kJ 1388 and kcal 406 do not agree
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+king-prawn-cocktail,King Prawn Cocktail,Starters & sharing,,356,15,34,17,6.3,,2.1,9,,,,,,,,,false,true,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
+garden-pea-falafels,Garden Pea Falafels,Starters & sharing,,364,9.2,36,19,1.7,,1.4,5.6,,,,,,,,vegetarian,false,true,,,Main Menu / Starters
+chicken-wings,Chicken Wings,Starters & sharing,,319,31,8.7,17,5.2,,1.7,1.8,,,,,,,,,false,true,,,"Main Menu / Starters (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+chicken-tenders-starters,Chicken Tenders (Starters),Starters & sharing,,363,22,32,16,3.2,,1.6,0.1,,,,,,,,,false,true,,,"Main Menu / Starters (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+beer-battered-mushrooms,Beer Battered Mushrooms,Starters & sharing,,415,4.2,30,31,3.8,,2,1.6,,,,,,,,vegetarian,false,true,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
+salt-and-pepper-calamari,Salt & Pepper Calamari,Starters & sharing,,223,6.3,29,1.9,0.4,,3.5,20,,,,,,,,,false,true,,,"Main Menu / Starters (+1 more menu entries, same numbers); printed kJ 801 and kcal 223 do not agree"
+halloumi-fries,Halloumi Fries,Starters & sharing,,494,30,26,30,18,,3.4,19,,,,,,,,vegetarian,false,true,,,Main Menu / Starters
+leek-and-potato-soup,Leek & Potato Soup,Starters & sharing,,340,8,39,16,6.9,,2.5,4.3,,,,,,,,vegetarian,false,true,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
+garlic-focaccia-starters,Garlic Focaccia (Starters),Starters & sharing,,425,7.7,43,24,6.9,,2.1,0.3,,,,,,,,vegetarian,false,true,,,"Main Menu / Starters (+2 more menu entries, same numbers)"
+garlic-focaccia-with-cheese-starters,Garlic Focaccia with Cheese (Starters),Starters & sharing,,621,21,44,40,16,,3.1,0.3,,,,,,,,vegetarian,false,true,,,"Main Menu / Starters (+2 more menu entries, same numbers)"
+leek-and-potato-soup-vegan,Leek & Potato Soup (vegan),Starters & sharing,,266,7.9,39,7.7,1.7,,2.3,4.2,,,,,,,,vegetarian,false,true,,,"Main Menu / Starters (+2 more menu entries, same numbers)"
+summer-sharing-platter,Summer Sharing Platter,Starters & sharing,,1800,46,173,101,23,,9,17,,,,,,,,,false,true,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
+sharing-nachos,Sharing Nachos,Starters & sharing,,798,19,93,37,14,,4.6,13,,,,,,,,vegetarian,false,true,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
+chick-n-mix,Chick 'n' Mix,Starters & sharing,,1361,107,81,66,17,,6.6,3.6,,,,,,,,,false,true,,,Main Menu / Our Sharers; the guide flags this dish as having choices (its numbers may not include them)
+moroccan-spiced-chicken-skewer,Moroccan Spiced Chicken Skewer,Starters & sharing,,874,54,107,24,3.4,,3.8,21,,,,,,,,,false,true,,,Main Menu / Our Skewers
+lamb-kofta-skewer,Lamb Kofta Skewer,Starters & sharing,,997,40,124,36,11,,5.7,21,,,,,,,,,false,true,,,Main Menu / Our Skewers; printed kJ 4498 and kcal 997 do not agree
+chargrilled-halloumi-and-red-pepper-skewer,Chargrilled Halloumi & Red Pepper Skewer,Starters & sharing,,1081,47,111,48,20,,5.8,26,,,,,,,,vegetarian,false,true,,,Main Menu / Our Skewers
+stilton-and-port-mushrooms,Stilton & Port Mushrooms,Starters & sharing,,341,14,27,19,9.1,,2.2,1.8,,,,,,,,vegetarian,true,true,,,Seasonal Specials / Starters
+panko-breaded-butterflied-prawns,Panko-Breaded Butterflied Prawns,Starters & sharing,,181,9.1,34,0.8,0.3,,1.5,16,,,,,,,,,false,true,,,Pub Specials / Starters
+baked-camembert,Baked Camembert,Starters & sharing,,1006,55,60,60,47,,6.3,15,,,,,,,,vegetarian,false,true,,,Pub Specials / Starters
+spicy-chicken-fries-with-sweet-chilli-sauce,Spicy Chicken Fries with Sweet Chilli Sauce,Starters & sharing,,520,29,51,22,3.8,,4.8,19,,,,,,,,,false,true,,,Pub Specials / Starters
+garlic-focaccia-on-the-side,Garlic Focaccia (On the Side),Sides & snacks,,213,3.8,22,12,3.5,,1.1,0.2,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+2 more menu entries, same numbers)"
+dirty-topped-fries,Dirty-Topped Fries,Sides & snacks,,719,7.2,79,36,10,,5,7.7,,,,,,,,contains_beef,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 2468 and kcal 719 do not agree"
+garlic-focaccia-with-cheese-on-the-side,Garlic Focaccia with Cheese (On the Side),Sides & snacks,,310,10,22,20,8.2,,1.6,0.2,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
+mixed-greens,Mixed Greens,Sides & snacks,,87,3.2,5.9,5,0.6,,0.07,3.2,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
+cajun-topped-fries,Cajun-Topped Fries,Sides & snacks,,591,4.1,74,26,2.1,,3.9,4.4,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1937 and kcal 591 do not agree"
+cheeseburger-topped-fries,Cheeseburger-Topped Fries,Sides & snacks,,679,13,75,30,3.6,,3.6,5.7,,,,,,,,contains_beef,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 2489 and kcal 679 do not agree"
+seasoned-chips,Seasoned Chips,Sides & snacks,,403,3.8,58,11,4.5,,2.4,0.5,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1238 and kcal 403 do not agree"
+seasoned-fries,Seasoned Fries,Sides & snacks,,479,3.4,66,17,1.5,,4.4,1.1,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1472 and kcal 479 do not agree"
+coleslaw,Coleslaw,Sides & snacks,,190,2.3,13,13,1,,0.88,8.8,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
+dressed-side-salad,Dressed Side Salad,Sides & snacks,,75,1.4,16,0.4,0.1,,0.04,14,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
+mac-and-cheese-on-the-side,Mac & Cheese (On the Side),Sides & snacks,,356,18,34,16,9.9,,1.9,2.9,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers)"
+beer-battered-onion-rings,Beer Battered Onion Rings,Sides & snacks,,570,12,50,35,6.1,,2.6,4.6,,,,,,,,vegetarian,false,true,,,"Main Menu / On the Side (+1 more menu entries, same numbers); printed kJ 1539 and kcal 570 do not agree"
+yorkshire-puddings,Yorkshire Puddings,Sides & snacks,,290,5.7,43,10,2.3,,1.1,2.3,,,,,,,,vegetarian,false,true,,,Roasts & Classics / Set Menu
+pork-leek-and-apple-stuffing,"Pork, Leek & Apple Stuffing",Sides & snacks,,525,18,29,37,13,,1.8,6,,,,,,,,contains_pork,false,true,,,Roasts & Classics / Set Menu
+cauliflower-cheese,Cauliflower Cheese,Sides & snacks,,310,16,10,23,13,,1.8,3.6,,,,,,,,vegetarian,false,true,,,Roasts & Classics / Set Menu
+braised-red-cabbage,Braised Red Cabbage,Sides & snacks,,160,1,32,2.6,0.2,,0.51,29,,,,,,,,vegetarian,false,true,,,Roasts & Classics / Set Menu
+roast-potatoes-and-gravy,Roast Potatoes & Gravy,Sides & snacks,,301,4.7,35,15,3.1,,3,2.9,,,,,,,,,false,true,,,Roasts & Classics / Set Menu
+hot-sauce-and-fiery-tzatziki,Hot Sauce & Fiery Tzatziki,Add-ons,,83,0.6,8.5,5.1,0.5,,0.33,4.1,,,,,,,,,false,false,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
+bbq-and-ranch-sauce,BBQ & Ranch Sauce,Add-ons,,125,0.5,8.9,9.6,0.8,,0.69,7.8,,,,,,,,,false,false,,,"Main Menu / Starters (+3 more menu entries, same numbers)"
+bbq-and-ranch-sauce-large,BBQ & Ranch Sauce (Large),Add-ons,,499,2.1,36,38,3.2,,2.8,31,,,,,,,,,false,false,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
+hot-sauce-and-tzatziki-large,Hot Sauce & Tzatziki (Large),Add-ons,,248,1.7,26,15,1.6,,0.99,12,,,,,,,,,false,false,,,"Main Menu / Our Sharers (+1 more menu entries, same numbers)"
+extra-sliced-white-bloomer-bread-and-butter,Extra - Sliced White Bloomer Bread and Butter,Add-ons,,345,9.2,54,9.7,5.6,,0.77,3.6,,,,,,,,vegetarian,false,false,,,Main Menu / Our Classics
+extra-sliced-seeded-wholemeal-bread-and-butter,Extra - Sliced Seeded Wholemeal Bread and Butter,Add-ons,,379,11,49,14,6.1,,1.1,3.5,,,,,,,,vegetarian,false,false,,,Main Menu / Our Classics
+poppadoms-and-chutney,Poppadoms & Chutney,Add-ons,,281,9.9,43,7.5,0.9,,2.5,15,,,,,,,,vegetarian,false,false,,,Main Menu / Our Classics
+add-curry-sauce,ADD Curry Sauce,Add-ons,,85,1,8,5,1,,2,4,,,,,,,,vegetarian,false,false,,,Main Menu / Our Classics
+upgrade-8oz-sirloin-steak,Upgrade 8oz Sirloin Steak,Add-ons,,1417,56,91,83,30,,2.6,7.8,,,,,,,,contains_beef,false,false,,,Main Menu / From Our Grill; the guide flags this dish as having choices (its numbers may not include them); printed kJ 5254 and kcal 1417 do not agree
+beef-dripping-gravy,Beef Dripping Gravy,Add-ons,,157,2,8,13,7,,2,5,,,,,,,,contains_beef,false,false,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers)"
+stilton-and-port-sauce,Stilton & Port Sauce,Add-ons,,92,2.4,3.2,8,4,,0.8,0.8,,,,,,,,vegetarian,false,false,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers)"
+peppercorn-sauce,Peppercorn Sauce,Add-ons,,85,2,5,6,4,,1,2,,,,,,,,,false,false,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers)"
+double-up-8oz-rump-steak,DOUBLE UP 8oz Rump Steak,Add-ons,,408,40,0,27,12,,0.25,0,,,,,,,,contains_beef,false,false,,,Main Menu / From Our Grill; printed kJ 1864 and kcal 408 do not agree
+double-up-5oz-rump-steak,DOUBLE UP 5oz Rump Steak,Add-ons,,255,25,0,17,7.6,,0.15,0,,,,,,,,contains_beef,false,false,,,Main Menu / From Our Grill; printed kJ 1166 and kcal 255 do not agree
+upgrade-to-cajun-fries,Upgrade to Cajun Fries,Add-ons,,112,0.7,8.3,8.3,0.6,,1.5,3.3,,,,,,,,,false,false,,,"Main Menu / Burgers (+1 more menu entries, same numbers)"
+upgrade-to-dirty-fries,Upgrade to Dirty Fries,Add-ons,,240,3.8,13,19,8.7,,2.5,6.5,,,,,,,,,false,false,,,"Main Menu / Burgers (+1 more menu entries, same numbers)"
+upgrade-to-cheeseburger-fries,Upgrade to Cheeseburger Fries,Add-ons,,200,9.4,8.7,12,2.1,,1.2,4.6,,,,,,,,,false,false,,,"Main Menu / Burgers (+1 more menu entries, same numbers); printed kJ 1018 and kcal 200 do not agree"
+add-garden-pea-falafel,ADD Garden Pea Falafel,Add-ons,,229,5.3,22,13,1.1,,0.73,2.3,,,,,,,,vegetarian,false,false,,,"Main Menu / Salads (+2 more menu entries, same numbers)"
+add-chargrilled-halloumi-and-red-pepper-skewer,Add Chargrilled Halloumi & Red Pepper Skewer,Add-ons,,416,29,6.5,30,18,,3.3,6.3,,,,,,,,vegetarian,false,false,,,"Main Menu / Salads (+1 more menu entries, same numbers)"
+add-moroccan-spiced-chicken-skewer,Add Moroccan Spiced Chicken Skewer,Add-ons,,209,37,2.3,5.8,1.3,,1.3,1.3,,,,,,,,,false,false,,,"Main Menu / Salads (+1 more menu entries, same numbers)"
+add-lamb-kofta-skewer,Add Lamb Kofta Skewer,Add-ons,,332,22,20,18,8.5,,3.2,1.8,,,,,,,,,false,false,,,"Main Menu / Salads (+1 more menu entries, same numbers); printed kJ 1698 and kcal 332 do not agree"
+add-grilled-salmon-fillet,Add Grilled Salmon Fillet,Add-ons,,396,42,0,25,3.8,,0.31,0,,,,,,,,,false,false,,,Main Menu / Salads; printed kJ 1790 and kcal 396 do not agree
+add-bbq-sauce,Add BBQ Sauce,Add-ons,,158,0.6,39,0.1,0,,1.5,35,,,,,,,,vegetarian,false,false,,,Main Menu / Fixed Price Set Menu
+add-hot-sauce,ADD Hot Sauce,Add-ons,,86,0.5,18,1.5,0,,0.5,7.5,,,,,,,,vegetarian,false,false,,,Main Menu / Fixed Price Set Menu
+add-gravy,Add Gravy,Add-ons,,43,0.7,3.5,2.8,1.4,,1.4,1.4,,,,,,,,,false,false,,,Main Menu / Fixed Price Set Menu
+add-cheese-and-bacon,Add Cheese and Bacon,Add-ons,,119,15,0,5.7,4.3,,1.7,0,,,,,,,,contains_pork,false,false,,,Main Menu / Fixed Price Set Menu; printed kJ 660 and kcal 119 do not agree
+whipped-cream,Whipped Cream,Add-ons,,180,0.8,1.2,19,12,,0,1.2,,,,,,,,vegetarian,false,false,,,Main Menu / Fixed Price Set Menu
+add-seeded-wholemeal-toast-and-butter,Add Seeded Wholemeal Toast and Butter,Add-ons,,301,5.7,25,19,11,,0.76,1.9,,,,,,,,vegetarian,false,false,,,Brunch Menu / Brunch
+add-white-toast-and-butter,Add white toast and butter,Add-ons,,284,4.7,27,17,11,,0.61,1.9,,,,,,,,vegetarian,false,false,,,Brunch Menu / Brunch
+hash-brown,Hash Brown,Add-ons,,216,2.8,27,10,1.7,,0.3,0,,,,,,,,vegetarian,false,false,,,Brunch Menu / Add a little extra; printed kJ 798 and kcal 216 do not agree
+bacon,Bacon,Add-ons,,54,11,0,0.2,0.9,,1.3,0,,,,,,,,contains_pork,false,false,,,Brunch Menu / Add a little extra; printed kJ 390 and kcal 54 do not agree
+sausage,Sausage,Add-ons,,183,7.4,8.8,12,4.2,,1.3,0,,,,,,,,contains_pork,false,false,,,Brunch Menu / Add a little extra; printed kJ 933 and kcal 183 do not agree
+halloumi,Halloumi,Add-ons,,159,12,1.3,12,7.3,,1.3,1.3,,,,,,,,vegetarian,false,false,,,Brunch Menu / Add a little extra
+biscoff-biscuits,Biscoff® Biscuits,Add-ons,,18,0.2,2.7,0.7,0.3,,0.03,1.4,,,,,,,,vegetarian,false,false,,,"Hot Drinks / Accompaniment (+1 more menu entries, same numbers)"
+crispy-sweet-chilli-chicken-sandwich,Crispy Sweet Chilli Chicken Sandwich,Sandwiches,,1301,34,173,47,6.3,,7.7,30,,,,,,,,,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4929 and kcal 1301 do not agree
+chargrilled-steak-sandwich,Chargrilled Steak Sandwich,Sandwiches,,1043,37,120,40,10,,4.6,11,,,,,,,,contains_beef,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 3939 and kcal 1043 do not agree
+garden-pea-falafel-wrap,Garden Pea Falafel Wrap,Sandwiches,,1161,21,156,44,6,,4.4,16,,,,,,,,vegetarian,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4335 and kcal 1161 do not agree
+chicken-blt-sandwich,Chicken BLT Sandwich,Sandwiches,,1036,55,113,33,4.6,,7.1,4.6,,,,,,,,contains_pork,false,true,,,Main Menu / Sandwiches; the guide flags this dish as having choices (its numbers may not include them); printed kJ 3977 and kcal 1036 do not agree
+our-fish-finger-sandwich,Our Fish Finger Sandwich,Sandwiches,,1101,26,141,39,4.4,,6.5,4.5,,,,,,,,,false,true,,,"Main Menu / Sandwiches (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 3775 and kcal 1101 do not agree"
+garden-pea-falafel-wrap-vegan,Garden Pea Falafel Wrap (vegan),Sandwiches,,757,19,106,27,4.5,,2,29,,,,,,,,vegetarian,false,true,,,Main Menu / Sandwiches
+hunters-chicken-schnitzel,Hunter's Chicken Schnitzel,Mains,,1456,67,133,67,19,,9.2,29,,,,,,,,contains_pork,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5194 and kcal 1456 do not agree"
+scampi-and-chips,Scampi & Chips,Mains,,901,32,96,24,5.3,,3.2,6.2,,,,,,,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 2767 and kcal 901 do not agree"
+katsu-chicken-rice-bowl,Katsu Chicken Rice Bowl,Mains,,802,29,105,29,4.8,,4.3,12,,,,,,,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers)"
+gammon-steak,Gammon Steak,Mains,,697,51,65,16,5.1,,2.7,4.1,,,,,,,,contains_pork,false,true,,,Main Menu / Our Classics; the guide flags this dish as having choices (its numbers may not include them)
+chicken-tikka-masala,Chicken Tikka Masala,Mains,,995,41,114,39,16,,2.8,17,,,,,,,,,false,true,,,Main Menu / Our Classics
+roasted-cauliflower-dopiaza,Roasted Cauliflower Dopiaza,Mains,,803,18,116,27,3.8,,2.3,16,,,,,,,,vegetarian,false,true,,,Main Menu / Our Classics
+garlic-chicken-schnitzel,Garlic Chicken Schnitzel,Mains,,1440,48,109,85,21,,6.6,8.4,,,,,,,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4941 and kcal 1440 do not agree"
+grilled-salmon-fillet,Grilled Salmon Fillet,Mains,,871,45,40,58,15,,1.1,3.6,,,,,,,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers)"
+sausages-and-mash-our-classics,Sausages & Mash (Our Classics),Mains,,1163,36,88,69,22,,7.2,14,,,,,,,,contains_pork,false,true,,,Main Menu / Our Classics
+steak-and-doom-bar-ale-pie,Steak & Doom Bar® Ale Pie,Mains,,1237,37,122,64,29,,5.1,16,,,,,,,,contains_beef,false,true,,,Main Menu / Our Classics; the guide flags this dish as having choices (its numbers may not include them)
+haddock-and-chips,Haddock & Chips,Mains,,950,53,114,18,5.3,,3.9,4.1,,,,,,,,,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 3262 and kcal 950 do not agree"
+halloumi-and-chips,Halloumi & Chips,Mains,,1124,42,117,47,23,,4.8,7.3,,,,,,,,vegetarian,false,true,,,"Main Menu / Our Classics (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4258 and kcal 1124 do not agree"
+beef-and-red-wine-lasagne,Beef & Red Wine Lasagne,Mains,,726,26,75,35,12,,5,22,,,,,,,,contains_beef,false,true,,,"Main Menu / Our Classics (+2 more menu entries, same numbers)"
+rainbow-lasagne,Rainbow Lasagne,Mains,,444,12,67,13,2,,2.5,27,,,,,,,,vegetarian,false,true,,,"Main Menu / Our Classics (+2 more menu entries, same numbers)"
+gunpowder-potato-samosas,Gunpowder Potato Samosas,Mains,,330,3.7,43,15,1.6,,1.5,17,,,,,,,,vegetarian,false,true,,,Main Menu / Our Classics
+mixed-grill,Mixed Grill,Mains,,1856,122,110,93,28,,7,8.6,,,,,,,,contains_pork|contains_beef,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+pork-tomahawk,Pork Tomahawk,Mains,,1285,79,97,57,15,,7.8,9.2,,,,,,,,contains_pork,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4706 and kcal 1285 do not agree"
+full-rack-of-ribs,Full Rack of Ribs,Mains,,1543,79,117,79,21,,5.8,46,,,,,,,,,false,true,,,Main Menu / From Our Grill; the guide flags this dish as having choices (its numbers may not include them); printed kJ 5909 and kcal 1543 do not agree
+8oz-sirloin-steak,8oz Sirloin Steak,Mains,,1358,50,91,79,28,,2,7.8,,,,,,,,contains_beef,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5008 and kcal 1358 do not agree"
+8oz-rump-steak,8oz Rump Steak,Mains,,1203,55,91,61,20,,2,7.8,,,,,,,,contains_beef,false,true,,,"Main Menu / From Our Grill (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4316 and kcal 1203 do not agree"
+surf-and-turf,Surf & Turf,Mains,,1262,61,91,65,22,,2.6,7.8,,,,,,,,contains_beef,false,true,,,Main Menu / From Our Grill; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4562 and kcal 1262 do not agree
+chicken-tenders-fixed-price-set-menu,Chicken Tenders (Fixed Price Set Menu),Mains,,487,23,41,26,4,,2.3,7.9,,,,,,,,,false,true,,,Main Menu / Fixed Price Set Menu
+nachos,Nachos,Mains,,471,11,58,20,7.8,,2.6,7.3,,,,,,,,vegetarian,false,true,,,"Main Menu / Fixed Price Set Menu (+1 more menu entries, same numbers)"
+fish-and-chips,Fish & Chips,Mains,,838,33,114,18,5.1,,2.7,4.1,,,,,,,,,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 2933 and kcal 838 do not agree
+chorizo-mac-and-cheese,Chorizo Mac & Cheese,Mains,,957,38,72,56,27,,4.9,4.6,,,,,,,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu
+sausages-and-mash-fixed-price-set-menu,Sausages & Mash (Fixed Price Set Menu),Mains,,695,23,54,40,14,,4.6,11,,,,,,,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu; printed kJ 3245 and kcal 695 do not agree
+hand-carved-ham-egg-and-chips,"Hand-Carved Ham, Egg & Chips",Mains,,990,50,65,54,15,,4.3,4.1,,,,,,,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 3481 and kcal 990 do not agree
+chargrilled-chicken-breast,Chargrilled Chicken Breast,Mains,,646,40,66,18,5.4,,1.4,5,,,,,,,,,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 2261 and kcal 646 do not agree
+mac-and-cheese-fixed-price-set-menu,Mac & Cheese (Fixed Price Set Menu),Mains,,894,39,87,42,22,,4.7,5.1,,,,,,,,vegetarian,false,true,,,Main Menu / Fixed Price Set Menu
+thick-cut-gammon-steak,Thick Cut Gammon Steak,Mains,,697,51,65,16,5.1,,3.1,4.1,,,,,,,,contains_pork,false,true,,,Main Menu / Fixed Price Set Menu
+chicken-schnitzel-burger,Chicken Schnitzel Burger,Mains,,1378,52,138,63,13,,7.1,8.6,,,,,,,,,false,true,,,Main Menu / Fixed Price Set Menu; the guide flags this dish as having choices (its numbers may not include them); printed kJ 4707 and kcal 1378 do not agree
+hand-carved-roast-beef,Hand-Carved Roast Beef,Mains,,1249,54,80,76,31,,4.6,23,,,,,,,,contains_beef,false,true,,,Roasts & Classics / Set Menu
+hand-carved-turkey-roasts-and-classics-menu,Hand-Carved Turkey (Roasts & Classics menu),Mains,,964,54,86,42,11,,5.9,24,,,,,,,,contains_pork,false,true,,,Roasts & Classics / Set Menu
+hand-carved-gammon,Hand-Carved Gammon,Mains,,1036,45,85,55,15,,7.7,24,,,,,,,,contains_pork,false,true,,,Roasts & Classics / Set Menu
+sunday-trio-of-meats,Sunday Trio of Meats,Mains,,1323,72,86,73,26,,7.2,24,,,,,,,,contains_pork|contains_beef,false,true,,,Roasts & Classics / Set Menu
+root-vegetable-wellington-roasts-and-classics-menu,Root Vegetable Wellington (Roasts & Classics menu),Mains,,1131,19,143,50,9.3,,3.8,33,,,,,,,,vegetarian,false,true,,,Roasts & Classics / Set Menu
+chargrilled-lamb-steak,Chargrilled Lamb Steak,Mains,,816,46,54,44,21,,3.8,27,,,,,,,,,true,true,,,Seasonal Specials / Mains
+crispy-duck-stir-fry,Crispy Duck Stir-Fry,Mains,,1000,145,121,7.1,0.7,,7.3,36,,,,,,,,,true,true,,,Seasonal Specials / Mains; printed kJ 5138 and kcal 1000 do not agree
+french-cut-gammon-shank,French-cut Gammon Shank,Mains,,789,81,35,35,15,,2,8.8,,,,,,,,contains_pork,true,true,,,Seasonal Specials / Mains
+chargrilled-chicken-and-chorizo,Chargrilled Chicken & Chorizo,Mains,,688,42,41,38,13,,3.1,4.9,,,,,,,,contains_pork,true,true,,,Seasonal Specials / Mains
+our-classic-fish-pie,Our Classic Fish Pie,Mains,,780,40,47,46,20,,4.3,20,,,,,,,,,true,true,,,Seasonal Specials / Mains
+blackened-cod-loin,Blackened Cod Loin,Mains,,888,51,30,61,32,,4.5,5.5,,,,,,,,contains_pork,true,true,,,Seasonal Specials / Mains
+crispy-duck-and-mango-salad,Crispy Duck & Mango Salad,Mains,,467,69,62,0.9,0,,3.5,56,,,,,,,,,true,true,,,Seasonal Specials / Mains; printed kJ 2431 and kcal 467 do not agree
+pork-tomahawk-with-dauphinoise-potatoes,Pork Tomahawk with Dauphinoise Potatoes,Mains,,1009,79,33,62,28,,10.3,8.9,,,,,,,,contains_pork,true,true,,,Seasonal Specials / Mains
+lamb-shank,Lamb Shank,Mains,,960,62,48,55,26,,7.1,18,,,,,,,,,true,true,,,Seasonal Specials / Mains
+salmon-with-scottish-mussels,Salmon with Scottish Mussels,Mains,,876,56,40,53,20,,3.2,3.1,,,,,,,,,true,true,,,Seasonal Specials / Mains
+lamb-jalfrezi,Lamb Jalfrezi,Mains,,863,28,110,32,7.4,,3.7,13,,,,,,,,,false,true,,,Pub Specials / Mains
+maple-glazed-pork-belly,Maple Glazed Pork Belly,Mains,,1611,43,47,137,51,,5.4,21,,,,,,,,contains_pork,false,true,,,Pub Specials / Mains
+grilled-bacon-chop,Grilled Bacon Chop,Mains,,695,52,65,17,8.1,,6.4,4.1,,,,,,,,contains_pork,false,true,,,Pub Specials / Mains
+falafel-and-spinach-burger,Falafel & Spinach Burger,Mains,,1100,15,135,49,11,,4.7,12,,,,,,,,vegetarian,false,true,,,Pub Specials / Mains; printed kJ 4064 and kcal 1100 do not agree
+seabass-with-mussels,Seabass with Mussels,Mains,,867,49,40,58,23,,3.3,3.1,,,,,,,,,false,true,,,Pub Specials / Mains; printed kJ 3281 and kcal 867 do not agree
+grilled-seabass-fillets,Grilled Seabass Fillets,Mains,,834,41,38,59,18,,1.7,2,,,,,,,,,false,true,,,Pub Specials / Mains; printed kJ 3142 and kcal 834 do not agree
+roast-belly-pork,Roast Belly Pork,Mains,,1902,50,85,149,50,,6.5,24,,,,,,,,contains_pork,false,true,,,Pub Specials / Mains
+tandoori-chicken-skewer,Tandoori Chicken Skewer,Mains,,1327,55,176,38,4.4,,6.2,25,,,,,,,,,false,true,,,Pub Specials / Mains; printed kJ 5045 and kcal 1327 do not agree
+peri-peri-chicken-skewer,Peri Peri Chicken Skewer,Mains,,1356,58,175,41,3.7,,6.4,21,,,,,,,,,false,true,,,Pub Specials / Mains; printed kJ 5162 and kcal 1356 do not agree
+ultimate-burger,Ultimate Burger,Burgers,,1884,77,144,91,21,,11.7,17,,,,,,,,contains_pork|contains_beef,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+bombay-halloumi-stack,Bombay Halloumi Stack,Burgers,,1323,40,145,59,22,,7.5,37,,,,,,,,vegetarian,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5005 and kcal 1323 do not agree"
+lamb-and-tzatziki-burger,Lamb & Tzatziki Burger,Burgers,,1153,34,104,61,19,,5.8,9.1,,,,,,,,,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4275 and kcal 1153 do not agree"
+bbq-chicken-and-maple-bacon-stack,BBQ Chicken & Maple Bacon Stack,Burgers,,1575,62,155,73,16,,8.6,24,,,,,,,,contains_pork,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 5530 and kcal 1575 do not agree"
+cheese-and-bacon-beef-burger,Cheese & Bacon Beef Burger,Burgers,,1061,46,106,37,7.3,,6.7,9.5,,,,,,,,contains_pork|contains_beef,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+cheese-and-bacon-chicken-burger,Cheese & Bacon Chicken Burger,Burgers,,992,56,104,32,7.6,,5.8,9.4,,,,,,,,contains_pork,false,true,,,"Main Menu / Burgers (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 3790 and kcal 992 do not agree"
+double-cheese-and-bacon-burger,Double Cheese & Bacon Burger,Burgers,,1280,69,108,43,7.3,,8.2,9.5,,,,,,,,contains_pork,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 6317 and kcal 1280 do not agree"
+double-chicken-cheese-and-bacon-burger,Double Chicken Cheese & Bacon Burger,Burgers,,1146,89,105,34,8.1,,6.8,10,,,,,,,,contains_pork,false,true,,,"Main Menu / Burgers (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 4442 and kcal 1146 do not agree"
+chicken-bacon-and-avocado-salad,"Chicken, Bacon & Avocado Salad",Salads,,532,48,20,26,7.1,,2.4,17,,,,,,,,contains_pork,false,true,,,"Main Menu / Salads (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+avocado-and-mixed-grain-salad,Avocado & Mixed Grain Salad,Salads,,536,9.9,45,33,6.5,,1.1,23,,,,,,,,vegetarian,false,true,,,"Main Menu / Salads (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+chicken-caesar-salad,Chicken Caesar Salad,Salads,,760,53,23,49,7,,3.4,3.6,,,,,,,,contains_pork,false,true,,,"Main Menu / Salads (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+sticky-toffee-pudding,Sticky Toffee Pudding,Desserts,,266,2.7,42,9.3,2.9,,0.64,34,,,,,,,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+3 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+toffee-apple-crumble-tart,Toffee Apple Crumble Tart,Desserts,,292,2.7,43,12,4.1,,0.17,24,,,,,,,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+5 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+belgian-chocolate-brownie,Belgian Chocolate Brownie,Desserts,,852,11,116,38,20,,0.37,81,,,,,,,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+3 more menu entries, same numbers)"
+cr-me-br-l-e,Crème Brûlée,Desserts,,403,5.1,55,18,6.7,,0.3,49,,,,,,,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+3 more menu entries, same numbers)"
+vanilla-pod-ice-cream,Vanilla Pod Ice Cream,Desserts,,445,8.4,50,24,15,,0.33,41,,,,,,,,vegetarian,false,false,,,"Main Menu / Fixed Price Set Menu (+1 more menu entries, same numbers)"
+banoffee-sundae,Banoffee Sundae,Desserts,,1122,14,133,59,35,,1.5,109,,,,,,,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
+tiramisu,Tiramisu,Desserts,,629,5,58,41,19,,0.32,45,,,,,,,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
+chocolate-fudge-cake,Chocolate Fudge Cake,Desserts,,812,5.6,107,40,20,,0.75,79,,,,,,,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+cherry-eton-mess-sundae,Cherry Eton Mess Sundae,Desserts,,733,7,63,50,31,,0.2,54,,,,,,,,vegetarian,false,false,,,"Main Menu / Desserts (+2 more menu entries, same numbers)"
+mini-belgian-chocolate-brownie,Mini Belgian Chocolate Brownie,Desserts,,537,7.6,71,25,14,,0.27,51,,,,,,,,vegetarian,false,false,,,Main Menu / Desserts
+mini-cr-me-br-l-e,Mini Crème Brûlée,Desserts,,205,2.8,27,9.4,3.5,,0.13,25,,,,,,,,vegetarian,false,false,,,Main Menu / Desserts
+mini-cherry-eton-mess,Mini Cherry Eton Mess,Desserts,,479,5.7,44,31,19,,0.18,37,,,,,,,,vegetarian,false,false,,,Main Menu / Desserts
+mini-tiramisu,Mini Tiramisu,Desserts,,315,2.6,29,21,9.5,,0.16,22,,,,,,,,,false,false,,,Main Menu / Desserts
+chocolate-fudge-cake-vegan,Chocolate Fudge Cake (vegan),Desserts,,633,4.8,105,21,7.6,,0.75,78,,,,,,,,vegetarian,false,false,,,Main Menu / Desserts
+lemon-tart,Lemon Tart,Desserts,,568,6.2,86,22,10,,0.3,67,,,,,,,,vegetarian,true,false,,,Seasonal Specials / Desserts
+cherry-pavlova,Cherry Pavlova,Desserts,,820,7.9,83,51,31,,0.23,73,,,,,,,,vegetarian,true,false,,,Seasonal Specials / Desserts
+cookie-and-ice-cream,Cookie & Ice Cream,Desserts,,810,13,95,41,25,,0.97,70,,,,,,,,,false,false,,,Pub Specials / Desserts
+biscoff-sundae,Biscoff® Sundae,Desserts,,1191,12,86,89,39,,0.75,62,,,,,,,,vegetarian,false,false,,,Pub Specials / Desserts
+apple-and-cinnamon-pie,Apple & Cinnamon Pie,Desserts,,446,4.1,63,19,6.9,,0.02,24,,,,,,,,vegetarian,false,false,,,Pub Specials / Desserts
+americano,Americano,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
+iced-black-coffee,Iced Black Coffee,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+2 more menu entries, same numbers)"
+cappuccino,Cappuccino,Drinks,,149,7.1,20,3.8,2.2,,0.33,20,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 812 and kcal 149 do not agree"
+white-americano,White Americano,Drinks,,60,3.9,5.4,2.2,1.2,,0.15,5,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 435 and kcal 60 do not agree"
+iced-coffee,Iced Coffee,Drinks,,85,5.6,7.9,3,1.7,,0.23,7.5,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+5 more menu entries, same numbers); printed kJ 538 and kcal 85 do not agree"
+espresso,Espresso,Drinks,,11,0.5,0.4,0.5,0.2,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
+flat-white,Flat White,Drinks,,85,5.6,7.9,3,1.7,,0.23,7.5,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 538 and kcal 85 do not agree"
+latte,Latte,Drinks,,110,7.4,11,3.9,2.2,,0.3,10,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 645 and kcal 110 do not agree"
+hot-chocolate,Hot Chocolate,Drinks,,122,1.8,25,0.9,0.6,,0.17,24,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+6 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+tea,Tea,Drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+9 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+mocha,Mocha,Drinks,,155,7.5,21,3.9,2.3,,0.35,20,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); printed kJ 834 and kcal 155 do not agree"
+earl-grey-tea,Earl Grey Tea,Drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them)"
+peppermint-tea,Peppermint Tea,Drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
+green-tea,Green Tea,Drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
+fruit-tea,Fruit Tea,Drinks,,0,0,0,0,0,,0,0,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
+caramel-syrup-shot,Caramel Syrup Shot,Drinks,,32,0,7.9,0,0,,0,7.9,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
+vanilla-syrup-shot,Vanilla Syrup Shot,Drinks,,34,0,8.4,0,0,,0,8.4,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+3 more menu entries, same numbers)"
+glass-of-milk,Glass of Milk,Drinks,,140,9.7,14,4.8,2.9,,0.43,14,,,,,,,,vegetarian,false,false,,,"Main Menu / Hot Drinks (+1 more menu entries, same numbers)"
+orange-juice,Orange Juice,Drinks,,172,3.1,38,0.4,0.4,,0,38,,,,,,,,vegetarian,false,false,,,Bottomless Brunch / Drinks
+apple-juice,Apple Juice,Drinks,,175,0.1,44,0,0,,0,44,,,,,,,,,false,false,,,Bottomless Brunch / Drinks
+cranberry-juice,Cranberry Juice,Drinks,,80,0.1,20,0,0,,0,19,,,,,,,,,false,false,,,Bottomless Brunch / Drinks
+pineapple-juice,Pineapple Juice,Drinks,,207,0.1,52,0,0,,0,52,,,,,,,,,false,false,,,Bottomless Brunch / Drinks
+floater-coffee,Floater Coffee,Drinks,,298,1.7,6.7,29,18,,0,6.3,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1415 and kcal 298 do not agree
+liqueur-coffee,Liqueur Coffee,Drinks,,298,1.7,6.7,29,18,,0,6.3,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1415 and kcal 298 do not agree
+decaf-iced-black-coffee,Decaf Iced Black Coffee,Drinks,,11,0.4,0.4,0.5,0.2,,0,0,,,,,,,,,false,false,,,Hot Drinks / Coffees
+decaf-espresso,Decaf Espresso,Drinks,,11,0.4,0.4,0.5,0.2,,0,0,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees
+decaf-cappuccino,Decaf Cappuccino,Drinks,,149,7,20,3.8,2.1,,0.33,19,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 809 and kcal 149 do not agree
+decaf-latte,Decaf Latte,Drinks,,110,7.3,10,3.9,2.2,,0.3,10,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 642 and kcal 110 do not agree
+decaf-flat-white,Decaf Flat White,Drinks,,84,5.5,7.9,3,1.7,,0.23,7.5,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 535 and kcal 84 do not agree
+decaf-white-americano,Decaf White Americano,Drinks,,60,3.8,5.4,2.2,1.2,,0.15,5,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 432 and kcal 60 do not agree
+decaf-americano,Decaf Americano,Drinks,,11,0.4,0.4,0.5,0.2,,0,0,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees
+iced-decaf-coffee,Iced Decaf Coffee,Drinks,,84,5.5,7.9,3,1.7,,0.23,7.5,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 535 and kcal 84 do not agree
+oat-americano,Oat Americano,Drinks,,67,0.7,7.1,3.5,0.5,,0.19,3.2,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 464 and kcal 67 do not agree
+oat-flat-white,Oat Flat White,Drinks,,95,0.8,10,5,0.7,,0.29,4.8,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 582 and kcal 95 do not agree
+oat-latte,Oat Latte,Drinks,,124,0.9,14,6.5,0.8,,0.38,6.5,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 704 and kcal 124 do not agree
+iced-oat-coffee,Iced Oat Coffee,Drinks,,95,0.8,10,5,0.7,,0.29,4.8,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 582 and kcal 95 do not agree
+decaf-oat-flat-white,Decaf Oat Flat White,Drinks,,95,0.7,10,5,0.7,,0.29,4.8,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 579 and kcal 95 do not agree
+decaf-oat-latte,Decaf Oat Latte,Drinks,,124,0.8,14,6.5,0.8,,0.39,6.5,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 701 and kcal 124 do not agree
+decaf-oat-americano,Decaf Oat Americano,Drinks,,67,0.6,7.1,3.5,0.5,,0.19,3.2,,,,,,,,vegetarian,false,false,,,Hot Drinks / Coffees; printed kJ 461 and kcal 67 do not agree
+garlic-focaccia-little-ones,Garlic Focaccia (Little Ones),Little Ones,,286,4.8,23,19,7.5,,1.1,1.4,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+veg-sticks-and-houmous,Veg Sticks & Houmous,Little Ones,,117,3.8,9.8,6.5,0.7,,0.5,4.2,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+chicken-tenders-little-ones,Chicken Tenders (Little Ones),Little Ones,,319,17,36,12,2.4,,1.6,11,,,,,,,,,false,true,,,Little Ones / Little One's
+heinz-tomato-soup,Heinz® Tomato Soup,Little Ones,,105,2.4,17,2.7,0.3,,1.2,9.9,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+tomato-pasta-little-ones-vegan,Tomato Pasta (Little Ones) (vegan),Little Ones,,283,5,38,13,0,,0,7.5,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
+cheese-and-tomato-pizza,Cheese & Tomato Pizza,Little Ones,,228,8.4,29,8.4,3.7,,0.93,2.8,,,,,,,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
+pork-sausages-little-ones-two-grilled-pork-sausages,"Pork Sausages (Little Ones, Two grilled pork sausages)",Little Ones,,185,7.4,5.6,15,5.2,,0.9,2.6,,,,,,,,contains_pork,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
+whitby-cod-goujons-little-ones-two-cod-goujons,"Whitby™ Cod Goujons (Little Ones, Two cod goujons)",Little Ones,,149,6.6,13,6.4,0.9,,0.91,0.1,,,,,,,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them); printed kJ 437 and kcal 149 do not agree
+chicken-breast-tenders,Chicken Breast Tenders,Little Ones,,271,17,24,12,2.4,,1.2,0,,,,,,,,,false,true,,,Little Ones / Little One's
+whitby-breaded-scampi,Whitby™ Breaded Scampi,Little Ones,,225,15,21,2.2,0,,1.2,3.8,,,,,,,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them); printed kJ 670 and kcal 225 do not agree
+mild-chicken-curry,Mild Chicken Curry,Little Ones,,424,21,59,11,4.8,,1.6,8,,,,,,,,,false,true,,,Little Ones / Little One's
+chargrilled-bbq-chicken,Chargrilled BBQ Chicken,Little Ones,,232,36,10,4.9,2.2,,1.5,9.4,,,,,,,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
+pork-sausages-little-ones-with-garden-peas-and-gravy,Pork Sausages (Little Ones) with garden peas and gravy,Little Ones,,321,15,14,22,7.8,,1.2,7.1,,,,,,,,contains_pork,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them)
+whitby-cod-goujons-little-ones-with-garden-peas,Whitby™ Cod Goujons (Little Ones) with garden peas,Little Ones,,249,12,23,9.2,1.2,,1.2,3.8,,,,,,,,,false,true,,,Little Ones / Little One's; the guide flags this dish as having choices (its numbers may not include them); printed kJ 796 and kcal 249 do not agree
+tomato-pasta-little-ones,Tomato Pasta (Little Ones),Little Ones,,389,6.9,48,19,1.7,,0.53,7.6,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+chicken-burger-sliders,Chicken Burger Sliders,Little Ones,,325,15,41,11,2.3,,1.2,3.5,,,,,,,,,false,true,,,Little Ones / Little One's
+cheeseburger-sliders,Cheeseburger Sliders,Little Ones,,299,21,26,8.8,2.4,,0.93,4.3,,,,,,,,contains_beef,false,true,,,Little Ones / Little One's; printed kJ 1628 and kcal 299 do not agree
+fries,Fries,Little Ones,,213,1.5,29,7.8,0.7,,1.1,0.5,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's; printed kJ 654 and kcal 213 do not agree
+baby-potatoes,Baby Potatoes,Little Ones,,95,0,16,3,1,,0,0,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+chips,Chips,Little Ones,,161,1.5,23,4.3,1.8,,0.17,0.2,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's; printed kJ 495 and kcal 161 do not agree
+mashed-potato,Mashed Potato,Little Ones,,94,1.9,12,3.8,2.7,,0.48,1.8,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+rice,Rice,Little Ones,,247,6.8,49,3.4,0,,0,0,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+salad-bowl,Salad Bowl,Little Ones,,13,0.8,1.5,0.1,0,,0.03,1.5,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+garden-peas,Garden Peas,Little Ones,,50,3.6,6.6,0.6,0,,0,3.6,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+baked-beans,Baked Beans,Little Ones,,52,3.7,7.6,0.2,0.1,,0.32,1.5,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+chicken-breast,Chicken Breast,Little Ones,,507,40,47,16,2.5,,2.9,8.4,,,,,,,,,false,true,,,Little Ones / Little One's
+hand-carved-turkey-little-ones,Hand-Carved Turkey (Little Ones),Little Ones,,494,30,47,19,4,,2.9,7.5,,,,,,,,,false,true,,,Little Ones / Little One's
+hand-carved-beef,Hand-Carved Beef,Little Ones,,668,28,47,39,15,,2.3,7.9,,,,,,,,contains_beef,false,true,,,Little Ones / Little One's
+root-vegetable-wellington-little-ones,Root Vegetable Wellington (Little Ones),Little Ones,,625,11,79,27,5.2,,2.5,13,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+vanilla-ice-cream,Vanilla Ice Cream,Little Ones,,473,8.5,56,24,15,,0.33,46,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+chocolate-ice-cream,Chocolate Ice Cream,Little Ones,,598,9.6,50,39,24,,0.27,42,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+cherry-eton-mess-sundae-little-ones,Cherry Eton Mess Sundae (Little Ones),Little Ones,,328,3.7,30,22,13,,0.11,26,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+little-judes-fruit-and-veg-rocket-ice-lolly,Little Jude's Fruit & Veg Rocket Ice Lolly,Little Ones,,26,0,6.6,0,0,,0,5.5,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+belgian-chocolate-brownie-sundae,Belgian Chocolate Brownie Sundae,Little Ones,,552,6.3,55,34,20,,0.2,38,,,,,,,,vegetarian,false,true,,,Little Ones / Little One's
+fruit-shoot-apple-and-blackcurrant,Fruit Shoot® Apple & Blackcurrant,Little Ones,,8,0,2.2,0,0,,0.19,2.2,,,,,,,,,false,true,,,Little Ones / Little One's
+fruit-shoot-orange,Fruit Shoot® Orange,Little Ones,,19,0,2.8,0,0,,0,2.8,,,,,,,,,false,true,,,Little Ones / Little One's
+j2o-apple-and-raspberry-275ml,J2O Apple & Raspberry 275ml,Little Ones,,53,0.1,11,0,0,,0.17,11,,,,,,,,,false,true,,,Little Ones / Little One's
+j2o-orange-and-passionfruit-275ml,J2O Orange & Passionfruit 275ml,Little Ones,,66,0.3,14,0,0,,22,14,,,,,,,,,false,true,,,Little Ones / Little One's
+classic-breakfast,Classic Breakfast,Little Ones,,418,18,24,28,7.9,,1.1,4.2,,,,,,,,contains_pork,false,true,,,Brunch Menu / Little One's Breakfasts; printed kJ 1590 and kcal 418 do not agree
+vegetarian-breakfast-little-ones-breakfasts,Vegetarian Breakfast (Little One's Breakfasts),Little Ones,,406,23,22,26,9.9,,1.9,3.7,,,,,,,,vegetarian,false,true,,,Brunch Menu / Little One's Breakfasts; printed kJ 1543 and kcal 406 do not agree
+classic-full-english-breakfast,Classic Full English Breakfast,Breakfast & brunch,,925,56,40,57,15,,6.1,2.9,,,,,,,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); printed kJ 4274 and kcal 925 do not agree"
+large-full-english-breakfast,Large Full English Breakfast,Breakfast & brunch,,1378,77,76,80,22,,9,2.9,,,,,,,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); printed kJ 6395 and kcal 1378 do not agree"
+vegetarian-breakfast-brunch,Vegetarian Breakfast (Brunch),Breakfast & brunch,,569,34,25,37,14,,2.5,5.7,,,,,,,,vegetarian,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); the guide flags this dish as having choices (its numbers may not include them); printed kJ 2120 and kcal 569 do not agree"
+breakfast-bap,Breakfast Bap,Breakfast & brunch,,890,38,66,50,18,,5,5.3,,,,,,,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers); printed kJ 4071 and kcal 890 do not agree"
+smashed-avocado-brunch,Smashed Avocado Brunch,Breakfast & brunch,,757,28,65,41,9.8,,2.1,9.2,,,,,,,,vegetarian,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers)"
+smashed-avocado-brunch-vegan,Smashed Avocado Brunch (vegan),Breakfast & brunch,,621,15,65,31,6.7,,1.7,9.2,,,,,,,,vegetarian,false,true,,,Brunch Menu / Brunch
+steak-and-eggs,Steak & Eggs,Breakfast & brunch,,1080,58,66,61,17,,3.1,1.2,,,,,,,,contains_beef,false,true,,,Brunch Menu / Brunch; printed kJ 3939 and kcal 1080 do not agree
+eggs-benedict,Eggs Benedict,Breakfast & brunch,,671,35,34,43,16,,3.7,4,,,,,,,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers)"
+bacon-stacked-buttermilk-pancakes,Bacon Stacked Buttermilk Pancakes,Breakfast & brunch,,762,20,107,27,6.3,,3.6,51,,,,,,,,contains_pork,false,true,,,"Brunch Menu / Brunch (+1 more menu entries, same numbers)"
+bacon-sandwich,Bacon Sandwich,Breakfast & brunch,,310,33,0.1,17,13,,4.2,0.1,,,,,,,,contains_pork,false,true,,,Brunch Menu / Brunch; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1781 and kcal 310 do not agree
+egg-sandwich,Egg Sandwich,Breakfast & brunch,,332,13,0.1,33,14,,0.7,0.1,,,,,,,,vegetarian,false,true,,,Brunch Menu / Brunch; the guide flags this dish as having choices (its numbers may not include them); printed kJ 1176 and kcal 332 do not agree
+sausage-sandwich,Sausage Sandwich,Breakfast & brunch,,515,15,18,41,19,,2.9,0.1,,,,,,,,contains_pork,false,true,,,Brunch Menu / Brunch; printed kJ 2477 and kcal 515 do not agree
+beans-on-toast,Beans On Toast,Breakfast & brunch,,542,20,73,17,8.7,,1.8,7.7,,,,,,,,vegetarian,false,true,,,Brunch Menu / More Brunch
+scrambled-eggs-on-toast,Scrambled Eggs on Toast,Breakfast & brunch,,406,21,2.1,38,13,,0.88,2.1,,,,,,,,vegetarian,false,true,,,Brunch Menu / More Brunch; printed kJ 1388 and kcal 406 do not agree

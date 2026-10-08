@@ -27,7 +27,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "puccinos"
 SOURCE_URL = "https://www.puccinosworldwide.com/wp-content/uploads/Puccinos-Allergen-Nutritional-Information-Guide-27-08-2026.pdf"
@@ -237,6 +237,23 @@ def parse(pdf: Path):
     return blocks
 
 
+def read_allergens(text: str, where: str) -> dict:
+    """The guide's allergen column for one item: "Contains: A, B, C (May Contain: D, E)". Either part may be missing; an item
+    with no text at all (a plain tea, a syrup) is printed with no allergens. Every word must be a known allergen word (stops
+    otherwise). A printed "Contains: Oats" is stored as gluten with the cereal oats (oats are a cereal containing gluten)."""
+    text = " ".join(text.split())
+    m = re.match(r"^(?:Contains:\s*(?P<c>.*?))?\s*(?:\(May Contain:\s*(?P<m>.*?)\))?$", text)
+    if not m:
+        fail(f"{where}: cannot read the allergen text {text!r}")
+    c = [w for w in (m.group("c") or "").split(",") if w.strip()]
+    mc = [w for w in (m.group("m") or "").split(",") if w.strip()]
+    if text and not c and not mc:
+        fail(f"{where}: allergen text {text!r} has no allergens in it")
+    keys, cereals, nuts = allergen_words(c, where)
+    mkeys, _, _ = allergen_words(mc, where)  # which cereal / nut kinds "may" be present is not stored: the generic allergen is
+    return {"contains": keys, "may_contain": mkeys, "cereals": cereals, "nuts": nuts}
+
+
 def tidy(name: str) -> str:
     return re.sub(r"\bmilk\b", "Milk", name)  # the guide prints "Almond milk" in a few rows
 
@@ -248,6 +265,7 @@ def build_items(blocks):
         base = tidy(b["name"])
         label = b["labels"][0] if b["labels"] else ""
         contains = b["allergens"].split("(May Contain")[0]
+        allergens = read_allergens(b["allergens"], f"page {b['page']} {b['name']!r}")
         vegan_name = bool(re.search(r"\bVegan\b", base))
         for r in b["rows"]:
             n = r["n"]
@@ -273,7 +291,7 @@ def build_items(blocks):
                 "calories": n[10], "protein_g": n[16], "carbs_g": n[13], "fat_g": n[11],
                 "sat_fat_g": n[12], "sodium_mg": "", "salt_g": n[17], "sugar_g": n[14], "fiber_g": n[15],
                 "tags": "|".join(tags), "limited_time": b["limited"], "rankable": b["rankable"],
-                "notes": " ".join(notes), "_page": b["page"], "_block": id(b), "_size": r["size"],
+                "notes": " ".join(notes), "allergens": allergens, "_page": b["page"], "_block": id(b), "_size": r["size"],
             })
     missing = set(NOTES) - notes_seen
     if missing:
@@ -335,7 +353,8 @@ def main() -> int:
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Puccino's", cuisine="Coffee", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["puccinos", "puccino's", "puccinos coffee", "puccino's coffee"],
-        items=[{k: v for k, v in it.items() if not k.startswith("_")} for it in items], out=args.out, note=NOTE_TXT, holdback=holdback)
+        items=[{k: v for k, v in it.items() if not k.startswith("_")} for it in items], out=args.out, note=NOTE_TXT, holdback=holdback,
+        allergen_guide={"title": SOURCE_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items ({len(holdback)} of them held back) to {out}; PDF sha256 {sha}; names hash {names_sha}")
     return 0
 

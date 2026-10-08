@@ -27,6 +27,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import five_guys_pdf  # noqa: E402
+from common import write_allergens  # noqa: E402
 
 CHAIN_ID = "five-guys"
 SOURCE_URL = ("https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2026/08/"
@@ -166,6 +167,20 @@ ROWS: list[tuple] = [
 ]
 
 CATEGORY_ORDER = [BU, HD, SA, FR, MS, MX, TP, PT]
+# Rows whose printed numbers contradict each other: not published, never corrected (data/source/five-guys/holdback.csv).
+# Item ids are the ids this script gives (slug of the name).
+HOLDBACK = [
+    ("little-bacon-burger", "The guide prints 367 g of carbohydrate (and 510 kcal) for this burger."),
+    ("flake-milkshake", "The guide prints 18 g of fat with only 43 kcal."),
+    ("flake-little-shake", "The guide prints 18 g of fat with only 43 kcal."),
+    ("banana-mix-in", "The guide prints 194 kcal (814 kJ) with 36 g carbohydrate, 0 g fat and 0 g protein (about 144 kcal), "
+                      "and 2.5 g fat for the little-shake banana at half the amount."),
+]
+NOTE = "Milkshake mix-in values vary with how many you add and aren't added to the shake."
+# The nutrition PDF is also the chain's allergen guide (a matrix of contains / cannot-guarantee marks per item). We do not copy the
+# matrix, so the app shows only a link to it. It prints a 'not suitable ... manufacturing and preparation' mark, i.e. cross-contact.
+ALLERGEN_GUIDE = {"title": SOURCE_TITLE, "url": SOURCE_URL,
+                  "may_contain_published": True}
 ITEM_FIELDS = ["id", "name", "category", "serving", "calories", "protein_g", "carbs_g", "fat_g", "sat_fat_g", "sodium_mg", "salt_g",
                "sugar_g", "fiber_g", "tags", "limited_time", "rankable", "components", "added_on", "notes"]
 
@@ -230,6 +245,12 @@ def main() -> int:
         w = csv.writer(f)
         w.writerow(["id", "name", "cuisine", "builder_type", "source_title", "source_url", "checked_on", "aliases", "sample"])
         w.writerow([CHAIN_ID, "Five Guys", "Burgers", "standard", SOURCE_TITLE, SOURCE_URL, args.checked_on, ALIASES, ""])
+    with open(args.out / "holdback.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["item_id", "reason"])
+        w.writerows(HOLDBACK)
+    (args.out / "note.txt").write_text(NOTE + "\n", encoding="utf-8")
+    write_allergens(args.out, CHAIN_ID, [], {**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     (args.out / "components.csv").write_text(
         "id,group,name,portion,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,tags,removable,allow_double\n", encoding="utf-8")
     (args.out / "modifiers.csv").write_text(

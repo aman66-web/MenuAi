@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build data/source/ember-inns/ from Ember Inns' official allergen & nutrition guide (Mitchells & Butlers).
 
-    python3 tools/uk_extract/ember_inns.py AllergenGuideEmberEstate.html --checked-on 2026-10-06
+    python3 tools/uk_extract/ember_inns.py AllergenGuideEmberEstate.html --checked-on 2026-10-08
 
 Source: https://allergens.mbplc.io/AllergenGuideEmberEstate.html (linked from emberinns.co.uk/menus/mainmenu). Numbers are copied by
 tools/uk_extract/mb_guide.py exactly as printed (per portion; kJ is not used). If Ember adds a menu, the script stops until the new
@@ -55,6 +55,43 @@ def row_exclusions(name, card):
 NOTE = ("Where the guide flags a dish as having choices (a side, sauce or topping), its numbers may not include them. Hotel, sports, group, "
         "wedding and buffet menus are not included. Seasonal Specials are marked limited time.")
 
+
+# Accuracy audit 2026-10-08 (same reasoning as all_bar_one.py; the module is shared with the other M&B chains, so the wrapper replaces
+# mb_guide's check for this chain's run only). The guide prints kJ and kcal for every dish and for many they disagree (Latte 154 vs 110
+# in kcal terms, Onion Rings 368 vs 570): in almost every case the kcal agrees with the printed protein, carbohydrate and fat and the kJ is
+# the odd one out. We publish no kJ, so those dishes stay. What holds a dish back (never corrected, never chosen between) is a kcal that
+# the guide's own other figures contradict: the kcal more than 30% away from 4P+4C+9F, or more than 15% away from it while the kJ also
+# puts the dish more than 10% away from the printed kcal (Salt & Pepper Calamari 223 kcal / 158 from macros / 191 from kJ, Whitby Breaded
+# Scampi 225 / 164 / 160, Scampi & Chips 901 / 728 / 661); and a salt figure no portion can contain (J2O 66 kcal, 22 g salt).
+_impossible_mb = mb_guide._impossible
+
+
+def _impossible_audited(n: dict, category: str = "") -> str:
+    why = _impossible_mb(n, category)
+    if why:
+        return why
+    try:
+        kcal = float(n["kcal"])
+        prot, carb, fat = (float(str(n[k]).lstrip("<")) for k in ("protein", "carbs", "fat"))
+        salt = float(str(n["salt"]).lstrip("<"))
+    except (KeyError, ValueError):
+        return ""
+    if salt >= 3 and salt * 10 > kcal:
+        return f"the guide prints {n['salt']} g salt for {n['kcal']} kcal: more salt than the energy of the portion allows"
+    macro = 4 * prot + 4 * carb + 9 * fat
+    if category != "Drinks" and kcal >= 50:
+        off_macro = abs(kcal - macro) / kcal
+        try:
+            off_kj = abs(float(n["kj"]) / 4.184 - kcal) / kcal
+        except (KeyError, ValueError):
+            off_kj = 0.0
+        if off_macro > 0.30 or (off_macro > 0.15 and off_kj > 0.10):
+            return (f"the guide prints {n['kcal']} kcal; its own protein, carbohydrate and fat add up to about {round(macro)} kcal "
+                    f"and its {n.get('kj', '?')} kJ to about {round(float(n['kj']) / 4.184) if n.get('kj') else '?'} kcal")
+    return ""
+
+
+mb_guide._impossible = _impossible_audited
 
 if __name__ == "__main__":
     sys.exit(mb_guide.main_for(
