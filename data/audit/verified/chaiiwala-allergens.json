@@ -1,0 +1,9 @@
+{
+ "chain": "chaiiwala",
+ "date": "2026-10-08",
+ "source_read": "https://www.chaiiwala.co.uk/allergens (HTML matrix) and https://www.chaiiwala.co.uk/api/allergen-matrix.pdf (V15 October 2026; robots.txt allows this one path) and https://www.chaiiwala.co.uk/menu (card allergen icons and the page's own dish data), all downloaded 2026-10-08. The extractor already stops unless the HTML matrix, the PDF (by mark position) and the menu data agree for every dish",
+ "compared_items": 131,
+ "allergen_mismatches": 0,
+ "held_back": 1,
+ "notes": "All 131 published items compared with the rendered HTML matrix read through the DOM in Chromium (Playwright, JavaScript off; each mark's own aria-label names its column, so the comparison does not depend on column order): contains, may contain, named cereals and tree nuts, and the generic allergen where one kind is contained and another may be present. 0 mismatches. 5 rows (Chicken Tikka Salad, Tikka Biryani, Chana Biryani, Butter Chicken Rice Bowl, Daal Masala Bombay Rice Bowl) also checked by eye against the rendered PDF page 8. The matrix has NO fish, crustacean or mollusc columns: those three read 'Not listed' in the app (never free from); 23 drinks (espresso, teas, mocktails, Red Bull) have no allergen marked at all. Held back: Kebab Caesar Salad (tossed in Caesar dressing, no fish column, so the matrix cannot say). Audit flags 'Toasted ... Matcha' (flavour) and 'Halwa Puri' (semolina halwa, not sesame halva) logged in data/audit/reviewed/chaiiwala.csv. Allergens were link-only before; set PUBLISH_ALLERGENS = False in tools/uk_extract/chaiiwala.py to go back."
+}

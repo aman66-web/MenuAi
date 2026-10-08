@@ -1,0 +1,9 @@
+{
+ "chain": "taco-bell",
+ "date": "2026-10-08",
+ "source_read": "https://www.nutritionix.com/taco-bell-uk/menu/special-diets/premium (the allergen tool framed by tacobell.co.uk/allergen-information/, 'Last Updated 10/07/2026'): 14 pages, one per allergen, ?allergens=<name>&allergenFree=0 (every item, explicit 'does not contain' / 'Contains' cell), downloaded 2026-10-08 after reading robots.txt; plus two multi-allergen pages (8 and 6 allergens) as a second query",
+ "compared_items": 102,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "notes": "All 102 published items x 14 allergens = 1,428 cells compared with the rendered pages read through the DOM in Chromium (Playwright, JavaScript off): 0 mismatches against the regex reader, and 0 mismatches against the two multi-allergen pages (a different query with a different column order). 25 rows also checked by eye in a rendered screenshot. Every cell is an explicit statement ('X does not contain Milk.' / 'Warning! X Contains Milk.'): nothing is read from silence. The tool prints no may-contain information, so none is published (may_contain_published = no). Gluten and tree nuts are not broken down by the tool. The 44 items already held back for impossible numbers (10 quesadillas, 34 drinks) get no row. The same dish printed under two menu sections must have identical cells or is held back: none differed. Audit: 0 high, 0 medium."
+}

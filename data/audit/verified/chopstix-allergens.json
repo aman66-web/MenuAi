@@ -1,0 +1,9 @@
+{
+ "chain": "chopstix",
+ "date": "2026-10-08",
+ "source_read": "CUSTOMER-ALLERGENS-NON-QR-V22-SEPT-2026.pdf (CS QA 07, one page, 34 dish rows) and one product page each for egg-fried-rice and dip-pot-sweet-chilli-sauce on chopstixnoodles.co.uk (robots.txt is empty)",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "notes": "Skipped, link-only stays. Of the 122 published items only about 61-68 have a chart row with the same name: no row exists for the 24 soft drinks (the chain prints allergens on the pack), the 4 dip pots (page: 'allergen information is printed on pack'), the Prawn Cracker and Fortune Cookie ('INFORMATION ON PACK'), and the chart names others differently (Mini Crispy Chicken Balls vs Chicken Balls, Vegetable Spring Rolls vs Mini Vegetable Spring Rolls, Crispy Vegetable Gyoza vs Vegetable Gyoza, Chicken Katsu Panko Pieces vs Panko Katsu Chicken Strips, Mini Stix Deal - Noodles... vs Vegetable Chow Mein + ..., Battered Chicken Katsu Curry vs Chicken Katsu Curry (Battered Chicken), the Flavour Savour + dip rows). Tying those would be inference from names, and more than 40% of the items would be held back (limit: about a third). The chain's product pages (about 38) carry per-dish allergen tables for the cooked dishes, but not for drinks or packaged items."
+}

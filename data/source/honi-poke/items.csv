@@ -1,0 +1,27 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+honi-salmon,Honi Salmon,Signature bowls,,638,31.0,87.2,26.2,,1561,,,12.4,,,,,,,,false,true,,,Calculator row 'Honi Salmon' (Signature bowls); table row 638 / 31g / 87g / 26g
+ahi-tuna,Ahi Tuna,Signature bowls,,572,34.6,72.1,23.8,,1933,,,11.2,,,,,,,,false,true,,,Calculator row 'Ahi Tuna' (Signature bowls); table row 572 / 35g / 72g / 24g
+sriracha-mayo-salmon,Sriracha Mayo Salmon,Signature bowls,,659,23.4,62.5,40.6,,1211,,,5.9,,,,,,,,false,true,,,Calculator row 'Sriracha Mayo Salmon' (Signature bowls); table row 659 / 23g / 63g / 41g
+california,California,Signature bowls,,911,33.3,61.8,69.3,,1469,,,10.2,,,,,,,,false,true,,,Calculator row 'California' (Signature bowls); table row 911 / 33g / 62g / 69g; dish page prints no calories
+avocado-and-mango,Avocado & Mango,Signature bowls,,542,21.8,80.4,22.7,,2185,,,15.3,,,,,,,vegetarian,false,true,,,Calculator row 'Avocado & Mango' (Signature bowls); table row 542 / 22g / 80g / 23g
+tofu-teriyaki,Tofu Teriyaki,Signature bowls,,474,25.3,79.9,11.3,,1710,,,8.8,,,,,,,vegetarian,false,true,,,Calculator row 'Tofu Teriyaki' (Signature bowls); table row 474 / 25g / 80g / 11g; dish page prints no calories
+chicken-teriyaki,Chicken Teriyaki,Signature bowls,,507,46.3,70.9,11.0,,1795,,,8.6,,,,,,,,false,true,,,Calculator row 'Chicken Teriyaki' (Signature bowls); table row 507 / 46g / 71g / 11g; the chain's menu calls it 'Teriyaki Chicken'
+swicy-prawns,Swicy Prawns,Signature bowls,,652,25.6,82.6,31.1,,1152,,,10.1,,,,,,,,false,true,,,Calculator row 'Swicy Prawns' (Signature bowls); table row 652 / 26g / 83g / 31g; the chain's menu calls it 'Swicy Prawn'; dish page prints no calories
+tokyo-yuzu,Tokyo Yuzu,Signature bowls,,676,28.7,87.6,30.0,,1485,,,11.0,,,,,,,,false,true,,,Calculator row 'Tokyo Yuzu' (Signature bowls); table row 676 / 29g / 88g / 30g; the chain's menu calls it 'Tokyo Yuzu Salmon'; dish page prints no calories
+miso-salmon,Miso Salmon,Warm bowls,,784,53.1,106.7,23.6,,1632,,,8.3,,,,,,,,false,true,,,Calculator row 'Miso Salmon' (Warm Bowl); table row 784 / 53g / 107g / 24g; dish page prints no calories
+gochujang-chicken,Gochujang Chicken,Warm bowls,,908,47.8,132.0,27.9,,1711,,,8.5,,,,,,,,false,true,,,Calculator row 'Gochujang Chicken' (Warm Bowl); table row 908 / 48g / 132g / 28g; dish page prints no calories
+chicken-katsu-curry,Chicken Katsu Curry,Warm bowls,,836,41.0,114.6,31.4,,1636,,,5.7,,,,,,,,false,true,,,Calculator row 'Chicken Katsu Curry' (Warm Bowl); table row 836 / 41g / 115g / 31g
+citrus-yuzu-salmon,Citrus Yuzu Salmon,Poke salads,,459,29.2,46.4,23.6,,1145,,,11.3,,,,,,,,false,true,,,Calculator row 'Citrus Yuzu Salmon' (Poke Salad); table row 459 / 29g / 46g / 24g; dish page prints no calories
+pacific-tuna,Pacific Tuna,Poke salads,,409,30.7,52.4,14.7,,2327,,,10.9,,,,,,,,false,true,,,Calculator row 'Pacific Tuna' (Poke Salad); table row 409 / 31g / 52g / 15g; dish page prints no calories
+seoul-fire-chicken,Seoul Fire Chicken,Poke salads,,341,35.4,43.5,8.9,,2221,,,7.3,,,,,,,,false,true,,,Calculator row 'Seoul Fire Chicken' (Poke Salad); table row 341 / 35g / 43g / 9g; dish page prints no calories
+green-zen-tofu,Green Zen Tofu,Poke salads,,509,19.7,26.0,42.3,,1107,,,11.2,,,,,,,vegetarian,false,true,,,Calculator row 'Green Zen Tofu' (Poke Salad); table row 509 / 20g / 26g / 42g; dish page prints no calories
+paitan-chicken-ramen,Paitan Chicken Ramen,Ramen,,535,51.5,59.9,17.6,,2818,,,4.9,,,,,,,,false,true,,,Calculator row 'Paitan Chicken' (Ramen); table row 535 / 52g / 60g / 18g; dish page prints no calories
+shoyu-paitan-beef-ramen,Shoyu Paitan Beef Ramen,Ramen,,589,47.5,61.6,24.8,,4324,,,4.9,,,,,,,contains_beef,false,true,,,Calculator row 'Shoyu Paitan Beef' (Ramen); table row 589 / 48g / 62g / 25g; dish page prints no calories
+miso-shoyu-tofu-ramen,Miso Shoyu Tofu Ramen,Ramen,,464,33.4,65.7,11.1,,6142,,,7.5,,,,,,,,false,true,,,Calculator row 'Miso Shoyu Tofu' (Ramen); table row 464 / 33g / 66g / 11g; dish page prints no calories
+gochujang-prawns-ramen,Gochujang Prawns Ramen,Ramen,,524,40.8,69.7,16.2,,3123,,,4.9,,,,,,,,false,true,,,Calculator row 'Gochujang Prawns' (Ramen); table row 524 / 41g / 70g / 16g; dish page prints no calories
+crab-salad,Crab Salad,Sides,,171,14.3,7.0,11.7,,1248,,,0.9,,,,,,,,false,false,,,Calculator row 'Crab Salad' (Sides); table row 171 / 14g / 7g / 12g
+guacamole,Guacamole,Sides,,132,2.1,7.4,12.6,,200,,,6.0,,,,,,,,false,false,,,Calculator row 'Guacamole' (Sides); table row 132 / 2g / 7g / 13g
+salmon-tartare,Salmon Tartare,Sides,,214,19.1,1.3,19.8,,444,,,0.2,,,,,,,,false,false,,,Calculator row 'Salmon Tartare' (Sides); table row 214 / 19g / 1g / 20g
+japanese-salad,Japanese Salad,Sides,,84,1.8,8.4,5.8,,240,,,2.4,,,,,,,,false,false,,,Calculator row 'Japanese Salad' (Sides); table row 84 / 2g / 8g / 6g
+seaweed-salad,Seaweed Salad,Sides,,73,4.4,10.1,3.3,,1044,,,1.4,,,,,,,,false,false,,,Calculator row 'Seaweed Salad' (Sides); table row 73 / 4g / 10g / 3g
+tortilla-chips,Tortilla Chips,Sides,,417,7.7,57.6,19.8,,350,,,4.5,,,,,,,,false,false,,,Calculator row 'Tortilla Chips' (Sides); table row 417 / 8g / 58g / 20g

@@ -1,0 +1,1 @@
+Figures are the per-bowl totals shown by Honi Poke's own Nutritional Calculator, which adds up its own ingredient data (so kcal and macros do not always agree with each other). No sugars, salt or saturates are published. Dishes whose own menu page shows a different calorie figure are not published.
