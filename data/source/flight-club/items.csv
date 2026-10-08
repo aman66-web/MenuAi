@@ -1,0 +1,78 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+tyrrells-sea-salt-cider-vinegar-crisps,Tyrrells Sea Salt Cider Vinegar Crisps,Bar snacks,,201,2.6,21.8,10.9,0.9,,,0.9,,,,,,,,vegetarian,false,false,,,On: Bar Snacks menu
+tyrrells-lightly-sea-salt-crisps,Tyrrells Lightly Sea Salt Crisps,Bar snacks,,208,2.8,21.4,11.7,1.0,,,0.2,,,,,,,,vegetarian,false,false,,,On: Bar Snacks menu
+tyrrells-mature-cheddar-chive-crisps,Tyrrells Mature Cheddar Chive Crisps,Bar snacks,,202,3.0,21.2,11.1,1.0,,,1.4,,,,,,,,vegetarian,false,false,,,On: Bar Snacks menu
+tyrrells-sweet-chilli-and-red-pepper-crisps,Tyrrells Sweet Chilli & Red Pepper Crisps,Bar snacks,,201,2.8,21.6,10.9,0.9,,,2.0,,,,,,,,vegetarian,false,false,,,On: Bar Snacks menu
+padron-peppers,Padrón peppers,Bar snacks,,294,1.0,3.1,30.4,2.2,,,2.9,,,,,,,,vegetarian,false,false,,,"On: Bar Snacks menu, Sides menu"
+sausage-roll,Sausage roll,Bar snacks,,985,34.4,74.5,60.5,23.9,,,5.1,,,,,,,,contains_pork,false,false,,,"On: Bar Snacks menu, Sides menu; the page lists as 'Contains' eggs, milk, mustard, soya, sulphites, peanuts, wheat and all eight tree nuts"
+honey-glazed-chorizo,Honey-glazed chorizo,Bar snacks,,499,20.9,17.4,39.1,0.0,,,12.2,,,,,,,,contains_pork,false,false,,,On: Bar Snacks menu; the page prints 0.0 g saturates with 39.1 g fat
+skin-on-fries,Skin on fries,Bar snacks,,800,4.9,60.4,59.0,4.9,,,8.4,,,,,,,,vegetarian,false,false,,,"On: Bar Snacks menu, Sides menu"
+6-warm-doughnuts,6 Warm doughnuts,Bar snacks,,489,6.4,74.1,18.3,8.4,,,45.2,,,,,,,,vegetarian,false,false,,,"On: Bar Snacks menu, Sweet Treats menu"
+spicy-chicken-tacos,Spicy chicken tacos,Tacos,,265,20.2,24.0,10.0,,,,7.2,,,,,,,,,false,false,,,On: Sharing Plates menu
+crispy-cod-tacos,Crispy cod tacos,Tacos,,513,10.9,20.6,43.1,,,,2.4,,,,,,,,,false,false,,,On: Sharing Plates menu
+chipotle-steak-tacos,Chipotle steak tacos,Tacos,,331,16.1,17.1,22.1,,,,2.7,,,,,,,,contains_beef,false,false,,,On: Sharing Plates menu
+corn-and-mushroom-tacos,Corn & mushroom tacos,Tacos,,202,4.2,20.3,11.2,,,,6.0,,,,,,,,vegetarian,false,false,,,On: Sharing Plates menu
+garlic-chicken-wings,Garlic chicken wings,Wings,,986,48.2,50.7,64.5,9.3,,,1.7,,,,,,,,,false,false,,,On: Sharing Plates menu
+korean-chicken-wings,Korean chicken wings,Wings,,784,40.5,71.7,36.3,,,,21.7,,,,,,,,,false,false,,,On: Sharing Plates menu
+sweet-chilli-chicken-wings,Sweet chilli chicken wings,Wings,,805,40.7,76.0,36.0,3.3,,,13.7,,,,,,,,,false,false,,,On: Sharing Plates menu
+garlic-cauliflower-wings,Garlic cauliflower wings,Wings,,778,7.8,58.3,56.4,5.0,,,4.3,,,,,,,,,false,false,,,On: Sharing Plates menu
+korean-bbq-cauliflower-wings-a26,Korean BBQ cauliflower wings A26,Wings,,656,6.7,79.3,34.0,,,,24.4,,,,,,,,vegetarian,false,false,,,On: Sharing Plates menu; the page prints the name with the suffix 'A26' (not explained on the page)
+sweet-chilli-cauliflower-wings,Sweet chilli cauliflower wings,Wings,,678,6.9,83.6,33.7,2.6,,,16.3,,,,,,,,vegetarian,false,false,,,On: Sharing Plates menu
+korean-chicken-sliders,Korean Chicken sliders,Sliders,,686,14.9,56.6,44.1,,,,14.6,,,,,,,,,false,false,,,On: Sharing Plates menu
+halloumi-sliders,Halloumi sliders,Sliders,,659,26.0,39.0,43.9,15.5,,,9.1,,,,,,,,vegetarian,false,false,,,On: Sharing Plates menu
+bbq-pulled-pork-sliders,BBQ pulled pork sliders,Sliders,,396,29.1,50.9,8.4,2.5,,,20.9,,,,,,,,contains_pork,false,false,,,On: Sharing Plates menu
+smashed-beef-sliders,Smashed beef sliders,Sliders,,488,28.9,32.6,26.7,9.5,,,7.8,,,,,,,,contains_beef,false,false,,,On: Sharing Plates menu
+cheese-stuffed-posh-dog,Cheese-stuffed posh dog,Sliders,,672,27.4,40.0,44.3,16.3,,,12.4,,,,,,,,,false,false,,,On: Sharing Plates menu
+posh-fish-finger,Posh fish finger,Sliders,,691,16.5,42.5,49.8,1.2,,,2.0,,,,,,,,,false,false,,,On: Sharing Plates menu
+bang-bang-cauliflower,Bang bang cauliflower,Sticks,,494,3.4,26.9,41.6,,,,11.6,,,,,,,,,false,false,,,page marks it vegetarian but its own text names pork: no diet tags given; On: Sharing Plates menu; the page marks it Vegetarian but its own sub-recipe list includes 'Chorizo Stick'
+glazed-chorizo,Glazed chorizo,Sticks,,678,26.0,7.0,61.3,,,,0.5,,,,,,,,contains_pork,false,false,,,On: Sharing Plates menu
+peri-peri-chicken,Peri-peri chicken,Sticks,,248,30.2,6.6,10.5,,,,1.5,,,,,,,,,false,false,,,On: Sharing Plates menu
+thai-king-prawns,Thai king prawns,Sticks,,174,15.3,11.9,7.4,,,,9.1,,,,,,,,,false,false,,,On: Sharing Plates menu
+crispy-pork-belly,Crispy pork belly,Sticks,,616,41.9,29.9,36.5,12.2,,,24.3,,,,,,,,contains_pork,false,false,,,On: Sharing Plates menu
+chicken-souvlaki,Chicken souvlaki,Sticks,,333,29.8,5.6,26.8,7.1,,,3.8,,,,,,,,,false,false,,,On: Sharing Plates menu
+social-platter,Social Platter,Sharing platter,,3951,143.8,252.2,260.3,,,,,,,,,,,,,false,false,,,On: Sharing Plates menu
+corn-ribs,Corn ribs,Sides,,566,4.7,17.3,52.0,,,,7.9,,,,,,,,vegetarian,false,false,,,On: Sides menu
+nachos,Nachos,Sides,,828,18.2,72.2,51.4,,,,14.6,,,,,,,,vegetarian,false,false,,,On: Sides menu
+cheesy-garlic-bread-bites,Cheesy garlic bread bites,Sides,,910,31.3,83.1,49.7,31.1,,,1.3,,,,,,,,,false,false,,,On: Sides menu
+warm-bread-and-dips,Warm bread & dips,Sides,,1113,15.4,86.8,77.9,20.4,,,4.2,,,,,,,,vegetarian,false,false,,,On: Sides menu
+truffle-fries,Truffle fries,Fries,,1020,13.4,81.7,69.9,9.1,,,2.4,,,,,,,,,false,false,,,On: Sides menu
+loaded-tandoori-fries,Loaded tandoori fries,Fries,,1142,32.5,119.8,57.9,,,,12.7,,,,,,,,,false,false,,,On: Sides menu
+waffle-fries,Waffle fries,Fries,,840,5.6,63.1,61.6,5.1,,,10.1,,,,,,,,vegetarian,false,false,,,On: Sides menu
+margarita,Margarita,Sharing pizza paddles,,1343,59.1,168.7,46.9,,,,,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+meat-feast,Meat Feast,Sharing pizza paddles,,1794,90.7,192.6,72.4,,,,27.8,,,,,,,,contains_pork|contains_beef,false,false,,,On: Sharing Pizza Paddles menu
+pepperoni,Pepperoni,Sharing pizza paddles,,1261,59.4,150.1,46.0,21.5,,,9.0,,,,,,,,contains_pork,false,false,,,On: Sharing Pizza Paddles menu
+carbonara,Carbonara,Sharing pizza paddles,,1673,84.8,174.7,69.5,37.8,,,6.6,,,,,,,,contains_pork,false,false,,,On: Sharing Pizza Paddles menu
+three-piggies,Three piggies,Sharing pizza paddles,,1521,82.3,190.1,47.0,,,,25.8,,,,,,,,contains_pork,false,false,,,On: Sharing Pizza Paddles menu
+veggie-feast,Veggie feast,Sharing pizza paddles,,1477,58.0,182.0,56.1,,,,16.9,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+tandoori-chicken,Tandoori chicken,Sharing pizza paddles,,1434,80.4,201.7,32.5,,,,,,,,,,,,,false,false,,,On: Sharing Pizza Paddles menu
+gf-margarita,GF Margarita,Gluten-free pizza paddles,,1229,36.4,136.4,57.2,,,,,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+gf-meat-feast,GF Meat Feast,Gluten-free pizza paddles,,1680,67.9,160.3,82.7,,,,30.8,,,,,,,,contains_pork|contains_beef,false,false,,,On: Sharing Pizza Paddles menu
+gf-pepperoni,GF Pepperoni,Gluten-free pizza paddles,,1333,45.4,140.0,63.1,26.7,,,13.3,,,,,,,,contains_pork,false,false,,,On: Sharing Pizza Paddles menu
+gf-veggie-feast,GF Veggie feast,Gluten-free pizza paddles,,1362,35.3,149.7,66.4,,,,19.9,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+pizza-dip-chimmi-churri,Pizza Dip - Chimmi Churri,Pizza dips,,245,0.4,1.1,26.4,,,,0.6,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+pizza-dip-garlic-mayo,Pizza Dip - Garlic Mayo,Pizza dips,,166,1.5,1.9,16.9,1.8,,,0.7,,,,,,,,,false,false,,,On: Sharing Pizza Paddles menu
+pizza-dip-hot-sauce,Pizza Dip - Hot Sauce,Pizza dips,,69,1.0,1.9,6.6,4.2,,,0.2,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+pizza-dip-jalapeno-creama,Pizza Dip - Jalapeno Creama,Pizza dips,,80,1.0,6.6,5.4,3.3,,,5.6,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+pizza-dip-pesto,Pizza Dip - Pesto,Pizza dips,,266,1.2,1.0,28.5,3.7,,,0.2,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+pizza-dip-red-pepper,Pizza Dip - Red Pepper,Pizza dips,,113,0.8,4.8,9.9,1.0,,,3.8,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+pizza-dip-truffle-mayo,Pizza Dip - Truffle Mayo,Pizza dips,,189,0.2,4.8,18.7,1.4,,,1.1,,,,,,,,vegetarian,false,false,,,On: Sharing Pizza Paddles menu
+12-warm-doughnuts,12 Warm doughnuts,Desserts,,851,12.6,127.2,31.8,13.9,,,69.5,,,,,,,,vegetarian,false,false,,,On: Sweet Treats menu
+celebration-cake,Celebration Cake,Desserts,,2555,14.4,324.6,135.0,67.8,,,250.8,,,,,,,,vegetarian,false,false,,,On: Sweet Treats menu
+rocky-road-brownies,Rocky road brownies,Desserts,,493,5.2,61.7,27.7,16.3,,,49.1,,,,,,,,vegetarian,false,false,,,On: Sweet Treats menu
+sweet-tooth-brioche,Sweet tooth brioche,Desserts,,378,6.8,42.2,20.0,11.2,,,19.0,,,,,,,,vegetarian,false,false,,,On: Sweet Treats menu
+vegan-breakfast-roll,Vegan Breakfast Roll,Breakfast,,375,14.2,40.9,16.8,3.1,,,7.7,,,,,,,,vegetarian,false,true,,,On: Breakfast menu
+extra-egg,Extra egg,Breakfast extras,,66,6.5,0.0,4.5,1.5,,,0.0,,,,,,,,vegetarian,false,false,,,On: Breakfast menu
+extra-hash-brown,Extra hash brown,Breakfast extras,,78,1.2,9.5,3.6,1.5,,,0.8,,,,,,,,vegetarian,false,false,,,On: Breakfast menu
+extra-sausage,Extra sausage,Breakfast extras,,115,6.3,6.8,6.8,2.9,,,0.9,,,,,,,,contains_pork,false,false,,,On: Breakfast menu
+extra-bacon,Extra bacon,Breakfast extras,,180,16.0,0.5,13.0,5.0,,,0.0,,,,,,,,contains_pork,false,false,,,On: Breakfast menu
+full-scottish-breakfast,Full Scottish Breakfast,Scottish breakfast,,1297,46.7,105.2,75.0,35.5,,,10.4,,,,,,,,contains_pork,false,true,,,"On: Breakfast menu; the page prints 0.0 g salt; the Full Scottish Roll (same bacon, sausage and black pudding) prints 0.8 g"
+square-sausage-roll,Square Sausage Roll,Scottish breakfast,,664,16.1,78.0,30.8,13.1,,,14.7,,,,,,,,contains_pork,false,true,,,On: Breakfast menu
+square-sausage-and-egg-roll,Square Sausage and Egg Roll,Scottish breakfast,,730,22.6,78.0,35.3,14.6,,,14.7,,,,,,,,contains_pork,false,true,,,On: Breakfast menu
+full-scottish-roll,Full Scottish Roll,Scottish breakfast,,1039,42.7,87.6,56.4,23.6,,,15.4,,,,,,,,contains_pork,false,true,,,On: Breakfast menu
+extra-black-pudding,Extra black pudding,Scottish breakfast extras,,129,4.1,9.1,8.1,4.1,,,0.7,,,,,,,,,false,false,,,On: Breakfast menu
+extra-square-sausage,Extra square sausage,Scottish breakfast extras,,217,7.2,9.4,16.8,7.1,,,0.4,,,,,,,,contains_pork,false,false,,,On: Breakfast menu
+inchs-cider,Inch's Cider,Drinks: Draught beer & cider,,225,0.0,23.0,0.0,0.0,,,22.0,,,,,,,,vegetarian,false,false,,,On: Drinks menu
+belu-still-water,Belu Still Water,Drinks: Soft & hot drinks,,0,0.0,0.0,0.0,0.0,,,0.0,,,,,,,,,false,false,,,On: Drinks menu
+belu-sparkling-water,Belu Sparkling Water,Drinks: Soft & hot drinks,,0,0.0,0.0,0.0,0.0,,,0.0,,,,,,,,,false,false,,,On: Drinks menu
+english-breakfast-tea,English Breakfast Tea,Drinks: Soft & hot drinks,,0,0.0,0.0,0.0,0.0,,,0.0,,,,,,,,vegetarian,false,false,,,On: Drinks menu
+earl-grey-tea,Earl Grey Tea,Drinks: Soft & hot drinks,,0,0.0,0.0,0.0,0.0,,,0.0,,,,,,,,vegetarian,false,false,,,On: Drinks menu

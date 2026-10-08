@@ -1,0 +1,122 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+baked-rosemary-focaccia-arbequina-oil,"Baked rosemary focaccia, arbequina oil",Little kick start,,488,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Baked rosemary focaccia, arbequina oil; section: little kick start"
+frickles-and-harissa-mayo,Frickles & harissa mayo,Little kick start,,283,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - frickles & harissa mayo; section: little kick start
+gordal-olives,Gordal olives,Little kick start,,105,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Gordal olives; section: little kick start
+ngci-seared-scallops-cauliflower-puree-pickled-cauliflower,"NGCI Seared scallops, cauliflower puree, pickled cauliflower",Starters,,251,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - NGCI - Seared scallops, cauliflower puree, pickled cauliflower; section: Starters"
+ngci-cured-salmon-winter-slaw-capers-creme-fraiche,"NGCI cured salmon, winter slaw, capers, creme fraiche",Starters,,380,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - NGCI - cured salmon, winter slaw, capers, creme fraiche; section: Starters"
+ngci-argentinian-konro-roasted-prawns-chilli-and-lime-butter,"NGCI Argentinian Konro roasted prawns, chilli & lime butter",Starters,,715,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - NGCI - Argentinian Konro roasted prawns, chilli & lime butter; section: Starters"
+beetroot-carpaccio-vegan-stracciatella-pine-nut-and-cranberry-dressing,"Beetroot carpaccio, vegan stracciatella, pine nut & cranberry dressing",Starters,,386,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Beetroot carpaccio, vegan stracciatella, pine nut & cranberry dressing; section: Starters"
+buffalo-chicken-padron-peppers-blue-cheese-ranch-dressing,"Buffalo chicken, padron peppers, blue cheese, ranch dressing",Starters,,444,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Buffalo chicken, padron peppers, blue cheese, ranch dressing; section: Starters"
+citrus-cured-salmon-winter-slaw-capers-creme-fraiche-rye-bread,"Citrus cured salmon, winter slaw, capers, creme fraiche, rye bread",Starters,,588,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - citrus cured salmon, winter slaw, capers, creme fraiche, rye bread; section: Starters"
+argentinian-konro-roasted-prawns-chilli-and-lime-butter,"Argentinian Konro roasted prawns, chilli & lime butter",Starters,,825,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH Argentinian Konro roasted prawns, chilli & lime butter; section: Starters"
+roasted-butternut-squash-soup-chilli-cream-crispy-sage,"Roasted butternut squash soup, chilli cream, crispy sage",Starters,,276,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - roasted butternut squash soup, chilli cream, crispy sage; section: Starters"
+seared-scallops-cauliflower-puree-blaggis,"Seared scallops, cauliflower puree, blaggis",Starters,,420,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Seared scallops, cauliflower puree, blaggis; section: Starters"
+winter-panzanella-salad-taleggio-cheese-sourdough-croutons,"Winter panzanella salad, taleggio cheese, sourdough croutons",Starters,,429,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Winter panzanella salad, taleggio cheese, sourdough croutons; section: Starters"
+chez-mal-burger-gruyere-ayrshire-bacon-fries-relish,"Chez mal Burger, gruyere, Ayrshire bacon, fries, relish",Burgers,,1469,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"page name: MAL DISH - Chez mal Burger, gruyere, Ayrshire bacon, fries, relish; section: Burgers"
+the-stack,The stack,Burgers,,2128,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH the stack; section: Burgers
+falafel-and-spinach-burger-vgi,Falafel & spinach burger (VGI),Burgers,,865,,,,,,,,,,,,,,,vegetarian,false,false,,,page name: MAL DISH - Falafel & spinach burger (VGI); section: Burgers
+ncgi-burger-gruyere-ayrshire-bacon-fries-relish,"NCGI Burger, gruyere, Ayrshire bacon, fries, relish",Burgers,,1470,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"page name: MAL DISH - NCGI Burger, gruyere, Ayrshire bacon, fries, relish; section: Burgers"
+chicken-protein-bowl-sliced-avocado-roasted-pumpkin-pickled-red-onion-toasted-seeds,"Chicken protein bowl - sliced avocado, roasted pumpkin, pickled red onion, toasted seeds",Protein salads,,858,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH chicken protein bowl - sliced avocado, roasted pumpkin, pickled red onion, toasted seeds; section: protein salads"
+halloumi-protein-bowl-sliced-avocado-roasted-pumpkin-pickled-red-onion-toasted-seeds,"Halloumi protein bowl - sliced avocado, roasted pumpkin, pickled red onion, toasted seeds",Protein salads,,916,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH halloumi protein bowl - sliced avocado, roasted pumpkin, pickled red onion, toasted seeds; section: protein salads"
+salmon-protein-bowl-sliced-avocado-roasted-pumpkin-pickled-red-onion-toasted-seeds,"Salmon protein bowl - sliced avocado, roasted pumpkin, pickled red onion, toasted seeds",Protein salads,,813,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH salmon protein bowl - sliced avocado, roasted pumpkin, pickled red onion, toasted seeds; section: protein salads"
+flat-iron-steak-2-fried-eggs-sliced-avocado-watercress-olive-oil,"Flat iron steak, 2 fried eggs, sliced avocado, watercress, olive oil",Protein salads,,581,,,,,,,,,,,,,,,contains_beef,false,false,,,"page name: MAL DISH - Protein salads - flat iron steak, 2 fried eggs, sliced avocado, watercress, olive oil; section: protein salads; name shortened (cut off by the page)"
+ngci-chicken-breast-masala-pilaf-rice,"NGCI chicken breast masala, pilaf rice",Mains,,1048,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - NGCI -chicken breast masala, pilaf rice; section: mains grill"
+ngci-mixed-mushroom-masala-pilaf-rice,"NGCI mixed mushroom masala, pilaf rice",Mains,,695,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - NGCI - mixed mushroom masala, pilaf rice; section: mains grill"
+chicken-breast-masala-pilaf-rice,"Chicken breast masala, pilaf rice",Mains,,1233,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH chicken breast masala, pilaf rice; section: mains grill"
+pork-tomahawk-forestiere-sherry-jus,"Pork tomahawk forestiere, sherry jus",Mains,,772,,,,,,,,,,,,,,,contains_pork,false,false,,,"page name: MAL DISH - Pork tomahawk forestiere, sherry jus; section: mains grill"
+roast-chicken-breast-cream-of-haricot-blanc-gribiche,"Roast chicken breast, cream of haricot blanc, gribiche",Mains,,1366,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Roast chicken breast, cream of haricot blanc, gribiche; section: mains grill"
+venison-stew-buttermilk-herb-dumplings,"Venison stew, buttermilk herb dumplings",Mains,,688,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Venison stew, buttermilk herb dumplings; section: mains grill"
+black-truffle-potato-gnocchi-cauliflower-puree-oyster-mushrooms,"Black truffle potato gnocchi, cauliflower puree, oyster mushrooms",Mains,,406,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH Black truffle potato gnocchi, cauliflower puree, oyster mushrooms; section: mains grill"
+mixed-mushroom-masala-pilaf-rice,"Mixed mushroom masala, pilaf rice",Mains,,880,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH mixed mushroom masala, pilaf rice; section: mains grill"
+roasted-halibut-crispy-sprouts-cider-beurre-blanc,"Roasted Halibut, crispy sprouts, cider beurre blanc",Mains,,464,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Roasted Halibut, crispy sprouts, cider beurre blanc; section: mains grill"
+smoked-haddock-fish-cake,Smoked haddock fish cake,Mains,,656,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH smoked haddock fish cake; section: mains grill
+strip-steak-250g,Strip Steak 250g,Grass-fed steak,,914,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL DISH - Strip Steak 250g; section: Steak grass fed
+chateaubriand-fries-peppercorn-and-cowboy-butter,"Chateaubriand, fries, peppercorn & cowboy butter",Grass-fed steak,,1599,,,,,,,,,,,,,,,contains_beef,false,false,,,"page name: MAL DISH - Chateaubriand, fries, peppercorn & cowboy butter; section: Steak grass fed"
+fillet-steak-ff,Fillet steak ff,Grass-fed steak,,355,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL DISH fillet steak ff; section: Steak grass fed
+flat-iron-steak-frites-ff,Flat iron steak frites ff,Grass-fed steak,,960,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL DISH flat iron steak frites ff; section: Steak grass fed
+josper-450g-ribeye-steak,Josper 450g ribeye steak,Bone-in steak,,1193,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL JOSPER - 450g ribeye steak; section: Bone in steak
+josper-tbone-450g-steak,Josper Tbone 450g steak,Bone-in steak,,1005,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL JOSPER - Tbone 450g steak; section: Bone in steak
+josper-1kg-tbone-steak,Josper 1kg Tbone steak,More meat,,2160,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL JOSPER - 1kg Tbone steak; section: More meat
+josper-900g-ny-strip-steak,Josper 900g NY strip steak,More meat,,2483,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL JOSPER - 900g NY strip steak; section: More meat
+bearnaise,Bearnaise,Sauces,,185,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Bearnaise; section: sauces
+cowboy-butter,Cowboy butter,Sauces,,278,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Cowboy butter; section: sauces
+peppercorn,Peppercorn,Sauces,,291,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Peppercorn; section: sauces
+argentinian-red-prawn-x-1,Argentinian red prawn x 1,Josper add-ons,,37,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Argentinian red prawn x 1; section: Josper add ons
+roasted-bone-marrow,Roasted bone marrow,Josper add-ons,,226,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL DISH - Roasted bone marrow; section: Josper add ons
+two-fried-eggs,Two fried eggs,Josper add-ons,,79,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH Two fried eggs; section: Josper add ons
+buttered-greens,Buttered greens,Sides,,95,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Buttered greens; section: sides
+mixed-leaf-salad,Mixed leaf salad,Sides,,192,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - mixed leaf salad; section: sides
+onion-rings,Onion Rings,Sides,,330,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Onion Rings; section: sides
+french-onion-mac-and-cheese,French onion mac & cheese,Sides,,679,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - French onion mac & cheese; section: sides
+fries,Fries,Sides,,489,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Fries; section: sides
+garlic-flat-cap-mushrooms,Garlic Flat cap mushrooms,Sides,,179,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Garlic Flat cap mushrooms; section: sides
+truffle-mash,Truffle Mash,Sides,,436,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - truffle Mash; section: sides
+truffle-and-parmesan-fries,Truffle & Parmesan Fries,Sides,,626,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH -Truffle & Parmesan Fries; section: sides
+ncgi-cheese-plate-westcombe-valencay-blue-murder-quince,"NCGI Cheese plate, westcombe, Valencay, Blue murder quince",Desserts,,310,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - NCGI Cheese plate, westcombe, Valencay, Blue murder quince; section: desserts"
+cheese-plate-westcombe-cheddar-valencay-blue-murder-quince-chutney-crackers,"Cheese plate, westcombe cheddar, valencay, Blue murder quince, chutney, crackers",Desserts,,366,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Cheese plate, westcombe cheddar, valencay, Blue murder quince, chutney, crackers; section: desserts"
+mal-hot-chocolate,Mal hot chocolate,Desserts,,939,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH Mal hot chocolate; section: desserts
+classic-creme-brulee,Classic creme brulee,Desserts,,759,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Classic creme brulee; section: desserts
+pear-and-almond-tart-vanilla-ice-cream,"Pear & almond tart, Vanilla ice cream",Desserts,,856,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Pear & almond tart, Vanilla ice cream; section: desserts"
+ice-cream-1-scoop,Ice Cream 1 scoop,Desserts,,66,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Ice Cream 1 scoop; section: desserts
+ice-cream-2-scoop,Ice Cream 2 Scoop,Desserts,,133,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Ice Cream 2 Scoop; section: desserts
+ice-cream-3-scoop,Ice Cream 3 Scoop,Desserts,,199,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Ice Cream 3 Scoop; section: desserts
+ice-cream-and-sorbet-vegan,Ice cream and sorbet vegan,Desserts,,127,,,,,,,,,,,,,,,vegetarian,false,false,,,page name: MAL DISH - Ice cream and sorbet vegan; section: desserts
+spiced-plum-crumble-vanilla-custard,"Spiced plum crumble, vanilla custard",Desserts,,420,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - spiced plum crumble, vanilla custard; section: desserts"
+sticky-toffee-pudding-milk-ice-cream,"Sticky toffee pudding, milk ice cream",Desserts,,818,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Sticky toffee pudding, milk ice cream; section: desserts"
+pepperoni-pizza,Pepperoni pizza,Room service & night bites,,780,,,,,,,,,,,,,,,contains_pork,false,false,,,page name: MAL DISH - pepperoni pizza; section: Room Service + Night bites
+margherita-pizza,Margherita pizza,Room service & night bites,,0,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - margherita pizza; section: Room Service + Night bites
+chicken-makhani-curry-and-pilau-rice,Chicken makhani curry & pilau rice,Room service & night bites,,215,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - CHICKEN MAKHANI CURRY & PILAU RICE; section: Room Service + Night bites
+chilli-con-carne-garlic-bread,"Chilli con carne, garlic bread",Room service & night bites,,651,,,,,,,,,,,,,,,contains_beef,false,false,,,"page name: MAL DISH - CHILLI CON CARNE, garlic bread; section: Room Service + Night bites"
+mushroom-risotto,Mushroom risotto,Room service & night bites,,490,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - MUSHROOM RISOTTO; section: Room Service + Night bites
+chicken-cheddar-and-pesto-toastie,"Chicken, cheddar & pesto toastie",Room service & night bites,,573,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - CHICKEN, CHEDDAR & PESTO TOASTIE; section: Room Service + Night bites"
+feta-and-provencal-vegetable-toastie,Feta & provencal vegetable toastie,Room service & night bites,,487,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - FETA & PROVENCAL VEGETABLE TOASTIE; section: Room Service + Night bites
+ham-and-westcombe-cheese-toastie,Ham & westcombe cheese toastie,Room service & night bites,,565,,,,,,,,,,,,,,,contains_pork,false,false,,,page name: MAL DISH - HAM & WESTCOMBE CHEESE TOASTIE; section: Room Service + Night bites
+chilli-con-carne-basmati-rice-garlic-bread,"Chilli con carne, basmati rice, garlic bread",Room service & night bites,,651,,,,,,,,,,,,,,,contains_beef,false,false,,,"page name: MAL DISH - chilli con carne, basmati rice, garlic bread; section: Nights room service"
+mug-of-soup-roasted-butternut-squash-soup-chilli-cream-crispy-sage,"Mug of soup roasted butternut squash soup, chilli cream, crispy sage",Bar menu,,276,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - mug of soup roasted butternut squash soup, chilli cream, crispy sage; section: bar"
+mug-of-soup-curried-parsnip,Mug of soup Curried Parsnip,Bar menu,,198,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - mug of soup Curried Parsnip; section: bar
+mug-of-soup-carrot,Mug of soup carrot,Bar menu,,218,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - mug of soup carrot; section: bar
+bacon-muffins,Bacon Muffins,Bar menu,,594,,,,,,,,,,,,,,,contains_pork,false,false,,,page name: MAL DISH - bacon Muffins; section: bar
+brunch-pastries,Brunch pastries,Bar menu,,577,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Brunch pastries; section: bar
+egg-muffins,Egg Muffins,Bar menu,,0,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - egg Muffins; section: bar
+falafel-wrap-tomato-hummus-cucumber-sesame-seeds,"Falafel wrap, tomato hummus, cucumber, sesame seeds",Bar menu,,508,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - falafel wrap, tomato hummus, cucumber, sesame seeds; section: bar"
+fillet-o-fish-burger-me,Fillet o fish burger ME,Bar menu,,549,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - fillet o fish burger ME; section: bar
+sausage-muffins,Sausage Muffins,Bar menu,,643,,,,,,,,,,,,,,,contains_pork,false,false,,,page name: MAL DISH - sausage Muffins; section: bar
+sourdough-blt-baguette,Sourdough BLT Baguette,Bar menu,,656,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - Sourdough BLT Baguette; section: bar
+sourdough-club-baguette-coleslaw-and-veg-crisps,"Sourdough Club Baguette, coleslaw and veg crisps",Bar menu,,824,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH - Sourdough Club Baguette, coleslaw and veg crisps; section: bar"
+sourdough-brisket-pastrami-toastie-relish-swiss-cheese,"Sourdough, brisket pastrami toastie, relish, swiss cheese",Bar menu,,719,,,,,,,,,,,,,,,contains_beef,false,false,,,"page name: MAL DISH - Sourdough, brisket pastrami toastie, relish, swiss cheese; section: bar"
+sunday-roast-beef-thyme-rosemary-yorkie,"Sunday roast beef, thyme rosemary yorkie",Sunday roasts,,1462,,,,,,,,,,,,,,,contains_beef,false,false,,,"page name: MAL DISH - Sunday roast beef, thyme rosemary yorkie aw..; section: Roasts; name shortened (cut off by the page)"
+sunday-roast-pork-tomahawk-thyme-rosemary-yorkie,"Sunday roast pork tomahawk, thyme rosemary yorkie",Sunday roasts,,1369,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"page name: MAL DISH - Sunday roast pork tomahawk, thyme rosemary yorkie aw..; section: Roasts; name shortened (cut off by the page)"
+sunday-roast-chicken-breast-hampshire-pork-stuffing-thyme-rosemary-yorkie,"Sunday roast chicken breast, Hampshire pork stuffing, thyme rosemary yorkie",Sunday roasts,,1690,,,,,,,,,,,,,,,contains_pork,false,false,,,"page name: MAL DISH - Sunday roast chicken breast , Hampshire pork stuffing, thyme rosemary yorkie aw..; section: Roasts; name shortened (cut off by the page)"
+salmon-charred-lemon-watercress-salad,"Salmon, charred lemon, watercress salad",Sunday roasts,,1194,,,,,,,,,,,,,,,,false,false,,,"page name: MAL DISH salmon, charred lemon, watercress salad..; section: Roasts; name shortened (cut off by the page)"
+ngci-sunday-roast-beef,NGCI Sunday roast beef,Sunday roasts,,979,,,,,,,,,,,,,,,contains_beef,false,false,,,page name: MAL DISH - NGCI Sunday roast beef aw..; section: Roasts; name shortened (cut off by the page)
+ngci-sunday-roast-chicken-breast,NGCI Sunday roast chicken breast,Sunday roasts,,988,,,,,,,,,,,,,,,,false,false,,,page name: MAL DISH - NGCI Sunday roast chicken breast am..; section: Roasts; name shortened (cut off by the page)
+cappuccino-cows-milk,Cappuccino (Cow's milk),Hot drinks,,61,,,,,,,,,,,,,,,,false,false,,,page name: MAL Cappuccino (Cow's milk); section: Hot Beverages
+americano-black,Americano (Black),Hot drinks,,0,,,,,,,,,,,,,,,,false,false,,,page name: MAL Americano (Black); section: Hot Beverages
+latte-cows-milk,Latte (Cow's milk),Hot drinks,,73,,,,,,,,,,,,,,,,false,false,,,page name: MAL Latte (Cow's milk); section: Hot Beverages
+mocha-cows-milk,Mocha (Cow's milk),Hot drinks,,129,,,,,,,,,,,,,,,,false,false,,,page name: MAL Mocha (Cow's milk); section: Hot Beverages
+macchiato-cows-milk,Macchiato (Cow's milk),Hot drinks,,12,,,,,,,,,,,,,,,,false,false,,,page name: MAL Macchiato (Cow's milk); section: Hot Beverages
+hot-chocolate-cows-milk,Hot Chocolate (Cow's milk),Hot drinks,,91,,,,,,,,,,,,,,,,false,false,,,page name: MAL Hot Chocolate (Cow's milk); section: Hot Beverages
+espresso,Espresso,Hot drinks,,0,,,,,,,,,,,,,,,,false,false,,,page name: MAL Espresso; section: Hot Beverages
+flat-white-cows-milk,Flat White (Cow's milk),Hot drinks,,36,,,,,,,,,,,,,,,,false,false,,,page name: MAL Flat White (Cow's milk); section: Hot Beverages
+breakfast-tea-cows-milk,Breakfast Tea (Cow's milk),Hot drinks,,36,,,,,,,,,,,,,,,,false,false,,,page name: MAL Breakfast Tea (Cow's milk); section: Hot Beverages
+breakfast-tea-soya-milk,Breakfast Tea (Soya milk),Hot drinks,,32,,,,,,,,,,,,,,,,false,false,,,page name: MAL Breakfast Tea (Soya milk); section: Hot Beverages
+breakfast-tea-oats-milk,Breakfast Tea (Oats milk),Hot drinks,,34,,,,,,,,,,,,,,,,false,false,,,page name: MAL Breakfast Tea (Oats milk); section: Hot Beverages
+breakfast-tea-almond-milk,Breakfast Tea (Almond milk),Hot drinks,,10,,,,,,,,,,,,,,,,false,false,,,page name: MAL Breakfast Tea (Almond milk); section: Hot Beverages
+cappuccino-oats-milk,Cappuccino (Oats milk),Hot drinks,,35,,,,,,,,,,,,,,,,false,false,,,page name: MAL Cappuccino (Oats milk); section: Hot Beverages
+cappuccino-almond-milk,Cappuccino (Almond milk),Hot drinks,,10,,,,,,,,,,,,,,,,false,false,,,page name: MAL Cappuccino (Almond milk); section: Hot Beverages
+cappuccino-soya-milk,Cappuccino (Soya milk),Hot drinks,,32,,,,,,,,,,,,,,,,false,false,,,page name: MAL Cappuccino (Soya milk); section: Hot Beverages
+flat-white-almond-milk,Flat White (Almond milk),Hot drinks,,10,,,,,,,,,,,,,,,,false,false,,,page name: MAL Flat White (Almond milk); section: Hot Beverages
+flat-white-oats-milk,Flat White (Oats milk),Hot drinks,,35,,,,,,,,,,,,,,,,false,false,,,page name: MAL Flat White (Oats milk); section: Hot Beverages
+flat-white-soya-milk,Flat White (Soya milk),Hot drinks,,32,,,,,,,,,,,,,,,,false,false,,,page name: MAL Flat White (Soya milk); section: Hot Beverages
+hot-chocolate-almond-milk,Hot Chocolate (Almond milk),Hot drinks,,64,,,,,,,,,,,,,,,,false,false,,,page name: MAL Hot Chocolate (Almond milk); section: Hot Beverages
+hot-chocolate-soya-milk,Hot Chocolate (Soya milk),Hot drinks,,87,,,,,,,,,,,,,,,,false,false,,,page name: MAL Hot Chocolate (Soya milk); section: Hot Beverages
+hot-chocolate-oats-milk,Hot Chocolate (Oats milk),Hot drinks,,89,,,,,,,,,,,,,,,,false,false,,,page name: MAL Hot Chocolate (Oats milk); section: Hot Beverages
+latte-almond-milk,Latte (Almond milk),Hot drinks,,10,,,,,,,,,,,,,,,,false,false,,,page name: MAL Latte (Almond milk); section: Hot Beverages
+latte-soya-milk,Latte (Soya milk),Hot drinks,,32,,,,,,,,,,,,,,,,false,false,,,page name: MAL Latte (Soya milk); section: Hot Beverages
+latte-oats-milk,Latte (Oats milk),Hot drinks,,35,,,,,,,,,,,,,,,,false,false,,,page name: MAL Latte (Oats milk); section: Hot Beverages
+macchiato-almond-milk,Macchiato (Almond milk),Hot drinks,,10,,,,,,,,,,,,,,,,false,false,,,page name: MAL Macchiato (Almond milk); section: Hot Beverages
+macchiato-soya-milk,Macchiato (Soya milk),Hot drinks,,32,,,,,,,,,,,,,,,,false,false,,,page name: MAL Macchiato (Soya milk); section: Hot Beverages
+macchiato-oats-milk,Macchiato (Oats milk),Hot drinks,,34,,,,,,,,,,,,,,,,false,false,,,page name: MAL Macchiato (Oats milk); section: Hot Beverages
+mocha-almond-milk,Mocha (Almond milk),Hot drinks,,57,,,,,,,,,,,,,,,,false,false,,,page name: MAL Mocha (Almond milk); section: Hot Beverages
+mocha-soya-milk,Mocha (Soya milk),Hot drinks,,135,,,,,,,,,,,,,,,,false,false,,,page name: MAL Mocha (Soya milk); section: Hot Beverages
+mocha-oats-milk,Mocha (Oats milk),Hot drinks,,82,,,,,,,,,,,,,,,,false,false,,,page name: MAL Mocha (Oats milk); section: Hot Beverages
