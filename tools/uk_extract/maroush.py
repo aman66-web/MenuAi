@@ -85,7 +85,8 @@ EXPECTED = {
 }
 EXPECTED_WITH_KCAL = 92
 JUICE_NAMES = {"Fresh Orange": "Fresh Orange Juice", "Mango": "Mango Juice", "Fruit Cocktail": "Fruit Cocktail Juice"}
-SET_MENUS = {"Sharing Set Menu for 2": "Total for 2", "Sharing Set Menu for 4": "Total for 4"}  # "(Total for 2)" on the chain's page
+SET_MENUS = {"Sharing Vegan Set Menu for 2": "Total for 2", "Sharing Set Menu for 2": "Total for 2",
+             "Sharing Set Menu for 4": "Total for 4"}  # "(Total for 2)" / "(Total for 4)" on the chain's page, vegan set included
 SIZE = re.compile(r"(\d+)g$")
 MEAT_NAMED = re.compile(r"\b(chicken|lamb|fish|sea bass|shawarma|vegetable)\b", re.I)  # words that already say which animal (or none)
 

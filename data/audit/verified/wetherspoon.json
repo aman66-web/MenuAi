@@ -1,0 +1,13 @@
+{
+ "chain": "wetherspoon",
+ "date": "2026-10-08",
+ "source_read": "https://allergens.jdwetherspoon.com/?pubId=7952 and ?pubId=2930 (guide page fetched fresh 2026-10-08 in headless Chromium, its data feed v184 read directly; rendered guide page read for 53 dishes at pub 2930)",
+ "compared_items": 392,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 17,
+ "not_verifiable": "",
+ "notes": "All 392 published dishes match a fresh read of the guide feed (8 nutrients, 14 allergen marks, vegetarian mark, no invented fields) and 53 sampled/flagged dishes match the guide's rendered per-dish page; 17 flags (13 medium, 4 low) judged innocent from the guide's own ingredient text. Open for the founder: 144 of 394 dishes carry 'MAY CONTAIN' lines in the guide's ingredient text that we do not publish (the table has no may-contain), and about 59 dishes name a sulphite in capitals in ingredients while the table says No (the chain note says so)."
+}
