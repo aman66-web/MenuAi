@@ -12,14 +12,14 @@ grilled-minute-steak-baguette,gluten|milk|mustard|nuts|peanuts|sulphites,eggs|se
 charcuterie-platter,gluten|milk|nuts|peanuts|sulphites,eggs|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 vegetarian-platter,gluten|milk|nuts|peanuts|soya|sulphites,eggs|sesame,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 twice-baked-cheese-souffle,eggs|gluten|milk|soya,,barley|oats|rye|wheat,
-french-onion-soup,gluten|milk|nuts|peanuts|sulphites,celery|eggs|mustard|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+french-onion-soup,gluten|milk|nuts|peanuts|sulphites,celery|eggs|mustard|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 prawn-and-crayfish-cocktail,crustaceans|eggs|fish|gluten|nuts|peanuts|sulphites,milk|mustard|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 chicken-liver-parfait,eggs|gluten|milk|mustard|nuts|peanuts|sesame|soya|sulphites,,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 deep-fried-goats-cheese-and-black-olive-parcel,eggs|gluten|milk|mustard|sulphites,soya,barley|oats|rye|wheat,
-wild-mushroom-tartine-poached-egg,eggs|gluten|nuts|soya|sulphites,sesame,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
-wild-mushroom-tartine-without-egg,gluten|nuts|soya|sulphites,eggs|sesame,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+wild-mushroom-tartine-poached-egg,eggs|gluten|nuts|soya|sulphites,sesame,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+wild-mushroom-tartine-without-egg,gluten|nuts|soya|sulphites,eggs|sesame,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 beetroot-terrine,celery|lupin|soya|sulphites,mustard,,
-potted-devon-crab,crustaceans|gluten|milk|mustard|nuts|sulphites,celery|eggs|sesame|soya,rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
+potted-devon-crab,crustaceans|gluten|milk|mustard|nuts|sulphites,celery|eggs|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 muscat-pumpkin-and-kirsch-soup,nuts|sulphites,gluten|sesame|soya,,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 celeriac-remoulade,celery|eggs|mustard|sulphites,,,
 pan-fried-gnocchi,gluten|milk,mustard|soya,wheat,
@@ -31,7 +31,7 @@ grass-fed-8oz-rump,milk|sulphites,celery|mustard,,
 celeriac-artichoke-and-chestnut-mushroom-wellington,celery|gluten|nuts|peanuts|soya|sulphites,mustard|sesame,barley|oats|rye|wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 venison-and-ale-pie,celery|eggs|gluten|milk|soya|sulphites,,barley|wheat,
 provencale-crusted-devon-scallops,gluten|milk|molluscs,,wheat,
-free-range-beef-burger-sesame-brioche-bun,eggs|gluten|milk|mustard|nuts|sesame|soya,,wheat,walnut
+free-range-beef-burger-sesame-brioche-bun,eggs|gluten|milk|mustard|nuts|sesame|soya,,,walnut
 free-range-beef-burger-gluten-free-bun,eggs|mustard,,,
 grilled-cod-lemon-butter-and-caper-sauce,fish|gluten|milk|nuts|peanuts|sulphites,eggs|sesame|soya,wheat,almond|brazil nut|cashew|hazelnut|macadamia|pecan|pistachio|walnut
 moules-mariniere,milk|molluscs|sulphites,crustaceans,,
@@ -91,14 +91,14 @@ balsamic-with-fig-leaf-oil-salad-dressing,sulphites,,,
 crunchy-pickles-burger-add-on,mustard,,,
 veggie-dippers-and-houmous,celery|lupin|sesame|sulphites,,,
 breadsticks-and-houmous,gluten|milk|sesame|soya|sulphites,,barley|wheat,
-veggie-bolognese,celery|gluten|lupin|milk|sulphites,soya,wheat,
+veggie-bolognese,celery|gluten|lupin|milk|sulphites,soya,,
 grill-chalkstream-trout,celery|fish|lupin,,,
 sausage-and-mash,milk|sulphites,,,
 chicken-roulade,eggs|gluten|milk|soya,mustard,barley|oats|rye|wheat,
-beef-burger,eggs|gluten|milk|nuts|sesame|soya,mustard,wheat,walnut
+beef-burger,eggs|gluten|milk|nuts|sesame|soya,mustard,,walnut
 watermelon-and-pineapple-fruit-salad,,,,
 judes-fruit-twist,nuts,eggs|milk,,
-strawberry-knickerbocker-glory,eggs|gluten|milk|nuts|soya,sulphites,wheat,almond
+strawberry-knickerbocker-glory,eggs|gluten|milk|nuts|soya,sulphites,,almond
 judes-chocolate-milk,milk,gluten,,
 cawston-press-juices-apple-and-pear,,,,
 cawston-press-juices-apple-and-summer-berries,,,,

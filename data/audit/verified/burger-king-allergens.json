@@ -1,0 +1,10 @@
+{
+ "chain": "burger-king",
+ "date": "2026-10-08",
+ "source_read": "https://www.burgerking.co.uk/allergy-info (JavaScript app; its robots.txt does not disallow the page) redirects the browser to https://cdn.sanity.io/files/czqk28jt/staging_bk_gb/075d7152e5f4b71a666cba32288083c39ed0681a.pdf",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "held_back": 0,
+ "decision": "NOT PUBLISHED: blocked by robots.txt; link-only stays. No allergens.csv was written and no data changed.",
+ "notes": "cdn.sanity.io/robots.txt (read 2026-10-08, RFC 9309 matching via tools/uk_extract/robots_rfc.py) disallows '/*.pdf' and allows only '/files/cgnmnbqj/', so the allergen PDF (project czqk28jt) is not allowed to a script and was neither saved nor read. While looking for the file, the headless browser followed the page's own automatic redirect and loaded that PDF once into a tab before the host's robots.txt had been read; nothing was saved, parsed or used. The only other per-product allergen source is the ordering app's private GraphQL API (euc1-prod-bk.rbictg.com, answers 'Missing Authentication Token'), which is not a published document and was not used. To publish allergens the founder can open https://www.burgerking.co.uk/allergy-info in their own browser, save the PDF and send it; the script can then read it from disk and apply the all-or-nothing rule (the nutrition table is the national Kit 6 of 18 June 2026, so the allergen file's item names and sizes must match it exactly, otherwise items are held back)."
+}

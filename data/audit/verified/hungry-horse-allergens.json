@@ -1,0 +1,11 @@
+{
+ "chain": "hungry-horse",
+ "date": "2026-10-08",
+ "source_read": "https://www.hungryhorse.co.uk/allergens (page + its app bundle), https://www.hungryhorse.co.uk/pubs/bedfordshire/chequers/menu (pub page: its 'allergensLink'), https://www.hungryhorse.co.uk/robots.txt, https://www.smartchef.co.uk/robots.txt, the menu feed JSON already cached for the 41 pubs (86 files), and the four 'Non Gluten' menu PDFs linked from /allergens (all read 2026-10-08)",
+ "compared_items": 0,
+ "allergen_mismatches": 0,
+ "published_allergens": false,
+ "held_back": 0,
+ "not_verifiable": "Hungry Horse's per-dish allergen data is only on Smart Chef: every pub page's 'View allergen info' link goes to https://www.smartchef.co.uk/brands/HungryHorse?siteid=<pub id> (for example siteid=7674, The Chequers). https://www.smartchef.co.uk/robots.txt is 'User-agent: * / Disallow: /' (checked with tools/uk_extract/robots_rfc.py: not allowed), so nothing was fetched from it. The chain's own menu feed (/api/menus/getmenudetails/...) carries no allergen field (product keys: id, name, description, productType, image, dietaryOptions, keywords, portions; keywords are 6 numeric tag ids, 197 vegetarian, 198 vegan, the rest cover a handful of dishes). The four 'Non Gluten' PDFs (Breakfast, Breakfast Refill, Kids, Main) are one-page gluten-free menus: they list only dishes made without gluten-containing ingredients (and a '(N) contains nuts' symbol on the main menu), so they cannot give the 14 allergens for every published dish, and they themselves send readers to the Smart Chef page ('scan here to view our allergen information').",
+ "notes": "STOPPED, link-only stays (nothing in data/source/hungry-horse was changed). For the founder: opening https://www.smartchef.co.uk/brands/HungryHorse?siteid=7674 (The Chequers, the reference pub with every menu) in a normal browser and saving each menu's allergen view (or a screenshot/PDF print) would let a later run read it; Hungry Horse prints a different menu per pub, so a single pub's matrix would have to be checked against all 221 published dishes (the published set is the union of 41 pubs) and any dish that pub does not serve would be held back. Printed disclaimer on the chain's PDFs: 'We do not include may contain information.'"
+}
