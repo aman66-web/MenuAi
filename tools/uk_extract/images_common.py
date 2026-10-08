@@ -86,7 +86,14 @@ def _robots_allow(url: str) -> bool:
             # An Amazon S3 bucket answers 403 AccessDenied for a robots.txt it simply doesn't have (the bucket is the site's own public
             # image store; the site's own robots.txt is what states its rules). Treated as "no rules" for S3 bucket hosts only.
             s3_missing_file = e.code == 403 and re.search(r"\.s3[.-][a-z0-9-]*\.?amazonaws\.com$", host.netloc) is not None
-            _robots[key] = [] if s3_missing_file else [("disallow", "/")] if e.code in (401, 403, 429) or e.code >= 500 else []
+            # Likewise a CDN (CloudFront / object store) that answers 403 with a "MissingKey" or "NoSuchKey" error is saying the robots.txt
+            # object does not exist, not that we are refused: no rules (the site's own robots.txt still applies to its pages).
+            try:
+                body = e.read(2000) if e.code == 403 else b""
+            except Exception:
+                body = b""
+            cdn_missing_file = e.code == 403 and (b"<Code>MissingKey</Code>" in body or b"<Code>NoSuchKey</Code>" in body)
+            _robots[key] = [] if (s3_missing_file or cdn_missing_file) else [("disallow", "/")] if e.code in (401, 403, 429) or e.code >= 500 else []
         except Exception:
             _robots[key] = []
     return robots_rfc.allowed(_robots[key], host.path + ("?" + host.query if host.query else ""))
