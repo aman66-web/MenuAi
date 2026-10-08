@@ -18,6 +18,12 @@ So the rule is: a dish is published only if every place the page prints it agree
   * the same dish name printed on two menus with different figures is published once per menu, each named after its menu, so a
     person can pick the one that matches the menu they are ordering from (tenkites_b.unique_names).
 
+Nutrition level "mixed" (docs/DATA.md, founder 2026-10-08: "include drinks, desserts, side dishes, everything"): a dish that prints a
+calorie figure but not protein, carbs and fat is published as calories-only (protein/carbs/fat blank, never 0, never rankable). A dish
+that prints some but not all three of protein/carbs/fat is published as calories-only too (the pipeline wants all three or none); the
+figure(s) it did print are quoted in its note, not dropped silently. A dish that prints no calories is still left out (see "rows without
+calories" in the output): on these pages that is every alcoholic drink (the page prints an empty nutrition table for them).
+
 Some dishes are printed as a "core" plus choices: "Crispy Chicken (Excluding Bread Option, see below)" with Flatbread or Wrap, each
 with its own numbers. The core is published as the chain prints it (its name keeps the "Excluding" wording, and it is never suggested
 as a meal on its own) and each choice is its own item under "Options & add-ons", so a person can add them up; nothing is summed here.
@@ -108,7 +114,7 @@ ALLERGEN_WORDS = {"sulphur dioxide/ sulphites": ("sulphites", None)}  # as print
 
 NOTE = ("Not every pub serves every menu or dish; Scottish pubs have their own breakfast and brunch dishes (not included). A dish with "
         "different figures on two menus appears once per menu, named after it. Values are per dish as served; dishes marked "
-        "'Excluding ...' leave out the part named (see Options & add-ons). Most alcoholic drinks have no published figures.")
+        "'Excluding ...' leave out the part named (see Options & add-ons). Alcoholic drinks print no figures, so none is listed (the 0% versions are).")
 assert len(NOTE) < 400
 
 EXPECTED_ROWS = 595  # dish records on the eight published menus (main 151, lunch 53, vegan 49, no-gluten 53, kids 17, breakfast 27, bottomless 76, drinks 169)
@@ -141,6 +147,29 @@ def read_menu_fixed(path):
 
 
 tk.read_menu = read_menu_fixed  # tenkites_b.collect_rows reads the pages through this name
+
+
+MACROS = ("protein_g", "carbs_g", "fat_g")
+MACRO_WORDS = {"protein_g": "protein", "carbs_g": "carbohydrate", "fat_g": "fat"}
+PARTIAL: dict[str, dict[str, str]] = {}  # dish name -> {column: value as printed} for macros the page printed without all three
+
+_printed_values = tk.printed_values
+
+
+def printed_values_mixed(rec):
+    """tenkites_b.printed_values, then: protein, carbs and fat all or none (docs/DATA.md, mixed chains). If the page prints only some
+    of the three, they are blanked here and remembered in PARTIAL so the dish's note can quote them."""
+    vals = _printed_values(rec)
+    given = [k for k in MACROS if vals.get(k, "") != ""]
+    if vals.get("calories", "") != "" and 0 < len(given) < 3:
+        PARTIAL[rec["name"]] = {k: vals[k] for k in given}
+        for k in given:
+            vals[k] = ""
+    return vals
+
+
+tk.printed_values = printed_values_mixed  # tenkites_b.collect_rows reads the values through this name
+tk.has_required = lambda vals: vals.get("calories", "") != ""  # calories are the only number a mixed chain requires
 
 
 def is_option(rec: dict) -> bool:
@@ -251,6 +280,12 @@ def main() -> int:
         print(f"The pages hold {total} rows but this script was written for {EXPECTED_ROWS}: re-check the menu list "
               "and the mappings against the pages, then update EXPECTED_ROWS.", file=sys.stderr)
         return 1
+    for r in rows:  # printed protein/carbs/fat that could not be kept because the page prints only some of the three
+        if r["name"] in PARTIAL:
+            said = " and ".join(f"{MACRO_WORDS[k]} {v} g" for k, v in PARTIAL[r["name"]].items())
+            lacking = " and ".join(MACRO_WORDS[k] for k in MACROS if k not in PARTIAL[r["name"]])
+            r["note"] = (f"The page prints {said} for this item but not {lacking}, so protein, carbs and fat are shown as not "
+                         "published")
     for r in rows:  # two toppings with the same name in different sections (jalapeños on pizza and on burgers) are told apart by section
         r["prefer_where"] = r["category"] in ("Options & add-ons", "Pizza extras", "Burger extras")
     tk.unique_names(rows, rank, short, long)
@@ -281,7 +316,7 @@ def main() -> int:
         source_url=BASE_URL, checked_on=args.checked_on,
         aliases=["social pub and kitchen", "social pub & kitchen", "the social pub and kitchen", "social pub kitchen"],
         items=items, out=args.out, holdback=[(slug(tk.fold(n)), why) for n, why in HOLDBACK.items()],
-        note=NOTE,
+        note=NOTE, nutrition_level="mixed",
         allergen_guide={"title": ALLERGEN_TITLE, "url": BASE_URL, "checked_on": args.checked_on, "may_contain_published": True},
     )
     for label in guids:
@@ -289,11 +324,14 @@ def main() -> int:
     by_menu: dict[str, int] = {}
     for label, _, _ in excluded:
         by_menu[label] = by_menu.get(label, 0) + 1
-    print("rows without calories/protein/carbs/fat, by menu:", by_menu)
+    print("rows without a calorie figure (left out), by menu:", by_menu)
+    calories_only = [i["name"] for i in items if i["protein_g"] == "" and i["carbs_g"] == "" and i["fat_g"] == ""]
+    print(f"calories-only items now published ({len(calories_only)}):", calories_only)
+    print("macros printed but dropped because the page prints only some of the three:", PARTIAL)
     print("rows skipped:", [(s[0], s[1], s[2]) for s in skipped])
     print("\n".join(scot_report))
     print("\n".join(tk.ALLERGEN_NOTES))
-    print(f"wrote {len(items)} items to {folder}; {len(excluded)} rows without the four required numbers; "
+    print(f"wrote {len(items)} items to {folder}; {len(excluded)} rows without a calorie figure; "
           f"{len(skipped)} skipped; {total - len(excluded) - len(skipped) - len(items)} duplicate rows dropped")
     return 0
 
