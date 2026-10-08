@@ -248,6 +248,30 @@ class PriceFileTests(unittest.TestCase):
         self.assertEqual(problems, [])
         self.assertNotIn("member", prices["5012345678900"])
 
+    def test_the_shops_own_photo_is_kept_only_from_its_own_https_image_host(self):
+        skipped: dict = {}
+        ok = "https://digitalcontent.api.tesco.com/v2/media/ghs/a/b.jpeg?h=225&w=225"
+        self.assertEqual(bg.clean_image_url("tesco", ok, skipped), ok)
+        self.assertIsNone(bg.clean_image_url("tesco", "http://digitalcontent.api.tesco.com/x.jpg", skipped))
+        self.assertIsNone(bg.clean_image_url("tesco", "https://evil.example.com/x.jpg", skipped))
+        self.assertIsNone(bg.clean_image_url("sainsburys", ok, skipped))          # another shop's host is not accepted for this shop
+        self.assertIsNone(bg.clean_image_url("asda", "https://ui.assets-asda.com/x.jpg", skipped))  # no host listed yet: counted, not shown
+        self.assertEqual(skipped.get("evil.example.com"), 1)
+        self.assertEqual(skipped.get("ui.assets-asda.com"), 1)
+        self.assertIsNone(bg.clean_image_url("tesco", 'https://digitalcontent.api.tesco.com/x.jpg" onerror="x', skipped))
+
+    def test_barcodes_match_with_or_without_leading_zeros(self):
+        self.assertEqual(bg.norm_code("05063250552526"), bg.norm_code("5063250552526"))
+
+    def test_apply_retailer_images_sets_and_clears_the_photo(self):
+        url = "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg"
+        products = [{"gtin": "5012345678900"}, {"gtin": "5099999999990", "retailerImage": "https://old"}]
+        details = {"5012345678900": {"image_url": url}}
+        n = bg.apply_retailer_images("sainsburys", products, details, {})
+        self.assertEqual(n, 1)
+        self.assertEqual(products[0]["retailerImage"], url)
+        self.assertNotIn("retailerImage", products[1])
+
 
 if __name__ == "__main__":
     unittest.main()

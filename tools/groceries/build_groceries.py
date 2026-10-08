@@ -269,6 +269,83 @@ def read_details(retailer: str, problems: list) -> dict:
     return out
 
 
+# The shop's own product photo (founder's decision 2026-10-08: "use the official images from Sainsbury's, Tesco etc from their website").
+# Hotlinked from the shop's own image host, never copied or altered; shown with "Photo from the {shop} website". Only hosts listed here are
+# accepted (a host is added after looking at where that shop's product pages load their photos from); anything else is counted in the report.
+IMAGE_HOSTS = {
+    "tesco": ("digitalcontent.api.tesco.com",),
+    "sainsburys": ("assets.sainsburys-groceries.co.uk",),
+}
+
+
+def norm_code(code: str) -> str:
+    """A barcode with leading zeros removed, so EAN-13 5063250552526 and its GTIN-14 form 05063250552526 are the same product."""
+    return (code or "").strip().lstrip("0")
+
+
+def clean_image_url(rid: str, url: str, skipped: dict):
+    """The URL as the shop's page printed it if it is https, plain and on one of the shop's own image hosts; else None."""
+    url = (url or "").strip()
+    if not url:
+        return None
+    if not url.startswith("https://") or len(url) > 400 or re.search(r"[\s\"'<>]", url):
+        skipped["malformed"] = skipped.get("malformed", 0) + 1
+        return None
+    host = url.split("/", 3)[2].lower()
+    if host not in IMAGE_HOSTS.get(rid, ()):
+        skipped[host] = skipped.get(host, 0) + 1
+        return None
+    return url
+
+
+def read_discovery_images(rid: str) -> dict:
+    """norm barcode -> image URL, from data/groceries/discovery/<rid>.csv (product_id, image_url) joined with <rid>-barcodes.csv (product_id, gtin)."""
+    base = ROOT / "data" / "groceries" / "discovery"
+    disc, codes = base / f"{rid}.csv", base / f"{rid}-barcodes.csv"
+    if not disc.exists() or not codes.exists():
+        return {}
+    with open(codes, newline="", encoding="utf-8-sig") as f:
+        by_id = {(r.get("product_id") or "").strip(): norm_code(r.get("gtin") or "") for r in csv.DictReader(f)}
+    out: dict = {}
+    with open(disc, newline="", encoding="utf-8-sig") as f:
+        for r in csv.DictReader(f):
+            code = by_id.get((r.get("product_id") or "").strip())
+            if code and (r.get("image_url") or "").strip():
+                out[code] = r["image_url"].strip()
+    return out
+
+
+def read_image_list(rid: str) -> dict:
+    """norm barcode -> image URL, from data/groceries/images/<rid>.csv (gtin, image_url, page_url, checked_on): one row per product the shop's own
+    page was opened for, written by the Chrome session of docs/NEXT_GROCERIES_IMAGES_PROMPT.md."""
+    path = ROOT / "data" / "groceries" / "images" / f"{rid}.csv"
+    out: dict = {}
+    if not path.exists():
+        return out
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        for r in csv.DictReader(f):
+            code = (r.get("gtin") or "").strip()
+            if gtin_ok(code) and (r.get("page_url") or "").strip().startswith("https://") and re.fullmatch(r"\d{4}-\d{2}-\d{2}", (r.get("checked_on") or "").strip()):
+                out[norm_code(code)] = (r.get("image_url") or "").strip()
+    return out
+
+
+def apply_retailer_images(rid: str, products: list, details: dict, skipped: dict) -> int:
+    """Set `retailerImage` on every product the shop's own pages gave a photo for (image list, then page details, then the discovery lists)."""
+    listed, found = read_image_list(rid), read_discovery_images(rid)
+    n = 0
+    for it in products:
+        code = norm_code(it["gtin"])
+        url = (clean_image_url(rid, listed.get(code, ""), skipped) or clean_image_url(rid, (details.get(it["gtin"]) or {}).get("image_url") or "", skipped)
+               or clean_image_url(rid, found.get(code, ""), skipped))
+        if url:
+            it["retailerImage"] = url
+            n += 1
+        else:
+            it.pop("retailerImage", None)
+    return n
+
+
 def apply_details(item: dict, d: dict, notes: dict) -> None:
     """Put one product's own-page details on it. The shop's numbers replace Open Food Facts' only when they are per 100 g/ml in the same
     unit as the listing and pass the same plausibility checks; they are never mixed with the community numbers."""
@@ -322,7 +399,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", type=Path, default=Path("/private/tmp/off-cache"))
     ap.add_argument("--out", type=Path, default=ROOT / "web" / "public" / "groceries")
+    ap.add_argument("--images-only", action="store_true", help="only (re)apply the shops' own photos to the files already in --out; needs no Open Food Facts cache")
     args = ap.parse_args()
+    if args.images_only:
+        return patch_images(args.out)
     today = date.today().isoformat()
     args.out.mkdir(parents=True, exist_ok=True)
     manifest = {"v": 1, "generatedOn": today, "source": "Open Food Facts contributors (ODbL); photos CC BY-SA", "retailers": [], "categories": [{"id": k, "label": v} for k, v in CATEGORY_LABELS.items()]}
@@ -330,6 +410,7 @@ def main() -> int:
     reasons_total: dict = {}
     problems: list = []
     detail_notes: dict = {}
+    image_skipped: dict = {}
     for rid, label in RETAILERS.items():
         pages = sorted(args.cache.glob(f"{rid}-*.json"))
         seen: dict = {}
@@ -352,6 +433,7 @@ def main() -> int:
             if it["gtin"] in details:
                 apply_details(it, details[it["gtin"]], notes)
         detail_notes[rid] = (sum(1 for it in products if "pageUrl" in it), notes)
+        apply_retailer_images(rid, products, details, image_skipped.setdefault(rid, {}))
         for k, v in reasons.items():
             reasons_total[(rid, k)] = v
         doc = {"v": 1, "retailer": rid, "name": label, "generatedOn": today, "source": manifest["source"], "products": products}
@@ -368,8 +450,42 @@ def main() -> int:
             if n:
                 extra = {"own": "use the shop's own numbers", "differs": "of those, kcal differs from Open Food Facts by over 20%", "basis": "numbers not per 100 g/ml in our unit (kept Open Food Facts')", "incomplete": "own numbers incomplete (kept Open Food Facts')", "implausible": "own numbers failed the checks (kept Open Food Facts')"}
                 report.append(f"- {RETAILERS[rid]}: {n} products with details; " + "; ".join(f"{notes[k]} {v}" for k, v in extra.items() if notes.get(k)))
+    report += photo_report(args.out, image_skipped)
     report += ["", "## Left out (and why)", ""] + [f"- {rid}: {why}: {n}" for (rid, why), n in sorted(reasons_total.items())] + (["", "## Problems with price files", ""] + [f"- {p}" for p in problems] if problems else [])
     (ROOT / "data" / "groceries" / "REPORT.md").write_text("\n".join(report) + "\n")
+    return 0
+
+
+def photo_report(out: Path, skipped: dict) -> list:
+    lines = ["", "## Photos from the supermarkets' own websites (hotlinked, never copied)", ""]
+    for rid, label in RETAILERS.items():
+        path = out / f"{rid}.json"
+        if not path.exists():
+            continue
+        products = json.loads(path.read_text()).get("products", [])
+        n = sum(1 for p in products if p.get("retailerImage"))
+        extra = skipped.get(rid) or {}
+        if n or extra:
+            lines.append(f"- {label}: {n} of {len(products)} products" + (f"; ignored (host not on the list in IMAGE_HOSTS): {extra}" if extra else ""))
+    return lines
+
+
+def patch_images(out: Path) -> int:
+    """Re-apply the shops' own photos to the files already built in `out` and refresh their hashes in the manifest."""
+    manifest_path = out / "groceries-manifest.json"
+    manifest = json.loads(manifest_path.read_text())
+    skipped: dict = {}
+    for entry in manifest["retailers"]:
+        rid = entry["id"]
+        path = out / entry["file"]
+        doc = json.loads(path.read_text())
+        details = read_details(rid, [])
+        n = apply_retailer_images(rid, doc["products"], details, skipped.setdefault(rid, {}))
+        text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
+        path.write_text(text)
+        entry["sha256"] = hashlib.sha256(text.encode()).hexdigest()
+        print(f"{rid}: {n} of {len(doc['products'])} products have the shop's own photo" + (f" (ignored hosts: {skipped[rid]})" if skipped[rid] else ""))
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
     return 0
 
 

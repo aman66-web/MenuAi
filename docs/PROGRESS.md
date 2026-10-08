@@ -272,6 +272,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   chains were discovered and triaged (`data/candidates/triage2/b-*.csv`); next extraction wave and the large per-site menus are listed in
   UK_DATA_STATUS.md. **Xcode preview shell** added (`ios/PreviewSources/`, `docs/XCODE_PREVIEW_SHELL.md`).
 
+- 2026-10-08 — **Grocery photos from the supermarkets' own websites (founder: "use the official images from Sainsbury's, Tesco etc from their
+  website").** Built: `retailerImage` on a product, shown first (hotlinked, `referrerPolicy=no-referrer`, caption "Photo from the {shop} website",
+  Open Food Facts photo as fallback); `tools/groceries/build_groceries.py --images-only` applies them to the published files without the
+  Open Food Facts cache; only photo URLs on a shop's own image host (`IMAGE_HOSTS`) are accepted. Done now from the Mac discovery lists: Tesco 298,
+  Sainsbury's 535 products. The rest needs the founder's own Chrome (the shops refuse the cloud environment): `docs/NEXT_GROCERIES_IMAGES_PROMPT.md`.
+  Only Tesco (4,501) and Sainsbury's (1,873) have products in the catalogue; the other nine shops show 0 until the Open Food Facts fetch is rerun.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

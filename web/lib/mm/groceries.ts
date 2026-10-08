@@ -50,6 +50,8 @@ export interface GroceryProduct {
   /** null = the database has no ingredients or allergen tags for this product: unknown, NOT "none". */
   allergens: { contains: AllergenKey[]; mayContain: AllergenKey[] } | null;
   image?: string;
+  /** The supermarket's own photo of the product, as its website serves it (hotlinked, never copied; docs/GROCERIES_PLAN.md). */
+  retailerImage?: string;
   category: string;
   /** The database's most specific category ("semi-skimmed-milks"): what "similar products" means for the price rating. */
   type?: string;
@@ -124,7 +126,7 @@ export function mergeProducts(files: readonly GroceryFile[]): ListedProduct[] {
 export function forRetailer(p: ListedProduct, retailer: string | null | undefined): ListedProduct {
   const own = retailer ? p.byRetailer[retailer] : undefined;
   if (!own) return p;
-  return { ...p, ...own, image: own.image ?? p.image, type: own.type ?? p.type, retailers: p.retailers, prices: p.prices, byRetailer: p.byRetailer };
+  return { ...p, ...own, image: own.image ?? p.image, retailerImage: own.retailerImage, type: own.type ?? p.type, retailers: p.retailers, prices: p.prices, byRetailer: p.byRetailer };
 }
 
 const IMAGE_HOST = "https://images.openfoodfacts.org/images/products/";
@@ -366,4 +368,11 @@ export function listAsText(list: readonly ShoppingItem[]): string {
   const groups = new Map<string, ShoppingItem[]>();
   for (const i of list) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
   return [...groups.entries()].map(([r, items]) => `${retailerName(r)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""} (${i.gtin})`).join("\n")}`).join("\n\n");
+}
+
+/** The photo to show for a product: the supermarket's own (from its website) when we have it, otherwise Open Food Facts'. */
+export function productPhoto(p: Pick<GroceryProduct, "retailerImage" | "image">, size: 100 | 200 | 400 | "full" = 200): { src: string; from: "retailer" | "off" } | undefined {
+  if (p.retailerImage && p.retailerImage.startsWith("https://")) return { src: p.retailerImage, from: "retailer" };
+  const off = imageUrl(p.image, size);
+  return off ? { src: off, from: "off" } : undefined;
 }

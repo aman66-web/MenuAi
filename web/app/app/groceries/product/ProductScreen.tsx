@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, imageUrl, mergeProducts, perLabel, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
+import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts, perLabel, priceRating, productPhoto, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import type { Allergens } from "@/lib/mm/types";
 import { addToList } from "@/lib/mm/groceries";
@@ -66,7 +66,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
   const selected = retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!;
   const p = forRetailer(listed, selected);
-  const photo = imageUrl(p.image, 400);
+  const photo = productPhoto(p, 400);
   const per = perLabel(p);
   const sizes = sizeVariants(state.all, listed);
   const rating = priceRating(state.all, listed, selected);
@@ -94,9 +94,11 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
       {back}
       {photo && (
         <figure className="glass mt-5 overflow-hidden rounded-3xl bg-white">
-          {/* eslint-disable-next-line @next/next/no-img-element -- a third-party product photo (Open Food Facts, CC BY-SA), decorative */}
-          <img src={photo} alt="" width={400} height={400} decoding="async" className="mx-auto h-auto max-h-80 w-full object-contain" />
-          <figcaption className="bg-background px-4 py-2 text-xs text-muted">Photo: Open Food Facts contributors (CC BY-SA)</figcaption>
+          {/* eslint-disable-next-line @next/next/no-img-element -- a third-party product photo (the supermarket's own, or Open Food Facts, CC BY-SA), decorative */}
+          <img src={photo.src} alt="" width={400} height={400} decoding="async" referrerPolicy="no-referrer" className="mx-auto h-auto max-h-80 w-full object-contain" />
+          <figcaption className="bg-background px-4 py-2 text-xs text-muted">
+            {photo.from === "retailer" ? `Photo from the ${retailerName(selected)} website` : "Photo: Open Food Facts contributors (CC BY-SA)"}
+          </figcaption>
         </figure>
       )}
 
