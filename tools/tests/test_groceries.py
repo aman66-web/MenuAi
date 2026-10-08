@@ -8,6 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools" / "groceries"))
 import build_groceries as bg  # noqa: E402
+import fetch_retailer_images as fri  # noqa: E402
+import select_stored_photos as ssp  # noqa: E402
 
 GOOD = {
     "code": "5012345678900", "product_name": "  Greek   Style Yogurt ", "brands": "Aldi, Mamia", "quantity": "500 g",
@@ -271,6 +273,74 @@ class PriceFileTests(unittest.TestCase):
         self.assertEqual(n, 1)
         self.assertEqual(products[0]["retailerImage"], url)
         self.assertNotIn("retailerImage", products[1])
+
+    def test_a_stored_photo_counts_only_with_a_real_file_https_page_and_date(self):
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d) / "photos"
+            folder.mkdir()
+            (folder / "0123456789ab.webp").write_bytes(b"x")
+            csv_path = Path(d) / "sainsburys.csv"
+            page = "https://www.sainsburys.co.uk/groceries/product/x"
+            csv_path.write_text(
+                "gtin,image_url,page_url,checked_on,file\n"
+                f"5012345678900,https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg,{page},2026-10-08,0123456789ab.webp\n"   # good
+                f"5012345678917,https://assets.sainsburys-groceries.co.uk/gol/2/image.jpg,{page},2026-10-08,\n"                      # hotlink address only: no stored copy
+                f"5012345678924,https://assets.sainsburys-groceries.co.uk/gol/3/image.jpg,{page},2026-10-08,ffffffffffff.webp\n"   # file missing
+                f"5012345678931,https://assets.sainsburys-groceries.co.uk/gol/4/image.jpg,http://insecure,2026-10-08,0123456789ab.webp\n"  # page not https
+                f"5012345678948,https://assets.sainsburys-groceries.co.uk/gol/5/image.jpg,{page},yesterday,0123456789ab.webp\n"    # bad date
+                f"5012345678955,https://assets.sainsburys-groceries.co.uk/gol/6/image.jpg,{page},2026-10-08,../../x.webp\n"        # not our file-name shape
+            )
+            problems: list = []
+            self.assertEqual(bg.read_photos("sainsburys", problems, folder=folder, path=csv_path), {"5012345678900": "0123456789ab.webp"})
+            self.assertEqual(len(problems), 4)
+            products = [{"gtin": "5012345678900"}, {"gtin": "5012345678917", "photo": "old.webp"}]
+            self.assertEqual(bg.apply_stored_photos("sainsburys", products, [], folder=folder, path=csv_path), 1)
+            self.assertEqual(products[0]["photo"], "0123456789ab.webp")
+            self.assertNotIn("photo", products[1])
+
+    def test_stored_copies_are_only_ever_kept_for_shops_that_allow_it(self):
+        self.assertEqual(fri.STORE, ("sainsburys",))   # Tesco's images are hotlinked only
+        self.assertNotIn("tesco", fri.STORE)
+        self.assertEqual(fri.download_url("sainsburys", "https://assets.sainsburys-groceries.co.uk/gol/6325944/image.jpg"), "https://assets.sainsburys-groceries.co.uk/gol/6325944/1/640x640.jpg")
+        self.assertEqual(fri.download_url("sainsburys", "https://assets.sainsburys-groceries.co.uk/gol/6325944/1/640x640.jpg"), "https://assets.sainsburys-groceries.co.uk/gol/6325944/1/640x640.jpg")
+        self.assertEqual(fri.ic.MAX_SIDE, 400)
+
+    def test_priced_products_come_first_then_the_most_protein_per_100_kcal_up_to_the_cap(self):
+        img = lambda n: f"https://assets.sainsburys-groceries.co.uk/gol/{n}/image.jpg"
+        prod = lambda g, kcal, protein, n, **x: {"gtin": g, "kcal": kcal, "protein": protein, "retailerImage": img(n), **x}
+        built = {
+            "sainsburys": [
+                prod("1000000000001", 100, 5, 1),                     # density 5
+                prod("1000000000002", 100, 20, 2),                    # density 20
+                prod("1000000000003", 400, 4, 3, price={"amount": 1}),  # density 1 but priced: first
+                prod("1000000000004", 100, 30, 4, retailerImage="https://evil.example.com/x.jpg"),  # not the shop's own host
+                prod("1000000000005", 100, 40, 5),                    # no shop page recorded
+            ],
+            "tesco": [prod("1000000000002", 100, 20, 2, retailerImage="https://digitalcontent.api.tesco.com/v2/media/ghs/a/b.jpeg")],
+        }
+        page = ("https://www.sainsburys.co.uk/groceries/product/x", "2026-10-08")
+        prov = {"sainsburys": {bg.norm_code(g): page for g in ("1000000000001", "1000000000002", "1000000000003", "1000000000004")}}
+        chosen, stats = ssp.choose(built, prov, 10)
+        self.assertEqual(list(chosen["sainsburys"]), ["1000000000003", "1000000000002", "1000000000001"])
+        self.assertEqual((stats["considered"], stats["no_page"], stats["priced"]), (4, 1, 1))
+        self.assertEqual(list(ssp.choose(built, prov, 2)[0]["sainsburys"]), ["1000000000003", "1000000000002"])
+        self.assertNotIn("tesco", chosen)
+
+    def test_pictures_left_out_after_looking_never_come_back(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "exclude.csv"
+            path.write_text("shop,gtin,reason\nsainsburys,00280815,wrong product\ntesco,05063250552526,sticker\n")
+            self.assertEqual(bg.read_excludes("sainsburys", path), {"280815"})
+            self.assertEqual(bg.read_excludes("tesco", path), {"5063250552526"})   # leading zeros do not matter
+            self.assertEqual(bg.read_excludes("asda", path), set())
+            self.assertEqual(bg.read_excludes("sainsburys", Path(d) / "missing.csv"), set())
+        # the committed list is read by the real build: a product on it shows neither the shop's picture address nor a stored copy
+        self.assertIn(bg.norm_code("00280815"), bg.read_excludes("sainsburys"))
+        products = [{"gtin": "00280815", "retailerImage": "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg", "photo": "0123456789ab.webp"}]
+        bg.apply_retailer_images("sainsburys", products, {"00280815": {"image_url": "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg"}}, {})
+        bg.apply_stored_photos("sainsburys", products, [])
+        self.assertNotIn("retailerImage", products[0])
+        self.assertNotIn("photo", products[0])
 
 
 if __name__ == "__main__":

@@ -23,7 +23,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 | Milestone | Status | Notes |
 |---|---|---|
-| M0 Project foundation | not started | |
+| M0 Project foundation | in progress | Xcode project + four-tab shell + AppConfig + icon + 2 tests created 2026-10-08, unit tests pass; still to do: PreviewContent dev assets, bundled menus, Xcode-only capability clicks (see decisions log) |
 | M1 Menu data layer | not started | |
 | M2 Settings, targets, onboarding | not started | |
 | M3 Home, nearby, search, favourites | not started | |
@@ -304,6 +304,44 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   with evidence in `data/audit/reviewed/<chain>.csv`; per-chain results in `data/audit/verified/<chain>.json`. `check_chain.py` now prints the audit
   and `bank.py` refuses to bank a chain with unreviewed high flags.
 
+- 2026-10-08 — **Supermarket prices (docs/NEXT_GROCERIES_PROMPT.md run) and shop photos (founder: "photos from the supermarkets actual sites ideally").**
+  Prices were collected in the founder's Chrome by agents, one tab each, one page at a time: only Tesco and Sainsbury's have products in the catalogue
+  (the other nine shops' wanted lists are empty), so those two were done. A product is priced only when brand, name, variety and pack size all match the shop's
+  own page exactly (otherwise skipped); the regular price is `price_gbp`, a single-item Clubcard/Nectar price goes in `member_*`, multi-buys are ignored;
+  rows are dated the day they were read (2026-10-07 or 2026-10-08). **Photos:** `data/groceries/images/<shop>.csv` + `web/public/grocery-images/<shop>/`
+  (tools/groceries/fetch_retailer_images.py, photo_sheet.py; builder adds `photo`, the app shows it first with "Photo from the {shop} website", Open Food Facts stays the
+  fallback). Sainsbury's photos are installed (its image host has no robots.txt and its terms have no clause against it). **Tesco photos are NOT downloaded:** its image
+  host answers 403 to robots.txt (the shared helper and the playbook treat that as a stop), and Tesco's terms prohibit "bots, crawlers, scrapers, or AI tools" taking data
+  from the site without written consent, which also covers the price collection (quoted in docs/IMAGE_TERMS.md; the founder's accepted risk from 2026-10-07 covers
+  prices, a Tesco photo decision is open). The product screen's card note reads "Sainsbury's's" (doubled possessive) in existing copy: not changed.
+  **Result of the run:** Tesco 165 products priced (of 199 wanted rows that carry a pack size; the other ~100 have no size or a generic name and stay unpriced), Sainsbury's 123 (of 208),
+  16 loyalty-card prices recorded (7 Clubcard, 9 Nectar); 123 Sainsbury's shop photos installed (2.7 MB, each set looked at on a contact sheet). Three shop pages are priced under two barcodes each (the community database
+  holds the same product twice). The other nine shops have no products in the catalogue yet, so nothing was priced there.
+
+- 2026-10-09 — **Photos: "Option D" (founder: "ok yeah do option D please").** A grocery product's picture now comes from the first place that has it:
+  (1) our own stored 400 px WebP copy of the supermarket's photo (`photo` on the product, `web/public/grocery-images/<shop>/`), (2) the shop's own picture
+  hotlinked (`retailerImage`, no referrer), (3) Open Food Facts' picture, (4) "no photo"; a picture that fails to load moves to the next place. Stored copies
+  are chosen by `tools/groceries/select_stored_photos.py` (priced products first, then the default "Most protein per 100 kcal" order, at most 3,000, about 17 KB
+  each, in the repo, no new service) and only for shops in `STORE`: **Sainsbury's only** (no robots.txt on its image host, no clause in its terms). **Tesco is never
+  stored** (403 on its robots.txt, terms ban bots/AI tools): its pictures stay hotlinks. Because a shop's picture address is only known for products whose page we
+  read (barcode joined to the shop's product id), the stored set is as big as that list: today 773 Sainsbury's products (123 priced + the rest by protein density, 11 MB), not
+  3,000; it grows when more shop pages are read. Every stored photo was looked at on a contact sheet; **11 pictures were left out after looking** and are listed in
+  `data/groceries/images/exclude.csv` (the builder and the selection script read it, so a rerun can't bring them back): 5 where Open Food Facts' name for the barcode
+  is a different product from the shop's page (e.g. "Whey Protein" = the shop's Cheese Sauce, "Coockies" = Cherry Tomatoes: **those 5 Open Food Facts records are wrong and the
+  app still shows their names and numbers**), and 6 whose photo carries a "New Recipe" or "Allergy update" sticker (our numbers/allergens could contradict the pack shown). Captions: "Photo from the {shop} website" (stored or hotlinked, naming the shop the picture is from) and
+  "Photo: Open Food Facts contributors (CC BY-SA)". The privacy page (copy added at the founder's request) now says a picture can be loaded from our own site, the
+  supermarket's website or Open Food Facts, and what each can see. The service worker caches `/grocery-images/` cache-first. Stored copies live on our server, not on the
+  visitor's phone (only the pictures a person opens are cached in their browser, capped at 150).
+
+- 2026-10-08 — **Xcode project created by Claude (founder: "You create it for me", overriding CLAUDE.md's "founder creates new targets" once).** `MenuMacros.xcodeproj` at the repo
+  root (targets MenuMacros, MenuMacrosTests, MenuMacrosUITests; synchronized folders; shared scheme MenuMacros), bundle ID `com.amanmarwaha.MenuMacros` (same prefix as the
+  founder's other apps), team S7G6ZHHK59 (CLARIFO DEVELOPERS LTD), automatic signing, iOS 17.0, iPhone only (also off for Mac/Vision-designed-for-iPhone), Swift 6 + strict
+  concurrency complete, MainActor default isolation on the app target only (test targets nonisolated), no Info.plist file (generated; display name "Menu Math"). It was generated
+  once with XcodeGen (installed on this Mac) from a spec kept outside the repo: edit the project in Xcode from now on, never regenerate. Source: `MenuMacros/App/` (MenuMacrosApp,
+  RootView with Home · Saved · Today · Settings placeholder tabs, AppConfig per SPEC §17 with the `com.amanmarwaha` IDs, AppEnvironment, PlaceholderScreen), asset catalogue
+  with our own icon (web/design/icon.svg drawn at 1024 px) and a green accent. `./scripts/test.sh --unit` passes. Still M0's: `PreviewContent` fixtures, bundled menus, then the
+  Xcode-only clicks (App Groups, HealthKit, In-App Purchase capabilities need the Apple account, not done).
+
 - 2026-10-09 — **Xcode preview shell running on the founder's iPhone** (docs/XCODE_PREVIEW_SHELL.md). `ios/MenuMacrosPreview/MenuMacrosPreview.xcodeproj` was
   created by Claude at the founder's request (overriding CLAUDE.md's "founder creates new targets" once; XcodeGen was used once as a generator and is not kept in
   the repo: edit the project in Xcode from now on, never regenerate). It holds the four files from `ios/PreviewSources/` plus our own icon, bundle
@@ -363,5 +401,6 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
 - [ ] Decide whether to promote the newest build to Production (it is only on Previews, behind Vercel login)
+- [ ] **Tesco photos and the Tesco terms:** its image host answers 403 to robots.txt and its terms prohibit AI tools / bots extracting data (quoted in docs/IMAGE_TERMS.md). Tell me whether to (a) keep prices only, (b) also install Tesco photos (a one-line allow for that host, your accepted risk), or (c) pause Tesco collection
 - [ ] **Food images, your decision per chain:** the photo feature is built and works (checked with real KFC, Subway and Nando's photos), but the terms of **every chain checked (11 of 11: KFC, Subway, Nando's, Pret, Greggs, Five Guys, Pizza Express, Prezzo, Wagamama, Pizza Hut, Starbucks) say images/content may not be copied or reused without written permission or a licence** (exact quotes: `docs/IMAGE_TERMS.md`). You told me you'd checked you may use them, so I built it, but I haven't installed any photos until you confirm for chains whose terms say this. Options: (1) tell me "install them" for all or named chains (your legal risk; I keep the sources + `images.csv`, and delete a chain's photos the day it asks); (2) email the chains for written permission (the prepared photo sets for Pizza Hut, Starbucks, KFC, Subway, Nando's, Pret, Greggs and Five Guys are kept ready and install in one step); (3) leave photos out for now (cuisine icons stay)
 - [ ] **Xcode preview shell:** follow docs/XCODE_PREVIEW_SHELL.md (Vercel Production Branch → create the Xcode project → ask Claude on the Mac to copy the files → Run on your iPhone)

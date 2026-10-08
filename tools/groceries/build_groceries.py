@@ -5,6 +5,7 @@
 
 Inputs
   * the cache written by tools/groceries/fetch_off.py (barcode, name, brand, size, per-100 g nutrition, allergens, photo): COMMUNITY data
+  * data/groceries/images/<retailer>.csv (optional): the shop's own photo of a product; rows with a `file` are stored copies (see read_photos), written by tools/groceries/select_stored_photos.py
   * data/groceries/prices/<retailer>.csv (optional): `gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on` (+ optional `member_price_gbp,member_scheme,member_offer_ends`: the loyalty-card price beside the regular one) from the retailer's own
     website (collected in the founder's own Chrome: docs/NEXT_GROCERIES_PROMPT.md). Never estimated; a product without a row has no price.
 
@@ -234,6 +235,34 @@ def read_prices(retailer: str, problems: list) -> dict:
     return prices
 
 
+PHOTO_FILE = re.compile(r"[0-9a-f]{12}\.webp")
+
+
+def read_photos(retailer: str, problems: list, folder: Path | None = None, path: Path | None = None) -> dict:
+    """Our stored copy of the shop's own photo: data/groceries/images/<retailer>.csv (`gtin,image_url,page_url,checked_on,file`), written by
+    tools/groceries/select_stored_photos.py. A row counts only when its file is really in web/public/grocery-images/<retailer>/, so a product
+    never points at a missing photo. Returns {gtin: file}; the app builds /grocery-images/<retailer>/<file> from it (docs/GROCERIES_PLAN.md)."""
+    path = path or ROOT / "data" / "groceries" / "images" / f"{retailer}.csv"
+    folder = folder or ROOT / "web" / "public" / "grocery-images" / retailer
+    photos: dict = {}
+    if not path.exists():
+        return photos
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        for line, r in enumerate(csv.DictReader(f), start=2):
+            code, fname = (r.get("gtin") or "").strip(), (r.get("file") or "").strip()
+            if not fname:
+                continue  # a hotlink address only (read_image_list), no stored copy
+            url, checked = (r.get("page_url") or "").strip(), (r.get("checked_on") or "").strip()
+            if not gtin_ok(code) or not PHOTO_FILE.fullmatch(fname) or not url.startswith("https://") or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", checked):
+                problems.append(f"images/{path.name} line {line}: bad photo row (gtin, file, https page_url and checked_on are required)")
+                continue
+            if not (folder / fname).is_file():
+                problems.append(f"images/{path.name} line {line}: photo file {fname} is missing from {folder.name}/")
+                continue
+            photos[code] = fname
+    return photos
+
+
 def printed_num(x):
     """A number as a shop's page prints it ("365kJ", "87 kcal", "0.5g", "1,982", "<0.1g") -> float; None when it isn't one. A "<" value counts as 0:
     the same rule as the restaurant pipeline (docs/DATA.md), so a trace is never turned into an invented figure."""
@@ -330,12 +359,28 @@ def read_image_list(rid: str) -> dict:
     return out
 
 
+def read_excludes(rid: str, path: Path | None = None) -> set:
+    """Barcodes (normalised) whose shop picture must not be shown, from data/groceries/images/exclude.csv (`shop,gtin,reason`): a picture that shows a different
+    product from the one named, or prints an "allergy update" / "new recipe" sticker that could contradict our own numbers. A rerun never brings them back."""
+    path = path or ROOT / "data" / "groceries" / "images" / "exclude.csv"
+    out: set = set()
+    if path.exists():
+        with open(path, newline="", encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                if (r.get("shop") or "").strip() == rid and (r.get("gtin") or "").strip():
+                    out.add(norm_code(r["gtin"]))
+    return out
+
+
 def apply_retailer_images(rid: str, products: list, details: dict, skipped: dict) -> int:
     """Set `retailerImage` on every product the shop's own pages gave a photo for (image list, then page details, then the discovery lists)."""
-    listed, found = read_image_list(rid), read_discovery_images(rid)
+    listed, found, excluded = read_image_list(rid), read_discovery_images(rid), read_excludes(rid)
     n = 0
     for it in products:
         code = norm_code(it["gtin"])
+        if code in excluded:
+            it.pop("retailerImage", None)
+            continue
         url = (clean_image_url(rid, listed.get(code, ""), skipped) or clean_image_url(rid, (details.get(it["gtin"]) or {}).get("image_url") or "", skipped)
                or clean_image_url(rid, found.get(code, ""), skipped))
         if url:
@@ -343,6 +388,21 @@ def apply_retailer_images(rid: str, products: list, details: dict, skipped: dict
             n += 1
         else:
             it.pop("retailerImage", None)
+    return n
+
+
+def apply_stored_photos(rid: str, products: list, problems: list, **where) -> int:
+    """Set `photo` (the file name of our stored copy of the shop's own photo) on every product that has one; remove it from the rest."""
+    photos = read_photos(rid, problems, **where)
+    excluded = read_excludes(rid)
+    n = 0
+    for it in products:
+        f = None if norm_code(it["gtin"]) in excluded else photos.get(it["gtin"])
+        if f:
+            it["photo"] = f
+            n += 1
+        else:
+            it.pop("photo", None)
     return n
 
 
@@ -434,6 +494,7 @@ def main() -> int:
                 apply_details(it, details[it["gtin"]], notes)
         detail_notes[rid] = (sum(1 for it in products if "pageUrl" in it), notes)
         apply_retailer_images(rid, products, details, image_skipped.setdefault(rid, {}))
+        apply_stored_photos(rid, products, problems)
         for k, v in reasons.items():
             reasons_total[(rid, k)] = v
         doc = {"v": 1, "retailer": rid, "name": label, "generatedOn": today, "source": manifest["source"], "products": products}
@@ -451,22 +512,23 @@ def main() -> int:
                 extra = {"own": "use the shop's own numbers", "differs": "of those, kcal differs from Open Food Facts by over 20%", "basis": "numbers not per 100 g/ml in our unit (kept Open Food Facts')", "incomplete": "own numbers incomplete (kept Open Food Facts')", "implausible": "own numbers failed the checks (kept Open Food Facts')"}
                 report.append(f"- {RETAILERS[rid]}: {n} products with details; " + "; ".join(f"{notes[k]} {v}" for k, v in extra.items() if notes.get(k)))
     report += photo_report(args.out, image_skipped)
-    report += ["", "## Left out (and why)", ""] + [f"- {rid}: {why}: {n}" for (rid, why), n in sorted(reasons_total.items())] + (["", "## Problems with price files", ""] + [f"- {p}" for p in problems] if problems else [])
+    report += ["", "## Left out (and why)", ""] + [f"- {rid}: {why}: {n}" for (rid, why), n in sorted(reasons_total.items())] + (["", "## Problems with price and photo files", ""] + [f"- {p}" for p in problems] if problems else [])
     (ROOT / "data" / "groceries" / "REPORT.md").write_text("\n".join(report) + "\n")
     return 0
 
 
 def photo_report(out: Path, skipped: dict) -> list:
-    lines = ["", "## Photos from the supermarkets' own websites (hotlinked, never copied)", ""]
+    lines = ["", "## Photos from the supermarkets' own websites (a stored copy where we hold one, else hotlinked)", ""]
     for rid, label in RETAILERS.items():
         path = out / f"{rid}.json"
         if not path.exists():
             continue
         products = json.loads(path.read_text()).get("products", [])
         n = sum(1 for p in products if p.get("retailerImage"))
+        stored = sum(1 for p in products if p.get("photo"))
         extra = skipped.get(rid) or {}
-        if n or extra:
-            lines.append(f"- {label}: {n} of {len(products)} products" + (f"; ignored (host not on the list in IMAGE_HOSTS): {extra}" if extra else ""))
+        if n or stored or extra:
+            lines.append(f"- {label}: {n} of {len(products)} products have the shop's photo address, {stored} also have a stored copy" + (f"; ignored (host not on the list in IMAGE_HOSTS): {extra}" if extra else ""))
     return lines
 
 
@@ -475,17 +537,21 @@ def patch_images(out: Path) -> int:
     manifest_path = out / "groceries-manifest.json"
     manifest = json.loads(manifest_path.read_text())
     skipped: dict = {}
+    problems: list = []
     for entry in manifest["retailers"]:
         rid = entry["id"]
         path = out / entry["file"]
         doc = json.loads(path.read_text())
         details = read_details(rid, [])
         n = apply_retailer_images(rid, doc["products"], details, skipped.setdefault(rid, {}))
+        stored = apply_stored_photos(rid, doc["products"], problems)
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
         path.write_text(text)
         entry["sha256"] = hashlib.sha256(text.encode()).hexdigest()
-        print(f"{rid}: {n} of {len(doc['products'])} products have the shop's own photo" + (f" (ignored hosts: {skipped[rid]})" if skipped[rid] else ""))
+        print(f"{rid}: {n} of {len(doc['products'])} products have the shop's own photo ({stored} of them stored on our site)" + (f" (ignored hosts: {skipped[rid]})" if skipped[rid] else ""))
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+    for p in problems:
+        print(f"problem: {p}")
     return 0
 
 

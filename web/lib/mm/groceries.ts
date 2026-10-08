@@ -50,8 +50,10 @@ export interface GroceryProduct {
   /** null = the database has no ingredients or allergen tags for this product: unknown, NOT "none". */
   allergens: { contains: AllergenKey[]; mayContain: AllergenKey[] } | null;
   image?: string;
-  /** The supermarket's own photo of the product, as its website serves it (hotlinked, never copied; docs/GROCERIES_PLAN.md). */
+  /** The supermarket's own photo of the product, as its website serves it (hotlinked; docs/GROCERIES_PLAN.md). */
   retailerImage?: string;
+  /** File name of our own stored 400 px copy of that photo, served at /grocery-images/<retailer>/<photo> (only for the products seen most; never Tesco's). */
+  photo?: string;
   category: string;
   /** The database's most specific category ("semi-skimmed-milks"): what "similar products" means for the price rating. */
   type?: string;
@@ -126,7 +128,7 @@ export function mergeProducts(files: readonly GroceryFile[]): ListedProduct[] {
 export function forRetailer(p: ListedProduct, retailer: string | null | undefined): ListedProduct {
   const own = retailer ? p.byRetailer[retailer] : undefined;
   if (!own) return p;
-  return { ...p, ...own, image: own.image ?? p.image, retailerImage: own.retailerImage, type: own.type ?? p.type, retailers: p.retailers, prices: p.prices, byRetailer: p.byRetailer };
+  return { ...p, ...own, image: own.image ?? p.image, retailerImage: own.retailerImage, photo: own.photo, type: own.type ?? p.type, retailers: p.retailers, prices: p.prices, byRetailer: p.byRetailer };
 }
 
 const IMAGE_HOST = "https://images.openfoodfacts.org/images/products/";
@@ -370,9 +372,37 @@ export function listAsText(list: readonly ShoppingItem[]): string {
   return [...groups.entries()].map(([r, items]) => `${retailerName(r)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""} (${i.gtin})`).join("\n")}`).join("\n\n");
 }
 
-/** The photo to show for a product: the supermarket's own (from its website) when we have it, otherwise Open Food Facts'. */
-export function productPhoto(p: Pick<GroceryProduct, "retailerImage" | "image">, size: 100 | 200 | 400 | "full" = 200): { src: string; from: "retailer" | "off" } | undefined {
-  if (p.retailerImage && p.retailerImage.startsWith("https://")) return { src: p.retailerImage, from: "retailer" };
-  const off = imageUrl(p.image, size);
-  return off ? { src: off, from: "off" } : undefined;
+/** One place a product's picture can come from. */
+export interface PhotoSource {
+  src: string;
+  /** "stored" = our own copy of the supermarket's photo; "retailer" = the supermarket's picture loaded from its website; "off" = Open Food Facts'. */
+  from: "stored" | "retailer" | "off";
+  /** The supermarket the picture is from (not set for Open Food Facts'). */
+  shop?: string;
+}
+
+type PhotoFields = Pick<GroceryProduct, "photo" | "retailerImage" | "image">;
+const STORED_NAME = /^[0-9a-f]{12}\.webp$/;
+
+/**
+ * Where to get a product's picture, best first (docs/GROCERIES_PLAN.md): our stored copy of a supermarket's own photo (we serve it, so nobody else sees the visit),
+ * then that supermarket's own picture loaded from its website, then Open Food Facts'. The screen tries them in order and moves on when one fails to load;
+ * when none is left it shows "no photo". `prefer` is the supermarket the person came from: its pictures come before the others'.
+ */
+export function photoSources(p: PhotoFields & { retailers?: readonly string[]; byRetailer?: Record<string, PhotoFields> }, prefer?: string | null, size: 100 | 200 | 400 | "full" = 200): PhotoSource[] {
+  const shops = p.retailers && p.byRetailer ? [...(prefer && p.retailers.includes(prefer) ? [prefer] : []), ...p.retailers.filter((r) => r !== prefer)] : [];
+  const records: Array<[string | undefined, PhotoFields]> = shops.length ? shops.map((r) => [r, p.byRetailer?.[r] ?? p]) : [[prefer ?? undefined, p]];
+  const out: PhotoSource[] = [];
+  const add = (s: PhotoSource) => { if (!out.some((o) => o.src === s.src)) out.push(s); };
+  for (const [shop, r] of records) if (shop && r.photo && STORED_NAME.test(r.photo)) add({ src: `/grocery-images/${shop}/${r.photo}`, from: "stored", shop });
+  for (const [shop, r] of records) if (r.retailerImage?.startsWith("https://")) add({ src: r.retailerImage, from: "retailer", ...(shop ? { shop } : {}) });
+  const own = prefer ? p.byRetailer?.[prefer] : undefined;
+  const off = imageUrl(own?.image ?? p.image, size);
+  if (off) add({ src: off, from: "off" });
+  return out;
+}
+
+/** The credit shown under a picture. */
+export function photoCaption(s: PhotoSource): string {
+  return s.from === "off" || !s.shop ? "Photo: Open Food Facts contributors (CC BY-SA)" : `Photo from the ${retailerName(s.shop)} website`;
 }

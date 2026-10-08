@@ -24,6 +24,7 @@ node share.mjs                                    # share card downloads as a 10
 node browse.mjs                                   # Home browse by type + A-Z jump, long-menu search/section chips, filter caution, recent searches
 node calories.mjs                                  # chains that publish calories only: badge, filter, "not published", no ordering tools (stubbed chain)
 node map.mjs                                      # Nearby: location, typed postcode/town, filters, list; checks the location never appears in a request
+node groceries-photos.mjs                          # grocery photos: stored copy -> shop's picture -> Open Food Facts -> "no photo", each credited correctly
 node offline.mjs                                  # stops and restarts the server: real offline (takes ~1.5 min)
 node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THEME=light, WIDTH=360, FULL=1, PRO=1)
 node brand.mjs                                    # re-render the app icon + social card from web/design/ (after a name change too)

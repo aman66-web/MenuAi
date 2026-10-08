@@ -58,7 +58,10 @@ export default function Privacy() {
       <h2>Groceries and barcodes</h2>
       <p>
         The web app&apos;s Groceries screen lists supermarket products using the open Open Food Facts database, which is community data and can be
-        wrong or out of date. Product photos are loaded from Open Food Facts&apos; image server, which can see your IP address and which photos your browser asks for.
+        wrong or out of date. A product&apos;s photo is shown from the first of these places that has it: a small copy we keep on our own site (your
+        browser then talks only to us); the supermarket&apos;s own website, which loads the picture straight from that shop&apos;s servers, so the shop can see your IP
+        address and which pictures your browser asks for (we ask your browser not to say which page you are on); or Open Food Facts&apos; image server, which can see the
+        same. If a picture fails to load we move to the next place, and show no picture if none loads.
         Your shopping list stays on your device. If you scan a barcode, the camera picture is read inside your browser and is never sent anywhere.
       </p>
 
@@ -108,7 +111,7 @@ export default function Privacy() {
         <li>Vercel hosts this website and the service that receives your messages.</li>
         <li>TelemetryDeck receives the iPhone app&apos;s anonymous usage statistics.</li>
         <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage for the iPhone app.</li>
-        <li>Open Food Facts serves the product photos on the Groceries screen.</li>
+        <li>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there) or by Open Food Facts.</li>
         <li>postcodes.io looks up the postcode or town you type on the web app&apos;s Nearby screen, and OpenFreeMap serves the map tiles there.</li>
       </ul>
       <p>We don&apos;t sell or share your data, show ads, or track you across other apps and websites.</p>
