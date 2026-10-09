@@ -66,9 +66,9 @@ WEB_MENU_URL = "https://brightside.co.uk/menu/"
 SOURCE_TITLE = "Brightside Allergen Matrix (nutrition and allergens) on Ten Kites: Food, Gluten Free, Vegan, Kids, Adds & Extras, Drinks and Kids Pizza Party (accessed {checked}, no date shown)"
 ALLERGEN_TITLE = "Brightside allergen matrix on the Ten Kites menu page linked from brightside.co.uk (accessed {checked}, no date shown)"
 SITES = "Honiton, Exeter, Saltash and Ram Jam"
-NOTE = ("Brightside prints calories only, so protein, carbs and fat are not published. Four roadside restaurants (Honiton, Exeter, Saltash, "
-        "Ram Jam, per brightside.co.uk). Dishes whose calories differ by over 5% from the chain's own website menu are left out. "
-        "Cocktails show no calories and are not listed.")
+NOTE = ("Calories only: protein, carbs and fat are not published. Four sites per brightside.co.uk/locations, checked {checked} "
+        "(Honiton, Exeter, Saltash, Ram Jam). Dishes whose calories differ by over 5% from the chain's own website menu are left out; "
+        "cocktails print no calories.")
 # menu name -> (saved file name, dishes the page must print)
 MENUS = {
     "FOOD": ("brightside_standard.html", 76),
@@ -363,7 +363,7 @@ def main() -> int:
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Brightside", cuisine="Roadside diner", source_title=SOURCE_TITLE.format(checked=args.checked_on),
         source_url=BASE, checked_on=args.checked_on, aliases=["brightside", "brightside roadside", "brightside roadside dining"],
-        items=items, out=args.out, note=NOTE, holdback=holdback, nutrition_level="calories",
+        items=items, out=args.out, note=NOTE.format(checked=args.checked_on), holdback=holdback, nutrition_level="calories",
         allergen_guide={"title": ALLERGEN_TITLE.format(checked=args.checked_on), "url": BASE, "checked_on": args.checked_on,
                         "may_contain_published": True})
     for menu, (fname, _) in MENUS.items():
