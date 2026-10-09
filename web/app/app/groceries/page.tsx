@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { BasketIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
 import { useGroceryCatalogue } from "../_lib/groceries";
+import { useShopManifest } from "../_lib/shopProducts";
 import { useStore } from "../_lib/hooks";
 import { ProductRow } from "./ProductRow";
 import { Scanner } from "./Scanner";
@@ -29,6 +30,7 @@ export default function GroceriesPage() {
   const [scanning, setScanning] = useState(false);
   const deferred = useDeferredValue(query);
   const catalogue = useGroceryCatalogue(retailer, retry);
+  const fullLists = useShopManifest();
 
   const results = useMemo(() => searchProducts(catalogue.products, { query: deferred, retailer: retailer, category, priced, sort }), [catalogue.products, deferred, retailer, category, priced, sort]);
   const categories = useMemo(() => {
@@ -67,6 +69,15 @@ export default function GroceriesPage() {
           <Chip key={r.id} selected={retailer === r.id} onClick={() => { setRetailer(r.id); reset(); }}>{r.name}</Chip>
         ))}
       </div>
+      {fullLists && fullLists.retailers.filter((r) => !retailer || r.id === retailer).length > 0 && (
+        <div className="mt-2 flex flex-wrap gap-2">
+          {fullLists.retailers.filter((r) => !retailer || r.id === retailer).map((r) => (
+            <Link key={r.id} href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className="inline-flex min-h-11 items-center rounded-full border border-line bg-soft px-4 text-sm font-semibold transition active:scale-[0.97] hover:bg-soft-strong">
+              Every {r.name} product <span className="app-numbers ml-1 text-muted">· {r.count.toLocaleString("en-GB")}</span>
+            </Link>
+          ))}
+        </div>
+      )}
       <div role="group" aria-label="Filters" className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
         {anyPrices && <Chip selected={priced} onClick={() => { setPriced((v) => !v); reset(); }}>Has a price</Chip>}
         <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>All types</Chip>

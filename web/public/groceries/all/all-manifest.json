@@ -1,0 +1,13 @@
+{
+ "v": 1,
+ "retailers": [
+  {
+   "id": "sainsburys",
+   "name": "Sainsbury's",
+   "file": "sainsburys.json",
+   "count": 17036,
+   "checkedOn": "2026-10-08",
+   "sha256": "234e1df994cfa82b18b1be3a25c49ebefe15cac898f03657897110c53693f606"
+  }
+ ]
+}

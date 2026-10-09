@@ -353,6 +353,19 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   founder to say). Terms caveat per shop (docs/IMAGE_TERMS.md and each `*_terms.txt`): Tesco bans bots/AI tools, M&S bans crawling and commercial use (hold, do not publish),
   Waitrose and Morrisons restrict reproducing/storing content; Sainsbury's, Asda, Aldi, Lidl have no relevant clause found. Nothing from these lists is published (they live in `data/`, not `web/public`).
 
+- 2026-10-09 — **"Every product" lists in the app (founder: "Yes" to a browse-every-product view).** New screens `/app/groceries/shop?r=<shop>` (a shop's full list: search by
+  words, type chips, "Has a card price", sort by name / price / price per kg or litre, 60 at a time) and `/app/groceries/shop/item?r=<shop>&id=<product>` (name, price, price
+  per kg/litre, card price, the shop's own picture with "Photo from the {shop} website", the shop's own page as a link), reached from a pill "Every Sainsbury's product · 17,036"
+  on the Groceries screen. Built by `tools/groceries/build_all_products.py` from `data/groceries/listing/<shop>.csv` into `web/public/groceries/all/<shop>.json` (2.5 MB, one compact
+  array per product, loaded only when that list is opened; the service worker caches it and the two shells). Nothing is estimated: a product with no price printed is not listed, a
+  card price counts only when lower and named, no unit price is invented, and the page says "We haven't read the nutrition for this product yet" unless the product's barcode is one the
+  Groceries list already has numbers for (3,755 of the 17,036 have a barcode from the discovery lists; those in the catalogue link to the full page). **Only Sainsbury's is published**
+  (`PUBLISH` in the script); the other crawls stay in `data/` until the founder has seen each shop's terms. New copy (rule 8: flagged, not in the spec): "Every {shop} product",
+  "{n} products with the name and price as {shop} lists them, checked {date}. Calories, protein and allergens appear only for products whose page we've read.", "Has a card price",
+  "We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shop}'s website.", "See the nutrition", "Open it on {shop}'s
+  website", "Not affiliated with {shop}." (a possessive helper avoids the doubled "Sainsbury's's" of the older screens, which are unchanged). Tests: 5 unit, 1 Python, `e2e/groceries-all.mjs`
+  (4 steps), axe 0 in light and dark on the real data. **Next:** read product pages for nutrition (Tier 2) in priority order so more products get numbers.
+
 - 2026-10-09 — **Xcode preview shell running on the founder's iPhone** (docs/XCODE_PREVIEW_SHELL.md). `ios/MenuMacrosPreview/MenuMacrosPreview.xcodeproj` was
   created by Claude at the founder's request (overriding CLAUDE.md's "founder creates new targets" once; XcodeGen was used once as a generator and is not kept in
   the repo: edit the project in Xcode from now on, never regenerate). It holds the four files from `ios/PreviewSources/` plus our own icon, bundle
