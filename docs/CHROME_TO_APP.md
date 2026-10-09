@@ -84,6 +84,14 @@ You only step in for human checks. Each chain takes it roughly 10 to 30 minutes,
 usage like any long session; add chains to the queue file whenever you like. On my side nothing is per chain either: when new
 folders appear in `data/chrome-inbox/` I import, check and publish all of them in one go.
 
+### Running two sessions at once
+
+You can open a second terminal and run a second `claude --chrome`, but give each session its own queue file so they never edit the
+same lines: session 1 uses `data/chrome-inbox/QUEUE.md`, session 2 uses `data/chrome-inbox/QUEUE-B.md` (say "QUEUE-B.md" instead
+of "QUEUE.md" in the pasted message). Before each push both sessions should run `git pull --rebase` first. Both sessions share the
+same Chrome, so ask each to work in its own tab or window; if they start fighting over the same tab, close one. Two sessions use
+your Claude usage twice as fast.
+
 ## Chains to pilot first (calories shown on a page our scripts cannot read)
 
 Start with these, in this order, and stop after the first three if the yield is poor. The first four are the ones users look for most.
