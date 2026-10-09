@@ -1,4 +1,4 @@
-// Tier 2 extractor v4 for a Sainsbury's product page (docs/GROCERIES_PLAN.md "Every product"). Run it with javascript_tool on a loaded product page
+// Tier 2 extractor v5 for a Sainsbury's product page (docs/GROCERIES_PLAN.md "Every product"). Run it with javascript_tool on a loaded product page
 // (about 3 s after navigation; call it as `await (0, eval)(sessionStorage.getItem('t2x'))`). It first opens the page's collapsed "Nutrition" accordion
 // (a display toggle, nothing is sent or changed) because the table is not in the page until it is open. It prints ONE short line, copied by the agent exactly as printed, into tools/groceries/t2_sainsburys.py append:
 //   <slug check>|<basis>|kJ|kcal|fat|saturates|carbohydrate|sugars|fibre|protein|salt|<line check>      the numbers as the table prints them, units removed
@@ -18,21 +18,25 @@
   if (!tb) return document.body.innerText.length < 1500 ? "WAIT" : "NONE|" + H(slug);
   const rows = [...tb.querySelectorAll("tr")].map((r) => [...r.children].map((c) => c.innerText.replace(/\s+/g, " ").trim()));
   const head = rows[0] || [];
-  const qual = (cell) => cell.toLowerCase().replace(/typical values|per\s*100\s*(g|ml)(\/ml)?|\(as sold\)|as sold|this pack contains[^a-z]*\d*\s*servings?|[:()\d,.]/g, " ").replace(/\s+/g, " ").trim();
-  const cands = head.map((c, i) => [c, i]).filter(([c]) => /per\s*100\s*(g|ml)/i.test(c));
+  const qual = (cell) => cell.toLowerCase().replace(/this pack contains[^a-z]*\d*\s*\w*|typical values|(per\s*)?100\s*(g|ml)(\/ml)?|\(as sold\)|as sold|provides|contains|[:()\d,.]/g, " ").replace(/\s+/g, " ").trim();
+  const isPer = (c) => /(per\s*)?100\s*(g|ml)\b/i.test(c) && !/reference|%|\bri\b/i.test(c);
+  const cands = head.map((c, i) => [c, i]).filter(([c]) => isPer(c));
   const pickC = cands.find(([c]) => !qual(c)) || cands[0];
   const col = pickC ? pickC[1] : 1;
-  const unit = pickC ? (/per\s*100\s*ml/i.test(pickC[0]) ? "ml" : "g") : "";
-  const q = pickC ? qual(pickC[0]).replace(/[^a-z ]/g, "").slice(0, 24).trim() : "";
+  const unit = pickC ? (/100\s*ml/i.test(pickC[0]) ? "ml" : "g") : "";
+  const c0 = head[0] || "";
+  const q0 = isPer(c0) || /pack contains/i.test(c0) ? "" : qual(c0);
+  const q = pickC ? (qual(pickC[0]) || q0).replace(/\s*as per instructions?/g, "").replace(/[^a-z ]/g, "").slice(0, 24).trim() : "";
   const basis = unit ? unit + (q ? ":" + q : "") : "?";
   const lab = (r) => (r[0] || "").toLowerCase().replace(/\([^)]*\)/g, "").replace(/^[\s\-–:]*of which\s*/, "").replace(/[:\s]+$/, "").trim();
   const num = (r) => { const t = r[col] || ""; if (/mg|µg|μg/i.test(t)) return "?"; const m = t.match(/<?\s*\d+(?:[.,]\d+)?/); return m ? m[0].replace(/\s+/g, "").replace(",", ".") : ""; };
   const pick = (names) => { const r = rows.find((x) => names.includes(lab(x))); return r ? num(r) : ""; };
   let kj = "", kcal = "";
   for (const r of rows.slice(1, 7)) {
-    const l = (r[0] || "").toLowerCase(), v = r[col] || "";
-    if (!kj && (/kj/.test(l) || /kj/i.test(v))) { const m = v.match(/(\d[\d,.]*)\s*(kJ)?/i); if (m && (/kj/.test(l) || m[2])) kj = m[1].replace(/,/g, ""); }
-    if (!kcal && (/kcal/.test(l) || /kcal/i.test(v))) { const m = v.match(/(\d[\d,.]*)\s*(kcal)?/i); if (m && (/kcal/.test(l) || m[2])) kcal = m[1].replace(/,/g, ""); }
+    const l = (r[0] || "").toLowerCase(), v = r[col] || "", nums = v.match(/\d[\d,.]*/g) || [];
+    const bothL = /kj/.test(l) && /kcal/.test(l);
+    if (!kj) { const m = v.match(/(\d[\d,.]*)\s*kj/i); if (m) kj = m[1].replace(/,/g, ""); else if (bothL && nums.length >= 2) kj = nums[l.indexOf("kj") < l.indexOf("kcal") ? 0 : 1].replace(/,/g, ""); else if (/kj/.test(l) && !/kcal/.test(l) && nums[0]) kj = nums[0].replace(/,/g, ""); }
+    if (!kcal) { const m = v.match(/(\d[\d,.]*)\s*kcal/i); if (m) kcal = m[1].replace(/,/g, ""); else if (bothL && nums.length >= 2) kcal = nums[l.indexOf("kj") < l.indexOf("kcal") ? 1 : 0].replace(/,/g, ""); else if (/kcal/.test(l) && !/kj/.test(l) && nums[0]) kcal = nums[0].replace(/,/g, ""); }
   }
   const f = [basis, kj, kcal, pick(["fat", "total fat"]), pick(["saturates", "saturated fat", "saturated fats", "saturated"]), pick(["carbohydrate", "carbohydrates", "total carbohydrate", "total carbohydrates", "available carbohydrate"]),
     pick(["sugars", "sugar", "total sugars"]), pick(["fibre", "dietary fibre", "fiber"]), pick(["protein", "proteins"]), pick(["salt", "salt equivalent"])];

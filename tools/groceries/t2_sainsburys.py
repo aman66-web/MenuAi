@@ -65,10 +65,21 @@ def done_slugs(work: Path) -> set:
             # A "no table" page counts as read only when v4 (which opens the collapsed Nutrition accordion first) said so: older NONEs may be false
             if (len(parts) == 12 or (len(parts) == 13 and parts[12] == "2")) and not _complete(parts):
                 continue
+            # rows from v3/v4 whose energy figures contradict each other (a "kJ/kcal" label read as kcal = kJ) or that took the %reference-intake column are read again with v5
+            if len(parts) == 13 and parts[12] in ("3", "4") and _suspect(parts):
+                continue
             if p.name.startswith("none_") and (len(parts) < 2 or parts[1] != "4"):
                 continue
             done.add(parts[0])
     return done
+
+
+def _suspect(parts: list) -> bool:
+    """slug, per, kj, kcal, ...: the energy figures disagree, or the basis is a reference-intake column."""
+    if "reference" in parts[1]:
+        return True
+    kj, kcal = num(parts[2]), num(parts[3])
+    return bool(kj and kcal and kcal >= 20 and not 3.55 <= kj / kcal <= 4.82)
 
 
 def _complete(parts: list) -> bool:
@@ -162,7 +173,7 @@ def cmd_append(a) -> int:
         if slug in done:
             continue
         with open(work / f"results_{a.slice}.tsv", "a", encoding="utf-8") as f:
-            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "4"]) + "\n")
+            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "5"]) + "\n")
         done.add(slug)
         ok += 1
     print(f"stored {ok}, no table {none}, rejected {len(bad)}; {len(pending(work, a.slice))} left in slice {a.slice}")
@@ -199,6 +210,10 @@ def cmd_ingest(a) -> int:
                 continue
             slug, per, kj, kcal, fat, sat, carb, sugar, fibre, protein, salt, day = parts[:12]
             n = {k: num(v) for k, v in dict(kcal=kcal, fat=fat, carbs=carb, protein=protein).items()}
+            if "reference" in per:
+                why["reference-intake column"] = why.get("reference-intake column", 0) + 1
+                left += 1
+                continue
             per, _, state = per.partition(":")
             if state.strip() in PLAIN_WORDS:
                 state = ""  # the heading only says "per 100g of product": that is the food as sold

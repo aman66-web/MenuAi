@@ -403,7 +403,7 @@ class PriceFileTests(unittest.TestCase):
             rows = [l.split("\t") for l in (work / "results_1.tsv").read_text().splitlines()]
             self.assertEqual([r[0] for r in rows], ["bacon-1", "milk-1"])                 # the bad basis "g?" was rejected, not stored
             self.assertEqual(rows[0][1], "g:grilled")
-            self.assertEqual(rows[0][12], "4")
+            self.assertEqual(rows[0][12], "5")
             # an older v2 row with an unusable basis is read again; an older complete plain row stays done
             with open(work / "results_1.tsv", "a") as f:
                 f.write("\t".join(["old-1", "g?", "1", "2", "3", "4", "5", "6", "7", "8", "9", "2026-10-09", "2"]) + "\n")
@@ -414,6 +414,13 @@ class PriceFileTests(unittest.TestCase):
             self.assertNotIn("old-1", t2.done_slugs(work))
             (work / "none_1.txt").write_text("old-1\t4\n")
             self.assertIn("old-1", t2.done_slugs(work))
+            # v3/v4 rows whose kJ and kcal disagree (kcal read as kJ), or that took a reference-intake column, are read again; a v5 row is final
+            with open(work / "results_1.tsv", "a") as f:
+                f.write("\t".join(["bad-kcal", "g", "1176", "1176", "23", "7.8", "5.1", "0.9", "0.5", "14", "0.8", "2026-10-09", "4"]) + "\n")
+                f.write("\t".join(["ri-col", "g:reference intake", "", "", "25", "", "", "", "", "50", "", "2026-10-09", "4"]) + "\n")
+                f.write("\t".join(["fixed", "g", "1176", "283", "23", "7.8", "5.1", "0.9", "0.5", "14", "0.8", "2026-10-09", "5"]) + "\n")
+            done = t2.done_slugs(work)
+            self.assertTrue("bad-kcal" not in done and "ri-col" not in done and "fixed" in done)
 
 
 if __name__ == "__main__":
