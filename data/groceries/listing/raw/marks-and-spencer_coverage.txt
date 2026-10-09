@@ -1,0 +1,34 @@
+Food to order > Cakes | pages 1 | tiles collected 33 | shown total 33
+Food to order > Party food | pages 1 | tiles collected 46 | shown total 46
+Food to order > Sandwich platters | pages 1 | tiles collected 13 | shown total 13
+Food to order > Cakes > Birthday cakes | pages 1 | tiles collected 15 | shown total 15
+Food & drink gifts > Chocolate gifts | pages 1 | tiles collected 32 | shown total 32
+Food & drink gifts > Letterbox food gifts | pages 1 | tiles collected 27 | shown total 27
+Food & drink gifts > Cake gifts | pages 1 | tiles collected 17 | shown total 17
+Food & drink gifts > Sweets gifts | pages 1 | tiles collected 10 | shown total 10
+Food & drink gifts > Cheese gifts | pages 1 | tiles collected 2 | shown total 2
+Food & drink gifts > Alcohol gifts | pages 2 | tiles collected 90 (48+42) | shown total 90
+Food & drink gifts > Hampers | pages 3 | tiles collected 129 (48+48+33) | shown total 129
+Food & drink gifts (all, top page) | pages 3 | tiles collected 142 (48+48+46) | shown total 142
+Food & drink gifts > Hampers > Wine hampers | pages 1 | tiles collected 42 (all already known) | shown total 42
+Food & drink gifts > Hampers > Afternoon tea hampers | pages 1 | tiles collected 15 (all already known) | shown total 15
+Food & drink gifts > Hampers > Chocolate hampers | pages 1 | tiles collected 35 (30+5, all already known) | shown total 35
+Food & drink gifts > Hampers > Biscuit hampers | pages 1 | tiles collected 9 (all already known) | shown total 9
+Food & drink gifts > Hampers > Celebrity collections | pages 1 | tiles collected 4 (all already known) | shown total 4
+Food & drink gifts > Hampers > Fruit baskets | pages 1 | tiles collected 4 (all already known) | shown total 4
+Food & drink gifts > Alcohol gifts > Champagne gifts | pages 1 | tiles collected 8 (all already known) | shown total 8
+Food & drink gifts > Alcohol gifts > Wine gifts | pages 1 | tiles collected 45 (all already known) | shown total 45
+Food & drink gifts > Letterbox food gifts > Brownies | pages 1 | tiles collected 11 (all already known) | shown total 11
+Christmas > Christmas hampers | pages 1 | tiles collected 35 (all already known) | shown total 35
+Christmas food to order (christmasfood subdomain) > View all food | pages 1 (the Next page control does not change the list and ?page=2 repeats page 1: page shows "We couldn't update your results") | tiles collected 125 | shown total n/a (no count printed)
+Christmas food to order > Starters & party food | pages 1 | tiles collected 25 (all already known) | shown total n/a
+Christmas food to order > Mains | pages 1 | tiles collected 66 (all already known) | shown total n/a
+Christmas food to order > Turkeys | pages 1 | tiles collected 31 (all already known) | shown total n/a
+Christmas food to order > Vegetables & sides | pages 1 | tiles collected 13 (all already known) | shown total n/a
+Christmas food to order > Desserts & cheese | pages 1 | tiles collected 16 (all already known) | shown total n/a
+Christmas food to order > Wines | pages 1 | tiles collected 12 (all already known) | shown total n/a
+Christmas food to order > Vegetarian & vegan | pages 1 | tiles collected 23 (all already known) | shown total n/a
+Christmas food to order > Gluten-free | pages 1 | tiles collected 31 (all already known) | shown total n/a
+(checked, non-food, nothing recorded) Christmas > Advent calendars | pages 1 | 8 tiles, all non-food (wax melts, wellness, socks, beauty) | shown total 8
+(checked, mostly non-food, nothing new recorded) Gifts > Percy Pig gifts | pages 1 | 31 tiles: clothing, decorations, mugs, e-gift card; the 2 food tiles (hpp60591061, hpp61276993 and hpp60712045) are already in the lists above | shown total 31
+NOT CRAWLED (no public prices): M&S Food catalogue "Foodhall" https://www.marksandspencer.com/food (/food/l/...): tiles and product pages show no price, only "See stock and price in your local store / Select your store" (store selection = postcode/state change, not done). Sizes printed by the aisle pages (items): food-cupboard 1778, fruit-and-vegetables 610, meat 414, poultry 122, ready-to-eat-meats 125, fish-and-seafood 167, dairy 441, deli 265, food-on-the-move 338, chilled-desserts 127, ready-to-cook 683, bakery-and-cakes 412, frozen-food 301, drinks 942 (of which wine 402); eggs, home-of-health, kids/toddler/baby, household, pet not counted. Sum of the 14 counted aisles = 6725 (some products sit in more than one aisle); about 99 tiles per page, so about 70+ pages.

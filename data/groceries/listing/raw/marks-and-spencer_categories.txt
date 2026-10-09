@@ -1,0 +1,48 @@
+# Marks & Spencer (marksandspencer.com) food categories that carry PRICES. Pages are paged with ?page=2 etc (48 tiles per page). Counts are what each page prints ("N Items found").
+# The M&S Food catalogue at /food/l/... (Foodhall, ~hundreds of products, ids fdp...) lists products WITHOUT prices ("available in store / Ocado"); not crawled for prices, see report.
+# Food & wine hub: https://www.marksandspencer.com/c/food-and-wine
+Food to order > Cakes | https://www.marksandspencer.com/l/food-to-order/cakes | 33
+Food to order > Cakes > Birthday cakes | https://www.marksandspencer.com/l/food-to-order/cakes/birthday-cakes | 15
+Food to order > Party food | https://www.marksandspencer.com/l/food-to-order/party-food | 46
+Food to order > Sandwich platters | https://www.marksandspencer.com/l/food-to-order/sandwich-platters | 13
+Food & drink gifts (top, all) | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts | 142
+Food & drink gifts > Hampers | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/hampers | 129
+Food & drink gifts > Hampers > Wine hampers | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/hampers/wine-hampers | ?
+Food & drink gifts > Hampers > Chocolate hampers | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/hampers/chocolate-hampers | ?
+Food & drink gifts > Hampers > Afternoon tea hampers | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/hampers/afternoon-tea-hampers | ?
+Food & drink gifts > Hampers > Biscuit hampers | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/hampers/biscuit-hampers | ?
+Food & drink gifts > Hampers > Celebrity collections | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/hampers/celebrity-collections | ?
+Food & drink gifts > Hampers > Fruit baskets | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/hampers/fruit-baskets | ?
+Food & drink gifts > Alcohol gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/alcohol-gifts | 90
+Food & drink gifts > Alcohol gifts > Wine gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/alcohol-gifts/wine-gifts | ?
+Food & drink gifts > Alcohol gifts > Champagne gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/alcohol-gifts/champagne-gifts | ?
+Food & drink gifts > Chocolate gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/chocolate-gifts | 32
+Food & drink gifts > Letterbox food gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/letterbox-food-gifts | 27
+Food & drink gifts > Letterbox food gifts > Brownies | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/letterbox-food-gifts/letterbox-brownies | ?
+Food & drink gifts > Cake gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/cake-gifts | 17
+Food & drink gifts > Sweets gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/sweets-gifts | 10
+Food & drink gifts > Cheese gifts | https://www.marksandspencer.com/l/gifts/food-and-drink-gifts/cheese-gifts | 2
+Christmas > Christmas hampers | https://www.marksandspencer.com/l/christmas/christmas-gifts/christmas-hampers | ?
+# Separate M&S subdomain (Christmas food to order, incl. wines): https://christmasfood.marksandspencer.com/ (robots.txt checked before use, see progress file)
+# ---- Counts found while crawling (the "?" above) and the Christmas-food subdomain leaves actually crawled
+Food & drink gifts > Hampers > Wine hampers | 42
+Food & drink gifts > Hampers > Chocolate hampers | 35
+Food & drink gifts > Hampers > Afternoon tea hampers | 15
+Food & drink gifts > Hampers > Biscuit hampers | 9
+Food & drink gifts > Hampers > Celebrity collections | 4
+Food & drink gifts > Hampers > Fruit baskets | 4
+Food & drink gifts > Alcohol gifts > Wine gifts | 45
+Food & drink gifts > Alcohol gifts > Champagne gifts | 8
+Food & drink gifts > Letterbox food gifts > Brownies | 11
+Christmas > Christmas hampers | 35
+Christmas food to order > View all food | https://christmasfood.marksandspencer.com/l/view-all-food | 125 tiles (no count printed; paging control does nothing)
+Christmas food to order > Starters | https://christmasfood.marksandspencer.com/l/view-all-food/starters | 25
+Christmas food to order > Mains | https://christmasfood.marksandspencer.com/l/view-all-food/mains | 66
+Christmas food to order > Turkeys | https://christmasfood.marksandspencer.com/l/view-all-food/turkeys | 31
+Christmas food to order > Vegetables & sides | https://christmasfood.marksandspencer.com/l/view-all-food/vegetables-and-sides | 13
+Christmas food to order > Desserts & cheese | https://christmasfood.marksandspencer.com/l/view-all-food/desserts-and-cheese | 16
+Christmas food to order > Vegetarian & vegan | https://christmasfood.marksandspencer.com/l/view-all-food/vegetarian-and-vegan | 23
+Christmas food to order > Gluten-free | https://christmasfood.marksandspencer.com/l/view-all-food/gluten-free | 31
+Christmas food to order > Wines | https://christmasfood.marksandspencer.com/l/view-all-food/wines | 12
+# Checked and left out as non-food: /l/christmas/advent-calendars (8), /l/gifts/percy-pig-gifts (31, clothing/decorations plus 3 hampers already listed)
+# Not crawled (no public prices): Foodhall catalogue https://www.marksandspencer.com/food/l/... (about 6,700+ products, see coverage file)

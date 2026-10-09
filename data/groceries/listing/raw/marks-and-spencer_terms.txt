@@ -1,0 +1,26 @@
+Marks & Spencer (https://www.marksandspencer.com) - terms and robots.txt, read 2026-10-08 in the founder's Chrome
+
+== robots.txt (https://www.marksandspencer.com/robots.txt), User-agent: * ==
+Rules that could touch food listing pages (all others are about accounts, basket, checkout, /eg/ /mt/ /gg/ country sites, new-in, offers, gift cards):
+  Disallow: /l/*:          (listing URLs containing a colon, i.e. faceted/filtered listings)
+  Disallow: /l/*2-for  /l/*3-for  /l/*4-for   (multi-buy listings)
+  Disallow: /*pgNumber     (a pagination parameter)
+  Disallow: /*prefn1  /*prefv1  /*dwvar  /*pmin  /*srule=   (filter/sort parameters)
+  Disallow: /*productId=  /*quickView=  /*firstImage=  /*relatedAsins=  /*selectedTab=  /*facets-1090-1=
+  Disallow: /*search?q=   */search   /*MSFindItems  /*Search-Show
+  Disallow: /*/offers/*/*   /*/offers/*fs5   /*/fs5/*/*   /l/brands/all-*   /c/gift-cards
+  Disallow: /*webapp  /*MSCS  /*BasketView  /checkout  /ajax/  /minibasket/  etc.
+  Sitemaps: https://www.marksandspencer.com/sitemap/sitemap_index.xml (also /ie/ and /en/)
+Plain food category listing pages of the form /l/<food-category>/<sub-category> (no colon, no query parameters) are NOT disallowed.
+Rules I follow in this crawl: no URL with a colon after /l/, no ?pgNumber, no search, no filter/sort parameters, no /offers/ paths with sub-paths.
+
+== Website terms ==
+Where: the hub page https://www.marksandspencer.com/help-and-support/my-account-and-m-and-s-policies ("Policies, terms & conditions") lists "B. Website Terms: You can view the legal terms and conditions that apply when you access, browse and use marksandspencer.com here"; the text of the terms is inside that page's DOM (section "YOUR USE OF THIS WEBSITE"; a direct page URL for it was not found: /c/help/legal-and-ethical-policies/website-terms* answered 404).
+
+Exact sentences about copying / crawling / commercial use:
+ 1. "You may not, without our prior written consent, copy, reproduce, crawl, frame, republish, download, print, post, distribute, re-post, broadcast, record, transmit, edit, communicate to the public, link to, deep-link into, or distribute in any way the web pages or materials on the Website or the computer codes or elements comprising the Website other than solely for your own personal or internal business use."
+ 2. "You may not use the content of the Website for any commercial purposes whatsoever."
+ 3. "All rights, including copyright and other intellectual property rights, in and to this Website are owned by or licensed to M&S."
+ (Social-media section) "Any use of any M&S social networking pages or their contents, including copying or storing them in whole or in part, other than for your own personal, non-commercial use is prohibited without the permission of M&S."
+No sentence found mentioning "scrape/scraping", "robot", "bot", "spider" or "AI" in the website terms (searched the page text for scrap, robot, spider, crawl, automated, data mining, reproduce, copying; "automated" only appears in the Bazaarvoice reviews-moderation paragraph).
+Founder has accepted the risk for supermarkets (recipe); sentence 1 explicitly names "crawl" and "copy" without prior written consent, so this is quoted as asked.

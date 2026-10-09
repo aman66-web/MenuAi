@@ -1,0 +1,28 @@
+MORRISONS terms check (2026-10-08, read in the browser)
+
+(a) robots.txt  https://groceries.morrisons.com/robots.txt  (exact content):
+User-agent: *
+Disallow: /sso-login
+Disallow: /previewer/*
+# Internal URLs
+Disallow: /api/
+Disallow: /events/
+Sitemap: https://groceries.morrisons.com/sitemaps/sitemap_index.xml
+=> nothing touches category/browse pages (/categories/..., /browse/...) or product pages (/products/...).
+
+(b) Terms
+- https://www.morrisons.com/terms/ is only a hub page ("A central hub to find Morrisons Terms & Conditions, Privacy Policies, Competition rules ...") with no content terms.
+- NOTE FOR THE LEAD: your keyword scan of the hub missed the real site terms, "Terms and Conditions of Use" at
+  https://www.morrisons.com/terms/terms-and-conditions-of-use . They DO contain a licence/copying clause (section 2). No sentence mentions
+  scraping, bots, crawlers, spiders, "automated" access or AI tools (the only "automatically" is "your permission to use the Website automatically terminates").
+  Exact quotes:
+  2.1 "You are permitted to print and download extracts from the Website for your own use on the following basis:"
+      2.1.1 "no documents or related graphics on the Website are modified in any way;"
+      2.1.2 "no graphics on the Website are used separately from accompanying text; and"
+      2.1.3 "the Company's copyright and trade mark notices and this permission notice appear in all copies."
+  2.2 "Unless otherwise stated, the copyright, trademarks, logos and other intellectual property rights in all material on the Website (including without limitation photographs and graphical images) are owned by the Company or its licensors. For the purposes of these terms, any use of extracts from the Website other than in accordance with paragraph 2.1 above for any purpose is prohibited. If you breach any of these terms, your permission to use the Website automatically terminates and you must immediately destroy any downloaded or printed extracts from the Website."
+  2.3 "Subject to paragraph 2.1, no part of the Website may be reproduced or stored in any other website or included in any public or private electronic retrieval system or service without the Company's prior written permission."
+  2.4 "Any rights not expressly granted in these terms are reserved."
+  => So reproducing/storing site content (incl. photographs) elsewhere needs written permission; this matters for the photos (Tier 2/images) and for republishing the lists.
+     It does not mention automated access. Per the recipe the crawl continues (founder has accepted the risk for supermarkets); this crawl reads listing pages only and stores no photos.
+- Terms and Conditions of Sale https://groceries.morrisons.com/content/terms-and-conditions : per the lead's note, no sentence on copying/scraping/automated access (keyword scan by the lead; not re-read by me).

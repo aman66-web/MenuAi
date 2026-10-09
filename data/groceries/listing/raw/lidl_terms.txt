@@ -1,0 +1,35 @@
+LIDL GB (https://www.lidl.co.uk) - terms check, 2026-10-08
+
+(a) robots.txt (https://www.lidl.co.uk/robots.txt), read in the browser. Exactly:
+User-agent: *
+Disallow: /q/search?id=*
+Disallow: /cc.js*
+Disallow: /1*
+Disallow: /2*
+Disallow: /3*
+Disallow: /4*
+Disallow: /5*
+Disallow: /6*
+Disallow: /7*
+Disallow: /8*
+Disallow: /9*
+Disallow: /cdn/assets/cwv/
+Sitemap: https://www.lidl.co.uk/static/sitemap.xml
+Effect on the pages crawled: none. Category/hub pages are /h/<name>/h<digits> and offer pages /c/<name>/a<digits> or /c/<name>/s<digits>
+(paths begin with /h/ or /c/, not with a digit). Product pages are /p/<slug>/p<digits> (not opened). Site search (/q/search) was not used.
+The sitemap index lists: /p/export/GB/en/product_sitemap.xml.gz, /explore/assets/s/pages_en-GB_gb.xml.gz, /s/en-GB/store-finder/sitemap.xml (the .gz files were not opened).
+
+(b) Website terms. Lidl GB has no separate "website terms of use" page. Footer "Legal" -> https://www.lidl.co.uk/c/legal-information/s10022935
+("Legal Information") holds the company address and a disclaimer about external links only. It contains NO sentence about copying content or images,
+scraping, bots, crawlers, automated access or AI tools. The only sentences about the site content, quoted exactly:
+ "Any external links included on this website lie outside the operator's responsibilities."
+ "Lidl has no influence over the content of these webpages and takes no responsibility for them."
+Other legal pages (https://www.lidl.co.uk/c/privacy-legal/s10023373): Lidl Plus Terms of Use (PDF "TERMS OF USE MAY 2026", version 2.2, for the app/account),
+Terms of Use for My Lidl Account, Weekly Coupons T&Cs, Weekly Offers T&Cs, Electric Vehicle Charging T&Cs, Privacy notices, "API Access Request".
+These concern the Lidl Plus app, accounts, coupons and promotions. The Lidl Plus Terms of Use PDF was NOT downloaded or read (it is an app contract);
+the on-page index of its sections (Scope, Participation, Registration, Service objectives, Data collection, Use, Access blocks, Updates, Reservation function...)
+shows no section on website copying, but this is not a full read. The Weekly Offers / Weekly Coupons T&Cs were not read either.
+Nothing found that forbids reading the public category/offer pages. Offer pages state "Offers valid ... Available to Lidl Plus account holder, 18+ in Lidl GB branches."
+NOTE: the site has a cookie/consent banner (left alone: no click on Reject/Customise/Accept).
+Addendum: the site search page https://www.lidl.co.uk/q/search?q=milk was loaded ONCE (robots.txt only disallows /q/search?id=*) to check whether everyday groceries exist:
+it returned 24 products, all word matches (chocolate, condensed milk, coconut milk) or toys; no fresh milk, i.e. the everyday grocery range is not listed on the website.

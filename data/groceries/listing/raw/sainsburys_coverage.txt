@@ -1,0 +1,197 @@
+Fruit & vegetables > fresh-fruit | pages 3 | tiles collected 169 (60+60+49) | shown total n/a (page says Page 1 of 3)
+Fruit & vegetables > fresh-herbs-and-spices | pages 1 | tiles collected 46 | shown total n/a (no pager)
+Fruit & vegetables > fresh-salad | pages 3 | tiles collected 133 (60+60+13) | shown total n/a (Page 1 of 3)
+Fruit & vegetables > fresh-vegetables | pages 5 | tiles collected 282 (60+60+60+60+42) | shown total n/a (Page 1 of 5)
+Fruit & vegetables > frozen-fruit-and-vegetables | pages 2 | tiles collected 90 (60+30) | shown total n/a (Page 1 of 2)
+Fruit & vegetables > fruit-and-veg-essentials | pages 3 | tiles collected 134 (60+60+14) | shown total n/a (Page 1 of 3); mixed page: includes non-food flowers/plants, and repeats products of the other Fruit & veg leaves
+Meat & fish > bacon-and-sausages | pages 3 | tiles collected 162 (60+60+42) | shown total n/a (Page 1 of 3)
+Meat & fish > beef | pages 3 | tiles collected 139 (60+60+19) | shown total n/a (Page 1 of 3)
+Meat & fish > chicken | pages 4 | tiles collected 184 (60+60+60+4) | shown total n/a (Page 1 of 4)
+Meat & fish > duck | pages 1 | tiles collected 14 | shown total n/a (no pager)
+Meat & fish > cooked-meats-ham-and-pate | pages 6 | tiles collected 305 (60x5+5) | shown total n/a (Page 1 of 6)
+Meat & fish > fish-and-seafood | pages 4 | tiles collected 190 (60+60+60+10) | shown total n/a (Page 1 of 4)
+Meat & fish > game-and-venison | pages 1 | tiles collected 21 | shown total n/a (no pager)
+Meat & fish > gammon | pages 1 | tiles collected 21 (17+4) | shown total n/a (no pager)
+Meat & fish > turkey | pages 1 | tiles collected 13 | shown total n/a (no pager)
+Meat & fish > lamb | pages 1 | tiles collected 58 (45+10+3) | shown total n/a (no pager)
+Meat & fish > pork | pages 2 | tiles collected 65 (60+5) | shown total n/a (Page 1 of 2)
+Meat & fish > just-cook-and-slow-cooked | pages 2 | tiles collected 109 (60+49) | shown total n/a (Page 1 of 2)
+Meat & fish > meat-free | pages 3 | tiles collected 180 (60+60+60) | shown total n/a (Page 1 of 3)
+Chilled food > butter-and-spreads | pages 2 | tiles collected 87 (60+27) | shown total n/a (Page 1 of 2)
+Chilled food > cheese | pages 7 | tiles collected 373 (60x6+13) | shown total n/a (Page 1 of 7)
+Chilled food > cream | pages 1 | tiles collected 29 | shown total n/a (no pager)
+Chilled food > dairy-and-chilled-essentials | partial: page 1 of 5 done (60 tiles); pages 2-5 NOT done (duplicates of milk/eggs/cheese/yogurt categories; low priority)
+Chilled food > delicatessen | partial: pages 1-2 of 10 done (120 tiles); pages 3-10 NOT done (mostly duplicates of Meat & fish > cooked meats, plus dips/salads)
+Chilled food > dairy-free | pages 3 | tiles collected 149 (60+60+29) | shown total n/a (Page 1 of 3)
+Chilled food > desserts | pages 4 | tiles collected 236 (60+60+60+56) | shown total n/a (Page 1 of 4); equals the union of its 5 leaf pages (checked)
+Chilled food > eggs | pages 1 | tiles collected 33 | shown total n/a (no pager)
+Chilled food > meal-kits | pages 1 | tiles collected 4 | shown total n/a (no pager)
+Chilled food > fresh-gravy-sauces-and-stocks | pages 1 | tiles collected 27 (25+2) | shown total n/a (no pager)
+Chilled food > fresh-soup | pages 2 | tiles collected 64 (60+4) | shown total n/a (Page 1 of 2)
+Chilled food > kosher-and-halal | pages 1 | tiles collected 30 (27+3); odd mixed listing (butter spreads, vegan burgers, Huel, crisps...) | shown total n/a (no pager)
+Chilled food > drinks-and-fruit-juice | pages 7 | tiles collected 368 | shown total: Page 7 of 7 (60 x 6 + 8)
+Chilled food > pastry | pages 1 (no page count shown) | tiles collected 17 | shown total: n/a
+Chilled food > milk | pages 2 | tiles collected 96 | shown total: Page 2 of 2 (60 + 36)
+Chilled food > pies-pasties-and-quiche | pages 3 | tiles collected 163 | shown total: Page 3 of 3 (60 + 60 + 43)
+Chilled food > pizza-pasta-and-garlic-bread | pages 4 | tiles collected 211 | shown total: Page 4 of 4 (60 + 60 + 60 + 31)
+Chilled food > ready-meals | pages 8 of 11 so far (p1-p8 done, 60 tiles each = 480) | continues with p9-p11
+Chilled food > ready-meals | pages 11 | tiles collected 625 | shown total: Page 11 of 11 (10 x 60 + 25)
+Chilled food > sandwiches-and-food-to-go | pages 6 | tiles collected 289 | shown total: Page 6 of 6 (5 x 60 minus... p1-p5 60 each + p6 49 = 349)
+Chilled food > sandwiches-and-food-to-go | pages 6 | tiles collected 349 | shown total: Page 6 of 6 (5x60 + 49)
+Chilled food > savoury-snacks | pages 4 | tiles collected 214 | shown total: Page 4 of 4 (3x60 + 34)
+Chilled food > vegetarian-and-vegan | pages 2 | tiles collected 94 | shown total: Page 2 of 2 (60 + 34)
+Chilled food > yogurts | pages 7 | tiles collected 60x6 + 54 (p7 tail pending) | shown total: Page 7 of 7
+Frozen food > chips-and-wedges | pages 1 | tiles collected 56 | shown total: n/a
+Frozen food > desserts-and-pastry | pages 1 | tiles collected 28 | shown total: n/a
+Chilled food > yogurts | pages 7 | tiles collected 414 | shown total: Page 7 of 7 (6x60 + 54)
+Frozen food > garlic-bread | pages 1 | tiles collected 7 | shown total: n/a
+Frozen food > ice | pages 1 | tiles collected 3 | shown total: n/a
+Frozen food > fruit | pages 1 | tiles collected 23 | shown total: n/a
+Frozen food > fish-and-seafood | pages 2 | tiles collected 111 | shown total: Page 2 of 2 (60 + 51)
+Frozen food > ice-cream | pages 5 | tiles collected 255 | shown total: Page 5 of 5 (4x60 + 15)
+Frozen food > party-food | pages 2 | tiles collected 65 | shown total: Page 2 of 2 (60 + 5)
+Frozen food > meat-and-poultry | pages 2 | tiles collected 112 | shown total: Page 2 of 2 (60 + 52)
+Frozen food > rice | pages 1 | tiles collected 3 | shown total: n/a
+Frozen food > ready-meals | pages 3 | tiles collected 147 | shown total: Page 3 of 3 (60 + 60 + 27)
+Frozen food > vegetables | pages 2 | tiles collected 90 | shown total: Page 2 of 2 (60 + 30; 4 banner tiles repeated on each page have wrong name)
+Frozen food > vegetarian | pages 2 | tiles collected 74 | shown total: Page 2 of 2 (60 + 14)
+Frozen food > pizza | pages 2 | tiles collected 86 | shown total: Page 2 of 2 (60 + 26)
+Frozen food > yorkshire-puddings-and-stuffing | pages 1 | tiles collected 9 | shown total: n/a
+Food cupboard > breakfast-cereals | pages 1-8 of 9 done (60 tiles each = 480); p9 pending
+Food cupboard > breakfast-cereals | pages 9 | tiles collected 508 | shown total: Page 9 of 9 (8x60 + 28)
+Food cupboard > cooking-oils | pages 3 | tiles collected 127 | shown total: Page 3 of 3 (60 + 60 + 7)
+Food cupboard > canned-and-tinned-food | pages 1-10 of 17 done (60 tiles each = 600); p11-p17 pending
+Food cupboard > cooking-ingredients | page 1 of 5 done (60); p2-p5 pending
+Food cupboard > canned-and-tinned-food | pages 17 | tiles collected 1006 (16x60 + 46) | shown total n/a (page shows only Page k of 17) | COMPLETE
+Food cupboard > cooking-ingredients | pages 4 of 5 done (240); p5 pending
+Food cupboard > cooking-ingredients | pages 5 | tiles collected 297 (4x60 + 57) | shown total n/a | COMPLETE
+Food cupboard > cooking-sauces-meal-kits-and-sides | pages 3 of 12 done (p1 url has no /opt/page); p4-p12 pending
+Food cupboard > cooking-sauces-meal-kits-and-sides | pages 7 of 12 done (p1-p7, 420); p8-p12 pending
+Food cupboard > cooking-sauces-meal-kits-and-sides | pages 11 of 12 done (p1-p11; p9 last 2 tiles pending in TAIL block); p12 pending
+Food cupboard > cooking-sauces-meal-kits-and-sides | pages 12 | tiles collected 663 (11x60 + 3; page 9 = 58 + 2 TAIL) | shown total n/a | COMPLETE
+Food cupboard > food-cupboard-essentials | page 1 of 4 done (60); p2-p4 pending
+Food cupboard > desserts | page 1 of 4 done (60); p2-p4 pending
+Food cupboard > food-cupboard-essentials | pages 4 | tiles collected 181 (60+60+60+1) | shown total n/a | COMPLETE
+Food cupboard > desserts | pages 2 of 4 done (120); p3-p4 pending
+Food cupboard > desserts | pages 4 | tiles collected 187 (60+60+60+7) | shown total n/a | COMPLETE
+Food cupboard > freefrom | page 1 of 15 done (60); p2-p15 NOT done (mostly overlaps other categories: dairy-free drinks, crisps, butters)
+Food cupboard > herbs-spices-and-seasoning | page 1 of 5 done (60); p2-p5 pending
+Food cupboard > herbs-spices-and-seasoning | pages 5 | tiles collected 286 (4x60 + 46) | shown total n/a | COMPLETE
+Food cupboard > home-baking | page 1 of 9 done (60); p2-p9 pending
+Food cupboard > instant-snack-and-meals | page 1 of 4 done (59 lines + 1 pending TAIL); p2-p4 pending
+Food cupboard > jams-honey-and-spreads | page 1 of 4 done (60); p2-p4 pending
+Food cupboard > noodles | page 1 of 3 done (60); p2-p3 pending
+Food cupboard > instant-snack-and-meals | pages 4 | tiles collected 164 (60+60+60... p1 60 incl TAIL, p2 60, p3 60, p4 44 = 224) | shown total n/a | COMPLETE
+Food cupboard > instant-snack-and-meals | CORRECTION: pages 4 COMPLETE | tiles collected 224 (p1 59+1 TAIL, p2 60, p3 60, p4 44)
+Food cupboard > jams-honey-and-spreads | pages 4 | tiles collected 215 (60+60+60+35) | shown total n/a | COMPLETE
+Food cupboard > home-baking | pages 2 of 9 done (120); p3-p9 pending
+Food cupboard > home-baking | pages 9 | tiles collected 502 (8x60 + 22) | shown total n/a | COMPLETE
+Food cupboard > noodles | pages 3 | tiles collected 123 (60+60+3) | shown total n/a | COMPLETE
+Food cupboard > sugar-syrups-and-sweeteners | pages 3 | tiles collected 144 (60+60+24) | shown total n/a | COMPLETE
+Food cupboard > pasta | pages 2 | tiles collected 95 (60+35) | shown total n/a | COMPLETE
+Food cupboard > quinoa-couscous-and-pulses | pages 1 | tiles collected 38 | shown total n/a (no pager) | COMPLETE
+Food cupboard > rice | pages 3 | tiles collected 166 (60+60+46) | shown total n/a | COMPLETE
+Food cupboard > table-sauces-dressings-and-condiments | page 1 of 8 done (60); p2-p8 pending
+Food cupboard > table-sauces-dressings-and-condiments | pages 8 | tiles collected 469 (7x60 + 49) | shown total n/a | COMPLETE
+Food cupboard > tea-coffee-and-hot-drinks | page 1 of 9 done (60); p2-p9 pending
+Food cupboard > tea-coffee-and-hot-drinks | pages 9 | tiles collected 564 (8x60 + 24) | shown total n/a | COMPLETE
+Food cupboard > world-foods | pages 1-2 of 21 done (120); p3-p21 NOT done (mixed/world-cuisine list; postponed behind Snacks, Hot drinks, Beer-wine-spirits: continue from page 3)
+Snacks, sweets & treats > biscuits-and-cookies | pages 7 | tiles collected 380 (60+60+60+60+59+60+21) | shown total n/a | COMPLETE
+Snacks, sweets & treats > breadsticks-and-crispbreads | pages 1 | tiles collected 41 | shown total n/a (no pager) | COMPLETE
+Snacks, sweets & treats > cereal-bars | pages 4 | tiles collected 214 (60+60+60+34) | shown total n/a | COMPLETE
+Snacks, sweets & treats > chocolate | page 1 of 13 done (60); p2-p13 NOT done
+Snacks, sweets & treats > chocolate | pages 1-7 of 13 done (420 tiles); p8-p13 NOT done
+Snacks, sweets & treats > chocolate | pages 1-9 of 13 done (540 tiles); p10-p13 NOT done
+Snacks, sweets & treats > chocolate | pages 13 | tiles collected 756 (12x60 + 36) | shown total n/a | COMPLETE
+Snacks, sweets & treats > crackers | pages 3 | tiles collected 127 (60+60+7) | shown total n/a | COMPLETE
+Snacks, sweets & treats > crisps | pages 7 | tiles collected 380 (6x60 + 20) | shown total n/a | COMPLETE
+Snacks, sweets & treats > marshmallows | pages 1 | tiles collected 11 | shown total n/a (no pager) | COMPLETE
+Snacks, sweets & treats > mints-and-chewing-gums | pages 2 | tiles collected 88 (60+28) | shown total n/a | COMPLETE
+Snacks, sweets & treats > nuts | pages 3 | tiles collected 154 (60+60+34) | shown total n/a | COMPLETE
+Snacks, sweets & treats > oat-cakes | pages 1 | tiles collected 15 | shown total n/a (no pager) | COMPLETE
+Snacks, sweets & treats > popcorn | pages 1 | tiles collected 30 | shown total n/a (no pager) | COMPLETE
+Snacks, sweets & treats > rice-and-corn-cakes | pages 1 | tiles collected 32 | shown total n/a (no pager) | COMPLETE
+Snacks, sweets & treats > snacking-fruit | pages 2 | tiles collected 110 (60+50) | shown total n/a | COMPLETE
+Snacks, sweets & treats > snacking-meats | pages 1 | tiles collected 48 | shown total n/a (no pager) | COMPLETE
+Snacks, sweets & treats > sweets | page 1 of 6 done (60); p2-p6 pending
+Hot drinks, soft drinks & water > fizzy-drinks | page 1 of 7 done (60); p2-p7 pending
+Hot drinks, soft drinks & water > long-life-juice | page 1 of 3 done (60); p2-p3 pending
+Hot drinks, soft drinks & water > smoothies | pages 1 | tiles collected 52 | shown total n/a (no pager) | COMPLETE
+Snacks, sweets & treats > sweets | pages 6 | tiles collected 306 (5x60 + 6) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > fizzy-drinks | pages 7 | tiles collected 391 (6x60 + 31) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > long-life-juice | pages 3 | tiles collected 157 (60+60+37) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > fresh-juice | page 1 of 3 done (60); p2-p3 pending
+Hot drinks, soft drinks & water > milk-and-milk-drinks | page 1 of 5 done (60); p2-p5 pending
+Hot drinks, soft drinks & water > mixers-and-adult-soft-drinks | page 1 of 5 done (60); p2-p5 pending
+Hot drinks, soft drinks & water > sports-energy-and-wellbeing | page 1 of 5 done (60); p2-p5 pending
+Hot drinks, soft drinks & water > squash-and-cordials | page 1 of 2 done (60); p2 pending
+Hot drinks, soft drinks & water > squash-and-cordials | pages 2 | tiles collected 117 (60+57) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > fresh-juice | pages 3 | tiles collected 149 (60+60+29) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > milk-and-milk-drinks | pages 1-4 of 5 done (240); p5 pending
+Hot drinks, soft drinks & water > milk-and-milk-drinks | pages 5 | tiles collected 258 (4x60 + 18) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > mixers-and-adult-soft-drinks | pages 5 | tiles collected 281 (4x60 + 41) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > sports-energy-and-wellbeing | pages 1-2 of 5 done (120); p3-p5 pending
+Hot drinks, soft drinks & water > sports-energy-and-wellbeing | pages 5 | tiles collected 287 (4x60 ... p1-p4 60 each, p5 47) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > coffee | page 1 of 7 done (60); p2-p7 pending
+Hot drinks, soft drinks & water > hot-chocolate | pages 1 | tiles collected 44 | shown total n/a (no pager) | COMPLETE
+Hot drinks, soft drinks & water > tea | page 1 of 5 done (60); p2-p5 pending
+Hot drinks, soft drinks & water > coffee | pages 7 | tiles collected 393 (6x60 + 33) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > tea | pages 5 | tiles collected 280 (4x60 + 40) | shown total n/a | COMPLETE
+Hot drinks, soft drinks & water > water | page 1 of 4 done (60); p2-p4 pending
+Hot drinks, soft drinks & water > malted-drinks | pages 1 | tiles collected 9 | shown total n/a (no pager) | COMPLETE
+Hot drinks, soft drinks & water > water | pages 4 | tiles collected 202 (3x60 + 22; includes non-food filter jugs/bottles, the lead filters) | shown total n/a | COMPLETE
+Beer, wine & spirits > cider | page 1 of 2 done (60); p2 pending
+Beer, wine & spirits > beer | page 1 of 6 done (60); p2-p6 pending
+Beer, wine & spirits > cider | pages 2 | tiles collected 84 (60+24) | shown total n/a | COMPLETE
+Beer, wine & spirits > beer | pages 6 | tiles collected 352 (5x60 + 52) | shown total n/a | COMPLETE
+Beer, wine & spirits > low-and-no-alcohol | pages 2 | tiles collected 95 (60+35) | shown total n/a | COMPLETE
+Beer, wine & spirits > spirits-and-liqueurs | pages 11 | tiles collected 621 (10x60 + 21) | shown total n/a | COMPLETE
+Beer, wine & spirits > wine | pages 1-2 of 13 done (120); p3-p13 pending
+Beer, wine & spirits > wine | pages 13 | tiles collected 730 (12x60 + 10) | shown total n/a | COMPLETE
+Dietary & world foods > egg-free | page 1 of 2 done (60); p2 pending
+Dietary & world foods > egg-free | pages 2 | tiles collected 80 (60+20) | shown total n/a | COMPLETE
+Dietary & world foods > gluten-free | page 1 of 13 done (60); p2-p13 pending
+Dietary & world foods > lactose-free | page 1 of 2 done (60); p2 pending
+Dietary & world foods > low-and-no-alcohol | page 1 of 2 done (60); p2 pending
+Dietary & world foods > milk-free | page 1 of 3 done (60); p2-p3 pending
+Dietary & world foods > nut-free | page 1 of 2 done (60); p2 pending
+Dietary & world foods > organic | page 1 of 6 done (60); p2-p6 pending
+Dietary & world foods > soya-free | page 1 of 2 done (60); p2 pending
+Dietary & world foods > sports-nutrition | page 1 of 6 done (60); p2-p6 pending
+Dietary & world foods > vegan | page 1 of 32 done (60); p2-p32 pending (cross-listing: mostly products already in other categories)
+Dietary & world foods > vegetarian | page 1 of 55 done (60); p2-p55 pending (cross-listing: mostly products already in other categories)
+Dietary & world foods > world-foods | page 1 of 30 done (60); p2-p30 pending (cross-listing)
+Dietary & world foods > lactose-free | pages 2 | tiles collected 105 (60+45) | shown total n/a | COMPLETE
+Dietary & world foods > low-and-no-alcohol | pages 2 | tiles collected 79 (60+19) | shown total n/a | COMPLETE
+Dietary & world foods > milk-free | pages 3 | tiles collected 157 (60+60+37) | shown total n/a | COMPLETE
+Dietary & world foods > nut-free | pages 2 | tiles collected 61 (60+1) | shown total n/a | COMPLETE
+Dietary & world foods > soya-free | pages 2 | tiles collected 82 (60+22) | shown total n/a | COMPLETE
+Dietary & world foods > organic | pages 6 | tiles collected 335 (5x60 + 35) | shown total n/a | COMPLETE
+Dietary & world foods > sports-nutrition | pages 1-2 of 6 done (120); p3-p6 pending
+Food cupboard > flour | page 1 of 2 done (60); p2 pending
+Food cupboard > world-foods | pages 1-7 of 21 done (420); p8-p21 pending
+Dietary & world foods > sports-nutrition | pages 6 | tiles collected 343 (5x60 + 43) | shown total n/a | COMPLETE
+Dietary & world foods > gluten-free | pages 1-3 of 13 done (180); p4-p13 pending (low yield: 8 new of 180 tiles)
+Food cupboard > flour | pages 2 | tiles collected 68 (60+8) | shown total n/a | COMPLETE
+Food cupboard > world-foods | pages 1-12 of 21 done (720); p13-p21 pending
+Food cupboard > world-foods | pages 1-18 of 21 done (1080); p19-p21 pending
+Food cupboard > world-foods | pages 21 | tiles collected 1240 (20x60 + 40) | shown total n/a | COMPLETE
+Food cupboard > freefrom | pages 1-4 of 15 done (240); p5-p15 pending (heavy overlap with Dietary gluten-free)
+Meat & fish > meat-and-fish-essentials | pages 3 | tiles collected 160 (60 + 60 + 40; page 1 was written earlier in two partial blocks) | shown total n/a | COMPLETE
+Meat & fish > online-exclusive | pages 2 | tiles collected 69 (page 1 earlier + 9) | shown total n/a | COMPLETE
+Chilled food > discover | page 1 of 7 done (60); p2-p7 pending (feature page, mostly duplicates)
+Chilled food > dairy-and-chilled-essentials | pages 1-3 of 5 done (180); p4-p5 pending
+Chilled food > dairy-and-chilled-essentials | pages 4-5 of 5 done (60+35); leaf COMPLETE (p1-p5, 335 tiles)
+Chilled food > delicatessen | pages 3-6 of 10 done (240); p7-p10 pending
+Chilled food > delicatessen | pages 7-10 of 10 done (60+60+60+7); leaf COMPLETE (p1-p10, 547 tiles)
+Chilled food > discover | pages 2-7 of 7 done (60x5 + 43); leaf COMPLETE (p1-p7, 403 tiles; almost all cross-listed: 4 new in p1-p7 beyond page 1)
+Food cupboard > freefrom | pages 5-7 of 15 done (180); p8-p15 pending
+Food cupboard > freefrom | pages 8-10 of 15 done (180); p11-p15 pending
+Food cupboard > freefrom | pages 11-13 of 15 done (180); p14-p15 pending
+Food cupboard > freefrom | pages 14-15 of 15 done (60+23); leaf COMPLETE (p1-p15, 863 tiles)
+Dietary & world foods > gluten-free | pages 4-13 of 13 fetched (592 tiles); only 1 slug not already known (page 10), written as a new-only block; leaf COMPLETE (p1-p3 written in full earlier)
+Dietary & world foods > vegan | pages 2-32 of 32 fetched (1,875 tiles); new-only blocks written for the slugs not already in sainsburys_listing.txt or pilot_listing.txt (about 70); leaf COMPLETE (p1 in full earlier)
+Dietary & world foods > vegetarian | pages 2-55 of 55 fetched (3,201 tiles); new-only blocks written (about 150, mostly baby food, vitamins/supplements and sauce mixes, i.e. products listed under other shop sections); leaf COMPLETE (p1 in full earlier)
+Dietary & world foods > world-foods | pages 2-30 of 30 fetched (1,725 tiles); new-only blocks written (about 60: Polish, Caribbean, Asian, halal lines); leaf COMPLETE (p1 in full earlier)
+METHOD for those four Dietary leaves: each page was fetched and its tile slugs compared (32-bit hash of each slug) with every slug already in sainsburys_listing.txt and pilot_listing.txt; only the lines of tiles not already known were printed back and written (header says "new-only", tile numbers listed). Each written line was checked against a hash of the whole line computed in the page.
+ALL leaves of the lead's NOT DONE list are now fetched.

@@ -1,0 +1,21 @@
+WAITROSE terms check (2026-10-08, read in the founder's Chrome, own tab)
+
+robots.txt (https://www.waitrose.com/robots.txt): 64 Disallow lines under "User-agent: *" (a separate block only for ia_archiver: "Disallow: /").
+None disallows the browse/category listing pages (/ecom/shop/browse/groceries/...) or product pages (/ecom/products/...).
+Disallowed lines that matter for how we crawl (we avoid these URL shapes):
+  Disallow: *search?*
+  Disallow: *HeaderSearchCmd*
+  Disallow: *?fulfilment*
+  Disallow: *groceries/refined_by/search_term*
+  Disallow: /ecom/shop/offers
+  Disallow: /ecom/shop/trolley
+  Disallow: /ecom/shopping-lists*  /ecom/shop-by-list*
+  (also checkout, login, account, order and similar paths)
+So: we do not use search URLs, "?fulfilment" URLs or /ecom/shop/offers.
+
+Website terms (https://www.waitrose.com/ecom/help-information/terms-and-conditions, "Last updated: 22 January 2026"), section "Use of website" and the rest of the page:
+Only sentence touching copying (quoted exactly):
+  "Copyright Waitrose Limited."
+  "No part of this website may be reproduced in any material forms (including storing in any medium by electronic means) without the prior written permission of Waitrose Limited."
+Searched the whole page (15.8k characters) for scrape, robot, crawl, spider, automated, bot, data mining, extract, harvest, software, framing, text and data, AI, machine: no sentence about bots, scraping, crawlers, automated access or AI tools. The only other hit was an unrelated consumer-rights sentence about digital content.
+Decision: robots.txt does not disallow the listing pages; terms contain the copyright/reproduction sentence above (quoted). Continuing as the lead instructed.

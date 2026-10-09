@@ -1,0 +1,41 @@
+Bakery > Bread > Bread from our bakery | pages 1 | tiles collected 25 | unique slugs 25
+Bakery > Bread > Half and half bread | pages 1 | tiles collected 6 | unique slugs 6
+Bakery > Bread > Seeded & grain bread | pages 1 | tiles collected 33 | unique slugs 33
+Bakery > Bread > Soda & rye bread | pages 1 | tiles collected 12 | unique slugs 12
+Bakery > Bread > White bread | pages 2 | tiles collected 73 | unique slugs 73
+Bakery > Bread > Wholemeal & brown bread | pages 1 | tiles collected 25 | unique slugs 25
+Bakery > Bread rolls & bagels > Bagels | pages 1 | tiles collected 23 | unique slugs 23
+Bakery > Bread rolls & bagels > Bread rolls | pages 1 | tiles collected 56 | unique slugs 56
+Bakery > Cakes > Cake slices & bars | pages 2 | tiles collected 109 | unique slugs 109
+Bakery > Cakes > Birthday & party cakes | pages 2 | tiles collected 65 | unique slugs 65
+Bakery > Cakes > Whole cakes | pages 2 | tiles collected 92 | unique slugs 92
+Bakery > Croissants & pastries > Bagels | pages 1 | tiles collected 23 | unique slugs 23
+Bakery > Croissants & pastries > Breakfast muffins | pages 1 | tiles collected 3 | unique slugs 3
+Bakery > Croissants & pastries > Brioche buns & bread | pages 1 | tiles collected 33 | unique slugs 33
+Bakery > Croissants & pastries > Croissants | pages 1 | tiles collected 17 | unique slugs 17
+Bakery > Croissants & pastries > Crumpets | pages 1 | tiles collected 9 | unique slugs 9
+Bakery > Croissants & pastries > Fruit loaves | pages 1 | tiles collected 14 | unique slugs 14
+Bakery > Croissants & pastries > Pancakes & crepes | pages 1 | tiles collected 17 | unique slugs 17
+Bakery > Croissants & pastries > Pastries | pages 1 | tiles collected 13 | unique slugs 13
+Bakery > Croissants & pastries > Waffles | pages 1 | tiles collected 9 | unique slugs 9
+Bakery > Doughnuts, cookies & muffins > Cookies | pages 1 | tiles collected 16 | unique slugs 16
+Bakery > Doughnuts, cookies & muffins > Doughnuts | pages 1 | tiles collected 16 | unique slugs 16
+Bakery > Doughnuts, cookies & muffins > Muffins | pages 1 | tiles collected 13 | unique slugs 13
+Bakery > From our in store bakery > Baguettes & batons | pages 1 | tiles collected 9 | unique slugs 9
+Bakery > From our in store bakery > Bread | pages 1 | tiles collected 34 | unique slugs 34
+Bakery > From our in store bakery > Cakes & slices | pages 1 | tiles collected 28 | unique slugs 28
+Bakery > From our in store bakery > Doughnuts & cookies | pages 1 | tiles collected 25 | unique slugs 25
+Bakery > From our in store bakery > Pastries & pies | pages 1 | tiles collected 20 | unique slugs 20
+Bakery > From our in store bakery > Rolls & bagels | pages 1 | tiles collected 15 | unique slugs 15
+Bakery > Fruited loaves & buns > Fruit loaves | pages 1 | tiles collected 14 | unique slugs 14
+Bakery > Fruited loaves & buns > Hot cross buns | pages 1 | tiles collected 3 | unique slugs 3
+Bakery > Fruited loaves & buns > Scones & fruited buns | pages 1 | tiles collected 13 | unique slugs 13
+Bakery > Fruited loaves & buns > Teacakes | pages 1 | tiles collected 9 | unique slugs 9
+Bakery > Garlic breads | pages 1 | tiles collected 5 | unique slugs 5
+Bakery > Naans & flat breads > Flat breads | pages 1 | tiles collected 22 | unique slugs 22
+Bakery > Naans & flat breads > Focaccia | pages 1 | tiles collected 8 | unique slugs 8
+Bakery > Naans & flat breads > Naan breads | pages 1 | tiles collected 16 | unique slugs 16
+Bakery > Pies & tarts | pages 1 | tiles collected 38 | unique slugs 38
+Bakery > Wraps, thins & pittas > Pitta bread | pages 1 | tiles collected 22 | unique slugs 22
+Bakery > Wraps, thins & pittas > Sandwich thins | pages 1 | tiles collected 4 | unique slugs 4
+Bakery > Wraps, thins & pittas > Wraps | pages 1 | tiles collected 35 | unique slugs 35

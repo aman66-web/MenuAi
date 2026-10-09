@@ -1,0 +1,1 @@
+Sainsbury's terms note (from the lead, not re-read by this run): robots.txt does not disallow product or category pages. The groceries Terms & Conditions at https://help.sainsburys.co.uk/help/terms-and-conditions/terms-conditions contain no sentence on copying content, scraping or automated access.

@@ -1,0 +1,1 @@
+# Co-op: not crawled. shop.coop.co.uk and www.coop.co.uk deny access (Imperva Error 16 / geo-block: Co-op Food not available outside the UK) from this browser's IP.

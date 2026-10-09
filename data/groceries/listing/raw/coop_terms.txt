@@ -1,0 +1,7 @@
+Co-op crawl: STOPPED AT STEP 0 (access denied). Nothing crawled.
+Checked on 2026-10-08 in the founder's Chrome, my own tab:
+- https://shop.coop.co.uk/robots.txt : top-level page shows "Access Denied. Co-op Food is not available to customers who are located outside of the UK. We apologise for any inconvenience." with "This request was blocked by our security service" (Imperva/Incapsula). A fetch of /robots.txt from the page answers HTTP 403 text/html (Incapsula incident page), not a robots.txt.
+- https://www.coop.co.uk/robots.txt : HTTP 403 (Incapsula "Request unsuccessful"), no robots.txt returned.
+- https://shop.coop.co.uk/ and https://www.coop.co.uk/ : "Access denied, Error 16, This request was blocked by our security service, Powered by Imperva."
+- The blocked requests report the browser's IP as 14.241.121.27 (outside the UK), proxy IP 107.154.76.85.
+Terms page not reached (blocked). No robots.txt rules could be read, so none were checked. No block was worked round (no VPN, no other route).
