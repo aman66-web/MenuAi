@@ -402,6 +402,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   137 publish none, 65 have closed, 61 block automated access; realistic total is about 190-200 chains. A usage-limit stop at 00:00 UTC killed eight helpers; their unfinished allergen, photo and
   verification work was restarted and nothing unverified was published (the republish was built from committed, gated work only).
 
+- 2026-10-09 (later) — **176 chains, 26,944 items live** (`main` = this branch). Added Young's (65 dishes printed with identical calories at 2 or more of 257 pubs read, calories-only);
+  allergens now complete for Leon (70 of 94), Mowgli (46 of 46), Dim T (66 of 100: 26 dishes without an exact guide row or contradicting their own text are held back, so Dim T lost those 26 calorie
+  entries; an `ALIAS` dict in `dim_t.py` can restore a row the founder approves, and its 18 fryer-marked dishes list every allergen under "may contain" from the guide's own fryer-oil sentence, reading its
+  "sulphates" as sulphites: please confirm), Fat Hippo (89), Wenzel's (108); each checked against the rendered source with 0 mismatches. Link-only stays for Pho, Strada, Wahaca, Franco Manca, Wildwood,
+  Hard Rock Café, Mildreds, Burger & Lobster, Bagel Factory, Dave's Hot Chicken (reasons in each script's docstring). Simmons Bakers was re-read: kJ/kcal contradictions beyond 7% are now held back
+  (45 held back, 4 salads left) and 3 meat tags fixed; **85 Simmons items print salt 0 g, probably a missing figure** (copied as printed). Photos: IKEA 112, Wenzel's 54, Yo! Sushi 53 (the chain's website
+  prints a different kcal for 11 dishes; 4 with gaps over 5% are held back: Chicken Gyoza, Vegetable Gyoza, Prawn Crackers (second row), Cotton Candy Cheesecake). PGL Travel (a children's activity-holiday
+  rota) was extracted (139 dishes, allergens complete) and set aside with Norse Catering in `data/held-unpublished/`. **Robots check:** a scan of every source site's robots.txt for rules naming Anthropic's crawlers
+  found none that apply to our pages (Squarespace sites list AI crawler names in the same group as `*`, i.e. the ordinary rules; Premier Inn and Chaiiwala name ClaudeBot only for search/admin paths). Cafe Concerto's
+  PDFs sit on a host whose robots.txt disallows everything: skipped (script `cafe_concerto.py --pdfs DIR` is ready if you save them).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
