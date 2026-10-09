@@ -1,0 +1,74 @@
+# Claude in Chrome reads a chain's own pages, the app gets the numbers
+
+This is the "Chrome finds the information, then it is written into the app" route. It is for chains whose own site shows
+calories or nutrition to a person in a browser but refuses our cloud scripts (Cloudflare, JavaScript-only order apps, location
+checks). It works with the same accuracy rules as every other chain.
+
+## The flow
+
+1. **Chrome (your Mac):** Claude in Chrome opens the chain's own site, reads the nutrition per dish and writes two files into
+   `~/MenuAi/data/chrome-inbox/<chain-id>/` (`meta.json` and `items.csv`, formats below). You solve any "verify you are human"
+   page yourself; the agent stops and tells you.
+2. **You push:** `cd ~/MenuAi && git add data/chrome-inbox && git commit -m "Chrome read: <chain>" && git push`
+3. **The cloud session (me) does the rest, automatically:**
+   - `python3 tools/uk_extract/chrome_import.py <chain-id>` re-checks every row (own-site page address, per serving only,
+     no contradictions, duplicates, allergen words) and writes the normal `data/source/<chain-id>/` folder;
+   - `python3 tools/uk_extract/check_chain.py <chain-id> --fail-on-high` is the accuracy gate;
+   - an independent helper re-reads a sample of rows against the live page;
+   - the chain is committed and the site is republished.
+
+You only do steps 1 and 2. Tell me "inbox: <chain-id>" and I take it from there.
+
+## What Chrome must never do
+
+- Use any site except the chain's own (never Google, delivery apps, calorie-counter apps or aggregators).
+- Guess, convert, round or fill in a number. Copy exactly what the page shows, per serving. Per-100 g figures are not accepted.
+- Run scripts on the page or send data anywhere (say no if it is asked to). Reading and typing into two files is all it needs.
+- Work round a "verify you are human" page, a login or a block: stop and tell you.
+- Read a page the chain's `robots.txt` asks automated tools to leave alone (the agent checks `/robots.txt` first and stops if the
+  page is disallowed).
+
+## Prompt for Claude in Chrome (paste into the side panel; fill the three bracketed parts)
+
+```
+I run a nutrition app for UK restaurant chains. I need the OFFICIAL per-dish nutrition from {CHAIN NAME}'s own website only
+({HOME PAGE}). Never use Google, delivery apps (Deliveroo, Just Eat, Uber Eats), calorie-counter apps or any other site.
+
+0. First open {HOME PAGE}/robots.txt. If it forbids the pages you are about to read, stop and tell me.
+1. Find the page(s) that show nutrition for every dish: a "nutrition" or "allergens and calories" page, or the menu on the chain's
+   own ordering site. If a "verify you are human" check or login appears, stop and tell me; I will do it.
+2. Work category by category. Open each dish (or the nutrition table/panel) so its numbers are visible. Read the numbers exactly
+   as printed, PER SERVING as sold. If a page shows per-100 g only, or you cannot tell the basis, stop and tell me: do not guess.
+3. Create two files in ~/MenuAi/data/chrome-inbox/{CHAIN-ID}/ :
+
+   meta.json  (JSON):
+   {"name": "...", "cuisine": "...", "source_title": "what the page is called, with its date or '(read YYYY-MM-DD, no date shown)'",
+    "source_url": "the nutrition page address", "checked_on": "YYYY-MM-DD", "nutrition_level": "full or calories",
+    "basis": "per serving", "sites": <number of UK sites>, "sites_evidence": "the page that lists the sites",
+    "allowed_hosts": ["the chain's own ordering site host, if different"], "note": "any limit (menus differ by site, etc.)"}
+   Use "full" only if protein, carbs and fat are printed for EVERY dish; otherwise "calories".
+
+   items.csv  with exactly this header and one line per dish/size (quote names that contain commas):
+   name,category,calories,protein_g,carbs_g,fat_g,sat_fat_g,sugar_g,fiber_g,salt_g,energy_kj,weight_g,serving,page_url,contains,may_contain
+   - numbers only (no units), blank when the page does not print that number; never 0 for a blank
+   - page_url: the chain's own page where you read that row
+   - contains / may_contain: allergen words from the page separated by ";" (e.g. gluten;milk), the word NONE if the page lists
+     none, blank if the page shows no allergen information for that dish
+4. Do not skip dishes that look odd, and do not "fix" odd numbers: copy them. Finish by telling me how many dishes you wrote, which
+   categories you could not open, and the sites count and where you found it.
+```
+
+## Chains to pilot first (calories shown on a page our scripts cannot read)
+
+Start with these, in this order, and stop after the first three if the yield is poor. The first four are the ones users look for most.
+
+| Chain | Where to look | Why it is a good pilot |
+|---|---|---|
+| McDonald's | mcdonalds.com/gb: Good to know, Nutrition calculator | big brand; our cloud address is blocked |
+| Domino's | dominos.co.uk/nutritional-information | big brand; "not available in your location" from our server |
+| Papa Johns | papajohns.co.uk, footer: nutrition / allergen guide | big brand; blocked from our server |
+| Costa | costa.co.uk: allergen and nutrition guide | big brand; its site errored for us |
+| Tossed | tossed.co.uk (13 London sites): Cloudflare check | trading chain, Cloudflare blocks our scripts |
+| Turtle Bay | turtlebay.co.uk/menu (a Vue app, about 40 sites) | unknown whether nutrition is shown: worth a look |
+
+If a chain shows only allergens (no calories), tell me and we skip it.
