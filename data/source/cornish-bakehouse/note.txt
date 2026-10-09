@@ -1,0 +1,1 @@
+Calories only, one value per product (the sheet prints no weights or units; the column 'Calories' is read as kcal), from the chain's Pasty & Savouries sheet marked 'Updated 27 January 2025'. Cakes, recipe items and drinks are not listed: their sheets give per 100 g only or no calories.

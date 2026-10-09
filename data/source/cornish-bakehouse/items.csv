@@ -1,0 +1,36 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+small-steak-pasty,Small Steak Pasty,Pasties,,544,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Small Steak Pasty *' on page 1
+medium-steak-pasty,Medium Steak Pasty,Pasties,,688,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Medium Steak Pasty *' on page 1
+large-steak-pasty,Large Steak Pasty,Pasties,,827,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Large Steak Pasty *' on page 1
+giant-steak-pasty,Giant Steak Pasty,Pasties,,1073,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Giant Steak Pasty *' on page 1
+beef-and-stilton-pasty-large,Beef and Stilton Pasty (Large),Pasties,,973,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Beef and Stilton Pasty (Large)*' on page 1
+cheese-and-bacon-pasty,Cheese and Bacon Pasty,Pasties,,701,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Cheese and Bacon Pasty *' on page 1
+steak-and-ale-pasty-large,Steak and Ale Pasty (Large),Pasties,,1000,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Steak and Ale Pasty (Large)*' on page 1
+lamb-and-mint-pasty,Lamb and Mint Pasty,Pasties,,782,,,,,,,,,,,,,,,,false,false,,,Printed 'Lamb and Mint Pasty*' on page 1
+chicken-and-leek-pasty,Chicken and Leek Pasty,Pasties,,690,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken and Leek Pasty*' on page 1
+cheese-and-onion-pasty,Cheese and Onion Pasty,Pasties,,737,,,,,,,,,,,,,,,,false,false,,,Printed 'Cheese and Onion Pasty*' on page 1
+spicy-mediterranean-vegetable,Spicy Mediterranean Vegetable,Pasties,,658,,,,,,,,,,,,,,,,false,false,,,Printed 'Spicy Mediterranean Vegetable*' on page 1
+vegetable-pasty,Vegetable Pasty,Pasties,,678,,,,,,,,,,,,,,,,false,false,,,Printed 'Vegetable Pasty*' on page 1
+broccoli-cheese-and-sweetcorn-pasty,Broccoli Cheese and Sweetcorn Pasty,Pasties,,722,,,,,,,,,,,,,,,,false,false,,,Printed 'Broccoli Cheese and Sweetcorn Pasty*' on page 1
+chicken-and-mushroom-pasty,Chicken and Mushroom Pasty,Pasties,,666,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken and Mushroom Pasty' on page 1
+spinach-and-ricotta-pasty,Spinach and Ricotta Pasty,Pasties,,760,,,,,,,,,,,,,,,,false,false,,,Printed 'Spinach and Ricotta Pasty*' on page 1
+chicken-chorizo-bacon-pasty,Chicken Chorizo Bacon Pasty,Pasties,,717,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Chicken Chorizo Bacon Pasty*' on page 1
+chicken-and-bacon-pasty,Chicken and Bacon Pasty,Pasties,,760,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Chicken and Bacon Pasty*' on page 1
+red-thai-chicken-pasty,Red Thai Chicken Pasty,Pasties,,745,,,,,,,,,,,,,,,,false,false,,,Printed 'Red Thai Chicken Pasty*' on page 1
+turkey-and-cranberry-pasty,Turkey and Cranberry Pasty,Pasties,,757,,,,,,,,,,,,,,,,false,false,,,Printed 'Turkey and Cranberry Pasty*' on page 1
+vegan-thai-pasty,Vegan Thai Pasty,Pasties,,700,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Thai Pasty*' on page 2
+corned-beef-pasty-bako,Corned Beef Pasty (Bako),Pasties,,583,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Corned Beef Pasty (Bako)' on page 2; named for its supplier on the sheet
+chicken-and-mushroom-slice,Chicken and Mushroom Slice,Slices,,428,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken and Mushroom Slice*' on page 2
+chicken-jalfrezi-slice,Chicken Jalfrezi Slice,Slices,,433,,,,,,,,,,,,,,,,false,false,,,Printed 'Chicken Jalfrezi Slice *' on page 2
+steak-slice,Steak Slice,Slices,,430,,,,,,,,,,,,,,,contains_beef,false,false,,,Printed 'Steak Slice *' on page 2
+cheese-and-onion-slice,Cheese and Onion Slice,Slices,,487,,,,,,,,,,,,,,,,false,false,,,Printed 'Cheese and Onion Slice*' on page 2
+bacon-and-cheese-bite,Bacon and Cheese Bite,Bites,,585,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Bacon and Cheese Bite*' on page 2
+sausage-and-cheese-bite,Sausage and Cheese Bite,Bites,,675,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Sausage and Cheese Bite *' on page 2
+bacon-brie-and-cranberry-bite,"Bacon, Brie and Cranberry Bite",Bites,,562,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'Bacon, Brie and Cranberry Bite' on page 2"
+medium-sausage-roll,Medium Sausage Roll,Sausage rolls,,409,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Medium Sausage Roll*' on page 2
+large-sausage-roll,Large Sausage Roll,Sausage rolls,,513,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Large Sausage Roll*' on page 2
+vegan-sausage-roll,Vegan Sausage Roll,Sausage rolls,,515,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'Vegan Sausage Roll*' on page 2
+christmas-sausage-roll,Christmas Sausage Roll,Sausage rolls,,512,,,,,,,,,,,,,,,contains_pork,true,false,,,Printed 'Christmas Sausage Roll*' on page 2; seasonal by its name (the sheet does not label it)
+sweet-chilli-pork-gourmet-sausage-roll,Sweet Chilli Pork Gourmet Sausage Roll,Sausage rolls,,670,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Sweet Chilli pork Gourmet Sausage Roll' on page 2
+pork-apple-cider-gourmet-sausage-roll,Pork Apple Cider Gourmet Sausage Roll,Sausage rolls,,639,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Pork Apple Cider Gourmet Sausage Roll' on page 2
+cheese-and-chutney-gourmet-sausage-roll,Cheese & Chutney Gourmet Sausage Roll,Sausage rolls,,675,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'Cheese & Chutney Gourmet Sausage Roll' on page 2
