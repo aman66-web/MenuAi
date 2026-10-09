@@ -434,6 +434,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   first, then calories-only chains from triage that clear the quality bar (10+ UK sites, official per-dish calories, a source a script can read, sites that disagree published only where 2+ sites agree).
   Calories-only additions in progress: Daisy Green, Bakers & Baristas, Burger & Sauce, Cornish Bakehouse, Deli by Shell, Butcombe Inns, MyTime Active, Harbour Hotels; full nutrition: Papa's Fish & Chips (2018 lab report).
 
+- 2026-10-10 (early) — **189 chains, 29,831 items live: 101 full nutrition, 88 calories only** (`main` = this branch; 0 high-severity audit flags). Added since 181: Daisy Green (278), Deli by Shell (90, valid
+  October 2026 only, reissued monthly), Burger & Sauce (43, March 2025 sheet), Cornish Bakehouse (35, January 2025 sheet), Bakers & Baristas (589), MyTime Active (80), Harbour Hotels (28 dishes that agree at 2+ of 15
+  hotels), Butcombe Inns (192, published only where name, calories and allergens agree at every pub printing them) — all calories-only (the founder allowed these again with "keep adding chains as many as you can").
+  Papa's Fish & Chips (5 items, full nutrition, 2018 lab reports) was extracted and set aside in `data/held-unpublished/` because it has only about 5-9 current shops. **To confirm:** Deli by Shell's allergen matrix
+  prints "M" in 283 cells with no key (read as "may contain": it can only add a warning; `READ_M_AS_MAY_CONTAIN` in `deli_by_shell.py` switches to link-only); Bakers & Baristas reads "Y*" as contains milk and "N*" as may
+  contain milk. The pool of untried candidates is nearly exhausted (721 earlier discovery leads are almost all small regional groups with no nutrition page).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009105730,
- "generatedAt": "2026-10-09T10:57:30Z",
+ "dataVersion": 20261009114856,
+ "generatedAt": "2026-10-09T11:48:56Z",
  "chains": [
   {
    "id": "abokado",
@@ -82,6 +82,18 @@
    "sample": false,
    "itemCount": 26,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "bakers-and-baristas",
+   "name": "Bakers & Baristas",
+   "cuisine": "Bakery",
+   "file": "chain-bakers-and-baristas.json",
+   "sha256": "0750c560f89ee7243edd517c81c96ee20465bbc0f800bcfbcd1ef1db437d627d",
+   "contentHash": "cc46d51bbb844c4e20eb588b6d213b1e1bad7567a15b9a2d7a84b65e89efc283",
+   "sample": false,
+   "itemCount": 589,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
   },
   {
    "id": "banana-tree",
@@ -327,6 +339,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "burger-and-sauce",
+   "name": "Burger & Sauce",
+   "cuisine": "Burgers",
+   "file": "chain-burger-and-sauce.json",
+   "sha256": "0d397e28847dd147a26493e44dbeeca5d8b33552cc4e3ec447a3c8f49ca91b69",
+   "contentHash": "0a2675bd9bdf67f33573975792ebe61ad7b517dc04bb27c2bb7fe5bd920dbb5a",
+   "sample": false,
+   "itemCount": 43,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "burger-shack",
    "name": "Burger Shack",
    "cuisine": "Burgers",
@@ -336,6 +360,18 @@
    "sample": false,
    "itemCount": 6,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "butcombe-inns",
+   "name": "Butcombe Inns",
+   "cuisine": "Pub",
+   "file": "chain-butcombe-inns.json",
+   "sha256": "0d655e852ff0572b09fc1bc618015dd569084b1a33e499fce731add9a32f6489",
+   "contentHash": "cd37ece0a58223b67939021077f7df15ade5a55f86f14929a327acd27a4584ff",
+   "sample": false,
+   "itemCount": 192,
+   "checkedOn": "2026-10-09",
    "nutritionLevel": "calories"
   },
   {
@@ -519,6 +555,18 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "cornish-bakehouse",
+   "name": "Cornish Bakehouse",
+   "cuisine": "Bakery",
+   "file": "chain-cornish-bakehouse.json",
+   "sha256": "77d2d867f02124c9cbf5f8329e7255c662e9ff1175a502bdc8849432074c871d",
+   "contentHash": "cc7ec8ee03fcd56b65fa8e0eb294bdd01f192bcabe7b21b084ceb7f5737d2abf",
+   "sample": false,
+   "itemCount": 35,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "cornish-bakery",
    "name": "The Cornish Bakery",
    "cuisine": "Bakery",
@@ -554,6 +602,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "daisy-green",
+   "name": "Daisy Green",
+   "cuisine": "Brunch",
+   "file": "chain-daisy-green.json",
+   "sha256": "3f41d3178a6c9fd6086d0921da505cca02153fdcb154fc3c46f26b350fb99ad5",
+   "contentHash": "095b60e8f7725adacc4bd4fb042d9f8f457b8812a45ae8d6f3436140373c9fe5",
+   "sample": false,
+   "itemCount": 278,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "daves-hot-chicken",
    "name": "Dave's Hot Chicken",
    "cuisine": "Chicken",
@@ -563,6 +623,18 @@
    "sample": false,
    "itemCount": 51,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "deli-by-shell",
+   "name": "Deli by Shell",
+   "cuisine": "Sandwiches",
+   "file": "chain-deli-by-shell.json",
+   "sha256": "cd59be811be57533e1ddc94a7d70abbaa2bfb002e4673e91a1a2e5507136d6b6",
+   "contentHash": "c94fb6126852f2f04c0dbebd0b2e88c7b86bf1a5fc19367480d8e6ec1142d63f",
+   "sample": false,
+   "itemCount": 90,
+   "checkedOn": "2026-10-09",
    "nutritionLevel": "calories"
   },
   {
@@ -887,6 +959,18 @@
    "sample": false,
    "itemCount": 233,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "harbour-hotels",
+   "name": "Harbour Hotels",
+   "cuisine": "Hotel restaurant",
+   "file": "chain-harbour-hotels.json",
+   "sha256": "8bf2083080264add4a953932b369cd6430540ed6c75bcdc033f8f66b2505a0f0",
+   "contentHash": "721b4d2c9e3f780109db274aca299683bc8c91b55d9f1e93a9009806405e3913",
+   "sample": false,
+   "itemCount": 28,
+   "checkedOn": "2026-10-09",
    "nutritionLevel": "calories"
   },
   {
@@ -1256,6 +1340,18 @@
    "sample": false,
    "itemCount": 491,
    "checkedOn": "2026-10-09"
+  },
+  {
+   "id": "mytime-active",
+   "name": "Mytime Active",
+   "cuisine": "Leisure centre & golf cafe",
+   "file": "chain-mytime-active.json",
+   "sha256": "c831884628377398c897b13904e2b69881e9dcd456469f6bc0091e15201da36e",
+   "contentHash": "d72f06b3b7a8a5164ca9ebfb7a7546aa2682263de1fe8230b59578ad0a9fded8",
+   "sample": false,
+   "itemCount": 80,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
   },
   {
    "id": "nandos",
@@ -2077,6 +2173,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "ca1d94c2df0d99c21da4ad76ad0be1560b8f1fec0b37e6e693e3605d00705bcb"
+  "sha256": "25a2d3e7e5ce1e7af5c7ebe978d06d271969a01f80cb4ebcf8536e00202712d5"
  }
 }

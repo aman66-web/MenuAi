@@ -1,0 +1,460 @@
+{
+ "schemaVersion": 1,
+ "id": "harbour-hotels",
+ "name": "Harbour Hotels",
+ "cuisine": "Hotel restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "harbour hotels",
+  "harbour hotel",
+  "harbour kitchen",
+  "the jetty",
+  "upper deck",
+  "harbar",
+  "harbour hotel and spa"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Harbour Hotels restaurant menus with calories (breakfast, light bites, a la carte, desserts, children's, Sunday and set menus; PDFs linked from each hotel's restaurant page, file names dated 2024 to October 2026)",
+  "url": "https://www.harbourhotels.co.uk/our-hotels",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as printed on the hotels' menus; protein, carbs, fat and allergens are not published. Each hotel has its own menus, so only dishes printed with the same name and calories at 2 or more hotels are listed. Children's menu files are dated 2024.",
+ "categories": [
+  "Children's menu",
+  "Light bites",
+  "Desserts",
+  "Breakfast",
+  "Drinks",
+  "Sides",
+  "Starters & snacks",
+  "Mains"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "battered-haddock-with-chips",
+   "name": "Battered Haddock with chips",
+   "category": "Children's menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 332
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-chicken-strips-cajun-spices",
+   "name": "Buttermilk Chicken Strips, cajun spices",
+   "category": "Children's menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-goujons-lemon-mayonnaise-watercress",
+   "name": "Fish Goujons, lemon mayonnaise, watercress",
+   "category": "Children's menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 359
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-chicken-seasonal-greens-new-potatoes",
+   "name": "Grilled Chicken, seasonal greens, new potatoes",
+   "category": "Children's menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 362
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chickpea-falafel-wrap",
+   "name": "Chickpea Falafel Wrap",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 488
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-salmon-and-dill-cream-cheese-bagel",
+   "name": "Smoked Salmon & Dill Cream Cheese Bagel",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-salmon-bagel",
+   "name": "Smoked Salmon Bagel",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-harbour-club",
+   "name": "The Harbour Club",
+   "category": "Light bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 628
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cr-me-br-l-e",
+   "name": "Classic Crème Brûlée",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-and-oat-french-toast",
+   "name": "Coconut & Oat French Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crushed-avocado-and-poached-hens-egg-on-toast",
+   "name": "Crushed Avocado & Poached Hen’s Egg on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 329
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-kippers",
+   "name": "Grilled Kippers",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-egg-morning-brioche",
+   "name": "Sausage & Egg Morning Brioche",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 617
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-and-ricotta-souffl-omelette",
+   "name": "Spinach & Ricotta Soufflé Omelette",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "two-poached-eggs",
+   "name": "Two Poached Eggs",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "parmesan-and-truffle-fries",
+   "name": "Parmesan & Truffle Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 296
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-potatoes",
+   "name": "Roast Potatoes",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 259
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steamed-samphire",
+   "name": "Steamed Samphire",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-cocktail",
+   "name": "Prawn Cocktail",
+   "category": "Starters & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 491
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-parsnip-and-pear-soup",
+   "name": "Roasted Parsnip & Pear Soup",
+   "category": "Starters & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "selection-of-charcuterie",
+   "name": "Selection of Charcuterie",
+   "category": "Starters & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "severn-and-wye-smoked-salmon",
+   "name": "Severn & Wye Smoked Salmon",
+   "category": "Starters & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sourdough-boule",
+   "name": "Sourdough Boule",
+   "category": "Starters & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sourdough-boule-for-two-to-share",
+   "name": "Sourdough Boule for Two to Share",
+   "category": "Starters & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-pork-shoulder",
+   "name": "Roast Pork Shoulder",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 912
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-fillet-of-salmon",
+   "name": "Roasted Fillet of Salmon",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 837
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-chicken-milanese",
+   "name": "Truffle Chicken Milanese",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 987
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

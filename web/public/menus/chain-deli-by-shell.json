@@ -1,0 +1,2502 @@
+{
+ "schemaVersion": 1,
+ "id": "deli-by-shell",
+ "name": "Deli by Shell",
+ "cuisine": "Sandwiches",
+ "builderType": "standard",
+ "aliases": [
+  "deli by shell",
+  "shell deli",
+  "deli2go"
+ ],
+ "sample": false,
+ "source": {
+  "title": "deli by Shell Allergen Matrix, October 2026 (valid 1 October 2026 to 31 October 2026 only; page last updated 30 September 2026)",
+  "url": "https://www.shell.co.uk/shell-service-stations/food-and-drink-offering/deli-by-shell/allergen-matrix.html",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per unit or portion as sold (unit size not stated). This table is valid for October 2026 only and Shell reissues it every month, so figures can change. The range varies by forecourt, and some lines are Co-op brand.",
+ "allergenGuide": {
+  "title": "deli by Shell Allergen Matrix, October 2026 (the page prints no key: Y read as contains, M as may contain)",
+  "url": "https://www.shell.co.uk/shell-service-stations/food-and-drink-offering/deli-by-shell/allergen-matrix.html",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Chilled Prepacked",
+  "Baked Confectionery",
+  "Bakery",
+  "Hot Sandwich",
+  "Hot Savoury",
+  "Co-op Baked Confectionery",
+  "Co-op Bakery"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "roast-chicken-salad",
+   "name": "Roast Chicken Salad",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "roast-chicken-and-bacon",
+   "name": "Roast Chicken & Bacon",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 427
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-onion",
+   "name": "Cheese & Onion",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-cress-mayo",
+   "name": "Egg & Cress Mayo",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cheese-ploughmans",
+   "name": "Cheese Ploughman’s",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "all-day-breakfast",
+   "name": "All Day Breakfast",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 498
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheddar-cheese",
+   "name": "Ham & Cheddar Cheese",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "tuna-and-sweetcorn",
+   "name": "Tuna & Sweetcorn",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "prawn-mayo",
+   "name": "Prawn Mayo",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "fish",
+     "molluscs"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "egg-and-bacon-triple",
+   "name": "Egg & Bacon Triple",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "blt-triple",
+   "name": "BLT Triple",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-stuffing-triple",
+   "name": "Chicken & Stuffing Triple",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-bacon-caesar-wrap",
+   "name": "Chicken & Bacon Caesar Wrap",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 493
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "southern-fried-chicken-wrap",
+   "name": "Southern Fried Chicken Wrap",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 441
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-chorizo",
+   "name": "Chicken & Chorizo",
+   "category": "Chilled Prepacked",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "classic-croissant",
+   "name": "Classic Croissant",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain Au Chocolat",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "maple-pecan-plait",
+   "name": "Maple Pecan Plait",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "vanilla-crown",
+   "name": "Vanilla Crown",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "almond-croissant",
+   "name": "Almond Croissant",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 307
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pistachio-croissant",
+   "name": "Pistachio Croissant",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-custard-donut",
+   "name": "Chocolate & Custard Donut",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-twist",
+   "name": "Chocolate Twist",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramelised-biscuit-donut",
+   "name": "Caramelised Biscuit Donut",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-donut",
+   "name": "Triple Chocolate Donut",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 308
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "share-pack-classic-croissant",
+   "name": "Share Pack Classic Croissant",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "share-pack-pain-au-chocolat",
+   "name": "Share Pack Pain Au Chocolat",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-donut",
+   "name": "Raspberry Donut",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 262
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-brownie-donut",
+   "name": "Chocolate Brownie Donut",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 347
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-croissant",
+   "name": "Chocolate Croissant",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-crunch-donut",
+   "name": "Chocolate Crunch Donut",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 386
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-donut",
+   "name": "Millionaire's Donut",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-cookie",
+   "name": "Triple Chocolate Cookie",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-and-pretzel-cookie",
+   "name": "Salted Caramel & Pretzel Cookie",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 411
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-and-white-chocolate-cookie",
+   "name": "Raspberry & White Chocolate Cookie",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "hazlenut-and-milk-chocolate-cookie",
+   "name": "Hazlenut & Milk Chocolate Cookie",
+   "category": "Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 446
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pretzel",
+   "name": "Pretzel",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "white-baguette",
+   "name": "White Baguette",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 663
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "custard-filled-almond-pretzel",
+   "name": "Custard Filled Almond Pretzel",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "black-olive-roll",
+   "name": "Black Olive Roll",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "diamond-shaped-white-roll",
+   "name": "Diamond Shaped White Roll",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "white-demi-baguette",
+   "name": "White Demi Baguette",
+   "category": "Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bacon-bap",
+   "name": "Bacon Bap",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bacon-and-cheese-bap",
+   "name": "Bacon & Cheese Bap",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 454
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "sausage-bap",
+   "name": "Sausage Bap",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 485
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "festive-sausage-and-onion-bap",
+   "name": "Festive Sausage & Onion Bap",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheese-toastie",
+   "name": "Ham & Cheese Toastie",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 444
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "four-cheese-toastie",
+   "name": "Four Cheese Toastie",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-and-tomato-panini",
+   "name": "Mozzarella & Tomato Panini",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bbq-chicken-and-bacon-panini",
+   "name": "BBQ Chicken & Bacon Panini",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 466
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "four-cheese-pizza-slice-hot-held",
+   "name": "Four Cheese Pizza Slice (Hot Held)",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "four-cheese-whole-pizza-hot-held",
+   "name": "Four Cheese Whole Pizza (Hot Held)",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 1688
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pepperoni-pizza-hot-held",
+   "name": "Pepperoni Pizza (Hot Held)",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pepperoni-whole-pizza-hot-held",
+   "name": "Pepperoni Whole Pizza (Hot Held)",
+   "category": "Hot Sandwich",
+   "serving": "",
+   "nutrients": {
+    "calories": 1694
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "sausage-roll",
+   "name": "Sausage Roll",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cornish-pasty",
+   "name": "Cornish Pasty",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 711
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pork-and-apple-hog-roast-roll",
+   "name": "Pork & Apple Hog Roast Roll",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bacon-and-cheese-turnover",
+   "name": "Bacon & Cheese Turnover",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "peppered-steak-slice",
+   "name": "Peppered Steak Slice",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 503
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cheese-and-onion-slice",
+   "name": "Cheese & Onion Slice",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "sausage-bacon-and-bean-turnover",
+   "name": "Sausage, Bacon & Bean Turnover",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "spicy-pepperoni-and-chorizo-slice",
+   "name": "Spicy Pepperoni & Chorizo Slice",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 550
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chicken-samosa",
+   "name": "Chicken Samosa",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 488
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "egg-ham-and-cheese-turnover",
+   "name": "Egg, Ham & Cheese Turnover",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "classic-chicken-tenders",
+   "name": "Classic Chicken Tenders",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 103
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bbq-chicken-tenders",
+   "name": "BBQ Chicken Tenders",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "korean-bbq-style-chicken-tenders",
+   "name": "Korean BBQ Style Chicken Tenders",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "sweet-chilli-chicken-tenders",
+   "name": "Sweet Chilli Chicken Tenders",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "festive-pork-bacon-and-cranberry-roll",
+   "name": "Festive Pork, Bacon & Cranberry Roll",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 600
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "festive-bacon-sausage-and-cranberry-turnover",
+   "name": "Festive Bacon, Sausage & Cranberry Turnover",
+   "category": "Hot Savoury",
+   "serving": "",
+   "nutrients": {
+    "calories": 462
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "co-op-almond-croissant",
+   "name": "Co-op Almond Croissant",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 344
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "co-op-chocolate-twist",
+   "name": "Co-op Chocolate Twist",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-pain-au-chocolate",
+   "name": "Co-op Pain Au Chocolate",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-irresistable-butter-croissant",
+   "name": "Co-op Irresistable Butter Croissant",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-cheese-twist",
+   "name": "Co-op Cheese Twist",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 257
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-chocolate-hazelnut-croissant",
+   "name": "Co-op Chocolate Hazelnut Croissant",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "co-op-apple-and-almond-danish-pastry",
+   "name": "Co-op Apple & Almond Danish Pastry",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "co-op-maple-pecan-plait",
+   "name": "Co-op Maple Pecan Plait",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "co-op-pain-au-raisin",
+   "name": "Co-op Pain Au Raisin",
+   "category": "Co-op Baked Confectionery",
+   "serving": "",
+   "nutrients": {
+    "calories": 317
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-petit-pain",
+   "name": "Co-op Petit Pain",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-white-rustic-roll",
+   "name": "Co-op White Rustic Roll",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-white-batch-rolls",
+   "name": "Co-op White Batch Rolls",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-baton",
+   "name": "Co-op Baton",
+   "category": "Co-op Bakery",
+   "serving": "1/2 baton",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-cinnamon-swirl",
+   "name": "Co-op Cinnamon Swirl",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-mediterranean-focaccia",
+   "name": "Co-op Mediterranean Focaccia",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 299
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-vanilla-and-nut-custard-crown",
+   "name": "Co-op Vanilla & Nut Custard Crown",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "co-op-portuguese-custard-tart",
+   "name": "Co-op Portuguese Custard Tart",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-cheese-and-tomato-pizza-swirly",
+   "name": "Co-op Cheese & Tomato Pizza Swirly",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-demi-baguette",
+   "name": "Co-op Demi Baguette",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "co-op-ciabatta",
+   "name": "Co-op Ciabatta",
+   "category": "Co-op Bakery",
+   "serving": "",
+   "nutrients": {
+    "calories": 235
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

@@ -2,7 +2,7 @@
 
 Flags are questions for a re-read of the chain's official source, never corrections. Severity: high = arithmetic that cannot hold or a contradiction inside the data; medium = suspicious; low = worth a glance.
 
-Chains: 181 · items: 28496 · nutrition flags high/med/low: 0/1/579 · allergen flags high/med/low: 0/16/18
+Chains: 189 · items: 29831 · nutrition flags high/med/low: 0/1/581 · allergen flags high/med/low: 0/40/18
 
 | chain | items | level | with allergens | nutr H/M/L | allergen H/M/L | high-severity codes |
 |---|---|---|---|---|---|---|
@@ -13,6 +13,7 @@ Chains: 181 · items: 28496 · nutrition flags high/med/low: 0/1/579 · allergen
 | aunties-anne | 130 | full | 130 | 0/0/0 | 0/0/0 |  |
 | away-resorts | 170 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | bagel-factory | 26 | full | 0 | 0/0/0 | 0/0/0 |  |
+| bakers-and-baristas | 589 | calories | 589 | 0/0/0 | 0/24/0 |  |
 | banana-tree | 141 | full | 141 | 0/0/1 | 0/0/0 |  |
 | barburrito | 166 | calories | 166 | 0/0/0 | 0/0/0 |  |
 | baskin-robbins | 22 | full | 22 | 0/0/0 | 0/0/0 |  |
@@ -34,7 +35,9 @@ Chains: 181 · items: 28496 · nutrition flags high/med/low: 0/1/579 · allergen
 | browns | 225 | full | 0 | 0/0/3 | 0/0/0 |  |
 | brunning-and-price | 477 | calories | 477 | 0/0/0 | 0/0/0 |  |
 | burger-and-lobster | 52 | calories | 0 | 0/0/1 | 0/0/0 |  |
+| burger-and-sauce | 43 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | burger-shack | 6 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| butcombe-inns | 192 | calories | 192 | 0/0/2 | 0/0/0 |  |
 | butlins | 601 | full | 601 | 0/0/9 | 0/0/0 |  |
 | buzz-bingo | 94 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | cafe-rouge | 136 | full | 136 | 0/0/0 | 0/0/0 |  |
@@ -51,10 +54,13 @@ Chains: 181 · items: 28496 · nutrition flags high/med/low: 0/1/579 · allergen
 | coffee-1 | 553 | full | 553 | 0/0/10 | 0/0/0 |  |
 | comptoir-libanais | 100 | calories | 100 | 0/0/0 | 0/0/0 |  |
 | cooplands | 104 | full | 104 | 0/0/0 | 0/0/0 |  |
+| cornish-bakehouse | 35 | calories | 35 | 0/0/0 | 0/0/0 |  |
 | cornish-bakery | 74 | calories | 74 | 0/0/0 | 0/0/0 |  |
 | cote-brasserie | 163 | full | 163 | 0/0/1 | 0/0/0 |  |
 | creams-cafe | 300 | calories | 300 | 0/0/0 | 0/0/0 |  |
+| daisy-green | 278 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | daves-hot-chicken | 51 | calories | 0 | 0/0/4 | 0/0/0 |  |
+| deli-by-shell | 90 | calories | 90 | 0/0/0 | 0/0/0 |  |
 | dim-t | 66 | calories | 66 | 0/0/0 | 0/0/0 |  |
 | drake-and-morgan | 86 | calories | 86 | 0/0/2 | 0/0/0 |  |
 | dunkin | 97 | calories | 97 | 0/0/0 | 0/0/0 |  |
@@ -83,6 +89,7 @@ Chains: 181 · items: 28496 · nutrition flags high/med/low: 0/1/579 · allergen
 | greggs | 263 | full | 0 | 0/0/10 | 0/0/0 |  |
 | gusto | 166 | calories | 166 | 0/0/0 | 0/0/1 |  |
 | hall-and-woodhouse | 233 | calories | 233 | 0/0/2 | 0/8/0 |  |
+| harbour-hotels | 28 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | hard-rock-cafe | 113 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | harvester | 105 | full | 105 | 0/0/0 | 0/0/0 |  |
 | haven | 572 | calories | 572 | 0/0/3 | 0/0/0 |  |
@@ -115,6 +122,7 @@ Chains: 181 · items: 28496 · nutrition flags high/med/low: 0/1/579 · allergen
 | miller-and-carter | 101 | full | 101 | 0/0/0 | 0/0/0 |  |
 | mowgli | 46 | calories | 46 | 0/0/0 | 0/0/0 |  |
 | muffin-break | 491 | full | 491 | 0/1/4 | 0/8/0 |  |
+| mytime-active | 80 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | nandos | 126 | full | 126 | 0/0/11 | 0/0/0 |  |
 | nicholsons | 181 | full | 181 | 0/0/1 | 0/0/0 |  |
 | notcutts | 122 | calories | 0 | 0/0/1 | 0/0/0 |  |

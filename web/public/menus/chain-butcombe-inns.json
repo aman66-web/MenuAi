@@ -1,0 +1,5329 @@
+{
+ "schemaVersion": 1,
+ "id": "butcombe-inns",
+ "name": "Butcombe Inns",
+ "cuisine": "Pub",
+ "builderType": "standard",
+ "aliases": [
+  "butcombe",
+  "butcombe inns",
+  "butcombe pubs",
+  "butcombe pub",
+  "butcombe inns and hotels",
+  "butcombe collection"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Butcombe Inns 'Allergy Aware' menus: each pub's Ten Kites page with calories and allergens per dish (50 pubs read; viewthe.menu pages linked from butcombe.com/allergyaware; accessed 2026-10-09, no date shown)",
+  "url": "https://butcombe.com/allergyaware/",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed beside each dish; the pages state no portion size. The pubs have no shared menu, so a dish is listed only if its name, calories and allergens are identical at every pub that prints it, and at 2 or more of the 50 pubs read. Not every pub serves every dish. Buffet tables, alcohol and hot drinks are not listed.",
+ "allergenGuide": {
+  "title": "Butcombe Inns Allergy Aware: 'Contains' and 'May contain' per dish on each pub's Ten Kites page (50 pubs read; accessed 2026-10-09, no date shown)",
+  "url": "https://butcombe.com/allergyaware/",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Starters and sharing",
+  "Light bites and sandwiches",
+  "Mains",
+  "Sunday roasts",
+  "Sides",
+  "Breakfast and brunch",
+  "Puddings and cheese",
+  "Add-ons and extras",
+  "Children's: Mains",
+  "Children's: Puddings",
+  "Children's: Breakfast"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "atlantic-prawn-cocktail-marie-rose-avocado-piquillo-peppers",
+   "name": "Atlantic prawn cocktail, Marie Rose, avocado, piquillo peppers",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 257
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "baked-camembert-rosemary-garlic-buttered-dipping-bread-pickles-sticky-onion-marmalade-v",
+   "name": "Baked camembert, rosemary, garlic-buttered dipping bread, pickles, sticky onion marmalade (v)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 1657
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "brown-crab-and-butcombe-gold-rarebit-pickled-radish",
+   "name": "Brown crab and Butcombe Gold rarebit, pickled radish",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramelised-goats-cheese-beetroot-and-pomegranate-relish-walnut-endive-v",
+   "name": "Caramelised goats cheese, beetroot and pomegranate relish, walnut, endive (v)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "peanuts"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "chargrilled-tenderstem-broccoli-whipped-aubergine-shiitake-xo-sauce-fried-garlic-ve",
+   "name": "Chargrilled tenderstem broccoli, whipped aubergine, shiitake XO sauce, fried garlic (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 461
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chilli-and-ginger-fried-celeriac-sesame-kimchi-ve",
+   "name": "Chilli and ginger fried celeriac, sesame, kimchi (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 388
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "cornbury-estate-venison-carpaccio-kohlrabi-remoulade-blackberry-vinaigrette-parsnip-crisps",
+   "name": "Cornbury Estate venison carpaccio, kohlrabi remoulade, blackberry vinaigrette, parsnip crisps",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 476
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cornish-pork-rillettes-apple-remoulade-beer-pickled-shallots-toast",
+   "name": "Cornish pork rillettes, apple remoulade, beer-pickled shallots, toast",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "crayfish-and-prawn-arancini-saffron-aioli-pecorino",
+   "name": "Crayfish and prawn arancini, saffron aioli, pecorino",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cream-of-celeriac-soup-green-apple-blue-cheese-croutons-pickled-garlic-v-veo",
+   "name": "Cream of celeriac soup, green apple, blue cheese croutons, pickled garlic (v) (veo)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 839
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "crispy-calamari-five-pepper-seasoning-lime-chilli-and-ginger-dipping-sauce",
+   "name": "Crispy calamari, five pepper seasoning, lime, chilli and ginger dipping sauce",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 506
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "molluscs",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "devilled-whitebait-tartare-sauce",
+   "name": "Devilled whitebait, tartare sauce",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 569
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "devon-crab-beignets-romesco-sauce-parmesan",
+   "name": "Devon crab beignets, romesco sauce, Parmesan",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "evesham-beetroot-hummus-walnuts-feta-grilled-flatbread-ve",
+   "name": "Evesham beetroot hummus, walnuts, feta, grilled flatbread (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "soya"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "fried-whitebait-and-calamari-pickled-samphire-aioli",
+   "name": "Fried whitebait and calamari, pickled samphire, aioli",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 671
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "gin-cured-chalk-stream-trout-salt-baked-beetroot-horseradish-labneh-preserved-lemon",
+   "name": "Gin-cured Chalk Stream trout, salt-baked beetroot, horseradish labneh, preserved lemon",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "golden-beetroot-salad-cropwell-bishop-stilton-roasted-and-raw-pear-walnuts-watercress-pickled-celery-v",
+   "name": "Golden beetroot salad, Cropwell Bishop stilton, roasted and raw pear, walnuts, watercress, pickled celery (v)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-fries-zaatar-harissa-ketchup-and-tahini-yoghurt-v",
+   "name": "Halloumi fries, za'atar, harissa ketchup and tahini yoghurt (v)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "ham-hock-and-cheddar-rarebit-croquettes-pineapple-ketchup-shallot-and-parsley-salad",
+   "name": "Ham hock and Cheddar rarebit croquettes, pineapple ketchup, shallot and parsley salad",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 622
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "heritage-beetroot-and-roasted-pear-whipped-feta-pickled-celery-candied-walnuts-v-veo",
+   "name": "Heritage beetroot and roasted pear, whipped feta, pickled celery, candied walnuts (v) (veo)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 347
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "heritage-squash-cider-and-chestnut-soup-sourdough-baked-apple-butter-v",
+   "name": "Heritage squash, cider and chestnut soup, sourdough, baked apple butter (v)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 558
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "jerusalem-artichoke-soup-rocket-pesto-pear-and-hazelnuts-ve",
+   "name": "Jerusalem artichoke soup, rocket pesto, pear and hazelnuts (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 896
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "keralan-cauliflower-soup-coriander-chutney-crispy-chickpeas-onion-bhaji-ve",
+   "name": "Keralan cauliflower soup, coriander chutney, crispy chickpeas, onion bhaji (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 610
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "local-pheasant-and-pancetta-rillettes-blackberry-chutney-toast",
+   "name": "Local pheasant and pancetta rillettes, blackberry chutney, toast",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 732
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ox-cheek-arancini-black-garlic-aioli-pecorino",
+   "name": "Ox cheek arancini, black garlic aioli, pecorino",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 482
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "padron-peppers-dorset-sea-salt-ve",
+   "name": "Padron peppers, Dorset sea salt (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 104
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "piggy-bits-proper-sausage-rolls-scotch-egg-honey-glazed-pigs-in-blankets-pork-crackling-chips-and-dips",
+   "name": "Piggy Bits - proper sausage rolls, Scotch egg, honey-glazed pigs in blankets, pork crackling, chips and dips",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 2570
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pork-duck-liver-and-pancetta-terrine-sourdough-toast-plum-chutney",
+   "name": "Pork, duck liver and pancetta terrine, sourdough toast, plum chutney",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "roast-carrots-whipped-goats-cheese-hazelnut-brown-butter-zaatar-molasses-v",
+   "name": "Roast carrots, whipped goats cheese, hazelnut brown butter, za'atar, molasses (v)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 434
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "roasted-celeriac-soup-cauliflower-pakora-coconut-yoghurt-curried-chickpeas-ve",
+   "name": "Roasted celeriac soup, cauliflower pakora, coconut yoghurt, curried chickpeas (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "roasted-garlic-and-apricot-scotch-egg-apple-remoulade-grain-mustard-dressing",
+   "name": "Roasted garlic and apricot scotch egg, apple remoulade, grain mustard dressing",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "roasted-pumpkin-hummus-smoked-chilli-oil-dukkah-grilled-flatbread-ve",
+   "name": "Roasted pumpkin hummus, smoked chilli oil, dukkah, grilled flatbread (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "scottish-wild-venison-salami-cornichons",
+   "name": "Scottish wild venison salami, cornichons",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "seared-scallops-jerusalem-artichoke-stornoway-black-pudding-green-apple-hazelnuts",
+   "name": "Seared scallops, Jerusalem artichoke, Stornoway black pudding, green apple, hazelnuts",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 442
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "molluscs",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "seeded-beer-bread-cheese-and-pickle-butter-sage-and-chestnut-gremolata-v-veo",
+   "name": "Seeded beer bread, cheese and pickle butter, sage and chestnut gremolata (v) (veo)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 1017
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "severn-and-wye-smoked-mackerel-pate-pickled-fennel-and-chicory-salad-toast",
+   "name": "Severn & Wye smoked mackerel pâté, pickled fennel and chicory salad, toast",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 496
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "shell-on-king-prawns-harissa-butter-burnt-lime",
+   "name": "Shell-on king prawns, harissa butter, burnt lime",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 341
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-chalk-stream-trout-pate-pickled-cucumber-radish-ciabatta-toasts",
+   "name": "Smoked Chalk Stream trout pâté, pickled cucumber, radish, ciabatta toasts",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "sourdough-focaccia-cold-pressed-rapeseed-oil-sherry-vinegar-ve",
+   "name": "Sourdough focaccia, cold-pressed rapeseed oil, sherry vinegar (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "sourdough-focaccia-sage-and-chestnut-gremolata-v-veo",
+   "name": "Sourdough focaccia, sage and chestnut gremolata (v) (veo)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "spiced-corn-ribs-chipotle-mayo-lime-ve",
+   "name": "Spiced corn ribs, chipotle mayo, lime (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 939
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stornoway-black-pudding-scotch-egg-apple-ketchup",
+   "name": "Stornoway black pudding Scotch egg, apple ketchup",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "stornoway-black-pudding-scotch-egg-apple-remoulade-rocket-salad-mustard-dressing",
+   "name": "Stornoway black pudding Scotch egg, apple remoulade, rocket salad, mustard dressing",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 569
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "whipped-hot-smoked-chalk-stream-trout-beetroot-tartare-capers-dill-toast",
+   "name": "Whipped hot-smoked Chalk Stream trout, beetroot tartare, capers, dill, toast",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 457
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "wild-mushroom-arancini-truffle-aioli-rocket-salad-ve",
+   "name": "Wild mushroom arancini, truffle aioli, rocket salad (ve)",
+   "category": "Starters and sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 908
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "blt-smoked-streaky-bacon-rocket-slow-roasted-tomato-aioli-chilli-jam-grilled-sourdough",
+   "name": "BLT: smoked streaky bacon, rocket, slow-roasted tomato, aioli, chilli jam, grilled sourdough",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "brixham-fish-finger-bun-butcombe-gold-beer-battered-haddock-tartare-watercress-pickled-fennel",
+   "name": "Brixham fish finger bun, Butcombe Gold beer-battered haddock, tartare, watercress, pickled fennel",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1092
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "buttermilk-fried-chicken-burger-korean-bbq-sauce-kimchi-slaw-pickled-cucumber-skin-on-fries",
+   "name": "Buttermilk fried chicken burger, Korean BBQ sauce, kimchi slaw, pickled cucumber, skin-on fries",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1277
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "chicken-milanese-flatbread-garlic-and-herb-butter-streaky-bacon-gem-lettuce-aioli-pecorino",
+   "name": "Chicken Milanese flatbread, garlic and herb butter, streaky bacon, gem lettuce, aioli, Pecorino",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 995
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cobble-lane-saucisson-cornichons",
+   "name": "Cobble Lane saucisson, cornichons",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gin-cured-chalk-stream-trout-citrus-radish-caviar-and-ponzu-dressing",
+   "name": "Gin-cured Chalk Stream trout, citrus, radish, caviar and ponzu dressing",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "isle-of-wight-tomato-and-symplicity-nduja-flatbread-rocket-stracciatella-pickled-chilli-ve",
+   "name": "Isle of Wight tomato and Symplicity 'nduja' flatbread, rocket, stracciatella, pickled chilli (ve)",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "lupin",
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "king-oyster-mushroom-skewers-miso-shiitake-xo-fried-garlic-ve",
+   "name": "King oyster mushroom skewers, miso, shiitake xo, fried garlic (ve)",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "king-prawn-skewers-prawn-head-butter-sesame-lime",
+   "name": "King prawn skewers, prawn head butter, sesame, lime",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "pork-belly-skewers-vietnamese-caramel-cucumber",
+   "name": "Pork belly skewers, Vietnamese caramel, cucumber",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 607
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "roasted-squash-and-vegetable-keema-flatbread-hummus-pickled-chillies-herb-salad-ve",
+   "name": "Roasted squash and vegetable keema flatbread, hummus, pickled chillies, herb salad (ve)",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 949
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "lupin",
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "smoked-ham-hock-flatbread-beer-pickled-shallots-mustard-cream-cucumber-and-cress-salad",
+   "name": "Smoked ham hock flatbread, beer pickled shallots, mustard cream, cucumber and cress salad",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "steak-sandwich-caramelised-onion-butter-horseradish-crispy-shallots-rocket-sourdough",
+   "name": "Steak sandwich, caramelised onion butter, horseradish, crispy shallots, rocket, sourdough",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 757
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "symplicity-plant-burger-chipotle-mayo-vegan-cheddar-crispy-and-pink-pickled-onions-skin-on-fries-ve",
+   "name": "Symplicity plant burger, chipotle mayo, vegan cheddar, crispy and pink pickled onions, skin-on fries (ve)",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "symplicity-plant-burger-smoked-cheddar-harissa-ketchup-crispy-and-pink-pickled-onions-skin-on-fries-ve",
+   "name": "Symplicity plant burger, smoked Cheddar, harissa ketchup, crispy and pink pickled onions, skin-on fries (ve)",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "the-butcombe-club-honey-harissa-chicken-smoked-bacon-avocado-dijon-mayo-lettuce-and-tomato",
+   "name": "The Butcombe Club: honey-harissa chicken, smoked bacon, avocado, Dijon mayo, lettuce and tomato",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 963
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "ultimate-brekky-bap-double-sausage-patty-american-cheese-bacon-relish-hash-brown-sunny-egg",
+   "name": "Ultimate brekky bap, double sausage patty, American cheese, bacon relish, hash brown, sunny egg",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 1000
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "170g-fillet-steak-garlic-and-herb-butter-roast-mushroom-pub-chips-watercress-and-radish-salad",
+   "name": "170g fillet steak, garlic and herb butter, roast mushroom, pub chips, watercress and radish salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 973
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "170g-flat-iron-steak-cafe-de-paris-butter-skin-on-fries-watercress-and-radish-salad",
+   "name": "170g Flat-iron steak, Café de Paris butter, skin-on fries, watercress and radish salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 862
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "170g-flat-iron-steak-scorched-pepper-chimichurri-skin-on-fries-watercress-and-radish-salad",
+   "name": "170g Flat-iron steak, scorched pepper chimichurri, skin-on fries, watercress and radish salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 887
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "200g-rump-steak-garlic-and-herb-butter-roast-mushroom-pub-chips-watercress-and-radish-salad",
+   "name": "200g Rump steak, garlic and herb butter, roast mushroom, pub chips, watercress and radish salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 861
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "225g-flat-iron-steak-diane-sauce-truffle-and-parmesan-fries-rocket-salad",
+   "name": "225g Flat-iron steak, Diane sauce, truffle and parmesan fries, rocket salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1037
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "225g-sirloin-steak-garlic-and-herb-butter-roast-mushroom-pub-chips-watercress-and-radish-salad",
+   "name": "225g Sirloin steak, garlic and herb butter, roast mushroom, pub chips, watercress and radish salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1294
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "285g-rump-steak-garlic-and-herb-butter-roast-mushroom-pub-chips-watercress-and-radish-salad",
+   "name": "285g Rump steak, garlic and herb butter, roast mushroom, pub chips, watercress and radish salad",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1049
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "500g-grass-fed-beef-picanha-garlic-butter-salad-plus-your-choice-of-two-sides-and-sauces-to-share",
+   "name": "500g Grass-fed beef picanha, garlic butter, salad, plus your choice of two sides and sauces (to share)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1921
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "baked-fillet-of-hake-vadouvan-curry-butter-cornish-mussels-and-smoked-haddock-chowder",
+   "name": "Baked fillet of hake, Vadouvan curry butter, Cornish mussels and smoked haddock chowder",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 831
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "beef-shin-and-butcombe-ale-pie-seasonal-greens-thick-cut-chips-and-proper-gravy",
+   "name": "Beef shin and Butcombe Ale pie, seasonal greens, thick-cut chips and proper gravy",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1416
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "braised-feather-blade-of-beef-diane-sauce-king-oyster-mushroom-garlic-creamed-potatoes",
+   "name": "Braised feather blade of beef, Diane sauce, King oyster mushroom, garlic creamed potatoes",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 850
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "brewery-burger-butcombe-beer-braised-onions-tewkesbury-mustard-red-leicester-pickles-fries",
+   "name": "Brewery burger, Butcombe beer-braised onions, Tewkesbury mustard, Red Leicester, pickles, fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "brixham-crab-linguine-samphire-preserved-lemon-chilli-butter-pangritata",
+   "name": "Brixham crab linguine, samphire, preserved lemon, chilli butter, pangritata",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "butcombe-ale-sausage-pinwheel-brussels-sprout-colcannon-peas-and-bacon-mustard-gravy",
+   "name": "Butcombe ale sausage pinwheel, Brussels sprout colcannon, peas and bacon, mustard gravy",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1007
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butcombe-ale-sausage-pinwheel-bubble-and-squeak-mustard-gravy-beer-battered-onion-rings",
+   "name": "Butcombe ale sausage pinwheel, bubble and squeak, mustard gravy, beer-battered onion rings",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1081
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "butcombe-burger-smoked-bacon-relish-monterey-jack-dijon-mayo-pickles-skin-on-fries",
+   "name": "Butcombe burger, smoked bacon relish, Monterey Jack, Dijon mayo, pickles, skin-on fries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1254
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "chalk-stream-trout-winter-ratatouille-root-vegetable-puree-preserved-lemon-gremolata",
+   "name": "Chalk Stream trout, winter ratatouille, root vegetable purée, preserved lemon gremolata",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chilli-and-ginger-fried-celeriac-pak-choi-sesame-kimchi-crisp-noodles-ve",
+   "name": "Chilli and ginger fried celeriac, pak choi, sesame, kimchi, crisp noodles (ve)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "corn-fed-chicken-supreme-king-oyster-mushrooms-thyme-rosti-prosciutto-wild-mushroom-veloute",
+   "name": "Corn-fed chicken supreme, King oyster mushrooms, thyme rosti, prosciutto, wild mushroom velouté",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cornbury-estate-venison-faggots-swede-mash-roasted-heritage-carrots-onion-gravy",
+   "name": "Cornbury Estate venison faggots, swede mash, roasted heritage carrots, onion gravy",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cornbury-estate-venison-haunch-dauphinoise-pickled-red-cabbage-blackberries",
+   "name": "Cornbury Estate venison haunch, dauphinoise, pickled red cabbage, blackberries",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1023
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "crown-prince-squash-arancini-smoked-chilli-oil-sage-vegan-burrata-toasted-pine-nuts-ve",
+   "name": "Crown Prince squash arancini, smoked chilli oil, sage, vegan burrata, toasted pine nuts (ve)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1223
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "curry-buttered-chicken-kyiv-squash-saag-aloo-chicken-crackling-butternut-lime-pickle",
+   "name": "Curry-buttered chicken Kyiv, squash saag aloo, chicken crackling, butternut lime pickle",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1015
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hand-carved-ham-cider-and-mustard-glaze-st-ewe-eggs-pub-chips-watercress-and-piccalilli",
+   "name": "Hand-carved ham, cider and mustard glaze, St Ewe eggs, pub chips, watercress and piccalilli",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1147
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "potato-gnocchi-and-miso-roasted-mushrooms-chestnuts-wild-mushroom-veloute-gremolata-ve",
+   "name": "Potato gnocchi and miso-roasted mushrooms, chestnuts, wild mushroom velouté, gremolata (ve)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 824
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "roast-chicken-supreme-confit-garlic-mash-prosciutto-pearl-onion-and-red-wine-gravy",
+   "name": "Roast chicken supreme, confit garlic mash, prosciutto, pearl onion and red wine gravy",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 562
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-squash-and-sage-tortellini-crown-prince-pumpkin-chard-pumpkin-seeds-smoked-chilli-oil-ve",
+   "name": "Roast squash and sage tortellini, Crown Prince pumpkin, chard, pumpkin seeds, smoked chilli oil (ve)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 538
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "seabass-with-winter-ratatouille-spinach-roasted-new-potatoes-and-lemon-butter-sauce",
+   "name": "Seabass with winter ratatouille, spinach, roasted new potatoes and lemon butter sauce",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 743
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slow-cooked-lamb-shoulder-ricotta-croquettes-grilled-little-gem-broad-beans-peas-and-mint-braising-jus",
+   "name": "Slow-cooked lamb shoulder, ricotta croquettes, grilled little gem, broad beans, peas and mint, braising jus",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 623
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spring-garden-risotto-green-pea-pesto-shaved-asparagus-fennel-and-radish-marinated-feta-ve",
+   "name": "Spring garden risotto, green pea pesto, shaved asparagus, fennel and radish, marinated feta (ve)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "sweet-potato-and-chickpea-dahl-roast-cauliflower-coriander-chutney-coconut-yoghurt-poppadoms-ve",
+   "name": "Sweet potato and chickpea dahl, roast cauliflower, coriander chutney, coconut yoghurt, poppadoms (ve)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 991
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "tandoori-monkfish-tail-cornish-mussels-fragrant-coconut-curry-sticky-rice-lime-shrimp-crackers",
+   "name": "Tandoori monkfish tail, Cornish mussels, fragrant coconut curry, sticky rice, lime, shrimp crackers",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 833
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "venison-sausage-pinwheel-borlotti-bean-and-pepper-stew-kale-pesto",
+   "name": "Venison sausage pinwheel, borlotti bean and pepper stew, kale pesto",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 421
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "belly-of-high-welfare-pork-porchetta-sausage-stuffing-apple-sauce",
+   "name": "Belly of high welfare pork ‘porchetta’, sausage stuffing, apple sauce",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1895
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "butternut-squash-and-beetroot-wellington-roast-shallot-mushroom-gravy-v-veo",
+   "name": "Butternut squash and beetroot Wellington, roast shallot, mushroom gravy (v) (veo)",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1677
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "loin-of-high-welfare-pork-sausage-stuffing-crackling-and-baked-apple-sauce",
+   "name": "Loin of high welfare pork, sausage stuffing, crackling and baked apple sauce",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1656
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "our-seasonal-vegetable-wellington-mushroom-gravy-v-veo",
+   "name": "Our seasonal vegetable Wellington, mushroom gravy (v) (veo)",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1647
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "roast-beef-and-horseradish-bap-with-a-stuffed-yorkshire-pudding-pig-in-blanket-and-gravynaise-for-dipping",
+   "name": "Roast beef and horseradish bap with a stuffed Yorkshire pudding, pig in blanket and gravynaise for dipping",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1519
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "rump-of-grass-fed-beef-served-medium-rare-horseradish-sauce",
+   "name": "Rump of grass fed beef (served medium-rare), horseradish sauce",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1244
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "sirloin-of-grass-fed-beef-served-medium-rare-horseradish-sauce",
+   "name": "Sirloin of grass fed beef (served medium-rare), horseradish sauce",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1381
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "somerset-chicken-half-proper-bread-sauce",
+   "name": "Somerset chicken half, proper bread sauce",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1676
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "somerset-chicken-supreme-sausage-and-onion-stuffing-proper-bread-sauce",
+   "name": "Somerset chicken supreme, sausage and onion stuffing, proper bread sauce",
+   "category": "Sunday roasts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1277
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "trio-of-roasts-with-pigs-in-blankets-sausage-stuffing-and-all-the-trimmings-for-two-to-share",
+   "name": "Trio of roasts, with pigs in blankets, sausage stuffing, and all the trimmings - for two to share",
+   "category": "Sunday roasts",
+   "serving": "for two",
+   "nutrients": {
+    "calories": 3946
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bacon-and-avocado-salad-blue-cheese-dressing",
+   "name": "Bacon and avocado salad, blue cheese dressing",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 307
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "buttered-mash-v",
+   "name": "Buttered mash (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chopped-salad-tahini-zaatar-ve",
+   "name": "Chopped salad, tahini, za’atar (ve)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "creamed-leeks-and-broccoli-pecorino-crumb-v",
+   "name": "Creamed leeks and broccoli, Pecorino crumb (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "endive-pear-and-walnut-salad-v",
+   "name": "Endive, pear and walnut salad (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut",
+     "cashew",
+     "pecan",
+     "brazil nut",
+     "pistachio",
+     "macadamia"
+    ]
+   }
+  },
+  {
+   "id": "garlic-buttered-mushrooms-v",
+   "name": "Garlic-buttered mushrooms (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-hispi-garlic-butter-crispy-onions-v",
+   "name": "Grilled hispi, garlic butter, crispy onions (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 488
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "loaded-fries-smoked-cheese-sauce-crispy-onions-v",
+   "name": "Loaded fries, smoked cheese sauce, crispy onions (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1051
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "new-potatoes-chive-butter-v",
+   "name": "New potatoes, chive butter (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 396
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-potatoes-aioli-crispy-onions",
+   "name": "Roast potatoes, aioli, crispy onions",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 588
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roast-potatoes-bacon-relish-crispy-onions",
+   "name": "Roast potatoes, bacon relish, crispy onions",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "sprouting-broccoli-chilli-oil-almonds-ve",
+   "name": "Sprouting broccoli, chilli oil, almonds (ve)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "thick-cut-chips-or-skin-on-fries-ve",
+   "name": "Thick-cut chips or skin-on fries (ve)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 587
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "thick-cut-pub-chips-or-skin-on-fries-v",
+   "name": "Thick-cut pub chips or skin-on fries (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 728
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "truffle-fries-pecorino-aioli-chives-v",
+   "name": "Truffle fries, Pecorino, aioli, chives (v)",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1017
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "avo-croast-smashed-avocado-on-toasted-croissant-poached-st-ewe-eggs-rocket-and-pecorino-v",
+   "name": "'Avo Croast', smashed avocado on toasted croissant, poached St Ewe eggs, rocket and Pecorino (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 671
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-bap-bacon-smoked-steaky-bacon-rocket-chipotle-relish",
+   "name": "Breakfast Bap - BACON | Smoked steaky bacon, rocket, chipotle relish",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 802
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-bap-halloumi-mushroom-spinach-pink-onions-chimichurri-v",
+   "name": "Breakfast Bap - Halloumi | mushroom, spinach, pink onions, chimichurri (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 730
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-bap-plant-sausage-avocado-hashbrown-chipotle-relish-ve",
+   "name": "Breakfast Bap - Plant sausage | avocado, hashbrown, chipotle relish (ve)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 638
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-baps-plant-sausages-ve",
+   "name": "BREAKFAST BAPS | Plant sausages (ve)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 437
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-baps-saxon-sausages",
+   "name": "BREAKFAST BAPS | Saxon sausages",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-baps-smoked-streaky-bacon",
+   "name": "BREAKFAST BAPS | Smoked streaky bacon",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 667
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "breakfast-smoothie-oat-milk-banana-berries-ve",
+   "name": "Breakfast smoothie - Oat milk, banana, berries (ve)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "bubble-and-squeak-benedict-wiltshire-ham-poached-eggs-hollandaise-watercress",
+   "name": "Bubble and Squeak Benedict, Wiltshire ham, poached eggs, hollandaise, watercress",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 777
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "freshly-baked-croissant-v",
+   "name": "Freshly baked croissant (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "full-english-breakfast",
+   "name": "Full English breakfast",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "loaded-hashbrowns-smashed-avocado-slow-roasted-tomato-harissa-ketchup-pink-onions-toasted-seeds-ve",
+   "name": "Loaded hashbrowns, smashed avocado, slow-roasted tomato, harissa ketchup, pink onions, toasted seeds (ve)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 602
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "omelette-ham-and-cheddar",
+   "name": "Omelette - Ham and Cheddar",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 531
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "omelette-mushroom-spinach-and-cheddar-v",
+   "name": "Omelette - Mushroom, spinach and Cheddar (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "omelette-smoked-chalk-stream-trout-and-feta",
+   "name": "Omelette - Smoked Chalk Stream trout and Feta",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "omelette-smoked-salmon-and-feta",
+   "name": "Omelette - Smoked salmon and Feta",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 495
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "our-plant-based-breakfast-ve",
+   "name": "Our plant-based breakfast (ve)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-chocolat-v",
+   "name": "Pain au chocolat (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "shakshuka-two-baked-eggs-spiced-tomato-and-pepper-feta-grilled-flatbread-v",
+   "name": "Shakshuka: two baked eggs, spiced tomato and pepper, feta, grilled flatbread (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 571
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "smashed-avocado-and-poached-eggs-chilli-flakes-toasted-seeds-grilled-sourdough-v",
+   "name": "Smashed avocado and poached eggs, chilli flakes, toasted seeds, grilled sourdough (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "steak-and-eggs-170g-flat-iron-two-st-ewe-eggs-hash-browns-chimichurri",
+   "name": "Steak and eggs, 170g flat-iron, two St Ewe eggs, hash browns, chimichurri",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 700
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "sweetcorn-and-halloumi-fritter-tomato-chipotle-relish-poached-egg-herb-ranch-salad",
+   "name": "Sweetcorn and halloumi fritter, tomato chipotle relish, poached egg, herb ranch salad",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 551
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "toasted-hobbs-house-sourdough-estate-dairy-cultured-butter-preserves-v-veo",
+   "name": "Toasted Hobbs House sourdough, Estate Dairy cultured butter, preserves (v) (veo)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "turkish-eggs-garlic-yoghurt-poached-eggs-smoked-chilli-butter-dill-grilled-flatbread-v",
+   "name": "Turkish eggs: garlic yoghurt, poached eggs, smoked chilli butter, dill, grilled flatbread (v)",
+   "category": "Breakfast and brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 540
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "cookies-and-cream-chocolate-chip-cookies-baked-daily-with-chantilly-cream-v",
+   "name": "'Cookies & Cream' - chocolate chip cookies, baked daily, with chantilly cream (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 421
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "affogato-madagascan-vanilla-ice-cream-illy-espresso-little-biscuit-v",
+   "name": "Affogato, Madagascan vanilla ice cream, illy espresso, little biscuit (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 184
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "affogato-vanilla-ice-cream-illy-espresso-honey-madeleines-v",
+   "name": "Affogato; vanilla ice cream, illy espresso, honey madeleines (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "affogato-vanilla-ice-cream-illy-espresso-little-biscuits-v",
+   "name": "Affogato; vanilla ice cream, illy espresso, little biscuits (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 170
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "apple-frangipane-tart-salted-caramel-clotted-cream-ice-cream-v",
+   "name": "Apple frangipane tart, salted caramel, clotted cream ice cream (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 897
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "bitter-chocolate-cheesecake-orange-honeycomb-salted-honey-ice-cream-v",
+   "name": "Bitter chocolate cheesecake, orange, honeycomb, salted honey ice cream (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 603
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "black-forest-cheesecake-blackberry-cherry-and-chocolate-ve",
+   "name": "Black Forest cheesecake, blackberry, cherry and chocolate (ve)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "caramel-croissant-pudding-apple-brandy-custard-v",
+   "name": "Caramel croissant pudding, apple brandy custard (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 787
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "fish",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-mousse-pot-salted-peanuts-whipped-cream-and-caramel-ve",
+   "name": "Chocolate mousse pot, salted peanuts, whipped cream and caramel (ve)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 565
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "dark-chocolate-mousse-caramelised-pear-hazelnut-honeycomb-v",
+   "name": "Dark chocolate mousse, caramelised pear, hazelnut, honeycomb (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "gingerbread-spiced-creme-brulee-candied-oats-brown-sugar-shortbread-v",
+   "name": "Gingerbread spiced crème brulee, candied oats, brown sugar shortbread (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 719
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "iced-citrus-parfait-raspberries-sorbet-maple-granola-ve",
+   "name": "Iced citrus parfait, raspberries, sorbet, maple granola (ve)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 363
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "little-biscoff-filled-doughnuts-toffee-apple-vanilla-custard-cinnamon-crunch-ve",
+   "name": "Little Biscoff filled doughnuts, toffee apple, vanilla custard, cinnamon crunch (ve)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "molasses-roasted-pears-vanilla-cream-cheese-frozen-raspberries-candied-pecans-ve",
+   "name": "Molasses roasted pears, vanilla cream cheese, frozen raspberries, candied pecans (ve)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "peanuts"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "the-after-eight-ice-cream-white-chocolate-and-mint-v",
+   "name": "The 'After Eight' ice cream, white chocolate and mint (v)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 243
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "three-little-biscoff-doughnuts-ve",
+   "name": "Three little Biscoff doughnuts (ve)",
+   "category": "Puddings and cheese",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "add-avocado",
+   "name": "Add avocado",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-baked-beans",
+   "name": "Add baked beans",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-black-pudding",
+   "name": "Add black pudding",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-halloumi",
+   "name": "Add halloumi",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-toast-and-butter",
+   "name": "Add toast & butter",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "grilled-chorizo",
+   "name": "Grilled chorizo",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 271
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hash-browns-ve",
+   "name": "Hash browns (ve)",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "poached-or-fried-egg-v",
+   "name": "Poached or fried egg (v)",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "roasted-mushrooms-ve",
+   "name": "Roasted mushrooms (ve)",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "slow-roasted-tomatoes-ve",
+   "name": "Slow-roasted tomatoes (ve)",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-chalk-stream-trout",
+   "name": "Smoked Chalk Stream trout",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 81
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-salmon",
+   "name": "Smoked salmon",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "symplicity-sausages-ve",
+   "name": "Symplicity sausages (ve)",
+   "category": "Add-ons and extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "breaded-brixham-fish-goujons-fries-and-garden-peas-childrens",
+   "name": "Breaded Brixham fish goujons, fries and garden peas (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheesy-pitta-pizza-tomato-and-mozzarella-v-childrens",
+   "name": "Cheesy pitta pizza, tomato and mozzarella (v) (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "everyones-favourite-tomato-soup-with-cheese-on-toast-v-veo-childrens",
+   "name": "Everyone’s favourite tomato soup, with cheese on toast (v) (veo) (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "free-range-chicken-breast-strips-pub-chips-garden-peas-or-baked-beans-childrens",
+   "name": "Free-range chicken breast strips, pub chips, garden peas or baked beans (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 434
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-the-ploughmans-helper-cheddar-ham-apple-bread-and-butter-childrens",
+   "name": "Kids - The Ploughman’s helper: Cheddar, ham, apple, bread and butter (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "our-not-so-little-cheeseburger-with-rubies-ketchup-and-fries-childrens",
+   "name": "Our not-so-little cheeseburger, with Rubies ketchup and fries (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 727
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "proper-pork-sausages-mash-or-chips-peas-and-gravy-childrens",
+   "name": "Proper pork sausages, mash or chips, peas and gravy (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 387
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rigatoni-pasta-with-hidden-vegetable-sauce-ve-childrens",
+   "name": "Rigatoni pasta with hidden vegetable sauce (ve) (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "symplicity-plant-bangers-mash-or-chips-peas-and-gravy-ve-childrens",
+   "name": "Symplicity plant bangers, mash or chips, peas and gravy (ve) (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 824
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "wiltshire-cured-ham-fried-golden-yolk-egg-pub-chips-childrens",
+   "name": "Wiltshire cured ham, fried golden-yolk egg, pub chips (children's)",
+   "category": "Children's: Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 541
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fudgy-chocolate-brownie-whipped-cream-and-choccy-sauce-v-childrens",
+   "name": "Fudgy chocolate brownie, whipped cream and choccy sauce (v) (children's)",
+   "category": "Children's: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "little-biscoff-filled-doughnuts-caramel-sauce-vanilla-ice-cream-v-veo-childrens",
+   "name": "Little Biscoff filled doughnuts, caramel sauce, vanilla ice cream (v) (veo) (children's)",
+   "category": "Children's: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 243
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "mustard",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "little-nutella-doughnuts-chocolate-sauce-vanilla-ice-cream-v-childrens",
+   "name": "Little Nutella doughnuts, chocolate sauce, vanilla ice cream (v) (children's)",
+   "category": "Children's: Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "mustard"
+    ]
+   }
+  },
+  {
+   "id": "add-cheese-childrens",
+   "name": "Add cheese (children's)",
+   "category": "Children's: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-beans-on-toast-no-frills-v-veo-childrens",
+   "name": "Kids - Beans on toast, no frills! (v) (veo) (children's)",
+   "category": "Children's: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 358
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "kids-fruit-and-yoghurt-banana-berries-greek-or-coconut-yoghurt-v-veo-childrens",
+   "name": "Kids - Fruit & yoghurt | Banana, berries, Greek or coconut yoghurt (v) (veo) (children's)",
+   "category": "Children's: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-the-little-veg-brekky-plant-sausage-baked-beans-egg-and-hash-brown-childrens",
+   "name": "Kids - the little VEG brekky: plant sausage, baked beans, egg and hash brown (children's)",
+   "category": "Children's: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "porridge-oats-coconut-yoghurt-banana-ve-childrens",
+   "name": "Porridge oats, coconut yoghurt, banana (ve) (children's)",
+   "category": "Children's: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "the-little-brekky-sausage-baked-beans-egg-and-hash-brown-childrens",
+   "name": "The little brekky: sausage, baked beans, egg and hash brown (children's)",
+   "category": "Children's: Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

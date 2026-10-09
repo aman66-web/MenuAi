@@ -1,0 +1,694 @@
+{
+ "schemaVersion": 1,
+ "id": "burger-and-sauce",
+ "name": "Burger & Sauce",
+ "cuisine": "Burgers",
+ "builderType": "standard",
+ "aliases": [
+  "burger and sauce",
+  "burger & sauce",
+  "burger&sauce"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Burger & Sauce Calorie Count (PDF created 12 March 2025, artwork ref A. 31.10.24; linked from the chain's menu page)",
+  "url": "https://burgerandsauce.com/wp-content/uploads/2025/03/carlorie-count-12-03-25.pdf",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories and kJ only, per serving for one person, from the chain's Calorie Count sheet dated 12 March 2025 (the chain still links it). The menu may have changed since, and seasonal items (Festive Burger, Ferrero Rocher) may be off it.",
+ "allergenGuide": {
+  "title": "Burger & Sauce Allergens & Intolerances sheet (last updated Dec 2025, 2 pages)",
+  "url": "https://burgerandsauce.com/wp-content/uploads/2025/12/Allergen-sheet-2025-1.pdf",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Burgers",
+  "Wraps",
+  "Nachos",
+  "Fries",
+  "Wings and strips",
+  "Bites & snacks",
+  "Kids",
+  "Sauces & dips",
+  "Desserts",
+  "Refresher drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "angus-stack",
+   "name": "Angus Stack",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 847,
+    "energyKj": 3543
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "atlantic-cod-burger",
+   "name": "Atlantic Cod Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 662,
+    "energyKj": 2768
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-original-beef-burger",
+   "name": "The Original Beef Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 527,
+    "energyKj": 2206
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-original-chicken-burger",
+   "name": "The Original Chicken Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 627,
+    "energyKj": 2625
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "club-beef",
+   "name": "Club Beef",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 556,
+    "energyKj": 2328
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "club-chicken",
+   "name": "Club Chicken",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 598,
+    "energyKj": 2502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "festive-burger",
+   "name": "Festive Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 557,
+    "energyKj": 2331
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fiery-legend",
+   "name": "Fiery Legend",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1158,
+    "energyKj": 4845
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-original-veggie-burger",
+   "name": "The Original Veggie Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 523,
+    "energyKj": 2187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-wrap",
+   "name": "The Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 642,
+    "energyKj": 2688
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "angus-nacho",
+   "name": "Angus Nacho",
+   "category": "Nachos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1028,
+    "energyKj": 4302
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "animal-nachos",
+   "name": "Animal Nachos",
+   "category": "Nachos",
+   "serving": "",
+   "nutrients": {
+    "calories": 542,
+    "energyKj": 2269
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-nacho",
+   "name": "Beef Nacho",
+   "category": "Nachos",
+   "serving": "",
+   "nutrients": {
+    "calories": 681,
+    "energyKj": 2851
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexican-nachos",
+   "name": "Mexican Nachos",
+   "category": "Nachos",
+   "serving": "",
+   "nutrients": {
+    "calories": 393,
+    "energyKj": 1643
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "animal-fries",
+   "name": "Animal Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 902,
+    "energyKj": 3776
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-cheese-fries",
+   "name": "Chicken & Cheese Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 901,
+    "energyKj": 3771
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fire-fries",
+   "name": "Fire Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 403,
+    "energyKj": 1687
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "regular-fries",
+   "name": "Regular Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 256,
+    "energyKj": 1073
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-fries",
+   "name": "Signature Fries",
+   "category": "Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 730,
+    "energyKj": 3054
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fiery-hot-wings",
+   "name": "Fiery Hot Wings",
+   "category": "Wings and strips",
+   "serving": "Portion of 5",
+   "nutrients": {
+    "calories": 518,
+    "energyKj": 2165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-pepper-wings",
+   "name": "Lemon Pepper Wings",
+   "category": "Wings and strips",
+   "serving": "Portion of 5",
+   "nutrients": {
+    "calories": 784,
+    "energyKj": 3282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-wings",
+   "name": "Plain Wings",
+   "category": "Wings and strips",
+   "serving": "Portion of 5",
+   "nutrients": {
+    "calories": 548,
+    "energyKj": 2293
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-strips",
+   "name": "Signature Strips",
+   "category": "Wings and strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 598,
+    "energyKj": 2501
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoking-hot-bbq-wings",
+   "name": "Smoking Hot BBQ Wings",
+   "category": "Wings and strips",
+   "serving": "Portion of 5",
+   "nutrients": {
+    "calories": 606,
+    "energyKj": 2536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strips",
+   "name": "Strips",
+   "category": "Wings and strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 587,
+    "energyKj": 2455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-cheese-bites",
+   "name": "Chilli Cheese Bites",
+   "category": "Bites & snacks",
+   "serving": "Portion of 4",
+   "nutrients": {
+    "calories": 236,
+    "energyKj": 987
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cod-sticks",
+   "name": "Cod Sticks",
+   "category": "Bites & snacks",
+   "serving": "Portion of 3",
+   "nutrients": {
+    "calories": 321,
+    "energyKj": 1342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Bites & snacks",
+   "serving": "Portion of 2",
+   "nutrients": {
+    "calories": 205,
+    "energyKj": 856
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-sticks",
+   "name": "Mozzarella Sticks",
+   "category": "Bites & snacks",
+   "serving": "Portion of 3",
+   "nutrients": {
+    "calories": 280,
+    "energyKj": 1171
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Bites & snacks",
+   "serving": "Portion of 4",
+   "nutrients": {
+    "calories": 196,
+    "energyKj": 820
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-bites",
+   "name": "Kids Chicken Bites",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "energyKj": 1547
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-bites-meal",
+   "name": "Kids Chicken Bites Meal",
+   "category": "Kids",
+   "serving": "",
+   "nutrients": {
+    "calories": 626,
+    "energyKj": 2620
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 29,
+    "energyKj": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-dip",
+   "name": "Cheese Dip",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 30,
+    "energyKj": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-spicy-sauce",
+   "name": "Classic/Spicy Sauce",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 218,
+    "energyKj": 913
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-oreo",
+   "name": "Chocolate Oreo",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "energyKj": 1523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ferrero-rocher",
+   "name": "Ferrero Rocher",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 313,
+    "energyKj": 1309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lotus-biscoff",
+   "name": "Lotus Biscoff",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 305,
+    "energyKj": 1276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-lemonade",
+   "name": "Blue Lemonade",
+   "category": "Refresher drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 229,
+    "energyKj": 958
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "everythings-better-with-mango",
+   "name": "Everything's Better With Mango",
+   "category": "Refresher drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122,
+    "energyKj": 509
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rose-lemonade",
+   "name": "Rose Lemonade",
+   "category": "Refresher drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 164,
+    "energyKj": 685
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sunrise",
+   "name": "Strawberry Sunrise",
+   "category": "Refresher drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 130,
+    "energyKj": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "when-apple-was-just-a-fruit",
+   "name": "When Apple Was Just a Fruit",
+   "category": "Refresher drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 164,
+    "energyKj": 688
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
