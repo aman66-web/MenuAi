@@ -1,0 +1,45 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,dodo-pub-co,Dodo Pubs,Pub,,https://dodopubs.com,https://cdn.shopify.com/s/files/1/0487/5236/1635/files/Dodo_Allergens_July_26.pdf,pdf,"allergen matrix PDF dated Jul 2026 (reviewed 24 Jun 2026); no calories or macros; family of neighbourhood pubs in Oxfordshire, Cheltenham, Bristol, Reading, Newbury (about 7 sites)"
+,croeso-pubs,Croeso Pubs,Pub,,https://croesopubsltd.co.uk,https://croesopubsltd.co.uk/allergens/,web,"allergy guide page per pub (Cardiff and Penarth, 8 or more pubs); no calories or macros seen"
+,conexus-pub-group,Conexus Pub Group,Pub,,https://conexuspubgroup.com,,none,30 pubs London and home counties; allergen and nutrition pages not found; menus per pub
+,morgan-pub-collective,The Morgan Pub Collective,Pub,,https://www.morganpubco.co.uk,,none,over 20 pubs London and South West; no allergen or nutrition page found
+,mountain-pub-company,Mountain Pub Company,Pub,,https://www.mountainpubcompany.co.uk,,none,about 10 pubs northern England and Wirral; no allergen or nutrition page found
+,market-taverns,Market Taverns,Pub,,https://www.markettaverns.co.uk,,none,collection of historic London pubs; food page has no calories or allergen table
+,coast-and-country-pubs,Coast & Country Pubs,Pub and hotel,,https://www.coastandcountrypubs.com,,none,14 pubs and hotels in Scotland; no allergen or nutrition page found
+,whelans-pubs,Whelan's Pubs,Irish pub,,https://whelanspubs.co.uk,,none,16 pubs London and South East; per-pub menu PDFs mention allergens only; no calories seen
+,lapen-inns,Lapen Inns,Gastropub,,https://www.lapeninns.com,,none,8 East Anglia dining pubs; menus mention gluten only; no nutrition page found
+,nancy-spains,Nancy Spain's,Irish pub,,https://nancyspains.co.uk,,none,pubs in London and Manchester; no allergen or nutrition page found
+,elite-pubs,Elite Pubs,Gastropub,,https://elitepubs.com,,none,"gastropubs in Kent and East Sussex; only an allergen-handling blog post, no table"
+,east-street-pub-co,East Street Pub Co,Gastropub,,https://eaststreetpubco.com,,none,pubs in South Devon; no allergen or nutrition page found
+,three-cheers-pub-co,Three Cheers Pub Co,Pub,,https://threecheers.co.uk,,none,8 South London pubs; food page has one allergen sentence only
+,wren-pubs,Wren Pubs,Pub,,https://www.wrenpubs.co.uk,,none,historic London locals; no allergen or nutrition page found
+,buccaneer-holdings,Buccaneer Holdings,Pub and inn,,https://buccaneer.co.uk,,none,nine pubs with rooms; no allergen or nutrition page found
+,anglian-country-inns,Anglian Country Inns,Pub and inn,,https://www.acinns.co.uk,,none,family group of country inns in East Anglia; no allergen or nutrition page found; site count unconfirmed
+,beautiful-pubs,Beautiful Pubs,Pub,,https://www.beautifulpubs.co.uk,,none,pubs in and around Leicester; no allergen or nutrition page found; site count unconfirmed
+,all-our-bars,All Our Bars,Pub,,https://www.allourbars.com,,none,"pub management company, South East England; menus page has no calories or allergen table"
+,ma-pub-group,Ma Pub Group,Pub,,https://www.mapubgroup.co.uk,,none,Liverpool pub group; no allergen or nutrition page found; site count unconfirmed
+,dm-stewart,D M Stewart,Pub,,https://www.dmstewart.com,,none,"four Edinburgh pubs (Guildford Arms, Abbotsford, Cumberland Bar, Ryrie's); no allergen or nutrition page found"
+,lisini-pub-company,Lisini Pub Company,Pub and hotel,,https://lisini.co.uk,,none,"family pub, bar and hotel group in Lanarkshire; no allergen or nutrition page found; site count unconfirmed"
+,little-and-large-pub-company,Little & Large Pub Company,Pub,,https://www.littleandlargepubcompany.co.uk,,none,town and country pubs in South England; no allergen or nutrition page found; site count unconfirmed
+,public-house-group,Public House Group,Pub,,https://publichousegroup.com,,none,pub group; no allergen or nutrition page found; site count unconfirmed
+,white-wells-pub-company,White Wells Pub Company,Pub,,https://whitewellspubcompany.co.uk,,none,Yorkshire pub company; no allergen or nutrition page found; site count unconfirmed
+,guerrilla-pub-group,Guerrilla Pub Group,Pub,,https://www.guerrillapubs.co.uk,,none,pub group; no allergen or nutrition page found; site count unconfirmed
+,pub-invest-group,Pub Invest Group,Bar and nightclub,,https://www.pubinvestgroup.co.uk,,none,"portfolio of 35+ nightclubs, bars and restaurants; no allergen or nutrition page found"
+,knead-pubs,KNEAD Pubs,Pub,,https://www.kneadpubs.co.uk,,none,"three Stamford venues (Crown Hotel, Paten & Co, Tobie Norris); borderline site count; no nutrition page"
+,bird-house-london,Bird House,Bar,,https://birdhouselondon.com,,none,"neighbourhood bar group, London; no allergen or nutrition page found; site count unconfirmed"
+,cocktail-club,The Cocktail Club,Cocktail bar,,https://thecocktailclub.co.uk,,none,"cocktail bars; site shows placeholder text, no food nutrition page"
+,cubana,Cubana,Latin restaurant and cocktail bar,,https://www.cubana.co.uk,,none,London restaurant and cocktail bars (about 3 to 4); menu pages have no calories or allergen table
+,humble-grape,Humble Grape,Wine bar,,https://www.humblegrape.co.uk,,none,7 London wine bars and restaurants; menus page has no calories or allergen table
+,felinfoel-brewery,Felinfoel Brewery pubs,Brewery pubs,,https://www.felinfoel.com,,none,Welsh brewery with a tied pub estate ('Our Pubs'); no allergen or nutrition page found
+,oakham-ales,Oakham Ales,Brewery pubs,,https://www.oakhamales.com,,none,Peterborough brewery with its own pubs; no allergen or nutrition page found; site count unconfirmed
+,metropolitan-pub-company,Metropolitan Pub Company,Pub and hotel,Greene King,https://www.metropolitanpubcompany.com,,none,"Greene King-owned collection of pubs, restaurants and hotels; may share Greene King allergen pages; no own nutrition page found"
+,crown-carveries,Crown Carveries,Carvery pub,Stonegate,https://www.crowncarveries.co.uk,,none,site blocked (HTTP 403); Stonegate carvery pub brand; not checked
+,mother-kellys,Mother Kelly's,Craft beer bar,,https://www.motherkellys.co.uk,,none,site blocked (HTTP 403); London craft beer bars; not checked
+,orchid-group,Orchid Group,Pub,,https://www.orchidgroup.co.uk,,none,site blocked (HTTP 403); managed pub group; status and site count unconfirmed
+,heartstone-inns,Heartstone Inns,Pub,,https://www.heartstoneinns.co.uk,,none,site blocked (HTTP 403); pub group; site count unconfirmed
+,saviour-bars,Saviour Bars,Bar,,https://www.saviourbars.com,,none,site blocked (HTTP 403); bar group; site count unconfirmed
+,bootlegger-bars,Bootlegger Bars,Bar,,https://www.bootleggerbars.com,,none,site blocked (HTTP 403); bar group; site count unconfirmed
+,bunga-bunga,Bunga Bunga,Italian bar and pizzeria,,https://www.bungabunga.co.uk,,none,"site unreachable from this environment (proxy 502), not checked; London and Cardiff party-pizzeria bars"
+,barrio-bars,Barrio,Latin bar,,https://www.barrio-bars.co.uk,,none,"site unreachable from this environment (proxy 502), not checked; London bar group"
+,tiger-tiger,Tiger Tiger,Bar and club,,https://www.tigertiger.co.uk,,none,home page returned an empty page; not checked
+,living-ventures,Living Ventures,Bar and restaurant group,,https://www.livingventures.co.uk,,none,"site connection reset, not checked; parent of Gusto and Banyan (both already known)"
