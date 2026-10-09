@@ -413,6 +413,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   found none that apply to our pages (Squarespace sites list AI crawler names in the same group as `*`, i.e. the ordinary rules; Premier Inn and Chaiiwala name ClaudeBot only for search/admin paths). Cafe Concerto's
   PDFs sit on a host whose robots.txt disallows everything: skipped (script `cafe_concerto.py --pdfs DIR` is ready if you save them).
 
+- 2026-10-09 — **Founder's new targets: "I want 300 chains, keep going" then "I only want ones that have complete nutrition".** From now on only chains whose own source prints calories AND protein,
+  carbohydrate and fat per dish are added (calories-only and allergen-only chains are not extracted). **Where we stand:** of the 176 published chains, 93 are full nutrition, 3 mixed (full for food) and 80 are
+  calories-only; the earlier triage found only 87 full-nutrition chains in 454 candidates, so 300 complete-nutrition chains is not reachable from official sources (a realistic ceiling is about 110-130). The 80
+  existing calories-only chains are left live until the founder says whether to remove them (they carry a "calories only" badge and appear in no ranking). Round 3 (triage of 143 more candidates + 8 new
+  discovery segments) is running with the new rule.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
