@@ -1,0 +1,25 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,chatsworth,Chatsworth (Farm Shop Cafe and estate cafes),Visitor attraction cafe,Chatsworth Estate,https://www.chatsworth.org,https://www.chatsworth.org/media/wc1pm3mx/farm-shop-lunch-breakfast-menu-26-aw.pdf,pdf,CALORIES ONLY: kcal per dish in cafe menu PDFs (no protein/carbs/fat); one estate with several outlets; checked 2026-10-09
+,noahs-ark-zoo-farm,Noah's Ark Zoo Farm,Zoo farm cafe,,https://www.noahsarkzoofarm.co.uk,https://www.noahsarkzoofarm.co.uk/media/xltln3qd/naz-foodbarn-allergen-menu-2025.pdf,pdf,"ALLERGEN ONLY: ingredients and allergens per dish, no nutrition; single venue (food barn plus kiosks)"
+,drusillas,Drusillas Park,Zoo cafe,,https://www.drusillas.co.uk,https://www.drusillas.co.uk/media/pdf/allergens-master-aug2026-8073.pdf,pdf,"ALLERGEN ONLY: allergen matrix PDF dated Aug 2026, no nutrition; single venue"
+,adventure-island-southend,Adventure Island Southend,Theme park,,https://adventureisland.co.uk,https://adventureisland.co.uk/wp-content/uploads/2025/06/Allergen-Policy.pdf,pdf,"ALLERGEN ONLY: allergen policy PDF only, no per-dish data; single park"
+,hampshire-country-parks,"Hampshire Country Parks cafes (Manor Farm, Staunton Farm)",Country park cafe,Hampshire County Council,https://www.hants.gov.uk/thingstodo/countryparks,,none,CALORIES ONLY (seen in a search result: kcal beside each dish); hants.gov.uk robots.txt disallows the menu pages so not fetched; 2 or more parks
+,jorvik-viking-centre,JORVIK Viking Centre and York Archaeological Trust attractions,Visitor attraction,York Archaeological Trust,https://www.jorvikvikingcentre.co.uk,,none,site blocked (HTTP 403 to a normal browser request); 4 attractions; nutrition unknown
+,aspinall-foundation,Port Lympne and Howletts wild animal parks,Zoo cafe,The Aspinall Foundation,https://www.aspinallfoundation.org,,none,NO NUTRITION FOUND on home or food pages; 2 parks
+,wild-planet-trust,Wild Planet Trust (Paignton Zoo and Newquay Zoo),Zoo cafe,Wild Planet Trust,https://www.wildplanettrust.org.uk,,none,NO NUTRITION FOUND on home or food pages; 2 zoos
+,namco-funscape,Namco Funscape,Arcade and bowling,Bandai Namco,https://www.namcofunscape.com,,none,robots.txt disallows the home page for crawlers so not read; about 15 UK sites with bowling and cafes
+,bowlplex,Bowlplex,Bowling,,https://www.bowlplex.co.uk,,none,robots.txt disallows the home page for crawlers so not read; about 10 UK sites with bar and kitchen
+,everyone-active,Everyone Active leisure centre cafes,Leisure centre cafe,Sports and Leisure Management,https://www.everyoneactive.com,,none,robots.txt disallows the home page for crawlers so not read; 200+ leisure centres; nutrition unlikely
+,better-gll,Better (GLL) leisure centre cafes,Leisure centre cafe,Greenwich Leisure,https://www.better.org.uk,,none,NO NUTRITION FOUND on home or food pages; 250+ leisure centres
+,total-fitness,Total Fitness,Gym cafe,,https://www.totalfitness.co.uk,,none,NO NUTRITION FOUND on home or food pages; about 20 clubs
+,pontins,Pontins,Holiday park,,https://www.pontins.com,,none,NO NUTRITION FOUND on home or food pages; holiday parks
+,mfg-motor-fuel-group,MFG (Motor Fuel Group) forecourts,Forecourt food,Motor Fuel Group,https://www.mfg.uk.com,,none,"NO NUTRITION FOUND; about 900 forecourts, food comes from brand partners (Greggs, Subway etc already known)"
+,ssp-uk,SSP UK (travel catering operator),Travel catering,SSP Group,https://www.foodtravelexperts.com,,none,"NO NUTRITION FOUND on operator site; its own brands (Upper Crust, Caffe Ritazza, Pumpkin, Millie's) are already known"
+,compass-group-uk,"Compass Group UK (Eurest, Restaurant Associates)",Contract catering,Compass Group,https://www.compass-group.co.uk,,none,"NO NUTRITION FOUND on operator site; contract caterer for sites, not a chain"
+,avolta-uk,Avolta UK (airport travel retail and food),Travel catering,Avolta,https://www.avoltaworld.com,,none,NO NUTRITION FOUND on operator site
+,levy-uk,Levy UK and Ireland (stadium catering),Stadium catering,Compass Group,https://www.levyrestaurants.co.uk,,none,NO NUTRITION FOUND on operator site; stadium and venue caterer
+,easyjet,easyJet onboard food,Airline catering,easyJet,https://www.easyjet.com/en,,none,site blocked (HTTP 403); a search found no official per-item nutrition list
+,tui-uk,TUI onboard and holiday food,Airline and holiday catering,TUI,https://www.tui.co.uk,,none,site blocked (HTTP 403); nutrition unknown
+,ryanair,Ryanair Getaway Cafe,Airline catering,Ryanair,https://www.ryanair.com/gb/en,,none,NO NUTRITION FOUND on site or in a search; menu in the inflight magazine
+,loganair,Loganair onboard food,Airline catering,Loganair,https://www.loganair.co.uk,,none,NO NUTRITION FOUND on site
+,virgin-atlantic,Virgin Atlantic onboard food,Airline catering,Virgin Atlantic,https://www.virginatlantic.com/gb/en,,none,NO NUTRITION FOUND on site

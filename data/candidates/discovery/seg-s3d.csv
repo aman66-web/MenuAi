@@ -1,0 +1,11 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,which-wich-uk,Which Wich UK,Sandwiches,Which Wich,https://www.whichwich.co.uk,https://www.whichwich.co.uk/wp-content/uploads/2026/10/Allergen-Guide-October-2026-3.pdf,pdf,"ALLERGENS ONLY: Oct 2026 allergen matrix PDF (14 allergens), no kcal or macros; 3+ UK sites (London, Cardiff x2); US parent site has nutrition but UK recipes differ"
+,manze,M. Manze,Pie and mash,,https://www.manze.co.uk,https://www.manze.co.uk/allergen-content/,web,ALLERGENS ONLY: per-product allergen chart (store-specific sections); London pie-and-mash shops; no nutrition found
+,jersey-mikes-uk,Jersey Mike's UK,Subs,Jersey Mike's,https://www.jerseymikes.co.uk,,none,"menu page lists subs with no calories/macros or allergen page; first London sites (Argyll St, Baker St, Tottenham Ct Rd) opening 2026"
+,insomnia-cookies-uk,Insomnia Cookies UK,Cookies,Insomnia Cookies,https://insomniacookies.com/uk,,none,UK menu page has no nutrition or allergen link; UK site count not checked
+,caffe-cream,Caffe Cream,Ice cream parlour,,https://www.caffecream.co.uk,,none,"Wix site, menu pages only, no nutrition or allergen page found; about 4 UK restaurants"
+,crepe-delicious-uk,Crepe Delicious UK,Crepes and waffles,Crepe Delicious,https://www.crepedelicious.co.uk,https://www.crepedelicious.co.uk/s/Crepe-Delicious-London-Menu-Boards.pdf,pdf,"price menu boards PDF only, no calories or allergens; site count not checked"
+,morellis-gelato,Morelli's Gelato,Gelato,,https://www.morellisgelato.com,,none,no nutrition or allergen page found on home page; department-store and mall parlours; site count not checked
+,roskillys,Roskilly's,Ice cream and farm cafe,,https://www.roskillys.co.uk,,none,Cornish ice cream with parlour and restaurant; no nutrition or allergen page found; fewer than 3 sites likely
+,goddards-at-greenwich,Goddards at Greenwich,Pie and mash,,https://goddardsatgreenwich.co.uk,,none,pie and mash shops; no nutrition or allergen page found on home page; site count not checked
+,ginsters,Ginsters,Pasties and savoury bakes,Samworth Brothers,https://www.ginsters.co.uk,,none,"well-known Cornish brand but its site is a brand page only (sitemap: home, contact, policies); no product nutrition pages; sold in shops, not a chain"

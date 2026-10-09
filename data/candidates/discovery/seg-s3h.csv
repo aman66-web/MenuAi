@@ -1,0 +1,19 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,atis,Atis,"Salad bowls, wraps and smoothies",,https://atis.life,https://atis.life/allergens-nutritionals,pdf,"FULL MACROS per dish: kcal, kJ, protein, fat, saturates, carbs, sugars, fibre, salt in 4 nutritional-guide PDFs (curated menu, build-your-own, drinks, catering) on an S3 bucket whose robots.txt answers 403; 15 London sites"
+,smith-western,Smith & Western,American / Tex-Mex,,https://www.smith-western.co.uk,https://www.smith-western.co.uk/wp-content/uploads/2024/08/Nutrition-Aug-2024.pdf,pdf,"FULL MACROS per dish (kcal, fat, saturates, carbs, sugars, protein, fibre, salt, plus %RI) in an Aug 2024 PDF; home page and robots.txt returned 403 to us so site count unverified; the PDF itself downloaded fine"
+,amalfi,Amalfi,Italian,Big Table Group,https://www.amalfi.co.uk,https://menus.tenkites.com/thebigtg/amalfi02,platform:menus.tenkites.com,"kcal and allergens per dish only (Ten Kites page shows Energy kCal), no macros; 3 or more sites"
+,est-italian,EST Italian,Italian,Big Table Group,https://estitalian.co.uk,https://estitalian.co.uk/EST_MENUS/EST_Menu.pdf,pdf,"kcal per dish in menu PDF only, no macros; site count not checked"
+,butcombe,Butcombe Pubs & Inns,Pub dining,Butcombe Group,https://butcombe.com,https://butcombe.com/allergyaware/,web,"allergen information only; menu PDFs (lunch, supper, Sunday) carry no kcal"
+,good-life-eatery,The Good Life Eatery,Healthy cafe,,https://www.goodlifeeatery.com,https://www.goodlifeeatery.com/eat,web,"menu page shows GF/DF/V tags and allergens only, no calories or macros; London sites"
+,big-mamma-group,Big Mamma Group,Italian,Big Mamma Group,https://www.bigmammagroup.com,https://menu.bigmammagroup.com/gloria?service=all,web,"JS menu app per restaurant (Gloria, Circolo Popolare London and Manchester, La Bellezza Birmingham); no nutrition seen in the static page"
+,shoryu,Shoryu Ramen,Japanese ramen,,https://www.shoryuramen.com,,none,no nutrition or allergen link on home or menus pages; London sites
+,voodoo-rays,Voodoo Ray's,Pizza,,https://voodoorays.com,,none,no nutrition or allergen page found on home page; ordering via storekit
+,department-of-coffee,Department of Coffee and Social Affairs,Coffee,,https://departmentofcoffee.com,,none,no nutrition or allergen page found on home page
+,konditor-and-cook,Konditor & Cook,Bakery and cafe,,https://konditor.co.uk,,none,no nutrition or allergen page found on home page
+,nardinis,Nardini's,Cafe and ice cream,,https://nardinis.co.uk,,none,"cafe, breakfast and sundae menu PDFs carry no kcal; no allergen page found"
+,thomas-the-baker,Thomas the Baker,Bakery,,https://www.thomasthebaker.co.uk,,none,"products page only, no nutrition or allergen information"
+,de-vere,De Vere Hotels,Hotels and venues,,https://www.devere.co.uk,,none,no nutrition or allergen link found on home page
+,ivy-collection,The Ivy Collection,Brasserie,Ivy Collection,https://theivycollection.com,,none,site blocked: home page disallowed by robots.txt
+,yha,YHA,Hostels with cafes,,https://www.yha.org.uk,,none,site blocked (403)
+,heron-foods,Heron Foods,Frozen and chilled food retailer (Cooplands counters),,https://heronfoods.com,,none,"retail product pages show price only, no nutrition table (grocery-style, not a menu)"
+,farmfoods,Farmfoods,Frozen food retailer,,https://www.farmfoods.co.uk,,none,"no per-product nutrition found on site (grocery-style, not a menu)"

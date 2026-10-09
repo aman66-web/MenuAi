@@ -1,0 +1,23 @@
+batch,id,name,cuisine,parent_hint,site,info_url,info_kind,notes
+,carls-jr-uk,Carl's Jr UK,Burgers (US drive-thru),Boparan Restaurant Group,https://www.carlsjr.co.uk/,https://menus.tenkites.com/brg/carlsjr,platform:menus.tenkites.com,"FULL: kcal, carbs, fat, sat fat, sugars, fibre and protein per item in Ten Kites JSON-LD (84 items), linked from site footer as 'Dietary Information'; only 2 UK sites (Cardiff, Swansea) so passes only as a well-known brand"
+,hellofresh-uk,HelloFresh UK,Meal-kit delivery,HelloFresh SE,https://www.hellofresh.co.uk/,https://www.hellofresh.co.uk/recipes,web,"FULL: every recipe page prints kcal, fat, sat fat, carbs, sugars, protein, salt per serving (JSON-LD NutritionInformation, checked on a sample recipe); home-delivery meal kit not a restaurant; recipes change weekly"
+,wiltshire-farm-foods,Wiltshire Farm Foods,Home-delivery frozen meals,Apetito,https://www.wiltshirefarmfoods.com/,https://www.wiltshirefarmfoods.com/steak-mushroom-casserole,web,"FULL: product pages carry per-100g and per-serving energy kJ/kcal, fat, saturates, carbs, sugars, protein, salt (checked on one page); product URLs listed in https://www.wiltshirefarmfoods.com/media/sitemap.xml; delivery meals not a restaurant"
+,gousto,Gousto,Meal-kit delivery,,https://www.gousto.co.uk/,https://www.gousto.co.uk/cookbook,web,UNVERIFIED FULL: recipe pages are a JavaScript app (static fetch is 1.5 KB) so per-portion macros not confirmed; home-delivery meal kit not a restaurant
+,oakhouse-foods,Oakhouse Foods,Home-delivery frozen meals,,https://www.oakhousefoods.co.uk/,https://www.oakhousefoods.co.uk/all-meals.html,web,UNVERIFIED: meal pages are JavaScript-rendered so nutrition not confirmed (42 meal category pages in /media/sitemap.xml); home-delivery meals not a restaurant
+,mindful-chef,Mindful Chef,Meal-kit delivery,,https://www.mindfulchef.com/,,none,site blocked (403 on robots.txt and home page); recipes are known to show macros but not checked
+,eggslut-uk,Eggslut UK,Breakfast sandwiches,,https://www.eggslut.uk/,https://www.eggslut.uk/allergy-guide,web,"ALLERGEN-ONLY: allergy guide page, no nutrition found; few UK sites (London) so may fail the 3-site rule"
+,biffs-jack-shack,Biff's Jack Shack,Plant-based burgers and fried chicken,,https://biffs.co/,https://biffs.co/our-food/allergens-and-nutrition/,web,UNVERIFIED: page titled Allergens and Nutrition but its content is not in the static HTML (JavaScript or embed); several UK sites
+,crust-gourmet-pizza,Crust Gourmet Pizza,Pizza,,https://crustpizza.co.uk/,,none,site blocked (403); chain size and nutrition not checked
+,mad-for-chicken,Mad for Chicken,Korean fried chicken,,https://madforchicken.co.uk/,,none,"site blocked (403); London restaurants, site count unconfirmed"
+,tamatanga,Tamatanga,Indian restaurant,,https://www.tamatanga.com/,,none,site blocked (403)
+,operation-falafel,Operation Falafel,Falafel and wraps,,https://www.operationfalafel.com/,,none,robots.txt disallows the home page so not read; London shops
+,tennessee-fried-chicken,Tennessee Fried Chicken,Fried chicken,,,,none,"no own website found; 6+ UK branches seen only on Just Eat and Deliveroo (Gloucester, Maidenhead, Enfield, London, Dover)"
+,chicken-valley,Chicken Valley,Fried chicken and pizza,,,,none,"no own website found; many branches on the Just Eat brand page (London, Bournemouth, Aldershot, Cardiff); delivery apps say contact the shop for allergens"
+,nardinis,Nardini's,Cafes and ice cream (Scotland),,https://nardinis.co.uk/,,none,no nutrition or allergen link on the home page
+,oggy-oggy,Oggy Oggy Pasties,Cornish pasties,,https://oggyoggy.co.uk/,,none,no nutrition or allergen link on the home page
+,hollands-pies,Holland's Pies,Pies and bakery,,https://www.hollandspies.co.uk/,,none,no nutrition or allergen link on the home page
+,daddy-donkey,Daddy Donkey,Burritos,,https://www.daddydonkey.co.uk/,,none,London burrito bars; no nutrition or allergen link on the home page
+,abu-zaad,Abu Zaad,Syrian street food,,https://abuzaad.co.uk/,,none,London restaurants; no nutrition or allergen link on the home page
+,dip-and-flip,Dip & Flip,Burgers with gravy,,https://www.dipandflip.com/,,none,no nutrition or allergen link on the home page
+,losteria-uk,L'Osteria UK,Pizza and pasta,L'Osteria,https://losteria.net/en/,,none,German group with London restaurants (UK site count unconfirmed); no nutrition or allergen link on the English home page
+,ippudo-london,IPPUDO London,Ramen,IPPUDO,https://www.ippudo.co.uk/,,none,London ramen restaurants; no nutrition or allergen link on the home page
