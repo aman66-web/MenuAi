@@ -1,0 +1,13 @@
+{
+  "name": "John Lewis Restaurants",
+  "cuisine": "British",
+  "source_title": "John Lewis restaurants: The Place to Eat sample menu (read 2026-10-10, no date shown)",
+  "source_url": "https://www.johnlewis.com/our-services/restaurants",
+  "checked_on": "2026-10-10",
+  "nutrition_level": "calories",
+  "basis": "per serving",
+  "sites": 0,
+  "sites_evidence": "No shop count found: the restaurants page links 'Find your nearest shop' to https://www.johnlewis.com/our-shops, which shows only a search box and no list (John Lewis has about 30+ department stores). Needs a count.",
+  "allowed_hosts": [],
+  "note": "The page calls this a sample menu and says the restaurants (The Place to Eat, John Lewis Cafe, John Lewis Brasserie) vary by shop. Calories only. Soups and 'Soup of the day' print ranges (e.g. 99-360kcal) so are not written."
+}
