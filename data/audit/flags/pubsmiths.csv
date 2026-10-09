@@ -1,0 +1,29 @@
+chain,kind,severity,code,item,name,category,detail
+pubsmiths,nutrition,reviewed,huge,ploughmans-platter,Ploughman's Platter,Sharers,2885 kcal in one item
+pubsmiths,nutrition,reviewed,huge,sunday-lunch-sharing-board-excluding-meat-and-veg-option-see-below,"Sunday Lunch Sharing Board (Excluding Meat and Veg Option, see below)",Sunday roast,3486 kcal in one item
+pubsmiths,nutrition,reviewed,huge-protein,1kg-chicken-wings-excluding-your-sauce-option-see-below,"1KG Chicken Wings (Excluding Your Sauce Option, See below)",Sharers,120.1 g protein
+pubsmiths,allergen,reviewed,name-implies-eggs,custard-v,Custard (V),Options & add-ons,'Custard' in the name but eggs is not marked (contains: ['milk'])
+pubsmiths,allergen,reviewed,name-implies-eggs,dairy-free-custard-vg,Dairy-Free Custard (VG),Options & add-ons,'Custard' in the name but eggs is not marked (contains: ['soya'])
+pubsmiths,allergen,reviewed,name-implies-eggs,egg-on-toast-v-excluding-egg-option-see-below,"Egg on Toast (V) (Excluding Egg Option, see below)",Kids: breakfast,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'soya'])"
+pubsmiths,allergen,reviewed,name-implies-eggs,full-english-breakfast-excluding-your-egg-option-see-below,"Full English Breakfast (Excluding Your Egg Option, See Below)",Breakfast,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'milk', 'soya', 'sulphites'])"
+pubsmiths,allergen,reviewed,name-implies-eggs,full-veggie-breakfast-v-excluding-egg-option-see-below,"Full Veggie Breakfast (V) (excluding Egg Option, see below)",Breakfast,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'milk', 'soya'])"
+pubsmiths,allergen,reviewed,name-implies-eggs,small-english-breakfast-excluding-your-egg-option-see-below,"Small English Breakfast (Excluding Your Egg Option, See Below)",Breakfast,"'Egg' in the name but eggs is not marked (contains: ['gluten', 'soya', 'sulphites'])"
+pubsmiths,allergen,reviewed,name-implies-fish,caesar-salad-v,Caesar Salad (V),Salads,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+pubsmiths,allergen,reviewed,name-implies-gluten,chocolate-brownie-vg,Chocolate Brownie (VG),Desserts,'Brownie' in the name but gluten is not marked (contains: ['soya'])
+pubsmiths,allergen,reviewed,name-implies-gluten,mixed-fruit-crumble-v,Mixed Fruit Crumble (V),Desserts,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+pubsmiths,allergen,reviewed,name-implies-gluten,mixed-fruit-crumble-vg-excluding-accompaniment-option-see-below,"Mixed Fruit Crumble (VG) (Excluding Accompaniment option, see below)",Desserts,'Crumb' in the name but gluten is not marked (contains: none)
+pubsmiths,allergen,reviewed,name-implies-gluten,rhubarb-and-ginger-crumble-v,Rhubarb & Ginger Crumble (V),Desserts,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+pubsmiths,allergen,reviewed,name-implies-gluten,rhubarb-and-ginger-crumble-vg-excluding-accompaniment-option-see-below,"Rhubarb & Ginger Crumble (VG) (Excluding Accompaniment option, see below)",Desserts,'Crumb' in the name but gluten is not marked (contains: none)
+pubsmiths,allergen,reviewed,name-implies-gluten,salted-caramel-apple-crumble-v,Salted Caramel Apple Crumble (V),Desserts,'Crumb' in the name but gluten is not marked (contains: ['milk'])
+pubsmiths,allergen,reviewed,name-implies-gluten,salted-caramel-apple-crumble-vg-excluding-accompaniment-option-see-below,"Salted Caramel Apple Crumble (VG) (Excluding Accompaniment option, see below)",Desserts,'Crumb' in the name but gluten is not marked (contains: none)
+pubsmiths,allergen,reviewed,name-implies-milk,chickpea-and-butter-bean-hummus-vg,Chickpea & Butter Bean Hummus (VG),Kids: mains,'Butter' in the name but milk is not marked (contains: none)
+pubsmiths,allergen,reviewed,name-implies-milk,crispy-coated-buttermilk-style-quorntm-fillet-and-flatbread-vg,Crispy Coated Buttermilk-style Quorn™ Fillet & Flatbread (VG),Lunch,"'Butter' in the name but milk is not marked (contains: ['gluten', 'mustard'])"
+pubsmiths,allergen,reviewed,name-implies-milk,crispy-coated-buttermilk-style-quorntm-fillet-salad-vg,Crispy Coated Buttermilk-style Quorn™ Fillet Salad (VG),Salads,"'Butter' in the name but milk is not marked (contains: ['gluten', 'mustard'])"
+pubsmiths,allergen,reviewed,name-implies-sesame,chickpea-and-butter-bean-hummus-vg,Chickpea & Butter Bean Hummus (VG),Kids: mains,'Hummus' in the name but sesame is not marked (contains: none)
+pubsmiths,allergen,reviewed,name-implies-sulphites,steak-and-malbec-pie,Steak & Malbec Pie,Classics,"'Malbec' in the name but sulphites is not marked (contains: ['eggs', 'gluten', 'milk'])"
+pubsmiths,nutrition,reviewed,salt-very-high,corn-ribs-vg,Corn Ribs (VG),Small plates,salt 10.4 g with 645 kcal (6 g is the whole day's limit)
+pubsmiths,nutrition,reviewed,salt-very-high,fritto-misto,Fritto Misto,Sharers,salt 12.5 g with 2299 kcal (6 g is the whole day's limit)
+pubsmiths,nutrition,reviewed,salt-very-high,meat-feast,Meat Feast,Pizza,salt 11.4 g with 1553 kcal (6 g is the whole day's limit)
+pubsmiths,nutrition,reviewed,salt-very-high,perfect-pub-platter,Perfect Pub Platter,Sharers,salt 11.7 g with 2482 kcal (6 g is the whole day's limit)
+pubsmiths,nutrition,reviewed,salt-very-high,ploughmans-platter,Ploughman's Platter,Sharers,salt 12.5 g with 2885 kcal (6 g is the whole day's limit)
+pubsmiths,nutrition,reviewed,salt-very-high,sunday-lunch-sharing-board-excluding-meat-and-veg-option-see-below,"Sunday Lunch Sharing Board (Excluding Meat and Veg Option, see below)",Sunday roast,salt 12.6 g with 3486 kcal (6 g is the whole day's limit)

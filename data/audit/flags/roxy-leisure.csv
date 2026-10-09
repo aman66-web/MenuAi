@@ -1,0 +1,4 @@
+chain,kind,severity,code,item,name,category,detail
+roxy-leisure,allergen,reviewed,name-implies-eggs,sriracha-mayo,Sriracha Mayo,Sides & dips,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+roxy-leisure,allergen,reviewed,name-implies-eggs,sriracha-mayo-dip,Sriracha Mayo Dip,Sides & dips,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+roxy-leisure,nutrition,reviewed,salt-very-high,bourbon-bbq-stack-mcpap-a,Bourbon BBQ Stack (MCPAP) A,Roxy takes Kentucky,salt 12 g with 1498 kcal (6 g is the whole day's limit)

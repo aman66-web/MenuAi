@@ -2,7 +2,7 @@
 
 Flags are questions for a re-read of the chain's official source, never corrections. Severity: high = arithmetic that cannot hold or a contradiction inside the data; medium = suspicious; low = worth a glance.
 
-Chains: 176 · items: 26944 · nutrition flags high/med/low: 0/0/573 · allergen flags high/med/low: 0/8/18
+Chains: 181 · items: 28496 · nutrition flags high/med/low: 0/1/579 · allergen flags high/med/low: 0/16/18
 
 | chain | items | level | with allergens | nutr H/M/L | allergen H/M/L | high-severity codes |
 |---|---|---|---|---|---|---|
@@ -77,6 +77,7 @@ Chains: 176 · items: 26944 · nutrition flags high/med/low: 0/0/573 · allergen
 | giraffe | 236 | calories | 236 | 0/0/0 | 0/0/0 |  |
 | gordon-ramsay-restaurants | 216 | calories | 0 | 0/0/1 | 0/0/0 |  |
 | gourmet-burger-kitchen | 184 | full | 184 | 0/0/5 | 0/0/0 |  |
+| great-local-pubs | 344 | full | 344 | 0/0/0 | 0/0/0 |  |
 | greene-king | 143 | full | 0 | 0/0/0 | 0/0/0 |  |
 | greenhalghs | 26 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | greggs | 263 | full | 0 | 0/0/10 | 0/0/0 |  |
@@ -95,6 +96,7 @@ Chains: 176 · items: 26944 · nutrition flags high/med/low: 0/0/573 · allergen
 | hungry-horse | 220 | calories | 0 | 0/0/1 | 0/0/0 |  |
 | ikea | 118 | full | 118 | 0/0/0 | 0/0/0 |  |
 | itsu | 132 | full | 132 | 0/0/6 | 0/0/0 |  |
+| jamaica-blue | 359 | full | 359 | 0/0/2 | 0/0/0 |  |
 | jamies-italian | 60 | full | 60 | 0/0/1 | 0/0/0 |  |
 | jollibee | 83 | calories | 0 | 0/0/10 | 0/0/0 |  |
 | joseph-holt | 121 | calories | 0 | 0/0/0 | 0/0/0 |  |
@@ -112,6 +114,7 @@ Chains: 176 · items: 26944 · nutrition flags high/med/low: 0/0/573 · allergen
 | mildreds | 48 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | miller-and-carter | 101 | full | 101 | 0/0/0 | 0/0/0 |  |
 | mowgli | 46 | calories | 46 | 0/0/0 | 0/0/0 |  |
+| muffin-break | 491 | full | 491 | 0/1/4 | 0/8/0 |  |
 | nandos | 126 | full | 126 | 0/0/11 | 0/0/0 |  |
 | nicholsons | 181 | full | 181 | 0/0/1 | 0/0/0 |  |
 | notcutts | 122 | calories | 0 | 0/0/1 | 0/0/0 |  |
@@ -130,6 +133,7 @@ Chains: 176 · items: 26944 · nutrition flags high/med/low: 0/0/573 · allergen
 | premier-inn | 266 | full | 266 | 0/0/0 | 0/0/0 |  |
 | pret | 256 | full | 256 | 0/0/22 | 0/0/0 |  |
 | prezzo | 418 | full | 418 | 0/0/6 | 0/0/0 |  |
+| pubsmiths | 282 | full | 282 | 0/0/0 | 0/0/0 |  |
 | puccinos | 637 | full | 637 | 0/0/3 | 0/0/0 |  |
 | pure | 139 | full | 0 | 0/0/6 | 0/0/0 |  |
 | puttshack-uk | 34 | calories | 34 | 0/0/0 | 0/0/0 |  |
@@ -138,6 +142,7 @@ Chains: 176 · items: 26944 · nutrition flags high/med/low: 0/0/573 · allergen
 | rockfish | 78 | calories | 78 | 0/0/0 | 0/0/0 |  |
 | rola-wala | 15 | full | 0 | 0/0/5 | 0/0/0 |  |
 | rosas-thai | 151 | calories | 151 | 0/0/0 | 0/0/0 |  |
+| roxy-leisure | 76 | full | 76 | 0/0/0 | 0/0/0 |  |
 | rudys-pizza-napoletana | 61 | full | 61 | 0/0/0 | 0/0/0 |  |
 | sainsburys-cafe | 90 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | san-carlo | 318 | full | 318 | 0/0/8 | 0/0/0 |  |

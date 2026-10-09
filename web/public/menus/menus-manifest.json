@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009072757,
- "generatedAt": "2026-10-09T07:27:57Z",
+ "dataVersion": 20261009105730,
+ "generatedAt": "2026-10-09T10:57:30Z",
  "chains": [
   {
    "id": "abokado",
@@ -821,6 +821,17 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "great-local-pubs",
+   "name": "Great Local Pubs",
+   "cuisine": "Pub",
+   "file": "chain-great-local-pubs.json",
+   "sha256": "bfc2a38f18e6a988eb9cb87a9f91a6409d80f9c59225f506561470aaee1fdd63",
+   "contentHash": "01c5c19c0de42990b3f42b9bb67bfb09fcd1e262624676810461da7ccb442431",
+   "sample": false,
+   "itemCount": 344,
+   "checkedOn": "2026-10-09"
+  },
+  {
    "id": "greene-king",
    "name": "Greene King",
    "cuisine": "Pub",
@@ -1028,6 +1039,17 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "jamaica-blue",
+   "name": "Jamaica Blue",
+   "cuisine": "Coffee",
+   "file": "chain-jamaica-blue.json",
+   "sha256": "d8f47f6970776dd08e0003dc32ed8847ea991e7abfdb5aeb4e2f77048c0dac71",
+   "contentHash": "a49b177e4ff9dc34ccc96ef00e5937a603eca8588b0dcc2a454a432d7c11ac89",
+   "sample": false,
+   "itemCount": 359,
+   "checkedOn": "2026-10-09"
+  },
+  {
    "id": "jamies-italian",
    "name": "Jamie's Italian",
    "cuisine": "Italian",
@@ -1223,6 +1245,17 @@
    "itemCount": 46,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
+  },
+  {
+   "id": "muffin-break",
+   "name": "Muffin Break",
+   "cuisine": "Bakery",
+   "file": "chain-muffin-break.json",
+   "sha256": "2b031b60f0f09511960baa4a4b8185d0c103a98c58e00154a8b81b89128a9eb2",
+   "contentHash": "2d2c480b87bfb4e9f380ff4ec6a68a76c9ae5fa8b85533af0153124f3b040195",
+   "sample": false,
+   "itemCount": 491,
+   "checkedOn": "2026-10-09"
   },
   {
    "id": "nandos",
@@ -1427,6 +1460,17 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "pubsmiths",
+   "name": "Pubsmiths",
+   "cuisine": "Pub",
+   "file": "chain-pubsmiths.json",
+   "sha256": "b8f6cb0a82be79910e5b8a19dac181e2795f2a856cd83dba6c15651a294d6c3b",
+   "contentHash": "c39076d259b9abe2b7668cb53ccd3b9214717dc8833dcc821ec2f90cfd52eebd",
+   "sample": false,
+   "itemCount": 282,
+   "checkedOn": "2026-10-09"
+  },
+  {
    "id": "puccinos",
    "name": "Puccino's",
    "cuisine": "Coffee",
@@ -1517,6 +1561,17 @@
    "itemCount": 151,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
+  },
+  {
+   "id": "roxy-leisure",
+   "name": "Roxy Leisure",
+   "cuisine": "Bowling diner",
+   "file": "chain-roxy-leisure.json",
+   "sha256": "aafd29bc7e536c5f8d07d987f2f3ee91d2d66c12ea9258ff744e039f58602ae3",
+   "contentHash": "97b2d8fd182cd7b96315035763a8302d1a59e0d754275feaf669692c0b291a02",
+   "sample": false,
+   "itemCount": 76,
+   "checkedOn": "2026-10-09"
   },
   {
    "id": "rudys-pizza-napoletana",
@@ -2022,6 +2077,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "854b9a7b7ee678f8fecb23725b153b67925e67f417dff081e527126547db2704"
+  "sha256": "ca1d94c2df0d99c21da4ad76ad0be1560b8f1fec0b37e6e693e3605d00705bcb"
  }
 }

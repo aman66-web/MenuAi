@@ -1,0 +1,14 @@
+chain,kind,severity,code,item,name,category,detail
+jamaica-blue,nutrition,low,sugar+fibre-gt-carbs,cake-orange-and-almond,Cake Orange & Almond,Cakes,sugars 41 + fibre 4.1 > carbohydrate 42 (starch would be negative)
+jamaica-blue,nutrition,low,sugar+fibre-gt-carbs,cake-pear-and-chocolate,Cake Pear & Chocolate,Cakes,sugars 47 + fibre 5.1 > carbohydrate 50 (starch would be negative)
+jamaica-blue,allergen,reviewed,name-implies-eggs,slice-florentine,Slice Florentine,Cakes,"'Florentine' in the name but eggs is not marked (contains: ['gluten', 'milk', 'nuts', 'soya', 'sulphites'])"
+jamaica-blue,allergen,reviewed,name-implies-nuts,hazelnut-coffee-frappe,Hazelnut Coffee Frappe,Cold Drinks Made,"'Hazelnut' in the name but nuts is not marked (contains: ['milk', 'soya'])"
+jamaica-blue,allergen,reviewed,name-implies-nuts,hazelnut-latte-matcha-large,Hazelnut Latte Matcha Large,Hot Drinks,'Hazelnut' in the name but nuts is not marked (contains: ['milk'])
+jamaica-blue,allergen,reviewed,name-implies-nuts,hazelnut-latte-matcha-medium,Hazelnut Latte Matcha Medium,Hot Drinks,'Hazelnut' in the name but nuts is not marked (contains: ['milk'])
+jamaica-blue,allergen,reviewed,name-implies-nuts,iced-matcha-hazelnut,Iced Matcha Hazelnut,Cold Drinks Made,'Hazelnut' in the name but nuts is not marked (contains: ['milk'])
+jamaica-blue,allergen,reviewed,name-implies-nuts,iced-matcha-salted-pistachio,Iced Matcha Salted Pistachio,Cold Drinks Made,'Pistachio' in the name but nuts is not marked (contains: ['milk'])
+jamaica-blue,allergen,reviewed,name-implies-nuts,latte-salted-pistachio-large,Latte Salted Pistachio Large,Hot Drinks,'Pistachio' in the name but nuts is not marked (contains: ['milk'])
+jamaica-blue,allergen,reviewed,name-implies-nuts,latte-salted-pistachio-medium,Latte Salted Pistachio Medium,Hot Drinks,'Pistachio' in the name but nuts is not marked (contains: ['milk'])
+jamaica-blue,allergen,reviewed,name-implies-nuts,salted-pistachio-coffee-frappe,Salted Pistachio Coffee Frappe,Cold Drinks Made,"'Pistachio' in the name but nuts is not marked (contains: ['milk', 'soya'])"
+jamaica-blue,allergen,reviewed,name-implies-nuts,salted-pistachio-latte-matcha-large,Salted Pistachio Latte Matcha Large,Hot Drinks,'Pistachio' in the name but nuts is not marked (contains: ['milk'])
+jamaica-blue,allergen,reviewed,name-implies-nuts,salted-pistachio-latte-matcha-medium,Salted Pistachio Latte Matcha Medium,Hot Drinks,'Pistachio' in the name but nuts is not marked (contains: ['milk'])

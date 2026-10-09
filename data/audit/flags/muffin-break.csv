@@ -1,0 +1,14 @@
+chain,kind,severity,code,item,name,category,detail
+muffin-break,allergen,medium,name-implies-eggs,slice-florentine,Slice - Florentine,Cake,"'Florentine' in the name but eggs is not marked (contains: ['gluten', 'milk', 'nuts', 'soya', 'sulphites'])"
+muffin-break,allergen,medium,name-implies-gluten,egg-muffin-bacon-tomato,Egg Muffin Bacon Tomato,Breakfast,"'Muffin' in the name but gluten is not marked (contains: ['eggs', 'milk'])"
+muffin-break,allergen,medium,name-implies-gluten,egg-muffin-chicken-chorizo,Egg Muffin Chicken Chorizo,Breakfast,"'Muffin' in the name but gluten is not marked (contains: ['eggs', 'milk'])"
+muffin-break,allergen,medium,name-implies-gluten,egg-muffin-feta-spinach,Egg Muffin Feta Spinach,Breakfast,"'Muffin' in the name but gluten is not marked (contains: ['eggs', 'milk'])"
+muffin-break,allergen,medium,name-implies-gluten,egg-muffin-hct,Egg Muffin HCT,Breakfast,"'Muffin' in the name but gluten is not marked (contains: ['eggs', 'milk'])"
+muffin-break,allergen,medium,name-implies-gluten,toastie-topper-mustard-and-cheddar,Toastie (Topper) - Mustard & Cheddar,Breads,"'Toast' in the name but gluten is not marked (contains: ['milk', 'mustard', 'soya'])"
+muffin-break,allergen,medium,name-implies-gluten,toastie-topper-nacho-and-cheddar,Toastie (Topper) - Nacho & Cheddar,Breads,"'Toast' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+muffin-break,allergen,medium,name-implies-nuts,iced-coffee-hazelnut,Iced Coffee Hazelnut,Cold Drinks Made,'Hazelnut' in the name but nuts is not marked (contains: ['milk'])
+muffin-break,nutrition,medium,sugar-implausible,5-pancakes-caramel-and-banana,5 Pancakes - Caramel & Banana,Made to Order,sugar 125 g in one item
+muffin-break,nutrition,low,sugar+fibre-gt-carbs,cake-orange-and-almond-very-low-gluten,Cake Orange & Almond (Very Low Gluten),Cake,sugars 38 + fibre 3.4 > carbohydrate 39 (starch would be negative)
+muffin-break,nutrition,low,sugar+fibre-gt-carbs,smoothie-berry-go-round,Smoothie Berry Go Round,Cold Drinks Made,sugars 35 + fibre 6.9 > carbohydrate 35 (starch would be negative)
+muffin-break,nutrition,low,sugar+fibre-gt-carbs,smoothie-big-5,Smoothie Big 5,Cold Drinks Made,sugars 42 + fibre 3.1 > carbohydrate 42 (starch would be negative)
+muffin-break,nutrition,low,sugar+fibre-gt-carbs,smoothie-pash-n-shoot,Smoothie Pash n Shoot,Cold Drinks Made,sugars 44 + fibre 2.1 > carbohydrate 44 (starch would be negative)

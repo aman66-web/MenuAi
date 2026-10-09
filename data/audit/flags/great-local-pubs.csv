@@ -1,0 +1,23 @@
+chain,kind,severity,code,item,name,category,detail
+great-local-pubs,nutrition,reviewed,energy-gap-alcohol,jack-daniels-tennessee-honey,Jack Daniel's Tennessee Honey,Drinks,60 kcal vs 4P+4C+9F=0: energy not in the macros (alcohol?)
+great-local-pubs,nutrition,reviewed,fat-implausible,the-feasting-combo,The Feasting Combo,Sharers,fat 160.6 g in one item
+great-local-pubs,nutrition,reviewed,huge,the-feasting-combo,The Feasting Combo,Sharers,2743 kcal in one item
+great-local-pubs,nutrition,reviewed,huge-protein,30-chicken-wings-excluding-topping-option-see-below,"30 Chicken Wings (Excluding Topping Option, see below)",Sharers,138.5 g protein
+great-local-pubs,nutrition,reviewed,huge-protein,the-mega-mixed-grill,The Mega Mixed Grill,Grill,175.9 g protein
+great-local-pubs,allergen,reviewed,name-implies-eggs,banana-and-custard-sundae-v,Banana & Custard Sundae (V),Desserts,"'Custard' in the name but eggs is not marked (contains: ['milk', 'soya'])"
+great-local-pubs,allergen,reviewed,name-implies-eggs,banana-and-custard-sundae-vg,Banana and Custard Sundae (VG),Desserts,'Custard' in the name but eggs is not marked (contains: ['soya'])
+great-local-pubs,allergen,reviewed,name-implies-gluten,chicken-and-bacon-club-excluding-bread-option-see-below,"Chicken & Bacon Club (Excluding Bread Option, see below)",Lunch,"'Bread' in the name but gluten is not marked (contains: ['milk', 'mustard'])"
+great-local-pubs,allergen,reviewed,name-implies-gluten,shepherds-pie,Shepherd's Pie,Pub faves,"'Pie' in the name but gluten is not marked (contains: ['celery', 'milk'])"
+great-local-pubs,allergen,reviewed,name-implies-milk,baked-quorntm-buttermilk-style-fillet-vg,Baked Quorn™ Buttermilk-Style Fillet (VG),Kids: mains,'Butter' in the name but milk is not marked (contains: ['gluten'])
+great-local-pubs,allergen,reviewed,name-implies-milk,banana-and-custard-sundae-vg,Banana and Custard Sundae (VG),Desserts,'Custard' in the name but milk is not marked (contains: ['soya'])
+great-local-pubs,allergen,reviewed,name-implies-milk,buttermilk-style-fillet-vg-excluding-bread-and-accompaniment-option-see-below,"Buttermilk-Style Fillet (VG) (Excluding Bread & Accompaniment Option, see below)",Lunch,"'Butter' in the name but milk is not marked (contains: ['gluten', 'mustard'])"
+great-local-pubs,allergen,reviewed,name-implies-milk,quorntm-buttermilk-style-fillet-v,Quorn™ Buttermilk-Style Fillet (V),Options & add-ons,'Butter' in the name but milk is not marked (contains: ['gluten'])
+great-local-pubs,allergen,reviewed,name-implies-milk,quorntm-buttermilk-style-fillet-vg,Quorn™ Buttermilk-Style Fillet (VG),Options & add-ons,'Butter' in the name but milk is not marked (contains: ['gluten'])
+great-local-pubs,allergen,reviewed,name-implies-soya,katsu-chicken-excluding-accompaniment-option-see-below,"Katsu Chicken (Excluding Accompaniment Option, see below)",Chicken,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+great-local-pubs,allergen,reviewed,name-implies-soya,katsu-chickisnt-v,Katsu Chickisn't (V),Chicken,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+great-local-pubs,allergen,reviewed,name-implies-soya,katsu-chickisnt-vg,Katsu Chickisn't (VG),Chicken,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+great-local-pubs,allergen,reviewed,name-implies-soya,katsu-hash-browns-v,Katsu Hash Browns (V),Loaded,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+great-local-pubs,allergen,reviewed,name-implies-soya,large-katsu-hash-browns-v,Large Katsu Hash Browns (V),Loaded,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+great-local-pubs,nutrition,reviewed,salt-very-high,the-feasting-combo,The Feasting Combo,Sharers,salt 10.4 g with 2743 kcal (6 g is the whole day's limit)
+great-local-pubs,allergen,reviewed,vegan-contains-animal,the-plant-based-melt-burger-v,The Plant-Based Melt Burger (V),Burgers,named vegan/plant-based but allergens say it contains ['milk']
+great-local-pubs,allergen,reviewed,vegan-contains-animal,the-spicy-cheese-plant-based-burger-v,The Spicy Cheese Plant Based Burger (V),Burgers,named vegan/plant-based but allergens say it contains ['milk']
