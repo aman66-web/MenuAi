@@ -296,3 +296,36 @@ def read_page(text: str, where: str) -> list[dict]:
     if len(mob) != len(rows):
         raise SystemExit(f"{where}: the mobile list has {len(mob)} dishes, the table {len(rows)}")
     return rows
+
+
+# ---------------------------------------------------------------- the chain's own website menu (a second printed source for calories)
+
+def read_web_menu(text: str) -> list[dict]:
+    """Every dish line on https://brightside.co.uk/menu/ (div.position): {name, price, kcal_text, values (ints), marks, ing}.
+    `values` are the calorie numbers printed beside the dish, in order ("107/66kcal" -> [107, 66]); [] when the line prints none."""
+    root = tk.parse_html(text)
+    out = []
+    for p in root.iter():
+        if not p.has("position"):
+            continue
+        title = p.find("position-title")
+        kids = [c for c in title.children if isinstance(c, tk.Node)] if title is not None else []
+        if not kids:
+            raise SystemExit("website menu: a dish line without a title")
+        sub = p.find("position-subtitle")
+        em = sub.find(tag="em") if sub is not None else None
+        kcal_text = em.text() if em is not None else ""
+        values = [int(x.replace(",", "")) for x in re.findall(r"\d[\d,]*", kcal_text)] if kcal_text and "kcal" in kcal_text and not kcal_text.startswith("From") else []
+        ing = p.find("position-ing")
+        out.append({"name": kids[0].text(), "price": kids[1].text() if len(kids) > 1 else "", "kcal_text": kcal_text, "values": values,
+                    "marks": [s.text() for s in sub.find_all(tag="span")] if sub is not None else [],
+                    "ing": ing.text() if ing is not None else ""})
+    return out
+
+
+def web_labelled_values(ing: str) -> dict:
+    """'Roasted garlic mayo 159kcal / Chipotle mayo 231kcal' -> {'roasted garlic mayo': 159, 'chipotle mayo': 231}."""
+    out = {}
+    for m in re.finditer(r"([A-Za-z][A-Za-z' ]*?)\s+(\d[\d,]*)\s*kcal", ing):
+        out[m.group(1).strip().lower()] = int(m.group(2).replace(",", ""))
+    return out
