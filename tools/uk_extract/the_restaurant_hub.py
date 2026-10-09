@@ -199,6 +199,8 @@ def build(cache: list, extra_holds: dict) -> tuple[list, list, list, dict]:
             vegetarian = bool(diet)
             tags = ["vegetarian"] if vegetarian else []
             meat, unspecified = tk.meat_tags(name, r["desc"], vegetarian=vegetarian)
+            if not meat and not vegetarian and not unspecified and re.search(r"burger", name, re.I) and not tk.OTHER_SPECIES.search(name):
+                unspecified = True   # "Cheeseburger" is a burger the word-boundary rule in tenkites_c does not see
             if unspecified:
                 report.append(f"meat type not stated: {name}")
             where = f"{tab} > {r['section']} > {name}"
