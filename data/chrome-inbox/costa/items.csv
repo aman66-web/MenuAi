@@ -1,0 +1,142 @@
+name,category,calories,protein_g,carbs_g,fat_g,sat_fat_g,sugar_g,fiber_g,salt_g,energy_kj,weight_g,serving,page_url,contains,may_contain
+Egg & Mushroom Bap,Breakfast,339,12,46,11,2.8,3.5,2.1,1.00,1426,,Per portion 158 ml,https://www.costa.co.uk/menu/egg-mushroom-bap,egg;milk;oats;wheat,barley;rye
+Smoked Bacon Bap,Breakfast,343,18,41,12,5.3,4.1,1,1.60,1445,,Per portion 124 ml,https://www.costa.co.uk/menu/smoked-bacon-bap,milk;oats;wheat,barley;rye
+Pork Sausage Bap,Breakfast,515,18,45,29,11,4.4,1.4,1.80,2153,,Per portion 161 ml,https://www.costa.co.uk/menu/pork-sausage-bap,milk;sulphites;oats;wheat,barley;rye
+Tomato & Mature Cheddar Croissant,Breakfast,396,11,39,21,13,7.1,2.1,1.30,1655,135,Per portion 135 g,https://www.costa.co.uk/menu/tomato-mature-cheddar-croissant,egg;milk;mustard;wheat,soya;barley;oats;rye
+Wiltshire Ham & Mature Cheddar Croissant,Breakfast,370,15,33,19,12,5.5,1.6,1.60,1547,116,Per portion 116 g,https://www.costa.co.uk/menu/wiltshire-ham-mature-cheddar-croissant,egg;milk;wheat,
+Greek Style Yogurt with Mixed Berry Compote & Granola,Breakfast,206,11,24,6.9,2.9,17,1.5,0.21,863,,Per portion 210 ml,https://www.costa.co.uk/menu/greek-style-yogurt-with-mixed-berry-compote-granola,milk;barley;oats,rye;wheat
+Wholegrain Jumbo Oats Porridge,Breakfast,162,7,22,4.4,2,5.9,2.4,0.09,683,,Per portion 220 ml,https://www.costa.co.uk/menu/wholegrain-jumbo-oats-porridge,milk;oats,barley;wheat
+Instant Wholegrain Porridge,Breakfast,294,13,49,3.9,0.6,17,4.2,0.24,1240,,Per portion 290 ml,https://www.costa.co.uk/menu/instant-wholegrain-porridge,milk;oats,peanuts;nuts;barley;wheat
+All Day Breakfast Wrap,Breakfast,604,23,53,33,9.7,6.9,4.2,2.10,2527,223,Per portion 223 g,https://www.costa.co.uk/menu/all-day-breakfast-wrap,egg;milk;sulphites;wheat,
+Seeded Brown Toast (V),Breakfast,272,11,40,5.8,1.3,2.4,8.3,1.00,1143,,Per portion 100 ml,https://www.costa.co.uk/menu/seeded-brown-toast-v,barley;oats;rye;wheat,milk
+White Toast (V),Breakfast,226,8.7,42,2.2,0.3,2.5,2.3,1.20,958,,Per portion 90 ml,https://www.costa.co.uk/menu/white-toast-v,wheat,milk;barley;oats;rye
+Philly Cheesesteak Toastie,Lunch,508,27,51,21,9.4,4.9,1.8,2.90,2128,227,Per portion 227 g,https://www.costa.co.uk/menu/philly-cheesesteak-toastie,milk;wheat,mustard;soya;barley;oats;rye
+Four Cheese Toastie,Lunch,473,24,46,21,13,2.9,2.3,1.90,1978,175,Per portion 175 g,https://www.costa.co.uk/menu/four-cheese-toastie,milk;mustard;wheat,
+Chicken Gyros Style Flatbread,Lunch,339,20,43,9.4,1.7,3.5,3.1,0.82,1426,170,Per portion 170 g,https://www.costa.co.uk/menu/chicken-gyros-style-flatbread,milk;wheat,
+Meatball Marinara Pasta,Lunch,531,22,58,23,7.7,9.5,4.2,1.10,2228,270,Per portion 270 g,https://www.costa.co.uk/menu/meatball-marinara-pasta,milk;mustard;wheat,
+Chicken & Spicy Korean Style Rice,Lunch,392,19,55,9.2,3.3,17,5.6,2.00,1648,280,Per portion 280 g,https://www.costa.co.uk/menu/chicken-spicy-korean-style-rice,mustard;soya;wheat,
+Chicken Fajita Wrap,Lunch,407,23,49,13,4.5,5.7,3.6,1.60,1715,187,Per portion 187 g,https://www.costa.co.uk/menu/chicken-fajita-wrap,milk;wheat,
+Cheese Triangles,Lunch,190,10,25,4.7,2.4,2,2.5,0.78,802,79,Per portion 79 g,https://www.costa.co.uk/menu/cheese-triangles,milk;barley;oats;wheat,
+Wiltshire Ham & Mature Cheddar Toastie,Lunch,393,22,44,13,8,3.4,2.4,2.10,1655,,Per portion 172 ml,https://www.costa.co.uk/menu/wiltshire-ham-mature-cheddar-toastie,milk;mustard;wheat,
+Chicken Salad Sandwich,Lunch,386,20,40,13,1.6,4.9,5.4,1.40,1617,213,Per portion 213 g,https://www.costa.co.uk/menu/chicken-salad-sandwich,egg;mustard;barley;wheat,
+Mature Cheddar & Roasted Tomato Toastie,Lunch,430,19,46,18,10,5.1,2.3,1.80,1806,,Per portion 165 ml,https://www.costa.co.uk/menu/mature-cheddar-roasted-tomato-toastie,milk;wheat,
+Cheese Bites,Lunch,247,11,17,15,7.7,6.7,2,1.10,1030,97,Per portion 97 g,https://www.costa.co.uk/menu/cheese-bites,milk;wheat,
+Tuna Melt Panini,Lunch,462,26,51,16,6.2,3,4,1.50,1941,,Per portion 190 ml,https://www.costa.co.uk/menu/tuna-melt-panini,egg;fish;milk;mustard;wheat,
+Mozzarella & Tomato Panini (V),Lunch,493,21,54,21,9.9,2.1,2.5,1.30,2069,,Per portion 195 ml,https://www.costa.co.uk/menu/mozzarella-tomato-panini-v,milk;wheat,
+Nacho Chilli Cheese & Chicken Toastie,Lunch,586,32,55,26,15,5.3,2.3,2.40,2455,226,Per portion 226 g,https://www.costa.co.uk/menu/nacho-chilli-cheese-chicken-toastie,milk;wheat,
+Brie & Bacon Chilli Jam Panini,Lunch,589,25,69,23,11,15,3.7,2.40,2470,198,Per portion 198 g,https://www.costa.co.uk/menu/brie-bacon-chilli-jam-panini,milk;wheat,barley;rye
+Chicken & Bacon Toastie,Lunch,460,27,45,19,11,3.4,1.7,2.00,1927,,Per portion 190 ml,https://www.costa.co.uk/menu/chicken-bacon-toastie,milk;wheat,
+Ham & Cheese Toastie,Lunch,356,19,44,11,6.5,4.1,3.8,1.30,1497,,Per portion 148 ml,https://www.costa.co.uk/menu/ham-cheese-toastie,milk;wheat,
+Gluten Free Mozzarella & Pesto Toastie,Lunch,497,18,30,32,11,2.5,11,2.10,2069,,Per portion 180 ml,https://www.costa.co.uk/menu/gluten-free-mozzarella-pesto-toastie,egg;milk,
+Heinz Beanz & Cheese Toastie,Lunch,321,14,46,7.6,4.4,1.6,4.7,1.20,1353,159,Per portion 159 g,https://www.costa.co.uk/menu/heinz-beanz-cheese-toastie,milk;wheat,
+Vegan Ham & Cheeze Toastie,Lunch,333,11,49,9.5,4.4,3.5,3.1,1.70,1402,148,Per portion 148 g,https://www.costa.co.uk/menu/vegan-ham-cheeze-toastie,mustard;wheat,
+Prawn Mayo Sandwich,Lunch,280,19,36,5.8,0.7,2.4,3,1.80,1181,172,Per portion 172 g,https://www.costa.co.uk/menu/prawn-mayo-sandwich,crustaceans;egg;barley;oats;wheat,
+BLT Sandwich,Lunch,419,21,45,16,4,4.9,5.6,2.10,1759,,Per portion 190 ml,https://www.costa.co.uk/menu/blt-sandwich,egg;mustard;barley;wheat,
+Free Range Egg Mayo Sandwich,Lunch,400,15,46,16,2.5,3.7,3.8,1.10,1676,,Per portion 170 ml,https://www.costa.co.uk/menu/free-range-egg-mayo-sandwich,egg;mustard;barley;wheat,
+Mac & Cheese,Lunch,567,23,65,23,12,6.1,3.7,1.40,2382,,Per portion 270 ml,https://www.costa.co.uk/menu/mac-cheese,milk;mustard;wheat,
+Pork & Apple Sausage Roll,Lunch,384,13,28,23,12,3.1,5.2,1.40,1603,130,Per portion 130 g,https://www.costa.co.uk/menu/pork-apple-sausage-roll,egg;milk;wheat,
+Dubai Style Pistachio Tiffin,Pastries & Sweets,381,4.4,47,19,10,34,2,0.37,1594,78,Per portion 78 g,https://www.costa.co.uk/menu/dubai-style-pistachio-tiffin,milk;soya;pistachio nuts;wheat,egg;barley;oats
+All Butter Sultana Scone (V),Pastries & Sweets,355,7,54.4,11.7,7,28.4,2.2,1.15,1490,,Per portion 100 ml,https://www.costa.co.uk/menu/all-butter-sultana-scone-v,egg;milk;wheat,barley;oats
+Sticky Pecan Mini Loaf,Pastries & Sweets,375,4.1,45,19,3.7,29,0.9,0.29,1570,88,Per portion 88 g,https://www.costa.co.uk/menu/sticky-pecan-mini-loaf,egg;milk;pecan nuts;wheat,soya;barley;oats
+Chocolate & Pistachio Cookie Sandwich,Pastries & Sweets,337,4.4,39,18,9.3,31,1.1,0.15,1411,,Per portion 73 ml,https://www.costa.co.uk/menu/chocolate-pistachio-cookie-sandwich,egg;milk;soya;pistachio nuts;wheat,
+Raspberry & Almond Bake,Pastries & Sweets,346,5.7,35,20,7.5,22,2,0.23,1448,,Per portion 75 ml,https://www.costa.co.uk/menu/raspberry-almond-bake,egg;milk;almonds;wheat,
+Gingernut Loaf Cake,Pastries & Sweets,409,3.8,66,14,4.9,38,1.9,0.48,1720,120,Per portion 120 g,https://www.costa.co.uk/menu/gingernut-loaf-cake,soya;wheat,egg;milk;nuts
+Iced Ghost Gingerbread Biscuit,Pastries & Sweets,188,2.4,33,5.1,2.3,16,0.8,0.18,792,45,Per portion 45 g,https://www.costa.co.uk/menu/iced-ghost-gingerbread-biscuit,egg;wheat,milk;soya;nuts
+Chocolate & Salted Caramel Cake,Pastries & Sweets,495,5.3,56,27,7.5,33,1.4,0.31,2062,115,Per portion 115 g,https://www.costa.co.uk/menu/chocolate-salted-caramel-cake,egg;milk;soya;wheat,nuts
+Carrot & Walnut Cake,Pastries & Sweets,497,6.4,63,24,8.4,40,2.6,0.63,2075,,Per portion 130 ml,https://www.costa.co.uk/menu/carrot-walnut-cake,egg;milk;walnuts;wheat,soya
+Caramelised Biscuit Rocky Road,Pastries & Sweets,278,2.7,34,15,6,23,0,0.21,1164,55,Per portion 55 g,https://www.costa.co.uk/menu/caramelised-biscuit-rocky-road,soya;sulphites;wheat,egg;milk;nuts
+Fruited Teacake,Pastries & Sweets,281,8,56,2.1,0.6,20,4.2,0.63,1191,100,Per portion 100 g,https://www.costa.co.uk/menu/fruited-teacake,wheat,egg;milk;soya;nuts
+Triple Chocolate Muffin,Pastries & Sweets,402,5.1,50,20,4.8,33,2.2,0.27,1686,,Per portion 96 ml,https://www.costa.co.uk/menu/triple-chocolate-muffin,egg;milk;soya;barley;wheat,nuts;oats;rye
+Triple Chocolate Brownie Cheesecake,Pastries & Sweets,506,6.1,61,26,14,40,2.2,0.26,2118,125,Per portion 125 g,https://www.costa.co.uk/menu/triple-chocolate-brownie-cheesecake,egg;milk;soya;oats;wheat,
+Double Chocolate Cookie,Pastries & Sweets,359,3.8,45,18,8.8,29,2.7,0.27,1500,76,Per portion 76 g,https://www.costa.co.uk/menu/double-chocolate-cookie,soya;wheat,egg;milk;barley;oats;rye
+Pain Au Chocolat,Pastries & Sweets,299,5.9,30,17,11,8.3,2.1,0.49,1247,,Per portion 72 ml,https://www.costa.co.uk/menu/pain-au-chocolat,egg;milk;soya;wheat,nuts;barley;oats;rye
+Croissant (V),Pastries & Sweets,246,5.4,25,15,10,4.3,1.4,0.46,1026,,Per portion 62.8 ml,https://www.costa.co.uk/menu/croissant-v,egg;milk;wheat,soya;nuts;barley;oats;rye
+Almond Croissant (V),Pastries & Sweets,318,7.9,35,16,8.4,13,3.1,0.81,1330,,Per portion 83 ml,https://www.costa.co.uk/menu/almond-croissant-v,egg;milk;almonds;wheat,barley;oats;rye
+Biscoff Cheezecake,Pastries & Sweets,475,5.7,48,28,16,27,2.2,0.48,1977,130,Per portion 130 g,https://www.costa.co.uk/menu/biscoff-cheezecake,soya;oats;wheat,
+Cheddar Cheese Twist,Pastries & Sweets,324,8.6,30,19,12,3.3,1.3,0.82,1352,,Per portion 85 ml,https://www.costa.co.uk/menu/cheddar-cheese-twist,egg;milk;wheat,soya;nuts;barley;oats
+Milk Chocolate Cookie,Pastries & Sweets,364,3.3,47,18,11,29,1.6,0.32,1526,76,Per portion 76 g,https://www.costa.co.uk/menu/milk-chocolate-cookie,milk;soya;wheat,egg;barley;oats;rye
+Chocolate Twist (V),Pastries & Sweets,309,5.4,41,15,10,17,2.2,0.56,1295,,Per portion 85 ml,https://www.costa.co.uk/menu/chocolate-twist-v,egg;milk;soya;wheat,nuts;barley;oats
+Pain aux Raisins,Pastries & Sweets,324,6.5,42,14,9,17,1.4,0.60,1357,,Per portion 96 ml,https://www.costa.co.uk/menu/pain-aux-raisins,egg;milk;wheat,soya;nuts;barley;oats
+Blueberry Muffin,Pastries & Sweets,403,4.8,53,19,1.8,31,1.1,0.36,1688,,Per portion 110 ml,https://www.costa.co.uk/menu/blueberry-muffin,egg;oats;wheat,milk;soya;nuts;barley
+Lemon Muffin (V),Pastries & Sweets,399,4.3,53,19,2.3,31,1,0.29,1673,,Per portion 101 ml,https://www.costa.co.uk/menu/lemon-muffin-v,egg;milk;sulphites;wheat,soya;nuts;barley;oats
+Salted Caramel Brownie,Pastries & Sweets,352,3.8,39,20,10,29,2,0.28,1472,,Per portion 80 ml,https://www.costa.co.uk/menu/salted-caramel-brownie,egg;milk;soya;wheat,nuts;barley;oats
+Cinnamon Bun,Pastries & Sweets,447,7.2,64.6,17.2,7,30,2.6,0.51,1875,123,Per portion 123 g,https://www.costa.co.uk/menu/cinnamon-bun,egg;milk;wheat,soya;barley;oats;rye
+Millionaire's Shortbread (V),Pastries & Sweets,396,4,41,24,13,23,1,0.35,1653,,Per portion 77 ml,https://www.costa.co.uk/menu/millionaires-shortbread-v,milk;soya;wheat,egg;nuts;barley;oats
+Chocolate Tiffin (V),Pastries & Sweets,403,3.8,42,24,12,24,2.3,0.28,1682,,Per portion 80 ml,https://www.costa.co.uk/menu/chocolate-tiffin-v,milk;soya;wheat,nuts
+Bakewell Tart (V),Pastries & Sweets,368,4.2,50,16,6.4,30,1.3,0.07,1543,84,Per portion 84 g,https://www.costa.co.uk/menu/bakewell-tart-v,egg;milk;sulphites;almonds;wheat,soya
+Lemon Curd Tart,Pastries & Sweets,337,3.6,37,19,9.8,20,0.8,0.12,1407,,Per portion 70 ml,https://www.costa.co.uk/menu/lemon-curd-tart,egg;milk;soya;wheat,nuts
+Lemon Drizzle Loaf Cake,Pastries & Sweets,402,4.8,53,19,2.6,33,0.7,0.48,1686,,Per portion 105 ml,https://www.costa.co.uk/menu/lemon-drizzle-loaf-cake,egg;milk;wheat,soya;nuts
+Oaty Flapjack,Snacks,256,3,34,11,4.4,15,2.8,0.09,1073,58,Per portion 58 g,https://www.costa.co.uk/menu/oaty-flapjack,oats,egg;nuts
+Apple Slices,Snacks,47,0.2,11,0.1,0.03,9.7,1.5,0.00,199,80,Per portion 80 g,https://www.costa.co.uk/menu/apple-slices,NONE,
+Watermelon,Snacks,66,1.5,14,0,0,14,1.8,0.02,279,,Per portion 180 ml,https://www.costa.co.uk/menu/watermelon,NONE,
+Dried Mango,Snacks,115,0.7,27,0,0.1,24,0.7,0.08,487,35,Per portion 35 g,https://www.costa.co.uk/menu/dried-mango,sulphites,
+Fruit & Nut Mix,Snacks,159,4.3,15,8.8,1.2,14,1.2,0.04,664,35,Per portion 35 g,https://www.costa.co.uk/menu/fruit-nut-mix,cashews;pistachio nuts;almonds,milk;soya
+Stem Ginger Biscuits,Snacks,234,2.6,33,9.8,3.2,13,2.4,0.20,983,,Per portion 48 ml,https://www.costa.co.uk/menu/stem-ginger-biscuits,milk;oats;wheat,
+Fruit & Oat Biscuits,Snacks,228,2.6,31,9.6,3.3,13,2.7,0.40,955,,Per portion 48 ml,https://www.costa.co.uk/menu/fruit-oat-biscuits,milk;oats;wheat,
+Millionaire's Shortbread (Gluten Free),Snacks,279,1.5,36,14,7,24,0,0.24,1167,,Per portion 56 ml,https://www.costa.co.uk/menu/millionaires-shortbread-gluten-free,milk;soya,nuts
+Belgian Chocolate Brownie (Gluten Free),Snacks,302,4.4,26,20,10,25,0,0.22,1258,,Per portion 60 ml,https://www.costa.co.uk/menu/belgian-chocolate-brownie-gluten-free,egg;milk;soya;almonds,
+Jammy Shortbread,Snacks,238,1.8,35,10,6.6,14,,0.30,997,,Per portion 50 ml,https://www.costa.co.uk/menu/jammy-shortbread,milk;wheat,
+Mini All Butter Shortbreads,Snacks,52,0.5,6.2,2.8,2,2.2,0.14,0.02,217,,Per portion 10 ml (one piece),https://www.costa.co.uk/menu/mini-all-butter-shortbreads,milk;wheat,egg;soya;nuts;barley;oats
+Caramel Waffles,Snacks,363,3,56,14,6.9,28,1.2,0.57,1523,,Per portion 78 ml,https://www.costa.co.uk/menu/caramel-waffles,milk;soya;wheat,
+"Latte - Medium, semi-skimmed milk, Signature blend",Coffee,146,11,16,5.1,3.3,14,,0.38,618,,In store 352 ml,https://www.costa.co.uk/menu/latte,milk,
+"Maple Hazel Latte - Medium, semi-skimmed milk, Signature blend",Coffee,315,10,41,13,10,33,,0.45,1322,,In store 384 ml,https://www.costa.co.uk/menu/maple-hazel-latte,egg;milk;wheat,soya;barley;oats;rye
+"Caramel Macchiato - Small, semi-skimmed milk, Signature blend, in store",Coffee,101,6.7,12,3.5,2.2,10,,0.23,427,,In store 227 ml,https://www.costa.co.uk/menu/caramel-macchiato,milk,
+"Caramel Macchiato - Small, semi-skimmed milk, Signature blend, take-out",Coffee,129,8.8,15,4.4,2.8,13,,0.32,548,,Take-out 307 ml,https://www.costa.co.uk/menu/caramel-macchiato,milk,
+"Spanish Latte - Medium, semi-skimmed milk, Signature blend",Coffee,262,13,41,6.1,3.9,33,,0.42,1108,,In store 380 ml,https://www.costa.co.uk/menu/spanish-latte,milk,
+"Signature Latte - Medium, semi-skimmed milk, Signature blend",Coffee,150,11,16,5.2,3.4,14,,0.39,634,,In store 360 ml,https://www.costa.co.uk/menu/signature-latte,milk,
+"Cappuccino - Medium, semi-skimmed milk, Signature blend",Coffee,140,10,16,4.5,2.9,13,,0.36,593,,In store 332 ml,https://www.costa.co.uk/menu/cappuccino,milk,
+"Americano - Medium, Signature blend",Coffee,18,1.2,3,0.2,0.1,0,,0.08,74,,In store 340 ml,https://www.costa.co.uk/menu/americano,NONE,
+"Flat White - whole milk, Signature blend, in store",Coffee,151,7.7,11,8.3,5.3,9.5,,0.24,626,,In store 241 ml,https://www.costa.co.uk/menu/flat-white,milk,
+"Flat White - whole milk, Signature blend, take-out",Coffee,164,8.4,12,9.2,5.9,10,,0.26,683,,Take-out 262 ml,https://www.costa.co.uk/menu/flat-white,milk,
+"Mocha - Medium, semi-skimmed milk, Signature blend",Coffee,279,12,41,6.8,4.3,33,,0.56,1175,,In store 368 ml,https://www.costa.co.uk/menu/mocha,milk,
+"Espresso - Single, Signature blend",Coffee,6,0,0.9,0,0,0,,0.03,24,,Per portion 30 ml,https://www.costa.co.uk/menu/espresso,NONE,
+"Cortado - whole milk, Signature blend, in store",Coffee,60,3.1,4.8,3.2,2,3.6,,0.10,250,,In store 100 ml,https://www.costa.co.uk/menu/cortado,milk,
+"Cortado - whole milk, Signature blend, take-out",Coffee,73,3.8,5.7,4,2.5,4.5,,0.12,305,,Take-out 120 ml,https://www.costa.co.uk/menu/cortado,milk,
+"Maple Hazel Hot Chocolate - Medium, semi-skimmed milk, in store",Other Hot Drinks,407,11,58,14,11,48,3.1,0.54,1709,,In store 344 ml,https://www.costa.co.uk/menu/maple-hazel-hot-chocolate,egg;milk;wheat,soya;barley;oats;rye
+"Maple Hazel Hot Chocolate - Medium, semi-skimmed milk, take-out",Other Hot Drinks,456,13,65,16,12,54,3.8,0.64,1917,,Take-out 404 ml,https://www.costa.co.uk/menu/maple-hazel-hot-chocolate,egg;milk;wheat,soya;barley;oats;rye
+"Hot Chocolate - Medium, semi-skimmed milk",Other Hot Drinks,252,11,36,6.6,4.2,31,3.5,0.47,1061,,In store 297 ml,https://www.costa.co.uk/menu/hot-chocolate,milk,
+"White Hot Chocolate - Medium, semi-skimmed milk",Other Hot Drinks,248,12,33,8.4,5.4,29,,0.44,1050,,In store 362 ml,https://www.costa.co.uk/menu/white-hot-chocolate,milk;soya,
+"Chai Latte - Medium, semi-skimmed milk",Other Hot Drinks,208,12,29,5.8,3.7,28,,0.39,884,,In store 356 ml,https://www.costa.co.uk/menu/chai-latte,milk,
+Milk Babyccino - semi-skimmed milk,Other Hot Drinks,41,3.2,4.2,1.5,1,4.2,,0.10,176,,Per portion 90 ml,https://www.costa.co.uk/menu/milk-babyccino,milk,
+"Maple Hazel Frappé - Medium, whole milk",Frappé,374,6.7,52,16,12,41,,0.31,1566,,In store 467 ml,https://www.costa.co.uk/menu/maple-hazel-frapp,egg;milk;wheat,soya;barley;oats;rye
+"Tropical Mango Bubble Frappé - Medium, whole milk",Frappé,376,5.7,57,14,11,47,,0.30,1575,,In store 520 ml,https://www.costa.co.uk/menu/tropical-mango-bubble-frapp,milk,
+"Strawberry Drizzle Frappé - Medium, whole milk",Frappé,337,5.6,48,14,12,39,,0.27,1417,,In store 478 ml,https://www.costa.co.uk/menu/strawberry-drizzle-frapp,milk,
+"Salted Caramel Frappé - Medium, whole milk",Frappé,311,6.3,37,15,12,31,,0.24,1301,,In store 478 ml,https://www.costa.co.uk/menu/salted-caramel-frapp,milk,
+"Salted Caramel Frappé with Coffee - Medium, whole milk, Smooth Medium Roast",Frappé,323,7.1,40,15,12,31,,0.24,1351,,In store 482 ml,https://www.costa.co.uk/menu/salted-caramel-frapp-with-coffee,milk,
+"Chocolate Fudge Frappé - Medium, whole milk",Frappé,411,7.7,57,16,13,46,,0.75,1726,,In store 492 ml,https://www.costa.co.uk/menu/chocolate-fudge-frapp,milk;soya,
+"Chocolate Fudge Frappé with Coffee - Medium, whole milk, Smooth Medium Roast",Frappé,423,8.5,60,16,13,46,4.3,0.76,1776,,In store 496 ml,https://www.costa.co.uk/menu/chocolate-fudge-frapp-with-coffee,milk;soya,
+"Coffee Frappé - Medium, whole milk, Smooth Medium Roast",Frappé,269,6.5,31,14,11,23,,0.23,1121,,In store 442 ml,https://www.costa.co.uk/menu/coffee-frapp,milk,
+Iced Oat Velvetino - Medium,Coffee Over Ice,91,1.2,14,3,0.3,9.4,,0.16,382,,Per portion 255 ml,https://www.costa.co.uk/menu/iced-oat-velvetino,oats,barley;rye;wheat
+"Maple Hazel Iced Latte - Medium, semi-skimmed milk, Signature blend",Coffee Over Ice,280,7.6,37,12,9.4,29,,0.36,1176,,In store 379 ml,https://www.costa.co.uk/menu/maple-hazel-iced-latte,egg;milk;wheat,soya;barley;oats;rye
+"Iced Caramel Macchiato - Small, semi-skimmed milk, Signature blend, in store",Coffee Over Ice,66,4.4,9.3,1.7,1,6.7,,0.17,281,,In store 227 ml,https://www.costa.co.uk/menu/iced-caramel-macchiato,milk,
+"Iced Caramel Macchiato - Small, semi-skimmed milk, Signature blend, take-out",Coffee Over Ice,73,4.9,10,1.9,1.2,7.4,,0.19,310,,Take-out 262 ml,https://www.costa.co.uk/menu/iced-caramel-macchiato,milk,
+"Spanish Iced Latte - Medium, semi-skimmed milk, Signature blend",Coffee Over Ice,225,9.8,37,4.7,3,29,,0.33,952,,In store 365 ml,https://www.costa.co.uk/menu/spanish-iced-latte,milk,
+"Iced Black Americano - Medium, Signature blend",Coffee Over Ice,18,1.2,3,0.2,0.1,0,,0.08,74,,In store 357 ml,https://www.costa.co.uk/menu/iced-black-americano,NONE,
+"Iced Americano (white) - Medium, semi-skimmed milk, Signature blend",Coffee Over Ice,31,2.2,4.4,0.7,0.4,1.5,,0.11,133,,In store 380 ml,https://www.costa.co.uk/menu/iced-americano-white,milk,
+"White Chocolate Iced Whipped Latte - Medium, semi-skimmed milk, in store",Coffee Over Ice,194,7.2,32,4.4,2.8,27,,0.30,819,,In store 305 ml,https://www.costa.co.uk/menu/white-chocolate-iced-whipped-latte,milk;soya,
+"White Chocolate Iced Whipped Latte - Medium, semi-skimmed milk, take-out",Coffee Over Ice,199,7.6,33,4.6,2.9,28,,0.31,839,,Take-out 315 ml,https://www.costa.co.uk/menu/white-chocolate-iced-whipped-latte,milk;soya,
+"Iced Chai Latte - Medium, semi-skimmed milk",Coffee Over Ice,160,8.2,24,4,2.6,23,,0.28,679,,In store 411 ml,https://www.costa.co.uk/menu/iced-chai-latte,milk,
+"Caramel Iced Whipped Latte - Medium, semi-skimmed milk, in store",Coffee Over Ice,155,7,25,3.4,2.1,22,,0.23,655,,In store 305 ml,https://www.costa.co.uk/menu/caramel-iced-whipped-latte,milk,
+"Caramel Iced Whipped Latte - Medium, semi-skimmed milk, take-out",Coffee Over Ice,160,7.4,26,3.5,2.2,23,,0.24,675,,Take-out 325 ml,https://www.costa.co.uk/menu/caramel-iced-whipped-latte,milk,
+"Iced Cappuccino - Medium, semi-skimmed milk, Signature blend",Coffee Over Ice,79,6.4,11,1.6,1,7.6,,0.24,335,,In store 341 ml,https://www.costa.co.uk/menu/iced-cappuccino,milk,
+"Iced Flat White - whole milk, Signature blend",Coffee Over Ice,65,4.4,6.8,2.4,1.5,4.9,,0.14,273,,Per portion 220 ml,https://www.costa.co.uk/menu/iced-flat-white,milk,
+"Iced Latte - Medium, semi-skimmed milk, Signature blend",Coffee Over Ice,120,9,13,4.1,2.6,11,,0.32,507,,In store 380 ml,https://www.costa.co.uk/menu/iced-latte,milk,
+"Iced Mocha - Medium, semi-skimmed milk, Signature blend",Coffee Over Ice,218,11,31,5.7,3.6,24,3,0.48,920,,In store 419 ml,https://www.costa.co.uk/menu/iced-mocha,milk,
+"Maple Hazel Iced Matcha - Medium, semi-skimmed milk, in store",Iced Tea,199,7.4,32,4.8,2.7,26,,0.26,841,,In store 353 ml,https://www.costa.co.uk/menu/maple-hazel-iced-matcha,milk,
+"Maple Hazel Iced Matcha - Medium, semi-skimmed milk, take-out",Iced Tea,206,8,33,5,2.9,26,,0.28,870,,Take-out 458 ml,https://www.costa.co.uk/menu/maple-hazel-iced-matcha,milk,
+"Iced Matcha Latte - Medium, semi-skimmed milk",Iced Tea,115,8.8,13,4,2.5,11,,0.25,488,,In store 360 ml,https://www.costa.co.uk/menu/iced-matcha-latte,milk,
+Strawberry Coconut Matcha Iced Latte - Medium,Iced Tea,157,3.9,28,3.6,2,23,,0.25,671,,In store 390 ml,https://www.costa.co.uk/menu/strawberry-coconut-matcha-iced-latte,soya,nuts
+Peach Ice Tea - Medium,Iced Tea,107,0,27,0,0,26,,0.00,449,,In store 428 ml,https://www.costa.co.uk/menu/peach-ice-tea,NONE,
+Pure Chamomile Infusion,Tea,0,0,0,0,0,0,,0.00,0,276,Per portion 276 g,https://www.costa.co.uk/menu/pure-chamomile-infusion,NONE,
+"Matcha Latte - Medium, semi-skimmed milk, in store",Tea,138,11,15,4.9,3.1,13,,0.31,585,,In store 340 ml,https://www.costa.co.uk/menu/matcha-latte,milk,
+"Matcha Latte - Medium, semi-skimmed milk, take-out",Tea,147,11,16,5.2,3.3,14,,0.33,624,,Take-out 360 ml,https://www.costa.co.uk/menu/matcha-latte,milk,
+Decaf Tea - no milk,Tea,2,0,0,0,0,0,,0.00,9,,Per portion 356 ml,https://www.costa.co.uk/menu/decaf-tea,NONE,
+English Breakfast Tea - no milk,Tea,0,0,0,0,0,0,,0.00,2,,Per portion 356 ml,https://www.costa.co.uk/menu/english-breakfast-tea,NONE,
+Earl Grey Tea,Tea,0,0,0,0,0,0,,0.00,2,,In store 356 ml,https://www.costa.co.uk/menu/earl-grey-tea,NONE,
+Green Tea,Tea,0,0,0,0,0,0,,0.00,0,,Per portion 356 ml,https://www.costa.co.uk/menu/green-tea,NONE,
+Mint Tea,Tea,0,0,0,0,0,0,,0.00,2,,Per portion 356 ml,https://www.costa.co.uk/menu/mint-tea,NONE,
+Berry Infusion,Tea,2,0,0,0,0,0,,0.00,7,,Per portion 356 ml,https://www.costa.co.uk/menu/berry-infusion,NONE,
+Citrus Zing with Vitamin C,Tea,3,0,0,0,0,0,,0.00,1,,Per portion 276 ml,https://www.costa.co.uk/menu/citrus-zing-with-vitamin-c,sulphites,
+Spiced Apple with Vitamin B6,Tea,8,0,1.9,0,0,0,,0.00,30,,Per portion 276 ml,https://www.costa.co.uk/menu/spiced-apple-with-vitamin-b6,NONE,
+Mango & Passion Fruit Cooler - Medium,Fruit Coolers,165,1.8,38,0,0,35,,0.00,698,,Per portion 435 ml,https://www.costa.co.uk/menu/mango-passion-fruit-cooler,NONE,
+Red Summer Berries - Medium,Fruit Coolers,218,1.3,55,0.3,0,53,,0.50,935,,Per portion 454 ml,https://www.costa.co.uk/menu/red-summer-berries,NONE,
