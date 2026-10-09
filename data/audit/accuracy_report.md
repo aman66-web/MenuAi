@@ -2,13 +2,14 @@
 
 Flags are questions for a re-read of the chain's official source, never corrections. Severity: high = arithmetic that cannot hold or a contradiction inside the data; medium = suspicious; low = worth a glance.
 
-Chains: 192 · items: 30372 · nutrition flags high/med/low: 0/1/582 · allergen flags high/med/low: 0/40/18
+Chains: 194 · items: 30748 · nutrition flags high/med/low: 0/1/584 · allergen flags high/med/low: 0/40/20
 
 | chain | items | level | with allergens | nutr H/M/L | allergen H/M/L | high-severity codes |
 |---|---|---|---|---|---|---|
 | abokado | 103 | full | 103 | 0/0/4 | 0/0/0 |  |
 | afrikana | 74 | calories | 0 | 0/0/3 | 0/0/0 |  |
 | all-bar-one | 139 | full | 139 | 0/0/1 | 0/0/0 |  |
+| amalfi | 162 | calories | 162 | 0/0/0 | 0/0/2 |  |
 | amigos-burgers-and-shakes | 33 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | aunties-anne | 130 | full | 130 | 0/0/0 | 0/0/0 |  |
 | away-resorts | 170 | calories | 0 | 0/0/0 | 0/0/0 |  |
@@ -176,6 +177,7 @@ Chains: 192 · items: 30372 · nutrition flags high/med/low: 0/1/582 · allergen
 | the-botanist | 159 | calories | 159 | 0/0/1 | 0/0/0 |  |
 | the-breakfast-club | 51 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | the-light-cinemas | 10 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| the-restaurant-hub | 214 | full | 214 | 0/0/2 | 0/0/0 |  |
 | third-space | 11 | full | 0 | 0/0/0 | 0/0/0 |  |
 | tim-hortons | 244 | full | 244 | 0/0/4 | 0/0/0 |  |
 | toby-carvery | 48 | full | 48 | 0/0/0 | 0/0/0 |  |

@@ -465,6 +465,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   prints "M" in 283 cells with no key (read as "may contain": it can only add a warning; `READ_M_AS_MAY_CONTAIN` in `deli_by_shell.py` switches to link-only); Bakers & Baristas reads "Y*" as contains milk and "N*" as may
   contain milk. The pool of untried candidates is nearly exhausted (721 earlier discovery leads are almost all small regional groups with no nutrition page).
 
+- 2026-10-10 (later) — **194 chains, 30,748 items live: 102 full nutrition, 92 calories only**: Amalfi (162, calories-only) and The Restaurant Hub (222, full nutrition, 21 sites) added; Coast to Coast, EST Italian, Black Rooster, Biff's, Poke House and Alley Cats checked and not added (reasons in docs/UK_DATA_STATUS.md). Chrome queues C and D (88 more chains) and docs/CHAINS_WORK_LIST.md written.
 - 2026-10-10 — **192 chains, 30,372 items live: 101 full nutrition, 91 calories only** (`main` = this branch; 0 high-severity audit flags, 245 web tests, site build clean). Added: Brightside
   (326), Riva Blu (129), Cluck'd (72; its menu is a picture with no text layer, typed after every number was confirmed by OCR and, where the page has one, a second picture; the script stops if
   the picture changes) and 14 Kids items for Puttshack. Chaophraya was set aside (its two sources disagree: only 5 of 88 dishes agree), Chick-fil-A UK was not extracted (its sheet is per 100 g only).

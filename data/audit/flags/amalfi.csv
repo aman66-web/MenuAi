@@ -1,0 +1,5 @@
+chain,kind,severity,code,item,name,category,detail
+amalfi,allergen,low,name-implies-celery,bloody-mary,Bloody Mary,Drinks: Cocktails,'Bloody Mary' in the name but celery is not marked (contains: none)
+amalfi,allergen,low,name-implies-sulphites,orange-spritz,Orange Spritz,Drinks: Non-alcoholic cocktails,'Spritz' in the name but sulphites is not marked (contains: none)
+amalfi,allergen,reviewed,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Kids: Desserts,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+amalfi,allergen,reviewed,name-implies-milk,gelato-sorbet-mango,Gelato / Sorbet: Mango,Desserts,'Gelato' in the name but milk is not marked (contains: none)

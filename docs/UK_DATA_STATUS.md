@@ -298,6 +298,15 @@ source (every agent compared at least 15 items, mostly 20-60, or every row of a 
   after every number was confirmed by a second method (multi-pass OCR and, for 55 dishes, the larger May 2026 pictures on the menu page); the script stops if the picture's hash changes.
   Pitta Club (5), Load It Up (3) and the Straight Up baste flavour rest on OCR plus an eye read only. Truffle Fries, Biscoff Cheesecake and Chocolate Drip Cake are held back (the chain's two files disagree). Ice cream and drinks print no usable calories.
 - **Puttshack** (existing `puttshack-uk`): 14 "Kids" items added with allergens (48 of 51 published).
+- **Amalfi** (3 GB sites: Oxford Circus, St Paul's, Woburn Center Parcs; calories-only, 162 items, complete allergens): Ten Kites pages for all three sites, identical on every shared tab. 7 rows held back
+  (two Aperol Spritz figures, a tonic, a pint of beer at 1977 kcal, three drinks with 13-14 of 14 allergens marked). Gluten-free pizzas print far more kcal than the standard ones (copied as printed).
+- **The Restaurant Hub** (21 sites in Sainsbury's car parks; full nutrition, 222 items, complete allergens): Ten Kites page; brands differ by site (Carluccio's 21, Ed's and Fish & Chips 19, Slim Chickens and GBK 10), stated in the note.
+  8 held back (kJ/kcal contradictions, a plant-based dish marked milk, two contradicting salads, a salt misprint, a brownie with no gluten marked). Milk-choice coffees, doubled wing rows and delivery-only items left out.
+  Rocky Road prints all 14 allergens as "contains" (copied as printed).
+- **Not added after checking:** Coast to Coast (one restaurant; its Ten Kites page is Frankie & Benny's menu), EST Italian (one restaurant), Black Rooster Peri Peri (16 sites, but every energy cell reads "From 373 kCal", a lowest
+  figure that matches no serving: the repo refuses "from" figures; say "publish the From figures" to override, pages cached), Biff's Jack Shack (a food supplier, no numbers), Poke House (its menu PDF sits on a host whose
+  robots.txt answers 403: you can save https://bucket-store-2.s3.eu-west-3.amazonaws.com/UK/London/Menu/uk-menu-standard1.pdf), Alley Cats Pizza (allergen picture only, no calories).
+
 - **Set aside, not published** (`data/held-unpublished/`): **Chaophraya** (6 restaurants; the Ten Kites page and the chain's own igfd.menu pages disagree, only 5 of 88 dishes agree).
   **Not extracted:** Chick-fil-A UK (3 GB sites; its allergen sheet prints every nutrient per 100 g only, never converted).
 

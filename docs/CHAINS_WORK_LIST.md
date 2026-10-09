@@ -8,12 +8,9 @@ held lists in `data/held-robots/` and `data/held-unpublished/`, and the founder'
 Everything else this session can reach has been tried (about 760 earlier leads were found to have no nutrition page we can read). These nine were found
 late and are being extracted (calories-only is allowed; a chain needs 3 or more GB sites and official per-serving figures):
 
-- Coast to Coast and Amalfi (Big Table Group, Ten Kites pages with calories)
-- EST Italian (calories in a menu PDF), Black Rooster Peri Peri (calories on the menu page), Biff's Jack Shack (page needs a browser to render)
-- The Restaurant Hub (21 sites, full macros; only dishes identical across sites are published), Poke House, Alley Cats Pizza
-- Imperial Hotels is NOT being done (a small hotel group, not a chain)
-
-Expect only some of these to pass the accuracy gate: a chain whose numbers or sites don't hold is left out and the reason is logged.
+Result (10 October): **added** Amalfi (162 dishes) and The Restaurant Hub (222 dishes). **Checked and not added:** Coast to Coast and EST Italian
+(one restaurant each), Black Rooster Peri Peri (every figure is "From ..."), Biff's Jack Shack (a food supplier), Poke House (its menu PDF is behind a robots.txt
+block: you can save it), Alley Cats Pizza (allergen picture only). Imperial Hotels was not done (a small hotel group, not a chain). Reasons: docs/UK_DATA_STATUS.md.
 
 ## 2. Claude in Chrome (your Mac) — 4 queue files, 99 chains
 

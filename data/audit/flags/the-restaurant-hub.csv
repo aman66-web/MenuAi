@@ -1,0 +1,9 @@
+chain,kind,severity,code,item,name,category,detail
+the-restaurant-hub,nutrition,low,huge,slims-crave-box,Slims Crave Box,Slim Chickens: Sides,2590 kcal in one item
+the-restaurant-hub,nutrition,low,sugar+fibre-gt-carbs,flake-shake,Flake Shake,Slim Chickens: Shakes,sugars 86.8 + fibre 8.4 > carbohydrate 92.2 (starch would be negative)
+the-restaurant-hub,nutrition,reviewed,huge-protein,full-reload-bundle,Full Reload Bundle,Slim Chickens: Tenders,178.4 g protein
+the-restaurant-hub,nutrition,reviewed,huge-protein,slims-crave-box,Slims Crave Box,Slim Chickens: Sides,232.6 g protein
+the-restaurant-hub,nutrition,reviewed,salt-very-high,10-buffalo-wings-meal,10 Buffalo Wings Meal,Slim Chickens: Wings,salt 21 g with 1579 kcal (6 g is the whole day's limit)
+the-restaurant-hub,nutrition,reviewed,salt-very-high,6-buffalo-wings-meal,6 Buffalo Wings Meal,Slim Chickens: Wings,salt 12.9 g with 1025 kcal (6 g is the whole day's limit)
+the-restaurant-hub,nutrition,reviewed,salt-very-high,8-buffalo-wings-meal,8 Buffalo Wings Meal,Slim Chickens: Wings,salt 16.8 g with 1227 kcal (6 g is the whole day's limit)
+the-restaurant-hub,nutrition,reviewed,salt-very-high,buffalo-tossed-boneless-bites,Buffalo Tossed Boneless Bites,Slim Chickens: Sides,salt 5 g with 208 kcal (6 g is the whole day's limit)

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009141805,
- "generatedAt": "2026-10-09T14:18:05Z",
+ "dataVersion": 20261009151227,
+ "generatedAt": "2026-10-09T15:12:27Z",
  "chains": [
   {
    "id": "abokado",
@@ -36,6 +36,18 @@
    "sample": false,
    "itemCount": 139,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "amalfi",
+   "name": "Amalfi",
+   "cuisine": "Italian",
+   "file": "chain-amalfi.json",
+   "sha256": "777808ac8d72719bfbc4db896bead04394f6084b0bb55b03ae9e07af98a8c83e",
+   "contentHash": "d2be43cab3601e700aa4615273162843eff9a571ccf2221a7584f1b5e6726921",
+   "sample": false,
+   "itemCount": 162,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
   },
   {
    "id": "amigos-burgers-and-shakes",
@@ -1957,6 +1969,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "the-restaurant-hub",
+   "name": "The Restaurant Hub",
+   "cuisine": "Diner & cafe",
+   "file": "chain-the-restaurant-hub.json",
+   "sha256": "ec039fd387dbf14dfaac1e9b96349bdfa5c4f122ac6a5405e9be5b2fc2804519",
+   "contentHash": "805404c0a1bb37194596851a0955f37f58b846c29a372d59daf21c414daf4e97",
+   "sample": false,
+   "itemCount": 214,
+   "checkedOn": "2026-10-09"
+  },
+  {
    "id": "third-space",
    "name": "Third Space",
    "cuisine": "Cafe",
@@ -2209,6 +2232,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "2d6a0790e1c63b6412aea1ebb168a1e12932162e44d2c9a622bc1eeed8142f10"
+  "sha256": "36fffa793b92139becec84df21a7ba54fc476b683787b6bad02e433dcbcec307"
  }
 }
