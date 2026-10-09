@@ -55,9 +55,19 @@ def done_slugs(work: Path) -> set:
             done |= {r["product_id"] for r in csv.DictReader(f)}
     for p in list(work.glob("results_*.tsv")) + list(work.glob("none_*.txt")):
         for line in p.read_text(encoding="utf-8").splitlines():
-            if line:
-                done.add(line.split("\t")[0])
+            if not line:
+                continue
+            parts = line.split("\t")
+            # a row from extractor v1 (12 columns) that lacks a main number is read again with v2; any v2 row (13 columns) or "no table" counts as read
+            if len(parts) == 12 and not _complete(parts):
+                continue
+            done.add(parts[0])
     return done
+
+
+def _complete(parts: list) -> bool:
+    """slug, per, kj, kcal, fat, sat, carb, sugar, fibre, protein, salt, day: the basis is plain and the four main numbers are numbers."""
+    return parts[1] in ("g", "ml") and all(num(parts[i]) is not None for i in (3, 4, 6, 9))
 
 
 def priority(cat_path: str):
@@ -143,7 +153,7 @@ def cmd_append(a) -> int:
         if slug in done:
             continue
         with open(work / f"results_{a.slice}.tsv", "a", encoding="utf-8") as f:
-            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat()]) + "\n")
+            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "2"]) + "\n")
         done.add(slug)
         ok += 1
     print(f"stored {ok}, no table {none}, rejected {len(bad)}; {len(pending(work, a.slice))} left in slice {a.slice}")
@@ -176,9 +186,9 @@ def cmd_ingest(a) -> int:
     for p in sorted(work.glob("results_*.tsv")):
         for line in p.read_text(encoding="utf-8").splitlines():
             parts = line.split("\t")
-            if len(parts) != 12:
+            if len(parts) not in (12, 13):
                 continue
-            slug, per, kj, kcal, fat, sat, carb, sugar, fibre, protein, salt, day = parts
+            slug, per, kj, kcal, fat, sat, carb, sugar, fibre, protein, salt, day = parts[:12]
             n = {k: num(v) for k, v in dict(kcal=kcal, fat=fat, carbs=carb, protein=protein).items()}
             if per not in ("g", "ml") or None in n.values():
                 why["incomplete (no per 100 g/ml basis or a main number missing)"] = why.get("incomplete (no per 100 g/ml basis or a main number missing)", 0) + 1

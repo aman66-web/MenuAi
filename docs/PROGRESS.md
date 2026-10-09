@@ -366,6 +366,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   website", "Not affiliated with {shop}." (a possessive helper avoids the doubled "Sainsbury's's" of the older screens, which are unchanged). Tests: 5 unit, 1 Python, `e2e/groceries-all.mjs`
   (4 steps), axe 0 in light and dark on the real data. **Next:** read product pages for nutrition (Tier 2) in priority order so more products get numbers.
 
+- 2026-10-09 — **Tier 2 for Sainsbury's: nutrition read from each product's own page.** A Sainsbury's product page prints a nutrition table (per 100 g/ml) but **no barcode**,
+  so the numbers attach to the shop's product by its page address (slug), not to the Open Food Facts catalogue: `data/groceries/nutrition/sainsburys.csv` →
+  `build_all_products.py` → the "Every Sainsbury's product" rows show "{kcal} kcal · {protein}g protein ... per 100 g", with a "Has nutrition" filter and "Most protein per 100 kcal" /
+  "Most protein" sorts (products without numbers go last, never guessed). Reading is done by Chrome agents with a checksummed extractor (`tools/groceries/t2_extractor.js` v2) and a tool
+  (`tools/groceries/t2_sainsburys.py`: slices, next, append, ingest) so a typing slip or a wrong page is caught: every line carries a hash of the page's own slug and a check of the numbers.
+  Only a plain "per 100g/ml" table counts (a heading with "cooked", "prepared", "drained"... is filed as `g?` and kept out of the app); `<0.5` counts as 0; a main number the table
+  lacks means the product is left without numbers. Priority order: meat & fish, dietary & world foods, chilled, frozen, food cupboard, snacks, fruit & veg, bakery, drinks (alcohol has no
+  table and is not read); the first 4,000 are being read by three agents in the founder's Chrome. **Allergens are not read yet**: such a product's page says "Allergens aren't shown for this
+  product yet: check the pack or the page" (never "none"). New copy: "Has nutrition", "Nutrition per 100 g", "Read from the product's own page on {shop}'s website, checked {date}.
+  Allergens aren't shown for this product yet: check the pack or the page."
+
 - 2026-10-09 — **Xcode preview shell running on the founder's iPhone** (docs/XCODE_PREVIEW_SHELL.md). `ios/MenuMacrosPreview/MenuMacrosPreview.xcodeproj` was
   created by Claude at the founder's request (overriding CLAUDE.md's "founder creates new targets" once; XcodeGen was used once as a generator and is not kept in
   the repo: edit the project in Xcode from now on, never regenerate). It holds the four files from `ios/PreviewSources/` plus our own icon, bundle
