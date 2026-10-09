@@ -75,11 +75,14 @@ def _sections(desktop: "tk.Node", where: str) -> None:
                 raise SystemExit(f"{where}: section {n.text()!r} is not a top-level section: the page nests sections now")
 
 
-def _printed_lines(lines: list[str], where: str) -> tuple[list, list]:
-    """('Contains A, B (x)' ..., 'May contain C') lines -> (contains parts, may parts) as tenkites_c._parts."""
+def _printed_lines(lines: list[str], where: str, suitable: "list | None" = None) -> tuple[list, list]:
+    """('Contains A, B (x)' ..., 'May contain C') lines -> (contains parts, may parts) as tenkites_c._parts. A mobile-list
+    'Suitable for Vegan' line is appended to `suitable` when given."""
     contains, may = None, None
     for text in lines:
-        if text.startswith("Contains "):
+        if suitable is not None and text.startswith("Suitable for "):
+            suitable.extend(x.strip() for x in text[len("Suitable for "):].split(",") if x.strip())
+        elif text.startswith("Contains "):
             if contains is not None:
                 raise SystemExit(f"{where}: two 'Contains' lines")
             contains = tk._parts(text[len("Contains "):].strip())
@@ -242,7 +245,10 @@ def read_page(text: str, where: str) -> list[dict]:
             raise SystemExit(f"{here}: the mobile list is not in the same order as the table")
         if m["name"] != name or m["kcal_text"] != kcal_text:
             raise SystemExit(f"{here}: the mobile list prints {m['name']!r} {m['kcal_text']!r}")
-        mob_contains, mob_may = _printed_lines(m["lines"], here)
+        mob_suitable: list = []
+        mob_contains, mob_may = _printed_lines(m["lines"], here, mob_suitable)
+        if sorted(mob_suitable) != sorted(suitable):
+            raise SystemExit(f"{here}: the mobile list says Suitable for {mob_suitable}, the table's diet columns say {sorted(suitable)}")
         if _norm_parts(mob_contains) != _norm_parts(popup_contains) or _norm_parts(mob_may) != _norm_parts(popup_may):
             raise SystemExit(f"{here}: the mobile list reads Contains {m['lines']} but the pop-ups read "
                              f"{popup_contains} / {popup_may}")
