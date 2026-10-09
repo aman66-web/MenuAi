@@ -419,6 +419,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   existing calories-only chains are left live until the founder says whether to remove them (they carry a "calories only" badge and appear in no ranking). Round 3 (triage of 143 more candidates + 8 new
   discovery segments) is running with the new rule.
 
+- 2026-10-09 (evening) — **181 chains, 28,496 items live: 101 full nutrition, 80 calories only** (`main` = this branch; 0 high-severity audit flags). Round 3 for the founder's "complete nutrition
+  only" rule: 143 more candidates triaged (batches in `data/candidates/triage3/`) and 8 new discovery segments (`seg-s3*.csv`): almost every brand the helpers could name was already known, and only five
+  qualified: **Muffin Break** (491 items) and **Jamaica Blue** (359), both from the chains' own allergen-app CSVs (robots.txt 404 = no rules; salt left blank because the apps swap the per-serving and
+  per-100 g salt columns), **Great Local Pubs** (344) and **Pubsmiths** (282), Stonegate brands on tkmenus pages, and **Roxy Leisure** (76, published only where the same row appears at 2+ of 20 venues);
+  all with complete allergens. Skipped: Crêpe Affaire (7 of 56 dishes print nutrition), The Chapter Collection (6 pubs), Rita's and Core (one venue), Waterfields (22 bakery products, breads per loaf),
+  Cook (frozen ready meals), HelloFresh/Wiltshire Farm Foods (home delivery), Carl's Jr UK (2 sites); blocked by robots or 403: Atis (15 London sites, macros in PDFs on a host whose robots.txt answers 403),
+  Smith & Western, Galloways Bakers (names ClaudeBot with Disallow: /). Calories-only chains found by triage (Cornish Bakehouse, Burger & Sauce, Daisy Green, Bakers & Baristas, Deli by Shell, Butcombe Inns,
+  Firmdale and others) were NOT extracted under the new rule. **All 80 published calories-only chains were re-checked for macros we might have missed: none upgrades** (their sources print kcal only;
+  Greenhalghs and Wasabi print macros per 100 g only, Gail's food panel mixes bases; Hungry Horse's Smart Chef reports and Dave's Hot Chicken's "Nutritional Guide April 2026" PDF might print macros but
+  sit behind robots.txt blocks: the founder can save them from their own browser). Realistic ceiling for complete-nutrition chains is now about 105-110.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -452,3 +463,4 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] **Xcode preview shell:** follow docs/XCODE_PREVIEW_SHELL.md (Vercel Production Branch → create the Xcode project → ask Claude on the Mac to copy the files → Run on your iPhone)
 - [ ] **Chains to send me files for (saved from your own browser):** McDonald's, Domino's, Papa Johns, Costa; Coffee Republic's PDF (`data/held-downloads/coffee-republic.pdf`); Sushi Shop's 177 product pages; Brewhouse & Kitchen's allergen matrix; Dave's Hot Chicken's two allergen PDFs; the Angus Steakhouse ifoodi page, John Lewis restaurants page, Betty's allergen page; Subway, Zizzi, Pizza Express, ASK, Coco di Mama, Ole & Steen, Starbucks and Burger King PDFs (held in `data/held-robots/`). Exact addresses: `docs/UK_DATA_STATUS.md` ("Blocked: needs a file from you")
 - [ ] **Decide:** (a) The Salad Project, Thaikhun, Byron: ask the chains which figures are current, or say "publish the page figures" / "publish anyway"; (b) Honi Poke and Chiquito: keep or remove (both have thin or self-inconsistent data, notes explain); (c) Jollibee's drinks (March 2023 chart); (d) whether a 403 on an image host's robots.txt may be read as "no rules" (RFC 9309 says yes; I stopped instead) for Sbarro, Amigos, Kokoro, Tortilla photos; (e) Wetherspoon's terms clause and Boston Tea Party's vendor-hosted photos; (f) Norse Catering (school lunches): say "publish" if you want it
+- [ ] **For more complete-nutrition chains, save from your own browser:** Dave's Hot Chicken's "Nutritional Guide April 2026" PDF (https://cdn.sanity.io/files/ysupxjc9/production/4197d7ab55a5f626cea8dacde450fd8788c28063.pdf/Nutritional-Guide-April-2026.pdf), one Hungry Horse pub report from smartchef.co.uk (it may print full macros), Atis's four guide PDFs and Smith & Western's PDF; and decide whether the 80 calories-only chains stay live
