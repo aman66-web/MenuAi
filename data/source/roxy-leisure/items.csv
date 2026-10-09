@@ -1,0 +1,87 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+marinara,Marinara,Pizzas,,787,27.0,108.0,26.0,12.0,,5.2,6.7,7.7,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+margherita,Margherita,Pizzas,,916,45.0,107.0,32.0,13.0,,5.6,7.0,7.3,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+margherita-with-pesto-and-parmesan,Margherita with Pesto & Parmesan,Pizzas,,1026,49.0,110.0,42.0,15.0,,6.3,7.2,8.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+pepperoni,Pepperoni,Pizzas,,1038,51.0,108.0,43.0,19.0,,6.5,7.4,7.3,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 20 of 20 venues
+pepperoni-with-red-onion-and-hot-honey,Pepperoni with Red Onion & Hot Honey,Pizzas,,1081,51.0,118.0,43.0,19.0,,6.6,17.0,7.6,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 20 of 20 venues
+portabello,Portabello,Pizzas,,1039,47.0,112.0,42.0,17.0,,6.7,8.7,8.9,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 13 of 20 venues
+portobello-with-pesto-parmesan-and-red-onion,"Portobello with Pesto, Parmesan & Red Onion",Pizzas,,1091,50.0,114.0,47.0,18.0,,6.5,9.5,9.1,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+mexicana,Mexicana,Pizzas,,1219,65.0,135.0,45.0,17.0,,7.3,16.0,8.5,,,,,,,,false,true,,,Same figures and allergens printed at 11 of 20 venues
+veggie-inferno,Veggie Inferno,Pizzas,,924,46.0,118.0,28.0,13.0,,6.0,17.0,8.2,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+chorizo-and-brie,Chorizo & Brie,Pizzas,,1114,55.0,121.0,44.0,21.0,,6.6,20.0,7.8,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 15 of 20 venues
+hot-streak,Hot Streak,Pizzas,,1154,54.0,119.0,49.0,21.0,,6.7,18.0,7.8,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 15 of 20 venues
+bbq-pulled-pork,BBQ Pulled Pork,Pizzas,,1033,60.0,128.0,29.0,13.0,,6.0,25.0,8.3,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 15 of 20 venues
+the-mexicana,The Mexicana,Pizzas,,1219,65.0,135.0,45.0,17.0,,7.3,16.0,8.5,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+baller-fries,Baller Fries,Loaded fries & tots,,554,9.0,74.0,23.0,2.9,,1.8,5.5,7.6,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 11 of 20 venues
+baller-tots,Baller Tots,Loaded fries & tots,,645,2.1,65.0,36.0,6.5,,2.8,4.3,6440505600.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 11 of 20 venues
+truffle-fries,Truffle Fries,Loaded fries & tots,,618,11.0,70.0,31.0,5.2,,2.1,1.9,7.8,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 11 of 20 venues
+truffle-tots,Truffle Tots,Loaded fries & tots,,709,3.6,61.0,44.0,8.8,,3.1,0.7,6440476700.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 11 of 20 venues
+buffalo-chilli-chicken-fries,Buffalo Chilli Chicken Fries,Loaded fries & tots,,758,27.0,96.0,28.0,6.7,,3.7,8.9,8.3,,,,,,,,false,true,,,Same figures and allergens printed at 11 of 20 venues
+buffalo-chilli-chicken-tots,Buffalo Chilli Chicken Tots,Loaded fries & tots,,847,20.0,87.0,41.0,10.0,,4.7,7.7,6440475000.0,,,,,,,,false,true,,,Same figures and allergens printed at 11 of 20 venues
+loaded-pulled-pork-fries-pap,Loaded Pulled Pork Fries (PAP),Loaded fries & tots,,618,22.0,91.0,17.0,2.2,,2.5,20.0,8.2,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 7 of 20 venues
+loaded-pulled-pork-tots-pap,Loaded Pulled Pork Tots (PAP),Loaded fries & tots,,708,15.0,82.0,30.0,5.8,,3.5,19.0,6440501200.0,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 7 of 20 venues
+loaded-fries,Loaded Fries,Loaded fries & tots,,554,9.0,74.0,23.0,2.9,,1.8,5.5,7.6,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 8 of 20 venues
+pins-stacked-tots,Pins Stacked Tots,Loaded fries & tots,,645,2.1,65.0,36.0,6.5,,2.8,4.3,6440505600.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 8 of 20 venues
+korean-chicken-fries,Korean Chicken Fries,Loaded fries & tots,,807,27.0,98.0,32.0,6.5,,3.4,10.0,8.3,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+korean-chicken-tots,Korean Chicken Tots,Loaded fries & tots,,889,20.0,88.0,45.0,10.0,,4.2,8.1,6440472300.0,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+truffle-parmesan-fries,Truffle Parmesan Fries,Loaded fries & tots,,618,11.0,70.0,31.0,5.2,,2.1,1.9,7.8,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 8 of 20 venues
+truffle-parmesan-tots,Truffle Parmesan Tots,Loaded fries & tots,,709,3.6,61.0,44.0,8.8,,3.1,0.7,6440476700.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 8 of 20 venues
+bbq-pulled-pork-fries,BBQ Pulled Pork Fries,Loaded fries & tots,,618,22.0,91.0,17.0,2.2,,2.5,20.0,8.2,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 7 of 20 venues
+bbq-pulled-pork-tots,BBQ Pulled Pork Tots,Loaded fries & tots,,708,15.0,82.0,30.0,5.8,,3.5,19.0,6440501200.0,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 7 of 20 venues
+buffalo-fries,Buffalo Fries,Loaded fries & tots,,756,27.0,95.0,28.0,6.7,,3.4,8.9,8.1,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+buffalo-tots,Buffalo Tots,Loaded fries & tots,,846,20.0,86.0,41.0,10.0,,4.4,7.7,6440468900.0,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+honey-glazed-chorizo-bites,Honey Glazed Chorizo Bites,Small plates,,949,36.0,22.0,79.0,26.0,,8.4,19.0,0.5,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 19 of 20 venues
+buffalo-cauli-bites,Buffalo Cauli Bites,Small plates,,469,5.8,33.0,34.0,3.9,,2.4,4.3,4.6,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 11 of 20 venues
+jalapeno-poppers,Jalapeno Poppers,Small plates,,1029,17.0,99.0,62.0,20.0,,3.8,12.0,3.6,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 19 of 20 venues
+buffalo-cauliflower-bites,Buffalo Cauliflower Bites,Small plates,,469,5.8,33.0,34.0,3.9,,2.4,4.3,4.6,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 8 of 20 venues
+the-snack-basket,The Snack Basket,Combos & platters,,2033,113.0,146.0,109.0,36.0,,7.8,6.9,7.9,,,,,,,,false,false,,,Same figures and allergens printed at 11 of 20 venues
+champion-baller-fries,Champion Baller Fries,Combos & platters,,1315,21.0,183.0,51.0,6.4,,3.9,12.0,19.0,,,,,,,,false,false,,,Same figures and allergens printed at 11 of 20 venues
+marg-slice-and-fries,Marg Slice & Fries,Combos & platters,,871,31.0,124.0,26.0,8.1,,4.0,5.4,11.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 11 of 20 venues
+portobello-slice-and-fries,Portobello Slice & Fries,Combos & platters,,941,32.0,126.0,32.0,10.0,,4.5,6.2,12.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 11 of 20 venues; 1 venue(s) print other figures for this name
+pins-stacked-sharer-fries,Pins Stacked Sharer Fries,Combos & platters,,1317,21.0,184.0,51.0,6.4,,4.3,12.0,19.0,,,,,,,,false,false,,,Same figures and allergens printed at 8 of 20 venues; 1 venue(s) print other figures for this name
+margherita-slice-and-fries,Margherita Slice & Fries,Combos & platters,,889,31.0,124.0,28.0,8.4,,4.5,5.4,11.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 8 of 20 venues; 1 venue(s) print other figures for this name
+portabello-slice-and-fries,Portabello Slice & Fries,Combos & platters,,941,32.0,126.0,32.0,10.0,,4.5,6.2,12.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 8 of 20 venues
+smokey-bbq-dip,Smokey BBQ Dip,Sides & dips,,41,0.5,9.8,0.1,0.0,,0.6,8.8,0.0,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 20 of 20 venues
+truffle-mayo-dip,Truffle Mayo Dip,Sides & dips,,162,0.2,0.9,18.0,2.2,,0.3,0.6,0.0,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 20 of 20 venues
+chipotle-chilli-buffalo-dip,Chipotle Chilli Buffalo Dip,Sides & dips,,58,0.5,1.0,5.9,1.9,,1.0,0.5,0.1,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 20 of 20 venues
+korean-bbq-dip,Korean BBQ Dip,Sides & dips,,47,0.5,11.0,0.1,0.0,,0.7,8.4,0.1,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 20 of 20 venues
+hot-honey-dip,Hot Honey Dip,Sides & dips,,61,0.2,15.0,0.1,0.0,,0.2,15.0,0.2,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 13 of 20 venues
+ranch-dip,Ranch Dip,Sides & dips,,99,0.7,2.5,9.6,0.7,,0.3,2.0,0.0,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 20 of 20 venues
+sriracha-mayo,Sriracha Mayo,Sides & dips,,91,0.1,2.6,8.9,0.7,,0.7,2.0,0.2,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 4 of 20 venues
+sriracha-mayo-dip,Sriracha Mayo Dip,Sides & dips,,91,0.1,2.6,8.9,0.7,,0.7,2.0,0.2,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 15 of 20 venues
+firecracker-sauce,Firecracker Sauce,Sides & dips,,28,0.5,6.3,0.2,0.0,,0.4,5.5,0.0,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 15 of 20 venues
+lemongrass-sriracha,Lemongrass Sriracha,Sides & dips,,33,0.5,6.5,0.5,0.0,,0.7,6.0,0.5,,,,,,,vegetarian,false,false,,,Same figures and allergens printed at 15 of 20 venues
+tennessee-wings-m,Tennessee Wings (M),Chicken,,1596,69.0,32.0,132.0,20.0,,4.9,4.7,2.0,,,,,,,,false,true,,,Same figures and allergens printed at 11 of 20 venues
+tennessee-tenders-h,Tennessee Tenders (H),Chicken,,940,29.0,35.0,76.0,7.4,,2.1,4.0,0.1,,,,,,,,false,true,,,Same figures and allergens printed at 11 of 20 venues
+smoky-bbq-tenders,Smoky BBQ Tenders,Chicken,,531,29.0,38.0,29.0,7.6,,2.3,11.0,0.2,,,,,,,,false,true,,,Same figures and allergens printed at 12 of 20 venues
+smoky-bbq-wings,Smoky BBQ Wings,Chicken,,1186,69.0,36.0,85.0,20.0,,5.1,12.0,2.1,,,,,,,,false,true,,,Same figures and allergens printed at 12 of 20 venues
+tennesse-wings-m,Tennesse Wings (M),Chicken,,1596,69.0,32.0,132.0,20.0,,4.9,4.7,2.0,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+tenessee-tenders-h,Tenessee Tenders (H),Chicken,,940,29.0,35.0,76.0,7.4,,2.1,4.0,0.1,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+smokey-bbq-tenders,Smokey BBQ Tenders,Chicken,,531,29.0,38.0,29.0,7.6,,2.3,11.0,0.2,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+smokey-bbq-wings,Smokey BBQ Wings,Chicken,,1186,69.0,36.0,85.0,20.0,,5.1,12.0,2.1,,,,,,,,false,true,,,Same figures and allergens printed at 8 of 20 venues
+festive-feast-spec-26-fryer-sites,Festive Feast Spec 26 (Fryer sites),Roxy feast,,1205,56.0,88.0,68.0,25.0,,7.1,21.0,5.7,,,,,,,contains_pork,true,false,,,Same figures and allergens printed at 11 of 20 venues
+festive-feast-spec-26-merrychef,Festive Feast Spec 26 (Merrychef),Roxy feast,,1205,56.0,88.0,68.0,25.0,,7.1,21.0,5.7,,,,,,,contains_pork,true,false,,,Same figures and allergens printed at 8 of 20 venues
+vegan-margherita,Vegan Margherita,Dietary options,,886,25.0,122.0,30.0,18.0,,5.0,7.1,12.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+vegan-veggie-inferno,Vegan Veggie Inferno,Dietary options,,921,26.0,131.0,30.0,18.0,,5.5,15.0,13.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+vegan-portabello,Vegan Portabello,Dietary options,,942,27.0,126.0,33.0,18.0,,5.0,8.5,13.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-marinara,GF Marinara,Dietary options,,630,9.3,88.0,25.0,13.0,,3.4,14.0,9.6,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-margherita,GF Margherita,Dietary options,,733,27.0,88.0,28.0,14.0,,4.8,14.0,9.4,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-margherita-upgrade,GF Margherita Upgrade,Dietary options,,870,31.0,90.0,41.0,17.0,,5.0,14.0,10.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-pepperoni,GF Pepperoni,Dietary options,,882,33.0,88.0,42.0,20.0,,5.2,14.0,9.3,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 20 of 20 venues
+pepperoni-upgrade-gf-pap,Pepperoni Upgrade (GF) (Pap),Dietary options,,913,33.0,95.0,42.0,20.0,,5.2,21.0,9.7,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-brie-and-chorizo,GF Brie & Chorizo,Dietary options,,959,37.0,101.0,43.0,22.0,,5.3,27.0,9.9,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-portabello,GF Portabello,Dietary options,,883,30.0,93.0,41.0,18.0,,5.4,16.0,11.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+pesto-garlic-mushroom-pap-gf,Pesto Garlic Mushroom (Pap GF),Dietary options,,936,32.0,94.0,46.0,19.0,,5.2,16.0,11.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-hot-streak,GF Hot Streak,Dietary options,,999,37.0,99.0,48.0,22.0,,5.4,25.0,9.8,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 13 of 20 venues
+gf-veggie-inferno,GF Veggie Inferno,Dietary options,,769,28.0,98.0,27.0,14.0,,4.7,24.0,10.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+gf-pulled-pork,GF Pulled Pork,Dietary options,,877,42.0,108.0,28.0,14.0,,4.7,32.0,10.0,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 20 of 20 venues
+vegan-gf-margherita,Vegan GF Margherita,Dietary options,,740,7.4,103.0,30.0,19.0,,4.7,14.0,14.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+vegan-gf-portabello,Vegan GF Portabello,Dietary options,,777,9.4,107.0,31.0,19.0,,4.2,15.0,15.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+vegan-gf-inferno,Vegan GF Inferno,Dietary options,,776,8.0,113.0,29.0,19.0,,4.7,24.0,15.0,,,,,,,vegetarian,false,true,,,Same figures and allergens printed at 20 of 20 venues
+smokehouse-chicken-pizza,Smokehouse Chicken Pizza,Roxy takes Kentucky,,1137,57.0,129.0,42.0,16.0,,6.7,17.0,8.1,,,,,,,,false,true,,,Same figures and allergens printed at 11 of 20 venues
+southern-fried-tenders-pap-a,Southern Fried Tenders (PAP) A,Roxy takes Kentucky,,735,40.0,61.0,36.0,13.0,,7.7,8.7,2.3,,,,,,,,false,true,,,Same figures and allergens printed at 7 of 20 venues
+dirty-bacon-fries-pap,Dirty Bacon Fries (PAP),Roxy takes Kentucky,,675,20.0,60.0,38.0,8.4,,2.7,2.8,6.4,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 7 of 20 venues
+bourbon-bbq-stack-mcpap-a,Bourbon BBQ Stack (MCPAP) A,Roxy takes Kentucky,,1498,73.0,142.0,68.0,25.0,,12.0,30.0,11.0,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 5 of 20 venues
+smokehouse-chicken-pizza-mcpap,Smokehouse Chicken Pizza (MCPAP),Roxy takes Kentucky,,1137,57.0,129.0,42.0,16.0,,6.7,17.0,8.1,,,,,,,,false,true,,,Same figures and allergens printed at 6 of 20 venues
+southern-fried-tenders-mcpap-a,Southern Fried Tenders (MCPAP) A,Roxy takes Kentucky,,735,40.0,61.0,36.0,13.0,,7.7,8.7,2.3,,,,,,,,false,true,,,Same figures and allergens printed at 5 of 20 venues
+dirty-bacon-fries-mcpap,Dirty Bacon Fries (MCPAP),Roxy takes Kentucky,,675,20.0,60.0,38.0,8.4,,2.7,2.8,6.4,,,,,,,contains_pork,false,true,,,Same figures and allergens printed at 6 of 20 venues

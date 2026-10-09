@@ -31,8 +31,8 @@ from common import slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "roxy-leisure"
 BASE = "https://menus.tenkites.com/roxyleisure/"
-SOURCE_URL = BASE + "leedsboarlane02"
-GUIDE_URL = "https://roxyleisure.co.uk/menu/"
+GUIDE_URL = "https://roxyleisure.co.uk/menu/"   # "choose your venue": each venue page links its own "ALLERGEN INFO" Ten Kites page
+SOURCE_URL = GUIDE_URL
 # Ten Kites slug -> venue, in the order of the chain's own venue list. Leeds Merrion Street and Liverpool School Lane have a
 # menu page on roxyleisure.co.uk but no allergen/nutrition link (drinks only / no Ten Kites page): left out.
 VENUES = [
@@ -198,7 +198,6 @@ def explain(records: list[dict]) -> None:
     print(f"agreed at 2+ venues: {len(agreed)}; two rows each at 2+ venues: {len(conflict)}; only one venue or no two agree: {len(single)}")
     for kind, key, recs in agreed:
         sigs = c["table"][(kind, key)]
-        extra = sum(len(v) for s, v in sigs.items() if len(v) < len(recs) or v is not recs) - len(recs)
         print(f"  [{kind}] {key!r}: {len(recs)} venues; other rows for this name: {len(sigs) - 1}")
     for kind, key, sigs in conflict:
         print("  CONFLICT", kind, key, [(len(v), s[0][:3]) for s, v in sigs.items()])
@@ -232,16 +231,6 @@ def tidy(name: str) -> str:
     letters = [c for c in n if c.isalpha()]
     shout = bool(letters) and all(c.isupper() for c in letters)
 
-    def fix(word: str) -> str:
-        core = re.sub(r"[^A-Za-z]", "", word)
-        if not core or core.upper() != core or len(core) < 2 and core not in KEEP_UPPER:
-            return word
-        if core in KEEP_UPPER:
-            return word
-        if word.lower() in ("and", "of", "with", "the"):
-            return word.lower()
-        return re.sub(r"[A-Za-z]+", lambda m: m.group(0).capitalize(), word, count=1) if shout or len(core) > 2 else word
-
     words = n.split(" ")
     out = []
     for i, w in enumerate(words):
@@ -257,28 +246,24 @@ def tidy(name: str) -> str:
     return " ".join(out)
 
 
-def grams(value: str) -> float:
-    return float(value)
-
-
 def own_problems(vals: dict) -> list[str]:
     """Reasons a dish's own printed numbers cannot all be right (the row is held back, never corrected)."""
+    def num(col: str):
+        return float(vals[col]) if tk.is_number(vals[col]) else None
+
     out = []
     for col in NUTRIENT_COLUMNS[1:]:
-        if grams(vals[col]) > 1000:
+        if num(col) is not None and num(col) > 1000:
             out.append(f"it prints {vals[col]} g for '{col}' in one serving, which is impossible")
-    fat, sat, carbs, sugar = (grams(vals[c]) for c in ("Fat (g)", "of which saturates (g)", "Carbohydrate (g)", "of which sugars (g)"))
-    if sat > fat + 0.05:
+    fat, sat, carbs, sugar = num("Fat (g)"), num("of which saturates (g)"), num("Carbohydrate (g)"), num("of which sugars (g)")
+    if None not in (sat, fat) and sat > fat + 0.05:
         out.append(f"saturates ({sat:g} g) are printed higher than total fat ({fat:g} g)")
-    if sugar > carbs + 0.05:
+    if None not in (sugar, carbs) and sugar > carbs + 0.05:
         out.append(f"sugars ({sugar:g} g) are printed higher than carbohydrate ({carbs:g} g)")
-    gap = ta.energy_gap({"calories": vals["Energy (kCal)"], "protein_g": vals["Protein (g)"], "carbs_g": vals["Carbohydrate (g)"],
-                         "fat_g": vals["Fat (g)"]})
-    if gap:
-        kcal = grams(vals["Energy (kCal)"])
-        est = 4 * grams(vals["Protein (g)"]) + 4 * carbs + 9 * fat
-        if kcal >= 50 and abs(kcal - est) / kcal > 0.30:
-            out.append(f"printed calories ({kcal:g}) differ by more than 30% from the energy of its own protein, carbs and fat (about {est:.0f} kcal)")
+    kcal, protein = num("Energy (kCal)"), num("Protein (g)")
+    est = 4 * protein + 4 * carbs + 9 * fat
+    if kcal >= 50 and abs(kcal - est) / kcal > 0.30:
+        out.append(f"printed calories ({kcal:g}) differ by more than 30% from the energy of its own protein, carbs and fat (about {est:.0f} kcal)")
     return out
 
 
@@ -317,6 +302,8 @@ def vegetarian_contradiction(rec: dict) -> str:
 
 
 def build(records: list[dict]) -> tuple[list[dict], list[tuple[str, str]], list[str], dict]:
+    for rec in records:   # every section on every page is classified up front, so a new one stops the run
+        classify(rec)
     table = consensus(records)
     report: list[str] = []
     stats: dict = collections.Counter()
@@ -364,6 +351,7 @@ def build(records: list[dict]) -> tuple[list[dict], list[tuple[str, str]], list[
         note = f"Same figures and allergens printed at {len(recs)} of {len(VENUES)} venues" + (f"; {others} venue(s) print other figures for this name" if others else "")
         items.append({"id": slug(name), "name": name, "category": category, "serving": "", **nums,
                       "tags": "|".join((["vegetarian"] if rep["veg"] else []) + meat), "rankable": rankable, "notes": note,
+                      "limited_time": bool(re.search(r"\bfestive\b", name, re.I)), "_rec": rep,
                       "allergens": a, "_problems": own_problems(vals) + ([f"the page marks it vegetarian but its own ingredient list names {veg_bad}"] if veg_bad else []),
                       "_venues": [r["venue"] for r in recs]})
     names = [i["name"] for i in items]
@@ -380,9 +368,21 @@ def build(records: list[dict]) -> tuple[list[dict], list[tuple[str, str]], list[
     return items, holds, report, {"stats": stats, "left_out": left_out, "conflicts": conflicts, "singles": singles}
 
 
-NOTE = ("Roxy's menus differ by venue: five printed menu versions at 20 venues. A dish is listed only if at least two venues print exactly "
-        "the same figures and allergens; dishes with two different printed versions are left out. Drinks and cocktails are not listed. "
-        "Figures are per serving; no weights are printed.")
+NOTE = ("Roxy's menus differ by venue (five printed versions at 20 venues). A dish is listed only if two or more venues print exactly the "
+        "same figures and allergens; dishes with two different printed versions, and all drinks, are left out. A few dishes appear under "
+        "two spellings from different menu versions, with different allergens: check the venue's own menu. Figures are per serving.")
+
+
+def meat_unstated(items: list[dict]) -> list[str]:
+    """Dishes that are not marked vegetarian and carry no pork/beef tag whose name and ingredient list name no animal at all."""
+    out = []
+    for it in items:
+        if "vegetarian" in it["tags"] or "contains_pork" in it["tags"] or "contains_beef" in it["tags"]:
+            continue
+        rec = it["_rec"]
+        if not ANIMAL.search(f"{it['name']} {re.split('May contain traces', rec['ingredients'], flags=re.I)[0]}"):
+            out.append(it["name"])
+    return out
 
 
 def main() -> int:
@@ -422,8 +422,19 @@ def main() -> int:
         for c in info["conflicts"]:
             print("  conflict:", c)
         print("  single-venue names:", info["singles"])
+    unstated = meat_unstated(items)
+    print(f"meat type not stated (not vegetarian, no pork/beef tag, no animal named in the name or ingredients): {len(unstated)} {unstated}")
     for line in report:
         print(line)
+    hashes = []
+    for vslug, _ in VENUES:
+        for f in sorted((args.pages / vslug).glob("menu-*.html"), key=lambda q: int(q.stem.split("-")[1])):
+            hashes.append(f"{vslug}/{f.name} {tk.sha256_text_file(f)}")
+    if args.report:
+        print("\n".join(hashes))
+    import hashlib
+    print("pages read:", len(hashes), "combined sha256 of the per-page hashes:", hashlib.sha256("\n".join(hashes).encode()).hexdigest())
+    print("Leeds Boar Lane first page sha256:", tk.sha256_text_file(args.pages / "leedsboarlane02" / "menu-0.html"))
     for _, why in holds:
         print("held back:", why)
     return 0
