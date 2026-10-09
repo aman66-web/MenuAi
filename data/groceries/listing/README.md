@@ -7,7 +7,7 @@ the app until its own page has been read (Tier 2) or a barcode matches the Open 
 
 - `raw/<shop>_listing.txt`: the crawl as printed (`#CAT ... | Page k of N | tiles T` header per page, then one `|` separated line per product),
   with `_coverage.txt` (leaf categories done, tiles collected vs shown), `_categories.txt`, `_progress.txt` (what is done and not done, method notes)
-  and `_terms.txt`. Unique products collected: Sainsbury's 17,059 (all food and drink categories), Morrisons 18,412 (complete; the world-foods and dietary pages list only ids not already collected and include a few non-food items), Iceland (crawl in progress), Asda, Waitrose, Aldi, Lidl, M&S as in each `_progress.txt`. Co-op: blocked (Imperva, non-UK IP), 0 products.
+  and `_terms.txt`. Unique products collected: Sainsbury's 17,059 (all food and drink categories), Morrisons 18,412 (complete; the world-foods and dietary pages list only ids not already collected and include a few non-food items), Iceland 6,216 (done: all frozen, fresh, food cupboard, bakery, world foods and drinks pages; Treats & Snacks pages 2-33 and some promo views were only sampled, all repeats; its terms clause 3.2 forbids copying site content without written permission, so it is NOT published), Asda, Waitrose, Aldi, Lidl, M&S as in each `_progress.txt`. Co-op: blocked (Imperva, non-UK IP), 0 products.
 - `sainsburys.csv` / `sainsburys-coverage.csv`: the same crawl as one row per product id (`tools/groceries/ingest_listing.py`); `checked_on` is the first day of the crawl.
 - **Ocado is not here:** its crawl was stopped by the shop's bot challenge and the data is quarantined until the founder decides (see docs/PROGRESS.md).
-- Tesco was not crawled this way (needs the founder's approval in the permission system); Iceland not started.
+- Tesco was not crawled this way (needs the founder's approval in the permission system).
