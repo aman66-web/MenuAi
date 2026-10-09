@@ -58,6 +58,32 @@ I run a nutrition app for UK restaurant chains. I need the OFFICIAL per-dish nut
    categories you could not open, and the sites count and where you found it.
 ```
 
+## Batch mode: you do NOT need to do this once per chain
+
+Run it once for the whole queue. On your Mac, in the repo folder:
+
+```bash
+cd ~/MenuAi
+git pull
+claude --chrome
+```
+
+Then paste this ONE message:
+
+```
+Read docs/CHROME_TO_APP.md and data/chrome-inbox/QUEUE.md. Work through every unticked chain in the queue, one at a time, following
+the rules and the prompt in that document exactly. For each chain: check its robots.txt first, read its own pages, write
+data/chrome-inbox/<chain-id>/meta.json and items.csv, tick the line in QUEUE.md. If a chain is blocked, shows allergens only or
+per-100 g only, has fewer than 3 UK sites, or its robots.txt forbids it, do NOT work round it: write the reason on its line and
+go to the next chain. If a 'verify you are human' page appears, stop and tell me; I will solve it and say 'continue'. After every
+3 chains run: git add data/chrome-inbox && git commit -m "Chrome read: <chain ids>" && git push. Never run scripts on a page, never
+use any site except the chain's own.
+```
+
+You only step in for human checks. Each chain takes it roughly 10 to 30 minutes, so a queue of 10 is an afternoon and uses Claude
+usage like any long session; add chains to the queue file whenever you like. On my side nothing is per chain either: when new
+folders appear in `data/chrome-inbox/` I import, check and publish all of them in one go.
+
 ## Chains to pilot first (calories shown on a page our scripts cannot read)
 
 Start with these, in this order, and stop after the first three if the yield is poor. The first four are the ones users look for most.
