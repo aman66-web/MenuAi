@@ -402,12 +402,17 @@ class PriceFileTests(unittest.TestCase):
             rows = [l.split("\t") for l in (work / "results_1.tsv").read_text().splitlines()]
             self.assertEqual([r[0] for r in rows], ["bacon-1", "milk-1"])                 # the bad basis "g?" was rejected, not stored
             self.assertEqual(rows[0][1], "g:grilled")
-            self.assertEqual(rows[0][12], "3")
+            self.assertEqual(rows[0][12], "4")
             # an older v2 row with an unusable basis is read again; an older complete plain row stays done
             with open(work / "results_1.tsv", "a") as f:
                 f.write("\t".join(["old-1", "g?", "1", "2", "3", "4", "5", "6", "7", "8", "9", "2026-10-09", "2"]) + "\n")
                 f.write("\t".join(["old-2", "g", "1", "100", "5", "", "20", "", "", "10", "0.1", "2026-10-09", "2"]) + "\n")
             self.assertEqual(t2.done_slugs(work), {"bacon-1", "milk-1", "old-2"})
+            # a "no table" answer counts only from extractor v4 (older ones could not open the collapsed Nutrition accordion)
+            (work / "none_1.txt").write_text("old-1\n")                                   # an old NONE line: read again
+            self.assertNotIn("old-1", t2.done_slugs(work))
+            (work / "none_1.txt").write_text("old-1\t4\n")
+            self.assertIn("old-1", t2.done_slugs(work))
 
 
 if __name__ == "__main__":

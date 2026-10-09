@@ -1,5 +1,6 @@
-// Tier 2 extractor v3 for a Sainsbury's product page (docs/GROCERIES_PLAN.md "Every product"). Run it with javascript_tool on a loaded product page
-// (about 3 s after navigation). It prints ONE short line, copied by the agent exactly as printed, into tools/groceries/t2_sainsburys.py append:
+// Tier 2 extractor v4 for a Sainsbury's product page (docs/GROCERIES_PLAN.md "Every product"). Run it with javascript_tool on a loaded product page
+// (about 3 s after navigation; call it as `await (0, eval)(sessionStorage.getItem('t2x'))`). It first opens the page's collapsed "Nutrition" accordion
+// (a display toggle, nothing is sent or changed) because the table is not in the page until it is open. It prints ONE short line, copied by the agent exactly as printed, into tools/groceries/t2_sainsburys.py append:
 //   <slug check>|<basis>|kJ|kcal|fat|saturates|carbohydrate|sugars|fibre|protein|salt|<line check>      the numbers as the table prints them, units removed
 //   NONE|<slug check>   the page has no nutrition table (alcohol, non-food, removed)      WAIT   the page has not finished loading: wait 3 s and run it again
 // basis is g or ml for a plain "per 100g" / "per 100ml" column ("(as sold)" is plain), or g:grilled / ml:prepared / g:cooked bacon ... when that column's own
@@ -7,10 +8,13 @@
 // The "per 100" column is the one read, never a per-serving column. Labels like "of which saturates (g)", an energy row split into kJ and kcal rows and
 // "Energy (kj)" rows without units are read; a value the table does not print stays empty (never filled in). Both checks are the same 4-character base-36
 // hash (h = h*31 + code unit, mod 1679616, from 7): the slug check proves which page was read; the line check catches any typing slip.
-(() => {
+(async () => {
   const H = (s) => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 1679616; return h.toString(36).padStart(4, "0"); };
   const slug = location.pathname.split("/").filter(Boolean).pop() || "";
-  const tb = [...document.querySelectorAll("table")].find((t) => /Nutritional Information/i.test(t.innerText));
+  const sum = [...document.querySelectorAll("summary")].find((e) => /^Nutrition$/i.test((e.innerText || "").trim()));
+  if (sum && sum.parentElement && !sum.parentElement.open) sum.click();
+  let tb = null;
+  for (let i = 0; i < 5 && !tb; i++) { await new Promise((r) => setTimeout(r, i ? 600 : 900)); tb = [...document.querySelectorAll("table")].find((t) => /Nutritional Information/i.test(t.innerText)); }
   if (!tb) return document.body.innerText.length < 1500 ? "WAIT" : "NONE|" + H(slug);
   const rows = [...tb.querySelectorAll("tr")].map((r) => [...r.children].map((c) => c.innerText.replace(/\s+/g, " ").trim()));
   const head = rows[0] || [];

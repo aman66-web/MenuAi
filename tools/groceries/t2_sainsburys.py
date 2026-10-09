@@ -60,9 +60,11 @@ def done_slugs(work: Path) -> set:
             if not line:
                 continue
             parts = line.split("\t")
-            # rows from extractor v1 (12 columns) or v2 (marker "2") count as read only when the basis is plain and the main numbers are there; a v3 row (marker "3")
-            # or a "no table" page always counts as read
+            # rows from extractor v1 (12 columns) or v2 (marker "2") count as read only when the basis is plain and the main numbers are there; a v3 or v4 row counts as read.
+            # A "no table" page counts as read only when v4 (which opens the collapsed Nutrition accordion first) said so: older NONEs may be false
             if (len(parts) == 12 or (len(parts) == 13 and parts[12] == "2")) and not _complete(parts):
+                continue
+            if p.name.startswith("none_") and (len(parts) < 2 or parts[1] != "4"):
                 continue
             done.add(parts[0])
     return done
@@ -139,7 +141,7 @@ def cmd_append(a) -> int:
                 bad.append((line, "page is not one of this slice's slugs"))
             elif slug not in done:
                 with open(work / f"none_{a.slice}.txt", "a", encoding="utf-8") as f:
-                    f.write(slug + "\n")
+                    f.write(slug + "\t4\n")
                 none += 1
             continue
         if len(parts) != 12:
@@ -159,7 +161,7 @@ def cmd_append(a) -> int:
         if slug in done:
             continue
         with open(work / f"results_{a.slice}.tsv", "a", encoding="utf-8") as f:
-            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "3"]) + "\n")
+            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "4"]) + "\n")
         done.add(slug)
         ok += 1
     print(f"stored {ok}, no table {none}, rejected {len(bad)}; {len(pending(work, a.slice))} left in slice {a.slice}")
@@ -202,6 +204,9 @@ def cmd_ingest(a) -> int:
                 left += 1
                 continue
             bad = bg.implausible(n["kcal"], n["protein"], n["carbs"], n["fat"])
+            kjn = num(kj)
+            if not bad and kjn and n["kcal"] >= 20 and not 3.55 <= kjn / n["kcal"] <= 4.82:
+                bad = "kJ and kcal disagree (the page's own energy figures contradict each other)"
             if bad:
                 why[bad] = why.get(bad, 0) + 1
                 left += 1
