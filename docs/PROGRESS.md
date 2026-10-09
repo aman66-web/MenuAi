@@ -430,6 +430,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Greenhalghs and Wasabi print macros per 100 g only, Gail's food panel mixes bases; Hungry Horse's Smart Chef reports and Dave's Hot Chicken's "Nutritional Guide April 2026" PDF might print macros but
   sit behind robots.txt blocks: the founder can save them from their own browser). Realistic ceiling for complete-nutrition chains is now about 105-110.
 
+- 2026-10-09 (night) — **Founder: "yes keep them [the 80 calories-only chains], now just keep adding chains as many as you can".** The 80 calories-only chains stay live. Additions: complete-nutrition chains
+  first, then calories-only chains from triage that clear the quality bar (10+ UK sites, official per-dish calories, a source a script can read, sites that disagree published only where 2+ sites agree).
+  Calories-only additions in progress: Daisy Green, Bakers & Baristas, Burger & Sauce, Cornish Bakehouse, Deli by Shell, Butcombe Inns, MyTime Active, Harbour Hotels; full nutrition: Papa's Fish & Chips (2018 lab report).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
