@@ -1,0 +1,16 @@
+{
+  "name": "Turtle Bay",
+  "cuisine": "Caribbean",
+  "source_title": "Turtle Bay Bath menu, dish pop-ups (read 2026-10-10, no date shown)",
+  "source_url": "https://turtlebay.co.uk/menu/bath",
+  "checked_on": "2026-10-10",
+  "nutrition_level": "calories",
+  "basis": "per serving",
+  "sites": 43,
+  "sites_evidence": "The restaurant dropdown on https://turtlebay.co.uk/menu lists 43 restaurants (Bath to Winchester).",
+  "allowed_hosts": [],
+  "note": "Menus differ by restaurant; this is the Bath menu. Calories only; some dishes show no calories or allergens and are left out. Drinks and alcohol are not included.",
+  "allergen_guide_title": "Turtle Bay allergen guide (PDF)",
+  "allergen_guide_url": "https://turtlebay.co.uk/assets/site/allergen-info.pdf",
+  "may_contain_published": false
+}
