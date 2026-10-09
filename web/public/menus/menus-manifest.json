@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009120325,
- "generatedAt": "2026-10-09T12:03:25Z",
+ "dataVersion": 20261009141805,
+ "generatedAt": "2026-10-09T14:18:05Z",
  "chains": [
   {
    "id": "abokado",
@@ -292,6 +292,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "brightside",
+   "name": "Brightside",
+   "cuisine": "Roadside diner",
+   "file": "chain-brightside.json",
+   "sha256": "835a339e2fe92f08797eff7ea1987a6d65c7de816b634dedd3eef0deea8e1c84",
+   "contentHash": "25387c9e741b1b644ae3d6c94de7c2f5ff3371aabecc298df12987c95c1e3a06",
+   "sample": false,
+   "itemCount": 326,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "british-garden-centres",
    "name": "British Garden Centres",
    "cuisine": "Cafe",
@@ -519,6 +531,18 @@
    "sample": false,
    "itemCount": 65,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "cluckd",
+   "name": "Cluck'd",
+   "cuisine": "Chicken",
+   "file": "chain-cluckd.json",
+   "sha256": "da869b72fd7eed7eebc6d91f1475c230ca587ab88473d591dd832b4b806e4c8e",
+   "contentHash": "dd5ac772c6dc17964618c390dbffb51a15544f669363b821c6cf941ba6eab0ac",
+   "sample": false,
+   "itemCount": 72,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
   },
   {
    "id": "coffee-1",
@@ -1593,11 +1617,11 @@
    "name": "Puttshack",
    "cuisine": "Mini golf diner",
    "file": "chain-puttshack-uk.json",
-   "sha256": "ce128d893409c64f5a10a00773aeadbf4d463ebf4dbfc2c55f1f3cd9c484c64e",
-   "contentHash": "05f4dc1098714cf06a308c6dacfd18657c53824f0dd71127a1a08644f1fb3e4a",
+   "sha256": "2d2e037b92f35d514059815620e24c4a01f0e9a9cb54582f88829693acca43c1",
+   "contentHash": "d6145a6303c371deabad6b95ee06b18077cfd37433a89dc4cef570ac84279720",
    "sample": false,
-   "itemCount": 34,
-   "checkedOn": "2026-10-08",
+   "itemCount": 48,
+   "checkedOn": "2026-10-09",
    "nutritionLevel": "calories"
   },
   {
@@ -1621,6 +1645,18 @@
    "sample": false,
    "itemCount": 188,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "riva-blu",
+   "name": "Riva Blu",
+   "cuisine": "Italian",
+   "file": "chain-riva-blu.json",
+   "sha256": "78e522afa6c3851b45a4042369b4d551bf4b1407c315c6570ad3868e2f773ed2",
+   "contentHash": "bfbc0e4745ca0b659cb08823685c1b55898f5167b848e80dd8daa64aad770df5",
+   "sample": false,
+   "itemCount": 129,
+   "checkedOn": "2026-10-09",
    "nutritionLevel": "calories"
   },
   {
@@ -2173,6 +2209,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "25a2d3e7e5ce1e7af5c7ebe978d06d271969a01f80cb4ebcf8536e00202712d5"
+  "sha256": "2d6a0790e1c63b6412aea1ebb168a1e12932162e44d2c9a622bc1eeed8142f10"
  }
 }

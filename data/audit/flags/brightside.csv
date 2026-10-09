@@ -1,0 +1,7 @@
+chain,kind,severity,code,item,name,category,detail
+brightside,allergen,reviewed,name-implies-eggs,extra-garlic-mayo,Extra Garlic Mayo,Condiments,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+brightside,allergen,reviewed,name-implies-gluten,add-herb-chicken-pizza,Add Herb Chicken (pizza),Add-ons: pizza,'pizza' in the name but gluten is not marked (contains: none)
+brightside,allergen,reviewed,name-implies-gluten,brightside-brownie,Brightside Brownie,Puddings & cakes,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+brightside,allergen,reviewed,name-implies-gluten,brownie-slice,Brownie Slice,Puddings & cakes,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+brightside,allergen,reviewed,name-implies-gluten,brownie-topping,Brownie Topping,Kids pizza party,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+brightside,allergen,reviewed,name-implies-gluten,chocolate-brownie,Chocolate Brownie,Kids puddings,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"

@@ -1,0 +1,3170 @@
+{
+ "schemaVersion": 1,
+ "id": "riva-blu",
+ "name": "Riva Blu",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "riva blu",
+  "riva blu restaurant",
+  "riva blu italian"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Riva Blu allergen guide with calories, V18 Riva Al & Cal AW25 (dated 25/08/2026; one guide for all restaurants)",
+  "url": "https://www.rivablu.co.uk/allergens/riva-blu-manchester",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only: protein, carbs and fat are not published. Five restaurants per rivablu.co.uk/locations, checked 2026-10-09; the guide's 'metro only' dishes are on four of them (not Leeds The Springs). Tables without calories (kids, lunch, set menu, drinks, wine) are not listed.",
+ "allergenGuide": {
+  "title": "Riva Blu allergen guide, V18 Riva Al & Cal AW25 (dated 25/08/2026)",
+  "url": "https://www.rivablu.co.uk/allergens/riva-blu-manchester",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": false,
+  "complete": true
+ },
+ "categories": [
+  "Sharing",
+  "Sharing (metro only)",
+  "Bruschetta & antipasti",
+  "Pasta & risotto",
+  "Pizza",
+  "Salsette (house dips)",
+  "Secondi piatti (metro only)",
+  "Steak sauces",
+  "Extras",
+  "Sides",
+  "Desserts",
+  "Gelati e sorbetti",
+  "Celebration cakes",
+  "Venti Sapori: starters",
+  "Venti Sapori: mains",
+  "Venti Sapori: Sunday roast",
+  "Sunday roast",
+  "Canapés: bruschetta",
+  "Canapés: pizzette",
+  "Canapés: fritti",
+  "Canapés: cicchetti"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "olive",
+   "name": "Olive",
+   "category": "Sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pane-fino-allaglio-garlic-and-rosemary-focaccia",
+   "name": "Pane Fino All'Aglio - Garlic & Rosemary Focaccia",
+   "category": "Sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 839
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pane-fino-allaglio-tomato-and-basil",
+   "name": "Pane Fino All'Aglio - Tomato & Basil",
+   "category": "Sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 977
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pane-fino-allaglio-smoked-provola-and-mozzarella",
+   "name": "Pane Fino All'Aglio - Smoked Provola & Mozzarella",
+   "category": "Sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 1010
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "focaccia",
+   "name": "Focaccia",
+   "category": "Sharing (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 728
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "scarpetta",
+   "name": "Scarpetta",
+   "category": "Sharing (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1028
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliere-misto",
+   "name": "Tagliere Misto",
+   "category": "Sharing (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1903
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bruschetta-pomodoro",
+   "name": "Bruschetta Pomodoro",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 292
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "calamari-bruschetta-and-antipasti",
+   "name": "Calamari (bruschetta & antipasti)",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 942
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bruschetta-gamberoni",
+   "name": "Bruschetta Gamberoni",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 632
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pasta-e-fagioli",
+   "name": "Pasta e Fagioli",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "prosciutto-di-parma-bruschetta-and-antipasti",
+   "name": "Prosciutto di Parma (bruschetta & antipasti)",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "carpaccio-bruschetta-and-antipasti",
+   "name": "Carpaccio (bruschetta & antipasti)",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "arancini",
+   "name": "Arancini",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 684
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fritto-misto",
+   "name": "Fritto Misto",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 985
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tricolore-small",
+   "name": "Tricolore (Small)",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 371
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tricolore",
+   "name": "Tricolore",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 599
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "burrata",
+   "name": "Burrata",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "frittatina-carbonara",
+   "name": "Frittatina Carbonara",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "frittatina-cacio-e-pepe-bruschetta-and-antipasti",
+   "name": "Frittatina Cacio e Pepe (bruschetta & antipasti)",
+   "category": "Bruschetta & antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "linguine-frutti-di-mare",
+   "name": "Linguine Frutti di Mare",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 882
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "linguine-gamberoni",
+   "name": "Linguine Gamberoni",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 652
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "linguine-triglie",
+   "name": "Linguine Triglie",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1020
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-carbonara",
+   "name": "Spaghetti Carbonara",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1019
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fettuccine-ortolana",
+   "name": "Fettuccine Ortolana",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 496
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fettuccine-bolognese-pasta-and-risotto",
+   "name": "Fettuccine Bolognese (pasta & risotto)",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 588
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoni-arrabiata",
+   "name": "Rigatoni Arrabiata",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 757
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lasagne",
+   "name": "Lasagne",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 521
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lasagne-contadina",
+   "name": "Lasagne Contadina",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 796
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ragu-alla-napoletana",
+   "name": "Ragu alla Napoletana",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 1511
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gnocchi-sorrentina",
+   "name": "Gnocchi Sorrentina",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 724
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gnocchi-al-ragu",
+   "name": "Gnocchi al Ragu",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "risotto-ai-gamberoni",
+   "name": "Risotto ai Gamberoni",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 850
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "risotto-ai-funghi",
+   "name": "Risotto ai Funghi",
+   "category": "Pasta & risotto",
+   "serving": "",
+   "nutrients": {
+    "calories": 554
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diavola-pizza",
+   "name": "Diavola (pizza)",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1166
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "prosciutto-di-parma-pizza",
+   "name": "Prosciutto di Parma (pizza)",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1290
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "capricciosa",
+   "name": "Capricciosa",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1013
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zucchine-e-tartufo",
+   "name": "Zucchine e Tartufo",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1004
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zucchine-e-tartufo-vegan",
+   "name": "Zucchine e Tartufo Vegan",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 879
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita (pizza)",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 964
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "margherita-vegan",
+   "name": "Margherita Vegan",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 988
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "calzone",
+   "name": "Calzone",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "confit-garlic-aioli",
+   "name": "Confit Garlic Aioli",
+   "category": "Salsette (house dips)",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hot-honey",
+   "name": "Hot Honey",
+   "category": "Salsette (house dips)",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spicy-mayonnaise",
+   "name": "Spicy Mayonnaise",
+   "category": "Salsette (house dips)",
+   "serving": "",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tonno-grigliato",
+   "name": "Tonno Grigliato",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 603
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orata",
+   "name": "Orata",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 981
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "branzino",
+   "name": "Branzino",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "spiedini-di-pesce",
+   "name": "Spiedini di Pesce",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "merluzzo-secondi-piatti-metro-only",
+   "name": "Merluzzo (secondi piatti, metro only)",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 801
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "polpette",
+   "name": "Polpette",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "parmigiana-melanzane",
+   "name": "Parmigiana Melanzane",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pollo-parmigiana",
+   "name": "Pollo Parmigiana",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pollo-alla-griglia",
+   "name": "Pollo alla Griglia",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caesar-classica",
+   "name": "Caesar Classica",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 893
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "caesar-classica-light-dressing",
+   "name": "Caesar Classica (Light Dressing)",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 512
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliata-di-manzo",
+   "name": "Tagliata di Manzo",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 586
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ribeye-275-gr",
+   "name": "Ribeye 275 Gr",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1154
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "filetto-225gr",
+   "name": "Filetto 225GR",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 889
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grain-fed-ribeye-350g",
+   "name": "Grain Fed Ribeye 350G",
+   "category": "Secondi piatti (metro only)",
+   "serving": "",
+   "nutrients": {
+    "calories": 1362
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "peppercorn-sauce",
+   "name": "Peppercorn Sauce",
+   "category": "Steak sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-ricotta",
+   "name": "Add Ricotta",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-chicken-breast",
+   "name": "Add Chicken Breast",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "add-king-prawns",
+   "name": "Add King Prawns",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patatine-fritte",
+   "name": "Patatine Fritte",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 223
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patatine-fritte-con-tartufo",
+   "name": "Patatine Fritte con Tartufo",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 513
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "patate-al-forno",
+   "name": "Patate al Forno",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 219
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pure-di-patate",
+   "name": "Pure di Patate",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 698
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pure-di-patate-con-tartufo",
+   "name": "Pure di Patate con Tartufo",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 666
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zucchine-fritte",
+   "name": "Zucchine Fritte",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "broccoli",
+   "name": "Broccoli",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rucola-e-pecorino",
+   "name": "Rucola e Pecorino",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "insalata-mista",
+   "name": "Insalata Mista",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spinaci",
+   "name": "Spinaci",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "panna-cotta",
+   "name": "Panna Cotta",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 662
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisú",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 669
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "semifreddo",
+   "name": "Semifreddo",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 925
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "tortino-al-cioccolato",
+   "name": "Tortino al Cioccolato",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1081
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "affogato",
+   "name": "Affogato",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "cioccolattini",
+   "name": "Cioccolattini",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zeppola",
+   "name": "Zeppola",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "delizia-al-limone",
+   "name": "Delizia al Limone",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tiramisu-al-pistacchio",
+   "name": "Tiramisu al Pistacchio",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 576
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "vanilla",
+   "name": "Vanilla",
+   "category": "Gelati e sorbetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate",
+   "name": "Chocolate",
+   "category": "Gelati e sorbetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nutella",
+   "name": "Nutella",
+   "category": "Gelati e sorbetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
+  },
+  {
+   "id": "mint-choc-chip",
+   "name": "Mint Choc Chip",
+   "category": "Gelati e sorbetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "honeycomb",
+   "name": "Honeycomb",
+   "category": "Gelati e sorbetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "amalfi-lemon-sorbet",
+   "name": "Amalfi Lemon Sorbet",
+   "category": "Gelati e sorbetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vegan-vanilla",
+   "name": "Vegan Vanilla",
+   "category": "Gelati e sorbetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "birthday-tiramisu",
+   "name": "Birthday Tiramisu",
+   "category": "Celebration cakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 752
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "melanzane-all-scapece",
+   "name": "Melanzane all Scapece",
+   "category": "Venti Sapori: starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 285
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "calamari-venti-sapori-starters",
+   "name": "Calamari (venti sapori: starters)",
+   "category": "Venti Sapori: starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 905
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caprese-venti-sapori-starters",
+   "name": "Caprese (venti sapori: starters)",
+   "category": "Venti Sapori: starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 366
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fettuccine-bolognese-venti-sapori-mains",
+   "name": "Fettuccine Bolognese (venti sapori: mains)",
+   "category": "Venti Sapori: mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 562
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pollo-piccante",
+   "name": "Pollo Piccante",
+   "category": "Venti Sapori: mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "orata-con-lenticchie",
+   "name": "Orata con Lenticchie",
+   "category": "Venti Sapori: mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 785
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caesar-con-cotoletta",
+   "name": "Caesar con Cotoletta",
+   "category": "Venti Sapori: mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 2017
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "riva-cheeseburger",
+   "name": "Riva Cheeseburger",
+   "category": "Venti Sapori: mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1048
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pollo-venti-sapori-sunday-roast",
+   "name": "Pollo (venti sapori: sunday roast)",
+   "category": "Venti Sapori: Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1734
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "manzo-venti-sapori-sunday-roast",
+   "name": "Manzo (venti sapori: sunday roast)",
+   "category": "Venti Sapori: Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1143
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegano-vegetarian-venti-sapori-sunday-roast",
+   "name": "Vegano Vegetarian (venti sapori: sunday roast)",
+   "category": "Venti Sapori: Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1278
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "vegano-venti-sapori-sunday-roast",
+   "name": "Vegano (venti sapori: sunday roast)",
+   "category": "Venti Sapori: Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1278
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "porchetta-venti-sapori-sunday-roast",
+   "name": "Porchetta (venti sapori: sunday roast)",
+   "category": "Venti Sapori: Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1371
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "manzo-sunday-roast",
+   "name": "Manzo (sunday roast)",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pollo-sunday-roast",
+   "name": "Pollo (sunday roast)",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1663
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "porchetta-sunday-roast",
+   "name": "Porchetta (sunday roast)",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1382
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "agnello",
+   "name": "Agnello",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegano-vegetarian-sunday-roast",
+   "name": "Vegano Vegetarian (sunday roast)",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "vegano-sunday-roast",
+   "name": "Vegano (sunday roast)",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "sharing-roast",
+   "name": "Sharing Roast",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 3497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "verdure",
+   "name": "Verdure",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 183
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "hazelnut",
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "extra-yorkshire-pudding",
+   "name": "Extra Yorkshire Pudding",
+   "category": "Sunday roast",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classica",
+   "name": "Classica",
+   "category": "Canapés: bruschetta",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gamberoni",
+   "name": "Gamberoni",
+   "category": "Canapés: bruschetta",
+   "serving": "",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "merluzzo-canapes-bruschetta",
+   "name": "Merluzzo (canapés: bruschetta)",
+   "category": "Canapés: bruschetta",
+   "serving": "",
+   "nutrients": {
+    "calories": 287
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "prosciutto-di-parma-canapes-bruschetta",
+   "name": "Prosciutto di Parma (canapés: bruschetta)",
+   "category": "Canapés: bruschetta",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "diavola-canapes-pizzette",
+   "name": "Diavola (canapés: pizzette)",
+   "category": "Canapés: pizzette",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "margherita-canapes-pizzette",
+   "name": "Margherita (canapés: pizzette)",
+   "category": "Canapés: pizzette",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "amalfitana",
+   "name": "Amalfitana",
+   "category": "Canapés: pizzette",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zucchine-al-tartufo",
+   "name": "Zucchine al Tartufo",
+   "category": "Canapés: pizzette",
+   "serving": "",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "arancini-tartufi",
+   "name": "Arancini Tartufi",
+   "category": "Canapés: fritti",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "frittatina-cacio-e-pepe-canapes-fritti",
+   "name": "Frittatina Cacio e Pepe (canapés: fritti)",
+   "category": "Canapés: fritti",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "polpettine-di-melanzane",
+   "name": "Polpettine di Melanzane",
+   "category": "Canapés: fritti",
+   "serving": "",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "panzerotti-al-formaggio",
+   "name": "Panzerotti al Formaggio",
+   "category": "Canapés: fritti",
+   "serving": "",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gamberoni-e-pancetta",
+   "name": "Gamberoni e Pancetta",
+   "category": "Canapés: cicchetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "carpaccio-canapes-cicchetti",
+   "name": "Carpaccio (canapés: cicchetti)",
+   "category": "Canapés: cicchetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "caesar",
+   "name": "Caesar",
+   "category": "Canapés: cicchetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "caprese-canapes-cicchetti",
+   "name": "Caprese (canapés: cicchetti)",
+   "category": "Canapés: cicchetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

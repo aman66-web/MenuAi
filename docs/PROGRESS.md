@@ -465,6 +465,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   prints "M" in 283 cells with no key (read as "may contain": it can only add a warning; `READ_M_AS_MAY_CONTAIN` in `deli_by_shell.py` switches to link-only); Bakers & Baristas reads "Y*" as contains milk and "N*" as may
   contain milk. The pool of untried candidates is nearly exhausted (721 earlier discovery leads are almost all small regional groups with no nutrition page).
 
+- 2026-10-10 — **192 chains, 30,372 items live: 101 full nutrition, 91 calories only** (`main` = this branch; 0 high-severity audit flags, 245 web tests, site build clean). Added: Brightside
+  (326), Riva Blu (129), Cluck'd (72; its menu is a picture with no text layer, typed after every number was confirmed by OCR and, where the page has one, a second picture; the script stops if
+  the picture changes) and 14 Kids items for Puttshack. Chaophraya was set aside (its two sources disagree: only 5 of 88 dishes agree), Chick-fil-A UK was not extracted (its sheet is per 100 g only).
+  Details in docs/UK_DATA_STATUS.md ("Added 10 October 2026"). The Chrome route (docs/CHROME_TO_APP.md, data/chrome-inbox/QUEUE.md and QUEUE-B.md) is ready for the founder to run; the importer is
+  `tools/uk_extract/chrome_import.py`.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

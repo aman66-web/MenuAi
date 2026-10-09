@@ -287,6 +287,20 @@ source (every agent compared at least 15 items, mostly 20-60, or every row of a 
 - **Burger King photos**: the site is a JavaScript-only app and the menu feed is private; this environment's browser can't trust the
   proxy certificate, so nothing was fetched.
 
+### Added 10 October 2026 (small chains, 3+ GB sites, calories-only allowed)
+
+- **Brightside** (4 sites; calories-only, 326 items, complete allergens): Ten Kites matrix. The chain's own website menu prints
+  different calories for 17 dishes (more than 5% apart): those are held back, not chosen between; two more rows held (Add Waffle 1766 kcal, Pizza Dips = sum of four dips).
+  Blackcurrant drinks look high (156-189 kcal) but are kept as printed.
+- **Riva Blu** (5 sites; calories-only, 129 items, complete allergens): one brand-wide PDF dated 25/08/2026. Almond Wafer Cone held back (allergen row prints no tree nuts).
+  Meat type not stated for about 19 dishes.
+- **Cluck'd** (3 sites: Norwich, Milton Keynes, Leicester; calories-only, 72 items, allergens link-only): the menu is a picture with no text layer, so its table is typed in `cluckd.py`
+  after every number was confirmed by a second method (multi-pass OCR and, for 55 dishes, the larger May 2026 pictures on the menu page); the script stops if the picture's hash changes.
+  Pitta Club (5), Load It Up (3) and the Straight Up baste flavour rest on OCR plus an eye read only. Truffle Fries, Biscoff Cheesecake and Chocolate Drip Cake are held back (the chain's two files disagree). Ice cream and drinks print no usable calories.
+- **Puttshack** (existing `puttshack-uk`): 14 "Kids" items added with allergens (48 of 51 published).
+- **Set aside, not published** (`data/held-unpublished/`): **Chaophraya** (6 restaurants; the Ten Kites page and the chain's own igfd.menu pages disagree, only 5 of 88 dishes agree).
+  **Not extracted:** Chick-fil-A UK (3 GB sites; its allergen sheet prints every nutrient per 100 g only, never converted).
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

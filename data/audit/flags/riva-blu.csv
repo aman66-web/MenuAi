@@ -1,0 +1,3 @@
+chain,kind,severity,code,item,name,category,detail
+riva-blu,nutrition,low,huge,sharing-roast,Sharing Roast,Sunday roast,3497 kcal in one item
+riva-blu,allergen,reviewed,name-implies-milk,lasagne-contadina,Lasagne Contadina,Pasta & risotto,"'Lasagn' in the name but milk is not marked (contains: ['celery', 'gluten', 'soya'])"

@@ -11,16 +11,16 @@
  ],
  "sample": false,
  "source": {
-  "title": "Puttshack UK food menu page (accessed 8 October 2026, no date shown; its menu PDF was created 29 May 2026)",
+  "title": "Puttshack UK food menu page (accessed 9 October 2026, no date shown; its menu PDF was created 29 May 2026) and Kids Menu PDF (08.2026)",
   "url": "https://www.puttshack.com/uk/food-and-drink/",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-10-09"
  },
  "nutritionLevel": "calories",
- "note": "Puttshack prints calories only, per dish as served, so protein, carbs and fat are not published. Food menu for Puttshack UK (Bank, Lakeside, Watford, White City); add-ons and the kids, drinks, group and Christmas menus are not listed.",
+ "note": "Puttshack prints calories only, per dish as served, so protein, carbs and fat are not published. Food and kids menus for Puttshack UK (puttshack.com/uk/locations lists 4 venues: Bank, Lakeside, Watford, White City); add-ons, drinks, group, Christmas and Trejo's Tacos menus are not listed.",
  "allergenGuide": {
-  "title": "Puttshack allergen & dietary information, food (July 2026, v8, 8 pages)",
-  "url": "https://www.puttshack.com/wp-content/uploads/2026/07/PUTTSHACK_ALLERGENS-DIETARY_JULY-26_v8.pdf",
-  "checkedOn": "2026-10-08",
+  "title": "Puttshack allergen & dietary information: food (July 2026, v8) and kids menu (August 2026, v1)",
+  "url": "https://www.puttshack.com/uk/allergens/",
+  "checkedOn": "2026-10-09",
   "mayContainPublished": true,
   "complete": true
  },
@@ -31,7 +31,10 @@
   "Handhelds",
   "Sides",
   "Sauces",
-  "Desserts"
+  "Desserts",
+  "Kids mains",
+  "Kids sides",
+  "Kids desserts"
  ],
  "components": [],
  "items": [
@@ -910,6 +913,388 @@
     ],
     "cereals": [
      "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-penne-pasta-bolognese",
+   "name": "Kids Penne Pasta Bolognese",
+   "category": "Kids mains",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 385
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-hot-dog-ketchup-and-mayo",
+   "name": "Kids Hot Dog, Ketchup & Mayo",
+   "category": "Kids mains",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 566
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "kids-chicken-and-waffle",
+   "name": "Kids Chicken & Waffle",
+   "category": "Kids mains",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 646
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-cheeseburger-with-salted-crisps",
+   "name": "Kids Cheeseburger with Salted Crisps",
+   "category": "Kids mains",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "kids-margherita-pizza-v",
+   "name": "Kids Margherita Pizza (V)",
+   "category": "Kids mains",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-margherita-pizza-vg",
+   "name": "Kids Margherita Pizza (VG)",
+   "category": "Kids mains",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-pepperoni-pizza",
+   "name": "Kids Pepperoni Pizza",
+   "category": "Kids mains",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 491
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-house-seasoned-fries",
+   "name": "Kids House Seasoned Fries",
+   "category": "Kids sides",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-curly-fries",
+   "name": "Kids Curly Fries",
+   "category": "Kids sides",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-onion-rings",
+   "name": "Kids Onion Rings",
+   "category": "Kids sides",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "kids-rainbow-slaw",
+   "name": "Kids Rainbow Slaw",
+   "category": "Kids sides",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-vanilla-ice-cream",
+   "name": "Kids Vanilla Ice Cream",
+   "category": "Kids desserts",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 289
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kids-double-chocolate-brownie",
+   "name": "Kids Double Chocolate Brownie",
+   "category": "Kids desserts",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "kids-oreo-doughnut",
+   "name": "Kids Oreo Doughnut",
+   "category": "Kids desserts",
+   "serving": "Kid-size portion",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
     ]
    }
   }

@@ -2,7 +2,7 @@
 
 Flags are questions for a re-read of the chain's official source, never corrections. Severity: high = arithmetic that cannot hold or a contradiction inside the data; medium = suspicious; low = worth a glance.
 
-Chains: 189 · items: 29831 · nutrition flags high/med/low: 0/1/581 · allergen flags high/med/low: 0/40/18
+Chains: 192 · items: 30372 · nutrition flags high/med/low: 0/1/582 · allergen flags high/med/low: 0/40/18
 
 | chain | items | level | with allergens | nutr H/M/L | allergen H/M/L | high-severity codes |
 |---|---|---|---|---|---|---|
@@ -31,6 +31,7 @@ Chains: 189 · items: 29831 · nutrition flags high/med/low: 0/1/581 · allergen
 | boston-tea-party | 147 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | brasserie-blanc | 240 | full | 240 | 0/0/85 | 0/0/0 |  |
 | brewdog | 126 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| brightside | 326 | calories | 326 | 0/0/0 | 0/0/0 |  |
 | british-garden-centres | 97 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | browns | 225 | full | 0 | 0/0/3 | 0/0/0 |  |
 | brunning-and-price | 477 | calories | 477 | 0/0/0 | 0/0/0 |  |
@@ -51,6 +52,7 @@ Chains: 189 · items: 29831 · nutrition flags high/med/low: 0/1/581 · allergen
 | chiquito | 192 | full | 192 | 0/0/11 | 0/0/0 |  |
 | chopstix | 122 | full | 0 | 0/0/4 | 0/0/0 |  |
 | chozen | 65 | full | 0 | 0/0/0 | 0/0/0 |  |
+| cluckd | 72 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | coffee-1 | 553 | full | 553 | 0/0/10 | 0/0/0 |  |
 | comptoir-libanais | 100 | calories | 100 | 0/0/0 | 0/0/0 |  |
 | cooplands | 104 | full | 104 | 0/0/0 | 0/0/0 |  |
@@ -144,9 +146,10 @@ Chains: 189 · items: 29831 · nutrition flags high/med/low: 0/1/581 · allergen
 | pubsmiths | 282 | full | 282 | 0/0/0 | 0/0/0 |  |
 | puccinos | 637 | full | 637 | 0/0/3 | 0/0/0 |  |
 | pure | 139 | full | 0 | 0/0/6 | 0/0/0 |  |
-| puttshack-uk | 34 | calories | 34 | 0/0/0 | 0/0/0 |  |
+| puttshack-uk | 48 | calories | 48 | 0/0/0 | 0/0/0 |  |
 | real-greek | 43 | full | 43 | 0/0/0 | 0/0/0 |  |
 | rick-steins | 188 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| riva-blu | 129 | calories | 129 | 0/0/1 | 0/0/0 |  |
 | rockfish | 78 | calories | 78 | 0/0/0 | 0/0/0 |  |
 | rola-wala | 15 | full | 0 | 0/0/5 | 0/0/0 |  |
 | rosas-thai | 151 | calories | 151 | 0/0/0 | 0/0/0 |  |
