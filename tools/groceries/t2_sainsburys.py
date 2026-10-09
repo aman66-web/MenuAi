@@ -28,6 +28,7 @@ import build_groceries as bg  # noqa: E402
 LISTING = ROOT / "data" / "groceries" / "listing" / "sainsburys.csv"
 OUT = ROOT / "data" / "groceries" / "nutrition" / "sainsburys.csv"
 PAGE = "https://www.sainsburys.co.uk/groceries/product/"
+PLAIN_WORDS = {"of product", "of food", "of the product", "of the food", "typical", "typical values", "as sold"}
 BASIS = re.compile(r"(g|ml)(:[a-z][a-z ]{0,23})?|\?")
 FIELDS = ["per", "kj", "kcal", "fat", "saturates", "carbs", "sugars", "fibre", "protein", "salt"]
 HEADER = ["product_id", "per", "state", "kj", "kcal", "fat_g", "saturates_g", "carbs_g", "sugars_g", "fibre_g", "protein_g", "salt_g", "checked_on", "page_url"]
@@ -199,6 +200,8 @@ def cmd_ingest(a) -> int:
             slug, per, kj, kcal, fat, sat, carb, sugar, fibre, protein, salt, day = parts[:12]
             n = {k: num(v) for k, v in dict(kcal=kcal, fat=fat, carbs=carb, protein=protein).items()}
             per, _, state = per.partition(":")
+            if state.strip() in PLAIN_WORDS:
+                state = ""  # the heading only says "per 100g of product": that is the food as sold
             if per not in ("g", "ml") or None in n.values():
                 why["incomplete (no per 100 g/ml basis or a main number missing)"] = why.get("incomplete (no per 100 g/ml basis or a main number missing)", 0) + 1
                 left += 1

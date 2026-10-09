@@ -383,7 +383,8 @@ class PriceFileTests(unittest.TestCase):
     def test_tier2_append_keeps_the_heading_word_and_requeues_old_unusable_rows(self):
         import io
         from contextlib import redirect_stdout
-        with tempfile.TemporaryDirectory() as d:
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d, mock.patch.object(t2, "OUT", Path(d) / "nutrition.csv"):  # not the repo's real nutrition file
             work = Path(d)
             slugs = ["bacon-1", "milk-1", "old-1", "old-2"]
             (work / "slice1.txt").write_text("\n".join(slugs) + "\n")
