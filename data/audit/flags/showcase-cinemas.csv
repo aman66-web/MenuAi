@@ -1,0 +1,96 @@
+chain,kind,severity,code,item,name,category,detail
+showcase-cinemas,nutrition,low,zero-named-has-kcal,caffeine-free-diet-coke-cherry-large,Caffeine Free Diet Coke Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,caffeine-free-diet-coke-cherry-medium,Caffeine Free Diet Coke Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,caffeine-free-diet-coke-cherry-vanilla-large,Caffeine Free Diet Coke Cherry Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,caffeine-free-diet-coke-cherry-vanilla-medium,Caffeine Free Diet Coke Cherry Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,caffeine-free-diet-coke-vanilla-large,Caffeine Free Diet Coke Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,caffeine-free-diet-coke-vanilla-medium,Caffeine Free Diet Coke Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,coke-zero-cherry-large,Coke Zero Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,coke-zero-cherry-medium,Coke Zero Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,coke-zero-cherry-vanilla-large,Coke Zero Cherry Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,coke-zero-cherry-vanilla-medium,Coke Zero Cherry Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,coke-zero-vanilla-large,Coke Zero Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,coke-zero-vanilla-medium,Coke Zero Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,diet-coke-cherry-large,Diet Coke Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,diet-coke-cherry-medium,Diet Coke Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,diet-coke-cherry-vanilla-large,Diet Coke Cherry Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,diet-coke-cherry-vanilla-medium,Diet Coke Cherry Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,diet-coke-vanilla-large,Diet Coke Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,diet-coke-vanilla-medium,Diet Coke Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,dr-pepper-zero-cherry-large,Dr Pepper Zero Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,dr-pepper-zero-cherry-medium,Dr Pepper Zero Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,dr-pepper-zero-cherry-vanilla-large,Dr Pepper Zero Cherry Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,dr-pepper-zero-cherry-vanilla-medium,Dr Pepper Zero Cherry Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,dr-pepper-zero-strawberry-large,Dr Pepper Zero Strawberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,dr-pepper-zero-strawberry-medium,Dr Pepper Zero Strawberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-cherry-zero-large,Fanta No Bubbles Cherry Zero (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-cherry-zero-medium,Fanta No Bubbles Cherry Zero (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-fruit-punch-zero-large,Fanta No Bubbles Fruit Punch Zero (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-fruit-punch-zero-medium,Fanta No Bubbles Fruit Punch Zero (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-grape-zero-large,Fanta No Bubbles Grape Zero (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-grape-zero-medium,Fanta No Bubbles Grape Zero (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-peach-zero-large,Fanta No Bubbles Peach Zero (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-peach-zero-medium,Fanta No Bubbles Peach Zero (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-raspberry-zero-large,Fanta No Bubbles Raspberry Zero (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-raspberry-zero-medium,Fanta No Bubbles Raspberry Zero (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-strawberry-zero-large,Fanta No Bubbles Strawberry Zero (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-no-bubbles-strawberry-zero-medium,Fanta No Bubbles Strawberry Zero (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-cherry-large,Fanta Zero Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-cherry-medium,Fanta Zero Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-fruit-punch-large,Fanta Zero Fruit Punch (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-fruit-punch-medium,Fanta Zero Fruit Punch (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-grape-large,Fanta Zero Grape (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-grape-medium,Fanta Zero Grape (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-peach-large,Fanta Zero Peach (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-peach-medium,Fanta Zero Peach (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-raspberry-large,Fanta Zero Raspberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-raspberry-medium,Fanta Zero Raspberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-strawberry-large,Fanta Zero Strawberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fanta-zero-strawberry-medium,Fanta Zero Strawberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-peach-large,Fuze Tea Zero Peach (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-peach-medium,Fuze Tea Zero Peach (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-raspberry-large,Fuze Tea Zero Raspberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-raspberry-medium,Fuze Tea Zero Raspberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-strawberry-large,Fuze Tea Zero Strawberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-strawberry-medium,Fuze Tea Zero Strawberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-vanilla-large,Fuze Tea Zero Vanilla (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,fuze-tea-zero-vanilla-medium,Fuze Tea Zero Vanilla (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-cherry-sugar-free-kids-film-crew,ICEE Cherry Sugar Free (Kids Film Crew),ICEE,named diet/zero/no sugar but 37 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-cherry-sugar-free-large,ICEE Cherry Sugar Free (Large),ICEE,named diet/zero/no sugar but 112 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-cherry-sugar-free-medium,ICEE Cherry Sugar Free (Medium),ICEE,named diet/zero/no sugar but 85 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-cherry-sugar-free-small,ICEE Cherry Sugar Free (Small),ICEE,named diet/zero/no sugar but 53 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-mango-sugar-free-kids-film-crew,ICEE Mango Sugar Free (Kids Film Crew),ICEE,named diet/zero/no sugar but 37 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-mango-sugar-free-large,ICEE Mango Sugar Free (Large),ICEE,named diet/zero/no sugar but 112 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-mango-sugar-free-medium,ICEE Mango Sugar Free (Medium),ICEE,named diet/zero/no sugar but 85 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-mango-sugar-free-small,ICEE Mango Sugar Free (Small),ICEE,named diet/zero/no sugar but 53 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-raspberry-sugar-free-kids-film-crew,ICEE Raspberry Sugar Free (Kids Film Crew),ICEE,named diet/zero/no sugar but 37 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-raspberry-sugar-free-large,ICEE Raspberry Sugar Free (Large),ICEE,named diet/zero/no sugar but 112 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-raspberry-sugar-free-medium,ICEE Raspberry Sugar Free (Medium),ICEE,named diet/zero/no sugar but 85 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,icee-raspberry-sugar-free-small,ICEE Raspberry Sugar Free (Small),ICEE,named diet/zero/no sugar but 53 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,mezzo-mix-zero-cherry-large,Mezzo Mix Zero Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,mezzo-mix-zero-cherry-medium,Mezzo Mix Zero Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-berry-tropical-large,Powerade Zero Berry Tropical (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-berry-tropical-medium,Powerade Zero Berry Tropical (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-cherry-large,Powerade Zero Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-cherry-medium,Powerade Zero Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-fruit-punch-large,Powerade Zero Fruit Punch (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-fruit-punch-medium,Powerade Zero Fruit Punch (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-raspberry-large,Powerade Zero Raspberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,powerade-zero-raspberry-medium,Powerade Zero Raspberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-cherry-large,Schweppes Diet Lemonade Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-cherry-medium,Schweppes Diet Lemonade Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-fruit-punch-large,Schweppes Diet Lemonade Fruit Punch (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-fruit-punch-medium,Schweppes Diet Lemonade Fruit Punch (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-raspberry-large,Schweppes Diet Lemonade Raspberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-raspberry-medium,Schweppes Diet Lemonade Raspberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-strawberry-large,Schweppes Diet Lemonade Strawberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 39 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-strawberry-medium,Schweppes Diet Lemonade Strawberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 28 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,schweppes-diet-lemonade-strawberry-small,Schweppes Diet Lemonade Strawberry (Small),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 20 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-cherry-large,Sprite Zero Cherry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-cherry-medium,Sprite Zero Cherry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-peach-large,Sprite Zero Peach (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-peach-medium,Sprite Zero Peach (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-raspberry-large,Sprite Zero Raspberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-raspberry-medium,Sprite Zero Raspberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-strawberry-large,Sprite Zero Strawberry (Large),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 26 kcal
+showcase-cinemas,nutrition,low,zero-named-has-kcal,sprite-zero-strawberry-medium,Sprite Zero Strawberry (Medium),Soft Drinks (Coke Freestyle),named diet/zero/no sugar but 19 kcal

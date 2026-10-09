@@ -16,3 +16,5 @@ benugo,nutrition,low,huge,veggie-box,Veggie Box,Lunch sharing platters,3026 kcal
 benugo,nutrition,low,huge,whole-lemon-drizzle-whole-loaf-cake,Whole Lemon Drizzle Whole Loaf Cake,Cake boxes & whole cakes,5221 kcal in one sharing item
 benugo,nutrition,low,huge,whole-malted-chocolate-loaf-cake,Whole Malted Chocolate Loaf Cake,Cake boxes & whole cakes,4742 kcal in one sharing item
 benugo,nutrition,low,huge,wrap-box,Wrap Box,Lunch sharing platters,3452 kcal in one item
+benugo,allergen,reviewed,name-implies-fish,chicken-caesar,Chicken Caesar,Salad sharing boxes (serves 4-6),"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+benugo,allergen,reviewed,name-implies-soya,katsu-roast-cauliflower-wrap,Katsu Roast Cauliflower Wrap,Individual wraps,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"

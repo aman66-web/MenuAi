@@ -11,17 +11,17 @@
  ],
  "sample": false,
  "source": {
-  "title": "Auntie Anne's UK website: menu item pages, Nutrition tab (auntieannes.co.uk/menu/, retrieved 2026-10-06; the pages carry no version date, the menu sitemap was last modified 2026-10-06)",
+  "title": "Auntie Anne's UK website: menu item pages, Nutrition tab (auntieannes.co.uk/menu/, retrieved 2026-10-08; the pages carry no version date, the menu sitemap was last modified 2026-10-08)",
   "url": "https://www.auntieannes.co.uk/menu/",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
- "note": "Values are for the item or size each page shows (pizza 8 or 14 inch, one to three scoops, regular or large). The pages give no weights and don't say how many nuggets or mini dogs are in a portion, nor which milk is used. Some items print identical values (e.g. Margherita, Farmhouse and Vegetarian pizza).",
+ "note": "Values are for the item or size each page shows (pizza 8 or 14 inch, one to three scoops, regular or large). The pages give no weights and don't say how many nuggets or mini dogs are in a portion, nor which milk is used. Some items print identical values (e.g. Margherita, Farmhouse and Vegetarian pizza). Two- and three-scoop gelato are not listed: the pages print allergens only for one scoop.",
  "allergenGuide": {
   "title": "Auntie Anne's UK website: menu item pages, Allergens tab (no date printed)",
   "url": "https://www.auntieannes.co.uk/menu/",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Pretzels, nuggets & stix",
@@ -54,7 +54,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-and-jalapeno-pretzel",
@@ -76,7 +84,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/97798eb2e95b.webp"
+   "image": "aunties-anne/97798eb2e95b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-and-pepperoni-pretzel",
@@ -100,7 +115,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/ab660c713f3e.webp"
+   "image": "aunties-anne/ab660c713f3e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-stuffed-nuggets",
@@ -122,7 +144,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/ea6fc2a45de1.webp"
+   "image": "aunties-anne/ea6fc2a45de1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-nuggets",
@@ -144,7 +173,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/8ae3581c18e8.webp"
+   "image": "aunties-anne/8ae3581c18e8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-stix-6-stix",
@@ -166,7 +202,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/db4e91d28c3d.webp"
+   "image": "aunties-anne/db4e91d28c3d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-stix-3-stix",
@@ -188,7 +231,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/db4e91d28c3d.webp"
+   "image": "aunties-anne/db4e91d28c3d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "original-nuggets",
@@ -210,29 +260,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/14ec4ace525d.webp"
-  },
-  {
-   "id": "nutella-pull-apart",
-   "name": "Nutella Pull Apart",
-   "category": "Pretzels, nuggets & stix",
-   "serving": "",
-   "nutrients": {
-    "calories": 467,
-    "protein": 11.2,
-    "carbs": 88.1,
-    "fat": 7,
-    "saturatedFat": 2,
-    "sugar": 25.3,
-    "fiber": 3.3,
-    "salt": 1.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/dc9d636a0818.webp"
+   "image": "aunties-anne/14ec4ace525d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "original-stix-6-stix",
@@ -254,7 +289,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/c694d661b132.webp"
+   "image": "aunties-anne/c694d661b132.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "original-stix-3-stix",
@@ -276,21 +318,28 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/c694d661b132.webp"
+   "image": "aunties-anne/c694d661b132.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
-   "id": "vanilla-nuggets",
-   "name": "Vanilla Nuggets",
+   "id": "nutella-pull-apart",
+   "name": "Nutella Pull Apart",
    "category": "Pretzels, nuggets & stix",
    "serving": "",
    "nutrients": {
-    "calories": 469,
-    "protein": 10.2,
-    "carbs": 93.5,
-    "fat": 5.3,
-    "saturatedFat": 2.7,
-    "sugar": 28.7,
-    "fiber": 3.1,
+    "calories": 467,
+    "protein": 11.2,
+    "carbs": 88.1,
+    "fat": 7,
+    "saturatedFat": 2,
+    "sugar": 25.3,
+    "fiber": 3.3,
     "salt": 1.2
    },
    "tags": [],
@@ -298,51 +347,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/41a8585a58a3.webp"
-  },
-  {
-   "id": "vanilla-stix-6-stix",
-   "name": "Vanilla Stix (6 stix)",
-   "category": "Pretzels, nuggets & stix",
-   "serving": "6 stix",
-   "nutrients": {
-    "calories": 437,
-    "protein": 9.2,
-    "carbs": 82.7,
-    "fat": 7.2,
-    "saturatedFat": 3.9,
-    "sugar": 24.3,
-    "fiber": 2.8,
-    "salt": 1.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/1ccc42ff2917.webp"
-  },
-  {
-   "id": "vanilla-stix-3-stix",
-   "name": "Vanilla Stix (3 stix)",
-   "category": "Pretzels, nuggets & stix",
-   "serving": "3 stix",
-   "nutrients": {
-    "calories": 219,
-    "protein": 4.6,
-    "carbs": 41.3,
-    "fat": 3.6,
-    "saturatedFat": 1.9,
-    "sugar": 12.2,
-    "fiber": 1.4,
-    "salt": 0.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/1ccc42ff2917.webp"
+   "image": "aunties-anne/dc9d636a0818.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pepperoni-nuggets",
@@ -366,7 +380,101 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/580095945e6b.webp"
+   "image": "aunties-anne/580095945e6b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-nuggets",
+   "name": "Vanilla Nuggets",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "",
+   "nutrients": {
+    "calories": 469,
+    "protein": 10.2,
+    "carbs": 93.5,
+    "fat": 5.3,
+    "saturatedFat": 2.7,
+    "sugar": 28.7,
+    "fiber": 3.1,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/41a8585a58a3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-stix-6-stix",
+   "name": "Vanilla Stix (6 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "6 stix",
+   "nutrients": {
+    "calories": 437,
+    "protein": 9.2,
+    "carbs": 82.7,
+    "fat": 7.2,
+    "saturatedFat": 3.9,
+    "sugar": 24.3,
+    "fiber": 2.8,
+    "salt": 1.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/1ccc42ff2917.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vanilla-stix-3-stix",
+   "name": "Vanilla Stix (3 stix)",
+   "category": "Pretzels, nuggets & stix",
+   "serving": "3 stix",
+   "nutrients": {
+    "calories": 219,
+    "protein": 4.6,
+    "carbs": 41.3,
+    "fat": 3.6,
+    "saturatedFat": 1.9,
+    "sugar": 12.2,
+    "fiber": 1.4,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/1ccc42ff2917.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-and-jalapeno-pretzel-dog-original",
@@ -388,7 +496,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/d916519b837c.webp"
+   "image": "aunties-anne/d916519b837c.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-and-jalapeno-pretzel-dog-halal-beef",
@@ -412,7 +529,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/d916519b837c.webp"
+   "image": "aunties-anne/d916519b837c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-pretzel-dog-original",
@@ -434,7 +558,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/a0d63abed41d.webp"
+   "image": "aunties-anne/a0d63abed41d.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-pretzel-dog-halal-beef",
@@ -458,7 +591,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/a0d63abed41d.webp"
+   "image": "aunties-anne/a0d63abed41d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-and-pepperoni-pretzel-dog-original",
@@ -482,7 +622,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/d943df0fbf27.webp"
+   "image": "aunties-anne/d943df0fbf27.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheese-and-pepperoni-pretzel-dog-halal-beef",
@@ -506,7 +655,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/d943df0fbf27.webp"
+   "image": "aunties-anne/d943df0fbf27.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mini-pretzel-dogs-halal-beef",
@@ -530,7 +686,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/cc9be54b92c5.webp"
+   "image": "aunties-anne/cc9be54b92c5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "original-pretzel-dog",
@@ -552,7 +715,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/a7597d6beae2.webp"
+   "image": "aunties-anne/a7597d6beae2.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "original-pretzel-dog-halal-beef",
@@ -576,7 +748,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/a7597d6beae2.webp"
+   "image": "aunties-anne/a7597d6beae2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "american-hot-pizza-8-inch",
@@ -598,7 +777,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/bca7dce7e2a2.webp"
+   "image": "aunties-anne/bca7dce7e2a2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "american-hot-pizza-14-inch",
@@ -620,7 +806,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/bca7dce7e2a2.webp"
+   "image": "aunties-anne/bca7dce7e2a2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bbq-chicken-pizza-8-inch",
@@ -642,7 +835,26 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/2629f45004a0.webp"
+   "image": "aunties-anne/2629f45004a0.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bbq-chicken-pizza-14-inch",
@@ -664,7 +876,26 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/2629f45004a0.webp"
+   "image": "aunties-anne/2629f45004a0.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bbq-meat-feast-pizza-8-inch",
@@ -686,7 +917,26 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/e5a4b11ae8c6.webp"
+   "image": "aunties-anne/e5a4b11ae8c6.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bbq-meat-feast-pizza-14-inch",
@@ -708,7 +958,26 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/e5a4b11ae8c6.webp"
+   "image": "aunties-anne/e5a4b11ae8c6.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-pizza-8-inch",
@@ -730,7 +999,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/bfe45005624a.webp"
+   "image": "aunties-anne/bfe45005624a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-pizza-14-inch",
@@ -752,7 +1029,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/bfe45005624a.webp"
+   "image": "aunties-anne/bfe45005624a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "farmhouse-pizza-8-inch",
@@ -774,7 +1059,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/44f96b77491a.webp"
+   "image": "aunties-anne/44f96b77491a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "farmhouse-pizza-14-inch",
@@ -796,7 +1089,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/44f96b77491a.webp"
+   "image": "aunties-anne/44f96b77491a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hawaiian-pizza-8-inch",
@@ -818,7 +1119,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/bdedbe5d8f1d.webp"
+   "image": "aunties-anne/bdedbe5d8f1d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hawaiian-pizza-14-inch",
@@ -840,7 +1148,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/bdedbe5d8f1d.webp"
+   "image": "aunties-anne/bdedbe5d8f1d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "margherita-pizza-8-inch",
@@ -862,7 +1177,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/abeb95f3ab93.webp"
+   "image": "aunties-anne/abeb95f3ab93.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "margherita-pizza-14-inch",
@@ -884,7 +1206,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/abeb95f3ab93.webp"
+   "image": "aunties-anne/abeb95f3ab93.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "meat-feast-pizza-8-inch",
@@ -906,7 +1235,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/9e9db817f0e9.webp"
+   "image": "aunties-anne/9e9db817f0e9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "meat-feast-pizza-14-inch",
@@ -928,7 +1264,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/9e9db817f0e9.webp"
+   "image": "aunties-anne/9e9db817f0e9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pepperoni-pizza-8-inch",
@@ -952,7 +1295,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4b3cc8a53dc9.webp"
+   "image": "aunties-anne/4b3cc8a53dc9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pepperoni-pizza-14-inch",
@@ -976,7 +1326,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4b3cc8a53dc9.webp"
+   "image": "aunties-anne/4b3cc8a53dc9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spicy-chicken-pizza-8-inch",
@@ -998,7 +1355,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/8dfde3deb02e.webp"
+   "image": "aunties-anne/8dfde3deb02e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spicy-chicken-pizza-14-inch",
@@ -1020,7 +1384,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/8dfde3deb02e.webp"
+   "image": "aunties-anne/8dfde3deb02e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vegetarian-pizza-8-inch",
@@ -1044,7 +1415,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/a0ef0b793179.webp"
+   "image": "aunties-anne/a0ef0b793179.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vegetarian-pizza-14-inch",
@@ -1068,7 +1447,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/a0ef0b793179.webp"
+   "image": "aunties-anne/a0ef0b793179.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "american-hot-pizza-bake",
@@ -1090,7 +1477,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/33798c5075c6.webp"
+   "image": "aunties-anne/33798c5075c6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "margherita-pizza-bake",
@@ -1112,7 +1506,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/ef4da47afff5.webp"
+   "image": "aunties-anne/ef4da47afff5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pepperoni-pizza-bake",
@@ -1136,7 +1537,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4a167ace0e0e.webp"
+   "image": "aunties-anne/4a167ace0e0e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bacon-bun",
@@ -1160,7 +1568,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4a592ee00c8a.webp"
+   "image": "aunties-anne/4a592ee00c8a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bacon-egg-and-cheese-bun",
@@ -1184,7 +1599,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/9bea07d03624.webp"
+   "image": "aunties-anne/9bea07d03624.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "egg-and-cheese-bun",
@@ -1206,7 +1629,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/fc11c69b7790.webp"
+   "image": "aunties-anne/fc11c69b7790.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "the-big-bun",
@@ -1228,7 +1659,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/932bb62f8069.webp"
+   "image": "aunties-anne/932bb62f8069.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ambassador-gelato-one-scoop",
@@ -1249,49 +1688,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/1a535516088a.webp"
-  },
-  {
-   "id": "ambassador-gelato-two-scoops",
-   "name": "Ambassador Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 496,
-    "protein": 9.2,
-    "carbs": 58,
-    "fat": 26,
-    "saturatedFat": 6.2,
-    "sugar": 52,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/1a535516088a.webp"
-  },
-  {
-   "id": "ambassador-gelato-three-scoops",
-   "name": "Ambassador Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 744,
-    "protein": 13.8,
-    "carbs": 87,
-    "fat": 39,
-    "saturatedFat": 9.3,
-    "sugar": 78,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/1a535516088a.webp"
+   "image": "aunties-anne/1a535516088a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-gelato-one-scoop",
@@ -1311,47 +1717,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "banoffee-gelato-two-scoops",
-   "name": "Banoffee Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 328,
-    "protein": 4.2,
-    "carbs": 68,
-    "fat": 4.6,
-    "saturatedFat": 2.8,
-    "sugar": 60,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "banoffee-gelato-three-scoops",
-   "name": "Banoffee Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 492,
-    "protein": 6.3,
-    "carbs": 102,
-    "fat": 6.9,
-    "saturatedFat": 4.2,
-    "sugar": 90,
-    "salt": 0.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bubblegum-gelato-one-scoop",
@@ -1371,47 +1744,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bubblegum-gelato-two-scoops",
-   "name": "Bubblegum Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 340,
-    "protein": 7,
-    "carbs": 52,
-    "fat": 12.2,
-    "saturatedFat": 8,
-    "sugar": 48,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bubblegum-gelato-three-scoops",
-   "name": "Bubblegum Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 510,
-    "protein": 10.5,
-    "carbs": 78,
-    "fat": 18.3,
-    "saturatedFat": 12,
-    "sugar": 72,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesecake-passion-fruit-gelato-one-scoop",
@@ -1431,47 +1770,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cheesecake-passion-fruit-gelato-two-scoops",
-   "name": "Cheesecake Passion Fruit Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 414,
-    "protein": 8.2,
-    "carbs": 64,
-    "fat": 14,
-    "saturatedFat": 8.6,
-    "sugar": 52,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cheesecake-passion-fruit-gelato-three-scoops",
-   "name": "Cheesecake Passion Fruit Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 621,
-    "protein": 12.3,
-    "carbs": 96,
-    "fat": 21,
-    "saturatedFat": 12.9,
-    "sugar": 78,
-    "salt": 0.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesecake-strawberry-gelato-one-scoop",
@@ -1491,47 +1797,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cheesecake-strawberry-gelato-two-scoops",
-   "name": "Cheesecake Strawberry Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 396,
-    "protein": 7.6,
-    "carbs": 64,
-    "fat": 12.4,
-    "saturatedFat": 7.6,
-    "sugar": 54,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cheesecake-strawberry-gelato-three-scoops",
-   "name": "Cheesecake Strawberry Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 594,
-    "protein": 11.4,
-    "carbs": 96,
-    "fat": 18.6,
-    "saturatedFat": 11.4,
-    "sugar": 81,
-    "salt": 0.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-gelato-one-scoop",
@@ -1551,47 +1824,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chocolate-gelato-two-scoops",
-   "name": "Chocolate Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 344,
-    "protein": 7.4,
-    "carbs": 50,
-    "fat": 12.4,
-    "saturatedFat": 7.8,
-    "sugar": 46,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chocolate-gelato-three-scoops",
-   "name": "Chocolate Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 516,
-    "protein": 11.1,
-    "carbs": 75,
-    "fat": 18.6,
-    "saturatedFat": 11.7,
-    "sugar": 69,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coconut-gelato-one-scoop",
@@ -1611,47 +1850,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "coconut-gelato-two-scoops",
-   "name": "Coconut Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 404,
-    "protein": 7.6,
-    "carbs": 52,
-    "fat": 18.8,
-    "saturatedFat": 14.2,
-    "sugar": 48,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "coconut-gelato-three-scoops",
-   "name": "Coconut Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 606,
-    "protein": 11.4,
-    "carbs": 78,
-    "fat": 28.2,
-    "saturatedFat": 21.3,
-    "sugar": 72,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "eton-mess-gelato-one-scoop",
@@ -1671,47 +1876,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "eton-mess-gelato-two-scoops",
-   "name": "Eton Mess Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 380,
-    "protein": 6.4,
-    "carbs": 60,
-    "fat": 13.2,
-    "saturatedFat": 8.8,
-    "sugar": 54,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "eton-mess-gelato-three-scoops",
-   "name": "Eton Mess Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 570,
-    "protein": 9.6,
-    "carbs": 90,
-    "fat": 19.8,
-    "saturatedFat": 13.2,
-    "sugar": 81,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-gelato-one-scoop",
@@ -1731,47 +1904,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "honeycomb-gelato-two-scoops",
-   "name": "Honeycomb Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 360,
-    "protein": 6.8,
-    "carbs": 54,
-    "fat": 14,
-    "saturatedFat": 9.4,
-    "sugar": 52,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "honeycomb-gelato-three-scoops",
-   "name": "Honeycomb Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 540,
-    "protein": 10.2,
-    "carbs": 81,
-    "fat": 21,
-    "saturatedFat": 14.1,
-    "sugar": 78,
-    "salt": 0.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-sorbet-gelato-one-scoop",
@@ -1794,53 +1934,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/d56b83615ad8.webp"
-  },
-  {
-   "id": "mango-sorbet-gelato-two-scoops",
-   "name": "Mango Sorbet Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 226,
-    "protein": 0.4,
-    "carbs": 58,
-    "fat": 0.2,
-    "sugar": 50,
-    "fiber": 1.4,
-    "salt": 0.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/d56b83615ad8.webp"
-  },
-  {
-   "id": "mango-sorbet-gelato-three-scoops",
-   "name": "Mango Sorbet Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 339,
-    "protein": 0.6,
-    "carbs": 87,
-    "fat": 0.3,
-    "sugar": 75,
-    "fiber": 2.1,
-    "salt": 0.3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/d56b83615ad8.webp"
+   "image": "aunties-anne/d56b83615ad8.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mint-choc-chip-gelato-one-scoop",
@@ -1861,49 +1961,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/087a74a5fbf9.webp"
-  },
-  {
-   "id": "mint-choc-chip-gelato-two-scoops",
-   "name": "Mint Choc Chip Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 384,
-    "protein": 7,
-    "carbs": 52,
-    "fat": 16.6,
-    "saturatedFat": 12,
-    "sugar": 48,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/087a74a5fbf9.webp"
-  },
-  {
-   "id": "mint-choc-chip-gelato-three-scoops",
-   "name": "Mint Choc Chip Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 576,
-    "protein": 10.5,
-    "carbs": 78,
-    "fat": 24.9,
-    "saturatedFat": 18,
-    "sugar": 72,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/087a74a5fbf9.webp"
+   "image": "aunties-anne/087a74a5fbf9.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "oreo-gelato-one-scoop",
@@ -1923,47 +1988,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "oreo-gelato-two-scoops",
-   "name": "Oreo Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 424,
-    "protein": 7.6,
-    "carbs": 62,
-    "fat": 16.8,
-    "saturatedFat": 10,
-    "sugar": 50,
-    "salt": 0.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "oreo-gelato-three-scoops",
-   "name": "Oreo Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 636,
-    "protein": 11.4,
-    "carbs": 93,
-    "fat": 25.2,
-    "saturatedFat": 15,
-    "sugar": 75,
-    "salt": 0.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "peanutella-gelato-one-scoop",
@@ -1983,47 +2016,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "peanutella-gelato-two-scoops",
-   "name": "Peanutella Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 468,
-    "protein": 11,
-    "carbs": 56,
-    "fat": 22,
-    "saturatedFat": 7.6,
-    "sugar": 52,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "peanutella-gelato-three-scoops",
-   "name": "Peanutella Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 702,
-    "protein": 16.5,
-    "carbs": 84,
-    "fat": 33,
-    "saturatedFat": 11.4,
-    "sugar": 78,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-sorbet-gelato-one-scoop",
@@ -2045,51 +2047,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "raspberry-sorbet-gelato-two-scoops",
-   "name": "Raspberry Sorbet Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 212,
-    "protein": 0.8,
-    "carbs": 52,
-    "fat": 0.2,
-    "sugar": 46,
-    "fiber": 1.8,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "raspberry-sorbet-gelato-three-scoops",
-   "name": "Raspberry Sorbet Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 318,
-    "protein": 1.2,
-    "carbs": 78,
-    "fat": 0.3,
-    "sugar": 69,
-    "fiber": 2.7,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-gelato-one-scoop",
@@ -2110,49 +2072,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "salted-caramel-gelato-two-scoops",
-   "name": "Salted Caramel Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 332,
-    "protein": 7.2,
-    "carbs": 50,
-    "fat": 12.4,
-    "saturatedFat": 8,
-    "sugar": 46,
-    "fiber": 0.2,
-    "salt": 0.8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "salted-caramel-gelato-three-scoops",
-   "name": "Salted Caramel Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 498,
-    "protein": 10.8,
-    "carbs": 75,
-    "fat": 18.6,
-    "saturatedFat": 12,
-    "sugar": 69,
-    "fiber": 0.3,
-    "salt": 1.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "stracciatella-gelato-one-scoop",
@@ -2172,47 +2098,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "stracciatella-gelato-two-scoops",
-   "name": "Stracciatella Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 384,
-    "protein": 7,
-    "carbs": 52,
-    "fat": 16.6,
-    "saturatedFat": 12,
-    "sugar": 48,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "stracciatella-gelato-three-scoops",
-   "name": "Stracciatella Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 576,
-    "protein": 10.5,
-    "carbs": 78,
-    "fat": 24.9,
-    "saturatedFat": 18,
-    "sugar": 72,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-gelato-one-scoop",
@@ -2233,49 +2126,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "strawberry-milkshake-gelato-two-scoops",
-   "name": "Strawberry Milkshake Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 248,
-    "protein": 1.6,
-    "carbs": 58,
-    "fat": 1.4,
-    "saturatedFat": 0.8,
-    "sugar": 50,
-    "fiber": 1,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "strawberry-milkshake-gelato-three-scoops",
-   "name": "Strawberry Milkshake Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 372,
-    "protein": 2.4,
-    "carbs": 87,
-    "fat": 2.1,
-    "saturatedFat": 1.2,
-    "sugar": 75,
-    "fiber": 1.5,
-    "salt": 0.1
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tiramisu-gelato-one-scoop",
@@ -2296,49 +2153,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/c61142da1f7d.webp"
-  },
-  {
-   "id": "tiramisu-gelato-two-scoops",
-   "name": "Tiramisu Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 378,
-    "protein": 7.8,
-    "carbs": 58,
-    "fat": 12.6,
-    "saturatedFat": 8,
-    "sugar": 52,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/c61142da1f7d.webp"
-  },
-  {
-   "id": "tiramisu-gelato-three-scoops",
-   "name": "Tiramisu Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 567,
-    "protein": 11.7,
-    "carbs": 87,
-    "fat": 18.9,
-    "saturatedFat": 12,
-    "sugar": 78,
-    "salt": 0.4
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/c61142da1f7d.webp"
+   "image": "aunties-anne/c61142da1f7d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-gelato-one-scoop",
@@ -2359,49 +2183,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "vanilla-gelato-two-scoops",
-   "name": "Vanilla Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 336,
-    "protein": 7,
-    "carbs": 50,
-    "fat": 12.4,
-    "saturatedFat": 8,
-    "sugar": 46,
-    "fiber": 0.2,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "vanilla-gelato-three-scoops",
-   "name": "Vanilla Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 504,
-    "protein": 10.5,
-    "carbs": 75,
-    "fat": 18.6,
-    "saturatedFat": 12,
-    "sugar": 69,
-    "fiber": 0.3,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "white-chocolate-gelato-one-scoop",
@@ -2423,93 +2211,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "white-chocolate-gelato-two-scoops",
-   "name": "White Chocolate Gelato (two scoops)",
-   "category": "Gelato",
-   "serving": "Two scoops",
-   "nutrients": {
-    "calories": 450,
-    "protein": 7.8,
-    "carbs": 56,
-    "fat": 22,
-    "saturatedFat": 10.8,
-    "sugar": 54,
-    "salt": 0.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "white-chocolate-gelato-three-scoops",
-   "name": "White Chocolate Gelato (three scoops)",
-   "category": "Gelato",
-   "serving": "Three scoops",
-   "nutrients": {
-    "calories": 675,
-    "protein": 11.7,
-    "carbs": 84,
-    "fat": 33,
-    "saturatedFat": 16.2,
-    "sugar": 81,
-    "salt": 0.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bubblegum-milkshake-regular",
-   "name": "Bubblegum Milkshake (regular)",
-   "category": "Milkshakes",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 389,
-    "protein": 10.4,
-    "carbs": 52.7,
-    "fat": 15.4,
-    "saturatedFat": 10.5,
-    "sugar": 49.1,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
    "modifiers": [],
-   "image": "aunties-anne/1fc3ca54883b.webp"
-  },
-  {
-   "id": "bubblegum-milkshake-large",
-   "name": "Bubblegum Milkshake (large)",
-   "category": "Milkshakes",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 507,
-    "protein": 13.4,
-    "carbs": 69.5,
-    "fat": 19.9,
-    "saturatedFat": 13.5,
-    "sugar": 64.7,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/1fc3ca54883b.webp"
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ambassador-milkshake-regular",
@@ -2530,7 +2239,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/e22d706dd0d5.webp"
+   "image": "aunties-anne/e22d706dd0d5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ambassador-milkshake-large",
@@ -2551,7 +2269,70 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/e22d706dd0d5.webp"
+   "image": "aunties-anne/e22d706dd0d5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bubblegum-milkshake-regular",
+   "name": "Bubblegum Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 389,
+    "protein": 10.4,
+    "carbs": 52.7,
+    "fat": 15.4,
+    "saturatedFat": 10.5,
+    "sugar": 49.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/1fc3ca54883b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bubblegum-milkshake-large",
+   "name": "Bubblegum Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 507,
+    "protein": 13.4,
+    "carbs": 69.5,
+    "fat": 19.9,
+    "saturatedFat": 13.5,
+    "sugar": 64.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/1fc3ca54883b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-milkshake-regular",
@@ -2572,7 +2353,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/279f28aab8d7.webp"
+   "image": "aunties-anne/279f28aab8d7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "banoffee-milkshake-large",
@@ -2593,7 +2381,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/279f28aab8d7.webp"
+   "image": "aunties-anne/279f28aab8d7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesecake-passion-fruit-milkshake-regular",
@@ -2614,7 +2409,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/e967272c0f5b.webp"
+   "image": "aunties-anne/e967272c0f5b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesecake-passion-fruit-milkshake-large",
@@ -2635,7 +2437,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/e967272c0f5b.webp"
+   "image": "aunties-anne/e967272c0f5b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesecake-strawberry-milkshake-regular",
@@ -2656,7 +2465,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/5a81e2047460.webp"
+   "image": "aunties-anne/5a81e2047460.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesecake-strawberry-milkshake-large",
@@ -2677,7 +2493,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/5a81e2047460.webp"
+   "image": "aunties-anne/5a81e2047460.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coconut-milkshake-regular",
@@ -2698,7 +2521,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/6228c6d6675a.webp"
+   "image": "aunties-anne/6228c6d6675a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coconut-milkshake-large",
@@ -2719,47 +2548,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/6228c6d6675a.webp"
-  },
-  {
-   "id": "dulce-de-leche-milkshake-regular",
-   "name": "Dulce de Leche Milkshake (regular)",
-   "category": "Milkshakes",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 421,
-    "protein": 11.5,
-    "carbs": 58.1,
-    "fat": 15.5,
-    "saturatedFat": 10.6,
-    "sugar": 56.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/7d9910d9e4fa.webp"
-  },
-  {
-   "id": "dulce-de-leche-milkshake-large",
-   "name": "Dulce de Leche Milkshake (large)",
-   "category": "Milkshakes",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 550,
-    "protein": 14.8,
-    "carbs": 76.7,
-    "fat": 20.1,
-    "saturatedFat": 13.7,
-    "sugar": 74.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/7d9910d9e4fa.webp"
+   "image": "aunties-anne/6228c6d6675a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "eton-mess-milkshake-regular",
@@ -2780,7 +2575,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/44254fde59f1.webp"
+   "image": "aunties-anne/44254fde59f1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "eton-mess-milkshake-large",
@@ -2801,7 +2604,67 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/44254fde59f1.webp"
+   "image": "aunties-anne/44254fde59f1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dulce-de-leche-milkshake-regular",
+   "name": "Dulce de Leche Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 421,
+    "protein": 11.5,
+    "carbs": 58.1,
+    "fat": 15.5,
+    "saturatedFat": 10.6,
+    "sugar": 56.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/7d9910d9e4fa.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dulce-de-leche-milkshake-large",
+   "name": "Dulce de Leche Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 550,
+    "protein": 14.8,
+    "carbs": 76.7,
+    "fat": 20.1,
+    "saturatedFat": 13.7,
+    "sugar": 74.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/7d9910d9e4fa.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-milkshake-regular",
@@ -2822,7 +2685,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4209a209b630.webp"
+   "image": "aunties-anne/4209a209b630.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honeycomb-milkshake-large",
@@ -2843,7 +2713,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4209a209b630.webp"
+   "image": "aunties-anne/4209a209b630.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-milkshake-regular",
@@ -2865,7 +2742,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/453ac5d74397.webp"
+   "image": "aunties-anne/453ac5d74397.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-milkshake-large",
@@ -2887,91 +2771,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/453ac5d74397.webp"
-  },
-  {
-   "id": "mint-choc-chip-milkshake-regular",
-   "name": "Mint Choc Chip Milkshake (regular)",
-   "category": "Milkshakes",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 428,
-    "protein": 10.4,
-    "carbs": 52.7,
-    "fat": 19.3,
-    "saturatedFat": 14.1,
-    "sugar": 49.1,
-    "salt": 0.2
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/90a4362bd05c.webp"
-  },
-  {
-   "id": "mint-choc-chip-milkshake-large",
-   "name": "Mint Choc Chip Milkshake (large)",
-   "category": "Milkshakes",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 560,
-    "protein": 13.4,
-    "carbs": 69.5,
-    "fat": 25.2,
-    "saturatedFat": 18.3,
-    "sugar": 64.7,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/90a4362bd05c.webp"
-  },
-  {
-   "id": "oreo-milkshake-regular",
-   "name": "Oreo Milkshake (regular)",
-   "category": "Milkshakes",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 464,
-    "protein": 11,
-    "carbs": 61.7,
-    "fat": 19.5,
-    "saturatedFat": 12.3,
-    "sugar": 50.9,
-    "salt": 0.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/c7a60ca3f6e4.webp"
-  },
-  {
-   "id": "oreo-milkshake-large",
-   "name": "Oreo Milkshake (large)",
-   "category": "Milkshakes",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 608,
-    "protein": 14.1,
-    "carbs": 81.5,
-    "fat": 25.4,
-    "saturatedFat": 15.9,
-    "sugar": 67.1,
-    "salt": 0.6
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/c7a60ca3f6e4.webp"
+   "image": "aunties-anne/453ac5d74397.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "peanutella-milkshake-regular",
@@ -2992,7 +2799,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/dd862b1b6afc.webp"
+   "image": "aunties-anne/dd862b1b6afc.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "peanutella-milkshake-large",
@@ -3013,7 +2829,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/dd862b1b6afc.webp"
+   "image": "aunties-anne/dd862b1b6afc.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pistachio-milkshake-regular",
@@ -3035,7 +2860,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4fb4b5585c8b.webp"
+   "image": "aunties-anne/4fb4b5585c8b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pistachio-milkshake-large",
@@ -3057,7 +2889,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/4fb4b5585c8b.webp"
+   "image": "aunties-anne/4fb4b5585c8b.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-milkshake-regular",
@@ -3079,7 +2918,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/0bc2b220fd80.webp"
+   "image": "aunties-anne/0bc2b220fd80.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-milkshake-large",
@@ -3101,7 +2946,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/0bc2b220fd80.webp"
+   "image": "aunties-anne/0bc2b220fd80.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-regular",
@@ -3123,7 +2974,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/9e7d4aefb460.webp"
+   "image": "aunties-anne/9e7d4aefb460.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-milkshake-large",
@@ -3145,7 +3002,127 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/9e7d4aefb460.webp"
+   "image": "aunties-anne/9e7d4aefb460.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mint-choc-chip-milkshake-regular",
+   "name": "Mint Choc Chip Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 428,
+    "protein": 10.4,
+    "carbs": 52.7,
+    "fat": 19.3,
+    "saturatedFat": 14.1,
+    "sugar": 49.1,
+    "salt": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/90a4362bd05c.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mint-choc-chip-milkshake-large",
+   "name": "Mint Choc Chip Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 560,
+    "protein": 13.4,
+    "carbs": 69.5,
+    "fat": 25.2,
+    "saturatedFat": 18.3,
+    "sugar": 64.7,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/90a4362bd05c.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oreo-milkshake-regular",
+   "name": "Oreo Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 464,
+    "protein": 11,
+    "carbs": 61.7,
+    "fat": 19.5,
+    "saturatedFat": 12.3,
+    "sugar": 50.9,
+    "salt": 0.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/c7a60ca3f6e4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oreo-milkshake-large",
+   "name": "Oreo Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 608,
+    "protein": 14.1,
+    "carbs": 81.5,
+    "fat": 25.4,
+    "saturatedFat": 15.9,
+    "sugar": 67.1,
+    "salt": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/c7a60ca3f6e4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-sorbet-milkshake-regular",
@@ -3167,7 +3144,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/fa16fab08403.webp"
+   "image": "aunties-anne/fa16fab08403.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "raspberry-sorbet-milkshake-large",
@@ -3189,7 +3172,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/fa16fab08403.webp"
+   "image": "aunties-anne/fa16fab08403.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "stracciatella-milkshake-regular",
@@ -3210,7 +3199,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/1caaaeb102a5.webp"
+   "image": "aunties-anne/1caaaeb102a5.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "stracciatella-milkshake-large",
@@ -3231,7 +3227,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/1caaaeb102a5.webp"
+   "image": "aunties-anne/1caaaeb102a5.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-sorbet-milkshake",
@@ -3252,7 +3255,69 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/60b0ab2976a3.webp"
+   "image": "aunties-anne/60b0ab2976a3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-milkshake-regular",
+   "name": "White Chocolate Milkshake (regular)",
+   "category": "Milkshakes",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 488,
+    "protein": 11.2,
+    "carbs": 56.3,
+    "fat": 24.2,
+    "saturatedFat": 13,
+    "sugar": 54.5,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/74c38c504778.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-milkshake-large",
+   "name": "White Chocolate Milkshake (large)",
+   "category": "Milkshakes",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 639,
+    "protein": 14.3,
+    "carbs": 74.3,
+    "fat": 31.7,
+    "saturatedFat": 16.9,
+    "sugar": 71.9,
+    "salt": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "aunties-anne/74c38c504778.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tiramisu-milkshake-regular",
@@ -3273,7 +3338,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/d94e415dc4be.webp"
+   "image": "aunties-anne/d94e415dc4be.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tiramisu-milkshake-large",
@@ -3294,7 +3368,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/d94e415dc4be.webp"
+   "image": "aunties-anne/d94e415dc4be.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-milkshake-regular",
@@ -3316,7 +3399,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/1caaaeb102a5.webp"
+   "image": "aunties-anne/1caaaeb102a5.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-milkshake-large",
@@ -3338,49 +3427,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/1caaaeb102a5.webp"
-  },
-  {
-   "id": "white-chocolate-milkshake-regular",
-   "name": "White Chocolate Milkshake (regular)",
-   "category": "Milkshakes",
-   "serving": "Regular",
-   "nutrients": {
-    "calories": 488,
-    "protein": 11.2,
-    "carbs": 56.3,
-    "fat": 24.2,
-    "saturatedFat": 13,
-    "sugar": 54.5,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/74c38c504778.webp"
-  },
-  {
-   "id": "white-chocolate-milkshake-large",
-   "name": "White Chocolate Milkshake (large)",
-   "category": "Milkshakes",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 639,
-    "protein": 14.3,
-    "carbs": 74.3,
-    "fat": 31.7,
-    "saturatedFat": 16.9,
-    "sugar": 71.9,
-    "salt": 0.3
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "aunties-anne/74c38c504778.webp"
+   "image": "aunties-anne/1caaaeb102a5.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-regular",
@@ -3401,7 +3454,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/71fc7f6100d0.webp"
+   "image": "aunties-anne/71fc7f6100d0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-large",
@@ -3422,7 +3481,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/71fc7f6100d0.webp"
+   "image": "aunties-anne/71fc7f6100d0.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-regular",
@@ -3443,7 +3508,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/cfff4f87073b.webp"
+   "image": "aunties-anne/cfff4f87073b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-large",
@@ -3464,7 +3535,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/cfff4f87073b.webp"
+   "image": "aunties-anne/cfff4f87073b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-regular",
@@ -3485,7 +3562,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/8d782151a44a.webp"
+   "image": "aunties-anne/8d782151a44a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-large",
@@ -3506,7 +3589,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/8d782151a44a.webp"
+   "image": "aunties-anne/8d782151a44a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bbq-dip",
@@ -3528,7 +3617,25 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/652390b1ec1f.webp"
+   "image": "aunties-anne/652390b1ec1f.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-dip",
@@ -3549,7 +3656,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/1d1ab55682d8.webp"
+   "image": "aunties-anne/1d1ab55682d8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-dip",
@@ -3570,7 +3683,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "firecracker-dip",
@@ -3590,7 +3709,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/8e937ffc04c0.webp"
+   "image": "aunties-anne/8e937ffc04c0.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "marinara-dip",
@@ -3612,7 +3735,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/973864c0fddf.webp"
+   "image": "aunties-anne/973864c0fddf.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "nutella-dip",
@@ -3632,7 +3759,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sweet-chilli-dip",
@@ -3654,7 +3789,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/8d96cfba2012.webp"
+   "image": "aunties-anne/8d96cfba2012.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-dip",
@@ -3675,7 +3814,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "aunties-anne/551c51fcbe43.webp"
+   "image": "aunties-anne/551c51fcbe43.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

@@ -1,0 +1,1440 @@
+{
+ "schemaVersion": 1,
+ "id": "maroush",
+ "name": "Maroush",
+ "cuisine": "Lebanese",
+ "builderType": "standard",
+ "aliases": [
+  "maroush",
+  "maroush restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Maroush Allergen & Calorie Menu, September 2026 (Version 01 - verification copy; PDF last modified 11 September 2026)",
+  "url": "https://www.maroush.com/wp-content/uploads/2026/09/Maroush-Allergen-Calorie-Menu-Sep-26.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as served: the guide prints no protein, carbs or fat. The guide is marked 'Version 01 - verification copy' (September 2026). Soft drinks, tea and coffee print no calories and are not listed. Set menus are totals for 2 or 4.",
+ "allergenGuide": {
+  "title": "Maroush Allergen & Calorie Menu, September 2026 (marked Version 01 - verification copy)",
+  "url": "https://www.maroush.com/wp-content/uploads/2026/09/Maroush-Allergen-Calorie-Menu-Sep-26.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Cold Mezza",
+  "Soups",
+  "Hot Mezza",
+  "Salads",
+  "Bakery and Pastry",
+  "Charcoal-Grilled Main Courses",
+  "Shawarma Rotisserie",
+  "Main Courses",
+  "Fish and Seafood",
+  "Side Orders",
+  "Maroush Specials",
+  "Sandwiches or Wraps",
+  "Desserts",
+  "Juices"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "hommos",
+   "name": "Hommos",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 702
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-red-pepper-hommos",
+   "name": "Roasted Red Pepper Hommos",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 622
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hommos-beiruty",
+   "name": "Hommos Beiruty",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 706
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moutabal-baba-ghanouj",
+   "name": "Moutabal Baba Ghanouj",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tabbouleh",
+   "name": "Tabbouleh",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 435
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kabis",
+   "name": "Kabis",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moujaddarah",
+   "name": "Moujaddarah",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bazenjan-al-rahib",
+   "name": "Bazenjan Al-Rahib",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moussaka",
+   "name": "Moussaka",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loubieh-bzeit",
+   "name": "Loubieh B'zeit",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bammieh-bzeit",
+   "name": "Bammieh B'zeit",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mouhamara",
+   "name": "Mouhamara",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1028
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wark-inab-bzeit",
+   "name": "Wark Inab B'zeit",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 293
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "labneh",
+   "name": "Labneh",
+   "category": "Cold Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 585
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lentil-soup",
+   "name": "Lentil Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 453
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-chicken-soup",
+   "name": "Creamy Chicken Soup",
+   "category": "Soups",
+   "serving": "",
+   "nutrients": {
+    "calories": 550
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falafel",
+   "name": "Falafel",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "foul-moudamas",
+   "name": "Foul Moudamas",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "batata-harra",
+   "name": "Batata Harra",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 538
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pumpkin-kebbeh",
+   "name": "Pumpkin Kebbeh",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 554
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hommos-awarma",
+   "name": "Hommos Awarma",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hommos-shawarma-chicken",
+   "name": "Hommos Shawarma Chicken",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 755
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hommos-shawarma-lamb",
+   "name": "Hommos Shawarma Lamb",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kibbeh",
+   "name": "Kibbeh",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 469
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloum-meshwi",
+   "name": "Halloum Meshwi",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jawaneh",
+   "name": "Jawaneh",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 637
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-liver",
+   "name": "Chicken Liver",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fattet-hommos-blaban",
+   "name": "Fattet Hommos B'laban",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 737
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maqaneq",
+   "name": "Maqaneq",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soujok",
+   "name": "Soujok",
+   "category": "Hot Mezza",
+   "serving": "",
+   "nutrients": {
+    "calories": 508
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-lebanese-salad",
+   "name": "Spicy Lebanese Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 291
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-salad",
+   "name": "Maroush Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fattoush",
+   "name": "Fattoush",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 317
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tabbouleh-quinoa-salad",
+   "name": "Tabbouleh Quinoa Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 872
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-salad-with-yoghurt",
+   "name": "Cucumber Salad with Yoghurt",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 744
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fatayer-bsabanekh",
+   "name": "Fatayer B'sabanekh",
+   "category": "Bakery and Pastry",
+   "serving": "",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-manakish-zaatar",
+   "name": "Mini Manakish Za'atar",
+   "category": "Bakery and Pastry",
+   "serving": "",
+   "nutrients": {
+    "calories": 789
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-kalaj",
+   "name": "Maroush Kalaj",
+   "category": "Bakery and Pastry",
+   "serving": "",
+   "nutrients": {
+    "calories": 722
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-arayes",
+   "name": "Maroush Arayes",
+   "category": "Bakery and Pastry",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sambousek-cheese",
+   "name": "Sambousek Cheese",
+   "category": "Bakery and Pastry",
+   "serving": "",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sambousek-lamb",
+   "name": "Sambousek Lamb",
+   "category": "Bakery and Pastry",
+   "serving": "",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lahem-meshwi",
+   "name": "Lahem Meshwi",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 762
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shish-taouk",
+   "name": "Shish Taouk",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 827
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kafta-meshwi",
+   "name": "Kafta Meshwi",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 762
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-mixed-grills",
+   "name": "Maroush Mixed Grills",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 1493
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kafta-khosh-khash",
+   "name": "Kafta Khosh-Khash",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 734
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kafta-yoghurtieh",
+   "name": "Kafta Yoghurtieh",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 825
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kastaleta-lamb",
+   "name": "Kastaleta Lamb",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 737
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "farrouj-meshwi",
+   "name": "Farrouj Meshwi",
+   "category": "Charcoal-Grilled Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shawarma-lamb",
+   "name": "Shawarma Lamb",
+   "category": "Shawarma Rotisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 754
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shawarma-chicken",
+   "name": "Shawarma Chicken",
+   "category": "Shawarma Rotisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-shawarma",
+   "name": "Mixed Shawarma",
+   "category": "Shawarma Rotisserie",
+   "serving": "",
+   "nutrients": {
+    "calories": 909
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aubergine-and-chickpeas-casserole",
+   "name": "Aubergine & Chickpeas Casserole",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 675
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "okra-stew-and-rice",
+   "name": "Okra Stew and Rice",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 801
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-bean-stew-and-rice",
+   "name": "Green Bean Stew and Rice",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 571
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-spiced-lamb-shank",
+   "name": "Mediterranean-Spiced Lamb Shank",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 976
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-chicken",
+   "name": "Roasted Chicken",
+   "category": "Main Courses",
+   "serving": "",
+   "nutrients": {
+    "calories": 1349
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-sea-bass",
+   "name": "Grilled Sea Bass",
+   "category": "Fish and Seafood",
+   "serving": "",
+   "nutrients": {
+    "calories": 403
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Side Orders",
+   "serving": "",
+   "nutrients": {
+    "calories": 781
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-white-basmati-rice",
+   "name": "Vegan White Basmati Rice",
+   "category": "Side Orders",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-garlic-sauce-small-100g",
+   "name": "Maroush Garlic Sauce - Small 100g",
+   "category": "Side Orders",
+   "serving": "100 g",
+   "nutrients": {
+    "calories": 453,
+    "weight": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-garlic-sauce-large-250g",
+   "name": "Maroush Garlic Sauce - Large 250g",
+   "category": "Side Orders",
+   "serving": "250 g",
+   "nutrients": {
+    "calories": 902,
+    "weight": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-chilli-sauce-small-100g",
+   "name": "Maroush Chilli Sauce - Small 100g",
+   "category": "Side Orders",
+   "serving": "100 g",
+   "nutrients": {
+    "calories": 148,
+    "weight": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maroush-chilli-sauce-large-250g",
+   "name": "Maroush Chilli Sauce - Large 250g",
+   "category": "Side Orders",
+   "serving": "250 g",
+   "nutrients": {
+    "calories": 290,
+    "weight": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sesame-tahini-sauce",
+   "name": "Sesame (Tahini) Sauce",
+   "category": "Side Orders",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lebanese-style-vermicelli-rice",
+   "name": "Lebanese-style Vermicelli Rice",
+   "category": "Side Orders",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-rice-with-minced-lamb",
+   "name": "Brown Rice with Minced Lamb",
+   "category": "Side Orders",
+   "serving": "",
+   "nutrients": {
+    "calories": 334
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lunch-platter",
+   "name": "Lunch Platter",
+   "category": "Maroush Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 3076
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sharing-vegan-set-menu-for-2",
+   "name": "Sharing Vegan Set Menu for 2",
+   "category": "Maroush Specials",
+   "serving": "Total for 2",
+   "nutrients": {
+    "calories": 6550
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sharing-set-menu-for-2",
+   "name": "Sharing Set Menu for 2",
+   "category": "Maroush Specials",
+   "serving": "Total for 2",
+   "nutrients": {
+    "calories": 6223
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sharing-set-menu-for-4",
+   "name": "Sharing Set Menu for 4",
+   "category": "Maroush Specials",
+   "serving": "Total for 4",
+   "nutrients": {
+    "calories": 8203
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falafel-wrap",
+   "name": "Falafel Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 375
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "batata-harra-and-fried-vegetables-wrap",
+   "name": "Batata Harra and Fried Vegetables Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 434
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-cheese-wrap",
+   "name": "Halloumi Cheese Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 445
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shawarma-lamb-wrap",
+   "name": "Shawarma Lamb Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shawarma-chicken-wrap",
+   "name": "Shawarma Chicken Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-shawarma-wrap",
+   "name": "Mixed Shawarma Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shish-taouk-wrap",
+   "name": "Shish Taouk Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lahem-meshwi-wrap",
+   "name": "Lahem Meshwi Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kafta-meshwi-wrap",
+   "name": "Kafta Meshwi Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 359
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-liver-wrap",
+   "name": "Chicken Liver Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 470
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maqaneq-wrap",
+   "name": "Maqaneq Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soujok-wrap",
+   "name": "Soujok Wrap",
+   "category": "Sandwiches or Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meghli",
+   "name": "Meghli",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 509
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mouhallabieh",
+   "name": "Mouhallabieh",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 459
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-pudding",
+   "name": "Rice Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baklawa-140g",
+   "name": "Baklawa 140g",
+   "category": "Desserts",
+   "serving": "140 g",
+   "nutrients": {
+    "calories": 212,
+    "weight": 140
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baklawa-635g",
+   "name": "Baklawa 635g",
+   "category": "Desserts",
+   "serving": "635 g",
+   "nutrients": {
+    "calories": 965,
+    "weight": 635
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-orange-juice",
+   "name": "Fresh Orange Juice",
+   "category": "Juices",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-juice",
+   "name": "Mango Juice",
+   "category": "Juices",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-lemonade",
+   "name": "Fresh Lemonade",
+   "category": "Juices",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-cocktail-juice",
+   "name": "Fruit Cocktail Juice",
+   "category": "Juices",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

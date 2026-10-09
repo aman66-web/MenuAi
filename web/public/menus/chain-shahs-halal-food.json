@@ -55,7 +55,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/91c31a4baf71.webp"
   },
   {
    "id": "fish-over-rice",
@@ -77,7 +78,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/26cfcf059c31.webp"
   },
   {
    "id": "chicken-gyro",
@@ -99,7 +101,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/2d472f23c02d.webp"
   },
   {
    "id": "lamb-gyro",
@@ -123,7 +126,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/bc8917136334.webp"
   },
   {
    "id": "gyro-combo",
@@ -147,7 +151,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/3dfa25408e44.webp"
   },
   {
    "id": "falafel-gyro",
@@ -171,7 +176,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/4ea0df8df27b.webp"
   },
   {
    "id": "chicken-sandwich",
@@ -193,7 +199,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/758b1e1ba5e9.webp"
   },
   {
    "id": "beef-burger",
@@ -217,7 +224,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/a48de306b623.webp"
   },
   {
    "id": "philly-cheese-steak",
@@ -263,7 +271,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "shahs-halal-food/bb969d81e748.webp"
   }
  ],
  "combinations": []

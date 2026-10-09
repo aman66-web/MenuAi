@@ -1,0 +1,315 @@
+{
+ "schemaVersion": 1,
+ "id": "flat-iron",
+ "name": "Flat Iron",
+ "cuisine": "Steakhouse",
+ "builderType": "standard",
+ "aliases": [
+  "flat iron",
+  "flat iron steak",
+  "flat iron steak restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Flat Iron menu with calories (flatironsteak.co.uk/menu, accessed 2026-10-08, no date shown; page last modified 2026-08-18 per the site's own API)",
+  "url": "https://flatironsteak.co.uk/menu/",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Flat Iron's menu page lists calories only (behind its Calories button), per dish, with no portion sizes: protein, carbs and fat are not published. Wines, beers, alcoholic cocktails and the Wagyu steak of the day (a range) print no single figure.",
+ "allergenGuide": {
+  "title": "Flat Iron Allergens Guide (page says: DATE REVIEWED 1/7/2026)",
+  "url": "https://flatironsteak.co.uk/allergens/",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Steak",
+  "Beef specials",
+  "Sides",
+  "Sauces",
+  "0% cocktails",
+  "Softs"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "flat-iron-steak",
+   "name": "Flat Iron Steak",
+   "category": "Steak",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-onion-double-cheeseburger",
+   "name": "Smashed Onion Double Cheeseburger",
+   "category": "Beef specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 796
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "35-day-aged-ribeye",
+   "name": "35 Day Aged Ribeye",
+   "category": "Beef specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-beef-dripping-chips",
+   "name": "Homemade Beef Dripping Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 490
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-bone-marrow-garlic-mash",
+   "name": "Crispy Bone Marrow Garlic Mash",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 543
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamed-spinach",
+   "name": "Creamed Spinach",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-salad",
+   "name": "Green Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffled-macaroni-cheese",
+   "name": "Truffled Macaroni Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 525
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-aubergine",
+   "name": "Roast Aubergine",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bearnaise-sauce",
+   "name": "Bearnaise sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppercorn-sauce",
+   "name": "Peppercorn sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-smoked-chilli-mayo",
+   "name": "Homemade Smoked Chilli Mayo",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wild-mushroom-sauce",
+   "name": "Wild Mushroom sauce",
+   "category": "Sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "citrus-margarita",
+   "name": "Citrus Margarita",
+   "category": "0% cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 91
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "virgin-passion-fruit-collins",
+   "name": "Virgin Passion Fruit Collins",
+   "category": "0% cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sober-mule",
+   "name": "Sober Mule",
+   "category": "0% cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lime-and-mint-house-fizz",
+   "name": "Lime & Mint House Fizz",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-rhubarb-house-fizz",
+   "name": "Apple & Rhubarb House Fizz",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rose-lemonade-house-fizz",
+   "name": "Rose Lemonade House Fizz",
+   "category": "Softs",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1182,7 +1182,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greene-king/fa75c419000c.webp"
   },
   {
    "id": "rosemary-salted-skin-on-fries",
@@ -1203,7 +1204,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greene-king/cd1146e8fef8.webp"
   },
   {
    "id": "buttered-mashed-potato",

@@ -1,0 +1,1822 @@
+{
+ "schemaVersion": 1,
+ "id": "brewdog",
+ "name": "BrewDog",
+ "cuisine": "Craft beer bar",
+ "builderType": "standard",
+ "aliases": [
+  "brewdog",
+  "brew dog",
+  "brewdog bar",
+  "brewdog doghouse"
+ ],
+ "sample": false,
+ "source": {
+  "title": "BrewDog Burger & Wings Menu calories (PDF created 20 May 2026; the menu itself shows no date)",
+  "url": "https://cdn.shopify.com/s/files/1/0822/7281/3382/files/Burger_Menu.pdf?v=1779267492",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "BrewDog's Burger & Wings menu file prints calories only, one figure per dish as listed, so protein, carbs and fat are not published. It has no drinks, pizza, brunch or slow-cooked meats (separate BrewDog files). Menus differ by bar. The file is undated.",
+ "allergenGuide": {
+  "title": "BrewDog UK bars: food calories and allergens page (per-bar allergen matrices; accessed 2026-10-08, no date shown)",
+  "url": "https://brewdog.com/pages/food-info-allergens",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Wings",
+  "Tenders",
+  "Cauli wings",
+  "Cluckless tenders",
+  "Snacks",
+  "Big snacks",
+  "Burgers",
+  "Burger add-ons",
+  "Subs & melts",
+  "Sides",
+  "Salads",
+  "Kids Hoppy meals",
+  "Desserts",
+  "Dips"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "buffalo-chicken-wings-5",
+   "name": "Buffalo Chicken Wings (5)",
+   "category": "Wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-wings-10",
+   "name": "Buffalo Chicken Wings (10)",
+   "category": "Wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 897
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-wings-15",
+   "name": "Buffalo Chicken Wings (15)",
+   "category": "Wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 1250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chicken-wings-5",
+   "name": "Korean Chicken Wings (5)",
+   "category": "Wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 428
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chicken-wings-10",
+   "name": "Korean Chicken Wings (10)",
+   "category": "Wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 610
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chicken-wings-15",
+   "name": "Korean Chicken Wings (15)",
+   "category": "Wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 985
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-chicken-wings-5",
+   "name": "Dragon Spice Chicken Wings (5)",
+   "category": "Wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-chicken-wings-10",
+   "name": "Dragon Spice Chicken Wings (10)",
+   "category": "Wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 710
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-chicken-wings-15",
+   "name": "Dragon Spice Chicken Wings (15)",
+   "category": "Wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 956
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-wings-5",
+   "name": "BBQ Chicken Wings (5)",
+   "category": "Wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-wings-10",
+   "name": "BBQ Chicken Wings (10)",
+   "category": "Wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-wings-15",
+   "name": "BBQ Chicken Wings (15)",
+   "category": "Wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 965
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-wings-5",
+   "name": "Louisianna Wings (5)",
+   "category": "Wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 576
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-chicken-wings-10",
+   "name": "Louisianna Chicken Wings (10)",
+   "category": "Wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 965
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-chicken-wings-15",
+   "name": "Louisianna Chicken Wings (15)",
+   "category": "Wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 1265
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-tenders-3",
+   "name": "Buffalo Chicken Tenders (3)",
+   "category": "Tenders",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-tenders-5",
+   "name": "Buffalo Chicken Tenders (5)",
+   "category": "Tenders",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 810
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chicken-tenders-3",
+   "name": "Korean Chicken Tenders (3)",
+   "category": "Tenders",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 473
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-chicken-tenders-5",
+   "name": "Korean Chicken Tenders (5)",
+   "category": "Tenders",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-chicken-tenders-3",
+   "name": "Dragon Spice Chicken Tenders (3)",
+   "category": "Tenders",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-chicken-tenders-5",
+   "name": "Dragon Spice Chicken Tenders (5)",
+   "category": "Tenders",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-tenders-3",
+   "name": "BBQ Chicken Tenders (3)",
+   "category": "Tenders",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-tenders-5",
+   "name": "BBQ Chicken Tenders (5)",
+   "category": "Tenders",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 705
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "herby-louisianna-tenders-3",
+   "name": "Herby Louisianna Tenders (3)",
+   "category": "Tenders",
+   "serving": "3 tenders",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-chicken-tenders-5",
+   "name": "Louisianna Chicken Tenders (5)",
+   "category": "Tenders",
+   "serving": "5 tenders",
+   "nutrients": {
+    "calories": 949
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-cauli-wings-5",
+   "name": "Buffalo Cauli Wings (5)",
+   "category": "Cauli wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-cauli-wings-10",
+   "name": "Buffalo Cauli Wings (10)",
+   "category": "Cauli wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 610
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-cauli-wings-15",
+   "name": "Buffalo Cauli Wings (15)",
+   "category": "Cauli wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 945
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-cauli-wings-5",
+   "name": "Korean Cauli Wings (5)",
+   "category": "Cauli wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-cauli-wings-10",
+   "name": "Korean Cauli Wings (10)",
+   "category": "Cauli wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 754
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-cauli-wings-15",
+   "name": "Korean Cauli Wings (15)",
+   "category": "Cauli wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 1175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-cauli-wings-5",
+   "name": "Dragon Spice Cauli Wings (5)",
+   "category": "Cauli wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 510
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-cauli-wings-10",
+   "name": "Dragon Spice Cauli Wings (10)",
+   "category": "Cauli wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 710
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-cauli-wings-15",
+   "name": "Dragon Spice Cauli Wings (15)",
+   "category": "Cauli wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 975
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-cauli-wings-5",
+   "name": "BBQ Cauli Wings (5)",
+   "category": "Cauli wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-cauli-wings-10",
+   "name": "BBQ Cauli Wings (10)",
+   "category": "Cauli wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 607
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-cauli-wings-15",
+   "name": "BBQ Cauli Wings (15)",
+   "category": "Cauli wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 955
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-cauli-wings-5",
+   "name": "Louisianna Cauli Wings (5)",
+   "category": "Cauli wings",
+   "serving": "5 wings",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-cauli-wings-10",
+   "name": "Louisianna Cauli Wings (10)",
+   "category": "Cauli wings",
+   "serving": "10 wings",
+   "nutrients": {
+    "calories": 959
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-cauli-wings-15",
+   "name": "Louisianna Cauli Wings (15)",
+   "category": "Cauli wings",
+   "serving": "15 wings",
+   "nutrients": {
+    "calories": 1245
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-cluckless-tenders-6",
+   "name": "Buffalo Cluckless Tenders (6)",
+   "category": "Cluckless tenders",
+   "serving": "6 tenders",
+   "nutrients": {
+    "calories": 658
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-cluckless-tenders-9",
+   "name": "Buffalo Cluckless Tenders (9)",
+   "category": "Cluckless tenders",
+   "serving": "9 tenders",
+   "nutrients": {
+    "calories": 851
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-cluckless-tenders-6",
+   "name": "Korean Cluckless Tenders (6)",
+   "category": "Cluckless tenders",
+   "serving": "6 tenders",
+   "nutrients": {
+    "calories": 688
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-cluckless-tenders-9",
+   "name": "Korean Cluckless Tenders (9)",
+   "category": "Cluckless tenders",
+   "serving": "9 tenders",
+   "nutrients": {
+    "calories": 909
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-cluckless-tenders-6",
+   "name": "Dragon Spice Cluckless Tenders (6)",
+   "category": "Cluckless tenders",
+   "serving": "6 tenders",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-spice-cluckless-tenders-9",
+   "name": "Dragon Spice Cluckless Tenders (9)",
+   "category": "Cluckless tenders",
+   "serving": "9 tenders",
+   "nutrients": {
+    "calories": 910
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-cluckless-tenders-6",
+   "name": "BBQ Cluckless Tenders (6)",
+   "category": "Cluckless tenders",
+   "serving": "6 tenders",
+   "nutrients": {
+    "calories": 652
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-cluckless-tenders-9",
+   "name": "BBQ Cluckless Tenders (9)",
+   "category": "Cluckless tenders",
+   "serving": "9 tenders",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-cluckless-tenders-6",
+   "name": "Louisianna Cluckless Tenders (6)",
+   "category": "Cluckless tenders",
+   "serving": "6 tenders",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-cluckless-tenders-9",
+   "name": "Louisianna Cluckless Tenders (9)",
+   "category": "Cluckless tenders",
+   "serving": "9 tenders",
+   "nutrients": {
+    "calories": 891
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frickles",
+   "name": "Frickles",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 356
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cracking-mac-and-cheese",
+   "name": "Cracking Mac & Cheese",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-fried-chicken",
+   "name": "Add fried chicken",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-jalapenos-and-bacon",
+   "name": "Add jalapenos & bacon",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-shortrib",
+   "name": "Add shortrib",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 522
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-street-corn",
+   "name": "Loaded Street Corn",
+   "category": "Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-large",
+   "name": "Fries (large)",
+   "category": "Snacks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-fries-large",
+   "name": "Louisianna Fries (large)",
+   "category": "Snacks",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-loaded-fries",
+   "name": "Buffalo Loaded Fries",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 824
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-loaded-fries",
+   "name": "Korean Loaded Fries",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 970
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger-loaded-fries",
+   "name": "Cheeseburger Loaded Fries",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 813
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spice-bag-fries",
+   "name": "Spice Bag Fries",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spice-bag-fries-with-chicken",
+   "name": "Spice Bag Fries with Chicken",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 777
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-tater-tots",
+   "name": "Loaded Tater Tots",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-feast",
+   "name": "The Feast",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1190
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-plant-stack",
+   "name": "The Plant Stack",
+   "category": "Big snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1620
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oklahoma-stack",
+   "name": "Oklahoma Stack",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1292
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-pit",
+   "name": "The Pit",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1020
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "patriot",
+   "name": "Patriot",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-punk",
+   "name": "The Punk",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1050
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-pastrami",
+   "name": "Big Pastrami",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 943
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "philly-smash",
+   "name": "Philly Smash",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1297
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "return-of-the-mac",
+   "name": "Return of the Mac",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1268
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken",
+   "name": "Buffalo Chicken",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1062
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cluck-norris",
+   "name": "Cluck Norris",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1035
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-beyond",
+   "name": "BBQ Beyond",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 872
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hazy-and-hash",
+   "name": "Hazy & Hash",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 776
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "root-66",
+   "name": "Root 66",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 956
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "what-the-cluck",
+   "name": "What the Cluck",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-buffalo-chicken-tenders-burger-add-on",
+   "name": "2 Buffalo Chicken Tenders (burger add-on)",
+   "category": "Burger add-ons",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-korean-chicken-tenders-burger-add-on",
+   "name": "2 Korean Chicken Tenders (burger add-on)",
+   "category": "Burger add-ons",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 235
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-louisianna-chicken-tenders-burger-add-on",
+   "name": "2 Louisianna Chicken Tenders (burger add-on)",
+   "category": "Burger add-ons",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 230
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-smoky-bbq-chicken-tenders-burger-add-on",
+   "name": "2 Smoky BBQ Chicken Tenders (burger add-on)",
+   "category": "Burger add-ons",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2-dragon-spice-chicken-tenders-burger-add-on",
+   "name": "2 Dragon Spice Chicken Tenders (burger add-on)",
+   "category": "Burger add-ons",
+   "serving": "2 tenders",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beer-cheese",
+   "name": "Beer Cheese",
+   "category": "Burger add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 220
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cuban-melt",
+   "name": "Cuban Melt",
+   "category": "Subs & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 510
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "new-yorker",
+   "name": "New Yorker",
+   "category": "Subs & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 551
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-parm",
+   "name": "Chicken Parm",
+   "category": "Subs & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 652
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beyond-meatball",
+   "name": "Beyond Meatball",
+   "category": "Subs & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 592
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brisket-and-onion",
+   "name": "Brisket & Onion",
+   "category": "Subs & melts",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-regular",
+   "name": "Fries (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 236
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "louisianna-fries-regular",
+   "name": "Louisianna Fries (regular)",
+   "category": "Sides",
+   "serving": "Regular",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chopped-salad",
+   "name": "Chopped Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-slaw",
+   "name": "Rainbow Slaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-mac-n-cheese",
+   "name": "Mini Mac N Cheese",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tater-tots",
+   "name": "Tater Tots",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 174
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-bacon-caesar-salad",
+   "name": "Chicken & Bacon Caesar Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 812
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "golden-state-greens",
+   "name": "Golden State Greens",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 650
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chicken",
+   "name": "Add chicken",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-bowl",
+   "name": "Buffalo Chicken Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 674
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-hamburger",
+   "name": "Kids Hoppy Hamburger",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 706
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-cheeseburger",
+   "name": "Kids Hoppy Cheeseburger",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 769
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-vegan-hamburger",
+   "name": "Kids Hoppy Vegan Hamburger",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 773
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-vegan-cheeseburger",
+   "name": "Kids Hoppy Vegan Cheeseburger",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-nuggets",
+   "name": "Kids Hoppy Nuggets",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-tenders",
+   "name": "Kids Hoppy Tenders",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-rebel-tenders",
+   "name": "Kids Hoppy Rebel Tenders",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 425
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-hoppy-billy-the-grill",
+   "name": "Kids Hoppy Billy the Grill",
+   "category": "Kids Hoppy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "xl-cookie-skillet",
+   "name": "XL Cookie Skillet",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1007
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-donut",
+   "name": "Loaded Donut",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 731
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toffee-ice-cream-sando",
+   "name": "Toffee Ice Cream Sando",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 735
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deep-fried-oreos",
+   "name": "Deep Fried Oreos",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 616
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deep-fried-oreos-with-ice-cream",
+   "name": "Deep Fried Oreos with Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 823
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-2-scoops",
+   "name": "Ice Cream (2 scoops)",
+   "category": "Desserts",
+   "serving": "2 scoops",
+   "nutrients": {
+    "calories": 485
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream-3-scoops",
+   "name": "Ice Cream (3 scoops)",
+   "category": "Desserts",
+   "serving": "3 scoops",
+   "nutrients": {
+    "calories": 698
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-sauce",
+   "name": "Buffalo Sauce",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ranch-mayo",
+   "name": "Ranch Mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce",
+   "name": "BBQ Sauce",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-dip",
+   "name": "Blue Cheese Dip",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 134
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-bbq-sauce",
+   "name": "Korean BBQ Sauce",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sriracha-mayo",
+   "name": "Sriracha Mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-mayo",
+   "name": "Garlic Mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 159
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "marinara",
+   "name": "Marinara",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-ricotta",
+   "name": "Lemon Ricotta",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-mayo",
+   "name": "Vegan Mayo",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

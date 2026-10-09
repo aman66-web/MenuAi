@@ -4,3 +4,10 @@ abokado,nutrition,low,fibre-gt-carbs,scrambled-eggs-smashed-avo,Scrambled Eggs -
 abokado,nutrition,low,identical-numbers,gyoza-spicy,Gyoza - Spicy,Sides & snacks,"4 differently named items share these exact numbers (e.g. ['Gyoza - Spicy', 'Gyoza - Sweet Chilli', 'Gyoza - Teriyaki'])"
 abokado,nutrition,low,sugar+fibre-gt-carbs,mango-and-lime-pot,Mango & Lime Pot,Sides & snacks,sugars 23.5 + fibre 4.4 > carbohydrate 23.9 (starch would be negative)
 abokado,nutrition,reviewed,kj-kcal,sashimi-salmon-sushi,Sashimi Salmon Sushi,Sushi,1201 kJ vs 264 kcal (expected about 1105 kJ)
+abokado,allergen,reviewed,name-implies-fish,mean-clean-and-green-sushi,"Mean, Clean & Green Sushi",Sushi,"'Sushi' in the name but fish is not marked (contains: ['gluten', 'mustard', 'sesame', 'soya'])"
+abokado,allergen,reviewed,name-implies-fish,spicy-chicken-katsu-sushi,Spicy Chicken Katsu Sushi,Sushi,"'Sushi' in the name but fish is not marked (contains: ['gluten', 'sesame', 'soya'])"
+abokado,allergen,reviewed,name-implies-fish,sushi-roll-sesame-seaweed,Sushi Roll - Sesame Seaweed,Sushi,"'Sushi' in the name but fish is not marked (contains: ['gluten', 'sesame', 'soya'])"
+abokado,allergen,reviewed,name-implies-fish,sushi-roll-teriyaki-chicken,Sushi Roll - Teriyaki Chicken,Sushi,"'Sushi' in the name but fish is not marked (contains: ['gluten', 'soya'])"
+abokado,allergen,reviewed,name-implies-fish,sushi-roll-tonkatsu-bbq-chicken,Sushi Roll - Tonkatsu BBQ Chicken,Sushi,'Sushi' in the name but fish is not marked (contains: ['gluten'])
+abokado,allergen,reviewed,name-implies-milk,bagel-peanut-butter,Bagel - Peanut Butter,Bagels,"'Butter' in the name but milk is not marked (contains: ['gluten', 'peanuts'])"
+abokado,allergen,reviewed,vegan-contains-animal,scrambled-eggs-vegan-bacon,"Scrambled Eggs - Vegan ""Bacon""",Breakfast,named vegan/plant-based but allergens say it contains ['eggs']

@@ -10,17 +10,17 @@
  ],
  "sample": false,
  "source": {
-  "title": "Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks from the Allergen Menu (Sept V1, PDF dated 8 September 2026)",
+  "title": "Jamie's Italian Nutritional Information (June V1, PDF dated 17 June 2026); vegetarian marks and allergens from the Allergen Menu (Sept V1, PDF dated 8 September 2026)",
   "url": "https://www.jamiesitalian.co.uk/media/qmqjxvyt/jamies-italian-nutrition-menu-1506.pdf",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
- "note": "Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Its September 2026 allergen menu lists a different set of dishes, so some dishes here may have changed or gone.",
+ "note": "Values are per serving as printed in the chain's June 2026 guide; serving weights are not published. Allergens come from the chain's September 2026 allergen menu, which lists a different set of dishes: a dish it does not list under the same name is left out.",
  "allergenGuide": {
   "title": "Jamie's Italian Allergen Menu (Sept V1, PDF dated 8 September 2026)",
   "url": "https://www.jamiesitalian.co.uk/media/nu0n1orc/allergen-menu-080926.pdf",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Starters (spuntino and antipasto)",
@@ -53,31 +53,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "antipasto-plank-for-2",
-   "name": "Antipasto Plank for 2",
-   "category": "Starters (spuntino and antipasto)",
-   "serving": "",
-   "nutrients": {
-    "calories": 934,
-    "protein": 38,
-    "carbs": 71,
-    "fat": 54,
-    "saturatedFat": 18,
-    "sugar": 2.9,
-    "fiber": 5.6,
-    "salt": 9.2,
-    "energyKj": 3898
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "bruschetta-stracciatella-and-oil",
@@ -101,7 +88,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "lupin",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "bruschetta-stracciatella-calabrian-nduja",
@@ -125,7 +125,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "bruschetta-stracciatella-pesto",
@@ -149,7 +163,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "bruschetta-stracciatella-prosciutto",
@@ -173,7 +199,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "burrata",
@@ -197,7 +235,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "garlicky-prawns",
@@ -219,7 +271,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "focaccia-and-oil",
@@ -243,7 +308,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "focaccia-and-stracciatella",
@@ -267,7 +344,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "garlic-bread",
@@ -291,7 +380,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "garlic-bread-with-nduja-hot-honey",
@@ -315,31 +414,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "giardiniera",
-   "name": "Giardiniera",
-   "category": "Starters (spuntino and antipasto)",
-   "serving": "",
-   "nutrients": {
-    "calories": 109,
-    "protein": 0.9,
-    "carbs": 3.3,
-    "fat": 10,
-    "saturatedFat": 1.5,
-    "sugar": 0,
-    "fiber": 0.6,
-    "salt": 1.8,
-    "energyKj": 449
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "mushroom-fritti",
@@ -363,7 +449,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "nduja-arancini",
@@ -387,7 +484,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "olives-on-ice",
@@ -411,7 +517,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "ravioli-fritti",
@@ -433,7 +548,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "san-danielle-salad",
@@ -457,31 +589,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "san-danielle-salad-large",
-   "name": "San Danielle Salad Large",
-   "category": "Starters (spuntino and antipasto)",
-   "serving": "",
-   "nutrients": {
-    "calories": 501,
-    "protein": 28,
-    "carbs": 12,
-    "fat": 38,
-    "saturatedFat": 9.5,
-    "sugar": 10,
-    "fiber": 1.6,
-    "salt": 4.6,
-    "energyKj": 2081
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "funghi-pizza",
@@ -505,7 +623,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pepperoni-pizza",
@@ -529,7 +656,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "calabrian-pizza",
@@ -553,7 +690,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "san-daniele-pizza",
@@ -577,7 +724,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "margherita-pizza",
@@ -601,7 +758,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "marinara-pizza",
@@ -625,31 +792,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "crust-dipper-nduja-hot-honey-mayo",
-   "name": "Crust Dipper - 'Nduja Hot Honey Mayo",
-   "category": "Pizza",
-   "serving": "",
-   "nutrients": {
-    "calories": 171,
-    "protein": 0.5,
-    "carbs": 1.8,
-    "fat": 18,
-    "saturatedFat": 1.7,
-    "sugar": 1.3,
-    "fiber": 0,
-    "salt": 0.37,
-    "energyKj": 703
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "crust-dipper-super-green-aioli",
@@ -673,7 +824,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seafood-spaghetti-nero",
@@ -695,7 +852,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "milk",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "prawn-linguine",
@@ -717,7 +888,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "pappardelle-bolognese",
@@ -742,7 +928,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "molluscs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "bucatini-carbonara",
@@ -766,7 +966,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "molluscs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "rigatoni-arrabbiata",
@@ -790,7 +1002,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "molluscs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "spaghetti-pomodoro",
@@ -814,7 +1038,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "molluscs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mezze-maniche-pesto",
@@ -838,7 +1074,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "molluscs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mezze-maniche-pesto-non-gluten",
@@ -862,7 +1110,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "pomodoro-non-gluten",
@@ -886,7 +1144,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "arrabbiata-non-gluten",
@@ -910,7 +1178,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "prawn-linguine-non-gluten",
@@ -932,7 +1210,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "bolognese-non-gluten",
@@ -954,7 +1245,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "carbonara-non-gluten",
@@ -976,7 +1278,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chicken-al-mattone-salsa-verde",
@@ -998,7 +1310,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chicken-al-mattone-nduja",
@@ -1022,7 +1348,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-al-mattone-garlic-butter",
@@ -1044,77 +1383,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "pork-milanese",
-   "name": "Pork Milanese",
-   "category": "Mains (secondi)",
-   "serving": "",
-   "nutrients": {
-    "calories": 1166,
-    "protein": 61,
-    "carbs": 72,
-    "fat": 70,
-    "saturatedFat": 22,
-    "sugar": 6.1,
-    "fiber": 3.9,
-    "salt": 3,
-    "energyKj": 4867
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "amalfi-coast-trout",
-   "name": "Amalfi Coast Trout",
-   "category": "Mains (secondi)",
-   "serving": "",
-   "nutrients": {
-    "calories": 608,
-    "protein": 50,
-    "carbs": 26,
-    "fat": 33,
-    "saturatedFat": 7.2,
-    "sugar": 7,
-    "fiber": 3.9,
-    "salt": 4.5,
-    "energyKj": 2540
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "steak-tagliata",
-   "name": "Steak Tagliata",
-   "category": "Mains (secondi)",
-   "serving": "",
-   "nutrients": {
-    "calories": 679,
-    "protein": 48,
-    "carbs": 4,
-    "fat": 52,
-    "saturatedFat": 15,
-    "sugar": 2.4,
-    "fiber": 1,
-    "salt": 2.6,
-    "energyKj": 2820
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "burrata-panzanella",
@@ -1138,7 +1420,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "lasagne",
@@ -1162,7 +1458,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "green-beans-pomodoro",
@@ -1186,7 +1493,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "parmesan-fries",
@@ -1208,7 +1522,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "market-salad",
@@ -1232,7 +1556,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "polenta-chips",
@@ -1256,7 +1587,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
   },
   {
    "id": "affogato",
@@ -1280,7 +1621,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "amalfi-lemon-cheesecake",
@@ -1302,7 +1649,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "chocolate-chip-cookie",
@@ -1326,7 +1684,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-soft-serve",
@@ -1350,7 +1717,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tiramisu",
@@ -1374,7 +1747,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "vanilla-soft-serve",
@@ -1398,7 +1783,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "add-chocolate-sauce",
@@ -1422,7 +1813,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "add-raspberry-sauce",
@@ -1446,7 +1844,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-vanilla-ice-cream",
@@ -1470,7 +1874,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-cookies-and-milk",
@@ -1494,7 +1905,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-prawn-pasta",
@@ -1516,7 +1935,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "molluscs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "kids-chicken-lollipops",
@@ -1538,7 +1970,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "kids-tomato-rigatoni",
@@ -1562,7 +2006,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "molluscs",
+     "mustard",
+     "soya"
+    ]
+   }
   },
   {
    "id": "kids-margherita-pizza",
@@ -1586,7 +2042,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "crunchy-veggie-dippers",
@@ -1610,7 +2075,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

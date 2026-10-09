@@ -21,3 +21,16 @@ pret,nutrition,low,sugar+fibre-gt-carbs,souper-tomato,Souper Tomato,Hot food,sug
 pret,nutrition,low,sugar+fibre-gt-carbs,souper-tomato-side-soup,Souper Tomato Side Soup,Hot food,sugars 7.4 + fibre 2.5 > carbohydrate 7.5 (starch would be negative)
 pret,nutrition,low,sugar+fibre-gt-carbs,super-fruit,Super Fruit,Fruit,sugars 16.7 + fibre 2.5 > carbohydrate 17 (starch would be negative)
 pret,nutrition,low,sugar+fibre-gt-carbs,toasted-marshmallow-hot-chocolate,Toasted Marshmallow Hot Chocolate,Hot drinks,sugars 38 + fibre 2.8 > carbohydrate 38.7 (starch would be negative)
+pret,allergen,reviewed,name-implies-gluten,dark-chocolate-corn-cakes,Dark Chocolate Corn Cakes,Snacks & sweet treats,'Cake' in the name but gluten is not marked (contains: ['soya'])
+pret,allergen,reviewed,name-implies-gluten,nutty-pistachio-almond-loaf-cake,Nutty Pistachio & Almond Loaf Cake,Snacks & sweet treats,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+pret,allergen,reviewed,name-implies-gluten,toasted-marshmallow-hot-chocolate,Toasted Marshmallow Hot Chocolate,Hot drinks,'Toast' in the name but gluten is not marked (contains: ['milk'])
+pret,allergen,reviewed,name-implies-gluten,toasted-marshmallow-latte,Toasted Marshmallow Latte,Hot drinks,'Toast' in the name but gluten is not marked (contains: ['milk'])
+pret,allergen,reviewed,name-implies-gluten,zingy-lemon-almond-loaf-cake,Zingy Lemon & Almond Loaf Cake,Snacks & sweet treats,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+pret,allergen,reviewed,name-implies-milk,iced-matcha-latte,Iced Matcha Latte,Cold drinks,'Latte' in the name but milk is not marked (contains: none)
+pret,allergen,reviewed,name-implies-milk,matcha-latte,Matcha Latte,Hot drinks,'Latte' in the name but milk is not marked (contains: none)
+pret,allergen,reviewed,name-implies-milk,prets-lasagne-side-soup,Pret's Lasagne Side Soup,Hot food,'Lasagn' in the name but milk is not marked (contains: ['gluten'])
+pret,allergen,reviewed,name-implies-milk,prets-lasagne-soup,Pret's Lasagne Soup,Hot food,'Lasagn' in the name but milk is not marked (contains: ['gluten'])
+pret,allergen,reviewed,name-implies-nuts,hazelnut-frappe,Hazelnut Frappé,Cold drinks,'Hazelnut' in the name but nuts is not marked (contains: ['milk'])
+pret,allergen,reviewed,name-implies-peanuts,chicken-satay-baguette,Chicken Satay Baguette,"Sandwiches, baguettes & wraps","'Satay' in the name but peanuts is not marked (contains: ['eggs', 'gluten', 'soya'])"
+pret,allergen,reviewed,name-implies-peanuts,chicken-satay-wrap,Chicken Satay Wrap,"Sandwiches, baguettes & wraps","'Satay' in the name but peanuts is not marked (contains: ['eggs', 'gluten', 'soya'])"
+pret,allergen,reviewed,name-implies-peanuts,prets-chicken-satay-half-baguette,Pret's Chicken Satay Half Baguette,"Sandwiches, baguettes & wraps","'Satay' in the name but peanuts is not marked (contains: ['eggs', 'gluten', 'soya'])"

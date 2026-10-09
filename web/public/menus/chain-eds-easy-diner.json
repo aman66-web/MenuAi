@@ -12,15 +12,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Ed's Easy Diner Dietary Information: allergy and nutrition pages for the Breakfast, Main, Junior, Gluten Free and Drinks menus (Ten Kites page linked from edseasydiner.com; no date shown, accessed 2026-10-07)",
+  "title": "Ed's Easy Diner Dietary Information: allergy and nutrition pages for the Breakfast, Main, Junior, Gluten Free and Drinks menus (Ten Kites page linked from edseasydiner.com; no date shown, accessed 2026-10-08)",
   "url": "https://menus.tenkites.com/brg/eds",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "note": "Figures are per serving from Ed's own nutrition pages (hosted by Ten Kites, no date shown), calculated from typical weights and measures, so they can vary. Serving sizes are not stated. Where the Gluten Free menu prints different numbers for a dish, it is listed separately. Hard shakes and one beer print calories only, so they are left out.",
  "allergenGuide": {
-  "title": "Ed's Easy Diner Dietary Information, allergy and dietary view (Ten Kites page linked from edseasydiner.com; no date shown, accessed 2026-10-07)",
+  "title": "Ed's Easy Diner Dietary Information, allergy and dietary view (Ten Kites page linked from edseasydiner.com; no date shown, accessed 2026-10-08)",
   "url": "https://menus.tenkites.com/brg/eds",
-  "checkedOn": "2026-10-07",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -163,10 +163,6 @@
     "mayContain": [
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -242,10 +238,6 @@
     "mayContain": [
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -469,10 +461,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -886,10 +874,6 @@
     "mayContain": [
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -925,10 +909,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -1915,9 +1895,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2078,10 +2055,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -2117,9 +2090,6 @@
     "mayContain": [
      "eggs",
      "milk"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2159,9 +2129,6 @@
      "nuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2203,9 +2170,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2243,10 +2207,6 @@
      "molluscs",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -2468,9 +2428,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2549,9 +2506,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2730,9 +2684,6 @@
     ],
     "mayContain": [
      "milk"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3341,9 +3292,6 @@
      "milk",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -4437,9 +4385,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },

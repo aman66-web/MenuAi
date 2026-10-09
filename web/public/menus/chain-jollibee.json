@@ -1,0 +1,1232 @@
+{
+ "schemaVersion": 1,
+ "id": "jollibee",
+ "name": "Jollibee",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "jollibee",
+  "jollibee uk",
+  "jollibee london",
+  "jollibee chickenjoy"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Jollibee UK Calorie Chart, March 2023 (PDF modified 16 March 2023; the chain's page calls it the current chart)",
+  "url": "https://www.jollibee.uk/s/Jollibee-Calorie-Chart-UK-Mar-2023.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Jollibee UK's calorie chart is dated March 2023 and prints calories only (no protein, carbs or fat). A * on a value means meal calories are worked out with gravy, Diet Coke and fries; Chickenjoy values are averages. Bucket values are for the whole bucket (serves 4). Newer menu items may be missing.",
+ "allergenGuide": {
+  "title": "Jollibee UK Allergen Declaration (current as of 17.10.25; the chain's \"Allergy List\", 1 page)",
+  "url": "https://www.jollibee.uk/s/Jollibee-UK-Allergens.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Chickenjoy",
+  "Chickenjoy meals",
+  "Buckets",
+  "Chicken strips",
+  "Mains",
+  "Sandwiches and wraps",
+  "Yumburgers",
+  "Sides",
+  "Desserts",
+  "Drinks",
+  "Sauces and dips",
+  "Meal deals and bundles"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "1pc-chickenjoy",
+   "name": "1pc Chickenjoy",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/9e5992c57744.webp"
+  },
+  {
+   "id": "2pc-chickenjoy",
+   "name": "2pc Chickenjoy",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3pc-chickenjoy",
+   "name": "3pc Chickenjoy",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 1003
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1pc-spicy-chickenjoy",
+   "name": "1pc Spicy Chickenjoy",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 299
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2pc-spicy-chickenjoy",
+   "name": "2pc Spicy Chickenjoy",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 629
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3pc-spicy-chickenjoy",
+   "name": "3pc Spicy Chickenjoy",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 928
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "1pc-chickenjoy-with-jolly-spaghetti",
+   "name": "1pc Chickenjoy with Jolly Spaghetti",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 689
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/a072e6e3870a.webp"
+  },
+  {
+   "id": "1pc-spicy-chickenjoy-with-jolly-spaghetti",
+   "name": "1pc Spicy Chickenjoy with Jolly Spaghetti",
+   "category": "Chickenjoy",
+   "serving": "",
+   "nutrients": {
+    "calories": 664
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2pc-chickenjoy-meal",
+   "name": "2pc Chickenjoy Meal",
+   "category": "Chickenjoy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1065
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3pc-chickenjoy-meal",
+   "name": "3pc Chickenjoy Meal",
+   "category": "Chickenjoy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/70fb3bb28756.webp"
+  },
+  {
+   "id": "4pc-chickenjoy-meal",
+   "name": "4pc Chickenjoy Meal",
+   "category": "Chickenjoy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1713
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2pc-spicy-chickenjoy-meal",
+   "name": "2pc Spicy Chickenjoy Meal",
+   "category": "Chickenjoy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1015
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3pc-spicy-chickenjoy-meal",
+   "name": "3pc Spicy Chickenjoy Meal",
+   "category": "Chickenjoy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1314
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4pc-spicy-chickenjoy-meal",
+   "name": "4pc Spicy Chickenjoy Meal",
+   "category": "Chickenjoy meals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1613
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6pc-chickenjoy-bucket",
+   "name": "6pc Chickenjoy Bucket",
+   "category": "Buckets",
+   "serving": "",
+   "nutrients": {
+    "calories": 2037
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/358ebc3522ba.webp"
+  },
+  {
+   "id": "8pc-chickenjoy-bucket",
+   "name": "8pc Chickenjoy Bucket",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 2716
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/dc77a4af2aaf.webp"
+  },
+  {
+   "id": "12pc-chickenjoy-bucket",
+   "name": "12pc Chickenjoy Bucket",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 4074
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/fd2075984cd2.webp"
+  },
+  {
+   "id": "6pc-spicy-chickenjoy-bucket",
+   "name": "6pc Spicy Chickenjoy Bucket",
+   "category": "Buckets",
+   "serving": "",
+   "nutrients": {
+    "calories": 1887
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8pc-spicy-chickenjoy-bucket",
+   "name": "8pc Spicy Chickenjoy Bucket",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 2516
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12pc-spicy-chickenjoy-bucket",
+   "name": "12pc Spicy Chickenjoy Bucket",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 3774
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8pc-chickenjoy-bucket-meal",
+   "name": "8pc Chickenjoy Bucket Meal",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 4260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12pc-chickenjoy-bucket-meal",
+   "name": "12pc Chickenjoy Bucket Meal",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 5556
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8pc-spicy-chickenjoy-bucket-meal",
+   "name": "8pc Spicy Chickenjoy Bucket Meal",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 4060
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12pc-spicy-chickenjoy-bucket-meal",
+   "name": "12pc Spicy Chickenjoy Bucket Meal",
+   "category": "Buckets",
+   "serving": "Serves 4",
+   "nutrients": {
+    "calories": 5256
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3pc-chicken-strips",
+   "name": "3pc Chicken Strips",
+   "category": "Chicken strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 430
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5pc-chicken-strips",
+   "name": "5pc Chicken Strips",
+   "category": "Chicken strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 696
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8pc-chicken-strips",
+   "name": "8pc Chicken Strips",
+   "category": "Chicken strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 1126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3pc-chicken-strips-meal",
+   "name": "3pc Chicken Strips Meal",
+   "category": "Chicken strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5pc-chicken-strips-meal",
+   "name": "5pc Chicken Strips Meal",
+   "category": "Chicken strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 1082
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8pc-chicken-strips-2-dips",
+   "name": "8pc Chicken Strips + 2 Dips",
+   "category": "Chicken strips",
+   "serving": "",
+   "nutrients": {
+    "calories": 1126
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-rice-bowl",
+   "name": "Chicken Rice Bowl",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/bbfa8e790e88.webp"
+  },
+  {
+   "id": "jolly-hotdog",
+   "name": "Jolly Hotdog",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 447
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/c3a1a8e1e310.webp"
+  },
+  {
+   "id": "jolly-hotdog-meal",
+   "name": "Jolly Hotdog Meal",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 833
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/cf01250f0b35.webp"
+  },
+  {
+   "id": "jolly-spaghetti",
+   "name": "Jolly Spaghetti",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/a6f882b2f4c8.webp"
+  },
+  {
+   "id": "jolly-spaghetti-meal",
+   "name": "Jolly Spaghetti Meal",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 751
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2pc-burgersteak-with-rice",
+   "name": "2pc Burgersteak With Rice",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 494
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jollibee-chicken-sandwich",
+   "name": "Jollibee Chicken Sandwich",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 568
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/df98cce0dc70.webp"
+  },
+  {
+   "id": "jollibee-spicy-chicken-sandwich",
+   "name": "Jollibee Spicy Chicken Sandwich",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 557
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/0bdc29bb2e70.webp"
+  },
+  {
+   "id": "jollibee-double-chicken-sandwich",
+   "name": "Jollibee Double Chicken Sandwich",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 835
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jollibee-chicken-sandwich-meal",
+   "name": "Jollibee Chicken Sandwich Meal",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 954
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/7429b28fe293.webp"
+  },
+  {
+   "id": "jollibee-spicy-chicken-sandwich-meal",
+   "name": "Jollibee Spicy Chicken Sandwich Meal",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 943
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/82f63c67ac57.webp"
+  },
+  {
+   "id": "jollibee-double-chicken-sandwich-meal",
+   "name": "Jollibee Double Chicken Sandwich Meal",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 1221
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-and-cheese-chicken-wrap",
+   "name": "BBQ & Cheese Chicken Wrap",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 505
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-and-cheese-chicken-wrap-meal",
+   "name": "BBQ & Cheese Chicken Wrap Meal",
+   "category": "Sandwiches and wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 891
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yumburger",
+   "name": "Yumburger",
+   "category": "Yumburgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/67d68be7713c.webp"
+  },
+  {
+   "id": "yumburger-meal",
+   "name": "Yumburger Meal",
+   "category": "Yumburgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/c35bcea9a74b.webp"
+  },
+  {
+   "id": "cheesy-yumburger",
+   "name": "Cheesy Yumburger",
+   "category": "Yumburgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-yumburger-meal",
+   "name": "Cheesy Yumburger Meal",
+   "category": "Yumburgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 775
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-yumburger-with-cheese",
+   "name": "Double Yumburger with Cheese",
+   "category": "Yumburgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 446
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/30bb202dd473.webp"
+  },
+  {
+   "id": "double-yumburger-with-cheese-meal",
+   "name": "Double Yumburger with Cheese Meal",
+   "category": "Yumburgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/a5a6663057ec.webp"
+  },
+  {
+   "id": "rice",
+   "name": "Rice",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "medium-fries",
+   "name": "Medium Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sriracha-chicken-loaded-fries",
+   "name": "Sriracha Chicken Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 716
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/1d84877832b5.webp"
+  },
+  {
+   "id": "gravy-chicken-loaded-fries",
+   "name": "Gravy Chicken Loaded Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 636
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/2971bd3c9546.webp"
+  },
+  {
+   "id": "chocolate-sundae",
+   "name": "Chocolate Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-twirl",
+   "name": "Vanilla Twirl",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-coconut-sundae",
+   "name": "Chocolate Coconut Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 321
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/53a2d165f9ca.webp"
+  },
+  {
+   "id": "mango-coconut-sundae",
+   "name": "Mango Coconut Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/398b06d7ef3c.webp"
+  },
+  {
+   "id": "cookies-n-cream-sundae",
+   "name": "Cookies 'n Cream Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/b0ad4fa4f4a8.webp"
+  },
+  {
+   "id": "peach-mango-pie",
+   "name": "Peach Mango Pie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "image": "jollibee/050f9ffde9bc.webp"
+  },
+  {
+   "id": "coke-classic-medium-without-ice",
+   "name": "Coke Classic, Medium, without ice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-medium-without-ice",
+   "name": "Coke Zero, Medium, without ice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-medium-without-ice",
+   "name": "Diet Coke, Medium, without ice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-medium-without-ice",
+   "name": "Sprite, Medium, without ice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta-medium-without-ice",
+   "name": "Fanta, Medium, without ice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "water-still-500-ml",
+   "name": "Water, Still, 500 mL",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-juice-without-ice",
+   "name": "Pineapple Juice, without ice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-mayo-dip",
+   "name": "Garlic Mayo Dip",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chickenjoy-gravy-small",
+   "name": "Chickenjoy Gravy, small",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 31
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chickenjoy-gravy-large",
+   "name": "Chickenjoy Gravy, large",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ketchup-sachet-10-ml",
+   "name": "Ketchup Sachet, 10 mL",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mayonnaise-sachet-10-ml",
+   "name": "Mayonnaise Sachet, 10 mL",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sriracha-mayo",
+   "name": "Sriracha Mayo",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chili-sauce",
+   "name": "Sweet Chili Sauce",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "asian-ginger-chili-sauce",
+   "name": "Asian Ginger Chili Sauce",
+   "category": "Sauces and dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jollibee-chicken-sandwich-meal-deal",
+   "name": "Jollibee Chicken Sandwich Meal Deal",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2pc-chickenjoy-meal-deal",
+   "name": "2pc Chickenjoy Meal Deal",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jollibee-spicy-chicken-sandwich-meal-deal",
+   "name": "Jollibee Spicy Chicken Sandwich Meal Deal",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1184
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "2pc-spicy-chickenjoy-meal-deal",
+   "name": "2pc Spicy Chickenjoy Meal Deal",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 1225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boneless-chicken-bundle-for-4",
+   "name": "Boneless Chicken Bundle for 4",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 3254
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boneless-chicken-bundle-for-2",
+   "name": "Boneless Chicken Bundle for 2",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 2596
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-sandwich-lunchtime-deal",
+   "name": "Chicken Sandwich Lunchtime Deal",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 988
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-strips-lunchtime-deal",
+   "name": "Chicken Strips Lunchtime Deal",
+   "category": "Meal deals and bundles",
+   "serving": "",
+   "nutrients": {
+    "calories": 921
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

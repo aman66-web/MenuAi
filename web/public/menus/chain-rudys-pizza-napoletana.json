@@ -611,12 +611,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -1232,9 +1226,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1265,9 +1256,6 @@
     ],
     "mayContain": [
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

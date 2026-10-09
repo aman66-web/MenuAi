@@ -16,7 +16,14 @@
   "url": "https://www.pingpongdimsum.com/wp-content/uploads/2025/06/Nutr-Info-Jun-2025.pdf",
   "checkedOn": "2026-10-08"
  },
- "note": "Guide dated June 2025, so some dishes may have changed since. Values are per portion as printed (portion sizes are not stated); there are no drinks, and a few dishes whose numbers the guide prints impossibly are left out.",
+ "note": "Guide dated June 2025, so some dishes may have changed since. Per portion as printed, no drinks; dishes with impossible numbers or no allergen row are left out. Allergens are from Ping Pong's June 2025 matrix: its Cereals mark shows as gluten, even on dishes it labels gluten-free (wheat starch), and it says any dish may contain traces of nuts or egg.",
+ "allergenGuide": {
+  "title": "Ping Pong Allergen Matrix, \"Summer 2025 Allergen List\" (Allergen Info Free from MATRIX - 2025 06, last updated 08/06/2025)",
+  "url": "https://www.pingpongdimsum.com/wp-content/uploads/2025/06/Ping_Pong_Allergen_Matrix_Free_From_Menus_100625.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": true
+ },
  "categories": [
   "Kids menus",
   "Nibbles",
@@ -49,7 +56,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "little-pandas-crispy-tofu-rice-bowl",
@@ -72,51 +87,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "little-pandas-dim-sum-set-menu",
-   "name": "Little Pandas Dim Sum Set Menu",
-   "category": "Kids menus",
-   "serving": "",
-   "nutrients": {
-    "calories": 698,
-    "protein": 23.5,
-    "carbs": 114,
-    "fat": 17.8,
-    "saturatedFat": 7.9,
-    "sugar": 28.6,
-    "fiber": 1.1,
-    "salt": 1.5
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "little-pandas-vegetarian-set-menu",
-   "name": "Little Pandas Vegetarian Set Menu",
-   "category": "Kids menus",
-   "serving": "",
-   "nutrients": {
-    "calories": 933,
-    "protein": 21.5,
-    "carbs": 158.2,
-    "fat": 24.1,
-    "saturatedFat": 5.5,
-    "sugar": 12.9,
-    "fiber": 1.2,
-    "salt": 0.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "prawn-crackers",
@@ -137,7 +118,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "edamame-with-celery-sea-salt",
@@ -160,7 +149,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seaweed-salad",
@@ -183,7 +179,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "long-stem-broccoli",
@@ -206,7 +209,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-katsu-curry-rice",
@@ -227,7 +239,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "steamed-jasmine-rice",
@@ -249,7 +270,11 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sweet-and-sour-chicken",
@@ -270,7 +295,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sweet-and-sour-aubergine",
@@ -293,7 +327,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chilli-prawn-bao",
@@ -314,7 +357,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-katsu-curry-bao",
@@ -335,7 +386,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-aubergine-bao",
@@ -356,7 +416,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "lucky-8-har-gau",
@@ -377,7 +444,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "satay-prawn",
@@ -398,7 +474,14 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "honey-soy-chicken-skewer",
@@ -419,7 +502,16 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "king-crab-surimi-hot-dog-skewers",
@@ -440,7 +532,18 @@
    "limitedTime": true,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ping-pong-fried-chicken",
@@ -461,7 +564,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sichuan-crispy-aubergine",
@@ -484,7 +595,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-tofu",
@@ -507,7 +625,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vegetable-spring-roll",
@@ -530,7 +657,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "duck-spring-roll",
@@ -551,7 +689,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "char-sui-bun",
@@ -572,7 +718,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vegetable-bun",
@@ -595,7 +750,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "shanghai-chilli-spinach-mushroom-wonton",
@@ -618,7 +781,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pork-prawn-shu-mai",
@@ -641,7 +813,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "har-gau",
@@ -662,7 +845,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "flaming-phoenix-chicken-dumpling",
@@ -683,7 +875,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spicy-chicken-chinese-veg-dumpling",
@@ -704,7 +904,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spicy-chinese-vegetable-dumpling",
@@ -727,7 +936,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mushroom-and-leek-dumpling",
@@ -750,7 +968,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spinach-and-mushroom-griddled-dumpling",
@@ -773,7 +998,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "griddled-spicy-beef-gyoza",
@@ -796,7 +1031,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "edamame-and-vegetable-gyoza",
@@ -817,7 +1061,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-gyoza-6-pieces",
@@ -840,7 +1094,13 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-layered-crepe-cake",
@@ -863,7 +1123,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "earl-grey-macaron-1-piece",
@@ -884,7 +1153,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "yuzu-macaron-1-piece",
@@ -905,99 +1183,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "ice-cream-sorbet-vanilla",
-   "name": "Ice Cream / Sorbet: Vanilla",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 72,
-    "protein": 1.6,
-    "carbs": 7.2,
-    "fat": 4,
-    "saturatedFat": 2.5,
-    "sugar": 7.2,
-    "fiber": 0,
-    "salt": 0.05
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "ice-cream-sorbet-chocolate",
-   "name": "Ice Cream / Sorbet: Chocolate",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 150,
-    "protein": 2.6,
-    "carbs": 14,
-    "fat": 7.3,
-    "saturatedFat": 4.4,
-    "sugar": 14,
-    "fiber": 0.7,
-    "salt": 0.06
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "ice-cream-sorbet-lemon-sorbet",
-   "name": "Ice Cream / Sorbet: Lemon Sorbet",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 52,
-    "protein": 0.1,
-    "carbs": 12.6,
-    "fat": 0.1,
-    "saturatedFat": 0.1,
-    "sugar": 10.9,
-    "fiber": 0,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "ice-cream-sorbet-pear",
-   "name": "Ice Cream / Sorbet: Pear",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 50,
-    "protein": 0.1,
-    "carbs": 13.2,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 10.2,
-    "fiber": 0,
-    "salt": 0.06
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ice-cream-sorbet-mango-sorbet",
@@ -1020,7 +1215,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

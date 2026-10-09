@@ -1,0 +1,2513 @@
+{
+ "schemaVersion": 1,
+ "id": "away-resorts",
+ "name": "Away Resorts",
+ "cuisine": "Holiday park restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "away resorts"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Away Resorts park menus with calories (PDFs on owners.awayresorts.co.uk linked from each park's menus page; created 2026-02-18 to 2026-09-29; main menu 2026-09-29)",
+  "url": "https://owners.awayresorts.co.uk/media/fxjjbi3j/mill-rythe-main-menu.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only (per serving or drink); protein, carbs and fat are not published. Menus differ by park: only dishes printed with the same name and calories in the menu PDFs of at least 3 parks are listed, and a name printed with two different values is left out.",
+ "categories": [
+  "Starters & Sharers",
+  "Fried Chicken",
+  "Sandwiches & Wraps",
+  "British Classics & World Flavours",
+  "Add-ons",
+  "Signature Burgers",
+  "Stacked Burgers",
+  "Pizzas",
+  "Sides",
+  "Filthy Fries",
+  "Desserts",
+  "Kids menu",
+  "Tots menu",
+  "Breakfast",
+  "Breakfast eggs",
+  "Light & Lovely",
+  "Breakfast sweet treats",
+  "Breakfast extras",
+  "Catch 22 takeaway",
+  "Soft drinks",
+  "Milkshakes"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "soup-of-the-day",
+   "name": "Soup of the Day",
+   "category": "Starters & Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 513
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Starters & Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-bread",
+   "name": "Cheesy Garlic Bread",
+   "category": "Starters & Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 617
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower-wings-regular",
+   "name": "Cauliflower Wings (Regular)",
+   "category": "Starters & Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 695
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower-wings-large",
+   "name": "Cauliflower Wings (Large)",
+   "category": "Starters & Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1076
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-nachos",
+   "name": "Cheese Nachos",
+   "category": "Starters & Sharers",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-pork-nachos",
+   "name": "Pulled Pork Nachos",
+   "category": "Starters & Sharers",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 837
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-chilli-nachos",
+   "name": "Beef Chilli Nachos",
+   "category": "Starters & Sharers",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 732
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-chicken-nachos",
+   "name": "Cajun Chicken Nachos",
+   "category": "Starters & Sharers",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 753
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-nachos",
+   "name": "Vegan Nachos",
+   "category": "Starters & Sharers",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 351
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-bacon-quesadilla",
+   "name": "Cheese and Bacon Quesadilla",
+   "category": "Starters & Sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strips-regular",
+   "name": "Strips (regular)",
+   "category": "Fried Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strips-large",
+   "name": "Strips (large)",
+   "category": "Fried Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 620
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boneless-bites-regular",
+   "name": "Boneless Bites (regular)",
+   "category": "Fried Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boneless-bites-large",
+   "name": "Boneless Bites (large)",
+   "category": "Fried Chicken",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "b-l-t-ciabatta",
+   "name": "B.L.T Ciabatta",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 714
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-cheese-toastie",
+   "name": "Triple Cheese Toastie",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 593
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falafel-wrap",
+   "name": "Falafel Wrap",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 391
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-fried-chicken-wrap",
+   "name": "Crispy Fried Chicken Wrap",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-chips",
+   "name": "Add Chips",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 405
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-side-salad",
+   "name": "Add Side Salad",
+   "category": "Sandwiches & Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hunters-chicken-stack",
+   "name": "Hunter's Chicken Stack",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 1143
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rump-steak",
+   "name": "Rump Steak",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-salad",
+   "name": "Caesar Salad",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 714
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bang-bang-chilli-chicken-noodles",
+   "name": "Bang Bang Chilli Chicken Noodles",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "balti-pie",
+   "name": "Balti Pie",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 932
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-tikka-masala",
+   "name": "Chicken Tikka Masala",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-ale-pie",
+   "name": "Steak and Ale Pie",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 1261
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-souvlaki-wrap",
+   "name": "Chicken Souvlaki Wrap",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 647
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-cauliflower-salad",
+   "name": "Crispy Cauliflower Salad",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 826
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skillet-bacon-mac-and-cheese",
+   "name": "Skillet Bacon Mac & Cheese",
+   "category": "British Classics & World Flavours",
+   "serving": "",
+   "nutrients": {
+    "calories": 770
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-axle-jack-glaze",
+   "name": "Add Axle Jack Glaze",
+   "category": "Add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-sliced-chicken-breast",
+   "name": "Add Sliced Chicken Breast",
+   "category": "Add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 259
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-vegan-fried-chickn",
+   "name": "Add Vegan Fried Chick’n",
+   "category": "Add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 181
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-bread-and-butter",
+   "name": "Add Bread & Butter",
+   "category": "Add-ons",
+   "serving": "",
+   "nutrients": {
+    "calories": 281
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-boi",
+   "name": "The Big Boi",
+   "category": "Signature Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1704
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "notorious-p-i-g",
+   "name": "Notorious P.I.G.",
+   "category": "Signature Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1896
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-big-bird",
+   "name": "The Big Bird",
+   "category": "Signature Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1491
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-strip-b-l-t",
+   "name": "Chicken Strip B.L.T",
+   "category": "Signature Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1167
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-double",
+   "name": "Classic (double)",
+   "category": "Stacked Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 731
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-triple",
+   "name": "Classic (triple)",
+   "category": "Stacked Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 871
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-double",
+   "name": "Cheese (double)",
+   "category": "Stacked Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-triple",
+   "name": "Cheese (triple)",
+   "category": "Stacked Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 956
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-cheese-double",
+   "name": "Bacon Cheese (double)",
+   "category": "Stacked Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 904
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-cheese-triple",
+   "name": "Bacon Cheese (triple)",
+   "category": "Stacked Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1044
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-and-bacon",
+   "name": "BBQ Chicken and Bacon",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1438
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "skinny-fries",
+   "name": "Skinny Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 438
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chunky-chips",
+   "name": "Chunky Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 404
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-fries-regular",
+   "name": "Dirty Fries (regular)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1095
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dirty-fries-large",
+   "name": "Dirty Fries (large)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1283
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hunters-bbq-fries-large",
+   "name": "Hunters BBQ Fries (large)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1284
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fully-loaded-fries-regular",
+   "name": "Fully Loaded Fries (regular)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 905
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fully-loaded-fries-large",
+   "name": "Fully Loaded Fries (large)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1148
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "habanero-hot-fries-regular",
+   "name": "Habanero Hot Fries (regular)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 905
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "habanero-hot-fries-large",
+   "name": "Habanero Hot Fries (large)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-fries-regular",
+   "name": "Chilli Fries (regular)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 826
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-fries-large",
+   "name": "Chilli Fries (large)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 1069
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-fries-regular",
+   "name": "Chicken Katsu Curry Fries (regular)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 706
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry-fries-large",
+   "name": "Chicken Katsu Curry Fries (large)",
+   "category": "Filthy Fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 950
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-style-cookie-ice-cream-sandwich",
+   "name": "Dubai Style Cookie Ice Cream Sandwich",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-fudge-brownie",
+   "name": "Chocolate Fudge Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 604
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "millionaires-sundae",
+   "name": "Millionaire’s Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 814
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "knickerbocker-sundae",
+   "name": "Knickerbocker Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 657
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-sticks",
+   "name": "Rainbow Sticks",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-garlic-bread",
+   "name": "Crunchy Garlic Bread",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tortilla-chips",
+   "name": "Tortilla Chips",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kickin-chick-n-burger",
+   "name": "Kickin’ Chick*n Burger",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 407
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gloriously-grilled-chicken-salad",
+   "name": "Gloriously Grilled Chicken Salad",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeky-cheeseburger",
+   "name": "Cheeky Cheeseburger",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 552
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "funky-fried-chicken-strips",
+   "name": "Funky Fried Chicken Strips",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nibbly-nutella-pancakes",
+   "name": "Nibbly Nutella Pancakes",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bears-chocolate-and-oreo-sundae",
+   "name": "Bear’s Chocolate & Oreo Sundae",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-organic-rainbow-lolly",
+   "name": "Pip Organic Rainbow Lolly",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-ice-cream",
+   "name": "Chocolate Ice Cream",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 269
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-fingers-and-chips",
+   "name": "Fish Fingers and Chips",
+   "category": "Tots menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 476
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pastacadabra",
+   "name": "Pastacadabra",
+   "category": "Tots menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banging-burger",
+   "name": "Banging Burger",
+   "category": "Tots menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 498
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chompin-chicken-chunks",
+   "name": "Chompin’ Chicken Chunks",
+   "category": "Tots menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucys-mini-donuts",
+   "name": "Lucy’s Mini Donuts",
+   "category": "Tots menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 405
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "big-away-breakfast",
+   "name": "Big Away Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1879
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-breakfast",
+   "name": "Traditional Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1201
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-breakfast",
+   "name": "Small Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 813
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-breakfast",
+   "name": "Vegetarian Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 717
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plant-based-breakfast",
+   "name": "Plant-Based Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 656
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-hash",
+   "name": "Breakfast Hash",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 817
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-benedict",
+   "name": "Eggs Benedict",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 858
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-florentine",
+   "name": "Eggs Florentine",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 858
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-on-toast",
+   "name": "Eggs on Toast",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-omelette",
+   "name": "Ham and Cheese Omelette",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 734
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-mushroom-omelette",
+   "name": "Cheese and Mushroom Omelette",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poached-eggs-and-smashed-avocado-on-toast",
+   "name": "Poached Eggs and Smashed Avocado on Toast",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 607
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-baked-eggs",
+   "name": "Spicy Baked Eggs",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 408
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-burrito",
+   "name": "Breakfast Burrito",
+   "category": "Breakfast eggs",
+   "serving": "",
+   "nutrients": {
+    "calories": 904
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-egg-and-beans",
+   "name": "Sausage, Egg and Beans",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-egg-and-beans",
+   "name": "Bacon, Egg and Beans",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 273
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beans-on-toast",
+   "name": "Beans on Toast",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-and-jam",
+   "name": "Toast and Jam",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 419
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-teacake",
+   "name": "Toasted Teacake",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-crumpet",
+   "name": "Toasted Crumpet",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "granola-pot",
+   "name": "Granola Pot",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornflakes",
+   "name": "Cornflakes",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-nut-cornflakes",
+   "name": "Crunchy Nut Cornflakes",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "special-k",
+   "name": "Special K",
+   "category": "Light & Lovely",
+   "serving": "",
+   "nutrients": {
+    "calories": 149
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bear-waffle-breakfast",
+   "name": "Bear Waffle Breakfast",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 995
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant-and-jam",
+   "name": "Croissant and Jam",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au Chocolat",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-bear-waffle",
+   "name": "Sweet Bear Waffle",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 722
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-maple-syrup-regular",
+   "name": "Pancakes with Maple Syrup (regular)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 385
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-maple-syrup-large",
+   "name": "Pancakes with Maple Syrup (large)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 722
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-fresh-fruit-regular",
+   "name": "Pancakes with Fresh Fruit (regular)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-fresh-fruit-large",
+   "name": "Pancakes with Fresh Fruit (large)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 573
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-bacon-and-maple-syrup-regular",
+   "name": "Pancakes with Bacon and Maple Syrup (regular)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 538
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-bacon-and-maple-syrup-large",
+   "name": "Pancakes with Bacon and Maple Syrup (large)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 980
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-nutella-regular",
+   "name": "Pancakes with Nutella (regular)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 465
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pancakes-with-nutella-large",
+   "name": "Pancakes with Nutella (large)",
+   "category": "Breakfast sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 894
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato",
+   "name": "Tomato",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 237
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-egg",
+   "name": "Fried Egg",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poached-egg",
+   "name": "Poached Egg",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-bread",
+   "name": "Fried Bread",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 477
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-sausage",
+   "name": "Vegan Sausage",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black Pudding",
+   "category": "Breakfast extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-cod",
+   "name": "Small Cod",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-cod",
+   "name": "Large Cod",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-chips",
+   "name": "Small Chips",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 311
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-chips",
+   "name": "Large Chips",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 459
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-and-pepper-spice-bag",
+   "name": "Salt & Pepper Spice Bag",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 697
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-sausage",
+   "name": "Small Sausage",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-sausage",
+   "name": "Large Sausage",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "small-battered-sausage",
+   "name": "Small Battered Sausage",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 244
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "large-battered-sausage",
+   "name": "Large Battered Sausage",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 423
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-nuggets",
+   "name": "Chicken Nuggets",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bread-roll",
+   "name": "Bread Roll",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 263
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-sauce",
+   "name": "Curry Sauce",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushy-peas",
+   "name": "Mushy Peas",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 151
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beans",
+   "name": "Beans",
+   "category": "Catch 22 takeaway",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser",
+   "name": "Appletiser",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "j2o-apple-and-raspberry",
+   "name": "J2O Apple and Raspberry",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "j2o-orange-and-passion-fruit",
+   "name": "J2O Orange and Passion Fruit",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-bottle",
+   "name": "Pepsi Bottle",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-child",
+   "name": "Diet Pepsi (child)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-small",
+   "name": "Diet Pepsi (small)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi-regular",
+   "name": "Diet Pepsi (regular)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade-child",
+   "name": "Lemonade (child)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade-small",
+   "name": "Lemonade (small)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemonade-regular",
+   "name": "Lemonade (regular)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-child",
+   "name": "Pepsi Max (child)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-small",
+   "name": "Pepsi Max (small)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max-regular",
+   "name": "Pepsi Max (regular)",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull",
+   "name": "Red Bull",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Soft drinks",
+   "serving": "10oz",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Soft drinks",
+   "serving": "10oz",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-organic-cloudy-apple",
+   "name": "Pip Organic Cloudy Apple",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-organic-strawberry-and-blackcurrant",
+   "name": "Pip Organic Strawberry and Blackcurrant",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "britvic-slimline-tonic",
+   "name": "Britvic Slimline Tonic",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "britvic-tonic",
+   "name": "Britvic Tonic",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-elderflower",
+   "name": "Fever-Tree Elderflower",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-ginger-ale",
+   "name": "Fever-Tree Ginger Ale",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-indian-tonic",
+   "name": "Fever-Tree Indian Tonic",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-mediterranean-tonic",
+   "name": "Fever-Tree Mediterranean Tonic",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-slimline-tonic",
+   "name": "Fever-Tree Slimline Tonic",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harrogate-sparkling-water",
+   "name": "Harrogate Sparkling Water",
+   "category": "Soft drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "harrogate-still-water",
+   "name": "Harrogate Still Water",
+   "category": "Soft drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-billionaire-milkshake",
+   "name": "Biscoff Billionaire Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 853
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-and-cream-milkshake",
+   "name": "Strawberries & Cream Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 629
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dubai-style-milkshake",
+   "name": "Dubai Style Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 750
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-chocolate-milkshake",
+   "name": "Oreo Chocolate Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

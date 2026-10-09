@@ -67,7 +67,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/2d36a0ad5ebd.webp"
   },
   {
    "id": "spicy-edamame",
@@ -83,7 +84,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/ea3806016e92.webp"
   },
   {
    "id": "vegetable-spring-rolls",
@@ -99,7 +101,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/68989d2f0604.webp"
   },
   {
    "id": "duck-spring-rolls",
@@ -113,7 +116,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/9d70ca755b87.webp"
   },
   {
    "id": "vegetable-gyoza",
@@ -129,7 +133,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/c2916b97987a.webp"
   },
   {
    "id": "chicken-gyoza",
@@ -143,7 +148,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/923addd22a52.webp"
   },
   {
    "id": "chicken-satay",
@@ -157,7 +163,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/49652be3f37d.webp"
   },
   {
    "id": "five-spice-squid",
@@ -171,7 +178,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/21fbe1d7b27c.webp"
   },
   {
    "id": "crispy-pork-belly-bites",
@@ -663,7 +671,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/cf4626b04626.webp"
   },
   {
    "id": "korean-fried-chicken",
@@ -707,7 +716,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/82c7db858f5d.webp"
   },
   {
    "id": "spicy-aubergine-and-cashew",
@@ -723,7 +733,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/ab194a041d0a.webp"
   },
   {
    "id": "crispy-shredded-beef",
@@ -739,7 +750,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/03ac5b2eb9bc.webp"
   },
   {
    "id": "vegan-korean",
@@ -771,7 +783,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/2e60069899e6.webp"
   },
   {
    "id": "vegetarian-katsu-curry",
@@ -787,7 +800,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/6228a6165ec8.webp"
   },
   {
    "id": "phad-thai-chicken",
@@ -857,7 +871,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/86df1392a156.webp"
   },
   {
    "id": "singapore-fried-noodles",
@@ -871,7 +886,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/ff8b16bb9a3f.webp"
   },
   {
    "id": "chow-mien-chicken",
@@ -1067,7 +1083,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/96302b98eb01.webp"
   },
   {
    "id": "tom-yum-chicken",
@@ -1153,7 +1170,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/86e61bd84d1a.webp"
   },
   {
    "id": "mango-and-chicken-salad",
@@ -1167,7 +1185,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/9193f3b8fcac.webp"
   },
   {
    "id": "spicy-cucumber-salad",
@@ -1183,7 +1202,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/25a556c2f2ea.webp"
   },
   {
    "id": "stir-fried-egg-noodles",
@@ -1199,7 +1219,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/d6ab9d7b0c22.webp"
   },
   {
    "id": "coconut-rice",
@@ -1215,7 +1236,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/e2e36c41cd6d.webp"
   },
   {
    "id": "egg-fried-rice",
@@ -1231,7 +1253,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/3d2a7830178a.webp"
   },
   {
    "id": "special-fried-rice",
@@ -1247,7 +1270,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/fd3e8478fc05.webp"
   },
   {
    "id": "steamed-rice",
@@ -1263,7 +1287,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/df217baeaa97.webp"
   },
   {
    "id": "chocolate-bento-box",
@@ -1279,7 +1304,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/241158f6adb8.webp"
   },
   {
    "id": "fried-ice-cream",
@@ -1421,7 +1447,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "dim-t/dcc5277d9946.webp"
   }
  ],
  "combinations": []

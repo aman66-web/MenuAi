@@ -12,13 +12,13 @@
  "source": {
   "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (hub page, no date printed; read 2026-10-06)",
   "url": "https://menus.tenkites.com/brg/carluccios",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Figures are per menu item from Carluccio's All Day Menu, calculated by the chain from typical weights and measures. Its separate Pizza, Kids, Dessert and other menus are not included; dishes marked * are on the set menu.",
  "allergenGuide": {
   "title": "Carluccio's Allergen & Nutrition Information, All Day Menu (Ten Kites hub page, no date printed; read 2026-10-06)",
   "url": "https://menus.tenkites.com/brg/carluccios",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -206,13 +206,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -288,11 +281,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt"
     ]
    }
   },
@@ -452,13 +440,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -498,13 +479,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -751,9 +725,6 @@
      "mustard",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -835,9 +806,6 @@
      "mustard",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -877,9 +845,6 @@
      "mustard",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

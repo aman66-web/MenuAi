@@ -32,6 +32,7 @@
   "Mains",
   "Sides & sauces",
   "Desserts",
+  "Bar & room service",
   "NGCI options",
   "Plats de jour",
   "Taste du Vin menu",
@@ -190,9 +191,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -522,6 +520,26 @@
    }
   },
   {
+   "id": "black-truffle-crisps-with-brie-torres-black-truffle-crisps-and-brie",
+   "name": "Black Truffle Crisps with Brie Torres black truffle crisps and Brie",
+   "category": "Bar & room service",
+   "serving": "",
+   "nutrients": {
+    "calories": 907
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
    "id": "soupe-a-loignon-ngci",
    "name": "Soupe a L'Oignon (NGCI)",
    "category": "NGCI options",
@@ -826,10 +844,6 @@
      "peanuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "oats"
     ]
    }
   },
@@ -1035,9 +1049,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1060,10 +1071,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1085,11 +1093,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1111,10 +1115,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1136,11 +1137,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1162,10 +1159,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1187,11 +1181,7 @@
      "eggs",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1689,12 +1679,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley",
-     "oats"
-    ]
+    "mayContain": []
    }
   },
   {

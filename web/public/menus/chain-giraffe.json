@@ -377,10 +377,6 @@
      "celery",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -410,10 +406,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -441,10 +433,6 @@
      "celery",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -475,10 +463,6 @@
      "celery",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -724,10 +708,6 @@
     "mayContain": [
      "celery",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -1301,9 +1281,6 @@
      "celery",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1474,11 +1451,6 @@
      "eggs",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt"
     ]
    }
   },
@@ -1509,11 +1481,6 @@
      "milk",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt"
     ]
    }
   },
@@ -1542,11 +1509,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt"
     ]
    }
   },
@@ -1633,11 +1595,7 @@
      "soya",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "rye"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1665,9 +1623,6 @@
     "mayContain": [
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1815,11 +1770,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1930,9 +1880,6 @@
      "milk",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1961,9 +1908,6 @@
     "mayContain": [
      "milk",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1993,9 +1937,6 @@
      "eggs",
      "milk",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2024,9 +1965,6 @@
      "milk",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2093,9 +2031,6 @@
     ],
     "mayContain": [
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2124,11 +2059,6 @@
      "mustard",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2159,13 +2089,6 @@
      "milk",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "oats",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2193,9 +2116,6 @@
     "mayContain": [
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2225,11 +2145,6 @@
      "eggs",
      "milk",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "oats"
     ]
    }
   },
@@ -2257,9 +2172,6 @@
     ],
     "mayContain": [
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2289,11 +2201,6 @@
     "mayContain": [
      "eggs",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "oats"
     ]
    }
   },
@@ -2324,11 +2231,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2628,11 +2530,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2691,9 +2588,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2839,9 +2733,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2901,13 +2792,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "pistachio"
     ]
    }
   },
@@ -3831,9 +3715,6 @@
      "milk",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

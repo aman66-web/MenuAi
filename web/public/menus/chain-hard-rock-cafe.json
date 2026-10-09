@@ -123,7 +123,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/938e7b491233.webp"
   },
   {
    "id": "house-made-crispy-chicken-dippers",
@@ -397,7 +398,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/cc9f20c6ae74.webp"
   },
   {
    "id": "half-rack-of-ribs",
@@ -470,7 +472,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/925c7906565c.webp"
   },
   {
    "id": "bbq-bacon-burger",
@@ -547,7 +550,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/bc5fdaf01b23.webp"
   },
   {
    "id": "grilled-chicken-sandwich",
@@ -765,7 +769,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "hard-rock-cafe/a9352c1a70ab.webp"
   },
   {
    "id": "southwestern-bowl",

@@ -1,1 +1,3 @@
 chain,kind,severity,code,item,name,category,detail
+aunties-anne,allergen,reviewed,name-implies-milk,mango-sorbet-gelato-one-scoop,Mango Sorbet Gelato (one scoop),Gelato,'Gelato' in the name but milk is not marked (contains: ['soya'])
+aunties-anne,allergen,reviewed,name-implies-milk,raspberry-sorbet-gelato-one-scoop,Raspberry Sorbet Gelato (one scoop),Gelato,'Gelato' in the name but milk is not marked (contains: none)

@@ -1,0 +1,3144 @@
+{
+ "schemaVersion": 1,
+ "id": "gordon-ramsay-restaurants",
+ "name": "Gordon Ramsay Restaurants",
+ "cuisine": "Burgers, pizza & Japanese",
+ "builderType": "standard",
+ "aliases": [
+  "gordon ramsay restaurants",
+  "gordon ramsay",
+  "street burger",
+  "street pizza",
+  "lucky cat",
+  "lucky cat manchester"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Gordon Ramsay Restaurants calorie menus: Street Burger & Street Pizza (DUAL-STREET-CALORIE-MATRIX.pdf, created 7 April 2026) and Lucky Cat Manchester (Lucky-Cat-Manchester-KCAL.pdf, created 24 June 2026)",
+  "url": "https://www.gordonramsayrestaurants.com/assets/1Calorie-Matrices/DUAL-STREET-CALORIE-MATRIX.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, from each restaurant's own calorie menu: Street Burger & Street Pizza (PDF of 7 Apr 2026) and Lucky Cat Manchester (PDF of 24 Jun 2026). The group's other restaurants publish no calories; Lucky Cat Mayfair's calorie menu (Oct 2025) is out of date, so it is not listed.",
+ "categories": [
+  "Street Burger & Pizza · Pizzas per slice",
+  "Street Burger & Pizza · Pasta",
+  "Street Burger & Pizza · Burgers",
+  "Street Burger & Pizza · Supercharge your meal",
+  "Street Burger & Pizza · Ribs",
+  "Street Burger & Pizza · Sides & sharers",
+  "Street Burger & Pizza · Dips & sauces",
+  "Street Burger & Pizza · Salads",
+  "Street Burger & Pizza · Add to your salad",
+  "Street Burger & Pizza · Desserts",
+  "Street Burger & Pizza · Vegan bites",
+  "Street Burger & Pizza · Hotter than hell wings",
+  "Street Burger & Pizza · Milkshakes",
+  "Street Burger & Pizza · Non-alcoholic drinks",
+  "Street Burger & Pizza · Mocktails",
+  "Lucky Cat Manchester · Snacks",
+  "Lucky Cat Manchester · Salad",
+  "Lucky Cat Manchester · Sashimi & nigiri",
+  "Lucky Cat Manchester · Raw bar",
+  "Lucky Cat Manchester · Maki",
+  "Lucky Cat Manchester · Tempura",
+  "Lucky Cat Manchester · Dumplings & bao",
+  "Lucky Cat Manchester · Vegetables, rice & noodles",
+  "Lucky Cat Manchester · Fish",
+  "Lucky Cat Manchester · Meat",
+  "Lucky Cat Manchester · Dessert",
+  "Lucky Cat Manchester · Lunch menu",
+  "Lucky Cat Manchester · Afternoon tea",
+  "Lucky Cat Manchester · Non-alcoholic drinks",
+  "Lucky Cat Manchester · Coffee",
+  "Lucky Cat Manchester · Tea"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "street-burger-and-pizza-g-f-c-pizzas-per-slice",
+   "name": "G.F.C",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-fennel-sausage-and-broccoli",
+   "name": "Vegan Fennel Sausage & Broccoli",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 191
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-margherita",
+   "name": "Classic Margherita",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-pineapple",
+   "name": "Ham & Pineapple",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-and-chorizo",
+   "name": "Corn & Chorizo",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni",
+   "name": "Pepperoni",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 131
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gordons-wellington",
+   "name": "Gordon's Wellington",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 183
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "idiot-pizza",
+   "name": "Idiot Pizza",
+   "category": "Street Burger & Pizza · Pizzas per slice",
+   "serving": "1 slice",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lasagne-and-garlic-bread",
+   "name": "Lasagne & Garlic Bread",
+   "category": "Street Burger & Pizza · Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cannelloni-and-garlic-bread",
+   "name": "Cannelloni & Garlic Bread",
+   "category": "Street Burger & Pizza · Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1316
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gordons-wellington-burger",
+   "name": "Gordon's Wellington Burger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1055
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-cheese-smash",
+   "name": "Chilli Cheese Smash",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 998
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roquefort-smash",
+   "name": "Roquefort Smash",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 891
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-smash",
+   "name": "Vegan Smash",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "m-nage-trois",
+   "name": "Ménage à Trois",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 922
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "o-g-r-burger",
+   "name": "O.G.R Burger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 847
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-avo",
+   "name": "Chicken & Avo",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 849
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tandoori-paneer",
+   "name": "Tandoori Paneer",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hells-kitchen",
+   "name": "Hell’s Kitchen",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 600
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "g-f-c-burger",
+   "name": "G.F.C Burger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1563
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-and-crab-roll",
+   "name": "Prawn & Crab Roll",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 475
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "next-level",
+   "name": "Next Level",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 936
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "idiot-burger",
+   "name": "Idiot Burger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 887
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-cheeseburger",
+   "name": "Kids Cheeseburger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 659
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chicken-burger",
+   "name": "Kids Chicken Burger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 692
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vegan-burger",
+   "name": "Kids Vegan Burger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 936
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-beef-burger",
+   "name": "Kids Beef Burger",
+   "category": "Street Burger & Pizza · Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-up",
+   "name": "Double Up",
+   "category": "Street Burger & Pizza · Supercharge your meal",
+   "serving": "",
+   "nutrients": {
+    "calories": 307
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu-up",
+   "name": "Wagyu Up",
+   "category": "Street Burger & Pizza · Supercharge your meal",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Street Burger & Pizza · Supercharge your meal",
+   "serving": "",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-skirt",
+   "name": "Cheese Skirt",
+   "category": "Street Burger & Pizza · Supercharge your meal",
+   "serving": "",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-egg",
+   "name": "Fried Egg",
+   "category": "Street Burger & Pizza · Supercharge your meal",
+   "serving": "",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-ribs-and-fries-half-rack",
+   "name": "BBQ Ribs & Fries Half Rack",
+   "category": "Street Burger & Pizza · Ribs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1317
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-ribs-and-fries-full-rack",
+   "name": "BBQ Ribs & Fries Full Rack",
+   "category": "Street Burger & Pizza · Ribs",
+   "serving": "",
+   "nutrients": {
+    "calories": 2244
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "g-f-c-dirty-fries",
+   "name": "G.F.C Dirty Fries",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1128
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hotter-than-hell-dirty-fries",
+   "name": "Hotter Than Hell Dirty Fries",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chopped-salad",
+   "name": "Chopped Salad",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "street-slaw",
+   "name": "Street Slaw",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 396
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 630
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "g-f-c-salad",
+   "name": "G.F.C Salad",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 943
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 816
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sidewinders-fries",
+   "name": "Sidewinders Fries",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 259
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "street-burger-and-pizza-brocolli-sides-and-sharers",
+   "name": "Brocolli",
+   "category": "Street Burger & Pizza · Sides & sharers",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-herb",
+   "name": "Garlic & Herb",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 101
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gfc",
+   "name": "GFC",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 196
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "siracha-mayo",
+   "name": "Siracha Mayo",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "street-burger-and-pizza-tomato-dips-and-sauces",
+   "name": "Tomato",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-chilli-kimchi",
+   "name": "Sweet Chilli Kimchi",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "umami",
+   "name": "Umami",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "street-hot-sauce",
+   "name": "Street Hot Sauce",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 16
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hotter-than-hell-sauce",
+   "name": "Hotter Than Hell Sauce",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 29
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jalapeno-and-padron",
+   "name": "Jalapeno & Padron",
+   "category": "Street Burger & Pizza · Dips & sauces",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "superfood-salad",
+   "name": "Superfood Salad",
+   "category": "Street Burger & Pizza · Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 395
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-caesar-salad",
+   "name": "Spicy Caesar Salad",
+   "category": "Street Burger & Pizza · Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 521
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beetroot-salad",
+   "name": "Beetroot Salad",
+   "category": "Street Burger & Pizza · Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 466
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-breast",
+   "name": "Chicken Breast",
+   "category": "Street Burger & Pizza · Add to your salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "street-burger-and-pizza-g-f-c-add-to-your-salad",
+   "name": "G.F.C.",
+   "category": "Street Burger & Pizza · Add to your salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "category": "Street Burger & Pizza · Add to your salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "street-burger-and-pizza-brocolli-add-to-your-salad",
+   "name": "Brocolli",
+   "category": "Street Burger & Pizza · Add to your salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bottomless-ice-cream",
+   "name": "Bottomless Ice Cream",
+   "category": "Street Burger & Pizza · Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-curd-pizza",
+   "name": "Lemon Curd Pizza",
+   "category": "Street Burger & Pizza · Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 631
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-toffee-pudding",
+   "name": "Sticky Toffee Pudding",
+   "category": "Street Burger & Pizza · Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 640
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-waffles",
+   "name": "Nutella Waffles",
+   "category": "Street Burger & Pizza · Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 975
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie",
+   "name": "Chocolate Brownie",
+   "category": "Street Burger & Pizza · Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake",
+   "name": "Cheesecake",
+   "category": "Street Burger & Pizza · Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 455
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-vegan-umami-bites",
+   "name": "3x Vegan Umami Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-vegan-umami-bites",
+   "name": "5x Vegan Umami Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 310
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-vegan-umami-bites",
+   "name": "10x Vegan Umami Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 620
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-vegan-umami-bites",
+   "name": "15x Vegan Umami Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 930
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-vegan-sweet-chilli-kimchi-bites",
+   "name": "3x Vegan Sweet Chilli Kimchi Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-vegan-sweet-chilli-kimchi-bites",
+   "name": "5x Vegan Sweet Chilli Kimchi Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-vegan-sweet-chilli-kimchi-bites",
+   "name": "10x Vegan Sweet Chilli Kimchi Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 650
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-vegan-sweet-chilli-kimchi-bites",
+   "name": "15x Vegan Sweet Chilli Kimchi Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 975
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-vegan-street-hot-sauce-bites",
+   "name": "3x Vegan Street Hot Sauce Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-vegan-street-hot-sauce-bites",
+   "name": "5x Vegan Street Hot Sauce Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-vegan-street-hot-sauce-bites",
+   "name": "10x Vegan Street Hot Sauce Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 510
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-vegan-street-hot-sauce-bites",
+   "name": "15x Vegan Street Hot Sauce Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 765
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-vegan-hotter-than-hell-bites",
+   "name": "3x Vegan Hotter Than Hell Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-vegan-hotter-than-hell-bites",
+   "name": "5x Vegan Hotter Than Hell Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-vegan-hotter-than-hell-bites",
+   "name": "10x Vegan Hotter Than Hell Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 534
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-vegan-hotter-than-hell-bites",
+   "name": "15x Vegan Hotter Than Hell Bites",
+   "category": "Street Burger & Pizza · Vegan bites",
+   "serving": "",
+   "nutrients": {
+    "calories": 788
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-umami-wings",
+   "name": "3x Umami Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-umami-wings",
+   "name": "5x Umami Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 435
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-umami-wings",
+   "name": "10x Umami Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 870
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-umami-wings",
+   "name": "15x Umami Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-sweet-chilli-kimchi-wings",
+   "name": "3x Sweet Chilli Kimchi Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-sweet-chilli-kimchi-wings",
+   "name": "5x Sweet Chilli Kimchi Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-sweet-chilli-kimchi-wings",
+   "name": "10x Sweet Chilli Kimchi Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 920
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-sweet-chilli-kimchi-wings",
+   "name": "15x Sweet Chilli Kimchi Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-g-f-c-wings",
+   "name": "3x G.F.C Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-g-f-c-wings",
+   "name": "5x G.F.C Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-g-f-c-wings",
+   "name": "10x G.F.C Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-g-f-c-wings",
+   "name": "15x G.F.C Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 2070
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-street-hot-sauce-wings",
+   "name": "3x Street Hot Sauce Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-street-hot-sauce-wings",
+   "name": "5x Street Hot Sauce Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 380
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-street-hot-sauce-wings",
+   "name": "10x Street Hot Sauce Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 780
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-street-hot-sauce-wings",
+   "name": "15x Street Hot Sauce Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "3x-hotter-than-hell-wings",
+   "name": "3x Hotter Than Hell Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5x-hotter-than-hell-wings",
+   "name": "5x Hotter Than Hell Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "10x-hotter-than-hell-wings",
+   "name": "10x Hotter Than Hell Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "15x-hotter-than-hell-wings",
+   "name": "15x Hotter Than Hell Wings",
+   "category": "Street Burger & Pizza · Hotter than hell wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 1803
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banoffee",
+   "name": "Banoffee",
+   "category": "Street Burger & Pizza · Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 689
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherry",
+   "name": "Cherry",
+   "category": "Street Burger & Pizza · Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 678
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-float",
+   "name": "Pepsi Float",
+   "category": "Street Burger & Pizza · Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 789
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo",
+   "name": "Oreo",
+   "category": "Street Burger & Pizza · Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 699
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi",
+   "name": "Pepsi",
+   "category": "Street Burger & Pizza · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max",
+   "name": "Pepsi Max",
+   "category": "Street Burger & Pizza · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-pepsi",
+   "name": "Diet Pepsi",
+   "category": "Street Burger & Pizza · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tango-orange-zerod",
+   "name": "Tango Orange Zero'd",
+   "category": "Street Burger & Pizza · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "7up-zero",
+   "name": "7UP Zero",
+   "category": "Street Burger & Pizza · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crodino-spritz",
+   "name": "Crodino Spritz",
+   "category": "Street Burger & Pizza · Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-bubble-tea",
+   "name": "Peach Bubble Tea",
+   "category": "Street Burger & Pizza · Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arnold-palmer",
+   "name": "Arnold Palmer",
+   "category": "Street Burger & Pizza · Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "virgin-raspberry-mojito",
+   "name": "Virgin Raspberry Mojito",
+   "category": "Street Burger & Pizza · Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-lemonade",
+   "name": "Homemade Lemonade",
+   "category": "Street Burger & Pizza · Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "padron-peppers",
+   "name": "Padron peppers",
+   "category": "Lucky Cat Manchester · Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pea-guac",
+   "name": "Pea guac",
+   "category": "Lucky Cat Manchester · Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 323
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-edamame",
+   "name": "Spicy edamame",
+   "category": "Lucky Cat Manchester · Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 394
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-edamame",
+   "name": "Salted edamame",
+   "category": "Lucky Cat Manchester · Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kyoto-cucumbers",
+   "name": "Kyoto cucumbers",
+   "category": "Lucky Cat Manchester · Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 166
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-squid",
+   "name": "Baby squid",
+   "category": "Lucky Cat Manchester · Snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 464
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-manchester-tomato-salad",
+   "name": "Tomato",
+   "category": "Lucky Cat Manchester · Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck-salad",
+   "name": "Duck salad",
+   "category": "Lucky Cat Manchester · Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soft-shell-crab",
+   "name": "Soft shell crab",
+   "category": "Lucky Cat Manchester · Salad",
+   "serving": "",
+   "nutrients": {
+    "calories": 203
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-sashimi",
+   "name": "Salmon sashimi",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-nigiri",
+   "name": "Salmon nigiri",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 301
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "akami-sashimi",
+   "name": "Akami sashimi",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 140
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "akami-nigiri",
+   "name": "Akami nigiri",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toro-sashimi",
+   "name": "Toro sashimi",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toro-nigiri",
+   "name": "Toro nigiri",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowtail-sashimi",
+   "name": "Yellowtail sashimi",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowtail-nigiri",
+   "name": "Yellowtail nigiri",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu-nigiri",
+   "name": "Wagyu nigiri",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nigiri-selection-3-pieces",
+   "name": "Nigiri selection 3 pieces",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 232
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nigiri-selection-5-pieces",
+   "name": "Nigiri selection 5 pieces",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 496
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sashimi-selection-6-pieces",
+   "name": "Sashimi selection 6 pieces",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 476
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sashimi-selection-10-pieces",
+   "name": "Sashimi selection 10 pieces",
+   "category": "Lucky Cat Manchester · Sashimi & nigiri",
+   "serving": "",
+   "nutrients": {
+    "calories": 1092
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zenmai",
+   "name": "Zenmai",
+   "category": "Lucky Cat Manchester · Raw bar",
+   "serving": "",
+   "nutrients": {
+    "calories": 2714
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowtail-tartare",
+   "name": "Yellowtail tartare",
+   "category": "Lucky Cat Manchester · Raw bar",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-tataki",
+   "name": "Beef tataki",
+   "category": "Lucky Cat Manchester · Raw bar",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-kinilaw",
+   "name": "Tuna kinilaw",
+   "category": "Lucky Cat Manchester · Raw bar",
+   "serving": "",
+   "nutrients": {
+    "calories": 522
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california",
+   "name": "California",
+   "category": "Lucky Cat Manchester · Maki",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-tuna",
+   "name": "Spicy tuna",
+   "category": "Lucky Cat Manchester · Maki",
+   "serving": "",
+   "nutrients": {
+    "calories": 449
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-mushroom",
+   "name": "Mixed mushroom",
+   "category": "Lucky Cat Manchester · Maki",
+   "serving": "",
+   "nutrients": {
+    "calories": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wagyu",
+   "name": "Wagyu",
+   "category": "Lucky Cat Manchester · Maki",
+   "serving": "",
+   "nutrients": {
+    "calories": 457
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-aburi",
+   "name": "Salmon aburi",
+   "category": "Lucky Cat Manchester · Maki",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "duck",
+   "name": "Duck",
+   "category": "Lucky Cat Manchester · Maki",
+   "serving": "",
+   "nutrients": {
+    "calories": 587
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-prawns",
+   "name": "Sweet & sour prawns",
+   "category": "Lucky Cat Manchester · Tempura",
+   "serving": "",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "g-f-g",
+   "name": "G.F.G",
+   "category": "Lucky Cat Manchester · Tempura",
+   "serving": "",
+   "nutrients": {
+    "calories": 673
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cauliflower-tempura",
+   "name": "Cauliflower tempura",
+   "category": "Lucky Cat Manchester · Tempura",
+   "serving": "",
+   "nutrients": {
+    "calories": 452
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bonito-fried-duck-leg",
+   "name": "Bonito fried duck leg",
+   "category": "Lucky Cat Manchester · Dumplings & bao",
+   "serving": "",
+   "nutrients": {
+    "calories": 749
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-and-spicy-avo-bao",
+   "name": "Tofu & spicy avo bao",
+   "category": "Lucky Cat Manchester · Dumplings & bao",
+   "serving": "",
+   "nutrients": {
+    "calories": 655
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-mushroom-dumpling",
+   "name": "Mixed mushroom dumpling",
+   "category": "Lucky Cat Manchester · Dumplings & bao",
+   "serving": "",
+   "nutrients": {
+    "calories": 202
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "short-rib-bao",
+   "name": "Short rib bao",
+   "category": "Lucky Cat Manchester · Dumplings & bao",
+   "serving": "",
+   "nutrients": {
+    "calories": 591
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-fried-rice",
+   "name": "Egg fried rice",
+   "category": "Lucky Cat Manchester · Vegetables, rice & noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 401
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-bbq-aubergine",
+   "name": "Smoked bbq aubergine",
+   "category": "Lucky Cat Manchester · Vegetables, rice & noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 275
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-manchester-grilled-tenderstem-broccoli-vegetables-rice-and-noodles",
+   "name": "Grilled tenderstem broccoli",
+   "category": "Lucky Cat Manchester · Vegetables, rice & noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tom-kha-udon-noodles",
+   "name": "Tom kha udon noodles",
+   "category": "Lucky Cat Manchester · Vegetables, rice & noodles",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-miso-salmon",
+   "name": "Grilled miso salmon",
+   "category": "Lucky Cat Manchester · Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 622
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scallops",
+   "name": "Scallops",
+   "category": "Lucky Cat Manchester · Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 472
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butterflied-sea-bream",
+   "name": "Butterflied sea bream",
+   "category": "Lucky Cat Manchester · Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 477
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "monkfish-tail",
+   "name": "Monkfish tail",
+   "category": "Lucky Cat Manchester · Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 589
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-spiced-black-cod",
+   "name": "Korean spiced black cod",
+   "category": "Lucky Cat Manchester · Fish",
+   "serving": "",
+   "nutrients": {
+    "calories": 486
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baby-chicken",
+   "name": "Baby chicken",
+   "category": "Lucky Cat Manchester · Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 770
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-lamb-chops",
+   "name": "Spicy lamb chops",
+   "category": "Lucky Cat Manchester · Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 589
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ribeye-300g",
+   "name": "Ribeye 300g",
+   "category": "Lucky Cat Manchester · Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 621
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-manchester-short-rib-meat",
+   "name": "Short rib",
+   "category": "Lucky Cat Manchester · Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-manchester-grilled-tenderstem-broccoli-meat",
+   "name": "Grilled tenderstem broccoli",
+   "category": "Lucky Cat Manchester · Meat",
+   "serving": "",
+   "nutrients": {
+    "calories": 225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hokkaido-french-toast",
+   "name": "Hokkaido french toast",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 640
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-treacle-cake",
+   "name": "Apple treacle cake",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 695
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-truffles-all",
+   "name": "Chocolate truffles (all)",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 398
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-sticky-rice",
+   "name": "Mango sticky rice",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 281
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mochi-all",
+   "name": "Mochi (all)",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-lollies",
+   "name": "Lucky lollies",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-platter",
+   "name": "Fruit platter",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-dessert-selection",
+   "name": "Lucky cat dessert selection",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 1013
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-sudachi-souffl",
+   "name": "Raspberry & sudachi soufflé",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 558
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-to-share",
+   "name": "Lucky cat to share",
+   "category": "Lucky Cat Manchester · Dessert",
+   "serving": "",
+   "nutrients": {
+    "calories": 1617
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetable-tempura",
+   "name": "Vegetable tempura",
+   "category": "Lucky Cat Manchester · Lunch menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 400
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-rice-beef-bowl",
+   "name": "Crispy rice beef bowl",
+   "category": "Lucky Cat Manchester · Lunch menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 992
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-salmon-rice-bowl",
+   "name": "Teriyaki salmon rice bowl",
+   "category": "Lucky Cat Manchester · Lunch menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 972
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-rice-bowl",
+   "name": "Mushroom rice bowl",
+   "category": "Lucky Cat Manchester · Lunch menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 779
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "g-f-c-small-portion",
+   "name": "G.F.C (small portion)",
+   "category": "Lucky Cat Manchester · Lunch menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-prawns-small-portion",
+   "name": "Sweet & sour prawns (small portion)",
+   "category": "Lucky Cat Manchester · Lunch menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 191
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nigiri",
+   "name": "Nigiri",
+   "category": "Lucky Cat Manchester · Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shiso-cured-salmon",
+   "name": "Shiso cured salmon",
+   "category": "Lucky Cat Manchester · Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kyoto-cucumber",
+   "name": "Kyoto cucumber",
+   "category": "Lucky Cat Manchester · Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 243
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-manchester-short-rib-afternoon-tea",
+   "name": "Short rib",
+   "category": "Lucky Cat Manchester · Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 412
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yuzu-meringue-tartlets",
+   "name": "Yuzu meringue tartlets",
+   "category": "Lucky Cat Manchester · Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 297
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-and-strawberry-sando",
+   "name": "Matcha and strawberry sando",
+   "category": "Lucky Cat Manchester · Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-brownie",
+   "name": "Miso brownie",
+   "category": "Lucky Cat Manchester · Afternoon tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 302
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wild-rose",
+   "name": "Wild rose",
+   "category": "Lucky Cat Manchester · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sakura-spritz",
+   "name": "Sakura spritz",
+   "category": "Lucky Cat Manchester · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "polynesian-cooler",
+   "name": "Polynesian cooler",
+   "category": "Lucky Cat Manchester · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lucky-cat-non-groni",
+   "name": "Lucky cat non-groni",
+   "category": "Lucky Cat Manchester · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yuzu-breeze",
+   "name": "Yuzu breeze",
+   "category": "Lucky Cat Manchester · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nai",
+   "name": "Nai",
+   "category": "Lucky Cat Manchester · Non-alcoholic drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double espresso",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat white",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot chocolate",
+   "category": "Lucky Cat Manchester · Coffee",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast",
+   "name": "English breakfast",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey",
+   "name": "Earl grey",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "darjeeling",
+   "name": "Darjeeling",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea",
+   "name": "Green tea",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint",
+   "name": "Peppermint",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chamomile",
+   "name": "Chamomile",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jasmine",
+   "name": "Jasmine",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hibiscus",
+   "name": "Hibiscus",
+   "category": "Lucky Cat Manchester · Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

@@ -1,3 +1,8 @@
 chain,kind,severity,code,item,name,category,detail
 chaiiwala,nutrition,low,huge,the-family-platter,The Family platter,Wala bundles,4324 kcal in one sharing item
 chaiiwala,nutrition,low,huge,the-family-platter-veg,The Family platter - veg,Wala bundles,4204 kcal in one sharing item
+chaiiwala,allergen,low,name-implies-sulphites,watermelon-spritz-large,Watermelon Spritz (Large),Cold drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+chaiiwala,allergen,low,name-implies-sulphites,watermelon-spritz-regular,Watermelon Spritz (Regular),Cold drinks,'Spritz' in the name but sulphites is not marked (contains: none)
+chaiiwala,allergen,reviewed,name-implies-gluten,toasted-cinnamon-and-vanilla-matcha-large,Toasted Cinnamon & Vanilla Matcha (Large),Cold drinks,'Toast' in the name but gluten is not marked (contains: ['milk'])
+chaiiwala,allergen,reviewed,name-implies-gluten,toasted-cinnamon-and-vanilla-matcha-regular,Toasted Cinnamon & Vanilla Matcha (Regular),Cold drinks,'Toast' in the name but gluten is not marked (contains: ['milk'])
+chaiiwala,allergen,reviewed,name-implies-sesame,halwa-puri,Halwa Puri,All day breakfast,"'Halwa' in the name but sesame is not marked (contains: ['gluten', 'milk'])"

@@ -1,2 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
 jamies-italian,nutrition,low,sugar+fibre-gt-carbs,green-beans-pomodoro,Green Beans Pomodoro,Sides (contorni),sugars 6 + fibre 4.4 > carbohydrate 7.6 (starch would be negative)
+jamies-italian,allergen,reviewed,name-implies-eggs,crust-dipper-super-green-aioli,Crust Dipper - Super Green Aioli,Pizza,'Aioli' in the name but eggs is not marked (contains: ['mustard'])
+jamies-italian,allergen,reviewed,name-implies-gluten,prawn-linguine-non-gluten,Prawn Linguine Non Gluten,Pasta,"'Linguine' in the name but gluten is not marked (contains: ['celery', 'crustaceans', 'fish', 'molluscs', 'sulphites'])"

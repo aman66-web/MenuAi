@@ -14,13 +14,13 @@
  "source": {
   "title": "Frankie & Benny's Nutritional Information: Main, Lunch, Desserts, Drinks, Evening and Kids menus (page generated 2026-10-06)",
   "url": "https://menus.tenkites.com/thebigtg/frankiebennys02",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Per portion as printed on the chain's menu pages; the Breakfast menu (selected sites only) is not listed. Wines, many cocktails and some drinks print no numbers and are not listed. Sauces, toppings, extras and upgrade sides are separate rows: add them to a dish yourself.",
  "allergenGuide": {
   "title": "Frankie & Benny's Dietary Information (allergens) on its online Main, Lunch, Desserts, Drinks, Evening and Kids menus (Ten Kites page generated 2026-10-06)",
   "url": "https://menus.tenkites.com/thebigtg/frankiebennys02",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -87,13 +87,6 @@
      "fish",
      "molluscs",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "oats",
-     "spelt",
-     "kamut"
     ],
     "nuts": [
      "almond",
@@ -445,9 +438,6 @@
      "nuts",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -518,9 +508,6 @@
      "molluscs",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -557,9 +544,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -596,9 +580,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -635,9 +616,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -790,19 +768,6 @@
      "molluscs",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -839,9 +804,6 @@
      "molluscs",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -878,9 +840,6 @@
      "molluscs",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1092,9 +1051,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1240,9 +1196,6 @@
      "nuts",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2263,9 +2216,6 @@
      "molluscs",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2304,9 +2254,6 @@
      "fish",
      "molluscs",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2464,9 +2411,6 @@
      "milk",
      "molluscs",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2949,16 +2893,6 @@
     "mayContain": [],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },
@@ -3057,9 +2991,6 @@
      "molluscs",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3541,9 +3472,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3902,9 +3830,6 @@
      "molluscs",
      "mustard",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -4607,9 +4532,6 @@
     "mayContain": [
      "eggs",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -4678,10 +4600,6 @@
      "mustard",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "oats"
     ]
    }
   },
@@ -5149,9 +5067,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -5188,9 +5103,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -5227,9 +5139,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -5266,9 +5175,6 @@
      "mustard",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -6608,12 +6514,6 @@
     "mayContain": [
      "milk",
      "sulphites"
-    ],
-    "nuts": [
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut"
     ]
    }
   },
@@ -6644,16 +6544,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "walnut",
-     "cashew",
-     "pecan",
-     "brazil nut",
-     "pistachio",
-     "macadamia"
     ]
    }
   },

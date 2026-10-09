@@ -1,0 +1,3 @@
+chain,kind,severity,code,item,name,category,detail
+rockfish,allergen,reviewed,name-implies-fish,fishermans-coffee,Fisherman’s coffee,Desserts,'Fish' in the name but fish is not marked (contains: ['milk'])
+rockfish,allergen,reviewed,name-implies-gluten,yorkshire-garden-peas,Yorkshire garden peas,Sides and Sauces,'Yorkshire' in the name but gluten is not marked (contains: ['milk'])

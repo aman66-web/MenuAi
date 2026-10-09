@@ -1,0 +1,4 @@
+chain,kind,severity,code,item,name,category,detail
+parsons-bakery,nutrition,reviewed,salt-very-high,large-white-sourdough,Large White Sourdough,Bread,salt 10.9 g with 1754 kcal (6 g is the whole day's limit)
+parsons-bakery,nutrition,reviewed,salt-very-high,malted-wheat-loaf,Malted Wheat Loaf,Bread,salt 10.8 g with 2180 kcal (6 g is the whole day's limit)
+parsons-bakery,nutrition,reviewed,salt-very-high,split-tin-loaf,Split Tin Loaf,Bread,salt 11 g with 2191 kcal (6 g is the whole day's limit)

@@ -12,13 +12,13 @@
  "source": {
   "title": "Cafe Rouge Nutritional Values: Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (page generated 2026-10-06)",
   "url": "https://menus.tenkites.com/thebigtg/mobilemenuscaferouge",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Per portion as printed on the chain's menu pages. Wines, cocktails and most drinks print no numbers and are not listed; afternoon tea, Sunday roast (Centre Parcs only) and the Christmas Day menus are not listed. Extras and the side served with a grill dish are separate rows: add them yourself.",
  "allergenGuide": {
   "title": "Cafe Rouge Dietary Information (allergens) on its online Main, Desserts, Lunch, Kids, Breakfast and Drinks menus (Ten Kites page generated 2026-10-06)",
   "url": "https://menus.tenkites.com/thebigtg/mobilemenuscaferouge",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -105,10 +105,7 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -168,11 +165,6 @@
     ],
     "mayContain": [
      "nuts"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -309,10 +301,7 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -382,12 +371,7 @@
      "milk",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -443,10 +427,7 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -474,10 +455,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -506,10 +484,7 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -538,10 +513,7 @@
      "gluten",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -569,10 +541,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -611,9 +580,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -710,9 +676,6 @@
     ],
     "mayContain": [
      "peanuts"
-    ],
-    "nuts": [
-     "walnut"
     ]
    }
   },
@@ -1649,12 +1612,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1683,10 +1641,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1716,12 +1671,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2153,11 +2103,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut",
-     "pecan"
     ]
    }
   },
@@ -2657,9 +2602,6 @@
      "oats",
      "spelt",
      "kamut"
-    ],
-    "nuts": [
-     "walnut"
     ]
    }
   },
@@ -2804,10 +2746,7 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {

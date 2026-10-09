@@ -1,1 +1,16 @@
 chain,kind,severity,code,item,name,category,detail
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-hot-chocolate-coconut,Cinnamon Bun Hot Chocolate - Coconut,Seasonal drinks,"'Bun' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-hot-chocolate-full-fat-milk,Cinnamon Bun Hot Chocolate - Full Fat Milk,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-hot-chocolate-skimmed,Cinnamon Bun Hot Chocolate - Skimmed,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-hot-chocolate-soya,Cinnamon Bun Hot Chocolate - Soya,Seasonal drinks,"'Bun' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-coconut,Cinnamon Bun Latte - Coconut,Seasonal drinks,"'Bun' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-full-fat-milk,Cinnamon Bun Latte - Full Fat Milk,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-iced-coconut,Cinnamon Bun Latte - ICED - Coconut,Seasonal drinks,"'Bun' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-iced-full-fat-milk,Cinnamon Bun Latte - ICED - Full Fat Milk,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-iced-skimmed,Cinnamon Bun Latte - ICED - Skimmed,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-iced-soya,Cinnamon Bun Latte - ICED - Soya,Seasonal drinks,"'Bun' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-skimmed,Cinnamon Bun Latte - Skimmed,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-latte-soya,Cinnamon Bun Latte - Soya,Seasonal drinks,"'Bun' in the name but gluten is not marked (contains: ['milk', 'soya'])"
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-matcha-latte-and-iced-full-fat-milk,Cinnamon Bun Matcha Latte & Iced - Full Fat Milk,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-matcha-latte-and-iced-skimmed,Cinnamon Bun Matcha Latte & Iced - Skimmed,Seasonal drinks,'Bun' in the name but gluten is not marked (contains: ['milk'])
+patisserie-valerie,allergen,reviewed,name-implies-gluten,cinnamon-bun-matcha-latte-and-iced-soya,Cinnamon Bun Matcha Latte & Iced - Soya,Seasonal drinks,"'Bun' in the name but gluten is not marked (contains: ['milk', 'soya'])"

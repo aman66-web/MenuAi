@@ -1,0 +1,10 @@
+chain,kind,severity,code,item,name,category,detail
+tenpin,allergen,reviewed,name-implies-eggs,add-a-sauce-garlic-mayonnaise,Add a Sauce - Garlic Mayonnaise,Burgers & Dogs,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+tenpin,allergen,reviewed,name-implies-eggs,chipotle-mayo,Chipotle Mayo,Sauces,'Mayo' in the name but eggs is not marked (contains: none)
+tenpin,allergen,reviewed,name-implies-eggs,garlic-mayo,Garlic Mayo,Sauces,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+tenpin,allergen,reviewed,name-implies-eggs,pizza-add-a-sauce-garlic-mayonnaise,Pizza Add a Sauce - Garlic Mayonnaise,Pizza,'Mayo' in the name but eggs is not marked (contains: ['mustard'])
+tenpin,allergen,reviewed,name-implies-gluten,pizza-add-a-sauce-bbq-sauce,Pizza Add a Sauce - BBQ Sauce,Pizza,'Pizza' in the name but gluten is not marked (contains: none)
+tenpin,allergen,reviewed,name-implies-gluten,pizza-add-a-sauce-garlic-mayonnaise,Pizza Add a Sauce - Garlic Mayonnaise,Pizza,'Pizza' in the name but gluten is not marked (contains: ['mustard'])
+tenpin,allergen,reviewed,name-implies-gluten,pizza-add-a-sauce-sriracha-hot-chilli-sauce,Pizza Add a Sauce - Sriracha Hot Chilli Sauce,Pizza,'Pizza' in the name but gluten is not marked (contains: none)
+tenpin,allergen,reviewed,name-implies-gluten,top-your-pizza-with-jalapenos,Top your pizza with jalapenos,Pizza,'pizza' in the name but gluten is not marked (contains: none)
+tenpin,allergen,reviewed,name-implies-gluten,waffle-fries,Waffle Fries,Pick 'n' Dip,'Waffle' in the name but gluten is not marked (contains: none)

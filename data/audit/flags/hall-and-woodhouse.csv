@@ -1,0 +1,11 @@
+chain,kind,severity,code,item,name,category,detail
+hall-and-woodhouse,allergen,medium,name-implies-eggs,chicken-and-bacon-mayo-bagel,Chicken & Bacon Mayo Bagel,Sandwiches and bread,'Mayo' in the name but eggs is not marked (contains: ['gluten'])
+hall-and-woodhouse,allergen,medium,name-implies-eggs,chicken-bacon-and-mayo-roll,"Chicken, Bacon & Mayo Roll",Sandwiches and bread,'Mayo' in the name but eggs is not marked (contains: none)
+hall-and-woodhouse,allergen,medium,name-implies-eggs,sauce-hellmanns-mayo,Sauce - Hellmanns Mayo,Sauces and condiments,'Mayo' in the name but eggs is not marked (contains: ['lupin'])
+hall-and-woodhouse,allergen,medium,name-implies-eggs,sauce-mayo,Sauce - Mayo,Sauces and condiments,'Mayo' in the name but eggs is not marked (contains: none)
+hall-and-woodhouse,allergen,medium,name-implies-fish,caesar-salad,Caesar Salad,Sides,"'Caesar' in the name but fish is not marked (contains: ['eggs', 'gluten', 'milk'])"
+hall-and-woodhouse,allergen,medium,name-implies-gluten,ngci-chocolate-fudge-cake,NGCI Chocolate Fudge Cake,Cakes and bakes,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+hall-and-woodhouse,allergen,medium,name-implies-gluten,ngci-mint-choc-chip-cake,NGCI Mint Choc Chip Cake,Cakes and bakes,"'Cake' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"
+hall-and-woodhouse,allergen,medium,name-implies-gluten,signature-seafood-pie,Signature Seafood Pie,Mains,"'Pie' in the name but gluten is not marked (contains: ['crustaceans', 'fish', 'milk'])"
+hall-and-woodhouse,nutrition,low,zero-named-has-kcal,old-mout-berries-and-cherries-zero,Old Mout Berries & Cherries Zero,Beer and cider,named diet/zero/no sugar but 170 kcal
+hall-and-woodhouse,nutrition,low,zero-named-has-kcal,thatchers-zero,Thatchers Zero,Beer and cider,named diet/zero/no sugar but 130 kcal

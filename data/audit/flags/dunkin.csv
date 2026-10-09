@@ -1,1 +1,4 @@
 chain,kind,severity,code,item,name,category,detail
+dunkin,allergen,reviewed,name-implies-gluten,toasted-marshmallow-iced-matcha-large,Toasted Marshmallow Iced Matcha (Large),Cold drinks,'Toast' in the name but gluten is not marked (contains: ['milk'])
+dunkin,allergen,reviewed,name-implies-gluten,toasted-marshmallow-iced-matcha-medium,Toasted Marshmallow Iced Matcha (Medium),Cold drinks,'Toast' in the name but gluten is not marked (contains: ['milk'])
+dunkin,allergen,reviewed,name-implies-gluten,toasted-marshmallow-iced-matcha-small,Toasted Marshmallow Iced Matcha (Small),Cold drinks,'Toast' in the name but gluten is not marked (contains: ['milk'])

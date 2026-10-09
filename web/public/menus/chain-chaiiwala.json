@@ -14,13 +14,13 @@
   "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
- "note": "Calories only: Chaiiwala prints kcal on its menu pages (drinks for Regular and Large), no protein, carbs or fat. Dishes with no kcal printed (fridge drinks, Grab & Go, a few others) are not listed. Some dishes are sold in select stores only. The allergen matrix has no fish, crustacean or mollusc columns, so those read Not listed, not free from.",
+ "note": "Calories only: kcal on the menu pages (drinks Regular and Large), no protein, carbs or fat. Dishes with no kcal printed are not listed; some are sold in select stores only. The allergen matrix has no fish, crustacean or mollusc columns, so those read Not listed, not free from. Kebab Caesar Salad is not shown (Caesar dressing, no fish column).",
  "allergenGuide": {
   "title": "Chaiiwala allergen matrix, Allergen Information V15 (October 2026)",
   "url": "https://www.chaiiwala.co.uk/allergens",
   "checkedOn": "2026-10-08",
   "mayContainPublished": true,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Hot drinks",
@@ -51,7 +51,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/46836cedd361.webp"
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "our-famous-karak-chaii-large",
@@ -68,7 +77,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/46836cedd361.webp"
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "karak-chaii-no-added-sugar-regular",
@@ -83,7 +101,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/46836cedd361.webp"
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "karak-chaii-no-added-sugar-large",
@@ -98,7 +125,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/46836cedd361.webp"
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "vegan-chaii-regular",
@@ -115,7 +151,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/46836cedd361.webp"
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "vegan-chaii-large",
@@ -132,7 +177,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/46836cedd361.webp"
+   "image": "chaiiwala/46836cedd361.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "pink-chaii-regular",
@@ -147,7 +201,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/aea2639ce156.webp"
+   "image": "chaiiwala/aea2639ce156.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "pink-chaii-large",
@@ -162,7 +225,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/aea2639ce156.webp"
+   "image": "chaiiwala/aea2639ce156.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "karak-coffee-regular",
@@ -177,7 +249,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/7c9e591597f8.webp"
+   "image": "chaiiwala/7c9e591597f8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "karak-coffee-large",
@@ -192,7 +273,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/7c9e591597f8.webp"
+   "image": "chaiiwala/7c9e591597f8.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "chaii-flask",
@@ -207,7 +297,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/f9755ab59a39.webp"
+   "image": "chaiiwala/f9755ab59a39.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "chaii-latte-regular",
@@ -222,7 +321,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/c3916ef51695.webp"
+   "image": "chaiiwala/c3916ef51695.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chaii-latte-large",
@@ -237,7 +342,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/c3916ef51695.webp"
+   "image": "chaiiwala/c3916ef51695.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "garam-chocolate-regular",
@@ -252,7 +363,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/adfa28c1015b.webp"
+   "image": "chaiiwala/adfa28c1015b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "garam-chocolate-large",
@@ -267,7 +384,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/adfa28c1015b.webp"
+   "image": "chaiiwala/adfa28c1015b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-regular",
@@ -282,7 +405,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/64bea63e6ade.webp"
+   "image": "chaiiwala/64bea63e6ade.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-large",
@@ -297,7 +426,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/64bea63e6ade.webp"
+   "image": "chaiiwala/64bea63e6ade.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-chaii-regular",
@@ -312,7 +447,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/6ba1aabec05b.webp"
+   "image": "chaiiwala/6ba1aabec05b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "caramel-chaii-large",
@@ -327,7 +471,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/6ba1aabec05b.webp"
+   "image": "chaiiwala/6ba1aabec05b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "flat-white-regular",
@@ -342,7 +495,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/fd746a49963e.webp"
+   "image": "chaiiwala/fd746a49963e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white-large",
@@ -357,7 +516,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/fd746a49963e.webp"
+   "image": "chaiiwala/fd746a49963e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-regular",
@@ -371,7 +536,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "espresso-large",
@@ -385,7 +556,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "americano-regular",
@@ -400,7 +577,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/fac577334874.webp"
+   "image": "chaiiwala/fac577334874.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-large",
@@ -415,7 +598,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/fac577334874.webp"
+   "image": "chaiiwala/fac577334874.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-regular",
@@ -430,7 +619,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/768977e069ba.webp"
+   "image": "chaiiwala/768977e069ba.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-large",
@@ -445,7 +640,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/768977e069ba.webp"
+   "image": "chaiiwala/768977e069ba.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-tea-regular",
@@ -460,7 +661,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/54c5c36c098e.webp"
+   "image": "chaiiwala/54c5c36c098e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-tea-large",
@@ -475,7 +680,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/54c5c36c098e.webp"
+   "image": "chaiiwala/54c5c36c098e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "english-tea-regular",
@@ -490,7 +699,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/4bc38b119a4e.webp"
+   "image": "chaiiwala/4bc38b119a4e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "english-tea-large",
@@ -505,7 +718,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/4bc38b119a4e.webp"
+   "image": "chaiiwala/4bc38b119a4e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "arabic-tea-regular",
@@ -519,7 +736,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "arabic-tea-large",
@@ -533,7 +754,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "the-wala-box",
@@ -548,7 +773,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/f960c2e75815.webp"
+   "image": "chaiiwala/f960c2e75815.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-family-platter",
@@ -563,7 +805,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/3ce4c1f5f27a.webp"
+   "image": "chaiiwala/3ce4c1f5f27a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-wala-box-veg",
@@ -580,7 +839,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/564169f238ce.webp"
+   "image": "chaiiwala/564169f238ce.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "the-family-platter-veg",
@@ -597,7 +873,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/d9096cc14928.webp"
+   "image": "chaiiwala/d9096cc14928.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "badam-milk-shake",
@@ -614,7 +907,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/27c34eb59fd9.webp"
+   "image": "chaiiwala/27c34eb59fd9.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "desi-cold-coffee",
@@ -629,7 +934,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/5d04bd22dd31.webp"
+   "image": "chaiiwala/5d04bd22dd31.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "iced-karak-coffee-regular",
@@ -646,7 +964,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/aa29a61d4b65.webp"
+   "image": "chaiiwala/aa29a61d4b65.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "iced-karak-coffee-large",
@@ -663,7 +990,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/aa29a61d4b65.webp"
+   "image": "chaiiwala/aa29a61d4b65.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "mango-lassi-regular",
@@ -680,7 +1016,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/ed9c09626df4.webp"
+   "image": "chaiiwala/ed9c09626df4.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-lassi-large",
@@ -697,7 +1039,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/ed9c09626df4.webp"
+   "image": "chaiiwala/ed9c09626df4.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "falooda-mango-milkshake-regular",
@@ -712,7 +1060,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/7063c18f0027.webp"
+   "image": "chaiiwala/7063c18f0027.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "falooda-mango-milkshake-large",
@@ -727,7 +1089,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/7063c18f0027.webp"
+   "image": "chaiiwala/7063c18f0027.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "falooda-rose-milkshake-regular",
@@ -744,7 +1120,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/3c42e6a57a72.webp"
+   "image": "chaiiwala/3c42e6a57a72.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "falooda-rose-milkshake-large",
@@ -761,7 +1151,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/3c42e6a57a72.webp"
+   "image": "chaiiwala/3c42e6a57a72.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "toasted-cinnamon-and-vanilla-matcha-regular",
@@ -778,7 +1182,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/202b64785b49.webp"
+   "image": "chaiiwala/202b64785b49.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toasted-cinnamon-and-vanilla-matcha-large",
@@ -795,7 +1205,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/202b64785b49.webp"
+   "image": "chaiiwala/202b64785b49.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "blueberry-and-white-chocolate-matcha-regular",
@@ -810,7 +1226,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/974a07d8c14a.webp"
+   "image": "chaiiwala/974a07d8c14a.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "blueberry-and-white-chocolate-matcha-large",
@@ -825,7 +1248,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/974a07d8c14a.webp"
+   "image": "chaiiwala/974a07d8c14a.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-mojito-regular",
@@ -842,7 +1272,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/d0a693a98154.webp"
+   "image": "chaiiwala/d0a693a98154.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-mojito-large",
@@ -859,7 +1293,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/d0a693a98154.webp"
+   "image": "chaiiwala/d0a693a98154.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "watermelon-spritz-regular",
@@ -874,7 +1312,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/cce42f101a1a.webp"
+   "image": "chaiiwala/cce42f101a1a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "watermelon-spritz-large",
@@ -889,7 +1331,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/cce42f101a1a.webp"
+   "image": "chaiiwala/cce42f101a1a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "blueberry-mocktail-regular",
@@ -904,7 +1350,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/9d8df4658b91.webp"
+   "image": "chaiiwala/9d8df4658b91.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "blueberry-mocktail-large",
@@ -919,7 +1369,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/9d8df4658b91.webp"
+   "image": "chaiiwala/9d8df4658b91.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tahitian-lime-mocktail-regular",
@@ -934,7 +1388,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/a802dfcc75e4.webp"
+   "image": "chaiiwala/a802dfcc75e4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tahitian-lime-mocktail-large",
@@ -949,7 +1407,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/a802dfcc75e4.webp"
+   "image": "chaiiwala/a802dfcc75e4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chilli-guava-lemonade-regular",
@@ -966,7 +1428,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/f42e852ce2e5.webp"
+   "image": "chaiiwala/f42e852ce2e5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chilli-guava-lemonade-large",
@@ -983,7 +1449,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/f42e852ce2e5.webp"
+   "image": "chaiiwala/f42e852ce2e5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "limbu-pani-lemonade-regular",
@@ -998,7 +1468,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/9944f5646dc8.webp"
+   "image": "chaiiwala/9944f5646dc8.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "limbu-pani-lemonade-large",
@@ -1013,7 +1489,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/9944f5646dc8.webp"
+   "image": "chaiiwala/9944f5646dc8.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "blue-limbu-pani-lemonade-regular",
@@ -1028,7 +1510,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/5ade2d9dc103.webp"
+   "image": "chaiiwala/5ade2d9dc103.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "blue-limbu-pani-lemonade-large",
@@ -1043,7 +1531,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/5ade2d9dc103.webp"
+   "image": "chaiiwala/5ade2d9dc103.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-energy-drink",
@@ -1058,7 +1552,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/8c836bd41fa3.webp"
+   "image": "chaiiwala/8c836bd41fa3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-sugarfree",
@@ -1073,7 +1571,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/c48e629756f9.webp"
+   "image": "chaiiwala/c48e629756f9.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-summer-edition-citrus-zest",
@@ -1088,7 +1590,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/184a88e2c5e2.webp"
+   "image": "chaiiwala/184a88e2c5e2.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-apple-edition",
@@ -1103,7 +1609,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/840baf496c3b.webp"
+   "image": "chaiiwala/840baf496c3b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "red-bull-coconut-edition",
@@ -1118,7 +1628,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/ac0b818ee853.webp"
+   "image": "chaiiwala/ac0b818ee853.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "desi-breakfast",
@@ -1133,7 +1647,25 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/65f24bb3d0f1.webp"
+   "image": "chaiiwala/65f24bb3d0f1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "english-ish-breakfast",
@@ -1148,7 +1680,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/639851104e31.webp"
+   "image": "chaiiwala/639851104e31.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "omelette-wrap",
@@ -1163,7 +1711,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/f3113b4c81b0.webp"
+   "image": "chaiiwala/f3113b4c81b0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spiced-chicken-sausage-and-egg-wrap",
@@ -1178,7 +1743,25 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/a94dc8f8183e.webp"
+   "image": "chaiiwala/a94dc8f8183e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "rasher-and-egg-breakfast-wrap",
@@ -1193,7 +1776,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/e01415734f80.webp"
+   "image": "chaiiwala/e01415734f80.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "aloo-paratha",
@@ -1208,7 +1807,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/8c2f193b5678.webp"
+   "image": "chaiiwala/8c2f193b5678.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "halwa-puri",
@@ -1223,7 +1833,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/6cfd49befae7.webp"
+   "image": "chaiiwala/6cfd49befae7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "classic-roti",
@@ -1238,7 +1861,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/e5bc02062e36.webp"
+   "image": "chaiiwala/e5bc02062e36.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "classic-paratha",
@@ -1253,7 +1887,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/754066908dfb.webp"
+   "image": "chaiiwala/754066908dfb.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "butter-chicken-avo-toast",
@@ -1268,7 +1913,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/5fa1198ce0eb.webp"
+   "image": "chaiiwala/5fa1198ce0eb.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "egg-burji-avo-toast",
@@ -1285,7 +1945,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/a8dbe8150d17.webp"
+   "image": "chaiiwala/a8dbe8150d17.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-tikka-wala-wrap",
@@ -1300,7 +1976,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/4f21dad59c93.webp"
+   "image": "chaiiwala/4f21dad59c93.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "mixed-kebab-wala-wrap",
@@ -1315,7 +2005,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/39a9d0160981.webp"
+   "image": "chaiiwala/39a9d0160981.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chicken-kebab-wala-wrap",
@@ -1330,7 +2035,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/d0df499a6135.webp"
+   "image": "chaiiwala/d0df499a6135.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "bombay-twister",
@@ -1345,7 +2065,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/bcdd83dfc7c8.webp"
+   "image": "chaiiwala/bcdd83dfc7c8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "veg-kebab-wala-wrap",
@@ -1361,7 +2098,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "chilli-paneer-wala-wrap",
@@ -1377,7 +2129,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "aloo-tikki-wala-wrap",
@@ -1393,7 +2161,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "veg-bombay-twister",
@@ -1409,7 +2192,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "chicken-tikka-salad",
@@ -1423,21 +2223,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "kebab-caesar-salad",
-   "name": "Kebab Caesar Salad",
-   "category": "Lunch & dinner bowls",
-   "serving": "",
-   "nutrients": {
-    "calories": 399
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "tikka-biryani",
@@ -1452,7 +2249,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/c48f0761436b.webp"
+   "image": "chaiiwala/c48f0761436b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "chana-biryani",
@@ -1467,7 +2276,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/b842722363c7.webp"
+   "image": "chaiiwala/b842722363c7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "butter-chicken-rice-bowl",
@@ -1482,7 +2308,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/3feb8cc4ba66.webp"
+   "image": "chaiiwala/3feb8cc4ba66.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "butter-chicken-bombay-chips-bowl",
@@ -1496,7 +2339,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "daal-masala-bombay-rice-bowl",
@@ -1513,7 +2373,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/d521b2168ced.webp"
+   "image": "chaiiwala/d521b2168ced.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "daal-masala-bombay-chips-bowl",
@@ -1529,7 +2406,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "chicken-tikka-melt",
@@ -1544,7 +2438,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/449dc47e3aaa.webp"
+   "image": "chaiiwala/449dc47e3aaa.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "classic-bombay-toastie",
@@ -1560,7 +2469,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley"
+    ]
+   }
   },
   {
    "id": "cheese-and-masala-beans-toastie",
@@ -1575,7 +2504,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/9ff8686f231f.webp"
+   "image": "chaiiwala/9ff8686f231f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pav-bhaji-toastie",
@@ -1591,7 +2537,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "cheese-and-chutney-toastie",
@@ -1607,7 +2568,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "butter-chicken-toastie",
@@ -1622,7 +2597,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/fd09096164d6.webp"
+   "image": "chaiiwala/fd09096164d6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "butter-chicken-roll",
@@ -1637,7 +2629,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/48a07be69411.webp"
+   "image": "chaiiwala/48a07be69411.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "masala-chips",
@@ -1652,7 +2659,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/3ef67bac0725.webp"
+   "image": "chaiiwala/3ef67bac0725.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "samosa-chaat",
@@ -1667,7 +2684,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/41b0b993ddce.webp"
+   "image": "chaiiwala/41b0b993ddce.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "loaded-chips-chicken",
@@ -1681,7 +2706,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "pani-puri-poppers",
@@ -1696,7 +2738,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/0870a7222645.webp"
+   "image": "chaiiwala/0870a7222645.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "lupin",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "vada-pav",
@@ -1711,7 +2769,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/d4fcc96ef91f.webp"
+   "image": "chaiiwala/d4fcc96ef91f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "veg-kebab-roll",
@@ -1726,7 +2791,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/75533fae06d1.webp"
+   "image": "chaiiwala/75533fae06d1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-kebab-roll",
@@ -1741,7 +2819,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/75533fae06d1.webp"
+   "image": "chaiiwala/75533fae06d1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "aloo-tikki-chaat",
@@ -1756,7 +2847,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/f0f9ac68a273.webp"
+   "image": "chaiiwala/f0f9ac68a273.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "aloo-tikki-burger",
@@ -1771,7 +2870,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/2305b0f88700.webp"
+   "image": "chaiiwala/2305b0f88700.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "loaded-chips-veg",
@@ -1786,7 +2894,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/63ad1d085933.webp"
+   "image": "chaiiwala/63ad1d085933.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "chicken-nuggets-and-chips",
@@ -1801,7 +2926,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/799acfe363ed.webp"
+   "image": "chaiiwala/799acfe363ed.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-and-masala-beans-toastie-and-chips",
@@ -1818,7 +2959,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/3c8d4a29b7c2.webp"
+   "image": "chaiiwala/3c8d4a29b7c2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mini-chicken-wala-wrap-and-chips",
@@ -1833,7 +2990,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/c4088d9b7492.webp"
+   "image": "chaiiwala/c4088d9b7492.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "veg-nuggets-and-chips",
@@ -1850,7 +3023,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/799acfe363ed.webp"
+   "image": "chaiiwala/799acfe363ed.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "mini-veggie-wala-wrap-and-chips",
@@ -1866,7 +3050,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "loaded-donuts",
@@ -1881,7 +3080,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/70e0bf647310.webp"
+   "image": "chaiiwala/70e0bf647310.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "nutella-wrap",
@@ -1896,7 +3108,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/aaf3d766fa05.webp"
+   "image": "chaiiwala/aaf3d766fa05.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
   },
   {
    "id": "pistachio-fix-ice-cream",
@@ -1911,7 +3138,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/a5329af577aa.webp"
+   "image": "chaiiwala/a5329af577aa.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "rocky-road-cheesecake",
@@ -1926,7 +3166,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/7df15d20d0c8.webp"
+   "image": "chaiiwala/7df15d20d0c8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "loaded-cheesecake",
@@ -1941,7 +3194,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/9ab5044e81df.webp"
+   "image": "chaiiwala/9ab5044e81df.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "mango-ice-cream",
@@ -1955,7 +3224,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "rose-ice-cream",
@@ -1969,7 +3252,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "vanilla-ice-cream",
@@ -1983,7 +3280,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chocolate-dream-cake",
@@ -1998,7 +3309,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/fe98fcc01895.webp"
+   "image": "chaiiwala/fe98fcc01895.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pistachio-milk-cake",
@@ -2013,7 +3339,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/2ee66361d09c.webp"
+   "image": "chaiiwala/2ee66361d09c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "biscoff-milk-cake",
@@ -2028,7 +3367,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/7d533c380e01.webp"
+   "image": "chaiiwala/7d533c380e01.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "gajar-halwa",
@@ -2043,7 +3395,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/bd8739530d7a.webp"
+   "image": "chaiiwala/bd8739530d7a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "gulab-jamun",
@@ -2058,7 +3424,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "chaiiwala/a9c7de06e923.webp"
+   "image": "chaiiwala/a9c7de06e923.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   }
  ],
  "combinations": []

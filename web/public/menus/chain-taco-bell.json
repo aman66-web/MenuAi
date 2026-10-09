@@ -16,11 +16,11 @@
  },
  "note": "Fixed meals, sharing boxes and drinks aren't included.",
  "allergenGuide": {
-  "title": "Taco Bell UK Allergen Information",
+  "title": "Taco Bell UK Allergen Information (last updated 7 October 2026)",
   "url": "https://www.tacobell.co.uk/allergen-information/",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Tacos",
@@ -53,7 +53,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/ba2fc86c58a1.webp"
+   "image": "taco-bell/ba2fc86c58a1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchy-taco-beef",
@@ -77,7 +85,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/0b458a230a78.webp"
+   "image": "taco-bell/0b458a230a78.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchy-taco-black-beans",
@@ -98,7 +113,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchy-taco-grilled-chicken",
@@ -119,7 +141,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchy-taco-supreme-beef",
@@ -143,7 +172,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/5960a4add388.webp"
+   "image": "taco-bell/5960a4add388.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchy-taco-supreme-black-beans",
@@ -164,7 +200,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchy-taco-supreme-grilled-chicken",
@@ -185,7 +228,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "soft-taco-beef",
@@ -209,7 +259,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/d44ad7d46a5e.webp"
+   "image": "taco-bell/d44ad7d46a5e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "soft-taco-black-beans",
@@ -230,7 +287,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "soft-taco-grilled-chicken",
@@ -251,7 +315,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "soft-taco-supreme-beef",
@@ -275,7 +346,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/b93422b684a0.webp"
+   "image": "taco-bell/b93422b684a0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "soft-taco-supreme-black-beans",
@@ -296,7 +374,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "soft-taco-supreme-grilled-chicken",
@@ -317,7 +402,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "beefy-melt-burrito",
@@ -341,7 +433,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/068728353efa.webp"
+   "image": "taco-bell/068728353efa.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grilled-cheese-volcano-burrito-beef",
@@ -364,7 +464,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grilled-cheese-volcano-burrito-black-beans",
@@ -385,7 +494,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grilled-cheese-volcano-burrito-chicken",
@@ -406,7 +524,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "loaded-xl-burrito-beef",
@@ -429,7 +556,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "loaded-xl-burrito-black-beans",
@@ -450,7 +586,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "loaded-xl-burrito-grilled-chicken",
@@ -471,7 +616,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "7-layer-burrito",
@@ -493,7 +647,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/a2c6ad2e42db.webp"
+   "image": "taco-bell/a2c6ad2e42db.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "beefy-nacho-cravings-burrito",
@@ -517,7 +679,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/0a1261ecc1e3.webp"
+   "image": "taco-bell/0a1261ecc1e3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-burrito",
@@ -539,7 +709,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/05a70f21056c.webp"
+   "image": "taco-bell/05a70f21056c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "double-cheesy-black-bean-cravings-burrito",
@@ -561,7 +739,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/31a30e651eaf.webp"
+   "image": "taco-bell/31a30e651eaf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spicy-chicken-cravings-burrito",
@@ -583,7 +769,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/bcbc89d44289.webp"
+   "image": "taco-bell/bcbc89d44289.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "volcano-burrito-beef",
@@ -607,7 +800,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/a2b28a09b880.webp"
+   "image": "taco-bell/a2b28a09b880.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "volcano-burrito-black-beans",
@@ -628,7 +830,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "volcano-burrito-grilled-chicken",
@@ -649,7 +860,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grilled-cheese-crunchwrap-beef",
@@ -672,7 +892,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grilled-cheese-crunchwrap-black-beans",
@@ -693,7 +920,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grilled-cheese-crunchwrap-chicken",
@@ -714,7 +948,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "loaded-protein-bowl",
@@ -736,7 +977,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/cec64f664cb4.webp"
+   "image": "taco-bell/cec64f664cb4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "baby-quesadilla",
@@ -757,7 +1005,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chalupa-supreme-beef",
@@ -781,7 +1037,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/3f40cf67f166.webp"
+   "image": "taco-bell/3f40cf67f166.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chalupa-supreme-black-bean",
@@ -802,7 +1065,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chalupa-supreme-grilled-chicken",
@@ -823,7 +1093,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesy-gordita-crunch",
@@ -845,7 +1122,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/a1121e2ef65f.webp"
+   "image": "taco-bell/a1121e2ef65f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesy-gordita-crunch-black-beans",
@@ -866,7 +1151,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesy-gordita-crunch-grilled-chicken",
@@ -887,7 +1180,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchwrap-supreme-beef",
@@ -911,7 +1212,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/0d7fde55f828.webp"
+   "image": "taco-bell/0d7fde55f828.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchwrap-supreme-black-beans",
@@ -932,7 +1240,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crunchwrap-supreme-grilled-chicken",
@@ -953,7 +1268,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cheesy-roll-up",
@@ -975,7 +1297,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/28c35af4eff0.webp"
+   "image": "taco-bell/28c35af4eff0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-bite-1",
@@ -996,7 +1325,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-bites-3",
@@ -1017,7 +1353,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-bites-3-with-nacho-cheese-sauce",
@@ -1038,7 +1381,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-bites-5",
@@ -1059,7 +1409,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-bites-5-with-nacho-cheese-sauce",
@@ -1080,7 +1437,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-bites-20",
@@ -1101,7 +1465,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-bites-20-with-nacho-cheese-sauce-2",
@@ -1122,7 +1493,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "large-crispy-chicken-sharer",
@@ -1143,7 +1521,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "regular-crispy-chicken-sharer",
@@ -1164,7 +1549,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-2",
@@ -1185,7 +1577,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-3",
@@ -1206,7 +1605,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-3-with-cali-ranch-sauce",
@@ -1227,7 +1633,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-3-with-creamy-jalapeno-sauce",
@@ -1248,7 +1662,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-3-with-lava-sauce",
@@ -1269,7 +1691,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-3-with-nacho-cheese-sauce",
@@ -1290,7 +1720,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-5",
@@ -1311,7 +1748,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-5-with-cali-ranch-sauce",
@@ -1332,7 +1776,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-5-with-creamy-jalapeno-sauce",
@@ -1353,7 +1805,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-5-with-lava-sauce",
@@ -1374,7 +1834,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "crispy-chicken-tenders-5-with-nacho-cheese-sauce",
@@ -1395,7 +1863,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "black-beans",
@@ -1417,7 +1892,11 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/6c48be6e6f98.webp"
+   "image": "taco-bell/6c48be6e6f98.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fries-bell-grande",
@@ -1439,7 +1918,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/9e87fa595fec.webp"
+   "image": "taco-bell/9e87fa595fec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "fries-supreme",
@@ -1461,7 +1948,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/7331a764f210.webp"
+   "image": "taco-bell/7331a764f210.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "nacho-chips-large",
@@ -1482,7 +1977,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "nacho-chips-regular",
@@ -1503,7 +2005,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "nacho-chips-with-cheese-sauce-large",
@@ -1524,7 +2033,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "nacho-chips-with-cheese-sauce-regular",
@@ -1545,7 +2062,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "nachos-bell-grande",
@@ -1567,7 +2092,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/6a98aaba995f.webp"
+   "image": "taco-bell/6a98aaba995f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seasoned-fries-large",
@@ -1588,7 +2121,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seasoned-fries-regular",
@@ -1609,7 +2149,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seasoned-fries-xl",
@@ -1630,7 +2177,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seasoned-fries-with-cheese-sauce-large",
@@ -1651,7 +2205,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seasoned-fries-with-cheese-sauce-regular",
@@ -1672,7 +2234,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "seasoned-rice",
@@ -1694,7 +2264,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/d7416263d43a.webp"
+   "image": "taco-bell/d7416263d43a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "3x-salted-caramel-churro-bites",
@@ -1715,7 +2292,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "6x-salted-caramel-churro-bites",
@@ -1736,7 +2320,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "9x-salted-caramel-churro-bites",
@@ -1757,7 +2348,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-apple-empanada",
@@ -1779,7 +2377,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/b4aea43f50f6.webp"
+   "image": "taco-bell/b4aea43f50f6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "churros",
@@ -1800,7 +2405,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "churros-2-with-caramel-sauce",
@@ -1821,7 +2432,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "churros-6-with-caramel-sauce",
@@ -1842,7 +2460,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cinnamon-twists",
@@ -1864,7 +2489,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/ec656e2bbf9b.webp"
+   "image": "taco-bell/ec656e2bbf9b.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "grande-cinnamon-twists",
@@ -1886,7 +2517,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/5eee6d8d0e8a.webp"
+   "image": "taco-bell/5eee6d8d0e8a.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dip-pot-cali-ranch-sauce",
@@ -1907,7 +2544,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dip-pot-creamy-jalapeno-sauce",
@@ -1928,7 +2572,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dip-pot-lava-sauce",
@@ -1949,7 +2601,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dip-pot-nacho-cheese",
@@ -1970,7 +2629,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "guacamole",
@@ -1992,7 +2657,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/ab5246ac2825.webp"
+   "image": "taco-bell/ab5246ac2825.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "jalape-os",
@@ -2014,7 +2683,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/8df029bc6b61.webp"
+   "image": "taco-bell/8df029bc6b61.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "nacho-cheese-sauce",
@@ -2036,7 +2709,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/d679d6f3f3ee.webp"
+   "image": "taco-bell/d679d6f3f3ee.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sour-cream",
@@ -2058,7 +2737,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "taco-bell/cdcd97d9d6ad.webp"
+   "image": "taco-bell/cdcd97d9d6ad.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "extra-black-beans",
@@ -2079,7 +2764,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "extra-grilled-chicken",
@@ -2100,7 +2789,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "extra-seasoned-beef",
@@ -2123,7 +2816,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "fire-sauce",
@@ -2144,7 +2843,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "heinz-light-mayonnaise-sachet",
@@ -2165,7 +2868,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "heinz-mayonnaise-sachet",
@@ -2186,7 +2897,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "heinz-tomato-ketchup-sachet",
@@ -2207,7 +2925,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mild-sauce",
@@ -2228,7 +2952,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

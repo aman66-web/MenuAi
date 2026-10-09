@@ -1940,9 +1940,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2018,9 +2015,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2961,10 +2955,7 @@
      "eggs",
      "mustard"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3339,10 +3330,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3372,11 +3360,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3513,9 +3497,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3656,9 +3637,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3695,9 +3673,6 @@
     ],
     "mayContain": [
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3734,9 +3709,6 @@
     "mayContain": [
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3913,10 +3885,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -4088,10 +4057,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -4591,10 +4557,6 @@
      "eggs",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -4631,10 +4593,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -4781,10 +4739,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -4820,10 +4774,6 @@
     "mayContain": [
      "eggs",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -4858,10 +4808,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -5093,9 +5039,6 @@
     "mayContain": [
      "nuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -5335,9 +5278,6 @@
     "mayContain": [
      "nuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -6191,9 +6131,6 @@
     "mayContain": [
      "nuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -6261,9 +6198,6 @@
     "mayContain": [
      "nuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -6768,10 +6702,7 @@
      "fish",
      "mustard"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -6802,11 +6733,7 @@
      "fish",
      "mustard"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "barley"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -6841,9 +6768,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -6880,9 +6804,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -6916,9 +6837,6 @@
     ],
     "mayContain": [
      "mustard"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -7374,9 +7292,6 @@
      "celery",
      "eggs",
      "mustard"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -8355,11 +8270,6 @@
     "mayContain": [
      "milk",
      "nuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "oats"
     ]
    }
   },
@@ -8516,15 +8426,6 @@
     ],
     "mayContain": [
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "oats"
-    ],
-    "nuts": [
-     "almond",
-     "hazelnut"
     ]
    }
   },
@@ -8833,9 +8734,6 @@
      "milk",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -8939,9 +8837,6 @@
     "mayContain": [
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -10053,9 +9948,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -10089,10 +9981,7 @@
      "mustard",
      "sulphites"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -10224,9 +10113,6 @@
      "mustard",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "barley"
     ]
    }
   },
@@ -10522,9 +10408,6 @@
      "mustard",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "barley"
     ]
    }
   },
@@ -10737,9 +10620,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -10994,11 +10874,7 @@
      "gluten",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "oats"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -11033,10 +10909,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -11073,10 +10945,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -11115,10 +10983,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -11156,10 +11020,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -11196,11 +11056,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "oats"
     ]
    }
   },
@@ -11240,10 +11095,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -11474,10 +11325,7 @@
      "milk",
      "mustard"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -11678,9 +11526,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -11716,9 +11561,6 @@
     "mayContain": [
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -11936,9 +11778,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -11975,9 +11814,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12014,9 +11850,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12054,9 +11887,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12093,9 +11923,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12353,9 +12180,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12392,9 +12216,6 @@
      "nuts",
      "peanuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12431,9 +12252,6 @@
      "nuts",
      "peanuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12470,9 +12288,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12509,9 +12324,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12547,9 +12359,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12585,9 +12394,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12624,9 +12430,6 @@
      "nuts",
      "peanuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -12663,9 +12466,6 @@
      "nuts",
      "peanuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -13437,9 +13237,6 @@
      "nuts",
      "peanuts",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -13476,9 +13273,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -13849,10 +13643,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye"
     ]
    }
   },
@@ -13965,11 +13755,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "oats"
     ]
    }
   },
@@ -14319,9 +14104,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -14515,10 +14297,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -14551,9 +14330,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -15190,9 +14966,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -15227,9 +15000,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -15899,9 +15669,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -15938,9 +15705,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -15977,9 +15741,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -16016,9 +15777,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -16055,9 +15813,6 @@
      "sesame",
      "soya",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

@@ -1,0 +1,451 @@
+{
+ "schemaVersion": 1,
+ "id": "greenhalghs",
+ "name": "Greenhalgh's",
+ "cuisine": "Bakery",
+ "builderType": "standard",
+ "aliases": [
+  "greenhalghs",
+  "greenhalgh's",
+  "greenhalgh's craft bakery",
+  "greenhalghs craft bakery",
+  "greenhalgh's bakery",
+  "greenhalghs bakery"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Greenhalgh's Craft Bakery online shop, product pages listed in product-sitemap.xml (calories per unit, pie or portion as printed on each page; accessed 2026-10-08, no date shown)",
+  "url": "https://www.greenhalghs.com/bakery-shop/",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as each Greenhalgh's product page prints them per unit, pie, pasty or portion (the serving says which). Protein, carbs, fat and salt are printed per 100 g only, so they are not published. Cakes, platters, hampers and most other products print no calories.",
+ "allergenGuide": {
+  "title": "Greenhalgh's allergen information page (links the shop allergen matrix, Version 9, 16/06/2026)",
+  "url": "https://www.greenhalghs.com/allergen-information/",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Savouries",
+  "Sweet Treats",
+  "Bread",
+  "Next Day"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "500ml-tomato-soup",
+   "name": "500ml Tomato Soup",
+   "category": "Savouries",
+   "serving": "per 250g",
+   "nutrients": {
+    "calories": 120,
+    "weight": 250
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plate-meat-pie",
+   "name": "Plate Meat Pie",
+   "category": "Savouries",
+   "serving": "per 1/4 portion pie",
+   "nutrients": {
+    "calories": 472
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "500ml-pea-and-ham-soup",
+   "name": "500ml Pea and Ham Soup",
+   "category": "Savouries",
+   "serving": "per 250g serving",
+   "nutrients": {
+    "calories": 190,
+    "weight": 250
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-pie",
+   "name": "Butter Pie",
+   "category": "Savouries",
+   "serving": "per pie",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deep-filled-multi-portion-beefsteak-pie",
+   "name": "Deep Filled Multi Portion Beefsteak Pie",
+   "category": "Savouries",
+   "serving": "per 1/8 pie",
+   "nutrients": {
+    "calories": 505
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beefsteak-pie",
+   "name": "Beefsteak Pie",
+   "category": "Savouries",
+   "serving": "per pie",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deep-filled-multi-portion-lancashire-pie",
+   "name": "Deep Filled Multi Portion Lancashire Pie",
+   "category": "Savouries",
+   "serving": "per 1/8",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-pudding",
+   "name": "Steak Pudding",
+   "category": "Savouries",
+   "serving": "per pudding",
+   "nutrients": {
+    "calories": 434
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "deep-filled-multi-portion-potato-and-meat-pie",
+   "name": "Deep Filled Multi Portion Potato & Meat Pie",
+   "category": "Savouries",
+   "serving": "per 1/8",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-ale-pie",
+   "name": "Steak and Ale Pie",
+   "category": "Savouries",
+   "serving": "per pie (250g)",
+   "nutrients": {
+    "calories": 693,
+    "weight": 250
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-and-onion-pie",
+   "name": "Cheese and Onion Pie",
+   "category": "Savouries",
+   "serving": "per pie",
+   "nutrients": {
+    "calories": 556
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-and-meat-pie",
+   "name": "Potato and Meat Pie",
+   "category": "Savouries",
+   "serving": "per pie",
+   "nutrients": {
+    "calories": 523
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "individual-vanilla-slice",
+   "name": "Individual Vanilla Slice",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bavarian-slice-2-pack",
+   "name": "Bavarian Slice 2 Pack",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-eclair-2-pack",
+   "name": "Chocolate Éclair 2 Pack",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-doughnut-2-pack",
+   "name": "Cream Doughnut 2 Pack",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-slice-2-pack",
+   "name": "Vanilla Slice 2 Pack",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cream-scone",
+   "name": "Cream Scone",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 323
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "individual-cream-doughnut",
+   "name": "Individual Cream Doughnut",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "individual-bavarian-slice",
+   "name": "Individual Bavarian Slice",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 433
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "individual-chocolate-eclair",
+   "name": "Individual Chocolate Éclair",
+   "category": "Sweet Treats",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brown-soft-rolls-4-pack",
+   "name": "Brown Soft Rolls 4 Pack",
+   "category": "Bread",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 179
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-scotch-baps-4s",
+   "name": "White Scotch Baps 4’s",
+   "category": "Bread",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 156
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-maxi-rolls-6-pack",
+   "name": "White Maxi Rolls 6 Pack",
+   "category": "Bread",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 224
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-soft-rolls-4-pack",
+   "name": "White Soft Rolls 4 Pack",
+   "category": "Bread",
+   "serving": "per unit",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-and-meat-puff-pasty",
+   "name": "Potato and Meat Puff Pasty",
+   "category": "Next Day",
+   "serving": "per pasty",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

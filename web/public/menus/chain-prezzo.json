@@ -11,15 +11,15 @@
  ],
  "sample": false,
  "source": {
-  "title": "Prezzo Allergen Guide: allergens and nutrition page on prezzo.co.uk (retrieved 2026-10-06; the page carries no version date)",
+  "title": "Prezzo Allergen Guide: allergens and nutrition page on prezzo.co.uk (retrieved 2026-10-08; the page carries no version date)",
   "url": "https://www.prezzo.co.uk/allergens/",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Prezzo's allergen page does not say what its figures are per; they look like one whole dish as served. Dishes the page gives no full nutrition for, and a few whose figures cannot be right, are not shown.",
  "allergenGuide": {
-  "title": "Prezzo Allergen Guide: allergens page on prezzo.co.uk (retrieved 2026-10-06; the page carries no version date)",
+  "title": "Prezzo Allergen Guide: allergens page on prezzo.co.uk (retrieved 2026-10-08; the page carries no version date)",
   "url": "https://www.prezzo.co.uk/allergens/",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -868,6 +868,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/8b58eed4fcc9.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -4362,6 +4363,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/b3f173c75127.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -5298,6 +5300,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/ab3aa1ab1b45.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -5428,6 +5431,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/f22577c4bc41.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -5474,38 +5478,6 @@
    }
   },
   {
-   "id": "custard-cream-tiramisu",
-   "name": "Custard Cream Tiramisu",
-   "category": "Specials",
-   "serving": "",
-   "nutrients": {
-    "calories": 825,
-    "protein": 6.3,
-    "carbs": 58,
-    "fat": 63,
-    "saturatedFat": 38,
-    "sugar": 35,
-    "fiber": 1.6,
-    "salt": 0.32
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "milk"
-    ],
-    "mayContain": [
-     "soya"
-    ]
-   }
-  },
-  {
    "id": "smokey-sausage-and-chilli-spaghetti",
    "name": "Smokey Sausage & Chilli Spaghetti",
    "category": "Specials",
@@ -5527,6 +5499,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/744ebaef9be2.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -5595,6 +5568,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/b8c0bf7c9a3b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -5654,6 +5628,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/0ef8ce70f9c0.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -5717,6 +5692,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/07b746a8600b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -5751,6 +5727,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/6e7b5a7d270f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -6008,6 +5985,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/c4968e8ecff6.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -6070,6 +6048,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/ea3f0d30a4c5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -6104,6 +6083,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/09572d883e1a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -6204,6 +6184,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "prezzo/cf2743222f43.webp",
    "allergens": {
     "contains": [
      "gluten",

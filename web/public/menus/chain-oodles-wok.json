@@ -51,7 +51,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/32754c8fb755.webp"
   },
   {
    "id": "egg-fried-rice-regular",
@@ -73,7 +74,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/32754c8fb755.webp"
   },
   {
    "id": "egg-fried-rice-large",
@@ -95,7 +97,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/32754c8fb755.webp"
   },
   {
    "id": "veg-rice-value",
@@ -117,7 +120,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c7117be3a58e.webp"
   },
   {
    "id": "veg-rice-regular",
@@ -139,7 +143,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c7117be3a58e.webp"
   },
   {
    "id": "veg-rice-large",
@@ -161,7 +166,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c7117be3a58e.webp"
   },
   {
    "id": "schezuan-rice-value",
@@ -183,7 +189,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/497adf55ffbc.webp"
   },
   {
    "id": "schezuan-rice-regular",
@@ -205,7 +212,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/497adf55ffbc.webp"
   },
   {
    "id": "schezuan-rice-large",
@@ -227,7 +235,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/497adf55ffbc.webp"
   },
   {
    "id": "veg-noodles-value",
@@ -249,7 +258,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/d11c18cbe5ba.webp"
   },
   {
    "id": "veg-noodles-regular",
@@ -271,7 +281,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/d11c18cbe5ba.webp"
   },
   {
    "id": "veg-noodles-large",
@@ -293,7 +304,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/d11c18cbe5ba.webp"
   },
   {
    "id": "udon-noodles-value",
@@ -315,7 +327,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/345103507314.webp"
   },
   {
    "id": "udon-noodles-regular",
@@ -337,7 +350,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/345103507314.webp"
   },
   {
    "id": "udon-noodles-large",
@@ -359,7 +373,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/345103507314.webp"
   },
   {
    "id": "spicy-chips",
@@ -381,7 +396,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/cdfe8b28cf12.webp"
   },
   {
    "id": "plain-chips",
@@ -403,7 +419,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/03fe25c84018.webp"
   },
   {
    "id": "malaysian-chicken-value",
@@ -425,7 +442,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/0efa510d3dbb.webp"
   },
   {
    "id": "malaysian-chicken-regular",
@@ -447,7 +465,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/0efa510d3dbb.webp"
   },
   {
    "id": "malaysian-chicken-large",
@@ -469,7 +488,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/0efa510d3dbb.webp"
   },
   {
    "id": "chilli-chicken-value",
@@ -491,7 +511,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/2f3e61be66cd.webp"
   },
   {
    "id": "chilli-chicken-regular",
@@ -513,7 +534,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/2f3e61be66cd.webp"
   },
   {
    "id": "chilli-chicken-large",
@@ -535,7 +557,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/2f3e61be66cd.webp"
   },
   {
    "id": "manchurian-chicken-value",
@@ -557,7 +580,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/4a1e2ccdddf4.webp"
   },
   {
    "id": "manchurian-chicken-regular",
@@ -579,7 +603,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/4a1e2ccdddf4.webp"
   },
   {
    "id": "manchurian-chicken-large",
@@ -601,7 +626,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/4a1e2ccdddf4.webp"
   },
   {
    "id": "sweet-and-sour-chicken-value",
@@ -623,7 +649,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/4a48e7415031.webp"
   },
   {
    "id": "sweet-and-sour-chicken-regular",
@@ -645,7 +672,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/4a48e7415031.webp"
   },
   {
    "id": "sweet-and-sour-chicken-large",
@@ -667,7 +695,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/4a48e7415031.webp"
   },
   {
    "id": "blackbean-chicken-value",
@@ -689,7 +718,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/fd9e6b87cd7a.webp"
   },
   {
    "id": "blackbean-chicken-regular",
@@ -711,7 +741,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/fd9e6b87cd7a.webp"
   },
   {
    "id": "blackbean-chicken-large",
@@ -733,7 +764,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/fd9e6b87cd7a.webp"
   },
   {
    "id": "katsu-chicken-curry-value",
@@ -755,7 +787,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c531df229e56.webp"
   },
   {
    "id": "katsu-chicken-curry-regular",
@@ -777,7 +810,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c531df229e56.webp"
   },
   {
    "id": "katsu-chicken-curry-large",
@@ -799,7 +833,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c531df229e56.webp"
   },
   {
    "id": "chilli-prawns-value",
@@ -821,7 +856,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/1787122a8ac7.webp"
   },
   {
    "id": "chilli-prawns-regular",
@@ -843,7 +879,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/1787122a8ac7.webp"
   },
   {
    "id": "chilli-prawns-large",
@@ -865,7 +902,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/1787122a8ac7.webp"
   },
   {
    "id": "chilli-fish-value",
@@ -887,7 +925,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/15a9cb6a13bf.webp"
   },
   {
    "id": "chilli-fish-regular",
@@ -909,7 +948,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/15a9cb6a13bf.webp"
   },
   {
    "id": "chilli-fish-large",
@@ -931,7 +971,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/15a9cb6a13bf.webp"
   },
   {
    "id": "veg-stir-fry-value",
@@ -953,7 +994,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/12995919e295.webp"
   },
   {
    "id": "veg-stir-fry-regular",
@@ -975,7 +1017,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/12995919e295.webp"
   },
   {
    "id": "veg-stir-fry-large",
@@ -997,7 +1040,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/12995919e295.webp"
   },
   {
    "id": "katsu-veg-curry-value",
@@ -1019,7 +1063,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/1197295a7a8a.webp"
   },
   {
    "id": "katsu-veg-curry-regular",
@@ -1041,7 +1086,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/1197295a7a8a.webp"
   },
   {
    "id": "katsu-veg-curry-large",
@@ -1063,7 +1109,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/1197295a7a8a.webp"
   },
   {
    "id": "caramel-chicken-value",
@@ -1085,7 +1132,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/a2f5d17af952.webp"
   },
   {
    "id": "caramel-chicken-regular",
@@ -1107,7 +1155,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/a2f5d17af952.webp"
   },
   {
    "id": "caramel-chicken-large",
@@ -1129,7 +1178,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/a2f5d17af952.webp"
   },
   {
    "id": "salt-and-pepper-chicken-value",
@@ -1151,7 +1201,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/e7d95ead439b.webp"
   },
   {
    "id": "salt-and-pepper-chicken-regular",
@@ -1173,7 +1224,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/e7d95ead439b.webp"
   },
   {
    "id": "salt-and-pepper-chicken-large",
@@ -1195,7 +1247,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/e7d95ead439b.webp"
   },
   {
    "id": "teriyaki-chicken-value",
@@ -1217,7 +1270,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/5463a13a8a83.webp"
   },
   {
    "id": "teriyaki-chicken-regular",
@@ -1239,7 +1293,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/5463a13a8a83.webp"
   },
   {
    "id": "teriyaki-chicken-large",
@@ -1261,7 +1316,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/5463a13a8a83.webp"
   },
   {
    "id": "hot-and-tangy-chicken-value",
@@ -1283,7 +1339,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/52f91d2570d5.webp"
   },
   {
    "id": "hot-and-tangy-chicken-regular",
@@ -1305,7 +1362,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/52f91d2570d5.webp"
   },
   {
    "id": "hot-and-tangy-chicken-large",
@@ -1327,7 +1385,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/52f91d2570d5.webp"
   },
   {
    "id": "kung-po-chicken-value",
@@ -1349,7 +1408,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c1ba96376d18.webp"
   },
   {
    "id": "kung-po-chicken-regular",
@@ -1371,7 +1431,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c1ba96376d18.webp"
   },
   {
    "id": "kung-po-chicken-large",
@@ -1393,7 +1454,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/c1ba96376d18.webp"
   },
   {
    "id": "smoked-bbq-chicken-value",
@@ -1415,7 +1477,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/78e9f3302422.webp"
   },
   {
    "id": "smoked-bbq-chicken-regular",
@@ -1437,7 +1500,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/78e9f3302422.webp"
   },
   {
    "id": "smoked-bbq-chicken-large",
@@ -1459,7 +1523,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/78e9f3302422.webp"
   },
   {
    "id": "wok-fired-beef-value",
@@ -1483,7 +1548,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/f37c987b4c57.webp"
   },
   {
    "id": "wok-fired-beef-regular",
@@ -1507,7 +1573,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/f37c987b4c57.webp"
   },
   {
    "id": "wok-fired-beef-large",
@@ -1531,7 +1598,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/f37c987b4c57.webp"
   },
   {
    "id": "oodles-crispy-prawns-value",
@@ -1553,7 +1621,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/b457df8a496c.webp"
   },
   {
    "id": "oodles-crispy-prawns-regular",
@@ -1575,7 +1644,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/b457df8a496c.webp"
   },
   {
    "id": "oodles-crispy-prawns-large",
@@ -1597,7 +1667,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/b457df8a496c.webp"
   },
   {
    "id": "schezuan-paneer-value",
@@ -1619,7 +1690,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/530e39094ce2.webp"
   },
   {
    "id": "schezuan-paneer-regular",
@@ -1641,7 +1713,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/530e39094ce2.webp"
   },
   {
    "id": "schezuan-paneer-large",
@@ -1663,7 +1736,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/530e39094ce2.webp"
   },
   {
    "id": "veg-spring-rolls",
@@ -1685,7 +1759,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/949f8e88cce9.webp"
   },
   {
    "id": "jumbo-chicken-roll",
@@ -1707,7 +1782,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/b6f87f5be0a1.webp"
   },
   {
    "id": "teriyaki-wings",
@@ -1729,7 +1805,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "oodles-wok/097dc4981111.webp"
   }
  ],
  "combinations": []

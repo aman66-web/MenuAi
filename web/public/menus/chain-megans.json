@@ -865,9 +865,6 @@
      "wheat",
      "rye",
      "barley"
-    ],
-    "nuts": [
-     "almond"
     ]
    }
   },
@@ -944,9 +941,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "pistachio"
     ]
    }
   },
@@ -986,9 +980,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "pistachio"
     ]
    }
   },
@@ -1028,9 +1019,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "pistachio"
     ]
    }
   },
@@ -1068,9 +1056,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "pistachio"
     ]
    }
   },
@@ -2394,9 +2379,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "pistachio"
     ]
    }
   },
@@ -2975,9 +2957,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "pistachio"
     ]
    }
   },
@@ -3441,10 +3420,6 @@
      "wheat",
      "rye",
      "barley"
-    ],
-    "nuts": [
-     "hazelnut",
-     "pistachio"
     ]
    }
   },
@@ -4141,10 +4116,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "hazelnut",
-     "pistachio"
     ]
    }
   },
@@ -4184,10 +4155,6 @@
     ],
     "cereals": [
      "wheat"
-    ],
-    "nuts": [
-     "almond",
-     "pistachio"
     ]
    }
   },
@@ -4247,9 +4214,6 @@
     ],
     "mayContain": [
      "peanuts"
-    ],
-    "nuts": [
-     "walnut"
     ]
    }
   },

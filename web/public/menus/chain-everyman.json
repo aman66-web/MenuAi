@@ -62,7 +62,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "everyman/084611980051.webp"
   },
   {
    "id": "tempura-prawns",
@@ -387,7 +388,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "everyman/5e0e5a274dbf.webp"
   },
   {
    "id": "sweet-potato-fries",
@@ -957,7 +959,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "everyman/859a5ed24479.webp"
   },
   {
    "id": "add-a-scoop-of-vanilla-ice-cream",
@@ -1367,7 +1370,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "everyman/7bb6cd69d9ce.webp"
   },
   {
    "id": "dash-water-lemon-or-raspberry",

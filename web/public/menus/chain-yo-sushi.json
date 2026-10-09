@@ -13,13 +13,13 @@
  "source": {
   "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-10-06)",
   "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Figures are per serving from Yo! Sushi's own nutrition page for its Dine-in menu (hosted by Ten Kites), which prints no date. Dishes sold only at Selfridges and Heathrow are left out.",
  "allergenGuide": {
   "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-10-06)",
   "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -111,9 +111,6 @@
     "mayContain": [
      "eggs",
      "milk"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -190,9 +187,6 @@
      "eggs",
      "milk",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -623,9 +617,6 @@
      "eggs",
      "milk",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1160,9 +1151,6 @@
      "fish",
      "milk",
      "molluscs"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1380,9 +1368,6 @@
      "mustard",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -1524,9 +1509,6 @@
      "milk",
      "molluscs",
      "mustard"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2432,9 +2414,6 @@
      "eggs",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },

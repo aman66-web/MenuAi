@@ -131,12 +131,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -166,11 +160,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -200,11 +189,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -234,12 +218,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -269,11 +247,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -303,12 +276,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -338,11 +305,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -397,11 +359,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -428,12 +385,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -460,12 +411,6 @@
      "eggs",
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -490,11 +435,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -650,12 +590,6 @@
     "mayContain": [
      "eggs",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -681,11 +615,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -778,11 +707,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -834,12 +758,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -869,11 +787,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -903,12 +816,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -938,11 +845,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -972,11 +874,6 @@
      "celery",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1003,12 +900,6 @@
     "mayContain": [
      "eggs",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1034,11 +925,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1176,11 +1062,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1210,11 +1091,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1268,12 +1144,6 @@
      "eggs",
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1298,11 +1168,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1329,12 +1194,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1361,11 +1220,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1492,11 +1346,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1527,11 +1376,6 @@
      "milk",
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2175,12 +2019,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2245,12 +2083,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -2325,13 +2158,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2363,12 +2189,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2396,12 +2216,6 @@
      "eggs",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2453,12 +2267,6 @@
      "eggs",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2490,12 +2298,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2527,13 +2329,6 @@
      "celery",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2563,12 +2358,6 @@
      "milk",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2595,11 +2384,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2627,12 +2411,6 @@
     "mayContain": [
      "eggs",
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2683,12 +2461,6 @@
      "milk",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2748,11 +2520,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2780,11 +2547,6 @@
     "mayContain": [
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2810,11 +2572,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2844,11 +2601,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2938,11 +2690,6 @@
      "celery",
      "eggs",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2999,11 +2746,6 @@
     "mayContain": [
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -3182,11 +2924,6 @@
     ],
     "mayContain": [
      "milk"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -3213,11 +2950,6 @@
     "mayContain": [
      "celery",
      "eggs"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -3373,11 +3105,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -3408,11 +3135,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -3897,11 +3619,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -4030,11 +3747,6 @@
      "eggs",
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -4060,12 +3772,7 @@
      "eggs",
      "mustard"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -4132,11 +3839,6 @@
      "celery",
      "eggs",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -4468,11 +4170,6 @@
     "mayContain": [
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -4923,11 +4620,6 @@
      "eggs",
      "milk",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -5039,12 +4731,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -5071,12 +4757,6 @@
      "milk",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -5191,11 +4871,6 @@
     "mayContain": [
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -5226,11 +4901,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -5314,11 +4984,6 @@
      "celery",
      "eggs",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -5638,11 +5303,6 @@
      "milk",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -7638,11 +7298,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -7668,12 +7323,7 @@
      "milk",
      "soya"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7699,11 +7349,6 @@
     ],
     "mayContain": [
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -7889,10 +7534,7 @@
      "milk",
      "nuts"
     ],
-    "mayContain": [],
-    "nuts": [
-     "walnut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -7980,11 +7622,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -8012,9 +7649,6 @@
     "mayContain": [
      "eggs",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -8042,9 +7676,6 @@
     "mayContain": [
      "eggs",
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -8611,9 +8242,6 @@
     "mayContain": [
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -8674,11 +8302,6 @@
      "eggs",
      "nuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -8706,12 +8329,6 @@
     ],
     "mayContain": [
      "nuts"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -8739,11 +8356,6 @@
     "mayContain": [
      "eggs",
      "nuts"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -8905,11 +8517,6 @@
      "peanuts",
      "sesame",
      "sulphites"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -10582,12 +10189,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -10619,12 +10220,6 @@
      "mustard",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -10653,12 +10248,6 @@
      "milk",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -10687,12 +10276,6 @@
      "milk",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -10721,12 +10304,6 @@
      "eggs",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -10756,12 +10333,6 @@
      "eggs",
      "nuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -10983,12 +10554,6 @@
      "celery",
      "eggs",
      "mustard"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -11049,12 +10614,6 @@
      "eggs",
      "mustard",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "rye",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -14098,12 +13657,6 @@
     "mayContain": [
      "fish",
      "molluscs"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -14166,11 +13719,6 @@
     "mayContain": [
      "celery",
      "mustard"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -14236,11 +13784,6 @@
     "mayContain": [
      "celery",
      "mustard"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -14446,9 +13989,6 @@
      "eggs",
      "nuts",
      "peanuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -14507,12 +14047,6 @@
     "mayContain": [
      "fish",
      "molluscs"
-    ],
-    "cereals": [
-     "wheat",
-     "barley",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -14608,11 +14142,6 @@
     "mayContain": [
      "celery",
      "mustard"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -14704,9 +14233,6 @@
      "wheat",
      "spelt",
      "kamut"
-    ],
-    "nuts": [
-     "hazelnut"
     ]
    }
   },
@@ -15105,11 +14631,6 @@
      "nuts",
      "peanuts",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
     ]
    }
   }

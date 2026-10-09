@@ -11,13 +11,13 @@
  "source": {
   "title": "Chiquito Nutrition (per portion) menus: Main, Lunch, Dessert, Kids and Drinks (page generated 2026-10-06)",
   "url": "https://menus.tenkites.com/thebigtg/chiquito02",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
  "note": "Per portion as printed on the chain's menu pages. Each part of a meal is listed on its own: sides, sauces, tortillas, toppings and build-your-own parts are separate rows, so add the parts you order. Wines, cocktails and most drinks print no numbers and are not listed.",
  "allergenGuide": {
   "title": "Chiquito Dietary Information (allergens) on its online Main, Lunch, Dessert, Kids and Drinks menus (Ten Kites page generated 2026-10-06)",
   "url": "https://menus.tenkites.com/thebigtg/chiquito02",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": true,
   "complete": true
  },
@@ -133,10 +133,6 @@
     "mayContain": [
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -170,10 +166,6 @@
     "mayContain": [
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -536,9 +528,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -573,9 +562,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -959,12 +945,6 @@
     "mayContain": [
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "oats",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -1072,12 +1052,7 @@
      "milk",
      "mustard"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat",
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -1541,12 +1516,6 @@
     ],
     "mayContain": [
      "sesame"
-    ],
-    "cereals": [
-     "wheat",
-     "oats",
-     "spelt",
-     "kamut"
     ]
    }
   },
@@ -2122,10 +2091,6 @@
      "nuts",
      "sesame",
      "soya"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -2809,10 +2774,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3068,9 +3030,6 @@
     ],
     "mayContain": [
      "nuts"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3177,9 +3136,6 @@
      "nuts",
      "peanuts",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -3481,10 +3437,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3882,10 +3835,7 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3912,10 +3862,7 @@
      "gluten",
      "milk"
     ],
-    "mayContain": [],
-    "cereals": [
-     "wheat"
-    ]
+    "mayContain": []
    }
   },
   {
@@ -3948,9 +3895,6 @@
     "mayContain": [
      "mustard",
      "sesame"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -4323,11 +4267,7 @@
     "contains": [
      "gluten"
     ],
-    "mayContain": [],
-    "cereals": [
-     "spelt",
-     "kamut"
-    ]
+    "mayContain": []
    }
   },
   {

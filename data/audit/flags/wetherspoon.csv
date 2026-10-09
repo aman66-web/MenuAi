@@ -1,0 +1,18 @@
+chain,kind,severity,code,item,name,category,detail
+wetherspoon,nutrition,reviewed,fibre-gt-carbs,plant-based-burger-patty,Plant-based burger patty,Burger toppings and extras,fibre 7 g > carbohydrate 5 g
+wetherspoon,allergen,reviewed,name-implies-crustaceans,walkers-prawn-cocktail-crisps,Walkers prawn cocktail crisps,Bar snacks,'prawn' in the name but crustaceans is not marked (contains: none)
+wetherspoon,allergen,reviewed,name-implies-eggs,hollandaise-sauce,Hollandaise sauce,Breakfast extras,'Hollandaise' in the name but eggs is not marked (contains: ['milk'])
+wetherspoon,allergen,reviewed,name-implies-gluten,british-bramley-apple-crumble,British Bramley apple crumble,Desserts,'crumb' in the name but gluten is not marked (contains: none)
+wetherspoon,allergen,reviewed,name-implies-gluten,british-bramley-apple-crumble-with-vanilla-ice-cream,British Bramley apple crumble (With vanilla ice cream),Desserts,'crumb' in the name but gluten is not marked (contains: ['milk'])
+wetherspoon,allergen,reviewed,name-implies-gluten,chicken-breast-pizza-toppings,Chicken breast (Pizza toppings),Pizza toppings,'Pizza' in the name but gluten is not marked (contains: none)
+wetherspoon,allergen,reviewed,name-implies-gluten,chicken-breast-salads-pastas-and-noodles,"Chicken breast (Salads, pastas and noodles)","Salads, pastas and noodles",'pasta' in the name but gluten is not marked (contains: none)
+wetherspoon,allergen,reviewed,name-implies-gluten,mediterranean-vegetables-pizza-toppings,Mediterranean vegetables (Pizza toppings),Pizza toppings,'Pizza' in the name but gluten is not marked (contains: none)
+wetherspoon,allergen,reviewed,name-implies-gluten,pepperoni-pizza-toppings,Pepperoni (Pizza toppings),Pizza toppings,'Pizza' in the name but gluten is not marked (contains: none)
+wetherspoon,allergen,reviewed,name-implies-soya,katsu-chicken-curry,Katsu chicken curry,Curries,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'milk', 'mustard'])"
+wetherspoon,allergen,reviewed,name-implies-soya,katsu-grilled-chicken-curry,Katsu grilled chicken curry,Curries,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+wetherspoon,allergen,reviewed,name-implies-soya,katsu-quorn-nugget-curry,Katsu Quorn nugget curry,Curries,"'Katsu' in the name but soya is not marked (contains: ['gluten', 'mustard'])"
+wetherspoon,allergen,reviewed,name-implies-soya,katsu-spicy-prawn-curry,Katsu spicy prawn curry,Curries,"'Katsu' in the name but soya is not marked (contains: ['celery', 'crustaceans', 'gluten', 'mustard', 'sulphites'])"
+wetherspoon,allergen,reviewed,name-implies-sulphites,red-wine-gravy,Red wine gravy,Sides,'wine' in the name but sulphites is not marked (contains: none)
+wetherspoon,nutrition,reviewed,salt-very-high,poppadums-and-dips,Poppadum's and dips,Curry club,salt 6 g with 290 kcal (6 g is the whole day's limit)
+wetherspoon,nutrition,reviewed,sugar+fibre-gt-carbs,fresh-fruit-breakfast,Fresh fruit (Breakfast),Breakfast,sugars 38 + fibre 6 > carbohydrate 41 (starch would be negative)
+wetherspoon,nutrition,reviewed,sugar+fibre-gt-carbs,fresh-fruit-desserts,Fresh fruit (Desserts),Desserts,sugars 59 + fibre 6 > carbohydrate 62 (starch would be negative)

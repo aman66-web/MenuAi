@@ -1,0 +1,7 @@
+chain,kind,severity,code,item,name,category,detail
+honi-poke,nutrition,reviewed,energy-gap,salmon-tartare,Salmon Tartare,Sides,214 kcal vs 4P+4C+9F=260 (21% off)
+honi-poke,nutrition,reviewed,energy-gap,seaweed-salad,Seaweed Salad,Sides,73 kcal vs 4P+4C+9F=88 (20% off)
+honi-poke,nutrition,reviewed,sodium-very-high,gochujang-prawns-ramen,Gochujang Prawns Ramen,Ramen,sodium 3123 mg
+honi-poke,nutrition,reviewed,sodium-very-high,miso-shoyu-tofu-ramen,Miso Shoyu Tofu Ramen,Ramen,sodium 6142 mg
+honi-poke,nutrition,reviewed,sodium-very-high,paitan-chicken-ramen,Paitan Chicken Ramen,Ramen,sodium 2818 mg
+honi-poke,nutrition,reviewed,sodium-very-high,shoyu-paitan-beef-ramen,Shoyu Paitan Beef Ramen,Ramen,sodium 4324 mg

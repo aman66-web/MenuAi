@@ -16,13 +16,13 @@
   "url": "https://www.pret.co.uk/en-GB/products",
   "checkedOn": "2026-10-08"
  },
- "note": "Per-serving numbers from Pret's own product pages; Pret's allergen guide doesn't list nutrition.",
+ "note": "Numbers and allergens are Pret's own (product pages and Allergen Guide). Left out because Pret gives no allergen row for them: decaf drinks, some milk choices of tea, filter coffee and iced Americano, branded bottles and cans, items with pine nuts.",
  "allergenGuide": {
   "title": "Pret's Allergen Guide, GB Pret shops (Allergen Guide 8th September 2026 V1)",
   "url": "https://assets.ctfassets.net/4zu8gvmtwqss/11hMIULPpeCprPZIUG76L2/0b636725a4e1551ed7a9817c02c98f31/Allergen_Guide_8th_September_2026_V1.pdf",
   "checkedOn": "2026-10-08",
   "mayContainPublished": false,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Sandwiches, baguettes & wraps",
@@ -60,7 +60,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/012cd782bee0.webp"
+   "image": "pret/012cd782bee0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "classic-cheese-bloomer-toastie",
@@ -83,7 +93,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/8c0457350531.webp"
+   "image": "pret/8c0457350531.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "falafel-halloumi-hot-wrap",
@@ -108,7 +133,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/45d45433d76f.webp"
+   "image": "pret/45d45433d76f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "ham-cheese-bloomer-toastie",
@@ -133,7 +169,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/f11936638625.webp"
+   "image": "pret/f11936638625.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "italian-style-chicken-basil-hot-wrap",
@@ -156,7 +207,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0206bea78edc.webp"
+   "image": "pret/0206bea78edc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "swedish-meatball-hot-wrap",
@@ -181,7 +243,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/19901d980122.webp"
+   "image": "pret/19901d980122.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "tuna-melt-bloomer-toastie",
@@ -204,7 +277,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/14596bf8186d.webp"
+   "image": "pret/14596bf8186d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "warm-beef-birria-jalapeno-ciabatta",
@@ -229,7 +317,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/cadb503670c6.webp"
+   "image": "pret/cadb503670c6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "warm-chicken-caesar-bacon-ciabatta",
@@ -254,7 +353,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/5b128a0cb533.webp"
+   "image": "pret/5b128a0cb533.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "warm-three-cheese-tomato-ciabatta",
@@ -279,7 +391,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/2657344af200.webp"
+   "image": "pret/2657344af200.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-salad",
@@ -302,7 +425,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/17cd972c74b0.webp"
+   "image": "pret/17cd972c74b0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chicken-avocado-basil",
@@ -325,7 +460,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/10823a091e7f.webp"
+   "image": "pret/10823a091e7f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chicken-avocado-basil-half-sandwich",
@@ -348,7 +495,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/11184fd830fb.webp"
+   "image": "pret/11184fd830fb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "classic-super-club",
@@ -373,7 +532,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/1c5bd92fab17.webp"
+   "image": "pret/1c5bd92fab17.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "classic-super-club-half-sandwich",
@@ -398,7 +568,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/c1d7f0416a18.webp"
+   "image": "pret/c1d7f0416a18.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "coronation-chicken",
@@ -421,7 +602,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/08d9f4ef45f7.webp"
+   "image": "pret/08d9f4ef45f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "egg-florentine",
@@ -446,7 +639,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/5cd6fd7b3538.webp"
+   "image": "pret/5cd6fd7b3538.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "free-range-egg-mayo",
@@ -471,7 +676,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/c00cd5608959.webp"
+   "image": "pret/c00cd5608959.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "ham-cheese",
@@ -496,7 +712,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/7000f7847a2e.webp"
+   "image": "pret/7000f7847a2e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "mature-cheddar-pret-pickle",
@@ -521,7 +748,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/7a0d458dd98a.webp"
+   "image": "pret/7a0d458dd98a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "new-yorker-club-sandwich",
@@ -546,7 +785,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/74c1e47db1dd.webp"
+   "image": "pret/74c1e47db1dd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "scottish-smoked-salmon",
@@ -569,7 +821,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/c579beb9a003.webp"
+   "image": "pret/c579beb9a003.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "tuna-cucumber",
@@ -592,57 +856,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/b52b8b96a80b.webp"
-  },
-  {
-   "id": "avo-olive-toms-baguette",
-   "name": "Avo, Olive & Toms Baguette",
-   "category": "Sandwiches, baguettes & wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 564,
-    "protein": 13,
-    "carbs": 57.1,
-    "fat": 29.6,
-    "saturatedFat": 4.9,
-    "sugar": 5.9,
-    "fiber": 8.5,
-    "salt": 1.64,
-    "energyKj": 2355
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/0a48d4b8832e.webp"
-  },
-  {
-   "id": "avo-olive-toms-half-baguette",
-   "name": "Avo, Olive & Toms Half Baguette",
-   "category": "Sandwiches, baguettes & wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 282,
-    "protein": 6.5,
-    "carbs": 28.6,
-    "fat": 14.8,
-    "saturatedFat": 2.4,
-    "sugar": 2.9,
-    "fiber": 4.2,
-    "salt": 0.82,
-    "energyKj": 1178
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/35db60daeb65.webp"
+   "image": "pret/b52b8b96a80b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "brie-tomato-basil-baguette",
@@ -667,7 +893,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/74b03998ca62.webp"
+   "image": "pret/74b03998ca62.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-caesar-bacon-half-baguette",
@@ -692,7 +928,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/395e954d58be.webp"
+   "image": "pret/395e954d58be.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-caesar-bacon-baguette",
@@ -717,7 +966,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/4cfc917e25ec.webp"
+   "image": "pret/4cfc917e25ec.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-salad-baguette",
@@ -740,7 +1002,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/39ca0cf46489.webp"
+   "image": "pret/39ca0cf46489.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-satay-baguette",
@@ -763,7 +1036,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/aa68cccb9d39.webp"
+   "image": "pret/aa68cccb9d39.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "coronation-chicken-baguette",
@@ -786,7 +1070,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/3ebde9aac038.webp"
+   "image": "pret/3ebde9aac038.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "coronation-chicken-half-baguette",
@@ -809,7 +1105,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/f8c64f7aaa3c.webp"
+   "image": "pret/f8c64f7aaa3c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "italian-prosciutto-baguette",
@@ -834,7 +1142,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/5ed9d16f2385.webp"
+   "image": "pret/5ed9d16f2385.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "italian-prosciutto-half-baguette",
@@ -859,32 +1179,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/d83b142c6730.webp"
-  },
-  {
-   "id": "mortadella-mozzarella-pistachio-baguette",
-   "name": "Mortadella, Mozzarella & Pistachio Baguette",
-   "category": "Sandwiches, baguettes & wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 715,
-    "protein": 31.8,
-    "carbs": 54.6,
-    "fat": 39.8,
-    "saturatedFat": 14.7,
-    "sugar": 3.9,
-    "fiber": 5.4,
-    "salt": 2.94,
-    "energyKj": 2985
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/3c775f2a46b8.webp"
+   "image": "pret/d83b142c6730.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pole-line-caught-tuna-baguette",
@@ -907,7 +1214,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/5b7a9dc83ad8.webp"
+   "image": "pret/5b7a9dc83ad8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pole-line-caught-tuna-half-baguette",
@@ -930,7 +1248,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/c01fea37e558.webp"
+   "image": "pret/c01fea37e558.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "posh-cheddar-pickle-baguette",
@@ -955,7 +1284,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/726cc1527cda.webp"
+   "image": "pret/726cc1527cda.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "posh-cheddar-pickle-half-baguette",
@@ -980,7 +1321,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/fda9d268a051.webp"
+   "image": "pret/fda9d268a051.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "prets-chicken-satay-half-baguette",
@@ -1003,7 +1356,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0cbe79ee7c4c.webp"
+   "image": "pret/0cbe79ee7c4c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "smoked-salmon-egg-mayo-avo-baguette",
@@ -1026,7 +1390,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0850f54ca703.webp"
+   "image": "pret/0850f54ca703.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "smoked-salmon-soft-cheese-dill-baguette",
@@ -1049,7 +1425,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/fe171f3924b5.webp"
+   "image": "pret/fe171f3924b5.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "wiltshire-cured-ham-greve-baguette",
@@ -1074,55 +1462,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/f8bed5ca6ca7.webp"
-  },
-  {
-   "id": "avo-herb-wrap",
-   "name": "Avo & Herb Wrap",
-   "category": "Sandwiches, baguettes & wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 502,
-    "protein": 12.5,
-    "carbs": 40,
-    "fat": 31.1,
-    "saturatedFat": 6.2,
-    "sugar": 4.3,
-    "fiber": 6,
-    "salt": 1.29,
-    "energyKj": 2091
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/56917d758ddf.webp"
-  },
-  {
-   "id": "chicken-pesto-rocket-wrap",
-   "name": "Chicken Pesto & Rocket Wrap",
-   "category": "Sandwiches, baguettes & wraps",
-   "serving": "",
-   "nutrients": {
-    "calories": 516,
-    "protein": 22.1,
-    "carbs": 38.4,
-    "fat": 29.7,
-    "saturatedFat": 3.4,
-    "sugar": 3.4,
-    "fiber": 3.2,
-    "salt": 2,
-    "energyKj": 2154
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/d1e4fd892814.webp"
+   "image": "pret/f8bed5ca6ca7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-satay-wrap",
@@ -1145,7 +1497,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/7aa60e78325f.webp"
+   "image": "pret/7aa60e78325f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "falafel-avo-chipotle-flatbread",
@@ -1170,7 +1534,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/d6f38da8c2d8.webp"
+   "image": "pret/d6f38da8c2d8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "falafel-avo-chipotle-half-flatbread",
@@ -1195,7 +1569,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/ca24d2084091.webp"
+   "image": "pret/ca24d2084091.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "hoisin-duck-wrap",
@@ -1218,7 +1602,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/37f800c613bd.webp"
+   "image": "pret/37f800c613bd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "humous-chipotle-wrap",
@@ -1243,7 +1639,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/7a93d3cbde7a.webp"
+   "image": "pret/7a93d3cbde7a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "mediterranean-style-tuna-flatbread",
@@ -1266,7 +1673,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0d3625c01f7c.webp"
+   "image": "pret/0d3625c01f7c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mediterranean-style-tuna-half-flatbread",
@@ -1289,7 +1707,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/9a9385bcb8d1.webp"
+   "image": "pret/9a9385bcb8d1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "shawarma-spiced-chicken-flatbread",
@@ -1312,7 +1741,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/6135f5b157a4.webp"
+   "image": "pret/6135f5b157a4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "shawarma-spiced-chicken-half-flatbread",
@@ -1335,7 +1774,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/6511256351f2.webp"
+   "image": "pret/6511256351f2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "banana-cinnamon-porridge",
@@ -1360,7 +1809,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/606508ecf6e3.webp"
+   "image": "pret/606508ecf6e3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "coconut-quinoa-porridge",
@@ -1385,7 +1844,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/805e9b7755a7.webp"
+   "image": "pret/805e9b7755a7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "prets-proper-porridge",
@@ -1410,7 +1878,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/d20c523d7adb.webp"
+   "image": "pret/d20c523d7adb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "side-porridge",
@@ -1435,7 +1913,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/bad4cd07591c.webp"
+   "image": "pret/bad4cd07591c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "ham-cheese-croissant",
@@ -1460,7 +1948,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/e3cf3441dc12.webp"
+   "image": "pret/e3cf3441dc12.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mozzarella-tomato-croissant",
@@ -1485,7 +1984,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/4caf6bbc4270.webp"
+   "image": "pret/4caf6bbc4270.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "prets-veggie-breakfast-ciabatta",
@@ -1510,7 +2020,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/709b25ca242e.webp"
+   "image": "pret/709b25ca242e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "sausage-bacon-ciabatta",
@@ -1535,7 +2057,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/7b4ca4abacfd.webp"
+   "image": "pret/7b4ca4abacfd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "triple-bacon-ciabatta",
@@ -1560,7 +2093,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/41d9c8d14092.webp"
+   "image": "pret/41d9c8d14092.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "triple-sausage-ciabatta",
@@ -1585,7 +2129,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0115b29e9d42.webp"
+   "image": "pret/0115b29e9d42.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "ultimate-breakfast-ciabatta",
@@ -1610,7 +2165,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/c61b93169b5c.webp"
+   "image": "pret/c61b93169b5c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "british-sausages-prets-baked-beans-egg-pot",
@@ -1635,7 +2202,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/6af2a7323fb0.webp"
+   "image": "pret/6af2a7323fb0.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "roasted-mushroom-prets-baked-beans-egg-pot",
@@ -1660,7 +2233,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0b42ac0f08ee.webp"
+   "image": "pret/0b42ac0f08ee.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "all-butter-croissant",
@@ -1685,7 +2264,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/1fa3cae5e56f.webp"
+   "image": "pret/1fa3cae5e56f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "almond-croissant",
@@ -1710,7 +2300,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/e5becc99aec1.webp"
+   "image": "pret/e5becc99aec1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "chocolate-croissant",
@@ -1735,7 +2340,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/35300825e730.webp"
+   "image": "pret/35300825e730.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cinnamon-danish",
@@ -1760,7 +2376,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/2fc74a34cd9b.webp"
+   "image": "pret/2fc74a34cd9b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pain-aux-raisins",
@@ -1785,7 +2412,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/75f66dd159e3.webp"
+   "image": "pret/75f66dd159e3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "very-berry-croissant",
@@ -1810,7 +2448,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/e71aa8390f94.webp"
+   "image": "pret/e71aa8390f94.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bacon-egg-mayo-breakfast-baguette",
@@ -1835,7 +2482,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/70a5c4020401.webp"
+   "image": "pret/70a5c4020401.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "free-range-egg-avo-breakfast-baguette",
@@ -1860,7 +2517,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/a5236350d026.webp"
+   "image": "pret/a5236350d026.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "roasted-tomato-egg-mayo-breakfast-baguette",
@@ -1885,7 +2552,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/2f34a46cd344.webp"
+   "image": "pret/2f34a46cd344.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "smoked-salmon-egg-mayo-breakfast-baguette",
@@ -1908,7 +2585,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/712e10eeb4f2.webp"
+   "image": "pret/712e10eeb4f2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "acai-almond-butter-bowl",
@@ -1933,7 +2621,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/d850384a18a8.webp"
+   "image": "pret/d850384a18a8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "bircher-muesli",
@@ -1958,7 +2659,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/ebff87573088.webp"
+   "image": "pret/ebff87573088.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "blueberry-balance-bowl",
@@ -1983,7 +2698,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/8b2a170ab3d3.webp"
+   "image": "pret/8b2a170ab3d3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "five-berry-bowl",
@@ -2008,7 +2733,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/5e5a018bc361.webp"
+   "image": "pret/5e5a018bc361.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "mango-banana-sunshine-bowl",
@@ -2033,7 +2768,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/eaaf4ba75625.webp"
+   "image": "pret/eaaf4ba75625.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "the-big-apple-bowl",
@@ -2058,7 +2802,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/f33177a71c23.webp"
+   "image": "pret/f33177a71c23.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "crispy-potato-bites",
@@ -2083,7 +2837,11 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/25ac03b9ef22.webp"
+   "image": "pret/25ac03b9ef22.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kale-cauli-macaroni-cheese",
@@ -2108,7 +2866,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/d641358904d0.webp"
+   "image": "pret/d641358904d0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "butter-chicken-side-soup",
@@ -2131,7 +2899,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/e8dcaccc2710.webp"
+   "image": "pret/e8dcaccc2710.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "butter-chicken-soup",
@@ -2154,7 +2928,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/e8dcaccc2710.webp"
+   "image": "pret/e8dcaccc2710.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-laksa-side-soup",
@@ -2177,7 +2957,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0ba79aace8b4.webp"
+   "image": "pret/0ba79aace8b4.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-laksa-soup",
@@ -2200,7 +2987,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/0ba79aace8b4.webp"
+   "image": "pret/0ba79aace8b4.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "creamy-roast-chicken-side-soup",
@@ -2223,7 +3017,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/fd95fc22f176.webp"
+   "image": "pret/fd95fc22f176.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "creamy-roast-chicken-soup",
@@ -2246,7 +3046,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/fd95fc22f176.webp"
+   "image": "pret/fd95fc22f176.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "prets-lasagne-side-soup",
@@ -2271,7 +3077,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/9109d47717c7.webp"
+   "image": "pret/9109d47717c7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "prets-lasagne-soup",
@@ -2296,7 +3111,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/9109d47717c7.webp"
+   "image": "pret/9109d47717c7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "prets-mushroom-risotto",
@@ -2321,7 +3145,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/060fc16b966b.webp"
+   "image": "pret/060fc16b966b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "prets-mushroom-risotto-side-soup",
@@ -2346,7 +3176,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/060fc16b966b.webp"
+   "image": "pret/060fc16b966b.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "souper-tomato",
@@ -2371,7 +3207,11 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/5bf2d0584747.webp"
+   "image": "pret/5bf2d0584747.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "souper-tomato-side-soup",
@@ -2396,7 +3236,11 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/5bf2d0584747.webp"
+   "image": "pret/5bf2d0584747.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "bacon-cheese-jalapeno-pastry",
@@ -2421,7 +3265,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/89e3ceadac18.webp"
+   "image": "pret/89e3ceadac18.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "prets-sausage-roll",
@@ -2446,7 +3301,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/61b99cecae64.webp"
+   "image": "pret/61b99cecae64.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spinach-feta-pastry",
@@ -2471,7 +3337,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/0ed47b5f8b86.webp"
+   "image": "pret/0ed47b5f8b86.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chipotle-chicken",
@@ -2494,7 +3371,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/57deb8256a90.webp"
+   "image": "pret/57deb8256a90.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "korean-bbq-tofu",
@@ -2519,7 +3403,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/d51a60c836cc.webp"
+   "image": "pret/d51a60c836cc.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "miso-salmon",
@@ -2542,7 +3432,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/71c713854441.webp"
+   "image": "pret/71c713854441.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "shawarma-chicken",
@@ -2565,7 +3462,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/cc7eccf3831e.webp"
+   "image": "pret/cc7eccf3831e.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "sesame"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "butternut-humous-mezze-bowl",
@@ -2590,7 +3498,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/7b16b85f086e.webp"
+   "image": "pret/7b16b85f086e.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "butternut-humous-side-salad",
@@ -2615,7 +3529,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/de63bf068c94.webp"
+   "image": "pret/de63bf068c94.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chefs-italian-chicken-salad",
@@ -2638,7 +3558,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/447b22f1d805.webp"
+   "image": "pret/447b22f1d805.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "chicken-greens-protein-plate",
@@ -2661,7 +3593,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/e4d381e531e7.webp"
+   "image": "pret/e4d381e531e7.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "classic-green-side-salad",
@@ -2686,7 +3625,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/1548ebd53f57.webp"
+   "image": "pret/1548ebd53f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "miso-chicken-rice-bowl",
@@ -2709,7 +3654,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/7ade225bc2bb.webp"
+   "image": "pret/7ade225bc2bb.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "smoked-salmon-egg-protein-plate",
@@ -2732,7 +3683,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/3f1cde8f5873.webp"
+   "image": "pret/3f1cde8f5873.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tuna-nicoise-salad",
@@ -2755,7 +3714,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/85f58d3f8c79.webp"
+   "image": "pret/85f58d3f8c79.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-edamame-protein-pot",
@@ -2778,7 +3744,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/739e60fd417f.webp"
+   "image": "pret/739e60fd417f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "egg-spinach-protein-pot",
@@ -2803,7 +3775,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/946941e2c6f9.webp"
+   "image": "pret/946941e2c6f9.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "smoked-salmon-egg-protein-pot",
@@ -2826,7 +3804,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "pret/f7125044e92e.webp"
+   "image": "pret/f7125044e92e.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salt-cider-vinegar-crisps",
@@ -2851,7 +3836,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ba1a994ea35f.webp"
+   "image": "pret/ba1a994ea35f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mature-cheddar-red-onion-crisps",
@@ -2876,7 +3865,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/38e694813087.webp"
+   "image": "pret/38e694813087.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-popcorn",
@@ -2901,7 +3896,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/f9527a1422f0.webp"
+   "image": "pret/f9527a1422f0.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sea-salt-crisps",
@@ -2926,7 +3925,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a7e985dae37b.webp"
+   "image": "pret/a7e985dae37b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "smoky-chipotle-crisps",
@@ -2951,7 +3954,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ff764a5fc482.webp"
+   "image": "pret/ff764a5fc482.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sweet-salt-popcorn",
@@ -2976,7 +3983,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/5c3f5b5718f0.webp"
+   "image": "pret/5c3f5b5718f0.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pastel-de-nata",
@@ -3001,7 +4012,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/d8152d41a0fe.webp"
+   "image": "pret/d8152d41a0fe.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "choc-bar",
@@ -3026,7 +4048,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/0800e4d4fb2e.webp"
+   "image": "pret/0800e4d4fb2e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-brownie-bar",
@@ -3051,7 +4084,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/3d82edfae76d.webp"
+   "image": "pret/3d82edfae76d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "dark-chocolate-corn-cakes",
@@ -3076,7 +4121,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/f9d6bafb9ac3.webp"
+   "image": "pret/f9d6bafb9ac3.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dark-chocolate-with-sea-salt",
@@ -3101,7 +4152,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/276cd21710de.webp"
+   "image": "pret/276cd21710de.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "love-bar",
@@ -3126,7 +4183,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/38561d63ae3b.webp"
+   "image": "pret/38561d63ae3b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond",
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "milk-chocolate-bar",
@@ -3151,7 +4224,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/d5c2d773abd3.webp"
+   "image": "pret/d5c2d773abd3.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "popcorn-bar",
@@ -3176,7 +4256,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/f5b237008c82.webp"
+   "image": "pret/f5b237008c82.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pret-bar",
@@ -3201,7 +4288,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/2c19a95f6d82.webp"
+   "image": "pret/2c19a95f6d82.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
   },
   {
    "id": "cranberries-in-coats",
@@ -3224,7 +4322,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bbc825a89837.webp"
+   "image": "pret/bbc825a89837.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dark-chocolate-salted-almonds",
@@ -3249,7 +4353,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/d166526ac78d.webp"
+   "image": "pret/d166526ac78d.webp",
+   "allergens": {
+    "contains": [
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "nuts-fruit-chocolate",
@@ -3274,7 +4388,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/158b59b9ecbe.webp"
+   "image": "pret/158b59b9ecbe.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "pret-a-mango",
@@ -3299,7 +4424,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/03e703e265c4.webp"
+   "image": "pret/03e703e265c4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-chunk-cookie",
@@ -3324,7 +4453,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/766a406f1bb7.webp"
+   "image": "pret/766a406f1bb7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-hazelnut-praline-cookie",
@@ -3349,7 +4488,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/9a80de19b913.webp"
+   "image": "pret/9a80de19b913.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
   },
   {
    "id": "double-berry-muffin",
@@ -3374,7 +4528,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ce92480df9d8.webp"
+   "image": "pret/ce92480df9d8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "loaded-chocolate-chunk-banana-bread",
@@ -3399,7 +4564,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/38db0d459afe.webp"
+   "image": "pret/38db0d459afe.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "nutty-pistachio-almond-loaf-cake",
@@ -3424,7 +4605,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/6496217baa03.webp"
+   "image": "pret/6496217baa03.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond",
+     "pistachio"
+    ]
+   }
   },
   {
    "id": "prets-gingerbread-biscuit-godfrey",
@@ -3449,7 +4643,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/9051fab0ef9e.webp"
+   "image": "pret/9051fab0ef9e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "raspberry-white-chocolate-cookie",
@@ -3474,7 +4678,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ec7c668cd010.webp"
+   "image": "pret/ec7c668cd010.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "triple-chocolate-cookie",
@@ -3499,7 +4714,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/85260630d8e6.webp"
+   "image": "pret/85260630d8e6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "zingy-lemon-almond-loaf-cake",
@@ -3524,7 +4750,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/040e68205594.webp"
+   "image": "pret/040e68205594.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "apple",
@@ -3549,7 +4787,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ce97a1c19fc5.webp"
+   "image": "pret/ce97a1c19fc5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "banana",
@@ -3574,7 +4816,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/640c5cb7947e.webp"
+   "image": "pret/640c5cb7947e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fruit-salad",
@@ -3599,7 +4845,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/4066ffbd4e9d.webp"
+   "image": "pret/4066ffbd4e9d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-lime",
@@ -3624,7 +4874,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/b8a85aac003b.webp"
+   "image": "pret/b8a85aac003b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "super-fruit",
@@ -3649,7 +4903,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/9cfdf487945f.webp"
+   "image": "pret/9cfdf487945f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-cheese-tomato-triangles",
@@ -3674,7 +4932,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/1890574f8ad8.webp"
+   "image": "pret/1890574f8ad8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "kids-chicken-cucumber-triangles",
@@ -3697,7 +4966,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/f4748e1f3bd1.webp"
+   "image": "pret/f4748e1f3bd1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "kids-ham-triangles",
@@ -3722,7 +5002,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/83afc0b229a2.webp"
+   "image": "pret/83afc0b229a2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "kids-humous-cucumber-bowl",
@@ -3747,7 +5038,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/8f4c8c9f0f9e.webp"
+   "image": "pret/8f4c8c9f0f9e.webp",
+   "allergens": {
+    "contains": [
+     "sesame"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mango-banana-yogurt-pot",
@@ -3772,7 +5069,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/0f6be05385cd.webp"
+   "image": "pret/0f6be05385cd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-pizza-toastie",
@@ -3795,7 +5098,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/9432f50fd110.webp"
+   "image": "pret/9432f50fd110.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "americano",
@@ -3820,7 +5134,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-oat-milk",
@@ -3846,7 +5164,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "americano-semi-skimmed-milk",
@@ -3872,110 +5199,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
-  },
-  {
-   "id": "americano-soya-milk-decaf",
-   "name": "Americano (soya milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 30,
-    "protein": 2.3,
-    "carbs": 2.1,
-    "fat": 1.4,
-    "saturatedFat": 0.2,
-    "sodium": 15,
-    "sugar": 2,
-    "fiber": 0.4,
-    "salt": 0,
-    "energyKj": 125
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
-  },
-  {
-   "id": "americano-black-decaf",
-   "name": "Americano (black, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 3,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sodium": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 17
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
-  },
-  {
-   "id": "americano-skimmed-milk-decaf",
-   "name": "Americano (skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 14,
-    "protein": 1,
-    "carbs": 1.4,
-    "fat": 0.5,
-    "saturatedFat": 0.3,
-    "sodium": 0,
-    "sugar": 1.4,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 59
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
-  },
-  {
-   "id": "americano-semi-skimmed-milk-decaf",
-   "name": "Americano (semi-skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 35,
-    "protein": 2.6,
-    "carbs": 3.4,
-    "fat": 1.3,
-    "saturatedFat": 0.8,
-    "sodium": 40,
-    "sugar": 3.4,
-    "salt": 0.1,
-    "energyKj": 147
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-skimmed-milk",
@@ -4001,7 +5231,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "americano-soya-milk",
@@ -4027,33 +5263,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
-  },
-  {
-   "id": "americano-oat-milk-decaf",
-   "name": "Americano (oat milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 45,
-    "protein": 0.2,
-    "carbs": 9.4,
-    "fat": 0.7,
-    "saturatedFat": 0.5,
-    "sodium": 50,
-    "sugar": 4.9,
-    "fiber": 0.2,
-    "salt": 0.1,
-    "energyKj": 189
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/abec18f0ac88.webp"
+   "image": "pret/abec18f0ac88.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-semi-skimmed-milk",
@@ -4078,33 +5294,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
-  },
-  {
-   "id": "cappuccino-skimmed-milk-decaf",
-   "name": "Cappuccino (skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 92,
-    "protein": 6.6,
-    "carbs": 8.8,
-    "fat": 3.3,
-    "saturatedFat": 2.1,
-    "sodium": 80,
-    "sugar": 8.8,
-    "fiber": 0,
-    "salt": 0.2,
-    "energyKj": 384
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-skimmed-milk",
@@ -4130,33 +5326,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
-  },
-  {
-   "id": "cappuccino-oat-milk-decaf",
-   "name": "Cappuccino (oat milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 116,
-    "protein": 0.6,
-    "carbs": 24.4,
-    "fat": 1.8,
-    "saturatedFat": 1.4,
-    "sodium": 80,
-    "sugar": 12.7,
-    "fiber": 0.4,
-    "salt": 0.2,
-    "energyKj": 492
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-soya-milk",
@@ -4185,7 +5361,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-oat-milk",
@@ -4212,59 +5394,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
-  },
-  {
-   "id": "cappuccino-soya-milk-decaf",
-   "name": "Cappuccino (soya milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 92,
-    "protein": 7.3,
-    "carbs": 5.5,
-    "fat": 4.2,
-    "saturatedFat": 0.8,
-    "sodium": 100,
-    "sugar": 5.4,
-    "fiber": 1.2,
-    "salt": 0.3,
-    "energyKj": 385
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
-  },
-  {
-   "id": "cappuccino-semi-skimmed-milk-decaf",
-   "name": "Cappuccino (semi-skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 92,
-    "protein": 6.6,
-    "carbs": 8.8,
-    "fat": 3.3,
-    "saturatedFat": 2.1,
-    "sodium": 80,
-    "sugar": 8.8,
-    "fiber": 0,
-    "salt": 0.2,
-    "energyKj": 384
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/dc09b0e3ec46.webp"
+   "image": "pret/dc09b0e3ec46.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "espresso",
@@ -4289,32 +5428,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/c3a4c85401bf.webp"
-  },
-  {
-   "id": "espresso-black-decaf",
-   "name": "Espresso (black, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "sodium": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/c3a4c85401bf.webp"
+   "image": "pret/c3a4c85401bf.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "filter-coffee",
@@ -4339,107 +5457,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/16d3df32a421.webp"
-  },
-  {
-   "id": "filter-coffee-oat-milk",
-   "name": "Filter Coffee (oat milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 16,
-    "protein": 0.1,
-    "carbs": 2.5,
-    "fat": 0.6,
-    "saturatedFat": 0.2,
-    "sugar": 1.2,
-    "fiber": 0.3,
-    "salt": 0.2,
-    "energyKj": 67
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/16d3df32a421.webp"
-  },
-  {
-   "id": "filter-coffee-skimmed-milk",
-   "name": "Filter Coffee (skimmed milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 12,
-    "protein": 1,
-    "carbs": 1.5,
-    "fat": 0.3,
-    "saturatedFat": 0,
-    "sugar": 1.4,
-    "fiber": 0,
-    "salt": 0.16,
-    "energyKj": 52
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/16d3df32a421.webp"
-  },
-  {
-   "id": "filter-coffee-semi-skimmed-milk",
-   "name": "Filter Coffee (semi-skimmed milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 16,
-    "protein": 1.1,
-    "carbs": 1.5,
-    "fat": 0.7,
-    "saturatedFat": 0.3,
-    "sugar": 1.5,
-    "fiber": 0,
-    "salt": 0.16,
-    "energyKj": 68
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/16d3df32a421.webp"
-  },
-  {
-   "id": "filter-coffee-soya-milk",
-   "name": "Filter Coffee (soya milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 15,
-    "protein": 1.1,
-    "carbs": 0.8,
-    "fat": 0.8,
-    "saturatedFat": 0.1,
-    "sugar": 0.8,
-    "fiber": 0.2,
-    "salt": 0.21,
-    "energyKj": 64
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/16d3df32a421.webp"
+   "image": "pret/16d3df32a421.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white-semi-skimmed-milk",
@@ -4464,7 +5486,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white-skimmed-milk",
@@ -4489,33 +5517,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
-  },
-  {
-   "id": "flat-white-oat-milk-decaf",
-   "name": "Flat White (oat milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 105,
-    "protein": 0.5,
-    "carbs": 21.9,
-    "fat": 1.6,
-    "saturatedFat": 1.2,
-    "sodium": 50,
-    "sugar": 11.4,
-    "fiber": 0.4,
-    "salt": 0.1,
-    "energyKj": 442
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white-oat-milk",
@@ -4541,7 +5549,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "flat-white-soya-milk",
@@ -4570,83 +5587,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
-  },
-  {
-   "id": "flat-white-soya-milk-decaf",
-   "name": "Flat White (soya milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 77,
-    "protein": 6.3,
-    "carbs": 4.1,
-    "fat": 3.6,
-    "saturatedFat": 0.7,
-    "sodium": 90,
-    "sugar": 4.1,
-    "fiber": 1,
-    "salt": 0.2,
-    "energyKj": 323
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
-  },
-  {
-   "id": "flat-white-semi-skimmed-milk-decaf",
-   "name": "Flat White (semi-skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 80,
-    "protein": 5.8,
-    "carbs": 7.7,
-    "fat": 2.9,
-    "saturatedFat": 1.8,
-    "sodium": 80,
-    "sugar": 7.7,
-    "salt": 0.2,
-    "energyKj": 335
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
-  },
-  {
-   "id": "flat-white-skimmed-milk-decaf",
-   "name": "Flat White (skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 80,
-    "protein": 5.8,
-    "carbs": 7.7,
-    "fat": 2.9,
-    "saturatedFat": 1.8,
-    "sodium": 80,
-    "sugar": 7.7,
-    "salt": 0.2,
-    "energyKj": 335
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/91ac9b34d737.webp"
+   "image": "pret/91ac9b34d737.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-semi-skimmed-milk",
@@ -4671,32 +5618,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
-  },
-  {
-   "id": "latte-skimmed-milk-decaf",
-   "name": "Latte (skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 118,
-    "protein": 8.5,
-    "carbs": 11.3,
-    "fat": 4.3,
-    "saturatedFat": 2.7,
-    "sodium": 120,
-    "sugar": 11.3,
-    "salt": 0.3,
-    "energyKj": 494
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-skimmed-milk",
@@ -4722,33 +5650,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
-  },
-  {
-   "id": "latte-oat-milk-decaf",
-   "name": "Latte (oat milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 149,
-    "protein": 0.8,
-    "carbs": 31.3,
-    "fat": 2.3,
-    "saturatedFat": 1.8,
-    "sodium": 100,
-    "sugar": 16.3,
-    "fiber": 0.5,
-    "salt": 0.3,
-    "energyKj": 631
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-soya-milk",
@@ -4777,7 +5685,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte-oat-milk",
@@ -4803,58 +5717,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
-  },
-  {
-   "id": "latte-semi-skimmed-milk-decaf",
-   "name": "Latte (semi-skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 118,
-    "protein": 8.5,
-    "carbs": 11.3,
-    "fat": 4.3,
-    "saturatedFat": 2.7,
-    "sodium": 120,
-    "sugar": 11.3,
-    "salt": 0.3,
-    "energyKj": 494
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
-  },
-  {
-   "id": "latte-soya-milk-decaf",
-   "name": "Latte (soya milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 113,
-    "protein": 9.3,
-    "carbs": 6.1,
-    "fat": 5.3,
-    "saturatedFat": 1,
-    "sodium": 132,
-    "sugar": 6,
-    "fiber": 1.5,
-    "salt": 0.3,
-    "energyKj": 473
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17e56f660a1c.webp"
+   "image": "pret/17e56f660a1c.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "macchiato-semi-skimmed-milk",
@@ -4879,7 +5751,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-oat-milk",
@@ -4905,7 +5783,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "macchiato-skimmed-milk",
@@ -4931,81 +5818,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
-  },
-  {
-   "id": "macchiato-semi-skimmed-milk-decaf",
-   "name": "Macchiato (semi-skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 5,
-    "protein": 0.4,
-    "carbs": 0.5,
-    "fat": 0,
-    "sodium": 0,
-    "sugar": 0.5,
-    "salt": 0,
-    "energyKj": 21
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
-  },
-  {
-   "id": "macchiato-skimmed-milk-decaf",
-   "name": "Macchiato (skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 5,
-    "protein": 0.4,
-    "carbs": 0.5,
-    "fat": 0,
-    "sodium": 0,
-    "sugar": 0.5,
-    "salt": 0,
-    "energyKj": 21
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
-  },
-  {
-   "id": "macchiato-oat-milk-decaf",
-   "name": "Macchiato (oat milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 6,
-    "protein": 0,
-    "carbs": 1.3,
-    "fat": 0.1,
-    "saturatedFat": 0.1,
-    "sodium": 0,
-    "sugar": 0.7,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 25
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato-soya-milk",
@@ -5031,7 +5850,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/17f8b624dc5f.webp"
+   "image": "pret/17f8b624dc5f.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-semi-skimmed-milk",
@@ -5056,7 +5881,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-skimmed-milk",
@@ -5082,33 +5913,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
-  },
-  {
-   "id": "mocha-oat-milk-decaf",
-   "name": "Mocha (oat milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 216,
-    "protein": 1.9,
-    "carbs": 44,
-    "fat": 3.3,
-    "saturatedFat": 2.4,
-    "sodium": 100,
-    "sugar": 28.2,
-    "fiber": 1.9,
-    "salt": 0.3,
-    "energyKj": 915
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-oat-milk",
@@ -5134,7 +5945,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "mocha-soya-milk",
@@ -5163,88 +5983,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
-  },
-  {
-   "id": "mocha-soya-milk-decaf",
-   "name": "Mocha (soya milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 181,
-    "protein": 10.1,
-    "carbs": 19.5,
-    "fat": 6.2,
-    "saturatedFat": 1.6,
-    "sodium": 123,
-    "sugar": 18.4,
-    "fiber": 2.9,
-    "salt": 0.3,
-    "energyKj": 760
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
-  },
-  {
-   "id": "mocha-skimmed-milk-decaf",
-   "name": "Mocha (skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 185,
-    "protein": 9.3,
-    "carbs": 24.4,
-    "fat": 5.2,
-    "saturatedFat": 3.3,
-    "sodium": 105,
-    "sugar": 23.4,
-    "fiber": 1.5,
-    "salt": 0.3,
-    "energyKj": 778
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
-  },
-  {
-   "id": "mocha-semi-skimmed-milk-decaf",
-   "name": "Mocha (semi-skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 185,
-    "protein": 9.3,
-    "carbs": 24.4,
-    "fat": 5.2,
-    "saturatedFat": 3.3,
-    "sodium": 105,
-    "sugar": 23.4,
-    "fiber": 1.5,
-    "salt": 0.3,
-    "energyKj": 778,
-    "monounsaturatedFat": 1,
-    "polyunsaturatedFat": 0,
-    "transFat": 0.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/cf5ac4151b2c.webp"
+   "image": "pret/cf5ac4151b2c.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-latte-semi-skimmed-milk",
@@ -5269,7 +6014,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
+   "image": "pret/a6fa9ce45c67.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-latte-skimmed-milk",
@@ -5294,7 +6045,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
+   "image": "pret/a6fa9ce45c67.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-latte-soya-milk",
@@ -5319,7 +6076,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
+   "image": "pret/a6fa9ce45c67.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spice-latte-oat-milk",
@@ -5344,132 +6107,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
-  },
-  {
-   "id": "pumpkin-spice-latte-skimmed-milk-decaf",
-   "name": "Pumpkin Spice Latte (skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 148,
-    "protein": 8.8,
-    "carbs": 25.8,
-    "fat": 1,
-    "saturatedFat": 0.3,
-    "sugar": 23.8,
-    "fiber": 0.5,
-    "salt": 0.17,
-    "energyKj": 628
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
-  },
-  {
-   "id": "pumpkin-spice-latte-semi-skimmed-milk-decaf",
-   "name": "Pumpkin Spice Latte (semi-skimmed milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 183,
-    "protein": 9.3,
-    "carbs": 25.5,
-    "fat": 4.7,
-    "saturatedFat": 2.9,
-    "sugar": 24.6,
-    "fiber": 0.5,
-    "salt": 0.17,
-    "energyKj": 770
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
-  },
-  {
-   "id": "pumpkin-spice-latte-soya-milk-decaf",
-   "name": "Pumpkin Spice Latte (soya milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 173,
-    "protein": 9.9,
-    "carbs": 19.4,
-    "fat": 5.8,
-    "saturatedFat": 1.1,
-    "sugar": 18.6,
-    "fiber": 2.1,
-    "salt": 0.57,
-    "energyKj": 728
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
-  },
-  {
-   "id": "pumpkin-spice-latte-oat-milk-decaf",
-   "name": "Pumpkin Spice Latte (oat milk, decaf)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 179,
-    "protein": 0.9,
-    "carbs": 34.5,
-    "fat": 3.6,
-    "saturatedFat": 1.3,
-    "sugar": 22.5,
-    "fiber": 2.7,
-    "salt": 0.44,
-    "energyKj": 757
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
-  },
-  {
-   "id": "pumpkin-spice-latte-skimmed-milk-decaf-pod",
-   "name": "Pumpkin Spice Latte (skimmed milk, decaf pod)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 148,
-    "protein": 8.8,
-    "carbs": 25.7,
-    "fat": 1,
-    "saturatedFat": 0.3,
-    "sugar": 23.8,
-    "fiber": 0.5,
-    "salt": 0.15,
-    "energyKj": 627
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a6fa9ce45c67.webp"
+   "image": "pret/a6fa9ce45c67.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "toasted-marshmallow-hot-chocolate",
@@ -5494,7 +6141,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/66899c5e1a1b.webp"
+   "image": "pret/66899c5e1a1b.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toasted-marshmallow-latte",
@@ -5519,7 +6172,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bde6e641c1e3.webp"
+   "image": "pret/bde6e641c1e3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "babyccino-semi-skimmed-milk",
@@ -5544,57 +6203,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/7cba899fbe26.webp"
-  },
-  {
-   "id": "babyccino-skimmed-milk",
-   "name": "Babyccino (skimmed milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 14,
-    "protein": 1.1,
-    "carbs": 2.1,
-    "fat": 0.1,
-    "saturatedFat": 0.1,
-    "sugar": 2,
-    "fiber": 0.2,
-    "salt": 0,
-    "energyKj": 61
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/7cba899fbe26.webp"
-  },
-  {
-   "id": "babyccino-soya-milk",
-   "name": "Babyccino (soya milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 17,
-    "protein": 1.2,
-    "carbs": 1.4,
-    "fat": 0.7,
-    "saturatedFat": 0.1,
-    "sugar": 1.4,
-    "fiber": 0.3,
-    "salt": 0.05,
-    "energyKj": 72
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/7cba899fbe26.webp"
+   "image": "pret/7cba899fbe26.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "breakfast-tea-semi-skimmed-milk",
@@ -5619,111 +6234,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/7aed9a0bfb69.webp"
-  },
-  {
-   "id": "breakfast-tea-oat-milk",
-   "name": "Breakfast Tea (oat milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 45,
-    "protein": 0.2,
-    "carbs": 9.4,
-    "fat": 0.7,
-    "saturatedFat": 0.5,
-    "sodium": 50,
-    "sugar": 4.9,
-    "fiber": 0.2,
-    "salt": 0.1,
-    "energyKj": 189
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/7aed9a0bfb69.webp"
-  },
-  {
-   "id": "breakfast-tea-black",
-   "name": "Breakfast Tea (black)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sodium": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/7aed9a0bfb69.webp"
-  },
-  {
-   "id": "breakfast-tea-skimmed-milk",
-   "name": "Breakfast Tea (skimmed milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 14,
-    "protein": 1,
-    "carbs": 1.4,
-    "fat": 0.5,
-    "saturatedFat": 0.3,
-    "sodium": 0,
-    "sugar": 1.4,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 59
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/7aed9a0bfb69.webp"
-  },
-  {
-   "id": "breakfast-tea-soya-milk",
-   "name": "Breakfast Tea (soya milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 33,
-    "protein": 2.3,
-    "carbs": 1.8,
-    "fat": 1.6,
-    "saturatedFat": 0.3,
-    "sodium": 0,
-    "sugar": 1.8,
-    "fiber": 0.5,
-    "salt": 0,
-    "energyKj": 141
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/7aed9a0bfb69.webp"
+   "image": "pret/7aed9a0bfb69.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-semi-skimmed-milk",
@@ -5748,7 +6265,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/66e834bfc1a7.webp"
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-skimmed-milk",
@@ -5773,7 +6296,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/66e834bfc1a7.webp"
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-soya-milk",
@@ -5798,7 +6327,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/66e834bfc1a7.webp"
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chai-latte-oat-milk",
@@ -5823,7 +6358,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/66e834bfc1a7.webp"
+   "image": "pret/66e834bfc1a7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "earl-grey-tea-semi-skimmed-milk",
@@ -5848,111 +6392,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/3f7048f42b21.webp"
-  },
-  {
-   "id": "earl-grey-tea-oat-milk",
-   "name": "Earl Grey Tea (oat milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 45,
-    "protein": 0.2,
-    "carbs": 9.4,
-    "fat": 0.7,
-    "saturatedFat": 0.5,
-    "sodium": 50,
-    "sugar": 4.9,
-    "fiber": 0.2,
-    "salt": 0.1,
-    "energyKj": 189
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/3f7048f42b21.webp"
-  },
-  {
-   "id": "earl-grey-tea-black",
-   "name": "Earl Grey Tea (black)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sodium": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/3f7048f42b21.webp"
-  },
-  {
-   "id": "earl-grey-tea-skimmed-milk",
-   "name": "Earl Grey Tea (skimmed milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 14,
-    "protein": 1,
-    "carbs": 1.4,
-    "fat": 0.5,
-    "saturatedFat": 0.3,
-    "sodium": 0,
-    "sugar": 1.4,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 59
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/3f7048f42b21.webp"
-  },
-  {
-   "id": "earl-grey-tea-soya-milk",
-   "name": "Earl Grey Tea (soya milk)",
-   "category": "Hot drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 33,
-    "protein": 2.3,
-    "carbs": 1.8,
-    "fat": 1.6,
-    "saturatedFat": 0.3,
-    "sodium": 0,
-    "sugar": 1.8,
-    "fiber": 0.5,
-    "salt": 0,
-    "energyKj": 141
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/3f7048f42b21.webp"
+   "image": "pret/3f7048f42b21.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-semi-skimmed-milk",
@@ -5977,7 +6423,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/6764e5b29f4a.webp"
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-skimmed-milk",
@@ -6003,7 +6455,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/6764e5b29f4a.webp"
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-oat-milk",
@@ -6029,7 +6487,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/6764e5b29f4a.webp"
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "hot-chocolate-soya-milk",
@@ -6055,7 +6522,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/6764e5b29f4a.webp"
+   "image": "pret/6764e5b29f4a.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte",
@@ -6080,7 +6553,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ff3f2c54f753.webp"
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-skimmed-milk",
@@ -6105,7 +6582,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ff3f2c54f753.webp"
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-soya-milk",
@@ -6130,7 +6613,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ff3f2c54f753.webp"
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-semi-skimmed-milk",
@@ -6155,7 +6644,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ff3f2c54f753.webp"
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "matcha-latte-oat-milk",
@@ -6180,7 +6675,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ff3f2c54f753.webp"
+   "image": "pret/ff3f2c54f753.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "peppermint-tea",
@@ -6205,7 +6709,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/6ca78e546dda.webp"
+   "image": "pret/6ca78e546dda.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tropical-green-tea",
@@ -6230,7 +6738,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/e3dc6fe52aa8.webp"
+   "image": "pret/e3dc6fe52aa8.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-chai-latte-semi-skimmed-milk",
@@ -6255,7 +6767,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/19113e9223e7.webp"
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-chai-latte-skimmed-milk",
@@ -6280,7 +6798,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/19113e9223e7.webp"
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-chai-latte-soya-milk",
@@ -6305,7 +6829,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/19113e9223e7.webp"
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-chai-latte-oat-milk",
@@ -6330,7 +6860,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/19113e9223e7.webp"
+   "image": "pret/19113e9223e7.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "iced-hot-chocolate",
@@ -6355,7 +6894,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/b2c6c5d89370.webp"
+   "image": "pret/b2c6c5d89370.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-matcha-latte",
@@ -6380,7 +6925,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/df6cd1026a6d.webp"
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-matcha-latte-soya-milk",
@@ -6405,7 +6954,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/df6cd1026a6d.webp"
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-matcha-latte-skimmed-milk",
@@ -6430,7 +6985,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/df6cd1026a6d.webp"
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-matcha-latte-semi-skimmed-milk",
@@ -6455,7 +7016,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/df6cd1026a6d.webp"
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-matcha-latte-oat-milk",
@@ -6480,7 +7047,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/df6cd1026a6d.webp"
+   "image": "pret/df6cd1026a6d.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "caramel-frappe",
@@ -6504,7 +7080,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "classic-frappe-semi-skimmed-milk",
@@ -6529,7 +7111,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/57ff9628c6eb.webp"
+   "image": "pret/57ff9628c6eb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "classic-frappe-skimmed-milk",
@@ -6554,57 +7142,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/57ff9628c6eb.webp"
-  },
-  {
-   "id": "classic-frappe-semi-skimmed-milk-decaf",
-   "name": "Classic Frappe (semi-skimmed milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 376,
-    "protein": 13.9,
-    "carbs": 31.1,
-    "fat": 21.7,
-    "saturatedFat": 7.9,
-    "sugar": 21.7,
-    "fiber": 0.4,
-    "salt": 0.17,
-    "energyKj": 1570
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/57ff9628c6eb.webp"
-  },
-  {
-   "id": "classic-frappe-skimmed-milk-decaf",
-   "name": "Classic Frappe (skimmed milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 350,
-    "protein": 13.5,
-    "carbs": 31.3,
-    "fat": 18.9,
-    "saturatedFat": 5.9,
-    "sugar": 21.1,
-    "fiber": 0.4,
-    "salt": 0.17,
-    "energyKj": 1463
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/57ff9628c6eb.webp"
+   "image": "pret/57ff9628c6eb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "frozen-hot-chocolate-semi-skimmed-milk",
@@ -6628,7 +7172,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "frozen-hot-chocolate-skimmed-milk",
@@ -6652,7 +7202,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hazelnut-frappe",
@@ -6677,7 +7233,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/63a9dfa05c0f.webp"
+   "image": "pret/63a9dfa05c0f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-black-americano",
@@ -6702,215 +7264,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-skimmed-milk",
-   "name": "Iced Black Americano (skimmed milk)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 35,
-    "protein": 2.6,
-    "carbs": 3.4,
-    "fat": 1.3,
-    "saturatedFat": 0.8,
-    "sodium": 32,
-    "sugar": 3.4,
-    "salt": 0.1,
-    "energyKj": 147
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-semi-skimmed-milk",
-   "name": "Iced Black Americano (semi-skimmed milk)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 35,
-    "protein": 2.6,
-    "carbs": 3.4,
-    "fat": 1.3,
-    "saturatedFat": 0.8,
-    "sodium": 32,
-    "sugar": 3.4,
-    "fiber": 0,
-    "salt": 0.1,
-    "energyKj": 147,
-    "monounsaturatedFat": 0.3,
-    "polyunsaturatedFat": 0,
-    "transFat": 0.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-soya-milk-decaf",
-   "name": "Iced Black Americano (soya milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 33,
-    "protein": 2.8,
-    "carbs": 1.8,
-    "fat": 1.6,
-    "saturatedFat": 0.3,
-    "sodium": 0,
-    "sugar": 1.8,
-    "fiber": 0.5,
-    "salt": 0,
-    "energyKj": 141
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-semi-skimmed-milk-decaf",
-   "name": "Iced Black Americano (semi-skimmed milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 36,
-    "protein": 2.6,
-    "carbs": 3.8,
-    "fat": 1.2,
-    "saturatedFat": 0.8,
-    "sodium": 45,
-    "sugar": 3.8,
-    "salt": 0.1,
-    "energyKj": 151
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-black-decaf",
-   "name": "Iced Black Americano (black, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sodium": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-skimmed-milk-decaf",
-   "name": "Iced Black Americano (skimmed milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 36,
-    "protein": 2.6,
-    "carbs": 3.8,
-    "fat": 1.2,
-    "saturatedFat": 0.8,
-    "sodium": 45,
-    "sugar": 3.8,
-    "salt": 0.1,
-    "energyKj": 151
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-oat-milk-decaf",
-   "name": "Iced Black Americano (oat milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 45,
-    "protein": 0.2,
-    "carbs": 9.4,
-    "fat": 0.7,
-    "saturatedFat": 0.5,
-    "sodium": 40,
-    "sugar": 4.9,
-    "fiber": 0.2,
-    "salt": 0.1,
-    "energyKj": 189
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
-  },
-  {
-   "id": "iced-black-americano-oat-milk",
-   "name": "Iced Black Americano (oat milk)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 45,
-    "protein": 0.2,
-    "carbs": 9.4,
-    "fat": 0.7,
-    "saturatedFat": 0.5,
-    "sodium": 40,
-    "sugar": 4.9,
-    "fiber": 0.2,
-    "salt": 0.1,
-    "energyKj": 189
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/ab97de006a0b.webp"
+   "image": "pret/ab97de006a0b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-semi-skimmed-milk",
@@ -6935,7 +7293,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-skimmed-milk",
@@ -6960,34 +7324,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
-  },
-  {
-   "id": "iced-latte-semi-skimmed-milk-decaf",
-   "name": "Iced Latte (semi-skimmed milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 133,
-    "protein": 9.6,
-    "carbs": 12.8,
-    "fat": 4.8,
-    "saturatedFat": 3,
-    "sodium": 124,
-    "sugar": 12.7,
-    "fiber": 0,
-    "salt": 0.3,
-    "energyKj": 559,
-    "monounsaturatedFat": 1.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-soya-milk",
@@ -7016,84 +7359,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
-  },
-  {
-   "id": "iced-latte-soya-milk-decaf",
-   "name": "Iced Latte (soya milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 113,
-    "protein": 9.3,
-    "carbs": 6.1,
-    "fat": 5.3,
-    "saturatedFat": 1,
-    "sodium": 128,
-    "sugar": 6,
-    "fiber": 1.5,
-    "salt": 0.3,
-    "energyKj": 473
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
-  },
-  {
-   "id": "iced-latte-skimmed-milk-decaf",
-   "name": "Iced Latte (skimmed milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 118,
-    "protein": 8.5,
-    "carbs": 11.3,
-    "fat": 4.3,
-    "saturatedFat": 2.7,
-    "sodium": 120,
-    "sugar": 11.3,
-    "salt": 0.3,
-    "energyKj": 494
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
-  },
-  {
-   "id": "iced-latte-oat-milk-decaf",
-   "name": "Iced Latte (oat milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 149,
-    "protein": 0.8,
-    "carbs": 31.3,
-    "fat": 2.3,
-    "saturatedFat": 1.8,
-    "sodium": 80,
-    "sugar": 16.3,
-    "fiber": 0.5,
-    "salt": 0.2,
-    "energyKj": 631
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte-oat-milk",
@@ -7119,7 +7391,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a964dd350b8d.webp"
+   "image": "pret/a964dd350b8d.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "iced-mocha-semi-skimmed-milk",
@@ -7144,7 +7425,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bf2dafa3bbd6.webp"
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-mocha-soya-milk",
@@ -7170,7 +7457,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bf2dafa3bbd6.webp"
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-mocha-skimmed-milk",
@@ -7196,59 +7489,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bf2dafa3bbd6.webp"
-  },
-  {
-   "id": "iced-mocha-soya-milk-decaf",
-   "name": "Iced Mocha (soya milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 160,
-    "protein": 8.6,
-    "carbs": 18,
-    "fat": 5.3,
-    "saturatedFat": 1.5,
-    "sodium": 140,
-    "sugar": 17.1,
-    "fiber": 2.6,
-    "salt": 0.4,
-    "energyKj": 669
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/bf2dafa3bbd6.webp"
-  },
-  {
-   "id": "iced-mocha-semi-skimmed-milk-decaf",
-   "name": "Iced Mocha (semi-skimmed milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 166,
-    "protein": 8,
-    "carbs": 23.2,
-    "fat": 4.3,
-    "saturatedFat": 2.7,
-    "sodium": 135,
-    "sugar": 22.3,
-    "fiber": 1.4,
-    "salt": 0.3,
-    "energyKj": 701
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/bf2dafa3bbd6.webp"
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-mocha-oat-milk",
@@ -7273,33 +7520,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bf2dafa3bbd6.webp"
-  },
-  {
-   "id": "iced-mocha-oat-milk-decaf",
-   "name": "Iced Mocha (oat milk, decaf)",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 188,
-    "protein": 1.7,
-    "carbs": 37.3,
-    "fat": 3,
-    "saturatedFat": 2.1,
-    "sodium": 65,
-    "sugar": 24.7,
-    "fiber": 0.9,
-    "salt": 0.2,
-    "energyKj": 794
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/bf2dafa3bbd6.webp"
+   "image": "pret/bf2dafa3bbd6.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "mocha-frappe",
@@ -7324,7 +7554,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/4b20d1a8d365.webp"
+   "image": "pret/4b20d1a8d365.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-frappe",
@@ -7349,7 +7585,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/676ec8d05902.webp"
+   "image": "pret/676ec8d05902.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-matcha-frappe",
@@ -7374,7 +7616,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/2d66f8e86345.webp"
+   "image": "pret/2d66f8e86345.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-juice",
@@ -7399,7 +7647,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bc6cd0040c63.webp"
+   "image": "pret/bc6cd0040c63.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "berries-banana-smoothie",
@@ -7424,7 +7676,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/d6a5559195a4.webp"
+   "image": "pret/d6a5559195a4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "easy-greens",
@@ -7449,7 +7705,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/4fcfd681e54a.webp"
+   "image": "pret/4fcfd681e54a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "ginger-shot",
@@ -7474,7 +7734,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/211b1c3b7ee5.webp"
+   "image": "pret/211b1c3b7ee5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-shot",
@@ -7499,7 +7763,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bcafbfed3e08.webp"
+   "image": "pret/bcafbfed3e08.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-peach-smoothie",
@@ -7524,7 +7792,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a17d9023751b.webp"
+   "image": "pret/a17d9023751b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-smoothie",
@@ -7549,7 +7821,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/7017cf2ae3b2.webp"
+   "image": "pret/7017cf2ae3b2.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-juice",
@@ -7574,7 +7850,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/c96c6dba58d8.webp"
+   "image": "pret/c96c6dba58d8.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "vitamin-volcano",
@@ -7599,105 +7879,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/0c28c5a6904e.webp"
-  },
-  {
-   "id": "coke-bottle",
-   "name": "Coke Bottle",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 212,
-    "protein": 0,
-    "carbs": 53,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 53,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 901
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/6d5e91dccee3.webp"
-  },
-  {
-   "id": "coke-can",
-   "name": "Coke Can",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 140,
-    "protein": 0,
-    "carbs": 35,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 35,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 595
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/9868b7ff8326.webp"
-  },
-  {
-   "id": "coke-zero-bottle",
-   "name": "Coke Zero Bottle",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/2669afcde476.webp"
-  },
-  {
-   "id": "coke-zero-can",
-   "name": "Coke Zero Can",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/33d67c979196.webp"
+   "image": "pret/0c28c5a6904e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cranberry-raspberry-pomegranate-pret-still",
@@ -7722,7 +7908,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/274005302c37.webp"
+   "image": "pret/274005302c37.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cucumber-mint-seltzer",
@@ -7747,57 +7937,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/c4fb885b145f.webp"
-  },
-  {
-   "id": "diet-coke-bottle",
-   "name": "Diet Coke Bottle",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/99757420f70e.webp"
-  },
-  {
-   "id": "diet-coke-can",
-   "name": "Diet Coke Can",
-   "category": "Cold drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "energyKj": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "pret/d30a8cad480e.webp"
+   "image": "pret/c4fb885b145f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "ginger-kombucha",
@@ -7822,7 +7966,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/7e9ec53e7122.webp"
+   "image": "pret/7e9ec53e7122.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "green-tea-peach-pret-still",
@@ -7847,7 +7995,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/d35e25781b04.webp"
+   "image": "pret/d35e25781b04.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemon-ginger-pret-still",
@@ -7872,7 +8024,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/54e9a4b3d3bd.webp"
+   "image": "pret/54e9a4b3d3bd.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lime-raspberry-seltzer",
@@ -7897,7 +8053,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/e4be0c7d0f96.webp"
+   "image": "pret/e4be0c7d0f96.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-passion-fruit-pret-still",
@@ -7922,7 +8082,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/288c081f7e2a.webp"
+   "image": "pret/288c081f7e2a.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pret-sparkling-water-500ml",
@@ -7947,7 +8111,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/f7b58aa2252c.webp"
+   "image": "pret/f7b58aa2252c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pret-still-water-500ml",
@@ -7972,7 +8140,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/a5eb1b037246.webp"
+   "image": "pret/a5eb1b037246.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pret-still-water-750ml",
@@ -7997,7 +8169,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/1e7778ad4296.webp"
+   "image": "pret/1e7778ad4296.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "prets-rhubarb-lemonade",
@@ -8022,7 +8198,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/5163a5a801c3.webp"
+   "image": "pret/5163a5a801c3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "prets-sparkling-apple-fizz",
@@ -8047,7 +8227,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/7320bdb895b7.webp"
+   "image": "pret/7320bdb895b7.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "prets-sparkling-ginger-beer",
@@ -8072,7 +8256,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/bc2b52c239a3.webp"
+   "image": "pret/bc2b52c239a3.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "prets-sparkling-grape-elderflower",
@@ -8097,7 +8285,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/1630ef5d2a12.webp"
+   "image": "pret/1630ef5d2a12.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "poppi-lemon-lime",
@@ -8120,7 +8312,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/feb452764498.webp"
+   "image": "pret/feb452764498.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "poppi-orange",
@@ -8143,7 +8339,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/f52e22cc5aea.webp"
+   "image": "pret/f52e22cc5aea.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "poppi-raspberry-rose",
@@ -8166,7 +8366,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/89553b927a1e.webp"
+   "image": "pret/89553b927a1e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "poppi-strawberry-lemon",
@@ -8189,7 +8393,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/b10695f9594e.webp"
+   "image": "pret/b10695f9594e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "poppi-wild-berry",
@@ -8212,7 +8420,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "pret/f6ca7fbdeebe.webp"
+   "image": "pret/f6ca7fbdeebe.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

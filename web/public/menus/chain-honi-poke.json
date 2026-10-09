@@ -1,0 +1,422 @@
+{
+ "schemaVersion": 1,
+ "id": "honi-poke",
+ "name": "Honi Poke",
+ "cuisine": "Poke bowls",
+ "builderType": "standard",
+ "aliases": [
+  "honi poke",
+  "honi"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Honi Poke Nutritional Calculator (accessed 2026-10-08, no date shown)",
+  "url": "https://www.honipoke.com/nutritional-calculator",
+  "checkedOn": "2026-10-08"
+ },
+ "note": "Figures are the per-bowl totals shown by Honi Poke's own Nutritional Calculator, which adds up its own ingredient data (so kcal and macros do not always agree with each other). No sugars, salt or saturates are published. Dishes whose own menu page shows a different calorie figure are not published.",
+ "allergenGuide": {
+  "title": "Honi Poke allergen matrix (review date 05/08/2026)",
+  "url": "https://www.honipoke.com/allergens",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Signature bowls",
+  "Warm bowls",
+  "Poke salads",
+  "Ramen",
+  "Sides"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "california",
+   "name": "California",
+   "category": "Signature bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 911,
+    "protein": 33.3,
+    "carbs": 61.8,
+    "fat": 69.3,
+    "sodium": 1469,
+    "fiber": 10.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tofu-teriyaki",
+   "name": "Tofu Teriyaki",
+   "category": "Signature bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 474,
+    "protein": 25.3,
+    "carbs": 79.9,
+    "fat": 11.3,
+    "sodium": 1710,
+    "fiber": 8.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "swicy-prawns",
+   "name": "Swicy Prawns",
+   "category": "Signature bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 652,
+    "protein": 25.6,
+    "carbs": 82.6,
+    "fat": 31.1,
+    "sodium": 1152,
+    "fiber": 10.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tokyo-yuzu",
+   "name": "Tokyo Yuzu",
+   "category": "Signature bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 676,
+    "protein": 28.7,
+    "carbs": 87.6,
+    "fat": 30,
+    "sodium": 1485,
+    "fiber": 11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-salmon",
+   "name": "Miso Salmon",
+   "category": "Warm bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 784,
+    "protein": 53.1,
+    "carbs": 106.7,
+    "fat": 23.6,
+    "sodium": 1632,
+    "fiber": 8.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gochujang-chicken",
+   "name": "Gochujang Chicken",
+   "category": "Warm bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 908,
+    "protein": 47.8,
+    "carbs": 132,
+    "fat": 27.9,
+    "sodium": 1711,
+    "fiber": 8.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "citrus-yuzu-salmon",
+   "name": "Citrus Yuzu Salmon",
+   "category": "Poke salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 459,
+    "protein": 29.2,
+    "carbs": 46.4,
+    "fat": 23.6,
+    "sodium": 1145,
+    "fiber": 11.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pacific-tuna",
+   "name": "Pacific Tuna",
+   "category": "Poke salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 30.7,
+    "carbs": 52.4,
+    "fat": 14.7,
+    "sodium": 2327,
+    "fiber": 10.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seoul-fire-chicken",
+   "name": "Seoul Fire Chicken",
+   "category": "Poke salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 341,
+    "protein": 35.4,
+    "carbs": 43.5,
+    "fat": 8.9,
+    "sodium": 2221,
+    "fiber": 7.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-zen-tofu",
+   "name": "Green Zen Tofu",
+   "category": "Poke salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 509,
+    "protein": 19.7,
+    "carbs": 26,
+    "fat": 42.3,
+    "sodium": 1107,
+    "fiber": 11.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "paitan-chicken-ramen",
+   "name": "Paitan Chicken Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 535,
+    "protein": 51.5,
+    "carbs": 59.9,
+    "fat": 17.6,
+    "sodium": 2818,
+    "fiber": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "shoyu-paitan-beef-ramen",
+   "name": "Shoyu Paitan Beef Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 589,
+    "protein": 47.5,
+    "carbs": 61.6,
+    "fat": 24.8,
+    "sodium": 4324,
+    "fiber": 4.9
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-shoyu-tofu-ramen",
+   "name": "Miso Shoyu Tofu Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 464,
+    "protein": 33.4,
+    "carbs": 65.7,
+    "fat": 11.1,
+    "sodium": 6142,
+    "fiber": 7.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gochujang-prawns-ramen",
+   "name": "Gochujang Prawns Ramen",
+   "category": "Ramen",
+   "serving": "",
+   "nutrients": {
+    "calories": 524,
+    "protein": 40.8,
+    "carbs": 69.7,
+    "fat": 16.2,
+    "sodium": 3123,
+    "fiber": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crab-salad",
+   "name": "Crab Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 171,
+    "protein": 14.3,
+    "carbs": 7,
+    "fat": 11.7,
+    "sodium": 1248,
+    "fiber": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guacamole",
+   "name": "Guacamole",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 132,
+    "protein": 2.1,
+    "carbs": 7.4,
+    "fat": 12.6,
+    "sodium": 200,
+    "fiber": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-tartare",
+   "name": "Salmon Tartare",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 214,
+    "protein": 19.1,
+    "carbs": 1.3,
+    "fat": 19.8,
+    "sodium": 444,
+    "fiber": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "japanese-salad",
+   "name": "Japanese Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 84,
+    "protein": 1.8,
+    "carbs": 8.4,
+    "fat": 5.8,
+    "sodium": 240,
+    "fiber": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seaweed-salad",
+   "name": "Seaweed Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 73,
+    "protein": 4.4,
+    "carbs": 10.1,
+    "fat": 3.3,
+    "sodium": 1044,
+    "fiber": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tortilla-chips",
+   "name": "Tortilla Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 417,
+    "protein": 7.7,
+    "carbs": 57.6,
+    "fat": 19.8,
+    "sodium": 350,
+    "fiber": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

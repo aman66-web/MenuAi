@@ -1,0 +1,1198 @@
+{
+ "schemaVersion": 1,
+ "id": "fishworks",
+ "name": "Fishworks",
+ "cuisine": "Seafood",
+ "builderType": "standard",
+ "aliases": [
+  "fishworks",
+  "fishworks restaurant",
+  "fishworks restaurants"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Fishworks dietary information: A La Carte Menu on Ten Kites (accessed 2026-10-08, no date shown)",
+  "url": "https://menus.tenkites.com/brg/fishworks",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as served, worked out by Fishworks from typical weights and measures; no protein, carbs or fat are published. The page both restaurants link has only the A La Carte menu (no desserts, set, lunch, kids' or drinks). Five dishes whose figures contradict each other are left out.",
+ "allergenGuide": {
+  "title": "Fishworks allergy and dietary information: A La Carte Menu on Ten Kites (accessed 2026-10-08, no date shown)",
+  "url": "https://menus.tenkites.com/brg/fishworks",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "On arrival",
+  "Rock oysters",
+  "Starters",
+  "Seafood platters to share",
+  "Sides",
+  "Lobster and crab",
+  "Fish & chips",
+  "Mains"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "oven-baked-sourdough-breads-with-freshly-made-aioli-and-salsa-verde",
+   "name": "Oven-baked sourdough breads (with freshly made aioli and salsa verde)",
+   "category": "On arrival",
+   "serving": "",
+   "nutrients": {
+    "calories": 718
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "oven-baked-sourdough-breads-with-our-homemade-taramasalata",
+   "name": "Oven-baked sourdough breads (with our homemade taramasalata)",
+   "category": "On arrival",
+   "serving": "",
+   "nutrients": {
+    "calories": 1003
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "nocellara-olives",
+   "name": "Nocellara Olives",
+   "category": "On arrival",
+   "serving": "",
+   "nutrients": {
+    "calories": 130
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "6-carlingford-oysters-with-shallot-vinegar",
+   "name": "6 Carlingford Oysters (with shallot vinegar)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12-carlingford-oysters-with-shallot-vinegar",
+   "name": "12 Carlingford Oysters (with shallot vinegar)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 598
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "6-lindisfarne-oysters-with-shallot-vinegar",
+   "name": "6 Lindisfarne Oysters (with shallot vinegar)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12-lindisfarne-oysters-with-shallot-vinegar",
+   "name": "12 Lindisfarne Oysters (with shallot vinegar)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 598
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "6-carlingford-oysters-with-pickled-cucumber",
+   "name": "6 Carlingford Oysters (with pickled cucumber)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12-carlingford-oysters-with-pickled-cucumber",
+   "name": "12 Carlingford Oysters (with pickled cucumber)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "6-lindisfarne-oysters-with-pickled-cucumber",
+   "name": "6 Lindisfarne Oysters (with pickled cucumber)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "12-lindisfarne-oysters-with-pickled-cucumber",
+   "name": "12 Lindisfarne Oysters (with pickled cucumber)",
+   "category": "Rock oysters",
+   "serving": "",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "king-scallops",
+   "name": "King Scallops",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 463
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "molluscs"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tiger-prawns",
+   "name": "Tiger Prawns",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 464
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "homemade-brixham-fish-soup",
+   "name": "Homemade Brixham Fish Soup",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 183
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "harissa-couscous-salad",
+   "name": "Harissa Couscous Salad",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "harissa-couscous-salad-large",
+   "name": "Harissa Couscous Salad (large)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "moules-marinieres",
+   "name": "Moules Marinières",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 327
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "moules-marinieres-large",
+   "name": "Moules Marinières (large)",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 643
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "crispy-peppered-squid",
+   "name": "Crispy Peppered Squid",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 265
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fruits-de-mer",
+   "name": "Fruits de Mer",
+   "category": "Seafood platters to share",
+   "serving": "",
+   "nutrients": {
+    "calories": 961
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "fishworks-tasting-platter-for-two",
+   "name": "Fishworks Tasting Platter for Two",
+   "category": "Seafood platters to share",
+   "serving": "",
+   "nutrients": {
+    "calories": 2132
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fritto-misto",
+   "name": "Fritto Misto",
+   "category": "Seafood platters to share",
+   "serving": "",
+   "nutrients": {
+    "calories": 371
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tenderstem-broccoli-with-shallots",
+   "name": "Tenderstem® broccoli with shallots",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "pomme-puree",
+   "name": "Pomme Purée",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 292
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tossed-side-salad",
+   "name": "Tossed Side Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "couscous-and-grilled-veg",
+   "name": "Couscous and Grilled Veg",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "double-cooked-chips-with-sea-salt",
+   "name": "Double-cooked Chips with sea salt",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 298
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "whole-lobster",
+   "name": "Whole Lobster",
+   "category": "Lobster and crab",
+   "serving": "",
+   "nutrients": {
+    "calories": 834
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "milk"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "whole-lobster-thermidor",
+   "name": "Whole lobster thermidor",
+   "category": "Lobster and crab",
+   "serving": "",
+   "nutrients": {
+    "calories": 408
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "whole-devon-crab-cracked-and-served-on-ice",
+   "name": "Whole Devon Crab cracked and served on ice",
+   "category": "Lobster and crab",
+   "serving": "",
+   "nutrients": {
+    "calories": 940
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "hand-picked-devon-dressed-crab",
+   "name": "Hand-picked Devon Dressed Crab",
+   "category": "Lobster and crab",
+   "serving": "",
+   "nutrients": {
+    "calories": 1211
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "hake",
+   "name": "Hake",
+   "category": "Fish & chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 907
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "halibut",
+   "name": "Halibut",
+   "category": "Fish & chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 870
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "cod",
+   "name": "Cod",
+   "category": "Fish & chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 933
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "halloumi",
+   "name": "Halloumi",
+   "category": "Fish & chips",
+   "serving": "",
+   "nutrients": {
+    "calories": 1156
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "seafood-and-samphire-linguine",
+   "name": "Seafood and Samphire Linguine",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "day-boat-dover-sole-simply-grilled-with-lemon-and-parsley-butter",
+   "name": "Day-boat Dover sole (simply grilled with lemon and parsley butter)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 363
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "day-boat-dover-sole-pan-fried-a-la-meuniere",
+   "name": "Day-boat Dover sole (pan-fried à la Meunière)",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 414
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "oven-roasted-sea-bass",
+   "name": "Oven-Roasted Sea Bass",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grilled-seafood-platter",
+   "name": "Grilled Seafood Platter",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 992
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "classic-seafood-bouillabaisse",
+   "name": "Classic Seafood Bouillabaisse",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 775
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "molluscs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "milk",
+     "nuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "half-grilled-lobster-and-10oz-rib-eye-sirloin-steak",
+   "name": "Half Grilled Lobster and 10oz Rib Eye sirloin steak",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1196
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "fish"
+    ]
+   }
+  },
+  {
+   "id": "10oz-ribeye-steak",
+   "name": "10oz Ribeye Steak",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1083
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "fish"
+    ]
+   }
+  },
+  {
+   "id": "pan-fried-chicken-supreme",
+   "name": "Pan Fried Chicken Supreme",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 749
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

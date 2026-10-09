@@ -1,0 +1,183 @@
+{
+ "schemaVersion": 1,
+ "id": "the-light-cinemas",
+ "name": "The Light Cinemas",
+ "cuisine": "Cinema",
+ "builderType": "standard",
+ "aliases": [
+  "the light",
+  "the light cinema",
+  "the light cinemas",
+  "light cinemas"
+ ],
+ "sample": false,
+ "source": {
+  "title": "The Light Cinemas concession menus, one PDF per cinema (Bolton, Bradford, Cambridge, New Brighton, Thetford and Wisbech; footer codes TL <site> JUL26 V1, PDFs created 13 July 2026; linked from each cinema's Eat & Drink page on thelight.co.uk)",
+  "url": "https://central.lightcinemas.co.uk/media/food/CAM/TheLight_Cambridge_Menu.pdf",
+  "checkedOn": "2026-10-08"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed beside each item on the concession menus of The Light's cinemas (July 2026 editions), the same on every page that prints it. Only items with a calorie figure are listed: not popcorn, nachos, hot dogs, sweets, beers or hot drinks. Pizza is sold at four cinemas, not Bolton or New Brighton. The diner restaurants' own menus are not included.",
+ "allergenGuide": {
+  "title": "The Light Concessions Allergen Guide (matrix dated 11/08/26, linked from each cinema's Eat & Drink page)",
+  "url": "https://central.lightcinemas.co.uk/media/food/allergens/Concessions_TL_Allergens_240726.pdf",
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Pizza",
+  "Low & no",
+  "Soft drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "margherita-12-inch",
+   "name": "Margherita (12 inch)",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 925
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-12-inch",
+   "name": "Pepperoni (12 inch)",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1149
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-jalapenos",
+   "name": "Add Jalapeños",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "guinness-0",
+   "name": "Guinness 0%",
+   "category": "Low & no",
+   "serving": "440ml",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bero-pilsner",
+   "name": "Bero Pilsner",
+   "category": "Low & no",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "j2o-apple-and-raspberry",
+   "name": "J2O Apple and Raspberry",
+   "category": "Soft drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 52
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "j2o-orange-and-passionfruit",
+   "name": "J2O Orange and Passionfruit",
+   "category": "Soft drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gingerella-ginger-ale",
+   "name": "Gingerella Ginger Ale",
+   "category": "Soft drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser",
+   "name": "Appletiser",
+   "category": "Soft drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "still-sparkling-water",
+   "name": "Still / Sparkling Water",
+   "category": "Soft drinks",
+   "serving": "500ml",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

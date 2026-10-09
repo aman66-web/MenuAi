@@ -20,13 +20,13 @@
   "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
- "note": "Dunkin' publishes calories only, so protein, carbs, fat and other nutrients are not published. Drinks whose calories are printed as a range (it depends on the milk chosen, e.g. Latte), or without a size, are left out. Sizes are Small, Medium and Large as printed (no ml given). Items whose calories differ between Dunkin's allergen page and product page are not shown.",
+ "note": "Calories only: no protein, carbs or fat. Drinks printed as a range (it depends on the milk) or without a size are left out; sizes as printed (no ml). Items with no allergen list, or whose calories or allergen lists differ between Dunkin's allergen page and product page, are not shown. Drinks list no traces, so those read Not listed, not free from.",
  "allergenGuide": {
   "title": "Dunkin' UK allergens pages: donuts, Munchkins, cookies, bakery, LTO donuts, hot and cold drinks (no date shown)",
   "url": "https://dunkin.co.uk/allergens",
   "checkedOn": "2026-10-08",
   "mayContainPublished": true,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Donuts",
@@ -53,7 +53,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/2a008ee69e44.webp"
+   "image": "dunkin/2a008ee69e44.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "boston-kreme",
@@ -70,7 +84,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/5e081a9a5a62.webp"
+   "image": "dunkin/5e081a9a5a62.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "smiley",
@@ -87,7 +115,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/3846c44f5d04.webp"
+   "image": "dunkin/3846c44f5d04.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "strawberry-rainbow",
@@ -104,7 +146,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d4bdf015afc2.webp"
+   "image": "dunkin/d4bdf015afc2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chocolate-monster",
@@ -121,7 +177,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/a0aa835d9acf.webp"
+   "image": "dunkin/a0aa835d9acf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "banoffee-pie",
@@ -136,7 +206,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/a29625f3214e.webp"
+   "image": "dunkin/a29625f3214e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "cookie-kreme-blast",
@@ -150,7 +234,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "rocky-road",
@@ -165,7 +263,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/8066760110b9.webp"
+   "image": "dunkin/8066760110b9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "speculoos-sensation",
@@ -179,7 +291,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "raspberry-and-white-chocolate",
@@ -194,7 +320,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/092494b98763.webp"
+   "image": "dunkin/092494b98763.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "strawberry-jelly",
@@ -208,7 +348,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "oatmeal-cookie",
@@ -223,7 +377,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d11a596d77e2.webp"
+   "image": "dunkin/d11a596d77e2.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "double-chocolate-cookie",
@@ -238,7 +406,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/c9fbd72ede0e.webp"
+   "image": "dunkin/c9fbd72ede0e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "raspberry-and-white-chocolate-cookie",
@@ -253,7 +435,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/3c6b5754fa55.webp"
+   "image": "dunkin/3c6b5754fa55.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "butter-croissant",
@@ -268,7 +464,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/8c4f9e3fb068.webp"
+   "image": "dunkin/8c4f9e3fb068.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chocolate-croissant",
@@ -283,7 +493,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/277d80864c1f.webp"
+   "image": "dunkin/277d80864c1f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "cinnamon-roll",
@@ -297,7 +521,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "maple-praline",
@@ -312,7 +550,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/de77630d5b30.webp"
+   "image": "dunkin/de77630d5b30.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "smores",
@@ -329,7 +581,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/7e3996038b85.webp"
+   "image": "dunkin/7e3996038b85.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "chocolate-pistachio",
@@ -344,7 +610,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/079fdb52d469.webp"
+   "image": "dunkin/079fdb52d469.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "drac",
@@ -359,7 +639,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/c61f5e5e6de9.webp"
+   "image": "dunkin/c61f5e5e6de9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "frank",
@@ -374,52 +668,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/eae5f69a3337.webp"
-  },
-  {
-   "id": "toffee-apple",
-   "name": "Toffee Apple",
-   "category": "Limited time donuts",
-   "serving": "1 donut",
-   "nutrients": {
-    "calories": 342
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/9f774d340149.webp"
-  },
-  {
-   "id": "churro",
-   "name": "Churro",
-   "category": "Limited time donuts",
-   "serving": "1 donut",
-   "nutrients": {
-    "calories": 264
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b4de0dd85dde.webp"
-  },
-  {
-   "id": "speculoos-caramel-crumb",
-   "name": "Speculoos Caramel Crumb",
-   "category": "Limited time donuts",
-   "serving": "1 donut",
-   "nutrients": {
-    "calories": 289
-   },
-   "tags": [],
-   "limitedTime": true,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/51f4654fe17f.webp"
+   "image": "dunkin/eae5f69a3337.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "sid",
@@ -436,37 +699,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/b52fa611e55f.webp"
-  },
-  {
-   "id": "espresso-small",
-   "name": "Espresso (Small)",
-   "category": "Hot drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/e3633f43ab14.webp"
-  },
-  {
-   "id": "espresso-medium",
-   "name": "Espresso (Medium)",
-   "category": "Hot drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/e3633f43ab14.webp"
+   "image": "dunkin/b52fa611e55f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "flat-white-small",
@@ -481,7 +728,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/cb2f452c4134.webp"
+   "image": "dunkin/cb2f452c4134.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-small",
@@ -496,7 +749,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/e9404730127c.webp"
+   "image": "dunkin/e9404730127c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-medium",
@@ -511,7 +770,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/e9404730127c.webp"
+   "image": "dunkin/e9404730127c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino-large",
@@ -526,7 +791,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/e9404730127c.webp"
+   "image": "dunkin/e9404730127c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-small",
@@ -541,7 +812,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/ac1a8f276f57.webp"
+   "image": "dunkin/ac1a8f276f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-medium",
@@ -556,7 +833,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/ac1a8f276f57.webp"
+   "image": "dunkin/ac1a8f276f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate-large",
@@ -571,7 +854,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/ac1a8f276f57.webp"
+   "image": "dunkin/ac1a8f276f57.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spiced-latte-hot-small",
@@ -586,7 +875,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/b2b1e583c8da.webp"
+   "image": "dunkin/b2b1e583c8da.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spiced-latte-hot-medium",
@@ -601,7 +896,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/b2b1e583c8da.webp"
+   "image": "dunkin/b2b1e583c8da.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spiced-latte-hot-large",
@@ -616,52 +917,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/b2b1e583c8da.webp"
-  },
-  {
-   "id": "maple-pecan-pie-latte-hot-small",
-   "name": "Maple Pecan Pie Latte, hot (Small)",
-   "category": "Hot drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 179
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/bcceb8780760.webp"
-  },
-  {
-   "id": "maple-pecan-pie-latte-hot-medium",
-   "name": "Maple Pecan Pie Latte, hot (Medium)",
-   "category": "Hot drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 268
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/bcceb8780760.webp"
-  },
-  {
-   "id": "maple-pecan-pie-latte-hot-large",
-   "name": "Maple Pecan Pie Latte, hot (Large)",
-   "category": "Hot drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 358
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/bcceb8780760.webp"
+   "image": "dunkin/b2b1e583c8da.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dubai-chocolate-mocha-hot-small",
@@ -676,7 +938,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/700d6b39c314.webp"
+   "image": "dunkin/700d6b39c314.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dubai-chocolate-mocha-hot-medium",
@@ -691,7 +959,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/700d6b39c314.webp"
+   "image": "dunkin/700d6b39c314.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dubai-chocolate-mocha-hot-large",
@@ -706,7 +980,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/700d6b39c314.webp"
+   "image": "dunkin/700d6b39c314.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-iced-matcha-small",
@@ -721,7 +1001,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/fbef8e30745a.webp"
+   "image": "dunkin/fbef8e30745a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-iced-matcha-medium",
@@ -736,7 +1026,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/fbef8e30745a.webp"
+   "image": "dunkin/fbef8e30745a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "strawberry-and-white-chocolate-iced-matcha-large",
@@ -751,52 +1051,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/fbef8e30745a.webp"
-  },
-  {
-   "id": "iced-green-tea-small",
-   "name": "Iced Green Tea (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 24
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/7be354292dfd.webp"
-  },
-  {
-   "id": "iced-green-tea-medium",
-   "name": "Iced Green Tea (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 31
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/7be354292dfd.webp"
-  },
-  {
-   "id": "iced-green-tea-large",
-   "name": "Iced Green Tea (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 37
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/7be354292dfd.webp"
+   "image": "dunkin/fbef8e30745a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "iced-chocolate-small",
@@ -811,7 +1076,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d3c3c4f4e1b9.webp"
+   "image": "dunkin/d3c3c4f4e1b9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-chocolate-medium",
@@ -826,7 +1097,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d3c3c4f4e1b9.webp"
+   "image": "dunkin/d3c3c4f4e1b9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-chocolate-large",
@@ -841,7 +1118,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d3c3c4f4e1b9.webp"
+   "image": "dunkin/d3c3c4f4e1b9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-cappuccino-small",
@@ -856,7 +1139,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/db78674bedeb.webp"
+   "image": "dunkin/db78674bedeb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-cappuccino-medium",
@@ -871,7 +1160,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/db78674bedeb.webp"
+   "image": "dunkin/db78674bedeb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-cappuccino-large",
@@ -886,7 +1181,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/db78674bedeb.webp"
+   "image": "dunkin/db78674bedeb.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-dragon-fruit-daydream-refresher-small",
@@ -901,7 +1202,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/1f9e89345576.webp"
+   "image": "dunkin/1f9e89345576.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-dragon-fruit-daydream-refresher-medium",
@@ -916,7 +1223,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/1f9e89345576.webp"
+   "image": "dunkin/1f9e89345576.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-dragon-fruit-daydream-refresher-large",
@@ -931,97 +1244,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/1f9e89345576.webp"
-  },
-  {
-   "id": "blackberry-lemonade-small",
-   "name": "Blackberry Lemonade (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 119
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/3ef83befb390.webp"
-  },
-  {
-   "id": "blackberry-lemonade-medium",
-   "name": "Blackberry Lemonade (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 182
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/3ef83befb390.webp"
-  },
-  {
-   "id": "blackberry-lemonade-large",
-   "name": "Blackberry Lemonade (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 234
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/3ef83befb390.webp"
-  },
-  {
-   "id": "blush-spritz-small",
-   "name": "Blush Spritz (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 121
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/4ee1ae64b86d.webp"
-  },
-  {
-   "id": "blush-spritz-medium",
-   "name": "Blush Spritz (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 163
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/4ee1ae64b86d.webp"
-  },
-  {
-   "id": "blush-spritz-large",
-   "name": "Blush Spritz (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 209
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/4ee1ae64b86d.webp"
+   "image": "dunkin/1f9e89345576.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spiced-latte-cold-small",
@@ -1036,7 +1265,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d580afdfe745.webp"
+   "image": "dunkin/d580afdfe745.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spiced-latte-cold-medium",
@@ -1051,7 +1286,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d580afdfe745.webp"
+   "image": "dunkin/d580afdfe745.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-spiced-latte-cold-large",
@@ -1066,52 +1307,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/d580afdfe745.webp"
-  },
-  {
-   "id": "maple-pecan-pie-latte-cold-small",
-   "name": "Maple Pecan Pie Latte, cold (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 122
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b3207db3ad54.webp"
-  },
-  {
-   "id": "maple-pecan-pie-latte-cold-medium",
-   "name": "Maple Pecan Pie Latte, cold (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 212
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b3207db3ad54.webp"
-  },
-  {
-   "id": "maple-pecan-pie-latte-cold-large",
-   "name": "Maple Pecan Pie Latte, cold (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 301
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/b3207db3ad54.webp"
+   "image": "dunkin/d580afdfe745.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dubai-chocolate-mocha-cold-small",
@@ -1126,7 +1328,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/813e44743909.webp"
+   "image": "dunkin/813e44743909.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dubai-chocolate-mocha-cold-medium",
@@ -1141,7 +1349,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/813e44743909.webp"
+   "image": "dunkin/813e44743909.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dubai-chocolate-mocha-cold-large",
@@ -1156,7 +1370,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/813e44743909.webp"
+   "image": "dunkin/813e44743909.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-matcha-oat-latte-small",
@@ -1171,7 +1391,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/46573c5f2b2f.webp"
+   "image": "dunkin/46573c5f2b2f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-matcha-oat-latte-medium",
@@ -1186,7 +1413,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/46573c5f2b2f.webp"
+   "image": "dunkin/46573c5f2b2f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-matcha-oat-latte-large",
@@ -1201,142 +1435,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/46573c5f2b2f.webp"
-  },
-  {
-   "id": "starlight-lemonade-small",
-   "name": "Starlight Lemonade (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 170
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/99d120c41b1e.webp"
-  },
-  {
-   "id": "starlight-lemonade-medium",
-   "name": "Starlight Lemonade (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 257
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/99d120c41b1e.webp"
-  },
-  {
-   "id": "starlight-lemonade-large",
-   "name": "Starlight Lemonade (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 339
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/99d120c41b1e.webp"
-  },
-  {
-   "id": "atlantic-ice-small",
-   "name": "Atlantic Ice (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 160
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/74d185240762.webp"
-  },
-  {
-   "id": "atlantic-ice-medium",
-   "name": "Atlantic Ice (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 227
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/74d185240762.webp"
-  },
-  {
-   "id": "atlantic-ice-large",
-   "name": "Atlantic Ice (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 291
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/74d185240762.webp"
-  },
-  {
-   "id": "shaken-iced-tea-small",
-   "name": "Shaken Iced Tea (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 118
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/c7fa250dac42.webp"
-  },
-  {
-   "id": "shaken-iced-tea-medium",
-   "name": "Shaken Iced Tea (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 148
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/c7fa250dac42.webp"
-  },
-  {
-   "id": "shaken-iced-tea-large",
-   "name": "Shaken Iced Tea (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 178
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/c7fa250dac42.webp"
+   "image": "dunkin/46573c5f2b2f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-cookie-frappe-small",
@@ -1351,7 +1457,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/7ccc5d9e9e06.webp"
+   "image": "dunkin/7ccc5d9e9e06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-cookie-frappe-medium",
@@ -1366,7 +1479,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/7ccc5d9e9e06.webp"
+   "image": "dunkin/7ccc5d9e9e06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chocolate-cookie-frappe-large",
@@ -1381,7 +1501,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/7ccc5d9e9e06.webp"
+   "image": "dunkin/7ccc5d9e9e06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-shortcake-frappe-small",
@@ -1396,7 +1523,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/31c58844e9ca.webp"
+   "image": "dunkin/31c58844e9ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-shortcake-frappe-medium",
@@ -1411,7 +1545,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/31c58844e9ca.webp"
+   "image": "dunkin/31c58844e9ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "strawberry-shortcake-frappe-large",
@@ -1426,7 +1567,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/31c58844e9ca.webp"
+   "image": "dunkin/31c58844e9ca.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-fudge-frappe-small",
@@ -1441,7 +1589,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/069304f6b4bc.webp"
+   "image": "dunkin/069304f6b4bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-fudge-frappe-medium",
@@ -1456,7 +1610,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/069304f6b4bc.webp"
+   "image": "dunkin/069304f6b4bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "caramel-fudge-frappe-large",
@@ -1471,7 +1631,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/069304f6b4bc.webp"
+   "image": "dunkin/069304f6b4bc.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coffee-frappe-small",
@@ -1486,7 +1652,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/40b28a25ca1d.webp"
+   "image": "dunkin/40b28a25ca1d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "coffee-frappe-medium",
@@ -1501,7 +1678,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/40b28a25ca1d.webp"
+   "image": "dunkin/40b28a25ca1d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "coffee-frappe-large",
@@ -1516,7 +1704,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/40b28a25ca1d.webp"
+   "image": "dunkin/40b28a25ca1d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "mango-pineapple-daydream-refresher-small",
@@ -1531,7 +1730,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/543db6ecca38.webp"
+   "image": "dunkin/543db6ecca38.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-pineapple-daydream-refresher-medium",
@@ -1546,7 +1751,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/543db6ecca38.webp"
+   "image": "dunkin/543db6ecca38.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-pineapple-daydream-refresher-large",
@@ -1561,7 +1772,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/543db6ecca38.webp"
+   "image": "dunkin/543db6ecca38.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mojito-citrus-zest-red-bull-infusion-medium",
@@ -1576,7 +1793,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/9383d1b2bfb2.webp"
+   "image": "dunkin/9383d1b2bfb2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-shaken-espresso-small",
@@ -1591,7 +1814,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/c7ef41bb62e7.webp"
+   "image": "dunkin/c7ef41bb62e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-shaken-espresso-medium",
@@ -1606,7 +1835,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/c7ef41bb62e7.webp"
+   "image": "dunkin/c7ef41bb62e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-shaken-espresso-large",
@@ -1621,7 +1856,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/c7ef41bb62e7.webp"
+   "image": "dunkin/c7ef41bb62e7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-macchiato-small",
@@ -1636,7 +1877,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/8066faaaf6fd.webp"
+   "image": "dunkin/8066faaaf6fd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-macchiato-medium",
@@ -1651,7 +1898,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/8066faaaf6fd.webp"
+   "image": "dunkin/8066faaaf6fd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-caramel-macchiato-large",
@@ -1666,52 +1919,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/8066faaaf6fd.webp"
-  },
-  {
-   "id": "strawberry-lemonade-small",
-   "name": "Strawberry Lemonade (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 100
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/56f35fd476a9.webp"
-  },
-  {
-   "id": "strawberry-lemonade-medium",
-   "name": "Strawberry Lemonade (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 153
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/56f35fd476a9.webp"
-  },
-  {
-   "id": "strawberry-lemonade-large",
-   "name": "Strawberry Lemonade (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 204
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/56f35fd476a9.webp"
+   "image": "dunkin/8066faaaf6fd.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toasted-marshmallow-iced-matcha-small",
@@ -1726,7 +1940,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/1e32f15cbfa9.webp"
+   "image": "dunkin/1e32f15cbfa9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toasted-marshmallow-iced-matcha-medium",
@@ -1741,7 +1961,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/1e32f15cbfa9.webp"
+   "image": "dunkin/1e32f15cbfa9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toasted-marshmallow-iced-matcha-large",
@@ -1756,52 +1982,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/1e32f15cbfa9.webp"
-  },
-  {
-   "id": "churro-iced-matcha-small",
-   "name": "Churro Iced Matcha (Small)",
-   "category": "Cold drinks",
-   "serving": "Small",
-   "nutrients": {
-    "calories": 105
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/0baeea332560.webp"
-  },
-  {
-   "id": "churro-iced-matcha-medium",
-   "name": "Churro Iced Matcha (Medium)",
-   "category": "Cold drinks",
-   "serving": "Medium",
-   "nutrients": {
-    "calories": 155
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/0baeea332560.webp"
-  },
-  {
-   "id": "churro-iced-matcha-large",
-   "name": "Churro Iced Matcha (Large)",
-   "category": "Cold drinks",
-   "serving": "Large",
-   "nutrients": {
-    "calories": 189
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dunkin/0baeea332560.webp"
+   "image": "dunkin/1e32f15cbfa9.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toffee-apple-iced-matcha-small",
@@ -1816,7 +2003,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/61df77f5fbac.webp"
+   "image": "dunkin/61df77f5fbac.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toffee-apple-iced-matcha-medium",
@@ -1831,7 +2024,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/61df77f5fbac.webp"
+   "image": "dunkin/61df77f5fbac.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "toffee-apple-iced-matcha-large",
@@ -1846,7 +2045,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/61df77f5fbac.webp"
+   "image": "dunkin/61df77f5fbac.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-patch-cloud-latte-small",
@@ -1861,7 +2066,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/934983c0879a.webp"
+   "image": "dunkin/934983c0879a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-patch-cloud-latte-medium",
@@ -1876,7 +2087,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/934983c0879a.webp"
+   "image": "dunkin/934983c0879a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pumpkin-patch-cloud-latte-large",
@@ -1891,7 +2108,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/934983c0879a.webp"
+   "image": "dunkin/934983c0879a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-sours-small",
@@ -1906,7 +2129,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/6939f5043082.webp"
+   "image": "dunkin/6939f5043082.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-sours-medium",
@@ -1921,7 +2150,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/6939f5043082.webp"
+   "image": "dunkin/6939f5043082.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-sours-large",
@@ -1936,7 +2171,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/6939f5043082.webp"
+   "image": "dunkin/6939f5043082.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cherry-sours-small",
@@ -1951,7 +2192,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/daf3e41de504.webp"
+   "image": "dunkin/daf3e41de504.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cherry-sours-medium",
@@ -1966,7 +2213,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/daf3e41de504.webp"
+   "image": "dunkin/daf3e41de504.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cherry-sours-large",
@@ -1981,7 +2234,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/daf3e41de504.webp"
+   "image": "dunkin/daf3e41de504.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-sours-small",
@@ -1996,7 +2255,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/da61f483e3b6.webp"
+   "image": "dunkin/da61f483e3b6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-sours-medium",
@@ -2011,7 +2276,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/da61f483e3b6.webp"
+   "image": "dunkin/da61f483e3b6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-sours-large",
@@ -2026,7 +2297,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dunkin/da61f483e3b6.webp"
+   "image": "dunkin/da61f483e3b6.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []
