@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009114856,
- "generatedAt": "2026-10-09T11:48:56Z",
+ "dataVersion": 20261009120325,
+ "generatedAt": "2026-10-09T12:03:25Z",
  "chains": [
   {
    "id": "abokado",
@@ -88,8 +88,8 @@
    "name": "Bakers & Baristas",
    "cuisine": "Bakery",
    "file": "chain-bakers-and-baristas.json",
-   "sha256": "0750c560f89ee7243edd517c81c96ee20465bbc0f800bcfbcd1ef1db437d627d",
-   "contentHash": "cc46d51bbb844c4e20eb588b6d213b1e1bad7567a15b9a2d7a84b65e89efc283",
+   "sha256": "fb6c28be2d9534dca7fee894b3fcc3f262c5be4fc09ac0a65af04cac41eadaa2",
+   "contentHash": "6d892a63c0cdce60a8b735eb7a55136eb02043766991e75b22d02ec1fcd35817",
    "sample": false,
    "itemCount": 589,
    "checkedOn": "2026-10-09",
@@ -343,8 +343,8 @@
    "name": "Burger & Sauce",
    "cuisine": "Burgers",
    "file": "chain-burger-and-sauce.json",
-   "sha256": "0d397e28847dd147a26493e44dbeeca5d8b33552cc4e3ec447a3c8f49ca91b69",
-   "contentHash": "0a2675bd9bdf67f33573975792ebe61ad7b517dc04bb27c2bb7fe5bd920dbb5a",
+   "sha256": "cbd0b2f48b9cb03782d10a7610f2cbda76b3a7bd15f7ee429775ed7c4cb9bb60",
+   "contentHash": "0913df7aaf9b0db83794514c1eb283d35c750116fd4e0b25de73c8a3bee0e526",
    "sample": false,
    "itemCount": 43,
    "checkedOn": "2026-10-09",
