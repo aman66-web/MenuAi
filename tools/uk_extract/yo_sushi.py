@@ -22,6 +22,7 @@ from common import slug, write_chain_folder  # noqa: E402
 CHAIN_ID = "yo-sushi"
 URL = "https://menus.tenkites.com/yosushi/allergenpageyosushi"
 FILE = "yosushi.html"
+WEBSITE_DISAGREES = {"chicken-gyoza": 139, "vegetable-gyoza": 142, "prawn-crackers-2": 151, "cotton-candy-cheesecake": 319}
 EXPECTED_ROWS = 108
 
 # printed section -> (category shown, rankable, limited_time) or None = left out (reason in EXCLUDED).
@@ -121,6 +122,15 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
             holds.append((hold_id, f"The page prints {kj:g} kJ and {kcal:g} kcal for this dish, which disagree "
                                             f"({kcal:g} kcal is about {kcal * 4.184:.0f} kJ), so its energy cannot be trusted."))
     report += [f"held back (kJ and kcal disagree by more than 7%): {i}" for i, _ in holds]
+    # 9 Oct 2026 (photo pass): the chain's own website (yosushi.com/menu) prints a different kcal for these dishes, by more than 5%
+    # (Chicken Gyoza 139 vs 206, Vegetable Gyoza 142 vs 210, Prawn Crackers 151 vs 162, Cotton Candy Cheesecake 319 vs 294). Two of the
+    # chain's own pages disagree, so none is chosen: the dish is held back. Smaller gaps (about 2%) stay published.
+    held_ids = {i for i, _ in holds}
+    for hold_id, site_kcal in WEBSITE_DISAGREES.items():
+        if hold_id not in held_ids:
+            holds.append((hold_id, f"The chain's website (yosushi.com/menu, read 2026-10-09) prints {site_kcal} kcal for this dish but this allergen and "
+                                   "nutrition page prints a different figure; the chain's own pages disagree, so neither is published."))
+            report.append(f"held back (the chain's website prints {site_kcal} kcal): {hold_id}")
     return kept, holds, report
 
 
