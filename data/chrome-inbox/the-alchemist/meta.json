@@ -1,0 +1,13 @@
+{
+  "name": "The Alchemist",
+  "cuisine": "Cocktail bar and kitchen",
+  "source_title": "The Alchemist Food Menu: Large Plates, 'Allergens & Calories' (read 2026-10-10, no date shown)",
+  "source_url": "https://thealchemistbars.com/food/",
+  "checked_on": "2026-10-10",
+  "nutrition_level": "calories",
+  "basis": "per serving",
+  "sites": 12,
+  "sites_evidence": "The page's 'Choose your city' list names 12 cities: Birmingham, Cheltenham, Edinburgh, Glasgow, Leeds, Liverpool, London, Manchester, Newcastle, Nottingham, Oxford, Portsmouth.",
+  "allowed_hosts": [],
+  "note": "Menus can differ by city; this is the Large Plates menu shown on the page. Calories only. Allergens are copied as printed under each dish ('contains' list; no may-contain list is published). Small plates, desserts, brunch and drinks were not read."
+}
