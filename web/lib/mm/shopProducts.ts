@@ -5,7 +5,7 @@ import { normalizeForSearch } from "./search";
 
 /** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?] where nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
-export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml"];
+export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?];
 export type ShopRow = [string, string, number, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?];
 
 export interface ShopFile {
@@ -41,6 +41,8 @@ export interface ShopNutrition {
   salt: number | null;
   kj: number | null;
   per: "g" | "ml";
+  /** "" when the numbers are for the food as sold; otherwise the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), which the app shows next to them. */
+  state: string;
 }
 
 export interface ShopProduct {
@@ -71,12 +73,15 @@ export function isShopManifest(x: unknown): x is ShopManifest {
 
 const ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
 
+/** "per 100 g", or "per 100 g (grilled)" when the page's own heading says the numbers are for the grilled, cooked or prepared food. */
+export const nutritionBasis = (n: Pick<ShopNutrition, "per" | "state">): string => `per 100 ${n.per}${n.state ? ` (${n.state})` : ""}`;
+
 function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition | null {
   if (!Array.isArray(n) || n.length < 10) return null;
-  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per] = n;
+  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state] = n;
   if (![kcal, protein, carbs, fat].every((v) => typeof v === "number" && Number.isFinite(v)) || (per !== "g" && per !== "ml")) return null;
   const opt = (v: number | null) => (typeof v === "number" ? v : null);
-  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per };
+  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "" };
 }
 
 /** Rows to products; a row that doesn't have the right shape is dropped, never guessed at. */
@@ -150,8 +155,8 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
   else if (by === "priceDesc") list.sort((a, b) => b.price - a.price || name(a, b));
   else if (by === "unit") list.sort((a, b) => (a.unitPrice ?? Number.POSITIVE_INFINITY) - (b.unitPrice ?? Number.POSITIVE_INFINITY) || name(a, b));
   else if (by === "density" || by === "protein") {
-    // products without numbers go last; they have no protein to rank, never a guessed one
-    const key = (p: ShopProduct) => (p.nutrition ? (by === "density" ? (p.nutrition.kcal > 0 ? (p.nutrition.protein / p.nutrition.kcal) * 100 : 0) : p.nutrition.protein) : Number.NEGATIVE_INFINITY);
+    // products without numbers, and those whose numbers are for the cooked or prepared food, go last: they can't be compared with food as sold, and nothing is guessed for them
+    const key = (p: ShopProduct) => (p.nutrition && !p.nutrition.state ? (by === "density" ? (p.nutrition.kcal > 0 ? (p.nutrition.protein / p.nutrition.kcal) * 100 : 0) : p.nutrition.protein) : Number.NEGATIVE_INFINITY);
     list.sort((a, b) => key(b) - key(a) || name(a, b));
   } else list.sort(name);
   return list;

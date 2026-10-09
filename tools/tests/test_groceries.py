@@ -380,6 +380,35 @@ class PriceFileTests(unittest.TestCase):
         self.assertIsNone(t2.priority("Beer, wine & spirits > Wine"))
         self.assertLess(t2.priority("Meat & fish > Beef"), t2.priority("Food cupboard > Pasta"))
 
+    def test_tier2_append_keeps_the_heading_word_and_requeues_old_unusable_rows(self):
+        import io
+        from contextlib import redirect_stdout
+        with tempfile.TemporaryDirectory() as d:
+            work = Path(d)
+            slugs = ["bacon-1", "milk-1", "old-1", "old-2"]
+            (work / "slice1.txt").write_text("\n".join(slugs) + "\n")
+            lines = []
+            for slug, basis, rest in (("bacon-1", "g:grilled", "1514|365|27.7|11.2|1.0|<0.5|0.6|27.5|4.78"), ("milk-1", "ml", "210|50|1.7|1.1|4.8|4.8||3.4|0.1")):
+                body = f"{basis}|{rest}"
+                lines.append(f"{t2.H(slug)}|{body}|{t2.H(body)}")
+            old_ok = f"{t2.H('old-1')}|g?|1|2|3|4|5|6|7|8|9|{t2.H('g?|1|2|3|4|5|6|7|8|9')}"
+            sys_stdin = sys.stdin
+            sys.stdin = io.StringIO("\n".join(lines + [old_ok]) + "\n")
+            try:
+                with redirect_stdout(io.StringIO()):
+                    t2.cmd_append(type("A", (), {"work": str(work), "slice": 1}))
+            finally:
+                sys.stdin = sys_stdin
+            rows = [l.split("\t") for l in (work / "results_1.tsv").read_text().splitlines()]
+            self.assertEqual([r[0] for r in rows], ["bacon-1", "milk-1"])                 # the bad basis "g?" was rejected, not stored
+            self.assertEqual(rows[0][1], "g:grilled")
+            self.assertEqual(rows[0][12], "3")
+            # an older v2 row with an unusable basis is read again; an older complete plain row stays done
+            with open(work / "results_1.tsv", "a") as f:
+                f.write("\t".join(["old-1", "g?", "1", "2", "3", "4", "5", "6", "7", "8", "9", "2026-10-09", "2"]) + "\n")
+                f.write("\t".join(["old-2", "g", "1", "100", "5", "", "20", "", "", "10", "0.1", "2026-10-09", "2"]) + "\n")
+            self.assertEqual(t2.done_slugs(work), {"bacon-1", "milk-1", "old-2"})
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { decodeShopProducts, isShopFile, isShopManifest, possessive, searchShopProducts, shopPageUrl, shopPhotoUrl, type ShopFile } from "../lib/mm/shopProducts";
+import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, searchShopProducts, shopPageUrl, shopPhotoUrl, type ShopFile } from "../lib/mm/shopProducts";
 
 const file: ShopFile = {
   v: 1, retailer: "sainsburys", name: "Sainsbury's", checkedOn: "2026-10-08", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/",
@@ -32,7 +32,7 @@ describe("every-product lists", () => {
   });
   it("carries the numbers read from a product's own page, and ranks only products that have them", () => {
     const ps = decodeShopProducts(file);
-    expect(ps[1]!.nutrition).toEqual({ kcal: 250, protein: 9.5, carbs: 41, fat: 4.2, saturates: 0.6, sugars: 3.1, fibre: 7, salt: 1.1, kj: 1060, per: "g" });
+    expect(ps[1]!.nutrition).toEqual({ kcal: 250, protein: 9.5, carbs: 41, fat: 4.2, saturates: 0.6, sugars: 3.1, fibre: 7, salt: 1.1, kj: 1060, per: "g", state: "" });
     expect(ps[0]!.nutrition).toBeNull();
     // a malformed nutrition array is ignored, never half-used
     const odd = decodeShopProducts({ ...file, products: [["x-1", "Odd", 1, null, "", null, null, 0, "", "", [1, 2, 3] as never]] });
@@ -41,6 +41,12 @@ describe("every-product lists", () => {
     expect(searchShopProducts(ps, { sort: "density" })[0]!.id).toBe("sainsburys-multiseed-loaf-800g");
     expect(searchShopProducts(ps, { sort: "protein" }).map((p) => p.id)[0]).toBe("sainsburys-multiseed-loaf-800g");
     // the products with no numbers come after, in name order: nothing is guessed for them
+    expect(nutritionBasis(ps[1]!.nutrition!)).toBe("per 100 g");
+    // numbers for the grilled food are labelled and never ranked against food as sold
+    const grilled = decodeShopProducts({ ...file, products: [["bacon-1", "Bacon", 2, null, "", null, null, 0, "", "", [365, 27.5, 1, 27.7, null, null, null, null, 1514, "g", "grilled"]], ["milk-1", "Milk", 1, null, "", null, null, 0, "", "", [50, 3.4, 4.8, 1.7, null, null, null, null, null, "ml", ""]], ["odd-1", "Odd", 1, null, "", null, null, 0, "", "", [50, 3.4, 4.8, 1.7, null, null, null, null, null, "ml", "Bad<state"]]] });
+    expect(nutritionBasis(grilled[0]!.nutrition!)).toBe("per 100 g (grilled)");
+    expect(grilled[2]!.nutrition!.state).toBe("");
+    expect(searchShopProducts(grilled, { sort: "density" }).map((p) => p.id)).toEqual(["milk-1", "odd-1", "bacon-1"]);
     expect(searchShopProducts(ps, { sort: "density" }).slice(1).map((p) => p.name)).toEqual(["Brita Maxtra Filter – 3 pack", "Sainsbury's Greek Style Natural Yogurt 500g"]);
   });
   it("writes a possessive without doubling the s", () => {

@@ -62,6 +62,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
         </select>
       </label>
 
+      {(sort === "density" || sort === "protein") && <p className="mt-2 text-xs text-muted">Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.</p>}
       <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length.toLocaleString("en-GB")} {results.length === 1 ? "product" : "products"}</p>
       {results.length === 0 ? (
         <div className="mt-3"><EmptyState title="No products match." body="Try fewer words or a different type." /></div>
