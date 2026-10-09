@@ -136,6 +136,9 @@ def read_menu(text: str, menu: str) -> "list[dict]":
             raise ValueError("%s: %d calorie figures beside one dish" % (name, len(energy_nodes)))
         table = rec.find("k10-popover__nutrients-table")
         vals = {}
+        title = rec.find("k10-popover__nutrients-title")
+        if table is not None and (title is None or title.text() != "Nutritional Values:"):
+            raise ValueError("%s: the nutrition table is headed %r, not 'Nutritional Values:'" % (name, title.text() if title else None))
         if table is not None:
             for tr in table.find_all(tag="tr"):
                 tds = tr.find_all(tag="td")
