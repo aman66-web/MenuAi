@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { formatPrice } from "@/lib/mm/groceries";
+import { formatPrice, perLabel } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { possessive, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
 import { ChevronLeftIcon, ExternalIcon } from "../../../_components/icons";
@@ -37,6 +37,16 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const { file } = state;
   const photo = shopPhotoUrl(file, product);
   const page = shopPageUrl(file, product);
+  const nutrition = product.nutrition;
+  const rows: Array<[string, string]> = nutrition
+    ? [
+        ...(nutrition.kj !== null ? [["Energy", `${nutrition.kj.toLocaleString("en-GB")} kJ`] as [string, string]] : []),
+        ...(nutrition.saturates !== null ? [["Saturates", `${nutrition.saturates}g`] as [string, string]] : []),
+        ...(nutrition.sugars !== null ? [["Sugars", `${nutrition.sugars}g`] as [string, string]] : []),
+        ...(nutrition.fibre !== null ? [["Fibre", `${nutrition.fibre}g`] as [string, string]] : []),
+        ...(nutrition.salt !== null ? [["Salt", `${nutrition.salt}g`] as [string, string]] : []),
+      ]
+    : [];
 
   return (
     <div>
@@ -61,8 +71,31 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       </div>
 
       <section aria-labelledby="nutrition-heading" className="glass mt-3 rounded-3xl p-5">
-        <h2 id="nutrition-heading" className="text-lg font-bold tracking-tight">Nutrition</h2>
-        {inCatalogue ? (
+        <h2 id="nutrition-heading" className="text-lg font-bold tracking-tight">Nutrition{nutrition ? ` ${perLabel(nutrition)}` : ""}</h2>
+        {nutrition ? (
+          <>
+            <div role="group" aria-label={`${product.name}, ${Math.round(nutrition.kcal)} calories, ${nutrition.protein} grams protein, ${nutrition.carbs} grams carbs, ${nutrition.fat} grams fat ${perLabel(nutrition)}`} className="app-numbers mt-3">
+              <div className="flex items-end gap-2">
+                <span className="sun-text text-6xl font-extrabold leading-[0.9] tracking-tighter">{Math.round(nutrition.kcal)}</span>
+                <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal {perLabel(nutrition)}</span>
+              </div>
+              <dl className="mt-4 grid grid-cols-3 gap-2">
+                {([["Protein", nutrition.protein, true], ["Carbs", nutrition.carbs, false], ["Fat", nutrition.fat, false]] as const).map(([label, v, lead]) => (
+                  <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft" : "inset-card"}`}>
+                    <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</dt>
+                    <dd className={`text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{v}g</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            {rows.length > 0 && (
+              <dl className="app-numbers mt-3 divide-y divide-line text-sm">
+                {rows.map(([label, value]) => (<div key={label} className="flex min-h-11 items-center justify-between gap-3"><dt className="text-muted">{label}</dt><dd className="font-semibold">{value}</dd></div>))}
+              </dl>
+            )}
+            <p className="mt-3 text-xs text-muted">Read from the product&apos;s own page on {possessive(file.name)} website{file.nutritionCheckedOn ? `, checked ${formatDate(file.nutritionCheckedOn)}` : ""}. Allergens aren&apos;t shown for this product yet: check the pack or the page.</p>
+          </>
+        ) : inCatalogue ? (
           <>
             <p className="mt-1 text-sm text-muted">We have calories, protein, carbs, fat and allergens for this product.</p>
             <Link href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} className="mt-3 inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 text-sm font-bold text-background transition active:scale-[0.97]">See the nutrition</Link>

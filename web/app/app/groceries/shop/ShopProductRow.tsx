@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { formatPrice } from "@/lib/mm/groceries";
+import { formatPrice, perLabel, productLine } from "@/lib/mm/groceries";
 import { shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { ChevronRightIcon } from "../../_components/icons";
 import { usePhotoSource } from "../ProductPhoto";
 
-/** A product in a shop's full list: the shop's own picture (decorative), its name, price, price per kg or litre and any card price. No nutrition: that page says so. */
+/** A product in a shop's full list: the shop's own picture (decorative), its name, price, price per kg or litre, any card price and, where we have read its page, the numbers per 100 g or ml. */
 export function ShopProductRow({ file, product }: { file: ShopFile; product: ShopProduct }) {
   const src = shopPhotoUrl(file, product);
   const { current, fail } = usePhotoSource(src ? [{ src, from: "retailer", shop: file.retailer }] : []);
@@ -24,6 +24,9 @@ export function ShopProductRow({ file, product }: { file: ShopFile; product: Sho
           {product.unitPrice !== null && product.unit && <span className="text-muted"> · {formatPrice(product.unitPrice)} {product.unit}</span>}
         </span>
         {product.member && <span className="app-numbers block text-sm text-muted">{formatPrice(product.member.amount)} with {product.member.scheme.replace(/ price$/i, "")}</span>}
+        {product.nutrition && (
+          <span className="app-numbers block text-sm text-muted">{productLine(product.nutrition)} <span className="whitespace-nowrap">{perLabel(product.nutrition)}</span></span>
+        )}
       </span>
       <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
     </Link>

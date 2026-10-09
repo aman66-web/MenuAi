@@ -20,12 +20,14 @@ export function ShopListScreen({ shop }: { shop: string }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string | null>(null);
   const [card, setCard] = useState(false);
+  const [nutrition, setNutrition] = useState(false);
   const [sort, setSort] = useState<ShopSort>("name");
   const [shown, setShown] = useState(PAGE);
   const deferred = useDeferredValue(query);
   const products = state.status === "ready" ? state.products : NONE;
-  const results = useMemo(() => searchShopProducts(products, { query: deferred, category, card, sort }), [products, deferred, category, card, sort]);
+  const results = useMemo(() => searchShopProducts(products, { query: deferred, category, card, nutrition, sort }), [products, deferred, category, card, nutrition, sort]);
   const hasCard = useMemo(() => products.some((p) => p.member), [products]);
+  const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
   const reset = () => setShown(PAGE);
   const back = (<Link href="/app/groceries" aria-label="Back to groceries" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>);
 
@@ -38,7 +40,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       {back}
       <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.05] tracking-tight">Every <span className="serif-em sun-text pr-0.5">{file.name}</span> product</h1>
       <p className="mt-1 text-sm text-muted">
-        {products.length.toLocaleString("en-GB")} products with the name and price as {file.name} lists them, checked {formatDate(file.checkedOn)}. Calories, protein and allergens appear only for products whose page we&apos;ve read.
+        {products.length.toLocaleString("en-GB")} products with the name and price as {file.name} lists them, checked {formatDate(file.checkedOn)}. Calories, protein and allergens appear only for products whose page we&apos;ve read{nutritionCount > 0 ? ` (${nutritionCount.toLocaleString("en-GB")} so far)` : ""}.
       </p>
 
       <label className="relative mt-4 block">
@@ -48,6 +50,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       </label>
 
       <div role="group" aria-label="Filters" className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+        {nutritionCount > 0 && <Chip selected={nutrition} onClick={() => { setNutrition((v) => !v); reset(); }}>Has nutrition</Chip>}
         {hasCard && <Chip selected={card} onClick={() => { setCard((v) => !v); reset(); }}>Has a card price</Chip>}
         <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>All types</Chip>
         {file.categories.map((c) => (<Chip key={c} selected={category === c} onClick={() => { setCategory(c); reset(); }}>{c}</Chip>))}
@@ -55,7 +58,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       <label className="mt-3 flex items-center justify-end gap-2 text-sm">
         <span className="text-muted">Sort</span>
         <select className={`${inputClass} min-h-11 w-auto py-0 text-sm`} value={sort} onChange={(e) => { setSort(e.target.value as ShopSort); reset(); }}>
-          {SHOP_SORTS.map((o) => (<option key={o.value} value={o.value}>{o.label}</option>))}
+          {SHOP_SORTS.filter((o) => nutritionCount > 0 || (o.value !== "density" && o.value !== "protein")).map((o) => (<option key={o.value} value={o.value}>{o.label}</option>))}
         </select>
       </label>
 

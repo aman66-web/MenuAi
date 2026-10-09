@@ -6,7 +6,7 @@ const file: ShopFile = {
   categories: ["Dairy", "Bakery"], schemes: ["Nectar price"],
   products: [
     ["sainsburys-greek-style-natural-yogurt-500g", "Sainsbury's Greek Style Natural Yogurt 500g", 1.15, 2.3, "per kg", null, null, 0, "6325944", "00123456"],
-    ["sainsburys-multiseed-loaf-800g", "Sainsbury's Multiseed Loaf 800g", 1.6, 2, "per kg", 1.2, 0, 1, "", ""],
+    ["sainsburys-multiseed-loaf-800g", "Sainsbury's Multiseed Loaf 800g", 1.6, 2, "per kg", 1.2, 0, 1, "", "", [250, 9.5, 41, 4.2, 0.6, 3.1, 7, 1.1, 1060, "g"]],
     ["brita-filter-%E2%80%93-3-pack", "Brita Maxtra Filter – 3 pack", 22.5, null, "each", null, null, 1, "123", ""],
     ["bad id with spaces", "x", 1, null, "", null, null, 0, "", ""],
     ["short", "Too short row", 1] as unknown as ShopFile["products"][number],
@@ -29,6 +29,19 @@ describe("every-product lists", () => {
     expect(shopPhotoUrl(file, ps[0]!)).toBe("https://assets.sainsburys-groceries.co.uk/gol/6325944/image.jpg");
     expect(shopPhotoUrl(file, ps[1]!)).toBeUndefined();
     expect(shopPhotoUrl({ photoBase: "http://insecure.example/" }, ps[0]!)).toBeUndefined();
+  });
+  it("carries the numbers read from a product's own page, and ranks only products that have them", () => {
+    const ps = decodeShopProducts(file);
+    expect(ps[1]!.nutrition).toEqual({ kcal: 250, protein: 9.5, carbs: 41, fat: 4.2, saturates: 0.6, sugars: 3.1, fibre: 7, salt: 1.1, kj: 1060, per: "g" });
+    expect(ps[0]!.nutrition).toBeNull();
+    // a malformed nutrition array is ignored, never half-used
+    const odd = decodeShopProducts({ ...file, products: [["x-1", "Odd", 1, null, "", null, null, 0, "", "", [1, 2, 3] as never]] });
+    expect(odd[0]!.nutrition).toBeNull();
+    expect(searchShopProducts(ps, { nutrition: true }).map((p) => p.id)).toEqual(["sainsburys-multiseed-loaf-800g"]);
+    expect(searchShopProducts(ps, { sort: "density" })[0]!.id).toBe("sainsburys-multiseed-loaf-800g");
+    expect(searchShopProducts(ps, { sort: "protein" }).map((p) => p.id)[0]).toBe("sainsburys-multiseed-loaf-800g");
+    // the products with no numbers come after, in name order: nothing is guessed for them
+    expect(searchShopProducts(ps, { sort: "density" }).slice(1).map((p) => p.name)).toEqual(["Brita Maxtra Filter – 3 pack", "Sainsbury's Greek Style Natural Yogurt 500g"]);
   });
   it("writes a possessive without doubling the s", () => {
     expect(possessive("Sainsbury's")).toBe("Sainsbury's");
