@@ -371,6 +371,18 @@ class PriceFileTests(unittest.TestCase):
         self.assertEqual(doc["checkedOn"], "2026-10-08")                                    # the earliest day: never fresher than the oldest row
         self.assertEqual(bap.PUBLISH, ("sainsburys",))                                       # no other shop is published without the founder's go-ahead
 
+    def test_tier2_heading_words_become_clear_labels_or_the_basis_is_dropped(self):
+        self.assertEqual(t2.canon_state(""), "")
+        self.assertEqual(t2.canon_state("of product"), "")
+        self.assertEqual(t2.canon_state("typical analysis"), "")
+        self.assertEqual(t2.canon_state("grilled"), "grilled")
+        self.assertEqual(t2.canon_state("oven cooked for pulled p"), "oven cooked")
+        self.assertEqual(t2.canon_state("as consumed edible porti"), "edible portion")
+        self.assertEqual(t2.canon_state("cooked as per instruction"), "cooked")
+        self.assertEqual(t2.canon_state("edible portion"), "edible portion")
+        for unclear in ("rams", "per", "serving", "pouch", "contains"):
+            self.assertIsNone(t2.canon_state(unclear), unclear)
+
     def test_tier2_checks_match_the_page_extractor_and_reject_slips(self):
         # these two values were printed by tools/groceries/t2_extractor.js on the live Sainsbury's Greek yogurt page
         self.assertEqual(t2.H("sainsburys-greek-style-natural-yogurt-500g"), "3l5r")

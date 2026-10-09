@@ -28,7 +28,25 @@ import build_groceries as bg  # noqa: E402
 LISTING = ROOT / "data" / "groceries" / "listing" / "sainsburys.csv"
 OUT = ROOT / "data" / "groceries" / "nutrition" / "sainsburys.csv"
 PAGE = "https://www.sainsburys.co.uk/groceries/product/"
-PLAIN_WORDS = {"of product", "of food", "of the product", "of the food", "typical", "typical values", "as sold"}
+STATE_LABELS = [  # (word in the page's heading, the label the app shows next to the numbers): anything else is an unclear basis and the product is left without numbers
+    ("grill", "grilled"), ("fri", "fried"), ("roast", "roasted"), ("bak", "baked"), ("oven", "oven cooked"), ("boil", "boiled"), ("microwav", "microwaved"), ("steam", "steamed"),
+    ("cook", "cooked"), ("prepar", "prepared"), ("made up", "made up"), ("reconstitut", "made up"), ("rehydrat", "prepared"), ("dilut", "diluted"), ("drain", "drained"),
+    ("edible", "edible portion"), ("consum", "as consumed"), ("raw", "raw"), ("dried", "dry"), ("dry", "dry"),
+]
+
+
+def canon_state(state: str):
+    """"" for the food as sold, a label from STATE_LABELS for a cooked or prepared column, None when the heading's wording is unclear."""
+    st = " ".join((state or "").lower().split())
+    if not st or st in PLAIN_WORDS:
+        return ""
+    for word, label in STATE_LABELS:
+        if word in st:
+            return label
+    return None
+
+
+PLAIN_WORDS = {"of product", "of food", "of the product", "of the food", "typical", "typical values", "typical analysis", "as sold", "amount"}
 BASIS = re.compile(r"(g|ml)(:[a-z][a-z ]{0,23})?|\?")
 FIELDS = ["per", "kj", "kcal", "fat", "saturates", "carbs", "sugars", "fibre", "protein", "salt"]
 HEADER = ["product_id", "per", "state", "kj", "kcal", "fat_g", "saturates_g", "carbs_g", "sugars_g", "fibre_g", "protein_g", "salt_g", "checked_on", "page_url"]
@@ -79,7 +97,10 @@ def _suspect(parts: list) -> bool:
     if "reference" in parts[1]:
         return True
     kj, kcal = num(parts[2]), num(parts[3])
-    return bool(kj and kcal and kcal >= 20 and not 3.55 <= kj / kcal <= 4.82)
+    if kj and kcal and kcal >= 20 and not 3.55 <= kj / kcal <= 4.82:
+        return True
+    main = [num(parts[i]) for i in (3, 6, 9, 4)]  # kcal, carbs, protein, fat
+    return None not in main and bg.implausible(*main) is not None
 
 
 def _complete(parts: list) -> bool:
@@ -197,10 +218,7 @@ def num(s: str):
 
 def cmd_ingest(a) -> int:
     work = Path(a.work)
-    rows: dict = {}
-    if OUT.exists():
-        with open(OUT, newline="", encoding="utf-8") as f:
-            rows = {r["product_id"]: r for r in csv.DictReader(f)}
+    rows: dict = {}  # rebuilt from the stored reads every time (the rules above can tighten; a row the rules now reject must not linger from an older ingest)
     kept = left = 0
     why: dict = {}
     for p in sorted(work.glob("results_*.tsv")):
@@ -215,8 +233,12 @@ def cmd_ingest(a) -> int:
                 left += 1
                 continue
             per, _, state = per.partition(":")
-            if state.strip() in PLAIN_WORDS:
-                state = ""  # the heading only says "per 100g of product": that is the food as sold
+            label = canon_state(state)
+            if label is None:
+                why["unclear basis wording"] = why.get("unclear basis wording", 0) + 1
+                left += 1
+                continue
+            state = label
             if per not in ("g", "ml") or None in n.values():
                 why["incomplete (no per 100 g/ml basis or a main number missing)"] = why.get("incomplete (no per 100 g/ml basis or a main number missing)", 0) + 1
                 left += 1
