@@ -348,7 +348,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   a Nectar price). Morrisons 18,412 (complete, incl. beer/cider, wine, world foods and dietary; a few non-food items sit in those last pages), Asda about 13,000, Waitrose about 12,400,
   Aldi about 4,500, Lidl about 350 and M&S about 1,150 as raw crawls (`raw/`). **Co-op:** access denied by Imperva (non-UK IP), 0 products, stopped. **Ocado:** its bot challenge stopped
   the crawl and its data is quarantined (one agent used a forbidden side channel to move data out of the page; that data is not in the repo and is not used until the founder decides).
-  **Tesco and Iceland:** not crawled (Tesco needs the founder's approval in the permission system; Iceland and Co-op need a UK VPN). **These lists have no barcodes or
+  **Iceland:** crawled with the founder's UK VPN on: 6,216 products (its terms clause 3.2 forbids copying site content without written permission: kept in `data/` only, not published). **Tesco:** not crawled (needs the founder's approval in the permission system). **Co-op** shows a CAPTCHA even from the UK VPN: stopped. **These lists have no barcodes or
   nutrition**, so none of them is in the app yet; the next steps are a "browse every product" layer for shop-only products and Tier-2 product-page reads for nutrition (the
   founder to say). Terms caveat per shop (docs/IMAGE_TERMS.md and each `*_terms.txt`): Tesco bans bots/AI tools, M&S bans crawling and commercial use (hold, do not publish),
   Waitrose and Morrisons restrict reproducing/storing content; Sainsbury's, Asda, Aldi, Lidl have no relevant clause found. Nothing from these lists is published (they live in `data/`, not `web/public`).

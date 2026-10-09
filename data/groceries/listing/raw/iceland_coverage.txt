@@ -34,3 +34,34 @@ Fresh > coleslaw-and-sandwich-fillers | pages 1 of 2 | tiles collected 30 (new i
 Fresh > fresh-accompaniments | pages 2 of 2 | tiles collected 37 (new ids listed here 1) | shown total 37
 Fresh > fresh-treats-and-snacks | pages 9 of 9 | tiles collected 244 (new ids listed here 59) | shown total 244
 Fresh > extra-free | pages 1 of 1 | tiles collected 15 (new ids listed here 0) | shown total 15
+Fresh > fresh-offers | pages 1 of 30 | tiles collected 30 (new ids listed here 4) | shown total 899
+Fresh > 1-value-fresh | pages 1 of 8 | tiles collected 30 (new ids listed here 5) | shown total 217
+Fresh > fresh-bigger-packs | pages 1 of 1 | tiles collected 6 (new ids listed here 4) | shown total 6
+Fresh > christmas | pages 1 of 7 | tiles collected 30 (new ids listed here 2) | shown total 202
+Fresh | pages 3 of 52 | tiles collected 88 (new ids listed here 4) | shown total 1558
+Food Cupboard > cans-tins-and-packets | pages 9 of 9 | tiles collected 262 (new ids listed here 247) | shown total 262
+Food Cupboard > cooking-sauces-and-meal-kits | pages 5 of 5 | tiles collected 145 (new ids listed here 129) | shown total 145
+Food Cupboard > cooking-ingredients | pages 9 of 9 | tiles collected 241 (new ids listed here 130) | shown total 241
+Food Cupboard > rice-pasta-and-noodles | pages 6 of 6 | tiles collected 167 (new ids listed here 79) | shown total 167
+Food Cupboard > table-sauces-bbq-and-pickles | pages 6 of 6 | tiles collected 154 (new ids listed here 107) | shown total 154
+Food Cupboard > cereal | pages 6 of 6 | tiles collected 167 (new ids listed here 163) | shown total 167
+Food Cupboard > jams-and-spreads | pages 2 of 2 | tiles collected 36 (new ids listed here 29) | shown total 34
+Food Cupboard > home-baking | pages 2 of 2 | tiles collected 42 (new ids listed here 25) | shown total 42
+Food Cupboard > long-life-milk-and-sugar | pages 1 of 1 | tiles collected 18 (new ids listed here 5) | shown total 18
+Food Cupboard > tea-coffee-and-hot-drinks | pages 1 of 2 | tiles collected 30 (new ids listed here 30) | shown total 59
+Food Cupboard > biscuits-and-crackers | pages 12 of 12 | tiles collected 350 (new ids listed here 319) | shown total 350
+Drinks > hot-beverages | pages 1 of 2 | tiles collected 29 (new ids listed here 28) | shown total 59
+Food Cupboard > chocolate-and-sweets | pages 20 of 20 | tiles collected 597 (new ids listed here 529) | shown total 597
+Food Cupboard > crisps-nuts-and-snacks | pages 13 of 13 | tiles collected 379 (new ids listed here 337) | shown total 379
+Food Cupboard > freeze-pops-wafers-and-sauces | pages 1 of 1 | tiles collected 27 (new ids listed here 10) | shown total 17
+Food Cupboard > under-100-calorie-snacks | pages 2 of 4 | tiles collected 43 (new ids listed here 5) | shown total 103
+Bakery | pages 14 of 14 | tiles collected 394 (new ids listed here 294) | shown total 394
+World Foods | pages 8 of 8 | tiles collected 212 (new ids listed here 18) | shown total 212
+Drinks | pages 38 of 38 | tiles collected 1132 (new ids listed here 866) | shown total 1132
+Food Cupboard > baby-food | pages 1 of 1 | tiles collected 25 (new ids listed here 25) | shown total 25
+# --- Verification walks of top-level lists (added at the end of the crawl; items counted only if not already in the file) ---
+Fresh (top-level, all 52 pages walked for new ids; 3 new ids found and added: 106404, 90491, 104693) | pages 52 of 52 | tiles collected 1558 viewed | shown total 1558
+Treats & Snacks (top-level; sampled pages 1, 17, 26, 34 only: every item already in the file) | pages 4 of 34 | tiles sampled 93 | shown total 993
+Beer, Wine & Spirits (top-level; sampled page 1 only: all repeats of Drinks) | pages 1 of 10 | tiles sampled 30 | shown total 296
+# Note: on some top-level pages the site showed a mismatched "Viewing a-b" range (Fresh pages 20, 22, 30, 31, 34 on a first load): re-loaded; every id printed was already in the file.
+# Note: 13 tiles are "This product is unavailable / Out of Stock" tiles with no name (ids only); 12 tiles have no photo.
