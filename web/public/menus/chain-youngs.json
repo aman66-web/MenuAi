@@ -1,0 +1,980 @@
+{
+ "schemaVersion": 1,
+ "id": "youngs",
+ "name": "Young's",
+ "cuisine": "Pub",
+ "builderType": "standard",
+ "aliases": [
+  "young's",
+  "youngs",
+  "young's pub",
+  "youngs pub",
+  "young & co",
+  "young and co",
+  "young's pubs"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Young's pubs: the food-and-drink menus on each pub's own website, calories printed beside dishes (257 of 264 pubs read, accessed 2026-10-09, no date shown)",
+  "url": "https://www.youngs.co.uk/our-pubs",
+  "checkedOn": "2026-10-09"
+ },
+ "nutritionLevel": "calories",
+ "note": "Young's pubs each run their own website and menu. Listed: dishes that 2 or more of the 257 pub websites read on 2026-10-09 print with the same calories everywhere they appear; dishes that differ anywhere are left out. Calories only. Your pub may not serve a dish. PDF, event and wine, beer and spirits menus are not listed.",
+ "categories": [
+  "Starters, sharers and snacks",
+  "Mains",
+  "Burgers and grill",
+  "Light bites and sandwiches",
+  "Sides",
+  "Breakfast",
+  "Puddings",
+  "Extras",
+  "Cocktails, spritz and soft drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "baked-somerset-camembert-lemon-and-thyme-honey-toasted-ale-sourdough-youngs-ale-chutney-pickled-grapes",
+   "name": "Baked Somerset Camembert, Lemon & thyme honey, toasted ale sourdough, Young's ale chutney, pickled grapes",
+   "category": "Starters, sharers and snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 834
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bella-di-roma-olives",
+   "name": "Bella Di Roma olives",
+   "category": "Starters, sharers and snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brixham-squid-brown-crab-mayo",
+   "name": "Brixham Squid, Brown crab mayo",
+   "category": "Starters, sharers and snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 526
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cobble-lane-bresaola-and-salami-davidstow-cheddar-house-pickles-chutney-seeded-crackers",
+   "name": "Cobble Lane bresaola & salami, Davidstow cheddar, house pickles, chutney, seeded crackers",
+   "category": "Starters, sharers and snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1372
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamb-sweetbreads-wykham-park-farm-asparagus-pea-almonds",
+   "name": "Lamb Sweetbreads, Wykham Park Farm asparagus, pea, almonds",
+   "category": "Starters, sharers and snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pulled-pork-and-buffalo-mozzarella-croquettes-youngs-ale-bbq-sauce",
+   "name": "Pulled pork & buffalo mozzarella croquettes, Young's Ale BBQ sauce",
+   "category": "Starters, sharers and snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-short-rib-and-bone-marrow-madras-wild-rice-pakora-mint-yoghurt-carrot-and-fennel-slaw-and-flat-bread",
+   "name": "Beef Short Rib and Bone Marrow Madras, Wild rice, pakora, mint yoghurt, carrot & fennel slaw and flat bread",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 631
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "braised-lamb-shoulder-pie-mashed-potatoes-charred-tenderstem-broccoli",
+   "name": "Braised Lamb Shoulder Pie, Mashed potatoes, charred Tenderstem broccoli",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1718
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-cheese-double-beef-patty-melted-cheese-jalapenos-pickled-chillis-hot-sauce-pink-onions-burger-sauce-sesame-bun",
+   "name": "Chilli Cheese, Double beef patty, melted cheese, jalapenos, pickled chillis, hot sauce, pink onions, burger sauce, sesame bun",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 771
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cyder-battered-haddock-triple-cooked-chips-garden-peas-tartar-sauce",
+   "name": "Cyder Battered Haddock, Triple Cooked Chips, Garden Peas, Tartar Sauce",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1044
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "day-boat-scampi-samphire-tartare-sauce-skinny-fries-lemon",
+   "name": "Day Boat Scampi, Samphire tartare sauce, skinny fries, lemon",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1128
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fish-and-chips-cyder-battered-haddock-triple-cooked-chips-tartare-sauce-and-mushy-peas",
+   "name": "Fish & Chips, Cyder battered haddock, triple cooked chips, tartare sauce & mushy peas",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1090
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-scottish-salmon-crushed-crispy-new-potatoes-grilled-asparagus-samphire-lemon-and-dill-cream-sauce",
+   "name": "Grilled Scottish Salmon, Crushed crispy new potatoes, grilled asparagus, samphire, lemon & dill cream sauce",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 909
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pea-and-wykham-park-farm-asparagus-risotto-vegan-feta-pea-shoots-and-pistachio",
+   "name": "Pea & Wykham Park Farm Asparagus Risotto, Vegan feta, pea shoots and Pistachio",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 627
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-sage-and-thyme-sausages-spring-onion-mash-charred-onions-gravy",
+   "name": "Pork, Sage and Thyme Sausages, Spring onion mash, charred onions, gravy",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1082
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-thyme-and-sage-sausages-spring-onion-mash-charred-onions-gravy",
+   "name": "Pork, Thyme and Sage Sausages, Spring onion mash, charred onions, gravy",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1082
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-brixham-plaice-jersey-royals-cockles-samphire-and-cockle-butter",
+   "name": "Whole Brixham Plaice, Jersey Royals, cockles, samphire & cockle butter",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 799
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-chilli-cheese-double-beef-patty-melted-cheese-pink-onions-jalapenos-chillis-burger-sauce-smoked-streaky-bacon-sesame-bun",
+   "name": "Bacon chilli cheese, Double beef patty, melted cheese, pink onions, jalapenos, chillis, burger sauce, smoked streaky bacon, sesame bun",
+   "category": "Burgers and grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 1028
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-plant-vg-vegan-patty-soya-yoghurt-watercress-heritage-tomato-salsa-vegan-sesame-bun",
+   "name": "Loaded Plant (vg), vegan patty, soya yoghurt, watercress, heritage tomato salsa, vegan sesame bun",
+   "category": "Burgers and grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-original-double-beef-patty-melted-cheese-pink-onions-burger-sauce-sesame-bun",
+   "name": "The Original, Double beef patty, melted cheese, pink onions, burger sauce, sesame bun",
+   "category": "Burgers and grill",
+   "serving": "",
+   "nutrients": {
+    "calories": 757
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "battered-haddock-tartare-sauce-lettuce",
+   "name": "Battered Haddock, Tartare sauce, lettuce",
+   "category": "Light bites and sandwiches",
+   "serving": "",
+   "nutrients": {
+    "calories": 831
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-jersey-royals-wholegrain-mustard-and-honey-butter-parmesan",
+   "name": "Crispy Jersey Royals, Wholegrain mustard & honey butter, parmesan",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 335
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jersey-royals-wholegrain-mustard-and-honey-butter-parmesan",
+   "name": "Jersey Royals, Wholegrain mustard and honey butter, parmesan",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 451
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pigs-in-blankets-apple-sauce",
+   "name": "Pigs in Blankets, Apple sauce",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-sage-and-thyme-stuffing-balls-yorkshire-pudding-gravy",
+   "name": "Pork, Sage and Thyme Stuffing Balls, Yorkshire pudding, gravy",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 334
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "triple-cooked-chips-brown-crab-mayo",
+   "name": "Triple Cooked Chips, Brown crab mayo",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 421
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-on-toast-crushed-avocado-mint-toasted-sourdough-poached-st-ewes-eggs",
+   "name": "Avocado on Toast, Crushed avocado, mint, toasted sourdough, poached St Ewes eggs",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 367
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-toast-crushed-avocado-mint-toasted-sourdough-poached-st-ewes-eggs",
+   "name": "Avocado Toast, Crushed avocado, mint, toasted sourdough, poached St Ewes eggs",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 367
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pastries-and-coffee-pain-au-chocolat-croissant",
+   "name": "Pastries & Coffee, Pain au chocolat/croissant",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eton-mess-strawberry-and-elderflower",
+   "name": "Eton Mess, Strawberry & Elderflower",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 473
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mint-chocolate-ice-cream-100ml",
+   "name": "Mint Chocolate Ice Cream 100ml",
+   "category": "Puddings",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "herb-aioli",
+   "name": "Herb Aioli",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-sauce",
+   "name": "Hot Sauce",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "patty-and-cheese",
+   "name": "Patty & Cheese",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rainbow-slaw",
+   "name": "Rainbow Slaw",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amalfi-spritz-af-lyres-italian-spritz-0-0-fever-tree-blood-orange-soda",
+   "name": "Amalfi Spritz (AF), Lyre's Italian Spritz 0.0%, Fever-Tree Blood Orange Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amalfi-spritz-0-0-af-lyres-italian-spritz-fever-tree-mediterranean-tonic",
+   "name": "Amalfi Spritz 0.0 AF, Lyre's Italian Spritz, Fever-Tree Mediterranean Tonic",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amalfi-spritz-0-0-af-lyres-italian-spritz-0-0-fever-tree-blood-orange-soda",
+   "name": "Amalfi Spritz 0.0% AF, Lyre's Italian Spritz 0.0%, Fever-Tree Blood Orange Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amalfi-spritz-0-0-lyres-italian-spritz-0-0-fever-tree-blood-orange-soda",
+   "name": "Amalfi Spritz 0.0%, Lyre's Italian Spritz 0.0%, Fever-Tree Blood Orange Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-elderflower-elderflower-apple-moroccan-and-english-mint-soda",
+   "name": "Apple & Elderflower, Elderflower, Apple, Moroccan & English Mint, Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser-275ml-bottle",
+   "name": "Appletiser, 275ml bottle",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bakewell-tart-0-0-a-0-0-twist-on-a-nostalgic-treat-lyres-non-alcoholic-amaretti-cherry-syrup-mixed-with-pineapple-and-cranberry-juice-garnished-with-mint",
+   "name": "Bakewell Tart 0.0%, A 0.0% twist on a nostalgic treat. Lyre's non-alcoholic Amaretti, cherry syrup, mixed with pineapple and cranberry juice. Garnished with mint.",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-hugo-af-three-spirit-livener-0-0-watermelon-elderflower-soda",
+   "name": "Berry Hugo (AF), Three Spirit Livener 0.0%, Watermelon, Elderflower, Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "berry-hugo-0-0-af-three-spirit-livener-0-0-watermelon-elderflower-soda",
+   "name": "Berry Hugo 0.0% AF, Three Spirit Livener 0.0%, Watermelon, Elderflower, Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blood-orange-af-paloma-0-0-three-spirit-livener-fever-tree-blood-orange-soda",
+   "name": "Blood Orange AF Paloma 0.0, Three Spirit Livener, Fever-Tree Blood Orange Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blood-orange-paloma-0-0-af-three-spirit-livener-fever-tree-blood-orange-soda",
+   "name": "Blood Orange Paloma 0.0 (AF), Three Spirit Livener, Fever-Tree Blood Orange Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blood-orange-paloma-0-0-three-spirit-livener-fever-tree-blood-orange-soda",
+   "name": "Blood Orange Paloma 0.0, Three Spirit Livener, Fever-Tree Blood Orange Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blood-orange-paloma-0-0-three-spirit-livener-fever-tree-blood-orange-soda-af",
+   "name": "Blood Orange Paloma 0.0, Three Spirit Livener, Fever-Tree Blood Orange Soda (AF)",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-and-mint-cranberry-moroccan-and-english-mint-fever-tree-ginger-beer",
+   "name": "Cranberry & Mint, Cranberry, Moroccan & English Mint, Fever-Tree Ginger Beer",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "elderflower-and-raspberry-orange-blossom-raspberry-elderflower-soda",
+   "name": "Elderflower & Raspberry, Orange Blossom, Raspberry, Elderflower, Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-iced-tea-three-spirit-social-dark-fruit-fever-tree-ginger-beer",
+   "name": "Ginger Iced Tea, Three Spirit Social, Dark Fruit, Fever-Tree Ginger Beer",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-yuzu-fizz-three-spirit-social-yuzu-sherbert-fever-tree-ginger-ale",
+   "name": "Ginger Yuzu Fizz, Three Spirit Social, Yuzu Sherbert, Fever-Tree Ginger Ale",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-yuzu-fizz-three-spirit-social-yuzu-sherbet-fever-tree-ginger-ale",
+   "name": "Ginger Yuzu Fizz, Three Spirit Social, Yuzu Sherbet, Fever-Tree Ginger Ale",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-and-pineapple-pineapple-hot-honey-mexican-lime-soda",
+   "name": "Hot Honey & Pineapple, Pineapple, Hot Honey, Mexican Lime, Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margarita-0-0-pentire-adrift-distilled-coastal-botanicals-blended-with-lime-agave-sea-salt-and-a-dash-of-chilli-served-in-a-salt-rimmed-glass-with-lime",
+   "name": "Margarita 0.0%, Pentire Adrift distilled coastal botanicals blended with lime, agave, sea salt and a dash of chilli. Served in a salt-rimmed glass with lime.",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "negroni-0-0-af-tanqueray-0-0-lyres-italian-spritz-0-0-three-spirit-livener-0-0",
+   "name": "Negroni 0.0 AF, Tanqueray 0.0%, Lyre's Italian Spritz 0.0%, Three Spirit Livener 0.0%",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "negroni-0-0-tanqueray-0-0-lyres-italian-spritz-0-0-three-spirit-livener-0-0-af",
+   "name": "Negroni 0.0, Tanqueray 0.0%, Lyre's Italian Spritz 0.0%, Three Spirit Livener 0.0% (AF)",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-and-yuzu-pineapple-coconut-apple-yuzu-soda",
+   "name": "Pineapple & Yuzu, Pineapple, Coconut, Apple, Yuzu, Soda",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-rose-fever-tree-raspberry-and-rose-lemonade",
+   "name": "Raspberry & Rose, Fever-Tree Raspberry & Rose Lemonade",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "social-garden-fizz-three-spirit-social-lions-mane-lemonade",
+   "name": "Social Garden Fizz, Three Spirit Social, Lion's Mane, Lemonade",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-cbd-elderflower-and-mint-magnesium-lions-mane-lemon-balm",
+   "name": "TRIP CBD Elderflower & Mint, Magnesium, Lions mane, Lemon Balm",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-cbd-lemon-and-basil-chamomile-lemon-balm-citrus",
+   "name": "Trip CBD Lemon & Basil, Chamomile, Lemon Balm, Citrus",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-cbd-peach-and-ginger-ginseng-turmeric-stonefruit",
+   "name": "Trip CBD Peach & Ginger, Ginseng, Turmeric, Stonefruit",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-cbd-peach-ginger-ginseng-turmeric-lemon-balm",
+   "name": "TRIP CBD Peach Ginger, Ginseng, Turmeric, Lemon Balm",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-elderflower-mint-magnesium-lions-mane-lemon-balm",
+   "name": "TRIP Elderflower Mint, Magnesium, Lion's Mane, Lemon Balm",
+   "category": "Cocktails, spritz and soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

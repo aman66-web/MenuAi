@@ -1,1 +1,3 @@
 chain,kind,severity,code,item,name,category,detail
+mowgli,allergen,reviewed,name-implies-milk,ice-cream-cone-mango-sorbet,Ice Cream Cone – Mango Sorbet,Sweet,"'Ice Cream' in the name but milk is not marked (contains: ['gluten', 'soya'])"
+mowgli,allergen,reviewed,name-implies-soya,treacle-tamarind-fries,Treacle Tamarind Fries,Street Plates,"'Tamari' in the name but soya is not marked (contains: ['mustard', 'sulphites'])"

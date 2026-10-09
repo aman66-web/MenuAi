@@ -13,15 +13,15 @@
  "source": {
   "title": "LEON UK menu, nutrition per portion (live pages on leon.co/menu; no issue date or version shown)",
   "url": "https://leon.co/menu/all-day/",
-  "checkedOn": "2026-10-06"
+  "checkedOn": "2026-10-08"
  },
- "note": "Per-portion values as shown on leon.co's menu pages, which carry no issue date. Milk drinks are the organic whole milk versions; other milks aren't shown on the menu pages. Three items the pages show without nutrition are left out.",
+ "note": "Per-portion values from leon.co's menu pages (no issue date); milk drinks are whole milk. Dishes shown without nutrition, or with a blank or incomplete allergen list, are left out. Allergens are LEON's own summary, not its full Foodie Fact Sheet: check that sheet if you have an allergy. All allergens are handled in its kitchens.",
  "allergenGuide": {
-  "title": "LEON allergen information and Foodie Fact Sheet (September 2026 v1)",
+  "title": "LEON allergen summary on leon.co's menu pages (full guide: Foodie Fact Sheet, September 2026 v1)",
   "url": "https://leon.co/allergens/",
-  "checkedOn": "2026-10-06",
+  "checkedOn": "2026-10-08",
   "mayContainPublished": false,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "LEON Boxes",
@@ -63,7 +63,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/f6b1440087b2.webp"
+   "image": "leon/f6b1440087b2.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chantals-romesco-chicken",
@@ -88,7 +96,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/0c219cb4e105.webp"
+   "image": "leon/0c219cb4e105.webp",
+   "allergens": {
+    "contains": [
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "poker-night-chilli",
@@ -115,32 +130,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/c80b34754079.webp"
-  },
-  {
-   "id": "cheeky-gyros-box",
-   "name": "Cheeky Gyros Box",
-   "category": "LEON Boxes",
-   "serving": "400 g",
-   "nutrients": {
-    "calories": 613,
-    "protein": 29,
-    "carbs": 47,
-    "fat": 34,
-    "saturatedFat": 10,
-    "sugar": 8.6,
-    "fiber": 3.3,
-    "salt": 3.09,
-    "weight": 400,
-    "monounsaturatedFat": 34,
-    "polyunsaturatedFat": 34
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/292b7b03a3ed.webp"
+   "image": "leon/c80b34754079.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "satay-chicken",
@@ -165,7 +162,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/db90fb8c9484.webp"
+   "image": "leon/db90fb8c9484.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "satay-chicken-big-box",
@@ -190,7 +195,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/96bacadb9fc4.webp"
+   "image": "leon/96bacadb9fc4.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "fish",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "aioli-chicken",
@@ -215,7 +229,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/f77c4655e76e.webp"
+   "image": "leon/f77c4655e76e.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "aioli-chicken-big-box",
@@ -240,7 +262,16 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/63453c6476e3.webp"
+   "image": "leon/63453c6476e3.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "brazilian-black-beans-small",
@@ -267,7 +298,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/3a5b684117cf.webp"
+   "image": "leon/3a5b684117cf.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-and-chorizo-club-wrap",
@@ -294,7 +332,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/e2318f804f00.webp"
+   "image": "leon/e2318f804f00.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-aioli-wrap",
@@ -319,7 +369,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/c2b12b94d558.webp"
+   "image": "leon/c2b12b94d558.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "grilled-halloumi-wrap",
@@ -346,7 +407,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/198ef1fb3ab5.webp"
+   "image": "leon/198ef1fb3ab5.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "fish-finger-wrap",
@@ -371,7 +444,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/9438bdc98dad.webp"
+   "image": "leon/9438bdc98dad.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "crunchy-korean-chicken-wrap",
@@ -396,34 +481,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/c899020a15dd.webp"
-  },
-  {
-   "id": "levantine-squash-salad",
-   "name": "Levantine Squash Salad",
-   "category": "Superfood Salads",
-   "serving": "260 g",
-   "nutrients": {
-    "calories": 381,
-    "protein": 11,
-    "carbs": 30,
-    "fat": 21,
-    "saturatedFat": 2.6,
-    "sugar": 12,
-    "fiber": 8.7,
-    "salt": 3.2,
-    "weight": 260,
-    "monounsaturatedFat": 9.2,
-    "polyunsaturatedFat": 9.2
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/7edb5da985d6.webp"
+   "image": "leon/c899020a15dd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "the-original-superfood-salad",
@@ -448,7 +518,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/7330e61b090c.webp"
+   "image": "leon/7330e61b090c.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-and-avocado-superfood-salad",
@@ -473,7 +549,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/f7c6c55705d7.webp"
+   "image": "leon/f7c6c55705d7.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "aji-verde-crispy-chicken-burger",
@@ -498,7 +581,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/01bf8c7fea11.webp"
+   "image": "leon/01bf8c7fea11.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chargrilled-chicken-burger",
@@ -523,61 +617,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/b6e4511de5ea.webp"
-  },
-  {
-   "id": "charred-broccoli-with-preserved-lemon",
-   "name": "Charred Broccoli with Preserved Lemon",
-   "category": "Sides",
-   "serving": "155 g",
-   "nutrients": {
-    "calories": 243,
-    "protein": 6.7,
-    "carbs": 7.2,
-    "fat": 18,
-    "saturatedFat": 3,
-    "sugar": 3.8,
-    "fiber": 5.6,
-    "salt": 1.22,
-    "weight": 155,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/6827304c5c16.webp"
-  },
-  {
-   "id": "baked-fries",
-   "name": "Baked Fries",
-   "category": "Sides",
-   "serving": "100 g",
-   "nutrients": {
-    "calories": 242,
-    "protein": 3.6,
-    "carbs": 38,
-    "fat": 7.5,
-    "saturatedFat": 0.9,
-    "sugar": 0.7,
-    "fiber": 3.4,
-    "salt": 1.1,
-    "weight": 100,
-    "monounsaturatedFat": 3.6,
-    "polyunsaturatedFat": 3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/5a8624a1a905.webp"
+   "image": "leon/b6e4511de5ea.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "gfc-crispy-chicken-nuggets",
@@ -602,7 +653,11 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/38e2515427a4.webp"
+   "image": "leon/38e2515427a4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cheddar-and-black-pepper-mac-bites",
@@ -629,34 +684,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/edbcfd325422.webp"
-  },
-  {
-   "id": "leon-slaw",
-   "name": "LEON Slaw",
-   "category": "Sides",
-   "serving": "95 g",
-   "nutrients": {
-    "calories": 117,
-    "protein": 3.6,
-    "carbs": 6,
-    "fat": 8.7,
-    "saturatedFat": 1.1,
-    "sugar": 3.6,
-    "fiber": 2.7,
-    "salt": 0.43,
-    "weight": 95,
-    "monounsaturatedFat": 3.8,
-    "polyunsaturatedFat": 3.8
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/246531a9b4fb.webp"
+   "image": "leon/edbcfd325422.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "korean-mayo",
@@ -683,7 +717,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/eff5e289a807.webp"
+   "image": "leon/eff5e289a807.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vegan-garlic-aioli",
@@ -710,7 +752,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/7525df71b7ac.webp"
+   "image": "leon/7525df71b7ac.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "chilli-sauce",
@@ -737,7 +785,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/4e5291e244de.webp"
+   "image": "leon/4e5291e244de.webp",
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tomato-ketchup",
@@ -764,7 +818,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/d194ff527474.webp"
+   "image": "leon/d194ff527474.webp",
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "halloumi-egg-and-avo-sando",
@@ -791,7 +851,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/696c3297de71.webp"
+   "image": "leon/696c3297de71.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "the-full-monty",
@@ -818,7 +890,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/1867f32b84d3.webp"
+   "image": "leon/1867f32b84d3.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "salmon-smorgas-box",
@@ -843,7 +927,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/298027bc7200.webp"
+   "image": "leon/298027bc7200.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "the-big-breakfast-box",
@@ -870,7 +961,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/34724b085d94.webp"
+   "image": "leon/34724b085d94.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "the-halloumi-breakfast-box",
@@ -897,7 +995,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/936f5ae9e366.webp"
+   "image": "leon/936f5ae9e366.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "green-shakshuka-and-halloumi",
@@ -924,7 +1029,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/73ffde479fb7.webp"
+   "image": "leon/73ffde479fb7.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "shakshuka",
@@ -951,7 +1063,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/b8c079c53f5f.webp"
+   "image": "leon/b8c079c53f5f.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "saucy-beans-pot",
@@ -978,7 +1097,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/8e04faa24501.webp"
+   "image": "leon/8e04faa24501.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "full-english-pot",
@@ -1005,7 +1130,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/704bc70e9bc1.webp"
+   "image": "leon/704bc70e9bc1.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "smoked-salmon-and-cream-cheese-muffin",
@@ -1030,7 +1161,20 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/a0b8dc9c78e3.webp"
+   "image": "leon/a0b8dc9c78e3.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "sausage-muffin",
@@ -1057,7 +1201,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/797c66173b4b.webp"
+   "image": "leon/797c66173b4b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "smashed-avocado-and-halloumi-muffin",
@@ -1084,7 +1239,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/345dfabb34cb.webp"
+   "image": "leon/345dfabb34cb.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "sausage-and-egg-muffin",
@@ -1111,7 +1278,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/4c2775bc6d99.webp"
+   "image": "leon/4c2775bc6d99.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "vegan-sausage-muffin",
@@ -1138,7 +1317,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/bbb08d359623.webp"
+   "image": "leon/bbb08d359623.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "bacon-and-egg-muffin",
@@ -1165,7 +1358,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/3c29cf0149c8.webp"
+   "image": "leon/3c29cf0149c8.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "bacon-muffin",
@@ -1192,7 +1397,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/16df6d569c90.webp"
+   "image": "leon/16df6d569c90.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "hash-browns",
@@ -1219,7 +1435,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/e8fdc9a2e6c4.webp"
+   "image": "leon/e8fdc9a2e6c4.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sourdough-toast",
@@ -1246,7 +1466,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/73ee4c85924b.webp"
+   "image": "leon/73ee4c85924b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "blueberry-honey-and-toasted-seeds-porridge",
@@ -1273,7 +1503,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/ea9f28d6201e.webp"
+   "image": "leon/ea9f28d6201e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "ruby-red-porridge",
@@ -1300,7 +1540,21 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/813a10a0b119.webp"
+   "image": "leon/813a10a0b119.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "banana-and-cinnamon-porridge",
@@ -1327,61 +1581,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/9ad390ae7167.webp"
-  },
-  {
-   "id": "very-berry-granola",
-   "name": "Very Berry Granola",
-   "category": "Porridge & yoghurt",
-   "serving": "216 g",
-   "nutrients": {
-    "calories": 408,
-    "protein": 17,
-    "carbs": 39,
-    "fat": 19,
-    "saturatedFat": 7.9,
-    "sugar": 22,
-    "fiber": 8.2,
-    "salt": 0.2,
-    "weight": 216,
-    "monounsaturatedFat": 5.6,
-    "polyunsaturatedFat": 5.6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/580484311cee.webp"
-  },
-  {
-   "id": "banana-and-turmeric-honey-granola",
-   "name": "Banana & Turmeric Honey Granola",
-   "category": "Porridge & yoghurt",
-   "serving": "242 g",
-   "nutrients": {
-    "calories": 379,
-    "protein": 16,
-    "carbs": 50,
-    "fat": 12,
-    "saturatedFat": 5.3,
-    "sugar": 31,
-    "fiber": 3.6,
-    "salt": 0.2,
-    "weight": 242,
-    "monounsaturatedFat": 3.4,
-    "polyunsaturatedFat": 2.4
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/b702323d348d.webp"
+   "image": "leon/9ad390ae7167.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "banana-and-chocolate-porridge",
@@ -1408,7 +1618,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/9d4e0c24bf4c.webp"
+   "image": "leon/9d4e0c24bf4c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   },
   {
    "id": "kids-egg-and-beans-pot",
@@ -1435,7 +1656,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/3bffa3c365e2.webp"
+   "image": "leon/3bffa3c365e2.webp",
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-egg-muffin",
@@ -1462,32 +1689,19 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/83cf754506b8.webp"
-  },
-  {
-   "id": "gfc-crispy-chicken-nuggets-and-baked-fries",
-   "name": "GFC – Crispy Chicken Nuggets & Baked Fries",
-   "category": "Kids",
-   "serving": "310 g",
-   "nutrients": {
-    "calories": 523,
-    "protein": 19,
-    "carbs": 65,
-    "fat": 19,
-    "saturatedFat": 2.9,
-    "sugar": 9.2,
-    "fiber": 6.9,
-    "salt": 2.2,
-    "weight": 310,
-    "monounsaturatedFat": 8.1,
-    "polyunsaturatedFat": 8
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/1665127297cc.webp"
+   "image": "leon/83cf754506b8.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "rye"
+    ]
+   }
   },
   {
    "id": "chargrilled-chicken-rice-box",
@@ -1512,7 +1726,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/5156b613a228.webp"
+   "image": "leon/5156b613a228.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "brazilian-black-beans-with-rice",
@@ -1539,7 +1760,14 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "leon/3e526d65269b.webp"
+   "image": "leon/3e526d65269b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pain-au-chocolat",
@@ -1566,7 +1794,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/74883c4bfacb.webp"
+   "image": "leon/74883c4bfacb.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "organic-butter-croissant",
@@ -1593,34 +1832,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/a42793ea392e.webp"
-  },
-  {
-   "id": "triple-choc-a-lot-cookie",
-   "name": "Triple Choc-a-lot Cookie",
-   "category": "Pastries & cakes",
-   "serving": "68 g",
-   "nutrients": {
-    "calories": 298,
-    "protein": 2.9,
-    "carbs": 40,
-    "fat": 14,
-    "saturatedFat": 7.3,
-    "sugar": 25,
-    "fiber": 2.5,
-    "salt": 0.46,
-    "weight": 68,
-    "monounsaturatedFat": 3.1,
-    "polyunsaturatedFat": 3.1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/6a0a42fc7346.webp"
+   "image": "leon/a42793ea392e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "blueberry-lemon-and-poppy-seed-muffin",
@@ -1645,7 +1868,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/dc15fd6493ad.webp"
+   "image": "leon/dc15fd6493ad.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "leon-chocolate-chip-cookie",
@@ -1672,7 +1906,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/0eb8b21c5610.webp"
+   "image": "leon/0eb8b21c5610.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "blueberry-and-yuzu-blondie",
@@ -1699,34 +1941,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/e653faaee5db.webp"
-  },
-  {
-   "id": "nutty-lime-and-ginger-fabjack",
-   "name": "Nutty Lime & Ginger Fabjack",
-   "category": "Pastries & cakes",
-   "serving": "75 g",
-   "nutrients": {
-    "calories": 334,
-    "protein": 4.6,
-    "carbs": 36.7,
-    "fat": 18.4,
-    "saturatedFat": 6.3,
-    "sugar": 22.7,
-    "fiber": 3,
-    "salt": 0.3,
-    "weight": 75,
-    "monounsaturatedFat": 6.1,
-    "polyunsaturatedFat": 6
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/22cf54756750.webp"
+   "image": "leon/e653faaee5db.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "choconutty-banana-bread",
@@ -1753,34 +1976,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/45d164c4699c.webp"
-  },
-  {
-   "id": "chocolate-and-almond-butter-tiffin",
-   "name": "Chocolate & Almond Butter Tiffin",
-   "category": "Pastries & cakes",
-   "serving": "54 g",
-   "nutrients": {
-    "calories": 280,
-    "protein": 2.9,
-    "carbs": 22.6,
-    "fat": 19.5,
-    "saturatedFat": 8.9,
-    "sugar": 17.3,
-    "fiber": 2.3,
-    "salt": 0.33,
-    "weight": 54,
-    "monounsaturatedFat": 5.6,
-    "polyunsaturatedFat": 5
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/927f2a703dfc.webp"
+   "image": "leon/45d164c4699c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut",
+     "pecan"
+    ]
+   }
   },
   {
    "id": "better-brownie",
@@ -1807,7 +2020,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/3873d8d0e5e5.webp"
+   "image": "leon/3873d8d0e5e5.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "lemon-ginger-crunch",
@@ -1834,34 +2059,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/7417b87d0df2.webp"
-  },
-  {
-   "id": "oat-and-cranberry-cookie",
-   "name": "Oat & Cranberry Cookie",
-   "category": "Pastries & cakes",
-   "serving": "70 g",
-   "nutrients": {
-    "calories": 352,
-    "protein": 3.6,
-    "carbs": 23,
-    "fat": 27,
-    "saturatedFat": 21,
-    "sugar": 14,
-    "fiber": 5.9,
-    "salt": 0.27,
-    "weight": 70,
-    "monounsaturatedFat": 4,
-    "polyunsaturatedFat": 3
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/504d944b1bd1.webp"
+   "image": "leon/7417b87d0df2.webp",
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "filter-coffee",
@@ -1886,7 +2095,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/7bf4dcfa26a5.webp"
+   "image": "leon/7bf4dcfa26a5.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha",
@@ -1911,7 +2124,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/4befabb9b59f.webp"
+   "image": "leon/4befabb9b59f.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate",
@@ -1936,7 +2156,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/d2ffd8f75f26.webp"
+   "image": "leon/d2ffd8f75f26.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "flat-white",
@@ -1961,7 +2188,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/e426285c1fc2.webp"
+   "image": "leon/e426285c1fc2.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cappuccino",
@@ -1986,7 +2219,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/d8106a6bbea1.webp"
+   "image": "leon/d8106a6bbea1.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "latte",
@@ -2011,7 +2251,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/9eab3ec2a796.webp"
+   "image": "leon/9eab3ec2a796.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-latte",
@@ -2036,7 +2282,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/4807c7668f3f.webp"
+   "image": "leon/4807c7668f3f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "americano",
@@ -2061,32 +2313,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/6bd116f7cc8b.webp"
-  },
-  {
-   "id": "iced-americano",
-   "name": "Iced Americano",
-   "category": "Coffee",
-   "serving": "315 g",
-   "nutrients": {
-    "calories": 10,
-    "protein": 1,
-    "carbs": 1,
-    "fat": 0.2,
-    "saturatedFat": 0,
-    "sugar": 0.2,
-    "fiber": 0.6,
-    "salt": 0,
-    "weight": 315,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/7dff390c3b3f.webp"
+   "image": "leon/6bd116f7cc8b.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-matcha-latte",
@@ -2111,7 +2342,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/a53be32ebffe.webp"
+   "image": "leon/a53be32ebffe.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-iced-matcha-latte",
@@ -2136,7 +2373,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/aa08c5426827.webp"
+   "image": "leon/aa08c5426827.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "unsweetened-matcha-latte",
@@ -2160,7 +2403,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/dd260b7edac5.webp"
+   "image": "leon/dd260b7edac5.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "unsweetened-iced-matcha-latte",
@@ -2184,59 +2433,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/f9f654c1423a.webp"
-  },
-  {
-   "id": "passionfruit-lemon-iced-tea",
-   "name": "Passionfruit Lemon Iced Tea",
-   "category": "Coffee",
-   "serving": "202 g",
-   "nutrients": {
-    "calories": 91,
-    "protein": 0,
-    "carbs": 22,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 22,
-    "fiber": 0,
-    "salt": 0.01,
-    "weight": 202,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/c7e21418af5c.webp"
-  },
-  {
-   "id": "mango-lime-and-dragon-fruit-smoothie",
-   "name": "Mango, Lime & Dragon Fruit Smoothie",
-   "category": "Drinks",
-   "serving": "325 g",
-   "nutrients": {
-    "calories": 172,
-    "protein": 2.3,
-    "carbs": 36,
-    "fat": 1.8,
-    "saturatedFat": 0.5,
-    "sugar": 35,
-    "fiber": 1.2,
-    "salt": 0.02,
-    "weight": 325,
-    "monounsaturatedFat": 3,
-    "polyunsaturatedFat": 1
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/8a47ffea1f9a.webp"
+   "image": "leon/f9f654c1423a.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "clean-green-smoothie",
@@ -2263,207 +2466,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "leon/63750fa89b12.webp"
-  },
-  {
-   "id": "crisp-peach-cooler",
-   "name": "Crisp Peach Cooler",
-   "category": "Drinks",
-   "serving": "200 g",
-   "nutrients": {
-    "calories": 92,
-    "protein": 0.1,
-    "carbs": 22,
-    "fat": 0.1,
-    "saturatedFat": 0.1,
-    "sugar": 21,
-    "fiber": 0.1,
-    "salt": 0.1,
-    "weight": 200,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/bbf33c4c6534.webp"
-  },
-  {
-   "id": "raspberry-and-pomegranate-cooler",
-   "name": "Raspberry & Pomegranate Cooler",
-   "category": "Drinks",
-   "serving": "200 g",
-   "nutrients": {
-    "calories": 77,
-    "protein": 0.1,
-    "carbs": 18,
-    "fat": 0.1,
-    "saturatedFat": 0.1,
-    "sugar": 17,
-    "fiber": 0.2,
-    "salt": 0.01,
-    "weight": 200,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/3443e118f05d.webp"
-  },
-  {
-   "id": "karma-cola",
-   "name": "Karma Cola",
-   "category": "Drinks",
-   "serving": "250 g",
-   "nutrients": {
-    "calories": 105,
-    "protein": 0,
-    "carbs": 24.5,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 24,
-    "fiber": 0,
-    "salt": 0,
-    "weight": 250,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/654b75009faa.webp"
-  },
-  {
-   "id": "500ml-still-water",
-   "name": "500ml Still Water",
-   "category": "Drinks",
-   "serving": "500 g",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "weight": 500,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/d9e911133101.webp"
-  },
-  {
-   "id": "sparkling-water",
-   "name": "Sparkling Water",
-   "category": "Drinks",
-   "serving": "500 g",
-   "nutrients": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0,
-    "weight": 500,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/ba818527249d.webp"
-  },
-  {
-   "id": "gingerella-ginger-ale",
-   "name": "Gingerella Ginger-Ale",
-   "category": "Drinks",
-   "serving": "250 g",
-   "nutrients": {
-    "calories": 50,
-    "protein": 0,
-    "carbs": 12,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 12,
-    "fiber": 0,
-    "salt": 0,
-    "weight": 250,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/362e45a17d4e.webp"
-  },
-  {
-   "id": "razza-raspberry-lemonade",
-   "name": "Razza Raspberry Lemonade",
-   "category": "Drinks",
-   "serving": "250 g",
-   "nutrients": {
-    "calories": 50,
-    "protein": 0,
-    "carbs": 12.5,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 12,
-    "fiber": 0,
-    "salt": 0,
-    "weight": 250,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/b7f31a7d4892.webp"
-  },
-  {
-   "id": "lemony-lemonade",
-   "name": "Lemony Lemonade",
-   "category": "Drinks",
-   "serving": "250 g",
-   "nutrients": {
-    "calories": 53,
-    "protein": 0,
-    "carbs": 12.8,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 12.2,
-    "fiber": 0,
-    "salt": 0,
-    "weight": 250,
-    "monounsaturatedFat": 0,
-    "polyunsaturatedFat": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "leon/82ac4f17c4d1.webp"
+   "image": "leon/63750fa89b12.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

@@ -2,7 +2,7 @@
 
 Flags are questions for a re-read of the chain's official source, never corrections. Severity: high = arithmetic that cannot hold or a contradiction inside the data; medium = suspicious; low = worth a glance.
 
-Chains: 175 · items: 26988 · nutrition flags high/med/low: 0/46/576 · allergen flags high/med/low: 0/8/18
+Chains: 176 · items: 26944 · nutrition flags high/med/low: 0/0/573 · allergen flags high/med/low: 0/8/18
 
 | chain | items | level | with allergens | nutr H/M/L | allergen H/M/L | high-severity codes |
 |---|---|---|---|---|---|---|
@@ -55,7 +55,7 @@ Chains: 175 · items: 26988 · nutrition flags high/med/low: 0/46/576 · allerge
 | cote-brasserie | 163 | full | 163 | 0/0/1 | 0/0/0 |  |
 | creams-cafe | 300 | calories | 300 | 0/0/0 | 0/0/0 |  |
 | daves-hot-chicken | 51 | calories | 0 | 0/0/4 | 0/0/0 |  |
-| dim-t | 92 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| dim-t | 66 | calories | 66 | 0/0/0 | 0/0/0 |  |
 | drake-and-morgan | 86 | calories | 86 | 0/0/2 | 0/0/0 |  |
 | dunkin | 97 | calories | 97 | 0/0/0 | 0/0/0 |  |
 | eds-easy-diner | 167 | full | 167 | 0/0/2 | 0/0/0 |  |
@@ -64,8 +64,8 @@ Chains: 175 · items: 26988 · nutrition flags high/med/low: 0/46/576 · allerge
 | esquires | 54 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | everyman | 113 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | farmer-j | 76 | full | 76 | 0/0/3 | 0/0/0 |  |
-| fat-hippo | 97 | full | 0 | 0/0/7 | 0/0/0 |  |
-| fishworks | 44 | calories | 44 | 0/0/0 | 0/0/0 |  |
+| fat-hippo | 89 | full | 89 | 0/0/7 | 0/0/0 |  |
+| fishworks | 43 | calories | 43 | 0/0/0 | 0/0/0 |  |
 | five-guys | 67 | full | 67 | 0/0/0 | 0/0/0 |  |
 | flat-iron | 19 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | flight-club | 75 | full | 75 | 0/0/2 | 0/0/0 |  |
@@ -102,7 +102,7 @@ Chains: 175 · items: 26988 · nutrition flags high/med/low: 0/46/576 · allerge
 | kfc | 104 | full | 104 | 0/0/0 | 0/0/0 |  |
 | kokoro | 69 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | las-iguanas | 195 | full | 195 | 0/0/1 | 0/0/0 |  |
-| leon | 93 | full | 0 | 0/0/5 | 0/0/0 |  |
+| leon | 70 | full | 70 | 0/0/4 | 0/0/0 |  |
 | little-dessert-shop | 101 | calories | 101 | 0/0/0 | 0/0/0 |  |
 | loungers | 397 | calories | 397 | 0/0/0 | 0/0/1 |  |
 | malmaison | 71 | calories | 71 | 0/0/0 | 0/0/0 |  |
@@ -111,7 +111,7 @@ Chains: 175 · items: 26988 · nutrition flags high/med/low: 0/46/576 · allerge
 | megans | 191 | full | 191 | 0/0/0 | 0/0/0 |  |
 | mildreds | 48 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | miller-and-carter | 101 | full | 101 | 0/0/0 | 0/0/0 |  |
-| mowgli | 46 | calories | 0 | 0/0/0 | 0/0/0 |  |
+| mowgli | 46 | calories | 46 | 0/0/0 | 0/0/0 |  |
 | nandos | 126 | full | 126 | 0/0/11 | 0/0/0 |  |
 | nicholsons | 181 | full | 181 | 0/0/1 | 0/0/0 |  |
 | notcutts | 122 | calories | 0 | 0/0/1 | 0/0/0 |  |
@@ -144,7 +144,7 @@ Chains: 175 · items: 26988 · nutrition flags high/med/low: 0/46/576 · allerge
 | sbarro | 91 | full | 0 | 0/0/0 | 0/0/0 |  |
 | shahs-halal-food | 10 | full | 0 | 0/0/0 | 0/0/0 |  |
 | showcase-cinemas | 633 | calories | 0 | 0/0/95 | 0/0/0 |  |
-| simmons-bakers | 1263 | full | 0 | 0/46/2 | 0/0/0 |  |
+| simmons-bakers | 1218 | full | 0 | 0/0/0 | 0/0/0 |  |
 | sizzling-pubs | 103 | full | 103 | 0/0/0 | 0/0/0 |  |
 | slim-chickens | 93 | full | 93 | 0/0/2 | 0/0/0 |  |
 | slug-and-lettuce | 226 | full | 226 | 0/0/3 | 0/0/1 |  |
@@ -173,11 +173,12 @@ Chains: 175 · items: 26988 · nutrition flags high/med/low: 0/46/576 · allerge
 | warrens-bakery | 146 | calories | 146 | 0/0/0 | 0/0/0 |  |
 | wasabi | 178 | calories | 178 | 0/0/0 | 0/0/0 |  |
 | wendys | 137 | full | 137 | 0/0/1 | 0/0/0 |  |
-| wenzels | 110 | full | 0 | 0/0/3 | 0/0/0 |  |
+| wenzels | 108 | full | 108 | 0/0/3 | 0/0/0 |  |
 | westmorland-services | 292 | full | 292 | 0/0/6 | 0/0/1 |  |
 | wetherspoon | 392 | full | 392 | 0/0/0 | 0/0/0 |  |
 | wild-bean-cafe | 59 | full | 59 | 0/0/0 | 0/0/0 |  |
 | wildwood | 114 | calories | 0 | 0/0/0 | 0/0/0 |  |
 | wimpy | 183 | full | 183 | 0/0/3 | 0/0/0 |  |
 | yalla-yalla | 81 | calories | 81 | 0/0/0 | 0/0/0 |  |
-| yo-sushi | 76 | full | 76 | 0/0/1 | 0/0/0 |  |
+| yo-sushi | 72 | full | 72 | 0/0/1 | 0/0/0 |  |
+| youngs | 65 | calories | 0 | 0/0/0 | 0/0/0 |  |

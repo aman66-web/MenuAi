@@ -15,13 +15,13 @@
   "url": "https://fathippo.co.uk/menus/food/",
   "checkedOn": "2026-10-08"
  },
- "note": "Per serving from each dish's nutrition panel on fathippo.co.uk (no date shown), in whole grams: salt often reads 0 g. Burgers come with a free side of your choice, listed separately and not added in. Dishes whose printed numbers contradict each other are left out, and so are drinks with no numbers (beers, wines, spirits).",
+ "note": "Per serving from each dish's nutrition panel on fathippo.co.uk (no date shown), whole grams: salt often reads 0 g. Burgers come with a free side, listed separately. Dishes whose printed numbers contradict each other, or whose allergen list is incomplete, and drinks with no numbers are left out. Fat Hippo says all dishes may contain traces of nuts, as peanuts are on the premises.",
  "allergenGuide": {
   "title": "Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus (accessed 2026-10-08, no date shown)",
   "url": "https://fathippo.co.uk/allergens/",
   "checkedOn": "2026-10-08",
   "mayContainPublished": true,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Starters",
@@ -47,30 +47,6 @@
  "components": [],
  "items": [
   {
-   "id": "trash-browns",
-   "name": "Trash Browns",
-   "category": "Starters",
-   "serving": "",
-   "nutrients": {
-    "calories": 486,
-    "protein": 5,
-    "carbs": 57,
-    "fat": 25,
-    "saturatedFat": 3,
-    "sugar": 14,
-    "fiber": 5,
-    "salt": 1
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/8befe267fad7.webp"
-  },
-  {
    "id": "cheeseballs",
    "name": "Cheeseballs",
    "category": "Starters",
@@ -92,7 +68,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/1d1c33d50819.webp"
+   "image": "fat-hippo/1d1c33d50819.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "freddies-fingers-crack",
@@ -114,7 +105,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/5a75f1d88360.webp"
+   "image": "fat-hippo/5a75f1d88360.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "freddies-fingers-white-rabbit",
@@ -136,7 +139,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/6b511c2b1c2a.webp"
+   "image": "fat-hippo/6b511c2b1c2a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "plain-ayli-beef",
@@ -160,32 +175,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/cf2c57ef3b32.webp"
-  },
-  {
-   "id": "big-poppa",
-   "name": "Big Poppa",
-   "category": "Beef burgers",
-   "serving": "",
-   "nutrients": {
-    "calories": 738,
-    "protein": 51,
-    "carbs": 62,
-    "fat": 28,
-    "saturatedFat": 8,
-    "sugar": 20,
-    "fiber": 2,
-    "salt": 0
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/0e03b0db80f0.webp"
+   "image": "fat-hippo/cf2c57ef3b32.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "american",
@@ -209,56 +214,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/78c10813cb43.webp"
-  },
-  {
-   "id": "wild-bill",
-   "name": "Wild Bill",
-   "category": "Beef burgers",
-   "serving": "",
-   "nutrients": {
-    "calories": 854,
-    "protein": 57,
-    "carbs": 60,
-    "fat": 42,
-    "saturatedFat": 10,
-    "sugar": 11,
-    "fiber": 3,
-    "salt": 1
-   },
-   "tags": [
-    "contains_beef",
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/be8cc799e7ff.webp"
-  },
-  {
-   "id": "uncle-phil",
-   "name": "Uncle Phil",
-   "category": "Beef burgers",
-   "serving": "",
-   "nutrients": {
-    "calories": 839,
-    "protein": 56,
-    "carbs": 48,
-    "fat": 40,
-    "saturatedFat": 16,
-    "sugar": 7,
-    "fiber": 2,
-    "salt": 0
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/7ec9d5d8a4ec.webp"
+   "image": "fat-hippo/78c10813cb43.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "fat-hippo",
@@ -283,7 +254,24 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/690adcb465bf.webp"
+   "image": "fat-hippo/690adcb465bf.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "born-slippy",
@@ -308,7 +296,24 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/58aeea8f1426.webp"
+   "image": "fat-hippo/58aeea8f1426.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "plain-ayli-chicken",
@@ -330,7 +335,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/e8424e1908de.webp"
+   "image": "fat-hippo/e8424e1908de.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "triple-g",
@@ -354,7 +375,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/cee6dab1c7e9.webp"
+   "image": "fat-hippo/cee6dab1c7e9.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "white-rabbit",
@@ -376,7 +413,24 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/cc4c531f02be.webp"
+   "image": "fat-hippo/cc4c531f02be.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "fish",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "hangover-iii",
@@ -400,7 +454,24 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/0f04cb7f8629.webp"
+   "image": "fat-hippo/0f04cb7f8629.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "bruce-almighty",
@@ -422,7 +493,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/fcaceb2ef334.webp"
+   "image": "fat-hippo/fcaceb2ef334.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "harlem-fake",
@@ -446,7 +533,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/0ea713e2e69e.webp"
+   "image": "fat-hippo/0ea713e2e69e.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "notorious-vfc-2-0",
@@ -470,7 +573,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/f220e600332b.webp"
+   "image": "fat-hippo/f220e600332b.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "hand-cut-fries-upgrade",
@@ -494,7 +613,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/ffc4bfbfe2a8.webp"
+   "image": "fat-hippo/ffc4bfbfe2a8.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tater-tots-upgrade",
@@ -518,31 +645,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/074074c3baac.webp"
-  },
-  {
-   "id": "superfries-me-upgrade",
-   "name": "Superfries Me! (upgrade)",
-   "category": "Upgrades",
-   "serving": "",
-   "nutrients": {
-    "calories": 832,
-    "protein": 14,
-    "carbs": 105,
-    "fat": 48,
-    "saturatedFat": 2,
-    "sugar": 7,
-    "fiber": 11,
-    "salt": 1
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/9e93736e7ae4.webp"
+   "image": "fat-hippo/074074c3baac.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dirty-hand-cut-fries-upgrade",
@@ -566,7 +675,24 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/e94db08c9833.webp"
+   "image": "fat-hippo/e94db08c9833.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "fish",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "vegan-dirty-hand-cut-fries-upgrade",
@@ -590,7 +716,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/e94db08c9833.webp"
+   "image": "fat-hippo/e94db08c9833.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "5oz-beef-patty-upgrade",
@@ -613,7 +750,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "buttermilk-chicken-breast-upgrade",
@@ -634,7 +786,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "2x-chicken-tenders-upgrade",
@@ -655,7 +817,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "little-american",
@@ -678,7 +850,22 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "little-hippo",
@@ -702,7 +889,24 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "fish",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "little-lies",
@@ -723,7 +927,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "little-buffalo",
@@ -744,7 +964,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "little-white-rabbit",
@@ -765,7 +1001,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "tater-tots",
@@ -787,7 +1039,15 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/074074c3baac.webp"
+   "image": "fat-hippo/074074c3baac.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "purple-slaw-side",
@@ -809,7 +1069,13 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/faeec3cd7772.webp"
+   "image": "fat-hippo/faeec3cd7772.webp",
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "dirty-tots",
@@ -833,7 +1099,24 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/823b2a68e556.webp"
+   "image": "fat-hippo/823b2a68e556.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "fish",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "vegan-dirty-tots",
@@ -857,7 +1140,18 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/823b2a68e556.webp"
+   "image": "fat-hippo/823b2a68e556.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
   },
   {
    "id": "3x-onion-rings",
@@ -879,7 +1173,17 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/92b0f7f09fb6.webp"
+   "image": "fat-hippo/92b0f7f09fb6.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "5x-onion-rings",
@@ -900,7 +1204,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "bbq",
@@ -923,7 +1238,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "milk",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "cheese-whiz-mayo",
@@ -944,7 +1271,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "carolina-bbq",
@@ -965,7 +1300,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-honey",
@@ -988,7 +1333,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "cream-cheese-aioli",
@@ -1011,7 +1362,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mayo",
@@ -1034,7 +1392,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mustard",
@@ -1057,7 +1421,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "lamars-bar",
@@ -1079,29 +1449,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/d305461ae90f.webp"
-  },
-  {
-   "id": "gimme-smore",
-   "name": "Gimme S'more!",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 200,
-    "protein": 2,
-    "carbs": 30,
-    "fat": 6,
-    "saturatedFat": 2,
-    "sugar": 23,
-    "fiber": 1,
-    "salt": 0
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/b84618b894f7.webp"
+   "image": "fat-hippo/d305461ae90f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "big-poppa-special-menu",
@@ -1126,7 +1485,22 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/8e77924b7efe.webp"
+   "image": "fat-hippo/8e77924b7efe.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "hypnotize-fries-special-menu",
@@ -1150,7 +1524,23 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/ab24b00a992e.webp"
+   "image": "fat-hippo/ab24b00a992e.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "kids-beef-burger",
@@ -1174,7 +1564,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/fb3445fd75b6.webp"
+   "image": "fat-hippo/fb3445fd75b6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "kids-chicken-burger",
@@ -1196,7 +1601,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/8a45723cc55a.webp"
+   "image": "fat-hippo/8a45723cc55a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "kids-vfc-burger",
@@ -1220,7 +1641,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/e1bb394995b8.webp"
+   "image": "fat-hippo/e1bb394995b8.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "kids-vegan-burger",
@@ -1244,7 +1677,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/94d36b52a064.webp"
+   "image": "fat-hippo/94d36b52a064.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "kids-chicken-fingers",
@@ -1266,7 +1708,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/abd0d0f09156.webp"
+   "image": "fat-hippo/abd0d0f09156.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "bacon-kids-burger-topping",
@@ -1289,7 +1742,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
   },
   {
    "id": "cheese-kids-burger-topping",
@@ -1312,7 +1779,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "onion-ring-kids-burger-topping",
@@ -1333,7 +1806,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "kids-mayo",
@@ -1356,7 +1838,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-bbq",
@@ -1379,7 +1867,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "milk",
+     "sesame"
+    ]
+   }
   },
   {
    "id": "lettuce-kids-burger-garnish",
@@ -1402,7 +1902,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pickles-kids-burger-garnish",
@@ -1425,7 +1929,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-hand-cut-fries",
@@ -1449,7 +1957,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/ffc4bfbfe2a8.webp"
+   "image": "fat-hippo/ffc4bfbfe2a8.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-tater-tots",
@@ -1473,7 +1989,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/074074c3baac.webp"
+   "image": "fat-hippo/074074c3baac.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-orange-cordial",
@@ -1496,7 +2018,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-milk",
@@ -1519,7 +2045,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-hippo-juice",
@@ -1542,7 +2074,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-pop-pepsi",
@@ -1565,7 +2101,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-pop-diet-lemonade",
@@ -1588,31 +2128,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chocolate-brownie-milkshake-kids-upgrade",
-   "name": "Chocolate Brownie Milkshake (kids upgrade)",
-   "category": "Kids shakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 502,
-    "protein": 8,
-    "carbs": 33,
-    "fat": 34,
-    "saturatedFat": 22,
-    "sugar": 31,
-    "fiber": 0,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
    "modifiers": [],
-   "image": "fat-hippo/2f22e1a8313e.webp"
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-oreo-cookie-crunch-milkshake-kids-upgrade",
@@ -1636,7 +2156,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/f8a306041801.webp"
+   "image": "fat-hippo/f8a306041801.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "espresso-shortini",
@@ -1658,7 +2186,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/37b99f9f6c93.webp"
+   "image": "fat-hippo/37b99f9f6c93.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "homer-shot",
@@ -1680,7 +2212,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/c8db537c87e7.webp"
+   "image": "fat-hippo/c8db537c87e7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "baby-shaft-shot",
@@ -1702,7 +2242,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/9996e2d8e357.webp"
+   "image": "fat-hippo/9996e2d8e357.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hugo-spritz",
@@ -1724,7 +2270,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/908a3d6ce1a0.webp"
+   "image": "fat-hippo/908a3d6ce1a0.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pb-jack-hard-shake",
@@ -1748,7 +2300,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/a6a3523d02f8.webp"
+   "image": "fat-hippo/a6a3523d02f8.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "peanuts"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "milky-bar-hard-shake",
@@ -1772,7 +2331,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/b0c35da41134.webp"
+   "image": "fat-hippo/b0c35da41134.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "the-irish-one-hard-shake",
@@ -1796,7 +2361,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/070dcf44dfca.webp"
+   "image": "fat-hippo/070dcf44dfca.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "butterbeer-hard-shake",
@@ -1820,7 +2391,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/66e926e1a8d3.webp"
+   "image": "fat-hippo/66e926e1a8d3.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mars-attack",
@@ -1844,7 +2421,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/07a843a465cd.webp"
+   "image": "fat-hippo/07a843a465cd.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "meet-joe-crack",
@@ -1868,7 +2453,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/c756bd21c25a.webp"
+   "image": "fat-hippo/c756bd21c25a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "love-me-blender",
@@ -1892,7 +2484,23 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/f58324cf13ea.webp"
+   "image": "fat-hippo/f58324cf13ea.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "peanuts"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "wellaye-dubai",
@@ -1914,7 +2522,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/cdea0ad557ae.webp"
+   "image": "fat-hippo/cdea0ad557ae.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "biscoffy",
@@ -1936,7 +2553,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/0af769d846e9.webp"
+   "image": "fat-hippo/0af769d846e9.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "draught-pint-pepsi",
@@ -1959,7 +2584,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "draught-pint-diet-lemonade",
@@ -1982,7 +2611,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "draught-pint-orange",
@@ -2005,7 +2638,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-fruit-juice",
@@ -2028,7 +2665,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "apple-fruit-juice",
@@ -2051,7 +2692,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "cranberry-fruit-juice",
@@ -2074,7 +2719,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pint-orange-cordial",
@@ -2097,7 +2746,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "pint-lime-cordial",
@@ -2120,7 +2773,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pint-elderflower-cordial",
@@ -2143,7 +2802,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "coca-cola",
@@ -2167,7 +2830,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/5c51a5df215c.webp"
+   "image": "fat-hippo/5c51a5df215c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "diet-coke",
@@ -2191,31 +2858,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/978c079f92a9.webp"
-  },
-  {
-   "id": "sprite-zero",
-   "name": "Sprite Zero",
-   "category": "Soft drinks",
-   "serving": "",
-   "nutrients": {
-    "calories": 3,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "saturatedFat": 0,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "fat-hippo/b9b4b98568e1.webp"
+   "image": "fat-hippo/978c079f92a9.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "lemon-san-pellegrino",
@@ -2239,7 +2886,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/2745da95d650.webp"
+   "image": "fat-hippo/2745da95d650.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "blood-orange-san-pellegrino",
@@ -2263,7 +2914,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/e5b65a152076.webp"
+   "image": "fat-hippo/e5b65a152076.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "orange-pomegranate-san-pellegrino",
@@ -2287,7 +2942,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "fat-hippo/fa1ea4a2a17c.webp"
+   "image": "fat-hippo/fa1ea4a2a17c.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

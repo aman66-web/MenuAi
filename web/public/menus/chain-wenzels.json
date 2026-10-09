@@ -16,13 +16,13 @@
   "url": "https://www.wenzels.co.uk/wp-content/uploads/2026/06/Wenzels_Allergen_Sheet_June_2026.pdf",
   "checkedOn": "2026-10-08"
  },
- "note": "From the chain's own allergen sheet, version 07 (19 June 2026), page 8, per serving; no weights or serving sizes are printed. Whole loaves, bloomers and the slab cake print very large figures and look like whole-item values. Rows whose own numbers contradict each other (the coffees, two breakfast rolls' salt and a few others) are left out.",
+ "note": "From the chain's own allergen sheet, version 07 (19 June 2026), per serving; no serving sizes are printed. Whole loaves, bloomers and the slab cake look like whole-item values. Rows whose own numbers contradict each other (coffees, two breakfast rolls' salt and a few others) are left out. Wenzel's say everything is made where gluten, egg, milk, nuts, fish and other allergens are handled.",
  "allergenGuide": {
   "title": "Wenzel's the Bakers Allergen Sheet, version 07 (19 June 2026): allergen matrix, pages 4-7 (contains and may contain)",
   "url": "https://www.wenzels.co.uk/wp-content/uploads/2026/06/Wenzels_Allergen_Sheet_June_2026.pdf",
   "checkedOn": "2026-10-08",
   "mayContainPublished": true,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Hot snacks & sides",
@@ -62,7 +62,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/461b929dfbcd.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "chicken-goujons",
@@ -84,7 +89,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hashbrowns",
@@ -106,7 +118,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "sausage-roll",
@@ -130,7 +146,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/917e708a9a2c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "cheese-and-onion-slice",
@@ -152,7 +181,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/bbee96f2f9dc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-slice",
@@ -174,7 +216,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "steak-slice",
@@ -198,7 +252,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "jamaican-beef-pattie",
@@ -222,7 +289,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/959375d93b33.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vegan-roll",
@@ -246,7 +326,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/b828ed94c87e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tomato-mozzarella-and-pesto-panini",
@@ -268,7 +360,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/2b4d8b0ee5ab.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ham-and-cheddar-panini",
@@ -292,7 +397,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/c5dfb806ba06.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "piri-piri-chicken-panini",
@@ -314,7 +432,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "southern-fried-chicken-panini",
@@ -336,7 +468,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/86f6f7312391.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "sesame"
+    ]
+   }
   },
   {
    "id": "margherita-pizza",
@@ -358,7 +501,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/ea660a605d8b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pepperoni-pizza",
@@ -382,7 +539,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/3ec98bc734c7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "peri-peri-chicken-pizza",
@@ -404,7 +575,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/6028cc744d08.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "premium-pepperoni-filled-baguette",
@@ -428,7 +613,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/a5863f07e7dc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "premium-ham-filled-baguette",
@@ -452,7 +648,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "premium-piri-piri-filled-baguette",
@@ -474,7 +680,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/6ee601209e0a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "premium-vegetable-filled-baguette",
@@ -496,7 +715,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/50a617206e33.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "cheese-and-salad-baguette",
@@ -518,7 +748,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-and-bacon-baguette",
@@ -542,7 +782,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/0a61e4be515f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-club-baguette",
@@ -564,7 +815,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/fb2ea406b3b6.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-salad-baguette",
@@ -586,7 +849,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/017c46f352a0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "egg-and-cress-baguette",
@@ -608,7 +882,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "egg-mayo-and-salad-baguette",
@@ -630,7 +914,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "egg-and-tomato-baguette",
@@ -652,7 +946,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ham-and-cheese-baguette",
@@ -676,7 +980,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/2c67749fa59b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ham-salad-baguette",
@@ -700,7 +1015,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/c8c0eb8b038c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "peri-peri-chicken-baguette",
@@ -722,7 +1048,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "southern-fried-chicken-baguette",
@@ -744,7 +1081,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/dbfa822d5335.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "korean-chicken-baguette",
@@ -766,7 +1112,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tuna-and-sweetcorn-baguette",
@@ -788,7 +1144,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tuna-salad-baguette",
@@ -810,7 +1178,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/d8b5d88ffe68.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-and-sweetcorn-baguette",
@@ -832,7 +1213,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tomato-mozzarella-and-pesto-focaccia",
@@ -854,7 +1245,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/3637280de6f4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "roasted-chicken-and-nduja-mayo-focaccia",
@@ -878,7 +1283,27 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/7a93660f3b1a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "brioche-egg-mayo-and-spring-onion-knot",
@@ -900,7 +1325,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "brioche-ham-cheese-and-gherkin-knot",
@@ -924,7 +1359,18 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "fajita-chicken-wrap",
@@ -946,7 +1392,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pulled-pork-and-apple-slaw-wrap",
@@ -970,7 +1430,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/447a5934319c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "white-cheese-salad-bloomer",
@@ -992,7 +1466,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "multiseed-cheese-salad-bloomer",
@@ -1014,7 +1496,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
+   }
   },
   {
    "id": "white-chicken-and-bacon-bloomer",
@@ -1038,7 +1530,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "multiseed-chicken-and-bacon-bloomer",
@@ -1062,29 +1563,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "white-tuna-salad-bloomer",
-   "name": "White Tuna Salad Bloomer",
-   "category": "Bloomers",
-   "serving": "",
-   "nutrients": {
-    "calories": 511,
-    "protein": 23.1,
-    "carbs": 61.6,
-    "fat": 19.4,
-    "saturatedFat": 2.1,
-    "sugar": 2.9,
-    "fiber": 3.4,
-    "salt": 0.79,
-    "energyKj": 2138
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "multiseed-tuna-salad-bloomer",
@@ -1106,7 +1595,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "white-ham-and-cheese-bloomer",
@@ -1130,7 +1631,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "multiseed-ham-and-cheese-bloomer",
@@ -1154,7 +1663,14 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "white-chicken-club-bloomer",
@@ -1176,7 +1692,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "multiseed-chicken-club-bloomer",
@@ -1198,7 +1723,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "white-chicken-mayo-salad-bloomer",
@@ -1220,7 +1755,16 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "multiseed-chicken-mayo-salad-bloomer",
@@ -1242,7 +1786,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "multiseed-ham-salad-bloomer",
@@ -1266,7 +1820,17 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ]
+   }
   },
   {
    "id": "white-ham-salad-bloomer",
@@ -1290,7 +1854,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tuna-nicoise-salad",
@@ -1312,7 +1884,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "falafel-and-feta-salad",
@@ -1334,7 +1922,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "celery",
+     "eggs",
+     "sesame",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-avocado-and-bacon-salad",
@@ -1358,7 +1962,15 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "big-breakfast-baguette",
@@ -1380,7 +1992,23 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/e75f5417e10f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "breakfast-baguette",
@@ -1402,7 +2030,21 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/c6007351a89b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "the-wenzels-breakfast",
@@ -1424,7 +2066,20 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "all-day-breakfast-white-bloomer",
@@ -1446,7 +2101,19 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "milk",
+     "mustard"
+    ]
+   }
   },
   {
    "id": "all-day-breakfast-multiseed-bloomer",
@@ -1468,7 +2135,25 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "croissant",
@@ -1490,7 +2175,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/520cfd1404be.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "double-chocolate-muffin",
@@ -1512,7 +2209,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/f6ac83badaa4.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "almond-muffin",
@@ -1534,7 +2244,25 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/865fca341bc0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "lemon-and-blackberry-crumble-muffin",
@@ -1556,7 +2284,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chocolate-viennese",
@@ -1578,7 +2319,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/970b4446a127.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "strawberry-viennese",
@@ -1600,7 +2354,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "lemon-viennese",
@@ -1622,7 +2387,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "iced-ring-donut",
@@ -1644,7 +2418,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/6843cf975486.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "sugar-ring-donut",
@@ -1666,7 +2451,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/0be80d5aa70c.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "jam-doughnut",
@@ -1688,7 +2484,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "iced-england-doughnut",
@@ -1710,7 +2516,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "hazelnut"
+    ]
+   }
   },
   {
    "id": "yummie",
@@ -1732,7 +2552,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/56d89a2f4177.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "cinnamon-yummie",
@@ -1754,7 +2585,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "maple-and-pecan-yummie",
@@ -1776,7 +2618,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/7250bfd8e21c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
   },
   {
    "id": "tottenham-slice",
@@ -1798,7 +2656,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "marble-cake-slice",
@@ -1820,7 +2689,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/738f347da1f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "victoria-sponge-cake-slice",
@@ -1842,7 +2727,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "marble-slab-cake",
@@ -1864,7 +2759,23 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/36be7f67171a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "almond-madeira",
@@ -1886,29 +2797,25 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "cherry-bakewell-tart",
-   "name": "Cherry Bakewell Tart",
-   "category": "Cakes & sweet bakes",
-   "serving": "",
-   "nutrients": {
-    "calories": 345,
-    "protein": 3.3,
-    "carbs": 55.1,
-    "fat": 12.3,
-    "saturatedFat": 4.2,
-    "sugar": 28.6,
-    "fiber": 0.6,
-    "salt": 0.32,
-    "energyKj": 1443
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/5b3e2b122b9c.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "fairy-cake",
@@ -1930,7 +2837,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/5571c080c1ba.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "demi-white-baguette",
@@ -1952,7 +2873,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "multiseed-baguette",
@@ -1974,7 +2904,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
   },
   {
    "id": "small-bloomer-loaf",
@@ -1996,7 +2943,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/6b69ef10b983.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
   },
   {
    "id": "multiseed-bloomer",
@@ -2018,7 +2976,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/498b37c37cc4.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "sourdough-loaf",
@@ -2040,7 +3009,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/37686bbbbf69.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "multiseed-sourdough",
@@ -2062,7 +3040,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
   },
   {
    "id": "signature-sourdough",
@@ -2084,7 +3073,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "large-bloomer-loaf",
@@ -2106,7 +3103,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/299fd0adce60.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "seeded-bloomer-loaf",
@@ -2128,7 +3139,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
   },
   {
    "id": "soft-roll",
@@ -2150,7 +3171,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/62e604710a0b.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "4-soft-rolls",
@@ -2172,7 +3204,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/72998c0893b6.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
   },
   {
    "id": "4-crusty-rolls",
@@ -2194,7 +3235,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/c77e234a6e7c.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "soya"
+    ]
+   }
   },
   {
    "id": "strawberry-matcha-latte",
@@ -2216,7 +3268,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/b04978bdb55d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "vanilla-matcha-latte",
@@ -2238,7 +3297,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/2b7e8175fb6f.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ice-matcha-latte",
@@ -2260,7 +3326,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "pink-lemonade",
@@ -2282,7 +3354,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/a9afccdbe9cb.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "dragon-fruit-and-mango-chiller",
@@ -2304,7 +3381,12 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/e51f44f5a91e.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mango-and-passion-fruit-chiller",
@@ -2326,7 +3408,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "salted-caramel-frappe",
@@ -2348,7 +3434,16 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "vanilla-cream-frappe",
@@ -2370,7 +3465,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "coffee-frappe",
@@ -2392,7 +3494,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/857739c19919.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mocha-frappe",
@@ -2414,7 +3523,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs"
+    ]
+   }
   },
   {
    "id": "mochaccino",
@@ -2436,7 +3555,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/05de9d7d5d3a.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "macchiato",
@@ -2458,7 +3585,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/b0310d7e8e5e.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "hot-chocolate",
@@ -2480,7 +3614,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/a47b93b9e431.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "breakfast-tea",
@@ -2502,7 +3644,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "wenzels/c31769ab1695.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []

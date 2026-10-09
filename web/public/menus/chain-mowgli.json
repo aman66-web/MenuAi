@@ -10,18 +10,18 @@
  ],
  "sample": false,
  "source": {
-  "title": "Mowgli Street Food website, Food menu with calorie information (accessed 2026-10-07, no date shown)",
+  "title": "Mowgli Street Food website, Food menu with calorie information (accessed 2026-10-08, no date shown)",
   "url": "https://mowglistreetfood.com/menus/food/",
-  "checkedOn": "2026-10-07"
+  "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
  "note": "Calories only, as printed beside each dish on Mowgli's Food menu page (the page shows them when you tick 'Calorie information'). No serving sizes, protein, carbs or fat are published. Drinks are not on that page.",
  "allergenGuide": {
   "title": "Mowgli allergen matrix, Brighton (Mowgli-Mv35 v3, Rev 35; PDF created 2 October 2026)",
   "url": "https://mowglistreetfood.com/wp-content/uploads/2026/10/Mowgli-Mv35_Allergen-Matrix_Brighton_v3.pdf",
-  "checkedOn": "2026-10-07",
-  "mayContainPublished": true,
-  "complete": false
+  "checkedOn": "2026-10-08",
+  "mayContainPublished": false,
+  "complete": true
  },
  "categories": [
   "The Light Kitchen",
@@ -46,7 +46,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/c1aa0c73fd70.webp"
+   "image": "mowgli/c1aa0c73fd70.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "rainbow-frankie-wrap",
@@ -63,7 +76,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/6e720dc41598.webp"
+   "image": "mowgli/6e720dc41598.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mowgli-chicken-salad",
@@ -78,7 +104,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/0fcba8f75b97.webp"
+   "image": "mowgli/0fcba8f75b97.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mowgli-tenderstem-salad",
@@ -95,7 +134,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/a724ef3206b1.webp"
+   "image": "mowgli/a724ef3206b1.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "yoghurt-chat-bombs",
@@ -112,7 +164,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/56351f7280f7.webp"
+   "image": "mowgli/56351f7280f7.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "onion-bhajis",
@@ -129,7 +192,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/82fbcd0b4017.webp"
+   "image": "mowgli/82fbcd0b4017.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "himalayan-cheese-toast",
@@ -146,7 +213,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/3e73b9623c10.webp"
+   "image": "mowgli/3e73b9623c10.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "fenugreek-kissed-fries",
@@ -163,7 +242,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/2075ec663e84.webp"
+   "image": "mowgli/2075ec663e84.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "treacle-tamarind-fries",
@@ -180,7 +265,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/c859584aa24e.webp"
+   "image": "mowgli/c859584aa24e.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mowgli-chip-butty",
@@ -197,7 +289,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/02e639434033.webp"
+   "image": "mowgli/02e639434033.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "diwali-cauliflower",
@@ -214,7 +317,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/7b840a5bd34c.webp"
+   "image": "mowgli/7b840a5bd34c.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mowgli-crispy-wings",
@@ -229,7 +339,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/1631ded05544.webp"
+   "image": "mowgli/1631ded05544.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "monkey-tandoor-roti",
@@ -244,7 +361,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/722b43b6fa1d.webp"
+   "image": "mowgli/722b43b6fa1d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "angry-bird",
@@ -259,7 +386,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/223775247bcd.webp"
+   "image": "mowgli/223775247bcd.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "gunpowder-chicken",
@@ -274,7 +409,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/54098a7c83d7.webp"
+   "image": "mowgli/54098a7c83d7.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "sticky-chicken",
@@ -289,7 +430,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/abd66cf83c8a.webp"
+   "image": "mowgli/abd66cf83c8a.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "maas-lamb-chops",
@@ -304,7 +453,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/1fa8e2f36fca.webp"
+   "image": "mowgli/1fa8e2f36fca.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mother-butter-chicken",
@@ -319,7 +475,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/7865bd2ee229.webp"
+   "image": "mowgli/7865bd2ee229.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "house-chicken-curry",
@@ -334,7 +496,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/0d80ee6c9ac9.webp"
+   "image": "mowgli/0d80ee6c9ac9.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
   },
   {
    "id": "house-lamb-curry",
@@ -349,7 +522,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/b51cfccb2a65.webp"
+   "image": "mowgli/b51cfccb2a65.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "mowgli-chicken-biryani",
@@ -364,7 +541,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/372cfa8fbe15.webp"
+   "image": "mowgli/372cfa8fbe15.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "goan-fish-curry",
@@ -379,7 +566,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/39a0feb4add3.webp"
+   "image": "mowgli/39a0feb4add3.webp",
+   "allergens": {
+    "contains": [
+     "fish",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "aunty-geetas-prawn-curry",
@@ -394,7 +588,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/9f3845db9309.webp"
+   "image": "mowgli/9f3845db9309.webp",
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "mustard"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mowgli-paneer",
@@ -411,7 +612,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/d94a4881ac7d.webp"
+   "image": "mowgli/d94a4881ac7d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mowgli-black-dahl",
@@ -428,7 +635,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/8933fd3ce590.webp"
+   "image": "mowgli/8933fd3ce590.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "temple-dahl",
@@ -445,7 +658,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/65486e7ed94f.webp"
+   "image": "mowgli/65486e7ed94f.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "tea-steeped-chickpeas",
@@ -462,7 +679,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/18d5d776285d.webp"
+   "image": "mowgli/18d5d776285d.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "picnic-potato-curry",
@@ -479,7 +700,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/3c7e1015eb1b.webp"
+   "image": "mowgli/3c7e1015eb1b.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "homestyle-cumin-rice",
@@ -496,7 +724,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/80555e01f0d1.webp"
+   "image": "mowgli/80555e01f0d1.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "garlic-butter-paratha",
@@ -513,7 +745,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/41267cb6f35b.webp"
+   "image": "mowgli/41267cb6f35b.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "puffed-puri-bread",
@@ -530,7 +770,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/8206a8caf3bd.webp"
+   "image": "mowgli/8206a8caf3bd.webp",
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "roti-breads",
@@ -547,7 +796,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/1d2ac39f9fda.webp"
+   "image": "mowgli/1d2ac39f9fda.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mini-poppadoms",
@@ -564,7 +823,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/5ec414ac72c7.webp"
+   "image": "mowgli/5ec414ac72c7.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "mowgli-slaw",
@@ -581,7 +846,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/14b5edc6d13f.webp"
+   "image": "mowgli/14b5edc6d13f.webp",
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-gunpowder-chicken-and-fries",
@@ -596,7 +868,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/fef3646a1bb6.webp"
+   "image": "mowgli/fef3646a1bb6.webp",
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mother-butter-chicken-and-rice",
@@ -611,7 +889,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/4e1b3a4a388d.webp"
+   "image": "mowgli/4e1b3a4a388d.webp",
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-house-chicken-curry-and-rice",
@@ -626,7 +910,15 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/33c7f7b502f1.webp"
+   "image": "mowgli/33c7f7b502f1.webp",
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "nuts"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mowgli-paneer-and-rice",
@@ -642,7 +934,13 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-temple-dahl-and-rice",
@@ -659,7 +957,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/3e3bc2b43f37.webp"
+   "image": "mowgli/3e3bc2b43f37.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "kids-mowgli-chocolate-brownie",
@@ -676,7 +978,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/bb85ba500567.webp"
+   "image": "mowgli/bb85ba500567.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "ice-cream-cone-vanilla",
@@ -693,7 +1004,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/d986ab6bc9da.webp"
+   "image": "mowgli/d986ab6bc9da.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ice-cream-cone-salted-caramel",
@@ -710,7 +1032,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/97b31d7d5222.webp"
+   "image": "mowgli/97b31d7d5222.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ice-cream-cone-coconut",
@@ -727,7 +1060,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/b81d9662d9e0.webp"
+   "image": "mowgli/b81d9662d9e0.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "ice-cream-cone-mango-sorbet",
@@ -744,7 +1087,17 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/f43af203021f.webp"
+   "image": "mowgli/f43af203021f.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "gulab-jamun",
@@ -761,7 +1114,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/fc743468802e.webp"
+   "image": "mowgli/fc743468802e.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "the-mowgli-chocolate-brownie",
@@ -778,7 +1142,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "mowgli/bb85ba500567.webp"
+   "image": "mowgli/bb85ba500567.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
   }
  ],
  "combinations": []

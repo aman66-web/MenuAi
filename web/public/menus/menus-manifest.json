@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009022943,
- "generatedAt": "2026-10-09T02:29:43Z",
+ "dataVersion": 20261009072757,
+ "generatedAt": "2026-10-09T07:27:57Z",
  "chains": [
   {
    "id": "abokado",
@@ -570,10 +570,10 @@
    "name": "Dim T",
    "cuisine": "Asian",
    "file": "chain-dim-t.json",
-   "sha256": "283f4b1088402f015b2031de3a070054176de4b0bb9a6d550e6647e0e0572dc8",
-   "contentHash": "2974f178af4163346fd364cc8eee2e44adca8a582b6437376796f3239ec7d196",
+   "sha256": "6d991e5712a5bccc0e4a8858caf5eb23c696e0c11151919299f41a41134cbdb4",
+   "contentHash": "fd9d71ba6c15828806300eeba3a4b8ecb56edb6449c56762798a4436b1ced561",
    "sample": false,
-   "itemCount": 92,
+   "itemCount": 66,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
   },
@@ -675,10 +675,10 @@
    "name": "Fat Hippo",
    "cuisine": "Burgers",
    "file": "chain-fat-hippo.json",
-   "sha256": "e095a217e4df4629d316fbb52f39abffba4f0de50a19b2733fd9766f094e7ada",
-   "contentHash": "26035eadb917ea9589291576b6166795d9546936cca503267a52b5eb213701d9",
+   "sha256": "c5ca069768790ed65638047dd218e51649f25b35431a43ae365bddc98feab4c3",
+   "contentHash": "ff1d1b93c45b564629fde5dec4ac349ff5f7403a54f98873fd5d4b793910f947",
    "sample": false,
-   "itemCount": 97,
+   "itemCount": 89,
    "checkedOn": "2026-10-08"
   },
   {
@@ -686,10 +686,10 @@
    "name": "Fishworks",
    "cuisine": "Seafood",
    "file": "chain-fishworks.json",
-   "sha256": "0560bd34ae34cdb05ce02b3edfb3b7e48c829ca5058568afa02123b6e151b246",
-   "contentHash": "e10d51bcc56be293dcf84ddad3b82ae19965d440d773263d4951f0ab5f163c95",
+   "sha256": "64fb9f1c535f104d7e5b3258943a69d5dc2553b06086374a455dd411bcf20b06",
+   "contentHash": "baa5bece17f721b6ff4d3bcc68254a201728b09c1e50354c6050172d648ce852",
    "sample": false,
-   "itemCount": 44,
+   "itemCount": 43,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
   },
@@ -975,8 +975,8 @@
    "name": "Honi Poke",
    "cuisine": "Poke bowls",
    "file": "chain-honi-poke.json",
-   "sha256": "ce942b06e0da95ced06770a580e15802ee00c5805bbda94de42db8399453706f",
-   "contentHash": "bedd72b6c9b0675dbdc906f2c9f40b56418ea8481151f1a12d5a78ed9e1c34d7",
+   "sha256": "a395ce9a58d3347f883a6f96ae0355f4d8a9595c2d864093f7e98da33edc1c0b",
+   "contentHash": "2080c2f316fdacbeb800068334319e921779c6484a97564342fcca69572afb5c",
    "sample": false,
    "itemCount": 20,
    "checkedOn": "2026-10-08"
@@ -1010,8 +1010,8 @@
    "name": "IKEA",
    "cuisine": "Swedish",
    "file": "chain-ikea.json",
-   "sha256": "508603cd6f7e1d6cc7a3e1d90a086ea42ce5fd2cbc28a38746e496557cf2bbcc",
-   "contentHash": "be3d4300ea42769d0f14b48d26c2a3b8fbd3da12150a2d2745d6ab01d1572dcd",
+   "sha256": "8bc7a2b2e9cf657dabe75a46d2ee9513a693860b84643be0f43db376dfea4090",
+   "contentHash": "3e7266a43cb59748ba1e4d615f95a54a549b35bf9fcc73a5c9dfb0645a451fc9",
    "sample": false,
    "itemCount": 118,
    "checkedOn": "2026-10-08"
@@ -1113,11 +1113,11 @@
    "name": "LEON",
    "cuisine": "Wraps & bowls",
    "file": "chain-leon.json",
-   "sha256": "45a41145cd3b04b52a41639fbfe509b42dc3b7ff1882ad850f877e00975efcd1",
-   "contentHash": "f17b3a2ab41839db4269634ea574541f306667a83919b423991ec34652f8507e",
+   "sha256": "2a52a347e21c5e22dda14b07492652981971c58b6a7a4186845c9c08847172e3",
+   "contentHash": "7cfc6bb6b44286651796427517e3dc5e40d45ccb09a0d8da324b2510714705fc",
    "sample": false,
-   "itemCount": 93,
-   "checkedOn": "2026-10-06"
+   "itemCount": 70,
+   "checkedOn": "2026-10-08"
   },
   {
    "id": "little-dessert-shop",
@@ -1217,11 +1217,11 @@
    "name": "Mowgli Street Food",
    "cuisine": "Indian",
    "file": "chain-mowgli.json",
-   "sha256": "fe4ce0bbad8fff4802bfad2fbf41247f33f44fca4017738a1d61bf155e506677",
-   "contentHash": "656f79e2742f92ab34947d04cf65ab6167b14e0ae1dafcaa03beab488d6f1c63",
+   "sha256": "07255eb7aa4028dafc8e225ac03ebf8b2692c3215fcea3fd0435a7c707380bf6",
+   "contentHash": "5edace60ddccba9882f4d667e40808d216a7f56c2be39aa211000bfb38eae4aa",
    "sample": false,
    "itemCount": 46,
-   "checkedOn": "2026-10-07",
+   "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
   },
   {
@@ -1591,10 +1591,10 @@
    "name": "Simmons Bakers",
    "cuisine": "Bakery",
    "file": "chain-simmons-bakers.json",
-   "sha256": "26627f2aceb470950a667958afb19ce207323e03c3ff3a39c905fab31e987084",
-   "contentHash": "738a8bac3ad2a181adeca7fe5f4b710511199ebb3721a2bdc5447f6d58d7db3d",
+   "sha256": "afcd4bd7c65d3161b43527dfa4f552ab52f13735f06f6b46ca69ee1839c7b851",
+   "contentHash": "c74fcafef31e05161dd93c076879c3b5e1c092a4bb87341a94044b9d098ca358",
    "sample": false,
-   "itemCount": 1263,
+   "itemCount": 1218,
    "checkedOn": "2026-10-08"
   },
   {
@@ -1922,10 +1922,10 @@
    "name": "Wenzel's the Bakers",
    "cuisine": "Bakery",
    "file": "chain-wenzels.json",
-   "sha256": "a0475ae9a135121b96e4b7e1c62b85ba644f797e90f39b42a69e1ed3b3797330",
-   "contentHash": "43fc8b990acaeaa9bbdd8efb432f142fdb5c611bbeae8b04d14465710bf25e9b",
+   "sha256": "1fed9b0c5577ae6f6457dd62206f2ddce168fe9d94a5f9ac3815c6e907dfa9d1",
+   "contentHash": "459494be4ad8542c7082d75dd943ce2513b7a5b9b7e6a487a3fc765facb28790",
    "sample": false,
-   "itemCount": 110,
+   "itemCount": 108,
    "checkedOn": "2026-10-08"
   },
   {
@@ -2001,15 +2001,27 @@
    "name": "Yo! Sushi",
    "cuisine": "Japanese",
    "file": "chain-yo-sushi.json",
-   "sha256": "24359fc8ced501c937280a9d9388b05fdc31785ced8c9cc566df24ec00107546",
-   "contentHash": "27a651ef479316ee3704be76bd3f46bd750b8c2820a959209636c25b242df6b4",
+   "sha256": "f74b04312d63d99ae9e1fa8dfad05680837d785e1aca374201e21c28dd06f364",
+   "contentHash": "f6b36dcb81de6a7d1fa018ef8739145a6b3c3719031c61ed77ace50e0eb31521",
    "sample": false,
-   "itemCount": 76,
-   "checkedOn": "2026-10-08"
+   "itemCount": 72,
+   "checkedOn": "2026-10-09"
+  },
+  {
+   "id": "youngs",
+   "name": "Young's",
+   "cuisine": "Pub",
+   "file": "chain-youngs.json",
+   "sha256": "5e84a7017bcf33fb00d7baf2a346c5776ec50aadfa6b71ac1f51a31b630625ed",
+   "contentHash": "a7685ead262f26219a138c00ba42d282c365a2b362376b53031d9c5d14fa4337",
+   "sample": false,
+   "itemCount": 65,
+   "checkedOn": "2026-10-09",
+   "nutritionLevel": "calories"
   }
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "b60976dc988f7807015b51bdc008c20a735f4cff8187c0a54fc3b942d2dc95c1"
+  "sha256": "854b9a7b7ee678f8fecb23725b153b67925e67f417dff081e527126547db2704"
  }
 }

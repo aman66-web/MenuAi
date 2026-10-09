@@ -13,13 +13,13 @@
  "source": {
   "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-10-06)",
   "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
-  "checkedOn": "2026-10-08"
+  "checkedOn": "2026-10-09"
  },
  "note": "Figures are per serving from Yo! Sushi's own nutrition page for its Dine-in menu (hosted by Ten Kites), which prints no date. Dishes sold only at Selfridges and Heathrow are left out.",
  "allergenGuide": {
   "title": "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-10-06)",
   "url": "https://menus.tenkites.com/yosushi/allergenpageyosushi",
-  "checkedOn": "2026-10-08",
+  "checkedOn": "2026-10-09",
   "mayContainPublished": true,
   "complete": true
  },
@@ -59,6 +59,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/abdb3b83bc9f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -213,6 +214,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/ea7349c2730b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -256,6 +258,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/a2dac5e3d5a5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -297,6 +300,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/a2689d5c2dff.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -332,6 +336,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/1ca1fab5c654.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -366,6 +371,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/0e6bdc128029.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -409,6 +415,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/3986fccf05b4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -451,6 +458,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/cebfb8bf6153.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -490,6 +498,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/299cde1dcb99.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -528,6 +537,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/54ce0c2c927d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -565,6 +575,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/cd75a9a7918c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -608,6 +619,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/51a4cf0078e2.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -641,6 +653,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/e98eb9db23ca.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -684,6 +697,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/6225b3e8e6b7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -701,91 +715,6 @@
     ],
     "cereals": [
      "wheat"
-    ]
-   }
-  },
-  {
-   "id": "chicken-gyoza",
-   "name": "Chicken Gyoza",
-   "category": "Street food",
-   "serving": "",
-   "nutrients": {
-    "calories": 206,
-    "protein": 8.1,
-    "carbs": 21,
-    "fat": 8.8,
-    "saturatedFat": 1.2,
-    "sugar": 1.6,
-    "fiber": 2.3,
-    "salt": 2.8,
-    "energyKj": 836
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "celery",
-     "crustaceans",
-     "eggs",
-     "fish",
-     "lupin",
-     "milk",
-     "molluscs",
-     "mustard",
-     "nuts",
-     "peanuts",
-     "sulphites"
-    ],
-    "cereals": [
-     "wheat"
-    ]
-   }
-  },
-  {
-   "id": "vegetable-gyoza",
-   "name": "Vegetable Gyoza",
-   "category": "Street food",
-   "serving": "",
-   "nutrients": {
-    "calories": 210,
-    "protein": 7,
-    "carbs": 23,
-    "fat": 8.8,
-    "saturatedFat": 0.8,
-    "sugar": 3.4,
-    "fiber": 2.3,
-    "salt": 2.5,
-    "energyKj": 851
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "sesame",
-     "soya"
-    ],
-    "mayContain": [
-     "eggs",
-     "milk",
-     "molluscs"
-    ],
-    "cereals": [
-     "wheat",
-     "barley"
     ]
    }
   },
@@ -897,6 +826,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/14a55e4a99b9.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -938,6 +868,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/6dec4ce35098.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -979,6 +910,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/3482ce5bac5a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1020,6 +952,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/7b00b27ed936.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1061,6 +994,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/2d6a11d1decc.webp",
    "allergens": {
     "contains": [
      "fish",
@@ -1137,6 +1071,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/5c7ce3487085.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1177,6 +1112,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/e98f6b0fd1b6.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1211,6 +1147,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/a9ae31de0d6e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1247,6 +1184,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/e9f738817f77.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1290,49 +1228,12 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/9e14dccdd9c5.webp",
    "allergens": {
     "contains": [
      "sesame"
     ],
     "mayContain": []
-   }
-  },
-  {
-   "id": "prawn-crackers-2",
-   "name": "Prawn Crackers",
-   "category": "Street food",
-   "serving": "",
-   "nutrients": {
-    "calories": 162,
-    "protein": 0.2,
-    "carbs": 27.4,
-    "fat": 5.7,
-    "saturatedFat": 0.4,
-    "sugar": 0,
-    "fiber": 0,
-    "salt": 0.7,
-    "energyKj": 673
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": true,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "crustaceans",
-     "sulphites"
-    ],
-    "mayContain": [
-     "gluten",
-     "eggs",
-     "fish",
-     "milk",
-     "molluscs",
-     "mustard",
-     "sesame",
-     "soya"
-    ]
    }
   },
   {
@@ -1427,6 +1328,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/95bb8f3e5672.webp",
    "allergens": {
     "contains": [
      "fish",
@@ -1460,6 +1362,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/f8ac8a29ce79.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1496,6 +1399,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/0ad87cbd988c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1533,6 +1437,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/08d736b7af4a.webp",
    "allergens": {
     "contains": [
      "fish"
@@ -1561,6 +1466,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/b40477c6d407.webp",
    "allergens": {
     "contains": [
      "fish"
@@ -1589,6 +1495,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/f182509cef1b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1622,6 +1529,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/9daa4080ebb7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1655,6 +1563,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/ad3bda1d33e3.webp",
    "allergens": {
     "contains": [
      "fish",
@@ -1684,6 +1593,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/c2710e23f4aa.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1718,6 +1628,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/4cc3b567be76.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1788,6 +1699,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/84b54e9ba507.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1829,6 +1741,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/edd5338586d6.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1863,6 +1776,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/cfb532dff415.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1899,6 +1813,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/a11becc4ef33.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -1934,6 +1849,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/11fdbe7f93fc.webp",
    "allergens": {
     "contains": [
      "soya"
@@ -1964,6 +1880,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/b4ce1bec80ea.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2036,6 +1953,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/850b4c20471f.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2072,6 +1990,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/c8738ee14cda.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2113,6 +2032,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/bf09684c993d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2154,6 +2074,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/f468c8f213bf.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2186,6 +2107,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/25681553fce3.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2256,6 +2178,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/72897ca895f8.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2290,6 +2213,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/e4cc44b67f88.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2326,6 +2250,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/2ce66bd0df76.webp",
    "allergens": {
     "contains": [
      "milk",
@@ -2362,6 +2287,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/e63a0f9a830d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2403,6 +2329,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/577860e71a0e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2414,44 +2341,6 @@
      "eggs",
      "sesame",
      "soya"
-    ]
-   }
-  },
-  {
-   "id": "cotton-candy-cheesecake",
-   "name": "Cotton Candy Cheesecake",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 294,
-    "protein": 7.7,
-    "carbs": 26.8,
-    "fat": 17.3,
-    "saturatedFat": 10.7,
-    "sugar": 20.4,
-    "fiber": 0.2,
-    "salt": 0.4,
-    "energyKj": 1230
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "allergens": {
-    "contains": [
-     "gluten",
-     "eggs",
-     "milk",
-     "soya"
-    ],
-    "mayContain": [
-     "mustard"
-    ],
-    "cereals": [
-     "wheat"
     ]
    }
   },
@@ -2548,6 +2437,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/745d762077a4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2584,6 +2474,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/6ae60a71146e.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2748,6 +2639,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "yo-sushi/b91fd416850e.webp",
    "allergens": {
     "contains": [
      "gluten",

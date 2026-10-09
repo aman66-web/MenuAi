@@ -1,1 +1,2 @@
 chain,kind,severity,code,item,name,category,detail
+dim-t,allergen,reviewed,name-implies-gluten,singapore-fried-noodles,Singapore fried noodles,Noodles & rice,"'noodle' in the name but gluten is not marked (contains: ['celery', 'crustaceans', 'eggs', 'mustard', 'sesame', 'soya'])"

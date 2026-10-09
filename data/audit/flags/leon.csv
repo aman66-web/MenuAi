@@ -1,7 +1,9 @@
 chain,kind,severity,code,item,name,category,detail
 leon,nutrition,low,sugar+fibre-gt-carbs,better-brownie,Better Brownie,Pastries & cakes,sugars 22 + fibre 3.3 > carbohydrate 23 (starch would be negative)
-leon,nutrition,low,sugar+fibre-gt-carbs,charred-broccoli-with-preserved-lemon,Charred Broccoli with Preserved Lemon,Sides,sugars 3.8 + fibre 5.6 > carbohydrate 7.2 (starch would be negative)
 leon,nutrition,low,sugar+fibre-gt-carbs,clean-green-smoothie,Clean Green Smoothie,Drinks,sugars 27 + fibre 3.2 > carbohydrate 28 (starch would be negative)
 leon,nutrition,low,sugar+fibre-gt-carbs,hot-chocolate,Hot Chocolate,Coffee,sugars 35.2 + fibre 3.6 > carbohydrate 36.1 (starch would be negative)
 leon,nutrition,low,sugar+fibre-gt-carbs,mocha,Mocha,Coffee,sugars 33 + fibre 4.2 > carbohydrate 34.7 (starch would be negative)
 leon,nutrition,reviewed,energy-gap,poker-night-chilli,Poker Night Chilli,LEON Boxes,680 kcal vs 4P+4C+9F=541 (20% off)
+leon,allergen,reviewed,name-implies-gluten,better-brownie,Better Brownie,Pastries & cakes,"'Brownie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'nuts', 'soya'])"
+leon,allergen,reviewed,name-implies-gluten,gfc-crispy-chicken-nuggets,GFC - Crispy Chicken Nuggets,Sides,'Nuggets' in the name but gluten is not marked (contains: none)
+leon,allergen,reviewed,name-implies-gluten,leon-chocolate-chip-cookie,LEON Chocolate Chip Cookie,Pastries & cakes,"'Cookie' in the name but gluten is not marked (contains: ['eggs', 'milk', 'soya'])"

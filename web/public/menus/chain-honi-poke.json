@@ -14,7 +14,7 @@
   "url": "https://www.honipoke.com/nutritional-calculator",
   "checkedOn": "2026-10-08"
  },
- "note": "Figures are the per-bowl totals shown by Honi Poke's own Nutritional Calculator, which adds up its own ingredient data (so kcal and macros do not always agree with each other). No sugars, salt or saturates are published. Dishes whose own menu page shows a different calorie figure are not published.",
+ "note": "Figures are the per-bowl totals shown by Honi Poke's own Nutritional Calculator. Its headline calories are about 15% below the sum of the ingredient calories it lists beside them, so kcal and macros do not always agree with each other. No sugars, salt or saturates are published. Dishes whose own menu page shows a different calorie figure are not published.",
  "allergenGuide": {
   "title": "Honi Poke allergen matrix (review date 05/08/2026)",
   "url": "https://www.honipoke.com/allergens",

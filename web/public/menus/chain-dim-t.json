@@ -16,21 +16,19 @@
   "checkedOn": "2026-10-08"
  },
  "nutritionLevel": "calories",
- "note": "dim t prints calories only, one value per dish as served: no protein, carbs, fat or portion sizes (dim sum baskets and ice cream scoops excepted). Not listed: drinks, kids and lunch menus, and Thai spicy basil fried rice and Pad kee mao (values differ between its calorie list and its menu). Crispy Thai fish is not on the August 2026 menu.",
+ "note": "dim t prints calories only, one value per dish as served: no protein, carbs or fat. Not listed: drinks, kids and lunch menus, Thai spicy basil fried rice and Pad kee mao (its calorie list and menu disagree), and 26 dishes its allergen guide has no matching row for or contradicts. Crispy Thai fish is not on its August 2026 menu.",
  "allergenGuide": {
   "title": "dim t main menu allergen information (V1, 14.08.2026, 25 pages)",
   "url": "https://dimt.co.uk/wp-content/uploads/dim-t-main-menu-allergens-14.08.2026-v1.pdf",
   "checkedOn": "2026-10-08",
   "mayContainPublished": true,
-  "complete": false
+  "complete": true
  },
  "categories": [
   "Small eats",
-  "Bao buns",
   "Handmade dim sum",
   "Curries",
   "Specialities",
-  "Plant-based chicken specialities",
   "Noodles & rice",
   "Ramen & soups",
   "Salads",
@@ -51,7 +49,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "edamame",
@@ -68,7 +86,13 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/2d36a0ad5ebd.webp"
+   "image": "dim-t/2d36a0ad5ebd.webp",
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "spicy-edamame",
@@ -85,7 +109,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/ea3806016e92.webp"
+   "image": "dim-t/ea3806016e92.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "vegetable-spring-rolls",
@@ -102,7 +137,27 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/68989d2f0604.webp"
+   "image": "dim-t/68989d2f0604.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "duck-spring-rolls",
@@ -117,7 +172,27 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/9d70ca755b87.webp"
+   "image": "dim-t/9d70ca755b87.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "vegetable-gyoza",
@@ -134,7 +209,19 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/c2916b97987a.webp"
+   "image": "dim-t/c2916b97987a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chicken-gyoza",
@@ -149,7 +236,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/923addd22a52.webp"
+   "image": "dim-t/923addd22a52.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
   },
   {
    "id": "chicken-satay",
@@ -164,22 +264,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/49652be3f37d.webp"
-  },
-  {
-   "id": "five-spice-squid",
-   "name": "Five spice squid",
-   "category": "Small eats",
-   "serving": "",
-   "nutrients": {
-    "calories": 507
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dim-t/21fbe1d7b27c.webp"
+   "image": "dim-t/49652be3f37d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "fish",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "crispy-pork-belly-bites",
@@ -195,7 +294,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "crispy-salt-and-pepper-tofu",
@@ -211,83 +330,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "wonton-soup",
-   "name": "Wonton soup",
-   "category": "Small eats",
-   "serving": "",
-   "nutrients": {
-    "calories": 172
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "korean-fried-chicken-bao",
-   "name": "Korean fried chicken bao",
-   "category": "Bao buns",
-   "serving": "",
-   "nutrients": {
-    "calories": 258
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bao-buns-with-plant-based-chicken-as-an-option",
-   "name": "Bao buns with plant-based chicken (as an option)",
-   "category": "Bao buns",
-   "serving": "",
-   "nutrients": {
-    "calories": 236
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "crispy-duck-bao",
-   "name": "Crispy duck bao",
-   "category": "Bao buns",
-   "serving": "",
-   "nutrients": {
-    "calories": 439
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "crispy-pork-belly-bao",
-   "name": "Crispy pork belly bao",
-   "category": "Bao buns",
-   "serving": "",
-   "nutrients": {
-    "calories": 486
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "prawn-dim-sum",
@@ -301,7 +364,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "prawn-peanut-and-coriander-dim-sum",
@@ -315,7 +391,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spicy-prawn-dim-sum",
@@ -329,7 +420,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "scallop-and-prawn-dim-sum",
@@ -343,7 +448,22 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "molluscs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "pork-and-prawn-dim-sum",
@@ -359,7 +479,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spinach-and-mushroom-dim-sum",
@@ -375,7 +509,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spicy-vegetable-dim-sum",
@@ -391,7 +535,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "korean-beef-dim-sum",
@@ -407,7 +561,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "duck-and-ginger-dim-sum",
@@ -421,7 +587,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-cashew-and-coriander-dim-sum",
@@ -435,7 +612,24 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "teriyaki-chicken-dim-sum",
@@ -449,7 +643,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "truffle-edamame-dim-sum",
@@ -465,7 +672,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "spicy-wagyu-beef-dim-sum",
@@ -481,7 +700,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "char-siu-pork-buns",
@@ -497,7 +727,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "chicken-katsu-curry",
@@ -511,7 +753,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "molluscs",
+     "nuts"
+    ]
+   }
   },
   {
    "id": "thai-green-curry-chicken",
@@ -525,7 +787,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "thai-green-curry-prawn",
@@ -539,7 +808,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "penang-curry-chicken",
@@ -553,7 +829,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "penang-curry-prawn",
@@ -567,7 +851,14 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "rendang-beef",
@@ -583,67 +874,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "thai-cashew-stir-fry-chicken",
-   "name": "Thai cashew stir fry - Chicken",
-   "category": "Specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 618
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "thai-cashew-stir-fry-beef",
-   "name": "Thai cashew stir fry - Beef",
-   "category": "Specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 594
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "thai-cashew-stir-fry-prawn",
-   "name": "Thai cashew stir fry - Prawn",
-   "category": "Specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 534
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "thai-cashew-stir-fry-tofu",
-   "name": "Thai cashew stir fry - Tofu",
-   "category": "Specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 610
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "crispy-thai-fish",
@@ -657,7 +900,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "fish",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "crispy-aromatic-duck",
@@ -672,7 +935,27 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/cf4626b04626.webp"
+   "image": "dim-t/cf4626b04626.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "korean-fried-chicken",
@@ -686,7 +969,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "korean-fried-tofu",
@@ -702,7 +1005,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts"
+    ]
+   }
   },
   {
    "id": "sweet-and-sour-chicken",
@@ -717,7 +1040,27 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/82c7db858f5d.webp"
+   "image": "dim-t/82c7db858f5d.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "spicy-aubergine-and-cashew",
@@ -734,7 +1077,27 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/ab194a041d0a.webp"
+   "image": "dim-t/ab194a041d0a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "crispy-shredded-beef",
@@ -751,57 +1114,27 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/03ac5b2eb9bc.webp"
-  },
-  {
-   "id": "vegan-korean",
-   "name": "Vegan Korean",
-   "category": "Plant-based chicken specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 717
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "vegan-sweet-and-sour",
-   "name": "Vegan sweet & sour",
-   "category": "Plant-based chicken specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 461
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dim-t/2e60069899e6.webp"
-  },
-  {
-   "id": "vegetarian-katsu-curry",
-   "name": "Vegetarian katsu curry",
-   "category": "Plant-based chicken specialities",
-   "serving": "",
-   "nutrients": {
-    "calories": 853
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dim-t/6228a6165ec8.webp"
+   "image": "dim-t/03ac5b2eb9bc.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "phad-thai-chicken",
@@ -815,7 +1148,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "fish",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "phad-thai-prawn",
@@ -829,7 +1172,17 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "peanuts",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "phad-thai-chicken-and-prawn",
@@ -843,21 +1196,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "phad-thai-tofu",
-   "name": "Phad Thai - Tofu",
-   "category": "Noodles & rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 883
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "nasi-goreng",
@@ -872,7 +1222,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/86df1392a156.webp"
+   "image": "dim-t/86df1392a156.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "singapore-fried-noodles",
@@ -887,67 +1250,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/ff8b16bb9a3f.webp"
-  },
-  {
-   "id": "chow-mien-chicken",
-   "name": "Chow mien - Chicken",
-   "category": "Noodles & rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 789
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chow-mien-prawn",
-   "name": "Chow mien - Prawn",
-   "category": "Noodles & rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 685
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chow-mien-beef",
-   "name": "Chow mien - Beef",
-   "category": "Noodles & rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 746
-   },
-   "tags": [
-    "contains_beef"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chow-mien-tofu",
-   "name": "Chow mien - Tofu",
-   "category": "Noodles & rice",
-   "serving": "",
-   "nutrients": {
-    "calories": 741
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
+   "image": "dim-t/ff8b16bb9a3f.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "yaki-soba-chicken",
@@ -961,7 +1275,18 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "yaki-soba-beef",
@@ -977,7 +1302,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "yaki-soba-prawn",
@@ -991,7 +1336,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "yaki-soba-tofu",
@@ -1007,7 +1364,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "bi-bim-bap-veg",
@@ -1023,7 +1400,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bi-bim-bap-chicken",
@@ -1037,7 +1426,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bi-bim-bap-beef",
@@ -1053,7 +1454,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bi-bim-bap-prawns",
@@ -1067,24 +1480,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "bbq-roasted-pork-ramen",
-   "name": "BBQ roasted pork ramen",
-   "category": "Ramen & soups",
-   "serving": "",
-   "nutrients": {
-    "calories": 634
-   },
-   "tags": [
-    "contains_pork"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
    "modifiers": [],
-   "image": "dim-t/96302b98eb01.webp"
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "tom-yum-chicken",
@@ -1098,7 +1507,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tom-yum-prawn",
@@ -1112,7 +1529,15 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "tom-yum-tofu",
@@ -1126,7 +1551,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "fish",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "eggs",
+     "lupin",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "tofu-miso-ramen",
@@ -1142,7 +1587,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "lupin",
+     "milk",
+     "molluscs",
+     "nuts",
+     "peanuts",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "seafood-laksa",
@@ -1156,7 +1621,21 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "molluscs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "bang-bang-chicken-salad",
@@ -1171,7 +1650,20 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/86e61bd84d1a.webp"
+   "image": "dim-t/86e61bd84d1a.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "mango-and-chicken-salad",
@@ -1186,7 +1678,22 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/9193f3b8fcac.webp"
+   "image": "dim-t/9193f3b8fcac.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "cashew"
+    ]
+   }
   },
   {
    "id": "spicy-cucumber-salad",
@@ -1203,24 +1710,18 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/25a556c2f2ea.webp"
-  },
-  {
-   "id": "stir-fried-egg-noodles",
-   "name": "Stir-fried egg noodles",
-   "category": "Sides",
-   "serving": "",
-   "nutrients": {
-    "calories": 316
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dim-t/d6ab9d7b0c22.webp"
+   "image": "dim-t/25a556c2f2ea.webp",
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
   },
   {
    "id": "coconut-rice",
@@ -1237,7 +1738,14 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/e2e36c41cd6d.webp"
+   "image": "dim-t/e2e36c41cd6d.webp",
+   "allergens": {
+    "contains": [
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "egg-fried-rice",
@@ -1254,7 +1762,16 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/3d2a7830178a.webp"
+   "image": "dim-t/3d2a7830178a.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
   },
   {
    "id": "special-fried-rice",
@@ -1271,7 +1788,21 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/fd3e8478fc05.webp"
+   "image": "dim-t/fd3e8478fc05.webp",
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "steamed-rice",
@@ -1288,24 +1819,11 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
-   "image": "dim-t/df217baeaa97.webp"
-  },
-  {
-   "id": "chocolate-bento-box",
-   "name": "Chocolate bento box",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 921
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": [],
-   "image": "dim-t/241158f6adb8.webp"
+   "image": "dim-t/df217baeaa97.webp",
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   },
   {
    "id": "fried-ice-cream",
@@ -1321,7 +1839,27 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "crustaceans",
+     "fish",
+     "lupin",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
   },
   {
    "id": "passionfruit-and-white-chocolate-cheesecake",
@@ -1337,7 +1875,19 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "toffee-peanut-sundae",
@@ -1353,7 +1903,20 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "peanuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
   },
   {
    "id": "raspberry-sorbet",
@@ -1369,86 +1932,11 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "ice-cream-vanilla",
-   "name": "Ice cream vanilla",
-   "category": "Desserts",
-   "serving": "2 scoops with hot chocolate sauce",
-   "nutrients": {
-    "calories": 723
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "ice-cream-coconut",
-   "name": "Ice cream coconut",
-   "category": "Desserts",
-   "serving": "2 scoops with hot chocolate sauce",
-   "nutrients": {
-    "calories": 623
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "ice-cream-chocolate",
-   "name": "Ice cream chocolate",
-   "category": "Desserts",
-   "serving": "2 scoops with hot chocolate sauce",
-   "nutrients": {
-    "calories": 741
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "chocolate-torte-coconut-ice-cream",
-   "name": "Chocolate torte, coconut ice cream",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 454
-   },
-   "tags": [],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
-   "modifiers": []
-  },
-  {
-   "id": "salted-caramel-ginger-pudding",
-   "name": "Salted caramel ginger pudding",
-   "category": "Desserts",
-   "serving": "",
-   "nutrients": {
-    "calories": 379
-   },
-   "tags": [
-    "vegetarian"
-   ],
-   "limitedTime": false,
-   "rankable": false,
-   "components": [],
    "modifiers": [],
-   "image": "dim-t/dcc5277d9946.webp"
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
   }
  ],
  "combinations": []
