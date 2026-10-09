@@ -92,7 +92,7 @@ def cmd_slices(a) -> int:
             if rank is not None and r["product_id"] not in done and r["price_gbp"]:
                 rows.append((rank, r["category_path"], r["product_id"]))
     rows.sort()
-    rows = rows[: a.limit]
+    rows = rows[a.skip : a.skip + a.limit]
     slices: list[list[str]] = [[] for _ in range(a.n)]
     seen: list[set] = [set() for _ in range(a.n)]
     skipped = 0
@@ -103,7 +103,7 @@ def cmd_slices(a) -> int:
             continue
         seen[k].add(h)
         slices[k].append(slug)
-    for k, s in enumerate(slices, start=1):
+    for k, s in enumerate(slices, start=a.first):
         (work / f"slice{k}.txt").write_text("\n".join(s) + "\n", encoding="utf-8")
     print(f"{len(rows)} products in {a.n} slices ({[len(s) for s in slices]}), {skipped} left for a later round")
     return 0
@@ -229,6 +229,8 @@ def main() -> int:
         if name == "slices":
             sp.add_argument("--n", type=int, default=3)
             sp.add_argument("--limit", type=int, default=4000)
+            sp.add_argument("--skip", type=int, default=0, help="start after this many products of the priority order (to add slices beyond ones already handed out)")
+            sp.add_argument("--first", type=int, default=1, help="number of the first slice file written (slice<first>.txt ...)")
         if name in ("next", "append"):
             sp.add_argument("--slice", type=int, required=True)
         if name == "next":
