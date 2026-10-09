@@ -151,9 +151,10 @@ def _coloured_pixels(img, x0: float, y0: float, x1: float, y1: float) -> int:
     return n
 
 
-def read_allergen_pdf(pdf: Path) -> dict:
+def read_allergen_pdf(pdf: Path, section_rows=SECTION_ROWS) -> dict:
     """{(section, row label): {"contains": set, "may": set, "cereals": set(printed words)}} for every row of the guide.
-    section / label are upper case, apostrophes straight. Raises SystemExit on anything unexpected."""
+    section / label are upper case, apostrophes straight. `section_rows` names the guide's section heading rows (the kids guide has
+    MAINS, SIDES and DESSERTS). Raises SystemExit on anything unexpected."""
     pages = int(re.search(r"Pages:\s+(\d+)", subprocess.run(["pdfinfo", str(pdf)], check=True, capture_output=True, text=True).stdout).group(1))
     result: dict = {}
     with tempfile.TemporaryDirectory() as tmp:
@@ -172,7 +173,7 @@ def read_allergen_pdf(pdf: Path) -> dict:
             for f in firsts:
                 line = sorted((w for w in words if abs(w[1] - f[1]) < 0.05 and w[2] < PT_COLS_X0 and w[0] >= LABEL_X - 0.03), key=lambda w: w[0])
                 text = " ".join(w[4] for w in line)
-                if labels and f[1] - labels[-1][0] < 9.5 and not _norm_label(text) in SECTION_ROWS and not _norm_label(labels[-1][2]) in SECTION_ROWS:
+                if labels and f[1] - labels[-1][0] < 9.5 and not _norm_label(text) in section_rows and not _norm_label(labels[-1][2]) in section_rows:
                     labels[-1] = (labels[-1][0], f[1], labels[-1][2] + " " + text)  # wrapped label line
                 else:
                     labels.append((f[1], f[1], text))
@@ -182,7 +183,7 @@ def read_allergen_pdf(pdf: Path) -> dict:
             for top, last_top, text in labels:
                 label = _norm_label(text)
                 centre = (top + last_top) / 2 + 3.7  # the text is about 7.4 pt tall, rows are 28.1 pt high
-                if label in SECTION_ROWS:
+                if label in section_rows:
                     section = label
                     # header row: every column's heading word must be where the grid says
                     for col_i, col in enumerate(COLUMNS):
@@ -199,7 +200,9 @@ def read_allergen_pdf(pdf: Path) -> dict:
                     y0, y1 = centre - 13.0, centre + 13.0
                     dot = _coloured_pixels(img, x0 + 2.0, y0, x0 + PT_COL_W - 2.0, y1)
                     caption = any(w[4] == "MAY" and x0 <= w[0] < x0 + PT_COL_W and y0 <= w[1] < y1 for w in words)
-                    cereals = [w[4] for w in words if x0 <= w[0] < x0 + PT_COL_W and y0 <= w[1] < y1 and CEREAL.match(w[4])]
+                    # a cell naming five cereals wraps to three lines and its top line can start a hair above the row's +-13 pt window (kids guide,
+                    # Hot dog: "Wheat, Spelt," at 0.03 pt outside), so a cereal word belongs to the row its vertical CENTRE is in (rows are 28.1 pt high)
+                    cereals = [w[4] for w in words if x0 <= w[0] < x0 + PT_COL_W and abs((w[1] + w[3]) / 2 - centre) <= 14.05 and CEREAL.match(w[4])]
                     if 0 < dot < 100:
                         raise SystemExit(f"allergen guide page {pno}, {label!r}, {col}: unclear dot ({dot} coloured pixels)")
                     if caption and not dot:
@@ -220,3 +223,30 @@ def read_allergen_pdf(pdf: Path) -> dict:
                 result[key] = row
             (tmpd / "page.ppm").unlink()
     return result
+
+
+# ---------------------------------------------------------------- the kids menu PDF (calories printed beside each dish)
+_KIDS_MARKS = r"((?:(?:VG|V|NG|H)\s+)*)"
+
+
+def kids_menu_text(pdf: Path) -> str:
+    out = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True, capture_output=True, text=True).stdout
+    return " ".join(out.replace("\u2018", "'").replace("\u2019", "'").split())
+
+
+def kids_menu_dish(text: str, printed: str, after: str = "", then: str = "") -> tuple[str, list[str]]:
+    """(kcal as printed, marks) for a dish of the kids menu PDF: the name exactly as printed (upper case), an optional '*', its marks
+    (V, VG, NG, H) and 'NNN kcal'. `after` starts the search at that text (the 'VG version available 416 kcal' line sits under the
+    Margherita pizza); `then` is text that must follow the calories (the brownie's 'with caramel sauce')."""
+    start = text.find(after) if after else 0
+    if start < 0:
+        raise SystemExit(f"kids menu PDF: {after!r} not found")
+    i = text.find(printed, start)
+    if i < 0:
+        raise SystemExit(f"kids menu PDF: dish {printed!r} not found")
+    m = re.compile(r"\*?\s*" + _KIDS_MARKS + r"(\d+)\s*kcal").match(text, i + len(printed))
+    if not m:
+        raise SystemExit(f"kids menu PDF: no 'NNN kcal' right after {printed!r}")
+    if then and not text[m.end():].lstrip().startswith(then):
+        raise SystemExit(f"kids menu PDF: {printed!r} is not followed by {then!r}")
+    return m.group(2), re.findall(r"VG|V|NG|H", m.group(1))

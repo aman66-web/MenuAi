@@ -36,3 +36,17 @@ ranch-sauce,Ranch Sauce,Sauces,,88,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: 
 strawberries-and-cream-cookie-dough-sundae,"Strawberries & Cream, Cookie Dough Sundae",Desserts,,1458,,,,,,,,,,,,,,,vegetarian,false,false,,,"Page: STRAWBERRIES & CREAM, COOKIE DOUGH SUNDAE 1458 kcal; menu PDF marks: V; page marks (not used): V"
 new-york-cheesecake,New York Cheesecake,Desserts,,580,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: NEW YORK CHEESECAKE 580 kcal; menu PDF marks: V; page marks (not used): V
 double-chocolate-brownie,Double Chocolate Brownie,Desserts,,699,,,,,,,,,,,,,,,vegetarian,false,false,,,Page: DOUBLE CHOCOLATE BROWNIE 699 kcal; menu PDF marks: V; page marks (not used): V
+kids-penne-pasta-bolognese,Kids Penne Pasta Bolognese,Kids mains,Kid-size portion,385,,,,,,,,,,,,,,,,false,false,,,"Kids menu PDF (08.2026): 385 kcal, marks: none; kids guide row PENNE PASTA BOLOGNESE"
+kids-hot-dog-ketchup-and-mayo,"Kids Hot Dog, Ketchup & Mayo",Kids mains,Kid-size portion,566,,,,,,,,,,,,,,,,false,false,,,"Kids menu PDF (08.2026): 566 kcal, marks: none; kids guide row HOT DOG, KETCHUP & MAYO"
+kids-chicken-and-waffle,Kids Chicken & Waffle,Kids mains,Kid-size portion,646,,,,,,,,,,,,,,,,false,false,,,"Kids menu PDF (08.2026): 646 kcal, marks: H; kids guide row CHICKEN & WAFFLE"
+kids-cheeseburger-with-salted-crisps,Kids Cheeseburger with Salted Crisps,Kids mains,Kid-size portion,535,,,,,,,,,,,,,,,,false,false,,,"Kids menu PDF (08.2026): 535 kcal, marks: H; kids guide row CHEESEBURGER WITH SALTED CRISPS"
+kids-margherita-pizza-v,Kids Margherita Pizza (V),Kids mains,Kid-size portion,416,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 416 kcal, marks: V; kids guide row MARGHERITA PIZZA (V)"
+kids-margherita-pizza-vg,Kids Margherita Pizza (VG),Kids mains,Kid-size portion,416,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 416 kcal, marks: VG; kids guide row MARGHERITA PIZZA (VG)"
+kids-pepperoni-pizza,Kids Pepperoni Pizza,Kids mains,Kid-size portion,491,,,,,,,,,,,,,,,contains_pork,false,false,,,"Kids menu PDF (08.2026): 491 kcal, marks: none; kids guide row PEPPERONI PIZZA"
+kids-house-seasoned-fries,Kids House Seasoned Fries,Kids sides,Kid-size portion,92,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 92 kcal, marks: VG NG; kids guide row HOUSE SEASONED FRIES"
+kids-curly-fries,Kids Curly Fries,Kids sides,Kid-size portion,148,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 148 kcal, marks: VG NG; kids guide row CURLY FRIES"
+kids-onion-rings,Kids Onion Rings,Kids sides,Kid-size portion,401,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 401 kcal, marks: VG; kids guide row ONION RINGS"
+kids-rainbow-slaw,Kids Rainbow Slaw,Kids sides,Kid-size portion,240,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 240 kcal, marks: V NG; kids guide row RAINBOW SLAW"
+kids-vanilla-ice-cream,Kids Vanilla Ice Cream,Kids desserts,Kid-size portion,289,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 289 kcal, marks: V NG; kids guide row VANILLA ICE CREAM (V)"
+kids-double-chocolate-brownie,Kids Double Chocolate Brownie,Kids desserts,Kid-size portion,460,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 460 kcal, marks: V; kids guide row DOUBLE CHOCOLATE BROWNIE, CARAMEL SAUCE"
+kids-oreo-doughnut,Kids Oreo Doughnut,Kids desserts,Kid-size portion,392,,,,,,,,,,,,,,,vegetarian,false,false,,,"Kids menu PDF (08.2026): 392 kcal, marks: V; kids guide row OREO DOUGHNUT"

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Build data/source/puttshack-uk/ from Puttshack UK's own food menu page, menu PDF and food allergen guide (a CALORIES-ONLY chain).
+"""Build data/source/puttshack-uk/ from Puttshack UK's own food menu page, menu PDF, kids menu PDF and allergen guides (a CALORIES-ONLY chain).
 
-    python3 tools/uk_extract/puttshack_uk.py --dir DIR --checked-on 2026-10-08 [--fetch] [--out DIR]
+    python3 tools/uk_extract/puttshack_uk.py --dir DIR --checked-on 2026-10-09 [--fetch] [--out DIR]
 
-DIR holds food.html, menu.pdf and allergens.pdf; --fetch downloads them first (one request each, one per second). Needs `pdftotext`,
-`pdftoppm` and `pdfinfo` (poppler). Python 3.9.
+DIR holds food.html, menu.pdf, allergens.pdf, kids_menu.pdf and kids_allergens.pdf; --fetch downloads them first (one request each, one per
+second). Needs `pdftotext`, `pdftoppm` and `pdfinfo` (poppler). Python 3.9.
 
 Sources (all on www.puttshack.com, robots.txt allows them):
   food.html      https://www.puttshack.com/uk/food-and-drink/   "N kcal" beside each dish (38 values), no date shown. THE source of
@@ -15,6 +15,10 @@ Sources (all on www.puttshack.com, robots.txt allows them):
                  and the bacon burger), the PDF's marks are.
   allergens.pdf  https://www.puttshack.com/wp-content/uploads/2026/07/PUTTSHACK_ALLERGENS-DIETARY_JULY-26_v8.pdf  (linked from
                  https://www.puttshack.com/uk/allergens/ as "food allergens"; JULY 2026, 8 pages). Read by puttshack_uk_pages.py.
+  kids_menu.pdf  https://www.puttshack.com/wp-content/uploads/2026/09/Puttshack-Kids-Menu_Sept26.pdf  (linked from the food page; printed
+                 "08.2026", 2 pages): "NNN kcal" beside each of 13 kid-size dishes (added 2026-10-09, see below).
+  kids_allergens.pdf  https://www.puttshack.com/wp-content/uploads/2026/09/KidsMenu_Allergens_v1.pdf  (linked from the allergens page as the
+                 kids menu allergens; v1, August 2026, 2 pages): same grid as the food guide (same reader), sections MAINS, SIDES, DESSERTS.
 
 The page prints calories ONLY ("962 kcal"): protein, carbs and fat are not printed anywhere, so they stay blank (docs/DATA.md
 "Calories-only chains"). No other nutrient, weight or kJ is printed. Only item NAMES, categories and meat tags are typed below; the
@@ -32,7 +36,15 @@ Decisions (each is checked by the script on every run):
   such name is also printed in the menu PDF (or is the page name plus "SAUCE" inside the guide's SAUCES block). To publish only the guide
   link instead, delete allergens.csv from the chain's folder.
 - Add-ons printed only in the menu PDF (American cheese, streaky bacon, onion rings (2), piri piri chicken, BBQ chicken, pulled pork) and
-  the Kids, Drinks, Group, Christmas and Trejo's Tacos menus are not listed.
+  the Drinks, Group, Christmas and Trejo's Tacos menus are not listed.
+- KIDS MENU (added 2026-10-09): 14 items under "Kids mains / sides / desserts", named "Kids ..." because the portions differ from the adult
+  dishes (kids House Seasoned Fries 92 kcal, adult 490). Every kcal comes from the kids menu PDF and every allergen row from the kids guide, tied by
+  KIDS below: the names are equal except the guide's "(V)" / "(VG)" suffixes (the menu prints "MARGHERITA PIZZA* V 416 kcal" and a second line
+  "VG version available 416 kcal") and "DOUBLE CHOCOLATE BROWNIE, CARAMEL SAUCE" (the menu: "DOUBLE CHOCOLATE BROWNIE ... with caramel sauce", which the
+  script checks). "Vanilla ice cream: VG version available" prints no calories, so its guide row (VANILLA ICE CREAM (VG)) is not used. A kids side or
+  dessert whose allergens differ from the same-named adult dish in the food guide is held back (the chain's two guides disagree; never chosen between).
+  Not listed: the Drinks menu (its soft-drink calories look implausible, e.g. Coca-Cola 396 kcal per 250 ml, and its 19-page guide needs its own
+  reader) and Trejo's Tacos (its guide prints no calories).
 - Tags: vegetarian = the PDF marks the dish V or VG. contains_pork / contains_beef when the name or description says so.
 """
 from __future__ import annotations
@@ -51,11 +63,17 @@ CHAIN_ID = "puttshack-uk"
 PAGE_URL = "https://www.puttshack.com/uk/food-and-drink/"
 MENU_URL = "https://www.puttshack.com/wp-content/uploads/2026/06/Puttshack-Food-Menu-Bank.pdf"
 ALLERGEN_URL = "https://www.puttshack.com/wp-content/uploads/2026/07/PUTTSHACK_ALLERGENS-DIETARY_JULY-26_v8.pdf"
-FILES = {"food.html": PAGE_URL, "menu.pdf": MENU_URL, "allergens.pdf": ALLERGEN_URL}
-SOURCE_TITLE = "Puttshack UK food menu page (accessed 8 October 2026, no date shown; its menu PDF was created 29 May 2026)"
-ALLERGEN_TITLE = "Puttshack allergen & dietary information, food (July 2026, v8, 8 pages)"
-NOTE = ("Puttshack prints calories only, per dish as served, so protein, carbs and fat are not published. Food menu for Puttshack UK "
-        "(Bank, Lakeside, Watford, White City); add-ons and the kids, drinks, group and Christmas menus are not listed.")
+KIDS_MENU_URL = "https://www.puttshack.com/wp-content/uploads/2026/09/Puttshack-Kids-Menu_Sept26.pdf"
+KIDS_ALLERGEN_URL = "https://www.puttshack.com/wp-content/uploads/2026/09/KidsMenu_Allergens_v1.pdf"
+ALLERGEN_PAGE_URL = "https://www.puttshack.com/uk/allergens/"
+FILES = {"food.html": PAGE_URL, "menu.pdf": MENU_URL, "allergens.pdf": ALLERGEN_URL, "kids_menu.pdf": KIDS_MENU_URL,
+         "kids_allergens.pdf": KIDS_ALLERGEN_URL}
+SOURCE_TITLE = ("Puttshack UK food menu page (accessed 9 October 2026, no date shown; its menu PDF was created 29 May 2026) and Kids Menu PDF "
+                "(08.2026)")
+ALLERGEN_TITLE = "Puttshack allergen & dietary information: food (July 2026, v8) and kids menu (August 2026, v1)"
+NOTE = ("Puttshack prints calories only, per dish as served, so protein, carbs and fat are not published. Food and kids menus for Puttshack UK "
+        "(puttshack.com/uk/locations lists 4 venues: Bank, Lakeside, Watford, White City); add-ons, drinks, group, Christmas and Trejo's Tacos "
+        "menus are not listed.")
 EXPECTED_PAGE_DISHES = 38
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
@@ -65,6 +83,34 @@ PAGE_SECTION_TO_CATEGORY = {"Shareables": SHARE, "Flatbreads": FLAT, "Salads & B
 G_WINGS, G_SHARE, G_FLAT, G_HAND, G_SIG, G_SAUCE, G_SALAD, G_SIDE, G_DESS = (
     "GAME NIGHT WINGS", "SHAREABLES", "SOURDOUGH FLATBREADS", "HANDHELDS", "SIGNATURES", "SAUCES", "SALADS", "SIDES", "DESSERTS")
 MENU_SAUCES_AFTER = "Add your favourite to any dish"
+KIDS_SECTION_ROWS = {"MAINS", "SIDES", "DESSERTS"}
+K_MAINS, K_SIDES, K_DESS = "Kids mains", "Kids sides", "Kids desserts"
+
+
+def K(printed, name, category, guide, after="", then="", twin=None):
+    """A kids menu dish. printed: its name in the kids menu PDF (exact case); name: shown; guide: (kids guide section, row label);
+    after/then: see pg.kids_menu_dish; twin: the same-named adult dish's row in the food guide, whose allergens must be equal."""
+    return dict(printed=printed, name=name, category=category, guide=guide, after=after, then=then, twin=twin)
+
+
+KIDS = [
+    K("PENNE PASTA BOLOGNESE", "Kids Penne Pasta Bolognese", K_MAINS, ("MAINS", "PENNE PASTA BOLOGNESE")),
+    K("HOT DOG, KETCHUP & MAYO", "Kids Hot Dog, Ketchup & Mayo", K_MAINS, ("MAINS", "HOT DOG, KETCHUP & MAYO")),
+    K("CHICKEN & WAFFLE", "Kids Chicken & Waffle", K_MAINS, ("MAINS", "CHICKEN & WAFFLE")),
+    K("CHEESEBURGER WITH SALTED CRISPS", "Kids Cheeseburger with Salted Crisps", K_MAINS, ("MAINS", "CHEESEBURGER WITH SALTED CRISPS")),
+    K("MARGHERITA PIZZA", "Kids Margherita Pizza (V)", K_MAINS, ("MAINS", "MARGHERITA PIZZA (V)")),
+    K("VG version available", "Kids Margherita Pizza (VG)", K_MAINS, ("MAINS", "MARGHERITA PIZZA (VG)"), after="MARGHERITA PIZZA"),
+    K("PEPPERONI PIZZA", "Kids Pepperoni Pizza", K_MAINS, ("MAINS", "PEPPERONI PIZZA")),
+    K("HOUSE SEASONED FRIES", "Kids House Seasoned Fries", K_SIDES, ("SIDES", "HOUSE SEASONED FRIES"), twin=(G_SIDE, "HOUSE SEASONED FRIES")),
+    K("CURLY FRIES", "Kids Curly Fries", K_SIDES, ("SIDES", "CURLY FRIES")),
+    K("ONION RINGS", "Kids Onion Rings", K_SIDES, ("SIDES", "ONION RINGS"), twin=(G_SIDE, "ONION RINGS")),
+    K("RAINBOW SLAW", "Kids Rainbow Slaw", K_SIDES, ("SIDES", "RAINBOW SLAW"), twin=(G_SIDE, "RAINBOW SLAW")),
+    K("VANILLA ICE CREAM", "Kids Vanilla Ice Cream", K_DESS, ("DESSERTS", "VANILLA ICE CREAM (V)")),
+    K("DOUBLE CHOCOLATE BROWNIE", "Kids Double Chocolate Brownie", K_DESS, ("DESSERTS", "DOUBLE CHOCOLATE BROWNIE, CARAMEL SAUCE"),
+      then="with caramel sauce", twin=(G_DESS, "DOUBLE CHOCOLATE BROWNIE")),
+    K("OREO DOUGHNUT", "Kids Oreo Doughnut", K_DESS, ("DESSERTS", "OREO DOUGHNUT")),
+]
+KIDS_GUIDE_UNUSED = {("DESSERTS", "VANILLA ICE CREAM (VG)")}  # "VG version available" under the ice cream prints no calories
 
 
 def E(section, page, name, pdf, guide, after="", drop=False):
@@ -158,6 +204,67 @@ def meat_tags(name: str, desc: str) -> list[str]:
     return tags
 
 
+def build_kids(folder: Path, adult_guide: dict):
+    """The kids menu: (items, holdback, report). kcal from the kids menu PDF, allergens from the kids guide (same grid reader as the food guide)."""
+    text = pg.kids_menu_text(folder / "kids_menu.pdf")
+    kguide = pg.read_allergen_pdf(folder / "kids_allergens.pdf", section_rows=KIDS_SECTION_ROWS)
+    used, items, holdback, report = set(), [], [], []
+    names = set()
+    for k in KIDS:
+        kcal, marks = pg.kids_menu_dish(text, k["printed"], k["after"], k["then"])
+        if k["printed"].startswith("VG "):
+            marks = ["VG"]  # the menu's second Margherita line reads "VG version available 416 kcal"
+        if k["guide"] not in kguide:
+            raise SystemExit(f"{k['name']}: the kids allergen guide has no row {k['guide']}")
+        label, base = k["guide"][1], norm(k["after"] or k["printed"])
+        allowed = {base}
+        if label.endswith(" (V)"):
+            allowed.add(base + " (V)") if "V" in marks or "VG" in marks else None
+        if label.endswith(" (VG)"):
+            allowed.add(base + " (VG)") if "VG" in marks else None
+        if k["then"]:
+            allowed.add(base + ", " + k["then"].replace("with ", "").upper())
+        if label not in allowed:
+            raise SystemExit(f"{k['name']}: kids guide row {label!r} is not the menu's name ({sorted(allowed)}): the tie is not exact")
+        if k["name"] in names:
+            raise SystemExit(f"KIDS gives two dishes the name {k['name']!r}")
+        names.add(k["name"])
+        used.add(k["guide"])
+        row = kguide[k["guide"]]
+        a_contains, a_cereals, a_nuts = allergen_words(sorted(row["contains"]) + sorted(row["cereals"]), f"{k['name']} contains")
+        a_may, _, _ = allergen_words(sorted(row["may"]), f"{k['name']} may contain")
+        tags = ["vegetarian"] if any(m in ("V", "VG") for m in marks) else []
+        tags += meat_tags(k["name"], "")
+        it = {"name": k["name"], "id": slug(k["name"]), "category": k["category"], "serving": "Kid-size portion", "calories": kcal,
+              "tags": "|".join(tags), "rankable": False,
+              "notes": f"Kids menu PDF (08.2026): {kcal} kcal, marks: {' '.join(marks) or 'none'}; kids guide row {label}",
+              "allergens": {"contains": a_contains, "may_contain": a_may, "cereals": a_cereals, "nuts": a_nuts}}
+        if k["twin"]:
+            if k["twin"] not in adult_guide:
+                raise SystemExit(f"{k['name']}: the food guide has no row {k['twin']} to compare with")
+            theirs = adult_guide[k["twin"]]
+            if (row["contains"], row["may"], row["cereals"]) != (theirs["contains"], theirs["may"], theirs["cereals"]):
+                holdback.append((it["id"], f"The chain's kids guide and food guide list different allergens for the same dish ({k['twin'][1].title()}): "
+                                 f"kids contains {sorted(row['contains'])}, may contain {sorted(row['may'])}; food guide contains {sorted(theirs['contains'])}, "
+                                 f"may contain {sorted(theirs['may'])}. Not chosen between."))
+                report.append(f"HELD BACK {k['name']}: kids and food guides disagree on its allergens")
+        items.append(it)
+    extra = sorted(r for r in kguide if r not in used and r not in KIDS_GUIDE_UNUSED)
+    if extra:
+        raise SystemExit(f"The kids allergen guide has rows nobody uses: {extra}. New dish? Update KIDS / KIDS_GUIDE_UNUSED.")
+    unused_missing = sorted(KIDS_GUIDE_UNUSED - set(kguide))
+    if unused_missing:
+        raise SystemExit(f"KIDS_GUIDE_UNUSED names rows the kids guide no longer has: {unused_missing}")
+    for it in items:
+        if meat_unspecified(it["name"]):
+            report.append(f"meat type not stated: {it['name']}")
+    return items, holdback, report
+
+
+def meat_unspecified(name: str) -> bool:
+    return bool(re.search(r"\b(hot dog|cheeseburger|burger|bolognese)\b", name, re.I)) and not meat_tags(name, "")
+
+
 def build(folder: Path):
     page = pg.read_menu_page((folder / "food.html").read_text(encoding="utf-8"))
     if len(page) != EXPECTED_PAGE_DISHES:
@@ -229,14 +336,15 @@ def build(folder: Path):
         raise SystemExit(f"The allergen guide has rows nobody uses: {extra}. New dish? Update ITEMS / ADDON_ROWS.")
     for it in items:
         it.pop("_guide", None)
-    return items, holdback, report
+    kitems, kholdback, kreport = build_kids(folder, guide)
+    return items + kitems, holdback + kholdback, report + kreport
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dir", type=Path, required=True, help="folder with food.html, menu.pdf, allergens.pdf")
+    ap.add_argument("--dir", type=Path, required=True, help="folder with food.html, menu.pdf, allergens.pdf, kids_menu.pdf, kids_allergens.pdf")
     ap.add_argument("--checked-on", required=True, help="YYYY-MM-DD, the day the files were downloaded / read")
-    ap.add_argument("--fetch", action="store_true", help="download the three files into --dir first")
+    ap.add_argument("--fetch", action="store_true", help="download the five files into --dir first")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
     if args.fetch:
@@ -244,7 +352,7 @@ def main() -> int:
     for fname in FILES:
         print(f"{fname} sha256 {sha256_file(args.dir / fname)}")
     items, holdback, report = build(args.dir)
-    guide = {"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True}
+    guide = {"title": ALLERGEN_TITLE, "url": ALLERGEN_PAGE_URL, "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Puttshack", cuisine="Mini golf diner", source_title=SOURCE_TITLE, source_url=PAGE_URL,
                              checked_on=args.checked_on, aliases=["puttshack", "puttshack uk", "putt shack"], items=items, out=args.out,
                              note=NOTE, holdback=holdback, allergen_guide=guide, nutrition_level="calories")
