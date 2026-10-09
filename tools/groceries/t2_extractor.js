@@ -1,4 +1,4 @@
-// Tier 2 extractor v5 for a Sainsbury's product page (docs/GROCERIES_PLAN.md "Every product"). Run it with javascript_tool on a loaded product page
+// Tier 2 extractor v6 for a Sainsbury's product page (docs/GROCERIES_PLAN.md "Every product"). Run it with javascript_tool on a loaded product page
 // (about 3 s after navigation; call it as `await (0, eval)(sessionStorage.getItem('t2x'))`). It first opens the page's collapsed "Nutrition" accordion
 // (a display toggle, nothing is sent or changed) because the table is not in the page until it is open. It prints ONE short line, copied by the agent exactly as printed, into tools/groceries/t2_sainsburys.py append:
 //   <slug check>|<basis>|kJ|kcal|fat|saturates|carbohydrate|sugars|fibre|protein|salt|<line check>      the numbers as the table prints them, units removed
@@ -14,8 +14,9 @@
   const sum = [...document.querySelectorAll("summary")].find((e) => /^Nutrition$/i.test((e.innerText || "").trim()));
   if (sum && sum.parentElement && !sum.parentElement.open) sum.click();
   let tb = null;
-  for (let i = 0; i < 5 && !tb; i++) { await new Promise((r) => setTimeout(r, i ? 600 : 900)); tb = [...document.querySelectorAll("table")].find((t) => /Nutritional Information/i.test(t.innerText)); }
+  for (let i = 0; i < 5 && !tb; i++) { await new Promise((r) => setTimeout(r, i ? 600 : 900)); tb = [...document.querySelectorAll("table")].find((t) => /Nutritional Information/i.test(t.innerText) && !t.querySelector("table")); }
   if (!tb) return document.body.innerText.length < 1500 ? "WAIT" : "NONE|" + H(slug);
+  const tables = new Set([...document.querySelectorAll("table")].filter((t) => /Nutritional Information/i.test(t.innerText) && !t.querySelector("table")).map((t) => t.innerText.replace(/\s+/g, ""))).size;
   const rows = [...tb.querySelectorAll("tr")].map((r) => [...r.children].map((c) => c.innerText.replace(/\s+/g, " ").trim()));
   const head = rows[0] || [];
   const qual = (cell) => cell.toLowerCase().replace(/this pack contains[^a-z]*\d*\s*\w*|typical values|(per\s*)?100\s*(g|ml)(\/ml)?|\(as sold\)|as sold|provides|contains|[:()\d,.]/g, " ").replace(/\s+/g, " ").trim();
@@ -27,7 +28,8 @@
   const c0 = head[0] || "";
   const q0 = isPer(c0) || /pack contains/i.test(c0) ? "" : qual(c0);
   const q = pickC ? (qual(pickC[0]) || q0).replace(/\s*as per instructions?/g, "").replace(/[^a-z ]/g, "").slice(0, 24).trim() : "";
-  const basis = unit ? unit + (q ? ":" + q : "") : "?";
+  // two DIFFERENT nutrition tables on one page (a mixed pack; pages often repeat the same table for small screens, which is fine) cannot say which one is the product: basis ? leaves it unread
+  const basis = unit && tables < 2 ? unit + (q ? ":" + q : "") : "?";
   const lab = (r) => (r[0] || "").toLowerCase().replace(/\([^)]*\)/g, "").replace(/^[\s\-–:]*of which\s*/, "").replace(/[:\s]+$/, "").trim();
   const num = (r) => { const t = r[col] || ""; if (/mg|µg|μg/i.test(t)) return "?"; const m = t.match(/<?\s*\d+(?:[.,]\d+)?/); return m ? m[0].replace(/\s+/g, "").replace(",", ".") : ""; };
   const pick = (names) => { const r = rows.find((x) => names.includes(lab(x))); return r ? num(r) : ""; };
