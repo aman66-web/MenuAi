@@ -29,6 +29,14 @@ tied to the published items, so only allergen_guide.csv is written (the app link
     for a bagel made with the plain bun.
 The script reads the guide's issue and date from the PDF for the guide's title and prints how many items have an exact-name
 entry, so a later guide that lines up can be re-checked. Needs `pdftotext` (poppler).
+
+Re-checked 2026-10-08 (allergen pass, data/audit/verified/bagel-factory-allergens.json): same answer, link-only stays. The Ingredient List
+(Issue 22, 17/08/2026) is per ingredient/component, not per dish: 31 of its entries (every full-size filled bagel, and the bagel pages on bagelfactory.co.uk, which
+repeat the text) start "BAGEL BUN OF CUSTOMER CHOICE", so the entry never names the bun's allergens (wheat, soya, sesame, milk ... differ by
+bun), while our numbers are for the plain bun (only the minis and gluten-free boxes name their own bun); its allergens are written in CAPITALS inside the ingredient text, to be read out of prose, not a
+row of marks. Only 8 of the 26 published bagels have an entry under exactly their own name (Sausage Bagel, Smoky Pulled Pork, Salt Beef Melt,
+Chicken Club, The New Yorker, The Classic, Nutella Bagel, Honey Heat Halloumi); 18 (69%) would be held back, far over the one third the contract
+allows, and tying the rest would mean adding the plain bun entry to each (an inference the guide does not state).
 """
 from __future__ import annotations
 import argparse

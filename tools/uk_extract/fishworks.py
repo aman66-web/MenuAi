@@ -33,7 +33,8 @@ CHOICES (all logged in the report; none touches a number):
   and the page's typo "Lindidfarne" -> "Lindisfarne" (a name, not a number; the sibling rows spell it correctly).
 - Tags: vegetarian when the page's own icon says Vegetarian or Vegan. contains_pork / contains_beef only when the dish's name or
   description says so (the ribeye and sirloin steak are beef).
-- Held back (HOLDBACK, holdback.csv): rows the page contradicts with its own figures or marks. Never corrected; restoring one is
+- Held back (HOLDBACK, holdback.csv): rows the page contradicts with its own figures or marks (the oysters and the lobster platter; King
+  Scallops, added 2026-10-08 by the independent re-read: white wine in the description, no sulphites mark, unlike every other wine dish). Never corrected; restoring one is
   deleting its line in holdback.csv.
 """
 from __future__ import annotations
@@ -55,8 +56,8 @@ EXPECTED_DISHES = 49
 SOURCE_TITLE = "Fishworks dietary information: A La Carte Menu on Ten Kites (accessed {checked}, no date shown)"
 ALLERGEN_TITLE = "Fishworks allergy and dietary information: A La Carte Menu on Ten Kites (accessed {checked}, no date shown)"
 NOTE = ("Calories only, per dish as served, worked out by Fishworks from typical weights and measures; no protein, carbs or fat are "
-        "published. The page both restaurants link has only the A La Carte menu (no desserts, set, lunch, kids' or drinks). Five dishes "
-        "whose figures contradict each other are left out.")
+        "published. The page both restaurants link has only the A La Carte menu (no desserts, set, lunch, kids' or drinks). Six dishes "
+        "whose figures or allergen marks contradict each other are left out.")
 assert len(NOTE) < 400, len(NOTE)
 # printed section -> category shown in the app. A new section stops the run so a human places it.
 CATEGORIES = {
@@ -97,6 +98,11 @@ HOLDBACK = {   # display name -> reason
         "193 kcal is printed for the platter 'with half a fresh lobster' but 961 kcal for the same Fruits de Mer without it (the A La Carte "
         "menu sells the lobster as an add-on), and a platter plus a lobster cannot have fewer calories; its allergen row also lists only "
         "crustaceans (no molluscs, though the description names mussels, clams and oysters, which the plain platter's row marks)"),
+    "King Scallops": (
+        "allergen row contradicts the dish description: the page describes it as 'cooked with white wine' but marks no sulphur dioxide / "
+        "sulphites (its row: milk, molluscs, cereals containing gluten (wheat)), while it marks sulphites for every other dish it describes with "
+        "white wine (Moules Marinieres, Tiger Prawns, Seafood and Samphire Linguine, Grilled Seafood Platter); a sulphite "
+        "mark is safety information, so the dish is not published"),
 }
 # Kept as printed but worth a look (notes column only, never exported).
 ODD = {

@@ -43,6 +43,10 @@ Allergens (docs/DATA.md "Allergens") are link-only. The London allergen sheet is
 menu's ("Hard Rock Nachos" for Classic Nachos, "Smoked Chicken Wings - Classic Sauce", "Breaded Tupelo Dippers", "Hickory Smoked Ribs",
 "Classic Cheesecake"), has no rows for most add-ons, drinks, dips and the Messi kids dishes, and marks some cells "M/C" without a legend.
 Allergens are safety information: no name matching, no guessing, so only the sheet's link is published (all or nothing).
+Re-checked 2026-10-08 (sheet re-downloaded; the London page links only this sheet and a catering one; robots.txt has no Disallow): only 11 of the
+113 published items have a row of exactly their name (Caesar Salad, Cobb Salad, Southwestern Bowl, One Night in Bangkok Spicy Shrimp, Hot Fudge
+Brownie, Seasonal Fruit Cobbler, Espresso, Cappuccino, Latte, Kids Pepperoni Pizza, Kids Chicken Tenders); most rows are meals 'w/ Fries' whose
+calories may or may not include the fries; the wings, Nachos and ribs rows use other names, and the sodas, juices, most dips and add-ons and the Messi kids dishes have no row. Link-only stays.
 """
 from __future__ import annotations
 import argparse

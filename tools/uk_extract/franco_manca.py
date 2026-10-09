@@ -37,6 +37,14 @@ GORGONZOLA and RAGU GENOVESE on the menu, specials are coded (MEAT 101, VEG 201,
 and several menu dishes (Goat's Cheese Bread, Bruschetta Speck & Whipped Goat's Cheese, Four Cheese Fonduta, Cheesecake, Hot honey dip ...)
 have no row of that name. Allergens are safety information: no name matching, no guessing, so only the guide's link is published (all or
 nothing). With --allergen-pdf the script prints how many menu items have no row of the same name anywhere in the guide.
+Re-checked 2026-10-08 (guide read from its word boxes; its section 27, 'Winter Menu TRIAL 2026 - Menu Items', does carry rows for pizzas 11 and 12
+as POTATO & GORGONZOLA W26 / RAGU GENOVESE W26): 25 of the 76 published items have a row of exactly their name (ignoring '&'/'and', the pizza
+number and the W26 tag); counting the 12 numbered pizzas by their number and the combined rows (COKE - DIET COKE - COKE ZERO, SAN PELLEGRINO
+(LIMONATA/ARANCIATA), FRESH MINT TEA/ENGLISH BREAKFAST TEA) about 36 would be tied, so at least 40 (53%, far over the one third the all-or-nothing
+rule allows to hold back) have no exact row: Mixed olives (MIXED MARINATED OLIVES), Tarallini (TARALLI), Nibbles trio, all 8 bites (GOAT'S CHEESE
+BREAD vs CARAMELISED ONION & GOAT'S CHEESE PIZZA BREAD W26 ...), Hot honey / semi-dried tomato / grana & truffle dips, Caprese, Yellowfin tuna salad,
+Cheesecake, Tiramisu, Cannolo, Macchiato, Latte/Flat white (one row for both, and a separate row per milk), the 4 kids pizzas and 6 kids drinks and
+scoops. Link-only stays.
 """
 from __future__ import annotations
 import argparse

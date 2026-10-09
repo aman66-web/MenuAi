@@ -27,6 +27,16 @@ matrix (PDF on cdn.sanity.io, whose robots.txt disallows PDFs, so it is not read
 enough for safety information, so allergens.csv is NOT written. `--allergens-from-page-data` writes it anyway (for a founder who has
 compared the page data with the matrix and agrees); allergen words outside the 14 other than garlic stop the run.
 The page says it gives no "may contain" information and that all equipment and fryers are shared, so may_contain_published = no.
+
+Re-checked 2026-10-08 (allergen pass, data/audit/verified/daves-hot-chicken-allergens.json): same answer, link-only stays. The only
+per-dish allergen data the chain publishes that a visitor can see is the downloadable matrix PDF ("Allergens-matrix-JUNE-26.pdf" linked from
+/allergen-uk, "Allergens-matrix-JUL-26.pdf" linked from /menus and /menus/drinks: two different issues), hosted on cdn.sanity.io, whose
+robots.txt says `Disallow: /*.pdf` (the only Allow is /files/cgnmnbqj/; Dave's files are under /files/ysupxjc9/), so it is not downloaded.
+The page's own data does hold a list for each item (54 rows by --allergens-from-page-data) but nothing on screen shows it (checked in a
+rendered browser: the item panel shows name, kcal and the diet chip; the Allergen Information panel only links the two PDFs), so there is
+no rendered source to compare the 40+ items against and no way to tell whether it is current (the two matrices are already different
+issues). To publish: the founder downloads the two matrix PDFs from their own browser and sends them; they would then be read as the source
+and the page data compared with them.
 """
 from __future__ import annotations
 import argparse

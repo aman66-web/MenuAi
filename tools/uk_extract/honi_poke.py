@@ -56,8 +56,9 @@ SOURCE_URL = hp.HOST + hp.CALC_PATH
 SOURCE_TITLE_FMT = "Honi Poke Nutritional Calculator (accessed {date}, no date shown)"
 ALLERGEN_GUIDE_URL = hp.HOST + hp.ALLERGENS_PATH
 ALLERGEN_TITLE_FMT = "Honi Poke allergen matrix (review date {review})"
-NOTE = ("Figures are the per-bowl totals shown by Honi Poke's own Nutritional Calculator, which adds up its own ingredient data "
-        "(so kcal and macros do not always agree with each other). No sugars, salt or saturates are published. "
+NOTE = ("Figures are the per-bowl totals shown by Honi Poke's own Nutritional Calculator. Its headline calories are about 15% below "
+        "the sum of the ingredient calories it lists beside them, so kcal and macros do not always "
+        "agree with each other. No sugars, salt or saturates are published. "
         "Dishes whose own menu page shows a different calorie figure are not published.")
 CONFLICT_TOLERANCE = 0.10  # a dish page's "Cal" within 10% of the calculator's kcal is not treated as a contradiction
 

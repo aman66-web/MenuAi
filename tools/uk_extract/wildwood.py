@@ -35,6 +35,13 @@ evening set, specials) are grids of the 14 allergens, but their row names are no
 "OVEN BAKED CHICKEN & MUSHROOM PENNE" vs "...RIGATONI"), the large garlic breads and large pizzas have no row, and the
 set-menu sheets are separate allergen documents (about 50 of the 114 published dishes have no row with exactly their name). Allergens are
 safety information: no name matching, no guessing.
+Re-checked 2026-10-08 with the five allergen PDFs on the site's location pages (Main 10.08.2026 and the Peterborough/Rushden Lakes 07.09.2026
+variant, Lunch Set and Evening Set 27.04.2026, Specials 24.07.26; robots.txt allows everything), labels read from the word boxes: 44 of the 114
+published dishes (39%, more than the one third the all-or-nothing rule allows to hold back) still have no row of exactly their name (the 7 large
+pizzas and 2 large garlic breads, 'Pizza The Amalfi' (sheet: PIZZA AMALFI), the ice creams and sorbets (sheet: SORBET LEMON ...), the extras
+(sheet: MEAT, PEPPERONI / VEG, MUSHROOMS / DAIRY, MOZZARELLA), the dips (sheet: PERI-PERI MAYO DIP), add-ons, 'Chocolate fondant' (sheet: CHOCLATE
+FONDANT)); and the allergen sheets describe the May 2026 main menu (their rigatoni dish is PENNE), so a name match would not prove the same
+recipe. Link-only stays; a new menu with matching names would make it possible.
 
 Tags: contains_pork / contains_beef only when the dish's printed name says so (see PORK, BEEF); the sheets carry no vegetarian marks, so
 no `vegetarian` tag. "(F)" marks mean the item is fried in oil shared with other allergens (kept in `notes`).
