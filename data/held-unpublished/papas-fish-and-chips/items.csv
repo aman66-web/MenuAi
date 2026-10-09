@@ -1,0 +1,7 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+battered-haddock,Battered Haddock,Mains,1 regular portion,217,29.2,5.8,8.5,,210,,,,909,131.4,,,,,contains_beef,false,true,,,
+battered-sausage,Battered Sausage,Mains,1 regular portion,174,7.0,4.2,14.4,,585,,,,724,53.2,,,,,contains_pork|contains_beef,false,true,,,
+fishcake,Fishcake,Mains,1 regular portion,212,8.8,24.7,8.7,,,,,,891,105,,,,,contains_beef,false,true,,,"Sodium printed 1.27 per 100 g and 1.35 per portion under 'Total Sodium (mg)': not milligrams, left blank. Printed weight 105 g but the per-portion column is 1.06 x the per-100 g column (about 106 g): within laboratory rounding, copied as printed"
+chips,Chips,Sides,1 regular portion,358,7.8,58.9,10.0,,10.0,,,,1504,200,,,,,contains_beef,false,false,,,"Sodium 10.0 mg per 200 g portion (5.0 per 100 g): consistent in both columns, copied as printed"
+pattie,Pattie,Sides,1 regular portion,203,2.3,21.3,12.0,,307,,,,846,87.8,,,,,contains_beef,false,false,,,The chain's calculator lists Pattie under MAIN and under SIDE with the same 203 kcal; meat type not stated
+mushy-peas,Mushy Peas,Extras,1 regular portion,198,12.1,34.9,1.0,,208.0,,,,838,173.4,,,,,,false,false,,,Calculator says 114 kcal (= the per-100 g figure) for a regular portion of Peas; the report says 198 kcal per 173.4 g portion
