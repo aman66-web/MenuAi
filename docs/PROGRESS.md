@@ -345,13 +345,37 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - 2026-10-09 — **Store-wide product lists (founder: "every product at Sainsbury's, Tesco's, Waitrose... prices and nutrition").** Agents read each shop's own category pages
   in the founder's Chrome (one tab each, one page at a time, read-only, stop on any check page; never worked round a block); the lists are in `data/groceries/listing/`
   (README there). **Sainsbury's is complete: 17,059 unique food and drink products** (`sainsburys.csv`, names/prices/photo addresses exactly as printed; 17,036 priced, 4,454 with
-  a Nectar price). Morrisons about 15,500 (beer/cider, wine, world foods, dietary and a recheck of partial pages remain), Asda about 13,000, Waitrose about 12,400,
+  a Nectar price). Morrisons 18,412 (complete, incl. beer/cider, wine, world foods and dietary; a few non-food items sit in those last pages), Asda about 13,000, Waitrose about 12,400,
   Aldi about 4,500, Lidl about 350 and M&S about 1,150 as raw crawls (`raw/`). **Co-op:** access denied by Imperva (non-UK IP), 0 products, stopped. **Ocado:** its bot challenge stopped
   the crawl and its data is quarantined (one agent used a forbidden side channel to move data out of the page; that data is not in the repo and is not used until the founder decides).
   **Tesco and Iceland:** not crawled (Tesco needs the founder's approval in the permission system; Iceland and Co-op need a UK VPN). **These lists have no barcodes or
   nutrition**, so none of them is in the app yet; the next steps are a "browse every product" layer for shop-only products and Tier-2 product-page reads for nutrition (the
   founder to say). Terms caveat per shop (docs/IMAGE_TERMS.md and each `*_terms.txt`): Tesco bans bots/AI tools, M&S bans crawling and commercial use (hold, do not publish),
   Waitrose and Morrisons restrict reproducing/storing content; Sainsbury's, Asda, Aldi, Lidl have no relevant clause found. Nothing from these lists is published (they live in `data/`, not `web/public`).
+
+- 2026-10-09 — **"Every product" lists in the app (founder: "Yes" to a browse-every-product view).** New screens `/app/groceries/shop?r=<shop>` (a shop's full list: search by
+  words, type chips, "Has a card price", sort by name / price / price per kg or litre, 60 at a time) and `/app/groceries/shop/item?r=<shop>&id=<product>` (name, price, price
+  per kg/litre, card price, the shop's own picture with "Photo from the {shop} website", the shop's own page as a link), reached from a pill "Every Sainsbury's product · 17,036"
+  on the Groceries screen. Built by `tools/groceries/build_all_products.py` from `data/groceries/listing/<shop>.csv` into `web/public/groceries/all/<shop>.json` (2.5 MB, one compact
+  array per product, loaded only when that list is opened; the service worker caches it and the two shells). Nothing is estimated: a product with no price printed is not listed, a
+  card price counts only when lower and named, no unit price is invented, and the page says "We haven't read the nutrition for this product yet" unless the product's barcode is one the
+  Groceries list already has numbers for (3,755 of the 17,036 have a barcode from the discovery lists; those in the catalogue link to the full page). **Only Sainsbury's is published**
+  (`PUBLISH` in the script); the other crawls stay in `data/` until the founder has seen each shop's terms. New copy (rule 8: flagged, not in the spec): "Every {shop} product",
+  "{n} products with the name and price as {shop} lists them, checked {date}. Calories, protein and allergens appear only for products whose page we've read.", "Has a card price",
+  "We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shop}'s website.", "See the nutrition", "Open it on {shop}'s
+  website", "Not affiliated with {shop}." (a possessive helper avoids the doubled "Sainsbury's's" of the older screens, which are unchanged). Tests: 5 unit, 1 Python, `e2e/groceries-all.mjs`
+  (4 steps), axe 0 in light and dark on the real data. **Next:** read product pages for nutrition (Tier 2) in priority order so more products get numbers.
+
+- 2026-10-09 — **Tier 2 for Sainsbury's: nutrition read from each product's own page.** A Sainsbury's product page prints a nutrition table (per 100 g/ml) but **no barcode**,
+  so the numbers attach to the shop's product by its page address (slug), not to the Open Food Facts catalogue: `data/groceries/nutrition/sainsburys.csv` →
+  `build_all_products.py` → the "Every Sainsbury's product" rows show "{kcal} kcal · {protein}g protein ... per 100 g", with a "Has nutrition" filter and "Most protein per 100 kcal" /
+  "Most protein" sorts (products without numbers go last, never guessed). Reading is done by Chrome agents with a checksummed extractor (`tools/groceries/t2_extractor.js` v2) and a tool
+  (`tools/groceries/t2_sainsburys.py`: slices, next, append, ingest) so a typing slip or a wrong page is caught: every line carries a hash of the page's own slug and a check of the numbers.
+  Only a plain "per 100g/ml" table counts (a heading with "cooked", "prepared", "drained"... is filed as `g?` and kept out of the app); `<0.5` counts as 0; a main number the table
+  lacks means the product is left without numbers. Priority order: meat & fish, dietary & world foods, chilled, frozen, food cupboard, snacks, fruit & veg, bakery, drinks (alcohol has no
+  table and is not read); the first 4,000 are being read by three agents in the founder's Chrome. **Allergens are not read yet**: such a product's page says "Allergens aren't shown for this
+  product yet: check the pack or the page" (never "none"). New copy: "Has nutrition", "Nutrition per 100 g", "Read from the product's own page on {shop}'s website, checked {date}.
+  Allergens aren't shown for this product yet: check the pack or the page."
 
 - 2026-10-09 — **Xcode preview shell running on the founder's iPhone** (docs/XCODE_PREVIEW_SHELL.md). `ios/MenuMacrosPreview/MenuMacrosPreview.xcodeproj` was
   created by Claude at the founder's request (overriding CLAUDE.md's "founder creates new targets" once; XcodeGen was used once as a generator and is not kept in

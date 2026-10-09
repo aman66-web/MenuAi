@@ -10,6 +10,8 @@ sys.path.insert(0, str(ROOT / "tools" / "groceries"))
 import build_groceries as bg  # noqa: E402
 import fetch_retailer_images as fri  # noqa: E402
 import select_stored_photos as ssp  # noqa: E402
+import build_all_products as bap  # noqa: E402
+import t2_sainsburys as t2  # noqa: E402
 
 GOOD = {
     "code": "5012345678900", "product_name": "  Greek   Style Yogurt ", "brands": "Aldi, Mamia", "quantity": "500 g",
@@ -341,6 +343,42 @@ class PriceFileTests(unittest.TestCase):
         bg.apply_stored_photos("sainsburys", products, [])
         self.assertNotIn("retailerImage", products[0])
         self.assertNotIn("photo", products[0])
+
+    def test_every_product_file_keeps_only_priced_valid_rows_and_lower_named_card_prices(self):
+        header = "product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on\n"
+        rows = [
+            "sainsburys-yogurt-500g,Sainsbury's Yogurt 500g,1.15,2.30,per kg,,,Chilled food > Dairy | Chilled food > Yogurt,https://x,https://assets.sainsburys-groceries.co.uk/gol/6325944/1/640x640.jpg,2026-10-08",
+            "sainsburys-loaf-800g,Loaf 800g,1.60,2,per kg,1.20,Nectar price,Bakery > Bread,https://x,,2026-10-08",
+            "no-price,Out of stock thing,,,,,,Bakery > Bread,https://x,,2026-10-08",
+            "higher-card,Card price not lower,1.00,1,per kg,1.50,Nectar price,Bakery > Bread,https://x,,2026-10-08",
+            "no-scheme,Card price without a name,1.00,1,per kg,0.80,,Bakery > Bread,https://x,,2026-10-08",
+            "bad id!,Bad id,1.00,1,per kg,,,Bakery > Bread,https://x,,2026-10-08",
+            "brita-%E2%80%93-3-pack,Brita Filter,22.50,,each,,,Household,https://x,,2026-10-09",
+        ]
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "sainsburys.csv"
+            path.write_text(header + "\n".join(rows) + "\n")
+            problems: list = []
+            doc = bap.build_shop("sainsburys", problems, path=path, gtins={"sainsburys-yogurt-500g": "5012345678900"})
+        self.assertEqual([p[0] for p in doc["products"]], ["sainsburys-yogurt-500g", "sainsburys-loaf-800g", "higher-card", "no-scheme", "brita-%E2%80%93-3-pack"])
+        yogurt, loaf, higher, noscheme, brita = doc["products"]
+        self.assertEqual((yogurt[2], yogurt[3], yogurt[4], yogurt[8], yogurt[9]), (1.15, 2.3, "per kg", "6325944", "5012345678900"))
+        self.assertEqual(doc["categories"][yogurt[7]], "Chilled food")                       # the top-level type only
+        self.assertEqual((loaf[5], doc["schemes"][loaf[6]], loaf[8]), (1.2, "Nectar price", ""))
+        self.assertEqual((higher[5], higher[6], noscheme[5]), (None, None, None))           # a card price counts only when lower and named
+        self.assertIsNone(brita[3])                                                         # no unit price printed: none invented
+        self.assertEqual(len(problems), 1)                                                  # the bad id is reported, the unpriced row is simply not listed
+        self.assertEqual(doc["checkedOn"], "2026-10-08")                                    # the earliest day: never fresher than the oldest row
+        self.assertEqual(bap.PUBLISH, ("sainsburys",))                                       # no other shop is published without the founder's go-ahead
+
+    def test_tier2_checks_match_the_page_extractor_and_reject_slips(self):
+        # these two values were printed by tools/groceries/t2_extractor.js on the live Sainsbury's Greek yogurt page
+        self.assertEqual(t2.H("sainsburys-greek-style-natural-yogurt-500g"), "3l5r")
+        self.assertEqual(t2.H("g|426|103|7.6|5.1|4.2|4.2|<0.5|4.0|0.10"), "bf5f")
+        self.assertEqual(t2.H(""), "0007")
+        # alcohol is never handed out (no nutrition table), the protein-first categories come first
+        self.assertIsNone(t2.priority("Beer, wine & spirits > Wine"))
+        self.assertLess(t2.priority("Meat & fish > Beef"), t2.priority("Food cupboard > Pasta"))
 
 
 if __name__ == "__main__":

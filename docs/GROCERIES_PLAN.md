@@ -80,3 +80,11 @@ prices[{retailer, amount, per, channel, checkedOn}]`. Built by the checked pipel
 1. Whether to ask the retailers (or an affiliate network such as Awin or Impact) for a product data feed: the only clean route to
    complete, current prices.
 2. How far to take prices through the browser route (a few hundred own-brand and protein products per retailer is realistic).
+
+## Every product (founder, 2026-10-09)
+
+The catalogue above is what Open Food Facts knows (barcode, numbers). The shops list far more (Sainsbury's 17,036 priced products). `tools/groceries/build_all_products.py` turns each published
+shop's listing crawl (`data/groceries/listing/<shop>.csv`) into `web/public/groceries/all/<shop>.json`; the app shows it under "Every {shop} product" as name, price, price per kg or litre,
+card price, the shop's picture and a link to the shop's page, and says plainly that nutrition has not been read. `PUBLISH` lists the shops that may be shown; add one only after the founder has
+seen its terms (`data/groceries/listing/raw/<shop>_terms.txt`). Reading product pages (Tier 2, `docs/NEXT_GROCERIES_DISCOVERY_PROMPT.md`) adds barcodes and nutrition; a product with a barcode
+we already hold links to its full page.

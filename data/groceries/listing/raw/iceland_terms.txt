@@ -1,0 +1,22 @@
+# Iceland (https://www.iceland.co.uk/) terms and robots.txt, read 2026-10-09 in the founder's Chrome (own tab)
+
+## robots.txt (https://www.iceland.co.uk/robots.txt), "User-agent: *" is the only group. Rules that could touch listing pages (quoted exactly):
+Disallow: /search*
+Disallow: *Search-Show
+Disallow: *?pmin=*
+Disallow: *?pmax=*
+Disallow: *?srule=*
+Disallow: *?src=*
+Disallow: *?sz=*
+Disallow: *?prefv1=*   (and ?prefn1= ... ?prefn8= / ?prefv8=)
+Other rules: /account*, /login*, /basket*, /checkout*, /my-favourites*, */app/*, */shipping/*, */billing/*, */revieworder/*, */orderconfirmation/*, */account/*, */ordersearch/*, */demandware.store/Sites-icelandfoodsuk-Site/*, */*articleId, *Cart-Show, *Order-History, *Login-Show, *Wishlist-*, *Delivery-*, *COSummary-Start, etc.
+Not disallowed: plain category/listing pages (no query string) and product pages. The sitemap line is commented out ("# Sitemap: https://www.iceland.co.uk/sitemap_index.xml").
+CONSEQUENCE for this crawl: no /search pages, no ?sz= / ?srule= / ?pref... filter or sort URLs, no ?pmin / ?pmax. Plain category URLs only (paging by the page's own "show more"/next controls or URLs that robots.txt does not list; checked per page below).
+
+## Terms (https://www.iceland.co.uk/terms.html, "last amended on 10/05/2022"). No sentence about scraping, bots, crawlers, "automated" access or AI tools. The sentence about copying content (clause 3.2, exact):
+"3.2 Use: You may use the content on our website for your personal use in placing orders through our website or informing yourself in respect of our business. However, you must not otherwise copy, reproduce, transmit, publish, display, distribute, commercially exploit, use or create derivative works of any material data and content on our website without our prior written permission."
+Also clause 3.1 (exact): "All copyright, trademarks and all other intellectual property rights in all material or content supplied as part of the website shall remain at all times be vested in us or our third-party licensors. All rights are reserved."
+Clause 5.11 (images, exact): "The images of the products on the website are for illustration only. Your products may vary slightly from those images."
+Clause 2.3 (exact): "You are not permitted to link to our website from any of your own sites or business pages, without our express prior approval."
+Clause 3.3 (exact): "'Iceland' and 'Iceland Foods' are trade marks. Use of these trade marks is not permitted without our express written permission."
+Per the lead's instructions the founder has accepted the risk for supermarkets: continuing, quoting only.
