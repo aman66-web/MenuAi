@@ -88,7 +88,8 @@ folders appear in `data/chrome-inbox/` I import, check and publish all of them i
 
 You can open a second terminal and run a second `claude --chrome`, but give each session its own queue file so they never edit the
 same lines: session 1 uses `data/chrome-inbox/QUEUE.md`, session 2 uses `data/chrome-inbox/QUEUE-B.md` (say "QUEUE-B.md" instead
-of "QUEUE.md" in the pasted message). Before each push both sessions should run `git pull --rebase` first. Both sessions share the
+of "QUEUE.md" in the pasted message). Before each push both sessions should run `git pull --rebase` first. When both queues are finished, `QUEUE-C.md` (51 priority chains) and `QUEUE-D.md` (37 long shots) work the same way; the whole
+picture is in docs/CHAINS_WORK_LIST.md. Both sessions share the
 same Chrome, so ask each to work in its own tab or window; if they start fighting over the same tab, close one. Two sessions use
 your Claude usage twice as fast.
 
