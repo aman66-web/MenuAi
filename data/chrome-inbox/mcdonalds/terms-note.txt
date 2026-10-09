@@ -1,0 +1,6 @@
+McDonald's UK Terms & Conditions, https://www.mcdonalds.com/gb/en-gb/terms-and-conditions.html (read 2026-10-09), section 8 "Acceptable uses and restrictions for the online services":
+  "d) Use, copy, distribute, republish, display, disclose, upload, post, or transmit the online services in any commercial manner;"
+  "h) Use or launch any unauthorised technology or automated system to access the online services or extract content from the online services, including but not limited to spiders, robots, screen scrapers, or offline readers;"
+The "online services" definition includes content. robots.txt (https://www.mcdonalds.com/robots.txt) disallows only /config/, /utility/, /content/prelaunch/, /prelaunch/ and one US page; /gb/ product pages and /content/dam/ are allowed.
+Photos: the product photos are served from McDonald's own Scene7 image account (s7d1.scene7.com/is/image/mcdonalds/...). That host's robots.txt was NOT opened (not the chain's own site); the importer's polite fetcher must check it before downloading anything. No image was downloaded.
+This needs the founder's decision (as with the Wetherspoon clause): the pages were read page by page in the founder's own Chrome through Claude in Chrome, which clause (h) may cover.
