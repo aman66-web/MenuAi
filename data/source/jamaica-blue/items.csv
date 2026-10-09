@@ -1,0 +1,374 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+shrooms-on-french-toast,'Shrooms On French Toast,All Day Menu,,491,19,36,30,17,,,19,1.8,2049,326,,,,,,false,true,,,Recipe ID 17559406; Portion Code 915; sub-group Toast
+american-diner-breakfast,American Diner Breakfast,All Day Menu,,993,43,80,55,22,,,37,4,4151,536,,,,,,false,true,,,Recipe ID 17557590; Portion Code 1343; sub-group Breakfast
+aussie-avo-smash-bacon,Aussie Avo Smash Bacon,All Day Menu,,875,37,73,45,15,,,12,14,3654,391,,,,,contains_pork,false,true,,,Recipe ID 17558926; Portion Code 490; sub-group Avo Smash
+aussie-avo-smash-naked,Aussie Avo Smash Naked,All Day Menu,,713,28,73,31,9.9,,,12,14,2986,361,,,,,,false,true,,,Recipe ID 17558906; Portion Code 8073; sub-group Avo Smash
+aussie-avo-smash-salmon,Aussie Avo Smash Salmon,All Day Menu,,809,37,74,37,11,,,12,14,3384,401,,,,,,false,true,,,Recipe ID 17558930; Portion Code 1072; sub-group Avo Smash
+big-brekkie,Big Brekkie,All Day Menu,,1210,56,74,75,31,,,16,10,5045,679,,,,,,false,true,,,Recipe ID 17557574; Portion Code 69; sub-group Breakfast
+breakfast-sourdough-roll-with-bacon-and-egg-sauces,Breakfast Sourdough Roll with Bacon & Egg (Sauces),All Day Menu,,606,30,58,28,9.7,,,8.9,2.6,2541,231,,,,,contains_pork,false,true,,,Recipe ID 16654848; Portion Code 1285; sub-group Breakfast Roll
+breakfast-sourdough-roll-with-bacon-sauces,Breakfast Sourdough Roll with Bacon (Sauces),All Day Menu,,525,23,57,22,8.2,,,8.6,2.6,2203,171,,,,,contains_pork,false,true,,,Recipe ID 10566091; Portion Code 1285; sub-group Breakfast Roll
+breakfast-sourdough-roll-with-sausage-and-egg-sauces,Breakfast Sourdough Roll with Sausage & Egg (Sauces),All Day Menu,,675,39,69,26,9.3,,,13,3.4,2835,336,,,,,contains_pork,false,true,,,Recipe ID 16654888; Portion Code 1287; sub-group Breakfast Roll
+breakfast-sourdough-roll-with-sausage-sauces,Breakfast Sourdough Roll with Sausage (Sauces),All Day Menu,,594,32,68,21,7.8,,,13,3.4,2498,276,,,,,contains_pork,false,true,,,Recipe ID 10565995; Portion Code 1287; sub-group Breakfast Roll
+brunch-naanwich-sausage-and-egg,Brunch Naanwich Sausage & Egg,All Day Menu,,1000,43,101,46,15,,,26,4.5,4191,437,,,,,contains_pork,false,true,,,Recipe ID 17581509; Portion Code 1595; sub-group Brunch&nbsp;Naanwich
+burger-bacon-and-brie-chips,Burger Bacon & Brie (Chips),All Day Menu,,1756,60,119,113,36,,,18,12,7314,642,,,,,contains_pork,false,true,,,Recipe ID 17581437; Portion Code 1628; sub-group Burger
+burger-piri-piri-chicken-chips,Burger Piri Piri Chicken (Chips),All Day Menu,,930,56,101,31,4.6,,,11,8.5,3910,507,,,,,,false,true,,,Recipe ID 17581485; Portion Code 11067; sub-group Burger
+caesar-salad,Caesar Salad,All Day Menu,,936,54,31,66,17,,,2.6,2.4,3896,396,,,,,,false,true,,,Recipe ID 10571183; Portion Code 751; sub-group Salad
+chicken-souvlaki,Chicken Souvlaki,All Day Menu,,501,30,39,25,8.7,,,4.2,2.5,2096,245,,,,,,false,true,,,Recipe ID 14654627; Portion Code 1340; sub-group Shakshuka / Souvlaki
+eggs-benny-bacon,Eggs Benny Bacon,All Day Menu,,792,37,63,42,15,,,2.3,4.7,3311,353,,,,,contains_pork,false,true,,,Recipe ID 17558866; Portion Code 910; sub-group Eggs Benny
+eggs-benny-classic-naked,Eggs Benny Classic (Naked),All Day Menu,,603,25,63,27,8.7,,,2.3,4.7,2525,308,,,,,,false,true,,,Recipe ID 17558882; Portion Code 1344; sub-group Eggs Benny
+eggs-benny-mushroom,Eggs Benny Mushroom,All Day Menu,,646,28,63,30,9.2,,,2.3,6.2,2706,388,,,,,,false,true,,,Recipe ID 17558522; Portion Code 911; sub-group Eggs Benny
+eggs-benny-salmon,Eggs Benny Salmon,All Day Menu,,663,33,63,30,9.5,,,2.3,4.7,2777,348,,,,,,false,true,,,Recipe ID 17558874; Portion Code 658; sub-group Eggs Benny
+eggs-your-way-fried,Eggs Your Way - Fried,All Day Menu,,621,25,61,30,9.1,,,1.7,4.3,2600,253,,,,,,false,true,,,Recipe ID 17557650; Portion Code 691; sub-group Eggs Your Way
+eggs-your-way-poached,Eggs Your Way - Poached,All Day Menu,,531,25,61,20,8.4,,,1.7,4.3,2231,253,,,,,,false,true,,,Recipe ID 17557698; Portion Code 693; sub-group Eggs Your Way
+eggs-your-way-scrambled,Eggs Your Way - Scrambled,All Day Menu,,664,28,62,33,16,,,2.5,4.4,2777,293,,,,,,false,true,,,Recipe ID 17557614; Portion Code 692; sub-group Eggs Your Way
+fruity-granola-bowl,Fruity Granola Bowl,All Day Menu,,667,15,69,35,19,,,39,8,2787,351,,,,,,false,true,,,Recipe ID 17558974; Portion Code 1517; sub-group Salad
+huevos-rancheros,Huevos Rancheros,All Day Menu,,889,33,71,50,15,,,19,13,3710,557,,,,,,false,true,,,Recipe ID 17558998; Portion Code 1514; sub-group Salad
+mambonito-chicken-salad-17581493,Mambonito Chicken Salad,All Day Menu,,598,55,37,23,3.6,,,7.1,9.3,2507,452,,,,,,false,true,,,Recipe ID 17581493; Portion Code 1631; sub-group Salad
+mambonito-halloumi-salad,Mambonito Halloumi Salad,All Day Menu,,685,31,38,43,18,,,7.8,8.5,2851,382,,,,,,false,true,,,Recipe ID 17581497; Portion Code 1632; sub-group Salad
+new-york-breakfast-bagel,New York Breakfast Bagel,All Day Menu,,872,39,82,42,14,,,9,5.4,3651,361,,,,,,false,true,,,Recipe ID 14654767; Portion Code 1509; sub-group Bagel
+pancake-stack-3-bacon-and-maple,Pancake Stack (3) - Bacon & Maple,All Day Menu,,809,28,83,40,18,,,42,1.7,3388,297,,,,,contains_pork,false,true,,,Recipe ID 10569471; Portion Code 1249; sub-group Pancakes
+pancake-stack-3-humble-apple-crumble,Pancake Stack (3) - Humble Apple Crumble,All Day Menu,,703,19,96,27,16,,,47,2.8,2955,392,,,,,,false,true,,,Recipe ID 17560322; Portion Code 1633; sub-group Pancakes
+pancake-stack-3-raspberry-and-peach,Pancake Stack (3) - Raspberry & Peach,All Day Menu,,710,19,97,27,15,,,56,2.9,2981,422,,,,,,false,true,,,Recipe ID 17560286; Portion Code 1540; sub-group Pancakes
+pancake-stack-5-bacon-and-maple,Pancake Stack (5) - Bacon & Maple,All Day Menu,,1091,38,115,53,25,,,47,2.9,4570,435,,,,,contains_pork,false,true,,,Recipe ID 10569487; Portion Code 17952; sub-group Pancakes
+pancake-stack-5-humble-apple-crumble,Pancake Stack (5) - Humble Apple Crumble,All Day Menu,,985,28,128,39,23,,,51,3.9,4136,530,,,,,,false,true,,,Recipe ID 17560402; Portion Code 1634; sub-group Pancakes
+pancake-stack-5-raspberry-and-peach,Pancake Stack (5) - Raspberry & Peach,All Day Menu,,992,28,129,39,22,,,61,4.1,4163,560,,,,,,false,true,,,Recipe ID 17560306; Portion Code 8093; sub-group Pancakes
+sausage-and-egg-bagel,Sausage & Egg Bagel,All Day Menu,,969,53,83,46,18,,,22,4.3,4058,446,,,,,contains_pork,false,true,,,Recipe ID 17557602; Portion Code 1202; sub-group Bagel
+sourdough-toast,Sourdough Toast,All Day Menu,,420,8.7,70,11,5.4,,,16,5,1769,151,,,,,,false,true,,,Recipe ID 10583787; Portion Code 8116; sub-group Toast
+turkish-eggs,Turkish Eggs,All Day Menu,,811,32,56,50,12,,,14,5,3383,403,,,,,,false,true,,,Recipe ID 17581489; Portion Code 8016; sub-group Turkish Eggs
+veggie-bagel,Veggie Bagel,All Day Menu,,669,28,69,29,9.1,,,14,7.9,2801,311,,,,,,false,true,,,Recipe ID 14580247; Portion Code 1510; sub-group Bagel
+veggie-brunch,Veggie Brunch,All Day Menu,,1029,37,105,48,14,,,34,16,4307,593,,,,,,false,true,,,Recipe ID 17560246; Portion Code 8081; sub-group Breakfast
+bacon-sourdough-roll-tomato-sauce-brown-sauce,Bacon Sourdough Roll (Tomato Sauce) (Brown Sauce),Breakfast,,552,23,64,22,8.2,,,14,2.6,2318,176,,,,,contains_pork,false,true,,,Recipe ID 11818336; Portion Code 180; sub-group Roll
+brunch-naanwich-bacon-and-egg,Brunch Naanwich Bacon & Egg,Breakfast,,810,28,90,37,11,,,22,3.8,3396,310,,,,,contains_pork,false,true,,,Recipe ID 16814361; Portion Code 1592; sub-group Brunch&nbsp;Naanwich
+brunch-naanwich-chicken-and-nduja,Brunch Naanwich Chicken & Nduja,Breakfast,,707,30,73,32,11,,,3.2,3.4,2962,282,,,,,contains_pork,false,true,,,Recipe ID 16814513; Portion Code 1593; sub-group Brunch&nbsp;Naanwich
+brunch-naanwich-combo,Brunch Naanwich Combo,Breakfast,,1081,48,101,53,18,,,26,4.5,4525,452,,,,,,false,true,,,Recipe ID 16814613; Portion Code 1594; sub-group Brunch&nbsp;Naanwich
+brunch-naanwich-tandoori-chicken,Brunch Naanwich Tandoori Chicken,Breakfast,,644,24,76,26,3.8,,,5.9,3.8,2703,275,,,,,,false,true,,,Recipe ID 16814521; Portion Code 1596; sub-group Brunch&nbsp;Naanwich
+brunch-naanwich-veggie,Brunch Naanwich Veggie,Breakfast,,861,31,99,36,8.1,,,23,7.5,3610,367,,,,,,false,true,,,Recipe ID 16814673; Portion Code 1597; sub-group Brunch&nbsp;Naanwich
+croll-maple-bacon-and-pecan,Croll Maple Bacon & Pecan,Breakfast,,458,11,44,26,12,,,20,1.8,1914,100,,,,,contains_pork,false,true,,,Recipe ID 10871804; Portion Code 1457; sub-group Savoury Croissant
+homemade-sweet-potato-sausage-roll,Homemade Sweet Potato Sausage Roll,Breakfast,,527,13,68,21,9.5,,,18,8.6,2210,234,,,,,contains_pork,false,true,,,Recipe ID 11818528; Portion Code 1337; sub-group Roll
+loaf-lemon-yoghurt,Loaf Lemon Yoghurt,Breakfast,,360,7.1,31,23,2.5,,,24,0.5,1501,111,,,,,,false,false,,,Recipe ID 12104485; Portion Code 1107; sub-group Loaf
+loaf-pumpkin-and-dark-choc-chip-butter,Loaf Pumpkin & Dark Choc Chip (Butter),Breakfast,,787,6.8,80,48,20,,,53,3.4,3284,144,,,,,,false,false,,,Recipe ID 12078213; Portion Code 254; sub-group Loaf
+loaf-raspberry-and-apple-butter,Loaf Raspberry & Apple (Butter),Breakfast,,837,14,106,38,13,,,54,6.5,3506,273,,,,,,false,false,,,Recipe ID 12069877; Portion Code 254; sub-group Loaf
+loaf-rich-banana-butter,Loaf Rich Banana (Butter),Breakfast,,649,8.8,67,38,22,,,30,2.5,2711,149,,,,,,false,false,,,Recipe ID 12104049; Portion Code 630; sub-group Loaf
+mini-frittata-bacon-tomato,Mini Frittata Bacon Tomato,Breakfast,,516,30,9.4,39,15,,,2.5,1.2,2145,259,,,,,contains_pork,false,true,,,Recipe ID 10942722; Portion Code 1441; sub-group Mini Frittata
+mini-frittata-breakfast,Mini Frittata Breakfast,Breakfast,,686,31,41,44,18,,,32,1.3,2860,300,,,,,,false,true,,,Recipe ID 12045869; Portion Code 8935; sub-group Mini Frittata
+mini-frittata-chicken-chorizo-and-roasted-pepper,Mini Frittata Chicken Chorizo & Roasted Pepper,Breakfast,,436,27,4,35,16,,,2.1,0.7,1808,190,,,,,,false,true,,,Recipe ID 10942554; Portion Code 1442; sub-group Mini Frittata
+mini-frittata-ham-cheese-and-tomato,Mini Frittata Ham Cheese & Tomato,Breakfast,,399,27,3.1,31,15,,,2.2,0.8,1659,194,,,,,contains_pork,false,true,,,Recipe ID 10941046; Portion Code 1444; sub-group Mini Frittata
+mini-frittata-pea-spring-onion-and-feta,Mini Frittata Pea Spring Onion & Feta,Breakfast,,339,21,3.2,27,13,,,2.4,0.9,1407,184,,,,,,false,true,,,Recipe ID 10942994; Portion Code 1443; sub-group Mini Frittata
+parcel-brie-and-sticky-fig,Parcel Brie & Sticky Fig,Breakfast,,435,14,42,23,14,,,18,3,1818,117,,,,,,false,true,,,Recipe ID 10877124; Portion Code 1452; sub-group Parcel
+parcel-feta-spinach-and-honey,Parcel Feta Spinach & Honey,Breakfast,,345,15,27,19,12,,,6.1,1.4,1442,104,,,,,,false,true,,,Recipe ID 10876808; Portion Code 1453; sub-group Parcel
+sausage-roll,Sausage Roll,Breakfast,,460,12,37,28,12,,,7.5,3.2,1918,191,,,,,contains_pork,false,true,,,Recipe ID 11818936; Portion Code 13121; sub-group Roll
+savoury-croissant-brie-and-sticky-fig,Savoury Croissant Brie & Sticky Fig,Breakfast,,581,18,44,36,24,,,18,3,2422,184,,,,,,false,true,,,Recipe ID 10921566; Portion Code 1468; sub-group Savoury Croissant
+savoury-croissant-halloumi-tomato-omelette-filled,Savoury Croissant Halloumi Tomato Omelette Filled,Breakfast,,559,22,32,37,21,,,7.5,2.2,2328,234,,,,,,false,true,,,Recipe ID 11818659; Portion Code 293; sub-group Savoury Croissant
+savoury-croissant-italian-ham-cheese-and-tomato,Savoury Croissant Italian Ham Cheese & Tomato,Breakfast,,560,21,35,37,16,,,10,2.4,2334,205,,,,,contains_pork,false,true,,,Recipe ID 10921578; Portion Code 1467; sub-group Savoury Croissant
+savoury-croissant-mortadella-and-mozzarella,Savoury Croissant Mortadella & Mozzarella,Breakfast,,543,17,34,37,15,,,9.4,2.2,2260,177,,,,,contains_pork,false,true,,,Recipe ID 10921586; Portion Code 1466; sub-group Savoury Croissant
+savoury-croissant-new-york-reuben,Savoury Croissant New York Reuben,Breakfast,,571,22,38,36,17,,,9.7,3.6,2381,246,,,,,,false,true,,,Recipe ID 10921602; Portion Code 1469; sub-group Savoury Croissant
+savoury-croissant-omelette-ham-mustard-filled,Savoury Croissant Omelette Ham Mustard Filled,Breakfast,,613,31,33,39,20,,,8,3.1,2556,274,,,,,contains_pork,false,true,,,Recipe ID 11818716; Portion Code 1053; sub-group Savoury Croissant
+vegan-sausage-roll,Vegan Sausage Roll,Breakfast,,405,10,33,25,8.7,,,2.3,4.8,1690,136,,,,,vegetarian,false,true,,,Recipe ID 11818948; Portion Code 1022; sub-group Roll
+bagel-bacon-and-egg,Bagel Bacon & Egg,Breads,,653,33,59,31,12,,,6.3,3,2734,246,,,,,contains_pork,false,true,,,Recipe ID 11817748; Portion Code 1071; sub-group Bagel
+bagel-eggs-florentine,Bagel Eggs Florentine,Breads,,522,28,60,18,3.9,,,6.9,4.3,2196,279,,,,,,false,true,,,Recipe ID 11817784; Portion Code 1200; sub-group Bagel
+bagel-reuben,Bagel Reuben,Breads,,526,24,63,19,5.6,,,7.1,4.2,2209,262,,,,,,false,true,,,Recipe ID 11817840; Portion Code 789; sub-group Bagel
+bagel-turkey-and-brie,Bagel Turkey & Brie,Breads,,502,24,62,17,9.1,,,9.5,3.3,2110,281,,,,,,false,true,,,Recipe ID 11817960; Portion Code 214; sub-group Bagel
+beetroot-wrap-harissa-hummus,Beetroot Wrap Harissa Hummus,Breads,,314,9.2,37,13,2.8,,,6.9,5.7,1317,187,,,,,,false,true,,,Recipe ID 12123293; Portion Code 308; sub-group Beetroot Wrap
+beetroot-wrap-sweet-chilli-chicken,Beetroot Wrap Sweet Chilli Chicken,Breads,,386,17,50,12,2.7,,,22,5.1,1622,269,,,,,,false,true,,,Recipe ID 12117617; Portion Code 13350; sub-group Beetroot Wrap
+beetroot-wrap-tuna-corn-and-green-apple,"Beetroot Wrap Tuna, Corn & Green Apple",Breads,,492,27,46,21,3.4,,,12,5.6,2064,328,,,,,,false,true,,,Recipe ID 12123241; Portion Code 8105; sub-group Beetroot Wrap
+brunch-naanwich-mango-chutney-cheddar-and-spring-onion,Brunch Naanwich Mango Chutney Cheddar & Spring Onion,Breads,,909,34,99,41,20,,,28,4.4,3810,314,,,,,,false,true,,,Recipe ID 11819216; Portion Code 1120; sub-group Brunch Naanwich
+burrito-full-monty,Burrito Full Monty,Breads,,792,28,65,46,12,,,8.2,3.6,3308,316,,,,,,false,true,,,Recipe ID 16814909; Portion Code 1598; sub-group Burrito
+burrito-vegan,Burrito Vegan,Breads,,669,13,114,16,2.5,,,50,9.9,2820,366,,,,,vegetarian,false,true,,,Recipe ID 16814925; Portion Code 1599; sub-group Burrito
+burrito-veggie-brekkie,Burrito Veggie Brekkie,Breads,,720,25,65,39,14,,,8.8,3.6,3011,296,,,,,,false,true,,,Recipe ID 16814941; Portion Code 1600; sub-group Burrito
+ciabatta-bacon-and-egg,Ciabatta Bacon & Egg,Breads,,618,35,52,29,9.3,,,4.7,3.6,2588,271,,,,,contains_pork,false,true,,,Recipe ID 11818052; Portion Code 1229; sub-group Ciabatta
+ciabatta-bacon-brie-and-chilli-jam,Ciabatta Bacon Brie & Chilli Jam,Breads,,808,34,64,45,23,,,17,3.6,3378,246,,,,,contains_pork,false,true,,,Recipe ID 17652061; Portion Code 982; sub-group Ciabatta
+ciabatta-chicken-tikka,Ciabatta Chicken Tikka,Breads,,447,23,55,14,1.9,,,6.7,4.1,1879,211,,,,,,false,true,,,Recipe ID 11818068; Portion Code 983; sub-group Ciabatta
+ciabatta-goats-cheese-and-roasted-pepper,Ciabatta Goats Cheese & Roasted Pepper,Breads,,482,19,57,19,8.6,,,5.6,3.7,2024,218,,,,,,false,true,,,Recipe ID 11818100; Portion Code 998; sub-group Ciabatta
+ciabatta-ham-cheese-tomato-and-mustard-mayo,Ciabatta Ham Cheese Tomato & Mustard Mayo,Breads,,562,30,53,24,9.8,,,5.7,4.9,2356,249,,,,,contains_pork,false,true,,,Recipe ID 17651969; Portion Code 1010; sub-group Ciabatta
+ciabatta-streaky-bacon,Ciabatta Streaky Bacon,Breads,,537,24,51,25,8.9,,,4.1,3.6,2247,166,,,,,contains_pork,false,true,,,Recipe ID 11818136; Portion Code 995; sub-group Ciabatta
+ciabatta-tuna-and-pickled-pink-onion,Ciabatta Tuna & Pickled Pink Onion,Breads,,513,28,58,18,4.6,,,7.8,4.7,2155,247,,,,,,false,true,,,Recipe ID 17652009; Portion Code 1001; sub-group Ciabatta
+deli-sandwich-caprese,Deli Sandwich Caprese,Breads,,518,22,46,27,9.3,,,3.5,2.9,2166,252,,,,,,false,true,,,Recipe ID 14656071; Portion Code 1519; sub-group Deli Sandwich
+deli-sandwich-chorizo-relish-and-chicken,Deli Sandwich Chorizo Relish & Chicken,Breads,,440,29,47,14,4.4,,,5,2.5,1849,207,,,,,contains_pork,false,true,,,Recipe ID 14661999; Portion Code 1520; sub-group Deli Sandwich
+deli-sandwich-italian-job,Deli Sandwich Italian Job,Breads,,676,28,46,41,11,,,3.1,3.6,2819,247,,,,,,false,true,,,Recipe ID 14656055; Portion Code 1521; sub-group Deli Sandwich
+deli-sandwich-spanish-charcuterie,Deli Sandwich Spanish Charcuterie,Breads,,481,24,57,16,5.2,,,15,3.8,2021,252,,,,,,false,true,,,Recipe ID 14656047; Portion Code 1522; sub-group Deli Sandwich
+deli-sandwich-tuna-crunch,Deli Sandwich Tuna Crunch,Breads,,389,27,43,12,1.2,,,1.6,2.4,1639,212,,,,,,false,true,,,Recipe ID 14656039; Portion Code 1523; sub-group Deli Sandwich
+focaccia-mortadella-pesto-and-mozzarella,Focaccia Mortadella Pesto & Mozzarella,Breads,,467,18,34,28,7.6,,,2.4,2,1946,189,,,,,contains_pork,false,true,,,Recipe ID 10877804; Portion Code 1449; sub-group Focaccia
+focaccia-mozzarella-and-pesto,Focaccia Mozzarella & Pesto,Breads,,339,15,37,14,5.3,,,6.4,2,1422,173,,,,,,false,true,,,Recipe ID 10877876; Portion Code 1448; sub-group Focaccia
+focaccia-nduja-and-mozzarella,Focaccia Nduja & Mozzarella,Breads,,426,17,36,23,9.7,,,3.7,2.2,1780,188,,,,,contains_pork,false,true,,,Recipe ID 10877904; Portion Code 1447; sub-group Focaccia
+focaccia-pepperoni-and-mozzarella,Focaccia Pepperoni & Mozzarella,Breads,,346,17,34,15,6.5,,,3.4,2.1,1449,176,,,,,contains_pork,false,true,,,Recipe ID 10877952; Portion Code 1446; sub-group Focaccia
+focaccia-slice-classic-margarita,Focaccia Slice Classic Margarita,Breads,,318,13,35,14,4.7,,,5,2,1333,138,,,,,,false,true,,,Recipe ID 10938914; Portion Code 1461; sub-group Focaccia Slice
+focaccia-slice-pancetta-and-mortadella,Focaccia Slice Pancetta & Mortadella,Breads,,345,17,32,16,6.3,,,2.9,1.8,1447,142,,,,,contains_pork,false,true,,,Recipe ID 10938986; Portion Code 1462; sub-group Focaccia Slice
+focaccia-slice-pepperoni-and-red-pepper,Focaccia Slice Pepperoni & Red Pepper,Breads,,290,14,33,11,4.8,,,3.2,1.9,1217,129,,,,,contains_pork,false,true,,,Recipe ID 10939022; Portion Code 1463; sub-group Focaccia Slice
+focaccia-slice-spicy-nduja-and-sundried-tomato,Focaccia Slice Spicy Nduja & Sundried Tomato,Breads,,330,14,35,15,5.9,,,4.9,1.8,1382,137,,,,,contains_pork,false,true,,,Recipe ID 10939078; Portion Code 1464; sub-group Focaccia Slice
+focaccia-slice-veg-and-olives,Focaccia Slice Veg & Olives,Breads,,302,13,33,13,4.6,,,3,2,1266,159,,,,,,false,true,,,Recipe ID 10938606; Portion Code 1460; sub-group Focaccia Slice
+focaccia-veg-and-mozzarella,Focaccia Veg & Mozzarella,Breads,,423,15,35,24,6.1,,,2.8,1.9,1766,219,,,,,,false,true,,,Recipe ID 10877748; Portion Code 1450; sub-group Focaccia
+hot-honey-and-brie-bagel,Hot Honey & Brie Bagel,Breads,,715,26,81,31,21,,,28,3.1,2998,246,,,,,,false,true,,,Recipe ID 12917524; Portion Code 1500; sub-group Bagel
+sourdough-brie-bacon-jam-and-rocket,"Sourdough Brie, Bacon Jam & Rocket",Breads,,550,19,62,24,13,,,8.5,5.4,2306,216,,,,,contains_pork,false,true,,,Recipe ID 11818260; Portion Code 1230; sub-group Sourdough
+sourdough-brie-chilli-jam-and-spinach,"Sourdough Brie, Chilli Jam & Spinach",Breads,,553,15,77,19,8.2,,,23,5.5,2322,216,,,,,,false,true,,,Recipe ID 11818296; Portion Code 427; sub-group Sourdough
+sourdough-ham-cheese-and-tomato,"Sourdough Ham, Cheese & Tomato",Breads,,517,24,62,18,5.3,,,7.2,6.6,2172,274,,,,,contains_pork,false,true,,,Recipe ID 11818504; Portion Code 558; sub-group Sourdough
+sourdough-nduja-rocket-mozzarella,"Sourdough Nduja, Rocket, Mozzarella",Breads,,917,32,63,58,22,,,5.9,5.6,3821,276,,,,,contains_pork,false,true,,,Recipe ID 11818532; Portion Code 1359; sub-group Sourdough
+sourdough-pesto-chicken,Sourdough Pesto Chicken,Breads,,577,32,64,20,7.2,,,8.1,6.4,2423,311,,,,,,false,true,,,Recipe ID 11818556; Portion Code 1232; sub-group Sourdough
+sourdough-tuna-herb-and-spinach,"Sourdough Tuna, Herb & Spinach",Breads,,508,22,61,18,1.7,,,5.9,5.8,2133,239,,,,,,false,true,,,Recipe ID 11818576; Portion Code 1233; sub-group Sourdough
+spianata-chargrilled-veg-and-feta,Spianata Chargrilled Veg & Feta,Breads,,681,17,59,41,7.7,,,5.1,4.5,2842,329,,,,,,false,true,,,Recipe ID 11818641; Portion Code 181; sub-group Spianata
+spianata-chicken-salsa-verde,Spianata Chicken Salsa Verde,Breads,,615,32,59,27,13,,,4.6,3.9,2577,280,,,,,,false,true,,,Recipe ID 11818836; Portion Code 294; sub-group Spianata
+spianata-chicken-almond-and-herb,"Spianata Chicken, Almond & Herb",Breads,,615,33,60,26,2.7,,,5.4,5,2580,316,,,,,,false,true,,,Recipe ID 11818696; Portion Code 257; sub-group Spianata
+spianata-chicken-chorizo-and-mozzarella,"Spianata Chicken, Chorizo & Mozzarella",Breads,,688,32,57,36,12,,,4.2,3.6,2876,251,,,,,contains_pork,false,true,,,Recipe ID 11818776; Portion Code 8013; sub-group Spianata
+spianata-italian-salami,Spianata Italian Salami,Breads,,569,20,58,28,7,,,3.9,3.4,2383,206,,,,,contains_pork,false,true,,,Recipe ID 11818912; Portion Code 8012; sub-group Spianata
+spianata-mozzarella-tomato-and-basil,"Spianata Mozzarella, Tomato & Basil",Breads,,518,19,57,23,6.5,,,4.1,4.1,2172,226,,,,,,false,true,,,Recipe ID 11818932; Portion Code 8011; sub-group Spianata
+spianata-nduja-mozzarella-and-rocket,"Spianata Nduja, Mozzarella & Rocket",Breads,,658,26,56,36,14,,,2.7,3.3,2751,209,,,,,contains_pork,false,true,,,Recipe ID 11818956; Portion Code 1360; sub-group Spianata
+wrap-this-isnt-chicken-tandoori,Wrap - This Isn't Chicken Tandoori,Breads,,627,23,57,33,5.7,,,7.9,7,2621,278,,,,,,false,true,,,Recipe ID 16815065; Portion Code 1604; sub-group Wrap
+wrap-chicken-shawarma,Wrap Chicken Shawarma,Breads,,706,30,55,40,5.9,,,7.2,2.9,2950,283,,,,,,false,true,,,Recipe ID 16191503; Portion Code 1569; sub-group Plain Tortilla Wrap
+wrap-piri-piri-chicken,Wrap Piri Piri Chicken,Breads,,504,23,54,21,6,,,8.8,2.9,2114,221,,,,,,false,true,,,Recipe ID 12117449; Portion Code 1239; sub-group Plain Tortilla Wrap
+cannelloni-bolognese,Cannelloni - Bolognese,Savoury,,461,25,35,24,12,,,7.3,2.1,1928,234,,,,,,false,true,,,Recipe ID 12113781; Portion Code 1331; sub-group Cannelloni
+cannelloni-verde,Cannelloni - Verde,Savoury,,462,20,37,25,12,,,6.5,3.4,1930,234,,,,,,false,true,,,Recipe ID 12113821; Portion Code 1330; sub-group Cannelloni
+hand-pie-brie-and-caramelised-onion,Hand Pie Brie & Caramelised Onion,Savoury,,579,16,48,35,21,,,14,2.2,2415,187,,,,,,false,true,,,Recipe ID 16191377; Portion Code 1564; sub-group Hand Pie
+hand-pie-brie-and-hot-honey,Hand Pie Brie & Hot Honey,Savoury,,620,15,59,35,21,,,27,1.8,2590,187,,,,,,false,true,,,Recipe ID 16191383; Portion Code 1565; sub-group Hand Pie
+hand-pie-butternut-squash,Hand Pie Butternut Squash,Savoury,,609,17,71,27,14,,,22,5.5,2550,267,,,,,,false,true,,,Recipe ID 11060069; Portion Code 1472; sub-group Hand Pie
+hand-pie-chicken-and-mushroom,Hand Pie Chicken & Mushroom,Savoury,,397,25,30,19,7.9,,,5.2,2.4,1661,222,,,,,,false,true,,,Recipe ID 11019925; Portion Code 1471; sub-group Hand Pie
+hand-pie-chicken-tikka,Hand Pie Chicken Tikka,Savoury,,530,23,47,27,10,,,10,4,2219,248,,,,,,false,true,,,Recipe ID 11076781; Portion Code 1473; sub-group Hand Pie
+hand-pie-korean-pulled-pork,Hand Pie Korean Pulled Pork,Savoury,,468,17,49,22,11,,,15,2.7,1959,177,,,,,contains_pork,false,true,,,Recipe ID 16191389; Portion Code 1566; sub-group Hand Pie
+pasta-salad-greek,Pasta Salad - Greek,Savoury,,392,15,52,12,5.5,,,5.6,5.7,1649,314,,,,,,false,true,,,Recipe ID 11179540; Portion Code 1323; sub-group Pasta Salad
+pasta-salad-pesto-chicken,Pasta Salad - Pesto Chicken,Savoury,,482,28,49,19,8.1,,,5.1,3.3,2026,324,,,,,,false,true,,,Recipe ID 11179532; Portion Code 1324; sub-group Pasta Salad
+pasta-salad-tuna,Pasta Salad - Tuna,Savoury,,468,22,50,19,2,,,5.7,3.9,1963,329,,,,,,false,true,,,Recipe ID 11179520; Portion Code 1323; sub-group Pasta Salad
+pie-butternut-squash-mixed-bean-and-cheese,"Pie Butternut Squash, Mixed Bean & Cheese",Savoury,,670,15,63,38,17,,,4.7,6.9,2796,276,,,,,,false,true,,,Recipe ID 17581501; Portion Code 1626; sub-group Pie
+pie-spicy-cauliflower-and-spinach-balti,Pie Spicy Cauliflower & Spinach Balti,Savoury,,707,14,84,33,15,,,6.5,7.3,2960,301,,,,,,false,true,,,Recipe ID 17581505; Portion Code 1627; sub-group Pie
+pork-sage-and-apple-sausage-roll,Pork Sage & Apple Sausage Roll,Savoury,,723,19,62,43,18,,,19,6,3014,256,,,,,contains_pork,false,true,,,Recipe ID 10788792; Portion Code 1338; sub-group Sausage Roll
+quiche-brie-and-roasted-red-onion,Quiche Brie & Roasted Red Onion,Savoury,,510,20,42,29,15,,,19,2.3,2130,223,,,,,,false,true,,,Recipe ID 15548893; Portion Code 1551; sub-group Quiche
+quiche-cheddar-and-onion,Quiche Cheddar & Onion,Savoury,,580,26,42,34,18,,,19,2.2,2422,236,,,,,,false,true,,,Recipe ID 15548913; Portion Code 1552; sub-group Quiche
+quiche-chorizo,Quiche Chorizo,Savoury,,497,18,48,25,11,,,28,1.9,2079,200,,,,,contains_pork,false,true,,,Recipe ID 15548941; Portion Code 1553; sub-group Quiche
+quiche-goats-cheese-and-beetroot,Quiche Goats Cheese & Beetroot,Savoury,,470,20,40,25,12,,,18,2.3,1964,211,,,,,,false,true,,,Recipe ID 15548949; Portion Code 1554; sub-group Quiche
+quiche-ham-hock,Quiche Ham Hock,Savoury,,508,28,30,31,15,,,9.5,1.7,2122,214,,,,,contains_pork,false,true,,,Recipe ID 15548957; Portion Code 1555; sub-group Quiche
+quiche-med-veg-medley,Quiche Med Veg Medley,Savoury,,477,20,41,25,12,,,19,2.5,1996,230,,,,,,false,true,,,Recipe ID 15548973; Portion Code 1556; sub-group Quiche
+quiche-pea-feta-pesto,Quiche Pea Feta Pesto,Savoury,,500,19,42,28,12,,,18,3.1,2089,218,,,,,,false,true,,,Recipe ID 15548981; Portion Code 1557; sub-group Quiche
+quiche-salmon-and-asparagus,Quiche Salmon & Asparagus,Savoury,,511,18,23,38,11,,,3.3,1.9,2122,206,,,,,,false,true,,,Recipe ID 15549001; Portion Code 1558; sub-group Quiche
+soup-carrot-red-lentil-and-coriander-butter-sourdough,Soup - Carrot Red Lentil & Coriander (Butter) (Sourdough),Savoury,,365,8.7,52,11,5.7,,,12,11,1533,471,,,,,,false,true,,,Recipe ID 12846200; Portion Code 17972; sub-group Soup
+soup-chicken-and-winter-vegetable-butter-sourdough,Soup - Chicken & Winter Vegetable (Butter) (Sourdough),Savoury,,364,14,42,14,6.1,,,13,6.5,1525,471,,,,,,false,true,,,Recipe ID 12846160; Portion Code 17969; sub-group Soup
+soup-pea-and-mint-butter-sourdough,Soup - Pea & Mint (Butter) (Sourdough),Savoury,,482,16,51,21,11,,,16,12,2014,471,,,,,,false,true,,,Recipe ID 12846152; Portion Code 17970; sub-group Soup
+soup-sweet-potato-coconut-and-chilli-butter-sourdough,Soup - Sweet Potato Coconut & Chilli (Butter) (Sourdough),Savoury,,442,7.1,56,19,13,,,15,9.3,1849,471,,,,,,false,true,,,Recipe ID 12846192; Portion Code 17973; sub-group Soup
+soup-tomato-and-basil-butter-sourdough,Soup - Tomato & Basil (Butter) (Sourdough),Savoury,,420,7.9,48,21,8.9,,,16,6.5,1756,471,,,,,,false,true,,,Recipe ID 12846168; Portion Code 17971; sub-group Soup
+soup-wild-mushroom-butter-sourdough,Soup - Wild Mushroom (Butter) (Sourdough),Savoury,,429,9.1,46,21,6.1,,,7.2,8.1,1792,471,,,,,,false,true,,,Recipe ID 12846188; Portion Code 768; sub-group Soup
+stack-tortilla-chicken-and-ham,Stack Tortilla Chicken & Ham,Savoury,,400,24,29,20,9.6,,,6.4,2.2,1675,208,,,,,contains_pork,false,true,,,Recipe ID 10957666; Portion Code 15206; sub-group Tortilla Stack
+tart-glazed-beetroot-and-goats-cheese,Tart Glazed Beetroot & Goats Cheese,Savoury,,538,20,25,39,18,,,6.7,2.3,2236,235,,,,,,false,true,,,Recipe ID 11819960; Portion Code 1180; sub-group Savoury Tart
+yorkshire-bbq-pulled-pork-and-apple-sauce,Yorkshire BBQ Pulled Pork & Apple Sauce,Savoury,,681,26,102,18,3.3,,,39,2.8,2872,361,,,,,contains_pork,false,true,,,Recipe ID 12116973; Portion Code 1439; sub-group Yorkshire
+yorkshire-cauliflower-cheese-and-caramelised-onion,Yorkshire Cauliflower Cheese & Caramelised Onion,Savoury,,673,19,81,30,11,,,14,2.6,2821,346,,,,,,false,true,,,Recipe ID 12117017; Portion Code 1438; sub-group Yorkshire
+yorkshire-chicken-roast,Yorkshire Chicken Roast,Savoury,,571,20,85,16,2.1,,,6,3.6,2404,286,,,,,,false,true,,,Recipe ID 12117069; Portion Code 1435; sub-group Yorkshire
+yorkshire-chicken-tikka-and-onion-bhaji,Yorkshire Chicken Tikka & Onion Bhaji,Savoury,,669,21,97,21,3.3,,,25,4.4,2813,333,,,,,,false,true,,,Recipe ID 12117189; Portion Code 1440; sub-group Yorkshire
+yorkshire-greek-gyros,Yorkshire Greek Gyros,Savoury,,738,24,82,34,5.4,,,4.7,3.8,3090,341,,,,,,false,true,,,Recipe ID 12117137; Portion Code 1436; sub-group Yorkshire
+yorkshire-korean-pulled-pork,Yorkshire Korean Pulled Pork,Savoury,,635,24,88,20,3.5,,,22,4,2672,322,,,,,contains_pork,false,true,,,Recipe ID 16191437; Portion Code 1570; sub-group Yorkshire
+apple-crumble-waffle,Apple Crumble Waffle,Seasonal,,675,10,94,28,16,,,61,3.1,2833,281,,,,,,true,true,,,Recipe ID 16191161; Portion Code 1562; sub-group Waffle
+burger-new-york-reuben-chips,Burger New York Reuben (Chips),Seasonal,,1572,57,112,96,30,,,12,13,6554,637,,,,,,true,true,,,Recipe ID 17581465; Portion Code 1629; sub-group Burger
+burger-the-ultimate-cheeseburger-chips,Burger The Ultimate Cheeseburger (Chips),Seasonal,,1399,52,117,78,27,,,16,12,5843,592,,,,,,true,true,,,Recipe ID 17581481; Portion Code 1630; sub-group Burger
+korean-gochujang-chicken-waffle-17695024,Korean Gochujang Chicken Waffle,Seasonal,,707,23,76,34,13,,,41,3.6,2961,301,,,,,,true,true,,,Recipe ID 17695024; Portion Code 1563; sub-group Waffle
+korean-gochujang-chicken-waffle-14642515,Korean Gochujang Chicken Waffle,Seasonal,,685,23,71,34,13,,,36,3.7,2869,303,,,,,,true,true,,,Recipe ID 14642515; Portion Code 1536; sub-group Waffle
+vintage-burger-chips,Vintage Burger (Chips),Seasonal,,1264,44,102,73,24,,,14,10,5275,546,,,,,,true,true,,,Recipe ID 11088945; Portion Code 197; sub-group Burger
+kids-babyccino,Kids Babyccino,Kids Corner,,49,2.2,4.9,2.2,1.3,,,4.9,0,204,63,,,,,,false,false,,,Recipe ID 10584707; Portion Code 34; sub-group Kids Drinks
+kids-breaded-chicken-and-chips,Kids Breaded Chicken & Chips,Kids Corner,,422,15,49,17,3.3,,,3.2,5.2,1768,242,,,,,,false,false,,,Recipe ID 17560566; Portion Code 1610; sub-group Kids Food
+kids-ciao-bella-pasta,Kids Ciao Bella Pasta,Kids Corner,,378,14,30,22,6,,,4,5,1575,251,,,,,,false,false,,,Recipe ID 17581457; Portion Code 1637; sub-group Kids Food
+kids-egg-on-toast-fried,Kids Egg on Toast (Fried),Kids Corner,,251,12,22,12,2.4,,,2.2,1.6,1051,111,,,,,,false,false,,,Recipe ID 17581333; Portion Code 663; sub-group Kids Food
+kids-egg-on-toast-poached,Kids Egg on Toast (Poached),Kids Corner,,206,12,22,7.2,2.1,,,2.2,1.6,867,111,,,,,,false,false,,,Recipe ID 17581377; Portion Code 663; sub-group Kids Food
+kids-egg-on-toast-scrambled,Kids Egg on Toast (Scrambled),Kids Corner,,254,13,23,12,5.2,,,2.5,1.7,1063,121,,,,,,false,false,,,Recipe ID 17581321; Portion Code 663; sub-group Kids Food
+kids-mac-n-cheese,Kids Mac 'n' Cheese,Kids Corner,,293,15,38,8.9,4.6,,,6,1.5,1232,261,,,,,,false,false,,,Recipe ID 14655631; Portion Code 1530; sub-group Kids Food
+kids-minishake-banana,Kids Minishake Banana,Kids Corner,,167,5.4,23,6.2,4.2,,,21,0,704,165,,,,,,false,false,,,Recipe ID 10584799; Portion Code 8083; sub-group Kids Drinks
+kids-minishake-chocolate,Kids Minishake Chocolate,Kids Corner,,178,5.5,25,6.3,4.2,,,19,0,748,165,,,,,,false,false,,,Recipe ID 10584819; Portion Code 8086; sub-group Kids Drinks
+kids-minishake-strawberry,Kids Minishake Strawberry,Kids Corner,,162,5.4,21,6.2,4.2,,,19,0,680,165,,,,,,false,false,,,Recipe ID 10584843; Portion Code 8088; sub-group Kids Drinks
+kids-minishake-vanilla,Kids Minishake Vanilla,Kids Corner,,171,5.3,23,6.2,4.2,,,22,0,718,165,,,,,,false,false,,,Recipe ID 10584867; Portion Code 8085; sub-group Kids Drinks
+kids-pancake-stack-2-banana-and-maple,Kids Pancake Stack (2) - Banana & Maple,Kids Corner,,371,10,53,13,7,,,25,1.6,1558,194,,,,,,false,false,,,Recipe ID 10584171; Portion Code 17953; sub-group Kids Food
+kids-pancake-stack-2-nutella,Kids Pancake Stack (2) - Nutella,Kids Corner,,498,12,55,25,11,,,27,2.4,2083,179,,,,,,false,false,,,Recipe ID 14655455; Portion Code 1531; sub-group Kids Food
+kids-side-baked-beans,Kids Side - Baked Beans,Kids Corner,,57,2.4,7.7,1.4,0.1,,,2.2,1.9,239,56,,,,,,false,false,,,Recipe ID 10584519; Portion Code 953; sub-group Kids Food
+kids-side-ham,Kids Side - Ham,Kids Corner,,78,10,0.7,3.7,1.1,,,0,0,328,50,,,,,contains_pork,false,false,,,Recipe ID 10584643; Portion Code 951; sub-group Kids Food
+kids-side-hash-brown,Kids Side - Hash Brown,Kids Corner,,95,1,11,5,0.3,,,0,1.2,398,56,,,,,,false,false,,,Recipe ID 14684983; Portion Code 1532; sub-group Kids Food
+kids-side-old-english-pork-sausage,Kids Side - Old English Pork Sausage,Kids Corner,,164,11,5.5,11,3.8,,,2,0.5,685,76,,,,,contains_pork,false,false,,,Recipe ID 17581361; Portion Code 950; sub-group Kids Food
+kids-side-turkey-ham-halal-ingredients,Kids Side - Turkey Ham (Halal ingredients),Kids Corner,,70,9.3,0.5,3.5,1.1,,,0,0,294,50,,,,,,false,false,,,Recipe ID 14885428; Portion Code 951; sub-group Kids Food
+kids-toastie-cheese,Kids Toastie Cheese,Kids Corner,,408,19,44,16,9.1,,,3.8,3.2,1710,141,,,,,,false,false,,,Recipe ID 17581357; Portion Code 947; sub-group Kids Food
+kids-toastie-ham,Kids Toastie Ham,Kids Corner,,294,17,44,4.7,1.5,,,3.8,3.4,1242,139,,,,,contains_pork,false,false,,,Recipe ID 17581349; Portion Code 870; sub-group Kids Food
+kids-toastie-ham-and-cheese,Kids Toastie Ham & Cheese,Kids Corner,,451,27,44,18,9.5,,,3.8,3.4,1892,179,,,,,contains_pork,false,false,,,Recipe ID 17581337; Portion Code 8099; sub-group Kids Food
+kids-toastie-turkey-ham-halal-ingredients,Kids Toastie Turkey Ham (Halal ingredients),Kids Corner,,305,17,50,3.2,1.1,,,1.1,2.8,1292,151,,,,,,false,false,,,Recipe ID 14913148; Portion Code 870; sub-group Kids Food
+side-baked-beans-110g,Side - Baked Beans (110g),Sides,,105,4.8,15,1.8,0.2,,,4.4,3.9,440,111,,,,,,false,false,,,Recipe ID 10579463; Portion Code 920; sub-group Side
+side-cheesy-sriracha-chips,Side - Cheesy Sriracha Chips,Sides,,795,21,80,42,12,,,4.7,7.3,3321,377,,,,,,false,false,,,Recipe ID 17581429; Portion Code 1635; sub-group Side
+side-chunky-chips-200g,Side - Chunky Chips (200g),Sides,,395,5.5,53,17,1.5,,,1.3,4.8,1653,202,,,,,,false,false,,,Recipe ID 17560454; Portion Code 933; sub-group Side
+side-eggs-120g,Side - Eggs (120g),Sides,,171,16,0.6,12,3.1,,,0.6,0,712,121,,,,,,false,false,,,Recipe ID 10579759; Portion Code 185; sub-group Side
+side-hash-browns-110g,Side - Hash Browns (110g),Sides,,181,2.1,22,8.9,0.6,,,0.5,2.4,759,111,,,,,,false,false,,,Recipe ID 10579443; Portion Code 666; sub-group Side
+side-old-english-pork-sausages-150g,Side - Old English Pork Sausages (150g),Sides,,320,23,11,21,7.6,,,3.9,0.8,1333,151,,,,,contains_pork,false,false,,,Recipe ID 17581525; Portion Code 914; sub-group Side
+side-onion-rings-130g,Side - Onion Rings (130g),Sides,,338,4.1,32,21,1.5,,,4.8,2.1,1411,130,,,,,,false,false,,,Recipe ID 17581413; Portion Code 1636; sub-group Side
+side-plant-based-sausages-80g,Side - Plant Based Sausages (80g),Sides,,181,11,8.5,11,0.8,,,1,3.7,753,81,,,,,vegetarian,false,false,,,Recipe ID 17667413; Portion Code 1638; sub-group Side
+side-plum-tomatoes-94g,Side - Plum Tomatoes (94g),Sides,,47,0.7,5.1,2.4,0.2,,,5.1,1,195,94,,,,,,false,false,,,Recipe ID 14685835; Portion Code 669; sub-group Side
+side-portobello-mushroom-50g,Side - Portobello Mushroom (50g),Sides,,36,1.5,0,3.1,0.4,,,0,0.9,150,51,,,,,,false,false,,,Recipe ID 10579931; Portion Code 1252; sub-group Side
+cinnamon-and-maple-bun,Cinnamon & Maple Bun,Pastries,,460,5.8,70,17,7.2,,,40,2.6,1931,96,,,,,,false,false,,,Recipe ID 10877228; Portion Code 1451; sub-group Bun
+pastry-apricot-crown,Pastry Apricot Crown,Pastries,,348,4.5,34,21,8.5,,,12,1.3,1451,66,,,,,,false,false,,,Recipe ID 11818316; Portion Code 179; sub-group Pastry
+pastry-chocolate-twist,Pastry Chocolate Twist,Pastries,,269,4.8,35,12,8.1,,,15,2,1127,70,,,,,,false,false,,,Recipe ID 11817828; Portion Code 8075; sub-group Pastry
+pastry-cinnamon-swirl,Pastry Cinnamon Swirl,Pastries,,382,4.9,40,22,9.5,,,16,0.7,1596,67,,,,,,false,false,,,Recipe ID 11817880; Portion Code 8077; sub-group Pastry
+pastry-pain-au-chocolat,Pastry Pain au Chocolat,Pastries,,304,6.3,33,16,11,,,9.8,2.3,1269,58,,,,,,false,false,,,Recipe ID 11817956; Portion Code 8076; sub-group Pastry
+pastry-pecan-and-maple-plait,Pastry Pecan & Maple Plait,Pastries,,426,5.4,43,26,9.5,,,15,1.1,1777,74,,,,,,false,false,,,Recipe ID 11817948; Portion Code 176; sub-group Pastry
+pastry-vanilla-cr-me-crown,Pastry Vanilla Crème Crown,Pastries,,348,4.5,34,21,8.5,,,12,1.3,1451,66,,,,,,false,false,,,Recipe ID 11818300; Portion Code 178; sub-group Pastry
+sticky-toffee-sinner-bun-cream-cheese,Sticky Toffee Sinner Bun (Cream Cheese),Pastries,,612,6.3,91,24,11,,,59,2.7,2568,121,,,,,,false,false,,,Recipe ID 16465847; Portion Code 1580; sub-group Bun
+bran-muffin-apple-berry-mixed-berries,Bran Muffin Apple Berry (Mixed Berries),Muffins,,541,8.1,73,24,4,,,38,0.6,2270,137,,,,,,false,false,,,Recipe ID 12111505; Portion Code 17846; sub-group Bran Muffin
+bran-muffin-apple-raisin,Bran Muffin Apple Raisin,Muffins,,547,8.1,74,24,3.9,,,39,0.5,2293,131,,,,,,false,false,,,Recipe ID 12111557; Portion Code 178953; sub-group Bran Muffin
+bran-muffin-banana-walnut,Bran Muffin Banana Walnut,Muffins,,562,8.5,74,26,4.1,,,39,0.6,2358,137,,,,,,false,false,,,Recipe ID 12111161; Portion Code 17847; sub-group Bran Muffin
+bran-muffin-blueberry-lemon,Bran Muffin Blueberry Lemon,Muffins,,541,8.2,72,24,4,,,37,1.2,2270,144,,,,,,false,false,,,Recipe ID 12111605; Portion Code 17849; sub-group Bran Muffin
+bran-muffin-carrot-apple,Bran Muffin Carrot Apple,Muffins,,544,8.1,73,24,4,,,38,0.8,2283,140,,,,,,false,false,,,Recipe ID 12111269; Portion Code 17850; sub-group Bran Muffin
+bran-muffin-mixed-berry,Bran Muffin Mixed Berry,Muffins,,536,8,71,24,3.9,,,37,0.5,2249,134,,,,,,false,false,,,Recipe ID 12111533; Portion Code 17851; sub-group Bran Muffin
+bran-muffin-pineapple-coconut,Bran Muffin Pineapple Coconut,Muffins,,557,8.2,72,26,5.5,,,37,0.8,2334,130,,,,,,false,false,,,Recipe ID 12111581; Portion Code 17852; sub-group Bran Muffin
+grain-muffin-banana-dark-choc,Grain Muffin Banana Dark Choc,Muffins,,800,13,107,34,12,,,56,7.2,3354,185,,,,,,false,false,,,Recipe ID 12111921; Portion Code 73; sub-group Grain Muffin
+grain-muffin-cherry-and-white-choc,Grain Muffin Cherry & White Choc,Muffins,,689,12,92,30,9.3,,,43,2.6,2888,183,,,,,,false,false,,,Recipe ID 12113281; Portion Code 245; sub-group Grain Muffin
+muffin-lemon-sugar,Muffin Lemon Sugar,Muffins,,560,8,67,28,17,,,26,1.7,2345,140,,,,,,false,false,,,Recipe ID 12113513; Portion Code 13309; sub-group Muffin
+muffin-mixed-berry-and-yoghurt,Muffin Mixed Berry & Yoghurt,Muffins,,503,13,69,18,2.4,,,24,3.8,2114,147,,,,,,false,false,,,Recipe ID 12113405; Portion Code 8162; sub-group Muffin
+scone-blackberry-and-lime-butter,Scone Blackberry & Lime (Butter),Muffins,,498,7.5,64,23,13,,,9.2,4.2,2088,158,,,,,,false,false,,,Recipe ID 12114609; Portion Code 1356; sub-group Scone
+scone-blueberry-and-lemon-lemon-curd,Scone Blueberry & Lemon (Lemon Curd),Muffins,,527,7.8,101,9.4,3.6,,,45,4.1,2225,201,,,,,,false,false,,,Recipe ID 12114421; Portion Code 1109; sub-group Scone
+scone-courgette-and-cheddar-butter,Scone Courgette & Cheddar (Butter),Muffins,,521,12,51,30,17,,,6.7,2.1,2177,141,,,,,,false,false,,,Recipe ID 12114653; Portion Code 1028; sub-group Scone
+br-cake-lemon-drizzle,BR Cake Lemon Drizzle,Cakes,,709,9.4,107,27,5.7,,,73,1.5,2979,192,,,,,,false,false,,,Recipe ID 11819212; Portion Code 8068; sub-group BR Cake
+br-cake-pumpkin-and-ginger,BR Cake Pumpkin & Ginger,Cakes,,333,3.7,47,14,1.8,,,34,0.7,1398,90,,,,,,false,false,,,Recipe ID 11819228; Portion Code 1150; sub-group BR Cake
+br-cake-sticky-choc-orange,BR Cake Sticky Choc Orange,Cakes,,548,5.6,67,29,8.2,,,46,1,2292,137,,,,,,false,false,,,Recipe ID 11819248; Portion Code 131; sub-group BR Cake
+br-cake-vegan-salted-caramel,BR Cake Vegan Salted Caramel,Cakes,,716,4.7,97,34,8.1,,,66,3.4,3000,162,,,,,vegetarian,false,false,,,Recipe ID 11819256; Portion Code 17991; sub-group BR Cake
+bundt-cake-apple-and-caramel,Bundt Cake Apple & Caramel,Cakes,,559,5.7,68,29,4,,,46,1.6,2340,141,,,,,,false,false,,,Recipe ID 11833805; Portion Code 465; sub-group Cake Made
+bundt-cake-double-chocolate,Bundt Cake Double Chocolate,Cakes,,707,7.6,78,40,9.9,,,56,4,2955,155,,,,,,false,false,,,Recipe ID 11929269; Portion Code 464; sub-group Cake Made
+cake-apple,Cake Apple,Cakes,,580,6.2,65,32,6.3,,,42,3.3,2422,141,,,,,,false,false,,,Recipe ID 11839585; Portion Code 13800; sub-group Cake Made
+cake-carrot-and-pumpkin-seed,Cake Carrot & Pumpkin Seed,Cakes,,614,8.4,65,35,6.2,,,46,2.7,2565,139,,,,,,false,false,,,Recipe ID 11880065; Portion Code 14605; sub-group Cake Made
+cake-chocolate-guinness,Cake Chocolate Guinness,Cakes,,460,5.9,48,26,6.3,,,32,2.3,1920,129,,,,,,false,false,,,Recipe ID 11908289; Portion Code 573; sub-group Cake Made
+cake-chocolate-mud,Cake Chocolate Mud,Cakes,,563,6.8,57,33,11,,,40,3.3,2349,140,,,,,,false,false,,,Recipe ID 11914993; Portion Code 238; sub-group Cake Made
+cake-coffee-walnut,Cake Coffee Walnut,Cakes,,780,7.4,83,46,7.7,,,64,1.2,3256,155,,,,,,false,false,,,Recipe ID 10957266; Portion Code 13801; sub-group Cake Made
+cake-dark-chocolate-and-walnut-brownie,Cake Dark Chocolate & Walnut Brownie,Cakes,,678,8,55,47,23,,,53,2.5,2820,140,,,,,,false,false,,,Recipe ID 10743255; Portion Code 1078; sub-group Cake Made
+cake-dark-chocolate-and-walnut-brownie-ice-cream,Cake Dark Chocolate & Walnut Brownie (Ice Cream),Cakes,,772,10,67,51,27,,,63,2.5,3215,200,,,,,,false,false,,,Recipe ID 10743607; Portion Code 1078; sub-group Cake Made
+cake-dubai-chocolate,Cake Dubai Chocolate,Cakes,,582,9.2,63,32,6.8,,,41,5.6,2433,142,,,,,,false,false,,,Recipe ID 15299442; Portion Code 1542; sub-group Cake Made
+cake-hummingbird,Cake Hummingbird,Cakes,,551,6.9,55,33,5.8,,,41,1.7,2300,137,,,,,,false,false,,,Recipe ID 11932745; Portion Code 1351; sub-group Cake Made
+cake-orange-and-almond,Cake Orange & Almond,Cakes,,439,13,42,23,2.4,,,41,4.1,1836,181,,,,,,false,false,,,Recipe ID 10750087; Portion Code 13802; sub-group Cake Made
+cake-pear-and-chocolate,Cake Pear & Chocolate,Cakes,,648,9,50,45,22,,,47,5.1,2697,157,,,,,,false,false,,,Recipe ID 11898697; Portion Code 1353; sub-group Cake Made
+cake-raspberry-and-matcha,Cake Raspberry & Matcha,Cakes,,718,7.1,92,35,5.8,,,68,1.6,3006,166,,,,,,false,false,,,Recipe ID 15300418; Portion Code 1543; sub-group Cake Made
+cake-red-velvet,Cake Red Velvet,Cakes,,848,11,103,43,9.7,,,71,2,3548,171,,,,,,false,false,,,Recipe ID 10750187; Portion Code 8029; sub-group Cake Made
+cake-zucchini-and-lime,Cake Zucchini & Lime,Cakes,,677,10,63,42,6.8,,,45,1.7,2825,144,,,,,,false,false,,,Recipe ID 11936933; Portion Code 1352; sub-group Cake Made
+cheesecake-gold-chocolate,Cheesecake Gold Chocolate,Cakes,,622,8,42,47,29,,,34,0.6,2584,147,,,,,,false,false,,,Recipe ID 11939645; Portion Code 458; sub-group Cheesecake
+pistachio-cheesecake,Pistachio Cheesecake,Cakes,,784,6.7,48,63,33,,,39,1.3,3252,156,,,,,,false,false,,,Recipe ID 12731547; Portion Code 1488; sub-group Cheesecake
+slice-apricot-crumble,Slice Apricot Crumble,Cakes,,465,5.1,69,18,10,,,43,3.5,1950,110,,,,,,false,false,,,Recipe ID 16814121; Portion Code 1605; sub-group Slice Made
+slice-chewy-chocolate-and-coconut,Slice Chewy Chocolate & Coconut,Cakes,,226,2.5,29,11,7.1,,,22,2,946,49,,,,,,false,false,,,Recipe ID 16814281; Portion Code 1606; sub-group Slice Made
+slice-florentine,Slice Florentine,Cakes,,288,4.1,45,9.6,4.8,,,39,3,1211,71,,,,,,false,false,,,Recipe ID 16814145; Portion Code 1607; sub-group Slice Made
+slice-lemon-coconut,Slice Lemon Coconut,Cakes,,586,4.4,71,31,21,,,60,3,2450,144,,,,,,false,false,,,Recipe ID 10940198; Portion Code 1465; sub-group Slice Made
+slice-pistachio-rocky-road,Slice Pistachio Rocky Road,Cakes,,383,3.9,35,25,13,,,30,0.8,1595,70,,,,,,false,false,,,Recipe ID 16814177; Portion Code 1608; sub-group Slice Made
+slice-raspberry-coconut,Slice Raspberry Coconut,Cakes,,393,5.2,38,24,14,,,22,2.3,1638,95,,,,,,false,false,,,Recipe ID 11890409; Portion Code 13806; sub-group Slice Made
+br-tray-bake-carrot-and-pistachio,BR Tray Bake Carrot & Pistachio,Confectionery,,413,2.8,56,19,3,,,39,3.2,1728,101,,,,,,false,false,,,Recipe ID 11819360; Portion Code 17981; sub-group BR Tray Bake
+cardamom-and-rose-knot-pastry,Cardamom & Rose Knot Pastry,Confectionery,,268,4.3,51,4.8,0.6,,,33,1.5,1134,71,,,,,,false,false,,,Recipe ID 17581517; Portion Code 1625; sub-group Pastries
+cookie-choc-chip,Cookie Choc Chip,Confectionery,,271,2.4,29,16,6.3,,,17,0.7,1130,52,,,,,,false,false,,,Recipe ID 11818992; Portion Code 1201; sub-group Cookie
+cookie-double-choc-chip,Cookie Double Choc Chip,Confectionery,,266,2.4,27,16,6.4,,,18,1.5,1112,35,,,,,,false,false,,,Recipe ID 11819048; Portion Code 2621; sub-group Cookie
+cookie-raspberry-and-white-chocolate,Cookie Raspberry & White Chocolate,Confectionery,,376,3.4,42,22,9.7,,,26,0.6,1570,49,,,,,,false,false,,,Recipe ID 11819040; Portion Code 1155; sub-group Cookie
+cookie-white-choc-chunk,Cookie White Choc Chunk,Confectionery,,277,2.4,29,17,6.8,,,19,0.5,1155,35,,,,,,false,false,,,Recipe ID 11819024; Portion Code 8104; sub-group Cookie
+croissant-almond,Croissant Almond,Confectionery,,338,10,32,18,10,,,14,2.1,1411,96,,,,,,false,false,,,Recipe ID 11817768; Portion Code 9075; sub-group Sweet Croissant
+croissant-butter-jam-butter,Croissant Butter (Jam) (Butter),Confectionery,,485,7.5,50,28,19,,,18,2.1,2026,99,,,,,,false,false,,,Recipe ID 11817900; Portion Code 972; sub-group Sweet Croissant
+croissant-pistachio,Croissant Pistachio,Confectionery,,362,6.7,38,20,12,,,15,1.6,1514,71,,,,,,false,false,,,Recipe ID 11091453; Portion Code 1475; sub-group Sweet Croissant
+croll-nutella-and-honey,Croll Nutella & Honey,Confectionery,,616,10,65,34,15,,,41,3.3,2572,100,,,,,,false,false,,,Recipe ID 10875912; Portion Code 1456; sub-group Sweet Croissant
+cruffin-blueberry-cheesecake,Cruffin Blueberry Cheesecake,Confectionery,,393,7.2,53,17,12,,,28,1.6,1648,92,,,,,,false,false,,,Recipe ID 11950809; Portion Code 1357; sub-group Cruffin
+cruffin-custard-raspberry-jam,Cruffin Custard Raspberry Jam,Confectionery,,374,6.6,59,12,8.8,,,33,1.9,1572,107,,,,,,false,false,,,Recipe ID 11952961; Portion Code 468; sub-group Cruffin
+cruffin-hazelnut,Cruffin Hazelnut,Confectionery,,359,6.8,42,18,11,,,17,3.2,1502,74,,,,,,false,false,,,Recipe ID 11959009; Portion Code 1434; sub-group Cruffin
+cruffin-lemon-curd,Cruffin Lemon Curd,Confectionery,,428,5.6,70,14,9.4,,,46,1.3,1800,92,,,,,,false,false,,,Recipe ID 11954725; Portion Code 1358; sub-group Cruffin
+cruffin-tiramisu,Cruffin Tiramisu,Confectionery,,604,9.2,65,34,21,,,30,2.1,2525,145,,,,,,false,false,,,Recipe ID 16465587; Portion Code 1579; sub-group Cruffin
+duffin-banoffee,Duffin Banoffee,Confectionery,,643,8.2,90,27,17,,,53,2.1,2697,139,,,,,,false,false,,,Recipe ID 11956477; Portion Code 1445; sub-group Duffin
+flapjack-apricot-and-date-maple,Flapjack Apricot & Date Maple,Confectionery,,306,3.2,39,15,8.4,,,26,2.7,1279,68,,,,,,false,false,,,Recipe ID 16814233; Portion Code 1602; sub-group Flapjack
+flapjack-date-and-pistachio,Flapjack Date & Pistachio,Confectionery,,463,6.6,52,24,11,,,38,3.8,1937,102,,,,,,false,false,,,Recipe ID 11889773; Portion Code 1355; sub-group Flapjack
+flapjack-love-bar,Flapjack Love Bar,Confectionery,,493,8.9,67,20,7,,,50,5.7,2069,115,,,,,,false,false,,,Recipe ID 11886753; Portion Code 1354; sub-group Flapjack
+loaded-cookie-dubai-chocolate,Loaded Cookie Dubai Chocolate,Confectionery,,745,8.6,95,35,15,,,53,6.2,3117,140,,,,,,false,false,,,Recipe ID 15550197; Portion Code 1559; sub-group Cookie
+pastel-de-nata,Pastel De Nata,Confectionery,,168,2.6,22,7.5,3.5,,,13,0.6,706,50,,,,,,false,false,,,Recipe ID 17581521; Portion Code 1624; sub-group Sweet tart
+sweet-tart-blueberry-bakewell,Sweet Tart Blueberry Bakewell,Confectionery,,784,14,69,50,19,,,55,3.8,3268,156,,,,,,false,false,,,Recipe ID 12123645; Portion Code 574; sub-group Sweet Tart
+sweet-tart-chocolate-coconut,Sweet Tart Chocolate Coconut,Confectionery,,579,7.7,57,34,21,,,41,5.9,2416,139,,,,,,false,false,,,Recipe ID 12123765; Portion Code 457; sub-group Sweet Tart
+sweet-tart-cornflake,Sweet Tart Cornflake,Confectionery,,391,3.2,62,14,8.2,,,39,2.3,1643,73,,,,,,false,false,,,Recipe ID 12731795; Portion Code 1486; sub-group Sweet Tart
+sweet-tart-cranberry-and-white-choc-tart,Sweet Tart Cranberry & White Choc Tart,Confectionery,,503,7.5,61,25,12,,,43,1.9,2106,110,,,,,,false,false,,,Recipe ID 12124209; Portion Code 916; sub-group Sweet Tart
+sweet-tart-pistachio,Sweet Tart Pistachio,Confectionery,,495,4.8,53,29,14,,,38,1.2,2068,71,,,,,,false,false,,,Recipe ID 12731691; Portion Code 1487; sub-group Sweet Tart
+turnover-custard-and-blackberry-apple,Turnover Custard & Blackberry Apple,Confectionery,,313,5.4,41,14,6.9,,,16,2,1311,106,,,,,,false,false,,,Recipe ID 10876028; Portion Code 1454; sub-group Turnover
+turnover-custard-and-strawberry,Turnover Custard & Strawberry,Confectionery,,319,5.4,43,14,6.9,,,17,1.9,1338,106,,,,,,false,false,,,Recipe ID 10876008; Portion Code 1455; sub-group Turnover
+turnover-toffee-apple,Turnover Toffee Apple,Confectionery,,603,9.6,78,27,14,,,33,2.8,2527,214,,,,,,false,false,,,Recipe ID 11076941; Portion Code 1470; sub-group Turnover
+caramel-latte-matcha-medium,Caramel Latte Matcha Medium,Hot Drinks,,242,9.5,28,10,5.8,,,28,0,1015,302,,,,,,false,false,,,Recipe ID 18216514; Portion Code 1528; sub-group Hot Drink
+caramel-latte-matcha-large,Caramel Latte Matcha Large,Hot Drinks,,358,14,42,15,8.5,,,42,0.5,1503,445,,,,,,false,false,,,Recipe ID 18216618; Portion Code 1527; sub-group Hot Drink
+chai-latte-medium,Chai Latte Medium,Hot Drinks,,267,9,37,9.2,5.3,,,33,0.5,1122,305,,,,,,false,false,,,Recipe ID 10602327; Portion Code 5006; sub-group Hot Drink
+chai-latte-large,Chai Latte Large,Hot Drinks,,391,13,54,13,7.7,,,48,0.5,1646,445,,,,,,false,false,,,Recipe ID 10602259; Portion Code 5007; sub-group Hot Drink
+gingerbread-hot-choc-medium-cream,Gingerbread Hot Choc Medium (Cream),Hot Drinks,,338,10,37,16,10,,,36,1.8,1414,305,,,,,,false,false,,,Recipe ID 10601707; Portion Code 522; sub-group Hot Chocolate
+gingerbread-hot-choc-large-cream,Gingerbread Hot Choc Large (Cream),Hot Drinks,,483,15,58,21,13,,,57,2.6,2026,445,,,,,,false,false,,,Recipe ID 10601623; Portion Code 8042; sub-group Hot Chocolate
+hazelnut-latte-matcha-medium,Hazelnut Latte Matcha Medium,Hot Drinks,,243,9.5,29,10,5.8,,,28,0,1019,302,,,,,,false,false,,,Recipe ID 18216498; Portion Code 1528; sub-group Hot Drink
+hazelnut-latte-matcha-large,Hazelnut Latte Matcha Large,Hot Drinks,,359,14,43,15,8.5,,,42,0.5,1509,445,,,,,,false,false,,,Recipe ID 18216594; Portion Code 1527; sub-group Hot Drink
+hot-chocolate-medium,Hot Chocolate Medium,Hot Drinks,,266,11,31,10,6.1,,,30,1.9,1115,305,,,,,,false,false,,,Recipe ID 10601291; Portion Code 31; sub-group Hot Chocolate
+hot-chocolate-large,Hot Chocolate Large,Hot Drinks,,388,16,45,15,8.9,,,44,2.8,1628,445,,,,,,false,false,,,Recipe ID 10599287; Portion Code 32; sub-group Hot Chocolate
+latte-caramelised-pistachio-medium,Latte Caramelised Pistachio Medium,Hot Drinks,,226,8.8,27,9.1,5.2,,,27,0,951,292,,,,,,false,false,,,Recipe ID 16470407; Portion Code 1587; sub-group Speciality Coffee
+latte-caramelised-pistachio-large,Latte Caramelised Pistachio Large,Hot Drinks,,323,12,40,13,7.2,,,40,0,1356,409,,,,,,false,false,,,Recipe ID 16470439; Portion Code 1588; sub-group Speciality Coffee
+latte-salted-caramel-medium,Latte Salted Caramel Medium,Hot Drinks,,188,8.5,19,8.7,5,,,19,0,790,305,,,,,,false,false,,,Recipe ID 10602415; Portion Code 8041; sub-group Speciality Coffee
+latte-salted-caramel-large,Latte Salted Caramel Large,Hot Drinks,,291,12,32,13,7.2,,,32,0,1222,445,,,,,,false,false,,,Recipe ID 10602383; Portion Code 8041; sub-group Speciality Coffee
+latte-salted-pistachio-medium,Latte Salted Pistachio Medium,Hot Drinks,,238,9.5,28,9.8,5.6,,,28,0,1001,270,,,,,,false,false,,,Recipe ID 16191206; Portion Code 1567; sub-group Hot Drink
+latte-salted-pistachio-large,Latte Salted Pistachio Large,Hot Drinks,,316,12,39,12,7,,,39,0,1327,326,,,,,,false,false,,,Recipe ID 16191215; Portion Code 1568; sub-group Hot Drink
+salted-caramel-latte-matcha-medium,Salted Caramel Latte Matcha Medium,Hot Drinks,,241,9.5,28,10,5.8,,,28,0,1013,302,,,,,,false,false,,,Recipe ID 18216518; Portion Code 1528; sub-group Hot Drink
+salted-caramel-latte-matcha-large,Salted Caramel Latte Matcha Large,Hot Drinks,,358,14,42,15,8.5,,,42,0.5,1503,445,,,,,,false,false,,,Recipe ID 18216634; Portion Code 1527; sub-group Hot Drink
+salted-pistachio-latte-matcha-medium,Salted Pistachio Latte Matcha Medium,Hot Drinks,,242,9.5,28,10,5.8,,,28,0,1015,302,,,,,,false,false,,,Recipe ID 18216506; Portion Code 1528; sub-group Hot Drink
+salted-pistachio-latte-matcha-large,Salted Pistachio Latte Matcha Large,Hot Drinks,,357,14,42,15,8.5,,,42,0.5,1500,445,,,,,,false,false,,,Recipe ID 18216610; Portion Code 1527; sub-group Hot Drink
+tea-breakfast-loose-leaf-milk,Tea Breakfast (Loose Leaf) (Milk),Hot Drinks,,8,0.5,0.5,0.5,0.2,,,0.5,0,31,350,,,,,,false,false,,,Recipe ID 10585123; Portion Code 60; sub-group Tea
+vanilla-latte-matcha-medium,Vanilla Latte Matcha Medium,Hot Drinks,,243,9.5,29,10,5.8,,,28,0,1019,302,,,,,,false,false,,,Recipe ID 14740775; Portion Code 1528; sub-group Hot Drink
+vanilla-latte-matcha-large,Vanilla Latte Matcha Large,Hot Drinks,,359,14,43,15,8.5,,,42,0.5,1509,445,,,,,,false,false,,,Recipe ID 14740831; Portion Code 1527; sub-group Hot Drink
+white-hot-choc-medium-cream,White Hot Choc Medium (Cream),Hot Drinks,,330,11,30,18,12,,,24,0.5,1378,305,,,,,,false,false,,,Recipe ID 10601403; Portion Code 997; sub-group Hot Chocolate
+white-hot-choc-large-cream,White Hot Choc Large (Cream),Hot Drinks,,460,16,44,24,16,,,35,0.5,1922,445,,,,,,false,false,,,Recipe ID 10601359; Portion Code 1000; sub-group Hot Chocolate
+wild-mint-hot-choc-medium-cream,Wild Mint Hot Choc Medium (Cream),Hot Drinks,,355,9.8,43,16,9.9,,,41,1.7,1487,305,,,,,,false,false,,,Recipe ID 10601603; Portion Code 380; sub-group Hot Chocolate
+wild-mint-hot-choc-large-cream,Wild Mint Hot Choc Large (Cream),Hot Drinks,,497,14,63,20,12,,,61,2.5,2086,445,,,,,,false,false,,,Recipe ID 10601447; Portion Code 386; sub-group Hot Chocolate
+wild-peppermint-mocha-medium-cream,Wild Peppermint Mocha Medium (Cream),Hot Drinks,,326,8.3,41,14,9,,,39,1.7,1369,305,,,,,,false,false,,,Recipe ID 10602187; Portion Code 1377; sub-group Speciality Coffee
+wild-peppermint-mocha-large-cream,Wild Peppermint Mocha Large (Cream),Hot Drinks,,404,12,46,18,11,,,45,1.7,1692,445,,,,,,false,false,,,Recipe ID 10602139; Portion Code 1379; sub-group Speciality Coffee
+affogato-blue-mountain,Affogato (Blue Mountain),Coffee,,121,3.3,16,4.8,4,,,13,0,507,143,,,,,,false,false,,,Recipe ID 10353622; Portion Code 8039; sub-group BM Coffee
+affogato-signature-blend,Affogato (Signature Blend),Coffee,,121,3.3,16,4.8,4,,,13,0,507,143,,,,,,false,false,,,Recipe ID 10345118; Portion Code 15; sub-group SB Coffee
+affogato-caramel-signature-blend,Affogato Caramel (Signature Blend),Coffee,,185,3.3,32,4.8,4,,,28,0,778,163,,,,,,false,false,,,Recipe ID 10345154; Portion Code 1256; sub-group SB Coffee
+affogato-pistachio-signature-blend,Affogato Pistachio (Signature Blend),Coffee,,610,6.2,63,37,17,,,59,0.5,2547,213,,,,,,false,false,,,Recipe ID 14655719; Portion Code 1524; sub-group SB Coffee
+cappuccino-small-blue-mountain,Cappuccino Small (Blue Mountain),Coffee,,124,6.3,10,6.4,3.7,,,10,0,520,215,,,,,,false,false,,,Recipe ID 10353678; Portion Code 1142; sub-group BM Coffee
+cappuccino-medium-blue-mountain,Cappuccino Medium (Blue Mountain),Coffee,,169,8.4,14,8.5,4.9,,,14,0.5,706,290,,,,,,false,false,,,Recipe ID 10353670; Portion Code 1143; sub-group BM Coffee
+cappuccino-large-blue-mountain,Cappuccino Large (Blue Mountain),Coffee,,249,13,20,13,7.4,,,20,0.5,1042,435,,,,,,false,false,,,Recipe ID 10353650; Portion Code 1144; sub-group BM Coffee
+cappuccino-small-signature-blend,Cappuccino Small (Signature Blend),Coffee,,124,6.3,10,6.4,3.7,,,10,0,520,215,,,,,,false,false,,,Recipe ID 10344038; Portion Code 16; sub-group SB Coffee
+cappuccino-medium-signature-blend,Cappuccino Medium (Signature Blend),Coffee,,169,8.4,14,8.5,4.9,,,14,0.5,706,290,,,,,,false,false,,,Recipe ID 10344022; Portion Code 17; sub-group SB Coffee
+cappuccino-large-signature-blend,Cappuccino Large (Signature Blend),Coffee,,249,13,20,13,7.4,,,20,0.5,1042,435,,,,,,false,false,,,Recipe ID 10343966; Portion Code 18; sub-group SB Coffee
+flat-white-small-blue-mountain,Flat White Small (Blue Mountain),Coffee,,119,6.4,8.4,6.6,3.8,,,8.4,0,497,235,,,,,,false,false,,,Recipe ID 10353730; Portion Code 1145; sub-group BM Coffee
+flat-white-medium-blue-mountain,Flat White Medium (Blue Mountain),Coffee,,177,9.6,12,9.9,5.6,,,12,0,741,345,,,,,,false,false,,,Recipe ID 10353718; Portion Code 1146; sub-group BM Coffee
+flat-white-large-blue-mountain,Flat White Large (Blue Mountain),Coffee,,239,13,17,13,7.6,,,17,0,1001,475,,,,,,false,false,,,Recipe ID 10353694; Portion Code 1147; sub-group BM Coffee
+flat-white-small-signature-blend,Flat White Small (Signature Blend),Coffee,,119,6.4,8.4,6.6,3.8,,,8.4,0,497,235,,,,,,false,false,,,Recipe ID 10343958; Portion Code 07; sub-group SB Coffee
+flat-white-medium-signature-blend,Flat White Medium (Signature Blend),Coffee,,177,9.6,12,9.9,5.6,,,12,0,741,345,,,,,,false,false,,,Recipe ID 10343950; Portion Code 08; sub-group SB Coffee
+flat-white-large-signature-blend,Flat White Large (Signature Blend),Coffee,,239,13,17,13,7.6,,,17,0,1001,475,,,,,,false,false,,,Recipe ID 10343942; Portion Code 09; sub-group SB Coffee
+latte-small-blue-mountain,Latte Small (Blue Mountain),Coffee,,121,6.6,8.5,6.8,3.9,,,8.5,0,507,225,,,,,,false,false,,,Recipe ID 10353766; Portion Code 1148; sub-group BM Coffee
+latte-medium-blue-mountain,Latte Medium (Blue Mountain),Coffee,,163,8.8,11,9.1,5.2,,,11,0,680,305,,,,,,false,false,,,Recipe ID 10353762; Portion Code 1149; sub-group BM Coffee
+latte-large-blue-mountain,Latte Large (Blue Mountain),Coffee,,240,13,17,13,7.6,,,17,0,1003,445,,,,,,false,false,,,Recipe ID 10353750; Portion Code 1151; sub-group BM Coffee
+latte-small-signature-blend,Latte Small (Signature Blend),Coffee,,121,6.6,8.5,6.8,3.9,,,8.5,0,507,225,,,,,,false,false,,,Recipe ID 10343726; Portion Code 11; sub-group SB Coffee
+latte-medium-signature-blend,Latte Medium (Signature Blend),Coffee,,163,8.8,11,9.1,5.2,,,11,0,680,305,,,,,,false,false,,,Recipe ID 10343846; Portion Code 12; sub-group SB Coffee
+latte-large-signature-blend,Latte Large (Signature Blend),Coffee,,240,13,17,13,7.6,,,17,0,1003,445,,,,,,false,false,,,Recipe ID 10343862; Portion Code 13; sub-group SB Coffee
+macchiato-long-blue-mountain,Macchiato Long (Blue Mountain),Coffee,,3,0,0.5,0,0.1,,,0.5,0,15,68,,,,,,false,false,,,Recipe ID 10353810; Portion Code 8038; sub-group BM Coffee
+macchiato-long-signature-blend,Macchiato Long (Signature Blend),Coffee,,3,0,0.5,0,0.1,,,0.5,0,15,68,,,,,,false,false,,,Recipe ID 10345022; Portion Code 21; sub-group SB Coffee
+macchiato-short-blue-mountain,Macchiato Short (Blue Mountain),Coffee,,3,0,0.5,0,0,,,0.5,0,14,37,,,,,,false,false,,,Recipe ID 10353826; Portion Code 895; sub-group BM Coffee
+macchiato-short-signature-blend,Macchiato Short (Signature Blend),Coffee,,3,0,0.5,0,0,,,0.5,0,14,37,,,,,,false,false,,,Recipe ID 10345010; Portion Code 20; sub-group SB Coffee
+mocha-small-blue-mountain,Mocha Small (Blue Mountain),Coffee,,158,6.4,19,6.1,3.6,,,18,1.2,664,210,,,,,,false,false,,,Recipe ID 10353886; Portion Code 1156; sub-group BM Coffee
+mocha-medium-blue-mountain,Mocha Medium (Blue Mountain),Coffee,,237,9.9,27,9.6,5.6,,,26,1.6,994,325,,,,,,false,false,,,Recipe ID 10353862; Portion Code 1157; sub-group BM Coffee
+mocha-large-blue-mountain,Mocha Large (Blue Mountain),Coffee,,339,14,39,14,7.8,,,38,2.4,1421,455,,,,,,false,false,,,Recipe ID 10353842; Portion Code 1158; sub-group BM Coffee
+mocha-small-signature-blend,Mocha Small (Signature Blend),Coffee,,158,6.4,19,6.1,3.6,,,18,1.2,664,210,,,,,,false,false,,,Recipe ID 10344278; Portion Code 24; sub-group SB Coffee
+mocha-medium-signature-blend,Mocha Medium (Signature Blend),Coffee,,237,9.9,27,9.6,5.6,,,26,1.6,994,325,,,,,,false,false,,,Recipe ID 10344270; Portion Code 25; sub-group SB Coffee
+mocha-large-signature-blend,Mocha Large (Signature Blend),Coffee,,339,14,39,14,7.8,,,38,2.4,1421,455,,,,,,false,false,,,Recipe ID 10344258; Portion Code 26; sub-group SB Coffee
+piccolo-latte-blue-mountain,Piccolo Latte (Blue Mountain),Coffee,,19,1,1.4,1,0.6,,,1.4,0,80,93,,,,,,false,false,,,Recipe ID 10353902; Portion Code 7001; sub-group BM Coffee
+piccolo-latte-signature-blend,Piccolo Latte (Signature Blend),Coffee,,19,1,1.4,1,0.6,,,1.4,0,80,93,,,,,,false,false,,,Recipe ID 10344982; Portion Code 898; sub-group SB Coffee
+bubble-tea-mango,Bubble Tea Mango,Cold Drinks Made,,115,0,26,1.2,0.2,,,25,0,487,311,,,,,,false,false,,,Recipe ID 11343672; Portion Code 1484; sub-group Bubble Tea
+bubble-tea-strawberry,Bubble Tea Strawberry,Cold Drinks Made,,116,0,26,1.2,0.2,,,25,0,490,311,,,,,,false,false,,,Recipe ID 11343968; Portion Code 1483; sub-group Bubble Tea
+caramel-coffee-frappe,Caramel Coffee Frappe,Cold Drinks Made,,244,5.2,40,7,4.9,,,33,0.5,1029,326,,,,,,false,false,,,Recipe ID 10603371; Portion Code 10102; sub-group Ice Coffee
+fresh-orange-juice-350ml,Fresh Orange Juice 350ml,Cold Drinks Made,,143,1.8,31,0,0,,,31,0,608,351,,,,,,false,false,,,Recipe ID 13191540; Portion Code 853; sub-group Juice
+granita-mango-and-passionfruit,Granita Mango & Passionfruit,Cold Drinks Made,,187,0,46,0.5,0,,,44,0,796,453,,,,,,false,false,,,Recipe ID 17695412; Portion Code 13602; sub-group Granita
+granita-raspberry-lemonade,Granita Raspberry Lemonade,Cold Drinks Made,,248,0.5,61,0.5,0,,,58,0,1055,453,,,,,,false,false,,,Recipe ID 17695380; Portion Code 13603; sub-group Granita
+granita-tahitian-lime,Granita Tahitian Lime,Cold Drinks Made,,178,0,43,0.7,0.3,,,42,0,754,453,,,,,,false,false,,,Recipe ID 17695436; Portion Code 1118; sub-group Granita
+granita-triple-peach,Granita Triple Peach,Cold Drinks Made,,232,0,57,0.5,0,,,55,0,985,453,,,,,,false,false,,,Recipe ID 17695432; Portion Code 1097; sub-group Granita
+hazelnut-coffee-frappe,Hazelnut Coffee Frappe,Cold Drinks Made,,245,5.2,40,7,4.9,,,33,0.5,1033,326,,,,,,false,false,,,Recipe ID 10603411; Portion Code 10101; sub-group Ice Coffee
+iced-latte,Iced Latte,Cold Drinks Made,,102,5.1,7.3,5.9,3.1,,,7.3,0,427,333,,,,,,false,false,,,Recipe ID 10608562; Portion Code 434; sub-group Ice Coffee
+iced-matcha-caramel,Iced Matcha Caramel,Cold Drinks Made,,201,6.8,26,7.9,4.3,,,25,0,846,363,,,,,,false,false,,,Recipe ID 18216878; Portion Code 1525; sub-group Ice Coffee
+iced-matcha-hazelnut,Iced Matcha Hazelnut,Cold Drinks Made,,202,6.8,26,7.9,4.3,,,25,0,850,363,,,,,,false,false,,,Recipe ID 18216834; Portion Code 1525; sub-group Ice Coffee
+iced-matcha-salted-caramel,Iced Matcha Salted Caramel,Cold Drinks Made,,201,6.8,26,7.9,4.3,,,25,0,846,363,,,,,,false,false,,,Recipe ID 18216890; Portion Code 1525; sub-group Ice Coffee
+iced-matcha-salted-pistachio,Iced Matcha Salted Pistachio,Cold Drinks Made,,201,6.8,26,7.9,4.3,,,26,0,844,363,,,,,,false,false,,,Recipe ID 18216842; Portion Code 1525; sub-group Ice Coffee
+iced-matcha-toffee-apple,Iced Matcha Toffee Apple,Cold Drinks Made,,267,6.8,42,8.1,4.5,,,41,0.5,1125,385,,,,,,false,false,,,Recipe ID 16309790; Portion Code 1571; sub-group Ice Coffee
+iced-matcha-vanilla,Iced Matcha Vanilla,Cold Drinks Made,,202,6.8,26,7.9,4.3,,,25,0,850,363,,,,,,false,false,,,Recipe ID 14740671; Portion Code 1525; sub-group Ice Coffee
+milkshake-banana,Milkshake Banana,Cold Drinks Made,,439,13,49,21,14,,,46,0,1840,401,,,,,,false,false,,,Recipe ID 10603031; Portion Code 13254; sub-group Milkshake
+milkshake-banoffee,Milkshake Banoffee,Cold Drinks Made,,904,25,111,40,30,,,97,0,3794,716,,,,,,false,false,,,Recipe ID 11085173; Portion Code 1478; sub-group Milkshake
+milkshake-bueno,Milkshake Bueno,Cold Drinks Made,,457,12,57,20,13,,,46,0.5,1917,327,,,,,,false,false,,,Recipe ID 11085153; Portion Code 1479; sub-group Milkshake
+milkshake-malteser,Milkshake Malteser,Cold Drinks Made,,507,12,63,23,16,,,49,0,2124,333,,,,,,false,false,,,Recipe ID 11085193; Portion Code 1477; sub-group Milkshake
+milkshake-rich-chocolate,Milkshake Rich Chocolate,Cold Drinks Made,,904,25,113,39,30,,,88,0,3795,711,,,,,,false,false,,,Recipe ID 10603119; Portion Code 13250; sub-group Milkshake
+milkshake-salted-caramel,Milkshake Salted Caramel,Cold Drinks Made,,444,13,50,21,14,,,48,0,1862,401,,,,,,false,false,,,Recipe ID 10603139; Portion Code 1259; sub-group Milkshake
+milkshake-spiced-pumpkin,Milkshake Spiced Pumpkin,Cold Drinks Made,,444,13,50,21,14,,,47,0,1859,401,,,,,,false,false,,,Recipe ID 12925856; Portion Code 418; sub-group Milkshake
+milkshake-strawberries-and-cream,Milkshake Strawberries & Cream,Cold Drinks Made,,862,25,103,39,30,,,90,0,3614,711,,,,,,false,false,,,Recipe ID 10603167; Portion Code 13252; sub-group Milkshake
+milkshake-vanilla,Milkshake Vanilla,Cold Drinks Made,,853,25,101,39,30,,,88,0,3578,701,,,,,,false,false,,,Recipe ID 10603179; Portion Code 13251; sub-group Milkshake
+milkshake-white-chocolate,Milkshake White Chocolate,Cold Drinks Made,,444,13,50,21,14,,,47,0,1860,401,,,,,,false,false,,,Recipe ID 12925808; Portion Code 1508; sub-group Milkshake
+milkshake-wild-mint,Milkshake Wild Mint,Cold Drinks Made,,435,13,48,21,14,,,45,0,1822,401,,,,,,false,false,,,Recipe ID 12925888; Portion Code 1309; sub-group Milkshake
+peach-iced-tea,Peach Iced Tea,Cold Drinks Made,,65,0,15,0.5,0.1,,,14,0,274,400,,,,,,false,false,,,Recipe ID 10607942; Portion Code 1171; sub-group Ice Tea
+salted-caramel-coffee-frappe,Salted Caramel Coffee Frappe,Cold Drinks Made,,244,5.2,40,7,4.9,,,33,0.5,1029,326,,,,,,false,false,,,Recipe ID 10603427; Portion Code 8102; sub-group Ice Coffee
+salted-pistachio-coffee-frappe,Salted Pistachio Coffee Frappe,Cold Drinks Made,,244,5.2,40,7,4.9,,,33,0.5,1028,326,,,,,,false,false,,,Recipe ID 18217302; Portion Code 626; sub-group Ice Coffee
+smoothie-key-lime-pie,Smoothie Key Lime Pie,Cold Drinks Made,,293,7.1,38,12,6.9,,,37,1.2,1230,381,,,,,,false,false,,,Recipe ID 10608702; Portion Code 1342; sub-group Smoothie
+smoothie-raspberry-rose,Smoothie Raspberry Rose,Cold Drinks Made,,313,9.2,52,6.8,4.6,,,50,2.6,1319,437,,,,,,false,false,,,Recipe ID 16815101; Portion Code 1603; sub-group Smoothie
+vanilla-coffee-frappe,Vanilla Coffee Frappe,Cold Drinks Made,,245,5.2,40,7,4.9,,,33,0.5,1033,326,,,,,,false,false,,,Recipe ID 10603463; Portion Code 10100; sub-group Ice Coffee
+250ml-frobishers-orange-juice,250ml Frobishers Orange Juice,Cold Drinks,,94,1.3,22,0,0,,,22,0.5,399,250,,,,,,false,false,,,Recipe ID 15135672; Portion Code 1270; sub-group Soft Drink
+275ml-fentimans-mandarin-and-seville,275ml Fentimans Mandarin & Seville,Cold Drinks,,103,1.4,24,0,0,,,22,0,439,275,,,,,,false,false,,,Recipe ID 15134176; Portion Code 8602; sub-group Soft Drink
+330ml-innocent-lemon-and-lime-can,330ml Innocent Lemon & Lime (Can),Cold Drinks,,70,2.7,15,0,0,,,15,0,298,330,,,,,,false,false,,,Recipe ID 15136140; Portion Code 17908; sub-group Soft Drink
+330ml-innocent-raspberry-and-blackcurrant-can,330ml Innocent Raspberry & Blackcurrant (Can),Cold Drinks,,70,2.7,15,0,0,,,15,0,298,330,,,,,,false,false,,,Recipe ID 15136084; Portion Code 9602; sub-group Soft Drink
+brown-sauce,Brown Sauce,Condiments,,29,0,7,0,0,,,5.5,0,124,25,,,,,,false,false,,,Recipe ID 10566347; Portion Code 1291; sub-group Sauce
+tomato-sauce,Tomato Sauce,Condiments,,25,0.5,5.8,0,0,,,5.7,0,105,25,,,,,,false,false,,,Recipe ID 10566331; Portion Code 686; sub-group Sauce
+syrup-banana-flavour-shott,Syrup Banana Flavour (SHOTT),Hot Beverage Modifiers,,60,0,15,0,0,,,15,0,256,20,,,,,,false,false,,,Recipe ID 15128712; Portion Code 974; sub-group Hot Bev Mods
+syrup-tahitian-lime-shott,Syrup Tahitian Lime (SHOTT),Hot Beverage Modifiers,,43,0,11,0,0,,,10,0,182,20,,,,,,false,false,,,Recipe ID 15128600; Portion Code 969; sub-group Hot Bev Mods
+syrup-watermelon-flavour-shott,Syrup Watermelon Flavour (SHOTT),Hot Beverage Modifiers,,58,0,14,0,0,,,14,0,247,20,,,,,,false,false,,,Recipe ID 15128748; Portion Code 968; sub-group Hot Bev Mods
