@@ -10,6 +10,14 @@ the data it ships (the Next.js payload, the "menuSections" array) carry the same
 and then checks it against the rendered article elements and stops if they disagree, or if sections or counts change.
 (/menus/drinks serves the identical menu. --fetch makes one request, with a normal browser User-Agent.)
 
+OPEN QUESTION found 2026-10-09 (full-nutrition check): the page's "Allergen Information" panel also links a second PDF,
+"Nutritional Information Instore & Catering" =
+https://cdn.sanity.io/files/ysupxjc9/production/4197d7ab55a5f626cea8dacde450fd8788c28063.pdf/Nutritional-Guide-April-2026.pdf
+It may print protein, carbohydrate and fat per item (a nutritional guide), which would make this a full-nutrition chain. It was NOT
+downloaded: cdn.sanity.io's robots.txt says `Disallow: /*.pdf` (same host and rule as the allergen matrices below). The founder can save
+it from their own browser (link on https://www.daveshotchicken.co.uk/menus, "Allergen Information" panel) and send it; until then the
+chain stays calories-only.
+
 The page prints calories ONLY, once per item for every spice level ("Dave's #1 (Mild > Reaper Spices)"), so protein, carbs and fat stay
 BLANK (docs/DATA.md "Calories-only chains": every item is then not rankable and the app shows "not published"). Calories, names and the
 Vegan/Vegetarian marks are copied as the page prints them; only the category spelling (sentence case) is typed by hand.
