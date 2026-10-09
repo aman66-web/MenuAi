@@ -41,6 +41,21 @@ Allergens (docs/DATA.md "Allergens") are link-only. Each restaurant's page has a
 Ingredifind (igfd.menu), a third-party platform, and each location has a different menu there. The guide shows ingredient lists
 (some differ from the website's, e.g. "focaccia" instead of "sourdough toast" in the full english) rather than one allergen mark
 per dish, so dishes cannot be matched exactly. All or nothing: only the Soho guide's link is published.
+
+Re-checked 2026-10-09 (allergen pass), decision unchanged: link-only. What was found by loading all five guides in a browser as a visitor (igfd.menu
+serves its app page for every path, so there is no robots.txt to read; one page load per restaurant plus one click per menu): the guide is an
+INGREDIENT-LEVEL guest menu (the restaurant's feature flag is menuFilteringLevel "ingredient-with-drawer"): visitors pick their allergies and the app
+filters dishes and shows each dish's ingredients; a per-dish allergen list exists only as a roll-up the app computes from its ingredient database
+(shown when "Show allergen details" is switched on) and arrives from the platform's own gateway API, and the page says it "shows what is in each dish,
+so you know what to ask about". It is not a printed per-dish allergen row. Of the 48 published dishes 35 have a dish of exactly the same name (accents
+and punctuation ignored) in the guides of every restaurant that lists them, and those 35 agree on every allergen and may-contain across the five guides
+(no optional ingredients); 13 have no exact row (Chick+n Caesar Burger, Beetroot Carrot Vada, Korean Fried Chick+n, Smoky Mushroom Prime Patty: the
+guide names them "... with fries"; Coconut Mango Pickle Slaw, Rocket Pomegranate Side Salad, Spice Riot Loaded Fries; Berries & Cream Pancakes, Banana
+Biscoff Caramel Pancakes, Porridge, Granola Bowls, Croissant with plant butter & jam, Sourdough with plant butter & jam: named by flavour under a
+section, or not listed). The guide's recipes are known to differ from the website's (focaccia instead of sourdough toast in the full english). So
+per-dish allergens could be published for 35 dishes and 13 held back (27 percent, under the one-third limit) if the founder accepts an ingredient-level
+third-party guide as the chain's allergen guide; until then nothing is published. Capture recipe: Playwright (Chromium), open each guide URL, click
+Continue and View menu, open every food menu from the menu switcher and keep the get-menu-by-menu-url responses (dish name, allergens, mayContainAllergens).
 """
 from __future__ import annotations
 import argparse

@@ -1,0 +1,21 @@
+{
+ "chain": "leon",
+ "date": "2026-10-09",
+ "source_read": "https://leon.co/menu/{all-day,breakfast,bits-in-between,coffee,drinks,kids}/ (pages saved 2026-10-08 ~20:35 UTC, robots.txt honoured, one request per page, sha256 of each page printed by tools/uk_extract/leon.py); the same menu pages and every item page https://leon.co/menu/<slug>/ re-rendered in Chromium (Playwright) on 2026-10-08 ~20:48 UTC and 2026-10-09 ~03:35 UTC",
+ "method": "Two checks that do not use leon_pages.py: (1) each item's own page was rendered in Chromium and the pills under its 'Allergens' heading were read from the DOM; (2) on each of the six rendered menu pages the site's own 'I don't eat' filter was switched on one allergen at a time (25 allergen options x 6 pages) and the dishes it removes were recorded, which also covers the three box dishes that have no item page. Every published row was rebuilt from those two views and compared on all 14 allergens (named cereal and tree-nut kinds included). The site prints no 'may contain' list anywhere (may_contain_published = no).",
+ "compared_items": 70,
+ "compared_item_pages": 67,
+ "compared_via_filter_only": 3,
+ "random_sample_of_40_mismatches": 0,
+ "allergen_mismatches": 0,
+ "published_items": 70,
+ "allergen_rows": 70,
+ "items_in_items_csv": 94,
+ "held_back": 24,
+ "held_back_numbers": 1,
+ "held_back_blank_allergen_list": 13,
+ "held_back_ingredient_list_names_allergen_missing_from_list": 10,
+ "not_verifiable": "The three box dishes (Salmon Smorgas Box, The Big Breakfast Box, The Halloumi Breakfast Box) have no item page (404): their rows were compared through the menu filter only.",
+ "notes": "Allergens are LEON's own per-dish summary on its menu pages (the full 'Foodie Fact Sheet' is a Google Drive file whose host disallows automated access and is not read; the chain note says so). The site's filter hides every dish whose allergen field is blank (null) under every allergen option, i.e. it treats a blank as unknown, which supports holding those 13 dishes back (Levantine Squash Salad, whose blank sits beside SOY and MUSTARD in its ingredients, is the proof that a blank is not 'none'). Five published dishes carry an explicit empty list (GFC Crispy Chicken Nuggets, Hash Browns, Filter Coffee, Americano, Clean Green Smoothie); their ingredient lists were read by eye and name no allergen. An independent scan of all 70 published ingredient lists for milk, egg, soya, gluten, fish, celery, mustard, peanut, tree-nut and sesame words found only gluten-free flours, coconut milk, vegan mayonnaise and a dairy-free cheese alternative. Not published (not in the listing the pages show): Falafel Rice Box appears in the live client-rendered kids page and in the page data but is not in the server-rendered kids listing; it is outside this check.",
+ "nutrition_checked": "not by this check (only allergens); see data/audit/verified/leon.json"
+}

@@ -45,6 +45,11 @@ How the page's own wording is read:
 Allergens: the site publishes none. Its FAQ says only "If you have any specific allergy requirements, we always recommend getting in
 touch with the restaurant", and the dish pages (/dish/) that may carry more are disallowed in robots.txt. So there is no allergen file
 and no allergen_guide.csv.
+Re-checked 2026-10-09 (allergen pass): still nothing to publish. The Bond Street menu page (one request, Crawl-delay honoured) has no allergen text
+or marks (only the V mark and calories) and links to no /dish/ page; the FAQ (https://www.burgerandlobster.com/faq/) only says "If you have any
+specific allergy requirements, we always recommend getting in touch with the restaurant"; robots.txt still lists /dish/, /dietary-option/ and /product/
+(the file's "Crawl-delay: 10Disallow: /dish/" line is malformed, and it is read the cautious way). Per-dish allergen data, if the chain has any, can only
+be on those pages, so the founder would have to read it in a browser or ask the chain.
 """
 from __future__ import annotations
 import argparse

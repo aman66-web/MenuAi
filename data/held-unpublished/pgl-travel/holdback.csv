@@ -1,0 +1,9 @@
+item_id,reason
+vegetable-sausage-childs-serving,saturates (0.1 g) are printed higher than total fat (0.0 g)
+vegetable-sausage-adult-serving,saturates (0.1 g) are printed higher than total fat (0.0 g)
+baked-beans-childs-serving,saturates (0.1 g) are printed higher than total fat (0.0 g)
+baked-beans-adult-serving,saturates (0.1 g) are printed higher than total fat (0.0 g)
+carrots-childs-serving,saturates (0.1 g) are printed higher than total fat (0.0 g)
+carrots-adult-serving,saturates (0.1 g) are printed higher than total fat (0.0 g)
+homemade-vegetable-lasagne-childs-serving,"the page's own '100g' size prints per-portion figures (334 kcal) that differ from its per-100g figures (198 kcal), so the page contradicts itself about this dish"
+homemade-vegetable-lasagne-adult-serving,"the page's own '100g' size prints per-portion figures (334 kcal) that differ from its per-100g figures (198 kcal), so the page contradicts itself about this dish"

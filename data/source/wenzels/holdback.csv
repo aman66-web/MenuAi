@@ -15,3 +15,5 @@ flat-white,"Saturates print 6.5 g beside fat 5.5 g, which is impossible (and cal
 americano,"Saturates print 4.6 g beside fat 2.3 g, which is impossible (and calories 26 vs 4P+4C+9F = 66); not corrected"
 double-espresso,"Saturates print 4.5 g beside fat 2.2 g, which is impossible (and calories 25.2 vs 4P+4C+9F = 65); not corrected"
 espresso,"Saturates print 2.3 g beside fat 1.1 g, which is impossible (and calories 12.38 vs 4P+4C+9F = 32); not corrected"
+white-tuna-salad-bloomer,"Its allergen row marks no fish although the dish is a tuna salad bloomer, and the Multiseed Tuna Salad Bloomer (same filling) is marked fish (the audit's tuna-without-fish flag); the sheet contradicts itself, so the dish is left out rather than shown with a fish-free row; not corrected"
+cherry-bakewell-tart,"A Bakewell tart is made with almond (frangipane), yet its allergen row marks no nut in any of the eight tree-nut columns (the Almond Madeira and Almond Muffin rows do mark almonds); a row that contradicts the dish's own name is not shown as nut-free, so the dish is left out; not corrected"

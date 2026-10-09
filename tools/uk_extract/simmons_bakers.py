@@ -122,11 +122,15 @@ def union(*sets: dict) -> dict:
     return out
 
 
-def tags_for(text: str, vegetarian: bool) -> str:
+def tags_for(text: str, vegetarian: bool, name: str = "") -> str:
+    """vegetarian = the page's own dietary advice. A page that says 'Suitable for vegetarians' is not also tagged pork/beef from a word in its
+    ingredient text (a vegan mushroom roll lists 'Sausage Roll Mix', a seasoning): only the dish's NAME is read then, and build_static holds
+    the dish back when the name itself says pork or beef."""
     tags = ["vegetarian"] if vegetarian else []
-    if PORK.search(text):
+    meat_text = name if vegetarian else text
+    if PORK.search(meat_text):
         tags.append("contains_pork")
-    if BEEF.search(text):
+    if BEEF.search(meat_text):
         tags.append("contains_beef")
     return "|".join(tags)
 
@@ -203,7 +207,7 @@ def build_static(r: dict, p: dict, who: str, report: list[str], holdback: list[t
     ing = sp.clean(p["ingredients_html"] or "")
     name = fix_name(p["title"])
     veg = (p["dietary"] or "").startswith("Suitable for vegetarians")
-    item = {"name": name, "category": cat, "serving": serving, **nums, "tags": tags_for(name + " " + ing, veg), "rankable": rankable,
+    item = {"name": name, "category": cat, "serving": serving, **nums, "tags": tags_for(name + " " + ing, veg, name), "rankable": rankable,
             "allergens": al, "_tab": "RM", "notes": f"page {r['path']}; per {unit or 'serving'}"}
     if MEAT.search(name + " " + ing) and not PORK.search(name + " " + ing) and not BEEF.search(name + " " + ing):
         report.append(f"meat type not stated: {name}")
@@ -219,6 +223,9 @@ def build_static(r: dict, p: dict, who: str, report: list[str], holdback: list[t
                                       "its own columns cannot both be right"))
     elif same:
         holdback.append((item["_id"], f"page {r['path']} prints the same figures for 'Per {unit or 'serving'}' and 'Per 100g', so the per-item figure is not shown"))
+    elif veg and (PORK.search(name) or BEEF.search(name)):
+        holdback.append((item["_id"], f"page {r['path']} says '{p['dietary']}' but the dish is named '{name}': "
+                                      "the page's own dietary advice contradicts the dish name. Not corrected."))
     return [item]
 
 
@@ -290,7 +297,10 @@ def build_mo(r: dict, p: dict, who: str, report: list[str], all_butter_salad: bo
             lab = combo[i]["label"]
             labels.append(LABELS.get(panels[i]["header"], {}).get(lab, lab))
         name = title + (" (" + ", ".join(labels) + ")" if labels else "")
-        text = title + " " + sp.clean(p["base_html"] or "")
+        # the meat tags read the filling's own text AND the picks' names and ingredients (a focaccia's filling, "Hunters Chicken" with bacon
+        # or "New York Style Pastrami" made of beef, is a pick: the page title and base text name neither)
+        text = (title + " " + sp.clean(p["base_html"] or "") + " " + " ".join(o["label"] for o in combo) + " "
+                + " ".join(sp.clean(x["ingredients"] or "") for x in picks))
         built.append({"name": name, "category": cat, "serving": "", **nums, "tags": tags_for(text, False), "rankable": MO_CATEGORIES[cat] and (labels[0] if labels else "") not in NONDEFAULT_BREADS,
                       "allergens": al, "_tab": "MO", "_id": slug(name),
                       "notes": f"page {r['path']}: total of the filling + " + " + ".join(x["shortDescription"] for x in picks)})
@@ -320,6 +330,9 @@ def pick_allergens(row: dict, who: str, stats: dict) -> dict:
 
 # Audit codes (tools/audit/accuracy_audit.py nutrition_flags) that mean the chain's OWN figures for one row cannot all be true.
 # Such rows are held back (never corrected). "huge" is not here: a whole cake or log printed per cake is checked by hand instead.
+# kJ against kcal is held back at the audit's stricter band (kJ outside 0.93-1.07 x kcal x 4.184), not only beyond 15%: the made-in-store
+# filling rows (salads, chicken tikka, ...) print a kcal figure that is 7-15% BELOW both their own kJ and their own 4P+4C+9F, in all 44 such
+# orders (verifier re-read 2026-10-09, data/audit/verified/simmons-bakers.json), so the printed kcal would understate the calories.
 IMPOSSIBLE = {"kj-kcal", "energy-gap", "zero-kcal", "sat-gt-fat", "sugar-gt-carbs", "salt-sodium", "macros-exceed-weight", "kcal-per-gram",
               "protein-over-energy", "all-zero"}
 
@@ -338,7 +351,7 @@ def figures_that_disagree(items: list[dict], already: set) -> list[tuple[str, st
              "saturatedFat": f(it["sat_fat_g"]), "sugar": f(it["sugar_g"]), "fiber": f(it["fiber_g"]), "salt": f(it["salt_g"]),
              "energyKj": f(it["energy_kj"])}
         bad = [(code, msg) for sev, code, msg in aa.nutrition_flags({"name": it["name"], "category": it["category"], "nutrients": n})
-               if sev == aa.HIGH and code in IMPOSSIBLE]
+               if (sev == aa.HIGH and code in IMPOSSIBLE) or code == "kj-kcal"]  # kJ against kcal: the stricter 0.93-1.07 band (see below)
         if bad:
             out.append((it["_id"], "the page's own figures disagree with each other: " + "; ".join(f"{c}: {m}" for c, m in bad)))
     return out

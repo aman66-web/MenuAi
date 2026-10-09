@@ -101,6 +101,17 @@ def ingredient_text(item: dict, recs: dict[str, object]) -> str:
     return "".join(out)
 
 
+def allergen_slugs(item: dict) -> tuple[str, ...] | None:
+    """The allergens the menu page lists for an item: the sorted site slugs ("milk", "gluten-wheat", "sulphur-dioxide", ...), an
+    empty tuple when the page lists an empty list, and None when the field is blank (null or absent): a blank is NOT "none"
+    (the same blank sits on Levantine Squash Salad, whose own ingredients print SOY and MUSTARD). The site shows these lists as
+    its allergen summary and filters dishes by them."""
+    value = item.get("allergens")
+    if value is None:
+        return None
+    return tuple(sorted(a["slug"] for a in value))
+
+
 def read_pages(folder: Path) -> tuple[list[dict], dict]:
     """Return (live items in page order, facts). Each live item dict has: key (Sanity id), name (tidied), printed (raw name),
     nutrition (dict of printed text, or None when the site shows none), dietary (set of the site's own slugs), ingredients
@@ -156,7 +167,10 @@ def read_pages(folder: Path) -> tuple[list[dict], dict]:
                                 "key": key, "printed": doc["name"], "name": tidy(doc["name"]), "nutrition": nut,
                                 "dietary": {x["slug"] for x in doc.get("dietary") or []},
                                 "ingredients": ingredient_text(doc, recs), "where": [],
+                                "allergens": allergen_slugs(doc),
                             }
+                        elif live[key]["allergens"] != allergen_slugs(doc):
+                            raise ValueError(f"{path}: item {doc['name']!r} lists different allergens on another page")
                         live[key]["where"].append((page, sub_name))
         if listings == 0:
             raise ValueError(f"{path}: no submenu listings found")

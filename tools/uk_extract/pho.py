@@ -25,6 +25,13 @@ request, triangle = may have been fried in shared oil), not as text, and names d
 No published row has an exactly matching row there, so, all or nothing, no allergens are published: the chain links to
 the guide (allergen_guide.csv). --allergens is checked only for its date line, so a new guide stops the run and a human
 updates ALLERGEN_URL / ALLERGEN_TITLE.
+Re-checked 2026-10-09 against the August 2026 guide read page by page (PDF page images; the marks are vector shapes, one row per
+dish): its names now mostly match ours (starters, phở, hot & spicy, curry noodle soups, salads), but about 43 of the 96 published
+dishes have no row that describes the same dish, which is far more than a third: the guide's curries and rice bowls INCLUDE rice
+(ours exclude it), its bún dishes INCLUDE the spring roll (wheat; ours exclude it) and are WITHOUT sauce (ours include sauces, as
+do the wok fried noodles), its prawn crackers are WITHOUT the sweet chilli sauce ours include, its king prawn, tofu and 3 mushroom
+phở are printed twice by stock (ours name no stock), the crab noodle soup row includes an omelette shown separately, and the
+add-ons are not in it. Allergens stay link-only.
 """
 from __future__ import annotations
 

@@ -22,11 +22,15 @@ Allergens (docs/DATA.md "Allergens"): Fat Hippo's allergen page https://fathippo
 are the ones in each dish's modal on these same menu pages. Each modal lists the dish's parts, each with its own allergens
 (or "No Known Allergens") and a "May Contain" list; under the card the page repeats the dish's whole list ("May Contain X" for
 traces). read_allergens() reads both and stops if they disagree. Garlic and Onion are printed too but are not among the 14,
-so they are skipped. A dish with a part that prints no allergen statement at all (not even "No Known Allergens") is not
-complete, so it gets no allergens; then (all or nothing) only the guide link is written. When the generic "Cereal - Gluten"
+so they are skipped. A dish with a part that prints no allergen statement at all (not even "No Known Allergens", which the page prints for parts
+without any) is not complete: the chain has not said what that part contains, so under "all or nothing" the dish is held back (holdback.csv, seven
+on 2026-10-08) and gets no row in allergens.csv, so deleting its holdback line stops the build instead of publishing an incomplete list. A dish whose
+allergen list contradicts its own parts (ALLERGEN_CONTRADICT, policy 3 in docs/ACCURACY_AUDIT.md) is treated the same way. Dishes held back only for
+their numbers keep their (complete) allergen row. When the generic "Cereal - Gluten"
 appears next to "Barley", the cereals are not named (the generic one may be wheat), so the list doesn't read "barley" only.
-The allergen page also says "all dishes may contain traces of nuts, as peanuts are present on the premises", which the
-per-dish lists don't repeat: per-dish allergens are only written once NUT_NOTICE_DECIDED says how to show that.
+The allergen page also says "all dishes may contain traces of nuts, as peanuts are present on the premises". That is a statement about the whole
+kitchen, not a per-dish list, and the data contract has no field for one, so it is NOT added to the per-dish rows: it is the last sentence of the
+chain note (note.txt, shown with the allergens on the item page), as other chains' kitchen-wide warnings are (Blacklock, Mildreds, Tesco Cafe).
 """
 from __future__ import annotations
 import argparse
@@ -36,7 +40,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import ROOT, allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "fat-hippo"
 SOURCE_URL = "https://fathippo.co.uk/menus/food/"
@@ -59,8 +63,9 @@ ALLERGEN_URL = "https://fathippo.co.uk/allergens/"
 ALLERGEN_EXTRA = {"cereal - gluten": ("gluten", None), "crustaeceans": ("crustaceans", None)}
 NOT_14 = {"garlic", "onion"}            # printed as allergens by the page, but not among the 14 UK allergens
 NONE_WORD = "No Known Allergens"
-# Founder's decision needed (see docstring) before per-dish allergens are published; until then: guide link only.
-NUT_NOTICE_DECIDED = False
+# Dishes with a part that prints no allergen statement are held back (see the docstring); nothing is guessed.
+# To publish one anyway on the founder's say-so (its own card list, which is the union of the parts that DO print a statement), add its name here.
+ACCEPT_CARD_LIST_DESPITE_GAP: set = set()
 
 
 def it(section, title, name, category, rankable=True, limited=False, note=""):
@@ -295,6 +300,12 @@ SAME_DISH_CONTRADICT = {
                      "as the burger-meal upgrade and the kids' portion; fried fries with no fat cannot be right, and the page does not say "
                      "which figure is the side.",
 }
+# 8 Oct 2026 allergen pass (policy 3, docs/ACCURACY_AUDIT.md): the dish's allergen list contradicts the dish's own listed parts, so the dish is
+# held back rather than shown with a "safe" row. Never corrected.
+ALLERGEN_CONTRADICT = {
+    "chocolate-brownie-milkshake-kids-upgrade": "Its parts list 'Chocolate Brownie Crumb' (and the dish is named for the brownie), but the page marks no "
+                                                "gluten (it marks eggs, milk and soya); a brownie crumb with no gluten marked cannot be relied on, so the dish is left out; not corrected",
+}
 # 8 Oct 2026 verification: for FOOD (not drinks, which can carry energy the macros don't show: alcohol, organic acids in juice and
 # cordial) a kcal more than 15% (and 15 kcal) away from 4 x protein + 4 x carbohydrate + 9 x fat is held back as well, the same bar the
 # other chains' checks use. The two rows it adds both print a kcal equal to the sum of their listed parts while the macros disagree.
@@ -411,7 +422,7 @@ def read_allergens(blk: str, where: str) -> dict:
     if "cereal - gluten" in {w.lower() for w in contains}:
         cereals = set()      # generic gluten next to a named cereal: the other cereal is not named, so name none
     a = {"contains": k_con, "may_contain": k_may - k_con, "cereals": cereals, "nuts": nuts}
-    return {"words": (sorted(contains), sorted(may - contains)), "gaps": gaps, "allergens": None if gaps else a}
+    return {"words": (sorted(contains), sorted(may - contains)), "gaps": gaps, "allergens": None if gaps else a, "card_allergens": a}
 
 
 # ---------------------------------------------------------------- the "impossible numbers" rule
@@ -517,42 +528,67 @@ def main() -> int:
             notes.append("Alcoholic: the calories include alcohol, so they are higher than 4P+4C+9F.")
         cal, est = float(row["calories"]), 4 * float(row["protein_g"]) + 4 * float(row["carbs_g"]) + 9 * float(row["fat_g"])
         reason = (impossible(row["_panel"], row["_alcohol"]) or PARTS_CONTRADICT.get(row["id"])
-                  or SAME_DISH_CONTRADICT.get(row["id"]) or food_gap(row))
+                  or SAME_DISH_CONTRADICT.get(row["id"]) or ALLERGEN_CONTRADICT.get(row["id"]) or food_gap(row))
         if reason:
             holdback.append((row["id"], reason))
         elif not row["_alcohol"] and ((cal >= 50 and abs(est - cal) / cal > 0.15) or (cal < 50 and est > cal + 25)):
             notes.append(f"Printed {row['calories']} kcal vs {est:.0f} kcal from its own macros ({abs(est - cal) / cal:.0%} off); entered as printed.")
         row["notes"] = " ".join(notes)
 
-    gaps = [(r["name"], r["_allergens"]["gaps"]) for r in items if r["_allergens"]["gaps"]]
-    complete = not gaps and NUT_NOTICE_DECIDED
+    # Allergen holdbacks (all or nothing per dish): a part with no allergen statement, or a list that contradicts the dish's own parts.
+    # These dishes get no allergens.csv row at all; a dish held back only for its numbers keeps its complete row.
+    gaps, no_row = [], set()
+    held = {h[0] for h in holdback}
     for r in items:
-        r["allergens"] = r["_allergens"]["allergens"] if complete else None
+        g = r["_allergens"]["gaps"]
+        if g and r["name"] in ACCEPT_CARD_LIST_DESPITE_GAP:
+            r["_allergens"]["allergens"] = r["_allergens"]["card_allergens"]
+        elif g:
+            gaps.append((r["name"], g))
+            no_row.add(r["id"])
+            if r["id"] not in held:
+                holdback.append((r["id"], "The page prints no allergen statement for its part " + ", ".join(repr(x) for x in g)
+                                 + " (a part with none prints 'No Known Allergens'), so the dish's allergen list may be incomplete; "
+                                 "the dish is left out under 'all or nothing' rather than shown as complete; not corrected"))
+                held.add(r["id"])
+        if r["id"] in ALLERGEN_CONTRADICT:
+            no_row.add(r["id"])
+    order = {r["id"]: n for n, r in enumerate(items)}
+    holdback.sort(key=lambda h: order[h[0]])        # holdback.csv in the menu's reading order
+    stale = [i for i in ALLERGEN_CONTRADICT if i not in {r["id"] for r in items}]
+    assert not stale, f"ALLERGEN_CONTRADICT names dishes that are gone: {stale}"
+    allergen_rows = [(r["id"], r["_allergens"]["allergens"]) for r in items if r["id"] not in no_row]
+    assert all(a is not None for _, a in allergen_rows), "a dish with a gap reached the allergen rows"
+    published = [r for r in items if r["id"] not in held]
+    missing = [r["id"] for r in published if r["id"] in no_row or r["id"] not in {i for i, _ in allergen_rows}]
+    assert not missing, f"published dishes without an allergen row: {missing}"
+    if len(no_row) * 3 > len(items):
+        print(f"{len(no_row)} of {len(items)} dishes have no usable allergen list: link-only is better. Stopping.", file=sys.stderr)
+        return 1
+    for r in items:
+        r["allergens"] = None      # write_chain_folder writes the guide link only; allergens.csv is written below (abokado.py pattern)
 
     ids = [r["id"] for r in items]
     assert len(ids) == len(set(ids)), "duplicate ids"
     out_items = [{k: v for k, v in r.items() if not k.startswith("_")} for r in items]
-    note = ("Per serving from each dish's nutrition panel on fathippo.co.uk (no date shown), in whole grams: salt often reads 0 g. "
-            "Burgers come with a free side of your choice, listed separately and not added in. Dishes whose printed numbers contradict "
-            "each other are left out, and so are drinks with no numbers (beers, wines, spirits).")
+    note = ("Per serving from each dish's nutrition panel on fathippo.co.uk (no date shown), whole grams: salt often reads 0 g. Burgers come with "
+            "a free side, listed separately. Dishes whose printed numbers contradict each other, or whose allergen list is incomplete, and drinks "
+            "with no numbers are left out. Fat Hippo says all dishes may contain traces of nuts, as peanuts are on the premises.")
     assert len(note) < 400, len(note)
+    guide = {"title": f"Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus "
+                      f"(accessed {args.checked_on}, no date shown)",
+             "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="Fat Hippo", cuisine="Burgers",
         source_title=f"Fat Hippo website nutrition panels: Food, Kids, Drinks and Special menu pages (accessed {args.checked_on}, no date shown)",
         source_url=SOURCE_URL, checked_on=args.checked_on, aliases=["fat hippo", "the fat hippo", "fathippo"],
-        items=out_items, out=args.out, note=note, holdback=holdback,
-        allergen_guide={"title": f"Fat Hippo allergen information: Allergens page and each dish's allergen details on its online menus "
-                                 f"(accessed {args.checked_on}, no date shown)",
-                        "url": ALLERGEN_URL, "checked_on": args.checked_on, "may_contain_published": True})
+        items=out_items, out=args.out, note=note, holdback=holdback, allergen_guide=guide)
+    write_allergens(out, CHAIN_ID, allergen_rows, guide)
     print(f"wrote {len(out_items)} items ({len(holdback)} held back, {len(excluded)} dishes without a panel left out) to {out}")
-    if complete:
-        print("allergens: every published dish has its allergens: allergens.csv written")
-    else:
-        print("allergens: guide link only (allergen_guide.csv); allergens.csv not written because"
-              + ("" if NUT_NOTICE_DECIDED else " NUT_NOTICE_DECIDED is False (see docstring)") + ("" if not gaps else
-              f"; {len(gaps)} dishes have a part with no allergen statement:"))
-        for name, g in gaps:
-            print(f"  {name}: {', '.join(g)}")
+    print(f"allergens: {len(allergen_rows)} dishes have a row in allergens.csv; {len(no_row)} held back for their allergens "
+          f"({len(gaps)} with a part that prints no allergen statement, {len(no_row) - len(gaps)} whose list contradicts the dish):")
+    for name, g in gaps:
+        print(f"  {name}: {', '.join(g)}")
     for fname, sha in shas.items():
         print(f"  {fname} sha256 {sha}")
     return 0

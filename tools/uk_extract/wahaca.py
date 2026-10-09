@@ -39,6 +39,18 @@ Trio of Fresh Salsas, "Grilled chorizo", "Mushroom burrito", "Frijoles", "Chocol
 "Grilled achiote seabass" for the taco board, "Guacamole with chilli oil" for the 49 kcal add-on), several cells hold ingredient text
 instead of a dot, and some menu dishes have no row under any name. Allergens are safety information: no name matching, no guessing,
 so only the guide's link is published (all or nothing).
+
+Re-checked 2026-10-09 (allergen pass, with a reader for the guide's grid, wahaca_allergen_pdf.py, which reads all 7 pages: 87 dish rows with a PLU number):
+same answer, link-only stays. Of the 44 published dishes only 29 have a guide row whose name has the same words (case, punctuation, "&",
+plural, the menu's dish type); 15 have none (Butter Bean dip with Trealy Farm sobrasada chorizo is "...with sobrasada", Add chilli oil
+(to Guacamole) is only "Guacamole with chilli oil" for the whole dish, Chorizo Nachos is "House nachos with chorizo", Grilled Seabass
+Taco Board is "Grilled achiote seabass", Grilled Brindisa Chorizo Quesadilla is "Grilled chorizo", the four Sunshine Bowls are "Sunshine bowl
+base" and "With grilled chicken / halloumi / sweet potato", Frijoles Crema is "Frijoles", Frijoles Chorizo is "Frijoles with sobrasada",
+Trio of Fresh Salsas is "Salsa trio", the two Churros are "Churros y chocolate" and "Churros and cajeta caramel" (cajeta is not dulce de
+leche), Warm Chocolate & Pecan Cake is "Chocolate mole cake"): 34% of the menu would have to be held back, more than the about one third
+that leaves the contract (docs/DATA.md "all or nothing") worth publishing. The guide also marks many cells with ingredient text instead
+of a dot (read as "present", as its key says). wahaca_allergen_pdf.py is kept but NOT used; if the owner approves the 15 row names
+(or accepts the loss of those dishes) it can be wired in the way dim_t.py wires dim_t_allergen_pdf.py.
 """
 from __future__ import annotations
 import argparse

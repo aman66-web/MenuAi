@@ -11,13 +11,23 @@ poly-unsaturated fat, sugar, fibre, salt; every value is "per portion" and the s
 here as the serving and as weight_g). The glycaemic index is not used (the pages print no kJ). How the pages are read, and
 why only items a menu page really shows are used, is explained in leon_pages.py.
 
-Allergens: NOT copied; the chain gets a link to its allergen guide only (ALLERGEN_GUIDE). LEON's allergen page
-(https://leon.co/allergens/) says its "Foodie Fact Sheet" is the allergen guide (every ingredient with allergens in bold and
-listed again in a separate column) and the menu pages carry only "a summary". On 2026-10-06 that online summary contradicted
-the same pages' own ingredient lists (capitals mark allergens there): Levantine Squash Salad lists no allergens while its
-ingredients print SOY beans and Yellow MUSTARD; LOVe Burger's list leaves out the SULPHITES its ingredients print; and
-ingredients printing gluten-free OATS never list oats. The Foodie Fact Sheet itself ("Foodie Fact Sheet - September 2026
-v1.pdf") is a Google Drive file whose download host disallows automated access in robots.txt, so it is not read here.
+Allergens (docs/DATA.md "Allergens", all or nothing for the published items): every menuItem on the six menu pages also carries
+the site's own per-dish allergen list (`allergens`: a list of {slug, title} such as "milk", "gluten-wheat", "nuts-almonds",
+"sulphur-dioxide"). leon.co/allergens/ calls it "a summary of the allergens present in our dishes on our menu boards and online" and
+the menu pages filter dishes by it; the chain's full guide, the "Foodie Fact Sheet" (every ingredient with its allergens in bold), is
+a Google Drive file whose robots.txt disallows automated access, so it is NOT read here (it is linked, and the chain page note says
+the summary is what we copied). The summary is copied exactly as listed; the pages print no "may contain" list (may_contain_published =
+no), and the chain says "We handle all allergens in our kitchen" (in the note, not per dish). Two safety rules, because the summary
+is not the full guide:
+  * a BLANK list (null) is not "none" (Levantine Squash Salad's blank sits beside ingredients that print SOY and MUSTARD), so an item
+    with a blank allergen list has no row and is held back (NULL_REASON);
+  * every item's own ingredient list prints its allergens (LEON capitalises most of them: "Miso Paste (Water, SOY beans ...", "Yellow
+    MUSTARD"). Those capitalised words, plus cereals, tree nuts and the lesser allergens named in any case ("Gluten Free Rolled
+    Oats", "barley malt extract"), are read as a second source (ingredient_gaps) and an item is held back when its ingredient list
+    names an allergen (or a cereal / tree-nut kind) that its allergen list does not include (policy 3 in docs/ACCURACY_AUDIT.md).
+    On 2026-10-08 that caught LOVe Burger (SULPHITES missing; already held back for its numbers), nine dishes made with gluten-free
+    oats (their lists show no oats) and Karma Cola (gluten-free barley malt extract, no barley).
+Held-back items stay in items.csv and holdback.csv; their allergen rows are not written.
 
 Only the grouping into categories, the tags rule and the notes are decided here. EXPECTED lists every item the six menu
 pages show, by name. If LEON adds, removes or renames an item, or an item gains or loses its nutrition table, the lists
@@ -37,14 +47,44 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import leon_pages  # noqa: E402
-from common import ROOT, slug as base_slug, write_chain_folder  # noqa: E402
+from common import ROOT, allergen_words, slug as base_slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "leon"
 SOURCE_URL = "https://leon.co/menu/all-day/"
 SOURCE_TITLE = "LEON UK menu, nutrition per portion (live pages on leon.co/menu; no issue date or version shown)"
-# Link only (see the docstring): LEON's allergen page, which links its Foodie Fact Sheet.
-ALLERGEN_GUIDE = {"title": "LEON allergen information and Foodie Fact Sheet (September 2026 v1)", "url": "https://leon.co/allergens/",
-                  "may_contain_published": False}
+# The allergen summary lives on the menu pages; leon.co/allergens/ describes it and links the full "Foodie Fact Sheet" (see the docstring).
+ALLERGEN_GUIDE = {"title": "LEON allergen summary on leon.co's menu pages (full guide: Foodie Fact Sheet, September 2026 v1)",
+                  "url": "https://leon.co/allergens/", "may_contain_published": False}
+
+# The site's allergen slugs -> the printed word common.allergen_words understands. An unknown slug stops the run.
+SLUG_WORD = {
+    "celery": "celery", "egg": "egg", "fish": "fish", "milk": "milk", "mustard": "mustard", "peanuts": "peanuts", "soya": "soya",
+    "sulphur-dioxide": "sulphur dioxide", "gluten-wheat": "wheat", "gluten-rye": "rye", "gluten-barley": "barley",
+    "gluten-oats": "oats", "nuts-almonds": "almonds", "nuts-cashew": "cashew", "nuts-hazelnut": "hazelnut",
+    "nuts-pecans": "pecans", "nuts-walnut": "walnut",
+}
+# The capitalised allergen words an item's own ingredient list prints (LEON capitalises allergens there) -> the same printed words.
+CAPS_WORD = {
+    "MILK": "milk", "EGG": "egg", "EGGS": "egg", "WHEAT": "wheat", "RYE": "rye", "BARLEY": "barley", "OAT": "oats", "OATS": "oats",
+    "SOYA": "soya", "SOY": "soya", "MUSTARD": "mustard", "CELERY": "celery", "FISH": "fish", "PEANUT": "peanuts", "PEANUTS": "peanuts",
+    "ALMOND": "almonds", "ALMONDS": "almonds", "HAZELNUT": "hazelnut", "HAZELNUTS": "hazelnut", "WALNUT": "walnut", "WALNUTS": "walnut",
+    "PECAN": "pecans", "PECANS": "pecans", "CASHEW": "cashew", "CASHEWS": "cashew", "NUTS": "nuts", "SULPHITES": "sulphites",
+    "SESAME": "sesame", "LUPIN": "lupin", "CRUSTACEANS": "crustaceans", "MOLLUSCS": "molluscs",
+}
+# Words that name a cereal, a tree nut or one of the lesser allergens, read in ANY case from the ingredient list (LEON capitalises most
+# allergens but not all: "Gluten Free Rolled Oats", "barley malt extract"). Milk, egg, soya and the generic gluten are NOT read in any case:
+# "coconut milk", "vegan mayonnaise" and "gluten free flour" are not allergens.
+ANY_CASE_WORD = {
+    "wheat": "wheat", "rye": "rye", "barley": "barley", "oat": "oats", "oats": "oats", "spelt": "spelt", "kamut": "kamut",
+    "almond": "almonds", "almonds": "almonds", "hazelnut": "hazelnut", "hazelnuts": "hazelnut", "walnut": "walnut", "walnuts": "walnut",
+    "pecan": "pecans", "pecans": "pecans", "cashew": "cashew", "cashews": "cashew", "pistachio": "pistachio", "pistachios": "pistachio",
+    "macadamia": "macadamia", "peanut": "peanuts", "peanuts": "peanuts", "sesame": "sesame", "tahini": "sesame", "celery": "celery",
+    "celeriac": "celery", "mustard": "mustard", "fish": "fish", "anchovy": "fish", "anchovies": "fish", "prawn": "crustaceans",
+    "prawns": "crustaceans", "shrimp": "crustaceans", "crab": "crustaceans", "lobster": "crustaceans", "mussels": "molluscs",
+    "squid": "molluscs", "oyster": "molluscs", "oysters": "molluscs", "sulphite": "sulphites", "sulphites": "sulphites",
+    "lupin": "lupin",
+}
+NULL_REASON = "allergen list is blank on the menu page (a blank is not 'none': Levantine Squash Salad's blank sits beside SOY and MUSTARD in its ingredients)"
 
 # Every item the six menu pages show (page: submenu), in the pages' own order. The three listed in NO_NUTRITION are
 # shown without a nutrition table, so they are not published.
@@ -99,8 +139,9 @@ HAND_NOTES = {
 }
 # Items whose printed numbers contradict themselves: kept in items.csv, listed in holdback.csv (never corrected).
 HOLDBACK = {"love-burger": "The site prints 565 kcal; its own macros add up to about 403 kcal."}
-NOTE = ("Per-portion values as shown on leon.co's menu pages, which carry no issue date. Milk drinks are the organic whole milk "
-        "versions; other milks aren't shown on the menu pages. Three items the pages show without nutrition are left out.")
+NOTE = ("Per-portion values from leon.co's menu pages (no issue date); milk drinks are whole milk. Dishes shown without nutrition, or with "
+        "a blank or incomplete allergen list, are left out. Allergens are LEON's own summary, not its full Foodie Fact Sheet: check that sheet "
+        "if you have an allergy. All allergens are handled in its kitchens.")
 
 COLUMNS = {"calories": "kcal", "protein_g": "protein", "carbs_g": "carb", "fat_g": "fat", "sat_fat_g": "satFat",
            "salt_g": "salt", "sugar_g": "sugar", "fiber_g": "fibre"}
@@ -123,6 +164,58 @@ def energy_note(n: dict) -> str:
         word = "above" if kcal > calc else "below"
         return f"Printed {n['kcal']} kcal is {abs(gap) * 100:.0f}% {word} the {calc:.0f} kcal that its printed protein, carbs and fat add up to; entered as printed"
     return ""
+
+
+def allergen_set(slugs: tuple, where: str) -> dict:
+    """The site's allergen slugs for one dish -> {contains, may_contain, cereals, nuts} (sets), through common.allergen_words."""
+    words = []
+    for slug in slugs:
+        if slug not in SLUG_WORD:
+            raise SystemExit(f"{where}: unknown allergen slug {slug!r} on the menu page: add it to SLUG_WORD only after checking what it names")
+        words.append(SLUG_WORD[slug])
+    keys, cereals, nuts = allergen_words(words, where)
+    return {"contains": keys, "may_contain": set(), "cereals": cereals, "nuts": nuts}
+
+
+def ingredient_gaps(summary: dict, text: str, where: str) -> list[str]:
+    """Capitalised allergen words in the dish's own ingredient list that its allergen list does not cover (key, cereal kind or nut kind)."""
+    gaps = []
+    tokens = [(t, CAPS_WORD.get(t)) for t in sorted(set(re.findall(r"\b[A-Z]{3,}\b", text)))]
+    tokens += [(t.lower(), ANY_CASE_WORD.get(t.lower())) for t in sorted({m.lower() for m in re.findall(r"\b[A-Za-z]{3,}\b", text)})]
+    for token, word in tokens:
+        if word is None or token.lower() in gaps:
+            continue
+        keys, cereals, nuts = allergen_words([word], where)
+        if not keys <= summary["contains"] or not cereals <= summary["cereals"] or not nuts <= summary["nuts"]:
+            gaps.append(token.lower())
+    return gaps
+
+
+def build_allergens(published: list, source: dict, already_held: set) -> tuple[list, list, list]:
+    """-> (rows for write_allergens, new holdbacks [(id, reason)], report lines). Stops when more than a third would be held back."""
+    rows, held, report = [], [], []
+    for r in published:
+        if r["id"] in already_held:
+            continue
+        it = source[r["id"]]
+        where = f"allergens of {it['name']!r}"
+        if it["allergens"] is None:
+            held.append((r["id"], NULL_REASON))
+            continue
+        summary = allergen_set(it["allergens"], where)
+        gaps = ingredient_gaps(summary, it["ingredients"], where)
+        if gaps:
+            held.append((r["id"], "its own ingredient list names " + ", ".join(gaps) + " but its allergen list does not include it (policy 3)"))
+            continue
+        rows.append((r["id"], summary))
+    live = [r for r in published if r["id"] not in already_held]
+    if len(held) * 3 > len(live):
+        raise SystemExit(f"{len(held)} of {len(live)} items would be held back for allergens (more than a third): leave allergens link-only and report")
+    assert len(rows) + len(held) == len(live)
+    report.append(f"allergens: {len(rows)} items carry the menu page's own list; {len(held)} of {len(live)} held back "
+                  f"({sum(1 for _, why in held if why == NULL_REASON)} blank list, {sum(1 for _, why in held if why != NULL_REASON)} ingredient list "
+                  f"prints an allergen the list lacks)")
+    return rows, held, report
 
 
 def main() -> int:
@@ -160,6 +253,7 @@ def main() -> int:
         return 1
 
     rows = []
+    source_by_id = {}
     for it in items:
         n = it["nutrition"]
         if n is None:
@@ -198,8 +292,9 @@ def main() -> int:
                     raise SystemExit(f"{it['name']}: {key} is printed as {n[key]!r}, not a number: re-check the page.")
                 row[col] = n[key]
         row["weight_g"] = weight if num(weight) > 0 else ""
-        row["allergens"] = None  # link only, see the docstring
+        row["allergens"] = None  # written after the loop by write_allergens, for the published items only (see build_allergens)
         row["id"] = make_id(it["name"])
+        source_by_id[row["id"]] = it
         row["_notes"] = notes
         rows.append(row)
 
@@ -221,13 +316,17 @@ def main() -> int:
         raise SystemExit(f"HOLDBACK names items that are not on the menu any more: {stale}")
     rows.sort(key=lambda r: CATEGORY_ORDER.index(r["category"]))  # stable: page order inside a category
 
+    allergen_rows, allergen_held, allergen_report = build_allergens(rows, source_by_id, set(HOLDBACK))
+    holdback = list(HOLDBACK.items()) + allergen_held
     out = write_chain_folder(
         chain_id=CHAIN_ID, name="LEON", cuisine="Wraps & bowls", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
         checked_on=args.checked_on, aliases=["leon", "leon naturally fast food", "leon restaurants"], items=rows,
-        out=args.out, note=NOTE, holdback=list(HOLDBACK.items()), allergen_guide={**ALLERGEN_GUIDE, "checked_on": args.checked_on},
+        out=args.out, note=NOTE, holdback=holdback, allergen_guide=None,
     )
+    write_allergens(out, CHAIN_ID, allergen_rows, {**ALLERGEN_GUIDE, "checked_on": args.checked_on})
     for page in leon_pages.PAGES:
         print(f"{page}.html sha256 {hashlib.sha256((args.pages / f'{page}.html').read_bytes()).hexdigest()}")
+    print("\n".join(allergen_report))
     meat_unstated = [r["name"] for r in rows if "Meat type not stated" in r["notes"]]
     print(f"wrote {len(rows)} items to {out}; {len(NO_NUTRITION)} shown without nutrition and not published; "
           f"{len(facts['unlisted'])} of {facts['documents']} menuItem documents in the site data are on no menu page and were not read; "

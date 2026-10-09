@@ -23,8 +23,16 @@ What is published and what is not (the CSV lists EVERY printed row; HOLDBACK bel
 - The page has no sections: categories are hand-written grouping. rankable is false for drinks, cakes and sweet bakes, bread and rolls, sides.
 - Tags: vegetarian only where the name says vegan (Vegan Roll); contains_pork / contains_beef only where the name says so. The sheet's own
   matrix (pages 4-7, images) marks no vegetarian items.
-- Allergens: link only. The allergen matrix on pages 4-7 is also an image (14 allergens, "contains" and "may contain" marks); it was not read, so
-  no allergens.csv is written (allergens are all-or-nothing). The guide link is kept.
+- Allergens (docs/DATA.md "Allergens"): the sheet's allergen matrix, pages 5-7 (page 4 is photos), is also images: 127 recipe rows by 26 allergen columns, each cell
+  one printed word, "Y" (an ingredient -> contains), "May" (the sheet's precautionary "may contain" -> may_contain) or "N". tools/uk_extract/wenzels_matrix.py
+  reads every cell BY PIXELS (see its docstring; all 3,302 cells classify without an in-between case). Every published item is tied by its printed name to ONE
+  matrix row (ALLERGEN_NAME_ALIAS lists the two spelling differences: the matrix prints "Jam Donut" and "Iced England Donut", page 8 prints "Doughnut"; the
+  row is the same recipe in the same position in both tables); the Belgian Bun (printed in the matrix, no figures on page 8) is the only matrix row left over.
+  The six "Gluten Source" columns and eight tree-nut columns name the kind: a dish marked Y for wheat and May for rye publishes gluten as "contains" and, because
+  the guide also prints may-contain gluten, common.write_allergens drops the named cereal (policy 2 in docs/ACCURACY_AUDIT.md). The sheet's page 3 also says every
+  product is made where gluten, egg, milk, nuts, fish, mustard, celery, sesame, soya and sulphites are handled and cannot be guaranteed free of them: the data
+  contract has no field for a chain-wide statement, so it is in note.txt, never added to the per-dish rows. A dish whose matrix row contradicts its own
+  name (policy 3) is held back: ALLERGEN_HOLDBACK.
 """
 from __future__ import annotations
 import argparse
@@ -34,7 +42,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import sha256_file, slug, write_chain_folder  # noqa: E402
+import wenzels_matrix  # noqa: E402
+from common import sha256_file, slug, write_allergens, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "wenzels"
 PDF_SHA256 = "99cdafd5985aa2ee4260afcb0a61e5d609f2238731058e09960c549fe5ba511f"
@@ -46,9 +55,23 @@ VALUES_CSV = Path(__file__).with_name("wenzels_values.csv")
 EXPECTED_ROWS = 127            # every printed row of page 8, including BELGIAN BUN (no figures)
 EXPECTED_PUBLISHED_ROWS = 126  # rows with figures
 EXPECTED_HELD_BACK = 16
-NOTE = ("From the chain's own allergen sheet, version 07 (19 June 2026), page 8, per serving; no weights or serving sizes are printed. Whole "
-        "loaves, bloomers and the slab cake print very large figures and look like whole-item values. Rows whose own numbers contradict each "
-        "other (the coffees, two breakfast rolls' salt and a few others) are left out.")
+NOTE = ("From the chain's own allergen sheet, version 07 (19 June 2026), per serving; no serving sizes are printed. Whole loaves, bloomers and "
+        "the slab cake look like whole-item values. Rows whose own numbers contradict each other (coffees, two breakfast rolls' salt and a few "
+        "others) are left out. Wenzel's say everything is made where gluten, egg, milk, nuts, fish and other allergens are handled.")
+assert len(NOTE) < 400, len(NOTE)
+# the matrix (pages 5-7) spells two names differently from page 8: normalised page-8 name -> normalised matrix name
+ALLERGEN_NAME_ALIAS = {"jamdoughnut": "jamdonut", "icedenglanddoughnut": "icedenglanddonut"}
+EXPECTED_MATRIX_ROWS = 127
+EXPECTED_UNMAPPED_MATRIX_ROWS = {"belgianbun"}   # printed in the matrix, no figures on page 8
+# product name -> reason. A matrix row that contradicts the recipe's own name (policy 3, docs/ACCURACY_AUDIT.md) is held back, never shown, never corrected.
+ALLERGEN_HOLDBACK: dict = {
+    "White Tuna Salad Bloomer": "Its allergen row marks no fish although the dish is a tuna salad bloomer, and the Multiseed Tuna Salad Bloomer (same filling) is "
+                                "marked fish (the audit's tuna-without-fish flag); the sheet contradicts itself, so the dish is left out rather than shown with a "
+                                "fish-free row; not corrected",
+    "Cherry Bakewell Tart": "A Bakewell tart is made with almond (frangipane), yet its allergen row marks no nut in any of the eight tree-nut columns "
+                            "(the Almond Madeira and Almond Muffin rows do mark almonds); a row that contradicts the dish's own name is not shown as "
+                            "nut-free, so the dish is left out; not corrected",
+}
 
 NUM_KEYS = ["kcal", "kj", "fat", "sat", "carbs", "fibre", "sugars", "protein", "salt"]
 PORK = re.compile(r"\b(pork|bacon|ham|sausage|pepperoni|salami|chorizo|nduja)\b", re.I)
@@ -160,6 +183,33 @@ def build(rows: list) -> tuple:
     return items, holdback, report
 
 
+def attach_allergens(items: list, matrix: list) -> list:
+    """Tie every published item to ONE matrix row by printed name and add its allergens. Returns the report lines."""
+    if len(matrix) != EXPECTED_MATRIX_ROWS:
+        raise SystemExit("the matrix has %d rows, expected %d" % (len(matrix), EXPECTED_MATRIX_ROWS))
+    by_name: dict = {}
+    for row in matrix:
+        by_name.setdefault(wenzels_matrix.norm(row["name"]), []).append(row)
+    for name, rows in by_name.items():                       # the same dish printed twice must agree exactly
+        if len(rows) > 1 and any(r["words"] != rows[0]["words"] for r in rows[1:]):
+            raise SystemExit("the matrix prints %r twice with different marks: not published" % name)
+    used = set()
+    for it in items:
+        key = wenzels_matrix.norm(it["name"])
+        key = ALLERGEN_NAME_ALIAS.get(key, key)
+        if key not in by_name:
+            raise SystemExit("%s: no matrix row of that printed name: hold it back in ALLERGEN_HOLDBACK instead of guessing" % it["name"])
+        if len(by_name[key]) != 1:
+            raise SystemExit("%s: the matrix has several rows of that name" % it["name"])
+        used.add(key)
+        row = by_name[key][0]
+        it["allergens"] = {"contains": row["contains"], "may_contain": row["may_contain"], "cereals": row["cereals"], "nuts": row["nuts"]}
+    left = set(by_name) - used
+    if left != EXPECTED_UNMAPPED_MATRIX_ROWS:
+        raise SystemExit("matrix rows tied to no item: %s (expected %s)" % (sorted(left), sorted(EXPECTED_UNMAPPED_MATRIX_ROWS)))
+    return ["matrix rows tied to items: %d of %d (left over: %s)" % (len(used), len(matrix), ", ".join(sorted(left)))]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf", type=Path)
@@ -174,13 +224,35 @@ def main() -> int:
     items, holdback, report = build(rows)
     if len(holdback) != EXPECTED_HELD_BACK:
         raise SystemExit("%d held-back rows, expected %d" % (len(holdback), EXPECTED_HELD_BACK))
+    report += attach_allergens(items, wenzels_matrix.read_matrix(args.pdf))
+    held = {h[0] for h in holdback}
+    for name, reason in ALLERGEN_HOLDBACK.items():
+        if slug(name) not in {slug(it["name"]) for it in items}:
+            raise SystemExit("ALLERGEN_HOLDBACK names %r, which is not an item" % name)
+        if slug(name) not in held:
+            holdback.append((slug(name), reason))
+            held.add(slug(name))
+    # A dish held back for its ALLERGEN row (it contradicts the dish's own name) gets no allergens.csv row at all, so deleting its holdback line
+    # stops the build instead of publishing the contradicting row; every other item, including those held back only for their numbers, keeps its row.
+    no_row = {slug(n) for n in ALLERGEN_HOLDBACK}
+    allergen_rows = [(slug(it["name"]), it["allergens"]) for it in items if slug(it["name"]) not in no_row]
+    published = [it for it in items if slug(it["name"]) not in held]
+    assert all(slug(it["name"]) not in no_row for it in published), "a dish held back for its allergens is published"
+    assert {i for i, _ in allergen_rows} >= {slug(it["name"]) for it in published}, "a published dish has no allergen row"
+    assert len(ALLERGEN_HOLDBACK) * 3 <= len(items), "too many dishes held back for their allergens: link-only is better"
+    for it in items:
+        it["allergens"] = None    # write_chain_folder writes the guide link only; allergens.csv is written below (abokado.py pattern)
+    guide = {"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True}
     out = write_chain_folder(chain_id=CHAIN_ID, name="Wenzel's the Bakers", cuisine="Bakery", source_title=SOURCE_TITLE, source_url=SOURCE_URL,
                              checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE, holdback=holdback,
-                             allergen_guide={"title": ALLERGEN_TITLE, "url": SOURCE_URL, "checked_on": args.checked_on,
-                                             "may_contain_published": True})
+                             allergen_guide=guide)
+    with open(Path(out) / "items.csv", newline="", encoding="utf-8") as f:           # allergens.csv in items.csv's order
+        order = {r["id"]: n for n, r in enumerate(csv.DictReader(f))}
+    allergen_rows.sort(key=lambda r: order[r[0]])
+    write_allergens(out, CHAIN_ID, allergen_rows, guide)
     print("pdf sha256", digest)
     print("\n".join(report))
-    print("wrote %d items (%d held back) to %s" % (len(items), len(holdback), out))
+    print("wrote %d items (%d held back) to %s; %d allergen rows (%d dishes held back for their allergen row)" % (len(items), len(holdback), out, len(allergen_rows), len(no_row)))
     return 0
 
 

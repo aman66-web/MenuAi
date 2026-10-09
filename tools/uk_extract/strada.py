@@ -42,6 +42,10 @@ calorie files (SS25 v1.2, June 2025; SS26 full matrix, May 2026), and neither ha
 name (no Risotto alla Pescatora, Rigatoni Ragu Pugliese, Sicilian Tomato & Onion Salad, Supergreen Salad or Pan Fried Sea Bass; the
 fish dish is "Seabass"/"Salmon Chickpeas..."). Allergens are safety information: no name matching, no guessing, so only the guide's
 link (the current May 2026 matrix, as linked from the chain's menus page) is published.
+Re-checked 2026-10-09 against the SS26 matrix (3-page Excel PDF, text layer, robots.txt allows all): only about 26 of the 62 published
+dishes have a same-name row (by name only, from a menu 17 months newer), 36 have none (the antipasti, bruschetta, the
+Ragu/Pescatora/Sea Bass dishes, the steak by another name, the sauces, the salad toppings and nearly every kids dish), far more than
+a third, so allergens stay link-only.
 """
 from __future__ import annotations
 import argparse

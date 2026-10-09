@@ -14,9 +14,8 @@ as "1040"); nothing is converted, rounded or estimated here.
    "Pad kee mao", ...), so `column_lines` also reads the menu one column at a time (pdftotext crops) and `variant_hits` says
    which printed dish heading each variant line sits under.
 
-(The allergen guide's matrix, "dim-t-main-menu-allergens-14.08.2026-v1.pdf", is deliberately NOT read: its dish names differ
-from the calorie list's for about a third of the dishes, so allergens are published as a link only. An earlier version of this
-file held a matrix reader; it is in git history, commit f65f523.)
+(The allergen guide's matrix, "dim-t-main-menu-allergens-14.08.2026-v1.pdf", is read by dim_t_allergen_pdf.py since 2026-10-09; its
+dish names differ from the calorie list's for 19 published dishes, which are held back, see dim_t.py.)
 """
 from __future__ import annotations
 import re
