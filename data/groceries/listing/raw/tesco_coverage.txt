@@ -1,0 +1,53 @@
+# category path | pages fetched | tiles collected (distinct tiles the category listing showed, from the last page header "uniq-in-cat") | shown total | status
+# "shown total" is n/a: in this hidden-tab session the listing page did not print its "Showing a to b of N items" text, so completeness is judged by the last page having fewer than 96 tiles. Product lines printed below a category are only ids not already printed for an earlier category (dedupe), so lines <= tiles.
+fresh-food > fresh-fruit | pages 1,2,3 | tiles 272 | n/a | COMPLETE (last page 80 tiles < 96) | lines-printed 272
+fresh-food > fresh-vegetables-and-fresh-flowers | pages 1,2,3,4,5 | tiles 438 | n/a | COMPLETE (last page 54 tiles < 96) | lines-printed 341
+fresh-food > fresh-salad-coleslaw-and-sandwich-fillers | pages 1,2,3 | tiles 252 | n/a | COMPLETE (last page 60 tiles < 96) | lines-printed 187
+fresh-food > chilled-vegetarian-and-vegan | pages 1,2 | tiles 180 | n/a | COMPLETE (last page 84 tiles < 96) | lines-printed 165
+fresh-food > juice-and-smoothies | pages 1,2 | tiles 153 | n/a | COMPLETE (last page 57 tiles < 96) | lines-printed 153
+fresh-food > milk-butter-and-eggs | pages 1,2,3,4,5 | tiles 435 | n/a | COMPLETE (last page 51 tiles < 96) | lines-printed 333
+fresh-food > cheese | pages 1,2,3,4,5 | tiles 415 | n/a | COMPLETE (last page 31 tiles < 96) | lines-printed 331
+fresh-food > yogurts | pages 1,2,3,4 | tiles 344 | n/a | COMPLETE (last page 56 tiles < 96) | lines-printed 344
+fresh-food > dairy-free-and-dairy-alternatives | pages 1,2,3 | tiles 194 | n/a | COMPLETE (last page 2 tiles < 96) | lines-printed 133
+fresh-food > fresh-meat-and-poultry | pages 1,2,3,4,5,6,7 | tiles 593 | n/a | COMPLETE (last page 17 tiles < 96) | lines-printed 593
+fresh-food > chilled-fish-and-seafood | pages 1,2 | tiles 169 | n/a | COMPLETE (last page 73 tiles < 96) | lines-printed 167
+fresh-food > cooked-meats-antipasti-and-dips | pages 1,2,3,4,5 | tiles 461 | n/a | COMPLETE (last page 77 tiles < 96) | lines-printed 390
+fresh-food > pies-pasties-quiches-and-party-food | pages 1,2,3,4 | tiles 301 | n/a | COMPLETE (last page 13 tiles < 96) | lines-printed 173
+fresh-food > deli-counter | pages 1 | tiles 89 | n/a | COMPLETE (last page 89 tiles < 96) | lines-printed 28
+fresh-food > fresh-pizza-pasta-and-garlic-bread | pages 1,2 | tiles 148 | n/a | COMPLETE (last page 52 tiles < 96) | lines-printed 123
+fresh-food > ready-meals | pages 1,2,3,4,5 | tiles 423 | n/a | COMPLETE (last page 39 tiles < 96) | lines-printed 290
+fresh-food > chilled-soup-sandwiches-and-salad-pots | pages 1,2,3,4,5,6 | tiles 496 | n/a | COMPLETE (last page 16 tiles < 96) | lines-printed 364
+fresh-food > world-foods | pages 1,2 | tiles 97 | n/a | COMPLETE (last page 1 tiles < 96) | lines-printed 88
+fresh-food > chilled-desserts | pages 1,2,3 | tiles 284 | n/a | COMPLETE (last page 92 tiles < 96) | lines-printed 222
+fresh-food > finest-fresh-food | pages 1,2,3,4,5,6,7 | tiles 582 | n/a | COMPLETE (last page 6 tiles < 96) | lines-printed 59
+fresh-food > halloween | pages 1 | tiles 22 | n/a | COMPLETE (last page 22 tiles < 96) | lines-printed 4
+fresh-food > christmas-fresh-food | pages 1 | tiles 89 | n/a | COMPLETE (last page 89 tiles < 96) | lines-printed 25
+fresh-food > festive-food-to-order | pages 1,2 | tiles 109 | n/a | COMPLETE (last page 13 tiles < 96) | lines-printed 4
+bakery > bread | pages 1,2 | tiles 143 | n/a | COMPLETE (last page 47 tiles < 96) | lines-printed 142
+bakery > bread-rolls | pages 1 | tiles 59 | n/a | COMPLETE (last page 59 tiles < 96) | lines-printed 43
+bakery > bagels-pitta-bread-and-thins | pages 1 | tiles 29 | n/a | COMPLETE (last page 29 tiles < 96) | lines-printed 26
+bakery > wraps-and-flatbread | pages 1 | tiles 46 | n/a | COMPLETE (last page 46 tiles < 96) | lines-printed 38
+bakery > international-breads | pages 1 | tiles 29 | n/a | COMPLETE (last page 29 tiles < 96) | lines-printed 19
+bakery > part-baked-bread | pages 1 | tiles 12 | n/a | COMPLETE (last page 12 tiles < 96) | lines-printed 0
+bakery > crumpets-and-muffins | pages 1 | tiles 13 | n/a | COMPLETE (last page 13 tiles < 96) | lines-printed 12
+bakery > teacakes-fruit-loaf-and-scones | pages 1 | tiles 18 | n/a | COMPLETE (last page 18 tiles < 96) | lines-printed 16
+bakery > croissants-brioche-and-pastries | pages 1 | tiles 57 | n/a | COMPLETE (last page 57 tiles < 96) | lines-printed 50
+bakery > pancakes-waffles-and-crepes | pages 1 | tiles 27 | n/a | COMPLETE (last page 27 tiles < 96) | lines-printed 22
+bakery > doughnuts-cookies-and-muffins | pages 1 | tiles 46 | n/a | COMPLETE (last page 46 tiles < 96) | lines-printed 39
+bakery > cake | pages 1,2,3 | tiles 226 | n/a | COMPLETE (last page 34 tiles < 96) | lines-printed 215
+bakery > birthday-and-celebration-cake | pages 1,2,3 | tiles 227 | n/a | COMPLETE (last page 35 tiles < 96) | lines-printed 129
+bakery > high-protein | pages 1 | tiles 13 | n/a | COMPLETE (last page 13 tiles < 96) | lines-printed 0
+bakery > free-from-bakery | pages 1,2 | tiles 124 | n/a | COMPLETE (last page 28 tiles < 96) | lines-printed 98
+bakery > from-our-bakery | pages 1 | tiles 95 | n/a | COMPLETE (last page 95 tiles < 96) | lines-printed 46
+bakery > finest-bakery | pages 1 | tiles 95 | n/a | COMPLETE (last page 95 tiles < 96) | lines-printed 3
+frozen-food > vegetarian-and-vegan | pages 1,2 | tiles 96 | n/a | CHECK: last page fetched returned 0 tiles | lines-printed 95
+frozen-food > vegetables | pages 1 | tiles 67 | n/a | COMPLETE (last page 67 tiles < 96) | lines-printed 64
+frozen-food > chips-potatoes-and-sides | pages 1 | tiles 83 | n/a | COMPLETE (last page 83 tiles < 96) | lines-printed 81
+frozen-food > meat-and-poultry | pages 1,2 | tiles 147 | n/a | COMPLETE (last page 51 tiles < 96) | lines-printed 145
+frozen-food > fish-and-seafood | pages 1,2 | tiles 107 | n/a | COMPLETE (last page 11 tiles < 96) | lines-printed 101
+frozen-food > party-foods | pages 1 | tiles 55 | n/a | COMPLETE (last page 55 tiles < 96) | lines-printed 45
+frozen-food > pies-bakes-and-sausage-rolls | pages 1 | tiles 29 | n/a | COMPLETE (last page 29 tiles < 96) | lines-printed 23
+frozen-food > pizza-and-garlic-bread | pages 1 | tiles 96 | n/a | CHECK: last page fetched had 96 tiles (more pages likely) | lines-printed 88
+frozen-food > ready-meals | pages 1 | tiles 98 | n/a | CHECK: last page fetched had 98 tiles (more pages likely) | lines-printed 79
+frozen-food > yorkshire-puddings-and-stuffing | pages 1 | tiles 12 | n/a | COMPLETE (last page 12 tiles < 96) | lines-printed 3
+frozen-food > fruit-and-pastry | pages 1 | tiles 32 | n/a | COMPLETE (last page 32 tiles < 96) | lines-printed 31
