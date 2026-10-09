@@ -4,7 +4,7 @@ Ten Kites page (nothing here is published; a dish is published only when both ag
 Source: every restaurant page on chaophraya.co.uk (Aberdeen, Birmingham, Edinburgh, Glasgow, Leeds, Newcastle: /thai-restaurant/<town>/menus)
 links "ALLERGENS & CALORIES" to its own igfd.menu page (Ingredifind guest menu), e.g. https://igfd.menu/aberdeen/chaophraya-aberdeen-kvmd. The
 page's own data feed (gateway.ingredifind.com/menus/get-menu-by-menu-url, loaded by the page itself) carries each dish's "caloriesInKcal" and its
-allergen and may-contain lists; the page does not display the calories as text. Captured 2026-10-09 with a headless browser, one load per
+allergen and may-contain lists; the menu list on the page shows no calorie text when it loads. Captured 2026-10-09 with a headless browser, one load per
 restaurant, the "A LA CARTE MENU" of each:
   ESTATE     Aberdeen, Birmingham, Glasgow, Leeds and Newcastle all serve the same menu (menu id QaGUFEa5WV5f2ozDKd7p, 74 dishes, identical feeds):
              only 8 dishes carry calories.
