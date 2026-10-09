@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { formatPrice, perLabel } from "@/lib/mm/groceries";
+import { formatPrice } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
-import { possessive, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
+import { nutritionBasis, possessive, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
 import { ChevronLeftIcon, ExternalIcon } from "../../../_components/icons";
 import { ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
@@ -71,13 +71,13 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       </div>
 
       <section aria-labelledby="nutrition-heading" className="glass mt-3 rounded-3xl p-5">
-        <h2 id="nutrition-heading" className="text-lg font-bold tracking-tight">Nutrition{nutrition ? ` ${perLabel(nutrition)}` : ""}</h2>
+        <h2 id="nutrition-heading" className="text-lg font-bold tracking-tight">Nutrition{nutrition ? ` ${nutritionBasis(nutrition)}` : ""}</h2>
         {nutrition ? (
           <>
-            <div role="group" aria-label={`${product.name}, ${Math.round(nutrition.kcal)} calories, ${nutrition.protein} grams protein, ${nutrition.carbs} grams carbs, ${nutrition.fat} grams fat ${perLabel(nutrition)}`} className="app-numbers mt-3">
+            <div role="group" aria-label={`${product.name}, ${Math.round(nutrition.kcal)} calories, ${nutrition.protein} grams protein, ${nutrition.carbs} grams carbs, ${nutrition.fat} grams fat ${nutritionBasis(nutrition)}`} className="app-numbers mt-3">
               <div className="flex items-end gap-2">
                 <span className="sun-text text-6xl font-extrabold leading-[0.9] tracking-tighter">{Math.round(nutrition.kcal)}</span>
-                <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal {perLabel(nutrition)}</span>
+                <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal {nutritionBasis(nutrition)}</span>
               </div>
               <dl className="mt-4 grid grid-cols-3 gap-2">
                 {([["Protein", nutrition.protein, true], ["Carbs", nutrition.carbs, false], ["Fat", nutrition.fat, false]] as const).map(([label, v, lead]) => (

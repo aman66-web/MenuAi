@@ -11,7 +11,7 @@ Only shops in PUBLISH are written. Add a shop there only after the founder has s
 Output per shop (compact, one array per product so 17,000 products stay about 3 MB before compression):
   {"v":1,"retailer","name","checkedOn","pageBase","photoBase","categories":[top-level names],"schemes":[card names],
    "nutritionCheckedOn","products":[[id, name, price, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
-`nutrition` is [kcal, protein, carbs, fat, saturates|null, sugars|null, fibre|null, salt|null, kJ|null, "g"|"ml"] per 100 g/ml, copied from the product's own page by
+`nutrition` is [kcal, protein, carbs, fat, saturates|null, sugars|null, fibre|null, salt|null, kJ|null, "g"|"ml", state] per 100 g/ml, state "" or the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), copied from the product's own page by
 tools/groceries/t2_sainsburys.py (data/groceries/nutrition/<shop>.csv); a "<0.5" row counts as 0 (docs/DATA.md); null when that page has not been read.
 `id` is the shop's own product slug: the shop's page is pageBase + id. `photoId` is the number in the shop's picture address (photoBase + id + "/image.jpg").
 `gtin` is set only where the shop's own product page was read and showed a barcode (data/groceries/discovery/<shop>-barcodes.csv), so the app can link to the full page.
@@ -84,8 +84,9 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
                 v = bg.printed_num(r.get(k))
                 return None if v is None or v < 0 else round(v, 2)
 
+            state = " ".join((r.get("state") or "").lower().split())[:24]
             out[slug] = ([round(main[0], 1), round(main[1], 1), round(main[2], 1), round(main[3], 1), opt("saturates_g"), opt("sugars_g"), opt("fibre_g"), opt("salt_g"),
-                          opt("kj"), per], (r.get("checked_on") or "").strip())
+                          opt("kj"), per, state], (r.get("checked_on") or "").strip())
     return out
 
 

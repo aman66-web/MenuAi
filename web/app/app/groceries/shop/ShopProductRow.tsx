@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { formatPrice, perLabel, productLine } from "@/lib/mm/groceries";
-import { shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { formatPrice, productLine } from "@/lib/mm/groceries";
+import { nutritionBasis, shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { ChevronRightIcon } from "../../_components/icons";
 import { usePhotoSource } from "../ProductPhoto";
 
@@ -25,7 +25,7 @@ export function ShopProductRow({ file, product }: { file: ShopFile; product: Sho
         </span>
         {product.member && <span className="app-numbers block text-sm text-muted">{formatPrice(product.member.amount)} with {product.member.scheme.replace(/ price$/i, "")}</span>}
         {product.nutrition && (
-          <span className="app-numbers block text-sm text-muted">{productLine(product.nutrition)} <span className="whitespace-nowrap">{perLabel(product.nutrition)}</span></span>
+          <span className="app-numbers block text-sm text-muted">{productLine(product.nutrition)} <span className="whitespace-nowrap">{nutritionBasis(product.nutrition)}</span></span>
         )}
       </span>
       <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />

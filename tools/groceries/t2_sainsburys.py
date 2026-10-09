@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -27,8 +28,9 @@ import build_groceries as bg  # noqa: E402
 LISTING = ROOT / "data" / "groceries" / "listing" / "sainsburys.csv"
 OUT = ROOT / "data" / "groceries" / "nutrition" / "sainsburys.csv"
 PAGE = "https://www.sainsburys.co.uk/groceries/product/"
+BASIS = re.compile(r"(g|ml)(:[a-z][a-z ]{0,23})?|\?")
 FIELDS = ["per", "kj", "kcal", "fat", "saturates", "carbs", "sugars", "fibre", "protein", "salt"]
-HEADER = ["product_id", "per", "kj", "kcal", "fat_g", "saturates_g", "carbs_g", "sugars_g", "fibre_g", "protein_g", "salt_g", "checked_on", "page_url"]
+HEADER = ["product_id", "per", "state", "kj", "kcal", "fat_g", "saturates_g", "carbs_g", "sugars_g", "fibre_g", "protein_g", "salt_g", "checked_on", "page_url"]
 # Read in this order (people looking for protein first). Alcohol pages carry no nutrition table, so those are not handed out at all.
 PRIORITY = [
     ("meat & fish", 0), ("dietary & world foods", 1), ("chilled food", 2), ("frozen food", 3), ("food cupboard", 4),
@@ -58,8 +60,9 @@ def done_slugs(work: Path) -> set:
             if not line:
                 continue
             parts = line.split("\t")
-            # a row from extractor v1 (12 columns) that lacks a main number is read again with v2; any v2 row (13 columns) or "no table" counts as read
-            if len(parts) == 12 and not _complete(parts):
+            # rows from extractor v1 (12 columns) or v2 (marker "2") count as read only when the basis is plain and the main numbers are there; a v3 row (marker "3")
+            # or a "no table" page always counts as read
+            if (len(parts) == 12 or (len(parts) == 13 and parts[12] == "2")) and not _complete(parts):
                 continue
             done.add(parts[0])
     return done
@@ -67,7 +70,7 @@ def done_slugs(work: Path) -> set:
 
 def _complete(parts: list) -> bool:
     """slug, per, kj, kcal, fat, sat, carb, sugar, fibre, protein, salt, day: the basis is plain and the four main numbers are numbers."""
-    return parts[1] in ("g", "ml") and all(num(parts[i]) is not None for i in (3, 4, 6, 9))
+    return parts[1] in ("g", "ml") and all(num(parts[i]) is not None for i in (3, 4, 6, 9))  # only plain bases count for rows from the older extractors
 
 
 def priority(cat_path: str):
@@ -89,7 +92,7 @@ def cmd_slices(a) -> int:
             if rank is not None and r["product_id"] not in done and r["price_gbp"]:
                 rows.append((rank, r["category_path"], r["product_id"]))
     rows.sort()
-    rows = rows[: a.limit]
+    rows = rows[a.skip : a.skip + a.limit]
     slices: list[list[str]] = [[] for _ in range(a.n)]
     seen: list[set] = [set() for _ in range(a.n)]
     skipped = 0
@@ -100,7 +103,7 @@ def cmd_slices(a) -> int:
             continue
         seen[k].add(h)
         slices[k].append(slug)
-    for k, s in enumerate(slices, start=1):
+    for k, s in enumerate(slices, start=a.first):
         (work / f"slice{k}.txt").write_text("\n".join(s) + "\n", encoding="utf-8")
     print(f"{len(rows)} products in {a.n} slices ({[len(s) for s in slices]}), {skipped} left for a later round")
     return 0
@@ -146,6 +149,9 @@ def cmd_append(a) -> int:
         if slug is None:
             bad.append((line, "page is not one of this slice's slugs"))
             continue
+        if not BASIS.fullmatch(parts[1]):
+            bad.append((line, "basis is not g, ml, g:word, ml:word or ?: re-run the extractor"))
+            continue
         body = "|".join(parts[1:11])
         if H(body) != parts[11]:
             bad.append((line, "check does not match: re-run the extractor on that page and copy the line again"))
@@ -153,7 +159,7 @@ def cmd_append(a) -> int:
         if slug in done:
             continue
         with open(work / f"results_{a.slice}.tsv", "a", encoding="utf-8") as f:
-            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "2"]) + "\n")
+            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "3"]) + "\n")
         done.add(slug)
         ok += 1
     print(f"stored {ok}, no table {none}, rejected {len(bad)}; {len(pending(work, a.slice))} left in slice {a.slice}")
@@ -190,6 +196,7 @@ def cmd_ingest(a) -> int:
                 continue
             slug, per, kj, kcal, fat, sat, carb, sugar, fibre, protein, salt, day = parts[:12]
             n = {k: num(v) for k, v in dict(kcal=kcal, fat=fat, carbs=carb, protein=protein).items()}
+            per, _, state = per.partition(":")
             if per not in ("g", "ml") or None in n.values():
                 why["incomplete (no per 100 g/ml basis or a main number missing)"] = why.get("incomplete (no per 100 g/ml basis or a main number missing)", 0) + 1
                 left += 1
@@ -199,7 +206,7 @@ def cmd_ingest(a) -> int:
                 why[bad] = why.get(bad, 0) + 1
                 left += 1
                 continue
-            rows[slug] = {"product_id": slug, "per": per, "kj": kj, "kcal": kcal, "fat_g": fat, "saturates_g": sat, "carbs_g": carb, "sugars_g": sugar, "fibre_g": fibre,
+            rows[slug] = {"product_id": slug, "per": per, "state": state.strip(), "kj": kj, "kcal": kcal, "fat_g": fat, "saturates_g": sat, "carbs_g": carb, "sugars_g": sugar, "fibre_g": fibre,
                           "protein_g": protein, "salt_g": salt, "checked_on": a.checked_on or day, "page_url": PAGE + slug}
             kept += 1
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -222,6 +229,8 @@ def main() -> int:
         if name == "slices":
             sp.add_argument("--n", type=int, default=3)
             sp.add_argument("--limit", type=int, default=4000)
+            sp.add_argument("--skip", type=int, default=0, help="start after this many products of the priority order (to add slices beyond ones already handed out)")
+            sp.add_argument("--first", type=int, default=1, help="number of the first slice file written (slice<first>.txt ...)")
         if name in ("next", "append"):
             sp.add_argument("--slice", type=int, required=True)
         if name == "next":
