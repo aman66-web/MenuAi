@@ -1,0 +1,72 @@
+# Iceland category pages to crawl (path | url). Top-level result counts read 2026-10-09: frozen 1561, fresh 1558, food-cupboard 3023, drinks 1132, bakery 394, beers-wines-and-spirits 296, treats-and-snacks 993, world-foods 212 (dietary-and-lifestyle is a merchandising page with no product list). Level-2 pages list all descendant products. Skipped as non-category/offer/brand pages: christmas, *-offers, 1-value-*, *-bigger-packs, fridge-raiders, peperami, rustlers, warburtons, dunkin-donuts, exclusive-brands.
+Frozen > frozen-meat-and-chicken | https://www.iceland.co.uk/frozen/frozen-meat-and-chicken
+Frozen > frozen-ready-meals | https://www.iceland.co.uk/frozen/frozen-ready-meals
+Frozen > pizza-and-garlic-bread | https://www.iceland.co.uk/frozen/pizza-and-garlic-bread
+Frozen > chips-and-potatoes | https://www.iceland.co.uk/frozen/chips-and-potatoes
+Frozen > frozen-fish-and-seafood | https://www.iceland.co.uk/frozen/frozen-fish-and-seafood
+Frozen > frozen-vegetables-and-rice | https://www.iceland.co.uk/frozen/frozen-vegetables-and-rice
+Frozen > frozen-pies | https://www.iceland.co.uk/frozen/frozen-pies
+Frozen > yorkshire-puddings-and-stuffing | https://www.iceland.co.uk/frozen/yorkshire-puddings-and-stuffing
+Frozen > party-food-and-platters | https://www.iceland.co.uk/frozen/party-food-and-platters
+Frozen > frozen-desserts-fruit-and-pastry | https://www.iceland.co.uk/frozen/frozen-desserts-fruit-and-pastry
+Frozen > ice-cream-and-lollies | https://www.iceland.co.uk/frozen/ice-cream-and-lollies
+Frozen > the-dough-company | https://www.iceland.co.uk/frozen/the-dough-company
+Frozen > frozen-health | https://www.iceland.co.uk/frozen/frozen-health
+Frozen > frozen-world-foods | https://www.iceland.co.uk/frozen/frozen-world-foods
+Frozen > vegetarian | https://www.iceland.co.uk/frozen/vegetarian
+Frozen > vegan | https://www.iceland.co.uk/frozen/vegan
+Fresh > fresh-meat-and-chicken | https://www.iceland.co.uk/fresh/fresh-meat-and-chicken
+Fresh > cooked-meats-and-deli | https://www.iceland.co.uk/fresh/cooked-meats-and-deli
+Fresh > milk-butter-and-eggs | https://www.iceland.co.uk/fresh/milk-butter-and-eggs
+Fresh > cheese | https://www.iceland.co.uk/fresh/cheese
+Fresh > yogurts | https://www.iceland.co.uk/fresh/yogurts
+Fresh > fresh-fruit-veg-and-salads | https://www.iceland.co.uk/fresh/fresh-fruit-veg-and-salads
+Fresh > chilled-ready-meals-and-snacks | https://www.iceland.co.uk/fresh/chilled-ready-meals-and-snacks
+Fresh > fresh-fish | https://www.iceland.co.uk/fresh/fresh-fish
+Fresh > fresh-pasta-and-sauce | https://www.iceland.co.uk/fresh/fresh-pasta-and-sauce
+Fresh > pasta-tubs-and-dips | https://www.iceland.co.uk/fresh/pasta-tubs-and-dips
+Fresh > coleslaw-and-sandwich-fillers | https://www.iceland.co.uk/fresh/coleslaw-and-sandwich-fillers
+Fresh > sandwich-fillers-dips-and-salad-pots | https://www.iceland.co.uk/fresh/sandwich-fillers-dips-and-salad-pots
+Fresh > fresh-accompaniments | https://www.iceland.co.uk/fresh/fresh-accompaniments
+Fresh > savoury-snacks | https://www.iceland.co.uk/fresh/savoury-snacks
+Fresh > fresh-treats-and-snacks | https://www.iceland.co.uk/fresh/fresh-treats-and-snacks
+Fresh > chilled-desserts | https://www.iceland.co.uk/fresh/chilled-desserts
+Fresh > fresh-party-food | https://www.iceland.co.uk/fresh/fresh-party-food
+Fresh > chilled-drinks | https://www.iceland.co.uk/fresh/chilled-drinks
+Fresh > juice-smoothies-and-drinks | https://www.iceland.co.uk/fresh/juice-smoothies-and-drinks
+Fresh > extra-free | https://www.iceland.co.uk/fresh/extra-free
+Food Cupboard > cans-tins-and-packets | https://www.iceland.co.uk/food-cupboard/cans-tins-and-packets
+Food Cupboard > cooking-sauces-and-meal-kits | https://www.iceland.co.uk/food-cupboard/cooking-sauces-and-meal-kits
+Food Cupboard > cooking-ingredients | https://www.iceland.co.uk/food-cupboard/cooking-ingredients
+Food Cupboard > rice-pasta-and-noodles | https://www.iceland.co.uk/food-cupboard/rice-pasta-and-noodles
+Food Cupboard > table-sauces-bbq-and-pickles | https://www.iceland.co.uk/food-cupboard/table-sauces-bbq-and-pickles
+Food Cupboard > cereal | https://www.iceland.co.uk/food-cupboard/cereal
+Food Cupboard > jams-and-spreads | https://www.iceland.co.uk/food-cupboard/jams-and-spreads
+Food Cupboard > home-baking | https://www.iceland.co.uk/food-cupboard/home-baking
+Food Cupboard > long-life-milk-and-sugar | https://www.iceland.co.uk/food-cupboard/long-life-milk-and-sugar
+Food Cupboard > tea-coffee-and-hot-drinks | https://www.iceland.co.uk/food-cupboard/tea-coffee-and-hot-drinks
+Food Cupboard > biscuits-and-beverages | https://www.iceland.co.uk/food-cupboard/biscuits-and-beverages
+Food Cupboard > biscuits-and-crackers | https://www.iceland.co.uk/food-cupboard/biscuits-and-crackers
+Food Cupboard > chocolate-and-sweets | https://www.iceland.co.uk/food-cupboard/chocolate-and-sweets
+Food Cupboard > crisps-nuts-and-snacks | https://www.iceland.co.uk/food-cupboard/crisps-nuts-and-snacks
+Food Cupboard > freeze-pops-wafers-and-sauces | https://www.iceland.co.uk/food-cupboard/freeze-pops-wafers-and-sauces
+Food Cupboard > under-100-calorie-snacks | https://www.iceland.co.uk/food-cupboard/under-100-calorie-snacks
+Food Cupboard > baby-food | https://www.iceland.co.uk/food-cupboard/baby-food
+Drinks > fizzy-drinks | https://www.iceland.co.uk/drinks/fizzy-drinks
+Drinks > squash-and-cordial | https://www.iceland.co.uk/drinks/squash-and-cordial
+Drinks > still-and-flavoured-water | https://www.iceland.co.uk/drinks/still-and-flavoured-water
+Drinks > fruit-juice-and-smoothies | https://www.iceland.co.uk/drinks/fruit-juice-and-smoothies
+Drinks > milkshakes | https://www.iceland.co.uk/drinks/milkshakes
+Drinks > kids-lunchbox-drinks | https://www.iceland.co.uk/drinks/kids-lunchbox-drinks
+Drinks > sports-and-energy-drinks | https://www.iceland.co.uk/drinks/sports-and-energy-drinks
+Drinks > hot-beverages | https://www.iceland.co.uk/drinks/hot-beverages
+Drinks > tea | https://www.iceland.co.uk/drinks/tea
+Drinks > coffee | https://www.iceland.co.uk/drinks/coffee
+Drinks > hot-chocolate | https://www.iceland.co.uk/drinks/hot-chocolate
+Drinks > beer-cider-and-ales | https://www.iceland.co.uk/drinks/beer-cider-and-ales
+Drinks > wine-and-sparkling | https://www.iceland.co.uk/drinks/wine-and-sparkling
+Drinks > spirits-and-pre-mixed | https://www.iceland.co.uk/drinks/spirits-and-pre-mixed
+Bakery (top-level page, whole range) | https://www.iceland.co.uk/bakery
+Treats & Snacks (top-level page) | https://www.iceland.co.uk/treats-and-snacks
+World Foods (top-level page) | https://www.iceland.co.uk/world-foods
+Beer, Wine & Spirits (top-level page) | https://www.iceland.co.uk/beers-wines-and-spirits
