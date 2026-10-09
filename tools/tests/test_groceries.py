@@ -11,6 +11,7 @@ import build_groceries as bg  # noqa: E402
 import fetch_retailer_images as fri  # noqa: E402
 import select_stored_photos as ssp  # noqa: E402
 import build_all_products as bap  # noqa: E402
+import t2_sainsburys as t2  # noqa: E402
 
 GOOD = {
     "code": "5012345678900", "product_name": "  Greek   Style Yogurt ", "brands": "Aldi, Mamia", "quantity": "500 g",
@@ -369,6 +370,15 @@ class PriceFileTests(unittest.TestCase):
         self.assertEqual(len(problems), 1)                                                  # the bad id is reported, the unpriced row is simply not listed
         self.assertEqual(doc["checkedOn"], "2026-10-08")                                    # the earliest day: never fresher than the oldest row
         self.assertEqual(bap.PUBLISH, ("sainsburys",))                                       # no other shop is published without the founder's go-ahead
+
+    def test_tier2_checks_match_the_page_extractor_and_reject_slips(self):
+        # these two values were printed by tools/groceries/t2_extractor.js on the live Sainsbury's Greek yogurt page
+        self.assertEqual(t2.H("sainsburys-greek-style-natural-yogurt-500g"), "3l5r")
+        self.assertEqual(t2.H("g|426|103|7.6|5.1|4.2|4.2|<0.5|4.0|0.10"), "bf5f")
+        self.assertEqual(t2.H(""), "0007")
+        # alcohol is never handed out (no nutrition table), the protein-first categories come first
+        self.assertIsNone(t2.priority("Beer, wine & spirits > Wine"))
+        self.assertLess(t2.priority("Meat & fish > Beef"), t2.priority("Food cupboard > Pasta"))
 
 
 if __name__ == "__main__":
