@@ -5,37 +5,55 @@
 
 Source: https://butcombe.com/allergyaware/ ("Allergy Aware", a drop-down of the group's pubs; robots.txt of butcombe.com allows it) lists 55
 pubs, each a Ten Kites menu page such as https://viewthe.menu/szyb (The Methuen Arms) that the group's own page links to. robots.txt of
-viewthe.menu only disallows /fonts/, /views/ and /*.less$. Each pub page opens the pub's first menu; its tab bar lists the other menus
-(Sunday, Supper, Lunch, Kids, Breakfast, Puddings, Hot Drinks ...), fetched as <pub address>?mguid=<menu id>. The pages show no date
-("accessed <date>, no date shown"). Every tab of every pub is read, except the 11 "Breakfast Buffet Table" tabs (self-serve buffet items
-such as "Kids Cereals" or "Pastries - Croissant & Pain au chocolat" with no stated portion). --fetch downloads whatever is missing from
---pages (one request per page, 1.2 s apart, robots.txt of both hosts checked with robots_rfc.py before every request).
+viewthe.menu only disallows /fonts/, /views/ and /*.less$ (checked with robots_rfc.py before every request). Each pub page opens the pub's
+first menu; its tab bar lists the other menus (Sunday, Supper, Lunch, Kids, Breakfast, Puddings, Hot Drinks ...), fetched as
+<pub address>?mguid=<menu id>. The pages show no date ("accessed <date>, no date shown"). On 2026-10-09 five of the 55 links lead nowhere
+(White Hart Wroughton, Admiral Codrington and Bourne Valley Inn: Ten Kites' own "404 Page Not Found"; Kings Arms Didmarton and Kings Head
+Hursley: "No menus have been published to this page"): 50 pubs are read, every tab of each except the 11 "Breakfast Buffet Table" tabs
+(self-serve buffet items such as "Kids Cereals" or "Pastries - Croissant & Pain au chocolat" with no stated portion). --fetch downloads
+whatever is missing from --pages (one request per page, 1.2 s apart).
 
 What each dish prints: the calories in brackets beside the dish name ("(341 kcal)"), 14 allergen columns marked contains / may contain /
 none and a "Dietary Information" card with the printed "Contains / May contain" lines (cereals and tree nuts named in brackets). The
 only number is "kcal": there is NO protein, carbohydrate, fat, salt, kJ or weight and no portion size, so this is a calories-only chain
-(docs/DATA.md "Calories-only chains"): protein, carbs and fat stay blank and every item is non-rankable; `serving` stays blank. The
-diet marks "(v)" (vegetarian) and "(ve)" (vegan) are printed inside the dish names; "(vo)" / "(veo)" mean a vegetarian / vegan version can be
-asked for, which the dish itself is not, so only "(v)" and "(ve)" give the tag `vegetarian`.
+(docs/DATA.md "Calories-only chains"): protein, carbs and fat stay blank and every item is non-rankable; `serving` stays blank (except
+"for two" where the dish name says so). The diet marks "(v)" (vegetarian) and "(ve)" (vegan) are printed inside the dish names; "(vo)" /
+"(veo)" mean a vegetarian / vegan version can be asked for, which the dish itself is not, so only "(v)" and "(ve)" give the tag `vegetarian`.
 
 The pubs' menus differ (a dish is on some pubs' menus and not others, and the same name can carry different figures at different pubs).
 Same rule as Brunning & Price and Hall & Woodhouse: a dish is published ONLY when its printed name, its calories and its allergen marks
 (contains / may contain, with the named cereals and nuts) are identical on EVERY menu, at EVERY pub, that prints that dish name, and it
-is printed with calories at no fewer than MIN_PUBS pubs. Names are compared as printed except capitalisation, accents, spaces, "&" /
-"and" and punctuation. A different figure is never merged, picked from or averaged: the dish is left out and listed in the run's
-output. A figure that sits only in a page's data attribute (not shown beside the name) is not a printed figure: it is not published, and
-if it differs from the printed figure of the same dish elsewhere the dish is left out. A dish that prints no calories anywhere (wines,
-beers, spirits, many drinks) is not published.
+is printed with calories at no fewer than MIN_PUBS (2) pubs. Names are compared as printed except capitalisation, accents, spaces, "&" /
+"and" and punctuation; children's-menu dishes are judged apart from adult ones (and end "(children's)"). A different figure is never
+merged, picked from or averaged: the dish is left out and listed in the run's output (--report). A figure that sits only in a page's data
+attribute (not shown beside the name) is not a printed figure: it is not published, and if it differs from the printed figure of the same
+dish elsewhere the dish is left out. A dish that prints no calories anywhere is not published.
+
+Left out on purpose (counted in the run's report):
+- alcohol ("Aperitifs": Negroni 13 kcal, gin spritz...): no serving or volume is printed, and 13 kcal cannot be right for a drink with spirit;
+- the "Bensons" section of the Kids menus (the dogs' menu);
+- the "Hot Drinks" tabs: the table gives every drink the same allergen line (eggs, gluten, milk and soya even on Earl Grey, builder's tea and
+  an Americano) and the same figure to different drinks (139 kcal for English Breakfast tea, Earl Grey, builder's tea and a macchiato), so
+  it cannot describe single drinks; "Illy Coffee - Black forest Monbana hot chocolate" marks all 14 allergens and every cereal and nut;
+- the buffet tabs, dishes printed at one pub only, dishes whose calories or allergens differ at any pub.
+HOLD_TEXT: dishes that stay in items.csv but are held back (holdback.csv): the chain's own allergen row contradicts the dish's name
+(pancakes, brownies, churros, crumbles, a sticky toffee pudding and beer-battered onion rings with no gluten marked or gluten only under
+"May contain"; a vanilla-ice-cream dessert with milk only under "May contain"), a catch-all all-14 row, a figure that cannot belong to one dish
+(variable "of the day" dishes, alternatives with one figure, unnamed ice-cream flavours, a 760 kcal breakfast sausage). Never corrected.
 
 Allergens (docs/DATA.md "Allergens") are complete for every published dish: the 14 columns, the printed Contains / May contain lines and
 the label ids the page's own allergen filter uses must agree (butcombe_inns_pages.py), or the dish is left out. Named cereals and nuts
-are published for "Contains" only; where a key is both contained and may-contained the key shows as contained and the named kinds are
-dropped (common.write_allergens). A dish whose every column says "no" and that prints no line contains none of the 14. The pages say
-"We cannot 100% guarantee the absence of all allergens in our dishes".
+are published for "Contains" only, as printed (the pages often list every cereal or tree nut kind); where a key is both contained and
+may-contained the key shows as contained and the named kinds are dropped (common.write_allergens). A dish whose every column says "no"
+and that prints no line contains none of the 14. The pages say "We cannot 100% guarantee the absence of all allergens in our dishes".
 
-Tags: vegetarian only from the dish's own "(v)" / "(ve)" mark (unless it contains fish, crustaceans or molluscs: then it is not tagged
-and the clash is reported). contains_pork / contains_beef only when the dish NAME says so. Dishes only ever printed on Christmas or
-festive menus are limited_time.
+Tags: vegetarian only from the dish's own "(v)" / "(ve)" mark (a dish whose mark contradicts its allergen row is left out); contains_pork /
+contains_beef only when the dish NAME says so. Dishes only ever printed on Christmas or festive menus are limited_time (none today).
+
+Independent checks 2026-10-09: every print of every published dish in the saved pages was re-read with a regex-only parser (3,549 prints,
+0 differences in calories, Contains, May contain, named cereals and nuts) and 34 dishes were compared on live Chromium-rendered pages of two
+pubs (0 differences; rows also looked at as screenshots). Re-runs: check_chain.py's accuracy audit must still show 0 high flags, and its
+medium flags need reading against the source (data/audit/reviewed/butcombe-inns.csv holds the ones judged fine).
 """
 from __future__ import annotations
 import argparse
@@ -64,8 +82,36 @@ def unusable(text: str) -> bool:
 SKIP_TABS = re.compile(r"buffet", re.I)     # self-serve buffet tables: no stated portion
 ALIASES = ["butcombe", "butcombe inns", "butcombe pubs", "butcombe pub", "butcombe inns and hotels", "butcombe collection"]
 CHRISTMAS = re.compile(r"christmas|festive|xmas", re.I)
-# Dishes that stay out of items (holdback.csv; restore by deleting the entry). id -> reason. Nothing is corrected.
-HOLDBACK: dict = {}
+# Dishes that stay in items.csv but are held back (holdback.csv; restore by deleting the entry). Key = (children's menu?, printed name), reason =
+# why. Nothing is corrected: the chain's own allergen row contradicts the dish's own name, or its figure cannot belong to one dish.
+# Independent re-read of the rendered pages 2026-10-09 (see docs/UK_DATA_STATUS.md); every one of these is printed identically at every pub.
+_NO_G = "allergen row contradicts the dish name: %s but no gluten is marked (neither 'Contains' nor 'May contain')"
+_MAY_G = "allergen row contradicts the dish name: %s but gluten is only under 'May contain', never 'Contains'"
+HOLD_TEXT = {
+    (False, "Butcombe beer-battered onion rings (v)"): "allergen row contradicts the dish name: beer-battered onion rings with no allergen marked at all (no gluten)",
+    (False, "Buttermilk pancakes, West Country strawberries, compote, honey and pouring cream (v)"): _NO_G % "pancakes",
+    (False, "Buttermilk pancakes, toffee apple compote, cinnamon crunch, maple syrup and cream (v)"): _MAY_G % "pancakes",
+    (True, "Kids - BUTTERMILK PANCAKES (v) | Fresh fruit, honey"): _NO_G % "pancakes",
+    (False, "Brownie baked Alaska, coffee ice cream, raspberry (v)"): _NO_G % "a brownie base",
+    (False, "Dark chocolate and pecan brownie, toffee popcorn, salted honey ice cream (v) (veo)"): _MAY_G % "a brownie",
+    (False, "Cinnamon churros, chocolate sauce (ve)"): _NO_G % "churros",
+    (False, "Seasonal fruit, apple, almond and oat crumble, vanilla custard or ice cream (v) (veo)"): _NO_G % "an oat crumble",
+    (True, "Seasonal fruit crumble, custard or ice cream (v) (veo)"): _NO_G % "a crumble",
+    (False, "Classic sticky toffee pudding, Two Drifters Rum and raisin ice cream (v)"): _NO_G % "a sticky toffee pudding",
+    (False, "Little Biscoff doughnuts, salted caramel sauce, vanilla ice cream (v)(veo)"):
+        "allergen row contradicts the dish name: a (v) dish served with vanilla ice cream but milk is only under 'May contain', never 'Contains'",
+    (False, "Somerset charcuterie, pickles, sourdough focaccia, oil and vinegar"):
+        "allergen row marks all 14 allergens, every gluten cereal and every tree nut as contained: a catch-all row, not a description of this board",
+    (False, "Breakfast sausage"): "figure contradicts the chain's own other figures: 760 kcal for one breakfast sausage is more than its Full English breakfast (594 kcal)",
+    (False, "Add skin-on fries or garden salad"): "one figure (463 kcal) for two different foods, fries or salad",
+    (False, "Sauces - Béarnaise / Peppercorn / Chimichurri"): "one figure and one allergen line for three different sauces",
+    (False, "Brixham market fish of the day - please ask for details (market price)"): "the fish changes daily, so one figure and one allergen row cannot describe the dish",
+    (False, "Pie of the week, seasonal greens, proper gravy, your choice of mash or thick-cut chips"):
+        "the pie changes weekly; the figure (1416 kcal) is the same as the Beef shin and Butcombe Ale pie's, so it cannot describe the dish",
+    (False, "2024 Two scoops of Granny Gothards ice creams and sorbets (v) (veo)"): "no flavour is named (ice creams and sorbets), so the figure cannot be tied to a dish; the name carries a stale '2024'",
+    (False, "Two scoops of Granny Gothards ice creams and sorbets (v) (veo)"): "no flavour is named (ice creams and sorbets), so the figure cannot be tied to a dish",
+    (True, "Scoop of ice cream or sorbet (v) (veo)"): "no flavour is named (ice cream or sorbet), so the figure cannot be tied to a dish",
+}
 
 
 def fold(text: str) -> str:
@@ -164,7 +210,7 @@ def load(pages: Path, fetch: bool):
 
 MARK = re.compile(r"\(\s*(v|ve|vo|veo)\s*\)", re.I)
 ANIMAL = {"milk", "eggs", "fish", "crustaceans", "molluscs"}     # a "(ve)" dish cannot contain these
-NOT_PORK = re.compile(r"\b(pheasant|turkey|duck|venison|chicken) (bacon|ham|sausages?)\b|\bvegan (bacon|ham|sausages?|chorizo)\b", re.I)
+NOT_PORK = re.compile(r"\b(pheasant|turkey|duck|venison|chicken) (bacon|ham|sausages?|salami)\b|\b(vegan|plant|plant-based|veggie|veg) (bacon|ham|sausages?|bangers?|chorizo)\b", re.I)
 NOT_BEEF = re.compile(r"\bpork (rib-?eye|rump)\b|\bvegan (steak|beef)\b", re.I)
 
 
@@ -188,7 +234,7 @@ def is_kids(r: dict) -> bool:
 #   containing spirit; "Bensons" is the dogs' menu ("Bensons Fruity Water").
 LEFT_OUT_SECTION = re.compile(r"^(aperitifs?|bensons?)$", re.I)
 CATEGORY_ORDER = ["Starters and sharing", "Light bites and sandwiches", "Mains", "Sunday roasts", "Sides", "Breakfast and brunch",
-                  "Puddings and cheese", "Hot drinks", "Add-ons and extras",
+                  "Puddings and cheese", "Add-ons and extras",
                   "Children's: Mains", "Children's: Puddings", "Children's: Sunday roasts", "Children's: Breakfast", "Children's: Other"]
 
 
@@ -204,14 +250,16 @@ def section_category(menu: str, sec: str, kids: bool):
             return "Children's: Puddings"
         if s in ("mains", "main", "children", "kids", "kids mains") and "breakfast" not in m:
             return "Children's: Mains"
-        if "breakfast" in m or "breakfast" in s:
+        if "breakfast" in m or re.fullmatch(r"(breakfast|brunch)", s):
             return "Children's: Breakfast"
+        if s in ("pip organic",):
+            return "Children's: Other"
         raise SystemExit(f"unmapped children's section {sec!r} on menu {menu!r}: add a rule to section_category")
     if m == "hot drinks":
         if s in ("coffee", "tea", "speciality drinks", "hot chocolate", "hot drinks", "milk", "specialty drinks"):
-            return "Hot drinks"
+            return None
         raise SystemExit(f"unmapped hot-drinks section {sec!r}: add a rule to section_category")
-    if re.search(r"extras|add on", s):
+    if re.search(r"extras|add on|^dips?$|sauces?$", s):
         return "Add-ons and extras"
     if re.search(r"great british roast|sunday|roast", s):
         return "Sunday roasts"
@@ -221,11 +269,11 @@ def section_category(menu: str, sec: str, kids: bool):
         return "Puddings and cheese"
     if "breakfast" in m or re.fullmatch(r"(eggs|pancakes|staples|brunch|breakfast)", s):
         return "Breakfast and brunch"
-    if re.search(r"sandwich|salad|flatbread|flat bread|bar menu|burgers?", s):
+    if re.search(r"sandwich|salad|flatbread|flat bread|bar menu|burgers?|ploughman|light lunch", s):
         return "Light bites and sandwiches"
-    if re.search(r"for the table|starter|oyster|small plate|sharing|to share|nibble|bar snack", s):
+    if re.search(r"for the table|starter|oyster|small plate|sharing|to share|nibble|bar snack|^snacks$|wings|loaded fries", s):
         return "Starters and sharing"
-    if re.search(r"^mains?$|grill|pies|pasta|favourites|^main", s):
+    if re.search(r"^mains?$|grill|pies|pasta|favourites|^main|classics|seafood|steaks?|^pizza$", s):
         return "Mains"
     raise SystemExit(f"unmapped section {sec!r} on menu {menu!r}: add a rule to section_category (or to LEFT_OUT_SECTION if it is a drinks list)")
 
@@ -256,7 +304,7 @@ def build(instances: list, n_pubs: int):
         kids = is_kids(inst)
         cat = section_category(inst["menu"], inst["printed_section"], kids)
         if cat is None:
-            stats["dish lines in left-out sections (alcohol aperitifs, the dogs' menu)"] += 1
+            stats["dish lines in left-out sections (alcohol aperitifs, the dogs' menu, the hot-drinks tables)"] += 1
             continue
         inst["category"], inst["kids"] = cat, kids
         groups.setdefault((kids, key_of(inst["name"])), []).append(inst)
@@ -301,8 +349,9 @@ def build(instances: list, n_pubs: int):
         if len(pubs) < MIN_PUBS:
             left_out.append(f"printed with calories at {len(pubs)} pub only: {label!r} ({kcals[0]} kcal)")
             continue
-        name = re.sub(r"\s+", " ", first["name"]).strip()
-        name = name[:1].upper() + name[1:] + (" (children's)" if kids else "")
+        plain = re.sub(r"\s+", " ", first["name"]).strip()
+        plain = plain[:1].upper() + plain[1:]
+        name = plain + (" (children's)" if kids else "")
         marks = marks_of(first["name"])
         allergens = {**first["allergens"], "may_contain": set(first["allergens"]["may_contain"])}
         veg = bool({"v", "ve"} & marks)
@@ -322,8 +371,9 @@ def build(instances: list, n_pubs: int):
         menus = sorted({g["menu"] for g in group})
         limited = all(CHRISTMAS.search(g["menu"] + " " + g["printed_section"]) for g in group)
         notes = f"Printed at {len(pubs)} of {n_pubs} pubs read; menus: {'; '.join(menus)}; marks in the name: {', '.join(sorted(marks)) or 'none'}"
-        items.append({"name": name, "id": ascii_slug(name), "category": cat, "serving": "", "calories": kcals[0], "tags": "|".join(tags),
-                      "rankable": False, "limited_time": limited, "notes": notes, "allergens": allergens, "_pubs": len(pubs), "_unstated": unstated})
+        items.append({"name": name, "id": ascii_slug(name), "category": cat, "serving": "for two" if re.search(r"\bfor two\b", name, re.I) else "",
+                      "calories": kcals[0], "tags": "|".join(tags), "rankable": False, "limited_time": limited, "notes": notes, "allergens": allergens,
+                      "_pubs": len(pubs), "_unstated": unstated, "_hold": HOLD_TEXT.get((kids, plain), ""), "_hold_key": (kids, plain)})
     ids = Counter(i["id"] for i in items)
     clash = [i for i, c in ids.items() if c > 1]
     if clash:
@@ -353,14 +403,14 @@ def main() -> int:
     items, report, left_out, no_calories, stats = build(instances, len(pubs))
     if not items:
         raise SystemExit("no items built")
-    holds = [(it["id"], HOLDBACK[it["id"]]) for it in items if it["id"] in HOLDBACK]
-    unknown = sorted(set(HOLDBACK) - {it["id"] for it in items})
-    if unknown:
-        raise SystemExit(f"HOLDBACK names dishes that are no longer built: {unknown}")
+    holds = [(it["id"], it["_hold"]) for it in items if it["_hold"]]
+    stale = [k for k in HOLD_TEXT if k not in {it["_hold_key"] for it in items}]
+    if stale:
+        raise SystemExit(f"HOLD_TEXT names dishes that are no longer published: {stale}: re-check the table")
     n_pubs = len(pubs)
     note = (f"Calories only, as printed beside each dish; the pages state no portion size. The pubs have no shared menu, so a dish is listed only "
             f"if its name, calories and allergens are identical at every pub that prints it, and at {MIN_PUBS} or more of the {n_pubs} pubs read. "
-            "Not every pub serves every dish. Buffet tables and alcohol are not listed.")
+            "Not every pub serves every dish. Buffet tables, alcohol and hot drinks are not listed.")
     if len(note) >= 400:
         raise SystemExit(f"note.txt is {len(note)} characters, over the 400 limit")
     title = (f"Butcombe Inns 'Allergy Aware' menus: each pub's Ten Kites page with calories and allergens per dish ({n_pubs} pubs read; "
