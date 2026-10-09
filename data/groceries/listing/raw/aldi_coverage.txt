@@ -1,0 +1,114 @@
+# category path | pages (listing views loaded; every view is one 30-tile page, no page= url) | tiles collected (unique product ids) | shown total (from the page)
+fresh-food/fruit | views 6 | collected 78 | shown 78
+fresh-food/vegetables | views 10 | collected 121 | shown 135 | MISSING 14
+fresh-food/stir-fry-vegetables-sauce-noodles | views 1 | collected 16 | shown 16
+fresh-food/poultry | views 2 | collected 60 | shown 60
+fresh-food/beef | views 5 | collected 65 | shown 65
+fresh-food/pork-gammon | views 2 | collected 36 | shown 36
+fresh-food/bacon-sausages | views 3 | collected 46 | shown 46
+fresh-food/lamb | views 1 | collected 5 | shown 5
+fresh-food/game-venison | views 1 | collected 1 | shown 1
+fresh-food/black-pudding-haggis-stuffing | views 1 | collected 1 | shown 1
+fresh-food/fish | views 2 | collected 36 | shown 36
+food-cupboard/biscuits-crackers | views 8 | collected 102 | shown 102
+food-cupboard/cereals-snack-bars | views 7 | collected 84 | shown 84
+food-cupboard/chocolate-sweets | views 13 | collected 203 | shown 203
+food-cupboard/crisps-snacks | views 5 | collected 88 | shown 88
+food-cupboard/desserts | views 1 | collected 24 | shown 24
+food-cupboard/jams-spreads-syrups | views 2 | collected 37 | shown 37
+food-cupboard/herbs-spices | views 2 | collected 59 | shown 59
+food-cupboard/rice-pasta-noodles | views 5 | collected 81 | shown 81
+food-cupboard/seeds-nuts-dried-fruits | views 2 | collected 56 | shown 56
+food-cupboard/sauces-oils-dressings | views 6 | collected 131 | shown 129
+food-cupboard/sugar-home-baking | views 2 | collected 39 | shown 39
+food-cupboard/tins-cans-packets | views 7 | collected 116 | shown 116
+chilled-food/milk | views 2 | collected 34 | shown 34
+chilled-food/dairy | views 2 | collected 37 | shown 37
+chilled-food/eggs | views 1 | collected 9 | shown 9
+chilled-food/cheese | views 9 | collected 106 | shown 106
+chilled-food/yogurts | views 9 | collected 91 | shown 92 | MISSING 1
+chilled-food/chilled-desserts | views 6 | collected 83 | shown 83
+chilled-food/ready-meals | views 6 | collected 94 | shown 94
+chilled-food/pizza-pasta-garlic-bread | views 1 | collected 30 | shown n/a
+chilled-food/sides-starters | views 1 | collected 22 | shown 22
+chilled-food/soups | views 1 | collected 6 | shown 6
+chilled-food/chilled-meats | views 8 | collected 116 | shown 116
+chilled-food/party-food-pies-salads | views 7 | collected 143 | shown 143
+chilled-food/food-to-go | views 5 | collected 83 | shown 83
+chilled-food/meat-substitutes | views 1 | collected 13 | shown 13
+fresh-food/seafood-prawns | views 1 | collected 19 | shown 19
+fresh-food/breaded-fish-fishcakes | views 1 | collected 15 | shown 15
+bakery/bread | views 2 | collected 34 | shown 34
+bakery/bread-rolls | views 1 | collected 21 | shown 21
+bakery/cakes | views 3 | collected 56 | shown 53
+bakery/sweet-treats | views 1 | collected 18 | shown 18
+bakery/breakfast-pastries | views 1 | collected 19 | shown n/a
+bakery/scones-teacakes | views 1 | collected 5 | shown 5
+bakery/wraps-naans-pittas-thins | views 1 | collected 20 | shown 20
+bakery/bagels | views 1 | collected 5 | shown 5
+frozen-food/meat-poultry | views 5 | collected 69 | shown 69
+frozen-food/fish-seafood | views 2 | collected 41 | shown 41
+frozen-food/chips-potato | views 1 | collected 30 | shown 30
+frozen-food/vegetables-sides | views 1 | collected 21 | shown 21
+frozen-food/ready-meals | views 2 | collected 42 | shown 42
+frozen-food/pizzas-garlic-bread | views 2 | collected 44 | shown 44
+frozen-food/party-food-snacks-pies | views 2 | collected 43 | shown 43
+frozen-food/fruit-smoothies | views 1 | collected 14 | shown 14
+frozen-food/ice-cream-desserts | views 9 | collected 93 | shown 93
+frozen-food/frozen-vegetarian-food | views 2 | collected 35 | shown 35
+drinks/tea | views 1 | collected 21 | shown 21
+drinks/coffee | views 1 | collected 28 | shown 28
+drinks/hot-chocolate-malted-drinks | views 1 | collected 6 | shown n/a
+drinks/soft-drinks-juices | views 8 | collected 117 | shown 117
+drinks/water | views 1 | collected 15 | shown 15
+drinks/tonic-mixers | views 1 | collected 5 | shown 5
+alcohol/beers-ciders | views 3 | collected 72 | shown 72
+alcohol/spirits-liqueurs | views 3 | collected 66 | shown 66
+alcohol/red-wine | views 2 | collected 47 | shown 47
+alcohol/rose-wine | views 1 | collected 11 | shown 11
+alcohol/white-wine | views 2 | collected 44 | shown 44
+alcohol/prosecco-champagne-sparkling-wine | views 1 | collected 16 | shown 16
+alcohol/port-sherry-fortified-wine | views 1 | collected 7 | shown 7
+alcohol/no-low-alcohol | views 1 | collected 10 | shown 10
+baby-toddler/baby-food-pouches-pots | views 2 | collected 33 | shown 33
+baby-toddler/baby-snacks-finger-food | views 1 | collected 14 | shown 14
+baby-toddler/baby-formula | views 1 | collected 1 | shown 1
+vegetarian-plant-based/plant-based-drinks | views 1 | collected 7 | shown 7
+vegetarian-plant-based/chilled-vegetarian | views 1 | collected 15 | shown 15
+vegetarian-plant-based/frozen-vegetarian | views 1 | collected 20 | shown 20
+vegetarian-plant-based/chilled-vegan | views 1 | collected 6 | shown 6
+higher-protein-food-drink | views 3 | collected 63 | shown 63
+autumn-range/autumn-drinks | views 2 | collected 41 | shown 41
+autumn-range/autumn-midweek-meals | views 4 | collected 79 | shown 84 | MISSING 5
+autumn-range/autumn-freezer-favourites | views 2 | collected 52 | shown 52
+halloween/halloween-drinks | views 2 | collected 38 | shown 38
+christmas-new-year/cheeseboard | views 1 | collected 21 | shown 21
+christmas-new-year/desserts-sweet-treats | views 4 | collected 71 | shown 77 | MISSING 6
+christmas-new-year/drinks | views 2 | collected 32 | shown 32
+christmas-new-year/mains | views 1 | collected 11 | shown 11
+christmas-new-year/party-food | views 1 | collected 22 | shown 22
+christmas-new-year/sides-trimmings-sauces | views 1 | collected 27 | shown 27
+christmas-new-year/starters | views 1 | collected 16 | shown 16
+christmas-new-year/vegan | views 1 | collected 12 | shown 12
+christmas-new-year/vegetarian | views 1 | collected 21 | shown 21
+TOTAL unique product ids over all leaves: 3440
+# ---- CONTINUATION 2026-10-08 (second agent) ----
+halloween/halloween-confectionery | views 2 | collected 38 | shown 38   (leaf was never crawled by agent 1)
+halloween/pumpkins | views 1 | collected 6 | shown 6   (fresh pumpkins/squash: food, was wrongly skipped)
+christmas-new-year/christmas-new-year | views 2 | collected 53 | shown 53   (a FOOD leaf (cheese, desserts, party food, drinks), was wrongly skipped as merchandising)
+christmas-new-year/desserts-sweet-treats | brand views | collected 77 | shown 77   (6 gap items closed: WINTERTRAUM, MOSER ROTH, CHOCEUR, SS Frangipane Mince Pies)
+autumn-range/autumn-midweek-meals | brand views | collected 84 | shown 84   (5 gap items closed)
+chilled-food/pizza-pasta-garlic-bread | views 2 | collected 38 | shown 38   (the page prints NO 'N Results' text: agent 1 stopped at the first 30 tiles; 'Show 38 products' in the filter drawer gives the true total)
+food-cupboard/sauces-oils-dressings | brand view | 3 more SOLESTA oils found via the food-cupboard parent page (parent says SOLESTA 6, listing had 3)
+bakery (parent page) | brand views | Village Bakery +5 (crumpets, muffins, 3 mini bites), Warburtons crumpets +1
+fresh-food/vegetables | NATURE'S PICK shallots +1 | collected 122 | shown 135 | MISSING 13 (fresh-food parent: NATURE'S PICK 163 on page, 152 reachable; 11+ missing: see aldi_sitemap_gaps.txt)
+chilled-food/yogurts | collected 91 | shown 92 | MISSING 1 (BROOKLEA Natural Kefir Pot 651536001, never reachable in 5 sort views: see aldi_sitemap_gaps.txt)
+specialbuys/2026-10-08-fresh-specials | food brands only (ASHFIELDS, SPECIALLY SELECTED, OAKHURST, RICHMOND) | collected 12 | page has 67 results, the rest is non-food (kids furniture etc.)
+specialbuys/2026-10-11-breakfast | food brands only | collected 5 | page has 23
+specialbuys/2026-10-04-cupboard-fillers | food brands only | collected 8 | page has 13
+specialbuys/2026-10-01-beer-christmas-drinks | drinks brands only | collected 3 | page has 47
+specialbuys/2026-09-27-halloween-goodies | food lines only (all 35 tiles read) | collected 19 | page has 35
+specialbuys (parent /products/specialbuys) | food brand THE FOODIE MARKET | collected 2 | page has 227, all other brands non-food
+specialbuys/2026-10-15 (Branded Food & Drink, Fresh Specials) | page shows 0 results ("promotion no longer valid"): NOT CRAWLED, re-check when it goes live
+# cross-checks done: (1) every top-level page's N Results vs unique ids; (2) brand chip counts of 14 parent pages vs ids known anywhere in the listing (only NATURE'S PICK, BROOKLEA remain short; 'SUN QUENCH' and 'DAIRY FINE' are only name-prefix artefacts); (3) https://www.aldi.co.uk/sitemap_products.xml (5,047 products; 3,438 of the first 3,440 ids were in it) -> food-like products it has that no page showed: aldi_sitemap_gaps.txt
+TOTAL unique product ids over all leaves: 3466

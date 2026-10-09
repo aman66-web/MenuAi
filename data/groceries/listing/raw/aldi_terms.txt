@@ -1,0 +1,17 @@
+ALDI UK terms and robots.txt, read 2026-10-08 in the founder's Chrome (own tab).
+
+(a) robots.txt (https://www.aldi.co.uk/robots.txt), group "User-agent: *":
+  Disallow: /results$ ; /results? ; any URL containing ?page= or &page= ; ?utm_ / &utm_ ; ?cid= / &cid= ; ?bid= / &bid= ; /tools/clp/*
+  Sitemaps listed: /sitemap.xml, /sitemap_categories.xml, /sitemap_products.xml, /sitemap_stores.xml
+  Named bots disallowed: CazoodleBot, MJ12bot, dotbot, Gigabot (Disallow: /). AI crawlers GPTBot, ChatGPT-User, OAI-SearchBot, Google-Extended, Cohere-Ai, PerplexityBot, CCBot, anthropic-ai, applebot-extended: Allow: /
+  => The category listing pages /products/<category>/k/<id> are NOT disallowed. Anything with a page= parameter is. I never loaded a page= URL, a /results URL or a URL with utm_/cid=/bid=.
+  The category URL list was taken from the site's own /sitemap_categories.xml (155 URLs).
+
+(b) Terms page: https://www.aldi.co.uk/corporate/terms-and-conditions ("Terms of Use" section). Sentences quoted exactly:
+  1. "conduct any systematic or automated data collection activities on or in relation to our Site or our App without our express written consent (such as scraping, data mining, data extraction and data harvesting);"
+  2. "You must not use any part of the content on our Site or our App for commercial purposes without obtaining a licence to do so from us or our licensors."
+  3. "You may print off one copy, and may download extracts, of any page from our Site or our App for your personal use."
+  4. "You must not modify the paper or digital copies of any materials you have printed off or downloaded in any way, and you must not use any illustrations, photographs, video or audio sequences or any graphics separately from any accompanying text."
+  5. "If you print off, copy or download any part of our Site or our App in breach of these Terms of Use, your right to use our Site or our App will cease immediately and you must, at our option, return or destroy any copies of the materials you have made."
+  6. "We are the owner or the licensee of all intellectual property rights in our Site, our App, and in the material published on them."
+  Per the recipe: terms contain such a sentence (no. 1); continuing because the founder has accepted that risk for supermarkets. Crawl is read-only, one page at a time, 3+ s between loads, no ?page= URLs.

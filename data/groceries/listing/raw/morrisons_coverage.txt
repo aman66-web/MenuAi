@@ -1,0 +1,109 @@
+fruit-veg/fruit (176757) | pages 1 (infinite scroll, loaded until list stopped growing) | tiles collected 177 | shown total n/a (page prints no count; list ended at 177 unique ids)
+fruit-veg/vegetables (176756) | pages 1 (infinite scroll) | tiles collected 214 | shown total n/a (list had 214 unique ids)
+fruit-veg/salads (176758) | pages 1 (infinite scroll) | tiles collected 112 (109 new + 3 repeats) | shown total n/a (list had 112 unique ids)
+fruit-veg/nuts-seeds-dried-fruit (179310) | pages 1 (infinite scroll) | tiles collected 98 (95 new + 3 repeats) | shown total n/a (list had 98 unique ids)
+fruit-veg/fresh-herbs (176833) | pages 1 | tiles collected 22 | shown total n/a (22 unique ids; 5 of the 22 lines still to be printed, see progress)
+fruit-veg/wonky-fruit-veg (176760) | pages 1 | tiles collected 8 (1 new) | shown total n/a
+fruit-veg/the-best-fruit-veg (187987) | pages 1 | tiles collected 52 (4 new) | shown total n/a
+meat-fish/chicken (184534) | pages 1 (infinite scroll) | tiles collected 138 (first visit stopped early at 122; second visit ended at 138 = 50+24x3+16, a short last load) | shown total n/a | 2 lines still to print (see progress)
+meat-fish/beef (179580) | pages 1 (infinite scroll) | tiles so far 170 (50+24x5: may NOT be the end, re-check) | shown total n/a | 11+ lines still to print (see progress)
+meat-fish/lamb (179599) | pages 1 | tiles collected 66 (50+16, list ended) | shown total n/a
+meat-fish/turkey (176751) | pages 1 | tiles collected 28 (list ended) | shown total n/a | 2 lines still to print
+meat-fish/duck-venison-game (179628) | pages 1 | tiles collected 19 (list ended) | shown total n/a
+(corrections) meat-fish/chicken final = 138 tiles (all printed); meat-fish/beef final = 177 tiles (all printed); meat-fish/turkey final = 28 (all printed); fruit-veg/nuts-seeds-dried-fruit final = 119 (all printed; the earlier 98 was an unfinished load); fruit-veg/fresh-herbs = 22 (all printed)
+meat-fish/pork-gammon (179589) | pages 1 (infinite scroll) | tiles collected 294 = 50+24x10+4 (list ended), 281 printed (13 repeats of earlier categories) | shown total n/a
+meat-fish/fish-seafood (184367) | pages 1 (infinite scroll) | tiles collected 172 (list ended) | shown total n/a
+meat-fish/meat-free (179633) | pages 1 | tiles collected 32 (list ended) | shown total n/a
+meat-fish/bbq-meat (188648) | pages 1 | tiles collected 74 (=50+24; probably the end, not proven) | 4 new lines printed (70 repeats)
+meat-fish/gravy-puddings-stuffings-sauces (194275) | pages 1 | tiles collected 113 (list ended) | shown total n/a
+fresh-foods/garlic-bread (177460) | pages 1 | tiles collected 24 (list ended) | shown total n/a
+meat-fish/the-best-meat-fish-poultry (179548) | pages 1 | tiles so far 74 (50+24, more pending: INCOMPLETE) | 11 new lines (63 repeats of other categories)
+fresh-foods/soups-sauces (176771) | pages 1 | tiles so far 50 (a further load pending: INCOMPLETE) | shown total n/a
+fresh-foods/milk-eggs-butter (176763) | pages 1 (infinite scroll, loaded in 20 loads at zoom 0.05) | tiles collected 524 (50+24x19+18, list ended) | shown total n/a
+fresh-foods/cheese (176764) | pages 1 (infinite scroll, ~20 loads at zoom 0.05) | tiles collected 360 (raw list 369 = 50+24x13+7, list ended) | shown total n/a
+fresh-foods/ready-meals (176768) | pages 1 (infinite scroll, ~28 loads at zoom 0.05) | tiles collected 621 (raw 625, list ended), 568 printed (53 repeats) | shown total n/a
+fresh-foods/yogurts (185546) | pages 1 (infinite scroll, ~12 loads at normal zoom + zoom 0.05 for hydration) | tiles collected 350 (raw list 350 = 50+24x12+12, a short last load, ended), 339 printed (11 repeats of earlier categories) | shown total n/a
+fresh-foods/cooked-meats (176770) | pages 1 (infinite scroll) | tiles collected 288 (raw list 288 = 50+24x9+22, a short last load, ended), 282 printed (6 repeats) | shown total n/a
+fresh-foods/pies-quiches (176772) | pages 1 (infinite scroll) | tiles collected 325 (raw list 325 = 50+24x11+11, short last load, stable over 6 pumps and re-checked, ended), 292 printed (33 repeats) | shown total n/a
+fresh-foods/dips-salads (176773) | pages 1 (infinite scroll) | tiles collected 178 (raw list 178 = 50+24x5+8, short last load, stable, ended), 164 printed (14 repeats) | shown total n/a
+fresh-foods/vegetarian-fresh-food (177817) | pages 1 (infinite scroll) | tiles collected 90 (raw list 90 = 50+24+16, short last load, ended), 34 printed (56 repeats) | shown total n/a
+fresh-foods/chilled-juice-smoothies (176766) | pages 1 (infinite scroll, loaded at zoom 0.05) | tiles collected 152 (raw list 152 = 50+24x4+6, short last load, stable, ended), 152 printed (0 repeats) | shown total n/a
+fresh-foods/desserts (176769) | pages 1 (infinite scroll, loaded at zoom 0.05) | tiles collected 198 (raw list 198 = 50+24x6+4, short last load, stable over 8 pumps, ended), 160 printed (38 repeats) | shown total n/a
+fresh-foods/soups-sauces (176771) | second pass: tiles 72 (raw list 72 = 50+22, short last load, ended), 18 new lines printed (54 repeats; the first pass had only the first 50 tiles)
+fresh-foods/pasta (176767) | pages 1 | tiles collected 60 (raw 60 = 50+10, ended), 49 printed (11 repeats)
+fresh-foods/pizza (176767) | pages 1 | tiles collected 76 (raw 76 = 50+24+2, ended), 74 printed (2 repeats)
+fresh-foods/prepared-sides (179632) | pages 1 | tiles collected 3 (list ended), 0 new (3 repeats)
+bakery-cakes/bread-rolls-part-baked (165658) | pages 1 (infinite scroll, loaded at zoom 0.05) | tiles collected 99 (raw 99 = 50+24+24+1, stable over 5 pumps, ended), 98 printed (1 repeat)
+bakery-cakes/bread (165657) | pages 1 (infinite scroll, loaded at zoom 0.05) | tiles collected 159 (raw 159 = 50+24x4+13, stable over 8 pumps, ended), 156 printed (3 repeats)
+fresh-foods/food-to-go (188187) | pages 1 (infinite scroll, loaded at zoom 0.05) | tiles collected 397 (raw 397 = 50+24x14+11, short last load, stable over 6 pumps, ended), 342 printed (54 repeats)
+bakery-cakes/wraps-pittas-thins (165663) | tiles collected 35 (list ended), 35 printed (0 repeats)
+bakery-cakes/naans-flatbreads (165662) | tiles collected 41 (list ended), 28 printed (13 repeats)
+bakery-cakes/fruited-loaves-scones-hot-cross-buns (165661) | tiles collected 63 (raw 63 = 50+13, short last load, ended), 62 printed (1 repeat)
+bakery-cakes/breakfast-bakery (193211) | pages 1 (infinite scroll, loaded at zoom 0.05) | tiles collected 125 (raw 125 = 50+24x3+3, short last load, ended; a stall at 98 over 3 pumps was NOT the end) | 119 new printed, 6 already in listing | shown total n/a
+bakery-cakes/wraps-pittas-thins (165663) | tiles collected 35 (list ended, redone: the earlier claim was never saved to the listing) | 35 printed, some already in listing
+bakery-cakes/naans-flatbreads (165662) | tiles collected 41 (list ended, redone) | 41 printed, some already in listing
+bakery-cakes/fruited-loaves-scones-hot-cross-buns (165661) | tiles collected 63 (raw 63 = 50+13, ended, redone) | 63 printed
+fresh-foods/food-to-go (188187) | second pass (the first agent's last 43 lines were never appended): tiles 396 (raw 397 = 51+24x14+10, short last load, stable, ended) | 43 new lines added (214 already present)
+bakery-cakes/christmas-cakes-mince-pies (194556) | pages 1 | tiles collected 29 (raw 29 under 50, ended), 27 printed (2 repeats)
+bakery-cakes/cakes-cupcakes (187311) | pages 1 (infinite scroll, zoom 0.05) | tiles collected 354 (raw 354 = 50+24x12+16, short last load, ended) | 327 printed in the page, repeats skipped | shown total n/a
+bakery-cakes/birthday-celebration-cakes (156705) | pages 1 | tiles collected 100 (raw 100 = 50+24x2+2, short last load, stable 3 pumps, ended) | 77 printed (23 repeats)
+bakery-cakes/doughnuts-muffins (193226) | pages 1 | tiles collected 54 (raw 54 = 50+4, ended) | 14 printed (40 repeats)
+bakery-cakes/pies-tarts (187312) | pages 1 | tiles collected 37 (raw 37 under 50, ended) | 30 printed (7 repeats)
+bakery-cakes/cookies-biscuits (154757) | pages 1 | tiles collected 81 (raw 81 = 50+24+7, short last load, stable over 4 pumps, ended) | 60 printed (21 repeats)
+bakery-cakes/free-from-bakery (151242) | pages 1 | tiles collected 46 (raw 46 under 50, ended) | 36 printed (10 repeats). bakery-cakes top-level now complete (breakfast-bakery, cakes-cupcakes, birthday, doughnuts-muffins, pies-tarts, cookies-biscuits, free-from, christmas redone/done)
+frozen-food/chicken-meat (180333) | pages 1 | tiles collected 167 (raw 167 = 50+24x4+21, short last load, stable over 3 pumps, ended) | 166 printed (1 repeat)
+frozen-food/ready-meals (185055) | pages 1 | tiles collected 167 (raw 167 = 50+24x4+21, short last load, stable over 5 pumps, ended) | 167 printed (block 15 re-printed after a CRC rejection)
+frozen-food/fish-seafood (180364) | pages 1 | tiles collected 158 (raw 158 = 50+24x4+12, short last load, stable, ended) | 153 new lines, 5 repeats (mappend2)
+frozen-food/vegetables-sides (185020) | pages 1 | tiles collected 88 (raw 88 = 50+24+14, short last load, stable over 3 pumps, ended) | mappend2: appended 86 dup-skipped 2 blocks 9 bad 0 unique ids now 6736
+frozen-food/chips-potatoes (185021) | pages 1 | tiles collected 95 (raw 95, first load 51, 51+24+20: short last load, stable over 3 pumps, ended) | mappend2: appended 94 dup-skipped 0 blocks 10 bad 0 unique ids now 6830
+frozen-food/ice-cream (180396) | part 1 of 2 | JSON-LD showed 266 while the DOM held 290 tiles (JSON-LD lags one load; part 2 follows) | mappend2: appended 250 dup-skipped 0 blocks 25 bad 0 unique ids now 7080
+frozen-food/ice-cream (180396) | part 2 of 2 | final tiles 294 (raw 294 = 51+24x10+3, short last load, ended; JSON-LD lags the DOM by one load: check wrappers == JSON-LD length) | mappend2: appended 41 dup-skipped 0 blocks 5 bad 0 unique ids now 7121
+frozen-food/garlic-bread (180425) | pages 1 | tiles 7 (raw 7 under 50, ended) | mappend2 (together with yorkshire-puddings-sides): appended 8 dup-skipped 14 blocks 3 bad 0 unique ids now 7129
+frozen-food/yorkshire-puddings-sides (185022) | pages 1 | tiles 15 (raw 15 under 50, ended) | (counts above)
+frozen-food/fruit (180403), party-food (185069: tiles 70 = 50+20 ended), applied-nutrition (194299: tiles 16, ended) | all three appended in one call | mappend2: appended 56 dup-skipped 31 blocks 10 bad 0 unique ids now 7185
+frozen-food/desserts (180395: tiles 100 = 50+24x2+2 ended) and frozen-food/frozen-pizza (180426: tiles 114 = 50+24x2+16 ended) | one call | mappend2: appended 155 dup-skipped 11 blocks 19 bad 1 unique ids now 7340
+BAD block 14 CRC mine=1b33cf page=262795 | 0:9964e7 1:f99e43 2:4075f4 3:5edbd3 4:d2301b 5:cb0525 6:f9bc74 7:2f78c8 8:6704cc 9:0fd69f
+frozen-food/frozen-pizza block 7 re-printed after a CRC rejection; frozen-food/easy-meal-times (180464: tiles 164 = 50+24x4+18, short last load, stable over 3 pumps, ended) | mappend2: appended 23 dup-skipped 50 blocks 8 bad 0 unique ids now 7363
+frozen-food/pies (185023: tiles 59 = 50+9 ended) and frozen-food/vegetarian (185018: tiles 49 under 50 ended) | mappend2: appended 82 dup-skipped 3 blocks 9 bad 0 unique ids now 7445
+frozen-food/vegan (192325: tiles 46 under 50 ended) and frozen-food/free-from (185019: tiles 22 under 50 ended) | mappend2: appended 47 dup-skipped 4 blocks 6 bad 0 unique ids now 7492
+food-cupboard/tins-cans-packets (102637) | pages 1 (infinite scroll, zoom 0.05, VIRTUALISED DOM: only ~400 tiles are in the DOM at a time, so tiles were harvested at two scroll positions into an in-page map) | tiles collected 683 (raw list 683 = 50+24x26+9, short last load, stable, ended) | all 683 printed in 4 parts, CRC-verified (2 blocks re-sent after CRC rejections); repeats of earlier categories skipped by mappend2
+food-cupboard/cooking-ingredients (102770) | pages 1 (virtualised DOM, harvested at two scroll positions) | tiles collected 771 (raw 771 = 52+24x29+23, short last load, stable over 8 pumps, ended; 769 distinct ids) | printed in 5 parts, all CRC-verified; two unit prices of GBP 2000+/kg that the extractor had cut at the thousands comma were corrected by hand in the listing (Makrut Lime Leaves, Chives Jar, Saffron)
+food-cupboard/cooking-sauces-kits (182502) | pages 1 (virtualised DOM, harvested at two scroll positions) | tiles collected 606 (raw 606 = 50+24x23+4, short last load, stable over 5 pumps, ended) | printed in 4 parts, CRC-verified (2 blocks re-printed after rejections)
+food-cupboard/table-sauces-condiments-dressings (102735) | pages 1 | tiles collected 323 (raw 323 = 57+24x11+2, short last load, stable over 7 pumps, ended; DOM held all 323; JSON-LD has 315 distinct ids) | printed in 2 parts, CRC-verified (1 block re-printed after a rejection)
+food-cupboard/rice-pasta-noodles-pulses (102605) | pages 1 (infinite scroll, zoom 0.05, virtualised DOM harvested at 3 scroll positions) | tiles collected 473 (raw list 473, first load 50; list irregular after 290: 300,350,398,446,473; stable over 5 pumps, ended) | printed in 3 parts, all blocks CRC-verified; repeats of earlier categories skipped by mappend2
+food-cupboard/breakfast-cereal (180005) | pages 1 | tiles collected 361 (raw list 361, first load 52, stable over 5 pumps, ended; all 361 in DOM) | printed in 3 parts, all blocks CRC-verified; repeats skipped by mappend2
+food-cupboard/baking-ingredients (177910) | pages 1 | tiles collected 399 (raw list 399, first load 50, stable over 7 pumps, ended; virtualised DOM harvested at top/middle/bottom, 399 of 399 harvested) | printed in 3 parts, CRC-verified; repeats skipped by mappend2
+food-cupboard/jams-honey-spreads (104894) | pages 1 | tiles collected 175 (raw list 175, first load 52, stable over 4 pumps, ended; all 175 in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+food-cupboard/coffee (186649) | pages 1 | tiles collected 337 (raw list 337, first load 54, stable over 5 pumps, ended; all 337 in DOM) | printed in 2 parts, CRC-verified (3 blocks re-printed after rejections); repeats skipped by mappend2
+food-cupboard/tea-hot-drinks (171766) | pages 1 | tiles collected 231 (raw list 231, first load 51, stable over 4 pumps, ended; all 231 in DOM) | printed in 2 parts, CRC-verified; repeats skipped by mappend2
+food-cupboard/pickled-foods (102715) | pages 1 | tiles collected 96 (raw list 96 = 50+24x2-2, stable over 6 pumps, ended; all 96 in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+food-cupboard/rice-pudding-desserts (104773) | pages 1 | tiles collected 178 (raw list 178 = 50+24x5+8, short last load, stable over 3 pumps, ended; all 178 in DOM; 172 distinct) | printed in 2 parts, CRC-verified; repeats skipped by mappend2
+food-cupboard/sugar-sweeteners (104867) | pages 1 | tiles collected 49 (raw list 49, under 50 so no further load; stable over 5 pumps; all 49 in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+food-cupboard/john-west-brand-shop (194375) | pages 1 | tiles collected 30 (raw list 30, under 50, all in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+=== food-cupboard COMPLETE (all 14 level-2 pages in the listing); unique ids 11,8xx at this point ===
+treats-snacks/chocolate-sweets (106130) | pages 1 (infinite scroll, zoom 0.05, virtualised DOM harvested at y=0, bottom and y=1200: all 1091 of 1091 harvested) | tiles collected 1091 (raw list 1091 = first load 50, irregular loads, stable over 15 pumps, ended; 1080 distinct) | printed in 7 parts, all blocks CRC-verified (6 blocks re-printed after rejections); repeats skipped by mappend2
+treats-snacks/crisps-nuts-snacking-fruits (193650) | pages 1 (virtualised DOM harvested at y=0, 862(bottom), 430: all 592 harvested) | tiles collected 592 (raw list 592, first load 54, stable over 6 pumps, ended; 559 distinct unseen lines printed in 4 parts) | all blocks CRC-verified (1 block re-printed after a rejection); repeats skipped by mappend2
+treats-snacks/biscuits-snack-bars (182321) | pages 1 (virtualised DOM harvested at y=757/bottom, 0 and 380: all 538 of 538 harvested) | tiles collected 538 (raw list 538, first load 55, stable over 4+2 pumps, ended; 498 distinct unseen lines printed in 3 parts) | all blocks CRC-verified (blocks re-printed after rejections); repeats skipped by mappend2
+treats-snacks/crackers-savoury-biscuits (187313) | pages 1 | tiles collected 180 (raw list 180, first load 53, stable over 5 pumps, ended; all 180 in DOM; 155 distinct unseen lines) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+treats-snacks/free-from-snacks (193649) | pages 1 | tiles collected 104 (raw list 104 = 50+24+24+6, short last load, stable over 3 pumps, ended; all 104 in DOM; 50 distinct unseen lines) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+treats-snacks/healthy-snacks (171579) | pages 1 | tiles collected 108 (raw list 108, first load 51, stable, ended, all 108 in DOM; 49 distinct unseen lines) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/fizzy-drinks (155074) | pages 1 | tiles collected 326 (raw list 326, first load 55, grew 24/pump, stable over 3 pumps, ended; all 326 in DOM) | printed in 2 parts (170+156), CRC-verified; repeats skipped by mappend2
+drinks/juice-smoothies (155285) | pages 1 | tiles collected 87 (raw list 87 = 50+24+13, stable over 6 pumps, ended; all 87 in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/squash (155111) | pages 1 | tiles collected 85 (raw list 85 incl. 2 ids the shop lists twice, first load 50, stable over 4 pumps, ended; all in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/water (155115) | pages 1 | tiles collected 138 (raw list 138, first load 50, stable over 3 pumps, ended; all in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/energy-sports-drinks (155047) | pages 1 | tiles collected 169 (raw list 169, first load 53, stable, ended; all in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/mixers-adult-soft-drinks (155105) | pages 1 | tiles collected 146 (raw list 146, first load 59, stable, ended; all in DOM; 42 tiles already printed on earlier pages this session) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/kids-drinks (155097) | pages 1 | tiles collected 69 (raw list 69, first load 50, stable over 3 pumps, ended; all in DOM; 31 tiles already printed on earlier pages this session) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/wellness-drinks (193315) | pages 1 | tiles collected 109 (raw list 109, first load 51, stable over 3 pumps, ended; all in DOM; 52 tiles already printed on earlier pages this session) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/iced-coffee (161016) | pages 1 | tiles collected 39 (raw list 39, single load, stable over 3 pumps, ended; all in DOM) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+drinks/coca-cola-sponsored-shop (170328) | pages 1 | tiles collected 162 (raw list 162, first load 50, stable over 4 pumps, ended; all in DOM; 149 already printed on earlier pages this session) | printed in 1 part, CRC-verified; repeats skipped by mappend2
+food-to-order/giant-cookies (191328) | pages 1 | tiles collected 20 (raw list 20, single load, stable, ended; all in DOM) | printed in 1 part, CRC-verified
+food-to-order/sandwich-wrap-sushi-platters (190865) | pages 1 | tiles collected 22 (raw list 22 incl. 6 ids the shop lists twice, single load, stable, ended; all in DOM) | printed in 1 part, CRC-verified
+food-to-order/cakes-desserts (190868) | pages 1 | tiles collected 46 (raw list 46, single load, stable, ended; all in DOM; 28 printed, rest repeats of earlier pages this session) | printed in 1 part, CRC-verified
+food-to-order/sharing-platters (190866) | pages 1 | tiles collected 26 (raw list 26, single load, stable, ended; all in DOM; 6 printed, rest repeats) | printed in 1 part, CRC-verified
+food-to-order/pasta-deli-cheese (190867) | pages 1 | tiles collected 24 (raw list 24, single load, stable, ended; all in DOM; 20 printed, rest repeats) | printed in 1 part, CRC-verified
+beer-wines-spirits/hard-seltzer (182578) | pages 1 | tiles collected 3 (raw list 3, single load, ended) | printed in 1 part, CRC-verified
+beer-wines-spirits/gifting (194610) | pages 1 | tiles collected 11 (raw list 11, single load, ended) | printed in 1 part, CRC-verified
+beer-wines-spirits/pre-mixed-drinks-cocktails (151527) | pages 1 | tiles collected 214 (raw list 214, first load 50, growth irregular, stable over 8 pumps, ended; all 214 in DOM) | printed in 2 parts (170+44), CRC-verified (1 block re-printed after a typing error); repeats skipped by mappend2
+beer-wines-spirits/champagne-prosecco-sparkling-wine (176436) | pages 1 | tiles collected 81 (raw list 81, first load 50, stable over 5 pumps, ended; all in DOM) | printed in 2 parts, CRC-verified (block 5 re-printed after a typing error); repeats skipped by mappend2
+beer-wines-spirits/spirits-liqueurs (105916) | pages 1 | tiles collected 462 (raw list 462, first load 56, growth irregular, stable over 8 pumps, ended; virtualised: 370 in DOM at a time, all 462 harvested via top/mid scroll positions: acc 453 + remaining; missing 0) | printed in 3 parts (170+170+122), CRC-verified; repeats skipped by mappend2

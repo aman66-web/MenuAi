@@ -1,0 +1,24 @@
+Food & Drink / Food Cupboard | pages 1 | tiles collected 30 | shown total 30 / 30 (badges: Available in store now 27, In store from 15.10 3)
+Food & Drink / Fruit & veg | pages 1 | tiles collected 8 | shown total 8 / 8 (badges: Available in store now 8; labels: SAVE x7, LIMITED OFFER x1)
+Food & Drink / Fish & Seafood | pages 1 | tiles collected 1 | shown total 1 / 1
+Food & Drink / Cheese, Dairy & Eggs | pages 1 | tiles collected 7 | shown total 7 / 7
+Food & Drink / Oils, Condiments & Sauces | pages 1 | tiles collected 2 | shown total 2 / 2
+Food & Drink / Ready meals (Chilled Food) | pages 1 | tiles collected 2 | shown total 2 / 2
+Food & Drink / Drinks | pages 1 | tiles collected 1 | shown total 1 / 1
+Food & Drink / Coffee, Tea & Hot Chocolate | pages 1 | tiles collected 3 | shown total 3 / 3
+Food & Drink / Frozen | pages 1 | tiles collected 8 | shown total 9 / 9 (page says 9 products but only 8 tiles are in the page after scrolling to the bottom; 1 missing, reason unknown)
+Food & Drink / Bakery | pages 1 | tiles collected 21 | shown total 21 / 21 (2 tiles are 3-for multi-buys, price taken from Regular price line)
+Food & Drink / Meat & Poultry | pages 1 | tiles collected 17 | shown total 17 / 17 (badges: Available in store now 16, In store from 12.10 1)
+Food & Drink / Wine, Beer & Spirits | pages 1 | tiles collected 45 | shown total 45 / 45 (alcohol; badges: Available in store now 44, In store from 15.10 1)
+Food & Drink / Confectionery & Snacks | pages 1 (+1 "Load more products" click) | tiles collected 93 | shown total 87 before the click, 93 / 93 after it (6 are "In store from 15.10")
+Offers / Flavour of the Week: The Alps | pages 1 | tiles collected 52 | shown total n/a (page text claims "over 100 delicious products"; 52 tiles exist) | 51 duplicates of hub ids + p10055870 new; tiles carry pack size
+Offers / Pick of the Week (08/10-14/10) | pages 1 | tiles collected 14 | shown total n/a (14 tiles exist)
+Offers / Pick of the Week (from 15/10) | pages 1 | tiles collected 14 | shown total n/a (14 tiles exist)
+Offers / Flavour of the Week: Diwali | pages 1 | tiles collected 9 (4 new ids printed, 5 duplicates of hub ids) | shown total n/a
+Offers / The Wine Edit | pages 1 | tiles collected 16 (0 new ids, all duplicates of hub ids) | shown total n/a
+Offers / Halloween Party Food and Sweets | pages 1 | tiles collected 29 (0 new ids, all duplicates of hub ids) | shown total n/a
+Offers / Lidl Plus Offers - Upcoming Deals | pages 1 | tiles collected 54 (9 hub ids, 13 new food/drink ids saved, 32 non-food skipped) | shown total n/a
+Not product lists (editorial pages, 0 product tiles): /c/red-wine/a10023986 (white-wine, rose-wine, sparkling-champagne are the same page type, not opened), /c/food-cupboard/s10023108, /c/jams-honey-spreads/s10023603, /c/deluxe-at-lidl/s10103713 (0 tiles at load), /c/lidl-plus-offers-current/a10053222 (index of campaigns)
+Not opened: /c/halloween-pumpkins/a10030005 (decorative pumpkins, plants; not food)
+Site search check: /q/search?q=milk -> 24 products, no fresh milk; everyday range not on the site.
+SUMMARY: unique food and drink product ids with a price shown = 269 (270 incl. one with no price); 70 carry a Lidl Plus price; every tile is in-store only ("Available in store now", "In store from 15.10", "In store from 18.10"); no basket, no online-only prices.

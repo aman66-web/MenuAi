@@ -1,0 +1,394 @@
+# category path | pages read | tiles collected | shown total (from the page)   (Waitrose: 51 products per listing page; a category with more is split into its sub-categories)
+bakery/fresh_bread | 1 | 34 | 34
+bakery/rolls_bagels_and_thins | 1 | 42 | 42
+bakery/baguettes_ciabatta_and_continental_breads | 1 | 27 | 27
+bakery/wraps_tortillas_and_pitta_bread | 1 | 19 | 19
+bakery/croissants_brioche_and_pastries | 1 | 40 | 40
+bakery/crumpets_pancakes_and_waffles | 1 | 26 | 26
+bakery/doughnuts_muffins_and_cookies | 1 | 33 | 33
+bakery/part_baked_bread_and_rolls | 1 | 10 | 10
+bakery/teacakes_fruit_loaves_and_scones | 1 | 20 | 20
+bakery/patisserie | 1 | 43 | 43
+bakery/christmas_bakery | 1 | 37 | 37
+frozen/frozen_meat_and_poultry | 1 | 21 | 21
+frozen/frozen_ready_meals | 1 | 25 | 25
+bakery/bread (107, split into children) | 9 child pages | white_bread 28, granary_and_seeded_bread 27, wholemeal_bread 11, sourdough_bread 35, brown_bread 15, small_loaves 14, rye_bread 6, half_and_half_bread 2, potato_and_soda_bread 2 (bread_flour 5 not read yet) | 107
+bakery/cakes_and_tarts (182, split into children) | 8 child pages | whole_cakes 48 of 52 shown (page holds 48 tiles), cupcakes 25, small_cakes 43, loaf_cakes 13, tarts 13, cake_bites 18, cake_slices 26, chocolate_cakes 22 ("traybakes" 4 redirects to the parent page: not separately readable) | 182
+bakery/bread/bread_flour | 1 | 5 | 5
+bakery/birthday_and_celebration_cakes | 2 (default order, then ?sortBy=PRICE_LOW_2_HIGH; PRICE_HIGH_2_LOW still to do) | 48 + 19 new | 96
+frozen/frozen_vegetables_herbs_and_rice | 1 | 48 | 51 (3 products not on the page; fill with sortBy=PRICE_HIGH_2_LOW later)
+frozen/frozen_chips_and_potatoes | 1 | 43 | 43
+frozen/frozen_desserts | 1 | 29 | 29
+frozen/frozen_fruits_and_smoothie_mixes | 1 | 20 | 20
+frozen/frozen_bread_croissants_and_pastry | 1 | 15 | 15
+frozen/frozen_meat_and_poultry | 1 | 21 | 21   (counted above)
+bakery/birthday_and_celebration_cakes (completed) | 3 (default, PRICE_LOW_2_HIGH, PRICE_HIGH_2_LOW) | 48 + 19 + 40 new = 107 lines read incl. overlaps | 96
+frozen/frozen_pizza | 1 | 23 | 23
+frozen/frozen_snacks_and_party_food | 1 | 33 | 33
+frozen/frozen_vegetarian_food | 1 | 35 | 35
+frozen/frozen_vegan | 1 | 38 | 38
+frozen/ice_cubes | 1 | 3 | 3
+fresh_and_chilled/fresh_vegetables/loose_vegetables | 1 | 31 | 31
+fresh_and_chilled/fresh_vegetables/potatoes_and_sweet_potatoes | 1 | 31 | 31
+fresh_and_chilled/fresh_vegetables/stir_fry_noodles_and_vegetables | 1 | 23 | 23
+fresh_and_chilled/fresh_vegetables/onions_and_garlic | 1 | 20 | 20
+fresh_and_chilled/fresh_vegetables/chillies_ginger_and_ingredients | 1 | 11 | 11
+fresh_and_chilled/fresh_vegetables/peppers | 1 | 13 | 13
+fresh_and_chilled/fresh_vegetables/squashes_and_pumpkins | 1 | 11 | 11
+fresh_and_chilled/fresh_vegetables/carrots_and_parsnips | 1 | 19 | 19
+fresh_and_chilled/fresh_vegetables/leeks | 1 | 4 | 4
+fresh_and_chilled/fresh_vegetables/mushrooms | 1 | 14 | 14
+fresh_and_chilled/fresh_vegetables (325, split into children) | 20 child pages read | all taxonomy children read (courgettes 9, broccoli 19, cabbage 29, peas 22, celery 7, beetroot 10, asparagus 4, prepared_vegetables 54 via 2 sorts, roasting 22, pickling 63 via 2 sorts); organic_vegetables 33 and in_season_vegetables 1 not read (thematic overlaps) | 325
+fresh_and_chilled/fresh_fruit/berries | 1 | 20 | 20
+fresh_and_chilled/fresh_fruit/loose_fruit | 1 | 27 | 27
+fresh_and_chilled/fresh_fruit/bananas | 1 | 4 | 4
+fresh_and_chilled/fresh_fruit/apples | 1 | 24 | 24
+fresh_and_chilled/fresh_fruit/pears | 1 | 10 | 10
+fresh_and_chilled/fresh_fruit/grapes | 1 | 10 | 10
+fresh_and_chilled/fresh_fruit/oranges_lemons_and_citrus_fruit | 1 | 25 | 25
+fresh_and_chilled/fresh_fruit/mangos_melons_and_exotic_fruit | 1 | 33 | 33
+fresh_and_chilled/fresh_salad_and_herbs/tomatoes | 1 | 25 | 25
+fresh_and_chilled/fresh_salad_and_herbs/salad_bags | 1 | 26 | 26
+fresh_and_chilled/fresh_salad_and_herbs/lettuce_and_chicory | 1 | 16 | 15
+fresh_and_chilled/fresh_salad_and_herbs/fresh_herbs | 1 | 33 | 33
+fresh_and_chilled/fresh_salad_and_herbs/cucumbers | 1 | 6 | 6
+fresh_and_chilled/fresh_salad_and_herbs/avocados | 1 | 9 | 9
+fresh_and_chilled/fresh_salad_and_herbs/coleslaw_and_potato_salad | 1 | 11 | 11
+fresh_and_chilled/fresh_salad_and_herbs/prepared_salads | 1 | 38 | 38
+fresh_and_chilled/fresh_meat/roasting_joints | 2 (default + PRICE_HIGH_2_LOW) | 48 + 15 new | 65 (2 not seen)
+fresh_and_chilled/fresh_meat/beef | 2 (default + PRICE_HIGH_2_LOW) | 48 + 21 new | 82 (some middle-priced items not seen: children of beef: mince, steaks 28, burgers, bbq_beef, joints 17, meatballs...)
+fresh_and_chilled/fresh_meat/lamb | 1 | 45 | 45
+fresh_and_chilled/fresh_meat/bacon_and_gammon | 2 (default + PRICE_HIGH_2_LOW) | 48 + 5 new | 55
+fresh_and_chilled/fresh_meat/sausages | 1 | 44 | 44
+fresh_and_chilled/fresh_chicken_and_poultry/chicken | 2 (default + PRICE_HIGH_2_LOW) | 48 + 13 new | 70
+fresh_and_chilled/fresh_chicken_and_poultry/turkey | 1 | 6 | 6
+fresh_and_chilled/fresh_chicken_and_poultry/duck | 1 | 10 | 10
+fresh_and_chilled/fresh_chicken_and_poultry/whole_chicken | 1 | 11 | 11
+fresh_and_chilled/fresh_chicken_and_poultry/marinated_chicken | 1 | 12 | 12
+fresh_and_chilled/fresh_chicken_and_poultry/breaded_chicken | 1 | 19 | 19
+fresh_and_chilled/fresh_meat/accompaniments | 1 | 35 | 35
+fresh_and_chilled/chilled_fish_and_seafood (145) | 8 child pages: fish_fillets 25, smoked_fish 7, salmon_and_trout 37, cod_haddock_and_white_fish 13, breaded_fish_and_fishcakes 15, prawns_and_seafood 46, smoked_salmon_and_ready_to_eat 19, easy_to_cook_and_mixes 10 (caviar_roe 3, en_papillote 3 and thematic children not read) | 145
+fresh_and_chilled/milk_butter_and_eggs/long_life_milk | 1 | 25 | 25
+fresh_and_chilled/milk_butter_and_eggs/dairy_and_lactose_free | 1 | 30 | 30
+fresh_and_chilled/milk_butter_and_eggs/butter_spreads_and_pastry | 2 (default + PRICE_HIGH_2_LOW) | 50 + 15 new | 87
+fresh_and_chilled/milk_butter_and_eggs/free_range_eggs | 1 | 26 | 26
+fresh_and_chilled/milk_butter_and_eggs/fresh_cream | 1 | 34 | 34
+fresh_and_chilled/yogurts/high_protein_yogurts | 1 | 46 | 46
+fresh_and_chilled/yogurts/kefir | 1 | 28 | 28
+fresh_and_chilled/cheese/brie_and_camembert | 1 | 11 | 11
+fresh_and_chilled/cheese/feta_and_halloumi | 1 | 14 | 14
+fresh_and_chilled/cheese/mozzarella_mascarpone_and_ricotta | 1 | 27 | 27
+fresh_and_chilled/cheese/stilton_and_blue_cheese | 1 | 20 | 20
+fresh_and_chilled/cheese/parmesan_and_pecorino | 1 | 13 | 13
+fresh_and_chilled/cheese/goats_and_sheeps_cheese | 1 | 16 | 16
+fresh_and_chilled/cheese/hot_eating | 1 | 19 | 19
+fresh_and_chilled/cheese/snacking_cheese_and_lunchboxes | 1 | 14 | 14
+fresh_and_chilled/cheese/lighter_and_low_fat_cheese | 1 | 13 | 13
+fresh_and_chilled/yogurts/childrens_yogurt | 1 | 26 | 26
+fresh_and_chilled/yogurts/indulgent_yogurts | 1 | 33 | 33
+fresh_and_chilled/yogurts/yogurt_drinks | 1 | 21 | 21
+fresh_and_chilled/yogurts/skyr | 1 | 10 | 10
+fresh_and_chilled/yogurts/soya_and_dairy_alternatives | 1 | 21 | 21
+fresh_and_chilled/yogurts/multipacks | 1 | 36 | 36
+fresh_and_chilled/yogurts/breakfast | 1 | 38 | 38
+fresh_and_chilled/yogurts/greek_and_greek_style | 1 | 48 | 56 (8 not on page 1)
+food_cupboard/breakfast_cereal/large_packs | 1 | 31 | 31
+food_cupboard/breakfast_cereal/wheat_and_wheat_biscuits | 1 | 27 | 27
+food_cupboard/breakfast_cereal/flakes | 1 | 29 | 29
+food_cupboard/breakfast_cereal/healthy_free_from_and_organic (url gluten_free_and_organic_cereal showed this page) | 1 | 48 | 109 (61 not on page 1)
+food_cupboard/breakfast_cereal/multigrain_hoops | 1 | 10 | 10
+food_cupboard/breakfast_cereal/rice_pops | 1 | 8 | 8
+food_cupboard/breakfast_cereal/bran_and_fibre | 1 | 13 | 13
+food_cupboard/breakfast_cereal/chocolate_cereals | 1 | 28 | 28
+food_cupboard/crisps_snacks_and_nuts/single_pack_crisps | 1 | 27 | 27
+food_cupboard/crisps_snacks_and_nuts/tortilla_chips_dips_and_salsa | 1 | 21 | 21
+food_cupboard/crisps_snacks_and_nuts/popcorn | 1 | 14 | 14
+food_cupboard/crisps_snacks_and_nuts/pretzels | 1 | 6 | 6
+food_cupboard/crisps_snacks_and_nuts/meat_snacks | 1 | 11 | 11
+food_cupboard/chocolate_and_sweets/cadbury_chocolate | 1 | 36 | 36
+food_cupboard/crisps_snacks_and_nuts/savoury_snacks | 1 | 48 | 61 (13 not on page 1)
+food_cupboard/crisps_snacks_and_nuts/rice_corn_and_oat_cakes | 1 | 48 | 56 (8 not on page 1)
+food_cupboard/biscuits_and_crackers/luxury_biscuits | 1 | 44 | 44
+food_cupboard/biscuits_and_crackers/cookies | 1 | 20 | 20
+food_cupboard/biscuits_and_crackers/biscuit_selections | 1 | 10 | 10
+food_cupboard/biscuits_and_crackers/snack_bars | 1 | 48 | 50 (2 not on page 1)
+food_cupboard/biscuits_and_crackers/lunchbox_biscuits | 1 | 24 | 24
+food_cupboard/biscuits_and_crackers/no1_biscuits | 1 | 7 | 7
+food_cupboard/biscuits_and_crackers/healthier_biscuits_and_free_from | 1 | 48 | 51 (3 not on page 1)
+food_cupboard/chocolate_and_sweets/no1_confectionery | 1 | 8 | 8
+food_cupboard/tins_cans_and_packets/baked_beans_spaghetti_and_pasta | 1 | 43 | 43
+food_cupboard/tins_cans_and_packets/vegetables | 1 | 26 | 26
+food_cupboard/tins_cans_and_packets/meat_and_corned_beef | 1 | 12 | 12
+food_cupboard/tins_cans_and_packets/coconut_milk | 1 | 8 | 8
+food_cupboard/tins_cans_and_packets/fruit | 1 | 48 | 48
+food_cupboard/tins_cans_and_packets/desserts | 1 | 32 | 32
+food_cupboard/tins_cans_and_packets/ready_meals | 1 | 8 | 8
+food_cupboard/rice_pasta_and_pulses/noodles | 1 | 44 | 43
+food_cupboard/rice_pasta_and_pulses/heat_to_eat | 1 | 40 | 40
+food_cupboard/sugar_and_home_baking/dried_fruit_and_peel | 1 | 23 | 23
+food_cupboard/sugar_and_home_baking/chocolate_bars_and_chips | 1 | 24 | 24
+food_cupboard/sugar_and_home_baking/extracts_essences_and_juices | 1 | 20 | 20
+food_cupboard/sugar_and_home_baking/cake_mixes | 1 | 19 | 19
+food_cupboard/sugar_and_home_baking/baking_aids | 1 | 42 | 42 (mixed food and non-food: foil, cases)
+food_cupboard/sugar_and_home_baking/breadmaking | 1 | 19 | 19
+food_cupboard/sugar_and_home_baking/pastry_bases_and_meringues | 1 | 10 | 10
+food_cupboard/sugar_and_home_baking/nuts_and_seeds | 1 | 9 | 9
+tea_coffee_and_soft_drinks/squash_and_cordials/no_added_sugar | 1 | 29 | 29
+tea_coffee_and_soft_drinks/water/still_water | 1 | 31 | 31
+tea_coffee_and_soft_drinks/water/sparkling_water | 1 | 26 | 26
+tea_coffee_and_soft_drinks/water/flavoured_water | 1 | 23 | 23
+tea_coffee_and_soft_drinks/water/multipacks | 1 | 26 | 26
+tea_coffee_and_soft_drinks/squash_and_cordials/cordials | 1 | 26 | 26
+tea_coffee_and_soft_drinks/squash_and_cordials/squash | 1 | 48 | 51 (3 not on page 1)
+tea_coffee_and_soft_drinks/fizzy_drinks/lemonade | 1 | 40 | 40
+tea_coffee_and_soft_drinks/fizzy_drinks/orange_and_fruit_flavoured | 1 | 40 | 40
+tea_coffee_and_soft_drinks/adult_drinks_and_mixers/schweppes_collection | 0 | 0 | 19 (page returned no listing data in the extractor; retry)
+tea_coffee_and_soft_drinks/functional_and_wellness_drinks/kombucha_and_gut_health_drinks | 1 | 34 | 34
+tea_coffee_and_soft_drinks/functional_and_wellness_drinks/ginger_wellness_shots_and_smoothies | 1 | 31 | 31
+fresh_and_chilled/ready_meals/italian_and_mediterranean_meals | 1 | 48 | 50 (2 not on page)
+fresh_and_chilled/ready_meals/indian_meals | 1 | 48 | 61 (13 not read: sorted pages still to do)
+fresh_and_chilled/ready_meals/chinese_and_asian_meals | 1 | 48 | 55 (7 not read)
+fresh_and_chilled/ready_meals/classic_meals | 1 | 48 | 57 (9 not read)
+fresh_and_chilled/ready_meals/vegetarian_and_vegan | 1 | 28 | 28
+fresh_and_chilled/fresh_pizza_and_garlic_bread/fresh_pizza | 1 | 43 | 43
+fresh_and_chilled/desserts (159, split) | 7 child pages read: family_and_sharing_desserts 45, no1_desserts 31, cheesecakes 15, trifles_jellies_and_sundaes 10, tarts_and_pies 17, sponges_and_crumbles 19, cream_cakes_and_profiteroles 10 (single_pots_and_multipacks 91 and creams_and_custard 16 not read) | 159
+food_cupboard/jam_honey_and_spreads/jam | 1 | 42 | 42
+food_cupboard/jam_honey_and_spreads/marmalade | 1 | 21 | 21
+food_cupboard/jam_honey_and_spreads/honey_and_syrups | 1 | 48 | 54 (6 not on page 1)
+food_cupboard/jam_honey_and_spreads/nut_butters | 1 | 48 | 48
+fresh_and_chilled/fresh_meat/pork (130, split) | default + LOW_2_HIGH + HIGH_2_LOW (49 tiles each) + children free_range 46, bbq 29, no1_pork 24, steak 10, slow_cooked 10 read (sausages, bacon_and_gammon, joints were done earlier) | 130
+fresh_and_chilled/cheese/cheddar (75) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each) | 75
+fresh_and_chilled/cheese/continental_cheese (85) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 85
+fresh_and_chilled/cheese/british_regional_cheese (77) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 77
+fresh_and_chilled/cheese/award_winning_cheese (53) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 53
+fresh_and_chilled/cheese/build_your_cheeseboard (110) | LOW_2_HIGH + HIGH_2_LOW (49 each; cheese children read elsewhere; accompaniments partly) | 110
+fresh_and_chilled/cheese/quark_soft_cream_and_cottage_cheese (65) | LOW_2_HIGH + HIGH_2_LOW (49 each) | 65
+fresh_and_chilled/cheese/sliced_and_grated_cheese | 1 | 41 | 40
+fresh_and_chilled/cheese/waitrose_essential_cheese | 1 | 43 | 43
+fresh_and_chilled/cheese/vegan_and_dairy_free_cheese | 1 | 18 | 18
+fresh_and_chilled/cheese/artisanal_cheese | 1 | 17 | 17
+fresh_and_chilled/cheese/organic | 1 | 14 | 14
+fresh_and_chilled/cheese/no1_cheese, cheese_selection_boxes, cheese_counter | 1 each | 35, 7, 7 | 35, 7, 7
+fresh_and_chilled/yogurts/natural (51) | 1 | 48 | 51 (3 not on page; its sibling leaves overlap)
+fresh_and_chilled/yogurts/fat_free_and_low_fat | 1 | 46 | 46
+fresh_and_chilled/yogurts/organic | 1 | 36 | 36
+fresh_and_chilled/yogurts/no1_yogurts | 1 | 7 | 7
+fresh_and_chilled/yogurts/flavoured_yogurt (111) | default + LOW_2_HIGH + HIGH_2_LOW (48 each) | 111
+fresh_and_chilled/yogurts/active_health (76) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 76
+fresh_and_chilled/yogurts/big_pots (61) | LOW_2_HIGH + HIGH_2_LOW (48 each, all already listed) | 61
+fresh_and_chilled/yogurts/single_pots (54) | default + LOW_2_HIGH + HIGH_2_LOW (48 each, all already listed) | 54
+fresh_and_chilled/cooked_meats_deli_and_dips/cooked_meats (72) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 72
+fresh_and_chilled/cooked_meats_deli_and_dips/world_deli (52) | 1 | 48 | 52 (4 not on page 1; default order only, sorted retry pending)
+fresh_and_chilled/cooked_meats_deli_and_dips/continental_meats_and_salami (71) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 71
+fresh_and_chilled/cooked_meats_deli_and_dips/olives_and_antipasti | 1 | 47 | 47
+fresh_and_chilled/cooked_meats_deli_and_dips/dips | 1 | 47 | 45
+fresh_and_chilled/cooked_meats_deli_and_dips/no1_cooked_meats_deli_and_dips | 1 | 26 | 26
+fresh_and_chilled/cooked_meats_deli_and_dips/ready_to_eat_chicken | 1 | 28 | 28
+fresh_and_chilled/cooked_meats_deli_and_dips/pate | 1 | 17 | 17
+fresh_and_chilled/cooked_meats_deli_and_dips/sandwiches_and_wraps | 1 | 31 | 31
+fresh_and_chilled/cooked_meats_deli_and_dips/sushi, haggis_and_black_pudding, organic | 1 each | 7, 4, 6 | 7, 4, 6
+fresh_and_chilled/pies_quiches_and_savoury_snacks/hot_pies | 1 | 33 | 33
+fresh_and_chilled/pies_quiches_and_savoury_snacks/pork_pies | 1 | 8 | 8
+fresh_and_chilled/pies_quiches_and_savoury_snacks/sausage_rolls | 1 | 15 | 15
+fresh_and_chilled/pies_quiches_and_savoury_snacks/falafel_and_world_snacks | 1 | 17 | 17
+fresh_and_chilled/pies_quiches_and_savoury_snacks/quiches_and_tarts | 1 | 22 | 22
+fresh_and_chilled/pies_quiches_and_savoury_snacks/picnic_and_scotch_eggs | 1 | 23 | 23
+fresh_and_chilled/pies_quiches_and_savoury_snacks/meat_snacks | 1 | 12 | 12
+fresh_and_chilled/fresh_soups (56) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 56
+fresh_and_chilled/fresh_pasta_and_sauces (68) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 68
+fresh_and_chilled/pies_quiches_and_savoury_snacks/cocktail_sausages | 1 | 3 | 3
+fresh_and_chilled/fresh_pizza_and_garlic_bread (58) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 58
+fresh_and_chilled/easy_to_cook_meals (111) | default + LOW_2_HIGH + HIGH_2_LOW (48-49 each; leaves not read: its 11 children overlap meat/chicken pages) | 111
+fresh_and_chilled/vegetarian_food/ready_meals_and_pies, pizza_pasta_and_soup, sausages_and_burgers, meat_substitutes_and_ingredients, tofu, prepared_vegetables_and_salad, desserts | 1 each | 28, 34, 13, 29, 14, 21, 39 | same as shown
+fresh_and_chilled/vegetarian_food/deli_and_quiches (71) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 71
+fresh_and_chilled/vegan/vegan_deli (50) | 1 | 48 | 50 (2 not on page; overlaps others)
+fresh_and_chilled/vegan/vegan_dairy_alternatives, vegan_desserts_yogurts_and_cake, vegan_meat_substitutes_and_ingredients, vegan_ready_meals_and_pies, vegan_sausages_and_burgers, vegan_pizza_pasta_and_soup, vegan_tofu | 1 each | 32, 19, 33, 16, 12, 17, 18 | same as shown
+fresh_and_chilled/food_to_go (226, split) | default + LOW_2_HIGH + HIGH_2_LOW (48 each) + children snacks_to_go 96 (LOW+HIGH), drinks 44; children sushi 25, sandwiches_and_wraps 47, pasta_and_salads 16 still to read | 226
+fresh_and_chilled/food_to_go/sandwiches_and_wraps, sushi, pasta_and_salads | 1 each | 47, 25, 16 | 47, 25, 16
+food_cupboard/chocolate_and_sweets/chocolate (412, split) | default (49 tiles) read; children everyday_bars 132 (default+LOW+HIGH, 3 pages x 48), luxury_chocolate_bars 109 (default+LOW+HIGH, 3 pages x 49) read; NOT read: organic_chocolate 15, fairtrade_chocolate 22, multipack_bars 27, sharing_pouches 52, boxed_chocolates_and_gifts 107, vegan_chocolate 17, waitrose_belgian_and_cooks_ingredients_chocolate 9, and the milk/dark/white sub-children of everyday_bars (101/28/2) and luxury_chocolate_bars (50/45/6) | 412
+frozen/frozen_fish_and_seafood (58) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 58
+frozen/ice_cream_frozen_yogurt_and_sorbets (225) | default page only (52 tiles of 225); NOT done: sorted variants and children (cones/sticks/bars 72, tubs 95, lollies 24, No.1 9, vegan 16, frozen yoghurt 3, gelato 6, sorbets 4, healthier 12, cones/wafers/sauces 18, mini tubs/sticks/bites 34) | 225
+frozen/ice_cream_frozen_yogurt_and_sorbets (225) | now default + LOW_2_HIGH + HIGH_2_LOW (52/48/48 tiles = at most ~148 of 225); children (tubs 95, cones/sticks/bars 72, minis 34, lollies 24, cones/wafers/sauces 18, vegan 16, healthier 12, No.1 9, gelato 6, sorbets 4, frozen yoghurt 3) still to read for the middle of the price range | 225
+frozen/ice_cream_frozen_yogurt_and_sorbets/ice_cream_tubs (95) | LOW_2_HIGH + HIGH_2_LOW (49 each; middle ~0 missed because luxury/traditional/vanilla sub-children not read) | 95
+frozen/ice_cream_frozen_yogurt_and_sorbets/ice_cream_cones_sticks_and_bars (72) | LOW_2_HIGH + HIGH_2_LOW (48 each) | 72
+tea_coffee_and_soft_drinks/tea/traditional_everyday_tea | 1 | 44 new of 45 tiles | 44
+tea_coffee_and_soft_drinks/tea/earl_grey_tea | 1 | 15 new of 15 tiles | 15
+tea_coffee_and_soft_drinks/tea/speciality_black_tea | 1 | 24 new of 26 tiles | 26
+tea_coffee_and_soft_drinks/tea/loose_leaf_tea | 1 | 15 new of 16 tiles | 16
+tea_coffee_and_soft_drinks/tea/green_tea | 1 | 35 new of 37 tiles | 37
+tea_coffee_and_soft_drinks/tea/decaffeinated_tea | 1 | 10 new of 11 tiles | 11
+tea_coffee_and_soft_drinks/tea/no1_tea | 1 | 4 new of 4 tiles | 4
+tea_coffee_and_soft_drinks/tea/redbush_tea | 1 | 8 new of 9 tiles | 9
+tea_coffee_and_soft_drinks/tea/sleep_detox_and_added_benefits_teas | 1 | 23 new of 27 tiles | 27
+tea_coffee_and_soft_drinks/tea/twinings (56) | PRICE_LOW_2_HIGH (48 tiles, 15 new); HIGH_2_LOW pending | 56
+tea_coffee_and_soft_drinks/tea/twinings (56) | PRICE_LOW_2_HIGH + PRICE_HIGH_2_LOW (48 tiles each; 15+1 new) | 56 -> tea/twinings complete
+tea_coffee_and_soft_drinks/tea/fruit_and_herbal_infusions (82) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 20+24 new) | 82
+tea_coffee_and_soft_drinks/coffee/whole_bean_coffee (54) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 48+6 new) | 54
+tea_coffee_and_soft_drinks/coffee/decaffeinated_coffee | 1 | 26 new of 27 tiles | 27
+tea_coffee_and_soft_drinks/coffee/ground_coffee (75) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 44+23 new) | 75
+tea_coffee_and_soft_drinks/coffee/instant_coffee (59) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 39+11 new) | 59
+tea_coffee_and_soft_drinks/coffee/coffee_pods (87) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 44+38 new) | 87
+tea_coffee_and_soft_drinks/coffee/organic_coffee | 1 | 0 new of 13 tiles (all already listed under other coffee leaves) | 13
+tea_coffee_and_soft_drinks/coffee/no1_coffee | 1 | 0 new of 17 tiles (all already listed) | 17
+tea_coffee_and_soft_drinks/coffee/sachets_filters_and_coffee_to_go | 1 | 11 new of 20 tiles | 20
+tea_coffee_and_soft_drinks/coffee/iced_coffee | 1 | 24 new of 29 tiles | 29
+tea_coffee_and_soft_drinks/coffee DONE (all 9 leaves read) | | |
+tea_coffee_and_soft_drinks/hot_chocolate_and_malts | 1 | 24 new of 28 tiles | 28
+tea_coffee_and_soft_drinks/sports_and_energy_drinks | 1 | 31 new of 39 tiles | 39
+tea_coffee_and_soft_drinks/kids_and_lunchbox_drinks | 1 | 27 new of 30 tiles | 30
+tea_coffee_and_soft_drinks/juices/box_and_long_life_juice (59) | LOW_2_HIGH (48 tiles, 34 new); HIGH_2_LOW pending | 59
+tea_coffee_and_soft_drinks/juices/box_and_long_life_juice (59) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 34+9 new) | 59 -> complete
+tea_coffee_and_soft_drinks/juices/chilled_juice_and_smoothies (90) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 33+21 new) | 90
+tea_coffee_and_soft_drinks/fizzy_drinks/cola (70) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 43+22 new) | 70
+tea_coffee_and_soft_drinks/adult_drinks_and_mixers/mixers (116) | default (51 tiles, 38 new); LOW/HIGH + children pending | 116
+tea_coffee_and_soft_drinks/adult_drinks_and_mixers/still_and_sparkling_juice_drinks (78) | LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 29+11 new) | 78
+tea_coffee_and_soft_drinks/adult_drinks_and_mixers/schweppes_collection | 1 | 5 new of 19 tiles | 19
+tea_coffee_and_soft_drinks/functional_and_wellness_drinks/cbd_drinks | 1 | 10 new of 15 tiles | 15
+tea_coffee_and_soft_drinks/adult_drinks_and_mixers/mixers (116) | default + LOW_2_HIGH + HIGH_2_LOW (51/48/48 tiles; 38+21+14 new); children (tonic 38, cola_lemonade_and_fruit_juice_mixers 17, soda_water 15, ginger_ale 9, cocktail_mixers_and_syrups 31, bitter_lemon 2) next | 116
+tea_coffee_and_soft_drinks/functional_and_wellness_drinks/added_vitamins_and_hydration | 1 | 17 new of 34 tiles | 34
+tea_coffee_and_soft_drinks/adult_drinks_and_mixers/mixers/tonic (38), cocktail_mixers_and_syrups (31), cola_lemonade_and_fruit_juice_mixers (17), soda_water (15), ginger_ale (9) | 1 each | 3, 4, 1, 4, 1 new | 38, 31, 17, 15, 9 -> mixers complete (bitter_lemon 2 next)
+tea_coffee_and_soft_drinks/adult_drinks_and_mixers/mixers/bitter_lemon | 1 | 0 new of 2 tiles | 2
+tea_coffee_and_soft_drinks/fizzy_drinks/ginger_beer | 1 | 2 new of 6 tiles | 6
+baby_and_toddler/baby_and_toddler_food (187) | default only so far (49 tiles, 45 new); children from_6_months 29, from_7_months 37, from_9_months 39, from_10_months 9, from_12_months 37, bars 8, biscuits 10, rice_cakes 4, crisps_and_puffs 26, fruit_snacks 20, organic 87 next | 187
+baby_and_toddler/baby_and_toddler_food/from_9_months (39) | 1 | 33 new of 39 tiles (NOTE: the URLs .../from_6_months and .../from_7_months both answered with this same from_9_months page, 39 tiles; their own 29 and 37 products not separately listed yet) | 39
+baby_and_toddler/baby_and_toddler_food/from_12_months (37) | 1 | 20 new of 37 tiles | 37
+baby_and_toddler/baby_and_toddler_food (187) | default + LOW_2_HIGH + HIGH_2_LOW (49/48/48 tiles) + children from_9_months 39, from_10_months 9, from_12_months 37, organic 87 (LOW+HIGH), bars 8, biscuits 10, rice_cakes 4, crisps_and_puffs 26, fruit_snacks 20 | union of ids seen on all these pages 168 of 187 (checked with a seen-set in the browser); the other 19 are probably only in from_6_months (29) / from_7_months (37), whose URLs redirect to from_9_months, so they were NOT read
+food_cupboard/chocolate_and_sweets/chocolate/organic_chocolate, fairtrade_chocolate, multipack_bars, vegan_chocolate | 1 each | 8, 5, 5, 1 new of 15, 22, 27, 17 tiles | same as shown
+food_cupboard/chocolate_and_sweets/chocolate/sharing_pouches (52) | default (48 tiles, 35 new); HIGH_2_LOW pending | 52
+food_cupboard/chocolate_and_sweets/chocolate/sharing_pouches (52) | default + HIGH_2_LOW (48 tiles each; 35+3 new) | 52 (4 of 52 only appear in neither list possible: checked below)
+food_cupboard/chocolate_and_sweets/chocolate/waitrose_belgian_and_cooks_ingredients_chocolate | 1 | 0 new of 9 tiles | 9
+food_cupboard/chocolate_and_sweets/chocolate/boxed_chocolates_and_gifts (107) | default + LOW_2_HIGH + HIGH_2_LOW (48 tiles each; 38+15+34 new); union of ids seen 101 of 107, remaining 6 via children next | 107
+food_cupboard/chocolate_and_sweets/chocolate/sharing_pouches (52) | default + HIGH_2_LOW + LOW_2_HIGH (48 tiles each; 35+3+1 new) | 52 -> complete (supersedes the line above)
+food_cupboard/chocolate_and_sweets/chocolate/boxed_chocolates_and_gifts (107) | default + LOW + HIGH + children assorted_chocolate_boxes 42, gifts 49, luxury 13, milk 10 | union of ids seen 107 of 107 -> complete
+food_cupboard/chocolate_and_sweets/chocolate/everyday_bars/milk_chocolate (101) | default + LOW + HIGH (48 tiles each; 5+5+3 new); union of ids seen 97 of 101 (4 in the price middle not read) | 101
+food_cupboard/chocolate_and_sweets/chocolate/everyday_bars/dark_chocolate (28), white_chocolate (2) | 1 each | 2, 0 new | 28, 2
+food_cupboard/chocolate_and_sweets/chocolate/luxury_chocolate_bars/milk_chocolate (50) | default + HIGH_2_LOW (48 tiles each; 0 new: all already listed) | 50
+food_cupboard/chocolate_and_sweets/chocolate/luxury_chocolate_bars/dark_chocolate (45), white_chocolate (6) | 1 each | 5, 0 new | 45, 6 -> chocolate and its children complete except 4 of everyday_bars/milk_chocolate
+food_cupboard/chocolate_and_sweets/sweets_mints_and_gum (109) | default (48 tiles, 47 new); LOW + HIGH next | 109
+food_cupboard/chocolate_and_sweets/sweets_mints_and_gum (109) | default + LOW + HIGH (48 tiles each; 47+24+27 new); union seen 101 of 109, children next | 109
+food_cupboard/biscuits_and_crackers/crackers_and_savoury_biscuits (118) | default + LOW + HIGH (48 tiles each; 29+15+17 new); union seen 98 of 118, children (crackers 74, crisp breads & breadsticks 32) next | 118
+food_cupboard/chocolate_and_sweets/sweets_mints_and_gum children sharing_pouches (58, default 48 tiles), jelly_and_chewy_sweets (29), mints (17), chewing_gum (13), toffee_fudge_and_nougat (7) | 1 each | 2, 2, 1, 0, 1 new | union seen 107 of 109 so far (multipacks 10, hard_and_boiled 6, laces 2 next)
+food_cupboard/chocolate_and_sweets/sweets_mints_and_gum children multipacks (10), hard_and_boiled_sweets (6), laces_and_lollipops (2) | 1 each | 0 new each | sweets total: union of ids seen 107 of 109 shown
+food_cupboard/biscuits_and_crackers/crackers_and_savoury_biscuits/crisp_breads_and_breadsticks (32), crackers (74: default + LOW) | 1/2 | 1, 4+8 new | 32, 74 (HIGH next)
+food_cupboard/biscuits_and_crackers/crackers_and_savoury_biscuits/crackers (74) | default + LOW + HIGH (48 tiles each; 4+8+1 new) | children Plain 22, Flavoured 50 not read | union of ids seen in crackers group 116 of 118 | 4th agent
+food_cupboard/biscuits_and_crackers/everyday_biscuits (101) | default + LOW + HIGH (48 tiles each; 38+9+30 new) | children (Digestives & Hobnobs 22, Rich Tea 4, Ginger 6, Chocolate Biscuits 39, Shortbread 25, Cream Jam & Sandwich 18, Malted Milk Nice & Rings 4) not read | union of ids seen 97 of 101
+food_cupboard/biscuits_and_crackers/chocolate_and_sweet_biscuits (112) | default + LOW + HIGH (48 tiles each; 9+9+19 new) + children chocolate_biscuit_bars_and_multipacks 41, luxury_and_indulgent_treats 16, kids_biscuits_and_lunchbox 6 (4+1+0 new) | union of ids seen 107 of 112; biscuit_assortments_and_seasonal 5 not read; child slug rule: lower-case name, & -> and, spaces -> _, commas dropped
+food_cupboard/tins_cans_and_packets/tomatoes_and_puree (54) | LOW + HIGH (48 tiles each; 48+6 new) | complete (54 of 54)
+food_cupboard/tins_cans_and_packets/beans_and_pulses (61) | LOW + HIGH (48 tiles each; 48+13 new) | complete (61 of 61)
+food_cupboard/tins_cans_and_packets/soup (101) | default + LOW (48 tiles each; 48+19 new); HIGH next; children (Tomato 14, Chicken 17, Vegetable 31, Mushroom 5, Minestrone 5, Oxtail 1, Meat 12, Fish 6, Cup & Packet 19, Healthier 4, Croutons 2) if needed | union seen 67 of 101 so far
+food_cupboard/tins_cans_and_packets/soup (101) | default + LOW + HIGH (48 tiles each; 48+19+29 new) | union of ids seen 97 of 101 (children: Tomato 14, Chicken 17, Vegetable 31, Mushroom 5, Minestrone 5, Oxtail 1, Meat 12, Fish 6, Cup & Packet 19, Healthier 4, Croutons 2 not read)
+food_cupboard/tins_cans_and_packets/fish_and_seafood (102) | default (49 tiles) + LOW + HIGH (48 tiles each; 49+28+21 new) | union of ids seen 98 of 102 (children: Tuna 53, Sardines & Pilchards 14, Mackerel & Kippers 7, Anchovies 12, Salmon 9, Seafood 4, Pate & Spreads 3 not read)
+food_cupboard/dried_herbs_oils_and_vinegar/herbs_spices_and_seasoning (302) | default only so far (48 tiles, 43 new) | children Dried Herbs 47, Spices 88, Stock 48, Salt 27, Gravy 20, Pepper 15, Stuffing 7, Seasoning Packets & Rubs 48, Breadcrumbs 5 to read
+food_cupboard/dried_herbs_oils_and_vinegar/oils_and_vinegars (132) | default (51 tiles) + LOW + HIGH (49 tiles each; 43+18+38 new) | union seen 107 of 132; children (Olive Oil 77, Vegetable 4, Sunflower 5, Seed & Nut 21, Chilli & Infused 4, Balsamic 12, Wine Vinegar 6, Rice Vinegar 1, Malt 5, Cider 5) next
+food_cupboard/dried_herbs_oils_and_vinegar/herbs_spices_and_seasoning children dried_herbs (47), spices (88: LOW + HIGH, 38+40 new), stock (48), salt (27), gravy (20), seasoning_packets_and_rubs (48) | 1 page each | 38, 78, 31, 21, 12, 42 new | pepper 15, stuffing 7, breadcrumbs 5 next; union seen 281 of 302
+food_cupboard/dried_herbs_oils_and_vinegar/oils_and_vinegars children olive_oil (77: LOW + HIGH, 18+0 new), seed_and_nut_oil (21, 4 new) | union seen 129 of 132
+food_cupboard/dried_herbs_oils_and_vinegar/herbs_spices_and_seasoning children pepper (15), stuffing (7), breadcrumbs (5) | 1 each | 10, 5, 3 new | herbs_spices_and_seasoning complete: union seen 301 of 302
+food_cupboard/dried_herbs_oils_and_vinegar/oils_and_vinegars/balsamic_vinegar (12) | 1 | 1 new | oils_and_vinegars union seen 130 of 132 (wine/malt/cider/rice/vegetable/sunflower/chilli children not read)
+food_cupboard/sugar_and_home_baking/sugar (57) | LOW (48 tiles, 43 new); HIGH next
+food_cupboard/sugar_and_home_baking/sugar (57) | LOW + HIGH (48 tiles each; 43+9 new) | complete 57 of 57
+food_cupboard/sugar_and_home_baking/flour (63) | LOW + HIGH (48 tiles each; 31+13 new) | complete 63 of 63
+food_cupboard/sugar_and_home_baking/baking_decorations (66) | LOW + HIGH (48 tiles each; 44+18 new) | complete 66 of 66
+food_cupboard/rice_pasta_and_pulses/rice (104) | default + LOW + HIGH (48 tiles each; 36+9+30 new) | union seen 96 of 104; children (Long Grain 9, Basmati 35, Wholegrain/Brown/Wild 17, Risotto & Paella 6, Oriental & Sushi 8, Dessert Rice 3, Microwaveable 47) not read
+food_cupboard/rice_pasta_and_pulses/pasta (58) | LOW + HIGH (48 tiles each; 48+10 new) | complete 58 of 58
+food_cupboard/condiments_dressings_and_marinades children ketchup (19), brown_sauce (7), mayonnaise (51: LOW + HIGH, 48+3 new), salad_cream_and_dressing (36) | 1 page each | 19, 7, 51, 35 new | condiments group union seen 113 of 234 so far
+food_cupboard/condiments_dressings_and_marinades children bbq_sauce_and_marinades (28), hot_and_chilli_sauce (34), pickle_and_relish (14), mustard (17), mint_sauce (4) | 1 page each | 28, 33, 12, 17, 4 new | condiments group union seen 209 of 234; horseradish 5, apple 2, worcestershire 3, hollandaise 1, bearnaise 1, cranberry 4, redcurrant 3, tartare 4, seafood 1 next
+food_cupboard/condiments_dressings_and_marinades children horseradish (5), apple_sauce (2), worcestershire (3), cranberry (4), redcurrant (3), tartare (4), hollandaise (1) | 1 page each | 5, 2, 2, 4, 3, 4, 1 new | union seen 230 of 234 (bearnaise 1, seafood 1 next)
+food_cupboard/condiments_dressings_and_marinades children bearnaise_sauce (1), seafood_sauce (1) | 1 each | 1, 1 new | condiments complete: union seen 232 of 234 (2 unmatched; all 18 child leaves read)
+food_cupboard/cooking_sauces_and_meal_kits (404) | default only (50 tiles, 41 new); children Pasta Sauces & Pesto 78, Curry Sauces & Pastes 96, Asian & Stir Fry Sauces 86, Mexican Sauces & Meal Kits 59, Packet Sauces 9, Seasoning & Rubs 49, Meal Kits 70 next
+food_cupboard/jarred_goods_pickles_and_olives (115) | default + LOW + HIGH (48 tiles each; 42+22+30 new) | union seen 105 of 115; children (Green Olives 16, Black 9, Mixed 2, Chutney & Piccalilli 28, Pickled Vegetables 23, Antipasti 20, Pickled Onions 11, Fruit & Nuts 2, Capers 5) not read
+food_cupboard/cooking_sauces_and_meal_kits children pasta_sauces_and_pesto (78: LOW + HIGH, 34+28 new; union with parent seen 84+28), curry_sauces_and_pastes (96: LOW + HIGH 50 tiles each, 40+44 new) | asian_and_stir_fry_sauces URL redirects to .../asian_and_stir_fry_sauces/flavouring_sauces (36 tiles, 33 new; HIGH 0 new): the other children of asian (86 total) must be found via links | cook group union seen 232 of 404
+food_cupboard/cooking_sauces_and_meal_kits children asian_and_stir_fry_sauces/{flavouring_sauces 36, stir_fry_sauces 24, soy_sauce 14} (74 of 86; 12 not found: other children names unknown), mexican_sauces_and_meal_kits/{mexican_sauces 8, spice_mixes 9, meal_kits 17, tortillas_and_taco_shells 9, salsa_and_accompaniments 21} | 1 page each | 20, 12, 5, 8, 15, 3, 7 new | remaining: packet_sauces 9, seasoning_and_rubs 49, meal_kits 70 (children indian 14, chinese_and_asian 19, mexican 31, pizza_bases 5)
+food_cupboard/cooking_sauces_and_meal_kits children packet_sauces (9), seasoning_and_rubs (49, default only), meal_kits/{indian 14, chinese_and_asian 19, mexican 31 (0 new)} | 1 page each | 5, 38, 11, 15, 0 new | pizza_bases 5 and 12 unknown asian children not read; cook group union seen 388 of 404
+food_cupboard/cooking_sauces_and_meal_kits/meal_kits/pizza_bases (5) | 1 | 3 new | cooking_sauces: 391 of 404 seen (12 asian children not found + 1)
+food_cupboard/desserts (76) | LOW + HIGH (48 tiles each; 19+13 new) | complete: union seen 76 of 76
+food_cupboard/breakfast_cereal/porridge_and_oats (51) | LOW + HIGH (48 tiles each; 36+1 new) | complete 51 of 51
+food_cupboard/breakfast_cereal/muesli_granola_and_clusters (95) | LOW + HIGH (48 tiles each; 32+38 new) | union seen 94 of 95
+food_cupboard/breakfast_cereal/family_favourite_cereals (29) | 1 | 0 new (all already listed)
+food_cupboard/breakfast_cereal/gluten_free_and_organic_cereal (URL redirects to healthy_free_from_and_organic) | 1 | 0 new
+food_cupboard/breakfast_cereal/healthy_free_from_and_organic (109) | default(redirect) + LOW (48 tiles each; 0+4 new); HIGH next
+food_cupboard/breakfast_cereal/healthy_free_from_and_organic (109) | default + LOW + HIGH (48 tiles each; 0+4+2 new) | union seen 96 of 109 (children Bran & Fibre 45, Low & No Sugar 25, High Protein 9, Gluten Free 41, Organic 16, Vegan 28 not read)
+food_cupboard/breakfast_cereal/breakfast_on_the_go (121) | default + LOW + HIGH (48 tiles each; 20+16+21 new) | union seen 110 of 121; children (Porridge On The Go 9, Cereal On The Go 2, Cereal Bars 103, Breakfast Biscuits 7) not read
+food_cupboard/breakfast_cereal/breakfast_cereal_by_brand (200) | default only (48 tiles, 1 new: almost all already listed via the small cereal leaves); children Waitrose 35, Kellogg's 24, Other Brands 78, Weetabix 13, Nestle 13, Quaker 15, Dorset Cereals 6, Jordans 10, Rude Health 4, Lizi's 4 not read
+food_cupboard/crisps_snacks_and_nuts/nuts_seeds_and_dried_fruit (258) | default (50 tiles) + LOW + HIGH (48 tiles each; 32+39+39 new) | union seen 133 of 258; children (Dried Fruit 64, Seeds 20, Children's Fruit Snacks 27, Coated & Flavoured Nuts 61, Natural Nuts 100, Pulses & Corn 7, Fruit & Nut Mixes 12) next
+food_cupboard/crisps_snacks_and_nuts/sharing_crisps (135) | LOW + HIGH (48 tiles each; 38+44 new) | union seen 96 of 135; children (Alternative Flavours 56, BBQ 2, Cheese 12, Cheese & Onion 3, Chilli 10, Paprika 5, Prawn Cocktail 4, Salt & Vinegar 15, Salted 19, Sour Cream 7, Vegetable 1) next
+food_cupboard/crisps_snacks_and_nuts/nuts_seeds_and_dried_fruit children natural_nuts (100: LOW + HIGH, 19+16 new), coated_and_flavoured_nuts (61: LOW + HIGH, 22+0 new) | dried_fruit 64, seeds 20, childrens fruit snacks 27, fruit_and_nut_mixes 12, pulses_and_corn 7 not read (the batch timed out before them; lines recovered from mm_log)
+food_cupboard/crisps_snacks_and_nuts/nuts_seeds_and_dried_fruit children dried_fruit (64: LOW + HIGH, 18+5 new), childrens_fruit_snacks (27, 20 new), seeds (20, 1 new), fruit_and_nut_mixes (12, 2 new) | nuts group union seen 253 of 258 (pulses_and_corn 7 not read) -> nuts_seeds_and_dried_fruit complete
+food_cupboard/crisps_snacks_and_nuts/multipack_crisps (69) | LOW + HIGH (48 tiles each; 47+21 new) | complete 69 of 69
+food_cupboard/crisps_snacks_and_nuts/healthier_options (69) | LOW + HIGH (48 tiles each; 5+6 new) | union seen 69 of 69
+food_cupboard/crisps_snacks_and_nuts/crisps_by_brand (123) | LOW (48 tiles, 0 new: all already listed); children Doritos 6, Hula Hoops 8, Jacobs 7, Kettle 8, McCoys 7, Mini Cheddars 5, Popchips 6, Pringles 6, Sensations 8, Tyrrells 14, Waitrose 13, Walkers 48 | sharing_crisps children not read (39 of 135 unseen)
+food_cupboard/crisps_snacks_and_nuts/sharing_crisps children alternative_flavours (56: LOW + HIGH, 13+0 new), salted (19, 3 new), salt_and_vinegar (15, 2 new), cheese (12, 4 new) | sharing group union seen 124 of 135 (chilli 10, paprika 5, prawn 4, sour cream 7, cheese & onion 3, bbq 2 not read) -> crisps substantially complete
+food_cupboard/jam_honey_and_spreads small leaves organic_jam_honey_and_spreads (13), chocolate_and_sweet_spreads (15), marmite_and_yeast_extracts (5), lemon_and_fruit_curds (5) | 1 page each | 1, 15, 5, 5 new | jam_honey_and_spreads complete
+fresh_and_chilled/milk_butter_and_eggs/milk (162) | default (48 tiles, 30 new); children Whole 19, Semi-Skimmed 15, Skimmed 9, Filtered 9, Organic 25, Soya & Milk Alternatives 65, Long Life 23, Flavoured Milk & Iced Coffee 28, Kefir 18 + LOW/HIGH next
+fresh_and_chilled/milk_butter_and_eggs/milk (162) | default + LOW + HIGH (48 tiles each; 30+19+22 new) | milk group union seen 110 of 162; children Whole 19, Semi-Skimmed 15, Skimmed 9, Filtered 9, Organic 25, Soya & Milk Alternatives 65, Long Life 23, Flavoured 28, Kefir 18 not read
+fresh_and_chilled/chilled_juice_smoothies_and_drinks (212) | default (52 tiles) + LOW + HIGH (48 tiles each; 2+10+5 new) | cjuice union seen 124 of 212; children chilled_juices 153, smoothies 32, kids_drinks 16, shots 17, kombucha_and_functional 45, coconut_water 9, flavoured_milk_and_iced_coffee 22, no_1_juice 5, protein_shakes 1, innocent 41 not read (most already listed via tea_coffee_and_soft_drinks/juices)
+fresh_and_chilled/ready_meals/meals_for_1 (102: LOW + HIGH, 3+6 new), meals_for_2 (98: LOW + HIGH, 3+8 new), freezable_ready_meals (132: LOW only, 1 new) | ready-meal themes are almost fully covered already (21 new from 5 pages): remaining thematic leaves expected to add very little
+beer_wine_and_spirits/cocktails_and_pre_mixed_drinks (42) | 1 page | 38 new | complete (42 of 42; seen)
+beer_wine_and_spirits/cider (63) | LOW + HIGH (49 tiles each; 48+15 new) | complete 63 of 63
+beer_wine_and_spirits/alcohol_free_and_low_alcohol_drinks (88) | LOW + HIGH (49 tiles each; 46+40 new) | union seen 98 of 88 (overlaps) -> complete
+beer_wine_and_spirits/beer (322) | default only so far (50 tiles, 34 new); children Craft Beer 52, Lager 92, Continental Lager 43, Bottled Beer 116, Ale & Stout 181, Multi-pack Beer 91, German & Belgian Speciality 19, Canned Beer 110, Low & Alcohol Free Beer 22, Gluten Free Beer 6, Ginger Beer 1, Indie Beer 89
+beer_wine_and_spirits/beer (322) | default + LOW + HIGH (50/48/48 tiles; 34+35+35 new) | union seen 122 of 322; children (Craft 52, Lager 92, Continental Lager 43, Bottled 116, Ale & Stout 181, Multi-pack 91, German & Belgian 19, Canned 110, Low & AF 22, Gluten Free 6, Indie 89) not read
+beer_wine_and_spirits/champagne_and_sparkling_wine (107) | LOW + HIGH (48 tiles each; 48+48 new) | union seen 96 of 107; children (Champagne 48, Prosecco 14, Cava 7, Sparkling Wine 52, Rose 18, English 9) not read
+beer_wine_and_spirits/spirits_and_liqueurs (500) | default (51 tiles) + LOW + HIGH (49 tiles each; 49+17+47 new) | union seen 145 of 500; children Gin 84, Vodka 47, Tequila 27, Whisky 152, Brandy 22, Rum 50, Cognac 16, Liqueurs & Aperitifs 40, Cocktails 39, Low & AF Spirits 13, Vermouth 12, Sake 3, 1 Litre Bottles 13 not read
+beer_wine_and_spirits/wine (871) | default only (51 tiles, 41 new); children Champagne & Sparkling 85, Red 302, White 293, Rose 77, Fine Wine 152, Mulled 1, Port Sherry & Madeira 54, Vermouth 14, Dessert 20, Waitrose & Partners 76, Organic 38, Low & AF 14, Wine Boxes 22, Wine in a Can 21, Mini Bottles 7, English & Welsh 21 not read
+beer_wine_and_spirits/wine (871) | default + LOW + HIGH (36+19 new more) | wine/red_wine (302) LOW only (48 tiles, 36 new), wine/white_wine (293) LOW only (32 new), wine/rose_wine (77) LOW only (36 new) | wine group union seen 250 of 871
+beer_wine_and_spirits/wine/red_wine (302) LOW+HIGH (36+39 new), white_wine (293) LOW+HIGH (32+36 new), rose_wine (77) LOW+HIGH (36+19 new; complete); spirits_and_liqueurs/whisky (152) LOW (36 new), spirits_and_liqueurs/gin (84) LOW (16 new) | wine group union seen 349 of 871
+beer_wine_and_spirits/spirits_and_liqueurs children whisky (152: LOW+HIGH, 36+10 new), gin (84: LOW+HIGH, 16+32 new), vodka (47: LOW, 30 new), rum (50: LOW, 43 new), liqueurs_and_aperitifs (40: 34 new) | spirits group union seen 366 of 500; tequila 27, brandy 22, cognac 16, cocktails 39, low & AF 13, vermouth 12, sake 3, 1 litre 13 not read
+beer_wine_and_spirits/beer children ale_and_stout (181: LOW+HIGH, 11+29 new), canned_beer (110: LOW, 37 new), indie_beer (89: LOW, 14 new), craft_beer (52: LOW, 7 new) | beer group union seen 220 of 322
+beer_wine_and_spirits/wine/red_wine (302) children: france (92: LOW+HIGH, 36+27 new; complete), australia (39: 24 new), italy (41: 24 new), spain (29: 18 new) | all complete
+beer_wine_and_spirits/wine/red_wine children chile (13: 7 new), south_africa (22: 12 new), new_zealand (8: 6 new), usa (13: 7 new), rest_of_world (18: 14 new), fine_red_wine (44: 5 new) | all complete; browse_by_grape (120) next
+beer_wine_and_spirits/wine/white_wine (293) children new_zealand (36: 27 new), italy (40 tiles: 28 new), australia (23: 14 new), france (82: LOW+HIGH, 38+12 new; complete) | south_africa, chile, spain, usa, rest_of_world, fine_white_wine, england, argentina, browse_by_grape next
+beer_wine_and_spirits/wine/white_wine children south_africa (22: 11 new), chile (15: 12 new), spain (15 tiles: 9 new), usa (6: 3 new), rest_of_world (36: 21 new), fine_white_wine (36: 1 new) | all complete; england 13, argentina 4, browse_by_grape 103 next
+beer_wine_and_spirits/wine/white_wine children england (13: 5 new), argentina (4: 2 new) | complete; grape children (red 8, white 6) next
+beer_wine_and_spirits/wine/red_wine/browse_by_grape children malbec (20: 8 new), merlot (22: 0 new), pinot_noir (19: 0 new), rioja_tempranillo (8: 0 new), shiraz_and_syrah (24: 0 new) | bordeaux/cabernet_sauvignon/grenache pages returned 0 tiles twice (even after 10 s) | red_wine otherwise complete
+beer_wine_and_spirits/wine/red_wine/browse_by_grape (120) children bordeaux/cabernet_sauvignon/grenache return 0 tiles WITHOUT a sortBy parameter (bordeaux with ?sortBy=PRICE_LOW_2_HIGH: 18 tiles, 0 new) | all red-wine grape pages add nothing beyond the country pages except malbec (8 new) | red_wine complete
+beer_wine_and_spirits/wine/white_wine/browse_by_grape (103) children chardonnay 34, sauvignon_blanc 38, chenin_blanc 7, pinot_grigio 14, riesling 7, viognier 5: 0 new each | white_wine complete
+beer_wine_and_spirits/wine/fine_wine (152) default (49 tiles, 6 new); children Fine Red Wine 84, Fine White Wine 66 | LOW+HIGH of children next
+beer_wine_and_spirits/wine/port_sherry_and_madeira (54) LOW+HIGH (48 tiles each; 48+4 new) | complete (children Port 23, Sherry 27, Madeira 4)
+beer_wine_and_spirits/wine/waitrose_and_partners_wine (76) LOW+HIGH (48 tiles each; 0+2 new) | complete (children Blueprint Wines 36, No.1 29, Loved & Found 11)
+beer_wine_and_spirits/wine/fine_wine (152) children fine_red_wine (84: LOW+HIGH 48 tiles each; 1+0 new), fine_white_wine (66: LOW+HIGH; 3+0 new) | union seen 152 of 152 -> complete
+beer_wine_and_spirits/wine/organic_wine (38) | 1 page | 2 new | complete 38 of 38
+beer_wine_and_spirits/wine small leaves: wine_boxes (22: 9 new), wine_in_a_can (21: 0 new), english_and_welsh_wine (21: 1 new), dessert_wine (20: 16 new), vermouth (14: 8 new), low_and_alcohol_free_wine (14: 1 new) | all complete
+beer_wine_and_spirits/wine/mini_wine_bottles (7: 0 new) complete | beer_wine_and_spirits/champagne_and_sparkling_wine children champagne (48: 9 new), sparkling_wine (52: LOW+HIGH 48 tiles each, 0 new) | rose/prosecco/cava/english next (slug rose is wrong: 404)
+beer_wine_and_spirits/champagne_and_sparkling_wine children prosecco 14, cava 7, rose_sparkling_wine 19, english_sparkling_wine 9: 0 new each | champagne_and_sparkling_wine complete
+beer_wine_and_spirits/beer children craft_beer (52: HIGH 0 new -> complete), lager (92: LOW+HIGH 48 tiles each; 27+14 new; complete), continental_lager (43: 0 new), multi-pack_beer (91: LOW+HIGH; 4+0 new; complete) | slugs: craft_beer lager continental_lager bottled_beer ale_and_stout multi-pack_beer german_and_belgian_speciality_beer canned_beer low_and_alcohol_free_beer gluten_free_beer ginger_beer indie_beer
+beer_wine_and_spirits/beer children german_and_belgian_speciality_beer (19: 11 new), low_and_alcohol_free_beer (22: 1 new), gluten_free_beer (6: 1 new), ginger_beer (redirects to tea_coffee_and_soft_drinks/fizzy_drinks/ginger_beer: 0 new), indie_beer (89: LOW+HIGH 48 tiles each; 14+10 new; complete), canned_beer (110: LOW+HIGH, 37+3 new; about 14 middle-priced unseen) | bottled_beer (116) and ale_and_stout (181) next
+beer_wine_and_spirits/beer/ale_and_stout (181) children pale_ale (63: LOW+HIGH, 4+0 new), ipa (55: LOW+HIGH, 6+0 new), amber_ale (34: 9 new), stout_and_dark_ale (30: 4 new) (guinness 8 not read) | bottled_beer (116) and canned_beer (110) have no children; no paging parameter exists (page/start ignored) | beer group union seen 323 of 322 -> beer substantially complete
+beer_wine_and_spirits/spirits_and_liqueurs children tequila (27: 17 new), brandy (22: 14 new), cognac (16: 5 new), low_and_alcohol_free_spirits (13: 1 new), vermouth (12: 1 new), 1_litre_bottles (13: 0 new) | all complete; whisky children, rum HIGH, sake, cocktails next
+beer_wine_and_spirits/spirits_and_liqueurs rum HIGH_2_LOW (50: 0 new; complete; children White 8, Spiced 17, Golden 17, Dark 9), sake (3: 2 new), cocktails_and_pre_mixed_drinks (39: 3 new) | whisky children next
+beer_wine_and_spirits/gifts (69) LOW+HIGH (48 tiles each; 6+7 new) | union seen 69 of 69 -> complete (children Wine Gifts 25, Gin Gifts 11, Whisky Gifts 19, Beer Gifts 12)
+beer_wine_and_spirits/tonic_and_mixers (70) LOW+HIGH (48 tiles each; 0+0 new) | union seen 70 of 70 -> complete (children Tonic 28, Cola/Lemonade/Fruit Juice Mixers 11, Soda Water 4, Ginger Ale 7, Cocktail Mixers & Syrups 22, Bitter Lemon 1)
+beer_wine_and_spirits/ice_cubes_lemons_and_limes (10: 0 new) complete; whisky children: scottish_whisky 101, american_whiskey 25, irish_whiskey 13, welsh_whisky 1, japanese_whisky 7, canadian_whisky 2, english_whisky 5, blended_whisky 55, whiskies_from_around_the_world 35
+beer_wine_and_spirits/spirits_and_liqueurs/whisky children american_whiskey (27 tiles: 7 new), irish_whiskey (14: 1 new), welsh_whisky (1: 1 new), japanese_whisky (7: 3 new), canadian_whisky (2: 1 new), english_whisky (5: 2 new) | scottish_whisky 101, blended_whisky 55, whiskies_from_around_the_world 35 next
+beer_wine_and_spirits/spirits_and_liqueurs/whisky children blended_whisky (55: LOW+HIGH 48 tiles each; 1+0 new; complete), whiskies_from_around_the_world (35: 0 new), scottish_whisky (101: LOW+HIGH 48 tiles each; 14+7 new; children Malt Whisky 69, Blended Whisky 27, Speyside 13, Islands 7, Highlands 7 next)
+beer_wine_and_spirits/spirits_and_liqueurs/whisky/scottish_whisky children malt_whisky (69: LOW+HIGH 48 tiles each; 5+0 new), speyside 13, islands 7, highlands 7: 0 new | whisky group union seen 151 of 152 -> whisky complete (scottish blended_whisky 27 not read: subset of blended_whisky 55)
+fresh_and_chilled/milk_butter_and_eggs/milk children whole_milk (19: 3 new), semi-skimmed_milk (15: 1 new), skimmed_milk (9: 1 new), filtered_milk (9: 0 new), organic (25: 1 new), long_life_milk (23: 5 new) | soya_and_milk_alternatives 65, flavoured_milk_and_iced_coffee 28, kefir 18 next
+fresh_and_chilled/milk_butter_and_eggs/milk children soya_and_milk_alternatives (65: LOW+HIGH 48 tiles each; 10+3 new; complete), flavoured_milk_and_iced_coffee (28: 2 new), kefir (18: 0 new) | milk group union seen 162 of 162 -> milk complete
+fresh_and_chilled/chilled_juice_smoothies_and_drinks/chilled_juices (153) LOW (48 tiles, 3 new); children Orange Juice 23, Apple Juice 22, Other Fruit Juice 83, Vegetable Juice 14, Coconut Water 11, Childrens Multipacks 10 next
+fresh_and_chilled/chilled_juice_smoothies_and_drinks/chilled_juices (153) HIGH (48 tiles, 3 new); children orange_juice (23: 3 new), apple_juice (22: 2 new), other_fruit_juice (83: LOW+HIGH 48 tiles each; 7+1 new; complete), vegetable_juice (14: 0 new) | coconut_water 11 and childrens_multipacks 10 not read; then the other cjuice children (smoothies 32, kids_drinks 16, shots 17, kombucha_and_functional 45, coconut_water 9, flavoured_milk_and_iced_coffee 22, no_1_juice 5, protein_shakes 1, innocent 41) next
+fresh_and_chilled/chilled_juice_smoothies_and_drinks children smoothies (32: 2 new), kids_drinks (redirects to tea_coffee_and_soft_drinks/kids_and_lunchbox_drinks: 0 new), shots (17: 0 new), kombucha_and_functional (45: 0 new), innocent (41: 2 new), flavoured_milk_and_iced_coffee (22: 0 new) | cjuice group union seen 225 of 212 -> chilled juice complete
+baby_and_toddler/baby_and_toddler_food: from_6_months and from_7_months redirect to from_9_months even with ?sortBy (19 products unreachable); parent LOW+HIGH, organic LOW+HIGH, crisps_and_puffs, fruit_snacks, biscuits: 0 new | baby seen 168 of 187
+food_cupboard/cooking_sauces_and_meal_kits/asian_and_stir_fry_sauces/prawn_crackers_and_dipping_sauces (9: 6 new) -> the 4th child of asian (stir_fry_sauces 24, soy_sauce 14, flavouring_sauces 36, prawn_crackers_and_dipping_sauces 9) | NOTE the full category tree (5,181 categories with id/parentId/name) is in __NEXT_DATA__ initialReduxState of any listing page
+frozen/ice_cream_frozen_yogurt_and_sorbets children ice_lollies (24: 5 new), no1_ice_cream_and_sorbet (9: 1 new), vegan_ice_cream (16: 0 new), frozen_yoghurt (3: 3 new), gelato (6: 0 new), sorbets (4: 0 new) | healthier_options 12, ice_cream_cones_wafers_and_sauces 18, mini_ice_cream_tubs_sticks_and_bites 34 next
+frozen/ice_cream_frozen_yogurt_and_sorbets children healthier_options (12: 2 new), ice_cream_cones_wafers_and_sauces (18: 1 new), mini_ice_cream_tubs_sticks_and_bites (34: 3 new) | ice cream complete (all 11 children read)
+fresh_and_chilled/in_season_fruit_and_vegetables (326 overlay) children in_season_fresh_fruit (60: LOW+HIGH 48 tiles each; 5+2 new; complete), in_season_fresh_vegetables (160: LOW 48 tiles, 1 new) | the overlay is almost entirely already listed via fresh_fruit/fresh_vegetables
+fresh_and_chilled/in_season_fruit_and_vegetables/in_season_fresh_vegetables (160) HIGH (48 tiles, 0 new) | in-season overlay complete enough (1 new in 3 pages of veg)
+fresh_and_chilled/desserts/single_pots_and_multipacks (91) LOW+HIGH (48 tiles each; 15+17 new) | union seen 91 of 91 -> complete (children Single Pots 24, Desserts for Two 53, Multipacks 15)
+fresh_and_chilled/cooked_meats_deli_and_dips/world_deli (52) LOW+HIGH (48 tiles each; 0+0 new) | union seen 52 of 52 -> complete
+fresh_and_chilled/pies_quiches_and_savoury_snacks/pasties_and_slices (5: 4 new) complete | fresh_and_chilled/vegan/vegan_party_food (1: 0 new) complete
+fresh_and_chilled/desserts children: family_and_sharing_desserts 45, single_pots_and_multipacks 91 (done), no1_desserts 31, cheesecakes 15, trifles_jellies_and_sundaes 10, tarts_and_pies 17, sponges_and_crumbles 19, cream_cakes_and_profiteroles 10, creams_and_custard 16
+fresh_and_chilled/desserts children creams_and_custard (16: 1 new), no1_desserts (31: 0 new), cheesecakes (15: 0 new) | family_and_sharing_desserts (45) page did not load once (nodata): retry; trifles 10, tarts_and_pies 17, sponges_and_crumbles 19, cream_cakes_and_profiteroles 10 next
+fresh_and_chilled/desserts all 9 children read: family_and_sharing_desserts (45), tarts_and_pies (17), sponges_and_crumbles (19), trifles_jellies_and_sundaes (10), cream_cakes_and_profiteroles (10): 0 new | desserts group union seen 159 of 159 -> complete
+fresh_and_chilled/chilled_fish_and_seafood children fish_under_5 (20: 0 new), fish_favourites (29: 0), fresh_and_flavourful (23: 0), fish_counter (13: 2 new), smoked_salmon_and_ready_to_eat (19: 0), no1_fish_and_seafood (12: 0) | caviar_roe_and_herring 3, en_papillote 2, easy_to_cook_and_mixes 10, bbq_fish 10 not read | meat tree: fresh_meat children Roasting Joints 65, Beef 82, Lamb 45, Pork 130, Bacon & Gammon 55, Sausages 44, Accompaniments 35, Sauces Gravy & Marinades 18, Organic 22, Free Range 51, Slow Cooked 30, Veal Venison & Game 10, Easy To Cook 22, Butcher's Counter 15, BBQ Meat 63, Burgers 12
+fresh_and_chilled/fresh_meat/beef (82) LOW+HIGH (48 tiles each; 2+0 new; complete) | fresh_chicken_and_poultry/chicken (70) LOW+HIGH (5+0 new; complete) | fresh_meat/free_range (51) LOW (48 tiles, 0 new)
+fresh_and_chilled/fresh_meat children bbq_meat (63: LOW+HIGH 48 tiles each; 1+0 new; complete), burgers (12: 0 new), slow_cooked (30: 4 new), veal_venison_and_game (10: 2 new), butchers_counter (15: 0 new) | meat group seen 264 | organic 22, easy_to_cook 22, sauces_gravy_and_marinades 18 not read (overlap other leaves)
+food_cupboard/tins_cans_and_packets/soup children healthier_soup (4: 0 new), croutons (2: 0 new) | tinned fish/tuna (53) LOW+HIGH (48 tiles each, 0 new) | rice/basmati (35: 1 new) | microwaveable_rice not read
+food_cupboard/rice_pasta_and_pulses/rice children microwaveable_rice (47: 2 new), wholegrain_brown_and_wild (17: 0 new) | long_grain 9, risotto_and_paella 6, oriental_and_sushi 8, dessert_rice 3 not read
+food_cupboard/breakfast_cereal/breakfast_on_the_go/cereal_bars (103) LOW+HIGH (48 tiles each; 3+1 new; middle ~7 unread) | porridge_on_the_go 9, cereal_on_the_go 2, breakfast_biscuits 7 not read
+food_cupboard/breakfast_cereal/healthy_free_from_and_organic children bran_and_fibre 45, low_and_no_sugar 25, gluten_free 41, vegan 28, high_protein 9: 0 new each | cereal complete
+food_cupboard/crisps_snacks_and_nuts/sharing_crisps children chilli (10: 3 new), paprika (5: 1), prawn_cocktail_crisps (4: 1), sour_cream (7: 1), cheese_and_onion (3: 1) | bbq 2 not read
+food_cupboard/crisps_snacks_and_nuts/sharing_crisps/bbq (2: 1 new) -> sharing_crisps complete | nuts_seeds_and_dried_fruit/pulses_and_corn (7: 1 new) -> nuts complete
+biscuit tree: everyday_biscuits children digestives_and_hobnobs 22, rich_tea 4, ginger 6, chocolate_biscuits 39, shortbread 25, cream_jam_and_sandwich_biscuits 19, malted_milk_nice_and_rings 4 | chocolate_and_sweet_biscuits children everyday_biscuits 67, chocolate_biscuit_bars_and_multipacks 41, kids_biscuits_and_lunchbox 6, luxury_and_indulgent_treats 16, biscuit_assortments_and_seasonal 5 | oils_and_vinegars children olive_oil 77, vegetable_oil 4, sunflower_oil 5, seed_and_nut_oil 21, chilli_and_infused_oil 4, balsamic_vinegar 12, wine_vinegar 6, rice_vinegar 1, malt_vinegar 5, cider_vinegar 5
+food_cupboard/biscuits_and_crackers children biscuit_assortments_and_seasonal (5: 0 new), everyday_biscuits/chocolate_biscuits (39: 1 new), shortbread (25: 0), digestives_and_hobnobs (22: 1 new) | cream_jam_and_sandwich_biscuits returned 0 tiles without sortBy (retry with ?sortBy)
+food_cupboard biscuits: everyday_biscuits/cream_jam_and_sandwich_biscuits (19: 1 new, needs ?sortBy), chocolate_and_sweet_biscuits/luxury_and_indulgent_treats (16: 0) | oils_and_vinegars children wine_vinegar (6: 1 new), malt_vinegar (5: 0), cider_vinegar (5: 1 new) | vegetable_oil 4, sunflower_oil 5, chilli_and_infused_oil 4, rice_vinegar 1 not read
+fresh_and_chilled/fresh_vegetables/organic_vegetables (33: 0 new) | fresh_fruit/prepared_fruit (28: 7 new), organic_fruit (13: 0), perfectly_ripe_fruit (13: 0) | fresh_salad_and_herbs/alternate_salad (27: 0 new) | (all read with ?sortBy=PRICE_LOW_2_HIGH)
+fresh_and_chilled/fresh_salad_and_herbs loose_salad (10: 0 new), peppers (13: 0), beetroot_and_radish (13 tiles: 1 new) | fresh_fruit/nuts_seeds_and_dried_fruit (10: 3 new), avocado (5: 0)

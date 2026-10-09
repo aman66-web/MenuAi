@@ -1,0 +1,95 @@
+#NOTE Asda category tree, from the site's own sitemaps (https://www.asda.com/sitemap-index.xml -> sitemap-category-1.xml / -2.xml: 13,193 category URLs, depth: department /groceries/<dept> (62), aisle /groceries/<dept>/<aisle> (686), shelf /groceries/<dept>/<aisle>/<shelf> (3,804), sub-shelf (8,840)).
+#NOTE FORMAT (compact, to save copying): one line per aisle: "<dept>/<aisle>: <shelf slug> <shelf slug> ..."; every shelf URL is https://www.asda.com/groceries/<dept>/<aisle>/<shelf> . Department and aisle pages are merchandising pages (promo carousels of 40 tiles), NOT the full list: the real list is on the SHELF pages, and a shelf page lists all products of its sub-shelves (tested), so only shelf pages are walked (an aisle with no shelf is walked itself, marked LEAF).
+#NOTE SKIPPED on purpose (promo/virtual/non-food): aisles or shelves named new-in*, best-in-season, mix-match*, any-N-for-*, top-offers*, rollback*, christmas*, easter*, halloween*, bbq*, summer*, in-store-bakery, flowers. Also dept pages for events/seasonal/offers (christmas, easter, summer, halloween, events-inspiration, rollback, special-offers, exceptional-by-asda, welsh-favourites, veganuary...). A shelf name that appears twice in one aisle list is walked once. Order: fresh, meat, chilled, bakery, frozen, cupboard, sweets, drinks, alcohol last. Cross-cutting depts free-from, vegan-plant-based, world-food, dietary-lifestyle only if budget allows.
+#DEPT fresh-fruit-vegetables-flowers  (11 aisles, 61 shelves in the sitemap)
+fresh-fruit-vegetables-flowers/fresh-fruit: apples bananas oranges-lemons-citrus berries-cherries grapes pears-rhubarb tropical-exotic-fruit melon stone-fruit fresh-fruit-snacks
+fresh-fruit-vegetables-flowers/potatoes: baby-new-potatoes baking-jacket-potatoes sweet-potatoes white-potatoes mashed-prepared-potatoes
+fresh-fruit-vegetables-flowers/fresh-vegetables: carrots-root-vegetables onions-leeks broccoli-cauliflower cabbage-sprouts mushrooms beans-peas asparagus-sweetcorn courgettes-aubergines-squash garlic-ginger-chillies fresh-herbs spinach-kale-spring-greens prepared-roasting-veg
+fresh-fruit-vegetables-flowers/fresh-salad-stir-fry: tomatoes peppers cucumbers lettuce-salad-leaves salad-bowls avocados celery-spring-onions radish-cress-beetroot stir-fry salad-dressings-toppings (garlic-ginger-chillies and fresh-herbs also listed here: same names as above, walked once)
+fresh-fruit-vegetables-flowers/exceptional-fruit-vegetables: exceptional-fruit exceptional-vegetables
+fresh-fruit-vegetables-flowers/organic-fruit-vegetables: organic-fruit organic-vegetables organic-salad
+fresh-fruit-vegetables-flowers/raw-nuts-seeds-dried-fruit: raw-nuts-seeds dried-fruit
+#NOTE Live aisle names were checked against the "Explore Departments" chips on each department page; aisles that exist only in the sitemap (legacy: chilled-meal-solutions, bakery-old-taxonomy, extra-special, party-food-2016, free-from-organic, lunch-ideas, easy-meal-ideas, fresh-bundles, dairy-eggs...) or are promo (mix-match, meal-deals, back-to-school, picnic, party-entertaining, chilled-christmas-food, grazing-picnic) are not walked. Skipped shelf slugs follow the pattern: N-for-*, any-N-for-*, N-under-*, christmas*, easter*, halloween*, summer*, bbq*, valentine*, apa-lines*, live-better, food-to-order*, view-all*, top-offers*, new-in*, party*, meal-deal*, 374-food-to-go-meal-deal, 100-calorie-zone, lunch-ideas, extra-special-top-rated.
+#DEPT meat-poultry-fish (52 shelves walked)
+meat-poultry-fish/meat-poultry: chicken-turkey beef bacon-sausages-gammon pork lamb exceptional-meat-fish duck-game-venison simple-to-cook slow-cooked liver microwavable-snacks roast-dinners pulled-meat-ribs bacon-gammon mince-meatballs burgers-marinated roast-dinner fish-counter the-butchers-shop turkey
+meat-poultry-fish/fish-seafood: cod-haddock-white-fish cooked-smoked-fillets exceptional-fish fresh-breaded-battered-fish fresh-fishcakes prawns-mussels ready-to-eat salmon smoked-salmon seafood-sticks-cocktails breaded-battered-fish fish-counter fish-fillets frozen-seafood smoked-salmon-cooked-fillets ready-to-cook extra-special-fish breaded-fish-fishcakes
+meat-poultry-fish/cooked-meat: sliced-cooked-meats chicken-turkey-pieces continental-meats-pate snacking-hot-dogs extra-special-cooked-meat exceptional-cooked-meat vegan-cooked-meat-alternatives
+meat-poultry-fish/vegan-vegetarian: meat-free-snacking-falafels meat-free-deli-slices-pieces meat-free-sausages-bacon tofu-tempeh meat-free-mince-meatballs meat-free-steaks-fillets-kebabs meat-free-burgers
+#DEPT chilled-food (74 shelves walked)
+chilled-food/milk-butter-cream-eggs: fresh-milk long-life-milk dairy-free-or-lactose-free-drinks flavoured-milk-drinks fresh-cream-custard butter-spreads baking-cooking-pastry eggs organic-milk-butter-eggs
+chilled-food/cheese: cheddar-regional-cheese cheeseboard-speciality-cheese grated-sliced-cheese soft-cottage-cheese cheese-snacks-lunchbox continental-cheese free-from-cheese baking-cooking-cheese lower-fat-cheese award-winning-cheese exceptional-cheese cheeseboard-fondue cheeseboard
+chilled-food/cooked-meat: sliced-cooked-meats chicken-turkey-pieces continental-meats-pate snacking-hot-dogs polish-halal-meats extra-special-cooked-meat exceptional-cooked-meat ham-joints vegan-cooked-meat-alternatives
+chilled-food/yogurts-desserts: yogurts-fromage-frais free-from-yogurts-desserts yogurt-drinks desserts organic-yogurts-desserts kids-yogurts-desserts cream-cakes-desserts
+chilled-food/chilled-juice-smoothies: iced-tea chilled-juice chilled-smoothies coconut-water kids-juice-smoothies
+chilled-food/ready-meals: bistro-by-asda bom-bahia-by-asda cuisine takeaway healthier-choices soup vegetarian-vegan-ready-meals family-kids-ready-meals ready-to-cook-meals pies-quiche-pasties extra-special-ready-meals free-from-ready-meals house-of-yum-by-asda lunchbox-ideas authentic-world-foods
+chilled-food/pizza-pasta-garlic-bread: fresh-pizza pasta-sauce-garlic-bread oven-trays garlic-bread
+chilled-food/party-food-pies-salads-dips: pork-pies-scotch-eggs sausage-rolls-cocktail-sausages coleslaw-dips-fillers-salads pies-quiche-pasties tapas-olives-antipasti exceptional dips-houmous sandwich-fillers deli-ham-pies-sausage-rolls
+chilled-food/sandwiches-snacks-drinks: sandwiches-snacks-drinks snacking-lunch-box sandwiches
+#DEPT bakery (live aisles per the department page chips; in-store-bakery, christmas/easter/halloween bakery, bakery-new-in, food-to-go-meal-deal skipped; krispy-kreme shelf walked once)
+bakery/bread-rolls: bread bread-rolls burger-buns-hot-dog-rolls white-rolls wholemeal-seeded-rolls brioche-flavoured-rolls baguettes part-baked-bread ciabatta-panini-rolls
+bakery/bread: white-bread wholemeal-bread half-half-bread seeded-grains-bread sourdough-bread small-bread-loaves
+bakery/wraps-bagels-pittas-naans: wraps bagels sandwich-thins naan-bread pitta-bread-flatbread
+bakery/crumpets-muffins: crumpets pancakes-crepes muffins-potato-cakes waffles toasters-sandwich-makers
+bakery/croissants-pastries-brioche: croissants-pain-au-chocolat brioche
+bakery/pancakes-crepes-waffles: pancakes-crepes waffles
+bakery/high-protein: high-protein
+bakery/scones-teacakes-fruit-loaves: scones-teacakes-hot-cross-buns fruit-malt-loaves scones
+bakery/celebration-birthday-cakes: kids-birthday-cakes traybakes cupcakes-fairy-cakes small-celebration-cakes exceptional-cakes free-from-cakes candles-decorations
+bakery/cake-bars-slices-tarts: cake-bars-mini-rolls cake-slices tarts-pies-bakewells flapjacks-fancies-whirls brownies-cookies-shortbread mr-kipling cadbury-cakes
+bakery/cakes: birthday-party-cakes swiss-roll-sponge-cakes loaf-cakes fairy-cakes-cupcakes exceptional-cakes
+bakery/cookies-brownies-muffins-donuts: cookies-shortbread brownies flapjack donuts muffins
+bakery/desserts-cream-cakes: family-sharing-desserts desserts-for-two custard-tarts-cream-cakes hot-desserts cheesecakes-trifles krispy-kreme
+bakery/exceptional-bakery: exceptional-bread-rolls exceptional-breakfast-baked-goods exceptional-scones-hot-cross-buns exceptional-cookies-cake-desserts
+bakery/free-from-bakery: free-from-bread-rolls-wraps free-from-treats-baked-goods
+bakery/bakery-world-foods: bakery-world-foods
+#DEPT frozen-food (the department page showed no aisle chips; aisles taken from the sitemap, legacy duplicates dropped: frozen-foods, frozen-chicken-meat is kept, takeaway-style duplicates kept once)
+frozen-food/frozen-chicken-meat: frozen-chicken-turkey frozen-sausages-burgers frozen-beef-lamb-pork frozen-mince frozen-roasting-joints-sides frozen-fish frozen-prawns-seafood frozen-fish-in-sauce scratch-cook-from-frozen chicken-turkey-duck frozen-chicken-meat frozen-fish-seafood
+frozen-food/frozen-pizza-garlic-bread: frozen-party-food frozen-thin-crust-pizza frozen-deep-pan-pizza frozen-takeaway-stuffed-crust-pizza frozen-sourdough-pizza frozen-snacking-pizza frozen-vegan-pizza frozen-garlic-bread frozen-pizza frozen-takeaway-pizza
+frozen-food/frozen-chips-potatoes-sides: frozen-chips-fries frozen-waffles-shapes-wedges onion-rings frozen-microwave-chips frozen-hash-browns-croquettes-onion-rings frozen-roast-potatoes frozen-jacket-mashed-potatoes frozen-rice frozen-yorkshire-puddings-sides potatoes chips-onion-rings
+frozen-food/frozen-vegetables-fruit-herbs: frozen-peas-sweetcorn-green-beans frozen-broccoli-sprouts-carrots-cauliflower frozen-mixed-prepared-vegetables frozen-herbs frozen-steam-bags frozen-fruit-ice frozen-vegetables-herbs
+frozen-food/frozen-ready-meals: the-pie-shop frozen-traditional-meals frozen-italian-meals frozen-indian-meals frozen-chinese-asian-meals frozen-premium-ready-meals frozen-kids-ready-meals frozen-healthy-ready-meals frozen-snacking frozen-pasties-sausage-rolls frozen-ready-meals prepared-meat-vegetables slimzone good-balanced frozen-healthier-meals
+frozen-food/frozen-party-food-snacking: frozen-party-food frozen-desserts frozen-snacking
+frozen-food/frozen-pies-bakes-sausage-rolls: frozen-pies frozen-sausage-rolls-bakes
+frozen-food/ice-cream-ice-lollies: ice-lollies ice-cream-cones-sticks-bars ice-cream-tubs ice-cream-minis-bites vegan-ice-cream lighter-ice-cream under-100-calories ice-cream-toppings-wafers-sauces ice-cream-tubs-yogurt-ice ice-lollies-cones-sticks luxury-ice-cream frozen-yogurt-sorbet
+frozen-food/frozen-desserts-pastry: frozen-crumbles-pies-sponges frozen-cheesecakes-tarts frozen-gateaux-roulades-meringues frozen-party-ice-cream-desserts frozen-fruit-smoothie-mixes frozen-pastry-breakfast frozen-desserts
+frozen-food/frozen-vegetarian-vegan: frozen-vegetarian-food frozen-vegan-food
+frozen-food/frozen-free-from: frozen-free-from
+frozen-food/frozen-world-foods: frozen-world-foods
+frozen-food/breaded-chicken-fish: breaded-chicken-turkey breaded-battered-fish teatime-bundles roasting-joints burgers-grills sausages turkey
+frozen-food/yorkshire-puddings-sides + frozen-food/party-onion-rings-snacks + frozen-food/frozen-bbq: only if budget allows
+#DEPT food-cupboard (14 live aisles; sitemap-only legacy aisles skipped)
+food-cupboard/cereals-cereal-bars: everyday-family-cereals cereal-bars porridge-oats muesli-granola-crisp on-the-go-breakfast kelloggs free-from-cereals-bars popular-brands protein-cereal-breakfast-snacks cereal porridge
+food-cupboard/chocolates-sweets: multipack-chocolate sharing-chocolate-bars chocolate-bags-cartons small-chocolate-bars-bags dark-chocolate sweets boxed-chocolates-gifts sweet-popcorn mints-chewing-gum fun-size-chocolate-sweets free-from-chocolate-biscuits exceptional-chocolates-sweets chocolate-treats better-for-you-chocolate-sweets confectionery-tubs-tins-refill-pouches sweet-biscuits
+food-cupboard/crisps-nuts-popcorn: multipack-crisps sharing-crisps nuts-dried-fruit tortilla-chips-dips popcorn vegan-free-from-crisps-snacks crackers-rice-cakes free-from-rice-cakes-crackers healthier-snacks-bars extra-special-crisps-crackers snacks healthier-crisps-snacks baby-toddler-kids-snacks better-for-you-crisps-nuts seeds-dried-fruits crisps-dips-popcorn
+food-cupboard/biscuits: everyday-biscuits chocolate-biscuits cookies lunchbox-biscuits breakfast-biscuits-cereal-bars better-for-you-biscuits-crackers luxury-biscuits exceptional-biscuits-crackers baby-kids-biscuits-bars vegan-biscuits-cereal-bars protein-wholefood-bars
+food-cupboard/crackers-savoury-biscuits: crackers rice-cakes-oat-cakes
+food-cupboard/tinned-food: baked-beans tinned-pasta-spaghetti tinned-fish tinned-tomatoes tinned-vegetables tinned-soup passata-tomato-puree pies-tinned-meals hot-dogs-meatballs tinned-pulses-lentils sandwich-fillers-pastes-spreads tinned-fruit popular-brands noodles-pasta-rice-snack-pots packet-rice-pasta-noodles snack-pots john-west heinz-tinned-food
+food-cupboard/condiments-cooking-ingredients: sauces-condiments salt-pepper gravy stock stuffing-breadcrumbs marinades-rubs oil-vinegar dry-herbs spices chutney-pickles salad-dressing-croutons popular-brands
+food-cupboard/cooking-sauces-meal-kits-sides: cooking-sauces italian-sauces-ingredients far-eastern-sauces-ingredients mexican-meal-kits-sauces-sides indian-sauces-rice-sides moroccan-middle-eastern-food american casseroles-slow-cooker-sauces meal-kits simply-cook-meal-kits chorizo-antipasti packet-mixes free-from-cooking-sauces-kits extra-special-cooking-sauces world-sauces
+food-cupboard/rice-pasta-noodles: pasta dry-rice-noodles-grains microwavable-rice-grains free-from-pasta-rice-couscous gluten-free-pasta-noodles-rice quick-rice-pasta-meals noodles-couscous
+food-cupboard/coffee-tea-hot-chocolate: hot-chocolate-cocoa-malt-drinks tea coffee coffee-pods sugar-sweeteners extra-special-tea-coffee-hot-chocolate twinings
+food-cupboard/jams-spreads-desserts: nut-butters jams-curds marmalade chocolate-sweet-spreads honey syrup-treacle marmite-yeast-extracts extra-special-jams-honey custard rice-pudding jelly pudding-pots dessert-mixes sponge-pudding meringues evaporated-condensed-milk dessert-sauces-toppings desserts
+food-cupboard/noodle-pots-instant-snacks: noodle-pots pasta-pots rice-pots packet-soup savoury-rice-cous-cous pasta-sauce packet-noodles pot-noodle batchelors mug-shot
+food-cupboard/home-baking: flour baking-ingredients icing chocolate-chips-inclusions cake-decorations cake-mixes-baking-kits kids-baking baking-nuts-seeds-fruit bakeware gluten-free-baking-ingredients extra-special-baking-ingredients bake-by-asda-ingredients dairy-free-ingredients-baking free-from-baking-ingredients block-butter desserts-custard-tinned-fruit
+food-cupboard/under-100-calories-food-cupboard: under-100-calories-food-cupboard under-100-calories-crisps under-100-calories-biscuits-bars under-100-calories-chocolates-sweets
+food-cupboard/world-foods: mediterranean irish asian east-asian sri-lankan west-african kosher african-caribbean polish world-foods
+#DEPT sweets-treats-snacks: aisles chocolate-sweets, crisps-nuts-popcorn, biscuits-crackers are the same ranges as food-cupboard's; walked only if budget allows (shelves differ in name: biscuit-barrel lunchbox-minis-biscuit-bars luxury-biscuits ...)
+#DEPT drinks (live aisles per department chips)
+drinks/fizzy-drinks: sugar-free-diet-fizzy-drinks cola lemonade flavoured-fizzy-drinks popular-fizzy-drinks-brands fizzy-drinks-bigger-packs soda-streams-syrups premium-tonic-soda world-drinks mixers-adult-drinks
+drinks/squash-cordial: no-added-sugar-squash orange-squash blackcurrant-squash other-fruit-flavoured-squash barley-water-high-juice cordial squash-cordial-bigger-bottles robinsons ribena squash-on-the-go
+drinks/water: still-water flavoured-water sparkling-water water-bigger-packs volvic evian kids-water-flavoured-water long-life-coconut-water
+drinks/tonic-water-mixers: tonic-water mixers diet-slimline mixers-for-dark-spirits adult-soft-drinks fever-tree schweppes fentimans
+drinks/fruit-juice: long-life-juice chilled-juice
+drinks/kids-lunchbox-drinks: no-added-sugar-kids-juice-drinks kids-juice-drinks fruit-shoot capri-sun
+drinks/sports-energy-health-drinks: energy-drinks health-wellbeing protein-drinks meal-replacement-drinks lucozade monster red-bull
+drinks/adult-soft-drinks: bottlegreen appletiser shloer
+drinks/coffee-tea-hot-chocolate: hot-chocolate-cocoa-malt-drinks tea coffee coffee-pods sugar-sweeteners
+drinks/milk-yogurt-drinks: milk-drinks coffee-drinks milkshakes yogurt-drinks protein-drinks
+#DEPT beer-wine-spirits (alcohol last; tobacconist and gifts not food/drink: skipped)
+beer-wine-spirits/beer-lager-ales: lager-beers world-beer craft-beer-ale bitter stout porter gluten-free-beer flavoured-fruity-beers no-low-alcohol-beer
+beer-wine-spirits/cider: apple-cider fruit-flavoured-cider multipacks-cider no-low-alcohol-cider
+beer-wine-spirits/wine: red-wine white-wine rose-wine port-sherry-vermouth boxed-wine mini-wines fruit-flavoured-wine
+beer-wine-spirits/prosecco-champagne-sparkling-wine: prosecco champagne cava sparkling-wine sparkling-rosé
+beer-wine-spirits/spirits: gin vodka whisky rum liqueurs brandy-cognac tequila no-low-alcohol-spirits baileys-cream-liqueurs shots-party-drinks
+beer-wine-spirits/ready-to-drink-spirits-cocktails: premixed-spirits-mixers premixed-cocktails flavoured-alcoholic-drinks no-low-alcohol-premixed-drinks
+beer-wine-spirits/no-low-alcohol: no-low-alcohol-wine

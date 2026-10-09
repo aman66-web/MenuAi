@@ -1,0 +1,517 @@
+#NOTE format: category path | pages N | tiles collected T (grid tiles on the pages; includes products already printed under an earlier shelf) | new lines printed | shown total (from the page, or "n/a" = the page shows no "Showing x-y items of N" line, i.e. a single page)
+Chilled Food > Milk, Butter, Cream & Eggs > Fresh Milk | pages 1 | tiles 44 | new 44 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Apples | pages 1 | tiles 21 | new 21 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Bananas | pages 1 | tiles 3 | new 3 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Oranges, Lemons & Citrus | pages 1 | tiles 18 | new 18 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Berries & Cherries | pages 1 | tiles 17 | new 17 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Grapes | pages 1 | tiles 13 | new 13 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Pears & Rhubarb | pages 1 | tiles 7 | new 7 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Tropical & Exotic Fruit | pages 1 | tiles 30 | new 30 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Melon | pages 1 | tiles 13 | new 10 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Stone Fruit | pages 1 | tiles 8 | new 8 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Fruit > Fresh Fruit Snacks | pages 1 | tiles 31 | new 12 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Potatoes > Baby & New Potatoes | pages 1 | tiles 6 | new 6 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Potatoes > Baking & Jacket Potatoes | pages 1 | tiles 7 | new 7 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Potatoes > Sweet Potatoes | pages 1 | tiles 5 | new 5 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Potatoes > White Potatoes | pages 1 | tiles 8 | new 5 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Potatoes > Mashed & Prepared Potatoes | pages 1 | tiles 22 | new 18 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Carrots & Root Vegetables | pages 1 | tiles 29 | new 29 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Onions & Leeks | pages 1 | tiles 15 | new 15 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Broccoli & Cauliflower | pages 1 | tiles 18 | new 14 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Cabbage & Sprouts | pages 1 | tiles 12 | new 10 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Mushrooms | pages 1 | tiles 12 | new 12 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Beans & Peas | pages 1 | tiles 12 | new 7 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Asparagus & Sweetcorn | pages 1 | tiles 7 | new 6 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Courgettes, Aubergines & Squash | pages 1 | tiles 9 | new 9 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Garlic, Ginger & Chillies | pages 1 | tiles 20 | new 20 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Fresh Herbs | pages 1 | tiles 17 | new 17 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Spinach, Kale & Spring Greens | pages 1 | tiles 7 | new 6 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Vegetables > Prepared & Roasting Veg | pages 1 | tiles 29 | new 11 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Tomatoes | pages 1 | tiles 15 | new 15 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Peppers | pages 1 | tiles 10 | new 10 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Cucumbers | pages 1 | tiles 4 | new 4 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Lettuce & Salad Leaves | pages 1 | tiles 31 | new 28 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Salad Bowls | pages 1 | tiles 16 | new 16 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Avocados | pages 1 | tiles 5 | new 5 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Celery & Spring Onions | pages 1 | tiles 6 | new 6 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Radish, Cress & Beetroot | pages 1 | tiles 11 | new 2 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Fresh Salad & Stir Fry > Stir Fry | pages 1 | tiles 22 | new 12 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Exceptional Fruit & Vegetables > Exceptional Fruit | pages 1 | tiles 21 | new 9 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Exceptional Fruit & Vegetables > Exceptional Vegetables | pages 1 | tiles 38 | new 2 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Organic Fruit & Vegetables > Organic Fruit | pages 1 | tiles 2 | new 0 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Organic Fruit & Vegetables > Organic Vegetables | pages 1 | tiles 14 | new 0 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Organic Fruit & Vegetables > Organic Salad | pages 1 | tiles 4 | new 0 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Raw Nuts, Seeds & Dried Fruit > Raw Nuts & Seeds | pages 1 | tiles 40 | new 32 | shown n/a
+Fresh Fruit, Vegetables & Flowers > Raw Nuts, Seeds & Dried Fruit > Dried Fruit | pages 1 | tiles 21 | new 14 | shown n/a
+#PARTIAL (more pages to do): Meat, Poultry & Fish > Meat & Poultry > Chicken & Turkey | page 1 of 3 done | tiles 60 | new 60 | shown 1-60 of 139
+#PARTIAL: Meat, Poultry & Fish > Meat & Poultry > Beef | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 104
+#PARTIAL: Meat, Poultry & Fish > Meat & Poultry > Bacon, Sausages & Gammon | page 1 of 3 done | tiles 60 | new 60 | shown 1-60 of 129
+Meat, Poultry & Fish > Meat & Poultry > Pork | pages 1 | tiles 56 | new 54 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Lamb | pages 1 | tiles 37 | new 34 | shown n/a
+#PARTIAL: Meat, Poultry & Fish > Meat & Poultry > Exceptional Meat & Fish | page 1 of 2 done | tiles 63 | new 37 | shown 1-63 of 112
+Meat, Poultry & Fish > Meat & Poultry > Duck, Game & Venison | pages 1 | tiles 5 | new 5 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Simple to Cook | pages 1 | tiles 28 | new 12 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Chicken & Turkey | pages 3 | tiles 60+60+19=139 | new 60+55+19=134 | shown 139 (complete)
+Meat, Poultry & Fish > Meat & Poultry > Beef | pages 2 | tiles 63+41=104 | new 63+41=104 | shown 104 (complete)
+Meat, Poultry & Fish > Meat & Poultry > Bacon, Sausages & Gammon | pages 3 | tiles 60+60+9=129 | new 60+48+6=114 | shown 129 (complete)
+Meat, Poultry & Fish > Meat & Poultry > Exceptional Meat & Fish | pages 2 | tiles 63+49=112 | new 37+12=49 | shown 112 (complete)
+Meat, Poultry & Fish > Meat & Poultry > Liver | pages 1 | tiles 2 | new 2 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Microwavable Snacks | pages 1 | tiles 7 | new 7 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Roast Dinners | pages 1 | tiles 2 | new 0 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Pulled Meat & Ribs | pages 1 | tiles 0 (EMPTY page: the sitemap lists it but the shelf shows no products) | new 0 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Bacon & Gammon | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Mince & Meatballs | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Burgers & Marinated | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Roast Dinner | pages 1 | tiles 9 | new 1 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Fish Counter | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > The Butchers Shop | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Meat, Poultry & Fish > Meat & Poultry > Turkey | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Cod, Haddock & White Fish | pages 1 | tiles 19 | new 16 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Cooked & Smoked Fillets | pages 1 | tiles 6 | new 3 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Exceptional Fish | pages 1 | tiles 25 | new 5 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Fresh Breaded & Battered Fish | pages 1 | tiles 9 | new 6 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Fresh Fishcakes | pages 1 | tiles 9 | new 4 | shown n/a
+#PARTIAL: Meat, Poultry & Fish > Fish & Seafood > View All Fish | page 1 of 2 done | tiles 60 | new 22 | shown 1-60 of 75
+#PARTIAL: Bakery > Cakes > View All Cakes | page 1 of 4 done | tiles 63 | new 63 | shown 1-63 of 192
+Drinks > Squash & Cordial > View All Squash & Cordial | pages 1 | tiles 61 | new 61 | shown n/a
+#PARTIAL: Beer, Wine & Spirits > Beer, Lager & Ales > View All Beer, Lager & Ales | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 116
+Meat, Poultry & Fish > Fish & Seafood > View All Fish | pages 2 | tiles 60+15=75 | new 22+3=25 | shown 75 (complete)
+Bakery > Cakes > View All Cakes | pages 4 | tiles 63+63+63+3=192 | new 192 | shown 192 (complete)
+Beer, Wine & Spirits > Beer, Lager & Ales > View All Beer, Lager & Ales | pages 2 | tiles 63+53=116 | new 116 | shown 116 (complete)
+(bakery/bread-rolls/view-all-bread-rolls = "Page Not Found": wrong path typed by me, the real view-all is under another aisle; not retried)
+#PARTIAL: Bakery > Wraps, Bagels, Pittas & Naans > View All | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 83
+Bakery > Crumpets & Muffins > View All Crumpets, Muffins & Pancakes | pages 1 | tiles 38 | new 38 | shown n/a
+Bakery > Croissants, Pastries & Brioche > View All | pages 1 | tiles 34 | new 34 | shown n/a
+Bakery > Scones, Teacakes & Fruit Loaves > View All | pages 1 | tiles 26 | new 24 | shown n/a
+#PARTIAL: Bakery > Cake Bars, Slices & Tarts > View All | page 1 of 3 done | tiles 63 | new 42 | shown 1-63 of 163
+Bakery > Cookies, Brownies, Muffins & Donuts > View All | pages 1 | tiles 2 | new 2 | shown n/a (the view-all shelf holds only 2 tiles; the aisle's real shelves cookies-shortbread brownies flapjack donuts muffins not yet walked)
+#PARTIAL: Bakery > Desserts & Cream Cakes > View All | page 1 of 2 done | tiles 63 | new 60 | shown 1-63 of 78
+Bakery > Wraps, Bagels, Pittas & Naans > View All | pages 2 | tiles 63+20=83 | new 83 | shown 83 (complete)
+Bakery > Cake Bars, Slices & Tarts > View All | pages 3 | tiles 63+63+37=163 | new 42+52+34=128 | shown 163 (complete)
+Bakery > Desserts & Cream Cakes > View All | pages 2 | tiles 63+15=78 | new 60+13=73 | shown 78 (complete)
+#PARTIAL: Bakery > Exceptional Bakery > View All | page 1 of 2 done | tiles 63 | new 45 | shown 1-63 of 91
+Bakery > Celebration & Birthday Cakes > View All | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+#PARTIAL: Bakery > Bread & Rolls > Bread | page 1 of 3 done | tiles 63 | new 56 | shown 1-63 of 165
+Bakery > Bread & Rolls > Bread | pages 3 | tiles 63+63+39=165 | new 56+49+32=137 | shown 165 (complete)
+Bakery > Exceptional Bakery > View All | pages 2 | tiles 63+28=91 | new 45+1=46 | shown 91 (complete)
+#PARTIAL: Chilled Food > Cheese > Cheddar & Regional Cheese | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 90
+Chilled Food > Cheese > Grated & Sliced Cheese | pages 1 | tiles 54 | new 40 | shown n/a
+Chilled Food > Cheese > Soft & Cottage Cheese | pages 1 | tiles 56 | new 56 | shown n/a
+Chilled Food > Cheese > Continental Cheese | pages 1 | tiles 61 | new 51 | shown n/a
+Chilled Food > Cheese > Cheddar & Regional Cheese | pages 2 | tiles 63+27=90 | new 63+10=73 | shown 90 (complete)
+#PARTIAL: Chilled Food > Yogurts & Desserts > Yogurts & Fromage Frais | page 1 of 5 done | tiles 63 | new 63 | shown 1-63 of 288
+Chilled Food > Yogurts & Desserts > Desserts | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+#PARTIAL: Chilled Food > Yogurts & Desserts > Yogurt Drinks | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 100
+Chilled Food > Milk, Butter, Cream & Eggs > Eggs | pages 1 | tiles 17 | new 17 | shown n/a
+#PARTIAL: Chilled Food > Milk, Butter, Cream & Eggs > Butter & Spreads | page 1 of 2 done | tiles 63 | new 62 | shown 1-63 of 77
+Chilled Food > Milk, Butter, Cream & Eggs > Fresh Cream & Custard | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Chilled Food > Yogurts & Desserts > Yogurts & Fromage Frais | pages 5 | tiles 63+63+63+63+36=288 | new 63+62+57+63+36=281 | shown 288 (complete)
+Chilled Food > Yogurts & Desserts > Yogurt Drinks | pages 2 | tiles 63+37=100 | new 63+31=94 | shown 100 (complete)
+Chilled Food > Milk, Butter, Cream & Eggs > Butter & Spreads | pages 2 | tiles 63+14=77 | new 62+14=76 | shown 77 (complete)
+Chilled Food > Yogurts & Desserts > Kids Yogurts & Desserts | pages 1 | tiles 16 | new 0 | shown n/a
+#PARTIAL: Frozen Food > Frozen Pizza & Garlic Bread > View All | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 78
+Frozen Food > Frozen Vegetables, Fruit & Herbs > View All Frozen Vegetables | pages 1 | tiles 43 | new 43 | shown n/a
+#PARTIAL: Frozen Food > Frozen Ready Meals > View All | page 1 of 2 done | tiles 63 | new 62 | shown 1-63 of 91
+#PARTIAL: Frozen Food > Ice Cream & Ice Lollies > View All | page 1 of 4 done | tiles 63 | new 63 | shown 1-63 of 229
+Drinks > Water > View All Water | pages 1 | tiles 43 | new 43 | shown n/a
+Drinks > Tonic Water & Mixers > View All | pages 1 | tiles 0 (EMPTY) | new 0 | shown n/a
+Drinks > Kids & Lunchbox Drinks > View All Kids & Lunchbox | pages 1 | tiles 20 | new 17 | shown n/a
+Frozen Food > Ice Cream & Ice Lollies > View All | pages 4 | tiles 63+63+63+40=229 | new 229 | shown 229 (complete)
+Frozen Food > Frozen Pizza & Garlic Bread > View All | pages 2 | tiles 63+15=78 | new 78 | shown 78 (complete)
+Frozen Food > Frozen Ready Meals > View All | pages 2 | tiles 63+28=91 | new 62+27=89 | shown 91 (complete)
+Drinks > Sports, Energy & Health Drinks > View All Sports & Energy Drinks | pages 1 | tiles 58 | new 58 | shown n/a
+Drinks > Adult Soft Drinks > View All | pages 1 | tiles 13 | new 12 | shown n/a
+Beer, Wine & Spirits > Cider > View All Cider | pages 1 | tiles 0 (EMPTY; the cider shelves apple-cider etc. not walked) | new 0
+Beer, Wine & Spirits > Wine > All Wine | pages 1 | tiles 0 (EMPTY) | new 0
+Beer, Wine & Spirits > Prosecco, Champagne & Sparkling Wine > View All Fizz | pages 1 | tiles 0 (EMPTY) | new 0
+Beer, Wine & Spirits > Spirits > Gin | pages 1 | tiles 45 | new 45 | shown n/a
+Beer, Wine & Spirits > Spirits > Vodka | pages 1 | tiles 0 (EMPTY) | new 0
+#PARTIAL: Beer, Wine & Spirits > Spirits > Whisky | page 1 of 2 done | tiles 60 | new 60 | shown 1-60 of 83
+Beer, Wine & Spirits > Spirits > Rum | pages 1 | tiles 40 | new 39 | shown n/a
+Beer, Wine & Spirits > Spirits > Whisky | pages 2 | tiles 60+23=83 | new 83 | shown 83 (complete)
+Food Cupboard > Biscuits > Chocolate Biscuits | pages 2 | tiles 63+61=124 | new 62+59=121 | shown 124 (complete)
+#PARTIAL: Food Cupboard > Biscuits > Everyday Biscuits | page 1 of 5 done | tiles 63 | new 35 | shown 1-63 of 277
+#PARTIAL: Food Cupboard > Cereals & Cereal Bars > Everyday & Family Cereals | page 1 of 3 done | tiles 63 | new 63 | shown 1-63 of 166
+Food Cupboard > Cereals & Cereal Bars > Cereal Bars | pages 1 | tiles 0 (EMPTY) | new 0
+Food Cupboard > Biscuits > Everyday Biscuits | pages 4 of 5 saved (1,3,4,5); PAGE 2 (tiles 64-126 of 277) FAILED TO LOAD ("Page 2 of 1", 0 tiles; a flaky read, not retried yet) | new 35+40+44+16
+Food Cupboard > Cereals & Cereal Bars > Everyday & Family Cereals | pages 3 | tiles 63+63+40=166 | new 166 | shown 166 (complete)
+Food Cupboard > Biscuits > Everyday Biscuits | pages 5 | tiles 63+63+63+63+25=277 | new 35+37+40+44+16=172 | shown 277 (complete; page 2 re-read OK)
+Food Cupboard > Biscuits > Cookies | pages 1 | tiles 44 | new 6 | shown n/a
+#PARTIAL: Food Cupboard > Biscuits > Lunchbox Biscuits | page 1 of 3 done | tiles 63 | new 30 | shown 1-63 of 151
+Food Cupboard > Biscuits > Luxury Biscuits | pages 1 | tiles 44 | new 19 | shown n/a
+#PARTIAL: Food Cupboard > Chocolates & Sweets > Multipack Chocolate | page 1 of 3 done | tiles 63 | new 54 | shown 1-63 of 137
+#PARTIAL: Food Cupboard > Chocolates & Sweets > Sharing Chocolate Bars | page 1 of 3 done | tiles 63 | new 61 | shown 1-63 of 144
+Food Cupboard > Chocolates & Sweets > Sharing Chocolate Bars | pages 3 | tiles 63+63+18=144 | new 61+63+18=142 | shown 144 (complete)
+Food Cupboard > Chocolates & Sweets > Multipack Chocolate | pages 3 | tiles 63+63+11=137 | new 54+55+11=120 | shown 137 (complete)
+Food Cupboard > Biscuits > Lunchbox Biscuits | pages 3 | tiles 63+63+25=151 | new 30+32+12=74 | shown 151 (complete)
+#PARTIAL: Food Cupboard > Crisps, Nuts & Popcorn > Multipack Crisps | page 1 of 3 done | tiles 63 | new 63 | shown 1-63 of 142
+Food Cupboard > Crisps, Nuts & Popcorn > Sharing Crisps | pages 1 | tiles 0 (EMPTY) | new 0
+Food Cupboard > Crisps, Nuts & Popcorn > Nuts & Dried Fruit | pages 1 | tiles 0 (EMPTY) | new 0
+Food Cupboard > Crisps, Nuts & Popcorn > Tortilla Chips & Dips | pages 1 | tiles 0 (EMPTY) | new 0
+Food Cupboard > Crisps, Nuts & Popcorn > Popcorn | pages 1 | tiles 27 | new 27 | shown n/a
+#PARTIAL: Food Cupboard > Chocolates & Sweets > Sweets | page 1 of 5 done | tiles 60 | new 59 | shown 1-60 of 259
+Food Cupboard > Chocolates & Sweets > Sweets | pages 5 | tiles 60+60+60+60+19=259 | new 59+57+60+60+19=255 | shown 259 (complete)
+Food Cupboard > Crisps, Nuts & Popcorn > Multipack Crisps | pages 3 | tiles 63+63+16=142 | new 63+61+16=140 | shown 142 (complete)
+Food Cupboard > Tinned Food > Baked Beans | pages 1 | tiles 0 (EMPTY) | new 0
+Food Cupboard > Tinned Food > Tinned Fish | pages 1 | tiles 0 (EMPTY; page title "?") | new 0
+Food Cupboard > Tinned Food > Tinned Vegetables | pages 1 | tiles 0 (EMPTY) | new 0
+#PARTIAL: Food Cupboard > Condiments & Cooking Ingredients > Sauces & Condiments | page 1 of 4 done | tiles 63 | new 63 | shown 1-63 of 250
+#PARTIAL: Food Cupboard > Cooking Sauces, Meal Kits & Sides > Cooking Sauces | page 1 of 4 done | tiles 63 | new 63 | shown 1-63 of 205
+#PARTIAL: Food Cupboard > Rice, Pasta & Noodles > Pasta | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 75
+Food Cupboard > Condiments & Cooking Ingredients > Sauces & Condiments | pages 4 | tiles 63+63+63+61=250 | new 250 | shown 250 (complete)
+#PARTIAL: Food Cupboard > Cooking Sauces, Meal Kits & Sides > Cooking Sauces | pages 1-3 of 4 saved (189 of 205 tiles); PAGE 4 (tiles 190-205) FAILED TO LOAD ("Page 4 of 1", 0 tiles; flaky read, not retried yet)
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Cooking Sauces | pages 4 | tiles 63+63+63+16=205 | new 205 | shown 205 (complete; page 4 re-read OK on retry)
+Food Cupboard > Rice, Pasta & Noodles > Pasta | pages 2 | tiles 63+12=75 | new 75 | shown 75 (complete)
+Food Cupboard > Tinned Food > Baked Beans | pages 1 | tiles 41 | new 41 | shown n/a (loaded by clicking the aisle's "Baked Beans" chip; the earlier direct URL load had read EMPTY; last tile is a non-food George can opener, kept as printed)
+Food Cupboard > Tinned Food > Tinned Pasta & Spaghetti | pages 1 | tiles 27 | new 26 | shown n/a
+Food Cupboard > Tinned Food > Tinned Fish | pages 1 | tiles 0 (EMPTY on a second direct load after a 5 s wait; NOT collected)
+Food Cupboard > Tinned Food > Tinned Tomatoes | pages 1 | tiles 25 | new 24 | shown n/a
+Food Cupboard > Tinned Food > Tinned Vegetables | pages 1 | tiles 30 | new 29 | shown n/a (direct load worked with 5 s wait; the earlier EMPTY read was too impatient)
+#PARTIAL: Food Cupboard > Crisps, Nuts & Popcorn > Sharing Crisps | page 1 of 3 done | tiles 63 | new 61 | shown 1-63 of 188 (earlier EMPTY read was impatience; pages 2-3 NOT yet read)
+#PARTIAL: Food Cupboard > Crisps, Nuts & Popcorn > Nuts & Dried Fruit | page 1 of 3 done | tiles 63 | new 46 | shown 1-63 of 178 (earlier EMPTY read was impatience; pages 2-3 NOT yet read; includes one non-food George Home item)
+Food Cupboard > Crisps, Nuts & Popcorn > Tortilla Chips & Dips | pages 1 | tiles 21 | new 12 | shown n/a
+#PARTIAL: Food Cupboard > Cereals & Cereal Bars > Cereal Bars | page 1 of 3 done | tiles 60 | new 12 | shown 1-60 of 147 (pages 2-3 NOT yet read)
+#PARTIAL: Food Cupboard > Tinned Food > Tinned Soup | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 99 (page 2 NOT yet read)
+#PARTIAL: Food Cupboard > Crisps, Nuts & Popcorn > Sharing Crisps | pages 1 and 3 of 3 saved; PAGE 2 (tiles 64-126 of 188) read EMPTY ("Page 2 of 1", flaky), NOT collected yet
+Food Cupboard > Crisps, Nuts & Popcorn > Nuts & Dried Fruit | pages 3 | tiles 63+63+52=178 | new 46+57+44=147 | shown 178 (complete)
+Food Cupboard > Cereals & Cereal Bars > Cereal Bars | pages 3 | tiles 60+60+27=147 | new 12+43+27=82 | shown 147 (complete)
+Food Cupboard > Tinned Food > Tinned Soup | pages 2 | tiles 63+36=99 | new 63+35=98 | shown 99 (complete)
+#PARTIAL: Food Cupboard > Tinned Food > Tinned Fish | page 1 of 3 done | tiles 63 | new 63 | shown 1-63 of 128 (pages 2-3 NOT yet read; the earlier EMPTY was impatience, direct load with 8 s wait works)
+Food Cupboard > Tinned Food > Passata & Tomato Puree | pages 1 | tiles 14 | new 12 | shown n/a
+Food Cupboard > Tinned Food > Pies & Tinned Meals | pages 1 | tiles 61 | new 58 | shown n/a
+Food Cupboard > Tinned Food > Hot Dogs & Meatballs | pages 1 | tiles 14 | new 11 | shown n/a
+Food Cupboard > Tinned Food > Tinned Pulses & Lentils | pages 1 | tiles 35 | new 31 | shown n/a
+#NOTE sharing-crisps?page=2 read EMPTY ("Page 2 of 1") twice in a row; tiles 64-126 of 188 NOT collected
+Food Cupboard > Tinned Food > Tinned Fish | pages 3 | tiles 63+63+2=128 | new 63+61+2=126 | shown 128 (complete)
+Food Cupboard > Tinned Food > Sandwich Fillers, Pastes & Spreads | pages 1 | tiles 10 | new 7 | shown n/a
+Food Cupboard > Tinned Food > Tinned Fruit | pages 1 | tiles 38 | new 35 | shown n/a
+#PARTIAL: Food Cupboard > Rice, Pasta & Noodles > Dry Rice, Noodles & Grains | page 1 of 2 done | tiles 60 | new 58 | shown 1-60 of 75 (page 2 NOT yet read; includes one non-food George Home rice cooker, kept as printed)
+Food Cupboard > Rice, Pasta & Noodles > Dry Rice, Noodles & Grains | pages 2 | tiles 60+15=75 | new 58+15=73 | shown 75 (complete)
+Food Cupboard > Condiments & Cooking Ingredients > Gravy | pages 1 | tiles 52 | new 50 | shown n/a
+Food Cupboard > Condiments & Cooking Ingredients > Stock | pages 1 | tiles 52 | new 49 | shown n/a
+#PARTIAL: Food Cupboard > Condiments & Cooking Ingredients > Oil & Vinegar | page 1 of 2 done | tiles 63 | new 60 | shown 1-63 of 111 (page 2 NOT yet read)
+#PARTIAL: Food Cupboard > Condiments & Cooking Ingredients > Spices | page 1 of 3 done | tiles 63 | new 63 | shown 1-63 of 170 (pages 2-3 NOT yet read)
+Food Cupboard > Condiments & Cooking Ingredients > Oil & Vinegar | pages 2 | tiles 63+48=111 | new 60+48=108 | shown 111 (complete)
+Food Cupboard > Condiments & Cooking Ingredients > Spices | pages 3 | tiles 63+63+44=170 | new 63+63+44=170 | shown 170 (complete)
+#PARTIAL: Food Cupboard > Condiments & Cooking Ingredients > Chutney & Pickles | page 1 of 2 done | tiles 63 | new 61 | shown 1-63 of 77 (page 2 NOT yet read)
+Food Cupboard > Condiments & Cooking Ingredients > Salad Dressing & Croutons | pages 1 | tiles 30 | new 23 | shown n/a
+#PARTIAL: Food Cupboard > Coffee, Tea & Hot Chocolate > Tea | page 1 of 3 done | tiles 60 | new 60 | shown 1-60 of 145 (pages 2-3 NOT yet read; includes two non-food George Home kettles, kept as printed)
+#PARTIAL: Food Cupboard > Coffee, Tea & Hot Chocolate > Coffee | page 1 of 5 done | tiles 60 | new 60 | shown 1-60 of 253 (pages 2-5 NOT yet read)
+Food Cupboard > Jams, Spreads & Desserts > Jams & Curds | pages 1 | tiles 37 | new 37 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Chocolate & Sweet Spreads | pages 1 | tiles 30 | new 30 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Nut Butters | pages 1 | tiles 39 | new 36 | shown n/a
+#PARTIAL: Food Cupboard > Coffee, Tea & Hot Chocolate > Coffee | pages 1 and 3 of 5 saved (tiles 1-60 and 121-180 of 253); pages 2 and 4 read EMPTY ("Page N of 1", flaky) and page 5 NOT yet read
+#PARTIAL: Food Cupboard > Coffee, Tea & Hot Chocolate > Tea | page 1 of 3 saved (60 of 145 tiles); pages 2 and 3 read EMPTY ("Page N of 1", flaky), NOT collected
+Food Cupboard > Coffee, Tea & Hot Chocolate > Tea | pages 3 | tiles 60+60+25=145 | new 60+60+25=145 | shown 145 (complete; pages 2-3 read in continuation run)
+Food Cupboard > Crisps, Nuts & Popcorn > Sharing Crisps | pages 3 | tiles 63+63+62=188 | new 61+51+(page 3 saved earlier) | shown 188 (complete; page 2 read in continuation run)
+Food Cupboard > Condiments & Cooking Ingredients > Chutney & Pickles | pages 2 | tiles 63+14=77 | new 61+13=74 | shown 77 (complete; page 2 read in continuation run)
+Food Cupboard > Coffee, Tea & Hot Chocolate > Coffee | pages 5 | tiles 60+60+60+60+13=253 | new (pages 1,3 earlier) 60+59+59(p3 earlier)+59+13 | shown 253 (complete; pages 2, 4, 5 read in continuation run)
+Food Cupboard > Coffee, Tea & Hot Chocolate > Hot Chocolate, Cocoa & Malt Drinks | pages 1 | tiles 60 | new 42 | shown n/a
+#PARTIAL: Food Cupboard > Coffee, Tea & Hot Chocolate > Coffee Pods | page 1 of 2 done | tiles 63 | new 12 | shown 1-63 of 77
+Food Cupboard > Coffee, Tea & Hot Chocolate > Sugar & Sweeteners | pages 1 | tiles 34 | new 30 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Marmalade | pages 1 | tiles 18 | new 16 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Honey | pages 1 | tiles 35 | new 33 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Syrup & Treacle | pages 1 | tiles 15 | new 13 | shown n/a
+Food Cupboard > Coffee, Tea & Hot Chocolate > Coffee Pods | pages 2 | tiles 63+14=77 | new 12+8=20 | shown 77 (complete)
+Food Cupboard > Jams, Spreads & Desserts > Marmite & Yeast Extracts | pages 1 | tiles 4 | new 4 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Extra Special Jams & Honey | pages 1 | tiles 10 | new 0 | shown n/a (all already collected)
+Food Cupboard > Jams, Spreads & Desserts > Custard | pages 1 | tiles 34 | new 34 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Rice Pudding | pages 1 | tiles 25 | new 25 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Jelly | pages 1 | tiles 43 | new 43 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Pudding Pots | pages 1 | tiles 59 | new 21 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Dessert Mixes | pages 1 | tiles 10 | new 8 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Sponge Pudding | pages 1 | tiles 9 | new 3 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Meringues | pages 1 | tiles 3 | new 3 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Evaporated & Condensed Milk | pages 1 | tiles 11 | new 10 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Dessert Sauces & Toppings | pages 1 | tiles 14 | new 7 | shown n/a
+Food Cupboard > Jams, Spreads & Desserts > Desserts | pages 1 | tiles 4 | new 3 | shown n/a
+Food Cupboard > Noodle Pots & Instant Snacks > Noodle Pots | pages 1 | tiles 51 | new 51 | shown n/a
+Food Cupboard > Noodle Pots & Instant Snacks > Pasta Pots | pages 1 | tiles 14 | new 13 | shown n/a
+Food Cupboard > Noodle Pots & Instant Snacks > Rice Pots | pages 1 | tiles 6 | new 6 | shown n/a
+Food Cupboard > Noodle Pots & Instant Snacks > Packet Soup | pages 1 | tiles 31 | new 0 | shown n/a (all already collected under tinned soup/other shelves)
+Food Cupboard > Noodle Pots & Instant Snacks > Savoury Rice & Cous Cous | pages 1 | tiles 16 | new 9 | shown n/a
+Food Cupboard > Noodle Pots & Instant Snacks > Packet Noodles | pages 1 | tiles 40 | new 38 | shown n/a
+Food Cupboard > Home Baking > Flour | pages 1 | tiles 39 | new 38 | shown n/a
+#PARTIAL: Food Cupboard > Home Baking > Baking Ingredients | page 1 of 3 done | tiles 63 | new 34 | shown 1-63 of 128
+Food Cupboard > Home Baking > Icing | pages 1 | tiles 37 | new 32 | shown n/a
+Food Cupboard > Home Baking > Chocolate Chips & Inclusions | pages 1 | tiles 12 | new 10 | shown n/a
+#PARTIAL: Food Cupboard > Home Baking > Cake Decorations | page 1 of 2 done | tiles 63 | new 52 | shown 1-63 of 67
+#PARTIAL: Food Cupboard > Home Baking > Cake Mixes & Baking Kits | page 1 of 2 done | tiles 63 | new 60 | shown 1-63 of 79
+Food Cupboard > Home Baking > Baking Ingredients | pages 3 | tiles 63+63+2=128 | new 34+26+1=61 | shown 128 (complete)
+Food Cupboard > Home Baking > Cake Decorations | pages 2 | tiles 63+4=67 | new 52+4=56 | shown 67 (complete)
+Food Cupboard > Home Baking > Cake Mixes & Baking Kits | pages 2 | tiles 63+16=79 | new 60+15=75 | shown 79 (complete)
+Food Cupboard > Home Baking > Kids Baking | pages 1 | tiles 54 | new 0 | shown n/a (all already collected)
+Food Cupboard > Home Baking > Baking Nuts, Seeds & Fruit | pages 1 | tiles 61 | new 1 | shown n/a
+Food Cupboard > Home Baking > Gluten Free Baking Ingredients | pages 1 | tiles 10 | new 0 | shown n/a
+Food Cupboard > Home Baking > Extra Special Baking Ingredients | pages 1 | tiles 36 | new 0 | shown n/a
+Food Cupboard > Home Baking > BAKE by ASDA Ingredients | pages 1 | tiles 43 | new 0 | shown n/a
+Food Cupboard > Home Baking > Block Butter | pages 1 | tiles 0 (EMPTY; shelf has no products) | new 0
+Food Cupboard > World Foods > Mediterranean | pages 1 | tiles 2 | new 1 | shown n/a
+Food Cupboard > World Foods > East Asian | pages 1 | tiles 3 | new 2 | shown n/a
+Food Cupboard > World Foods > Irish | pages 1 | tiles 0 (EMPTY on first read; sitemap-only shelf, retry if budget) | new 0
+Food Cupboard > World Foods > Asian | pages 1 | tiles 0 (EMPTY on first read) | new 0
+Food Cupboard > World Foods > Sri Lankan | pages 1 | tiles 0 (EMPTY on first read) | new 0
+#PARTIAL: Frozen Food > Frozen Chicken & Meat > Frozen Chicken & Turkey | page 1 of 2 done | tiles 63 | new 62 | shown 1-63 of 106
+Frozen Food > Frozen Chicken & Meat > Frozen Sausages & Burgers | pages 1 | tiles 42 | new 35 | shown n/a
+Frozen Food > Frozen Chicken & Meat > Frozen Fish | pages 1 | tiles 1 | new 1 | shown n/a (shelf holds only 1 product; other frozen fish are under other shelves)
+Frozen Food > Frozen Chips, Potatoes & Sides > Frozen Chips & Fries | pages 1 | tiles 37 | new 37 | shown n/a
+Frozen Food > Frozen Chips, Potatoes & Sides > Frozen Waffles, Shapes & Wedges | pages 1 | tiles 13 | new 11 | shown n/a
+Frozen Food > Frozen Chicken & Meat > Frozen Chicken & Turkey | pages 2 | tiles 63+43=106 | new 62+43=105 | shown 106 (complete)
+Frozen Food > Frozen Chicken & Meat > Frozen Beef, Lamb & Pork | pages 1 | tiles 23 | new 16 | shown n/a
+Frozen Food > Frozen Chicken & Meat > Frozen Mince | pages 1 | tiles 8 | new 2 | shown n/a
+Frozen Food > Frozen Chicken & Meat > Frozen Roasting Joints & Sides | pages 1 | tiles 9 | new 7 | shown n/a
+Frozen Food > Frozen Chicken & Meat > Frozen Prawns & Seafood | pages 1 | tiles 2 | new 2 | shown n/a
+Frozen Food > Breaded Chicken & Fish > Breaded & Battered Fish | pages 1 | tiles 0 (EMPTY; sitemap-only shelf) | new 0
+Frozen Food > Frozen Chicken & Meat > Frozen Fish & Seafood | pages 1 | tiles 0 (EMPTY; sitemap-only shelf) | new 0
+#PARTIAL: Frozen Food > Frozen Party Food & Snacking > Frozen Party Food | page 1 of 2 done | tiles 63 | new 41 | shown 1-63 of 78
+Frozen Food > Frozen Pies, Bakes & Sausage Rolls > Frozen Pies | pages 1 | tiles 24 | new 23 | shown n/a
+Frozen Food > Frozen Pies, Bakes & Sausage Rolls > Frozen Sausage Rolls & Bakes | pages 1 | tiles 16 | new 12 | shown n/a
+Frozen Food > Frozen Party Food & Snacking > Frozen Party Food | pages 2 | tiles 63+15=78 | new 41+2=43 | shown 78 (complete)
+Frozen Food > Frozen Party Food & Snacking > Frozen Desserts | pages 1 | tiles 13 | new 12 | shown n/a
+Frozen Food > Frozen Party Food & Snacking > Frozen Snacking | pages 1 | tiles 28 | new 2 | shown n/a
+Frozen Food > Frozen Desserts & Pastry > Frozen Crumbles, Pies & Sponges | pages 1 | tiles 7 | new 7 | shown n/a
+Frozen Food > Frozen Desserts & Pastry > Frozen Cheesecakes & Tarts | pages 1 | tiles 6 | new 1 | shown n/a
+Frozen Food > Frozen Desserts & Pastry > Frozen Gateaux, Roulades & Meringues | pages 1 | tiles 9 | new 6 | shown n/a
+#PARTIAL: Frozen Food > Frozen Vegetarian & Vegan > Frozen Vegetarian Food | page 1 of 2 done | tiles 60 | new 37 | shown 1-60 of 81
+Frozen Food > Frozen Vegetarian & Vegan > Frozen Vegan Food | pages 1 | tiles 51 | new 9 | shown n/a
+Frozen Food > Frozen Free From > Frozen Free From | pages 1 | tiles 39 | new 8 | shown n/a
+#PARTIAL: Frozen Food > Frozen World Foods > Frozen World Foods | page 1 of 2 done | tiles 63 | new 26 | shown 1-63 of 78
+Frozen Food > Frozen Vegetarian & Vegan > Frozen Vegetarian Food | pages 2 | tiles 60+21=81 | new 37+4=41 | shown 81 (complete)
+Frozen Food > Frozen World Foods > Frozen World Foods | pages 2 | tiles 63+15=78 | new 26+11=37 | shown 78 (complete)
+Frozen Food > Frozen Chips, Potatoes & Sides > Frozen Roast Potatoes | pages 1 | tiles 7 | new 6 | shown n/a
+Frozen Food > Frozen Chips, Potatoes & Sides > Frozen Hash Browns, Croquettes & Onion Rings | pages 1 | tiles 9 | new 5 | shown n/a
+Frozen Food > Frozen Chips, Potatoes & Sides > Frozen Jacket & Mashed Potatoes | pages 1 | tiles 5 | new 5 | shown n/a
+#PARTIAL: Food Cupboard > Cereals & Cereal Bars > Porridge & Oats | page 1 of 2 done | tiles 63 | new 47 | shown 1-63 of 94
+#PARTIAL: Food Cupboard > Cereals & Cereal Bars > Muesli, Granola & Crisp | page 1 of 2 done | tiles 63 | new 44 | shown 1-63 of 71
+#PARTIAL: Food Cupboard > Cereals & Cereal Bars > On the Go Breakfast | page 1 of 2 done | tiles 63 | new 25 | shown 1-63 of 83
+Food Cupboard > Cereals & Cereal Bars > Free From Cereals & Bars | pages 1 | tiles 13 | new 3 | shown n/a
+Food Cupboard > Cereals & Cereal Bars > Protein Cereal & Breakfast Snacks | pages 1 | tiles 14 | new 0 | shown n/a
+Food Cupboard > Cereals & Cereal Bars > Porridge & Oats | pages 2 | tiles 63+31=94 | new 47+16=63 | shown 94 (complete)
+Food Cupboard > Cereals & Cereal Bars > Muesli, Granola & Crisp | pages 2 | tiles 63+8=71 | new 44+5=49 | shown 71 (complete)
+Food Cupboard > Cereals & Cereal Bars > On the Go Breakfast | pages 2 | tiles 63+20=83 | new 25+0=25 | shown 83 (complete)
+#PARTIAL: Food Cupboard > Cereals & Cereal Bars > Kellogg's (brand shelf) | page 1 of 2 done | tiles 63 | new 0 | shown 1-63 of 67 (page 2 not read)
+Food Cupboard > Cereals & Cereal Bars > Popular Brands | pages 1 | tiles 0 (EMPTY; sitemap-only shelf) | new 0
+Beer, Wine & Spirits > Cider > View All Cider | pages 1 | tiles 47 | new 47 | shown n/a (retry after earlier EMPTY read worked)
+Drinks > Tonic Water & Mixers > View All Tonic Water & Mixers | pages 1 | tiles 51 | new 47 | shown n/a (retry worked)
+Beer, Wine & Spirits > Spirits > Vodka | pages 1 | tiles 39 | new 39 | shown n/a (retry worked)
+Beer, Wine & Spirits > Prosecco, Champagne & Sparkling Wine > View All Fizz | pages 1 | tiles 42 | new 42 | shown n/a (retry worked)
+#PARTIAL: Beer, Wine & Spirits > Wine > All Wine | page 1 of 3 done | tiles 63 | new 61 | shown 1-63 of 178
+#PARTIAL: Beer, Wine & Spirits > Wine > Red Wine | page 1 of 3 done | tiles 63 | new 50 | shown 1-63 of 180
+#PARTIAL: Beer, Wine & Spirits > Wine > White Wine | page 1 of 3 done | tiles 63 | new 41 | shown 1-63 of 174
+#PARTIAL: Beer, Wine & Spirits > Wine > Rose Wine | page 1 of 2 done | tiles 60 | new 52 | shown 1-60 of 61
+Beer, Wine & Spirits > Wine > All Wine | pages 3 | tiles 63+63+52=178 | new 61+37+36=134 | shown 178 (complete)
+Beer, Wine & Spirits > Wine > Red Wine | pages 3 | tiles 63+63+54=180 | new 50+30+39=119 | shown 180 (complete)
+Beer, Wine & Spirits > Wine > White Wine | pages 3 | tiles 63+63+48=174 | new 41+25+38=104 | shown 174 (complete)
+Beer, Wine & Spirits > Wine > Rose Wine | pages 2 | tiles 60+1=61 | new 52+0=52 | shown 61 (complete)
+Beer, Wine & Spirits > Wine > Port, Sherry & Vermouth | pages 1 | tiles 26 | new 25 | shown n/a
+Beer, Wine & Spirits > Wine > Boxed Wine | pages 1 | tiles 26 | new 6 | shown n/a
+Beer, Wine & Spirits > Spirits > Liqueurs | pages 1 | tiles 52 | new 46 | shown n/a
+Beer, Wine & Spirits > Spirits > Brandy & Cognac | pages 1 | tiles 14 | new 13 | shown n/a
+Beer, Wine & Spirits > Spirits > Tequila | pages 1 | tiles 13 | new 10 | shown n/a
+Beer, Wine & Spirits > Ready to Drink Spirits & Cocktails > Premixed Cocktails | pages 1 | tiles 34 | new 31 | shown n/a
+Beer, Wine & Spirits > Ready to Drink Spirits & Cocktails > Premixed Spirits & Mixers | pages 1 | tiles 39 | new 29 | shown n/a
+#PARTIAL: Food Cupboard > Chocolates & Sweets > Chocolate Bags & Cartons | page 1 of 2 done | tiles 60 | new 59 | shown 1-60 of 115
+#PARTIAL: Food Cupboard > Chocolates & Sweets > Small Chocolate Bars & Bags | page 1 of 2 done | tiles 63 | new 54 | shown 1-63 of 66
+Food Cupboard > Chocolates & Sweets > Dark Chocolate | pages 1 | tiles 28 | new 8 | shown n/a
+Food Cupboard > Chocolates & Sweets > Fun Size Chocolate & Sweets | pages 1 | tiles 17 | new 9 | shown n/a
+Food Cupboard > Chocolates & Sweets > Mints & Chewing Gum | pages 1 | tiles 58 | new 57 | shown n/a
+#PARTIAL: Drinks > Fizzy Drinks > Cola | page 1 of 2 done | tiles 63 | new 61 | shown 1-63 of 87
+Drinks > Fizzy Drinks > Lemonade | pages 1 | tiles 45 | new 30 | shown n/a
+#PARTIAL: Drinks > Fizzy Drinks > Flavoured Fizzy Drinks | page 1 of 3 done | tiles 63 | new 51 | shown 1-63 of 127
+#PARTIAL: Drinks > Fizzy Drinks > Sugar Free & Diet Fizzy Drinks | page 1 of 2 done | tiles 63 | new 24 | shown 1-63 of 95
+Drinks > Fizzy Drinks > Fizzy Drinks Bigger Packs | pages 1 | tiles 30 | new 3 | shown n/a
+#PARTIAL: Drinks > Fruit Juice > Long Life Juice | page 1 of 2 done | tiles 63 | new 54 | shown 1-63 of 82
+#PARTIAL: Drinks > Fruit Juice > Chilled Juice | page 1 of 2 done | tiles 63 | new 62 | shown 1-63 of 96
+Chilled Food > Ready Meals > Takeaway | pages 1 | tiles 38 | new 38 | shown n/a
+#PARTIAL: Chilled Food > Cooked Meat > Sliced Cooked Meats | page 1 of 2 done | tiles 63 | new 63 | shown 1-63 of 74
+#PARTIAL: Chilled Food > Pizza, Pasta & Garlic Bread > Fresh Pizza | page 1 of 2 done | tiles 60 | new 59 | shown 1-60 of 109
+Drinks > Fizzy Drinks > Cola | pages 2 | tiles 63+24=87 | new 61+24=85 | shown 87 (complete)
+Drinks > Fizzy Drinks > Flavoured Fizzy Drinks | pages 3 | tiles 63+63+1=127 | new 51+48+1=100 | shown 127 (complete)
+Drinks > Fizzy Drinks > Sugar Free & Diet Fizzy Drinks | pages 2 | tiles 63+32=95 | new 24+5=29 | shown 95 (complete)
+Drinks > Fruit Juice > Long Life Juice | pages 2 | tiles 63+19=82 | new 54+19=73 | shown 82 (complete)
+Drinks > Fruit Juice > Chilled Juice | pages 2 | tiles 63+33=96 | new 62+32=94 | shown 96 (complete)
+Chilled Food > Cooked Meat > Sliced Cooked Meats | pages 2 | tiles 63+11=74 | new 63+11=74 | shown 74 (complete)
+Food Cupboard > Chocolates & Sweets > Boxed Chocolates & Gifts | pages 2 | tiles 63+63=126 | new 39+24=63 | shown 126 (complete)
+Chilled Food > Pizza, Pasta & Garlic Bread > Fresh Pizza | pages 2 | tiles 60+49=109 | new 59+47=106 | shown 109 (complete)
+Food Cupboard > Cereals & Cereal Bars > Kelloggs | pages 2 | tiles 63+4=67 | new 0+0=0 | shown 67 (complete)
+Chilled Food > Milk, Butter, Cream & Eggs > Long Life Milk | pages 1 | tiles 15 | new 15 | shown n/a
+Chilled Food > Milk, Butter, Cream & Eggs > Baking, Cooking & Pastry | pages 1 | tiles 33 | new 13 | shown n/a
+Chilled Food > Milk, Butter, Cream & Eggs > Dairy Free or Lactose Free Drinks | pages 2 | tiles 63+18=81 | new 46+17=63 | shown 81 (complete)
+Chilled Food > Milk, Butter, Cream & Eggs > Flavoured Milk Drinks | pages 2 | tiles 63+63=126 | new 21+26=47 | shown 126 (complete)
+Chilled Food > Milk, Butter, Cream & Eggs > Organic Milk, Butter & Eggs | pages 1 | tiles 13 | new 1 | shown n/a
+Chilled Food > Cheese > Cheeseboard & Speciality Cheese | pages 1 | tiles 56 | new 22 | shown n/a
+Chilled Food > Cheese > Cheese Snacks & Lunchbox | pages 2 | tiles 63+20=83 | new 31+13=44 | shown 83 (complete)
+Chilled Food > Cheese > Free From Cheese | pages 1 | tiles 31 | new 9 | shown n/a
+Chilled Food > Cheese > Baking & Cooking Cheese | pages 1 | tiles 12 | new 3 | shown n/a
+Chilled Food > Cheese > Lower Fat Cheese | pages 1 | tiles 27 | new 0 | shown n/a
+Chilled Food > Cheese > Award Winning Cheese | pages 1 | tiles 17 | new 6 | shown n/a
+Chilled Food > Cheese > Exceptional Cheese | pages 1 | tiles 17 | new 0 | shown n/a
+Chilled Food > Cheese > Cheeseboard & Fondue | pages 1 | tiles 1 | new 0 | shown n/a
+Chilled Food > Cooked Meat > Chicken & Turkey Pieces | pages 1 | tiles 42 | new 38 | shown n/a
+Chilled Food > Cooked Meat > Continental Meats & Pate | pages 1 | tiles 45 | new 36 | shown n/a
+Chilled Food > Cooked Meat > Snacking & Hot Dogs | pages 2 | tiles 63+19=82 | new 32+11=43 | shown 82 (complete)
+Chilled Food > Cooked Meat > Polish & Halal Meats | pages 1 | tiles 9 | new 9 | shown n/a
+Chilled Food > Cooked Meat > Extra Special Cooked Meat | pages 1 | tiles 1 | new 0 | shown n/a
+Chilled Food > Cooked Meat > Exceptional Cooked Meat | pages 1 | tiles 18 | new 16 | shown n/a
+Chilled Food > Cooked Meat > Vegan Cooked Meat Alternatives | pages 1 | tiles 6 | new 5 | shown n/a
+Chilled Food > Yogurts & Desserts > Free From Yogurts & Desserts | pages 1 | tiles 36 | new 17 | shown n/a
+Chilled Food > Yogurts & Desserts > Organic Yogurts & Desserts | pages 1 | tiles 7 | new 0 | shown n/a
+Chilled Food > Chilled Juice & Smoothies > Chilled Smoothies | pages 1 | tiles 29 | new 3 | shown n/a
+Chilled Food > Chilled Juice & Smoothies > Coconut Water | pages 1 | tiles 10 | new 1 | shown n/a
+Chilled Food > Chilled Juice & Smoothies > Kids Juice & Smoothies | pages 1 | tiles 10 | new 0 | shown n/a
+Chilled Food > Ready Meals > Bistro by ASDA | pages 1 | tiles 51 | new 51 | shown n/a
+Chilled Food > Ready Meals > Bom Bahia by ASDA | pages 1 | tiles 14 | new 5 | shown n/a
+Chilled Food > Ready Meals > Healthier Choices | pages 1 | tiles 13 | new 12 | shown n/a
+Chilled Food > Ready Meals > Cuisine | pages 4 | tiles 63+63+63+47=236 | new 54+35+39+40=168 | shown 236 (complete)
+Chilled Food > Ready Meals > Soup | pages 1 | tiles 26 | new 19 | shown n/a
+Chilled Food > Ready Meals > Vegetarian & Vegan Ready Meals | pages 1 | tiles 34 | new 18 | shown n/a
+Chilled Food > Ready Meals > Family & Kids Ready Meals | pages 1 | tiles 16 | new 1 | shown n/a
+Chilled Food > Ready Meals > Ready to Cook Meals | pages 1 | tiles 14 | new 6 | shown n/a
+Chilled Food > Pizza, Pasta & Garlic Bread > Pasta, Sauce & Garlic Bread | pages 1 | tiles 55 | new 48 | shown n/a
+Chilled Food > Party Food, Pies, Salads & Dips > Pork Pies & Scotch Eggs | pages 1 | tiles 32 | new 32 | shown n/a
+Chilled Food > Party Food, Pies, Salads & Dips > Sausage Rolls & Cocktail Sausages | pages 1 | tiles 29 | new 23 | shown n/a
+Chilled Food > Party Food, Pies, Salads & Dips > Coleslaw, Dips, Fillers & Salads | pages 3 | tiles 63+63+5=131 | new 48+53+5=106 | shown 131 (complete)
+Chilled Food > Party Food, Pies, Salads & Dips > Exceptional | pages 1 | tiles 18 | new 1 | shown n/a
+Chilled Food > Party Food, Pies, Salads & Dips > Pies, Quiche & Pasties | pages 2 | tiles 63+43=106 | new 48+35=83 | shown 106 (complete)
+Chilled Food > Party Food, Pies, Salads & Dips > Tapas, Olives & Antipasti | pages 2 | tiles 63+1=64 | new 51+1=52 | shown 64 (complete)
+Chilled Food > Party Food, Pies, Salads & Dips > Sandwich Fillers | pages 1 | tiles 10 | new 0 | shown n/a
+Chilled Food > Sandwiches, Snacks & Drinks > Sandwiches, Snacks & Drinks | pages 6 | tiles 63+63+63+63+63+3=318 | new 63+15+25+56+18+0=177 | shown 318 (complete)
+Chilled Food > Sandwiches, Snacks & Drinks > Snacking & Lunch Box | pages 3 | tiles 63+63+36=162 | new 0+0+1=1 | shown 162 (complete)
+Bakery > Bread & Rolls > Bread Rolls | pages 2 | tiles 63+16=79 | new 49+14=63 | shown 79 (complete)
+Bakery > Wraps, Bagels, Pittas & Naans > Wraps | pages 1 | tiles 27 | new 4 | shown n/a
+Bakery > Crumpets & Muffins > Crumpets | pages 1 | tiles 7 | new 0 | shown n/a
+Bakery > Wraps, Bagels, Pittas & Naans > Bagels | pages 1 | tiles 19 | new 1 | shown n/a
+Bakery > Wraps, Bagels, Pittas & Naans > Naan Bread | pages 1 | tiles 13 | new 2 | shown n/a
+Bakery > Wraps, Bagels, Pittas & Naans > Pitta Bread & Flatbread | pages 1 | tiles 35 | new 6 | shown n/a
+Bakery > Crumpets & Muffins > Waffles | pages 1 | tiles 6 | new 1 | shown n/a
+Frozen Food > Frozen Ready Meals > The Pie Shop | pages 1 | tiles 1 | new 0 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Traditional Meals | pages 1 | tiles 39 | new 5 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Italian Meals | pages 1 | tiles 16 | new 1 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Indian Meals | pages 1 | tiles 12 | new 0 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Chinese & Asian Meals | pages 1 | tiles 40 | new 1 | shown n/a
+Drinks > Fizzy Drinks > Popular Fizzy Drinks Brands | pages 2 | tiles 60+32=92 | new 0+0=0 | shown 92 (complete)
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Moroccan & Middle Eastern Food | pages 1 | tiles 17 | new 15 | shown n/a
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Italian Sauces & Ingredients | pages 3 | tiles 63+63+32=158 | new 4+14+11=29 | shown 158 (complete)
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Far Eastern Sauces & Ingredients | pages 2 | tiles 63+63=126 | new 30+27=57 | shown 126 (complete)
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Mexican Meal Kits, Sauces & Sides | pages 2 | tiles 63+19=82 | new 49+13=62 | shown 82 (complete)
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Indian Sauces, Rice & Sides | pages 3 | tiles 63+63+2=128 | new 38+34+2=74 | shown 128 (complete)
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > American | pages 1 | tiles 3 | new 0 | shown n/a
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Casseroles & Slow Cooker Sauces | pages 1 | tiles 9 | new 1 | shown n/a
+Food Cupboard > Cooking Sauces, Meal Kits & Sides > Meal Kits | pages 1 | tiles 46 | new 0 | shown n/a
+Food Cupboard > Rice, Pasta & Noodles > Gluten Free Pasta, Noodles & Rice | pages 1 | tiles 40 | new 5 | shown n/a
+Food Cupboard > Rice, Pasta & Noodles > Quick Rice & Pasta Meals | pages 1 | tiles 31 | new 1 | shown n/a
+Food Cupboard > Rice, Pasta & Noodles > Noodles & Couscous | pages 1 | tiles 1 | new 0 | shown n/a
+Food Cupboard > Rice, Pasta & Noodles > Microwavable Rice & Grains | pages 2 | tiles 63+38=101 | new 47+12=59 | shown 101 (complete)
+Food Cupboard > Biscuits > Better For You Biscuits & Crackers | pages 1 | tiles 61 | new 13 | shown n/a
+Food Cupboard > Biscuits > Exceptional Biscuits & Crackers | pages 1 | tiles 11 | new 0 | shown n/a
+Food Cupboard > Biscuits > Baby & Kids Biscuits & Bars | pages 1 | tiles 16 | new 14 | shown n/a
+Food Cupboard > Biscuits > Breakfast Biscuits & Cereal Bars | pages 3 | tiles 63+63+8=134 | new 6+12+3=21 | shown 134 (complete)
+Food Cupboard > Crackers & Savoury Biscuits > Crackers | pages 2 | tiles 63+27=90 | new 18+19=37 | shown 90 (complete)
+Food Cupboard > Crackers & Savoury Biscuits > Rice Cakes & Oat Cakes | pages 1 | tiles 15 | new 6 | shown n/a
+Food Cupboard > Crisps, Nuts & Popcorn > Crackers & Rice Cakes | pages 1 | tiles 1 | new 1 | shown n/a
+Food Cupboard > Crisps, Nuts & Popcorn > Healthier Snacks & Bars | pages 1 | tiles 1 | new 0 | shown n/a
+Food Cupboard > Chocolates & Sweets > Better For You Chocolate & Sweets | pages 1 | tiles 17 | new 0 | shown n/a
+Food Cupboard > Chocolates & Sweets > Sweet Biscuits | pages 1 | tiles 1 | new 0 | shown n/a
+Food Cupboard > Chocolates & Sweets > Chocolate Treats | pages 2 | tiles 63+30=93 | new 0+1=1 | shown 93 (complete)
+Food Cupboard > Condiments & Cooking Ingredients > Salt & Pepper | pages 1 | tiles 38 | new 37 | shown n/a
+Food Cupboard > Condiments & Cooking Ingredients > Stuffing & Breadcrumbs | pages 1 | tiles 21 | new 21 | shown n/a
+Food Cupboard > Condiments & Cooking Ingredients > Dry Herbs | pages 1 | tiles 43 | new 37 | shown n/a
+Food Cupboard > Condiments & Cooking Ingredients > Marinades & Rubs | pages 2 | tiles 63+17=80 | new 33+4=37 | shown 80 (complete)
+Beer, Wine & Spirits > Beer, Lager & Ales > Stout | pages 1 | tiles 33 | new 24 | shown n/a
+Beer, Wine & Spirits > Beer, Lager & Ales > No & Low Alcohol Beer | pages 1 | tiles 28 | new 18 | shown n/a
+Beer, Wine & Spirits > Beer, Lager & Ales > Lager Beers | pages 3 | tiles 63+63+31=157 | new 32+27+30=89 | shown 157 (complete)
+Beer, Wine & Spirits > Beer, Lager & Ales > World Beer | pages 2 | tiles 63+31=94 | new 16+3=19 | shown 94 (complete)
+Beer, Wine & Spirits > Beer, Lager & Ales > Craft Beer & Ale | pages 3 | tiles 63+63+54=180 | new 24+37+51=112 | shown 180 (complete)
+Meat, Poultry & Fish > Fish & Seafood > Prawns & Mussels | pages 1 | tiles 26 | new 3 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Salmon | pages 1 | tiles 27 | new 3 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Smoked Salmon | pages 1 | tiles 12 | new 1 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Ready to Eat | pages 1 | tiles 10 | new 0 | shown n/a
+Meat, Poultry & Fish > Fish & Seafood > Seafood Sticks & Cocktails | pages 1 | tiles 7 | new 0 | shown n/a
+Frozen Food > Frozen Vegetables, Fruit & Herbs > Frozen Peas, Sweetcorn & Green Beans | pages 1 | tiles 15 | new 4 | shown n/a
+Frozen Food > Frozen Vegetables, Fruit & Herbs > Frozen Mixed & Prepared Vegetables | pages 1 | tiles 27 | new 0 | shown n/a
+Frozen Food > Ice Cream & Ice Lollies > Ice Lollies | pages 1 | tiles 44 | new 3 | shown n/a
+Frozen Food > Frozen Pizza & Garlic Bread > Frozen Thin Crust Pizza | pages 1 | tiles 46 | new 0 | shown n/a
+Frozen Food > Ice Cream & Ice Lollies > Ice Cream Tubs | pages 2 | tiles 60+18=78 | new 1+0=1 | shown 78 (complete)
+Beer, Wine & Spirits > Cider > Apple Cider | pages 1 | tiles 55 | new 28 | shown n/a
+Beer, Wine & Spirits > Prosecco, Champagne & Sparkling Wine > Prosecco | pages 1 | tiles 23 | new 11 | shown n/a
+Beer, Wine & Spirits > Prosecco, Champagne & Sparkling Wine > Champagne | pages 1 | tiles 28 | new 14 | shown n/a
+Beer, Wine & Spirits > Spirits > Liqueurs > Baileys, Rogue & Cream Liqueurs | pages 1 | tiles 12 | new 0 | shown n/a
+Beer, Wine & Spirits > Cider > Fruit & Flavoured Cider | pages 1 | tiles 42 | new 20 | shown n/a
+Beer, Wine & Spirits > Cider > Multipacks Cider | pages 1 | tiles 40 | new 0 | shown n/a
+Beer, Wine & Spirits > Prosecco, Champagne & Sparkling Wine > Cava | pages 1 | tiles 8 | new 3 | shown n/a
+Beer, Wine & Spirits > Prosecco, Champagne & Sparkling Wine > Sparkling Wine | pages 1 | tiles 19 | new 10 | shown n/a
+Beer, Wine & Spirits > Beer, Lager & Ales > Bitter | pages 1 | tiles 12 | new 3 | shown n/a
+Beer, Wine & Spirits > Beer, Lager & Ales > Porter | pages 1 | tiles 1 | new 0 | shown n/a
+Beer, Wine & Spirits > Beer, Lager & Ales > Gluten Free Beer | pages 1 | tiles 22 | new 1 | shown n/a
+Beer, Wine & Spirits > Beer, Lager & Ales > Flavoured & Fruity Beers | pages 1 | tiles 21 | new 0 | shown n/a
+Beer, Wine & Spirits > Wine > Mini Wines | pages 1 | tiles 15 | new 7 | shown n/a
+Drinks > Squash & Cordial > No Added Sugar Squash | pages 1 | tiles 54 | new 18 | shown n/a
+Drinks > Squash & Cordial > Orange Squash | pages 1 | tiles 15 | new 3 | shown n/a
+Drinks > Squash & Cordial > Blackcurrant Squash | pages 1 | tiles 15 | new 1 | shown n/a
+Drinks > Squash & Cordial > Other Fruit Flavoured Squash | pages 1 | tiles 47 | new 4 | shown n/a
+Drinks > Squash & Cordial > Cordial | pages 1 | tiles 11 | new 2 | shown n/a
+Drinks > Squash & Cordial > Barley Water & High Juice | pages 1 | tiles 20 | new 0 | shown n/a
+Drinks > Squash & Cordial > Squash & Cordial Bigger Bottles | pages 1 | tiles 8 | new 0 | shown n/a
+Drinks > Squash & Cordial > Robinsons | pages 1 | tiles 31 | new 0 | shown n/a
+Drinks > Squash & Cordial > Ribena | pages 1 | tiles 9 | new 0 | shown n/a
+Drinks > Water > Still Water | pages 1 | tiles 41 | new 15 | shown n/a
+Drinks > Water > Flavoured Water | pages 1 | tiles 46 | new 15 | shown n/a
+Drinks > Water > Sparkling Water | pages 1 | tiles 22 | new 4 | shown n/a
+Drinks > Water > Water Bigger Packs | pages 1 | tiles 16 | new 0 | shown n/a
+Drinks > Water > Volvic | pages 1 | tiles 12 | new 0 | shown n/a
+Drinks > Water > Evian | pages 1 | tiles 2 | new 0 | shown n/a
+Drinks > Tonic Water & Mixers > Tonic Water | pages 1 | tiles 31 | new 3 | shown n/a
+Drinks > Tonic Water & Mixers > Diet & Slimline | pages 1 | tiles 19 | new 0 | shown n/a
+Drinks > Tonic Water & Mixers > Mixers For Dark Spirits | pages 1 | tiles 8 | new 0 | shown n/a
+Drinks > Tonic Water & Mixers > Fever-Tree | pages 1 | tiles 23 | new 0 | shown n/a
+Drinks > Tonic Water & Mixers > Mixers | pages 2 | tiles 63+3=66 | new 8+0=8 | shown 66 (complete)
+Drinks > Tonic Water & Mixers > Adult Soft Drinks | pages 2 | tiles 63+25=88 | new 12+4=16 | shown 88 (complete)
+Drinks > Tonic Water & Mixers > Schweppes | pages 1 | tiles 15 | new 0 | shown n/a
+Drinks > Tonic Water & Mixers > Fentimans | pages 1 | tiles 3 | new 0 | shown n/a
+Drinks > Kids & Lunchbox Drinks > No Added Sugar Kids Juice Drinks | pages 1 | tiles 18 | new 6 | shown n/a
+Drinks > Kids & Lunchbox Drinks > Kids Juice Drinks | pages 1 | tiles 27 | new 9 | shown n/a
+Drinks > Kids & Lunchbox Drinks > Fruit Shoot | pages 1 | tiles 10 | new 1 | shown n/a
+Drinks > Kids & Lunchbox Drinks > Capri Sun | pages 1 | tiles 6 | new 0 | shown n/a
+Drinks > Sports, Energy & Health Drinks > Health & Wellbeing | pages 1 | tiles 20 | new 10 | shown n/a
+Drinks > Sports, Energy & Health Drinks > Energy Drinks | pages 2 | tiles 63+50=113 | new 21+34=55 | shown 113 (complete)
+Drinks > Sports, Energy & Health Drinks > Lucozade | pages 1 | tiles 22 | new 5 | shown n/a
+Drinks > Sports, Energy & Health Drinks > Monster | pages 1 | tiles 41 | new 0 | shown n/a
+Drinks > Sports, Energy & Health Drinks > Red Bull | pages 1 | tiles 21 | new 0 | shown n/a
+Drinks > Adult Soft Drinks > Bottlegreen | pages 1 | tiles 4 | new 0 | shown n/a
+Drinks > Adult Soft Drinks > Appletiser | pages 1 | tiles 3 | new 0 | shown n/a
+Drinks > Adult Soft Drinks > Shloer | pages 1 | tiles 4 | new 0 | shown n/a
+Drinks > Coffee, Tea & Hot Chocolate > Hot Chocolate, Cocoa & Malt Drinks | pages 1 | tiles 56 | new 0 | shown n/a
+Drinks > Coffee, Tea & Hot Chocolate > Coffee Pods | pages 1 | tiles 61 | new 0 | shown n/a
+Drinks > Coffee, Tea & Hot Chocolate > Sugar & Sweeteners | pages 1 | tiles 35 | new 0 | shown n/a
+Drinks > Coffee, Tea & Hot Chocolate > Tea | pages 3 | tiles 60+60+21=141 | new 0+0+0=0 | shown 141 (complete)
+Drinks > Coffee, Tea & Hot Chocolate > Coffee | pages 4 | tiles 60+60+60+29=209 | new 3+1+4+0=8 | shown 209 (complete)
+Frozen Food > Frozen Pizza & Garlic Bread > Frozen Deep Pan Pizza | pages 1 | tiles 11 | new 2 | shown n/a
+Frozen Food > Frozen Pizza & Garlic Bread > Frozen Takeaway & Stuffed Crust Pizza | pages 1 | tiles 21 | new 2 | shown n/a
+Frozen Food > Frozen Pizza & Garlic Bread > Frozen Sourdough Pizza | pages 1 | tiles 21 | new 1 | shown n/a
+Frozen Food > Frozen Pizza & Garlic Bread > Frozen Snacking Pizza | pages 1 | tiles 13 | new 0 | shown n/a
+Frozen Food > Frozen Pizza & Garlic Bread > Frozen Vegan Pizza | pages 1 | tiles 3 | new 0 | shown n/a
+Frozen Food > Frozen Pizza & Garlic Bread > Frozen Garlic Bread | pages 1 | tiles 5 | new 0 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Premium Ready Meals | pages 1 | tiles 7 | new 0 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Kids Ready Meals | pages 1 | tiles 2 | new 0 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Healthy Ready Meals | pages 1 | tiles 20 | new 0 | shown n/a
+Frozen Food > Frozen Ready Meals > Frozen Snacking | pages 1 | tiles 11 | new 0 | shown n/a
+Frozen Food > Ice Cream & Ice Lollies > Ice Cream Minis & Bites | pages 1 | tiles 26 | new 0 | shown n/a
+Frozen Food > Ice Cream & Ice Lollies > Ice Cream Cones, Sticks & Bars | pages 2 | tiles 60+25=85 | new 2+0=2 | shown 85 (complete)
+Frozen Food > Ice Cream & Ice Lollies > Lighter Ice Cream | pages 1 | tiles 16 | new 0 | shown n/a
+Frozen Food > Ice Cream & Ice Lollies > Ice Cream Toppings, Wafers & Sauces | pages 1 | tiles 34 | new 7 | shown n/a
+Food Cupboard > Crisps, Nuts & Popcorn > Better For You Crisps & Nuts | pages 1 | tiles 36 | new 0 | shown n/a
+Food Cupboard > Crisps, Nuts & Popcorn > Crisps, Dips & Popcorn | pages 1 | tiles 1 | new 0 | shown n/a
+Food Cupboard > Tinned Food > John West | pages 1 | tiles 17 | new 0 | shown n/a
+Food Cupboard > Tinned Food > Heinz Tinned Food | pages 1 | tiles 18 | new 0 | shown n/a
+Beer, Wine & Spirits > Cider > No & Low Alcohol Cider | pages 1 | tiles 11 | new 6 | shown n/a
+Beer, Wine & Spirits > Spirits > No & Low Alcohol Spirits | pages 1 | tiles 13 | new 12 | shown n/a
+Beer, Wine & Spirits > Spirits > Shots & Party Drinks | pages 1 | tiles 7 | new 0 | shown n/a
+Beer, Wine & Spirits > Ready To Drink Spirits & Cocktails > Flavoured Alcoholic Drinks | pages 1 | tiles 18 | new 12 | shown n/a
+Beer, Wine & Spirits > Ready To Drink Spirits & Cocktails > No & Low Alcohol Premixed Drinks | pages 1 | tiles 5 | new 0 | shown n/a
+Beer, Wine & Spirits > No & Low Alcohol > No & Low Alcohol Wine | pages 1 | tiles 17 | new 14 | shown n/a
+Food Cupboard > Noodle Pots & Instant Snacks > Pasta & Sauce | pages 1 | tiles 25 | new 14 | shown n/a
+Food Cupboard > Home Baking > Dairy Free Ingredients & Baking | pages 1 | tiles 8 | new 0 | shown n/a
+Food Cupboard > Home Baking > Free From Baking Ingredients | pages 1 | tiles 11 | new 0 | shown n/a
+Food Cupboard > Home Baking > Desserts, Custard & Tinned Fruit | pages 1 | tiles 2 | new 0 | shown n/a
+Chilled Food > Chilled Juice & Smoothies > Chilled Juice | pages 2 | tiles 63+38=101 | new 15+14=29 | shown 101 (complete)
+Chilled Food > Ready Meals > Pies, Quiche & Pasties | pages 2 | tiles 63+25=88 | new 0+0=0 | shown 88 (complete)

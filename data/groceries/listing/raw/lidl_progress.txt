@@ -1,0 +1,6 @@
+Hubs done so far (unique product ids in lidl_listing.txt): Food Cupboard 30, Fruit & veg 8, Fish 1, Dairy 7, Oils 2, Chilled 2, Drinks 1, Coffee 3, Frozen 8, Bakery 21 => 83 unique ids
+Hubs done: + Meat 17, Wine/Beer/Spirits 45 => 145 unique ids; remaining hubs: Confectionery & Snacks (87, load more), then offer pages
+Hubs done: + Confectionery & Snacks 93 => 238 hub rows; remaining: offer pages (Lidl Plus offers current/upcoming, Pick of the Week x2, Flavour of the Week x2, Wine Edit, Halloween food x2)
+Offer pages done: Alps 52, POTW 14+14, Diwali 9, Wine Edit 16, Halloween food 29, Upcoming Lidl Plus 54. Unique ids in file now:
+     270
+FINAL (2026-10-08): all 13 Food & Drink hubs done (239 shown, 238 collected), offer pages done (Alps, Pick of the Week x2, Diwali, Wine Edit, Halloween food, Lidl Plus upcoming). Editorial /c/ category pages list no products. Not done: Halloween Pumpkins (non-food), white/rose/sparkling wine /c/ pages (editorial like red-wine). Tab closed.

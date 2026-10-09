@@ -1,0 +1,25 @@
+Food & Drink / Fruit & veg | https://www.lidl.co.uk/h/fruit-vegetables/h10071012
+Food & Drink / Meat & Poultry | https://www.lidl.co.uk/h/fresh-meat-poultry/h10095752
+Food & Drink / Fish & Seafood | https://www.lidl.co.uk/h/chilld-fish-seafood/h10071050
+Food & Drink / Cheese, Dairy & Eggs | https://www.lidl.co.uk/h/cheese-dairy-eggs/h10095761
+Food & Drink / Bakery | https://www.lidl.co.uk/h/bakery/h10096086
+Food & Drink / Food Cupboard | https://www.lidl.co.uk/h/food-cupboard/h10096095
+Food & Drink / Oils, Condiments & Sauces | https://www.lidl.co.uk/h/oils-condiments-sauces/h10096110
+Food & Drink / Ready meals (Chilled Food) | https://www.lidl.co.uk/h/chilled-food/h10071020
+Food & Drink / Frozen | https://www.lidl.co.uk/h/frozen-food/h10071049
+Food & Drink / Confectionery & Snacks | https://www.lidl.co.uk/h/confectionery-snacks/h10096205
+Food & Drink / Drinks | https://www.lidl.co.uk/h/drinks/h10071022
+Food & Drink / Coffee, Tea & Hot Chocolate | https://www.lidl.co.uk/h/coffee-tea-hot-chocolate/h10071683
+Food & Drink / Wine, Beer & Spirits | https://www.lidl.co.uk/h/wine-beer-spirits/h10096268
+Offers / Lidl Plus Offers In Store Now | https://www.lidl.co.uk/c/lidl-plus-offers-current/a10053222
+Offers / Lidl Plus Offers In Store From Next Week | https://www.lidl.co.uk/c/lidl-plus-offers-upcoming/a10053070
+Offers / Pick of the Week (from Thu 08/10) | https://www.lidl.co.uk/c/pick-of-the-week/a10104278
+Offers / Pick of the Week (from Thu 15/10) | https://www.lidl.co.uk/c/pick-of-the-week/a10092198
+Offers / Flavour of the Week: The Alps | https://www.lidl.co.uk/c/flavour-of-the-week-the-alps/a10104298
+Offers / Flavour of the Week: Diwali | https://www.lidl.co.uk/c/flavour-of-the-week-diwali/a10104314
+Offers / The Wine Edit | https://www.lidl.co.uk/c/the-wine-edit/a10093564
+Offers / Halloween Party Food and Sweets | https://www.lidl.co.uk/c/halloween-party-food-and-sweets/a10030004
+Offers / Halloween Pumpkins | https://www.lidl.co.uk/c/halloween-pumpkins/a10030005
+# Editorial category pages under "Our Products" (e.g. https://www.lidl.co.uk/c/food-cupboard/s10023108, /c/jams-honey-spreads/s10023603) list NO products, only
+# sub-category tiles and recipe tiles (checked: food-cupboard, jams-honey-spreads). They were not crawled for products.
+# Not food (skipped): Household, Plants & Flowers, Cooking & Baking, Storage, Kitchen appliances hubs; Halloween, Garden, Kitchen, DIY, Sport, Clothing, Baby, Parkside, Silvercrest.
