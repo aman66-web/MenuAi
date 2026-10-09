@@ -61,6 +61,10 @@ TABS = {
     "Caffe Carluccios - Food": "Carluccio's",
     "Caffe Carluccios - Drinks": "Carluccio's",
 }
+# how a brand is named in brackets when the same dish name has different figures on two tabs (the Main Meals tab is not called
+# "Fish & Chips" here: item names that contain fish or chips would look as if they named an allergen)
+SUFFIX = {"ED'S": "Ed's", "MAIN MEALS": "Main Meals menu", "GBK": "GBK", "Slims Main Menu": "Slim Chickens",
+          "Caffe Carluccios - Food": "Carluccio's", "Caffe Carluccios - Drinks": "Carluccio's"}
 ORDER = ["ED'S", "MAIN MEALS", "GBK", "Slims Main Menu", "Caffe Carluccios - Food", "Caffe Carluccios - Drinks"]
 # dishes the script expects per tab: (plain pop-ups, first-level options of build-your-own groups)
 EXPECTED = {"ED'S": (35, 0), "MAIN MEALS": (23, 0), "GBK": (2, 0), "Slims Main Menu": (64, 53),
@@ -125,6 +129,10 @@ ALLERGEN_EXTRA = {"sulphur dioxide/ sulphites": ("sulphites", None)}
 HOLD_NAMED = {
     "Slim's Salad": "The page prints the salad at 641 kcal but 'Slim's Salad Meal' (the same salad plus 2 house sauces and a drink) at 542 kcal, "
                     "so one of the two rows is wrong and the page does not say which",
+    "Sausage, Mash, Peas and Gravy": "Salt is printed as 13.0 g (more than twice the 6 g daily limit) for a 901 kcal dish, while the same page prints "
+                                     "2.5 to 4.3 g for its other main meals and 1.3 g for the gravy: it looks like a misprint, and the page does not say",
+    "Ultimate Brownie": "The dish is a brownie but the page marks no cereals with gluten, neither as contained nor as may contain (the blondie "
+                        "beside it marks gluten) and does not call the brownie gluten free, so its allergen row cannot be trusted",
     "Slim's Salad Meal": "The page prints this meal (the salad plus 2 house sauces and a drink) at 542 kcal, lower than the salad alone "
                          "(641 kcal), so one of the two rows is wrong and the page does not say which",
 }
@@ -161,7 +169,6 @@ def build(cache: list, extra_holds: dict) -> tuple[list, list, list, dict]:
         if (n_plain, n_byo) != EXPECTED[tab]:
             raise SystemExit(f"Tab {tab!r} has {n_plain} plain dishes and {n_byo} build-your-own options but this script expects "
                              f"{EXPECTED[tab]}: the menu changed, re-check SECTIONS and the rules before running again.")
-        brand = TABS[tab]
         counts = {}
         for r in rows:
             counts[(r["section"], r["name"])] = counts.get((r["section"], r["name"]), 0) + (1 if r["kind"] == "byo" else 0)
@@ -197,7 +204,7 @@ def build(cache: list, extra_holds: dict) -> tuple[list, list, list, dict]:
             where = f"{tab} > {r['section']} > {name}"
             a = tk.allergens_checked(r, where, ALLERGEN_EXTRA)
             item = {"id": "", "name": name, "category": category, "serving": "", **nums, "tags": "|".join(tags + meat),
-                    "rankable": rankable and name not in NOT_RANKABLE, "allergens": a, "_brand": brand,
+                    "rankable": rankable and name not in NOT_RANKABLE, "allergens": a, "_brand": SUFFIX[tab],
                     "_tab": tab, "_sec": (tab, r["section"]), "notes": f"Printed on the {tab} tab, section {r['section']}" + (f", group {r['group']}" if r["group"] else "")}
             items.append(item)
     # page order: tabs in ORDER, sections in the order SECTIONS lists them (the order the page shows them); a stable sort keeps dishes in page order
