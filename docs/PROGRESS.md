@@ -345,7 +345,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - 2026-10-09 — **Store-wide product lists (founder: "every product at Sainsbury's, Tesco's, Waitrose... prices and nutrition").** Agents read each shop's own category pages
   in the founder's Chrome (one tab each, one page at a time, read-only, stop on any check page; never worked round a block); the lists are in `data/groceries/listing/`
   (README there). **Sainsbury's is complete: 17,059 unique food and drink products** (`sainsburys.csv`, names/prices/photo addresses exactly as printed; 17,036 priced, 4,454 with
-  a Nectar price). Morrisons about 15,500 (beer/cider, wine, world foods, dietary and a recheck of partial pages remain), Asda about 13,000, Waitrose about 12,400,
+  a Nectar price). Morrisons 18,412 (complete, incl. beer/cider, wine, world foods and dietary; a few non-food items sit in those last pages), Asda about 13,000, Waitrose about 12,400,
   Aldi about 4,500, Lidl about 350 and M&S about 1,150 as raw crawls (`raw/`). **Co-op:** access denied by Imperva (non-UK IP), 0 products, stopped. **Ocado:** its bot challenge stopped
   the crawl and its data is quarantined (one agent used a forbidden side channel to move data out of the page; that data is not in the repo and is not used until the founder decides).
   **Tesco and Iceland:** not crawled (Tesco needs the founder's approval in the permission system; Iceland and Co-op need a UK VPN). **These lists have no barcodes or
