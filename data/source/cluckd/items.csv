@@ -1,0 +1,76 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+1-4-chicken,1/4 Chicken,Grilled chicken,,327,,,,,,,,,,,,,,,,false,false,,,
+1-2-chicken,1/2 Chicken,Grilled chicken,,654,,,,,,,,,,,,,,,,false,false,,,
+3-wings,3 Wings,Grilled chicken,,251,,,,,,,,,,,,,,,,false,false,,,
+5-wings,5 Wings,Grilled chicken,,418,,,,,,,,,,,,,,,,false,false,,,
+10-wings,10 Wings,Grilled chicken,,835,,,,,,,,,,,,,,,,false,false,,,Choose your flavour or go Roulette
+boneless-strips,Boneless Strips,Grilled chicken,,255,,,,,,,,,,,,,,,,false,false,,,
+boneless-thighs,Boneless Thighs,Grilled chicken,,411,,,,,,,,,,,,,,,,false,false,,,
+15-wing-platter,15 Wing Platter,Platters,,2129,,,,,,,,,,,,,,,,false,false,,,"Printed 'With 4 Sides', 27"
+whole-bird-platter,Whole Bird Platter,Platters,,1306,,,,,,,,,,,,,,,,false,false,,,"Printed 'With 4 Sides', 29"
+straight-up-baste-flavour,Straight Up (baste flavour),Baste flavours,,70,,,,,,,,,,,,,,,,false,false,,,Printed 'Straight up'
+lemon-squeeze-baste-flavour,Lemon Squeeze (baste flavour),Baste flavours,,79,,,,,,,,,,,,,,,,false,false,,,Printed 'LEMON sQUEEZE'
+herby-garlic-baste-flavour,Herby Garlic (baste flavour),Baste flavours,,53,,,,,,,,,,,,,,,,false,false,,,
+medium-kick-baste-flavour,Medium Kick (baste flavour),Baste flavours,,64,,,,,,,,,,,,,,,,false,false,,,
+tingly-baste-flavour,Tingly (baste flavour),Baste flavours,,77,,,,,,,,,,,,,,,,false,false,,,
+screaming-baste-flavour,Screaming (baste flavour),Baste flavours,,73,,,,,,,,,,,,,,,,false,false,,,
+nashville-loaded-fries,Nashville Loaded Fries,Load it up,,624,,,,,,,,,,,,,,,,false,false,,,
+loaded-fries,Loaded Fries,Load it up,,727,,,,,,,,,,,,,,,,false,false,,,
+crispy-loaded-fries,Crispy Loaded Fries,Load it up,,824,,,,,,,,,,,,,,,,false,false,,,
+vanilla-shake,Vanilla Shake,Shake it up,,234,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Printed 'Vanilla' under Regular
+chocolate-shake,Chocolate Shake,Shake it up,,557,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Printed 'Chocolate' under Regular
+strawberry-shake,Strawberry Shake,Shake it up,,526,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Printed 'Strawberry' under Regular
+kinder-bueno-shake,Kinder Bueno Shake,Shake it up,,870,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Printed 'Kinder Bueno' under Premium
+oreo-shake,Oreo Shake,Shake it up,,535,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Printed 'Oreo' under Premium
+biscoff-shake,Biscoff Shake,Shake it up,,641,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Printed 'Biscoff' under Premium
+cookie-dough-shake,Cookie Dough Shake,Shake it up,,609,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Printed 'Cookie Dough' under Premium
+salt-n-pepper-box,Salt 'N' Pepper Box,Cluck'd Exclusives,,403,,,,,,,,,,,,,,,,false,false,,,
+chicken-caesar-salad,Chicken Caesar Salad,Cluck'd Exclusives,,610,,,,,,,,,,,,,,,,false,false,,,
+rice-n-shine-box,Rice 'N' Shine Box,Cluck'd Exclusives,,405,,,,,,,,,,,,,,,,false,false,,,Marked 'Choose Your Flavour'; one value is printed
+cluckd-classic,Cluck'd Classic,Pitta Club,,579,,,,,,,,,,,,,,,,false,false,,,
+heatwave,Heatwave,Pitta Club,,678,,,,,,,,,,,,,,,,false,false,,,
+bbq-boss,BBQ Boss,Pitta Club,,678,,,,,,,,,,,,,,,,false,false,,,Marked 'Go Nashville +0.5'
+buttermilk-crunch,Buttermilk Crunch,Pitta Club,,768,,,,,,,,,,,,,,,,false,false,,,
+halloumi-heaven,Halloumi Heaven,Pitta Club,,673,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+classic-gc,Classic GC,Wraps,,328,,,,,,,,,,,,,,,,false,false,,,Marked 'Choose Your Flavour'; one value is printed
+bbq-bliss,BBQ Bliss,Wraps,,630,,,,,,,,,,,,,,,,false,false,,,
+crispy-cluckd,Crispy Cluck'd,Wraps,,500,,,,,,,,,,,,,,,,false,false,,,
+inferno,Inferno,Wraps,,539,,,,,,,,,,,,,,,,false,false,,,
+halloumi-wrap,Halloumi Wrap,Wraps,,505,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+korean-bbq,Korean BBQ,Dip it,,47,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+comeback-sauce,Comeback Sauce,Dip it,,23,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+garlic-ranch,Garlic Ranch,Dip it,,152,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+sweet-chilli,Sweet Chilli,Dip it,,82,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+clucknaise,Cluck'naise,Dip it,,138,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+cheese-sauce,Cheese Sauce,Dip it,,35,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+chocolate-brownie,Chocolate Brownie,Dessert,,401,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+biscoff-cheesecake,Biscoff Cheesecake,Dessert,,492,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; Also marked GF (gluten free) on the picture; the DESSERT picture on the menu page (May 2026) prints 363kcal: held back
+chocolate-drip-cake,Chocolate Drip Cake,Dessert,,749,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; The DESSERT picture on the menu page (May 2026) prints 580kcal: held back
+nashville-burger,Nashville Burger,Top Buns,,647,,,,,,,,,,,,,,,,false,false,,,
+your-favourite,Your Favourite,Top Buns,,447,,,,,,,,,,,,,,,,false,false,,,Marked 'Choose Your Flavour'; one value is printed
+juicy-stack,Juicy Stack,Top Buns,,710,,,,,,,,,,,,,,,,false,false,,,
+hot-cluckd,Hot Cluck'd,Top Buns,,563,,,,,,,,,,,,,,,,false,false,,,
+bbq-hero,BBQ Hero,Top Buns,,616,,,,,,,,,,,,,,,,false,false,,,
+buttermilk-bun,Buttermilk Bun,Top Buns,,620,,,,,,,,,,,,,,,,false,false,,,
+veggie,Veggie,Top Buns,,491,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+ciabatta-garlic-bread,Ciabatta Garlic Bread,Sides,,197,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+skin-on-fries,Skin on Fries,Sides,,293,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: VE; Marked 'Go Cheesy +0.5' and 'Go Large for +1'; one value is printed
+chilli-rice,Chilli Rice,Sides,,237,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+truffle-fries,Truffle Fries,Sides,,568,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V; September menu prints 568kcal; the menu page's SIDES picture (May 2026) prints 565kcal: held back
+phat-onion-rings,Phat Onion Rings,Sides,,314,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: VE
+hash-brown-bites,Hash Brown Bites,Sides,,276,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: VE; Marked 'Go Cheesy +0.5'
+dreamy-slaw,Dreamy Slaw,Sides,,320,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+salad,Salad,Sides,,31,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+nashville-tenders,Nashville Tenders,Snacks,,517,,,,,,,,,,,,,,,,false,false,,,
+halloumi-wedges,Halloumi Wedges,Snacks,,375,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+cluckd-tenders,Cluck'd Tenders,Snacks,,375,,,,,,,,,,,,,,,,false,false,,,
+cluckd-corn,Cluck'd Corn,Snacks,,267,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+chilli-cheese-bites,Chilli Cheese Bites,Snacks,,310,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+mac-and-cheese,Mac & Cheese,Snacks,,240,,,,,,,,,,,,,,,vegetarian,false,false,,,picture mark: V
+fried-tender-burger-juniors,Fried Tender Burger (Juniors),Cluck'd Juniors,,485,,,,,,,,,,,,,,,,false,false,,,Printed under 'Main:'
+chicken-nuggets-juniors,Chicken Nuggets (Juniors),Cluck'd Juniors,,197,,,,,,,,,,,,,,,,false,false,,,Printed under 'Main:'
+3-boneless-strips-juniors,3 Boneless Strips (Juniors),Cluck'd Juniors,,153,,,,,,,,,,,,,,,,false,false,,,Printed under 'Main:'
+skin-on-fries-juniors,Skin on Fries (Juniors),Cluck'd Juniors,,147,,,,,,,,,,,,,,,,false,false,,,Printed under 'SIDE:'
+ciabatta-garlic-bread-juniors,Ciabatta Garlic Bread (Juniors),Cluck'd Juniors,,197,,,,,,,,,,,,,,,,false,false,,,Printed under 'SIDE:'; same value as the Sides item
+corn-on-the-cob-juniors,Corn on the Cob (Juniors),Cluck'd Juniors,,134,,,,,,,,,,,,,,,,false,false,,,Printed under 'SIDE:'
+hash-brown-bites-juniors,Hash Brown Bites (Juniors),Cluck'd Juniors,,276,,,,,,,,,,,,,,,,false,false,,,Printed under 'SIDE:'; same value as the Sides item

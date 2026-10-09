@@ -10,14 +10,20 @@ robots.txt (cluckd.co.uk) has "Crawl-delay: 10" and "Disallow:" (nothing) for *:
 
 HOW THE NUMBERS WERE CAPTURED (the picture has no text layer, so this is the one chain where the numbers are typed into ITEMS below
 after being READ; this is allowed only because every number was confirmed by a second method):
-  1. Read by eye from 2x enlargements of the picture (21 tiles), item by item.
+  1. Read by eye from 2x enlargements of the picture (21 tiles), item by item (re-read by eye from the page's large pictures for the
+     dishes below that have one).
   2. Confirmed with tesseract OCR run over the same picture at several scales and sharpening (a number is accepted only when
      the OCR read of that dish's line gives the same digits) and, where the chain's own menu page carries the same dish in a
      separate, much larger picture (the May 2026 section images on https://cluckd.co.uk/menu/: Top-BUNS, SIDES, Snacks,
      SHAKE-IT-UP, ITS-A-WRAP, DESSERT, CLUCKD-EXCLUSIVE, CLUCKD-JUNIORS, Platters, 1GRILLED-CHICKEN, 2BASTE-FLAVOUR, DIP-IT-2), against
      that picture's OCR too. The Pitta Club and Load It Up sections are only in the September picture (no second picture exists).
-  Where the two chain files disagree the dish is held back (holdback.csv): Truffle Fries (568 in the September menu, 565 in the SIDES
-  picture of the menu page).
+     The strict `--ocr-check` finds every dish except Boneless Thighs 411 (OCR splits it "41 1"), Biscoff Shake 641 ("64i"), BBQ Hero 616
+     (leading digit lost) and Truffle Fries: the first three were read by eye in the page's large pictures (1GRILLED-CHICKEN, SHAKE-IT-UP,
+     Top-BUNS), and a tesseract read of Cheese Sauce there as "25" was corrected by eye to 35 (both pictures print 35).
+  Where the chain's two files disagree the dish is held back (holdback.csv), never corrected or chosen between: Truffle Fries (568 in
+  the September menu, 565 in the SIDES picture of the menu page), Biscoff Cheesecake (492 / 363) and Chocolate Drip Cake (749 / 580) (the
+  DESSERT picture). The other 55 dishes that appear in the page's pictures print the same calories in both files (their prices differ:
+  the page's pictures are the older menu).
 Because the source is a picture, the script cannot re-read it: it STOPS if the picture's SHA-256 is not the one the table was checked
 against, so a human re-reads every number (and re-runs the OCR check below) when Cluck'd publishes a new menu. `--ocr-check` re-runs
 tesseract over the picture (needs tesseract and Pillow) and lists any dish whose calories it cannot find on that dish's line.
@@ -35,10 +41,12 @@ What is and is not listed (docs/DATA.md "Calories-only chains": protein, carbs a
   inferred: contains_pork / contains_beef would need the item name or description to say so and none does.
 
 Allergens (docs/DATA.md "Allergens") are LINK-ONLY. Cluck'd's own allergen matrix (PDF "allergens-feb-2026x-1.pdf", created 7 April
-2026, 8 months older than the September menu) prints Yes / Maybe / No for 14 allergens, but its rows do not cover the menu: no row for
-1/4 Chicken, 1/2 Chicken, the wings, Boneless Strips/Thighs, the two platters, any of the five Pitta Club dishes, Biscoff Cheesecake
-(it lists New York Cheesecake), Chocolate Drip Cake, Truffle Fries, Chicken Nuggets, Corn on the Cob, and the Juniors Skin on Fries and
-Hash Brown Bites (it lists Plain/Spicy/Cheesy hash browns), so it cannot be read completely for the published items (all or nothing).
+2026, 6 months older than the September menu) prints Yes / Maybe / No for 14 allergens, but its rows do not cover the menu: 29 of the 75
+dishes have no row under their own name (checked 2026-10-09): 1/4 Chicken, 1/2 Chicken, the wings, Boneless Strips/Thighs, the two
+platters, the six baste flavours (listed as "Straight up Flavour" etc.), any of the five Pitta Club dishes, Biscoff Cheesecake (it lists
+New York Cheesecake), Chocolate Drip Cake, Truffle Fries, Chicken Nuggets, Corn on the Cob, and Skin on Fries and Hash Brown Bites
+(it lists Skin On Fries (No Salt / with Signature Salt) and Plain/Spicy/Cheesy hash browns), so it cannot be read completely for the
+published items (all or nothing) and only the guide's link is published.
 Sites: the footer of https://cluckd.co.uk lists three restaurants (Norwich, Milton Keynes, Leicester), all in Great Britain, so the
 chain meets the founder's bar of three or more GB sites (10 Oct 2026); a fourth is not listed.
 """
@@ -95,8 +103,8 @@ ITEMS = [
     E(WR, "Inferno", 539), E(WR, "Halloumi Wrap", 505, V),
     E(DI, "Korean BBQ", 47, V), E(DI, "Comeback Sauce", 23, V), E(DI, "Garlic Ranch", 152, V), E(DI, "Sweet Chilli", 82, V),
     E(DI, "Cluck'naise", 138, V), E(DI, "Cheese Sauce", 35, V),
-    E(DE, "Chocolate Brownie", 401, V), E(DE, "Biscoff Cheesecake", 492, V, "Also marked GF (gluten free) on the picture"),
-    E(DE, "Chocolate Drip Cake", 749, V),
+    E(DE, "Chocolate Brownie", 401, V), E(DE, "Biscoff Cheesecake", 492, V, "Also marked GF (gluten free) on the picture; the DESSERT picture on the menu page (May 2026) prints 363kcal: held back"),
+    E(DE, "Chocolate Drip Cake", 749, V, "The DESSERT picture on the menu page (May 2026) prints 580kcal: held back"),
     E(TB, "Nashville Burger", 647), E(TB, "Your Favourite", 447, note="Marked 'Choose Your Flavour'; one value is printed"),
     E(TB, "Juicy Stack", 710), E(TB, "Hot Cluck'd", 563), E(TB, "BBQ Hero", 616), E(TB, "Buttermilk Bun", 620), E(TB, "Veggie", 491, V),
     E(SI, "Ciabatta Garlic Bread", 197, V), E(SI, "Skin on Fries", 293, VE, "Marked 'Go Cheesy +0.5' and 'Go Large for +1'; one value is printed"),
@@ -114,8 +122,14 @@ ITEMS = [
     E(JU, "Hash Brown Bites (Juniors)", 276, note="Printed under 'SIDE:'; same value as the Sides item"),
 ]
 EXPECTED_ITEMS = 75
-HOLDBACK = [("truffle-fries", "Cluck'd's own files disagree: the September 2026 menu picture prints 568kcal, the SIDES picture on the menu page "
-                              "(uploaded May 2026) prints 565kcal. Not published until the chain's files agree.")]
+HOLDBACK = [
+    ("truffle-fries", "Cluck'd's own files disagree: the September 2026 menu picture prints 568kcal, the SIDES picture on the menu page "
+                      "(uploaded May 2026) prints 565kcal. Not published until the chain's files agree."),
+    ("biscoff-cheesecake", "Cluck'd's own files disagree: the September 2026 menu picture prints 492kcal, the DESSERT picture on the menu page "
+                           "(uploaded May 2026) prints 363kcal. Not published until the chain's files agree."),
+    ("chocolate-drip-cake", "Cluck'd's own files disagree: the September 2026 menu picture prints 749kcal, the DESSERT picture on the menu page "
+                            "(uploaded May 2026) prints 580kcal. Not published until the chain's files agree."),
+]
 CATEGORY_ORDER = [GC, PL, BA, LI, SH, EX, PC, WR, DI, DE, TB, SI, SN, JU]
 
 
