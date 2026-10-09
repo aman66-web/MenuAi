@@ -1,0 +1,11 @@
+item_id,reason
+crodino-italian-spritz-0-175ml,"the page prints 30 kcal but 1,285 kJ (about 307 kcal): its own figures contradict each other. Restore by deleting this line once the chain corrects the page."
+hartridges-apple-and-mango-275ml,"the page prints 52 kcal but 2,332 kJ (about 557 kcal): its own figures contradict each other. Restore by deleting this line once the chain corrects the page."
+italian-spritz-0,"the page prints 51 kcal but 1,376 kJ (about 329 kcal): its own figures contradict each other. Restore by deleting this line once the chain corrects the page."
+yorkshire-wagyu-burger,"the page prints 1421 kcal but 4,720 kJ (about 1128 kcal) while its protein, carbs and fat add up to about 1,405 kcal: its own figures contradict each other. Restore by deleting this line once the chain corrects the page."
+peach-fizz-0,"the page prints 24.9 g of sugars but only 23.2 g of carbohydrate: sugars cannot exceed carbohydrate, so its own figures contradict each other. Restore by deleting this line once the chain corrects the page."
+peach-lemonade-0,"the page prints 28.0 g of sugars but only 26.3 g of carbohydrate: sugars cannot exceed carbohydrate, so its own figures contradict each other. Restore by deleting this line once the chain corrects the page."
+baked-fish-fingers,"Allergen row contradicts the dish name: baked fish fingers are breaded and carry 20.5 g of carbohydrate, but the guide marks only fish (no gluten). Restore by deleting this line once the chain confirms the allergens."
+pork-stuffing,"Allergen row contradicts the dish name: a stuffing, with 11.4 g of carbohydrate, but the guide marks no allergen at all, not even gluten. Restore by deleting this line once the chain confirms the allergens."
+chocolate-brownie-vg-afternoon-tea,"Allergen row contradicts the dish name: a brownie with 33.6 g of carbohydrate (the other brownie, on the chain's no-gluten menu, is a different row), but the guide marks no allergen as contained. Restore by deleting this line once the chain confirms the allergens."
+1kg-corn-ribs-vg,"the page prints 24.4 g of salt for this dish (four times the day's limit), too high to publish as read; the regular Corn Ribs print 10.4 g. Restore by deleting this line once the chain confirms the figure."
