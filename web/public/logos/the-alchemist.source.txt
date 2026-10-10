@@ -1,0 +1,11 @@
+status: installed
+file: the-alchemist.svg
+kind: header
+tile: dark
+source_url: header logo of https://thealchemistbars.com/ (the inline <svg class="logo-geo header-logo"> in the page's own HTML, saved byte for byte as served, 1,469 bytes; white fill and stroke)
+page_url: https://thealchemistbars.com/
+terms_url: https://thealchemistbars.com/terms-and-conditions/
+terms_summary: The Alchemist's website terms say the site's material, including its design, layout, look, appearance and graphics, is owned by or licensed to The Alchemist Restaurant Ltd and that reproduction is prohibited other than in accordance with its copyright notice; they offer no logo download (as read on 2026-10-10).
+why: Own website header logo: the line emblem (circle, triangle, square and inner circle), white on the site's dark header, so it needs the dark tile; its lines are thin by design (the chain's own artwork) but show at tile sizes. The same emblem also exists as https://a.storyblok.com/f/321600/351x351/05b092c7ce/alchemist_logo_white.svg on the chain's CMS image host, which was NOT used because https://a.storyblok.com/robots.txt answered 403. The attribute in the page source is spelled viewbox (lower case, as the site's server writes it); kept as served, it still scales correctly in an <img>.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of thealchemistbars.com allowed the page (Allow: /; only /api/, /_nuxt/, /admin/ and /.netlify/ are disallowed)
+retrieved: 2026-10-10

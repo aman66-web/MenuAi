@@ -1,0 +1,11 @@
+status: installed
+file: sushi-shop.svg
+kind: header
+tile: dark
+source_url: header logo of https://www.mysushishop.co.uk/ (an <img src="data:image/svg+xml;base64,..."> in the page's own HTML; decoded and saved byte for byte, 2,308 bytes, 36 x 36 viewBox)
+page_url: https://www.mysushishop.co.uk/
+terms_url: not read
+terms_summary: Not read: the site's footer is drawn by client-side script so no terms link is in the HTML; two guessed addresses (/en/terms-and-conditions and /en/support-center) answered 403 ("Oops !" page showing this environment's IP) and probing stopped there, and /en/legal-notice answered 200 but its text is also loaded by script (empty in the HTML).
+why: Own website header logo (the fish-in-a-circle emblem, tan #BBAB94 as the site draws it on its black header), saved as embedded in the page, not edited. The site's JSON-LD logo (/rollingstart/medias/seo/logo-hero.jpg) is a 1920 x 720 black hero image with the same emblem, so it was looked at and not kept. The emblem has no wordmark in the header.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the sitemap and the logo (Disallow only for admin, other languages, store search and URLs with a query string). NOTE for the founder: two guessed terms URLs returned 403 after the logo had been read normally (HTTP 200); nothing was taken from a blocked address.
+retrieved: 2026-10-10

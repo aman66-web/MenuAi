@@ -1,0 +1,11 @@
+status: installed
+file: turtle-bay.png
+kind: organisation logo (file named in the home page's own JSON-LD)
+tile: dark
+source_url: https://turtlebay.co.uk/assets/images/turtle-bay-logo.png
+page_url: https://turtlebay.co.uk/
+terms_url: not found (the footer lists only Privacy, Cookie, Modern Slavery and ESG policies; /terms and /terms-and-conditions answer 404)
+terms_summary: Turtle Bay's site has no terms-of-use page that could be found, and its privacy policy has no clause about copyright, trade marks or logos, so no logo permission or restriction was found (as read on 2026-10-10).
+why: The header logo is drawn by a client-side component with no file in the page, so this is the logo file the site itself declares as its organisation logo (JSON-LD "logo" on https://turtlebay.co.uk/), served from the chain's own host: the white "Turtle Bay" script wordmark, 512 x 126 px RGBA, saved byte for byte (not scaled). It is white on transparent, so it needs the dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of turtlebay.co.uk allowed the page and the file
+retrieved: 2026-10-10
