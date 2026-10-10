@@ -603,6 +603,28 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   "Step n of 6": it returns to the step before with the choices kept (step 1 returns to Pip's welcome screen). Screen-reader names "Back to the previous step" /
   "Back to the start" (new copy, logged here). Checked: e2e extra 11 (new: forward, back keeps the goal, back to the start), smoke 22, axe 0, no overflow at 200% text.
 
+- 2026-10-10 — **The app in 11 languages (founder: "the first screen should be a screen where they choose their language"), and a new welcome screen
+  (founder: "Screen 2 should be like this but have all the logos of the restaurants and grocery stores moving at the top").** Languages: English plus the ten
+  most-spoken main languages in England and Wales after English (ONS Census 2021): Polish, Romanian, Punjabi (Gurmukhi), Urdu, Portuguese (European), Spanish (Spain),
+  Arabic (MSA), Bengali, Gujarati, Italian (`web/lib/mm/i18n.ts`; adding or removing one is one line plus its dictionary). **First screen:** "Choose your language",
+  a two-column grid of cards, each language in its own script with its English name, the browser's language pre-selected (never sent anywhere), the screen switching to a
+  language as soon as it's tapped; Settings › Language switches later. **How it works:** every piece of our own text goes through `t("English text", { values })`
+  (`app/app/_lib/i18n.ts`, `Rich` for sentences with styled words); library helpers take an optional translator; each language's dictionary (`web/lib/mm/locales/<code>.json`,
+  English text → translation) is loaded only when chosen; `<html lang/dir>` is set before the first paint and the page waits for the words (3 s at most) so nobody sees a
+  flash of English. Urdu and Arabic read right to left (start/end spacing throughout, arrows flip, no letter-spacing on joined scripts). `tests/i18n.test.ts` finds every
+  key in the code (`t("…")`/`tk("…")` literals) and our data (the 100 recipes, pantry labels, meal types, grocery type names: 1,699 keys, about 12,400 words) into
+  `keys.json`, and checks every language translates every key with the same {placeholders}; `tools/i18n/translate_chunks.py` hands out the missing keys and merges translations
+  with the same checks. **Not translated, on purpose:** restaurant, dish and product names, chain notes and quotes (shown as each restaurant and shop publishes them, in English:
+  the language screen says so), recipes Pip writes with AI (its claim/figure check reads English only), the website, privacy and terms pages. Shop names in our sentences no
+  longer get an English possessive in other languages ("Tesco's"). **Translations were made by AI** (one translator per language, to a brief: exact allergen label names,
+  "contains"/"may contain", cooking-safety wording, no health claims, the informal "you" where usual, Urdu "آپ"); they have not been checked by native speakers.
+  **Welcome screen (screen 2):** a moving wall of the official logos of the restaurants in the app (unmodified files on their plain tiles; the very large files left out
+  so it loads quickly) mixed with the supermarkets by plain-text name (we hold no supermarket logo files), drifting in alternating rows and still for reduced motion, then Pip,
+  the app name, "Eat out, shop and cook. Know the numbers first.", "{n} UK restaurants · {n} supermarkets", the three promises, "Let's go", and "Terms · Privacy · Not affiliated
+  with any restaurant or shop shown."; the language pill top left goes back to the language screen. CLAUDE.md rule 2 amended for this one screen (founder's decision; never on
+  the website, marketing, store screenshots or the app icon). New copy (rule 8, logged here): the language screen lines, "Change language", the welcome tagline, counts line and
+  not-affiliated line; every translation.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -611,6 +633,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
+  cooking-safety lines and the onboarding. Each language is one file, `web/lib/mm/locales/<code>.json` (English → translation); a reviewer can edit it directly.
 - [ ] **Recipe pictures (Nano Banana):** paste each prompt from `docs/RECIPE_IMAGE_PROMPTS.md`, check the picture has no writing, packaging or logos, save it as
   `data/recipe-images/<recipe id>.png`, then run `python3 tools/recipes/import_recipe_images.py` (or send me the files and I'll do it)
 - [ ] **Switch on Pip's recipe maker (AI recipes):** create an API key at console.anthropic.com › API Keys, set a monthly spend limit there (Settings › Limits; a recipe

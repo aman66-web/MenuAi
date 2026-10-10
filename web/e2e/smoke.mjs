@@ -33,7 +33,7 @@ await step("first visit redirects to onboarding", async () => {
   await visible(page.getByRole("heading", { name: "Choose your language" }));
   await shot("00-onboarding-language");
   await page.getByRole("button", { name: "Continue" }).click();
-  await visible(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await visible(page.getByRole("button", { name: "Let's go" }));
   await shot("00-onboarding-welcome");
   await page.getByRole("button", { name: "Let's go" }).click();
   await visible(page.getByRole("heading", { name: "What's your goal?" }));

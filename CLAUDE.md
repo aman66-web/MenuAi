@@ -58,6 +58,10 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    later to make images for them"): **our own recipes only** (`web/lib/mm/recipeBook/`) may show an illustration made with AI, captioned
    as AI-made (`tools/recipes/import_recipe_images.py`, prompts in `docs/RECIPE_IMAGE_PROMPTS.md`); never for a restaurant's or a
    supermarket's item, never with packaging, logos, brand names or writing in it, never presented as a photo of a product.
+   Founder's decision (2026-10-10, "have all the logos of the restaurants and grocery stores moving at the top"): the onboarding
+   welcome screen may show a moving wall of the official logo files of chains that are in the app (unmodified, on their plain tiles,
+   `web/app/app/_components/LogoWall.tsx`) with the line "Not affiliated with any restaurant or shop shown."; supermarkets appear by
+   plain-text name (we hold no supermarket logo files). Never on the website, marketing, store screenshots or the app icon.
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
    through the API: reports, chain requests, support messages). **Never put a Supabase key in the

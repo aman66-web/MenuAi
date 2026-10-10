@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useDeferredValue, useMemo, useState } from "react";
-import { possessive, SHOP_SORTS, searchShopProducts, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
+import { SHOP_SORTS, searchShopProducts, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
 import { formatDate } from "@/lib/mm/format";
 import { ChevronLeftIcon, SearchIcon } from "../../_components/icons";
 import { Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../../_components/ui";
-import { useT } from "../../_lib/i18n";
+import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
 import { useShopProducts } from "../../_lib/shopProducts";
 import { ShopProductRow } from "./ShopProductRow";
@@ -18,6 +18,7 @@ const NONE: ShopProduct[] = [];
 
 export function ShopListScreen({ shop }: { shop: string }) {
   const t = useT();
+  const poss = usePossessive();
   const [retry, setRetry] = useState(0);
   const state = useShopProducts(shop, retry);
   const [query, setQuery] = useState("");
@@ -83,7 +84,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       )}
 
       <p className="mt-8 border-t border-line pt-4 text-xs text-muted">
-        {t("From {shopPossessive} website, checked {date}.", { shopPossessive: possessive(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")} {t("Not affiliated with {shop}.", { shop: file.name })}
+        {t("From {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")} {t("Not affiliated with {shop}.", { shop: file.name })}
       </p>
     </div>
   );

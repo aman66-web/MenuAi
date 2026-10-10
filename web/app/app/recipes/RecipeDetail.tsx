@@ -8,14 +8,14 @@ import { tk, type T } from "@/lib/mm/i18n";
 import { candidates, fitRecipe, isMeatFree, recipeTotals, resolveRecipe, subSpec, withSubstitutes, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
-import { possessive, shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { BasketIcon, CheckIcon, InfoIcon, SwapIcon } from "../_components/icons";
 import { ItemHero } from "../_components/Nutrition";
 import { Button, Sheet } from "../_components/ui";
 import { useSettings } from "../_lib/hooks";
-import { useT } from "../_lib/i18n";
+import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
 import { targetSentence } from "./MealPicker";
 
@@ -47,6 +47,7 @@ function noteText(t: T, note: string): string {
 
 export function RecipeDetail({ recipe, file, products, actions }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; actions?: React.ReactNode }) {
   const t = useT();
+  const poss = usePossessive();
   // our recipe book's words are translated; what Pip wrote with AI is shown as it wrote it. Ingredient labels and notes come from our pantry either way.
   const rt = (s: string) => (recipe.ai ? s : t(s));
   const settings = useSettings();
@@ -168,7 +169,7 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
             <p className="text-2xl font-extrabold tracking-tight">{formatPrice(totals.basket)}</p>
             <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{t("to buy it all")}</p>
           </div>
-          <p className="col-span-full px-1 text-xs text-muted">{t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: possessive(file.name) })}</p>
+          <p className="col-span-full px-1 text-xs text-muted">{t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(file.name) })}</p>
         </div>
       )}
 
@@ -253,7 +254,7 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
       {actions && <div className="mt-5 space-y-2">{actions}</div>}
 
       <p className="mt-8 border-t border-line pt-4 text-xs text-muted">
-        {t("Prices are {shop} shelf prices, checked {date}, and vary by store.", { shop: possessive(file.name), date: formatDate(file.checkedOn, t) })} {recipe.ai ? t("Recipe written by Pip with AI.") : t("Recipe by {app}.", { app: site.name })} {t("Not affiliated with {shop}.", { shop: file.name })}
+        {t("Prices are {shop} shelf prices, checked {date}, and vary by store.", { shop: poss(file.name), date: formatDate(file.checkedOn, t) })} {recipe.ai ? t("Recipe written by Pip with AI.") : t("Recipe by {app}.", { app: site.name })} {t("Not affiliated with {shop}.", { shop: file.name })}
       </p>
 
       <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: t(swapSpec.label).toLowerCase() }) : t("Swap")}>

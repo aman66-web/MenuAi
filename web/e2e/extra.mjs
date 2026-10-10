@@ -12,7 +12,7 @@ await step("a shared link on a first visit goes through onboarding and then land
   await page.waitForURL(/\/app\/welcome\?next=/);
   await vis(page.getByRole("heading", { name: "Choose your language" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await vis(page.getByRole("button", { name: "Let's go" }));
   await page.getByRole("button", { name: "Let's go" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip" }).click();
@@ -81,7 +81,7 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
   await page.getByRole("button", { name: "Back to the start" }).click();
-  await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await vis(page.getByRole("button", { name: "Let's go" }));
   await ctx.close();
 });
 await step("menus unreachable → an honest error with Try again (not 'Menus are coming soon'), then it recovers", async () => {

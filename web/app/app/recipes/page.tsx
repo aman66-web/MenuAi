@@ -11,7 +11,6 @@ import { formatDate, formatInt } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { isMeatFree, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
-import { possessive } from "@/lib/mm/shopProducts";
 import { myRecipesStore } from "@/lib/mm/stores";
 import { ALLERGEN_SHORT } from "../_components/DietPicker";
 import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, PotIcon, SearchIcon } from "../_components/icons";
@@ -19,7 +18,7 @@ import { Pip, PipSays } from "../_components/Mascot";
 import { useGate } from "../_components/Paywall";
 import { Button, Chip, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
 import { useIsPro, useSettings, useStore } from "../_lib/hooks";
-import { useT } from "../_lib/i18n";
+import { usePossessive, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
 import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
@@ -88,6 +87,7 @@ function RecipeTile({ card, href, badge }: { card: RecipeCard; href: string; bad
 
 function RecipesScreen() {
   const t = useT();
+  const poss = usePossessive();
   const asked = useSearchParams().get("r");
   const settings = useSettings();
   const manifest = useShopManifest();
@@ -150,7 +150,7 @@ function RecipesScreen() {
           <Pip mood="wave" size={72} />
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
             <span className="block text-[17px] font-extrabold leading-snug tracking-tight">{t("Ask Pip to make a recipe")}{!pro && <span className="ms-2 inline-block rounded-full bg-accent-soft px-2 py-0.5 align-middle text-xs font-bold text-accent">Pro</span>}</span>
-            <span className="block text-sm text-muted">{shopName ? t("Say what you fancy and Pip writes one from {shop} products, fitted to your meal and diet.", { shop: possessive(shopName) }) : t("Say what you fancy and Pip writes one from your shop's products, fitted to your meal and diet.")}</span>
+            <span className="block text-sm text-muted">{shopName ? t("Say what you fancy and Pip writes one from {shop} products, fitted to your meal and diet.", { shop: poss(shopName) }) : t("Say what you fancy and Pip writes one from your shop's products, fitted to your meal and diet.")}</span>
           </span>
           <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
         </button>
@@ -200,7 +200,7 @@ function RecipesScreen() {
           <div className="mt-3 flex justify-center"><Button variant="secondary" onClick={() => { setQuery(""); setMeal(null); setMeatFree(false); }}>{t("Show all recipes")}</Button></div>
         </div>
       ) : shown.length === 0 ? (
-        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes here yet.")} body={leftOut ? t("None of our recipes suit your diet at this shop yet.") : t("We haven't read enough of {shop} product pages to fill these recipes yet.", { shop: possessive(shopName) })} /></div>
+        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes here yet.")} body={leftOut ? t("None of our recipes suit your diet at this shop yet.") : t("We haven't read enough of {shop} product pages to fill these recipes yet.", { shop: poss(shopName) })} /></div>
       ) : (
         <>
           <p role="status" className="app-numbers mt-3 px-1 text-sm text-muted">{shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length })}</p>
@@ -217,8 +217,8 @@ function RecipesScreen() {
       {state.status === "ready" && (
         <p className="mt-8 border-t border-line pt-4 text-xs text-muted">
           {state.file.nutritionCheckedOn
-            ? t("Prices from {shop} website, checked {date}; nutrition from each product's own page, checked {nutritionDate}.", { shop: possessive(state.file.name), date: formatDate(state.file.checkedOn, t), nutritionDate: formatDate(state.file.nutritionCheckedOn, t) })
-            : t("Prices from {shop} website, checked {date}; nutrition from each product's own page.", { shop: possessive(state.file.name), date: formatDate(state.file.checkedOn, t) })}{" "}
+            ? t("Prices from {shop} website, checked {date}; nutrition from each product's own page, checked {nutritionDate}.", { shop: poss(state.file.name), date: formatDate(state.file.checkedOn, t), nutritionDate: formatDate(state.file.nutritionCheckedOn, t) })
+            : t("Prices from {shop} website, checked {date}; nutrition from each product's own page.", { shop: poss(state.file.name), date: formatDate(state.file.checkedOn, t) })}{" "}
           {t("\"Each\" prices only the amounts a serving uses. Vegetables, oil and seasoning you add aren't counted. Recipes are chosen for your diet by their ingredients; check each pack.")} {t("Not affiliated with {shop}.", { shop: state.file.name })}
         </p>
       )}

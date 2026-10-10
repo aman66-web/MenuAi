@@ -6,7 +6,7 @@ import { formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
 import { isAllHalal } from "@/lib/mm/halal";
 import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
-import { POPULAR_ORDER, splitChains } from "@/lib/mm/popular";
+import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
 import { guessLocale, localeInfo, tk, type Locale } from "@/lib/mm/i18n";
 import { SUGGESTION_NOTE } from "@/lib/mm/targets";
@@ -16,6 +16,10 @@ import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
 import { ArrowRightIcon, BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, GlobeIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
 import { LanguageList } from "../_components/LanguageList";
+import { LogoWall, type WallItem } from "../_components/LogoWall";
+import { logoFor } from "@/lib/mm/logos";
+import { RETAILERS } from "@/lib/mm/groceries";
+import { site } from "@/site.config";
 import { Pip, PipSays } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
@@ -54,6 +58,8 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
 ];
 
 const STEPS = 6;
+// Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else).
+const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
 
 export default function WelcomePage() {
   const router = useRouter();
@@ -116,7 +122,21 @@ export default function WelcomePage() {
   const capValid = Number.isFinite(capNumber) && capNumber >= 100 && capNumber <= 2000;
   const real = useMemo(() => menu.chains.filter((c) => !c.sample), [menu.chains]);
   const restaurants = real.length;
-  const known = useMemo(() => splitChains(real, 6).popular, [real]);
+  // The welcome wall: restaurants in the app that have an official logo file (well-known ones first, then the rest; a few very large
+  // files left out so the first screen stays quick), mixed with the supermarkets by name.
+  const wallItems = useMemo<WallItem[]>(() => {
+    const withLogo = real.filter((c) => logoFor(c.id) && !HEAVY_LOGOS.has(c.id));
+    const popular = POPULAR_ORDER.map((id) => withLogo.find((c) => c.id === id)).filter((c): c is (typeof withLogo)[number] => !!c);
+    const rest = withLogo.filter((c) => !POPULAR_ORDER.includes(c.id)).sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
+    const chains: WallItem[] = [...popular, ...rest].slice(0, 36).map((c) => ({ id: c.id, name: c.name, kind: "restaurant" }));
+    const shops: WallItem[] = RETAILERS.map((r) => ({ id: r.id, name: r.name, kind: "shop" }));
+    const out: WallItem[] = [];
+    for (let i = 0, j = 0; i < chains.length || j < shops.length; ) {
+      for (let k = 0; k < 3 && i < chains.length; k++) out.push(chains[i++]!);
+      if (j < shops.length) out.push(shops[j++]!);
+    }
+    return out;
+  }, [real]);
   // One well-known restaurant to show a real example at the end (a halal one if the user asked for halal).
   const teaserChainId = useMemo(() => {
     const full = real.filter((c) => (c.nutritionLevel ?? "full") === "full");
@@ -152,36 +172,27 @@ export default function WelcomePage() {
   }
 
   if (step === 0) {
+    const [brandFirst, ...brandRest] = site.name.split(" ");
     return (
       <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col items-center text-center">
-        <div className="flex w-full justify-start">
-          <button type="button" onClick={back} aria-label={t("Change language")} className="glass inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold transition active:scale-95 hover:bg-soft-strong">
+        {/* the wall runs edge to edge and up under the status bar */}
+        <div className="relative -mx-5 w-[calc(100%+2.5rem)]" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
+          <LogoWall items={wallItems} label={t("Logos of restaurants and shops in the app")} />
+          <button type="button" onClick={back} aria-label={t("Change language")} className="glass absolute start-4 top-[calc(max(1.25rem,env(safe-area-inset-top))+0.25rem)] inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold shadow-md transition active:scale-95 hover:bg-soft-strong">
             <ChevronLeftIcon className="h-5 w-5" /><GlobeIcon className="h-4 w-4 text-accent" /><span lang={localeInfo(language).htmlLang}>{localeInfo(language).name}</span>
           </button>
+          <div className="absolute inset-x-0 bottom-[-2.5rem] flex justify-center">
+            <span aria-hidden className="absolute top-4 h-32 w-32 rounded-full opacity-70 blur-3xl [background:var(--sun)]" />
+            <div className="pop-in relative"><Pip mood="wave" size={118} /></div>
+          </div>
         </div>
-        <div className="relative mt-2 flex w-full justify-center">
-          <span aria-hidden className="absolute top-6 h-40 w-40 rounded-full opacity-70 blur-3xl [background:var(--sun)]" />
-          <div className="pop-in relative"><Pip mood="wave" size={150} /></div>
-        </div>
-        <h1 className="mt-3 text-[2.6rem] font-extrabold leading-[1.02] tracking-[-0.03em]"><Rich text={t("Hi, I'm {name}!")} values={{ name: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
-        <p className="mt-2 max-w-[22rem] text-lg leading-snug text-muted">{t("I'll help you eat out, shop and cook with the calories, protein and prices in front of you.")}</p>
-        <ul className="stagger mt-5 w-full space-y-2 text-start">
-          {[
-            { Icon: ForkIcon, title: t("Eat out"), text: <Rich text={t("Every dish at {count}, from each one's own guide")} values={{ count: restaurants > 0 ? <strong className="app-numbers text-foreground">{t("{n} UK restaurants", { n: restaurants })}</strong> : t("UK restaurants") }} /> },
-            { Icon: BasketIcon, title: t("Shop"), text: <>{t("Supermarket products with their labels and prices")}</> },
-            { Icon: PotIcon, title: t("Cook"), text: <>{t("Recipes made from your shop's products, with the cost per serving")}</> },
-          ].map(({ Icon, title, text }) => (
-            <li key={title} className="glass flex items-center gap-3 rounded-3xl p-3 pe-4">
-              <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 rounded-2xl"><Icon className="h-5 w-5" /></span>
-              <span className="min-w-0 flex-1 leading-snug"><span className="block text-base font-extrabold">{title}</span><span className="block text-sm text-muted">{text}</span></span>
-            </li>
-          ))}
-        </ul>
-        {known.length > 0 && (
-          <p className="mt-4 flex max-w-[22rem] flex-wrap justify-center gap-1.5" aria-label={t("Including")}>
-            {known.map((c) => (<span key={c.id} className="glass rounded-full px-3 py-1 text-sm font-semibold">{c.name}</span>))}
-            {restaurants > known.length && <span className="app-numbers rounded-full bg-foreground px-3 py-1 text-sm font-bold text-background">{t("+{n} more", { n: restaurants - known.length })}</span>}
-          </p>
+        <h1 className="mt-12 text-[3.1rem] font-extrabold leading-[1] tracking-[-0.035em]">
+          {brandFirst}{brandRest.length > 0 && <> <span className="sun-text">{brandRest.join(" ")}</span></>}
+        </h1>
+        <span aria-hidden className="bg-sun mt-3 h-1.5 w-14 rounded-full" />
+        <p className="mt-4 text-[1.65rem] leading-tight"><span className="serif-em">{t("Eat out, shop and cook.")}</span> <span className="serif-em sun-text">{t("Know the numbers first.")}</span></p>
+        {restaurants > 0 && (
+          <p className="app-numbers mt-3 text-[15px] font-semibold text-muted">{t("{n} UK restaurants", { n: restaurants })} · {t("{n} supermarkets", { n: RETAILERS.length })}</p>
         )}
         <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm font-semibold text-muted">
           {[
@@ -194,12 +205,19 @@ export default function WelcomePage() {
         </ul>
         {/* stays in view on small screens, so the next step is never below the fold */}
         <div className="sticky bottom-0 -mx-5 mt-auto w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">
-          <Button full className="min-h-14 text-lg" onClick={next}>{t("Let's go")}</Button>
+          <Button full className="min-h-14 text-lg" onClick={next}>
+            {t("Let's go")}
+            <span aria-hidden className="ms-1 grid h-8 w-8 place-items-center rounded-full bg-black/10"><ArrowRightIcon className="h-4 w-4" /></span>
+          </Button>
           <p className="mt-2 text-sm text-muted">{t("Takes about a minute.")}</p>
+          <p className="mt-1 text-xs text-muted">
+            <a href="/terms" className="underline underline-offset-2">{t("Terms")}</a> · <a href="/privacy" className="underline underline-offset-2">{t("Privacy")}</a> · {t("Not affiliated with any restaurant or shop shown.")}
+          </p>
         </div>
       </div>
     );
   }
+
 
   return (
     <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col">

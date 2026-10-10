@@ -5,11 +5,11 @@ import { useEffect, useMemo, useState } from "react";
 import { addToList, formatPrice } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { formatDate } from "@/lib/mm/format";
-import { nutritionBasis, possessive, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
+import { nutritionBasis, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
 import { BasketIcon, ChevronLeftIcon, ExternalIcon } from "../../../_components/icons";
 import { Button, ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
-import { useT } from "../../../_lib/i18n";
+import { usePossessive, useT } from "../../../_lib/i18n";
 import { useShopProducts } from "../../../_lib/shopProducts";
 import { ProductPhotoFigure } from "../../ProductPhoto";
 
@@ -17,6 +17,7 @@ import { ProductPhotoFigure } from "../../ProductPhoto";
 // here unless its barcode is one the Groceries list already has numbers for (then the full page is one tap away).
 export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const t = useT();
+  const poss = usePossessive();
   const [retry, setRetry] = useState(0);
   const state = useShopProducts(shop, retry);
   const product = useMemo(() => (state.status === "ready" ? state.products.find((p) => p.id === id) : undefined), [state, id]);
@@ -68,10 +69,10 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         {product.member && (
           <p className="app-numbers mt-2 text-base">
             <span className="font-extrabold text-accent">{formatPrice(product.member.amount)}</span> <span className="font-semibold">{t("with {scheme}", { scheme: product.member.scheme.replace(/ price$/i, "") })}</span>
-            <span className="block text-xs text-muted">{t("Needs {shopPossessive} loyalty card.", { shopPossessive: possessive(file.name) })} {t("The regular price above is what everyone pays.")}</span>
+            <span className="block text-xs text-muted">{t("Needs {shopPossessive} loyalty card.", { shopPossessive: poss(file.name) })} {t("The regular price above is what everyone pays.")}</span>
           </p>
         )}
-        <p className="mt-2 text-xs text-muted">{t("From {shopPossessive} website, checked {date}.", { shopPossessive: possessive(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")}</p>
+        <p className="mt-2 text-xs text-muted">{t("From {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")}</p>
       </div>
 
       <div className="mt-3">
@@ -104,7 +105,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
                 {rows.map(([label, value]) => (<div key={label} className="flex min-h-11 items-center justify-between gap-3"><dt className="text-muted">{label}</dt><dd className="font-semibold">{value}</dd></div>))}
               </dl>
             )}
-            <p className="mt-3 text-xs text-muted">{file.nutritionCheckedOn ? t("Read from the product's own page on {shopPossessive} website, checked {date}.", { shopPossessive: possessive(file.name), date: formatDate(file.nutritionCheckedOn, t) }) : t("Read from the product's own page on {shopPossessive} website.", { shopPossessive: possessive(file.name) })} {t("Allergens aren't shown for this product yet: check the pack or the page.")}</p>
+            <p className="mt-3 text-xs text-muted">{file.nutritionCheckedOn ? t("Read from the product's own page on {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.nutritionCheckedOn, t) }) : t("Read from the product's own page on {shopPossessive} website.", { shopPossessive: poss(file.name) })} {t("Allergens aren't shown for this product yet: check the pack or the page.")}</p>
           </>
         ) : inCatalogue ? (
           <>
@@ -112,10 +113,10 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
             <Link href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} className="mt-3 inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 text-sm font-bold text-background transition active:scale-[0.97]">{t("See the nutrition")}</Link>
           </>
         ) : (
-          <p className="mt-1 text-sm text-muted">{t("We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.", { shopPossessive: possessive(file.name) })}</p>
+          <p className="mt-1 text-sm text-muted">{t("We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.", { shopPossessive: poss(file.name) })}</p>
         )}
         <a href={page} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-accent underline underline-offset-2">
-          {t("Open it on {shopPossessive} website", { shopPossessive: possessive(file.name) })} <ExternalIcon className="h-4 w-4" /><span className="sr-only"> {t("(opens in a new tab)")}</span>
+          {t("Open it on {shopPossessive} website", { shopPossessive: poss(file.name) })} <ExternalIcon className="h-4 w-4" /><span className="sr-only"> {t("(opens in a new tab)")}</span>
         </a>
       </section>
 

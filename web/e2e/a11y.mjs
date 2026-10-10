@@ -22,7 +22,7 @@ async function nearby(p, blockTiles) {
 
 const pages = [
   ["language", "/app/welcome", false, async () => {}],
-  ["welcome", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("heading", { name: "Hi, I'm Pip!" }).waitFor(); }],
+  ["welcome", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("button", { name: "Let's go" }).waitFor(); }],
   ["home", "/app", true, async () => {}],
   ["search", "/app/search", true, async (p) => { await p.getByLabel("Search restaurants and items").fill("chicken"); await p.waitForTimeout(800); }],
   ["chain (free)", "/app/chain?id=bowl-and-co", false, async (p) => { await p.waitForTimeout(500); }],

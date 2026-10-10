@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { englishT, localeInfo, translate, type Dict, type Locale, type T } from "@/lib/mm/i18n";
+import { possessive } from "@/lib/mm/shopProducts";
 
 // The language the app is shown in (lib/mm/i18n.ts). Each language's dictionary is its own small file, loaded only when that
 // language is chosen (and kept for offline use by the service worker like the rest of the app's code).
@@ -79,3 +80,9 @@ export function useT(): T {
 export function useLanguage(): Locale {
   return useSyncExternalStore(subscribe, getLocale, serverLocale);
 }
+
+/** A shop's name for "{shopPossessive}" in our text: "Tesco's" in English; other languages build their own form around the plain name. */
+export function usePossessive(): (name: string) => string {
+  return useLanguage() === "en" ? possessive : plainName;
+}
+const plainName = (name: string) => name;

@@ -8,7 +8,6 @@ import { mealSlotFor } from "@/lib/mm/budget";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
-import { possessive } from "@/lib/mm/shopProducts";
 import { myRecipesStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { ALLERGEN_SHORT } from "../../_components/DietPicker";
@@ -17,7 +16,7 @@ import { PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { Button, ErrorBox, inputClass, radioKeyNav, Spinner } from "../../_components/ui";
 import { useHydrated, useIsPro, useSettings } from "../../_lib/hooks";
-import { useT } from "../../_lib/i18n";
+import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
 import { recipeShop, useRecipeMakerEnabled } from "../../_lib/recipes";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
@@ -56,6 +55,7 @@ type Phase = { kind: "form" } | { kind: "thinking" } | { kind: "done"; recipe: R
 
 function MakeScreen() {
   const t = useT();
+  const poss = usePossessive();
   const asked = useSearchParams().get("r");
   const settings = useSettings();
   const manifest = useShopManifest();
@@ -164,7 +164,7 @@ function MakeScreen() {
       {back}
       <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
       <div className="mt-4">
-        <PipSays mood="wave" size={84}>{ownShopName ? t("What shall I make? Tap a few buttons and I'll write a recipe from {shop} products.", { shop: possessive(ownShopName) }) : t("What shall I make? Tap a few buttons and I'll write a recipe from your shop's products.")}</PipSays>
+        <PipSays mood="wave" size={84}>{ownShopName ? t("What shall I make? Tap a few buttons and I'll write a recipe from {shop} products.", { shop: poss(ownShopName) }) : t("What shall I make? Tap a few buttons and I'll write a recipe from your shop's products.")}</PipSays>
       </div>
 
       {phase.kind === "error" && <div className="mt-4"><ErrorBox message={t(phase.message)} onRetry={make} /></div>}

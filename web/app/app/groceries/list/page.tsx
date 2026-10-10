@@ -4,18 +4,18 @@ import Link from "next/link";
 import { useState } from "react";
 import { formatPrice, itemCode, listAsText, listTotals, retailerName, setQty, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
-import { possessive } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { ChevronLeftIcon, CopyIcon, MinusIcon, PlusIcon, ShareIcon } from "../../_components/icons";
 import { Button, EmptyState } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
-import { useT } from "../../_lib/i18n";
+import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
 
 // The shopping list: on this device only. Share or copy it as text (grouped by supermarket). Recipes add their ingredients here, with the shelf price
 // noted when they were added (a guide: never kept up to date).
 export default function ShoppingListPage() {
   const t = useT();
+  const poss = usePossessive();
   const hydrated = useHydrated();
   const list = useStore(shoppingStore);
   const [note, setNote] = useState<string | null>(null);
@@ -75,11 +75,11 @@ export default function ShoppingListPage() {
                     <Rich
                       text={totals.priced === totals.count
                         ? (totals.oldest
-                          ? t("{total} for the items with a price, at {shopPossessive} prices checked {date}. Prices change: check in store.", { shopPossessive: possessive(retailerName(retailer)), date: formatDate(totals.oldest, t) })
-                          : t("{total} for the items with a price, at {shopPossessive} prices. Prices change: check in store.", { shopPossessive: possessive(retailerName(retailer)) }))
+                          ? t("{total} for the items with a price, at {shopPossessive} prices checked {date}. Prices change: check in store.", { shopPossessive: poss(retailerName(retailer)), date: formatDate(totals.oldest, t) })
+                          : t("{total} for the items with a price, at {shopPossessive} prices. Prices change: check in store.", { shopPossessive: poss(retailerName(retailer)) }))
                         : (totals.oldest
-                          ? t("{total} for the {priced} of {count} items with a price, at {shopPossessive} prices checked {date}. Prices change: check in store.", { priced: totals.priced, count: totals.count, shopPossessive: possessive(retailerName(retailer)), date: formatDate(totals.oldest, t) })
-                          : t("{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.", { priced: totals.priced, count: totals.count, shopPossessive: possessive(retailerName(retailer)) }))}
+                          ? t("{total} for the {priced} of {count} items with a price, at {shopPossessive} prices checked {date}. Prices change: check in store.", { priced: totals.priced, count: totals.count, shopPossessive: poss(retailerName(retailer)), date: formatDate(totals.oldest, t) })
+                          : t("{total} for the {priced} of {count} items with a price, at {shopPossessive} prices. Prices change: check in store.", { priced: totals.priced, count: totals.count, shopPossessive: poss(retailerName(retailer)) }))}
                       values={{ total: <span className="font-bold text-foreground">{formatPrice(totals.total)}</span> }}
                     />
                   </p>

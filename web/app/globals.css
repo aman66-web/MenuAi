@@ -246,3 +246,18 @@ html[data-i18n-pending] body {
 /* Arabic and Urdu get a little more line height (the phone's own Arabic-script font is used; a tall Nastaliq face would clip in
    the app's tight headings). */
 :lang(ar) body, :lang(ur) body { line-height: 1.7; }
+
+/* Welcome screen logo wall (app/app/_components/LogoWall.tsx): rows drift sideways forever, fading into the page at the bottom. */
+.logo-wall {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 100%);
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 50s linear infinite; will-change: transform; }
+.marquee-reverse { animation-direction: reverse; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { animation: none; }
+}
