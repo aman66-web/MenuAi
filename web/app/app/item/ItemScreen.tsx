@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
+import { tk } from "@/lib/mm/i18n";
 import { hasMacros } from "@/lib/mm/nutrients";
 import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm/order";
 import { builderHref, chainHref } from "@/lib/mm/routes";
@@ -17,9 +18,11 @@ import { ShareButton } from "../_components/ShareButton";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, ErrorBox, Spinner } from "../_components/ui";
 import { useChain, useMenu } from "../_lib/hooks";
+import { useT } from "../_lib/i18n";
 
 // SPEC §7.5: name, serving, big calories, then protein/carbs/fat, then the optional nutrients ("not published").
 export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: string }) {
+  const t = useT();
   const router = useRouter();
   const { gate } = useGate();
   const menu = useMenu();
@@ -28,13 +31,13 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const [reporting, setReporting] = useState(false);
 
   const back = (
-    <Link href={chainHref(chainId)} aria-label="Back to menu" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+    <Link href={chainHref(chainId)} aria-label={t("Back to menu")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
   );
-  if (status === "loading") return (<div>{back}<Spinner label="Loading item" /></div>);
-  if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ?? "Couldn't load this menu."} onRetry={retry} /></div>);
+  if (status === "loading") return (<div>{back}<Spinner label={t("Loading item")} /></div>);
+  if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></div>);
 
   const item = index.items.get(itemId);
-  if (!item) return (<div>{back}<ErrorBox message="That item is no longer on the menu." /></div>);
+  if (!item) return (<div>{back}<ErrorBox message={t("That item is no longer on the menu.")} /></div>);
   const { chain } = index;
   const line = lineFromItem(index, item.id);
   const lines = line ? [line] : [];
@@ -50,8 +53,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted">
             {item.serving && <span>{item.serving}</span>}
             {item.category && <Badge>{item.category}</Badge>}
-            {item.limitedTime && <Badge>Limited time</Badge>}
-            {chain.sample && <Badge>Sample data</Badge>}
+            {item.limitedTime && <Badge>{t("Limited time")}</Badge>}
+            {chain.sample && <Badge>{t("Sample data")}</Badge>}
           </div>
         </ItemHero>
       </div>
@@ -76,7 +79,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
               })
             }
           >
-            Customise
+            {t("Customise")}
           </Button>
           <Button
             variant="secondary"
@@ -86,11 +89,11 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
                 addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
                 analytics.track({ name: "mealLogged" });
                 countProAction();
-                setMessage("Logged to Today.");
+                setMessage(tk("Logged to Today."));
               })
             }
           >
-            Log
+            {t("Log")}
           </Button>
           <Button
             variant="secondary"
@@ -101,23 +104,23 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
                 addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
                 analytics.track({ name: "orderSaved" });
                 countProAction();
-                setMessage("Saved.");
+                setMessage(tk("Saved."));
               })
             }
           >
-            Save
+            {t("Save")}
           </Button>
           <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
         </div>
-        <p role="status" aria-live="polite" className="mt-3 min-h-5 text-center text-sm font-medium text-accent">{message}</p>
+        <p role="status" aria-live="polite" className="mt-3 min-h-5 text-center text-sm font-medium text-accent">{message && t(message)}</p>
         </>
       ) : (
-        <p className="mt-6 text-sm text-muted">{chain.name} publishes calories only, so ordering, saving, logging and sharing aren&apos;t available for this item (they need protein, carbs and fat).</p>
+        <p className="mt-6 text-sm text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
       )}
 
       <p className="mt-4 text-sm text-muted">
-        Not affiliated with {chain.name}.{" "}
-        <button type="button" className="min-h-11 font-medium text-accent underline" onClick={() => setReporting(true)}>Report a number</button>
+        {t("Not affiliated with {chain}.", { chain: chain.name })}{" "}
+        <button type="button" className="min-h-11 font-medium text-accent underline" onClick={() => setReporting(true)}>{t("Report a number")}</button>
       </p>
 
       <ReportSheet

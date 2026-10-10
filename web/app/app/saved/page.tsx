@@ -13,11 +13,13 @@ import { Pip } from "../_components/Mascot";
 import { MacroSummary } from "../_components/Nutrition";
 import { Badge, Button, EmptyState, LinkButton } from "../_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useStore } from "../_lib/hooks";
+import { useT } from "../_lib/i18n";
 
 // SPEC §7.7: most recent first. Pro: tap opens the builder. Free: read-only detail. A saved order whose item or
 // ingredient left the menu says "No longer on the menu", keeps its saved numbers, and can't be edited.
 export default function SavedPage() {
   const hydrated = useHydrated();
+  const t = useT();
   const saved = useStore(savedStore);
   const pro = useIsPro();
   const indexes = useChainIndexes(saved.map((o) => o.chainId));
@@ -37,14 +39,14 @@ export default function SavedPage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-extrabold tracking-tight">Saved</h1>
+      <h1 className="text-4xl font-extrabold tracking-tight">{t("Saved")}</h1>
       {!pro && saved.length > 0 && (
-        <p className="mt-1 text-sm text-muted">{Math.min(saved.length, FREE_SAVED_ORDER_LIMIT)} of {FREE_SAVED_ORDER_LIMIT} free saved orders used.</p>
+        <p className="mt-1 text-sm text-muted">{t("{used} of {limit} free saved orders used.", { used: Math.min(saved.length, FREE_SAVED_ORDER_LIMIT), limit: FREE_SAVED_ORDER_LIMIT })}</p>
       )}
 
       {saved.length === 0 ? (
         <div className="mt-6">
-          <EmptyState icon={<Pip mood="wave" size={64} />} title="No saved orders yet" body="Save an order from any menu item, or from the order builder." action={<LinkButton href="/app" variant="secondary">Find a restaurant</LinkButton>} />
+          <EmptyState icon={<Pip mood="wave" size={64} />} title={t("No saved orders yet")} body={t("Save an order from any menu item, or from the order builder.")} action={<LinkButton href="/app" variant="secondary">{t("Find a restaurant")}</LinkButton>} />
         </div>
       ) : (
         <ul className="mt-4 space-y-3">
@@ -58,20 +60,20 @@ export default function SavedPage() {
                   <div className="min-w-0">
                     <h2 className="text-base font-bold leading-snug tracking-tight">{o.name}</h2>
                     <p className="text-sm text-muted">{o.chainName}</p>
-                    <p className="app-numbers mt-1 text-sm text-muted" aria-label={nutrientAriaLabel(o.name, o.nutrients)}>{macroLine(o.nutrients)}</p>
-                    {gone && <p className="mt-2"><Badge>No longer on the menu</Badge></p>}
+                    <p className="app-numbers mt-1 text-sm text-muted" aria-label={nutrientAriaLabel(o.name, o.nutrients, t)}>{macroLine(o.nutrients, t)}</p>
+                    {gone && <p className="mt-2"><Badge>{t("No longer on the menu")}</Badge></p>}
                   </div>
-                  <button type="button" aria-label={`Delete ${o.name}`} onClick={() => remove(o)} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
+                  <button type="button" aria-label={t("Delete {name}", { name: o.name })} onClick={() => remove(o)} className="-me-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
                     <TrashIcon className="h-5 w-5" />
                   </button>
                 </div>
                 <div className="mt-3 flex gap-2">
                   {pro && !gone ? (
-                    <LinkButton href={builderHref({ chain: o.chainId, saved: o.id })} variant="secondary" className="flex-1">Open in builder</LinkButton>
+                    <LinkButton href={builderHref({ chain: o.chainId, saved: o.id })} variant="secondary" className="flex-1">{t("Open in builder")}</LinkButton>
                   ) : (
-                    <Button variant="secondary" className="flex-1" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : o.id)}>{expanded ? "Hide details" : "Details"}</Button>
+                    <Button variant="secondary" className="flex-1" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : o.id)}>{expanded ? t("Hide details") : t("Details")}</Button>
                   )}
-                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 items-center justify-center rounded-full px-5 font-semibold text-accent hover:bg-accent-soft">Menu</Link>}
+                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 items-center justify-center rounded-full px-5 font-semibold text-accent hover:bg-accent-soft">{t("Menu")}</Link>}
                 </div>
                 {expanded && (
                   <div className="mt-3 rounded-2xl bg-soft-strong p-3">
@@ -87,8 +89,8 @@ export default function SavedPage() {
 
       {undo && (
         <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 glass rounded-full bg-[var(--nav-bg)] px-5 py-2 shadow-lg">
-          <span className="text-sm">Deleted “{undo.name}”.</span>
-          <button type="button" className="min-h-11 px-2 font-semibold text-accent" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>Undo</button>
+          <span className="text-sm">{t("Deleted “{name}”.", { name: undo.name })}</span>
+          <button type="button" className="min-h-11 px-2 font-semibold text-accent" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>{t("Undo")}</button>
         </div>
       )}
     </div>

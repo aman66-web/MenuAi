@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ALLERGEN_KEYS } from "./mm/types";
-import { MAX_WISH, MEALS, RECIPE_SYSTEM_PROMPT, recipeFromAi, recipeUserPrompt, type AiRecipe, type RecipeRequest } from "./mm/aiRecipe";
+import { MAX_WISH, MEALS, RECIPE_MESSAGES, RECIPE_SYSTEM_PROMPT, recipeFromAi, recipeUserPrompt, type AiRecipe, type RecipeRequest } from "./mm/aiRecipe";
 import { PANTRY, kindExcluded } from "./mm/pantry";
 import type { Result } from "./handlers";
 
@@ -39,14 +39,15 @@ export interface RecipeCtx {
   timeLeft?: () => number;
 }
 
-const notEnabled: Result = { status: 503, body: { error: "not_enabled", message: "Pip's recipe maker isn't switched on yet." } };
-const tooMany: Result = { status: 429, body: { error: "rate_limited", message: "That's a lot of recipes. Please try again in a little while." } };
-const couldNot: Result = { status: 502, body: { error: "no_recipe", message: "Pip couldn't make a recipe this time. Please try again, maybe with different words." } };
+// The messages are English keys (lib/mm/aiRecipe.ts RECIPE_MESSAGES): the app shows them with t(message).
+const notEnabled: Result = { status: 503, body: { error: "not_enabled", message: RECIPE_MESSAGES.notEnabled } };
+const tooMany: Result = { status: 429, body: { error: "rate_limited", message: RECIPE_MESSAGES.rateLimited } };
+const couldNot: Result = { status: 502, body: { error: "no_recipe", message: RECIPE_MESSAGES.noRecipe } };
 
 export async function handleRecipe(body: unknown, ctx: RecipeCtx): Promise<Result> {
   if (!ctx.ask) return notEnabled;
   const parsed = recipeRequestSchema.safeParse(body);
-  if (!parsed.success) return { status: 400, body: { error: "invalid", message: "Something in the request wasn't right." } };
+  if (!parsed.success) return { status: 400, body: { error: "invalid", message: RECIPE_MESSAGES.invalid } };
   const req = parsed.data as RecipeRequest;
   // only pantry kinds we know, that this diet allows, once each
   const seen = new Set<string>();
@@ -56,7 +57,7 @@ export async function handleRecipe(body: unknown, ctx: RecipeCtx): Promise<Resul
     seen.add(p.key);
     return true;
   });
-  if (req.pantry.length < 2) return { status: 422, body: { error: "pantry", message: "There aren't enough ingredients at this shop for your diet yet." } };
+  if (req.pantry.length < 2) return { status: 422, body: { error: "pantry", message: RECIPE_MESSAGES.pantry } };
   if (!ctx.allow()) return tooMany;
   const keys = req.pantry.map((p) => p.key);
   let user = recipeUserPrompt(req);

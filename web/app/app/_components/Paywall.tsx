@@ -4,9 +4,12 @@ import { createContext, useCallback, useContext, useMemo, useRef, useState, type
 import { analytics } from "@/lib/mm/analytics";
 import { DEV_TOOLS_ENABLED, PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { needsPaywall, PAYWALL_BULLETS, PAYWALL_TITLE, type PaywallTrigger } from "@/lib/mm/entitlements";
+import { format, tk } from "@/lib/mm/i18n";
 import { savedStore, settingsStore, updateSettings } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { useIsPro, useStore } from "../_lib/hooks";
+import { useT } from "../_lib/i18n";
+import { Rich } from "../_lib/Rich";
 import { CheckIcon } from "./icons";
 import { Button, Field, inputClass, Sheet } from "./ui";
 
@@ -21,6 +24,12 @@ interface Gate {
 }
 
 const PaywallContext = createContext<Gate | null>(null);
+
+// The exact title copy (PAYWALL_TITLE) with one phrase set in the accent face: {accent} lets a translation put the phrase where its
+// language needs it. If PAYWALL_TITLE changes and no longer matches, the title is shown plain rather than out of date.
+const TITLE_RICH = tk("Build the {accent}, every time");
+const TITLE_ACCENT = tk("perfect order");
+const TITLE_FITS = format(TITLE_RICH, { accent: TITLE_ACCENT }) === PAYWALL_TITLE;
 
 export function useGate(): Gate {
   const ctx = useContext(PaywallContext);
@@ -69,31 +78,33 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
 }
 
 function PaywallBody({ onDone }: { onDone: () => void }) {
+  const t = useT();
   const settings = useStore(settingsStore);
-  const [titleBefore = "", titleAfter = ""] = PAYWALL_TITLE.split("perfect order"); // the exact title copy, with one phrase set in the accent face
   return (
     <div>
-      <h3 className="mt-3 text-3xl font-extrabold leading-[1.08] tracking-tight">{titleBefore}<span className="serif-em sun-text">perfect order</span>{titleAfter}</h3>
+      <h3 className="mt-3 text-3xl font-extrabold leading-[1.08] tracking-tight">
+        {TITLE_FITS ? <Rich text={t(TITLE_RICH)} values={{ accent: <span className="serif-em sun-text">{t(TITLE_ACCENT)}</span> }} /> : t(PAYWALL_TITLE)}
+      </h3>
       <ul className="mt-5 space-y-3">
         {PAYWALL_BULLETS.map((b) => (
           <li key={b} className="flex items-start gap-3">
             <span aria-hidden className="bg-sun mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>
-            <span className="font-medium">{b}</span>
+            <span className="font-medium">{t(b)}</span>
           </li>
         ))}
       </ul>
 
       {PAYMENTS_ENABLED ? null : (
         <div className="mt-5 glass rounded-3xl p-4">
-          <p className="font-semibold">Pro isn&apos;t on the web yet.</p>
-          <p className="mt-1 text-sm text-muted">Everything free stays free: every chain&apos;s full menu with calories and macros. Leave your email and we&apos;ll tell you once, when Pro is ready.</p>
+          <p className="font-semibold">{t("Pro isn't on the web yet.")}</p>
+          <p className="mt-1 text-sm text-muted">{t("Everything free stays free: every chain's full menu with calories and macros. Leave your email and we'll tell you once, when Pro is ready.")}</p>
           <WaitlistInline />
         </div>
       )}
 
       {DEV_TOOLS_ENABLED && (
         <div className="mt-4 rounded-3xl border border-dashed border-line p-3">
-          <p className="text-xs text-muted">Testing build: unlock Pro features on this device without paying.</p>
+          <p className="text-xs text-muted">{t("Testing build: unlock Pro features on this device without paying.")}</p>
           <Button
             variant="secondary"
             full
@@ -103,18 +114,19 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
               onDone();
             }}
           >
-            {settings.devProOverride ? "Turn off Pro preview" : "Unlock Pro preview (testing)"}
+            {settings.devProOverride ? t("Turn off Pro preview") : t("Unlock Pro preview (testing)")}
           </Button>
         </div>
       )}
       <p className="mt-4 text-center text-xs text-muted">
-        <a className="underline" href="/privacy">Privacy</a> · <a className="underline" href="/terms">Terms</a>
+        <a className="underline" href="/privacy">{t("Privacy")}</a> · <a className="underline" href="/terms">{t("Terms")}</a>
       </p>
     </div>
   );
 }
 
 function WaitlistInline() {
+  const t = useT();
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   return (
@@ -132,14 +144,14 @@ function WaitlistInline() {
       }}
     >
       {state === "done" ? (
-        <p role="status" className="text-sm font-medium">Thanks, you&apos;re on the list.</p>
+        <p role="status" className="text-sm font-medium">{t("Thanks, you're on the list.")}</p>
       ) : (
         <>
-          <Field label="Email">
+          <Field label={t("Email")}>
             <input type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} placeholder="you@example.com" />
           </Field>
-          <Button type="submit" full disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Tell me when Pro is ready"}</Button>
-          {state === "error" && <p role="alert" className="text-sm text-muted">Couldn&apos;t send that. Check the address and try again.</p>}
+          <Button type="submit" full disabled={state === "sending"}>{state === "sending" ? t("Sending…") : t("Tell me when Pro is ready")}</Button>
+          {state === "error" && <p role="alert" className="text-sm text-muted">{t("Couldn't send that. Check the address and try again.")}</p>}
         </>
       )}
     </form>

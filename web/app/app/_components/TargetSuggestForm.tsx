@@ -1,19 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { tk } from "@/lib/mm/i18n";
 import { ACTIVITY_LABEL, suggestTargets, SUGGESTION_NOTE, UNDER_18_COPY, type Activity, type Sex } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
+import { useT } from "../_lib/i18n";
 import { Button, Field, inputClass, Segmented } from "./ui";
 
 // SPEC §6.2: Mifflin-St Jeor suggestion, shown with "Suggested starting points, not medical advice."
 
 const SEX_OPTIONS: ReadonlyArray<{ value: Sex; label: string }> = [
-  { value: "male", label: "Male" },
-  { value: "female", label: "Female" },
-  { value: "unspecified", label: "Prefer not to say" },
+  { value: "male", label: tk("Male") },
+  { value: "female", label: tk("Female") },
+  { value: "unspecified", label: tk("Prefer not to say") },
 ];
 
 export function TargetSuggestForm({ goal, onApply }: { goal: Goal; onApply: (calories: number, protein: number) => void }) {
+  const t = useT();
   const [sex, setSex] = useState<Sex>("unspecified");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
@@ -30,27 +33,27 @@ export function TargetSuggestForm({ goal, onApply }: { goal: Goal; onApply: (cal
         setResult(suggestTargets({ sex, age: Number(age), weightLb: Number(weight), heightFt: Number(ft), heightIn: Number(inch || 0), activity, goal }));
       }}
     >
-      <Segmented label="Sex for the formula" value={sex} options={SEX_OPTIONS} onChange={setSex} />
+      <Segmented label={t("Sex for the formula")} value={sex} options={SEX_OPTIONS.map((o) => ({ ...o, label: t(o.label) }))} onChange={setSex} />
       <div className="grid grid-cols-2 gap-3">
-        <Field label="Age"><input className={inputClass} inputMode="numeric" value={age} onChange={(e) => setAge(e.target.value)} required /></Field>
-        <Field label="Weight (lb)"><input className={inputClass} inputMode="decimal" value={weight} onChange={(e) => setWeight(e.target.value)} required /></Field>
-        <Field label="Height (ft)"><input className={inputClass} inputMode="numeric" value={ft} onChange={(e) => setFt(e.target.value)} required /></Field>
-        <Field label="Height (in)"><input className={inputClass} inputMode="numeric" value={inch} onChange={(e) => setInch(e.target.value)} /></Field>
+        <Field label={t("Age")}><input className={inputClass} inputMode="numeric" value={age} onChange={(e) => setAge(e.target.value)} required /></Field>
+        <Field label={t("Weight (lb)")}><input className={inputClass} inputMode="decimal" value={weight} onChange={(e) => setWeight(e.target.value)} required /></Field>
+        <Field label={t("Height (ft)")}><input className={inputClass} inputMode="numeric" value={ft} onChange={(e) => setFt(e.target.value)} required /></Field>
+        <Field label={t("Height (in)")}><input className={inputClass} inputMode="numeric" value={inch} onChange={(e) => setInch(e.target.value)} /></Field>
       </div>
-      <Field label="Activity">
+      <Field label={t("Activity")}>
         <select className={inputClass} value={activity} onChange={(e) => setActivity(e.target.value as Activity)}>
-          {(Object.keys(ACTIVITY_LABEL) as Activity[]).map((a) => (<option key={a} value={a}>{ACTIVITY_LABEL[a]}</option>))}
+          {(Object.keys(ACTIVITY_LABEL) as Activity[]).map((a) => (<option key={a} value={a}>{t(ACTIVITY_LABEL[a])}</option>))}
         </select>
       </Field>
-      <Button type="submit" variant="secondary" full>Suggest targets</Button>
+      <Button type="submit" variant="secondary" full>{t("Suggest targets")}</Button>
 
-      {result?.kind === "under18" && <p role="status" className="text-sm font-medium">{UNDER_18_COPY}</p>}
-      {result?.kind === "invalid" && <p role="alert" className="text-sm text-muted">Enter an age from 18 to 100, your weight and your height.</p>}
+      {result?.kind === "under18" && <p role="status" className="text-sm font-medium">{t(UNDER_18_COPY)}</p>}
+      {result?.kind === "invalid" && <p role="alert" className="text-sm text-muted">{t("Enter an age from 18 to 100, your weight and your height.")}</p>}
       {result?.kind === "ok" && (
         <div role="status" className="space-y-2 rounded-2xl bg-soft-strong p-3">
-          <p className="app-numbers text-base"><span className="font-bold">{result.calories.toLocaleString("en-US")}</span> kcal · <span className="font-bold">{result.protein}g</span> protein</p>
-          <p className="text-xs text-muted">{SUGGESTION_NOTE}</p>
-          <Button full onClick={() => onApply(result.calories, result.protein)}>Use these</Button>
+          <p className="app-numbers text-base"><span className="font-bold">{result.calories.toLocaleString("en-US")}</span> kcal · <span className="font-bold">{result.protein}g</span> {t("protein")}</p>
+          <p className="text-xs text-muted">{t(SUGGESTION_NOTE)}</p>
+          <Button full onClick={() => onApply(result.calories, result.protein)}>{t("Use these")}</Button>
         </div>
       )}
     </form>

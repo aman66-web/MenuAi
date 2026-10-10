@@ -1,4 +1,5 @@
 import { API_BASE, APP_VERSION } from "./config";
+import { tk } from "./i18n";
 import type { Store } from "./persist";
 
 // SPEC §12: every submission is saved locally first, then sent, so nothing is lost offline.
@@ -37,15 +38,15 @@ const PATH: Record<OutboxKind, string> = { report: "reports", chainRequest: "cha
 // ---- payload builders (docs/BACKEND.md) ----
 
 export const REPORT_FIELDS = [
-  { value: "calories", label: "Calories" },
-  { value: "protein", label: "Protein" },
-  { value: "carbs", label: "Carbs" },
-  { value: "fat", label: "Fat" },
-  { value: "saturatedFat", label: "Saturated fat" },
-  { value: "sodium", label: "Sodium" },
-  { value: "sugar", label: "Sugar" },
-  { value: "fiber", label: "Fibre" },
-  { value: "other", label: "Other" },
+  { value: "calories", label: tk("Calories") },
+  { value: "protein", label: tk("Protein") },
+  { value: "carbs", label: tk("Carbs") },
+  { value: "fat", label: tk("Fat") },
+  { value: "saturatedFat", label: tk("Saturated fat") },
+  { value: "sodium", label: tk("Sodium") },
+  { value: "sugar", label: tk("Sugar") },
+  { value: "fiber", label: tk("Fibre") },
+  { value: "other", label: tk("Other") },
 ] as const;
 export type ReportField = (typeof REPORT_FIELDS)[number]["value"];
 
@@ -79,9 +80,9 @@ export const supportPayload = (message: string, email?: string) => ({
   appVersion: APP_VERSION,
 });
 
-export const REPORT_THANKS = "Thanks — we'll check within 48 hours.";
-export const REQUEST_THANKS = "Thanks — the most-requested chains get added first.";
-export const SUPPORT_THANKS = "Thanks — if you left an email, we'll reply soon.";
+export const REPORT_THANKS = tk("Thanks — we'll check within 48 hours.");
+export const REQUEST_THANKS = tk("Thanks — the most-requested chains get added first.");
+export const SUPPORT_THANKS = tk("Thanks — if you left an email, we'll reply soon.");
 
 // ---- sending ----
 

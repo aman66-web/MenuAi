@@ -1,4 +1,5 @@
 import type { AllergenKey, Nutrients, Goal, Preferences } from "./types";
+import { isLocale, type Locale } from "./i18n";
 import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP } from "./budget";
 import type { OrderLine } from "./order";
@@ -53,6 +54,8 @@ export interface UserSettings {
   shops?: string[];
   /** What Recipes fits each recipe to: a meal size (or the person's own numbers), more protein or not, or the recipes as written. */
   recipeMeal?: RecipeMeal;
+  /** The app's language (lib/mm/i18n.ts), chosen on the first screen; absent = English, not chosen yet. */
+  language?: Locale;
 }
 
 export interface RecipeMeal {
@@ -136,6 +139,7 @@ export function sanitizeSettings(raw: unknown): UserSettings {
       ? { shops: [...new Set(raw.shops.filter((x): x is string => typeof x === "string" && SHOP_ID.test(x)))].slice(0, 12) }
       : {}),
     ...(sanitizeRecipeMeal(raw.recipeMeal) ? { recipeMeal: sanitizeRecipeMeal(raw.recipeMeal) } : {}),
+    ...(isLocale(raw.language) ? { language: raw.language } : {}),
   };
 }
 

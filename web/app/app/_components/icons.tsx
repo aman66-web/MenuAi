@@ -12,8 +12,10 @@ export const BookmarkIcon = (p: P) => (<svg {...base(p)}><path d="M6 3h12v18l-6-
 export const TodayIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>);
 export const GearIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="3" /><path d="M19 12a7 7 0 00-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 00-2-1.2L14.2 3h-4l-.4 2.6a7 7 0 00-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 005 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.3-.9c.6.5 1.3.9 2 1.2l.4 2.6h4l.4-2.6c.7-.3 1.4-.7 2-1.2l2.3.9 2-3.4-2-1.5c.1-.4.1-.8.1-1.2z" /></svg>);
 export const StarIcon = ({ filled, ...p }: P & { filled?: boolean }) => (<svg {...base(p)} fill={filled ? "currentColor" : "none"}><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" /></svg>);
-export const ChevronRightIcon = (p: P) => (<svg {...base(p)}><path d="M9 6l6 6-6 6" /></svg>);
-export const ChevronLeftIcon = (p: P) => (<svg {...base(p)}><path d="M15 6l-6 6 6 6" /></svg>);
+// Arrows that point along the reading direction turn round for right-to-left languages (Urdu, Arabic).
+const flip = (p: P): P => ({ ...p, className: `rtl:-scale-x-100 ${p.className ?? ""}` });
+export const ChevronRightIcon = (p: P) => (<svg {...base(flip(p))}><path d="M9 6l6 6-6 6" /></svg>);
+export const ChevronLeftIcon = (p: P) => (<svg {...base(flip(p))}><path d="M15 6l-6 6 6 6" /></svg>);
 export const SearchIcon = (p: P) => (<svg {...base(p)}><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>);
 export const CloseIcon = (p: P) => (<svg {...base(p)}><path d="M6 6l12 12M18 6L6 18" /></svg>);
 export const PlusIcon = (p: P) => (<svg {...base(p)}><path d="M12 5v14M5 12h14" /></svg>);
@@ -26,7 +28,8 @@ export const SwapIcon = (p: P) => (<svg {...base(p)}><path d="M7 4L3 8l4 4M3 8h1
 export const ListIcon = (p: P) => (<svg {...base(p)}><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" /></svg>);
 export const ForkIcon = (p: P) => (<svg {...base(p)}><path d="M7 3v8a3 3 0 006 0V3M10 3v18M17 3c-2 2-2 6 0 8v10" /></svg>);
 export const PencilIcon = (p: P) => (<svg {...base(p)}><path d="M4 20h4L19 9l-4-4L4 16z" /><path d="M13.5 6.5l4 4" /></svg>);
-export const ArrowRightIcon = (p: P) => (<svg {...base(p)}><path d="M5 12h14M13 6l6 6-6 6" /></svg>);
+export const ArrowRightIcon = (p: P) => (<svg {...base(flip(p))}><path d="M5 12h14M13 6l6 6-6 6" /></svg>);
+export const GlobeIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z" /></svg>);
 export const DotsIcon = (p: P) => (<svg {...base(p)}><circle cx="5.5" cy="12" r="1.5" fill="currentColor" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /><circle cx="18.5" cy="12" r="1.5" fill="currentColor" /></svg>);
 export const ScaleIcon = (p: P) => (<svg {...base(p)}><path d="M12 4v16M5 20h14M6 8h12" /><path d="M6 8l-3 6a3 3 0 006 0zM18 8l-3 6a3 3 0 006 0z" /></svg>);
 export const TrendDownIcon = (p: P) => (<svg {...base(p)}><path d="M3 7l6 6 4-4 8 8" /><path d="M21 11v6h-6" /></svg>);

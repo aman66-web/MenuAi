@@ -1,4 +1,5 @@
 import { NEW_ITEM_DAYS } from "./config";
+import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
 import { normalizeForSearch } from "./search";
@@ -9,10 +10,10 @@ import type { Chain, MenuItem, Preferences } from "./types";
 export type SortKind = "menu" | "protein" | "calories" | "density";
 
 export const SORT_OPTIONS: ReadonlyArray<{ value: SortKind; label: string }> = [
-  { value: "menu", label: "Menu order" },
-  { value: "protein", label: "Most protein" },
-  { value: "calories", label: "Fewest calories" },
-  { value: "density", label: "Most protein per 100 kcal" },
+  { value: "menu", label: tk("Menu order") },
+  { value: "protein", label: tk("Most protein") },
+  { value: "calories", label: tk("Fewest calories") },
+  { value: "density", label: tk("Most protein per 100 kcal") },
 ];
 
 const byName = (a: MenuItem, b: MenuItem) => a.name.localeCompare(b.name, "en-US");
@@ -116,12 +117,13 @@ export const SECTION_PREVIEW_ITEMS = 6;
  * The one calm line shown wherever a diet filter is on: the filters only know what each restaurant's guide states, so
  * they can't promise anything (matters for halal and vegetarian users). Null when no filter is on.
  */
-export function filterCaution(prefs: Preferences): string | null {
-  const promises = [prefs.vegetarianOnly && "vegetarian", prefs.veganOnly && "vegan", prefs.noPork && "pork-free", prefs.noBeef && "beef-free"].filter((p): p is string => Boolean(p));
+export function filterCaution(prefs: Preferences, t: T = englishT): string | null {
+  const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
   const allergy = prefs.avoidAllergens?.length
-    ? "Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant."
+    ? t("Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.")
     : null;
   if (promises.length === 0) return allergy;
-  const diet = `We only know what each restaurant publishes, so this can't promise a dish is ${promises.join(" or ")}.`;
+  const what = promises.reduce((a, b) => t("{a} or {b}", { a, b }));
+  const diet = t("We only know what each restaurant publishes, so this can't promise a dish is {what}.", { what });
   return allergy ? `${diet} ${allergy}` : diet;
 }

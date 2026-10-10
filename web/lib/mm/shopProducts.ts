@@ -1,6 +1,7 @@
 // "Every product" lists (founder 2026-10-09, docs/GROCERIES_PLAN.md): what a supermarket's own category pages printed for each product (name, price,
 // unit price, card price, picture), with NO nutrition unless we have read the product's own page. Built by tools/groceries/build_all_products.py from
 // the listing crawls; one compact array per product so a 17,000-product shop stays about 2.5 MB.
+import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 
 /** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?] where nutrition is
@@ -73,8 +74,12 @@ export function isShopManifest(x: unknown): x is ShopManifest {
 
 const ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
 
-/** "per 100 g", or "per 100 g (grilled)" when the page's own heading says the numbers are for the grilled, cooked or prepared food. */
-export const nutritionBasis = (n: Pick<ShopNutrition, "per" | "state">): string => `per 100 ${n.per}${n.state ? ` (${n.state})` : ""}`;
+/**
+ * "per 100 g", or "per 100 g (grilled)" when the page's own heading says the numbers are for the grilled, cooked or prepared food
+ * (the state word is the shop's own, shown as printed).
+ */
+export const nutritionBasis = (n: Pick<ShopNutrition, "per" | "state">, t: T = englishT): string =>
+  n.state ? t("per 100 {unit} ({state})", { unit: n.per, state: n.state }) : t("per 100 {unit}", { unit: n.per });
 
 function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition | null {
   if (!Array.isArray(n) || n.length < 10) return null;
@@ -112,12 +117,12 @@ export const possessive = (name: string): string => (/['’]s$/.test(name) ? nam
 
 export type ShopSort = "name" | "price" | "priceDesc" | "unit" | "density" | "protein";
 export const SHOP_SORTS: ReadonlyArray<{ value: ShopSort; label: string }> = [
-  { value: "name", label: "Name A to Z" },
-  { value: "price", label: "Price, lowest first" },
-  { value: "priceDesc", label: "Price, highest first" },
-  { value: "unit", label: "Price per kg or litre, lowest first" },
-  { value: "density", label: "Most protein per 100 kcal" },
-  { value: "protein", label: "Most protein" },
+  { value: "name", label: tk("Name A to Z") },
+  { value: "price", label: tk("Price, lowest first") },
+  { value: "priceDesc", label: tk("Price, highest first") },
+  { value: "unit", label: tk("Price per kg or litre, lowest first") },
+  { value: "density", label: tk("Most protein per 100 kcal") },
+  { value: "protein", label: tk("Most protein") },
 ];
 
 export interface ShopFilters {

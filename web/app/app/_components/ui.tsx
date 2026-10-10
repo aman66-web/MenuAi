@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { useT } from "../_lib/i18n";
 import { CloseIcon } from "./icons";
 
 const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean).join(" ");
@@ -45,7 +46,8 @@ export function Badge({ children, tone = "neutral" }: { children: ReactNode; ton
 }
 
 export function SampleBadge() {
-  return <Badge>Sample data</Badge>;
+  const t = useT();
+  return <Badge>{t("Sample data")}</Badge>;
 }
 
 export function SectionTitle({ children, action }: { children: ReactNode; action?: ReactNode }) {
@@ -71,22 +73,24 @@ export function EmptyState({ title, body, action, icon }: { title: string; body?
   );
 }
 
-export function Spinner({ label = "Loading" }: { label?: string }) {
+export function Spinner({ label }: { label?: string }) {
+  const t = useT();
   return (
     <div role="status" aria-live="polite" className="flex items-center justify-center gap-3 py-10 text-sm text-muted">
       <span className="h-5 w-5 animate-spin rounded-full border-2 border-line border-t-accent" aria-hidden />
-      {label}…
+      {label ?? t("Loading")}…
     </div>
   );
 }
 
 export function ErrorBox({ message, onRetry }: { message: string; onRetry?: () => void }) {
+  const t = useT();
   return (
     <div role="alert" className="glass rounded-3xl px-4 py-6 text-center">
       <p className="text-sm">{message}</p>
       {onRetry && (
         <div className="mt-3 flex justify-center">
-          <Button variant="secondary" onClick={onRetry}>Try again</Button>
+          <Button variant="secondary" onClick={onRetry}>{t("Try again")}</Button>
         </div>
       )}
     </div>
@@ -178,6 +182,7 @@ export const inputClass =
 // ---- bottom sheet on the native <dialog> element: focus trap, Escape and backdrop come for free ----
 
 export function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
+  const t = useT();
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const d = ref.current;
@@ -200,10 +205,10 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
         <div className="sheet-in max-h-[92dvh] overflow-y-auto rounded-t-[2rem] border border-b-0 border-line bg-background px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-20px_60px_-20px_var(--brand-shadow)]">
           <div aria-hidden className="mx-auto mb-1 mt-1 h-1 w-10 rounded-full bg-line" />
           <div className="mb-2 flex items-center">
-            <button type="button" onClick={onClose} aria-label="Close" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
+            <button type="button" onClick={onClose} aria-label={t("Close")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
               <CloseIcon />
             </button>
-            <h2 className="flex-1 pr-9 text-center text-base font-bold tracking-tight">{title}</h2>
+            <h2 className="flex-1 pe-9 text-center text-base font-bold tracking-tight">{title}</h2>
           </div>
           {children}
         </div>

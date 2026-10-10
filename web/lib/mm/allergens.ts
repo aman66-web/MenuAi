@@ -1,4 +1,5 @@
 import type { ChainIndex } from "./chain-index";
+import { englishT, tk, type T } from "./i18n";
 import type { OrderLine } from "./order";
 import { ALLERGEN_KEYS, type AllergenKey, type Allergens } from "./types";
 
@@ -6,27 +7,30 @@ import { ALLERGEN_KEYS, type AllergenKey, type Allergens } from "./types";
 // infers an allergen: an order's list is only ever the union of what the guide says about its parts.
 
 export const ALLERGEN_LABEL: Record<AllergenKey, string> = {
-  celery: "Celery",
-  gluten: "Cereals containing gluten",
-  crustaceans: "Crustaceans",
-  eggs: "Eggs",
-  fish: "Fish",
-  lupin: "Lupin",
-  milk: "Milk",
-  molluscs: "Molluscs",
-  mustard: "Mustard",
-  nuts: "Tree nuts",
-  peanuts: "Peanuts",
-  sesame: "Sesame",
-  soya: "Soya",
-  sulphites: "Sulphur dioxide and sulphites",
+  celery: tk("Celery"),
+  gluten: tk("Cereals containing gluten"),
+  crustaceans: tk("Crustaceans"),
+  eggs: tk("Eggs"),
+  fish: tk("Fish"),
+  lupin: tk("Lupin"),
+  milk: tk("Milk"),
+  molluscs: tk("Molluscs"),
+  mustard: tk("Mustard"),
+  nuts: tk("Tree nuts"),
+  peanuts: tk("Peanuts"),
+  sesame: tk("Sesame"),
+  soya: tk("Soya"),
+  sulphites: tk("Sulphur dioxide and sulphites"),
 };
 
-/** "Cereals containing gluten (wheat, barley)", "Tree nuts (almond)", "Milk": specifics only where the guide names them. */
-export function allergenPhrases(a: Allergens, which: "contains" | "mayContain"): string[] {
+/**
+ * "Cereals containing gluten (wheat, barley)", "Tree nuts (almond)", "Milk": specifics only where the guide names them. The allergen
+ * names are ours (translated with `t`); the specifics are the guide's own words, shown as printed.
+ */
+export function allergenPhrases(a: Allergens, which: "contains" | "mayContain", t: T = englishT): string[] {
   return a[which].map((k) => {
     const detail = which === "contains" ? (k === "gluten" ? a.cereals : k === "nuts" ? a.nuts : undefined) : undefined;
-    return detail?.length ? `${ALLERGEN_LABEL[k]} (${detail.join(", ")})` : ALLERGEN_LABEL[k];
+    return detail?.length ? `${t(ALLERGEN_LABEL[k])} (${detail.join(", ")})` : t(ALLERGEN_LABEL[k]);
   });
 }
 

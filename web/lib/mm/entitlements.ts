@@ -1,4 +1,5 @@
 import { DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, PRO_PREVIEW_FROM_ENV } from "./config";
+import { englishT, tk, type T } from "./i18n";
 import type { UserSettings } from "./user-data";
 
 // SPEC §4: free vs Pro. Payments are not wired on the web yet, so "Pro" comes only from the preview switches.
@@ -32,24 +33,24 @@ export interface PaywallCopy {
   smallPrint: string;
 }
 
-export function paywallCopy(p: PaywallProduct): PaywallCopy {
+export function paywallCopy(p: PaywallProduct, t: T = englishT): PaywallCopy {
   if (p.plan === "monthly") {
-    return { button: "Subscribe", smallPrint: `${p.price}/month, renews automatically. Cancel any time in Settings.` };
+    return { button: t("Subscribe"), smallPrint: t("{price}/month, renews automatically. Cancel any time in Settings.", { price: p.price }) };
   }
   if (p.trialEligible && p.trialDays) {
     return {
-      button: `Start ${p.trialDays}-day free trial`,
-      smallPrint: `Free for ${p.trialDays} days, then ${p.price}/year. We'll remind you 2 days before your trial ends. Cancel any time in Settings.`,
+      button: t("Start {days}-day free trial", { days: p.trialDays }),
+      smallPrint: t("Free for {days} days, then {price}/year. We'll remind you 2 days before your trial ends. Cancel any time in Settings.", { days: p.trialDays, price: p.price }),
     };
   }
-  return { button: "Subscribe", smallPrint: `${p.price}/year, renews automatically. Cancel any time in Settings.` };
+  return { button: t("Subscribe"), smallPrint: t("{price}/year, renews automatically. Cancel any time in Settings.", { price: p.price }) };
 }
 
-export const PAYWALL_TITLE = "Build the perfect order, every time";
+export const PAYWALL_TITLE = tk("Build the perfect order, every time");
 export const PAYWALL_BULLETS = [
-  "Top 5 picks for your goal at every chain",
-  "Build your order with live totals",
-  "Keep a log of what you eat today",
-  "Unlimited saved orders",
-  "Pip makes new recipes just for you",
+  tk("Top 5 picks for your goal at every chain"),
+  tk("Build your order with live totals"),
+  tk("Keep a log of what you eat today"),
+  tk("Unlimited saved orders"),
+  tk("Pip makes new recipes just for you"),
 ] as const;

@@ -1,4 +1,5 @@
-import { formatCalories, formatGrams } from "@/lib/mm/format";
+import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
+import type { T } from "@/lib/mm/i18n";
 import type { Nutrients } from "@/lib/mm/types";
 
 // SPEC §11: a 1080×1350 card. Plain-text chain name, no logos or brand colours. Free for everyone.
@@ -10,6 +11,8 @@ export interface ShareCardInput {
   nutrients: Nutrients;
   appName: string;
   siteHost: string;
+  /** The app's language (the card's own words are translated; names and numbers are not). */
+  t: T;
 }
 
 function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number, maxLines: number): string[] {
@@ -32,6 +35,7 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number, max
 }
 
 export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
+  const { t } = input;
   const W = 1080, H = 1350, PAD = 90;
   const canvas = document.createElement("canvas");
   canvas.width = W;
@@ -45,7 +49,7 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
 
   ctx.fillStyle = "#55645b";
   ctx.font = font(48, 600);
-  wrap(ctx, `My order at ${input.chainName}`, W - PAD * 2, 2).forEach((l, i) => ctx.fillText(l, PAD, 170 + i * 60));
+  wrap(ctx, t("My order at {chain}", { chain: input.chainName }), W - PAD * 2, 2).forEach((l, i) => ctx.fillText(l, PAD, 170 + i * 60));
 
   ctx.fillStyle = "#047857";
   ctx.font = font(330, 800);
@@ -53,10 +57,10 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
   ctx.fillText(protein, PAD, 560);
   const proteinWidth = ctx.measureText(protein).width;
   ctx.font = font(84, 700);
-  ctx.fillText("g protein", PAD + proteinWidth + 24, 560);
+  ctx.fillText(`g ${t("protein")}`, PAD + proteinWidth + 24, 560);
 
   ctx.fillStyle = "#0b1a12";
-  const sub = `${formatCalories(input.nutrients.calories).replace(" kcal", " calories")} · ${formatGrams(input.nutrients.carbs ?? 0)} carbs · ${formatGrams(input.nutrients.fat ?? 0)} fat`;
+  const sub = `${t("{n} calories", { n: formatInt(input.nutrients.calories) })} · ${formatGrams(input.nutrients.carbs ?? 0)} ${t("carbs")} · ${formatGrams(input.nutrients.fat ?? 0)} ${t("fat")}`;
   let subSize = 54;
   ctx.font = font(subSize, 700);
   while (subSize > 34 && ctx.measureText(sub).width > W - PAD * 2) ctx.font = font(--subSize, 700); // keep it on one line
@@ -84,10 +88,11 @@ export type ShareResult = "shared" | "downloaded" | "cancelled";
 export async function shareOrderCard(input: ShareCardInput): Promise<ShareResult> {
   const blob = await renderShareCard(input);
   const file = new File([blob], "my-order.png", { type: "image/png" });
-  const text = `${input.orderName} — ${formatCalories(input.nutrients.calories)}, ${formatGrams(input.nutrients.protein ?? 0)} protein`;
+  const { t } = input;
+  const text = `${input.orderName} — ${formatCalories(input.nutrients.calories)}, ${formatGrams(input.nutrients.protein ?? 0)} ${t("protein")}`;
   try {
     if (navigator.canShare?.({ files: [file] })) {
-      await navigator.share({ files: [file], title: `My order at ${input.chainName}`, text });
+      await navigator.share({ files: [file], title: t("My order at {chain}", { chain: input.chainName }), text });
       return "shared";
     }
   } catch (e) {

@@ -1,40 +1,42 @@
 import { hasMacros } from "@/lib/mm/nutrients";
 import { formatCalories, formatFineGrams, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
 import type { Nutrients } from "@/lib/mm/types";
+import { useT } from "../_lib/i18n";
 
 /** Big calories + protein, then carbs and fat (SPEC §15: same order everywhere). */
 export function MacroSummary({ nutrients: n, label, compact }: { nutrients: Nutrients; label?: string; compact?: boolean }) {
+  const t = useT();
   // Orders are only built from chains that publish full nutrition, so these are always present; 0 is just the type fallback.
   const nutrients = { ...n, protein: n.protein ?? 0, carbs: n.carbs ?? 0, fat: n.fat ?? 0 };
   if (compact) {
     return (
-      <div className="app-numbers flex flex-wrap items-end justify-between gap-x-4 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
+      <div className="app-numbers flex flex-wrap items-end justify-between gap-x-4 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel(t("Totals"), nutrients, t)}>
         <div className="flex flex-wrap items-end gap-x-4 gap-y-1">
           <div><span className="sun-text text-3xl font-extrabold leading-none">{formatInt(nutrients.calories)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">kcal</span></div>
-          <div><span className="text-3xl font-extrabold leading-none text-accent">{formatGrams(nutrients.protein)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">protein</span></div>
+          <div><span className="text-3xl font-extrabold leading-none text-accent">{formatGrams(nutrients.protein)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">{t("protein")}</span></div>
         </div>
-        <div className="text-sm text-muted sm:text-right">
-          <div><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> carbs</div>
-          <div><span className="font-semibold text-foreground">{formatGrams(nutrients.fat)}</span> fat</div>
+        <div className="text-sm text-muted sm:text-end">
+          <div><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> {t("carbs")}</div>
+          <div><span className="font-semibold text-foreground">{formatGrams(nutrients.fat)}</span> {t("fat")}</div>
         </div>
       </div>
     );
   }
   return (
-    <div className="app-numbers" role="group" aria-label={label ?? nutrientAriaLabel("Totals", nutrients)}>
+    <div className="app-numbers" role="group" aria-label={label ?? nutrientAriaLabel(t("Totals"), nutrients, t)}>
       <div className="flex items-end gap-6">
         <div>
           <div className="sun-text text-5xl font-extrabold leading-none tracking-tighter">{formatInt(nutrients.calories)}</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">calories</div>
+          <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">{t("calories")}</div>
         </div>
         <div>
           <div className="text-5xl font-extrabold leading-none tracking-tighter text-accent">{formatGrams(nutrients.protein)}</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">protein</div>
+          <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">{t("protein")}</div>
         </div>
       </div>
       <div className="mt-3 flex gap-5 text-sm text-muted">
-        <span><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> carbs</span>
-        <span><span className="font-semibold text-foreground">{formatGrams(nutrients.fat)}</span> fat</span>
+        <span><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> {t("carbs")}</span>
+        <span><span className="font-semibold text-foreground">{formatGrams(nutrients.fat)}</span> {t("fat")}</span>
       </div>
     </div>
   );
@@ -42,14 +44,15 @@ export function MacroSummary({ nutrients: n, label, compact }: { nutrients: Nutr
 
 /** One-line numbers under an item name: "520 kcal · 32g protein · 55g carbs · 18g fat" (spoken in full words). Inline-safe inside links. */
 export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
+  const t = useT();
   if (!hasMacros(nutrients)) {
     // a calories-only chain: protein, carbs and fat are not published, and the chain page says so
     return <span className="app-numbers block text-sm text-muted">{formatCalories(nutrients.calories)}</span>;
   }
   return (
     <span className="app-numbers block text-sm text-muted">
-      <span aria-hidden>{formatCalories(nutrients.calories)} · {formatGrams(nutrients.protein!)} protein · {formatGrams(nutrients.carbs!)} carbs · {formatGrams(nutrients.fat!)} fat</span>
-      <span className="sr-only">, {nutrientsSpoken(nutrients)}</span>
+      <span aria-hidden>{formatCalories(nutrients.calories)} · {formatGrams(nutrients.protein!)} {t("protein")} · {formatGrams(nutrients.carbs!)} {t("carbs")} · {formatGrams(nutrients.fat!)} {t("fat")}</span>
+      <span className="sr-only">, {nutrientsSpoken(nutrients, t)}</span>
     </span>
   );
 }
@@ -59,10 +62,11 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
  * calories, then protein, carbs and fat. The numbers are one group so a screen reader hears them as one line.
  */
 export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutrients; name: string; children?: React.ReactNode; media?: React.ReactNode }) {
+  const t = useT();
   const macros: Array<[string, number | undefined, boolean, string]> = [
-    ["Protein", nutrients.protein, true, "bg-protein"],
-    ["Carbs", nutrients.carbs, false, "bg-carbs"],
-    ["Fat", nutrients.fat, false, "bg-fat"],
+    [t("Protein"), nutrients.protein, true, "bg-protein"],
+    [t("Carbs"), nutrients.carbs, false, "bg-carbs"],
+    [t("Fat"), nutrients.fat, false, "bg-fat"],
   ];
   // A bar of the three published weights side by side (grams as printed, nothing converted or estimated). Decorative: the
   // numbers themselves are in the tiles below and in the group's spoken label.
@@ -73,7 +77,7 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
       {media}
       <div className="p-6">
         {children}
-        <div role="group" aria-label={nutrientAriaLabel(name, nutrients)} className={`app-numbers ${children ? "mt-6" : ""}`}>
+        <div role="group" aria-label={nutrientAriaLabel(name, nutrients, t)} className={`app-numbers ${children ? "mt-6" : ""}`}>
           <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
             <span className="sun-text text-[min(5rem,22vw)] font-extrabold leading-[0.85] tracking-[-0.05em]">{formatInt(nutrients.calories)}</span>
             <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal</span>
@@ -88,7 +92,7 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
             {macros.map(([label, value, lead, hue]) => (
               <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft ring-1 ring-inset ring-[color-mix(in_srgb,var(--accent)_25%,transparent)]" : "tile"}`}>
                 <dt className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted"><span aria-hidden className={`dot ${hue}`} />{label}</dt>
-                <dd className={value === undefined ? "text-base font-semibold italic text-muted" : `text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{value === undefined ? "not published" : formatGrams(value)}</dd>
+                <dd className={value === undefined ? "text-base font-semibold italic text-muted" : `text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
               </div>
             ))}
           </dl>
@@ -104,31 +108,33 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
  * the chain publishes, both if both, and a single "Salt: not published" row if neither.
  */
 export function NutrientTable({ nutrients }: { nutrients: Nutrients }) {
+  const t = useT();
   const saltOrSodium: Array<[string, string, boolean]> = [];
-  if (nutrients.salt !== undefined) saltOrSodium.push(["Salt", formatSalt(nutrients.salt), true]);
-  if (nutrients.sodium !== undefined) saltOrSodium.push(["Sodium", formatSodium(nutrients.sodium), true]);
-  if (saltOrSodium.length === 0) saltOrSodium.push(["Salt", formatSalt(undefined), false]);
+  if (nutrients.salt !== undefined) saltOrSodium.push([t("Salt"), formatSalt(nutrients.salt, t), true]);
+  if (nutrients.sodium !== undefined) saltOrSodium.push([t("Sodium"), formatSodium(nutrients.sodium, t), true]);
+  if (saltOrSodium.length === 0) saltOrSodium.push([t("Salt"), formatSalt(undefined, t), false]);
   // Extra figures (docs/DATA.md "Extra nutrients") appear only when the chain prints them: no "not published" clutter.
   const extra = (label: string, value: number | undefined, fmt: (v: number) => string): Array<[string, string, boolean]> =>
     value === undefined ? [] : [[label, fmt(value), true]];
   const rows: Array<[string, string, boolean]> = [
-    ...extra("Energy", nutrients.energyKj, (v) => `${formatInt(v)} kJ`),
-    ...extra("Serving weight", nutrients.weight, (v) => `${formatInt(v)}g`),
-    ["Saturated fat", formatOptionalGrams(nutrients.saturatedFat), nutrients.saturatedFat !== undefined],
-    ...extra("Monounsaturated fat", nutrients.monounsaturatedFat, formatFineGrams),
-    ...extra("Polyunsaturated fat", nutrients.polyunsaturatedFat, formatFineGrams),
-    ...extra("Trans fat", nutrients.transFat, formatFineGrams),
+    ...extra(t("Energy"), nutrients.energyKj, (v) => `${formatInt(v)} kJ`),
+    ...extra(t("Serving weight"), nutrients.weight, (v) => `${formatInt(v)}g`),
+    [t("Saturated fat"), formatOptionalGrams(nutrients.saturatedFat, t), nutrients.saturatedFat !== undefined],
+    ...extra(t("Monounsaturated fat"), nutrients.monounsaturatedFat, formatFineGrams),
+    ...extra(t("Polyunsaturated fat"), nutrients.polyunsaturatedFat, formatFineGrams),
+    ...extra(t("Trans fat"), nutrients.transFat, formatFineGrams),
     ...saltOrSodium,
-    ["Sugar", formatOptionalGrams(nutrients.sugar), nutrients.sugar !== undefined],
-    ["Fibre", formatOptionalGrams(nutrients.fiber), nutrients.fiber !== undefined],
-    ...extra("Caffeine", nutrients.caffeine, (v) => `${formatInt(v)}mg`),
+    [t("Sugar"), formatOptionalGrams(nutrients.sugar, t), nutrients.sugar !== undefined],
+    [t("Fibre"), formatOptionalGrams(nutrients.fiber, t), nutrients.fiber !== undefined],
+    ...extra(t("Caffeine"), nutrients.caffeine, (v) => `${formatInt(v)}mg`),
   ];
+  // An unpublished figure reads NOT_PUBLISHED ("not published", lib/mm/format.ts), translated where it's shown.
   return (
     <dl className="app-numbers glass divide-y divide-line overflow-hidden rounded-[1.75rem]">
       {rows.map(([label, value, published]) => (
         <div key={label} className="flex min-h-12 items-center justify-between gap-4 px-5 py-2.5">
           <dt className="text-base">{label}</dt>
-          <dd className={published ? "text-base font-semibold" : "text-sm italic text-muted"}>{value}</dd>
+          <dd className={published ? "text-base font-semibold" : "text-sm italic text-muted"}>{published ? value : t(value)}</dd>
         </div>
       ))}
     </dl>

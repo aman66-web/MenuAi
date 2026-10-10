@@ -4,8 +4,10 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { useCallback, useEffect, useRef } from "react";
 import type { ExpressionSpecification, FilterSpecification, GeoJSONSource, Map as MapLibreMap } from "maplibre-gl";
 import type { LatLng } from "@/lib/mm/geo";
+import type { T } from "@/lib/mm/i18n";
 import { fitContain } from "@/lib/mm/logoFit";
 import { logoFor } from "@/lib/mm/logos";
+import { useT } from "../_lib/i18n";
 
 // The map itself: MapLibre drawing free OpenFreeMap tiles (founder's decision 2026-10-06). Pins are a GeoJSON layer, so a few
 // hundred branches cost nothing. Every branch is its own pin, never grouped into a number bubble (founder 2026-10-10: "just add
@@ -32,6 +34,20 @@ function boundsFor(c: LatLng, miles: number): [[number, number], [number, number
 }
 
 const reduced = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** MapLibre's own words (zoom buttons, the two-finger hint, the credits button), in the app's language. */
+function mapLocale(t: T): Record<string, string> {
+  return {
+    "AttributionControl.ToggleAttribution": t("Toggle attribution"),
+    "AttributionControl.MapFeedback": t("Map feedback"),
+    "Map.Title": t("Map"),
+    "NavigationControl.ZoomIn": t("Zoom in"),
+    "NavigationControl.ZoomOut": t("Zoom out"),
+    "CooperativeGesturesHandler.WindowsHelpText": t("Use Ctrl + scroll to zoom the map"),
+    "CooperativeGesturesHandler.MacHelpText": t("Use ⌘ + scroll to zoom the map"),
+    "CooperativeGesturesHandler.MobileHelpText": t("Use two fingers to move the map"),
+  };
+}
 
 const TILE = 34; // css px: the plain tile a logo sits on
 const CANVAS = 40; // css px: the tile plus room for its soft shadow
@@ -104,6 +120,7 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
   dark: boolean;
   onFailed: () => void;
 }) {
+  const t = useT();
   const box = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const ready = useRef(false);
@@ -161,6 +178,7 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
           bounds: boundsFor(L.center, L.radiusMiles),
           fitBoundsOptions: { padding: 24, maxZoom: 16 },
           attributionControl: { compact: true },
+          locale: mapLocale(t),
           cooperativeGestures: true, // the map sits inside a scrolling page: one finger scrolls the page, two move the map
           dragRotate: false,
           pitchWithRotate: false,
@@ -207,7 +225,7 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
       map?.remove();
       mapRef.current = null;
     };
-  }, [dark, applyLogoState, loadLogos]); // both are stable (refs only), so this still builds the map once per theme
+  }, [dark, t, applyLogoState, loadLogos]); // both are stable (refs only), so this still builds the map once per theme (and language)
 
   // New pins (filters or radius changed).
   useEffect(() => {
@@ -234,5 +252,5 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
     if (pin) map.easeTo({ center: [pin.lng, pin.lat], zoom: Math.max(map.getZoom(), 15), duration: reduced() ? 0 : 400 });
   }, [selectedId, applyLogoState]);
 
-  return <div ref={box} role="region" aria-label="Map of nearby restaurants. The list below has the same restaurants." className="h-full w-full" />;
+  return <div ref={box} role="region" aria-label={t("Map of nearby restaurants. The list below has the same restaurants.")} data-nearby-map className="h-full w-full" />;
 }

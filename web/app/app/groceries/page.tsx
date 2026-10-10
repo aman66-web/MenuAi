@@ -10,6 +10,8 @@ import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_com
 import { useGroceryCatalogue, useGroceryManifest } from "../_lib/groceries";
 import { useShopManifest } from "../_lib/shopProducts";
 import { useSettings, useStore } from "../_lib/hooks";
+import { useT } from "../_lib/i18n";
+import { Rich } from "../_lib/Rich";
 import { ProductRow } from "./ProductRow";
 import { Scanner } from "./Scanner";
 
@@ -18,6 +20,7 @@ import { Scanner } from "./Scanner";
 const PAGE = 60;
 
 export default function GroceriesPage() {
+  const t = useT();
   const router = useRouter();
   const list = useStore(shoppingStore);
   // undefined until the person picks: then the first of their supermarkets (Settings) that has products here, else All
@@ -51,34 +54,34 @@ export default function GroceriesPage() {
   return (
     <div>
       <div className="flex items-start justify-between gap-3">
-        <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight">Shop <span className="serif-em sun-text pr-0.5">smart</span></h1>
-        <Link href="/app/groceries/list" aria-label={`Shopping list, ${list.length} ${list.length === 1 ? "item" : "items"}`} className="glass relative mt-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
+        <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Shop {smart}")} values={{ smart: <span className="serif-em sun-text pe-0.5">{t("smart")}</span> }} /></h1>
+        <Link href="/app/groceries/list" aria-label={list.length === 1 ? t("Shopping list, 1 item") : t("Shopping list, {n} items", { n: list.length })} className="glass relative mt-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
           <BasketIcon />
-          {list.length > 0 && <span aria-hidden className="app-numbers absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-[11px] font-bold text-background">{list.length}</span>}
+          {list.length > 0 && <span aria-hidden className="app-numbers absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-[11px] font-bold text-background">{list.length}</span>}
         </Link>
       </div>
-      <p className="mt-1 text-sm text-muted">Products from the UK&apos;s biggest supermarkets: calories, protein, carbs, fat, allergens and the barcode for each product.</p>
+      <p className="mt-1 text-sm text-muted">{t("Products from the UK's biggest supermarkets: calories, protein, carbs, fat, allergens and the barcode for each product.")}</p>
 
-      <Link href="/app/recipes" className="glass lift group mt-4 flex min-h-[4.5rem] items-center gap-3 rounded-[1.75rem] p-3 pl-4 hover:bg-soft-strong">
+      <Link href="/app/recipes" className="glass lift group mt-4 flex min-h-[4.5rem] items-center gap-3 rounded-[1.75rem] p-3 ps-4 hover:bg-soft-strong">
         <span aria-hidden className="icon-bubble h-11 w-11 shrink-0"><PotIcon className="h-5 w-5" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-[15px] font-bold leading-snug tracking-tight">Recipes from your shop</span>
-          <span className="block text-sm text-muted">Real products and prices, with calories, protein and cost per serving.</span>
+          <span className="block text-[15px] font-bold leading-snug tracking-tight">{t("Recipes from your shop")}</span>
+          <span className="block text-sm text-muted">{t("Real products and prices, with calories, protein and cost per serving.")}</span>
         </span>
         <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
 
       <div className="mt-4 flex gap-2">
         <label className="relative flex-1">
-          <span className="sr-only">Search products or type a barcode</span>
-          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder="Search groceries" enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full pl-11 pr-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
+          <span className="sr-only">{t("Search products or type a barcode")}</span>
+          <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
+          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search groceries")} enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
         </label>
-        <Button variant="secondary" onClick={() => setScanning(true)} aria-label="Scan a barcode"><ScanIcon className="h-5 w-5" /></Button>
+        <Button variant="secondary" onClick={() => setScanning(true)} aria-label={t("Scan a barcode")}><ScanIcon className="h-5 w-5" /></Button>
       </div>
 
-      <div role="group" aria-label="Supermarket" className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
-        <Chip selected={retailer === null} onClick={() => { setRetailer(null); reset(); }}>All</Chip>
+      <div role="group" aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+        <Chip selected={retailer === null} onClick={() => { setRetailer(null); reset(); }}>{t("All")}</Chip>
         {RETAILERS.filter((r) => !catalogue.manifest || counts.has(r.id)).map((r) => (
           <Chip key={r.id} selected={retailer === r.id} onClick={() => { setRetailer(r.id); reset(); }}>{r.name}</Chip>
         ))}
@@ -87,32 +90,32 @@ export default function GroceriesPage() {
         <div className="mt-2 flex flex-wrap gap-2">
           {fullLists.retailers.filter((r) => !retailer || r.id === retailer).map((r) => (
             <Link key={r.id} href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className="inline-flex min-h-11 items-center rounded-full border border-line bg-soft px-4 text-sm font-semibold transition active:scale-[0.97] hover:bg-soft-strong">
-              Every {r.name} product <span className="app-numbers ml-1 text-muted">· {r.count.toLocaleString("en-GB")}</span>
+              {t("Every {shop} product", { shop: r.name })} <span className="app-numbers ms-1 text-muted">· {r.count.toLocaleString("en-GB")}</span>
             </Link>
           ))}
         </div>
       )}
-      <div role="group" aria-label="Filters" className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
-        {anyPrices && <Chip selected={priced} onClick={() => { setPriced((v) => !v); reset(); }}>Has a price</Chip>}
-        <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>All types</Chip>
-        {categories.map((c) => (<Chip key={c.id} selected={category === c.id} onClick={() => { setCategory(c.id); reset(); }}>{c.label}</Chip>))}
+      <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
+        {anyPrices && <Chip selected={priced} onClick={() => { setPriced((v) => !v); reset(); }}>{t("Has a price")}</Chip>}
+        <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>{t("All types")}</Chip>
+        {categories.map((c) => (<Chip key={c.id} selected={category === c.id} onClick={() => { setCategory(c.id); reset(); }}>{t(c.label)}</Chip>))}
       </div>
       <label className="mt-3 flex items-center justify-end gap-2 text-sm">
-        <span className="text-muted">Sort</span>
+        <span className="text-muted">{t("Sort")}</span>
         <select className={`${inputClass} min-h-11 w-auto py-0 text-sm`} value={sort} onChange={(e) => { setSort(e.target.value as GrocerySort); reset(); }}>
-          {GROCERY_SORTS.map((o) => (<option key={o.value} value={o.value}>{o.label}</option>))}
+          {GROCERY_SORTS.map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
         </select>
       </label>
 
       {catalogue.status === "loading" ? (
-        <Spinner label="Loading products" />
+        <Spinner label={t("Loading products")} />
       ) : catalogue.status === "error" ? (
-        <div className="mt-4"><ErrorBox message="Couldn't load the products. Check your connection." onRetry={() => setRetry((n) => n + 1)} /></div>
+        <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
       ) : (
         <>
-          <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length.toLocaleString("en-GB")} {results.length === 1 ? "product" : "products"}{isBarcode ? " with that barcode" : ""}</p>
+          <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length === 1 ? (isBarcode ? t("1 product with that barcode") : t("1 product")) : isBarcode ? t("{n} products with that barcode", { n: results.length.toLocaleString("en-GB") }) : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
           {results.length === 0 ? (
-            <div className="mt-3"><EmptyState title="No products match." body={isBarcode ? "That barcode isn't in our list yet." : "Try fewer words, another supermarket, or a different type."} /></div>
+            <div className="mt-3"><EmptyState title={t("No products match.")} body={isBarcode ? t("That barcode isn't in our list yet.") : t("Try fewer words, another supermarket, or a different type.")} /></div>
           ) : (
             <ul className="mt-3 space-y-2.5">
               {results.slice(0, shown).map((p) => (<li key={p.gtin}><ProductRow product={p} retailer={retailer} /></li>))}
@@ -120,15 +123,15 @@ export default function GroceriesPage() {
           )}
           {results.length > shown && (
             <button type="button" onClick={() => setShown((n) => n + PAGE)} className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft">
-              Show {Math.min(PAGE, results.length - shown)} more
+              {t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}
             </button>
           )}
         </>
       )}
 
       <p className="mt-8 border-t border-line pt-4 text-xs text-muted">
-        Product details come from Open Food Facts contributors (open data: openfoodfacts.org). They can be out of date or wrong, so always check the pack, especially for allergens.
-        Prices appear only where we&apos;ve read them from the supermarket&apos;s own website. Not affiliated with any supermarket.
+        {t("Product details come from Open Food Facts contributors (open data: openfoodfacts.org). They can be out of date or wrong, so always check the pack, especially for allergens.")}{" "}
+        {t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}
       </p>
 
       <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) { setQuery(c); setRetailer(null); router.push(`/app/groceries/product?code=${c}`); } }} />

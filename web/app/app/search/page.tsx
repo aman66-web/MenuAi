@@ -12,9 +12,11 @@ import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyState, SampleBadge, SectionTitle } from "../_components/ui";
 import { PipSays } from "../_components/Mascot";
 import { useSearchIndex } from "../_lib/hooks";
+import { useT } from "../_lib/i18n";
 
 // SPEC §7.3: type-ahead over chain and item names, minimum 2 characters. Chains first, then items.
 export default function SearchPage() {
+  const t = useT();
   const [query, setQuery] = useState("");
   const deferred = useDeferredValue(query);
   const { searchIndex, loadedCount, totalCount } = useSearchIndex();
@@ -28,25 +30,25 @@ export default function SearchPage() {
 
   return (
     <div>
-      <h1 className="sr-only">Search</h1>
+      <h1 className="sr-only">{t("Search")}</h1>
       <div className="flex items-center gap-2">
-        <Link href="/app" aria-label="Back" className="glass inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+        <Link href="/app" aria-label={t("Back")} className="glass inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
         <div className="relative flex-1">
-          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
+          <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
             type="search"
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && remember()}
-            placeholder="Search restaurants and items"
-            aria-label="Search restaurants and items"
+            placeholder={t("Search restaurants and items")}
+            aria-label={t("Search restaurants and items")}
             enterKeyHint="search"
             autoComplete="off"
-            className="glass min-h-12 w-full rounded-full pl-11 pr-12 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden"
+            className="glass min-h-12 w-full rounded-full ps-11 pe-12 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden"
           />
           {query && (
-            <button type="button" onClick={() => setQuery("")} aria-label="Clear search" className="absolute right-0.5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:text-foreground">
+            <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="absolute end-0.5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:text-foreground">
               <CloseIcon className="h-5 w-5" />
             </button>
           )}
@@ -56,8 +58,8 @@ export default function SearchPage() {
       {!active && (
         recent.length > 0 ? (
           <section aria-labelledby="recent-heading">
-            <SectionTitle action={<button type="button" onClick={() => setRecent([])} className="min-h-11 px-1 text-sm font-medium text-accent">Clear</button>}>
-              <span id="recent-heading">Recent searches</span>
+            <SectionTitle action={<button type="button" onClick={() => setRecent([])} className="min-h-11 px-1 text-sm font-medium text-accent">{t("Clear")}</button>}>
+              <span id="recent-heading">{t("Recent searches")}</span>
             </SectionTitle>
             <div className="flex flex-wrap gap-2">
               {recent.map((r) => (<Chip key={r} onClick={() => setQuery(r)}>{r}</Chip>))}
@@ -65,7 +67,7 @@ export default function SearchPage() {
           </section>
         ) : (
           <div className="mx-auto mt-10 max-w-sm">
-            <PipSays mood="think">Type at least {MIN_QUERY_LENGTH} letters of a restaurant or a dish.</PipSays>
+            <PipSays mood="think">{t("Type at least {n} letters of a restaurant or a dish.", { n: MIN_QUERY_LENGTH })}</PipSays>
           </div>
         )
       )}
@@ -76,9 +78,9 @@ export default function SearchPage() {
             <SearchSkeleton />
           ) : (
             <EmptyState
-              title="We don't cover this yet."
-              body={<>Nothing matches &ldquo;{deferred.trim()}&rdquo;. Tell us which restaurant you&apos;d like next.</>}
-              action={<Button onClick={() => setRequesting(true)}>Request it</Button>}
+              title={t("We don't cover this yet.")}
+              body={t("Nothing matches “{query}”. Tell us which restaurant you'd like next.", { query: deferred.trim() })}
+              action={<Button onClick={() => setRequesting(true)}>{t("Request it")}</Button>}
             />
           )}
         </div>
@@ -86,7 +88,7 @@ export default function SearchPage() {
 
       {results.chains.length > 0 && (
         <>
-          <SectionTitle>Chains</SectionTitle>
+          <SectionTitle>{t("Chains")}</SectionTitle>
           <ul className="space-y-2">
             {results.chains.map((c) => (
               <li key={c.chainId}>
@@ -113,7 +115,7 @@ export default function SearchPage() {
 
       {results.items.length > 0 && (
         <>
-          <SectionTitle>Items</SectionTitle>
+          <SectionTitle>{t("Items")}</SectionTitle>
           <ul className="space-y-2">
             {results.items.map((i) => (
               <li key={`${i.chainId}/${i.itemId}`}>
@@ -127,7 +129,7 @@ export default function SearchPage() {
                     <span className="font-bold tracking-tight"><Highlight text={i.name} query={deferred} /></span>{" "}
                     <span className="text-muted">
                       · {i.chainName} · <span aria-hidden className="whitespace-nowrap">{formatCalories(i.calories)}</span>
-                      <span className="sr-only">{Math.round(i.calories)} calories</span>
+                      <span className="sr-only">{t("{n} calories", { n: Math.round(i.calories) })}</span>
                     </span>
                   </span>
                   <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
@@ -135,7 +137,7 @@ export default function SearchPage() {
               </li>
             ))}
           </ul>
-          {stillLoading && <p role="status" className="mt-3 text-center text-sm text-muted">Still loading menus ({loadedCount} of {totalCount})…</p>}
+          {stillLoading && <p role="status" className="mt-3 text-center text-sm text-muted">{t("Still loading menus ({n} of {total})…", { n: loadedCount, total: totalCount })}</p>}
         </>
       )}
 
@@ -159,8 +161,9 @@ function Highlight({ text, query }: { text: string; query: string }) {
 
 /** Shown while the search index is still arriving, so typing never looks like "no results". */
 function SearchSkeleton() {
+  const t = useT();
   return (
-    <div role="status" aria-label="Loading search" className="space-y-2">
+    <div role="status" aria-label={t("Loading search")} className="space-y-2">
       {[0, 1, 2, 3].map((n) => (
         <div key={n} aria-hidden className="glass flex min-h-14 items-center gap-3 rounded-2xl px-4">
           <span className="h-4 animate-pulse rounded-full bg-soft-strong" style={{ width: `${70 - n * 12}%` }} />

@@ -1,3 +1,4 @@
+import { tk } from "./i18n";
 import type { Goal } from "./types";
 
 // SPEC §6.2: Mifflin-St Jeor suggestion. Always shown with "Suggested starting points, not medical advice."
@@ -7,18 +8,18 @@ export type Activity = "sedentary" | "light" | "active" | "veryActive";
 
 export const ACTIVITY_FACTOR: Record<Activity, number> = { sedentary: 1.2, light: 1.375, active: 1.55, veryActive: 1.725 };
 export const ACTIVITY_LABEL: Record<Activity, string> = {
-  sedentary: "Mostly sitting",
-  light: "Lightly active",
-  active: "Active",
-  veryActive: "Very active",
+  sedentary: tk("Mostly sitting"),
+  light: tk("Lightly active"),
+  active: tk("Active"),
+  veryActive: tk("Very active"),
 };
 const SEX_OFFSET: Record<Sex, number> = { male: 5, female: -161, unspecified: -78 };
 const CALORIE_ADJUSTMENT: Record<Goal, number> = { lose: -500, maintain: 0, buildMuscle: 250, glp1: -500, other: 0 };
 const PROTEIN_PER_KG: Record<Goal, number> = { lose: 1.4, maintain: 1.2, buildMuscle: 1.6, glp1: 1.4, other: 1.2 }; // "other" = maintain
 
 export const MIN_SUGGESTED_CALORIES = 1200;
-export const UNDER_18_COPY = "Ask a doctor or dietitian for targets.";
-export const SUGGESTION_NOTE = "Suggested starting points, not medical advice. Adjust any time.";
+export const UNDER_18_COPY = tk("Ask a doctor or dietitian for targets.");
+export const SUGGESTION_NOTE = tk("Suggested starting points, not medical advice. Adjust any time.");
 
 export interface SuggestionInput {
   sex: Sex;

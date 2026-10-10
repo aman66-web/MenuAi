@@ -9,6 +9,7 @@ import { orderAllergens } from "@/lib/mm/allergens";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { formatCalories, lowerFirst } from "@/lib/mm/format";
+import type { T } from "@/lib/mm/i18n";
 import {
   addComponent, addableComponents, afterThis, afterThisText, describeOrder, GROUP_LABEL, isOrderAvailable, lineFromItem, lineNutrients,
   linesFromCombination, lineName, orderName, orderNutrients, removeComponent, setComponentQty, setItemQty, sortedComponents, swapComponent,
@@ -24,15 +25,16 @@ import { MacroSummary } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
 import { Button, Card, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
 import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
+import { useT } from "../_lib/i18n";
 
 // SPEC §6.5 and §7.6: customise any order with live totals (Pro).
 
 type Start = { kind: "item" | "pick" | "saved"; lines: OrderLine[]; savedName?: string; savedId?: string; source: LogSource } | { kind: "error"; message: string } | { kind: "unavailable"; saved: SavedOrder };
 
-function resolveStart(ix: ChainIndex, props: { itemId?: string; pickId?: string; savedId?: string }, saved: SavedOrder[]): Start {
+function resolveStart(ix: ChainIndex, props: { itemId?: string; pickId?: string; savedId?: string }, saved: SavedOrder[], t: T): Start {
   if (props.savedId) {
     const s = saved.find((o) => o.id === props.savedId);
-    if (!s) return { kind: "error", message: "That saved order no longer exists." };
+    if (!s) return { kind: "error", message: t("That saved order no longer exists.") };
     if (!isOrderAvailable(ix, s.lines)) return { kind: "unavailable", saved: s };
     return { kind: "saved", lines: s.lines.map((l) => structuredClone(l)), savedName: s.name, savedId: s.id, source: "savedOrder" };
   }
@@ -40,19 +42,20 @@ function resolveStart(ix: ChainIndex, props: { itemId?: string; pickId?: string;
     const combo = ix.combinations.get(props.pickId);
     if (combo) {
       const lines = linesFromCombination(ix, combo);
-      return lines ? { kind: "pick", lines, source: "combination" } : { kind: "error", message: "Something in that order is no longer on the menu." };
+      return lines ? { kind: "pick", lines, source: "combination" } : { kind: "error", message: t("Something in that order is no longer on the menu.") };
     }
     const line = lineFromItem(ix, props.pickId);
-    return line ? { kind: "pick", lines: [line], source: "item" } : { kind: "error", message: "That item is no longer on the menu." };
+    return line ? { kind: "pick", lines: [line], source: "item" } : { kind: "error", message: t("That item is no longer on the menu.") };
   }
   if (props.itemId) {
     const line = lineFromItem(ix, props.itemId);
-    return line ? { kind: "item", lines: [line], source: "item" } : { kind: "error", message: "That item is no longer on the menu." };
+    return line ? { kind: "item", lines: [line], source: "item" } : { kind: "error", message: t("That item is no longer on the menu.") };
   }
-  return { kind: "error", message: "Choose an item to customise first." };
+  return { kind: "error", message: t("Choose an item to customise first.") };
 }
 
 export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?: string; savedId?: string }) {
+  const t = useT();
   const hydrated = useHydrated();
   const pro = useIsPro();
   const { showPaywall } = useGate();
@@ -60,43 +63,43 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   const saved = useStore(savedStore);
 
   const back = (
-    <Link href={props.chainId ? chainHref(props.chainId) : "/app"} aria-label="Back" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+    <Link href={props.chainId ? chainHref(props.chainId) : "/app"} aria-label={t("Back")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
   );
-  if (!hydrated || status === "loading") return (<div>{back}<Spinner label="Loading" /></div>);
+  if (!hydrated || status === "loading") return (<div>{back}<Spinner label={t("Loading")} /></div>);
   if (!pro) {
     return (
       <div>
         {back}
-        <h1 className="text-4xl font-extrabold tracking-tight">Order builder</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight">{t("Order builder")}</h1>
         <Card className="mt-6 flex flex-col items-center gap-3 p-6 text-center">
           <LockIcon className="h-8 w-8 text-muted" />
-          <p className="font-semibold">Customise any order with live totals</p>
-          <p className="text-sm text-muted">The order builder is part of Pro.</p>
-          <Button onClick={() => showPaywall("orderBuilder")}>See Pro</Button>
+          <p className="font-semibold">{t("Customise any order with live totals")}</p>
+          <p className="text-sm text-muted">{t("The order builder is part of Pro.")}</p>
+          <Button onClick={() => showPaywall("orderBuilder")}>{t("See Pro")}</Button>
         </Card>
       </div>
     );
   }
-  if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ?? "Couldn't load this menu."} onRetry={retry} /></div>);
+  if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></div>);
 
   if (index.chain.nutritionLevel === "calories") {
     return (
       <div>
         {back}
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tight">Order builder</h1>
-        <p className="mt-2 text-sm text-muted">{index.chain.name} publishes calories only, so there are no protein, carbs or fat totals to build an order from.</p>
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{t("Order builder")}</h1>
+        <p className="mt-2 text-sm text-muted">{t("{chain} publishes calories only, so there are no protein, carbs or fat totals to build an order from.", { chain: index.chain.name })}</p>
       </div>
     );
   }
-  const start = resolveStart(index, props, saved);
+  const start = resolveStart(index, props, saved, t);
   if (start.kind === "error") return (<div>{back}<ErrorBox message={start.message} /></div>);
   if (start.kind === "unavailable") {
     return (
       <div>
         {back}
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{start.saved.name}</h1>
-        <p className="mt-2 text-sm font-medium">No longer on the menu</p>
-        <p className="mt-1 text-sm text-muted">Something in this order was removed from the menu, so it can&apos;t be edited. Your saved numbers are kept.</p>
+        <p className="mt-2 text-sm font-medium">{t("No longer on the menu")}</p>
+        <p className="mt-1 text-sm text-muted">{t("Something in this order was removed from the menu, so it can't be edited. Your saved numbers are kept.")}</p>
         <div className="mt-4"><MacroSummary nutrients={start.saved.nutrients} /></div>
       </div>
     );
@@ -105,6 +108,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
 }
 
 function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines: OrderLine[] }> }) {
+  const t = useT();
   const router = useRouter();
   const { gate } = useGate();
   const menu = useMenu();
@@ -140,7 +144,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
 
   const total = useMemo(() => orderNutrients(ix, lines), [ix, lines]);
   const allergens = useMemo(() => orderAllergens(ix, lines), [ix, lines]);
-  const valid = validateOrder(lines);
+  const valid = validateOrder(lines, t);
   const defaultName = orderName(ix, lines);
   const name = customName ?? defaultName;
   const profile = { goal: settings.goal, dailyCalories: settings.dailyCalories, ...(settings.dailyProtein ? { dailyProtein: settings.dailyProtein } : {}) };
@@ -162,10 +166,10 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   return (
     <div>
       <div className="flex items-center justify-between">
-        <button type="button" onClick={() => router.back()} aria-label="Back" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></button>
+        <button type="button" onClick={() => router.back()} aria-label={t("Back")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></button>
       </div>
       <p className="kicker mt-5">{chain.name}</p>
-      <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">Build your order</h1>
+      <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">{t("Build your order")}</h1>
 
       <div className="mt-4 space-y-4">
         {lines.map((line, i) => (
@@ -173,7 +177,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
             <div className="flex items-start justify-between gap-2">
               <h2 className="text-lg font-bold leading-snug tracking-tight">{lineName(ix, line)}</h2>
               {lines.length > 1 && (
-                <button type="button" aria-label={`Remove ${ix.items.get(line.itemId)?.name ?? "item"} from the order`} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
+                <button type="button" aria-label={t("Remove {name} from the order", { name: ix.items.get(line.itemId)?.name ?? t("item") })} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className="-me-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
                   <TrashIcon className="h-5 w-5" />
                 </button>
               )}
@@ -182,8 +186,8 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
               <ComponentLineEditor
                 ix={ix}
                 line={line}
-                onDouble={(id, on) => change("double", setComponentQty(ix, line, id, on ? 2 : 1), i)}
-                onRemove={(id) => change("remove", removeComponent(line, id), i)}
+                onDouble={(id, on) => change("double", setComponentQty(ix, line, id, on ? 2 : 1, t), i)}
+                onRemove={(id) => change("remove", removeComponent(line, id, t), i)}
                 onSwap={(id) => setPicker({ type: "swap", lineIndex: i, componentId: id })}
                 onAdd={() => setPicker({ type: "add", lineIndex: i })}
               />
@@ -191,8 +195,8 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
               <ItemLineEditor
                 ix={ix}
                 line={line}
-                onQty={(q) => change("modifier", setItemQty(line, q), i)}
-                onToggle={(id) => change("modifier", toggleModifier(ix, line, id), i)}
+                onQty={(q) => change("modifier", setItemQty(line, q, t), i)}
+                onToggle={(id) => change("modifier", toggleModifier(ix, line, id, t), i)}
               />
             )}
           </Card>
@@ -200,15 +204,15 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       </div>
 
       <Button variant="secondary" full className="mt-4" onClick={() => setPicker({ type: "item" })}>
-        <PlusIcon className="h-5 w-5" /> Add item
+        <PlusIcon className="h-5 w-5" /> {t("Add item")}
       </Button>
 
       <p role="alert" className="mt-3 min-h-5 text-sm font-medium text-accent">{notice}</p>
 
-      <div className="mt-2"><AllergenSection chain={ix.chain} allergens={allergens?.allergens} changesNotCovered={allergens?.changesNotCovered} title="Allergens in this order" /></div>
+      <div className="mt-2"><AllergenSection chain={ix.chain} allergens={allergens?.allergens} changesNotCovered={allergens?.changesNotCovered} title={t("Allergens in this order")} /></div>
 
       <div className="mt-2">
-        <Field label="Order name">
+        <Field label={t("Order name")}>
           <input className={inputClass} value={name} maxLength={120} onChange={(e) => setCustomName(e.target.value)} />
         </Field>
       </div>
@@ -217,7 +221,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       <div ref={summaryRef} className={`z-10 -mx-5 mt-4 rounded-t-3xl border-t border-line bg-background/92 px-5 pb-3 pt-4 shadow-[0_-12px_30px_-18px_rgba(0,0,0,0.5)] backdrop-blur-xl ${pinned ? "sticky bottom-[calc(5.25rem+env(safe-area-inset-bottom))]" : ""}`}>
         {total && valid.ok ? (
           <>
-            <div aria-live="polite"><MacroSummary compact nutrients={total} label={`Order total: ${formatCalories(total.calories)}, ${Math.round(total.protein ?? 0)} grams protein`} /></div>
+            <div aria-live="polite"><MacroSummary compact nutrients={total} label={t("Order total: {kcal}, {protein} grams protein", { kcal: formatCalories(total.calories), protein: Math.round(total.protein ?? 0) })} /></div>
             <p className="app-numbers mt-1 text-sm text-muted">{after}</p>
             <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(5.5rem,1fr))] gap-2">
               <Button
@@ -239,7 +243,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                   });
                 }}
               >
-                {start.savedId ? "Save changes" : "Save"}
+                {start.savedId ? t("Save changes") : t("Save")}
               </Button>
               <Button
                 variant="secondary"
@@ -253,19 +257,19 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                   })
                 }
               >
-                Log
+                {t("Log")}
               </Button>
               <ShareButton full chainName={chain.name} orderName={name} description={describeOrder(ix, lines)} nutrients={total} />
             </div>
           </>
         ) : (
-          <p className="text-sm text-muted">{valid.ok ? "Something in this order is no longer on the menu." : valid.error}</p>
+          <p className="text-sm text-muted">{valid.ok ? t("Something in this order is no longer on the menu.") : valid.error}</p>
         )}
       </div>
 
       <PickerSheets ix={ix} picker={picker} lines={lines} onClose={() => setPicker(null)} onPickComponent={(id) => {
-        if (picker?.type === "add") change("add", addComponent(ix, lines[picker.lineIndex] as ComponentLine, id), picker.lineIndex);
-        if (picker?.type === "swap") change("swap", swapComponent(ix, lines[picker.lineIndex] as ComponentLine, picker.componentId, id), picker.lineIndex);
+        if (picker?.type === "add") change("add", addComponent(ix, lines[picker.lineIndex] as ComponentLine, id, t), picker.lineIndex);
+        if (picker?.type === "swap") change("swap", swapComponent(ix, lines[picker.lineIndex] as ComponentLine, picker.componentId, id, t), picker.lineIndex);
         setPicker(null);
       }} onPickItem={(itemId) => {
         const line = lineFromItem(ix, itemId);
@@ -282,28 +286,29 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
 function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
   ix: ChainIndex; line: ComponentLine; onDouble: (id: string, on: boolean) => void; onRemove: (id: string) => void; onSwap: (id: string) => void; onAdd: () => void;
 }) {
+  const t = useT();
   const rows = sortedComponents(ix, line);
   const groups = [...new Set(rows.map((r) => r.comp.group))];
   return (
     <div className="mt-3">
       {groups.map((group) => (
-        <section key={group} aria-label={GROUP_LABEL[group]} className="mt-3 first:mt-0">
-          <h3 className="mb-1.5 text-xs font-bold uppercase tracking-[0.14em] text-muted">{GROUP_LABEL[group]}</h3>
+        <section key={group} aria-label={t(GROUP_LABEL[group])} className="mt-3 first:mt-0">
+          <h3 className="mb-1.5 text-xs font-bold uppercase tracking-[0.14em] text-muted">{t(GROUP_LABEL[group])}</h3>
           <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
             {rows.filter((r) => r.comp.group === group).map(({ ref, comp }) => (
               <li key={comp.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-2">
                 <div className="min-w-0 flex-1 basis-32">
-                  <div className="font-medium">{ref.qty === 2 ? `Double ${lowerFirst(comp.name)}` : comp.name}</div>
+                  <div className="font-medium">{ref.qty === 2 ? t("Double {name}", { name: lowerFirst(comp.name) }) : comp.name}</div>
                   <div className="app-numbers text-sm text-muted">{[comp.portion && (ref.qty === 2 ? `2 × ${comp.portion}` : comp.portion), formatCalories(comp.nutrients.calories * ref.qty)].filter(Boolean).join(" · ")}</div>
                 </div>
                 <div className="flex flex-wrap items-center">
                   {comp.allowDouble && (
-                    <button type="button" aria-pressed={ref.qty === 2} aria-label={`Double ${lowerFirst(comp.name)}`} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-full px-3.5 text-sm font-bold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft-strong"}`}>Double</button>
+                    <button type="button" aria-pressed={ref.qty === 2} aria-label={t("Double {name}", { name: lowerFirst(comp.name) })} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-full px-3.5 text-sm font-bold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft-strong"}`}>{t("Double")}</button>
                   )}
                   {swapOptions(ix, line, comp.id).length > 0 && (
-                    <button type="button" aria-label={`Swap ${comp.name}`} onClick={() => onSwap(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong"><SwapIcon className="h-5 w-5" /></button>
+                    <button type="button" aria-label={t("Swap {name}", { name: comp.name })} onClick={() => onSwap(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong"><SwapIcon className="h-5 w-5" /></button>
                   )}
-                  <button type="button" aria-label={`Remove ${comp.name}`} disabled={line.components.length === 1} onClick={() => onRemove(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
+                  <button type="button" aria-label={t("Remove {name}", { name: comp.name })} disabled={line.components.length === 1} onClick={() => onRemove(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
                 </div>
               </li>
             ))}
@@ -311,13 +316,14 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
         </section>
       ))}
       {addableComponents(ix, line).size > 0 && (
-        <Button variant="ghost" className="mt-3" onClick={onAdd}><PlusIcon className="h-5 w-5" /> Add ingredient</Button>
+        <Button variant="ghost" className="mt-3" onClick={onAdd}><PlusIcon className="h-5 w-5" /> {t("Add ingredient")}</Button>
       )}
     </div>
   );
 }
 
 function ItemLineEditor({ ix, line, onQty, onToggle }: { ix: ChainIndex; line: ItemLine; onQty: (q: number) => void; onToggle: (id: string) => void }) {
+  const t = useT();
   const item = ix.items.get(line.itemId);
   if (!item) return null;
   const total = lineNutrients(ix, line);
@@ -325,10 +331,10 @@ function ItemLineEditor({ ix, line, onQty, onToggle }: { ix: ChainIndex; line: I
     <div className="mt-3">
       <div className="flex items-center justify-between gap-3">
         <span className="app-numbers text-sm text-muted">{total ? formatCalories(total.calories) : ""}</span>
-        <div className="flex items-center gap-1" role="group" aria-label="Quantity">
-          <button type="button" aria-label="Decrease quantity" disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
+        <div className="flex items-center gap-1" role="group" aria-label={t("Quantity")}>
+          <button type="button" aria-label={t("Decrease quantity")} disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
           <span className="app-numbers w-8 text-center text-lg font-semibold" aria-live="polite">{line.qty}</span>
-          <button type="button" aria-label="Increase quantity" onClick={() => onQty(line.qty + 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full"><PlusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("Increase quantity")} onClick={() => onQty(line.qty + 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full"><PlusIcon className="h-5 w-5" /></button>
         </div>
       </div>
       {item.modifiers.length > 0 && (
@@ -357,25 +363,26 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
   ix: ChainIndex; picker: null | { type: "add"; lineIndex: number } | { type: "swap"; lineIndex: number; componentId: string } | { type: "item" };
   lines: OrderLine[]; onClose: () => void; onPickComponent: (id: string) => void; onPickItem: (id: string) => void;
 }) {
+  const t = useT();
   const line = picker && picker.type !== "item" ? (lines[picker.lineIndex] as ComponentLine | undefined) : undefined;
   const optionGroups: Array<{ title: string; items: MenuComponent[] }> = [];
   if (picker?.type === "add" && line?.kind === "components") {
-    for (const [group, list] of addableComponents(ix, line)) optionGroups.push({ title: GROUP_LABEL[group] ?? group, items: list });
+    for (const [group, list] of addableComponents(ix, line)) optionGroups.push({ title: t(GROUP_LABEL[group] ?? group), items: list });
   }
   if (picker?.type === "swap" && line?.kind === "components") {
     const list = swapOptions(ix, line, picker.componentId);
-    optionGroups.push({ title: `Swap ${ix.components.get(picker.componentId)?.name ?? ""} for`, items: list });
+    optionGroups.push({ title: t("Swap {name} for", { name: ix.components.get(picker.componentId)?.name ?? "" }), items: list });
   }
   return (
     <>
-      <Sheet open={picker?.type === "add" || picker?.type === "swap"} onClose={onClose} title={picker?.type === "swap" ? "Swap ingredient" : "Add ingredient"}>
+      <Sheet open={picker?.type === "add" || picker?.type === "swap"} onClose={onClose} title={picker?.type === "swap" ? t("Swap ingredient") : t("Add ingredient")}>
         {optionGroups.map((g) => (
           <section key={g.title} className="mb-3">
             <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{g.title}</h3>
             <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
               {g.items.map((c) => (
                 <li key={c.id}>
-                  <button type="button" onClick={() => onPickComponent(c.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-left hover:bg-soft-strong">
+                  <button type="button" onClick={() => onPickComponent(c.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-start hover:bg-soft-strong">
                     <span><span className="block font-medium">{c.name}</span>{c.portion && <span className="block text-sm text-muted">{c.portion}</span>}</span>
                     <span className="text-sm text-muted">{formatCalories(c.nutrients.calories)}</span>
                   </button>
@@ -385,7 +392,7 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
           </section>
         ))}
       </Sheet>
-      <Sheet open={picker?.type === "item"} onClose={onClose} title="Add item">
+      <Sheet open={picker?.type === "item"} onClose={onClose} title={t("Add item")}>
         {ix.chain.categories.map((cat) => {
           const items = ix.chain.items.filter((i) => i.category === cat);
           return items.length === 0 ? null : (
@@ -394,7 +401,7 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
               <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
                 {items.map((i) => (
                   <li key={i.id}>
-                    <button type="button" onClick={() => onPickItem(i.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-left hover:bg-soft-strong">
+                    <button type="button" onClick={() => onPickItem(i.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-start hover:bg-soft-strong">
                       <span className="font-medium">{i.name}</span>
                       <span className="text-sm text-muted">{formatCalories(i.nutrients.calories)}</span>
                     </button>

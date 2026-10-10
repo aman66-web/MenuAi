@@ -3,6 +3,8 @@
 // file of branch positions (public/branches/branches.json, © OpenStreetMap contributors, ODbL). No coordinates are ever
 // sent to us. Typed areas are looked up by postcodes.io (see geocode()); that sends only the text the user typed.
 
+import { englishT, type T } from "./i18n";
+
 export interface LatLng {
   lat: number;
   lng: number;
@@ -37,10 +39,10 @@ export function distanceMiles(a: LatLng, b: LatLng): number {
 }
 
 /** "0.3 mi", "1.2 mi", "12 mi": one decimal under 10 miles, whole miles above. Under 0.1 reads "<0.1 mi". */
-export function formatMiles(miles: number): string {
-  if (miles < 0.1) return "<0.1 mi";
-  if (miles < 10) return `${(Math.round(miles * 10) / 10).toString()} mi`;
-  return `${Math.round(miles)} mi`;
+export function formatMiles(miles: number, t: T = englishT): string {
+  if (miles < 0.1) return t("<0.1 mi");
+  if (miles < 10) return t("{miles} mi", { miles: (Math.round(miles * 10) / 10).toString() });
+  return t("{miles} mi", { miles: Math.round(miles) });
 }
 
 export function isBranchesDoc(x: unknown): x is BranchesDoc {

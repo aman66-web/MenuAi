@@ -1,4 +1,5 @@
 import { indexChain, type ChainIndex } from "./chain-index";
+import { tk } from "./i18n";
 import { buildSearchIndex, buildSearchIndexFromCompact, type CompactSearchChain, type SearchIndex } from "./search";
 import type { Chain, Manifest, ManifestChain } from "./types";
 
@@ -117,7 +118,7 @@ export class MenuClient {
     if (merged.size === 0 && unreachable && this.state.chains.length === 0) {
       // We couldn't reach the menus and have nothing earlier: say so, never present it as "no menus exist".
       this.manifestPromise = null; // let the next ensureManifest() try again
-      this.set({ status: "error", chains: [], dataVersion: null, error: "Couldn't reach the menus. Check your connection and try again." });
+      this.set({ status: "error", chains: [], dataVersion: null, error: tk("Couldn't reach the menus. Check your connection and try again.") });
       return;
     }
     if (merged.size === 0 && unreachable) {
@@ -151,17 +152,17 @@ export class MenuClient {
   private async fetchChain(id: string): Promise<ChainIndex> {
     if (this.state.status === "error") this.manifestPromise = null; // a retry should look for the menus again
     await this.ensureManifest();
-    if (this.state.status === "error") throw new MenuLoadError(this.state.error ?? "Couldn't load this menu.");
+    if (this.state.status === "error") throw new MenuLoadError(this.state.error ?? tk("Couldn't load this menu."));
     for (let attempt = 0; attempt < 2; attempt++) {
       const entry = this.state.chains.find((c) => c.id === id);
-      if (!entry) throw new MenuLoadError("That restaurant isn't available.");
+      if (!entry) throw new MenuLoadError(tk("That restaurant isn't available."));
       let res: Response;
       try {
         res = await this.opts.fetch(entry.baseUrl + entry.file);
       } catch {
-        throw new MenuLoadError("Couldn't load this menu. Check your connection and try again.");
+        throw new MenuLoadError(tk("Couldn't load this menu. Check your connection and try again."));
       }
-      if (!res.ok) throw new MenuLoadError("Couldn't load this menu. Please try again.");
+      if (!res.ok) throw new MenuLoadError(tk("Couldn't load this menu. Please try again."));
       const bytes = await res.arrayBuffer();
       const digest = this.opts.sha256 === undefined ? await safeDigest(bytes) : this.opts.sha256 ? await this.opts.sha256(bytes) : null;
       if (digest !== null && digest !== entry.sha256) {
@@ -170,10 +171,10 @@ export class MenuClient {
           await this.ensureManifest(true);
           continue;
         }
-        throw new MenuLoadError("Menus are updating. Please try again in a moment.");
+        throw new MenuLoadError(tk("Menus are updating. Please try again in a moment."));
       }
       const chain = JSON.parse(new TextDecoder().decode(bytes)) as Chain;
-      if (chain.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError("This menu needs a newer version of the app.");
+      if (chain.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError(tk("This menu needs a newer version of the app."));
       const index = indexChain(chain);
       const indexes = new Map(this.state.indexes);
       indexes.set(id, index);
@@ -181,7 +182,7 @@ export class MenuClient {
       this.set({ indexes, ...(this.compactIndex ? {} : { searchIndex: buildSearchIndex([...indexes.values()].map((i) => i.chain)) }) });
       return index;
     }
-    throw new MenuLoadError("Menus are updating. Please try again in a moment.");
+    throw new MenuLoadError(tk("Menus are updating. Please try again in a moment."));
   }
 
   /**

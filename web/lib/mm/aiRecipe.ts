@@ -1,3 +1,4 @@
+import { tk } from "./i18n";
 import { PANTRY, kindExcluded, kindForDiet, pantryForDiet, type DietPrefs, type IngredientRole } from "./pantry";
 import { candidates, specFromKind, type MealTarget, type Recipe } from "./recipes";
 import type { ShopProduct } from "./shopProducts";
@@ -13,6 +14,15 @@ export type Meal = "breakfast" | "lunch" | "dinner";
 export const MEALS: readonly Meal[] = ["breakfast", "lunch", "dinner"];
 export const MAX_WISH = 100;
 export const MAX_SAVED_RECIPES = 30;
+
+/** What the recipe API (lib/recipeHandler.ts) says back when there is no recipe: the app shows it with t(message). Kept here so the key collector finds them. */
+export const RECIPE_MESSAGES = {
+  notEnabled: tk("Pip's recipe maker isn't switched on yet."),
+  rateLimited: tk("That's a lot of recipes. Please try again in a little while."),
+  noRecipe: tk("Pip couldn't make a recipe this time. Please try again, maybe with different words."),
+  invalid: tk("Something in the request wasn't right."),
+  pantry: tk("There aren't enough ingredients at this shop for your diet yet."),
+} as const;
 
 /** One pantry kind as Pip sees it: the cheapest matching product at the shop and its label per 100 g or ml. */
 export interface PantryLine {

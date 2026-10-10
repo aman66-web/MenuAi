@@ -3,31 +3,35 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import { tk } from "@/lib/mm/i18n";
 import { chooseWarmChains } from "@/lib/mm/popular";
 import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
+import { setLanguage, useT } from "../_lib/i18n";
 import { BasketIcon, BookmarkIcon, GearIcon, HomeIcon, PinIcon, TodayIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
 
 const TABS = [
-  { href: "/app", label: "Home", Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
-  { href: "/app/map", label: "Nearby", Icon: PinIcon, match: (p: string) => p.startsWith("/app/map") },
-  { href: "/app/groceries", label: "Groceries", Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") || p.startsWith("/app/recipes") },
-  { href: "/app/saved", label: "Saved", Icon: BookmarkIcon, match: (p: string) => p.startsWith("/app/saved") },
-  { href: "/app/today", label: "Today", Icon: TodayIcon, match: (p: string) => p.startsWith("/app/today") },
-  { href: "/app/settings", label: "Settings", Icon: GearIcon, match: (p: string) => p.startsWith("/app/settings") },
+  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
+  { href: "/app/map", label: tk("Nearby"), Icon: PinIcon, match: (p: string) => p.startsWith("/app/map") },
+  { href: "/app/groceries", label: tk("Groceries"), Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") || p.startsWith("/app/recipes") },
+  { href: "/app/saved", label: tk("Saved"), Icon: BookmarkIcon, match: (p: string) => p.startsWith("/app/saved") },
+  { href: "/app/today", label: tk("Today"), Icon: TodayIcon, match: (p: string) => p.startsWith("/app/today") },
+  { href: "/app/settings", label: tk("Settings"), Icon: GearIcon, match: (p: string) => p.startsWith("/app/settings") },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
+  const t = useT();
   const pathname = usePathname();
   const router = useRouter();
   const hydrated = useHydrated();
   const settings = useSettings();
   const onboarded = settings.hasCompletedOnboarding;
   const textSize = settings.textSize;
+  const language = settings.language;
   const fullScreen = pathname.startsWith("/app/welcome");
   const online = useOnline();
   const animate = useNavigatedOnce(pathname);
@@ -47,6 +51,11 @@ export function AppShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (hydrated) applyTextSize(textSize);
   }, [hydrated, textSize]);
+
+  // The app's language (Settings / the first onboarding screen); English until another is chosen.
+  useEffect(() => {
+    if (hydrated) void setLanguage(language ?? "en");
+  }, [hydrated, language]);
 
   // First visit (SPEC §7.1): onboarding comes first, wherever the link pointed. It returns there when done.
   useEffect(() => {
@@ -84,7 +93,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
         {!online && (
           <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-xs text-muted">
-            You&apos;re offline. Menus you&apos;ve opened still work.
+            {t("You're offline. Menus you've opened still work.")}
           </p>
         )}
         <main className={`flex-1 px-5 ${fullScreen ? "pb-8" : "pb-32"} pt-[max(1.25rem,env(safe-area-inset-top))]`}>
@@ -92,7 +101,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </main>
         {!fullScreen && (
           <nav
-            aria-label="Main"
+            aria-label={t("Main")}
             className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[1.75rem] border border-line bg-[var(--nav-bg)] p-1.5 shadow-[0_1px_0_rgba(255,255,255,0.5)_inset,0_20px_44px_-18px_rgba(0,0,0,0.5)] backdrop-blur-2xl backdrop-saturate-150"
           >
             <ul className="flex">
@@ -111,7 +120,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                       >
                         <Icon className="h-5 w-5" />
                       </span>
-                      {label}
+                      {t(label)}
                     </Link>
                   </li>
                 );

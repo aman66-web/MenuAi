@@ -21,7 +21,8 @@ async function nearby(p, blockTiles) {
 }
 
 const pages = [
-  ["welcome", "/app/welcome", false, async () => {}],
+  ["language", "/app/welcome", false, async () => {}],
+  ["welcome", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("heading", { name: "Hi, I'm Pip!" }).waitFor(); }],
   ["home", "/app", true, async () => {}],
   ["search", "/app/search", true, async (p) => { await p.getByLabel("Search restaurants and items").fill("chicken"); await p.waitForTimeout(800); }],
   ["chain (free)", "/app/chain?id=bowl-and-co", false, async (p) => { await p.waitForTimeout(500); }],
@@ -35,7 +36,7 @@ const pages = [
   ["settings", "/app/settings", true, async () => {}],
   ["numbers", "/app/settings/numbers", true, async () => {}],
   ["offline", "/app/offline", true, async () => {}],
-  ["welcome shops", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Let's go" }).click(); for (let i = 0; i < 3; i++) await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("heading", { name: "Where do you shop?" }).waitFor(); }],
+  ["welcome shops", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("button", { name: "Let's go" }).click(); for (let i = 0; i < 3; i++) await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("heading", { name: "Where do you shop?" }).waitFor(); }],
   ["recipe swap", "/app/recipes/view?id=tuna-pasta&r=sainsburys", false, async (p) => { await p.getByRole("button", { name: /^Swap Tuna/ }).click(); await p.waitForTimeout(500); }],
   ["shopping list", "/app/groceries/list", false, async (p) => { await p.goto(p.url().replace("/list", "/shop/item?r=sainsburys&id=sainsburys-red-kidney-beans-in-water-400g-240g")); await p.getByRole("button", { name: "Add to my list" }).click(); await p.goto(p.url().split("/app/")[0] + "/app/groceries/list"); await p.waitForTimeout(500); }],
   ["home by type", "/app", false, async (p) => { await p.getByRole("group", { name: "Browse by type" }).getByRole("button", { name: /^Coffee/ }).click(); await p.waitForTimeout(300); }],

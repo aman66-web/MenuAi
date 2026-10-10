@@ -16,3 +16,6 @@ __pycache__/
 supabase/.temp/
 supabase/.branches/
 saved-pages/
+
+# translation working files (tools/i18n/translate_chunks.py); the dictionaries are web/lib/mm/locales/*.json
+data/i18n/

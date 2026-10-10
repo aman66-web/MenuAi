@@ -1,3 +1,4 @@
+import { tk } from "./i18n";
 import { halfUp } from "./nutrients";
 import type { Goal, Meal, Nutrients, Profile } from "./types";
 
@@ -7,7 +8,7 @@ export const MEAL_SHARE: Record<Meal, number> = { breakfast: 0.25, lunch: 0.35, 
 export const DEFAULT_DAILY_CALORIES = 2000;
 export const DEFAULT_GLP1_MEAL_CAP = 450;
 export const MEALS: Meal[] = ["breakfast", "lunch", "dinner"];
-export const MEAL_LABEL: Record<Meal, string> = { breakfast: "Breakfast", lunch: "Lunch", dinner: "Dinner" };
+export const MEAL_LABEL: Record<Meal, string> = { breakfast: tk("Breakfast"), lunch: tk("Lunch"), dinner: tk("Dinner") };
 
 /** Meal slot from local time: breakfast before 10:30, lunch 10:30–15:59, dinner from 16:00. */
 export function mealSlotFor(date: Date): Meal {

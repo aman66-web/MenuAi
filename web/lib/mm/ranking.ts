@@ -1,4 +1,5 @@
 import { mealBudget, MEAL_SHARE } from "./budget";
+import { englishT, tk, type T } from "./i18n";
 import { halfUp, proteinPer100Cal } from "./nutrients";
 import { reasonLine } from "./format";
 import type { Chain, Meal, Nutrients, Preferences, Profile, Tag } from "./types";
@@ -93,11 +94,9 @@ function compareStrings(a: string, b: string): number {
   return a < b ? -1 : a > b ? 1 : 0;
 }
 
-function withReason(c: Candidate, extra: Partial<Pick> = {}): Pick {
-  return { ...c, reason: reasonLine(c.nutrients), ...extra };
-}
-
-export function rank({ chain, profile, loggedCalories, meal, preferences, config = RANKING_CONFIG }: RankInput): RankingResult {
+/** `t` translates the reason line's words (English by default). */
+export function rank({ chain, profile, loggedCalories, meal, preferences, config = RANKING_CONFIG }: RankInput, t: T = englishT): RankingResult {
+  const withReason = (c: Candidate, extra: Partial<Pick> = {}): Pick => ({ ...c, reason: reasonLine(c.nutrients, t), ...extra });
   const { remaining, budget } = mealBudget(profile, loggedCalories, meal, config.mealShare);
   const pool = candidatesFor(chain).filter((c) => c.nutrients.calories > 0 && passesPreferences(c.tags, preferences));
   if (pool.length === 0) return { mode: "noMatches", remaining, budget, picks: [] };
@@ -153,6 +152,6 @@ export function rank({ chain, profile, loggedCalories, meal, preferences, config
   return { mode: "ranked", remaining, budget, picks };
 }
 
-export const NO_MATCHES_COPY = "Nothing here matches your filters.";
-export const OUT_OF_BUDGET_BANNER = "You've used today's calories. Lowest-calorie options:";
-export const OUT_OF_BUDGET_EMPTY = "You've used today's calories, and nothing here has 10g+ protein.";
+export const NO_MATCHES_COPY = tk("Nothing here matches your filters.");
+export const OUT_OF_BUDGET_BANNER = tk("You've used today's calories. Lowest-calorie options:");
+export const OUT_OF_BUDGET_EMPTY = tk("You've used today's calories, and nothing here has 10g+ protein.");

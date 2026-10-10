@@ -20,28 +20,33 @@ import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, Chip, EmptyState, ErrorBox, inputClass, SampleBadge, Sheet, Spinner } from "../_components/ui";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
+import { useT } from "../_lib/i18n";
+import { Rich } from "../_lib/Rich";
 
 // SPEC §7.4: header, meal chip, Best for you, full menu (sort, filter, tags), source footer.
 // Real menus run to 650 rows, so the full menu has a sticky search + category bar, long menus open with each section
 // trimmed (tap to show the rest), off-screen rows skip layout (.cv-row), and a small button brings Best for you back.
 
 export function ChainScreen({ chainId }: { chainId: string }) {
+  const t = useT();
   const { status, index, error, retry } = useChain(chainId);
-  if (status === "loading") return (<Shell><Spinner label="Loading menu" /></Shell>);
-  if (status === "error" || !index) return (<Shell><ErrorBox message={error ?? "Couldn't load this menu."} onRetry={retry} /></Shell>);
+  if (status === "loading") return (<Shell><Spinner label={t("Loading menu")} /></Shell>);
+  if (status === "error" || !index) return (<Shell><ErrorBox message={error != null ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></Shell>);
   return <Loaded key={chainId} index={index} />;
 }
 
 function Shell({ children }: { children: React.ReactNode }) {
+  const t = useT();
   return (
     <div>
-      <Link href="/app" aria-label="Back to home" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
       {children}
     </div>
   );
 }
 
 function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["index"]> }) {
+  const t = useT();
   const { chain } = index;
   const menu = useMenu();
   const now = useNow();
@@ -69,7 +74,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const caloriesOnly = chain.nutritionLevel === "calories";
   const clearFilters = () => setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false, ...(prefs.halalOnly ? { halalOnly: true } : {}) });
   const anyFilter = anyDietFilter(prefs);
-  const caution = filterCaution(prefs);
+  const caution = filterCaution(prefs, t);
   const showCategoryChips = grouped && !searching && sections.length > 1;
 
   const setPref = (key: "vegetarianOnly" | "veganOnly" | "noPork" | "noBeef") => {
@@ -92,12 +97,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   return (
     <div>
       <div className="flex items-center justify-between">
-        <Link href="/app" aria-label="Back to home" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+        <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
         <button
           type="button"
           onClick={() => toggleFavorite(chain.id)}
           aria-pressed={isFavorite}
-          aria-label={isFavorite ? `Remove ${chain.name} from favourites` : `Add ${chain.name} to favourites`}
+          aria-label={isFavorite ? t("Remove {chain} from favourites", { chain: chain.name }) : t("Add {chain} to favourites", { chain: chain.name })}
           className={`glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong ${isFavorite ? "text-accent" : "text-muted"}`}
         >
           <StarIcon filled={isFavorite} />
@@ -117,50 +122,56 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
           <div className="min-w-0 space-y-1.5">
             {chain.note && <p>{chain.note}</p>}
-            {caloriesOnly && <p className="font-semibold">{chain.name} publishes calories only: protein, carbs and fat aren&apos;t published, so there are no best-for-you picks, order builder or logging for this restaurant.</p>}
+            {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks, order builder or logging for this restaurant.", { chain: chain.name })}</p>}
             {halal && (
               <p>
-                <span className="font-semibold">Halal{halal.scope === "some" ? " (some)" : ""}:</span> &ldquo;{halal.statement}&rdquo;{" "}
-                <a href={halal.url} target="_blank" rel="noopener noreferrer" className="text-muted underline underline-offset-2">{chain.name}&apos;s website</a>
+                <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span> &ldquo;{halal.statement}&rdquo;{" "}
+                <a href={halal.url} target="_blank" rel="noopener noreferrer" className="text-muted underline underline-offset-2">{t("{chain}'s website", { chain: chain.name })}</a>
               </p>
             )}
             <p className="app-numbers text-muted">
-              <span className="font-semibold text-foreground">{chain.items.length} items</span> from{" "}
-              <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{chain.source.title}</a>, checked {formatDate(chain.source.checkedOn)}.
+              <Rich
+                text={t("{items} from {source}, checked {date}.")}
+                values={{
+                  items: <span className="font-semibold text-foreground">{t("{n} items", { n: chain.items.length })}</span>,
+                  source: <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{chain.source.title}</a>,
+                  date: formatDate(chain.source.checkedOn, t),
+                }}
+              />
             </p>
           </div>
         </div>
       </div>
       {!caloriesOnly && (
-        <div className="glass mt-5 flex flex-wrap gap-1 rounded-[1.75rem] p-1" role="group" aria-label="Meal">
+        <div className="glass mt-5 flex flex-wrap gap-1 rounded-[1.75rem] p-1" role="group" aria-label={t("Meal")}>
           {MEALS.map((m) => (
-            <Chip key={m} segment className="flex-1 justify-center" selected={meal === m} onClick={() => setMeal(m)}>{MEAL_LABEL[m]}</Chip>
+            <Chip key={m} segment className="flex-1 justify-center" selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
           ))}
         </div>
       )}
-      <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Filters">
-        <Chip selected={prefs.vegetarianOnly} onClick={() => setPref("vegetarianOnly")}>Vegetarian</Chip>
-        <Chip selected={Boolean(prefs.veganOnly)} onClick={() => setPref("veganOnly")}>Vegan</Chip>
-        <Chip selected={prefs.noPork} onClick={() => setPref("noPork")}>No pork</Chip>
-        <Chip selected={prefs.noBeef} onClick={() => setPref("noBeef")}>No beef</Chip>
+      <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label={t("Filters")}>
+        <Chip selected={prefs.vegetarianOnly} onClick={() => setPref("vegetarianOnly")}>{t("Vegetarian")}</Chip>
+        <Chip selected={Boolean(prefs.veganOnly)} onClick={() => setPref("veganOnly")}>{t("Vegan")}</Chip>
+        <Chip selected={prefs.noPork} onClick={() => setPref("noPork")}>{t("No pork")}</Chip>
+        <Chip selected={prefs.noBeef} onClick={() => setPref("noBeef")}>{t("No beef")}</Chip>
         <Chip selected={avoiding > 0} aria-pressed={undefined} aria-haspopup="dialog" onClick={() => setAllergyOpen(true)}>
-          {avoiding > 0 ? `Allergies · ${avoiding}` : "Allergies"}
+          {avoiding > 0 ? t("Allergies · {n}", { n: avoiding }) : t("Allergies")}
         </Chip>
       </div>
       {caution && <p className="mt-2 text-sm text-muted">{caution}</p>}
-      {prefs.halalOnly && !halal && <p className="mt-2 text-sm text-muted">{chain.name}&apos;s website doesn&apos;t say its food is halal. {HALAL_CAUTION}</p>}
+      {prefs.halalOnly && !halal && <p className="mt-2 text-sm text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
       {avoiding > 0 && !hasAllergenData && (
         <div role="note" className="glass mt-3 rounded-3xl p-4 text-sm">
-          <p className="font-semibold">{chain.name} hasn&apos;t published allergen details we can read, so its dishes can&apos;t be checked for allergies.</p>
+          <p className="font-semibold">{t("{chain} hasn't published allergen details we can read, so its dishes can't be checked for allergies.", { chain: chain.name })}</p>
           <div className="mt-2 flex flex-wrap items-center gap-3">
-            {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className="min-h-11 py-3 font-medium text-accent underline">See its own allergen information</a>}
-            <Button variant="secondary" onClick={() => setPrefs({ ...prefs, avoidAllergens: [] })}>Show all dishes</Button>
+            {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className="min-h-11 py-3 font-medium text-accent underline">{t("See its own allergen information")}</a>}
+            <Button variant="secondary" onClick={() => setPrefs({ ...prefs, avoidAllergens: [] })}>{t("Show all dishes")}</Button>
           </div>
         </div>
       )}
-      <Sheet open={allergyOpen} onClose={() => setAllergyOpen(false)} title="Allergies to avoid">
+      <Sheet open={allergyOpen} onClose={() => setAllergyOpen(false)} title={t("Allergies to avoid")}>
         <DietPicker value={prefs} onChange={(p) => setPrefs(p)} halal={false} />
-        <div className="mt-4"><Button full onClick={() => setAllergyOpen(false)}>Done</Button></div>
+        <div className="mt-4"><Button full onClick={() => setAllergyOpen(false)}>{t("Done")}</Button></div>
       </Sheet>
 
       <div ref={bestRef}>
@@ -168,9 +179,9 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       </div>
 
       <div className="mb-2 mt-10 flex items-center justify-between gap-3">
-        <h2 id="full-menu" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />Full menu</h2>
+        <h2 id="full-menu" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Full menu")}</h2>
         <label className="flex items-center gap-2 text-sm">
-          <span className="sr-only">Sort by</span>
+          <span className="sr-only">{t("Sort by")}</span>
           <select
             className={`${inputClass} min-h-11 w-auto py-0 text-sm`}
             value={sort}
@@ -180,7 +191,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
               analytics.track({ name: "menuSorted", kind: e.target.value });
             }}
           >
-            {SORT_OPTIONS.filter((o) => !caloriesOnly || o.value === "menu" || o.value === "calories").map((o) => (<option key={o.value} value={o.value}>{o.label}</option>))}
+            {SORT_OPTIONS.filter((o) => !caloriesOnly || o.value === "menu" || o.value === "calories").map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
           </select>
         </label>
       </div>
@@ -188,7 +199,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       {/* Sticky: search this menu, and jump between its sections. */}
       <div className="sticky top-0 z-10 -mx-5 border-b border-line bg-[color-mix(in_srgb,var(--background)_86%,transparent)] px-5 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] backdrop-blur-xl">
         <div className="relative">
-          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
+          <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
             type="search"
             value={query}
@@ -196,13 +207,13 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
               setQuery(e.target.value);
               setFlatLimit(FLAT_PAGE);
             }}
-            placeholder={`Search the ${chain.name} menu`}
-            aria-label={`Search the ${chain.name} menu`}
+            placeholder={t("Search the {chain} menu", { chain: chain.name })}
+            aria-label={t("Search the {chain} menu", { chain: chain.name })}
             enterKeyHint="search"
-            className="glass min-h-12 w-full rounded-full pl-11 pr-12 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden"
+            className="glass min-h-12 w-full rounded-full ps-11 pe-12 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden"
           />
           {searching && (
-            <button type="button" onClick={() => setQuery("")} aria-label="Clear search" className="absolute right-0.5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:text-foreground">
+            <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="absolute end-0.5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:text-foreground">
               <CloseIcon className="h-5 w-5" />
             </button>
           )}
@@ -211,13 +222,13 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       </div>
 
       <p role="status" aria-live="polite" className="app-numbers mt-3 min-h-5 text-sm text-muted">
-        {searching ? (visible.length === 1 ? "1 item matches" : `${visible.length} items match`) : anyFilter ? `${visible.length} of ${chain.items.length} items` : ""}
+        {searching ? (visible.length === 1 ? t("1 item matches") : t("{n} items match", { n: visible.length })) : anyFilter ? t("{n} of {total} items", { n: visible.length, total: chain.items.length }) : ""}
       </p>
 
       {visible.length === 0 ? (
         <EmptyState
-          title={searching ? `Nothing on this menu matches \u201c${query.trim()}\u201d.` : "Nothing here matches your filters."}
-          action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>Clear search</Button> : anyFilter ? <Button variant="secondary" onClick={clearFilters}>Clear filters</Button> : undefined}
+          title={searching ? t("Nothing on this menu matches “{query}”.", { query: query.trim() }) : t("Nothing here matches your filters.")}
+          action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>{t("Clear search")}</Button> : anyFilter ? <Button variant="secondary" onClick={clearFilters}>{t("Clear filters")}</Button> : undefined}
         />
       ) : grouped ? (
         sections.map((s) => {
@@ -230,7 +241,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                 <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{s.category}</h3>
                 <span className="app-numbers rounded-full bg-soft-strong px-2 py-0.5 text-xs font-semibold text-muted">{s.items.length}</span>
               </div>
-              {allExtras && <p className="-mt-1 mb-2 text-xs text-muted">Not suggested in Best for you.</p>}
+              {allExtras && <p className="-mt-1 mb-2 text-xs text-muted">{t("Not suggested in Best for you.")}</p>}
               <ItemList items={shown} chainId={chain.id} now={now} />
               {shown.length < s.items.length && (
                 <button
@@ -238,18 +249,18 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                   onClick={() => setExpanded((e) => new Set(e).add(s.category))}
                   className="mt-2 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft"
                 >
-                  Show all {s.items.length} in {s.category}
+                  {t("Show all {n} in {section}", { n: s.items.length, section: s.category })}
                 </button>
               )}
             </section>
           );
         })
       ) : (
-        <section aria-label="All items">
+        <section aria-label={t("All items")}>
           <ItemList items={visible.slice(0, flatLimit)} chainId={chain.id} now={now} />
           {visible.length > flatLimit && (
             <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft">
-              Show {Math.min(FLAT_PAGE, visible.length - flatLimit)} more
+              {t("Show {n} more", { n: Math.min(FLAT_PAGE, visible.length - flatLimit) })}
             </button>
           )}
         </section>
@@ -257,13 +268,18 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 
       <footer className="mt-10 space-y-2 border-t border-line pt-5 text-sm text-muted">
         <p>
-          Source:{" "}
-          <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline">{chain.source.title}</a>, checked {formatDate(chain.source.checkedOn)}
+          <Rich
+            text={t("Source: {source}, checked {date}")}
+            values={{
+              source: <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline">{chain.source.title}</a>,
+              date: formatDate(chain.source.checkedOn, t),
+            }}
+          />
         </p>
-        <p>Not affiliated with {chain.name}.</p>
+        <p>{t("Not affiliated with {chain}.", { chain: chain.name })}</p>
         <p>
-          Something look wrong?{" "}
-          <button type="button" className="min-h-11 font-medium text-accent underline" onClick={() => setReporting("any")}>Report a number</button>
+          {t("Something look wrong?")}{" "}
+          <button type="button" className="min-h-11 font-medium text-accent underline" onClick={() => setReporting("any")}>{t("Report a number")}</button>
         </p>
       </footer>
 
@@ -273,7 +289,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           onClick={() => bestRef.current?.scrollIntoView({ behavior: smoothScroll(), block: "start" })}
           className="glass sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.25rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 rounded-full bg-[var(--nav-bg)] px-5 text-sm font-bold text-accent shadow-[0_12px_30px_-12px_rgba(0,0,0,0.6)] backdrop-blur-xl transition active:scale-95"
         >
-          <ArrowUpIcon className="h-4 w-4" /> Best for you
+          <ArrowUpIcon className="h-4 w-4" /> {t("Best for you")}
         </button>
       )}
 
@@ -291,6 +307,7 @@ const sectionId = (category: string) => `cat-${category.toLowerCase().replace(/[
 const smoothScroll = (): ScrollBehavior => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
 
 function ItemList({ items, chainId, now }: { items: readonly MenuItem[]; chainId: string; now: Date }) {
+  const t = useT();
   return (
     <ul className="space-y-2">
       {items.map((item) => {
@@ -308,8 +325,8 @@ function ItemList({ items, chainId, now }: { items: readonly MenuItem[]; chainId
                 <span className="min-w-0">
                   <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                     <span className={`tracking-tight ${item.rankable ? "text-base font-bold" : "text-[15px] font-semibold"}`}>{item.name}</span>
-                    {isNew && <Badge tone="accent">New</Badge>}
-                    {item.limitedTime && <Badge>Limited time</Badge>}
+                    {isNew && <Badge tone="accent">{t("New")}</Badge>}
+                    {item.limitedTime && <Badge>{t("Limited time")}</Badge>}
                   </span>
                   {item.serving && !item.rankable && <span className="sr-only">, {item.serving}</span>}
                   <MacroLine nutrients={item.nutrients} />
@@ -327,6 +344,7 @@ function ItemList({ items, chainId, now }: { items: readonly MenuItem[]; chainId
 }
 
 function CategoryChips({ categories, active, onJump }: { categories: string[]; active: string | null; onJump: (c: string) => void }) {
+  const t = useT();
   const row = useRef<HTMLDivElement>(null);
   // Keep the current section's chip in view as the page scrolls (horizontal only: never moves the page).
   useEffect(() => {
@@ -337,7 +355,7 @@ function CategoryChips({ categories, active, onJump }: { categories: string[]; a
     r.scrollTo({ left, behavior: smoothScroll() });
   }, [active]);
   return (
-    <div ref={row} role="group" aria-label="Menu sections" className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
+    <div ref={row} role="group" aria-label={t("Menu sections")} className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
       {categories.map((c) => (
         <Chip key={c} data-chip={c} selected={active === c} onClick={() => onJump(c)}>{c}</Chip>
       ))}

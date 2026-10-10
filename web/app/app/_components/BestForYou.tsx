@@ -16,11 +16,13 @@ import { useGate } from "./Paywall";
 import { LockIcon } from "./icons";
 import { Button, SectionTitle } from "./ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
+import { useT } from "../_lib/i18n";
 
 // SPEC §6.4 and §7.4 block 1. Uses the chain page's current filters and meal chip.
 // Free users see the real cards blurred under an overlay; Pro users can tap a card to open the builder prefilled.
 
 export function BestForYou({ index, meal, preferences, onClearFilters }: { index: ChainIndex; meal: Meal; preferences: Preferences; onClearFilters: () => void }) {
+  const t = useT();
   const router = useRouter();
   const { gate, showPaywall } = useGate();
   const pro = useIsPro();
@@ -38,8 +40,8 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
         loggedCalories,
         meal,
         preferences,
-      }),
-    [index.chain, settings.goal, settings.dailyCalories, settings.glp1MealCap, loggedCalories, meal, preferences],
+      }, t),
+    [index.chain, settings.goal, settings.dailyCalories, settings.glp1MealCap, loggedCalories, meal, preferences, t],
   );
 
   useEffect(() => {
@@ -54,11 +56,11 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
 
   const copy =
     result.mode === "outOfBudget"
-      ? result.picks.length > 0 ? OUT_OF_BUDGET_BANNER : OUT_OF_BUDGET_EMPTY
+      ? t(result.picks.length > 0 ? OUT_OF_BUDGET_BANNER : OUT_OF_BUDGET_EMPTY)
       : result.mode === "nothingFits"
-        ? "Nothing here fits your meal budget. Closest options:"
+        ? t("Nothing here fits your meal budget. Closest options:")
         : result.mode === "noMatches"
-          ? NO_MATCHES_COPY
+          ? t(NO_MATCHES_COPY)
           : null;
 
   const cards = result.picks.length > 0 && (
@@ -69,16 +71,16 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
             type="button"
             onClick={() => open(pick, i + 1)}
             disabled={!pro}
-            className={`app-numbers flex min-h-[4.5rem] w-full items-center gap-4 rounded-3xl p-4 text-left transition enabled:active:scale-[0.99] enabled:hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-accent ${i === 0 ? "hero-card" : "glass"}`}
+            className={`app-numbers flex min-h-[4.5rem] w-full items-center gap-4 rounded-3xl p-4 text-start transition enabled:active:scale-[0.99] enabled:hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-accent ${i === 0 ? "hero-card" : "glass"}`}
           >
             <span aria-hidden className="bg-sun inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-on-accent">{i + 1}</span>
             <span className="min-w-0">
               <span className="block text-base font-bold leading-snug tracking-tight">{pick.name}</span>
               <span className="mt-0.5 block text-sm text-muted">
                 {pick.reason}
-                {pick.overBy !== undefined && <> · Over by {formatCalories(pick.overBy)}</>}
+                {pick.overBy !== undefined && <> · {t("Over by {kcal}", { kcal: formatCalories(pick.overBy) })}</>}
               </span>
-              <span className="sr-only">, {nutrientsSpoken(pick.nutrients)}</span>
+              <span className="sr-only">, {nutrientsSpoken(pick.nutrients, t)}</span>
             </span>
           </button>
         </li>
@@ -89,13 +91,13 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
   return (
     <section aria-labelledby="best-heading">
       <SectionTitle>
-        <span id="best-heading">Best for you</span>
+        <span id="best-heading">{t("Best for you")}</span>
       </SectionTitle>
       {result.mode === "ranked" && (
-        <p className="-mt-1 mb-3 text-sm text-muted">{MEAL_LABEL[meal]} · up to {formatCalories(result.budget)}</p>
+        <p className="-mt-1 mb-3 text-sm text-muted">{t(MEAL_LABEL[meal])} · {t("up to {kcal}", { kcal: formatCalories(result.budget) })}</p>
       )}
       {copy && <p role="status" className="mb-2 text-sm font-medium">{copy}</p>}
-      {result.mode === "noMatches" && <Button variant="secondary" onClick={onClearFilters}>Clear filters</Button>}
+      {result.mode === "noMatches" && <Button variant="secondary" onClick={onClearFilters}>{t("Clear filters")}</Button>}
 
       {cards && (
         <div className="relative">
@@ -107,7 +109,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
               <div className="absolute inset-0 flex items-start justify-center rounded-3xl bg-gradient-to-b from-transparent via-background/55 to-background/85 px-3 pt-10">
                 <Button onClick={() => showPaywall("bestForYou")} className="shadow-lg">
                   <LockIcon className="h-5 w-5" />
-                  {PAYMENTS_ENABLED ? "See your 5 best orders · Try Pro free" : "See your 5 best orders · Pro"}
+                  {PAYMENTS_ENABLED ? t("See your 5 best orders · Try Pro free") : t("See your 5 best orders · Pro")}
                 </Button>
               </div>
             </>

@@ -1,5 +1,6 @@
 import type { ChainIndex } from "./chain-index";
 import { lowerFirst, formatCalories, formatGrams } from "./format";
+import { englishT, tk, type T } from "./i18n";
 import { sumNutrients } from "./nutrients";
 import type { Remaining } from "./budget";
 import {
@@ -255,10 +256,10 @@ export function describeOrder(ix: ChainIndex, lines: OrderLine[]): string {
 
 // ------------------------------------------------------------------ builder rules (SPEC §6.5)
 
-export function validateOrder(lines: OrderLine[]): Result<true> {
-  if (lines.length === 0) return fail("An order needs at least one item.");
+export function validateOrder(lines: OrderLine[], t: T = englishT): Result<true> {
+  if (lines.length === 0) return fail(t("An order needs at least one item."));
   for (const line of lines) {
-    if (line.kind === "components" && line.components.length === 0) return fail("An order line needs at least one ingredient.");
+    if (line.kind === "components" && line.components.length === 0) return fail(t("An order line needs at least one ingredient."));
   }
   return ok(true);
 }
@@ -268,43 +269,43 @@ function replaceComponents(line: ComponentLine, components: ComponentRef[]): Com
 }
 
 /** Set a component's quantity. 2 ("Double") only when the chain publishes a double portion. */
-export function setComponentQty(ix: ChainIndex, line: ComponentLine, componentId: string, qty: 1 | 2): Result<ComponentLine> {
+export function setComponentQty(ix: ChainIndex, line: ComponentLine, componentId: string, qty: 1 | 2, t: T = englishT): Result<ComponentLine> {
   const comp = ix.components.get(componentId);
-  if (!comp) return fail("That ingredient is no longer on the menu.");
-  if (!line.components.some((c) => c.id === componentId)) return fail("That ingredient isn't in this order.");
-  if (qty === 2 && !comp.allowDouble) return fail(`${comp.name} can't be doubled.`);
+  if (!comp) return fail(t("That ingredient is no longer on the menu."));
+  if (!line.components.some((c) => c.id === componentId)) return fail(t("That ingredient isn't in this order."));
+  if (qty === 2 && !comp.allowDouble) return fail(t("{name} can't be doubled.", { name: comp.name }));
   return ok(replaceComponents(line, line.components.map((c) => (c.id === componentId ? { ...c, qty } : c))));
 }
 
 /** Any component can be removed, as long as one remains. */
-export function removeComponent(line: ComponentLine, componentId: string): Result<ComponentLine> {
-  if (!line.components.some((c) => c.id === componentId)) return fail("That ingredient isn't in this order.");
-  if (line.components.length === 1) return fail("An order line needs at least one ingredient.");
+export function removeComponent(line: ComponentLine, componentId: string, t: T = englishT): Result<ComponentLine> {
+  if (!line.components.some((c) => c.id === componentId)) return fail(t("That ingredient isn't in this order."));
+  if (line.components.length === 1) return fail(t("An order line needs at least one ingredient."));
   return ok(replaceComponents(line, line.components.filter((c) => c.id !== componentId)));
 }
 
-export function addComponent(ix: ChainIndex, line: ComponentLine, componentId: string): Result<ComponentLine> {
+export function addComponent(ix: ChainIndex, line: ComponentLine, componentId: string, t: T = englishT): Result<ComponentLine> {
   const comp = ix.components.get(componentId);
-  if (!comp) return fail("That ingredient is no longer on the menu.");
-  if (line.components.some((c) => c.id === componentId)) return fail(`${comp.name} is already in this order.`);
+  if (!comp) return fail(t("That ingredient is no longer on the menu."));
+  if (line.components.some((c) => c.id === componentId)) return fail(t("{name} is already in this order.", { name: comp.name }));
   return ok(replaceComponents(line, [...line.components, { id: componentId, qty: 1 }]));
 }
 
 /** Swap only within the same group; keeps the position. */
-export function swapComponent(ix: ChainIndex, line: ComponentLine, fromId: string, toId: string): Result<ComponentLine> {
+export function swapComponent(ix: ChainIndex, line: ComponentLine, fromId: string, toId: string, t: T = englishT): Result<ComponentLine> {
   const from = ix.components.get(fromId);
   const to = ix.components.get(toId);
-  if (!from || !to) return fail("That ingredient is no longer on the menu.");
+  if (!from || !to) return fail(t("That ingredient is no longer on the menu."));
   const current = line.components.find((c) => c.id === fromId);
-  if (!current) return fail("That ingredient isn't in this order.");
-  if (from.group !== to.group) return fail("You can only swap within the same kind of ingredient.");
-  if (line.components.some((c) => c.id === toId)) return fail(`${to.name} is already in this order.`);
+  if (!current) return fail(t("That ingredient isn't in this order."));
+  if (from.group !== to.group) return fail(t("You can only swap within the same kind of ingredient."));
+  if (line.components.some((c) => c.id === toId)) return fail(t("{name} is already in this order.", { name: to.name }));
   const qty = current.qty === 2 && to.allowDouble ? 2 : 1;
   return ok(replaceComponents(line, line.components.map((c) => (c.id === fromId ? { id: toId, qty } : c))));
 }
 
 export const GROUP_LABEL: Record<string, string> = {
-  base: "Base", wrap: "Wrap", protein: "Protein", topping: "Toppings", sauce: "Sauce", side: "Sides", drink: "Drinks", extra: "Extras",
+  base: tk("Base"), wrap: tk("Wrap"), protein: tk("Protein"), topping: tk("Toppings"), sauce: tk("Sauce"), side: tk("Sides"), drink: tk("Drinks"), extra: tk("Extras"),
 };
 
 /** A component line's ingredients in builder order (base, wrap, protein, topping, sauce, side, drink, extra). Unknown ids are dropped. */
@@ -335,14 +336,14 @@ export function swapOptions(ix: ChainIndex, line: ComponentLine, componentId: st
   return ix.chain.components.filter((c) => c.group === comp.group && !present.has(c.id));
 }
 
-export function setItemQty(line: ItemLine, qty: number): Result<ItemLine> {
-  if (!Number.isInteger(qty) || qty < 1 || qty > MAX_ITEM_QTY) return fail(`Choose between 1 and ${MAX_ITEM_QTY}.`);
+export function setItemQty(line: ItemLine, qty: number, t: T = englishT): Result<ItemLine> {
+  if (!Number.isInteger(qty) || qty < 1 || qty > MAX_ITEM_QTY) return fail(t("Choose between 1 and {max}.", { max: MAX_ITEM_QTY }));
   return ok({ ...line, qty });
 }
 
-export function toggleModifier(ix: ChainIndex, line: ItemLine, modifierId: string): Result<ItemLine> {
+export function toggleModifier(ix: ChainIndex, line: ItemLine, modifierId: string, t: T = englishT): Result<ItemLine> {
   const item = ix.items.get(line.itemId);
-  if (!item?.modifiers.some((m) => m.id === modifierId)) return fail("That option isn't available.");
+  if (!item?.modifiers.some((m) => m.id === modifierId)) return fail(t("That option isn't available."));
   const on = line.modifierIds.includes(modifierId);
   return ok({ ...line, modifierIds: on ? line.modifierIds.filter((m) => m !== modifierId) : [...line.modifierIds, modifierId] });
 }
@@ -362,8 +363,8 @@ export function afterThis(remaining: Remaining, total: Nutrients): AfterThis {
 }
 
 /** "After this: 440 kcal · 34g protein left today" or, over target, neutral "After this: 120 kcal over today's target". */
-export function afterThisText(a: AfterThis): string {
-  if (a.calories < 0) return `After this: ${formatCalories(-a.calories)} over today's target`;
-  const protein = a.protein !== undefined ? ` · ${formatGrams(Math.max(0, a.protein))} protein` : "";
-  return `After this: ${formatCalories(a.calories)}${protein} left today`;
+export function afterThisText(a: AfterThis, t: T = englishT): string {
+  if (a.calories < 0) return t("After this: {calories} over today's target", { calories: formatCalories(-a.calories) });
+  if (a.protein === undefined) return t("After this: {calories} left today", { calories: formatCalories(a.calories) });
+  return t("After this: {calories} · {protein} protein left today", { calories: formatCalories(a.calories), protein: formatGrams(Math.max(0, a.protein)) });
 }

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { isPro } from "@/lib/mm/entitlements";
+import { tk } from "@/lib/mm/i18n";
 import type { MenuState } from "@/lib/mm/menu-client";
 import type { Store } from "@/lib/mm/persist";
 import { settingsStore } from "@/lib/mm/stores";
@@ -42,7 +43,7 @@ export function useChain(id: string): { status: ChainStatus; index?: ChainIndex;
     if (index) return;
     let cancelled = false;
     menuClient.loadChain(id).catch((e: unknown) => {
-      if (!cancelled) setFailure({ id, message: e instanceof Error ? e.message : "Couldn't load this menu." });
+      if (!cancelled) setFailure({ id, message: e instanceof Error ? e.message : tk("Couldn't load this menu.") });
     });
     return () => {
       cancelled = true;

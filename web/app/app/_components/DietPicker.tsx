@@ -2,22 +2,24 @@
 
 import { filterCaution } from "@/lib/mm/menu-view";
 import { HALAL_CAUTION } from "@/lib/mm/halal";
+import { tk } from "@/lib/mm/i18n";
 import { ALLERGEN_KEYS, type AllergenKey, type Preferences } from "@/lib/mm/types";
+import { useT } from "../_lib/i18n";
 import { CheckIcon } from "./icons";
 
 // Diet and allergy choices as big, plain buttons (onboarding, Settings and the restaurant page all use this one picker).
 
 const DIETS: ReadonlyArray<{ key: "vegetarianOnly" | "veganOnly" | "halalOnly" | "noPork" | "noBeef"; label: string }> = [
-  { key: "vegetarianOnly", label: "Vegetarian" },
-  { key: "veganOnly", label: "Vegan" },
-  { key: "halalOnly", label: "Halal" },
-  { key: "noPork", label: "No pork" },
-  { key: "noBeef", label: "No beef" },
+  { key: "vegetarianOnly", label: tk("Vegetarian") },
+  { key: "veganOnly", label: tk("Vegan") },
+  { key: "halalOnly", label: tk("Halal") },
+  { key: "noPork", label: tk("No pork") },
+  { key: "noBeef", label: tk("No beef") },
 ];
 
 export const ALLERGEN_SHORT: Record<AllergenKey, string> = {
-  gluten: "Gluten", milk: "Milk", eggs: "Eggs", peanuts: "Peanuts", nuts: "Tree nuts", soya: "Soya", fish: "Fish",
-  crustaceans: "Crustaceans", molluscs: "Molluscs", sesame: "Sesame", mustard: "Mustard", celery: "Celery", lupin: "Lupin", sulphites: "Sulphites",
+  gluten: tk("Gluten"), milk: tk("Milk"), eggs: tk("Eggs"), peanuts: tk("Peanuts"), nuts: tk("Tree nuts"), soya: tk("Soya"), fish: tk("Fish"),
+  crustaceans: tk("Crustaceans"), molluscs: tk("Molluscs"), sesame: tk("Sesame"), mustard: tk("Mustard"), celery: tk("Celery"), lupin: tk("Lupin"), sulphites: tk("Sulphites"),
 };
 const ALLERGEN_ORDER: readonly AllergenKey[] = ["gluten", "milk", "eggs", "peanuts", "nuts", "soya", "fish", "crustaceans", "molluscs", "sesame", "mustard", "celery", "lupin", "sulphites"];
 
@@ -36,6 +38,7 @@ function Pick({ on, onClick, children }: { on: boolean; onClick: () => void; chi
 }
 
 export function DietPicker({ value, onChange, halal = true, allergies = true }: { value: Preferences; onChange: (p: Preferences) => void; halal?: boolean; allergies?: boolean }) {
+  const t = useT();
   const avoid = value.avoidAllergens ?? [];
   const toggleAllergen = (k: AllergenKey) => {
     const next = avoid.includes(k) ? avoid.filter((a) => a !== k) : [...avoid, k];
@@ -43,26 +46,26 @@ export function DietPicker({ value, onChange, halal = true, allergies = true }: 
     const { avoidAllergens: _drop, ...rest } = value; // eslint-disable-line @typescript-eslint/no-unused-vars
     onChange(sorted.length ? { ...rest, avoidAllergens: sorted } : rest);
   };
-  const caution = filterCaution(value);
+  const caution = filterCaution(value, t);
   return (
     <div>
-      <div role="group" aria-label="Your diet" className="grid grid-cols-2 gap-2">
+      <div role="group" aria-label={t("Your diet")} className="grid grid-cols-2 gap-2">
         {DIETS.filter((d) => halal || d.key !== "halalOnly").map((d) => (
-          <Pick key={d.key} on={Boolean(value[d.key])} onClick={() => onChange({ ...value, [d.key]: !value[d.key] })}>{d.label}</Pick>
+          <Pick key={d.key} on={Boolean(value[d.key])} onClick={() => onChange({ ...value, [d.key]: !value[d.key] })}>{t(d.label)}</Pick>
         ))}
       </div>
       {allergies && (
         <>
-          <p className="mb-2 mt-5 text-sm font-bold">Allergies to avoid</p>
-          <div role="group" aria-label="Allergies to avoid" className="grid grid-cols-2 gap-2">
+          <p className="mb-2 mt-5 text-sm font-bold">{t("Allergies to avoid")}</p>
+          <div role="group" aria-label={t("Allergies to avoid")} className="grid grid-cols-2 gap-2">
             {ALLERGEN_ORDER.map((k) => (
-              <Pick key={k} on={avoid.includes(k)} onClick={() => toggleAllergen(k)}>{ALLERGEN_SHORT[k]}</Pick>
+              <Pick key={k} on={avoid.includes(k)} onClick={() => toggleAllergen(k)}>{t(ALLERGEN_SHORT[k])}</Pick>
             ))}
           </div>
         </>
       )}
       {(caution || value.halalOnly) && (
-        <p className="mt-3 px-1 text-sm text-muted">{[caution, value.halalOnly ? HALAL_CAUTION : null].filter(Boolean).join(" ")}</p>
+        <p className="mt-3 px-1 text-sm text-muted">{[caution, value.halalOnly ? t(HALAL_CAUTION) : null].filter(Boolean).join(" ")}</p>
       )}
     </div>
   );

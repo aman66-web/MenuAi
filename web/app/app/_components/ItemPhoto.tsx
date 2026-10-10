@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { itemImageUrl } from "@/lib/mm/images";
+import { useT } from "../_lib/i18n";
 
 // The chain's own photo of an item, shown as published (resized only; see CLAUDE.md rule 2). It is decorative: the item's
 // name is always plain text beside it, so it has an empty alt and is hidden from screen readers. If the file can't load
@@ -23,6 +24,7 @@ export function ItemThumb({ image }: { image: string | undefined }) {
  * of the item's hero card on a plain white tile (transparent cut-outs look right in dark mode too).
  */
 export function ItemPhotoHero({ image, chainName }: { image: string | undefined; chainName: string }) {
+  const t = useT();
   const [failed, setFailed] = useState(false);
   const src = failed ? undefined : itemImageUrl(image);
   if (!src) return null;
@@ -32,7 +34,7 @@ export function ItemPhotoHero({ image, chainName }: { image: string | undefined;
         {/* eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py */}
         <img src={src} alt="" width={640} height={480} decoding="async" onError={() => setFailed(true)} className="mx-auto h-auto max-h-[18rem] w-full object-contain" />
       </div>
-      <figcaption className="px-4 pt-2 text-xs text-muted">Photo from the {chainName} website</figcaption>
+      <figcaption className="px-4 pt-2 text-xs text-muted">{t("Photo from the {chain} website", { chain: chainName })}</figcaption>
     </figure>
   );
 }

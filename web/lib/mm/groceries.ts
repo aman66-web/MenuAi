@@ -1,3 +1,4 @@
+import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 import type { AllergenKey } from "./types";
 
@@ -143,10 +144,10 @@ export function barcodeQuery(raw: string): string | null {
 
 export type GrocerySort = "density" | "protein" | "kcal" | "name";
 export const GROCERY_SORTS: ReadonlyArray<{ value: GrocerySort; label: string }> = [
-  { value: "density", label: "Most protein per 100 kcal" },
-  { value: "protein", label: "Most protein" },
-  { value: "kcal", label: "Fewest calories" },
-  { value: "name", label: "Name A to Z" },
+  { value: "density", label: tk("Most protein per 100 kcal") },
+  { value: "protein", label: tk("Most protein") },
+  { value: "kcal", label: tk("Fewest calories") },
+  { value: "name", label: tk("Name A to Z") },
 ];
 
 export interface GroceryFilters {
@@ -193,12 +194,12 @@ export function searchProducts(products: readonly ListedProduct[], f: GroceryFil
 export const formatPrice = (amount: number): string => `£${amount.toFixed(2)}`;
 
 /** "per 100 g" / "per 100 ml". */
-export const perLabel = (p: Pick<GroceryProduct, "per">): string => `per 100 ${p.per}`;
+export const perLabel = (p: Pick<GroceryProduct, "per">, t: T = englishT): string => t("per 100 {unit}", { unit: p.per });
 
 /** The three-line summary used in lists: "97 kcal · 9g protein · 4.2g carbs · 5g fat". Whole grams from 10 g, one decimal below. */
-export function productLine(p: Pick<GroceryProduct, "kcal" | "protein" | "carbs" | "fat">): string {
+export function productLine(p: Pick<GroceryProduct, "kcal" | "protein" | "carbs" | "fat">, t: T = englishT): string {
   const g = (v: number) => `${v >= 10 ? Math.round(v) : Math.round(v * 10) / 10}g`;
-  return `${Math.round(p.kcal)} kcal · ${g(p.protein)} protein · ${g(p.carbs)} carbs · ${g(p.fat)} fat`;
+  return t("{calories} · {protein} protein · {carbs} carbs · {fat} fat", { calories: `${Math.round(p.kcal)} kcal`, protein: g(p.protein), carbs: g(p.carbs), fat: g(p.fat) });
 }
 
 // ---------------------------------------------------------------- sizes, unit prices and the price rating
@@ -425,6 +426,6 @@ export function photoSources(p: PhotoFields & { retailers?: readonly string[]; b
 }
 
 /** The credit shown under a picture. */
-export function photoCaption(s: PhotoSource): string {
-  return `Photo from the ${retailerName(s.shop)} website`;
+export function photoCaption(s: PhotoSource, t: T = englishT): string {
+  return t("Photo from the {shop} website", { shop: retailerName(s.shop) });
 }

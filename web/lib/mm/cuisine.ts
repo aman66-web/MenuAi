@@ -3,6 +3,8 @@
 // that exist in the data; nothing is ever given a cuisine it doesn't have, and a cuisine that fits no group goes under
 // "More". Pure, so it is unit-tested.
 
+import { tk } from "./i18n";
+
 export interface CuisineGroupDef {
   id: string;
   label: string;
@@ -11,25 +13,25 @@ export interface CuisineGroupDef {
 
 /** In chip order. The first group whose pattern matches a chain's cuisine wins, so order matters (Pizza before Italian). */
 export const CUISINE_GROUPS: readonly CuisineGroupDef[] = [
-  { id: "burgers", label: "Burgers", match: /burger/i },
-  { id: "chicken", label: "Chicken", match: /chicken|wings?\b/i },
-  { id: "pizza", label: "Pizza", match: /pizza/i },
-  { id: "coffee", label: "Coffee & cafés", match: /coffee|caf[eé]|\btea\b/i },
-  { id: "bakery", label: "Bakery & sweets", match: /baker|pastr|doughnut|donut|ice cream|dessert/i },
-  { id: "sandwiches", label: "Sandwiches & bowls", match: /sandwich|wrap|bowl|salad/i },
-  { id: "italian", label: "Italian", match: /italian/i },
-  { id: "asian", label: "Asian", match: /asian|japanese|chinese|thai|vietnam|korean|noodle|sushi|ramen|indian/i },
-  { id: "mexican", label: "Mexican & Latin", match: /mexican|latin|tex-mex|taco|burrito/i },
-  { id: "pubs", label: "Pubs & bars", match: /\bpubs?\b|\bbars?\b|carvery/i },
-  { id: "grill", label: "Grill & steak", match: /grill|steak|barbecue|bbq|smokehouse/i },
-  { id: "brasserie", label: "British & French", match: /british|french|brasserie/i },
-  { id: "american", label: "American & diner", match: /american|diner/i },
-  { id: "seafood", label: "Seafood", match: /seafood|fish/i },
-  { id: "world", label: "World food", match: /lebanese|middle east|turkish|greek|mediterranean|world/i },
-  { id: "leisure", label: "Hotels & days out", match: /hotel|holiday|cinema|resort|\bpark\b|leisure|bingo|bowling|museum/i },
+  { id: "burgers", label: tk("Burgers"), match: /burger/i },
+  { id: "chicken", label: tk("Chicken"), match: /chicken|wings?\b/i },
+  { id: "pizza", label: tk("Pizza"), match: /pizza/i },
+  { id: "coffee", label: tk("Coffee & cafés"), match: /coffee|caf[eé]|\btea\b/i },
+  { id: "bakery", label: tk("Bakery & sweets"), match: /baker|pastr|doughnut|donut|ice cream|dessert/i },
+  { id: "sandwiches", label: tk("Sandwiches & bowls"), match: /sandwich|wrap|bowl|salad/i },
+  { id: "italian", label: tk("Italian"), match: /italian/i },
+  { id: "asian", label: tk("Asian"), match: /asian|japanese|chinese|thai|vietnam|korean|noodle|sushi|ramen|indian/i },
+  { id: "mexican", label: tk("Mexican & Latin"), match: /mexican|latin|tex-mex|taco|burrito/i },
+  { id: "pubs", label: tk("Pubs & bars"), match: /\bpubs?\b|\bbars?\b|carvery/i },
+  { id: "grill", label: tk("Grill & steak"), match: /grill|steak|barbecue|bbq|smokehouse/i },
+  { id: "brasserie", label: tk("British & French"), match: /british|french|brasserie/i },
+  { id: "american", label: tk("American & diner"), match: /american|diner/i },
+  { id: "seafood", label: tk("Seafood"), match: /seafood|fish/i },
+  { id: "world", label: tk("World food"), match: /lebanese|middle east|turkish|greek|mediterranean|world/i },
+  { id: "leisure", label: tk("Hotels & days out"), match: /hotel|holiday|cinema|resort|\bpark\b|leisure|bingo|bowling|museum/i },
 ];
 
-export const OTHER_GROUP = { id: "more", label: "More" } as const;
+export const OTHER_GROUP = { id: "more", label: tk("More") } as const;
 
 /** The group id for a chain's cuisine ("more" when no group fits or the cuisine is missing). */
 export function cuisineGroupId(cuisine: string | undefined): string {
