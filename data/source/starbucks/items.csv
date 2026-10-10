@@ -1,0 +1,57 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+free-range-egg-cress-and-mayo-sandwich,"Free-Range Egg, Cress & Mayo Sandwich",Sandwiches,,436.0,17.0,47.0,19.0,2.9,,1.4,2.5,4.7,1829.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/251981
+chicken-and-bacon-caesar-wrap,Chicken & Bacon Caesar Wrap,Sandwiches,,482.0,22.0,52.0,20.0,4.6,,1.2,3.8,2.8,2020.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/10259
+signature-grilled-cheese-toastie,Signature Grilled Cheese Toastie,Sandwiches,,477.0,22.0,60.0,16.0,9.6,,1.7,3.8,2.7,2008.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/187566
+signature-tuna-melt-panini,Signature Tuna Melt Panini,Sandwiches,,481.0,28.0,62.0,13.0,6.0,,1.5,4.6,2.0,2027.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/11261
+signature-tomato-and-mozzarella-panini,Signature Tomato & Mozzarella Panini,Sandwiches,,474.0,30.0,51.0,16.0,7.1,,1.7,5.3,2.8,1991.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/583
+cheese-and-marmite-mini-ciabatta,Cheese & Marmite® Mini Ciabatta,Sandwiches,,352.0,19.0,41.0,12.0,7.2,,1.6,3.0,1.9,1479.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/4597
+smoked-ham-and-cheddar-sandwich,Smoked Ham & Cheddar Sandwich,Sandwiches,,381.0,20.0,44.0,13.0,4.8,,1.5,2.6,3.9,1600.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/251859
+signature-smoked-ham-and-cheese-toastie,Signature Smoked Ham & Cheese Toastie,Sandwiches,,489.0,28.0,59.0,15.0,9.1,,2.5,3.4,2.8,2056.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/187668
+charred-chickpea-and-chimichurri-wrap,Charred Chickpea & Chimichurri Wrap,Sandwiches,,478.0,13.0,66.0,17.0,3.5,,1.2,11.0,4.4,2007.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/403269
+chicken-and-chorizo-focaccia,Chicken & Chorizo Focaccia,Sandwiches,,394.0,19.0,50.0,12.0,2.1,,1.4,3.6,4.8,1655.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/403335
+mango-and-passionfruit-overnight-oats-vegan,Mango & Passionfruit Overnight Oats (Vegan),Breakfast & Pastries,,254.0,5.3,36.0,9.1,6.6,,0.05,13.0,3.4,1066.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/403336
+greek-style-yogurt-with-berries-and-granola,Greek Style Yogurt with Berries & Granola,Breakfast & Pastries,,241.0,11.0,30.0,8.2,3.9,,0.17,19.0,1.7,1014.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/403192
+traditional-sausage-sandwich,Traditional Sausage Sandwich,Breakfast & Pastries,,495.0,20.0,40.0,28.0,10.0,,2.0,4.9,1.4,2067.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/194323
+ham-and-cheese-croissant,Ham & Cheese Croissant,Breakfast & Pastries,,385.0,15.0,36.0,20.0,12.0,,1.3,5.9,0.6,1612.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/223203
+smoked-bacon-roll,Smoked Bacon Roll,Breakfast & Pastries,,400.0,21.0,49.0,13.0,4.5,,2.3,3.6,1.7,1685.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/223245
+beyond-meat-breakfast-sandwich-plant-based,Beyond Meat® Breakfast Sandwich (plant based),Breakfast & Pastries,,432.0,21.0,46.0,17.0,8.9,,2.1,3.1,5.3,1810.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/4741
+classic-porridge,Classic Porridge,Breakfast & Pastries,,233.0,10.0,33.0,6.3,3.0,,0.17,8.7,2.1,981.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/4739
+egg-bites-with-three-cheese-and-ham,Egg Bites with Three Cheese & Ham,Breakfast & Pastries,,177.0,13.0,5.7,11.0,5.4,,1.5,0.4,1.4,736.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/11263
+egg-white-bites-with-three-cheese-and-red-pepper,Egg White Bites with Three Cheese & Red Pepper,Breakfast & Pastries,,162.0,13.0,5.9,9.5,5.9,,1.0,1.3,0.5,677.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/234146
+luxury-fruit-toast,Luxury Fruit Toast,Breakfast & Pastries,,491.0,12.0,84.0,11.0,4.5,,0.26,38.0,4.1,2072.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/214937
+butter-croissant,Butter Croissant,Breakfast & Pastries,,259.0,5.6,27.0,14.0,9.0,,0.36,5.4,1.4,1083.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/2881
+pain-au-chocolat,Pain au Chocolat,Breakfast & Pastries,,314.0,6.2,33.0,17.0,11.0,,0.37,9.8,2.0,1311.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/2859
+pumpkin-marble-loaf-cake,Pumpkin Marble Loaf Cake,Bakery,,409.0,7.0,42.0,23.0,7.4,,0.71,20.0,2.8,1706.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/208619
+apple-crumble-muffin,Apple Crumble Muffin,Bakery,,549.0,6.4,83.0,21.0,4.9,,0.74,41.0,1.4,2308.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/416034
+pumpkin-spice-cake-pop,Pumpkin Spice Cake Pop,Bakery,,174.0,1.9,19.0,10.0,5.3,,0.22,13.0,0.1,726.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/416125
+lemon-loaf-cake,Lemon Loaf Cake,Bakery,,367.0,5.2,43.0,19.0,4.9,,0.59,26.0,1.6,1535.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/1483
+double-chocolate-chunk-cookie,Double Chocolate Chunk Cookie,Bakery,,470.0,7.1,57.0,23.0,13.0,,1.1,32.0,3.1,1965.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/416098
+triple-chocolate-and-hazelnut-cookie,Triple Chocolate & Hazelnut Cookie,Bakery,,458.0,6.9,57.0,22.0,14.0,,1.0,29.0,2.1,1917.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/416103
+belgian-chocolate-caramel-shortbread,Belgian Chocolate Caramel Shortbread,Bakery,,406.0,4.8,51.0,20.0,12.0,,0.42,34.0,1.2,1698.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/403294
+triple-chocolate-brownie,Triple Chocolate Brownie,Bakery,,418.0,6.0,38.0,26.0,16.0,,0.51,33.0,3.9,1741.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/366732
+banana-nut-loaf-cake,Banana Nut Loaf Cake,Bakery,,368.0,5.4,41.0,368.0,2.0,,0.6,22.0,1.1,1538.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/366714
+chocolate-muffin,Chocolate Muffin,Bakery,,572.0,7.5,68.0,29.0,5.9,,0.62,44.0,4.3,2391.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/366704
+blueberry-muffin,Blueberry Muffin,Bakery,,485.0,6.4,66.0,21.0,2.1,,0.6,31.0,3.0,2032.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/366708
+victoria-sponge-cake-slices,Victoria Sponge Cake Slices,Bakery,,497.0,5.0,66.0,23.0,14.0,,0.66,49.0,3.1,2083.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/394439
+cinnamon-bun,Cinnamon Bun,Bakery,,471.0,9.7,76.0,13.0,5.1,,0.45,30.0,5.7,1984.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/366718
+carrot-cake,Carrot Cake,Bakery,,505.0,5.6,55.0,28.0,9.5,,0.9,40.0,5.4,2109.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/366724
+birthday-cake-pop,Birthday Cake Pop,Bakery,,172.0,1.7,19.0,9.9,4.8,,0.21,8.5,0.1,719.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/208631
+raspberry-jam-and-custard-doughnut,Raspberry Jam & Custard Doughnut,Bakery,,353.0,6.2,50.0,14.0,6.0,,0.63,25.0,1.3,1484.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/366734
+acorn-gingerbread-cookie,Acorn Gingerbread Cookie,Snacks & Treats,,158.0,2.1,30.0,3.1,1.1,,0.35,13.0,0.7,666.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/416142
+caramelised-biscuit-chocolate-bar,Caramelised Biscuit Chocolate Bar,Snacks & Treats,,323.0,2.8,32.0,20.0,12.0,,0.35,21.0,1.7,1345.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/416201
+granola-bar,Granola Bar,Snacks & Treats,,258.0,3.5,35.0,11.0,2.9,,0.1,19.0,2.6,1082.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/416151
+kettle-chips-mature-cheddar-and-red-onion,Kettle Chips Mature Cheddar & Red Onion,Snacks & Treats,,209.0,3.2,21.0,12.0,1.3,,0.48,0.5,2.2,873.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/4561
+kettle-chips-lightly-salted,Kettle Chips Lightly Salted,Snacks & Treats,,206.0,2.3,21.0,12.0,1.4,,0.36,0.2,2.6,861.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/4481
+kettle-chips-sea-salt-and-balsamic-vinegar,Kettle Chips Sea Salt & Balsamic Vinegar,Snacks & Treats,,210.0,1.7,23.0,12.0,1.0,,0.64,0.5,1.7,878.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/4477
+kettle-chips-sweet-chilli-and-sour-cream,Kettle Chips Sweet Chilli & Sour Cream,Snacks & Treats,,198.0,2.5,21.0,11.0,1.4,,0.44,1.7,2.5,827.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/4557
+starbucks-bearista-gingerbread-cookie,Starbucks Bearista® Gingerbread Cookie,Snacks & Treats,,183.0,2.4,34.0,3.9,1.4,,0.37,17.0,0.8,774.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/391846
+large-caramel-waffles,Large Caramel Waffles,Snacks & Treats,,352.0,2.4,48.0,16.0,9.4,,0.46,28.0,1.2,1474.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/391787
+snacking-cheese,Snacking Cheese,Snacks & Treats,,134.0,11.0,0.0,10.0,7.0,,0.38,0.0,0.0,557.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/349782
+raspberry-and-coconut-brownie,Raspberry & Coconut Brownie,Snacks & Treats,,246.0,3.1,25.0,14.0,8.3,,0.19,19.0,3.8,1026.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/363766
+gluten-free-fruit-and-nut-bar,Gluten Free Fruit & Nut Bar,Snacks & Treats,,310.0,4.7,35.0,16.0,8.5,,0.29,19.0,3.6,1296.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/363894
+cookie-straw,Cookie Straw,Snacks & Treats,,90.0,1.4,15.0,2.6,1.5,,0.08,9.4,0.5,377.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/7001
+ginger-biscuits,Ginger Biscuits,Snacks & Treats,,229.0,2.3,35.0,8.5,3.2,,0.31,18.0,1.7,962.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/2809
+all-butter-shortbread-biscuits,All Butter Shortbread Biscuits,Snacks & Treats,,271.0,2.7,29.0,16.0,10.0,,0.36,9.5,1.0,1130.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/7087
+starbucks-milk-chocolate-gold-coin,Starbucks® Milk Chocolate Gold Coin,Snacks & Treats,,120.0,1.4,14.0,6.4,3.9,,0.03,14.0,0.7,502.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/396743
+mini-waffles,Mini Waffles,Snacks & Treats,,787.0,7.5,106.0,37.0,21.0,,1.33,51.0,2.1,3301.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/3751
+sweet-and-salty-popcorn,Sweet & Salty Popcorn,Snacks & Treats,,139.0,2.3,17.0,6.1,0.5,,0.2,3.4,3.8,583.0,,,,,,,false,true,,,Read from https://www.starbucks.co.uk/menu/product/410787

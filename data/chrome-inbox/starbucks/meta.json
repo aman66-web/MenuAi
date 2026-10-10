@@ -6,10 +6,10 @@
   "checked_on": "2026-10-10",
   "nutrition_level": "full",
   "basis": "per serving",
-  "sites": 0,
-  "sites_evidence": "No store count was read: https://www.starbucks.co.uk/store-locator asks for a location and lists no stores until one is given (Starbucks UK has several hundred stores).",
+  "sites": 1300,
+  "sites_evidence": "starbucks.co.uk statement: over 1,300 company-operated and licensed UK stores",
   "allowed_hosts": [],
-  "note": "Food only (sandwiches, breakfast, bakery, snacks); the 'Seasonal' items shown on 10 October 2026 are included. Starbucks prints no allergen information for drinks on its web pages and its full guides are PDFs (disallowed to automated tools by robots.txt), so drinks are not included. The page says nutrition is calculated from standard recipes.",
+  "note": "Food only, per serving from each product's page; drinks were not read. Allergens are on the pages but not for every item, so only the guide link is given.",
   "allergen_guide_title": "Starbucks UK nutrition and allergen information",
   "allergen_guide_url": "https://www.starbucks.co.uk/nutrition",
   "may_contain_published": false

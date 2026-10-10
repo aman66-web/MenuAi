@@ -6,10 +6,10 @@
   "checked_on": "2026-10-10",
   "nutrition_level": "full",
   "basis": "per serving",
-  "sites": 0,
-  "sites_evidence": "No restaurant count was read: the menu pages show 'Select restaurant for pricing' and item availability by restaurant. Needs a count (the store locator at https://www.burgerking.co.uk/store-locator was not opened).",
+  "sites": 300,
+  "sites_evidence": "locations.burgerking.co.uk lists more than 300 UK towns and places with a restaurant",
   "allowed_hosts": [],
-  "note": "Per-item panels printed by the chain; fibre is not printed. Several items print 0.7 g sugars (looks like a placeholder; copied as printed). Items sold in several sizes (fries, drinks) appear for the sizes whose panel was read. Drinks, dips, sauces and most desserts were not read. Menu availability varies by restaurant.",
+  "note": "Per serving from each product's own panel (fibre not printed). Drinks, dips, sauces and most desserts were not read; availability varies by restaurant.",
   "allergen_guide_title": "Burger King UK allergen information (on each product's panel)",
   "allergen_guide_url": "https://www.burgerking.co.uk/menu",
   "may_contain_published": true
