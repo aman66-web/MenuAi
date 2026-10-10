@@ -82,3 +82,14 @@ export function useGroceryCatalogue(retailer: string | null, retry = 0): Catalog
   if (state.error || !state.manifest) return { status: "error", products: [], manifest: state.manifest };
   return { status: "ready", products, manifest: state.manifest };
 }
+
+/** The catalogue's manifest alone (null until loaded or when it can't be): which supermarkets have products. */
+export function useGroceryManifest(): GroceryManifest | null {
+  const [m, setM] = useState<GroceryManifest | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    loadManifest().then((x) => { if (!cancelled) setM(x); }, () => undefined);
+    return () => { cancelled = true; };
+  }, []);
+  return m;
+}

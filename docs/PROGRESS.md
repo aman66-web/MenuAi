@@ -503,6 +503,29 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   lines spoken by Pip, the goal hints, "Easy to read", "Your plan", "Halal", "Vegan", "Allergies to avoid", the allergy and halal caution sentences.
   Checked: 256 unit tests, 112 Python, e2e smoke 22, extra 9, browse 9, calories 4, groceries 6+8+5+4, axe 0 in light and dark, no overflow at 200% text.
 
+- 2026-10-10 — **Eat out, shop, cook (founder: "the app isn't just for restaurant food ... it can craft recipes based on where you shop").**
+  **Recipes from your shop** (`/app/recipes`, `/app/recipes/view?id=&r=`; `lib/mm/recipes.ts`, 12 recipes of ours): every ingredient is matched to a real
+  product in the shop's full list (Sainsbury's, the only shop with prices and page nutrition today) and every figure is arithmetic on that product's own label
+  for the recipe's amount: per 100 g or ml **as sold**, or **drained** for canned beans, chickpeas and tuna (the shop's pages and its price per kg both use the
+  drained weight); a label the shop's page heads "cooked" is never used for an uncooked amount, and a kcal range per ingredient keeps out labels whose heading
+  doesn't say (Sainsbury's own basmati and penne print cooked figures, so dry ones from other brands are picked). Default pick = cheapest pack; "Swap" lists every
+  product that fits; "a serving" prices only the amount used (the shop's price per kg/litre), "to buy it all" the whole packs. Blurbs make no nutrition or health
+  claims (rule 3; a test checks for "lean", "high in", "healthy"...); "No meat or fish" is by product name only, so allergens/halal are flagged as not read.
+  **Shopping list** now takes shop products without a barcode (`shopId`) and notes the shelf price and date when added: a per-shop total ("£x for the items with a
+  price, at Sainsbury's prices checked {date}. Prices change: check in store."). "Add to my list" on every shop product page; "Add all to my shopping list" on a recipe.
+  **Positioning:** Home has four tiles (Find restaurants near you · Browse supermarket groceries · Cook from your shop · Your shopping list); onboarding's first screen
+  shows Eat out / Shop / Cook, its "Let's go" button stays in view, a new step "Where do you shop?" (`settings.shops`; also in Settings › Your supermarkets) makes
+  Groceries and Recipes open on that shop, and "Here's how it works" names all three; the website gained a "More than menus" section (its headline,
+  `site.description` and the App Store title are unchanged: flagged below). New copy (rule 8, logged here): the recipe names, blurbs and methods, "Recipes from your
+  shop", "Cook from your shop", "Your shopping list", "What to buy", "How to make it", "a serving", "to buy it all", "Also handy:", "No meat or fish", "Where do you
+  shop?", "Your supermarkets", and the welcome lines "I'll help you eat out, shop and cook with the calories, protein and prices in front of you." / "Supermarket
+  products with their labels and prices" / "Recipes made from your shop's products, with the cost per serving". Tests: 9 unit (`tests/recipes.test.ts`, incl. every
+  recipe resolving against the published Sainsbury's list), `e2e/recipes.mjs` (6, axe light/dark), a11y + large-text lists extended.
+  **Found on the way (not changed):** some Sainsbury's product pages print cooked figures under a plain "per 100g" heading (e.g. its own Penne 1kg shows 164 kcal
+  per 100 g), so the "Every Sainsbury's product" list shows them as printed without the word "cooked"; recipes are protected by the kcal ranges. **Flagged for the
+  founder:** the website headline/description and App Store title still say restaurants only ("Know your macros before you order", "Fast Food Macros"); say if you
+  want them to cover shopping and cooking too.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

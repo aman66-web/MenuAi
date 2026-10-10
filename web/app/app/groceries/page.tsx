@@ -5,11 +5,11 @@ import { useDeferredValue, useMemo, useState } from "react";
 import { barcodeQuery, GROCERY_SORTS, RETAILERS, searchProducts, type GrocerySort } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
-import { BasketIcon, ScanIcon, SearchIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, PotIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
-import { useGroceryCatalogue } from "../_lib/groceries";
+import { useGroceryCatalogue, useGroceryManifest } from "../_lib/groceries";
 import { useShopManifest } from "../_lib/shopProducts";
-import { useStore } from "../_lib/hooks";
+import { useSettings, useStore } from "../_lib/hooks";
 import { ProductRow } from "./ProductRow";
 import { Scanner } from "./Scanner";
 
@@ -20,7 +20,8 @@ const PAGE = 60;
 export default function GroceriesPage() {
   const router = useRouter();
   const list = useStore(shoppingStore);
-  const [retailer, setRetailer] = useState<string | null>(null);
+  // undefined until the person picks: then the first of their supermarkets (Settings) that has products here, else All
+  const [picked, setPicked] = useState<string | null | undefined>(undefined);
   const [category, setCategory] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<GrocerySort>("density");
@@ -29,6 +30,10 @@ export default function GroceriesPage() {
   const [retry, setRetry] = useState(0);
   const [scanning, setScanning] = useState(false);
   const deferred = useDeferredValue(query);
+  const settings = useSettings();
+  const catManifest = useGroceryManifest();
+  const retailer = picked !== undefined ? picked : (settings.shops?.find((id) => catManifest?.retailers.some((r) => r.id === id && r.count > 0)) ?? null);
+  const setRetailer = (r: string | null) => setPicked(r);
   const catalogue = useGroceryCatalogue(retailer, retry);
   const fullLists = useShopManifest();
 
@@ -53,6 +58,15 @@ export default function GroceriesPage() {
         </Link>
       </div>
       <p className="mt-1 text-sm text-muted">Products from the UK&apos;s biggest supermarkets: calories, protein, carbs, fat, allergens and the barcode for each product.</p>
+
+      <Link href="/app/recipes" className="glass lift group mt-4 flex min-h-[4.5rem] items-center gap-3 rounded-[1.75rem] p-3 pl-4 hover:bg-soft-strong">
+        <span aria-hidden className="icon-bubble h-11 w-11 shrink-0"><PotIcon className="h-5 w-5" /></span>
+        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+          <span className="block text-[15px] font-bold leading-snug tracking-tight">Recipes from your shop</span>
+          <span className="block text-sm text-muted">Real products and prices, with calories, protein and cost per serving.</span>
+        </span>
+        <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
+      </Link>
 
       <div className="mt-4 flex gap-2">
         <label className="relative flex-1">

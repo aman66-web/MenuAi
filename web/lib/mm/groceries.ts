@@ -317,29 +317,43 @@ export function cheapestRetailer(p: Pick<ListedProduct, "prices">, withCard = fa
 // ---------------------------------------------------------------- shopping list
 
 export interface ShoppingItem {
+  /** The barcode, or "" for a product from a shop's full list that we only know by the shop's own product id. */
   gtin: string;
+  /** The shop's own product id (its page address), for products from a shop's full list (recipes add these). */
+  shopId?: string;
   retailer: string;
   name: string;
   brand: string;
   size: string;
   qty: number;
   addedAt: string;
+  /** The shelf price when it was added and the date the shop's list was read: shown as a guide, never kept up to date. */
+  price?: number;
+  checkedOn?: string;
 }
 
 export const MAX_SHOPPING_ITEMS = 200;
 export const MAX_QTY = 20;
+const SHOP_ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
 
-/** Adding the same barcode for the same retailer again raises its quantity. */
-export function addToList(list: readonly ShoppingItem[], item: Omit<ShoppingItem, "qty" | "addedAt">, now = new Date()): ShoppingItem[] {
-  const i = list.findIndex((x) => x.gtin === item.gtin && x.retailer === item.retailer);
-  if (i >= 0) return list.map((x, j) => (j === i ? { ...x, qty: Math.min(MAX_QTY, x.qty + 1) } : x));
+/** What identifies an item within one retailer: its barcode, else the shop's own product id. */
+export const itemCode = (i: Pick<ShoppingItem, "gtin" | "shopId">): string => i.gtin || i.shopId || "";
+
+/** Adding the same product for the same retailer again raises its quantity (by `qty`, default 1). */
+export function addToList(list: readonly ShoppingItem[], item: Omit<ShoppingItem, "qty" | "addedAt">, now = new Date(), qty = 1): ShoppingItem[] {
+  const code = itemCode(item);
+  const add = Math.max(1, Math.floor(qty));
+  const i = list.findIndex((x) => itemCode(x) === code && x.retailer === item.retailer);
+  if (i >= 0) return list.map((x, j) => (j === i ? { ...x, qty: Math.min(MAX_QTY, x.qty + add) } : x));
   if (list.length >= MAX_SHOPPING_ITEMS) return [...list];
-  return [...list, { ...item, qty: 1, addedAt: now.toISOString() }];
+  return [...list, { ...item, qty: Math.min(MAX_QTY, add), addedAt: now.toISOString() }];
 }
 
-export function setQty(list: readonly ShoppingItem[], gtin: string, retailer: string, qty: number): ShoppingItem[] {
-  if (qty <= 0) return list.filter((x) => !(x.gtin === gtin && x.retailer === retailer));
-  return list.map((x) => (x.gtin === gtin && x.retailer === retailer ? { ...x, qty: Math.min(MAX_QTY, Math.floor(qty)) } : x));
+/** `code` is the item's barcode, or its shop product id when it has no barcode (itemCode). */
+export function setQty(list: readonly ShoppingItem[], code: string, retailer: string, qty: number): ShoppingItem[] {
+  const same = (x: ShoppingItem) => itemCode(x) === code && x.retailer === retailer;
+  if (qty <= 0) return list.filter((x) => !same(x));
+  return list.map((x) => (same(x) ? { ...x, qty: Math.min(MAX_QTY, Math.floor(qty)) } : x));
 }
 
 export function sanitizeShoppingList(raw: unknown): ShoppingItem[] {
@@ -347,22 +361,40 @@ export function sanitizeShoppingList(raw: unknown): ShoppingItem[] {
   const out: ShoppingItem[] = [];
   for (const r of raw.slice(0, MAX_SHOPPING_ITEMS)) {
     const x = r as Partial<ShoppingItem>;
-    if (typeof x?.gtin === "string" && /^\d{8,14}$/.test(x.gtin) && typeof x.retailer === "string" && typeof x.name === "string" && x.name.length > 0) {
+    const gtin = typeof x?.gtin === "string" && /^\d{8,14}$/.test(x.gtin) ? x.gtin : "";
+    const shopId = typeof x?.shopId === "string" && SHOP_ID.test(x.shopId) ? x.shopId : undefined;
+    if ((gtin || shopId) && typeof x.retailer === "string" && typeof x.name === "string" && x.name.length > 0) {
       out.push({
-        gtin: x.gtin, retailer: x.retailer.slice(0, 30), name: x.name.slice(0, 120), brand: typeof x.brand === "string" ? x.brand.slice(0, 80) : "",
+        gtin, ...(shopId ? { shopId } : {}), retailer: x.retailer.slice(0, 30), name: x.name.slice(0, 120), brand: typeof x.brand === "string" ? x.brand.slice(0, 80) : "",
         size: typeof x.size === "string" ? x.size.slice(0, 40) : "", qty: Math.min(MAX_QTY, Math.max(1, Math.floor(Number(x.qty) || 1))),
         addedAt: typeof x.addedAt === "string" ? x.addedAt : new Date(0).toISOString(),
+        ...(typeof x.price === "number" && Number.isFinite(x.price) && x.price > 0 && x.price < 1000 ? { price: Math.round(x.price * 100) / 100 } : {}),
+        ...(typeof x.checkedOn === "string" && /^\d{4}-\d{2}-\d{2}$/.test(x.checkedOn) ? { checkedOn: x.checkedOn } : {}),
       });
     }
   }
   return out;
 }
 
+/** Shelf prices noted when items were added, per retailer: the total, how many items had one, and the oldest date. */
+export function listTotals(items: readonly ShoppingItem[]): { total: number; priced: number; count: number; oldest: string | null } {
+  let total = 0;
+  let priced = 0;
+  let oldest: string | null = null;
+  for (const i of items) {
+    if (i.price === undefined) continue;
+    total += i.price * i.qty;
+    priced += 1;
+    if (i.checkedOn && (!oldest || i.checkedOn < oldest)) oldest = i.checkedOn;
+  }
+  return { total: Math.round(total * 100) / 100, priced, count: items.length, oldest };
+}
+
 /** Plain text for sharing or pasting into notes, grouped by retailer: "Aldi\n- 2 x Greek yogurt 500 g (5012345678900)". */
 export function listAsText(list: readonly ShoppingItem[]): string {
   const groups = new Map<string, ShoppingItem[]>();
   for (const i of list) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
-  return [...groups.entries()].map(([r, items]) => `${retailerName(r)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""} (${i.gtin})`).join("\n")}`).join("\n\n");
+  return [...groups.entries()].map(([r, items]) => `${retailerName(r)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""}${i.gtin ? ` (${i.gtin})` : ""}`).join("\n")}`).join("\n\n");
 }
 
 /** One place a product's picture can come from: always a supermarket's own photo (founder 2026-10-10: never Open Food Facts'). */

@@ -49,6 +49,8 @@ export interface UserSettings {
   lastMenuSyncAt?: string;
   /** How big the app's text is (Settings and onboarding): standard 100%, large 115%, xlarge 130% of the browser's own size. */
   textSize?: TextSize;
+  /** The supermarkets this person shops at (retailer ids, most used first): Groceries and Recipes open on the first one. */
+  shops?: string[];
 }
 
 export type TextSize = "standard" | "large" | "xlarge";
@@ -68,6 +70,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   devProOverride: false,
 };
 
+const SHOP_ID = /^[a-z0-9-]{2,30}$/;
 const GOALS: readonly Goal[] = ["lose", "maintain", "buildMuscle", "glp1"];
 const isObject = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 const num = (v: unknown, fallback: number, min: number, max: number) =>
@@ -102,6 +105,9 @@ export function sanitizeSettings(raw: unknown): UserSettings {
     devProOverride: bool(raw.devProOverride, false),
     ...(typeof raw.lastMenuSyncAt === "string" ? { lastMenuSyncAt: raw.lastMenuSyncAt } : {}),
     ...(TEXT_SIZES.includes(raw.textSize as TextSize) && raw.textSize !== "standard" ? { textSize: raw.textSize as TextSize } : {}),
+    ...(Array.isArray(raw.shops) && raw.shops.some((x) => typeof x === "string" && SHOP_ID.test(x))
+      ? { shops: [...new Set(raw.shops.filter((x): x is string => typeof x === "string" && SHOP_ID.test(x)))].slice(0, 12) }
+      : {}),
   };
 }
 

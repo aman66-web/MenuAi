@@ -15,6 +15,13 @@ const steps = [
   { title: "Get the order that fits", body: "Pro ranks the five best orders for your goal and what's left today, and adds up custom orders as you tap." },
 ];
 
+// The three things the app does (founder 2026-10-10: "it's also for groceries ... recipes based on where you shop").
+const pillars = [
+  { title: "Eat out", body: `Every dish at ${stats.chains > 0 ? `${stats.chains} UK restaurants` : "popular UK restaurants"}, with calories, protein, carbs and fat from each chain's own guide.` },
+  { title: "Shop", body: "Supermarket products with the calories, protein and price from the shop's own pages. Make a list and see what it comes to." },
+  { title: "Cook", body: "Recipes filled with real products from your supermarket, with calories, protein and the cost of each serving. Swap any ingredient." },
+];
+
 const goals = [
   { title: "Lose weight", body: "Stay under today's budget without guessing." },
   { title: "Build muscle", body: "The most protein per calorie, with double-protein options." },
@@ -70,6 +77,19 @@ export default function Home() {
           </dl>
         </section>
       )}
+
+      <section aria-labelledby="pillars" className="mx-auto max-w-5xl px-5 pt-12">
+        <p className="kicker">More than menus</p>
+        <h2 id="pillars" className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Eat out, shop and cook with the numbers in front of you</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {pillars.map((p) => (
+            <div key={p.title} className="glass rounded-3xl p-6">
+              <h3 className="text-lg font-bold tracking-tight">{p.title}</h3>
+              <p className="mt-2 leading-relaxed text-muted">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="mx-auto max-w-5xl px-5 py-12">
         <p className="kicker">How it works</p>

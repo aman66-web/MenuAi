@@ -15,7 +15,7 @@ import { PaywallProvider } from "./Paywall";
 const TABS = [
   { href: "/app", label: "Home", Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
   { href: "/app/map", label: "Nearby", Icon: PinIcon, match: (p: string) => p.startsWith("/app/map") },
-  { href: "/app/groceries", label: "Groceries", Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") },
+  { href: "/app/groceries", label: "Groceries", Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") || p.startsWith("/app/recipes") },
   { href: "/app/saved", label: "Saved", Icon: BookmarkIcon, match: (p: string) => p.startsWith("/app/saved") },
   { href: "/app/today", label: "Today", Icon: TodayIcon, match: (p: string) => p.startsWith("/app/today") },
   { href: "/app/settings", label: "Settings", Icon: GearIcon, match: (p: string) => p.startsWith("/app/settings") },

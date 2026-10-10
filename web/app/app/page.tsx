@@ -5,14 +5,14 @@ import { useEffect, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import { formatCalories, formatGrams, formatInt, macroLine } from "@/lib/mm/format";
-import { favoritesStore, logStore, savedStore, settingsStore, updateSettings } from "@/lib/mm/stores";
+import { favoritesStore, logStore, savedStore, settingsStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainCard, ChainRow } from "./_components/ChainRow";
 import { Ring } from "./_components/Ring";
-import { ArrowRightIcon, BasketIcon, PencilIcon, PinIcon, SearchIcon } from "./_components/icons";
+import { ArrowRightIcon, BasketIcon, ListIcon, PencilIcon, PinIcon, PotIcon, SearchIcon } from "./_components/icons";
 import { RequestChainSheet } from "./_components/Submit";
 import { Button, Card, Chip, EmptyState, ErrorBox, SectionTitle, Spinner } from "./_components/ui";
 import { menuClient } from "./_lib/menu";
@@ -28,6 +28,7 @@ export default function HomePage() {
   const menu = useMenu();
   const favorites = useStore(favoritesStore);
   const saved = useStore(savedStore);
+  const shopping = useStore(shoppingStore);
   const log = useStore(logStore);
   const now = useNow();
   const [requesting, setRequesting] = useState(false);
@@ -68,6 +69,7 @@ export default function HomePage() {
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">Search restaurants and items</span>
         <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
+      {/* Eat out, shop, cook: the four things the app does, one tap each (founder 2026-10-10: "it's also for groceries"). */}
       <div className="stagger mt-3 grid grid-cols-2 gap-3">
         <Link href="/app/map" className="glass lift group flex min-h-[6.5rem] min-w-0 flex-col justify-between gap-3 rounded-[1.75rem] p-4 [overflow-wrap:anywhere] hover:bg-soft-strong">
           <span aria-hidden className="icon-bubble h-11 w-11"><PinIcon className="h-5 w-5" /></span>
@@ -76,6 +78,17 @@ export default function HomePage() {
         <Link href="/app/groceries" className="glass lift group flex min-h-[6.5rem] min-w-0 flex-col justify-between gap-3 rounded-[1.75rem] p-4 [overflow-wrap:anywhere] hover:bg-soft-strong">
           <span aria-hidden className="icon-bubble h-11 w-11"><BasketIcon className="h-5 w-5" /></span>
           <span className="text-[15px] font-bold leading-snug tracking-tight">Browse supermarket groceries</span>
+        </Link>
+        <Link href="/app/recipes" className="glass lift group flex min-h-[6.5rem] min-w-0 flex-col justify-between gap-3 rounded-[1.75rem] p-4 [overflow-wrap:anywhere] hover:bg-soft-strong">
+          <span aria-hidden className="icon-bubble h-11 w-11"><PotIcon className="h-5 w-5" /></span>
+          <span className="text-[15px] font-bold leading-snug tracking-tight">Cook from your shop</span>
+        </Link>
+        <Link href="/app/groceries/list" className="glass lift group flex min-h-[6.5rem] min-w-0 flex-col justify-between gap-3 rounded-[1.75rem] p-4 [overflow-wrap:anywhere] hover:bg-soft-strong">
+          <span className="flex items-center justify-between gap-2">
+            <span aria-hidden className="icon-bubble h-11 w-11"><ListIcon className="h-5 w-5" /></span>
+            {hydrated && shopping.length > 0 && <span className="app-numbers rounded-full bg-accent-soft px-2.5 py-1 text-sm font-extrabold text-accent">{shopping.length} <span className="sr-only">{shopping.length === 1 ? "item" : "items"}</span></span>}
+          </span>
+          <span className="text-[15px] font-bold leading-snug tracking-tight">Your shopping list</span>
         </Link>
       </div>
 

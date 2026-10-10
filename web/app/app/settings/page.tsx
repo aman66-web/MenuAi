@@ -15,6 +15,7 @@ import { site } from "@/site.config";
 import { ChevronRightIcon } from "../_components/icons";
 import { ContactForm } from "../_components/Submit";
 import { DietPicker } from "../_components/DietPicker";
+import { ShopPicker } from "../_components/ShopPicker";
 import { applyTextSize } from "../_lib/textSize";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Card, Field, inputClass, Segmented, Sheet, Toggle } from "../_components/ui";
@@ -131,6 +132,11 @@ export default function SettingsPage() {
 
       <Section title="Diet and allergies">
         <DietPicker value={settings.preferences} onChange={(preferences) => updateSettings({ preferences })} />
+      </Section>
+
+      <Section title="Your supermarkets">
+        <p className="mb-3 text-sm text-muted">Groceries and Recipes open on the first one you picked.</p>
+        <ShopPicker value={settings.shops ?? []} onChange={(shops) => updateSettings({ shops: shops.length ? shops : undefined })} />
       </Section>
 
       <Section title="Subscription">

@@ -34,10 +34,10 @@ await step("first visit redirects to onboarding", async () => {
   await shot("00-onboarding-welcome");
   await page.getByRole("button", { name: "Let's go" }).click();
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
-  await visible(text("Step 1 of 5"));
+  await visible(text("Step 1 of 6"));
   await shot("01-onboarding-goal");
 });
-await step("onboarding: welcome → goal → targets → preferences → text size → how it works → Start", async () => {
+await step("onboarding: welcome → goal → targets → preferences → shops → text size → how it works → Start", async () => {
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Your daily targets" }));
@@ -47,6 +47,9 @@ await step("onboarding: welcome → goal → targets → preferences → text si
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Anything you avoid?" }));
   await page.getByRole("button", { name: "Skip" }).click();
+  await visible(page.getByRole("heading", { name: "Where do you shop?" }));
+  await page.getByRole("button", { name: "Sainsbury's", exact: true }).click();
+  await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Easy to read" }));
   await page.getByRole("radio", { name: "Large", exact: true }).click();
   await page.getByRole("radio", { name: "Standard", exact: true }).click();

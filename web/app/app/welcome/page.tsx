@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { formatInt } from "@/lib/mm/format";
+import { retailerName } from "@/lib/mm/groceries";
 import { isAllHalal } from "@/lib/mm/halal";
 import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
 import { POPULAR_ORDER, splitChains } from "@/lib/mm/popular";
@@ -12,16 +13,18 @@ import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
-import { BoltIcon, CheckIcon, ForkIcon, GiftIcon, ListIcon, PillIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
+import { BasketIcon, BoltIcon, CheckIcon, ForkIcon, GiftIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
 import { Pip, PipSays } from "../_components/Mascot";
+import { ShopPicker } from "../_components/ShopPicker";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Field, inputClass, radioKeyNav } from "../_components/ui";
 import { useChain, useMenu } from "../_lib/hooks";
 import { applyTextSize } from "../_lib/textSize";
 
 // SPEC §7.1 and §8, made friendlier at the founder's request (2026-10-10): Pip the mascot says what each step is for, buttons are big,
-// one question per screen, and a text-size step so everyone can read it. The SPEC's step headings are kept. Skip on steps 1–4 skips
-// that step only (defaults stay); the last step has only Start. Step 3 asks about foods to leave out (the web app has no location step).
+// one question per screen, and a text-size step so everyone can read it. The SPEC's step headings are kept. Skip on steps 1–5 skips
+// that step only (defaults stay); the last step has only Start. Step 3 asks about foods to leave out (the web app has no location step);
+// step 4 asks which supermarkets they use (founder 2026-10-10: the app is for eating out, shopping and cooking).
 
 const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
   { value: "lose", label: "Lose weight", hint: "Orders that fit a lower calorie target", Icon: TrendDownIcon },
@@ -44,7 +47,7 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
   { value: "xlarge", label: "Extra large" },
 ];
 
-const STEPS = 5;
+const STEPS = 6;
 
 export default function WelcomePage() {
   const router = useRouter();
@@ -57,6 +60,7 @@ export default function WelcomePage() {
   const [mealCap, setMealCap] = useState(String(initial.glp1MealCap));
   const [prefs, setPrefs] = useState(initial.preferences);
   const [size, setSize] = useState<TextSize>(initial.textSize ?? "standard");
+  const [shops, setShops] = useState<string[]>(initial.shops ?? []);
   const [showSuggest, setShowSuggest] = useState(false);
   const [goalTouched, setGoalTouched] = useState(false);
   const pickGoal = (g: Goal) => {
@@ -97,35 +101,43 @@ export default function WelcomePage() {
   if (step === 0) {
     return (
       <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col items-center text-center">
-        <div className="relative mt-6 flex w-full justify-center">
-          <span aria-hidden className="absolute top-6 h-44 w-44 rounded-full opacity-70 blur-3xl [background:var(--sun)]" />
-          <div className="pop-in relative"><Pip mood="wave" size={176} /></div>
+        <div className="relative mt-4 flex w-full justify-center">
+          <span aria-hidden className="absolute top-6 h-40 w-40 rounded-full opacity-70 blur-3xl [background:var(--sun)]" />
+          <div className="pop-in relative"><Pip mood="wave" size={150} /></div>
         </div>
-        <h1 className="mt-4 text-[2.6rem] font-extrabold leading-[1.02] tracking-[-0.03em]">Hi, I&apos;m <span className="serif-em sun-text pr-0.5">Pip</span>!</h1>
-        <p className="mt-3 max-w-[22rem] text-lg leading-snug text-muted">
-          I&apos;ll show you the calories and protein in every dish at {restaurants > 0 ? <strong className="app-numbers text-foreground">{restaurants} UK restaurants</strong> : "UK restaurants"}, straight from each restaurant&apos;s own guide.
-        </p>
+        <h1 className="mt-3 text-[2.6rem] font-extrabold leading-[1.02] tracking-[-0.03em]">Hi, I&apos;m <span className="serif-em sun-text pr-0.5">Pip</span>!</h1>
+        <p className="mt-2 max-w-[22rem] text-lg leading-snug text-muted">I&apos;ll help you eat out, shop and cook with the calories, protein and prices in front of you.</p>
+        <ul className="stagger mt-5 w-full space-y-2 text-left">
+          {[
+            { Icon: ForkIcon, title: "Eat out", text: <>Every dish at {restaurants > 0 ? <strong className="app-numbers text-foreground">{restaurants} UK restaurants</strong> : "UK restaurants"}, from each one&apos;s own guide</> },
+            { Icon: BasketIcon, title: "Shop", text: <>Supermarket products with their labels and prices</> },
+            { Icon: PotIcon, title: "Cook", text: <>Recipes made from your shop&apos;s products, with the cost per serving</> },
+          ].map(({ Icon, title, text }) => (
+            <li key={title} className="glass flex items-center gap-3 rounded-3xl p-3 pr-4">
+              <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 rounded-2xl"><Icon className="h-5 w-5" /></span>
+              <span className="min-w-0 flex-1 leading-snug"><span className="block text-base font-extrabold">{title}</span><span className="block text-sm text-muted">{text}</span></span>
+            </li>
+          ))}
+        </ul>
         {known.length > 0 && (
           <p className="mt-4 flex max-w-[22rem] flex-wrap justify-center gap-1.5" aria-label="Including">
             {known.map((c) => (<span key={c.id} className="glass rounded-full px-3 py-1 text-sm font-semibold">{c.name}</span>))}
             {restaurants > known.length && <span className="app-numbers rounded-full bg-foreground px-3 py-1 text-sm font-bold text-background">+{restaurants - known.length} more</span>}
           </p>
         )}
-        <ul className="stagger mt-6 grid w-full grid-cols-3 gap-2">
+        <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm font-semibold text-muted">
           {[
             { Icon: ShieldIcon, text: "No account needed" },
             { Icon: CheckIcon, text: "Stays on your phone" },
             { Icon: GiftIcon, text: "Every menu free" },
           ].map(({ Icon, text }) => (
-            <li key={text} className="glass flex flex-col items-center gap-2 rounded-3xl px-2 py-3 text-[13px] font-semibold leading-tight">
-              <span aria-hidden className="icon-bubble-soft h-9 w-9"><Icon className="h-[18px] w-[18px]" /></span>
-              {text}
-            </li>
+            <li key={text} className="flex items-center gap-1.5"><Icon aria-hidden className="h-4 w-4 text-accent" />{text}</li>
           ))}
         </ul>
-        <div className="mt-auto w-full pt-8">
+        {/* stays in view on small screens, so the next step is never below the fold */}
+        <div className="sticky bottom-0 -mx-5 mt-auto w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">
           <Button full className="min-h-14 text-lg" onClick={next}>Let&apos;s go</Button>
-          <p className="mt-3 text-sm text-muted">Takes about a minute.</p>
+          <p className="mt-2 text-sm text-muted">Takes about a minute.</p>
         </div>
       </div>
     );
@@ -241,6 +253,16 @@ export default function WelcomePage() {
 
       {step === 4 && (
         <section className="mt-4 flex flex-1 flex-col">
+          <PipSays mood="think">Which supermarkets do you use? I&apos;ll show their products and recipes first.</PipSays>
+          <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight">Where do you <span className="serif-em sun-text pr-0.5">shop</span>?</h1>
+          <p className="mb-4 mt-2 text-muted">Tap all that apply. Change it any time in Settings.</p>
+          <ShopPicker value={shops} onChange={setShops} />
+          <Actions onContinue={() => { updateSettings({ shops: shops.length ? shops : undefined }); next(); }} onSkip={skip} />
+        </section>
+      )}
+
+      {step === 5 && (
+        <section className="mt-4 flex flex-1 flex-col">
           <PipSays mood="point">Pick the size that&apos;s comfortable to read. You can change it any time in Settings.</PipSays>
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight">Easy to <span className="serif-em sun-text pr-0.5">read</span></h1>
           <div role="radiogroup" aria-label="Text size" className="mt-6 space-y-3">
@@ -270,7 +292,7 @@ export default function WelcomePage() {
         </section>
       )}
 
-      {step === 5 && (
+      {step === 6 && (
         <section className="relative mt-4 flex flex-1 flex-col">
           <Confetti />
           <div aria-live="polite">
@@ -286,13 +308,13 @@ export default function WelcomePage() {
               )}
             </PipSays>
           </div>
-          <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} />
+          <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} shops={shops} />
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight">Here&apos;s how it <span className="serif-em sun-text pr-0.5">works</span></h1>
           <ol className="stagger mt-6 space-y-3">
             {[
-              { Icon: ForkIcon, text: "Pick a restaurant" },
-              { Icon: ListIcon, text: "See every item's calories and protein" },
-              { Icon: BoltIcon, text: "Build the order that fits your day" },
+              { Icon: ForkIcon, text: "Eating out? Pick a restaurant and build the order that fits your day" },
+              { Icon: BasketIcon, text: "Shopping? See each product's calories, protein and price" },
+              { Icon: PotIcon, text: "Cooking? Get recipes made from your shop's products" },
             ].map(({ Icon, text }, i) => (
               <li key={text} className="glass flex min-h-16 items-center gap-4 rounded-3xl px-4 py-3 text-lg font-semibold leading-snug">
                 <span aria-hidden className="icon-bubble relative h-12 w-12 shrink-0"><Icon className="h-6 w-6" /><span className="absolute -right-1 -top-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-foreground text-[11px] font-extrabold text-background">{i + 1}</span></span>
@@ -336,7 +358,7 @@ function TeaserText({ chainId, profile, prefs }: { chainId: string; profile: Pro
 }
 
 /** What the user chose, in one card, so the end of onboarding feels like "your plan". */
-function Plan({ goal, calories, protein, prefs }: { goal: Goal; calories: number; protein: number | undefined; prefs: Preferences }) {
+function Plan({ goal, calories, protein, prefs, shops }: { goal: Goal; calories: number; protein: number | undefined; prefs: Preferences; shops: readonly string[] }) {
   const diets = [prefs.vegetarianOnly && "Vegetarian", prefs.veganOnly && "Vegan", prefs.halalOnly && "Halal", prefs.noPork && "No pork", prefs.noBeef && "No beef"].filter((d): d is string => Boolean(d));
   const avoid = (prefs.avoidAllergens ?? []).map((k) => ALLERGEN_SHORT[k]);
   return (
@@ -353,6 +375,7 @@ function Plan({ goal, calories, protein, prefs }: { goal: Goal; calories: number
           {avoid.length > 0 && <span className="tile rounded-full px-2.5 py-0.5 text-sm font-semibold">No {avoid.join(", ").toLowerCase()}</span>}
         </p>
       )}
+      {shops.length > 0 && <p className="mt-2 text-sm text-muted">Shops at <span className="font-semibold text-foreground">{shops.map(retailerName).join(", ")}</span></p>}
     </div>
   );
 }

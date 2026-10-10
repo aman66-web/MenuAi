@@ -13,7 +13,7 @@ await step("a shared link on a first visit goes through onboarding and then land
   await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
   await page.getByRole("button", { name: "Let's go" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
-  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip" }).click();
+  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip" }).click();
   await page.getByRole("button", { name: "Start" }).click();
   await page.waitForURL(/\/app\/chain\?id=cluck-house/);
   await vis(page.getByRole("heading", { name: "Cluck House" }));

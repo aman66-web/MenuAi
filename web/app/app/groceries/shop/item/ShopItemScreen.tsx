@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { formatPrice } from "@/lib/mm/groceries";
+import { addToList, formatPrice } from "@/lib/mm/groceries";
+import { shoppingStore } from "@/lib/mm/stores";
 import { formatDate } from "@/lib/mm/format";
 import { nutritionBasis, possessive, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
-import { ChevronLeftIcon, ExternalIcon } from "../../../_components/icons";
-import { ErrorBox, Spinner } from "../../../_components/ui";
+import { BasketIcon, ChevronLeftIcon, ExternalIcon } from "../../../_components/icons";
+import { Button, ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
 import { useShopProducts } from "../../../_lib/shopProducts";
 import { ProductPhotoFigure } from "../../ProductPhoto";
@@ -18,6 +19,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const state = useShopProducts(shop, retry);
   const product = useMemo(() => (state.status === "ready" ? state.products.find((p) => p.id === id) : undefined), [state, id]);
   const [inCatalogue, setInCatalogue] = useState(false);
+  const [added, setAdded] = useState<string | null>(null);
   const gtin = product?.gtin ?? "";
   useEffect(() => {
     if (!gtin) return;
@@ -68,6 +70,13 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
           </p>
         )}
         <p className="mt-2 text-xs text-muted">From {possessive(file.name)} website, checked {formatDate(file.checkedOn)}. Prices and offers vary by store and by loyalty card.</p>
+      </div>
+
+      <div className="mt-3">
+        <Button full onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price, checkedOn: file.checkedOn })); setAdded(`Added to your ${file.name} list.`); }}>
+          <BasketIcon className="h-5 w-5" />Add to my list
+        </Button>
+        <p role="status" aria-live="polite" className="mt-2 min-h-5 text-center text-sm font-medium text-accent">{added && <>{added} <Link href="/app/groceries/list" className="underline underline-offset-2">See list</Link></>}</p>
       </div>
 
       <section aria-labelledby="nutrition-heading" className="glass mt-3 rounded-3xl p-5">
