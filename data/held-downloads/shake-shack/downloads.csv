@@ -1,0 +1,5 @@
+filename,url,what,retrieved_on,bytes,status
+Shake-Shack-Allergens-Info-May-2026.pdf,https://www.shakeshack.co.uk/wp-content/uploads/2026/05/Shake-Shack-Allergens-Info-May-2026.pdf,Allergen Information,2026-10-10,,blocked: robots.txt disallows https://www.shakeshack.co.uk/wp-content/uploads/2026/05/Shake-Shack-Allergens-Info-May-2026.pdf
+NUTRITIONAL-ISLAND-CHICKEN-LTO-Shake-Shack-UK-2.pdf,https://www.shakeshack.co.uk/wp-content/uploads/2026/09/NUTRITIONAL-ISLAND-CHICKEN-LTO-Shake-Shack-UK-2.pdf,Nutritional Information (link on the allergen page),2026-10-10,,skipped: host refused earlier
+The-Big-Shack-LTO-Allergen-V2-2.pdf,https://www.shakeshack.co.uk/wp-content/uploads/2026/10/The-Big-Shack-LTO-Allergen-V2-2.pdf,"Allergen Information, limited-time menu",2026-10-10,,skipped: host refused earlier
+Shake-Shack-Breakfast-Allergens-Menu-2026-1.pdf,https://www.shakeshack.co.uk/wp-content/uploads/2026/05/Shake-Shack-Breakfast-Allergens-Menu-2026-1.pdf,Breakfast Allergens,2026-10-10,,skipped: host refused earlier

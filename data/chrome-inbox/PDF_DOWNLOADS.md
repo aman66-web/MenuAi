@@ -25,3 +25,18 @@ Or save them yourself from your browser into `data/held-downloads/` and say "inb
 | Subway UK | Nutrition and Allergen PDFs (September 2026) linked from https://www.subway.com/en-gb/menunutrition/nutrition on media.subway.com (the menu pages are a JavaScript app that does not load in Chrome here and show no calories) | nutrition + allergens |
 
 Held for other reasons (not PDFs): Joe & The Juice (its robots.txt forbids automated reading), Cinnabon and Brakspear (a security check screen), Dobbies (menu loads only after accepting cookies), Millie's Cookies (needs a decision on which calorie figure is "the serving").
+
+## Result of the download run (2026-10-10, after your "yes, all listed")
+
+Downloader: `tools/uk_extract/inbox_pdfs.py` (list in `data/held-downloads/pdf_list.csv`, outcome per chain in `data/held-downloads/<chain>/downloads.csv`). Each host's robots.txt was read first (RFC 9309) and one request per second was kept; a refusal was never worked round.
+
+| Chain | Result |
+|---|---|
+| Domino's | **4 files stored** (nutrition for pizzas 21 pages, sides and desserts 4 pages, allergen leaflet, ingredients and allergens), all dated 7 September 2026, text layer readable; full macros per pizza and per slice |
+| Papa Johns, Shake Shack, Tonkotsu, Krispy Kreme, West Cornwall Pasty, Bubbleology, Hydes, Pizza Express, Maki & Ramen | **not fetched: the site's own robots.txt disallows the PDF address** (save the files from your own browser if you want them) |
+| Mother Hubbard's | HTTP 403 from the site: not worked round |
+| IRO Sushi | stored then deleted: an image-only menu, no text and no calorie figures |
+| Subway | the host did not answer twice (read timed out, not a refusal): save the two September 2026 PDFs from your own browser |
+| Cineworld | its Irish host failed the TLS handshake with our downloader: not worked round |
+| Fireaway | its site now shows a Cloudflare "you have been blocked" page to the browser: not worked round |
+| Kew Gardens cafes | not fetched: a single attraction (fewer than 3 UK sites) |

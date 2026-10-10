@@ -1,0 +1,4 @@
+filename,url,what,retrieved_on,bytes,status
+allergens-england-wales-scotland.pdf,https://content-cdn.pizzaexpress.com/files/lj3txstz/production/c93d88dbc7a9f0e6cdc6a0b0a6747eef60089d78.pdf,"Allergens, England, Wales & Scotland",2026-10-10,,blocked: robots.txt disallows https://content-cdn.pizzaexpress.com/files/lj3txstz/production/c93d88dbc7a9f0e6cdc6a0b0a6747eef60089d78.pdf
+nutritionals-england-wales-scotland.pdf,https://content-cdn.pizzaexpress.com/files/lj3txstz/production/b72a05d52e0a11e8b6c37620bbf93cc170595598.pdf,"Nutritionals, England, Wales & Scotland",2026-10-10,,skipped: host refused earlier
+ingredients-england-wales-scotland.pdf,https://content-cdn.pizzaexpress.com/files/lj3txstz/production/09b9f0b4a78c5d7e562b74fa14344cf248dce4f5.pdf,"Ingredients list, England, Wales & Scotland",2026-10-10,,skipped: host refused earlier
