@@ -1,18 +1,22 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { formatInt } from "@/lib/mm/format";
+import { isAllHalal } from "@/lib/mm/halal";
+import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
+import { POPULAR_ORDER, splitChains } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
 import { SUGGESTION_NOTE } from "@/lib/mm/targets";
 import { settingsStore, updateSettings } from "@/lib/mm/stores";
-import type { Goal } from "@/lib/mm/types";
+import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
-import { DietPicker } from "../_components/DietPicker";
+import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
 import { BoltIcon, CheckIcon, ForkIcon, GiftIcon, ListIcon, PillIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
 import { Pip, PipSays } from "../_components/Mascot";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Field, inputClass, radioKeyNav } from "../_components/ui";
-import { useMenu } from "../_lib/hooks";
+import { useChain, useMenu } from "../_lib/hooks";
 import { applyTextSize } from "../_lib/textSize";
 
 // SPEC §7.1 and §8, made friendlier at the founder's request (2026-10-10): Pip the mascot says what each step is for, buttons are big,
@@ -25,6 +29,14 @@ const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p:
   { value: "buildMuscle", label: "Build muscle", hint: "More protein in every order", Icon: BoltIcon },
   { value: "glp1", label: "I'm on a GLP-1 medication", hint: "Smaller, protein-first orders", Icon: PillIcon },
 ];
+
+// What Pip says once a goal is picked (plain words, no health claims: CLAUDE.md rule 3).
+const GOAL_REACTION: Record<Goal, string> = {
+  lose: "Great choice. I'll look for orders that fit a lower calorie target.",
+  maintain: "Nice and steady. I'll keep your orders around your target.",
+  buildMuscle: "Protein it is! I'll put the highest-protein orders first.",
+  glp1: "Got it: smaller, protein-first orders.",
+};
 
 const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
   { value: "standard", label: "Standard" },
@@ -46,6 +58,11 @@ export default function WelcomePage() {
   const [prefs, setPrefs] = useState(initial.preferences);
   const [size, setSize] = useState<TextSize>(initial.textSize ?? "standard");
   const [showSuggest, setShowSuggest] = useState(false);
+  const [goalTouched, setGoalTouched] = useState(false);
+  const pickGoal = (g: Goal) => {
+    setGoal(g);
+    setGoalTouched(true);
+  };
 
   const next = () => {
     setStep((s) => s + 1);
@@ -66,7 +83,16 @@ export default function WelcomePage() {
   const proteinValid = proteinNumber === undefined || (Number.isFinite(proteinNumber) && proteinNumber > 0 && proteinNumber <= 1000);
   const capNumber = Number(mealCap);
   const capValid = Number.isFinite(capNumber) && capNumber >= 100 && capNumber <= 2000;
-  const restaurants = menu.chains.filter((c) => !c.sample).length;
+  const real = useMemo(() => menu.chains.filter((c) => !c.sample), [menu.chains]);
+  const restaurants = real.length;
+  const known = useMemo(() => splitChains(real, 6).popular, [real]);
+  // One well-known restaurant to show a real example at the end (a halal one if the user asked for halal).
+  const teaserChainId = useMemo(() => {
+    const full = real.filter((c) => (c.nutritionLevel ?? "full") === "full");
+    const pool = prefs.halalOnly ? full.filter((c) => isAllHalal(c.id)) : full;
+    const byPopularity = POPULAR_ORDER.map((id) => pool.find((c) => c.id === id)).find(Boolean);
+    return (byPopularity ?? pool[0])?.id ?? "";
+  }, [real, prefs.halalOnly]);
 
   if (step === 0) {
     return (
@@ -79,6 +105,12 @@ export default function WelcomePage() {
         <p className="mt-3 max-w-[22rem] text-lg leading-snug text-muted">
           I&apos;ll show you the calories and protein in every dish at {restaurants > 0 ? <strong className="app-numbers text-foreground">{restaurants} UK restaurants</strong> : "UK restaurants"}, straight from each restaurant&apos;s own guide.
         </p>
+        {known.length > 0 && (
+          <p className="mt-4 flex max-w-[22rem] flex-wrap justify-center gap-1.5" aria-label="Including">
+            {known.map((c) => (<span key={c.id} className="glass rounded-full px-3 py-1 text-sm font-semibold">{c.name}</span>))}
+            {restaurants > known.length && <span className="app-numbers rounded-full bg-foreground px-3 py-1 text-sm font-bold text-background">+{restaurants - known.length} more</span>}
+          </p>
+        )}
         <ul className="stagger mt-6 grid w-full grid-cols-3 gap-2">
           {[
             { Icon: ShieldIcon, text: "No account needed" },
@@ -103,16 +135,23 @@ export default function WelcomePage() {
     <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col">
       <div className="flex items-center gap-3">
         <p className="text-sm font-semibold text-muted" aria-live="polite">Step {step} of {STEPS}</p>
-        <div aria-hidden className="flex flex-1 gap-1.5">
-          {Array.from({ length: STEPS }, (_, i) => i + 1).map((n) => (
-            <span key={n} className={`h-2 flex-1 rounded-full transition-colors duration-300 ${n <= step ? "bg-sun" : "bg-soft-strong"}`} />
-          ))}
+        <div aria-hidden className="relative flex-1 py-3">
+          <div className="h-2.5 overflow-hidden rounded-full bg-soft-strong">
+            <div className="bg-sun h-full rounded-full transition-[width] duration-500 ease-out" style={{ width: `${(step / STEPS) * 100}%` }} />
+          </div>
+          <span className="absolute top-1/2 -translate-x-1/2 -translate-y-[62%] transition-[left] duration-500 ease-out" style={{ left: `${(step / STEPS) * 100}%` }}>
+            <Pip mood={step === STEPS ? "cheer" : "wave"} size={30} />
+          </span>
         </div>
       </div>
 
       {step === 1 && (
         <section className="mt-4 flex flex-1 flex-col">
-          <PipSays mood="think">First, what are you aiming for? I&apos;ll use it to suggest orders for you.</PipSays>
+          <div aria-live="polite">
+            <PipSays mood={goalTouched ? (goal === "buildMuscle" ? "cheer" : "wave") : "think"}>
+              {goalTouched ? GOAL_REACTION[goal] : <>First, what are you aiming for? I&apos;ll use it to suggest orders for you.</>}
+            </PipSays>
+          </div>
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight">What&apos;s your <span className="serif-em sun-text pr-0.5">goal</span>?</h1>
           <div role="radiogroup" aria-label="Your goal" className="mt-6 space-y-3">
             {GOALS.map((g, i) => {
@@ -124,8 +163,8 @@ export default function WelcomePage() {
                   role="radio"
                   aria-checked={on}
                   tabIndex={on ? 0 : -1}
-                  onClick={() => setGoal(g.value)}
-                  onKeyDown={(e) => radioKeyNav(e, i, GOALS.length, (n) => setGoal(GOALS[n]!.value))}
+                  onClick={() => pickGoal(g.value)}
+                  onKeyDown={(e) => radioKeyNav(e, i, GOALS.length, (n) => pickGoal(GOALS[n]!.value))}
                   className={`flex min-h-[4.5rem] w-full items-center gap-4 rounded-3xl border px-4 py-3 text-left transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "hero-card" : "glass hover:bg-soft-strong"}`}
                 >
                   <span aria-hidden className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${on ? "icon-bubble" : "icon-bubble-soft"}`}><g.Icon className="h-5 w-5" /></span>
@@ -234,7 +273,20 @@ export default function WelcomePage() {
       {step === 5 && (
         <section className="relative mt-4 flex flex-1 flex-col">
           <Confetti />
-          <PipSays mood="cheer">You&apos;re all set! Here&apos;s how it works.</PipSays>
+          <div aria-live="polite">
+            <PipSays mood="cheer">
+              {teaserChainId ? (
+                <TeaserText
+                  chainId={teaserChainId}
+                  profile={{ goal, dailyCalories: caloriesValid ? caloriesNumber : initial.dailyCalories, glp1MealCap: capValid ? capNumber : initial.glp1MealCap }}
+                  prefs={prefs}
+                />
+              ) : (
+                <>You&apos;re all set! Here&apos;s how it works.</>
+              )}
+            </PipSays>
+          </div>
+          <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} />
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight">Here&apos;s how it <span className="serif-em sun-text pr-0.5">works</span></h1>
           <ol className="stagger mt-6 space-y-3">
             {[
@@ -264,6 +316,42 @@ export default function WelcomePage() {
             </Button>
           </div>
         </section>
+      )}
+    </div>
+  );
+}
+
+/** A real example from a well-known menu: how many main dishes have 20 g+ protein and fit the user's lunch (counts only). */
+function TeaserText({ chainId, profile, prefs }: { chainId: string; profile: Profile; prefs: Preferences }) {
+  const { index } = useChain(chainId);
+  if (!index) return <>You&apos;re all set! Here&apos;s how it works.</>;
+  const { count, budget } = lunchTeaser(index.chain, profile, prefs);
+  if (count === 0) return <>You&apos;re all set! Here&apos;s how it works.</>;
+  return (
+    <>
+      You&apos;re all set! At {index.chain.name} alone I found <strong className="app-numbers">{count} {count === 1 ? "dish" : "dishes"}</strong> with {TEASER_MIN_PROTEIN}g+ protein that fit a{" "}
+      <span className="app-numbers">{formatInt(budget)}</span> kcal lunch.
+    </>
+  );
+}
+
+/** What the user chose, in one card, so the end of onboarding feels like "your plan". */
+function Plan({ goal, calories, protein, prefs }: { goal: Goal; calories: number; protein: number | undefined; prefs: Preferences }) {
+  const diets = [prefs.vegetarianOnly && "Vegetarian", prefs.veganOnly && "Vegan", prefs.halalOnly && "Halal", prefs.noPork && "No pork", prefs.noBeef && "No beef"].filter((d): d is string => Boolean(d));
+  const avoid = (prefs.avoidAllergens ?? []).map((k) => ALLERGEN_SHORT[k]);
+  return (
+    <div className="hero-card mt-4 rounded-3xl p-5">
+      <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">Your plan</p>
+      <p className="mt-1 text-lg font-bold">{GOALS.find((g) => g.value === goal)?.label}</p>
+      <p className="app-numbers mt-1 text-base">
+        <span className="sun-text text-2xl font-extrabold">{formatInt(calories)}</span> kcal
+        {protein ? <> · <span className="text-2xl font-extrabold text-accent">{formatInt(protein)}g</span> protein</> : null} a day
+      </p>
+      {(diets.length > 0 || avoid.length > 0) && (
+        <p className="mt-2 flex flex-wrap gap-1.5">
+          {diets.map((d) => (<span key={d} className="tile rounded-full px-2.5 py-0.5 text-sm font-semibold">{d}</span>))}
+          {avoid.length > 0 && <span className="tile rounded-full px-2.5 py-0.5 text-sm font-semibold">No {avoid.join(", ").toLowerCase()}</span>}
+        </p>
       )}
     </div>
   );

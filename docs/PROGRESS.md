@@ -483,6 +483,26 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Puccino's count was stale, 654 → now matches any 3-digit count), calories (4), axe 0 violations in light and dark on every screen, no horizontal overflow at
   100/150/200% text.
 
+- 2026-10-10 — **Onboarding with a mascot, easier for everyone, more filters, logos, groceries (founder's list).** (1) **Pip**, our own mascot (a round green
+  buddy with a sprout, drawn in SVG for this app: not food, not any restaurant's character), leads a new onboarding: welcome screen (Pip, "{n} UK
+  restaurants", names of well-known chains, "No account needed / Stays on your phone / Every menu free"), then five big one-question steps (goal with a
+  reply from Pip, targets, foods to avoid, text size, how it works), Pip walking along the progress bar, a "Your plan" card and a real example counted
+  from the data ("At KFC alone I found 13 dishes with 20g+ protein that fit a 700 kcal lunch": `lib/mm/onboarding.ts`, tested), confetti at the end. The
+  SPEC's step headings are kept. Pip also appears in the search hint and the Saved/Today empty states. (2) **Text size** Standard / Large / Extra large
+  (100/115/130%) in onboarding and Settings, applied before the first paint, for older users. (3) **Filters:** Vegan (only dishes the restaurant itself names
+  vegan or plant-based), **Halal** (chain-level: only the chain's own words, `data/dietary/halal-*.csv` → `lib/mm/halal-data.ts`; 11 chains say all their
+  food is halal, 30 some; Home and Nearby get a Halal chip, restaurant pages quote the chain with a link), **allergies to avoid** (the 14 allergens; hides
+  dishes whose guide lists them as contains or may contain, and dishes with no allergen information; a restaurant without readable allergen data says so and
+  links its guide). Best for you uses the same filters (`chainForDiet`, ranking untouched). (4) **Logos: 185 of 194 chains** now show their own logo
+  (all 11 Mitchells & Butlers pubs, KFC, Nando's, Pizza Hut, Premier Inn and 50 more; site icons used where a chain serves no other logo file: Brunning &
+  Price, Coffee #1, Drake & Morgan, Giraffe, Great Local Pubs, Tenpin, Butlin's, Forest Holidays; Vue from its owner's brand page). The last 9 (Bettys,
+  Chozen, Deli by Shell, Honi Poke, Hungry Horse, Kokoro, Simmons, Tesco Café, Wild Bean Café) are blocked to us and listed for the founder's Chrome in
+  `data/chrome-inbox/QUEUE-LOGOS.md`. (5) **Groceries:** no Open Food Facts pictures anywhere (a shop's own photo or a "no photo" tile), more shop photos
+  joined by barcode only (Tesco 339, Sainsbury's 809), own-brand products listed only under their own shop (Tesco 18 removed, 13 held back where brand and
+  barcode prefix disagree), 543 products moved to the right type by rule (new type chip "Meat alternatives"). New copy (rule 8, flagged): the onboarding
+  lines spoken by Pip, the goal hints, "Easy to read", "Your plan", "Halal", "Vegan", "Allergies to avoid", the allergy and halal caution sentences.
+  Checked: 256 unit tests, 112 Python, e2e smoke 22, extra 9, browse 9, calories 4, groceries 6+8+5+4, axe 0 in light and dark, no overflow at 200% text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
