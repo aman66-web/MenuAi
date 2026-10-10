@@ -20,5 +20,5 @@
   "Chicken & Egg McMuffin",
   "Porridge with Lyle's Golden Syrup"
  ],
- "result": "15 of 15 rows match on every nutrient figure. Allergens were not re-read in this pass (they come from the bold words in each product's Ingredients & Allergens panel; 12 products print none, which is why the chain's allergens stay link-only). The Cappuccino salt figure (34 g) was seen again earlier on the page and the two rows stay held back."
+ "result": "15 of 15 rows match on every nutrient figure. Allergens were not re-read in this pass (they come from the bold words in each product's Ingredients & Allergens panel; 12 products print none, which is why the chain's allergens stay link-only). The two Cappuccino rows stay held back (the first read recorded a salt figure of about 34 g on the page); that was not looked at again in this pass."
 }
