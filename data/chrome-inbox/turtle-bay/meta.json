@@ -7,9 +7,9 @@
   "nutrition_level": "calories",
   "basis": "per serving",
   "sites": 43,
-  "sites_evidence": "The restaurant dropdown on https://turtlebay.co.uk/menu lists 43 restaurants (Bath to Winchester).",
+  "sites_evidence": "The restaurant dropdown on https://turtlebay.co.uk/menu lists 43 restaurants (Bath to Winchester); the site's own menu feed (tb-menu-proxy.herokuapp.com/restaurant/<slug>) returns the same dishes, calories and allergens for all 43.",
   "allowed_hosts": [],
-  "note": "Menus differ by restaurant; this is the Bath menu. Calories only; some dishes show no calories or allergens and are left out. Drinks and alcohol are not included.",
+  "note": "Calories only. The chain's own menu feed shows the same menu in all 43 restaurants (checked: no dish differs in calories or allergens between them). Some dishes show no calories (left out). Drinks and alcohol are not included.",
   "allergen_guide_title": "Turtle Bay allergen guide (PDF)",
   "allergen_guide_url": "https://turtlebay.co.uk/assets/site/allergen-info.pdf",
   "may_contain_published": false
