@@ -54,7 +54,10 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    fetched politely (robots.txt honoured, never round a block); captioned "Photo from the {chain} website"; never in marketing,
    the share card, the app icon or store screenshots; a chain's photos come down the day it asks (delete its folder + `images.csv`). Founder's decision (2026-10-06, "make sure to add
    them"): photos are installed for every chain even where its terms restrict reuse (the founder's accepted risk); the agent still
-   reads the terms and quotes the clause in its report and `docs/IMAGE_TERMS.md`.
+   reads the terms and quotes the clause in its report and `docs/IMAGE_TERMS.md`. Founder's decision (2026-10-10, "I'll use nano banana
+   later to make images for them"): **our own recipes only** (`web/lib/mm/recipeBook/`) may show an illustration made with AI, captioned
+   as AI-made (`tools/recipes/import_recipe_images.py`, prompts in `docs/RECIPE_IMAGE_PROMPTS.md`); never for a restaurant's or a
+   supermarket's item, never with packaging, logos, brand names or writing in it, never presented as a photo of a product.
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
    through the API: reports, chain requests, support messages). **Never put a Supabase key in the

@@ -188,7 +188,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       {/* Sticky: search this menu, and jump between its sections. */}
       <div className="sticky top-0 z-10 -mx-5 border-b border-line bg-[color-mix(in_srgb,var(--background)_86%,transparent)] px-5 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] backdrop-blur-xl">
         <div className="relative">
-          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
+          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
             type="search"
             value={query}

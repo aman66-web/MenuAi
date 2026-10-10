@@ -13,11 +13,11 @@ export function ipHash(request: Request): string | null {
   return createHash("sha256").update(`${serverEnv().IP_HASH_SALT}:${ip}`).digest("hex");
 }
 
-/** Parse a JSON request body (max 16 KB), then run the handler. Bad bodies get a clear 400/413. */
-export async function withJsonBody(request: Request, run: (body: unknown) => Promise<Result>): Promise<Response> {
+/** Parse a JSON request body (max 16 KB unless a route allows more), then run the handler. Bad bodies get a clear 400/413. */
+export async function withJsonBody(request: Request, run: (body: unknown) => Promise<Result>, maxBytes = MAX_BODY_BYTES): Promise<Response> {
   return safely(async () => {
     const text = await request.text();
-    if (Buffer.byteLength(text, "utf8") > MAX_BODY_BYTES) return { status: 413, body: { error: "too_large" } };
+    if (Buffer.byteLength(text, "utf8") > maxBytes) return { status: 413, body: { error: "too_large" } };
     let body: unknown;
     try {
       body = JSON.parse(text);

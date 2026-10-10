@@ -545,7 +545,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   structured-output schema and again on the server and in the browser), the amounts and the words. **It never supplies a number shown**: the app finds the products, fits
   the amounts and works out every figure from the labels. Its text is refused (and asked for once more) if the name or any step makes a health claim or gives a nutrition
   figure or price; a claim in the blurb or an extra is dropped. Saved recipes stay on the device (`mm.v1.myRecipes`, "Your recipes", cleared by Clear data). Model:
-  **Claude Opus 5.5** at low effort, structured output, Anthropic's server-side refusal fallback (`fallbacks: "default"`). Rate limit 5 per 10 minutes and 25 a day per caller
+  **Claude Opus 5.5** at low effort (switched to Claude Haiku the same day, see below), structured output, Anthropic's server-side refusal fallback (`fallbacks: "default"`). Rate limit 5 per 10 minutes and 25 a day per caller
   (in memory per server instance), only our own pages may call it (Origin check), nothing stored. **New dependency `@anthropic-ai/sdk` 0.128.0** (pinned, released
   22 Sep 2026) for the founder's AI request (CLAUDE.md rule 6: added because the founder asked for AI recipes; logged here). Privacy page: new section "Recipes and Pip's
   recipe maker" and Anthropic in the processors list (last updated 10 October 2026). New copy (rule 8, logged here): "Your meal", "How big a meal?", "Small/Normal/Big",
@@ -556,6 +556,36 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   recipe maker sends: only shop, meal, servings, target, diet, wish and pantry), axe 0, no overflow at 200% text on the new screens.
   **Not testable here:** a real call to the model (no API key in this environment); the whole flow is tested with a mocked answer.
 
+- 2026-10-10 — **100 recipes, substitutes, Pro recipe maker on Claude Haiku (founder: "Use haiku claude please ... there should already be new recipes
+  ... only for the people who subscribe to pro can make their own recipe ... make like maybe 100 different recipes ... with multiple substitutes of ingredients as
+  some may not be available at specific grocery stores ... full macros ... I'll use nano banana later to make images").**
+  (1) **Recipe book: 100 recipes** (`lib/mm/recipeBook/`: core 17, breakfast 18, lunch 18, world dinners 18, home dinners 18, snacks 11), each tagged with its meal.
+  All 100 are complete at Sainsbury's from real products with full macros (kcal, protein, carbs, fat, plus kJ, saturates, sugars, fibre and salt where every label prints
+  them); 50 have no meat or fish, 20 are vegan, 80 suit halal, 53 have no gluten and 59 no milk (counted by the app's own diet rules); 99 have at least one substitute. `tests/recipeBook.test.ts` checks every
+  recipe: well formed, no claims or figures in the words (`cleanText`), a "cooked through / piping hot / opaque / set" check in the steps wherever meat, fish or eggs are cooked,
+  resolves at Sainsbury's, 60-1,100 kcal a serving (snacks from 60, meals from 180), fits a 600 kcal meal. One recipe has no price a serving: wheat biscuits are sold by the
+  count ("x24"), so there is no price per kg to work it out from (shown as "–", never guessed). Recipes were written by helpers to a fixed brief and pantry list, then checked by
+  the test against the real list. (2) **Pantry: 80 kinds** (`lib/mm/pantry.ts`, was 24), each with match rules, a diet profile and **substitutes** (e.g. chicken → chicken thigh,
+  Quorn, tofu; noodles → egg noodles, rice noodles; milk ↔ oat drink; any bean ↔ another bean; with an amount factor where it differs, e.g. 2.2 x gnocchi for dry pasta).
+  When a shop doesn't sell an ingredient, the first substitute it does sell is used and the row says "{shop} doesn't sell {x} that fits, so this uses {y} instead."; the Swap
+  sheet now offers "Use something else instead" (only substitutes the shop sells, each with its amount) above "Or pick a different product", and "As the recipe has it" goes back.
+  Substitutes follow the person's diet (a vegan never sees a dairy substitute). Products named soup, chowder or broth are never picked for an ingredient; curry paste no longer
+  picks korma (often nuts/milk) and counts mustard; Thai paste never picks massaman (peanuts). (3) **Recipes list for 100**: search (name, blurb and ingredients), meal chips
+  (Any meal · Breakfast · Lunch · Dinner · Snacks), "No meat or fish", the count, 24 at a time with "Show more recipes". **Snacks are shown as written**, never fitted to a
+  meal size ("Snacks are shown as written, not fitted to your meal size."). (4) **Pip's recipe maker is Pro**: the card carries a "Pro" badge and opens the paywall for free users;
+  `/app/recipes/make` shows "Making a new recipe just for you is part of Menu Math Pro. All our ready-made recipes stay free." with "See Pro"; new paywall bullet "Pip makes new
+  recipes just for you" (PaywallTrigger `recipeMaker`). Pro is still client-side until payments exist, so the API keeps its Origin check and rate limits (BACKEND.md).
+  **Model: Claude Haiku 5.5** (`claude-haiku-5-5`, medium effort, structured output; no server-side fallback, which Haiku doesn't offer). (5) **Pictures for our recipes**
+  (founder's decision; CLAUDE.md rule 2 amended narrowly): an AI illustration (Nano Banana) may show on **our own recipes only**, captioned "Illustration made with AI, not a photo
+  of the products below." on the recipe and "AI illustration" on its tile; never for a restaurant's or a supermarket's item, never with packaging, logos, brand names or writing.
+  `docs/RECIPE_IMAGE_PROMPTS.md` has one prompt per recipe (rewritten from the book by `WRITE_PROMPTS=1 npx vitest run tests/recipeImages.test.ts`, checked in step by that test);
+  the founder saves each picture as `data/recipe-images/<id>.png` and runs `python3 tools/recipes/import_recipe_images.py` (4:3, 800 x 600 WebP named by content hash in
+  `web/public/recipe-images/`, listed in `lib/mm/recipeImages.ts`; 3 Python tests); the service worker caches them like the other pictures. No pictures yet: recipes show the
+  pot icon until then. New copy (rule 8, logged here): "Search recipes, e.g. chicken or curry", "Any meal", "Snacks", "{n} recipes match", "No recipes match.", "Try another word or
+  meal.", "Show all recipes", "Show more recipes ({n} more)", "Use something else instead", "Or pick a different product", "As the recipe has it, {amount}", "{amount} in the recipe",
+  "Instead of {x}.", the shop-lacks sentence above, the snack note, the Pro lines above, the picture captions, the 100 recipe names, blurbs and methods. Checked: 395 unit tests, 115
+  Python, e2e recipes 12 (incl. 100-recipe list, substitute and back, Pro gate), smoke 22, extra 9, browse 9, calories 4, groceries 6+8+5+4, axe 0 light/dark, no overflow at 200% text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -564,6 +594,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **Recipe pictures (Nano Banana):** paste each prompt from `docs/RECIPE_IMAGE_PROMPTS.md`, check the picture has no writing, packaging or logos, save it as
+  `data/recipe-images/<recipe id>.png`, then run `python3 tools/recipes/import_recipe_images.py` (or send me the files and I'll do it)
 - [ ] **Switch on Pip's recipe maker (AI recipes):** create an API key at console.anthropic.com › API Keys, set a monthly spend limit there (Settings › Limits; a recipe
   costs roughly a few pence), then add it in Vercel › Project menumacros › Settings › Environment Variables as `ANTHROPIC_API_KEY` (Production and Preview) and redeploy.
   Until then Recipes work as normal and "Ask Pip" says it isn't switched on yet (the button is hidden on the live site). Never paste the key into chat or the app.

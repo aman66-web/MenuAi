@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { needsPaywall, paywallCopy, type PaywallTrigger } from "../lib/mm/entitlements";
 
 describe("gating matrix (SPEC §4)", () => {
-  const triggers: PaywallTrigger[] = ["bestForYou", "orderBuilder", "log"];
+  const triggers: PaywallTrigger[] = ["bestForYou", "orderBuilder", "log", "recipeMaker"];
   it("free users hit the paywall on every Pro action; Pro users never do", () => {
     for (const t of triggers) {
       expect(needsPaywall(t, { pro: false })).toBe(true);

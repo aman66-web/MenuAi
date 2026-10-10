@@ -1,0 +1,216 @@
+import { ing, type Recipe } from "../recipes";
+
+// Dinners from around the world (Asian, Indian, Mexican, Middle Eastern). See lib/mm/recipeBook/index.ts for the rules every recipe follows.
+
+export const DINNER_WORLD: readonly Recipe[] = [
+  {
+    id: "chicken-jalfrezi", meal: "dinner", tags: ["Indian"], name: "Chicken jalfrezi with rice", blurb: "Chicken and peppers in a punchy tomato and chilli sauce.", servings: 3, minutes: 35,
+    ingredients: [ing("chicken", 450), ing("curry-paste", 60), ing("chopped-tomatoes", 400), ing("rice", 210)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Cut the chicken into chunks. Fry the onion and peppers in a large pan with a little oil for 5 minutes.",
+      "Add the chicken and curry paste and fry for 3 to 4 minutes, stirring.",
+      "Pour in the tomatoes and simmer for 15 minutes, until the chicken is cooked through with no pink left.",
+      "Scatter over the green chilli and coriander and serve with the rice.",
+    ],
+    extras: ["An onion", "Two peppers", "A green chilli", "Fresh coriander", "A little oil"],
+  },
+  {
+    id: "lamb-keema-peas", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Lamb keema with peas and rice", blurb: "Spiced lamb mince and peas in a rich tomato sauce.", servings: 4, minutes: 40,
+    ingredients: [ing("lamb-mince", 500), ing("curry-paste", 60), ing("chopped-tomatoes", 400), ing("peas", 200), ing("rice", 280)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Fry the onion in a large pan for 5 minutes, then add the lamb mince and cook, breaking it up, until no pink is left.",
+      "Stir in the curry paste, garlic and ginger and cook for a minute.",
+      "Add the tomatoes and simmer for 15 minutes, then stir in the peas and cook for 5 minutes more, until piping hot.",
+      "Serve with the rice.",
+    ],
+    extras: ["An onion", "Garlic and ginger", "Fresh coriander", "A little oil"],
+  },
+  {
+    id: "paneer-pea-curry", meal: "dinner", tags: ["Indian"], name: "Paneer and pea curry", blurb: "Golden cubes of paneer and sweet peas in a spiced tomato sauce.", servings: 4, minutes: 30,
+    ingredients: [ing("paneer", 400), ing("curry-paste", 60), ing("chopped-tomatoes", 400), ing("peas", 300), ing("rice", 240)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Cut the paneer into cubes and fry in a non-stick pan for 4 to 5 minutes, turning, until golden. Lift out.",
+      "Fry the onion in the same pan for 5 minutes, then stir in the curry paste for a minute.",
+      "Add the tomatoes and a splash of water and simmer for 10 minutes.",
+      "Add the peas and paneer and cook for 5 minutes more, until the peas are tender. Serve with the rice.",
+    ],
+    extras: ["An onion", "Garlic and ginger", "Fresh coriander", "A little oil"],
+  },
+  {
+    id: "coconut-lentil-dhal", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Coconut red lentil dhal", blurb: "Gently spiced red lentils simmered in coconut milk, served with rice.", servings: 4, minutes: 35,
+    ingredients: [ing("red-lentils", 250), ing("coconut-light", 400), ing("chopped-tomatoes", 400), ing("curry-paste", 60), ing("rice", 250)],
+    method: [
+      "Rinse the lentils in a sieve under the cold tap.",
+      "Fry the curry paste in a large pan for a minute, then add the lentils, coconut milk, tomatoes and 400 ml of water.",
+      "Simmer for 20 to 25 minutes, stirring now and then, until the lentils are soft.",
+      "Cook the rice as the pack says and serve with the dhal.",
+    ],
+    extras: ["An onion", "Garlic and ginger", "Fresh coriander", "A squeeze of lemon"],
+  },
+  {
+    id: "prawn-pad-thai", meal: "dinner", tags: ["Thai", "Quick"], name: "Prawn pad thai-style noodles", blurb: "Rice noodles tossed with prawns, egg and a peanut, soy and lime sauce.", servings: 2, minutes: 25,
+    ingredients: [ing("rice-noodles", 140), ing("prawns", 240), ing("eggs", 120, { note: "about 2 eggs" }), ing("peanut-butter", 30), ing("soy", 30)],
+    method: [
+      "Soak or cook the rice noodles as the pack says, then drain.",
+      "Whisk the peanut butter, soy sauce and lime juice with three tablespoons of hot water.",
+      "Heat a little oil in a wok or large frying pan and stir-fry the prawns for 3 to 4 minutes, until pink all the way through and piping hot. Push them to one side.",
+      "Beat the eggs, pour them into the pan and stir until set.",
+      "Add the noodles, beansprouts and sauce and toss everything together until hot. Top with spring onions.",
+    ],
+    extras: ["A lime", "Beansprouts", "Spring onions", "A little chilli", "A little oil"],
+  },
+  {
+    id: "beef-teriyaki-noodles", meal: "dinner", tags: ["Japanese", "Quick"], name: "Beef teriyaki noodles", blurb: "Strips of steak and noodles in a sticky teriyaki glaze.", servings: 2, minutes: 20,
+    ingredients: [ing("beef-steak", 300), ing("egg-noodles", 140), ing("teriyaki", 60)],
+    method: [
+      "Cook the noodles as the pack says, then drain.",
+      "Trim the steak and cut it into thin strips.",
+      "Stir-fry the beef in a hot pan with a little oil for 2 to 3 minutes, until browned and cooked through.",
+      "Add the pepper, broccoli and spring onions and stir-fry for 2 to 3 minutes.",
+      "Add the noodles and teriyaki sauce and toss until everything is hot and glossy.",
+    ],
+    extras: ["A pepper", "Broccoli", "Spring onions", "A little oil"],
+  },
+  {
+    id: "sweet-chilli-chicken", meal: "dinner", tags: ["Thai", "Quick"], name: "Sweet chilli chicken stir-fry", blurb: "Chicken and crunchy vegetables in sweet chilli sauce, with rice.", servings: 2, minutes: 25,
+    ingredients: [ing("chicken", 300), ing("sweet-chilli", 60), ing("rice", 150)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Slice the chicken into strips and stir-fry in a hot pan with a little oil for 6 to 8 minutes, until cooked through with no pink left.",
+      "Add the pepper, mangetout and spring onions and stir-fry for 2 to 3 minutes.",
+      "Stir in the sweet chilli sauce and a squeeze of lime, toss to coat and serve with the rice.",
+    ],
+    extras: ["A pepper", "Mangetout or broccoli", "Spring onions", "A lime", "A little oil"],
+  },
+  {
+    id: "thai-chicken-curry", meal: "dinner", tags: ["Thai"], name: "Thai chicken curry with rice", blurb: "Chicken and green beans simmered in light coconut milk with Thai curry paste.", servings: 3, minutes: 30,
+    ingredients: [ing("chicken", 450), ing("thai-curry-paste", 50), ing("coconut-light", 400), ing("rice", 210)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Fry the curry paste in a large pan for a minute, then stir in the coconut milk.",
+      "Add the chicken, cut into chunks, and simmer for 12 to 15 minutes, until cooked through with no pink left.",
+      "Add the green beans for the last 5 minutes. Finish with lime juice and basil and serve with the rice.",
+    ],
+    extras: ["Green beans", "A lime", "Fresh basil or coriander", "A little oil"],
+  },
+  {
+    id: "chicken-fajitas", meal: "dinner", tags: ["Mexican", "Quick"], name: "Chicken fajitas with salsa", blurb: "Spiced chicken and peppers in warm wraps with salsa and yogurt.", servings: 2, minutes: 25,
+    ingredients: [ing("chicken", 300), ing("fajita-seasoning", 15), ing("wraps", 240), ing("salsa", 100), ing("greek-yogurt", 100)],
+    method: [
+      "Slice the chicken, peppers and onion into strips and toss with the fajita seasoning.",
+      "Cook in a hot pan with a little oil for 8 to 10 minutes, until the chicken is cooked through with no pink left.",
+      "Warm the wraps in a dry pan or the microwave.",
+      "Fill the wraps with the chicken and vegetables and top with the salsa and yogurt.",
+    ],
+    extras: ["Two peppers", "An onion", "A lime", "A little oil"],
+  },
+  {
+    id: "beef-burrito-bowl", meal: "dinner", tags: ["Mexican", "Batch cook"], name: "Beef burrito bowl", blurb: "Spiced beef mince, rice, black beans, sweetcorn and salsa in one bowl.", servings: 4, minutes: 30,
+    ingredients: [ing("beef-mince", 500), ing("fajita-seasoning", 20), ing("rice", 240), ing("black-beans", 240, { role: "other" }), ing("sweetcorn", 160), ing("salsa", 200)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Brown the mince in a large pan, breaking it up, until no pink is left.",
+      "Stir in the fajita seasoning and a splash of water and cook for 2 minutes.",
+      "Warm the black beans and sweetcorn in a small pan or the microwave until piping hot.",
+      "Share the rice between bowls and top with the beef, beans, sweetcorn and salsa.",
+    ],
+    extras: ["Lettuce", "A lime", "Fresh coriander"],
+  },
+  {
+    id: "chicken-shawarma-wraps", meal: "dinner", tags: ["Middle Eastern"], name: "Chicken shawarma-style wraps", blurb: "Warmly spiced chicken thighs in wraps with garlic yogurt and salad.", servings: 3, minutes: 35,
+    ingredients: [ing("chicken-thigh", 450), ing("natural-yogurt", 150), ing("wraps", 360)],
+    method: [
+      "Mix half the yogurt with the cumin, paprika, a crushed garlic clove and the lemon juice, then stir in the chicken thighs.",
+      "Leave for 10 minutes, or longer in the fridge if you have time.",
+      "Cook the chicken under a hot grill or in a pan for 12 to 15 minutes, turning, until golden and cooked through with no pink left.",
+      "Mix the rest of the yogurt with a pinch of salt and a little crushed garlic.",
+      "Slice the chicken and fill the warmed wraps with it, the salad and the garlic yogurt.",
+    ],
+    extras: ["Ground cumin and paprika", "Garlic", "A lemon", "Lettuce, tomato and cucumber", "Salt and pepper"],
+  },
+  {
+    id: "chickpea-potato-curry", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Spiced chickpea and potato curry", blurb: "Chickpeas and new potatoes in a coconut and tomato curry sauce.", servings: 4, minutes: 35,
+    ingredients: [ing("chickpeas", 480), ing("new-potatoes", 400), ing("chopped-tomatoes", 400), ing("coconut-light", 200), ing("curry-paste", 60), ing("rice", 200)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Fry the onion in a large pan with a little oil for 5 minutes, then stir in the curry paste for a minute.",
+      "Halve the potatoes and add them with the chickpeas, tomatoes and coconut milk.",
+      "Simmer for 15 minutes, stirring now and then, until the sauce has thickened. Stir in the spinach until it wilts.",
+      "Serve with the rice.",
+    ],
+    extras: ["An onion", "A bag of spinach", "Garlic and ginger", "Fresh coriander", "A little oil"],
+  },
+  {
+    id: "teriyaki-salmon-bowl", meal: "dinner", tags: ["Japanese"], name: "Teriyaki salmon rice bowl", blurb: "Glazed salmon on rice with edamame beans.", servings: 2, minutes: 25,
+    ingredients: [ing("salmon", 240), ing("teriyaki", 45), ing("rice", 150), ing("edamame", 150, { role: "other" })],
+    method: [
+      "Cook the rice as the pack says.",
+      "Put the salmon on a lined baking tray, spoon over half the teriyaki sauce and bake at 200°C (fan 180°C) for 12 to 15 minutes, until it flakes easily.",
+      "Cook the edamame beans in boiling water for 3 minutes, then drain.",
+      "Share the rice between bowls, add the salmon and edamame and drizzle over the rest of the sauce.",
+    ],
+    extras: ["Spring onions", "Cucumber", "A little chilli"],
+  },
+  {
+    id: "prawn-egg-fried-rice", meal: "dinner", tags: ["Chinese", "Quick"], name: "Prawn egg fried rice", blurb: "Prawns, peas and egg tossed through rice with soy sauce.", servings: 2, minutes: 25,
+    ingredients: [ing("rice", 150), ing("prawns", 240), ing("eggs", 120, { note: "about 2 eggs" }), ing("peas", 150), ing("soy", 30)],
+    method: [
+      "Cook the rice as the pack says, then spread it on a tray to cool quickly. Leftover rice kept in the fridge works too: use it within a day.",
+      "Heat a little oil in a wok or large frying pan and stir-fry the prawns for 3 to 4 minutes, until pink all the way through. Lift out.",
+      "Beat the eggs, pour them into the pan and stir until just set, then break them up.",
+      "Add the rice and peas and stir-fry for 4 to 5 minutes, until the rice is piping hot.",
+      "Stir in the prawns, soy sauce and spring onions and serve.",
+    ],
+    extras: ["Spring onions", "Garlic", "A little oil"],
+  },
+  {
+    id: "tofu-rice-noodle-stir-fry", meal: "dinner", tags: ["Chinese", "Quick"], name: "Tofu and vegetable rice noodles", blurb: "Crispy tofu and crunchy vegetables tossed with rice noodles, soy and sweet chilli.", servings: 2, minutes: 25,
+    ingredients: [ing("tofu", 300), ing("rice-noodles", 140), ing("soy", 30), ing("sweet-chilli", 40)],
+    method: [
+      "Pat the tofu dry with kitchen paper and cut it into cubes.",
+      "Fry the tofu in a non-stick pan with a little oil for 8 to 10 minutes, turning, until golden. Lift out.",
+      "Soak or cook the rice noodles as the pack says, then drain.",
+      "Stir-fry the vegetables in the same pan for 3 to 4 minutes.",
+      "Add the noodles, tofu, soy sauce and sweet chilli sauce and toss until hot.",
+    ],
+    extras: ["A pepper", "Pak choi or broccoli", "A carrot", "Spring onions", "Garlic and ginger", "A little oil"],
+  },
+  {
+    id: "mexican-chicken-rice", meal: "dinner", tags: ["Mexican", "One pot"], name: "Mexican chicken and bean rice", blurb: "Spiced chicken, rice and kidney beans cooked together in one pan.", servings: 4, minutes: 40,
+    ingredients: [ing("chicken", 500), ing("fajita-seasoning", 20), ing("rice", 240), ing("kidney-beans", 240, { role: "other" }), ing("salsa", 200)],
+    method: [
+      "Cut the chicken into chunks and brown it with the onion and pepper in a large pan with a little oil for 5 minutes.",
+      "Stir in the fajita seasoning and the rice.",
+      "Add the salsa and 600 ml of boiling water, cover and simmer for 15 minutes, stirring now and then. Add a splash more water if it looks dry.",
+      "Stir in the kidney beans and cook for 5 minutes more, until the rice is tender and the chicken is cooked through with no pink left.",
+      "Leave to stand with the lid on for a few minutes, then serve with lime wedges and coriander.",
+    ],
+    extras: ["An onion", "A pepper", "A lime", "Fresh coriander", "A little oil"],
+  },
+  {
+    id: "halloumi-bean-fajitas", meal: "dinner", tags: ["Mexican", "Quick"], name: "Halloumi and black bean fajitas", blurb: "Golden halloumi, peppers and spiced black beans in warm wraps.", servings: 3, minutes: 25,
+    ingredients: [ing("halloumi", 225), ing("black-beans", 240), ing("fajita-seasoning", 15), ing("wraps", 360), ing("salsa", 150)],
+    method: [
+      "Cut the halloumi into strips and slice the peppers and onion.",
+      "Fry the peppers and onion in a little oil with the fajita seasoning for 6 to 8 minutes, until soft. Add the black beans and warm through.",
+      "In another pan, fry the halloumi for 2 to 3 minutes on each side, until golden.",
+      "Warm the wraps, then fill them with the vegetables, beans, halloumi and salsa.",
+    ],
+    extras: ["Two peppers", "An onion", "A lime", "A little oil"],
+  },
+  {
+    id: "moroccan-chickpea-stew", meal: "dinner", tags: ["Middle Eastern", "One pot"], name: "Moroccan-style chickpea stew with rice", blurb: "Chickpeas simmered with tomatoes, warm spices and sweet raisins.", servings: 4, minutes: 35,
+    ingredients: [ing("chickpeas", 480), ing("chopped-tomatoes", 400), ing("raisins", 40), ing("stock-cube", 10), ing("rice", 240)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Fry the onion and carrot in a large pan with a little oil for 5 minutes, then stir in the cumin, cinnamon and paprika for a minute.",
+      "Add the chickpeas, tomatoes, raisins, the stock cube or pot and 300 ml of water.",
+      "Simmer for 20 minutes, stirring now and then, until the sauce has thickened.",
+      "Serve with the rice, scattered with coriander and a squeeze of lemon.",
+    ],
+    extras: ["An onion", "A carrot", "Ground cumin, cinnamon and paprika", "Fresh coriander", "A lemon", "A little oil"],
+  },
+];

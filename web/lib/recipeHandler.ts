@@ -23,7 +23,7 @@ export const recipeRequestSchema = z.object({
   pantry: z.array(z.object({
     key: z.string().max(40), label: z.string().max(80), unit: z.enum(["g", "ml"]), product: z.string().max(160),
     kcal: num(0, 950), protein: num(0, 100), carbs: num(0, 100), fat: num(0, 100), drained: z.boolean().optional(),
-  }).strict()).min(2).max(60),
+  }).strict()).min(2).max(120),
 }).strict();
 
 /** The AI call: returns Pip's parsed answer, or why there isn't one. */

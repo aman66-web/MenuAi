@@ -45,7 +45,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
 
       <label className="relative mt-4 block">
         <span className="sr-only">Search {file.name} products</span>
-        <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
+        <SearchIcon className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
         <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={`Search ${file.name} products`} enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full pl-11 pr-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
       </label>
 

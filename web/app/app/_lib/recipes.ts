@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { fitDistance, fitRecipe, recipeForDiet, recipeTotals, resolveRecipe, RECIPES, type MealTarget, type Recipe, type RecipeTotals } from "@/lib/mm/recipes";
+import { fitDistance, fitRecipe, recipeForDiet, recipeTotals, resolveRecipe, type MealTarget, type Recipe, type RecipeTotals } from "@/lib/mm/recipes";
+import { RECIPES } from "@/lib/mm/recipeBook";
 import type { DietPrefs } from "@/lib/mm/pantry";
 import type { ShopManifest, ShopProduct } from "@/lib/mm/shopProducts";
 
@@ -22,7 +23,7 @@ export interface RecipeCard {
   distance: number;
 }
 
-/** Every recipe that suits the diet, fitted to the target when there is one (else as written). Recipes not complete at this shop are left out. */
+/** Every recipe that suits the diet, fitted to the target when there is one (else as written; snacks always as written). Recipes not complete at this shop are left out. */
 export function useRecipeCards(recipes: readonly Recipe[] | null, products: readonly ShopProduct[] | null, diet: DietPrefs, target: MealTarget | null): { cards: RecipeCard[]; leftOut: number } {
   const dietKey = JSON.stringify(diet);
   const targetKey = JSON.stringify(target);
@@ -36,7 +37,9 @@ export function useRecipeCards(recipes: readonly Recipe[] | null, products: read
     for (const base of all) {
       const recipe = recipeForDiet(base, d);
       if (!recipe) { leftOut++; continue; }
-      const totals = t ? fitRecipe(recipe, products, {}, t)?.totals : recipeTotals(resolveRecipe(recipe, products));
+      // snacks are shown as written: a meal-sized target would double them
+      const fitTo = recipe.meal === "snack" ? null : t;
+      const totals = fitTo ? fitRecipe(recipe, products, {}, fitTo)?.totals : recipeTotals(resolveRecipe(recipe, products));
       if (!totals) continue;
       cards.push({ recipe, totals, distance: t ? fitDistance(totals.perServing, t) : 0 });
     }

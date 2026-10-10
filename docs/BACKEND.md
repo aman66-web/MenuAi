@@ -87,8 +87,9 @@ Message 5–4,000 chars; email optional (needed only if the user wants a reply).
   the server keeps only pantry kinds the diet allows). → 200 `{ recipe: {name, blurb, servings, minutes, ingredients [{key, amount, role}],
   method[], extras[]} }`; the app works out every number from the product labels. 400 bad body, 403 not from our own pages (Origin), 422 not
   enough ingredients for the diet, 429 too many (5 per 10 minutes, 25 a day per caller, in memory per server instance), 502 no usable recipe,
-  503 not switched on. Model: Claude Opus 5.5 (`web/lib/recipeAi.ts`), low effort, structured output, Anthropic's server-side fallback.
-  Nothing is stored. Cost: roughly a few pence per recipe; set a monthly spend limit in the Anthropic console.
+  503 not switched on. Model: Claude Haiku 5.5 (`web/lib/recipeAi.ts`, founder's choice), medium effort, structured output.
+  Nothing is stored. Cost: about a penny or two per recipe; set a monthly spend limit in the Anthropic console. The recipe maker is a Pro feature in the app;
+  until payments exist there is no server-verified Pro, so the endpoint relies on the Origin check and the rate limits (add an entitlement check with payments).
 
 ### Rate limits (per caller per hour)
 Reports 30 · chain requests 30 · support 5 · waitlist 5. Constants: `web/lib/handlers.ts`.

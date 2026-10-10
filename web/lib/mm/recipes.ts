@@ -26,6 +26,12 @@ export interface IngredientSpec {
   role?: IngredientRole;
   /** The pantry kind it comes from (diet checks and halal products use it). */
   pantry?: string;
+  /** Kinds that can stand in for it, best first (factor scales the amount). */
+  subs?: Array<{ key: string; factor?: number }>;
+  /** Set on a substitute: the label of the ingredient it stands in for. */
+  subFor?: string;
+  /** Set when the person chose this substitute: the ingredient as the recipe has it. */
+  original?: IngredientSpec;
 }
 
 export interface Recipe {
@@ -40,130 +46,49 @@ export interface Recipe {
   extras: string[];
   /** Written by Pip with AI (shown with its own caution). */
   ai?: boolean;
+  /** Which meal it suits (for browsing). */
+  meal?: MealType;
+  /** A few words to browse by ("Italian", "Batch cook"). */
+  tags?: string[];
+  /** Set by recipeForDiet for halal: substitutes use halal-named meat too. */
+  halal?: boolean;
 }
 
-/** An ingredient from the pantry: amount in the kind's unit; role and note can be changed for this recipe. */
-export function ing(key: string, amount: number, opts: { role?: IngredientRole; note?: string; label?: string } = {}): IngredientSpec {
+export type MealType = "breakfast" | "lunch" | "dinner" | "snack";
+export const MEAL_TYPES: ReadonlyArray<{ value: MealType; label: string }> = [
+  { value: "breakfast", label: "Breakfast" },
+  { value: "lunch", label: "Lunch" },
+  { value: "dinner", label: "Dinner" },
+  { value: "snack", label: "Snacks" },
+];
+
+/** An ingredient from the pantry: amount in the kind's unit; role, note, label and substitutes can be changed for this recipe. */
+export function ing(key: string, amount: number, opts: IngOpts = {}): IngredientSpec {
   const k = PANTRY.get(key);
   if (!k) throw new Error(`unknown pantry kind ${key}`);
   return specFromKind(k, amount, opts);
 }
 
-export function specFromKind(k: PantryKind, amount: number, opts: { role?: IngredientRole; note?: string; label?: string } = {}): IngredientSpec {
+export interface IngOpts {
+  role?: IngredientRole;
+  note?: string;
+  label?: string;
+  /** Replaces the kind's usual substitutes (keys, or [key, factor]); [] for none. */
+  subs?: Array<string | [string, number]>;
+}
+
+export function specFromKind(k: PantryKind, amount: number, opts: IngOpts = {}): IngredientSpec {
+  const subs = opts.subs ? opts.subs.map((x) => (typeof x === "string" ? { key: x } : { key: x[0], factor: x[1] })) : k.subs;
   return {
     key: k.key, pantry: k.key, label: opts.label ?? k.label, amount, unit: k.unit, match: k.match, role: opts.role ?? k.role,
+    ...(subs?.length ? { subs } : {}),
     ...(k.drained ? { drained: true } : {}),
     ...(opts.note ?? (k.drained ? "drained" : k.note) ? { note: opts.note ?? (k.drained ? "drained" : k.note) } : {}),
   };
 }
 
-const GLOBAL_NONE = ["meal", "sandwich", "kit", "gift", "hamper", "selection"];
+const GLOBAL_NONE = ["meal", "sandwich", "kit", "gift", "hamper", "soup", "chowder", "broth"];
 const MEAT_WORDS = ["chicken", "beef", "pork", "lamb", "turkey", "bacon", "ham", "sausage", "salmon", "tuna", "prawn", "fish", "anchov", "chorizo", "pepperoni", "cod"];
-
-export const RECIPES: readonly Recipe[] = [
-  {
-    id: "chicken-rice-bowl", name: "Chicken, rice and soy bowl", blurb: "Three ingredients, on the table in 25 minutes.", servings: 2, minutes: 25,
-    ingredients: [ing("chicken", 300), ing("rice", 150), ing("soy", 30)],
-    method: ["Cook the rice as the pack says.", "Slice the chicken and cook it in a hot non-stick pan for 6 to 8 minutes, until cooked through with no pink inside.", "Stir in the soy sauce and serve on the rice."],
-    extras: ["Any vegetables you like (not counted)", "A little oil spray (not counted)"],
-  },
-  {
-    id: "chicken-curry", name: "Chicken curry with rice", blurb: "A creamy curry made with yogurt instead of cream.", servings: 2, minutes: 35,
-    ingredients: [ing("chicken", 300), ing("curry-paste", 60), ing("chopped-tomatoes", 400), ing("greek-yogurt", 150), ing("rice", 150)],
-    method: ["Cook the rice as the pack says.", "Cut the chicken into chunks and brown it in a non-stick pan, then stir in the curry paste for a minute.", "Add the tomatoes and simmer for 15 minutes, until the chicken is cooked through.", "Take off the heat and stir in the yogurt."],
-    extras: ["An onion or any vegetables you like (not counted)"],
-  },
-  {
-    id: "beef-chilli", name: "Beef chilli and rice", blurb: "A batch-cook classic for four.", servings: 4, minutes: 45,
-    ingredients: [ing("beef-mince", 500), ing("kidney-beans", 240, { role: "other" }), ing("chopped-tomatoes", 400), ing("rice", 300)],
-    method: ["Brown the mince in a large pan until no pink is left.", "Add the tomatoes, beans and chilli powder or spices to taste; simmer for 25 minutes.", "Cook the rice as the pack says and serve."],
-    extras: ["Chilli powder, cumin and an onion (not counted)"],
-  },
-  {
-    id: "turkey-bolognese", name: "Turkey bolognese", blurb: "Spaghetti bolognese made with turkey mince.", servings: 4, minutes: 35,
-    ingredients: [ing("turkey-mince", 500), ing("passata", 500), ing("pasta-long", 300), ing("cheddar", 40)],
-    method: ["Brown the turkey mince in a large pan until no pink is left.", "Add the passata and simmer for 15 minutes.", "Cook the spaghetti as the pack says, then serve with the sauce and the cheese grated on top."],
-    extras: ["Garlic, dried herbs and any vegetables you like (not counted)"],
-  },
-  {
-    id: "salmon-noodles", name: "Salmon and soy noodles", blurb: "Ready in 20 minutes.", servings: 2, minutes: 20,
-    ingredients: [ing("salmon", 240), ing("noodles", 300), ing("soy", 30)],
-    method: ["Bake or pan-fry the salmon for 10 to 12 minutes, until it flakes easily.", "Warm the noodles in a pan with the soy sauce.", "Flake the salmon over the noodles."],
-    extras: ["Spring onions or any vegetables you like (not counted)"],
-  },
-  {
-    id: "tuna-pasta", name: "Tuna and tomato pasta", blurb: "Store-cupboard dinner for three.", servings: 3, minutes: 20,
-    ingredients: [ing("tuna", 204), ing("pasta-shapes", 200), ing("passata", 500), ing("cheddar", 60)],
-    method: ["Cook the pasta as the pack says.", "Warm the passata in a pan and stir in the drained tuna.", "Mix with the pasta and top with grated cheese."],
-    extras: ["Dried herbs or sweetcorn (not counted)"],
-  },
-  {
-    id: "prawn-curry", name: "Thai prawn curry", blurb: "A coconut curry with rice, made with light coconut milk.", servings: 3, minutes: 25,
-    ingredients: [ing("prawns", 300), ing("coconut-light", 400), ing("thai-curry-paste", 50), ing("rice", 150)],
-    method: ["Cook the rice as the pack says.", "Fry the curry paste for a minute, then add the coconut milk and simmer for 5 minutes.", "Add the prawns and cook until piping hot (raw prawns: until pink all the way through)."],
-    extras: ["Any vegetables you like (not counted)"],
-  },
-  {
-    id: "tofu-satay", name: "Tofu satay noodles", blurb: "Peanut sauce, crispy tofu, no meat.", servings: 2, minutes: 25,
-    ingredients: [ing("tofu", 300), ing("noodles", 300), ing("peanut-butter", 40), ing("soy", 30)],
-    method: ["Press and cube the tofu, then fry in a non-stick pan until golden.", "Whisk the peanut butter and soy sauce with a splash of hot water.", "Toss the noodles in the sauce and top with the tofu."],
-    extras: ["Lime, chilli and any vegetables you like (not counted)"],
-  },
-  {
-    id: "overnight-oats", name: "Overnight oats with yogurt", blurb: "Make it the night before, grab it in the morning.", servings: 2, minutes: 5,
-    ingredients: [ing("oats", 80), ing("greek-yogurt", 200, { role: "protein" }), ing("milk", 150), ing("peanut-butter", 20)],
-    method: ["Mix the oats, yogurt and milk in two jars or bowls.", "Swirl in the peanut butter, cover and chill overnight."],
-    extras: ["Fruit on top (not counted)"],
-  },
-  {
-    id: "cheesy-egg-wraps", name: "Cheesy scrambled egg wraps", blurb: "A filling breakfast in ten minutes.", servings: 2, minutes: 10,
-    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("cheddar", 40), ing("wraps", 120), ing("milk", 30)],
-    method: ["Whisk the eggs with the milk.", "Scramble gently in a non-stick pan until set, then stir in the grated cheese.", "Warm the wraps and fill."],
-    extras: ["Spinach or tomatoes (not counted)"],
-  },
-  {
-    id: "chickpea-curry", name: "Chickpea and tomato curry", blurb: "A meat-free curry that keeps well.", servings: 3, minutes: 30,
-    ingredients: [ing("chickpeas", 240), ing("chopped-tomatoes", 400), ing("curry-paste", 60), ing("coconut-light", 200), ing("rice", 150)],
-    method: ["Cook the rice as the pack says.", "Fry the curry paste for a minute, add the tomatoes, chickpeas and coconut milk.", "Simmer for 15 minutes and serve."],
-    extras: ["An onion and spinach (not counted)"],
-  },
-  {
-    id: "chicken-wraps", name: "Chicken and yogurt wraps", blurb: "Easy to pack for lunch.", servings: 3, minutes: 20,
-    ingredients: [ing("chicken", 300), ing("wraps", 180), ing("greek-yogurt", 100), ing("cheddar", 40)],
-    method: ["Slice the chicken and cook in a hot pan for 6 to 8 minutes, until cooked through with no pink inside.", "Mix the yogurt with a squeeze of lemon and seasoning.", "Fill the wraps with chicken, yogurt and grated cheese."],
-    extras: ["Lettuce, lemon and seasoning (not counted)"],
-  },
-  {
-    id: "black-bean-chilli", name: "Black bean chilli", blurb: "A plant-based chilli with two kinds of beans.", servings: 4, minutes: 35,
-    ingredients: [ing("black-beans", 470), ing("kidney-beans", 240), ing("chopped-tomatoes", 800), ing("rice", 300)],
-    method: ["Warm the tomatoes in a large pan with chilli powder or spices to taste.", "Add the drained beans and simmer for 20 minutes.", "Cook the rice as the pack says and serve."],
-    extras: ["An onion, garlic, cumin and chilli powder (not counted)"],
-  },
-  {
-    id: "cod-butter-beans", name: "Cod with butter beans and tomatoes", blurb: "One pan, simple and quick.", servings: 2, minutes: 25,
-    ingredients: [ing("cod", 250), ing("butter-beans", 235), ing("chopped-tomatoes", 400)],
-    method: ["Simmer the tomatoes and drained beans in a wide pan for 10 minutes.", "Sit the cod on top, cover and cook for 8 to 10 minutes, until it flakes easily and is white all the way through."],
-    extras: ["Garlic, a pinch of paprika and parsley (not counted)"],
-  },
-  {
-    id: "halloumi-wraps", name: "Halloumi and chickpea wraps", blurb: "Golden halloumi with warm chickpeas.", servings: 2, minutes: 15,
-    ingredients: [ing("halloumi", 150), ing("chickpeas", 240), ing("wraps", 120), ing("houmous", 60)],
-    method: ["Slice the halloumi and fry in a dry non-stick pan until golden on both sides.", "Warm the drained chickpeas in the same pan.", "Spread the wraps with houmous and fill with the halloumi and chickpeas."],
-    extras: ["Lettuce, tomato and a squeeze of lemon (not counted)"],
-  },
-  {
-    id: "lentil-pasta", name: "Lentil and tomato pasta", blurb: "A meat-free ragu from the store cupboard.", servings: 3, minutes: 25,
-    ingredients: [ing("green-lentils", 265), ing("passata", 500), ing("pasta-shapes", 225)],
-    method: ["Cook the pasta as the pack says.", "Simmer the passata and drained lentils for 10 minutes.", "Stir the sauce through the pasta."],
-    extras: ["Garlic, dried herbs and an onion (not counted)"],
-  },
-  {
-    id: "chicken-bean-rice", name: "Chicken thigh, bean and tomato rice", blurb: "A one-pot rice with chicken and black beans.", servings: 3, minutes: 40,
-    ingredients: [ing("chicken-thigh", 400), ing("black-beans", 235, { role: "other" }), ing("chopped-tomatoes", 400), ing("rice", 200)],
-    method: ["Brown the chicken pieces in a large pan.", "Add the rice, tomatoes, drained beans and 400 ml of water; bring to the boil.", "Cover and simmer for 20 minutes, until the rice is tender and the chicken is cooked through."],
-    extras: ["Smoked paprika and an onion (not counted)"],
-  },
-];
 
 // ---- diet
 
@@ -183,9 +108,36 @@ export function recipeForDiet(recipe: Recipe, prefs: DietPrefs): Recipe | null {
     if (!k) { out.push(i); continue; }
     if (kindExcluded(k, prefs) !== null) return null;
     const d = kindForDiet(k, prefs);
-    out.push(d === k ? i : { ...i, label: d.label, match: d.match });
+    // substitutes that don't suit the diet are never offered
+    const subs = i.subs?.filter((x) => { const sk = PANTRY.get(x.key); return !!sk && kindExcluded(sk, prefs) === null; });
+    const spec: IngredientSpec = { ...i, ...(d === k ? {} : { label: d.label, match: d.match }) };
+    if (subs?.length) spec.subs = subs;
+    else delete spec.subs;
+    out.push(spec);
   }
-  return { ...recipe, ingredients: out };
+  return { ...recipe, ingredients: out, ...(prefs.halalOnly ? { halal: true } : {}) };
+}
+
+/** A substitute for an ingredient, as an ingredient of the same recipe (same key, so product choices and fitting follow it). */
+export function subSpec(spec: IngredientSpec, sub: { key: string; factor?: number }, halal = false): IngredientSpec | null {
+  const kind = PANTRY.get(sub.key);
+  if (!kind) return null;
+  const k = halal ? kindForDiet(kind, { halalOnly: true }) : kind;
+  const amount = Math.max(5, Math.round((spec.amount * (sub.factor ?? 1)) / 5) * 5);
+  return { ...specFromKind(k, amount, { role: spec.role }), key: spec.key, subFor: spec.subFor ?? spec.label };
+}
+
+/** The recipe with the person's choices of substitute (ingredient key → substitute kind key) put in. */
+export function withSubstitutes(recipe: Recipe, choices: Readonly<Record<string, string>>): Recipe {
+  if (!Object.keys(choices).length) return recipe;
+  return {
+    ...recipe,
+    ingredients: recipe.ingredients.map((spec) => {
+      const sub = spec.subs?.find((x) => x.key === choices[spec.key]);
+      const s2 = sub ? subSpec(spec, sub, recipe.halal) : null;
+      return s2 ? { ...s2, subs: spec.subs, original: spec } : spec;
+    }),
+  };
 }
 
 // ---- matching ----
@@ -257,9 +209,18 @@ export function pickFor(spec: IngredientSpec, product: ShopProduct): IngredientP
 }
 
 /** Products at the shop that can stand for this ingredient, cheapest basket first (then price per kg/litre, then name). */
-export function candidates(products: readonly ShopProduct[], spec: IngredientSpec, meatFree = false): IngredientPick[] {
+// Which products match a kind depends only on the kind's rules, so it is worked out once per shop list (100 recipes would otherwise scan
+// the whole list hundreds of times).
+const matchCache = new WeakMap<readonly ShopProduct[], Map<string, ShopProduct[]>>();
+
+function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): ShopProduct[] {
+  let byRule = matchCache.get(products);
+  if (!byRule) { byRule = new Map(); matchCache.set(products, byRule); }
+  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree]);
+  const cached = byRule.get(rule);
+  if (cached) return cached;
   const m = spec.match;
-  const out: IngredientPick[] = [];
+  const list: ShopProduct[] = [];
   for (const p of products) {
     const n = p.nutrition;
     if (!n || n.per !== spec.unit) continue;
@@ -273,8 +234,14 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
     if (m.kcal && (n.kcal < m.kcal[0] || n.kcal > m.kcal[1])) continue;
     if (m.minProtein !== undefined && n.protein < m.minProtein) continue;
     if (m.maxFat !== undefined && n.fat > m.maxFat) continue;
-    out.push(pickFor(spec, p));
+    list.push(p);
   }
+  byRule.set(rule, list);
+  return list;
+}
+
+export function candidates(products: readonly ShopProduct[], spec: IngredientSpec, meatFree = false): IngredientPick[] {
+  const out = matching(products, spec, meatFree).map((p) => pickFor(spec, p));
   return out.sort((a, b) => a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
@@ -287,8 +254,15 @@ export interface ResolvedRecipe {
 
 /** The cheapest match for each ingredient, or a chosen product where the user swapped one (by product id). */
 export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>> = {}): ResolvedRecipe {
+  const meatFree = isMeatFree(recipe);
   const picks = recipe.ingredients.map((spec) => {
-    const list = candidates(products, spec, isMeatFree(recipe));
+    let list = candidates(products, spec, meatFree);
+    // the shop doesn't sell this kind: use the first substitute it does sell (the pick's spec says which, so the screen can say so)
+    for (const sub of list.length ? [] : spec.subs ?? []) {
+      const s2 = subSpec(spec, sub, recipe.halal);
+      const l2 = s2 ? candidates(products, s2, meatFree) : [];
+      if (l2.length) { list = l2; break; }
+    }
     return list.find((c) => c.product.id === chosen[spec.key]) ?? list[0] ?? null;
   });
   return { recipe, picks, complete: picks.every(Boolean) };

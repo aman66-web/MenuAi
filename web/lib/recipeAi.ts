@@ -1,15 +1,15 @@
 import "server-only";
 import Anthropic from "@anthropic-ai/sdk";
-import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
 import type { AskPip } from "./recipeHandler";
 
 // The one place the app talks to an AI model: Pip writing a recipe (lib/recipeHandler.ts decides when). Needs ANTHROPIC_API_KEY in the
 // server environment (Vercel › Settings › Environment Variables); without it the recipe maker says it isn't switched on yet.
-// Claude Opus 5.5 at low effort (the app fits the amounts afterwards, so the model only has to choose sensible ingredients and words),
-// structured output limited to the pantry keys this person may use, and Anthropic's server-side fallback for a declined request.
+// Claude Haiku (founder's choice 2026-10-10: fast and low cost; the app fits the amounts afterwards, so the model only has to choose
+// sensible ingredients and words), with structured output limited to the pantry keys this person may use.
 
-export const RECIPE_MODEL = "claude-opus-5-5";
+export const RECIPE_MODEL = "claude-haiku-5-5";
 
 export function anthropicAsk(apiKey: string | undefined): AskPip | null {
   if (!apiKey) return null;
@@ -25,12 +25,10 @@ export function anthropicAsk(apiKey: string | undefined): AskPip | null {
       extras: z.array(z.string()),
     });
     try {
-      const res = await client.beta.messages.parse({
+      const res = await client.messages.parse({
         model: RECIPE_MODEL,
         max_tokens: 16000,
-        betas: ["server-side-fallback-2026-07-01"],
-        fallbacks: "default",
-        output_config: { effort: "low", format: betaZodOutputFormat(schema) },
+        output_config: { effort: "medium", format: zodOutputFormat(schema) },
         system,
         messages: [{ role: "user", content: user }],
       });

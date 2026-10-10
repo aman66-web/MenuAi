@@ -25,5 +25,6 @@ export async function POST(request: Request) {
   const started = Date.now();
   return withJsonBody(request, (body) =>
     handleRecipe(body, { ask: anthropicAsk(process.env.ANTHROPIC_API_KEY), allow: () => limiter(who), timeLeft: () => maxDuration * 1000 - (Date.now() - started) }),
+    48 * 1024, // the pantry list (about 70 products) is bigger than other requests
   );
 }

@@ -71,7 +71,7 @@ export default function GroceriesPage() {
       <div className="mt-4 flex gap-2">
         <label className="relative flex-1">
           <span className="sr-only">Search products or type a barcode</span>
-          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
+          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
           <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder="Search groceries" enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full pl-11 pr-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
         </label>
         <Button variant="secondary" onClick={() => setScanning(true)} aria-label="Scan a barcode"><ScanIcon className="h-5 w-5" /></Button>

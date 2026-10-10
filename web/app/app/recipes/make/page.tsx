@@ -9,11 +9,13 @@ import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
 import { possessive } from "@/lib/mm/shopProducts";
 import { myRecipesStore } from "@/lib/mm/stores";
+import { site } from "@/site.config";
 import { ALLERGEN_SHORT } from "../../_components/DietPicker";
 import { CheckIcon, ChevronLeftIcon } from "../../_components/icons";
 import { PipSays } from "../../_components/Mascot";
+import { useGate } from "../../_components/Paywall";
 import { Button, ErrorBox, inputClass, radioKeyNav, Spinner } from "../../_components/ui";
-import { useSettings } from "../../_lib/hooks";
+import { useHydrated, useIsPro, useSettings } from "../../_lib/hooks";
 import { recipeShop, useRecipeMakerEnabled } from "../../_lib/recipes";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { MealPicker } from "../MealPicker";
@@ -69,6 +71,9 @@ function MakeScreen() {
   const pantry = useMemo(() => (products ? pantryLines(products, JSON.parse(dietKey)) : []), [products, dietKey]);
   const target = mealTargetFor(settings) ?? { kcal: mealSizes(settings.dailyCalories).normal };
   const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? "your shop";
+  const pro = useIsPro();
+  const hydrated = useHydrated();
+  const { showPaywall } = useGate();
   const words = [diet.vegetarianOnly && "vegetarian", diet.veganOnly && "vegan", diet.halalOnly && "halal", diet.noPork && "no pork", diet.noBeef && "no beef", ...(diet.avoidAllergens ?? []).map((a) => `no ${ALLERGEN_SHORT[a].toLowerCase()}`)].filter(Boolean);
 
   const make = async () => {
@@ -91,6 +96,24 @@ function MakeScreen() {
   };
 
   const back = (<Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} aria-label="Back to recipes" className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>);
+
+  if (!hydrated) return <Spinner />;
+
+  if (!pro) {
+    return (
+      <div>
+        {back}
+        <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight">Ask <span className="serif-em sun-text pr-0.5">Pip</span></h1>
+        <div className="mt-4">
+          <PipSays mood="wave" size={84}>Making a new recipe just for you is part of {site.name} Pro. All our ready-made recipes stay free.</PipSays>
+        </div>
+        <div className="mt-5 grid gap-3">
+          <Button full className="min-h-14 text-lg" onClick={() => showPaywall("recipeMaker")}>See Pro</Button>
+          <Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} className="glass flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">Back to the recipes</Link>
+        </div>
+      </div>
+    );
+  }
 
   if (phase.kind === "thinking") {
     return (

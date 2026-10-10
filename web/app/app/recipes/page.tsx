@@ -1,21 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
+import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatPrice } from "@/lib/mm/groceries";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
-import { isMeatFree, type Recipe } from "@/lib/mm/recipes";
+import { isMeatFree, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { possessive } from "@/lib/mm/shopProducts";
 import { myRecipesStore } from "@/lib/mm/stores";
 import { ALLERGEN_SHORT } from "../_components/DietPicker";
-import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, PotIcon } from "../_components/icons";
+import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, PotIcon, SearchIcon } from "../_components/icons";
 import { Pip, PipSays } from "../_components/Mascot";
-import { Chip, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
-import { useSettings, useStore } from "../_lib/hooks";
+import { useGate } from "../_components/Paywall";
+import { Button, Chip, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
+import { useIsPro, useSettings, useStore } from "../_lib/hooks";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
 import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
 import { MealPicker } from "./MealPicker";
@@ -25,6 +27,15 @@ import { MealPicker } from "./MealPicker";
 // new one with AI. Big buttons and plain words throughout, for everyone including older people.
 
 type Sort = "fit" | "price" | "protein";
+const PAGE = 24;
+
+/** Search words against a recipe's name, blurb and ingredient names ("chicken", "curry", "oats"). */
+function matchesSearch(r: Recipe, q: string): boolean {
+  const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+  if (!words.length) return true;
+  const hay = [r.name, r.blurb, ...r.ingredients.map((i) => i.label)].join(" ").toLowerCase();
+  return words.every((w) => hay.includes(w));
+}
 
 function sortCards(cards: RecipeCard[], sort: Sort): RecipeCard[] {
   const key = (c: RecipeCard): number => (sort === "fit" ? c.distance : sort === "protein" ? -c.totals.perServing.protein : (c.totals.costPerServing ?? Infinity));
@@ -38,10 +49,18 @@ function dietWords(p: ReturnType<typeof useSettings>["preferences"]): string[] {
 
 function RecipeTile({ card, href, badge }: { card: RecipeCard; href: string; badge?: string }) {
   const { recipe, totals } = card;
+  const image = RECIPE_IMAGES[recipe.id];
   return (
     <Link href={href} prefetch={false} className="glass lift flex h-full min-w-0 flex-col rounded-3xl p-4">
+      {image && (
+        <span className="relative -mx-1 -mt-1 mb-3 block overflow-hidden rounded-2xl">
+          {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
+          <img src={image} alt="" loading="lazy" decoding="async" width={800} height={600} className="aspect-[4/3] w-full object-cover" />
+          <span className="absolute bottom-2 left-2 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-semibold text-white">AI illustration</span>
+        </span>
+      )}
       <span className="flex items-start gap-3">
-        <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 rounded-2xl"><PotIcon className="h-6 w-6" /></span>
+        {!image && <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 rounded-2xl"><PotIcon className="h-6 w-6" /></span>}
         <span className="min-w-0 flex-1">
           {badge && <span className="mb-1 inline-block rounded-full bg-accent-soft px-2 py-0.5 text-xs font-bold text-accent">{badge}</span>}
           <span className="block text-[17px] font-extrabold leading-snug tracking-tight [overflow-wrap:anywhere]">{recipe.name}</span>
@@ -76,12 +95,23 @@ function RecipesScreen() {
   const mine = useMemo(() => saved.filter((s) => s.shop === shop).map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, shop, dietKey]);
   const mineCards = useRecipeCards(mine, products, diet, target).cards;
   const [meatFree, setMeatFree] = useState(false);
+  const [meal, setMeal] = useState<MealType | null>(null);
+  const [query, setQuery] = useState("");
+  const [limit, setLimit] = useState(PAGE);
   const [sort, setSort] = useState<Sort | null>(null);
   const effectiveSort: Sort = sort ?? (target ? "fit" : "protein");
-  const shown = useMemo(() => sortCards(cards.filter((c) => !meatFree || isMeatFree(c.recipe)), effectiveSort), [cards, meatFree, effectiveSort]);
+  const shown = useMemo(
+    () => sortCards(cards.filter((c) => (!meatFree || isMeatFree(c.recipe)) && (!meal || c.recipe.meal === meal) && matchesSearch(c.recipe, query)), effectiveSort),
+    [cards, meatFree, meal, query, effectiveSort],
+  );
+  const filtering = meatFree || meal !== null || query.trim() !== "";
   const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? "";
   const makerOn = useRecipeMakerEnabled();
   const words = dietWords(diet);
+  const pro = useIsPro();
+  const { gate } = useGate();
+  const router = useRouter();
+  const makeHref = `/app/recipes/make${shop ? `?r=${shop}` : ""}`;
 
   return (
     <div>
@@ -107,14 +137,14 @@ function RecipesScreen() {
       </p>
 
       {(makerOn || SAMPLES_ENABLED) && (
-        <Link href={`/app/recipes/make${shop ? `?r=${shop}` : ""}`} className="hero-card lift group mt-4 flex min-h-[5.5rem] items-center gap-3 rounded-[1.75rem] p-3 pl-2">
+        <button type="button" onClick={() => gate("recipeMaker", () => router.push(makeHref))} className="hero-card lift group mt-4 flex min-h-[5.5rem] w-full items-center gap-3 rounded-[1.75rem] p-3 pl-2 text-left">
           <Pip mood="wave" size={72} />
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-            <span className="block text-[17px] font-extrabold leading-snug tracking-tight">Ask Pip to make a recipe</span>
+            <span className="block text-[17px] font-extrabold leading-snug tracking-tight">Ask Pip to make a recipe{!pro && <span className="ml-2 inline-block rounded-full bg-accent-soft px-2 py-0.5 align-middle text-xs font-bold text-accent">Pro</span>}</span>
             <span className="block text-sm text-muted">Say what you fancy and Pip writes one from {shopName ? possessive(shopName) : "your shop's"} products, fitted to your meal and diet.</span>
           </span>
           <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
-        </Link>
+        </button>
       )}
 
       {mineCards.length > 0 && shop && (
@@ -126,10 +156,19 @@ function RecipesScreen() {
         </section>
       )}
 
-      <h2 className="mt-6 text-xl font-extrabold tracking-tight">All recipes</h2>
-      <div role="group" aria-label="Filters" className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
-        <Chip selected={!meatFree} onClick={() => setMeatFree(false)}>All recipes</Chip>
-        <Chip selected={meatFree} onClick={() => setMeatFree(true)}>No meat or fish</Chip>
+      <h2 className="mt-6 text-xl font-extrabold tracking-tight">All recipes{cards.length > 0 && <span className="app-numbers font-semibold text-muted"> · {cards.length}</span>}</h2>
+      <label className="relative mt-3 block">
+        <span className="sr-only">Search recipes</span>
+        <SearchIcon className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
+        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder="Search recipes, e.g. chicken or curry" enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full pl-11 pr-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
+      </label>
+      <div role="group" aria-label="Which meal" className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+        <Chip selected={meal === null} onClick={() => { setMeal(null); setLimit(PAGE); }}>Any meal</Chip>
+        {MEAL_TYPES.map((m) => (<Chip key={m.value} selected={meal === m.value} onClick={() => { setMeal(meal === m.value ? null : m.value); setLimit(PAGE); }}>{m.label}</Chip>))}
+      </div>
+      <div role="group" aria-label="Filters" className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
+        <Chip selected={!meatFree} onClick={() => { setMeatFree(false); setLimit(PAGE); }}>All recipes</Chip>
+        <Chip selected={meatFree} onClick={() => { setMeatFree(true); setLimit(PAGE); }}>No meat or fish</Chip>
       </div>
       <div className="mt-3">
         <Segmented
@@ -146,13 +185,22 @@ function RecipesScreen() {
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title="No supermarket list yet." body="Recipes appear once we've read a supermarket's products and prices." /></div>
       ) : state.status === "error" ? (
         <div className="mt-5"><ErrorBox message="Couldn't load the recipes. Check your connection." onRetry={() => setRetry((n) => n + 1)} /></div>
+      ) : shown.length === 0 && filtering && cards.length > 0 ? (
+        <div className="mt-5">
+          <EmptyState icon={<PotIcon className="h-7 w-7" />} title="No recipes match." body="Try another word or meal." />
+          <div className="mt-3 flex justify-center"><Button variant="secondary" onClick={() => { setQuery(""); setMeal(null); setMeatFree(false); }}>Show all recipes</Button></div>
+        </div>
       ) : shown.length === 0 ? (
-        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title="No recipes here yet." body={leftOut ? "None of our recipes suit your diet at this shop yet. Ask Pip to make one." : `We haven't read enough of ${possessive(shopName)} product pages to fill these recipes yet.`} /></div>
+        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title="No recipes here yet." body={leftOut ? "None of our recipes suit your diet at this shop yet." : `We haven't read enough of ${possessive(shopName)} product pages to fill these recipes yet.`} /></div>
       ) : (
         <>
-          <ul className="stagger mt-4 grid gap-3 sm:grid-cols-2">
-            {shown.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} /></li>))}
+          <p role="status" className="app-numbers mt-3 px-1 text-sm text-muted">{shown.length === 1 ? "1 recipe" : `${shown.length} recipes`}{filtering ? " match" : ""}</p>
+          <ul className="stagger mt-2 grid gap-3 sm:grid-cols-2">
+            {shown.slice(0, limit).map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} /></li>))}
           </ul>
+          {shown.length > limit && (
+            <div className="mt-4"><Button full variant="secondary" className="min-h-14 text-base" onClick={() => setLimit((n) => n + PAGE)}>Show more recipes ({shown.length - limit} more)</Button></div>
+          )}
           {leftOut > 0 && <p className="mt-3 px-1 text-sm text-muted">{leftOut} {leftOut === 1 ? "recipe is" : "recipes are"} left out for your diet.</p>}
         </>
       )}

@@ -4,7 +4,7 @@ import type { UserSettings } from "./user-data";
 // SPEC §4: free vs Pro. Payments are not wired on the web yet, so "Pro" comes only from the preview switches.
 // When payments exist, this is the one place to add a verified purchase.
 
-export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log";
+export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker";
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">): boolean {
   return PRO_PREVIEW_FROM_ENV || (DEV_TOOLS_ENABLED && settings.devProOverride);
@@ -51,4 +51,5 @@ export const PAYWALL_BULLETS = [
   "Build your order with live totals",
   "Keep a log of what you eat today",
   "Unlimited saved orders",
+  "Pip makes new recipes just for you",
 ] as const;

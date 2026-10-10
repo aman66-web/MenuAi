@@ -2,7 +2,7 @@
  *
  * Goal: after you've opened something once, it keeps working with a poor or no connection.
  *  - /_next/static/* and /icons/*: cache-first (Next.js names contain a content hash; icons do not, so bump VERSION when they change)
- *  - /menu-images/* and /grocery-images/*: cache-first in their own capped cache (photos are named by content hash, so they never go stale)
+ *  - /menu-images/*, /grocery-images/* and /recipe-images/*: cache-first in their own capped cache (photos are named by content hash, so they never go stale)
  *  - /menus/*, /menus-sample/*, /branches/*, /groceries/* and /logos/*: network-first, falling back to the last copy
  *  - /app/* pages (and their data requests): network-first, falling back to the last copy
  *  - /app/chain, /app/item and /app/builder are static shells that read their ids from the query string, so ONE cached
@@ -141,7 +141,7 @@ self.addEventListener("fetch", (event) => {
 
   if (path.startsWith("/_next/static/") || path.startsWith("/icons/")) {
     event.respondWith(cacheFirst(request));
-  } else if (path.startsWith("/menu-images/") || path.startsWith("/grocery-images/")) {
+  } else if (path.startsWith("/menu-images/") || path.startsWith("/grocery-images/") || path.startsWith("/recipe-images/")) {
     event.respondWith(cacheFirst(request, IMAGES));
   } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/logos/") || path.startsWith("/branches/") || path.startsWith("/groceries/")) {
     event.respondWith(networkFirst(request, DATA));
