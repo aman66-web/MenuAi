@@ -98,7 +98,7 @@ function sanitizeRecipeMeal(raw: unknown): RecipeMeal | undefined {
     ...(size === "custom" ? { kcal, ...(protein ? { protein } : {}), ...(carbsMax ? { carbsMax } : {}), ...(fatMax ? { fatMax } : {}) } : {}),
   };
 }
-const GOALS: readonly Goal[] = ["lose", "maintain", "buildMuscle", "glp1"];
+const GOALS: readonly Goal[] = ["lose", "maintain", "buildMuscle", "glp1", "other"];
 const isObject = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 const num = (v: unknown, fallback: number, min: number, max: number) =>
   typeof v === "number" && Number.isFinite(v) && v >= min && v <= max ? v : fallback;

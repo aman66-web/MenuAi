@@ -38,3 +38,9 @@ describe("TargetSuggester (SPEC §6.2 test vectors)", () => {
     expect(suggestTargets({ ...base, heightFt: 0, heightIn: 0 })).toEqual({ kind: "invalid" });
   });
 });
+
+describe("the Other goal", () => {
+  it("suggests the same targets as Maintain", () => {
+    expect(suggestTargets({ ...base, goal: "other" })).toEqual(suggestTargets({ ...base, goal: "maintain" }));
+  });
+});

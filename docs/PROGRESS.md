@@ -593,6 +593,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   tile that comes out blank falls back to the green dot, so an empty tile can't appear. Checked: e2e map 6 of 7 (the 7th, "location refused", is the known headless-browser
   geolocation limit noted on 2026-10-08), axe 0 on Nearby in light and dark, screenshots at LS17 5PG (25 branches at 2 mi, 226 at 10 mi, all drawn).
 
+- 2026-10-10 — **"Other" goal (founder: "Should also be an option for other too").** Onboarding step 1 and Settings › Goal gain **Other** ("Something else, or just here
+  for the numbers"; Pip: "No problem. I'll show you the numbers and keep your orders around your target."). It works out suggested targets and ranks Best for you
+  **exactly like Maintain** (no ranking constant changed, rule 8; tested: same targets, same top picks). The onboarding Continue/Skip buttons now stay in view at the
+  bottom of every step (five goal cards can run past the fold on a notched iPhone), like the welcome screen's button. New copy (logged here): "Other", the hint and Pip's line.
+  Not in docs/SPEC.md (four goals); the native app should add it too. Checked: 398 unit tests, e2e extra 10 (new: Other in onboarding and Settings), smoke 22, axe 0, no overflow at 200% text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

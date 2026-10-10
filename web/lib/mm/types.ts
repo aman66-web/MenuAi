@@ -154,7 +154,8 @@ export interface Manifest {
 
 // ---- user-facing settings types (SPEC §5, §6)
 
-export type Goal = "lose" | "maintain" | "buildMuscle" | "glp1";
+/** "other" (founder 2026-10-10: "should also be an option for other") works out targets and ranks orders exactly like "maintain". */
+export type Goal = "lose" | "maintain" | "buildMuscle" | "glp1" | "other";
 export type Meal = "breakfast" | "lunch" | "dinner";
 
 export interface Preferences {

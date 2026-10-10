@@ -43,6 +43,22 @@ await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … ca
   if ((await page.getByLabel("Comfortable meal size in calories").inputValue()) !== "450") throw new Error("default 450 expected");
   await ctx.close();
 });
+await step("onboarding offers Other as a goal, Pip answers, and it's kept in Settings", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/welcome");
+  await page.getByRole("button", { name: "Let's go" }).click();
+  await page.getByRole("radio", { name: /^Other/ }).click();
+  await vis(page.getByText("No problem. I'll show you the numbers and keep your orders around your target."));
+  await vis(page.getByRole("button", { name: "Continue" }));
+  await page.getByRole("button", { name: "Continue" }).click();
+  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip" }).click();
+  await page.getByRole("button", { name: "Start" }).click();
+  await page.waitForURL(/\/app$/);
+  await page.goto(BASE + "/app/settings");
+  await vis(page.getByRole("radiogroup", { name: "Goal" }).getByRole("radio", { name: "Other", checked: true }));
+  await ctx.close();
+});
 await step("menus unreachable → an honest error with Try again (not 'Menus are coming soon'), then it recovers", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, goal: "maintain", dailyCalories: 2000 } })));

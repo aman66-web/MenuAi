@@ -150,3 +150,11 @@ describe("modes", () => {
     expect(rankTiny(items, profile("maintain")).picks).toHaveLength(5);
   });
 });
+
+describe("the Other goal", () => {
+  it("ranks exactly like Maintain", () => {
+    const items: Parameters<typeof tinyChain>[0] = [["a", "A", 300, 30], ["b", "B", 520, 41], ["c", "C", 640, 22], ["d", "D", 180, 9]];
+    const ids = (g: Goal) => rankTiny(items, profile(g)).picks.map((p) => p.id);
+    expect(ids("other")).toEqual(ids("maintain"));
+  });
+});

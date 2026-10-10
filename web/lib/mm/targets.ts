@@ -13,8 +13,8 @@ export const ACTIVITY_LABEL: Record<Activity, string> = {
   veryActive: "Very active",
 };
 const SEX_OFFSET: Record<Sex, number> = { male: 5, female: -161, unspecified: -78 };
-const CALORIE_ADJUSTMENT: Record<Goal, number> = { lose: -500, maintain: 0, buildMuscle: 250, glp1: -500 };
-const PROTEIN_PER_KG: Record<Goal, number> = { lose: 1.4, maintain: 1.2, buildMuscle: 1.6, glp1: 1.4 };
+const CALORIE_ADJUSTMENT: Record<Goal, number> = { lose: -500, maintain: 0, buildMuscle: 250, glp1: -500, other: 0 };
+const PROTEIN_PER_KG: Record<Goal, number> = { lose: 1.4, maintain: 1.2, buildMuscle: 1.6, glp1: 1.4, other: 1.2 }; // "other" = maintain
 
 export const MIN_SUGGESTED_CALORIES = 1200;
 export const UNDER_18_COPY = "Ask a doctor or dietitian for targets.";

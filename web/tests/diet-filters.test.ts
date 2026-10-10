@@ -66,3 +66,10 @@ describe("caution wording and settings", () => {
     expect(sanitizeSettings({ textSize: "huge" }).textSize).toBeUndefined();
   });
 });
+
+describe("goal setting", () => {
+  it("keeps Other and drops an unknown goal", () => {
+    expect(sanitizeSettings({ goal: "other" }).goal).toBe("other");
+    expect(sanitizeSettings({ goal: "bulk" }).goal).toBe("maintain");
+  });
+});

@@ -85,7 +85,7 @@ function score(n: Nutrients, goal: Profile["goal"], budget: number, config: Rank
   const d = proteinPer100Cal(n);
   if (goal === "lose" || goal === "glp1") return d + config.underBudgetBonus * (1 - n.calories / budget);
   if (goal === "buildMuscle") return d + config.totalProteinBonus * (n.protein ?? 0);
-  return d; // maintain
+  return d; // maintain, and "other" (ranked like maintain)
 }
 
 // Plain code-unit comparison, like the Python oracle and Swift's String < (never a localized compare).

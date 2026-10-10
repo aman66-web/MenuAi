@@ -35,6 +35,7 @@ const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
   { value: "maintain", label: "Maintain" },
   { value: "buildMuscle", label: "Build muscle" },
   { value: "glp1", label: "GLP-1" },
+  { value: "other", label: "Other" },
 ];
 
 function Section({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {

@@ -13,7 +13,7 @@ import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
-import { BasketIcon, BoltIcon, CheckIcon, ForkIcon, GiftIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
+import { BasketIcon, BoltIcon, CheckIcon, DotsIcon, ForkIcon, GiftIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
 import { Pip, PipSays } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
@@ -31,6 +31,7 @@ const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p:
   { value: "maintain", label: "Maintain", hint: "Stay where you are", Icon: ScaleIcon },
   { value: "buildMuscle", label: "Build muscle", hint: "More protein in every order", Icon: BoltIcon },
   { value: "glp1", label: "I'm on a GLP-1 medication", hint: "Smaller, protein-first orders", Icon: PillIcon },
+  { value: "other", label: "Other", hint: "Something else, or just here for the numbers", Icon: DotsIcon },
 ];
 
 // What Pip says once a goal is picked (plain words, no health claims: CLAUDE.md rule 3).
@@ -39,6 +40,7 @@ const GOAL_REACTION: Record<Goal, string> = {
   maintain: "Nice and steady. I'll keep your orders around your target.",
   buildMuscle: "Protein it is! I'll put the highest-protein orders first.",
   glp1: "Got it: smaller, protein-first orders.",
+  other: "No problem. I'll show you the numbers and keep your orders around your target.",
 };
 
 const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
@@ -382,7 +384,8 @@ function Plan({ goal, calories, protein, prefs, shops }: { goal: Goal; calories:
 
 function Actions({ onContinue, onSkip, continueDisabled }: { onContinue: () => void; onSkip: () => void; continueDisabled?: boolean }) {
   return (
-    <div className="mt-auto space-y-2 pt-8">
+    // stays in view on small screens and notched iPhones (five goals can run past the fold), like the welcome screen's button
+    <div className="sticky bottom-0 -mx-5 mt-auto w-[calc(100%+2.5rem)] space-y-2 bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">
       <Button full className="min-h-14 text-lg" onClick={onContinue} disabled={continueDisabled}>Continue</Button>
       <Button full variant="ghost" className="min-h-12 text-base" onClick={onSkip}>Skip</Button>
     </div>
