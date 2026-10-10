@@ -1,0 +1,1940 @@
+{
+ "schemaVersion": 1,
+ "id": "sushi-shop",
+ "name": "Sushi Shop",
+ "cuisine": "Japanese",
+ "builderType": "standard",
+ "aliases": [],
+ "sample": false,
+ "source": {
+  "title": "Sushi Shop UK online menu, product pages (read 2026-10-10, no date shown)",
+  "url": "https://www.mysushishop.co.uk/en/all-categories",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, one figure per product. About 40 products show no calories and are left out; drinks are not included. Allergens are only a link on each page, so none are recorded. Read from the chain's own pages on 2026-10-10 (4 UK sites: mysushishop.co.uk/en/stores lists four London shops).",
+ "categories": [
+  "Handrolls",
+  "Sushi",
+  "California Rolls",
+  "Maki Rolls",
+  "Spring Rolls",
+  "Signature Rolls",
+  "Sashimi & Tataki",
+  "Desserts",
+  "Hot dishes",
+  "Bowls",
+  "Sushi Boxes",
+  "Boxes to Share",
+  "Extras",
+  "Snacking"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "handroll-prawn-tempura",
+   "name": "Handroll Prawn Tempura",
+   "category": "Handrolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-chicken-handroll",
+   "name": "Fried Chicken Handroll",
+   "category": "Handrolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 213
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-tuna-handroll",
+   "name": "Spicy Tuna Handroll",
+   "category": "Handrolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-handroll",
+   "name": "Salmon Handroll",
+   "category": "Handrolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 191
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tulip-kuro-edamame",
+   "name": "Tulip Kuro Edamame",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sushi-prawn-koshou",
+   "name": "Sushi Prawn Koshou",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 104
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "star-sushi",
+   "name": "Star Sushi",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-sushi",
+   "name": "Tuna Sushi",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-sushi",
+   "name": "Salmon Sushi",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowtail-sushi",
+   "name": "Yellowtail Sushi",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-sushi",
+   "name": "Prawn Sushi",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-cheese-sushi",
+   "name": "Salmon Cheese Sushi",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-salmon-sushi",
+   "name": "Teriyaki Salmon Sushi",
+   "category": "Sushi",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rose-california",
+   "name": "Rose California",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california-saba-mustard",
+   "name": "California Saba Mustard",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california-kimchicken",
+   "name": "California Kimchicken",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenko-cajun-chicken-roll",
+   "name": "Kenko Cajun Chicken Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenko-cooked-tuna-avocado",
+   "name": "Kenko Cooked Tuna Avocado",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-roll",
+   "name": "Veggie Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 336
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-crispy-onion-roll",
+   "name": "Salmon & Crispy Onion Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenko-salmon-avocado-roll",
+   "name": "Kenko Salmon Avocado Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 234
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-curry-roll",
+   "name": "Chicken Curry Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-avocado-roll",
+   "name": "Salmon Avocado Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-aburi-roll",
+   "name": "Salmon Aburi Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-avocado-roll",
+   "name": "Tuna Avocado Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-and-truffle",
+   "name": "Tuna & Truffle",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 216
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cooked-tuna-avocado-roll",
+   "name": "Cooked Tuna Avocado Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-tempura-roll",
+   "name": "Prawn Tempura Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-touch",
+   "name": "French touch",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-roll",
+   "name": "Chicken Katsu Roll",
+   "category": "California Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maguro-peanut-wasabi",
+   "name": "Maguro Peanut Wasabi",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 264
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenko-cheese-avocado-maki",
+   "name": "Kenko Cheese Avocado Maki",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prince-maki",
+   "name": "Prince Maki",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenko-cheese-salmon-maki",
+   "name": "Kenko Cheese Salmon Maki",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-maki",
+   "name": "Avocado Maki",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheese-salmon-maki",
+   "name": "Cheese Salmon Maki",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-cheese-salmon",
+   "name": "Avocado Cheese Salmon",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-maki-roll",
+   "name": "Cucumber Maki Roll",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 144
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-cheese-maki-roll",
+   "name": "Avocado Cheese Maki Roll",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-maki-roll",
+   "name": "Salmon Maki Roll",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 174
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-tuna-maki-roll",
+   "name": "Spicy Tuna Maki Roll",
+   "category": "Maki Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spring-prawn-nanban",
+   "name": "Spring Prawn Nanban",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spring-salmon-guacamole",
+   "name": "Spring Salmon Guacamole",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fox-spring",
+   "name": "Fox Spring",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caesar-style-chicken-spring-roll",
+   "name": "Caesar Style Chicken Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-guacamole-spring",
+   "name": "Prawn Guacamole Spring",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowtail-basil-spring",
+   "name": "Yellowtail Basil Spring",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-cheese-spring-roll",
+   "name": "Cucumber Cheese Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-cheese-spring-roll",
+   "name": "Avocado Cheese Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-tataki-spring",
+   "name": "Tuna Tataki Spring",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-avocado-spring-roll",
+   "name": "Salmon Avocado Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-tataki-spring-roll",
+   "name": "Salmon Tataki Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-avocado-spring-roll",
+   "name": "Tuna Avocado Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cooked-tuna-avocado-spring-roll",
+   "name": "Cooked Tuna Avocado Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-chicken-avocado-spring-roll",
+   "name": "Fried Chicken Avocado Spring Roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-tempura-spring-roll",
+   "name": "Prawn Tempura Spring roll",
+   "category": "Spring Rolls",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-maguro-spicy",
+   "name": "Signature Maguro Spicy",
+   "category": "Signature Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "extreme-fire-signature",
+   "name": "Extreme Fire Signature",
+   "category": "Signature Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 536
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-nordic-flame-roll",
+   "name": "Signature Nordic Flame Roll",
+   "category": "Signature Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "color-fresh-roll",
+   "name": "Color Fresh Roll",
+   "category": "Signature Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rock-n-roll",
+   "name": "Rock n Roll",
+   "category": "Signature Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fire-roll",
+   "name": "Fire Roll",
+   "category": "Signature Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 496
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dragon-roll",
+   "name": "Dragon Roll",
+   "category": "Signature Rolls",
+   "serving": "8 pieces",
+   "nutrients": {
+    "calories": 520
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sashimi-tuna-5-pieces",
+   "name": "Sashimi Tuna 5 pieces",
+   "category": "Sashimi & Tataki",
+   "serving": "5 pieces",
+   "nutrients": {
+    "calories": 64
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sashimi-salmon-5-pieces",
+   "name": "Sashimi Salmon 5 pieces",
+   "category": "Sashimi & Tataki",
+   "serving": "5 pieces",
+   "nutrients": {
+    "calories": 107
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yellowtail-sashimi-5-pieces",
+   "name": "Yellowtail Sashimi 5 pieces",
+   "category": "Sashimi & Tataki",
+   "serving": "5 pieces",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-sashimi",
+   "name": "Salmon Sashimi",
+   "category": "Sashimi & Tataki",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 256
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-sashimi-tuna-and-salmon",
+   "name": "Mixed Sashimi Tuna & Salmon",
+   "category": "Sashimi & Tataki",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 222
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "assorted-sashimi",
+   "name": "Assorted Sashimi",
+   "category": "Sashimi & Tataki",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-tataki",
+   "name": "Salmon Tataki",
+   "category": "Sashimi & Tataki",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-tataki",
+   "name": "Tuna Tataki",
+   "category": "Sashimi & Tataki",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caramel-popcorn-frozen-mochi",
+   "name": "Caramel Popcorn Frozen Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-and-espelette-pepper-frozen-mochi",
+   "name": "Strawberry & Espelette Pepper Frozen Mochi",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frozen-mochi-pistachio",
+   "name": "Frozen Mochi Pistachio",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-passion-mochi",
+   "name": "Mango Passion Mochi",
+   "category": "Desserts",
+   "serving": "1 piece",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-mochi",
+   "name": "Coconut Mochi",
+   "category": "Desserts",
+   "serving": "1 piece",
+   "nutrients": {
+    "calories": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-pearls",
+   "name": "Coconut Pearls",
+   "category": "Desserts",
+   "serving": "2 pieces",
+   "nutrients": {
+    "calories": 221
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-mango",
+   "name": "Fresh Mango",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-pineapple",
+   "name": "Fresh Pineapple",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-fondant",
+   "name": "Chocolate Fondant",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 361
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesecake",
+   "name": "Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bear-yo-yos-strawberry-20gr",
+   "name": "Bear Yo Yo's Strawberry 20gr",
+   "category": "Desserts",
+   "serving": "20 g",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crousty-chicken-katsu",
+   "name": "Crousty Chicken Katsu",
+   "category": "Hot dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1212
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crousty-sweet-curry",
+   "name": "Crousty Sweet Curry",
+   "category": "Hot dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-katsu-curry",
+   "name": "Chicken Katsu Curry",
+   "category": "Hot dishes",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-tempura-curry",
+   "name": "Prawn Tempura Curry",
+   "category": "Hot dishes",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yakisoba-salmon",
+   "name": "Yakisoba Salmon",
+   "category": "Hot dishes",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 601
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yakisoba-prawn-tempura",
+   "name": "Yakisoba Prawn Tempura",
+   "category": "Hot dishes",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 628
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yakisoba-chicken-katsu",
+   "name": "Yakisoba Chicken Katsu",
+   "category": "Hot dishes",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ceviche-yellowtail",
+   "name": "Ceviche Yellowtail",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 626
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chirashi-mixed-tuna-and-salmon",
+   "name": "Chirashi Mixed Tuna & Salmon",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-chirashi",
+   "name": "Salmon Chirashi",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-avocado-chirashi",
+   "name": "Salmon Avocado Chirashi",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 773
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "marinated-chirashi",
+   "name": "Marinated chirashi",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 785
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-tuna-poke-bowl",
+   "name": "Spicy Tuna Poke Bowl",
+   "category": "Bowls",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 574
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-salmon-poke-bowl",
+   "name": "Teriyaki Salmon Poke Bowl",
+   "category": "Bowls",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 539
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poke-bowl-veggie",
+   "name": "Poke Bowl Veggie",
+   "category": "Bowls",
+   "serving": "1 pieces",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "box-adrien-cachot",
+   "name": "Box Adrien Cachot",
+   "category": "Sushi Boxes",
+   "serving": "22 pieces",
+   "nutrients": {
+    "calories": 1104
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-mix",
+   "name": "Fresh Mix",
+   "category": "Sushi Boxes",
+   "serving": "22 pieces",
+   "nutrients": {
+    "calories": 1015
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "little-salmon-mix",
+   "name": "Little Salmon Mix",
+   "category": "Sushi Boxes",
+   "serving": "9 pieces",
+   "nutrients": {
+    "calories": 366
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenko-mix",
+   "name": "Kenko Mix",
+   "category": "Sushi Boxes",
+   "serving": "18 pieces",
+   "nutrients": {
+    "calories": 710
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-lovers",
+   "name": "Salmon Lovers",
+   "category": "Sushi Boxes",
+   "serving": "18 pieces",
+   "nutrients": {
+    "calories": 833
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "super-salmon",
+   "name": "Super Salmon",
+   "category": "Sushi Boxes",
+   "serving": "24 pieces",
+   "nutrients": {
+    "calories": 1060
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunrise",
+   "name": "Sunrise",
+   "category": "Sushi Boxes",
+   "serving": "18 pieces",
+   "nutrients": {
+    "calories": 926
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-classic",
+   "name": "Salmon Classic",
+   "category": "Sushi Boxes",
+   "serving": "10 pieces",
+   "nutrients": {
+    "calories": 520
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amateur-mix",
+   "name": "Amateur Mix",
+   "category": "Sushi Boxes",
+   "serving": "15 pieces",
+   "nutrients": {
+    "calories": 720
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-original",
+   "name": "Salmon Original",
+   "category": "Sushi Boxes",
+   "serving": "11 pieces",
+   "nutrients": {
+    "calories": 511
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-box",
+   "name": "Veggie Box",
+   "category": "Sushi Boxes",
+   "serving": "18 pieces",
+   "nutrients": {
+    "calories": 865
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-menu-salmon",
+   "name": "Kids Menu Salmon",
+   "category": "Sushi Boxes",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 438
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-menu-cooked-tuna",
+   "name": "Kids Menu Cooked Tuna",
+   "category": "Sushi Boxes",
+   "serving": "12 pieces",
+   "nutrients": {
+    "calories": 491
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sushi-box-of-the-moment",
+   "name": "Sushi Box of the Moment",
+   "category": "Sushi Boxes",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "california-dream",
+   "name": "California Dream",
+   "category": "Sushi Boxes",
+   "serving": "24 pieces",
+   "nutrients": {
+    "calories": 1142
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "box-le-petit-prince",
+   "name": "Box Le Petit Prince®",
+   "category": "Boxes to Share",
+   "serving": "42 pieces",
+   "nutrients": {
+    "calories": 2044
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackbox-classic",
+   "name": "Blackbox Classic",
+   "category": "Boxes to Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 2674
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackbox-gourmet",
+   "name": "Blackbox Gourmet",
+   "category": "Boxes to Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 2954
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "box-for-two-gourmet",
+   "name": "Box for Two Gourmet",
+   "category": "Boxes to Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 2106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "box-for-two",
+   "name": "Box for Two",
+   "category": "Boxes to Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 1906
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunday-club-offer",
+   "name": "Sunday Club Offer",
+   "category": "Boxes to Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 1730
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-box-gourmet",
+   "name": "Black Box gourmet",
+   "category": "Boxes to Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 2558
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "happy-sushi-box",
+   "name": "Happy Sushi Box",
+   "category": "Boxes to Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 1610
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-and-cabbage-salad",
+   "name": "Edamame & Cabbage Salad",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 104
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plain-rice",
+   "name": "Plain Rice",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sushi-rice",
+   "name": "Sushi Rice",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 369
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kenko-rice",
+   "name": "KENKO Rice",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-soup",
+   "name": "Miso Soup",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame",
+   "name": "Edamame",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wasabi-coleslaw",
+   "name": "Wasabi Coleslaw",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 152
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-salad",
+   "name": "Cucumber Salad",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cabbage-salad",
+   "name": "Cabbage Salad",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-salad-with-citrus-dressing",
+   "name": "Carrot Salad with Citrus Dressing",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seaweed-salad",
+   "name": "Seaweed Salad",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-soy-sauce-5-oz",
+   "name": "Sweet Soy Sauce - 5 OZ",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 21
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soy-sauce-5-oz",
+   "name": "Soy Sauce - 5 OZ",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-nori-sea-salt",
+   "name": "Crispy Nori - Sea Salt",
+   "category": "Snacking",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-nori-hot-chilli",
+   "name": "Crispy Nori - Hot Chilli",
+   "category": "Snacking",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-nori-korean-bbq",
+   "name": "Crispy Nori - Korean BBQ",
+   "category": "Snacking",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

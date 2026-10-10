@@ -1,0 +1,876 @@
+{
+ "schemaVersion": 1,
+ "id": "turtle-bay",
+ "name": "Turtle Bay",
+ "cuisine": "World food",
+ "builderType": "standard",
+ "aliases": [],
+ "sample": false,
+ "source": {
+  "title": "Turtle Bay Bath menu, dish pop-ups (read 2026-10-10, no date shown)",
+  "url": "https://turtlebay.co.uk/menu/bath",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only. The chain's menu feed shows the same dishes, calories and allergens in all 43 restaurants. Dishes with no calories shown, drinks and alcohol are left out. Read from the chain's own pages on 2026-10-10 (43 UK sites: turtlebay.co.uk/menu lists 43 restaurants (Bath to Winchester)).",
+ "allergenGuide": {
+  "title": "Turtle Bay allergen guide (PDF)",
+  "url": "https://turtlebay.co.uk/assets/site/allergen-info.pdf",
+  "checkedOn": "2026-10-10",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Breakfast",
+  "Starters | Small Plates",
+  "Main Plates",
+  "Easy Eating",
+  "Side",
+  "Desserts",
+  "Bar Menu"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "full-caribbean",
+   "name": "Full Caribbean",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 862
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-bunny-yardbird",
+   "name": "Honey Bunny Yardbird",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 882
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sunrise-steak-and-egg",
+   "name": "Sunrise Steak & Egg",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 715
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-goat-hash",
+   "name": "Curry Goat Hash",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 742
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweetcorn-hash",
+   "name": "Sweetcorn Hash",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 755
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-yardbird",
+   "name": "Vegan Yardbird",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 840
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "martinique-toast-plantain",
+   "name": "Martinique Toast - Plantain",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 819
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "martinique-toast-crispy-bacon",
+   "name": "Martinique Toast - Crispy Bacon",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 739
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ackee-and-callaloo",
+   "name": "Ackee and Callaloo",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 514
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tropical-granola-and-fruit-bowl",
+   "name": "Tropical Granola & Fruit Bowl",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 283
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trini-doubles",
+   "name": "Trini Doubles",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 309
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweetcorn-fritters",
+   "name": "Sweetcorn Fritters",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tamarind-pork",
+   "name": "Tamarind Pork",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 513
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pit-prawns",
+   "name": "Pit Prawns",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-squid",
+   "name": "Chilli Squid",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-fried-chicken",
+   "name": "Mango Fried Chicken",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 413
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries",
+   "name": "Loaded Fries",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 659
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-goats-cheese",
+   "name": "Baked Goats Cheese",
+   "category": "Starters | Small Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 376
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-sea-bream",
+   "name": "Whole Sea Bream",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 839
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tamarind-salmon",
+   "name": "Tamarind Salmon",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 477
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carib-steak",
+   "name": "Carib Steak",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 707
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-octopus",
+   "name": "Grilled Octopus",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 464
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rum-bbq-ribs",
+   "name": "Rum BBQ Ribs",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 891
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-goat",
+   "name": "Curry Goat",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 578
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jamaican-brown-chicken",
+   "name": "Jamaican Brown Chicken",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trinidad-coconut-curry-chicken",
+   "name": "Trinidad Coconut Curry - Chicken",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trinidad-coconut-curry-prawn",
+   "name": "Trinidad Coconut Curry - Prawn",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-tofu",
+   "name": "Curry Tofu",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-tiger-prawns",
+   "name": "Black Tiger Prawns",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 964
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lamb-steak",
+   "name": "Lamb Steak",
+   "category": "Main Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 183
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smashed-burger",
+   "name": "Smashed Burger",
+   "category": "Easy Eating",
+   "serving": "",
+   "nutrients": {
+    "calories": 972
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-burger",
+   "name": "Crispy Chicken Burger",
+   "category": "Easy Eating",
+   "serving": "",
+   "nutrients": {
+    "calories": 772
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miami-burger",
+   "name": "Miami Burger",
+   "category": "Easy Eating",
+   "serving": "",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carib-roti-wrap",
+   "name": "Carib Roti Wrap",
+   "category": "Easy Eating",
+   "serving": "",
+   "nutrients": {
+    "calories": 832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kingston-fried-chicken",
+   "name": "Kingston Fried Chicken",
+   "category": "Easy Eating",
+   "serving": "",
+   "nutrients": {
+    "calories": 780
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rice-and-peas",
+   "name": "Rice & Peas",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 313
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-fries",
+   "name": "Spiced Fries",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 338
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coconut-creamed-spinach",
+   "name": "Coconut Creamed Spinach",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 347
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-and-cheese-side",
+   "name": "Mac & Cheese (side)",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 581
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bara-roti",
+   "name": "Bara Roti",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dumplings",
+   "name": "Dumplings",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 469
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-flatbread",
+   "name": "Garlic Flatbread",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-flatbread",
+   "name": "Cheesy Garlic Flatbread",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-tenderstems",
+   "name": "Garlic Tenderstems",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cucumber-chow",
+   "name": "Cucumber Chow",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-slaw",
+   "name": "Creamy Slaw",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-plantain",
+   "name": "Sweet Plantain",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 581
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-salad",
+   "name": "Green Salad",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-chow",
+   "name": "Pineapple Chow",
+   "category": "Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-pudding",
+   "name": "Ginger Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 415
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-brownie",
+   "name": "Salted Caramel Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 422
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-cream",
+   "name": "Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana-bread",
+   "name": "Banana Bread",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 667
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trio-of-desserts",
+   "name": "Trio of Desserts",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 543
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "key-lime-pie",
+   "name": "Key Lime Pie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 318
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bread-and-butter-pudding",
+   "name": "Bread & Butter Pudding",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-and-thyme-olives",
+   "name": "Chilli & Thyme Olives",
+   "category": "Bar Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 402
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "jerk-sausage",
+   "name": "Jerk Sausage",
+   "category": "Bar Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "plantain-chips",
+   "name": "Plantain Chips",
+   "category": "Bar Menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

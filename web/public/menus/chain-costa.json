@@ -1,0 +1,4363 @@
+{
+ "schemaVersion": 1,
+ "id": "costa",
+ "name": "Costa Coffee",
+ "cuisine": "Coffee",
+ "builderType": "standard",
+ "aliases": [],
+ "sample": false,
+ "source": {
+  "title": "Costa Coffee UK menu pages: Nutritional Information (UK) and Allergens Information (UK) (read 2026-10-09, no date shown)",
+  "url": "https://www.costa.co.uk/menu",
+  "checkedOn": "2026-10-09"
+ },
+ "note": "Per portion as printed; drinks show the default size and milk only. The menu can differ by store; a few snacks print no numbers and are left out. Read from the chain's own pages on 2026-10-09 (50 UK sites: costa.co.uk/locations/store-locator lists 50 Costa locations within a mile of central London alone).",
+ "allergenGuide": {
+  "title": "Costa Coffee allergen and nutritional information guide (PDF)",
+  "url": "https://www.costa.co.uk/docs/store-allergen-guide.pdf",
+  "checkedOn": "2026-10-09",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Breakfast",
+  "Lunch",
+  "Pastries & Sweets",
+  "Snacks",
+  "Coffee",
+  "Other Hot Drinks",
+  "Frappé",
+  "Coffee Over Ice",
+  "Iced Tea",
+  "Tea",
+  "Fruit Coolers"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "egg-and-mushroom-bap",
+   "name": "Egg & Mushroom Bap",
+   "category": "Breakfast",
+   "serving": "Per portion 158 ml",
+   "nutrients": {
+    "calories": 339,
+    "protein": 12,
+    "carbs": 46,
+    "fat": 11,
+    "saturatedFat": 2.8,
+    "sugar": 3.5,
+    "fiber": 2.1,
+    "salt": 1,
+    "energyKj": 1426
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-bacon-bap",
+   "name": "Smoked Bacon Bap",
+   "category": "Breakfast",
+   "serving": "Per portion 124 ml",
+   "nutrients": {
+    "calories": 343,
+    "protein": 18,
+    "carbs": 41,
+    "fat": 12,
+    "saturatedFat": 5.3,
+    "sugar": 4.1,
+    "fiber": 1,
+    "salt": 1.6,
+    "energyKj": 1445
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pork-sausage-bap",
+   "name": "Pork Sausage Bap",
+   "category": "Breakfast",
+   "serving": "Per portion 161 ml",
+   "nutrients": {
+    "calories": 515,
+    "protein": 18,
+    "carbs": 45,
+    "fat": 29,
+    "saturatedFat": 11,
+    "sugar": 4.4,
+    "fiber": 1.4,
+    "salt": 1.8,
+    "energyKj": 2153
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tomato-and-mature-cheddar-croissant",
+   "name": "Tomato & Mature Cheddar Croissant",
+   "category": "Breakfast",
+   "serving": "Per portion 135 g",
+   "nutrients": {
+    "calories": 396,
+    "protein": 11,
+    "carbs": 39,
+    "fat": 21,
+    "saturatedFat": 13,
+    "sugar": 7.1,
+    "fiber": 2.1,
+    "salt": 1.3,
+    "energyKj": 1655,
+    "weight": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "wiltshire-ham-and-mature-cheddar-croissant",
+   "name": "Wiltshire Ham & Mature Cheddar Croissant",
+   "category": "Breakfast",
+   "serving": "Per portion 116 g",
+   "nutrients": {
+    "calories": 370,
+    "protein": 15,
+    "carbs": 33,
+    "fat": 19,
+    "saturatedFat": 12,
+    "sugar": 5.5,
+    "fiber": 1.6,
+    "salt": 1.6,
+    "energyKj": 1547,
+    "weight": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "greek-style-yogurt-with-mixed-berry-compote-and-granola",
+   "name": "Greek Style Yogurt with Mixed Berry Compote & Granola",
+   "category": "Breakfast",
+   "serving": "Per portion 210 ml",
+   "nutrients": {
+    "calories": 206,
+    "protein": 11,
+    "carbs": 24,
+    "fat": 6.9,
+    "saturatedFat": 2.9,
+    "sugar": 17,
+    "fiber": 1.5,
+    "salt": 0.21,
+    "energyKj": 863
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "wholegrain-jumbo-oats-porridge",
+   "name": "Wholegrain Jumbo Oats Porridge",
+   "category": "Breakfast",
+   "serving": "Per portion 220 ml",
+   "nutrients": {
+    "calories": 162,
+    "protein": 7,
+    "carbs": 22,
+    "fat": 4.4,
+    "saturatedFat": 2,
+    "sugar": 5.9,
+    "fiber": 2.4,
+    "salt": 0.09,
+    "energyKj": 683
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "instant-wholegrain-porridge",
+   "name": "Instant Wholegrain Porridge",
+   "category": "Breakfast",
+   "serving": "Per portion 290 ml",
+   "nutrients": {
+    "calories": 294,
+    "protein": 13,
+    "carbs": 49,
+    "fat": 3.9,
+    "saturatedFat": 0.6,
+    "sugar": 17,
+    "fiber": 4.2,
+    "salt": 0.24,
+    "energyKj": 1240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "all-day-breakfast-wrap",
+   "name": "All Day Breakfast Wrap",
+   "category": "Breakfast",
+   "serving": "Per portion 223 g",
+   "nutrients": {
+    "calories": 604,
+    "protein": 23,
+    "carbs": 53,
+    "fat": 33,
+    "saturatedFat": 9.7,
+    "sugar": 6.9,
+    "fiber": 4.2,
+    "salt": 2.1,
+    "energyKj": 2527,
+    "weight": 223
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "seeded-brown-toast-v",
+   "name": "Seeded Brown Toast (V)",
+   "category": "Breakfast",
+   "serving": "Per portion 100 ml",
+   "nutrients": {
+    "calories": 272,
+    "protein": 11,
+    "carbs": 40,
+    "fat": 5.8,
+    "saturatedFat": 1.3,
+    "sugar": 2.4,
+    "fiber": 8.3,
+    "salt": 1,
+    "energyKj": 1143
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "white-toast-v",
+   "name": "White Toast (V)",
+   "category": "Breakfast",
+   "serving": "Per portion 90 ml",
+   "nutrients": {
+    "calories": 226,
+    "protein": 8.7,
+    "carbs": 42,
+    "fat": 2.2,
+    "saturatedFat": 0.3,
+    "sugar": 2.5,
+    "fiber": 2.3,
+    "salt": 1.2,
+    "energyKj": 958
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "philly-cheesesteak-toastie",
+   "name": "Philly Cheesesteak Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 227 g",
+   "nutrients": {
+    "calories": 508,
+    "protein": 27,
+    "carbs": 51,
+    "fat": 21,
+    "saturatedFat": 9.4,
+    "sugar": 4.9,
+    "fiber": 1.8,
+    "salt": 2.9,
+    "energyKj": 2128,
+    "weight": 227
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "four-cheese-toastie",
+   "name": "Four Cheese Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 175 g",
+   "nutrients": {
+    "calories": 473,
+    "protein": 24,
+    "carbs": 46,
+    "fat": 21,
+    "saturatedFat": 13,
+    "sugar": 2.9,
+    "fiber": 2.3,
+    "salt": 1.9,
+    "energyKj": 1978,
+    "weight": 175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-gyros-style-flatbread",
+   "name": "Chicken Gyros Style Flatbread",
+   "category": "Lunch",
+   "serving": "Per portion 170 g",
+   "nutrients": {
+    "calories": 339,
+    "protein": 20,
+    "carbs": 43,
+    "fat": 9.4,
+    "saturatedFat": 1.7,
+    "sugar": 3.5,
+    "fiber": 3.1,
+    "salt": 0.82,
+    "energyKj": 1426,
+    "weight": 170
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "meatball-marinara-pasta",
+   "name": "Meatball Marinara Pasta",
+   "category": "Lunch",
+   "serving": "Per portion 270 g",
+   "nutrients": {
+    "calories": 531,
+    "protein": 22,
+    "carbs": 58,
+    "fat": 23,
+    "saturatedFat": 7.7,
+    "sugar": 9.5,
+    "fiber": 4.2,
+    "salt": 1.1,
+    "energyKj": 2228,
+    "weight": 270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-and-spicy-korean-style-rice",
+   "name": "Chicken & Spicy Korean Style Rice",
+   "category": "Lunch",
+   "serving": "Per portion 280 g",
+   "nutrients": {
+    "calories": 392,
+    "protein": 19,
+    "carbs": 55,
+    "fat": 9.2,
+    "saturatedFat": 3.3,
+    "sugar": 17,
+    "fiber": 5.6,
+    "salt": 2,
+    "energyKj": 1648,
+    "weight": 280
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-fajita-wrap",
+   "name": "Chicken Fajita Wrap",
+   "category": "Lunch",
+   "serving": "Per portion 187 g",
+   "nutrients": {
+    "calories": 407,
+    "protein": 23,
+    "carbs": 49,
+    "fat": 13,
+    "saturatedFat": 4.5,
+    "sugar": 5.7,
+    "fiber": 3.6,
+    "salt": 1.6,
+    "energyKj": 1715,
+    "weight": 187
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-triangles",
+   "name": "Cheese Triangles",
+   "category": "Lunch",
+   "serving": "Per portion 79 g",
+   "nutrients": {
+    "calories": 190,
+    "protein": 10,
+    "carbs": 25,
+    "fat": 4.7,
+    "saturatedFat": 2.4,
+    "sugar": 2,
+    "fiber": 2.5,
+    "salt": 0.78,
+    "energyKj": 802,
+    "weight": 79
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "wiltshire-ham-and-mature-cheddar-toastie",
+   "name": "Wiltshire Ham & Mature Cheddar Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 172 ml",
+   "nutrients": {
+    "calories": 393,
+    "protein": 22,
+    "carbs": 44,
+    "fat": 13,
+    "saturatedFat": 8,
+    "sugar": 3.4,
+    "fiber": 2.4,
+    "salt": 2.1,
+    "energyKj": 1655
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-salad-sandwich",
+   "name": "Chicken Salad Sandwich",
+   "category": "Lunch",
+   "serving": "Per portion 213 g",
+   "nutrients": {
+    "calories": 386,
+    "protein": 20,
+    "carbs": 40,
+    "fat": 13,
+    "saturatedFat": 1.6,
+    "sugar": 4.9,
+    "fiber": 5.4,
+    "salt": 1.4,
+    "energyKj": 1617,
+    "weight": 213
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mature-cheddar-and-roasted-tomato-toastie",
+   "name": "Mature Cheddar & Roasted Tomato Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 165 ml",
+   "nutrients": {
+    "calories": 430,
+    "protein": 19,
+    "carbs": 46,
+    "fat": 18,
+    "saturatedFat": 10,
+    "sugar": 5.1,
+    "fiber": 2.3,
+    "salt": 1.8,
+    "energyKj": 1806
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheese-bites",
+   "name": "Cheese Bites",
+   "category": "Lunch",
+   "serving": "Per portion 97 g",
+   "nutrients": {
+    "calories": 247,
+    "protein": 11,
+    "carbs": 17,
+    "fat": 15,
+    "saturatedFat": 7.7,
+    "sugar": 6.7,
+    "fiber": 2,
+    "salt": 1.1,
+    "energyKj": 1030,
+    "weight": 97
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tuna-melt-panini",
+   "name": "Tuna Melt Panini",
+   "category": "Lunch",
+   "serving": "Per portion 190 ml",
+   "nutrients": {
+    "calories": 462,
+    "protein": 26,
+    "carbs": 51,
+    "fat": 16,
+    "saturatedFat": 6.2,
+    "sugar": 3,
+    "fiber": 4,
+    "salt": 1.5,
+    "energyKj": 1941
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mozzarella-and-tomato-panini-v",
+   "name": "Mozzarella & Tomato Panini (V)",
+   "category": "Lunch",
+   "serving": "Per portion 195 ml",
+   "nutrients": {
+    "calories": 493,
+    "protein": 21,
+    "carbs": 54,
+    "fat": 21,
+    "saturatedFat": 9.9,
+    "sugar": 2.1,
+    "fiber": 2.5,
+    "salt": 1.3,
+    "energyKj": 2069
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "nacho-chilli-cheese-and-chicken-toastie",
+   "name": "Nacho Chilli Cheese & Chicken Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 226 g",
+   "nutrients": {
+    "calories": 586,
+    "protein": 32,
+    "carbs": 55,
+    "fat": 26,
+    "saturatedFat": 15,
+    "sugar": 5.3,
+    "fiber": 2.3,
+    "salt": 2.4,
+    "energyKj": 2455,
+    "weight": 226
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "brie-and-bacon-chilli-jam-panini",
+   "name": "Brie & Bacon Chilli Jam Panini",
+   "category": "Lunch",
+   "serving": "Per portion 198 g",
+   "nutrients": {
+    "calories": 589,
+    "protein": 25,
+    "carbs": 69,
+    "fat": 23,
+    "saturatedFat": 11,
+    "sugar": 15,
+    "fiber": 3.7,
+    "salt": 2.4,
+    "energyKj": 2470,
+    "weight": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-and-bacon-toastie",
+   "name": "Chicken & Bacon Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 190 ml",
+   "nutrients": {
+    "calories": 460,
+    "protein": 27,
+    "carbs": 45,
+    "fat": 19,
+    "saturatedFat": 11,
+    "sugar": 3.4,
+    "fiber": 1.7,
+    "salt": 2,
+    "energyKj": 1927
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ham-and-cheese-toastie",
+   "name": "Ham & Cheese Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 148 ml",
+   "nutrients": {
+    "calories": 356,
+    "protein": 19,
+    "carbs": 44,
+    "fat": 11,
+    "saturatedFat": 6.5,
+    "sugar": 4.1,
+    "fiber": 3.8,
+    "salt": 1.3,
+    "energyKj": 1497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-mozzarella-and-pesto-toastie",
+   "name": "Gluten Free Mozzarella & Pesto Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 180 ml",
+   "nutrients": {
+    "calories": 497,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 32,
+    "saturatedFat": 11,
+    "sugar": 2.5,
+    "fiber": 11,
+    "salt": 2.1,
+    "energyKj": 2069
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "heinz-beanz-and-cheese-toastie",
+   "name": "Heinz Beanz & Cheese Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 159 g",
+   "nutrients": {
+    "calories": 321,
+    "protein": 14,
+    "carbs": 46,
+    "fat": 7.6,
+    "saturatedFat": 4.4,
+    "sugar": 1.6,
+    "fiber": 4.7,
+    "salt": 1.2,
+    "energyKj": 1353,
+    "weight": 159
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "vegan-ham-and-cheeze-toastie",
+   "name": "Vegan Ham & Cheeze Toastie",
+   "category": "Lunch",
+   "serving": "Per portion 148 g",
+   "nutrients": {
+    "calories": 333,
+    "protein": 11,
+    "carbs": 49,
+    "fat": 9.5,
+    "saturatedFat": 4.4,
+    "sugar": 3.5,
+    "fiber": 3.1,
+    "salt": 1.7,
+    "energyKj": 1402,
+    "weight": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "prawn-mayo-sandwich",
+   "name": "Prawn Mayo Sandwich",
+   "category": "Lunch",
+   "serving": "Per portion 172 g",
+   "nutrients": {
+    "calories": 280,
+    "protein": 19,
+    "carbs": 36,
+    "fat": 5.8,
+    "saturatedFat": 0.7,
+    "sugar": 2.4,
+    "fiber": 3,
+    "salt": 1.8,
+    "energyKj": 1181,
+    "weight": 172
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "blt-sandwich",
+   "name": "BLT Sandwich",
+   "category": "Lunch",
+   "serving": "Per portion 190 ml",
+   "nutrients": {
+    "calories": 419,
+    "protein": 21,
+    "carbs": 45,
+    "fat": 16,
+    "saturatedFat": 4,
+    "sugar": 4.9,
+    "fiber": 5.6,
+    "salt": 2.1,
+    "energyKj": 1759
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "free-range-egg-mayo-sandwich",
+   "name": "Free Range Egg Mayo Sandwich",
+   "category": "Lunch",
+   "serving": "Per portion 170 ml",
+   "nutrients": {
+    "calories": 400,
+    "protein": 15,
+    "carbs": 46,
+    "fat": 16,
+    "saturatedFat": 2.5,
+    "sugar": 3.7,
+    "fiber": 3.8,
+    "salt": 1.1,
+    "energyKj": 1676
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Lunch",
+   "serving": "Per portion 270 ml",
+   "nutrients": {
+    "calories": 567,
+    "protein": 23,
+    "carbs": 65,
+    "fat": 23,
+    "saturatedFat": 12,
+    "sugar": 6.1,
+    "fiber": 3.7,
+    "salt": 1.4,
+    "energyKj": 2382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pork-and-apple-sausage-roll",
+   "name": "Pork & Apple Sausage Roll",
+   "category": "Lunch",
+   "serving": "Per portion 130 g",
+   "nutrients": {
+    "calories": 384,
+    "protein": 13,
+    "carbs": 28,
+    "fat": 23,
+    "saturatedFat": 12,
+    "sugar": 3.1,
+    "fiber": 5.2,
+    "salt": 1.4,
+    "energyKj": 1603,
+    "weight": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "dubai-style-pistachio-tiffin",
+   "name": "Dubai Style Pistachio Tiffin",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 78 g",
+   "nutrients": {
+    "calories": 381,
+    "protein": 4.4,
+    "carbs": 47,
+    "fat": 19,
+    "saturatedFat": 10,
+    "sugar": 34,
+    "fiber": 2,
+    "salt": 0.37,
+    "energyKj": 1594,
+    "weight": 78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "all-butter-sultana-scone-v",
+   "name": "All Butter Sultana Scone (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 100 ml",
+   "nutrients": {
+    "calories": 355,
+    "protein": 7,
+    "carbs": 54.4,
+    "fat": 11.7,
+    "saturatedFat": 7,
+    "sugar": 28.4,
+    "fiber": 2.2,
+    "salt": 1.15,
+    "energyKj": 1490
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sticky-pecan-mini-loaf",
+   "name": "Sticky Pecan Mini Loaf",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 88 g",
+   "nutrients": {
+    "calories": 375,
+    "protein": 4.1,
+    "carbs": 45,
+    "fat": 19,
+    "saturatedFat": 3.7,
+    "sugar": 29,
+    "fiber": 0.9,
+    "salt": 0.29,
+    "energyKj": 1570,
+    "weight": 88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "nuts": [
+     "pecan"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-pistachio-cookie-sandwich",
+   "name": "Chocolate & Pistachio Cookie Sandwich",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 73 ml",
+   "nutrients": {
+    "calories": 337,
+    "protein": 4.4,
+    "carbs": 39,
+    "fat": 18,
+    "saturatedFat": 9.3,
+    "sugar": 31,
+    "fiber": 1.1,
+    "salt": 0.15,
+    "energyKj": 1411
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "raspberry-and-almond-bake",
+   "name": "Raspberry & Almond Bake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 75 ml",
+   "nutrients": {
+    "calories": 346,
+    "protein": 5.7,
+    "carbs": 35,
+    "fat": 20,
+    "saturatedFat": 7.5,
+    "sugar": 22,
+    "fiber": 2,
+    "salt": 0.23,
+    "energyKj": 1448
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "gingernut-loaf-cake",
+   "name": "Gingernut Loaf Cake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 120 g",
+   "nutrients": {
+    "calories": 409,
+    "protein": 3.8,
+    "carbs": 66,
+    "fat": 14,
+    "saturatedFat": 4.9,
+    "sugar": 38,
+    "fiber": 1.9,
+    "salt": 0.48,
+    "energyKj": 1720,
+    "weight": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "iced-ghost-gingerbread-biscuit",
+   "name": "Iced Ghost Gingerbread Biscuit",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 45 g",
+   "nutrients": {
+    "calories": 188,
+    "protein": 2.4,
+    "carbs": 33,
+    "fat": 5.1,
+    "saturatedFat": 2.3,
+    "sugar": 16,
+    "fiber": 0.8,
+    "salt": 0.18,
+    "energyKj": 792,
+    "weight": 45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-and-salted-caramel-cake",
+   "name": "Chocolate & Salted Caramel Cake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 115 g",
+   "nutrients": {
+    "calories": 495,
+    "protein": 5.3,
+    "carbs": 56,
+    "fat": 27,
+    "saturatedFat": 7.5,
+    "sugar": 33,
+    "fiber": 1.4,
+    "salt": 0.31,
+    "energyKj": 2062,
+    "weight": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "carrot-and-walnut-cake",
+   "name": "Carrot & Walnut Cake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 130 ml",
+   "nutrients": {
+    "calories": 497,
+    "protein": 6.4,
+    "carbs": 63,
+    "fat": 24,
+    "saturatedFat": 8.4,
+    "sugar": 40,
+    "fiber": 2.6,
+    "salt": 0.63,
+    "energyKj": 2075
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "caramelised-biscuit-rocky-road",
+   "name": "Caramelised Biscuit Rocky Road",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 55 g",
+   "nutrients": {
+    "calories": 278,
+    "protein": 2.7,
+    "carbs": 34,
+    "fat": 15,
+    "saturatedFat": 6,
+    "sugar": 23,
+    "fiber": 0,
+    "salt": 0.21,
+    "energyKj": 1164,
+    "weight": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fruited-teacake",
+   "name": "Fruited Teacake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 100 g",
+   "nutrients": {
+    "calories": 281,
+    "protein": 8,
+    "carbs": 56,
+    "fat": 2.1,
+    "saturatedFat": 0.6,
+    "sugar": 20,
+    "fiber": 4.2,
+    "salt": 0.63,
+    "energyKj": 1191,
+    "weight": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-muffin",
+   "name": "Triple Chocolate Muffin",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 96 ml",
+   "nutrients": {
+    "calories": 402,
+    "protein": 5.1,
+    "carbs": 50,
+    "fat": 20,
+    "saturatedFat": 4.8,
+    "sugar": 33,
+    "fiber": 2.2,
+    "salt": 0.27,
+    "energyKj": 1686
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "triple-chocolate-brownie-cheesecake",
+   "name": "Triple Chocolate Brownie Cheesecake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 125 g",
+   "nutrients": {
+    "calories": 506,
+    "protein": 6.1,
+    "carbs": 61,
+    "fat": 26,
+    "saturatedFat": 14,
+    "sugar": 40,
+    "fiber": 2.2,
+    "salt": 0.26,
+    "energyKj": 2118,
+    "weight": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "double-chocolate-cookie",
+   "name": "Double Chocolate Cookie",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 76 g",
+   "nutrients": {
+    "calories": 359,
+    "protein": 3.8,
+    "carbs": 45,
+    "fat": 18,
+    "saturatedFat": 8.8,
+    "sugar": 29,
+    "fiber": 2.7,
+    "salt": 0.27,
+    "energyKj": 1500,
+    "weight": 76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain Au Chocolat",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 72 ml",
+   "nutrients": {
+    "calories": 299,
+    "protein": 5.9,
+    "carbs": 30,
+    "fat": 17,
+    "saturatedFat": 11,
+    "sugar": 8.3,
+    "fiber": 2.1,
+    "salt": 0.49,
+    "energyKj": 1247
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "croissant-v",
+   "name": "Croissant (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 62.8 ml",
+   "nutrients": {
+    "calories": 246,
+    "protein": 5.4,
+    "carbs": 25,
+    "fat": 15,
+    "saturatedFat": 10,
+    "sugar": 4.3,
+    "fiber": 1.4,
+    "salt": 0.46,
+    "energyKj": 1026
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "almond-croissant-v",
+   "name": "Almond Croissant (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 83 ml",
+   "nutrients": {
+    "calories": 318,
+    "protein": 7.9,
+    "carbs": 35,
+    "fat": 16,
+    "saturatedFat": 8.4,
+    "sugar": 13,
+    "fiber": 3.1,
+    "salt": 0.81,
+    "energyKj": 1330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "biscoff-cheezecake",
+   "name": "Biscoff Cheezecake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 130 g",
+   "nutrients": {
+    "calories": 475,
+    "protein": 5.7,
+    "carbs": 48,
+    "fat": 28,
+    "saturatedFat": 16,
+    "sugar": 27,
+    "fiber": 2.2,
+    "salt": 0.48,
+    "energyKj": 1977,
+    "weight": 130
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "cheddar-cheese-twist",
+   "name": "Cheddar Cheese Twist",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 85 ml",
+   "nutrients": {
+    "calories": 324,
+    "protein": 8.6,
+    "carbs": 30,
+    "fat": 19,
+    "saturatedFat": 12,
+    "sugar": 3.3,
+    "fiber": 1.3,
+    "salt": 0.82,
+    "energyKj": 1352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "milk-chocolate-cookie",
+   "name": "Milk Chocolate Cookie",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 76 g",
+   "nutrients": {
+    "calories": 364,
+    "protein": 3.3,
+    "carbs": 47,
+    "fat": 18,
+    "saturatedFat": 11,
+    "sugar": 29,
+    "fiber": 1.6,
+    "salt": 0.32,
+    "energyKj": 1526,
+    "weight": 76
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-twist-v",
+   "name": "Chocolate Twist (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 85 ml",
+   "nutrients": {
+    "calories": 309,
+    "protein": 5.4,
+    "carbs": 41,
+    "fat": 15,
+    "saturatedFat": 10,
+    "sugar": 17,
+    "fiber": 2.2,
+    "salt": 0.56,
+    "energyKj": 1295
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "pain-aux-raisins",
+   "name": "Pain aux Raisins",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 96 ml",
+   "nutrients": {
+    "calories": 324,
+    "protein": 6.5,
+    "carbs": 42,
+    "fat": 14,
+    "saturatedFat": 9,
+    "sugar": 17,
+    "fiber": 1.4,
+    "salt": 0.6,
+    "energyKj": 1357
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "blueberry-muffin",
+   "name": "Blueberry Muffin",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 110 ml",
+   "nutrients": {
+    "calories": 403,
+    "protein": 4.8,
+    "carbs": 53,
+    "fat": 19,
+    "saturatedFat": 1.8,
+    "sugar": 31,
+    "fiber": 1.1,
+    "salt": 0.36,
+    "energyKj": 1688
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "lemon-muffin-v",
+   "name": "Lemon Muffin (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 101 ml",
+   "nutrients": {
+    "calories": 399,
+    "protein": 4.3,
+    "carbs": 53,
+    "fat": 19,
+    "saturatedFat": 2.3,
+    "sugar": 31,
+    "fiber": 1,
+    "salt": 0.29,
+    "energyKj": 1673
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "salted-caramel-brownie",
+   "name": "Salted Caramel Brownie",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 80 ml",
+   "nutrients": {
+    "calories": 352,
+    "protein": 3.8,
+    "carbs": 39,
+    "fat": 20,
+    "saturatedFat": 10,
+    "sugar": 29,
+    "fiber": 2,
+    "salt": 0.28,
+    "energyKj": 1472
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "cinnamon-bun",
+   "name": "Cinnamon Bun",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 123 g",
+   "nutrients": {
+    "calories": 447,
+    "protein": 7.2,
+    "carbs": 64.6,
+    "fat": 17.2,
+    "saturatedFat": 7,
+    "sugar": 30,
+    "fiber": 2.6,
+    "salt": 0.51,
+    "energyKj": 1875,
+    "weight": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-shortbread-v",
+   "name": "Millionaire's Shortbread (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 77 ml",
+   "nutrients": {
+    "calories": 396,
+    "protein": 4,
+    "carbs": 41,
+    "fat": 24,
+    "saturatedFat": 13,
+    "sugar": 23,
+    "fiber": 1,
+    "salt": 0.35,
+    "energyKj": 1653
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "chocolate-tiffin-v",
+   "name": "Chocolate Tiffin (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 80 ml",
+   "nutrients": {
+    "calories": 403,
+    "protein": 3.8,
+    "carbs": 42,
+    "fat": 24,
+    "saturatedFat": 12,
+    "sugar": 24,
+    "fiber": 2.3,
+    "salt": 0.28,
+    "energyKj": 1682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bakewell-tart-v",
+   "name": "Bakewell Tart (V)",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 84 g",
+   "nutrients": {
+    "calories": 368,
+    "protein": 4.2,
+    "carbs": 50,
+    "fat": 16,
+    "saturatedFat": 6.4,
+    "sugar": 30,
+    "fiber": 1.3,
+    "salt": 0.07,
+    "energyKj": 1543,
+    "weight": 84
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "lemon-curd-tart",
+   "name": "Lemon Curd Tart",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 70 ml",
+   "nutrients": {
+    "calories": 337,
+    "protein": 3.6,
+    "carbs": 37,
+    "fat": 19,
+    "saturatedFat": 9.8,
+    "sugar": 20,
+    "fiber": 0.8,
+    "salt": 0.12,
+    "energyKj": 1407
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-drizzle-loaf-cake",
+   "name": "Lemon Drizzle Loaf Cake",
+   "category": "Pastries & Sweets",
+   "serving": "Per portion 105 ml",
+   "nutrients": {
+    "calories": 402,
+    "protein": 4.8,
+    "carbs": 53,
+    "fat": 19,
+    "saturatedFat": 2.6,
+    "sugar": 33,
+    "fiber": 0.7,
+    "salt": 0.48,
+    "energyKj": 1686
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "oaty-flapjack",
+   "name": "Oaty Flapjack",
+   "category": "Snacks",
+   "serving": "Per portion 58 g",
+   "nutrients": {
+    "calories": 256,
+    "protein": 3,
+    "carbs": 34,
+    "fat": 11,
+    "saturatedFat": 4.4,
+    "sugar": 15,
+    "fiber": 2.8,
+    "salt": 0.09,
+    "energyKj": 1073,
+    "weight": 58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts"
+    ],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "apple-slices",
+   "name": "Apple Slices",
+   "category": "Snacks",
+   "serving": "Per portion 80 g",
+   "nutrients": {
+    "calories": 47,
+    "protein": 0.2,
+    "carbs": 11,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 9.7,
+    "fiber": 1.5,
+    "salt": 0,
+    "energyKj": 199,
+    "weight": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "watermelon",
+   "name": "Watermelon",
+   "category": "Snacks",
+   "serving": "Per portion 180 ml",
+   "nutrients": {
+    "calories": 66,
+    "protein": 1.5,
+    "carbs": 14,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 14,
+    "fiber": 1.8,
+    "salt": 0.02,
+    "energyKj": 279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dried-mango",
+   "name": "Dried Mango",
+   "category": "Snacks",
+   "serving": "Per portion 35 g",
+   "nutrients": {
+    "calories": 115,
+    "protein": 0.7,
+    "carbs": 27,
+    "fat": 0,
+    "saturatedFat": 0.1,
+    "sugar": 24,
+    "fiber": 0.7,
+    "salt": 0.08,
+    "energyKj": 487,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fruit-and-nut-mix",
+   "name": "Fruit & Nut Mix",
+   "category": "Snacks",
+   "serving": "Per portion 35 g",
+   "nutrients": {
+    "calories": 159,
+    "protein": 4.3,
+    "carbs": 15,
+    "fat": 8.8,
+    "saturatedFat": 1.2,
+    "sugar": 14,
+    "fiber": 1.2,
+    "salt": 0.04,
+    "energyKj": 664,
+    "weight": 35
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "milk",
+     "soya"
+    ],
+    "nuts": [
+     "almond",
+     "cashew",
+     "pistachio"
+    ]
+   }
+  },
+  {
+   "id": "stem-ginger-biscuits",
+   "name": "Stem Ginger Biscuits",
+   "category": "Snacks",
+   "serving": "Per portion 48 ml",
+   "nutrients": {
+    "calories": 234,
+    "protein": 2.6,
+    "carbs": 33,
+    "fat": 9.8,
+    "saturatedFat": 3.2,
+    "sugar": 13,
+    "fiber": 2.4,
+    "salt": 0.2,
+    "energyKj": 983
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "fruit-and-oat-biscuits",
+   "name": "Fruit & Oat Biscuits",
+   "category": "Snacks",
+   "serving": "Per portion 48 ml",
+   "nutrients": {
+    "calories": 228,
+    "protein": 2.6,
+    "carbs": 31,
+    "fat": 9.6,
+    "saturatedFat": 3.3,
+    "sugar": 13,
+    "fiber": 2.7,
+    "salt": 0.4,
+    "energyKj": 955
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "millionaires-shortbread-gluten-free",
+   "name": "Millionaire's Shortbread (Gluten Free)",
+   "category": "Snacks",
+   "serving": "Per portion 56 ml",
+   "nutrients": {
+    "calories": 279,
+    "protein": 1.5,
+    "carbs": 36,
+    "fat": 14,
+    "saturatedFat": 7,
+    "sugar": 24,
+    "fiber": 0,
+    "salt": 0.24,
+    "energyKj": 1167
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "belgian-chocolate-brownie-gluten-free",
+   "name": "Belgian Chocolate Brownie (Gluten Free)",
+   "category": "Snacks",
+   "serving": "Per portion 60 ml",
+   "nutrients": {
+    "calories": 302,
+    "protein": 4.4,
+    "carbs": 26,
+    "fat": 20,
+    "saturatedFat": 10,
+    "sugar": 25,
+    "fiber": 0,
+    "salt": 0.22,
+    "energyKj": 1258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [],
+    "nuts": [
+     "almond"
+    ]
+   }
+  },
+  {
+   "id": "jammy-shortbread",
+   "name": "Jammy Shortbread",
+   "category": "Snacks",
+   "serving": "Per portion 50 ml",
+   "nutrients": {
+    "calories": 238,
+    "protein": 1.8,
+    "carbs": 35,
+    "fat": 10,
+    "saturatedFat": 6.6,
+    "sugar": 14,
+    "salt": 0.3,
+    "energyKj": 997
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mini-all-butter-shortbreads",
+   "name": "Mini All Butter Shortbreads",
+   "category": "Snacks",
+   "serving": "Per portion 10 ml (one piece)",
+   "nutrients": {
+    "calories": 52,
+    "protein": 0.5,
+    "carbs": 6.2,
+    "fat": 2.8,
+    "saturatedFat": 2,
+    "sugar": 2.2,
+    "fiber": 0.1,
+    "salt": 0.02,
+    "energyKj": 217
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-waffles",
+   "name": "Caramel Waffles",
+   "category": "Snacks",
+   "serving": "Per portion 78 ml",
+   "nutrients": {
+    "calories": 363,
+    "protein": 3,
+    "carbs": 56,
+    "fat": 14,
+    "saturatedFat": 6.9,
+    "sugar": 28,
+    "fiber": 1.2,
+    "salt": 0.57,
+    "energyKj": 1523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "latte-medium-semi-skimmed-milk-signature-blend",
+   "name": "Latte - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee",
+   "serving": "In store 352 ml",
+   "nutrients": {
+    "calories": 146,
+    "protein": 11,
+    "carbs": 16,
+    "fat": 5.1,
+    "saturatedFat": 3.3,
+    "sugar": 14,
+    "salt": 0.38,
+    "energyKj": 618
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "maple-hazel-latte-medium-semi-skimmed-milk-signature-blend",
+   "name": "Maple Hazel Latte - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee",
+   "serving": "In store 384 ml",
+   "nutrients": {
+    "calories": 315,
+    "protein": 10,
+    "carbs": 41,
+    "fat": 13,
+    "saturatedFat": 10,
+    "sugar": 33,
+    "salt": 0.45,
+    "energyKj": 1322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "caramel-macchiato-small-semi-skimmed-milk-signature-blend-in-store",
+   "name": "Caramel Macchiato - Small, semi-skimmed milk, Signature blend, in store",
+   "category": "Coffee",
+   "serving": "In store 227 ml",
+   "nutrients": {
+    "calories": 101,
+    "protein": 6.7,
+    "carbs": 12,
+    "fat": 3.5,
+    "saturatedFat": 2.2,
+    "sugar": 10,
+    "salt": 0.23,
+    "energyKj": 427
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-macchiato-small-semi-skimmed-milk-signature-blend-take-out",
+   "name": "Caramel Macchiato - Small, semi-skimmed milk, Signature blend, take-out",
+   "category": "Coffee",
+   "serving": "Take-out 307 ml",
+   "nutrients": {
+    "calories": 129,
+    "protein": 8.8,
+    "carbs": 15,
+    "fat": 4.4,
+    "saturatedFat": 2.8,
+    "sugar": 13,
+    "salt": 0.32,
+    "energyKj": 548
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spanish-latte-medium-semi-skimmed-milk-signature-blend",
+   "name": "Spanish Latte - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee",
+   "serving": "In store 380 ml",
+   "nutrients": {
+    "calories": 262,
+    "protein": 13,
+    "carbs": 41,
+    "fat": 6.1,
+    "saturatedFat": 3.9,
+    "sugar": 33,
+    "salt": 0.42,
+    "energyKj": 1108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "signature-latte-medium-semi-skimmed-milk-signature-blend",
+   "name": "Signature Latte - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee",
+   "serving": "In store 360 ml",
+   "nutrients": {
+    "calories": 150,
+    "protein": 11,
+    "carbs": 16,
+    "fat": 5.2,
+    "saturatedFat": 3.4,
+    "sugar": 14,
+    "salt": 0.39,
+    "energyKj": 634
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-medium-semi-skimmed-milk-signature-blend",
+   "name": "Cappuccino - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee",
+   "serving": "In store 332 ml",
+   "nutrients": {
+    "calories": 140,
+    "protein": 10,
+    "carbs": 16,
+    "fat": 4.5,
+    "saturatedFat": 2.9,
+    "sugar": 13,
+    "salt": 0.36,
+    "energyKj": 593
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-medium-signature-blend",
+   "name": "Americano - Medium, Signature blend",
+   "category": "Coffee",
+   "serving": "In store 340 ml",
+   "nutrients": {
+    "calories": 18,
+    "protein": 1.2,
+    "carbs": 3,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 0.08,
+    "energyKj": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-whole-milk-signature-blend-in-store",
+   "name": "Flat White - whole milk, Signature blend, in store",
+   "category": "Coffee",
+   "serving": "In store 241 ml",
+   "nutrients": {
+    "calories": 151,
+    "protein": 7.7,
+    "carbs": 11,
+    "fat": 8.3,
+    "saturatedFat": 5.3,
+    "sugar": 9.5,
+    "salt": 0.24,
+    "energyKj": 626
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flat-white-whole-milk-signature-blend-take-out",
+   "name": "Flat White - whole milk, Signature blend, take-out",
+   "category": "Coffee",
+   "serving": "Take-out 262 ml",
+   "nutrients": {
+    "calories": 164,
+    "protein": 8.4,
+    "carbs": 12,
+    "fat": 9.2,
+    "saturatedFat": 5.9,
+    "sugar": 10,
+    "salt": 0.26,
+    "energyKj": 683
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mocha-medium-semi-skimmed-milk-signature-blend",
+   "name": "Mocha - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee",
+   "serving": "In store 368 ml",
+   "nutrients": {
+    "calories": 279,
+    "protein": 12,
+    "carbs": 41,
+    "fat": 6.8,
+    "saturatedFat": 4.3,
+    "sugar": 33,
+    "salt": 0.56,
+    "energyKj": 1175
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "espresso-single-signature-blend",
+   "name": "Espresso - Single, Signature blend",
+   "category": "Coffee",
+   "serving": "Per portion 30 ml",
+   "nutrients": {
+    "calories": 6,
+    "protein": 0,
+    "carbs": 0.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0.03,
+    "energyKj": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-whole-milk-signature-blend-in-store",
+   "name": "Cortado - whole milk, Signature blend, in store",
+   "category": "Coffee",
+   "serving": "In store 100 ml",
+   "nutrients": {
+    "calories": 60,
+    "protein": 3.1,
+    "carbs": 4.8,
+    "fat": 3.2,
+    "saturatedFat": 2,
+    "sugar": 3.6,
+    "salt": 0.1,
+    "energyKj": 250
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cortado-whole-milk-signature-blend-take-out",
+   "name": "Cortado - whole milk, Signature blend, take-out",
+   "category": "Coffee",
+   "serving": "Take-out 120 ml",
+   "nutrients": {
+    "calories": 73,
+    "protein": 3.8,
+    "carbs": 5.7,
+    "fat": 4,
+    "saturatedFat": 2.5,
+    "sugar": 4.5,
+    "salt": 0.12,
+    "energyKj": 305
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "maple-hazel-hot-chocolate-medium-semi-skimmed-milk-in-store",
+   "name": "Maple Hazel Hot Chocolate - Medium, semi-skimmed milk, in store",
+   "category": "Other Hot Drinks",
+   "serving": "In store 344 ml",
+   "nutrients": {
+    "calories": 407,
+    "protein": 11,
+    "carbs": 58,
+    "fat": 14,
+    "saturatedFat": 11,
+    "sugar": 48,
+    "fiber": 3.1,
+    "salt": 0.54,
+    "energyKj": 1709
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "maple-hazel-hot-chocolate-medium-semi-skimmed-milk-take-out",
+   "name": "Maple Hazel Hot Chocolate - Medium, semi-skimmed milk, take-out",
+   "category": "Other Hot Drinks",
+   "serving": "Take-out 404 ml",
+   "nutrients": {
+    "calories": 456,
+    "protein": 13,
+    "carbs": 65,
+    "fat": 16,
+    "saturatedFat": 12,
+    "sugar": 54,
+    "fiber": 3.8,
+    "salt": 0.64,
+    "energyKj": 1917
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-medium-semi-skimmed-milk",
+   "name": "Hot Chocolate - Medium, semi-skimmed milk",
+   "category": "Other Hot Drinks",
+   "serving": "In store 297 ml",
+   "nutrients": {
+    "calories": 252,
+    "protein": 11,
+    "carbs": 36,
+    "fat": 6.6,
+    "saturatedFat": 4.2,
+    "sugar": 31,
+    "fiber": 3.5,
+    "salt": 0.47,
+    "energyKj": 1061
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-hot-chocolate-medium-semi-skimmed-milk",
+   "name": "White Hot Chocolate - Medium, semi-skimmed milk",
+   "category": "Other Hot Drinks",
+   "serving": "In store 362 ml",
+   "nutrients": {
+    "calories": 248,
+    "protein": 12,
+    "carbs": 33,
+    "fat": 8.4,
+    "saturatedFat": 5.4,
+    "sugar": 29,
+    "salt": 0.44,
+    "energyKj": 1050
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-medium-semi-skimmed-milk",
+   "name": "Chai Latte - Medium, semi-skimmed milk",
+   "category": "Other Hot Drinks",
+   "serving": "In store 356 ml",
+   "nutrients": {
+    "calories": 208,
+    "protein": 12,
+    "carbs": 29,
+    "fat": 5.8,
+    "saturatedFat": 3.7,
+    "sugar": 28,
+    "salt": 0.39,
+    "energyKj": 884
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "milk-babyccino-semi-skimmed-milk",
+   "name": "Milk Babyccino - semi-skimmed milk",
+   "category": "Other Hot Drinks",
+   "serving": "Per portion 90 ml",
+   "nutrients": {
+    "calories": 41,
+    "protein": 3.2,
+    "carbs": 4.2,
+    "fat": 1.5,
+    "saturatedFat": 1,
+    "sugar": 4.2,
+    "salt": 0.1,
+    "energyKj": 176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "maple-hazel-frapp-medium-whole-milk",
+   "name": "Maple Hazel Frappé - Medium, whole milk",
+   "category": "Frappé",
+   "serving": "In store 467 ml",
+   "nutrients": {
+    "calories": 374,
+    "protein": 6.7,
+    "carbs": 52,
+    "fat": 16,
+    "saturatedFat": 12,
+    "sugar": 41,
+    "salt": 0.31,
+    "energyKj": 1566
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tropical-mango-bubble-frapp-medium-whole-milk",
+   "name": "Tropical Mango Bubble Frappé - Medium, whole milk",
+   "category": "Frappé",
+   "serving": "In store 520 ml",
+   "nutrients": {
+    "calories": 376,
+    "protein": 5.7,
+    "carbs": 57,
+    "fat": 14,
+    "saturatedFat": 11,
+    "sugar": 47,
+    "salt": 0.3,
+    "energyKj": 1575
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-drizzle-frapp-medium-whole-milk",
+   "name": "Strawberry Drizzle Frappé - Medium, whole milk",
+   "category": "Frappé",
+   "serving": "In store 478 ml",
+   "nutrients": {
+    "calories": 337,
+    "protein": 5.6,
+    "carbs": 48,
+    "fat": 14,
+    "saturatedFat": 12,
+    "sugar": 39,
+    "salt": 0.27,
+    "energyKj": 1417
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-frapp-medium-whole-milk",
+   "name": "Salted Caramel Frappé - Medium, whole milk",
+   "category": "Frappé",
+   "serving": "In store 478 ml",
+   "nutrients": {
+    "calories": 311,
+    "protein": 6.3,
+    "carbs": 37,
+    "fat": 15,
+    "saturatedFat": 12,
+    "sugar": 31,
+    "salt": 0.24,
+    "energyKj": 1301
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salted-caramel-frapp-with-coffee-medium-whole-milk-smooth-medium-roast",
+   "name": "Salted Caramel Frappé with Coffee - Medium, whole milk, Smooth Medium Roast",
+   "category": "Frappé",
+   "serving": "In store 482 ml",
+   "nutrients": {
+    "calories": 323,
+    "protein": 7.1,
+    "carbs": 40,
+    "fat": 15,
+    "saturatedFat": 12,
+    "sugar": 31,
+    "salt": 0.24,
+    "energyKj": 1351
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-fudge-frapp-medium-whole-milk",
+   "name": "Chocolate Fudge Frappé - Medium, whole milk",
+   "category": "Frappé",
+   "serving": "In store 492 ml",
+   "nutrients": {
+    "calories": 411,
+    "protein": 7.7,
+    "carbs": 57,
+    "fat": 16,
+    "saturatedFat": 13,
+    "sugar": 46,
+    "salt": 0.75,
+    "energyKj": 1726
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-fudge-frapp-with-coffee-medium-whole-milk-smooth-medium-roast",
+   "name": "Chocolate Fudge Frappé with Coffee - Medium, whole milk, Smooth Medium Roast",
+   "category": "Frappé",
+   "serving": "In store 496 ml",
+   "nutrients": {
+    "calories": 423,
+    "protein": 8.5,
+    "carbs": 60,
+    "fat": 16,
+    "saturatedFat": 13,
+    "sugar": 46,
+    "fiber": 4.3,
+    "salt": 0.76,
+    "energyKj": 1776
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coffee-frapp-medium-whole-milk-smooth-medium-roast",
+   "name": "Coffee Frappé - Medium, whole milk, Smooth Medium Roast",
+   "category": "Frappé",
+   "serving": "In store 442 ml",
+   "nutrients": {
+    "calories": 269,
+    "protein": 6.5,
+    "carbs": 31,
+    "fat": 14,
+    "saturatedFat": 11,
+    "sugar": 23,
+    "salt": 0.23,
+    "energyKj": 1121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-oat-velvetino-medium",
+   "name": "Iced Oat Velvetino - Medium",
+   "category": "Coffee Over Ice",
+   "serving": "Per portion 255 ml",
+   "nutrients": {
+    "calories": 91,
+    "protein": 1.2,
+    "carbs": 14,
+    "fat": 3,
+    "saturatedFat": 0.3,
+    "sugar": 9.4,
+    "salt": 0.16,
+    "energyKj": 382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "maple-hazel-iced-latte-medium-semi-skimmed-milk-signature-blend",
+   "name": "Maple Hazel Iced Latte - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "In store 379 ml",
+   "nutrients": {
+    "calories": 280,
+    "protein": 7.6,
+    "carbs": 37,
+    "fat": 12,
+    "saturatedFat": 9.4,
+    "sugar": 29,
+    "salt": 0.36,
+    "energyKj": 1176
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-small-semi-skimmed-milk-signature-blend-in-store",
+   "name": "Iced Caramel Macchiato - Small, semi-skimmed milk, Signature blend, in store",
+   "category": "Coffee Over Ice",
+   "serving": "In store 227 ml",
+   "nutrients": {
+    "calories": 66,
+    "protein": 4.4,
+    "carbs": 9.3,
+    "fat": 1.7,
+    "saturatedFat": 1,
+    "sugar": 6.7,
+    "salt": 0.17,
+    "energyKj": 281
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-caramel-macchiato-small-semi-skimmed-milk-signature-blend-take-out",
+   "name": "Iced Caramel Macchiato - Small, semi-skimmed milk, Signature blend, take-out",
+   "category": "Coffee Over Ice",
+   "serving": "Take-out 262 ml",
+   "nutrients": {
+    "calories": 73,
+    "protein": 4.9,
+    "carbs": 10,
+    "fat": 1.9,
+    "saturatedFat": 1.2,
+    "sugar": 7.4,
+    "salt": 0.19,
+    "energyKj": 310
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spanish-iced-latte-medium-semi-skimmed-milk-signature-blend",
+   "name": "Spanish Iced Latte - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "In store 365 ml",
+   "nutrients": {
+    "calories": 225,
+    "protein": 9.8,
+    "carbs": 37,
+    "fat": 4.7,
+    "saturatedFat": 3,
+    "sugar": 29,
+    "salt": 0.33,
+    "energyKj": 952
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-black-americano-medium-signature-blend",
+   "name": "Iced Black Americano - Medium, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "In store 357 ml",
+   "nutrients": {
+    "calories": 18,
+    "protein": 1.2,
+    "carbs": 3,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 0,
+    "salt": 0.08,
+    "energyKj": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-americano-white-medium-semi-skimmed-milk-signature-blend",
+   "name": "Iced Americano (white) - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "In store 380 ml",
+   "nutrients": {
+    "calories": 31,
+    "protein": 2.2,
+    "carbs": 4.4,
+    "fat": 0.7,
+    "saturatedFat": 0.4,
+    "sugar": 1.5,
+    "salt": 0.11,
+    "energyKj": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-iced-whipped-latte-medium-semi-skimmed-milk-in-store",
+   "name": "White Chocolate Iced Whipped Latte - Medium, semi-skimmed milk, in store",
+   "category": "Coffee Over Ice",
+   "serving": "In store 305 ml",
+   "nutrients": {
+    "calories": 194,
+    "protein": 7.2,
+    "carbs": 32,
+    "fat": 4.4,
+    "saturatedFat": 2.8,
+    "sugar": 27,
+    "salt": 0.3,
+    "energyKj": 819
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-chocolate-iced-whipped-latte-medium-semi-skimmed-milk-take-out",
+   "name": "White Chocolate Iced Whipped Latte - Medium, semi-skimmed milk, take-out",
+   "category": "Coffee Over Ice",
+   "serving": "Take-out 315 ml",
+   "nutrients": {
+    "calories": 199,
+    "protein": 7.6,
+    "carbs": 33,
+    "fat": 4.6,
+    "saturatedFat": 2.9,
+    "sugar": 28,
+    "salt": 0.31,
+    "energyKj": 839
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-chai-latte-medium-semi-skimmed-milk",
+   "name": "Iced Chai Latte - Medium, semi-skimmed milk",
+   "category": "Coffee Over Ice",
+   "serving": "In store 411 ml",
+   "nutrients": {
+    "calories": 160,
+    "protein": 8.2,
+    "carbs": 24,
+    "fat": 4,
+    "saturatedFat": 2.6,
+    "sugar": 23,
+    "salt": 0.28,
+    "energyKj": 679
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-iced-whipped-latte-medium-semi-skimmed-milk-in-store",
+   "name": "Caramel Iced Whipped Latte - Medium, semi-skimmed milk, in store",
+   "category": "Coffee Over Ice",
+   "serving": "In store 305 ml",
+   "nutrients": {
+    "calories": 155,
+    "protein": 7,
+    "carbs": 25,
+    "fat": 3.4,
+    "saturatedFat": 2.1,
+    "sugar": 22,
+    "salt": 0.23,
+    "energyKj": 655
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caramel-iced-whipped-latte-medium-semi-skimmed-milk-take-out",
+   "name": "Caramel Iced Whipped Latte - Medium, semi-skimmed milk, take-out",
+   "category": "Coffee Over Ice",
+   "serving": "Take-out 325 ml",
+   "nutrients": {
+    "calories": 160,
+    "protein": 7.4,
+    "carbs": 26,
+    "fat": 3.5,
+    "saturatedFat": 2.2,
+    "sugar": 23,
+    "salt": 0.24,
+    "energyKj": 675
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-cappuccino-medium-semi-skimmed-milk-signature-blend",
+   "name": "Iced Cappuccino - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "In store 341 ml",
+   "nutrients": {
+    "calories": 79,
+    "protein": 6.4,
+    "carbs": 11,
+    "fat": 1.6,
+    "saturatedFat": 1,
+    "sugar": 7.6,
+    "salt": 0.24,
+    "energyKj": 335
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-flat-white-whole-milk-signature-blend",
+   "name": "Iced Flat White - whole milk, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "Per portion 220 ml",
+   "nutrients": {
+    "calories": 65,
+    "protein": 4.4,
+    "carbs": 6.8,
+    "fat": 2.4,
+    "saturatedFat": 1.5,
+    "sugar": 4.9,
+    "salt": 0.14,
+    "energyKj": 273
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-latte-medium-semi-skimmed-milk-signature-blend",
+   "name": "Iced Latte - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "In store 380 ml",
+   "nutrients": {
+    "calories": 120,
+    "protein": 9,
+    "carbs": 13,
+    "fat": 4.1,
+    "saturatedFat": 2.6,
+    "sugar": 11,
+    "salt": 0.32,
+    "energyKj": 507
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-mocha-medium-semi-skimmed-milk-signature-blend",
+   "name": "Iced Mocha - Medium, semi-skimmed milk, Signature blend",
+   "category": "Coffee Over Ice",
+   "serving": "In store 419 ml",
+   "nutrients": {
+    "calories": 218,
+    "protein": 11,
+    "carbs": 31,
+    "fat": 5.7,
+    "saturatedFat": 3.6,
+    "sugar": 24,
+    "fiber": 3,
+    "salt": 0.48,
+    "energyKj": 920
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "maple-hazel-iced-matcha-medium-semi-skimmed-milk-in-store",
+   "name": "Maple Hazel Iced Matcha - Medium, semi-skimmed milk, in store",
+   "category": "Iced Tea",
+   "serving": "In store 353 ml",
+   "nutrients": {
+    "calories": 199,
+    "protein": 7.4,
+    "carbs": 32,
+    "fat": 4.8,
+    "saturatedFat": 2.7,
+    "sugar": 26,
+    "salt": 0.26,
+    "energyKj": 841
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "maple-hazel-iced-matcha-medium-semi-skimmed-milk-take-out",
+   "name": "Maple Hazel Iced Matcha - Medium, semi-skimmed milk, take-out",
+   "category": "Iced Tea",
+   "serving": "Take-out 458 ml",
+   "nutrients": {
+    "calories": 206,
+    "protein": 8,
+    "carbs": 33,
+    "fat": 5,
+    "saturatedFat": 2.9,
+    "sugar": 26,
+    "salt": 0.28,
+    "energyKj": 870
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "iced-matcha-latte-medium-semi-skimmed-milk",
+   "name": "Iced Matcha Latte - Medium, semi-skimmed milk",
+   "category": "Iced Tea",
+   "serving": "In store 360 ml",
+   "nutrients": {
+    "calories": 115,
+    "protein": 8.8,
+    "carbs": 13,
+    "fat": 4,
+    "saturatedFat": 2.5,
+    "sugar": 11,
+    "salt": 0.25,
+    "energyKj": 488
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "strawberry-coconut-matcha-iced-latte-medium",
+   "name": "Strawberry Coconut Matcha Iced Latte - Medium",
+   "category": "Iced Tea",
+   "serving": "In store 390 ml",
+   "nutrients": {
+    "calories": 157,
+    "protein": 3.9,
+    "carbs": 28,
+    "fat": 3.6,
+    "saturatedFat": 2,
+    "sugar": 23,
+    "salt": 0.25,
+    "energyKj": 671
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "peach-ice-tea-medium",
+   "name": "Peach Ice Tea - Medium",
+   "category": "Iced Tea",
+   "serving": "In store 428 ml",
+   "nutrients": {
+    "calories": 107,
+    "protein": 0,
+    "carbs": 27,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 26,
+    "salt": 0,
+    "energyKj": 449
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pure-chamomile-infusion",
+   "name": "Pure Chamomile Infusion",
+   "category": "Tea",
+   "serving": "Per portion 276 g",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0,
+    "weight": 276
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-medium-semi-skimmed-milk-in-store",
+   "name": "Matcha Latte - Medium, semi-skimmed milk, in store",
+   "category": "Tea",
+   "serving": "In store 340 ml",
+   "nutrients": {
+    "calories": 138,
+    "protein": 11,
+    "carbs": 15,
+    "fat": 4.9,
+    "saturatedFat": 3.1,
+    "sugar": 13,
+    "salt": 0.31,
+    "energyKj": 585
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-medium-semi-skimmed-milk-take-out",
+   "name": "Matcha Latte - Medium, semi-skimmed milk, take-out",
+   "category": "Tea",
+   "serving": "Take-out 360 ml",
+   "nutrients": {
+    "calories": 147,
+    "protein": 11,
+    "carbs": 16,
+    "fat": 5.2,
+    "saturatedFat": 3.3,
+    "sugar": 14,
+    "salt": 0.33,
+    "energyKj": 624
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "decaf-tea-no-milk",
+   "name": "Decaf Tea - no milk",
+   "category": "Tea",
+   "serving": "Per portion 356 ml",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "english-breakfast-tea-no-milk",
+   "name": "English Breakfast Tea - no milk",
+   "category": "Tea",
+   "serving": "Per portion 356 ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "earl-grey-tea",
+   "name": "Earl Grey Tea",
+   "category": "Tea",
+   "serving": "In store 356 ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "Tea",
+   "serving": "Per portion 356 ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mint-tea",
+   "name": "Mint Tea",
+   "category": "Tea",
+   "serving": "Per portion 356 ml",
+   "nutrients": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "berry-infusion",
+   "name": "Berry Infusion",
+   "category": "Tea",
+   "serving": "Per portion 356 ml",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "citrus-zing-with-vitamin-c",
+   "name": "Citrus Zing with Vitamin C",
+   "category": "Tea",
+   "serving": "Per portion 276 ml",
+   "nutrients": {
+    "calories": 3,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spiced-apple-with-vitamin-b6",
+   "name": "Spiced Apple with Vitamin B6",
+   "category": "Tea",
+   "serving": "Per portion 276 ml",
+   "nutrients": {
+    "calories": 8,
+    "protein": 0,
+    "carbs": 1.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0,
+    "energyKj": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mango-and-passion-fruit-cooler-medium",
+   "name": "Mango & Passion Fruit Cooler - Medium",
+   "category": "Fruit Coolers",
+   "serving": "Per portion 435 ml",
+   "nutrients": {
+    "calories": 165,
+    "protein": 1.8,
+    "carbs": 38,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35,
+    "salt": 0,
+    "energyKj": 698
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-summer-berries-medium",
+   "name": "Red Summer Berries - Medium",
+   "category": "Fruit Coolers",
+   "serving": "Per portion 454 ml",
+   "nutrients": {
+    "calories": 218,
+    "protein": 1.3,
+    "carbs": 55,
+    "fat": 0.3,
+    "saturatedFat": 0,
+    "sugar": 53,
+    "salt": 0.5,
+    "energyKj": 935
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  }
+ ],
+ "combinations": []
+}

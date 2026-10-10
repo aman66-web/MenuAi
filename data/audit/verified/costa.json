@@ -1,0 +1,24 @@
+{
+ "chain": "costa",
+ "date": "2026-10-11",
+ "source_read": "the product pages on https://www.costa.co.uk/menu/<slug> (each prints 'Nutritional Information (UK)' and 'Allergens Information (UK)'); robots.txt of costa.co.uk was read before the first read",
+ "method": "Independent second read in the founder's Chrome with get_page_text on each product page (the first read used find/read_page): 15 rows drawn at random (seed 21) from data/source/costa, covering food, hot and iced drinks, teas and biscuits; every printed number (kJ, kcal, fat, saturates, carbohydrate, sugars, protein, salt, fibre), the portion size text and the allergen 'Yes' words were compared with items.csv.",
+ "sample": [
+  "Egg & Mushroom Bap",
+  "Iced Ghost Gingerbread Biscuit",
+  "Stem Ginger Biscuits",
+  "Iced Mocha - Medium, semi-skimmed milk, Signature blend",
+  "Iced Oat Velvetino - Medium",
+  "Milk Chocolate Cookie",
+  "Iced Latte - Medium, semi-skimmed milk, Signature blend",
+  "Decaf Tea - no milk",
+  "Fruited Teacake",
+  "Matcha Latte - Medium, semi-skimmed milk, in store",
+  "Mint Tea",
+  "Salted Caramel Brownie",
+  "Tomato & Mature Cheddar Croissant",
+  "Maple Hazel Hot Chocolate - Medium, semi-skimmed milk, take-out",
+  "Iced Caramel Macchiato - Small, semi-skimmed milk, Signature blend, in store"
+ ],
+ "result": "15 of 15 rows match on every number and allergen. Portion text such as 'Per Portion (158ml)' for a bap and '(48ml)' for a biscuit is printed that way by Costa and is copied as printed. The two drinks without allergens listed (Decaf Tea, Mint Tea) print an empty allergen list, which is why those rows carry NONE."
+}
