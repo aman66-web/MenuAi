@@ -1,0 +1,16 @@
+id,contains,may_contain,cereals,nuts
+big-feta-energy,milk|mustard|nuts|sulphites,gluten|peanuts|sesame|soya,,walnut
+mex-on-the-beach-sesame-chilli-tofu,sesame|soya|sulphites,gluten|milk|nuts|peanuts,,
+mex-on-the-beach-honey-mustard-chicken,mustard|soya|sulphites,celery|milk|nuts|peanuts|sesame,,
+miso-salmon,fish|nuts|sesame|soya,celery|gluten|milk|mustard|peanuts|sulphites,,cashew
+thai-me-up-bold-bean-satay,nuts|peanuts|sesame|soya,gluten|milk|sulphites,,cashew
+thai-me-up-honey-mustard-chicken,mustard|nuts|peanuts|sesame|soya|sulphites,celery|gluten|milk,,
+the-farm-table-by-julius-roberts,gluten|milk|sesame,celery|mustard|nuts|peanuts|soya|sulphites,wheat,
+the-goat,milk|mustard|nuts|sulphites,celery|gluten|peanuts|sesame|soya,,
+the-sp-caesar-black-pepper-prawns,crustaceans|eggs|fish|gluten|milk|sulphites,celery|mustard|nuts|peanuts|sesame|soya,barley|wheat,
+bbq-protein-bowl,eggs|gluten|milk|mustard|soya|sulphites,celery|nuts|peanuts|sesame,,
+caesar-protein-bowl,eggs|fish|gluten|milk|nuts|soya|sulphites,celery|mustard|peanuts|sesame,,cashew
+middle-feast-protein-bowl,eggs|mustard|sesame|sulphites,celery|gluten|milk|nuts|peanuts|soya,,
+satay-protein-bowl-sesame-chilli-tofu,peanuts|sesame|soya,crustaceans|eggs|fish|gluten|milk|molluscs|nuts|sulphites,,
+satay-protein-bowl-cajun-chicken-thighs,eggs|peanuts|sesame|soya,celery|crustaceans|fish|gluten|milk|molluscs|mustard|nuts|sulphites,,
+surf-turf-protein-bowl,crustaceans|eggs|nuts|soya,celery|gluten|milk|mustard|peanuts|sesame|sulphites,,
