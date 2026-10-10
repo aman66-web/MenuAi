@@ -586,6 +586,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   "Instead of {x}.", the shop-lacks sentence above, the snack note, the Pro lines above, the picture captions, the 100 recipe names, blurbs and methods. Checked: 395 unit tests, 115
   Python, e2e recipes 12 (incl. 100-recipe list, substitute and back, Pro gate), smoke 22, extra 9, browse 9, calories 4, groceries 6+8+5+4, axe 0 light/dark, no overflow at 200% text.
 
+- 2026-10-10 — **Nearby map: every restaurant has its own pin (founder: "I don't like how it has 10, 9, 2, 2, just add every restaurant on the map").**
+  Number bubbles (clusters) are gone: each branch is drawn as its own logo tile or green dot (still at most the nearest 400; the list says so beyond that). Pins shrink as
+  the map zooms out (logos 60% at town scale, full size from street level) so a busy area stays readable; tapping any pin selects it as before. **Fixed:** on the founder's
+  iPhone a Greene King pin showed as an empty black tile (the file loaded but nothing was drawn); a logo is now decoded before it is drawn and checked afterwards, and a
+  tile that comes out blank falls back to the green dot, so an empty tile can't appear. Checked: e2e map 6 of 7 (the 7th, "location refused", is the known headless-browser
+  geolocation limit noted on 2026-10-08), axe 0 on Nearby in light and dark, screenshots at LS17 5PG (25 branches at 2 mi, 226 at 10 mi, all drawn).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
