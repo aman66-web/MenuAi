@@ -114,7 +114,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="xl" />
           <div className="min-w-0">
             <h1 className="text-[2rem] font-extrabold leading-[1.05] tracking-[-0.03em]">{chain.name}</h1>
-            <p className="kicker mt-0.5 flex flex-wrap items-center gap-x-2">{chain.cuisine} {chain.sample && <SampleBadge />}</p>
+            <p className="kicker mt-0.5 flex flex-wrap items-center gap-x-2">{chain.cuisine ? t(chain.cuisine) : null} {chain.sample && <SampleBadge />}</p>
           </div>
         </div>
         {/* The data's limits come first: users must see them before trusting a number. */}

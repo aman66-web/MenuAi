@@ -173,7 +173,7 @@ export default function NearbyPage() {
           <LocateIcon className="h-5 w-5" /> {locating.state === "locating" ? t("Finding you…") : t("Use my location")}
         </Button>
         <div className="flex gap-2">
-          <label className="relative flex-1">
+          <label className="relative min-w-0 flex-1">
             <span className="sr-only">{t("Postcode or town")}</span>
             <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
             <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={t("Or type a postcode or town")} enterKeyHint="search" autoComplete="off" className={`${inputClass} ps-11`} />

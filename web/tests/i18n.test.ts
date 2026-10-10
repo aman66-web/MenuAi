@@ -47,6 +47,9 @@ function dataKeys(): string[] {
   // our own grocery type names (tools/groceries/build_groceries.py writes them into the manifest)
   const groceries = JSON.parse(readFileSync("public/groceries/groceries-manifest.json", "utf8")) as { categories?: Array<{ label: string }> };
   for (const c of groceries.categories ?? []) add(c.label);
+  // our own cuisine labels for each restaurant (data/source/<chain>/manifest, published in the menus manifest)
+  const menus = JSON.parse(readFileSync("public/menus/menus-manifest.json", "utf8")) as { chains?: Array<{ cuisine?: string }> };
+  for (const c of menus.chains ?? []) add(c.cuisine);
   return out;
 }
 

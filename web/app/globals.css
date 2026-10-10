@@ -261,3 +261,10 @@ html[data-i18n-pending] body {
 @media (prefers-reduced-motion: reduce) {
   .marquee { animation: none; }
 }
+
+/* Long words (Polish, Romanian, Portuguese, Gujarati…) may break inside the app rather than push a screen sideways at large text
+   sizes; figures never do. */
+@layer base {
+  main { overflow-wrap: anywhere; }
+  .app-numbers, .app-numbers * { overflow-wrap: normal; }
+}

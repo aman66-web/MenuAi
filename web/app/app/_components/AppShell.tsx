@@ -120,7 +120,8 @@ export function AppShell({ children }: { children: ReactNode }) {
                       >
                         <Icon className="h-5 w-5" />
                       </span>
-                      {t(label)}
+                      {/* one line in every language: a long word is cut short rather than pushing the bar taller */}
+                      <span className="block max-w-full truncate px-0.5">{t(label)}</span>
                     </Link>
                   </li>
                 );

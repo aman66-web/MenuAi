@@ -27,7 +27,7 @@ export function ChainRow({ chain, onOpen, compact }: { chain: ChainSummary; onOp
       <span className="min-w-0 flex-1">
         <span className={`block truncate font-bold tracking-tight ${compact ? "text-[15px]" : "text-base"}`}>{chain.name}</span>
         <span className="app-numbers block text-sm text-muted [overflow-wrap:anywhere]">
-          {chain.cuisine ? `${chain.cuisine} · ` : ""}{t("{n} items", { n: chain.itemCount })}{chain.nutritionLevel === "calories" && <CaloriesOnly />}{chain.sample && <> <SampleBadge /></>}
+          {chain.cuisine ? `${t(chain.cuisine)} · ` : ""}{t("{n} items", { n: chain.itemCount })}{chain.nutritionLevel === "calories" && <CaloriesOnly />}{chain.sample && <> <SampleBadge /></>}
         </span>
       </span>
       <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-soft-strong text-muted transition group-hover:translate-x-0.5 group-hover:text-accent">
@@ -51,7 +51,7 @@ export function ChainCard({ chain, onOpen }: { chain: ChainSummary; onOpen?: () 
       <span className="mt-auto block pt-3">
         <span className="block font-extrabold leading-tight tracking-tight [overflow-wrap:anywhere]">{chain.name}</span>
         <span className="app-numbers mt-0.5 block text-[13px] leading-snug text-muted [overflow-wrap:anywhere]">
-          {chain.cuisine ? `${chain.cuisine} · ` : ""}{t("{n} items", { n: chain.itemCount })}{chain.nutritionLevel === "calories" && <CaloriesOnly />}{chain.sample && <> <SampleBadge /></>}
+          {chain.cuisine ? `${t(chain.cuisine)} · ` : ""}{t("{n} items", { n: chain.itemCount })}{chain.nutritionLevel === "calories" && <CaloriesOnly />}{chain.sample && <> <SampleBadge /></>}
         </span>
       </span>
     </Link>

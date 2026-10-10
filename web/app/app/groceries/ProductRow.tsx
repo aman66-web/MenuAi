@@ -15,9 +15,9 @@ export function ProductRow({ product: listed, retailer }: { product: ListedProdu
   const priceFrom = shown ? Object.entries(product.prices).find(([, v]) => v === shown)?.[0] : undefined;
   const href = `/app/groceries/product?code=${product.gtin}${retailer ? `&r=${retailer}` : ""}`;
   return (
-    <Link href={href} prefetch={false} className="glass flex min-h-20 items-center gap-3 rounded-3xl p-3 transition active:scale-[0.99] hover:bg-soft-strong">
+    <Link href={href} prefetch={false} className="glass flex min-h-20 flex-wrap items-center gap-3 rounded-3xl p-3 transition active:scale-[0.99] hover:bg-soft-strong">
       <PhotoTile sources={photoSources(listed, retailer)} />
-      <span className="min-w-0 flex-1">
+      <span className="min-w-[9rem] flex-1">
         <span className="block text-[15px] font-bold leading-snug tracking-tight">{product.name}</span>
         <span className="block truncate text-sm text-muted">{[product.brand, product.size].filter(Boolean).join(" · ")}</span>
         <span className="app-numbers block text-sm text-muted">

@@ -104,7 +104,7 @@ export function Chip({ selected, children, onClick, className, segment, ...rest 
       aria-pressed={selected}
       onClick={onClick}
       className={cx(
-        "inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+        "inline-flex min-h-11 max-w-full shrink-0 items-center rounded-full border px-4 text-start text-sm font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
         selected
           ? "border-transparent bg-foreground text-background shadow-[0_6px_16px_-8px_rgba(0,0,0,0.45)]"
           : segment
@@ -156,7 +156,7 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
 export function Toggle({ checked, onChange, label, description }: { checked: boolean; onChange: (v: boolean) => void; label: string; description?: string }) {
   return (
     <label className="flex min-h-11 cursor-pointer items-center justify-between gap-4 py-2">
-      <span>
+      <span className="min-w-0 flex-1">
         <span className="block text-base">{label}</span>
         {description && <span className="block text-sm text-muted">{description}</span>}
       </span>

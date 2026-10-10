@@ -13,9 +13,9 @@ export function ShopProductRow({ file, product }: { file: ShopFile; product: Sho
   const src = shopPhotoUrl(file, product);
   const href = `/app/groceries/shop/item?r=${file.retailer}&id=${encodeURIComponent(product.id)}`;
   return (
-    <Link href={href} prefetch={false} className="glass flex min-h-20 items-center gap-3 rounded-3xl p-3 transition active:scale-[0.99] hover:bg-soft-strong">
+    <Link href={href} prefetch={false} className="glass flex min-h-20 flex-wrap items-center gap-3 rounded-3xl p-3 transition active:scale-[0.99] hover:bg-soft-strong">
       <PhotoTile sources={src ? [{ src, from: "retailer", shop: file.retailer }] : []} />
-      <span className="min-w-0 flex-1">
+      <span className="min-w-[9rem] flex-1">
         <span className="block text-[15px] font-bold leading-snug tracking-tight">{product.name}</span>
         <span className="app-numbers mt-0.5 block text-sm">
           <span className="font-semibold text-accent">{formatPrice(product.price)}</span>

@@ -138,7 +138,7 @@ export default function SettingsPage() {
             </Field>
           </div>
         )}
-        <div className="mt-3 flex items-center gap-3">
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
           <Button onClick={saveTargets}>{t("Save targets")}</Button>
           <button type="button" aria-expanded={suggest} onClick={() => setSuggest((v) => !v)} className="min-h-11 font-medium text-accent underline">{t("Suggest targets")}</button>
         </div>

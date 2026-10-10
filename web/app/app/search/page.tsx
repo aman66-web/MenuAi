@@ -103,7 +103,7 @@ export default function SearchPage() {
                   <ChainMark chainId={c.chainId} cuisine={c.cuisine} size="sm" />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-bold tracking-tight"><Highlight text={c.name} query={deferred} /></span>
-                    <span className="flex flex-wrap items-center gap-x-2 text-sm text-muted">{c.cuisine} {c.sample && <SampleBadge />}</span>
+                    <span className="flex flex-wrap items-center gap-x-2 text-sm text-muted">{c.cuisine ? t(c.cuisine) : null} {c.sample && <SampleBadge />}</span>
                   </span>
                   <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
                 </Link>
