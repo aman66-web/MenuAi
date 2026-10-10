@@ -651,6 +651,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   browse 9, calories 4, languages 5, groceries 6+8+5+4, offline 13 (new pages precached), map 6 of 7 (the known headless geolocation limit), axe 0 violations on every
   screen incl. the new ones, no horizontal overflow at 100/150/200% text.
 
+- 2026-10-10 (night) — **Founder: "Keep doing for more restaurants ... get my app to 300 restaurants whilst I sleep."** 202 chains are live (the Mac session's
+  Domino's, McDonald's, Costa, Burger King, Starbucks, Turtle Bay, Sushi Shop and The Alchemist went live with the new layout). Decision for the push to 300 (product
+  judgement, not a data rule): a **calories-only** chain now needs **5 or more GB sites** (was 10); full-nutrition chains still need 3+. Every data rule is unchanged
+  (official source only, copied by script, never estimated, robots.txt and blocks honoured, sites that disagree published only where 2+ agree). Overnight work: logos for
+  the 6 new chains without one, an independent re-read of Turtle Bay and Sushi Shop, a re-test of the 75 chains that blocked this environment, new discovery in four
+  segments not covered before (travel food, leisure and hotels, the restaurant long tail, pub and bar brands: results in `data/candidates/triage4/`), and extraction of
+  the calories-only chains already triaged (Leonardo Hotels, Avanti West Coast, Pasta Evangelists, Angus Steakhouse). Results are logged below as they land.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
