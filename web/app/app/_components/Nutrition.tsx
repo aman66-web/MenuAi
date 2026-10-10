@@ -58,25 +58,41 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
  * Item detail hero (SPEC §7.5): the item itself (passed as children: chain, name, serving) on the one lit card, then big
  * calories, then protein, carbs and fat. The numbers are one group so a screen reader hears them as one line.
  */
-export function ItemHero({ nutrients, name, children }: { nutrients: Nutrients; name: string; children?: React.ReactNode }) {
-  const macros: Array<[string, number | undefined, boolean]> = [["Protein", nutrients.protein, true], ["Carbs", nutrients.carbs, false], ["Fat", nutrients.fat, false]];
+export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutrients; name: string; children?: React.ReactNode; media?: React.ReactNode }) {
+  const macros: Array<[string, number | undefined, boolean, string]> = [
+    ["Protein", nutrients.protein, true, "bg-protein"],
+    ["Carbs", nutrients.carbs, false, "bg-carbs"],
+    ["Fat", nutrients.fat, false, "bg-fat"],
+  ];
+  // A bar of the three published weights side by side (grams as printed, nothing converted or estimated). Decorative: the
+  // numbers themselves are in the tiles below and in the group's spoken label.
+  const grams = hasMacros(nutrients) ? [nutrients.protein!, nutrients.carbs!, nutrients.fat!] : null;
+  const total = grams ? grams[0] + grams[1] + grams[2] : 0;
   return (
-    <div className="hero-card overflow-hidden rounded-[2rem] p-6">
-      {children}
-      <div role="group" aria-label={nutrientAriaLabel(name, nutrients)} className={`app-numbers ${children ? "mt-6" : ""}`}>
-        <div className="flex items-end gap-2">
-          <span className="sun-text text-7xl font-extrabold leading-[0.9] tracking-tighter">{formatInt(nutrients.calories)}</span>
-          <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal</span>
-          {nutrients.energyKj !== undefined && <span className="pb-1 text-sm font-semibold text-muted">· {formatInt(nutrients.energyKj)} kJ</span>}
-        </div>
-        <dl className="mt-6 grid grid-cols-3 gap-2">
-          {macros.map(([label, grams, lead]) => (
-            <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft" : "inset-card"}`}>
-              <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</dt>
-              <dd className={grams === undefined ? "text-base font-semibold italic text-muted" : `text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{grams === undefined ? "not published" : formatGrams(grams)}</dd>
+    <div className="hero-card overflow-hidden rounded-[2rem]">
+      {media}
+      <div className="p-6">
+        {children}
+        <div role="group" aria-label={nutrientAriaLabel(name, nutrients)} className={`app-numbers ${children ? "mt-6" : ""}`}>
+          <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
+            <span className="sun-text text-[min(5rem,22vw)] font-extrabold leading-[0.85] tracking-[-0.05em]">{formatInt(nutrients.calories)}</span>
+            <span className="pb-1 text-sm font-bold uppercase tracking-[0.14em] text-muted">kcal</span>
+            {nutrients.energyKj !== undefined && <span className="pb-1 text-sm font-semibold text-muted">· {formatInt(nutrients.energyKj)} kJ</span>}
+          </div>
+          {grams && total > 0 && (
+            <div aria-hidden className="mt-5 flex h-2.5 gap-0.5 overflow-hidden rounded-full bg-[var(--ring-track)]">
+              {grams.map((g, i) => (g > 0 ? <span key={i} className={`${macros[i]![3]} h-full first:rounded-l-full last:rounded-r-full`} style={{ width: `${(g / total) * 100}%` }} /> : null))}
             </div>
-          ))}
-        </dl>
+          )}
+          <dl className="mt-4 grid grid-cols-3 gap-2">
+            {macros.map(([label, value, lead, hue]) => (
+              <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft ring-1 ring-inset ring-[color-mix(in_srgb,var(--accent)_25%,transparent)]" : "tile"}`}>
+                <dt className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted"><span aria-hidden className={`dot ${hue}`} />{label}</dt>
+                <dd className={value === undefined ? "text-base font-semibold italic text-muted" : `text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{value === undefined ? "not published" : formatGrams(value)}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </div>
   );
@@ -108,9 +124,9 @@ export function NutrientTable({ nutrients }: { nutrients: Nutrients }) {
     ...extra("Caffeine", nutrients.caffeine, (v) => `${formatInt(v)}mg`),
   ];
   return (
-    <dl className="app-numbers glass divide-y divide-line overflow-hidden rounded-3xl">
+    <dl className="app-numbers glass divide-y divide-line overflow-hidden rounded-[1.75rem]">
       {rows.map(([label, value, published]) => (
-        <div key={label} className="flex min-h-12 items-center justify-between gap-4 px-5 py-2">
+        <div key={label} className="flex min-h-12 items-center justify-between gap-4 px-5 py-2.5">
           <dt className="text-base">{label}</dt>
           <dd className={published ? "text-base font-semibold" : "text-sm italic text-muted"}>{value}</dd>
         </div>

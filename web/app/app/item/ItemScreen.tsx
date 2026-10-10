@@ -44,7 +44,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
     <div>
       {back}
       <div className="mt-5">
-        <ItemHero nutrients={item.nutrients} name={item.name}>
+        <ItemHero nutrients={item.nutrients} name={item.name} media={<ItemPhotoHero image={item.image} chainName={chain.name} />}>
           <Link href={chainHref(chain.id)} className="kicker inline-flex min-h-11 items-center hover:underline">{chain.name}</Link>
           <h1 className="text-[1.9rem] font-extrabold leading-[1.1] tracking-tight">{item.name}</h1>
           <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted">
@@ -55,7 +55,6 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           </div>
         </ItemHero>
       </div>
-      <ItemPhotoHero image={item.image} chainName={chain.name} />
       <div className="mt-3"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
       <div className="mt-3"><NutrientTable nutrients={item.nutrients} /></div>
       {chain.note && (

@@ -85,7 +85,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         {!fullScreen && (
           <nav
             aria-label="Main"
-            className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-full border border-line bg-[var(--nav-bg)] p-1.5 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+            className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[1.75rem] border border-line bg-[var(--nav-bg)] p-1.5 shadow-[0_1px_0_rgba(255,255,255,0.5)_inset,0_20px_44px_-18px_rgba(0,0,0,0.5)] backdrop-blur-2xl backdrop-saturate-150"
           >
             <ul className="flex">
               {TABS.map(({ href, label, Icon, match }) => {
@@ -95,9 +95,14 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <Link
                       href={href}
                       aria-current={active ? "page" : undefined}
-                      className={`flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-full text-[11px] font-semibold tracking-wide transition-colors ${active ? "bg-accent-soft text-accent" : "text-muted hover:text-foreground"}`}
+                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-[10.5px] font-semibold tracking-wide transition-colors ${active ? "text-accent" : "text-muted hover:text-foreground"}`}
                     >
-                      <Icon className="h-[22px] w-[22px]" />
+                      <span
+                        aria-hidden
+                        className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-all duration-300 ${active ? "bg-sun text-on-accent shadow-[0_6px_16px_-6px_var(--brand-shadow)]" : "group-hover:bg-soft-strong"}`}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </span>
                       {label}
                     </Link>
                   </li>

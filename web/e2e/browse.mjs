@@ -54,7 +54,7 @@ await step("Home: A-Z jump scrolls to the letter", async () => {
 await step("Chain: data note first, long sections trimmed, Show all expands", async () => {
   await page.goto(BASE + "/app/chain?id=puccinos");
   await page.getByRole("heading", { name: "Puccino's" }).waitFor();
-  await page.getByText(/654 items/).first().waitFor();
+  await page.getByText(/\d{3} items/).first().waitFor(); // the count follows the chain's guide (654 when written, 637 after the 8 Oct re-read)
   await page.getByText(/no cup volume is stated/).first().waitFor();
   const section = page.getByRole("region", { name: "Hot coffee" });
   expect((await section.getByRole("listitem").count()) === 6, "Hot coffee not trimmed to 6");

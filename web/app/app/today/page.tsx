@@ -7,7 +7,7 @@ import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { useGate } from "../_components/Paywall";
-import { TrashIcon } from "../_components/icons";
+import { TodayIcon, TrashIcon } from "../_components/icons";
 import { Ring } from "../_components/Ring";
 import { Button, Card, EmptyState } from "../_components/ui";
 import { useHydrated, useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -32,7 +32,16 @@ export default function TodayPage() {
     return (
       <div>
         <h1 className="text-4xl font-extrabold tracking-tight">Today</h1>
-        <Card hero className="mt-6 p-6">
+        <Card hero className="mt-6 overflow-hidden p-6">
+          {/* A picture of the Pro screen (no numbers: nothing here is a real figure). */}
+          <div aria-hidden className="mb-5 flex items-center gap-4">
+            <Ring id="today-preview" label="" fraction={0.68} size={92} stroke={10} />
+            <div className="flex-1 space-y-3">
+              <div className="h-2.5 w-4/5 rounded-full bg-[var(--ring-track)]"><div className="bg-sun h-full w-3/5 rounded-full" /></div>
+              <div className="h-2.5 w-3/5 rounded-full bg-[var(--ring-track)]"><div className="h-full w-2/5 rounded-full bg-protein" /></div>
+              <div className="h-2.5 w-2/3 rounded-full bg-[var(--ring-track)]"><div className="h-full w-1/2 rounded-full bg-carbs" /></div>
+            </div>
+          </div>
           <p className="text-lg font-bold tracking-tight">Keep track of what you eat <span className="serif-em sun-text pr-0.5">today</span></p>
           <p className="mt-1 text-sm text-muted">Log a meal from any order and see your calories and protein against your targets, so you always know what&apos;s left.</p>
           <Button className="mt-4" onClick={() => showPaywall("log")}>{PAYMENTS_ENABLED ? "Try Pro free" : "See Pro"}</Button>
@@ -79,7 +88,7 @@ export default function TodayPage() {
       </Card>
 
       {todays.length === 0 ? (
-        <div className="mt-6"><EmptyState title="Nothing logged yet today" body="Open an item or build an order, then tap Log." /></div>
+        <div className="mt-6"><EmptyState icon={<TodayIcon className="h-6 w-6" />} title="Nothing logged yet today" body="Open an item or build an order, then tap Log." /></div>
       ) : (
         <ul className="glass mt-5 divide-y divide-line overflow-hidden rounded-3xl">
           {todays.map((e) => (

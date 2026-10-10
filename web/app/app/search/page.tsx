@@ -63,7 +63,10 @@ export default function SearchPage() {
             </div>
           </section>
         ) : (
-          <p className="mt-10 text-center text-sm text-muted">Type at least {MIN_QUERY_LENGTH} letters of a restaurant or a dish.</p>
+          <div className="mt-12 flex flex-col items-center text-center">
+            <span aria-hidden className="icon-bubble h-16 w-16"><SearchIcon className="h-7 w-7" /></span>
+            <p className="mt-4 max-w-[16rem] text-sm text-muted">Type at least {MIN_QUERY_LENGTH} letters of a restaurant or a dish.</p>
+          </div>
         )
       )}
 

@@ -50,16 +50,20 @@ export function SampleBadge() {
 
 export function SectionTitle({ children, action }: { children: ReactNode; action?: ReactNode }) {
   return (
-    <div className="mb-3 mt-9 flex items-baseline justify-between">
-      <h2 className="text-xl font-bold tracking-tight">{children}</h2>
+    <div className="mb-3 mt-10 flex items-baseline justify-between gap-3">
+      <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight">
+        <span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />
+        {children}
+      </h2>
       {action}
     </div>
   );
 }
 
-export function EmptyState({ title, body, action }: { title: string; body?: ReactNode; action?: ReactNode }) {
+export function EmptyState({ title, body, action, icon }: { title: string; body?: ReactNode; action?: ReactNode; icon?: ReactNode }) {
   return (
-    <div className="rounded-3xl border border-dashed border-line px-5 py-10 text-center">
+    <div className="glass rounded-3xl px-5 py-10 text-center">
+      <span aria-hidden className="icon-bubble-soft mx-auto mb-3 h-12 w-12">{icon ?? <span className="bg-sun h-3 w-3 rounded-full" />}</span>
       <p className="text-lg font-bold tracking-tight">{title}</p>
       {body && <p className="mx-auto mt-1 max-w-xs text-sm text-muted">{body}</p>}
       {action && <div className="mt-4 flex justify-center">{action}</div>}
@@ -89,7 +93,7 @@ export function ErrorBox({ message, onRetry }: { message: string; onRetry?: () =
   );
 }
 
-export function Chip({ selected, children, onClick, className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean }) {
+export function Chip({ selected, children, onClick, className, segment, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean; segment?: boolean }) {
   return (
     <button
       type="button"
@@ -97,7 +101,11 @@ export function Chip({ selected, children, onClick, className, ...rest }: Button
       onClick={onClick}
       className={cx(
         "inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
-        selected ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft text-foreground hover:bg-soft-strong",
+        selected
+          ? "border-transparent bg-foreground text-background shadow-[0_6px_16px_-8px_rgba(0,0,0,0.45)]"
+          : segment
+            ? "border-transparent text-muted hover:text-foreground"
+            : "border-line bg-soft text-foreground hover:bg-soft-strong",
         className,
       )}
       {...rest}

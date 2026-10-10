@@ -472,6 +472,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Details in docs/UK_DATA_STATUS.md ("Added 10 October 2026"). The Chrome route (docs/CHROME_TO_APP.md, data/chrome-inbox/QUEUE.md and QUEUE-B.md) is ready for the founder to run; the importer is
   `tools/uk_extract/chrome_import.py`.
 
+- 2026-10-10 — **UI refresh (founder: "it looks basic, make it look amazing and eye pleasing").** Same green brand, more depth and colour: a mesh of soft
+  lights behind every screen, layered shadows and press/lift motion on cards, a floating tab bar whose active tab is a gradient pill, Home rebuilt (search bar
+  with a gradient go button, two quick-action tiles for Nearby and Groceries, targets card as two figure tiles with an edit button, Popular and Favourites as a
+  two-column grid of restaurant tiles), the restaurant page header as one hero card (bigger logo tile, the data note inside it) with a segmented meal
+  selector, menu rows with rounded photo thumbs, the item page with the chain's photo inside the hero card, a bar showing protein, carbs and fat grams side by
+  side (published grams only, nothing converted; one hue per macro, labels only, never good/bad), section titles with a gradient marker, empty states with an
+  icon, a picture of the Pro screen on Today (no numbers in it). New copy (rule 8, flagged): "a day" under the calorie target and the "Edit your targets" label
+  on the pencil button. Every existing label kept. Checked on a production build: 245 unit tests, lint, tsc, e2e smoke (22), extra (9), browse (9; its
+  Puccino's count was stale, 654 → now matches any 3-digit count), calories (4), axe 0 violations in light and dark on every screen, no horizontal overflow at
+  100/150/200% text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

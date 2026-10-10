@@ -98,31 +98,31 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         </button>
       </div>
 
-      <div className="mt-5 flex items-center gap-4">
-        <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="lg" />
-        <div className="min-w-0">
-          <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{chain.name}</h1>
-          <p className="kicker flex flex-wrap items-center gap-x-2">{chain.cuisine} {chain.sample && <SampleBadge />}</p>
+      <div className="hero-card mt-4 overflow-hidden rounded-[2rem] p-5">
+        <div className="flex items-center gap-4">
+          <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="xl" />
+          <div className="min-w-0">
+            <h1 className="text-[2rem] font-extrabold leading-[1.05] tracking-[-0.03em]">{chain.name}</h1>
+            <p className="kicker mt-0.5 flex flex-wrap items-center gap-x-2">{chain.cuisine} {chain.sample && <SampleBadge />}</p>
+          </div>
+        </div>
+        {/* The data's limits come first: users must see them before trusting a number. */}
+        <div className="mt-4 flex gap-3 border-t border-line pt-4 text-sm">
+          <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+          <div className="min-w-0 space-y-1.5">
+            {chain.note && <p>{chain.note}</p>}
+            {caloriesOnly && <p className="font-semibold">{chain.name} publishes calories only: protein, carbs and fat aren&apos;t published, so there are no best-for-you picks, order builder or logging for this restaurant.</p>}
+            <p className="app-numbers text-muted">
+              <span className="font-semibold text-foreground">{chain.items.length} items</span> from{" "}
+              <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{chain.source.title}</a>, checked {formatDate(chain.source.checkedOn)}.
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* The data's limits come first: users must see them before trusting a number. */}
-      <div className="glass mt-5 flex gap-3 rounded-3xl p-4 text-sm">
-        <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-        <div className="min-w-0 space-y-1.5">
-          {chain.note && <p>{chain.note}</p>}
-          {caloriesOnly && <p className="font-semibold">{chain.name} publishes calories only: protein, carbs and fat aren&apos;t published, so there are no best-for-you picks, order builder or logging for this restaurant.</p>}
-          <p className="app-numbers text-muted">
-            <span className="font-semibold text-foreground">{chain.items.length} items</span> from{" "}
-            <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{chain.source.title}</a>, checked {formatDate(chain.source.checkedOn)}.
-          </p>
-        </div>
-      </div>
-
       {!caloriesOnly && (
-        <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Meal">
+        <div className="glass mt-5 flex flex-wrap gap-1 rounded-[1.75rem] p-1" role="group" aria-label="Meal">
           {MEALS.map((m) => (
-            <Chip key={m} selected={meal === m} onClick={() => setMeal(m)}>{MEAL_LABEL[m]}</Chip>
+            <Chip key={m} segment className="flex-1 justify-center" selected={meal === m} onClick={() => setMeal(m)}>{MEAL_LABEL[m]}</Chip>
           ))}
         </div>
       )}
@@ -138,7 +138,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       </div>
 
       <div className="mb-2 mt-10 flex items-center justify-between gap-3">
-        <h2 id="full-menu" className="text-xl font-bold tracking-tight">Full menu</h2>
+        <h2 id="full-menu" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />Full menu</h2>
         <label className="flex items-center gap-2 text-sm">
           <span className="sr-only">Sort by</span>
           <select
@@ -198,7 +198,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <section key={s.category} id={sectionId(s.category)} data-category={s.category} aria-label={s.category} className="scroll-mt-36">
               <div className="mb-2 mt-6 flex items-baseline justify-between gap-3">
                 <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{s.category}</h3>
-                <span className="app-numbers text-xs text-muted">{s.items.length}</span>
+                <span className="app-numbers rounded-full bg-soft-strong px-2 py-0.5 text-xs font-semibold text-muted">{s.items.length}</span>
               </div>
               {allExtras && <p className="-mt-1 mb-2 text-xs text-muted">Not suggested in Best for you.</p>}
               <ItemList items={shown} chainId={chain.id} now={now} />
@@ -271,7 +271,7 @@ function ItemList({ items, chainId, now }: { items: readonly MenuItem[]; chainId
               href={itemHref(chainId, item.id)}
               prefetch={false}
               onClick={() => analytics.track({ name: "itemOpened", chainId })}
-              className={`flex items-center justify-between gap-3 rounded-2xl px-4 transition active:scale-[0.99] hover:bg-soft-strong ${item.rankable ? "glass min-h-16 py-3" : "min-h-14 border border-line py-2.5"}`}
+              className={`group flex items-center justify-between gap-3 rounded-[1.35rem] px-3.5 transition active:scale-[0.99] hover:bg-soft-strong ${item.rankable ? "glass min-h-16 py-3" : "min-h-14 border border-line py-2.5"}`}
             >
               <span className="flex min-w-0 items-center gap-3">
                 <ItemThumb image={item.image} />
@@ -285,7 +285,9 @@ function ItemList({ items, chainId, now }: { items: readonly MenuItem[]; chainId
                   <MacroLine nutrients={item.nutrients} />
                 </span>
               </span>
-              <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
+              <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-soft-strong text-muted transition group-hover:text-accent">
+                <ChevronRightIcon className="h-4 w-4" />
+              </span>
             </Link>
           </li>
         );
