@@ -1,0 +1,55 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+bacon-caesar-angus,Bacon Caesar Angus,Burgers,,869.0,40.0,41.0,59.0,21.0,,6.8,8.0,,3635.9,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-0a497976-a6f3-478f-a77c-68dd7877d356
+texan-bbq-king,Texan BBQ King,Burgers,,996.0,53.0,63.0,59.0,22.0,,3.1,13.0,,4167.3,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-4042b898-fe4d-4249-aac7-6e97cdcca7b8
+texan-bbq-royale,Texan BBQ Royale,Burgers,,691.0,28.0,66.0,34.0,8.6,,3.9,16.0,,2891.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-16c25471-2318-49a5-be5f-db745f62a12a
+texan-bbq-double-royale,Texan BBQ Double Royale,Burgers,,922.0,43.0,79.0,47.0,9.9,,5.0,16.0,,3857.6,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-a97468db-fd1c-4f9f-bd04-cd1860828ec6
+bbq-steakhouse-angus,BBQ Steakhouse Angus,Burgers,,792.0,41.0,45.0,49.0,20.0,,2.8,12.0,,3313.7,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-8bbd27c3-1e77-4695-8e8a-c4031d76f5e1
+whopper-with-bacon-and-cheese,WHOPPER® with Bacon and Cheese,Burgers,,721.0,39.0,50.0,49.0,14.0,,3.7,13.0,,3016.7,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-c0d49343-ee9e-4376-a8ac-934ac156f51f
+whopper,WHOPPER®,Burgers,,595.0,29.0,53.0,30.0,8.2,,2.3,11.0,,2489.5,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-23d38263-8347-4ddc-aec0-a738c3cc6578
+double-whopper,Double WHOPPER®,Burgers,,840.0,52.0,48.0,48.0,16.0,,2.3,12.0,,3514.6,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-d0d2c428-1b2d-443a-86e2-739f161fa6db
+double-whopper-with-bacon-and-cheese,Double Whopper® with Bacon and Cheese,Burgers,,960.0,60.0,50.0,57.0,21.0,,3.8,13.0,,4016.6,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-1785eadf-89b6-40f1-b6f8-28cddca44850
+bacon-double-cheese-xl,Bacon Double Cheese XL,Burgers,,910.0,63.0,45.0,52.0,24.0,,3.8,8.2,,3807.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-69dae60e-146d-4b37-8090-9c7639c79a5a
+bacon-double-cheeseburger,Bacon Double Cheeseburger,Burgers,,440.0,30.0,26.0,24.0,11.0,,2.1,4.5,,1841.0,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-0493aedb-baf4-47b8-ad61-029dde49b6fe
+hamburger,Hamburger,Burgers,,247.0,14.0,26.0,9.4,3.7,,1.1,5.3,,1033.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-11377de0-5046-423e-96ed-c155405c48fe
+cheeseburger,Cheeseburger,Burgers,,285.0,16.0,27.0,12.0,5.6,,1.6,5.8,,1192.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-558a6077-a1a2-439a-9667-f5ea170cb3ea
+classic-double-beef-melt,Classic Double Beef Melt,Burgers,,352.0,23.0,25.0,17.0,7.4,,1.0,3.7,,1472.8,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-74e69c56-0d7d-4942-a079-f561ad551640
+the-wagyu,The Wagyu,Burgers,,766.0,37.9,47.0,47.0,14.4,,1.8,13.0,,3204.9,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-86e0f4ef-122e-4c31-95d5-c3a646701341
+double-cheeseburger,Double Cheeseburger,Burgers,,418.0,27.0,28.0,22.0,10.0,,2.2,6.3,,1748.9,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-7c6cf418-9d65-4d81-9fca-884ce065637a
+big-king-double-royale,Big King Double Royale,Burgers,,1159.0,46.0,110.0,57.0,9.5,,7.1,12.0,,4849.3,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-bc674ecf-b99d-4ec5-8747-51fefa15d52f
+big-king-royale,Big King Royale,Burgers,,645.0,27.0,57.0,33.0,6.3,,4.8,11.0,,2698.7,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-c4f63154-ca0d-48ad-b834-5b0620dc21a7
+big-king,Big King,Burgers,,941.0,52.0,55.0,57.0,20.0,,3.6,17.0,,3937.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-49e49a7f-82d6-463f-af7f-6b0e53b4805f
+bacon-bbq-stacker-melt-burger,Bacon BBQ Stacker Melt Burger,Burgers,,515.0,27.0,39.0,28.0,8.8,,1.6,8.2,,2154.8,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-f4324670-cf9d-44ff-b173-f3717d15ff9b
+bacon-caesar-crispy-chicken,Bacon Caesar Crispy Chicken,Chicken & veggie,,762.0,31.0,57.0,45.0,12.0,,7.7,8.0,,3188.2,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-03fa56b4-17f4-4027-8915-6107980e45a4
+bbq-steakhouse-crispy-chicken,BBQ Steakhouse Crispy Chicken,Chicken & veggie,,637.0,32.0,63.0,28.0,10.0,,3.7,15.0,,2665.2,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-ac546e7a-d82b-4e3a-b446-b8314d6cfccb
+chicken-royale,Chicken Royale,Chicken & veggie,,568.0,23.0,52.0,29.0,3.0,,2.5,6.0,,2376.5,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-e30e8df2-b618-45fc-b60a-27eaefa57894
+chicken-royale-bacon-and-cheese,Chicken Royale Bacon & Cheese,Chicken & veggie,,690.0,31.0,54.0,38.0,7.8,,3.9,7.8,,2887.0,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-734bb15c-6d84-46c3-a08e-871f0ac6576e
+double-chicken-royale,Double Chicken Royale,Chicken & veggie,,792.0,38.0,65.0,41.0,3.9,,3.7,6.3,,3313.7,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-780e10ef-7cd3-44a5-97f0-418d55a19cd1
+double-chicken-royale-bacon-and-cheese,Double Chicken Royale Bacon & Cheese,Chicken & veggie,,846.0,42.1,62.3,47.0,9.1,,6.2,8.2,,3539.7,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-95a26e75-830d-4fd6-9a85-2fc026871cba
+classic-chicken-melt,Classic Chicken Melt,Chicken & veggie,,411.0,19.0,40.0,19.0,6.3,,2.0,4.2,,1719.6,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_75259
+vegan-royale,Vegan Royale,Chicken & veggie,,557.0,17.0,53.0,29.0,2.7,,2.9,0.7,,2330.5,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-5b9b9566-997b-4a15-88dd-2ca2626de654
+plant-based-whopper,Plant-based WHOPPER®,Chicken & veggie,,528.0,27.0,47.0,24.0,4.5,,2.5,0.7,,2209.2,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-fe6d92f7-5bd2-455b-8bef-ff6939aabba5
+bacon-bbq-chicken-stacker,Bacon BBQ Chicken Stacker,Chicken & veggie,,523.0,21.0,47.0,27.0,8.0,,2.6,7.7,,2188.2,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-ea6b21d5-afda-4d4a-b7d3-ad758bc7a67c
+large-fries,Large Fries,Sides,,337.0,6.9,42.0,16.0,3.3,,0.6,0.7,,1410.0,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu
+6pc-onion-rings,6pc Onion Rings,Sides,,225.0,4.6,42.0,9.8,2.2,,0.4,0.7,,941.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-0a707f28-3aed-4678-8790-25a17d62584b
+small-fries,Small Fries,Sides,,208.8,2.4,28.0,8.8,2.5,,0.4,0.3,,873.6,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-1ea7e05d-5527-465d-9a06-8ce6ce1999aa
+4-chilli-cheese-bites,4 Chilli Cheese Bites,Sides,,217.0,6.4,20.1,12.0,5.2,,1.4,0.7,,907.9,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-1ea7e05d-5527-465d-9a06-8ce6ce1999aa
+6-chilli-cheese-bites,6 Chilli Cheese Bites,Sides,,318.0,10.0,31.0,17.0,7.3,,2.0,1.4,,1330.5,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-464ce53b-3fd4-4e87-b0ac-903bcbc94e6f
+9pc-kansas-bbq-chicken-fries,9pc Kansas BBQ Chicken Fries,Sides,,398.0,20.8,25.3,23.8,2.8,,1.1,3.7,,1665.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-5bb909c4-8fef-4bf9-b1bc-86ac20ac05e0
+regular-fries,Regular Fries,Sides,,269.1,3.1,36.0,11.4,3.3,,0.6,0.4,,1126.0,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-74e69c56-0d7d-4942-a079-f561ad551640
+3-chilli-cheese-bites,3 Chilli Cheese Bites,Sides,,162.8,4.8,15.1,9.0,3.9,,1.0,0.5,,680.9,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-74e69c56-0d7d-4942-a079-f561ad551640
+4pc-kansas-bbq-chicken-fries,4pc Kansas BBQ Chicken Fries,Sides,,176.9,9.2,11.2,10.6,1.3,,0.5,1.7,,740.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-ea6b21d5-afda-4d4a-b7d3-ad758bc7a67c
+9-chilli-cheese-bites,9 Chilli Cheese Bites,Sides,,477.0,15.0,47.0,25.0,11.0,,3.1,2.1,,1995.8,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-f5d1efe3-8788-400a-8e48-a43746a67885
+5pc-halloumi-fries,5pc Halloumi Fries,Sides,,240.0,16.0,1.3,19.0,11.7,,1.8,0.7,,1004.2,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-fc12e23d-762f-4758-a84d-4ab0fae93451
+truffle-loaded-king-fries,Truffle Loaded King Fries,Sides,,666.0,8.9,61.0,42.0,7.7,,1.6,0.7,,2786.5,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-00d0d7a3-e9e6-458c-8017-367ec7216a6f
+kids-hamburger,Kids Hamburger,Kids,,244.0,14.0,26.0,9.2,3.7,,0.8,5.3,,1020.9,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-1ea7e05d-5527-465d-9a06-8ce6ce1999aa
+kids-nuggets,Kids Nuggets,Kids,,169.0,9.0,12.0,9.2,1.4,,0.9,0.7,,707.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-69cea646-dad4-4428-8822-e9b37c213c0f
+kids-cheeseburger,Kids Cheeseburger,Kids,,281.0,16.0,27.0,12.0,5.5,,1.3,5.7,,1175.7,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-dce01677-51d2-49f5-8428-53ea41caab90
+9-nuggets,9 Nuggets,Chicken & sides,,382.0,20.0,27.0,21.0,3.2,,2.1,1.8,,1598.3,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/picker-335a685e-d422-478e-9a76-c6a5b742d9dc
+breakfast-king,Breakfast King,Breakfast,,505.5,34.7,37.4,23.6,9.9,,1.8,9.9,,2115.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42432
+ultimate-breakfast-sandwich,Ultimate Breakfast sandwich,Breakfast,,246.2,11.9,37.0,5.2,2.0,,2.1,9.6,,1030.0,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42433
+sausage-butty,Sausage Butty,Breakfast,,328.8,16.3,37.6,12.1,4.3,,1.0,9.7,,1375.8,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42518
+bacon-and-egg-sandwich,Bacon and Egg Sandwich,Breakfast,,246.2,11.9,37.0,5.2,2.0,,1.6,9.6,,1030.0,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42520
+sausage-and-egg-sandwich,Sausage and Egg sandwich,Breakfast,,199.9,6.0,37.0,2.7,1.0,,1.4,9.5,,836.5,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42521
+bacon-butty,Bacon Butty,Breakfast,,280.2,15.0,37.3,7.5,2.8,,1.6,9.9,,1172.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_42932
+gooey-salted-caramel-cheesecake-bar,Gooey Salted Caramel Cheesecake Bar,Desserts,,285.0,4.8,34.2,8.7,7.1,,0.4,0.7,,1192.4,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_88841
+chocolate-brownie-cheesecake-bar,Chocolate Brownie Cheesecake Bar,Desserts,,294.0,4.5,35.2,15.0,7.5,,0.1,0.7,,1230.1,,,,,,,false,true,,,Read from https://www.burgerking.co.uk/menu/item-item_88842

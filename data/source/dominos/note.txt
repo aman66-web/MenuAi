@@ -1,0 +1,1 @@
+Pizzas show the figures for one slice (the guide also prints the whole pizza; it does not state the slice count). Sides, dips, wraps and desserts show the product as sold. Pizza nutrition excludes dips. Menus and recipes can vary by store.

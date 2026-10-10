@@ -7,7 +7,7 @@
   "nutrition_level": "calories",
   "basis": "per serving",
   "sites": 4,
-  "sites_evidence": "https://www.mysushishop.co.uk/en/stores/ lists four London shops: Battersea, Marylebone, Notting Hill and South Kensington.",
+  "sites_evidence": "mysushishop.co.uk/en/stores lists four London shops",
   "allowed_hosts": [],
-  "note": "Calories only, one figure per product as shown on its page. About 40 products on the menu show no calories and are left out. Drinks are not included. Allergens are only a 'See the list of allergens' link on each page, so none are recorded."
+  "note": "Calories only, one figure per product. About 40 products show no calories and are left out; drinks are not included. Allergens are only a link on each page, so none are recorded."
 }

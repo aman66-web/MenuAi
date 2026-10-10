@@ -1,0 +1,5 @@
+filename,url,what,retrieved_on,bytes,status
+nutrition_pizzas.pdf,https://dominos.a.bigcontent.io/v1/static/nutrition_pizzas,"Nutritional Information - Pizzas, Bases and Toppings",2026-10-10,3054725,stored
+nutrition_sides-and-desserts.pdf,https://dominos.a.bigcontent.io/v1/static/nutrition_sides-and-desserts,Nutritional Information - Sides and Desserts,2026-10-10,650426,stored
+allergen_leaflet.pdf,https://dominos.a.bigcontent.io/v1/static/allergen_leaflet,Allergen information for all our products,2026-10-10,1146874,stored
+ingredients-and-allergens.pdf,https://dominos.a.bigcontent.io/v1/static/ingredients-and-allergens,"Pizza, sides and desserts ingredients",2026-10-10,753860,stored
