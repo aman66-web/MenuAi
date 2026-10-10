@@ -72,6 +72,9 @@ def H(s: str) -> str:
 
 def done_slugs(work: Path) -> set:
     done: set = set()  # the stored reads are the record; the CSV is derived from them (counting its rows here would hide products that must be read again)
+    skip = work / "skip.txt"  # pages that froze the browser twice: handed out no more (one slug per line, added by the lead)
+    if skip.exists():
+        done |= {x.strip() for x in skip.read_text(encoding="utf-8").splitlines() if x.strip()}
     for p in list(work.glob("results_*.tsv")) + list(work.glob("none_*.txt")):
         for line in p.read_text(encoding="utf-8").splitlines():
             if not line:
