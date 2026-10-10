@@ -32,7 +32,7 @@ Downloader: `tools/uk_extract/inbox_pdfs.py` (list in `data/held-downloads/pdf_l
 
 | Chain | Result |
 |---|---|
-| Domino's | **4 files stored** (nutrition for pizzas 21 pages, sides and desserts 4 pages, allergen leaflet, ingredients and allergens), all dated 7 September 2026, text layer readable; full macros per pizza and per slice |
+| Domino's | **DONE the same day: extracted to `data/source/dominos/` by `tools/uk_extract/dominos.py` (1,303 rows read, 12 held back where the guide contradicts itself, 1,291 published once built; pizzas per slice, sides as sold; no allergens yet, link to the guide only; `check_chain.py dominos --fail-on-high` passes, 0 errors, 0 high flags; not yet built into `web/public/menus`: run `./scripts/publish_menus.sh`). Files: 4 stored (nutrition for pizzas 21 pages, sides and desserts 4 pages, allergen leaflet, ingredients and allergens), all dated 7 September 2026, text layer readable; full macros per pizza and per slice |
 | Papa Johns, Shake Shack, Tonkotsu, Krispy Kreme, West Cornwall Pasty, Bubbleology, Hydes, Pizza Express, Maki & Ramen | **not fetched: the site's own robots.txt disallows the PDF address** (save the files from your own browser if you want them) |
 | Mother Hubbard's | HTTP 403 from the site: not worked round |
 | IRO Sushi | stored then deleted: an image-only menu, no text and no calorie figures |
