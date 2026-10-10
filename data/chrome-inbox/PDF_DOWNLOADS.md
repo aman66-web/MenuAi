@@ -21,5 +21,7 @@ Or save them yourself from your browser into `data/held-downloads/` and say "inb
 | Mother Hubbard's | https://www.mother-hubbards.co.uk/wp-content/uploads/2026/04/2026_food_and_drink.pdf | menu |
 | Cineworld | https://www.cineworld.ie/magnoliaPublic/dam/jcr:3bfbe003-5658-4ca0-add4-3918c1cb6bee/26-07-22%20Cineworld%20Allergen%20and%20Nutritional%20Information.pdf | allergens + nutrition |
 | Kew Gardens cafés | https://www.kew.org/sites/default/files/2026-10/Pavilion-menu-Autumn-2026.pdf and three more on https://www.kew.org/kew-gardens/eating-and-drinking | menus (single attraction: probably not worth it) |
+| Pizza Express | "Download PDF" buttons (allergens, nutritionals, ingredients list) on https://www.pizzaexpress.com/allergens-and-nutritionals (robots.txt of the site allows the page; the page also shows a cookie dialog that this session did not accept; note docs/PROGRESS.md says Pizza Express's earlier PDF host disallows automated fetching, so save the files yourself) | nutrition per dish + allergens |
+| Subway UK | Nutrition and Allergen PDFs (September 2026) linked from https://www.subway.com/en-gb/menunutrition/nutrition on media.subway.com (the menu pages are a JavaScript app that does not load in Chrome here and show no calories) | nutrition + allergens |
 
 Held for other reasons (not PDFs): Joe & The Juice (its robots.txt forbids automated reading), Cinnabon and Brakspear (a security check screen), Dobbies (menu loads only after accepting cookies), Millie's Cookies (needs a decision on which calorie figure is "the serving").

@@ -1,0 +1,12 @@
+Burger King UK terms, read 2026-10-10 at https://www.burgerking.co.uk/terms-of-use (BKUK Group Limited). Paraphrased, not copied; read the page for the exact words.
+
+- "Intellectual property": the site's content, including photographs and other images, belongs to BKUK. Printing copies is allowed only for non-commercial, informational, personal use, without modification.
+- Same section, "Copyright and Other Intellectual Property Rights": unless an authorised person permits it in writing, you may not copy, reproduce, distribute, publish, enter into a database, display, modify or otherwise use or exploit the BKUK Content.
+- "Trade and Service Marks": Burger King's logos and marks (and named product marks such as WHOPPER and BIG KING) may not be used commercially without written consent.
+- "Prohibited content and activities": no unauthorised spidering, scraping or harvesting of content, and no copying of the Services' graphics.
+
+robots.txt (https://www.burgerking.co.uk/robots.txt, read 2026-10-10): only /bcc and /rewards/details are disallowed. The menu and product pages and cdn.sanity.io (the image host: the downloader's RFC 9309 check passed) are not.
+
+How the photos were taken: each address was read from the network requests of the product's own page, opened one at a time in the founder's browser (no crawling, no script run on a page); the 38 files were then downloaded one per second by tools/uk_extract/inbox_photos.py and only resized (to 640 px WebP).
+
+Decision (CLAUDE.md rule 2, founder 2026-10-06): photos are installed for every chain even where its terms restrict reuse; that is the founder's accepted risk. The clauses above are the ones that apply. A chain's photos come down the day it asks (delete its photos folder and images.csv). Never used in marketing, the share card, the app icon or store screenshots.
