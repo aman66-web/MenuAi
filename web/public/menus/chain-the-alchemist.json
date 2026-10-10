@@ -1,0 +1,608 @@
+{
+ "schemaVersion": 1,
+ "id": "the-alchemist",
+ "name": "The Alchemist",
+ "cuisine": "Cocktail bar",
+ "builderType": "standard",
+ "aliases": [],
+ "sample": false,
+ "source": {
+  "title": "The Alchemist Food Menu: Large Plates, 'Allergens & Calories' (read 2026-10-10, no date shown)",
+  "url": "https://thealchemistbars.com/food/",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only; this is the Large Plates menu (menus can differ by city). Allergens are copied from under each dish; no may-contain list is published. Other menus and drinks were not read. Read from the chain's own pages on 2026-10-10 (12 UK sites: The page's 'Choose your city' list names 12 cities).",
+ "allergenGuide": {
+  "title": "The Alchemist food menu: allergens printed under each dish",
+  "url": "https://thealchemistbars.com/food/",
+  "checkedOn": "2026-10-10",
+  "mayContainPublished": false,
+  "complete": true
+ },
+ "categories": [
+  "Large Plates"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "crispy-curried-fish",
+   "name": "Crispy Curried Fish",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lobster-mac-and-cheese",
+   "name": "Lobster Mac & Cheese",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 818
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-katsu-curry",
+   "name": "Chicken Katsu Curry",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 800
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "smoked-tofu-katsu-curry",
+   "name": "Smoked Tofu Katsu Curry",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 886
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "mustard",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pork-belly-and-broth",
+   "name": "Pork Belly & Broth",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 558
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-tofu-and-broth",
+   "name": "Smoked Tofu & Broth",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rib-eye-steak",
+   "name": "Rib-Eye Steak",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 907
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coconut-tofu-curry",
+   "name": "Coconut Tofu Curry",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1246
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-in-a-basket-buttermilk-chicken",
+   "name": "Chicken in a Basket (buttermilk chicken)",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1375
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chicken-in-a-basket-plant-based-goujons",
+   "name": "Chicken in a Basket (plant-based goujons)",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "salt-and-pepper-chicken-basket",
+   "name": "Salt & Pepper Chicken Basket",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1436
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nashville-chicken-basket",
+   "name": "Nashville Chicken Basket",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1403
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "steak-smoking-board",
+   "name": "Steak Smoking Board",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 1072
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bbq-chicken-smoking-board",
+   "name": "BBQ Chicken Smoking Board",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 930
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bbq-pork-smoking-board",
+   "name": "BBQ Pork Smoking Board",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 935
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "smoked-tofu-smoking-board",
+   "name": "Smoked Tofu Smoking Board",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 973
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bang-bang-salad",
+   "name": "Bang Bang Salad",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bang-bang-salad-with-chicken",
+   "name": "Bang Bang Salad with Chicken",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 502
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "bang-bang-salad-with-tofu",
+   "name": "Bang Bang Salad with Tofu",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "caesar-salad",
+   "name": "Caesar Salad",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 584
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar Salad",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 766
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tofu-caesar-salad",
+   "name": "Tofu Caesar Salad",
+   "category": "Large Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 849
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

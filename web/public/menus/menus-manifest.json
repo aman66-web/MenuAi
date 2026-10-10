@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009151227,
- "generatedAt": "2026-10-09T15:12:27Z",
+ "dataVersion": 20261010175455,
+ "generatedAt": "2026-10-10T17:54:55Z",
  "chains": [
   {
    "id": "abokado",
@@ -375,6 +375,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "burger-king",
+   "name": "Burger King",
+   "cuisine": "Burgers",
+   "file": "chain-burger-king.json",
+   "sha256": "33b8fd70f180e930634295f169e89b8d7dfde33d50a501f02e67ab28e3462dfd",
+   "contentHash": "e773989c01f4cecccc966d996458e33d24661c3b5ee02986ddc08877951db40b",
+   "sample": false,
+   "itemCount": 52,
+   "checkedOn": "2026-10-10"
+  },
+  {
    "id": "burger-shack",
    "name": "Burger Shack",
    "cuisine": "Burgers",
@@ -615,6 +626,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "costa",
+   "name": "Costa Coffee",
+   "cuisine": "Coffee",
+   "file": "chain-costa.json",
+   "sha256": "5879f325bb73f5665005cb9aee10c4abf354970da62b211a30c18fbe62a630ad",
+   "contentHash": "73a3bfbb3154670034c4a2597e8cbafcc81fc4035b4965115fe0c21d0a4c8920",
+   "sample": false,
+   "itemCount": 141,
+   "checkedOn": "2026-10-09"
+  },
+  {
    "id": "cote-brasserie",
    "name": "Côte Brasserie",
    "cuisine": "French",
@@ -684,6 +706,17 @@
    "itemCount": 66,
    "checkedOn": "2026-10-08",
    "nutritionLevel": "calories"
+  },
+  {
+   "id": "dominos",
+   "name": "Domino's",
+   "cuisine": "Pizza",
+   "file": "chain-dominos.json",
+   "sha256": "6e376e3e407067f5b87fafdfc24796b87839e2323d434294605746acbdab1d84",
+   "contentHash": "645cc7092ef1e52dd54ca9f30bbe07c7b5d194f1fdd6544d77c8296fb1a8135e",
+   "sample": false,
+   "itemCount": 1291,
+   "checkedOn": "2026-10-10"
   },
   {
    "id": "drake-and-morgan",
@@ -1310,6 +1343,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "mcdonalds",
+   "name": "McDonald's",
+   "cuisine": "Burgers",
+   "file": "chain-mcdonalds.json",
+   "sha256": "d1a305f3ec53a3148dae7b2b058c0925884899bf408b56002db423e7365e4e9d",
+   "contentHash": "219cc58eea03dc806b0d0e915b7c32d6789a9db0bcc99cd3295cd6dfce4ed9fc",
+   "sample": false,
+   "itemCount": 151,
+   "checkedOn": "2026-10-09"
+  },
+  {
    "id": "mcmullens",
    "name": "McMullen & Sons",
    "cuisine": "Pub",
@@ -1852,6 +1896,17 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "starbucks",
+   "name": "Starbucks",
+   "cuisine": "Coffee",
+   "file": "chain-starbucks.json",
+   "sha256": "d466aad1fcac4d9f922a5421d301a98bb857d6c6c7c282a5849f08ce97c050e9",
+   "contentHash": "282cad98d23a7124c3bb0e0950c27a4b46b4088d2937b64aa97e52606bd3caf8",
+   "sample": false,
+   "itemCount": 55,
+   "checkedOn": "2026-10-10"
+  },
+  {
    "id": "sticks-n-sushi",
    "name": "Sticks'n'Sushi",
    "cuisine": "Japanese",
@@ -1884,6 +1939,18 @@
    "sample": false,
    "itemCount": 62,
    "checkedOn": "2026-10-07",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "sushi-shop",
+   "name": "Sushi Shop",
+   "cuisine": "Japanese",
+   "file": "chain-sushi-shop.json",
+   "sha256": "2a55cf03567b65e3cf3d37e205e0784fae7a26d69bc5baa23d522327896234a2",
+   "contentHash": "d96c85ae88061b2e3885aee4fbd2d3815140a2b40e9198bd708cc59d06dcec3f",
+   "sample": false,
+   "itemCount": 136,
+   "checkedOn": "2026-10-10",
    "nutritionLevel": "calories"
   },
   {
@@ -1930,6 +1997,18 @@
    "sample": false,
    "itemCount": 122,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "the-alchemist",
+   "name": "The Alchemist",
+   "cuisine": "Cocktail bar",
+   "file": "chain-the-alchemist.json",
+   "sha256": "1a44a44fab6865af454d4ef5def0f79238d6769c0fa4bd6730e3407c968a2721",
+   "contentHash": "67eb4f88cdbef96d137d4c0f13a4fba5c6435d19dead0af9a0e5866c51769288",
+   "sample": false,
+   "itemCount": 23,
+   "checkedOn": "2026-10-10",
    "nutritionLevel": "calories"
   },
   {
@@ -2022,6 +2101,18 @@
    "sample": false,
    "itemCount": 40,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "turtle-bay",
+   "name": "Turtle Bay",
+   "cuisine": "World food",
+   "file": "chain-turtle-bay.json",
+   "sha256": "e2948fd0d64b6421f78946e8518ef1b0b32e9e738491420536fdf916b07d0572",
+   "contentHash": "15979f3045adbcaec4ffb6b6f9f63a1b8be4047fe3814c77f729c2c07c53ec94",
+   "sample": false,
+   "itemCount": 60,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
   },
   {
    "id": "village-hotels",
@@ -2232,6 +2323,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "36fffa793b92139becec84df21a7ba54fc476b683787b6bad02e433dcbcec307"
+  "sha256": "db9e66dd75066a5552d22d602080c4f640c10fd7b06f1a09daf6411222ec163d"
  }
 }
