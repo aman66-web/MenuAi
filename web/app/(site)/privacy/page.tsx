@@ -65,6 +65,16 @@ export default function Privacy() {
         Your shopping list stays on your device. If you scan a barcode, the camera picture is read inside your browser and is never sent anywhere.
       </p>
 
+      <h2>Recipes and Pip&apos;s recipe maker</h2>
+      <p>
+        Recipes are worked out in your browser from the supermarket&apos;s product list; your meal size, diet choices and saved recipes stay on your device.
+        If you ask Pip to make a recipe, we send what you chose on that page (the meal, how many people, the meal size and protein, your diet and allergy
+        choices, and anything you typed in the &ldquo;Anything you&apos;d like?&rdquo; box) and the list of that shop&apos;s products it may use to our server, which passes
+        them to Anthropic, the company that makes the Claude AI, to write the recipe. No name, account, location or anything else is sent, and we don&apos;t keep a
+        copy: the recipe comes straight back to your browser. Our server uses a one-way scramble of your IP address, held only in memory for a day, to stop one
+        person asking too often.
+      </p>
+
       <h2>Apple Health</h2>
       <p>
         If you turn it on, the app writes the meals you log (calories, protein, carbs, fat and other published
@@ -113,6 +123,7 @@ export default function Privacy() {
         <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage for the iPhone app.</li>
         <li>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there).</li>
         <li>postcodes.io looks up the postcode or town you type on the web app&apos;s Nearby screen, and OpenFreeMap serves the map tiles there.</li>
+        <li>Anthropic (the Claude AI) writes a recipe when you ask Pip to make one, from the choices on that page.</li>
       </ul>
       <p>We don&apos;t sell or share your data, show ads, or track you across other apps and websites.</p>
 

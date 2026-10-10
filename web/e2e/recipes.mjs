@@ -6,12 +6,14 @@ import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
-const settings = JSON.stringify({ v: 1, data: { goal: "buildMuscle", dailyCalories: 2400, dailyProtein: 150, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"] } });
+const baseSettings = { goal: "buildMuscle", dailyCalories: 2400, dailyProtein: 150, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"] };
+const settings = JSON.stringify({ v: 1, data: baseSettings });
+const AI_ANSWER = { name: "Chicken and bean rice", blurb: "A warming one-pot dinner.", servings: 2, minutes: 35, ingredients: [{ key: "chicken", amount: 300, role: "protein" }, { key: "kidney-beans", amount: 240, role: "other" }, { key: "chopped-tomatoes", amount: 400, role: "other" }, { key: "rice", amount: 150, role: "carb" }], method: ["Cook the rice as the pack says.", "Brown the chicken until cooked through with no pink left.", "Stir in the tomatoes and beans and simmer for 10 minutes."], extras: ["Smoked paprika"] };
 const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==", "base64");
 
-async function newPage(colorScheme = "light") {
+async function newPage(colorScheme = "light", data = settings) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block", colorScheme });
-  await ctx.addInitScript((s) => { if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", s); }, settings);
+  await ctx.addInitScript((s) => { if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", s); }, data);
   const page = await ctx.newPage();
   await page.route("**/assets.sainsburys-groceries.co.uk/**", (r) => r.fulfill({ contentType: "image/png", body: PNG }));
   return { ctx, page };
@@ -39,11 +41,11 @@ await step("recipes list: every recipe priced at Sainsbury's, meat-free filter, 
   const cards = page.locator("a[href*='/app/recipes/view']");
   await cards.first().waitFor();
   const n = await cards.count();
-  expect(n === 12, `12 recipes, got ${n}`);
+  expect(n === 17, `17 recipes, got ${n}`);
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "No meat or fish" }).click();
   await page.waitForTimeout(200);
   const m = await cards.count();
-  expect(m === 4, `4 meat-free recipes, got ${m}`);
+  expect(m === 7, `7 meat-free recipes, got ${m}`);
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "All recipes" }).click();
   await page.getByRole("radio", { name: "Lowest price" }).click();
   await page.waitForTimeout(200);
@@ -99,12 +101,108 @@ await step("a shop product can be added to the list from its own page", async ()
   await ctx.close();
 });
 
+await step("your meal: sizes fit every recipe, own numbers, and recipes as written", async () => {
+  const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, goal: "maintain", dailyCalories: 2000 } }));
+  await page.goto(BASE + "/app/recipes");
+  await page.getByText("Each recipe is fitted to about 600 kcal a serving.").waitFor();
+  const cards = page.locator("a[href*='/app/recipes/view']");
+  await cards.first().waitFor();
+  await page.getByRole("radio", { name: /^Small, 400 kcal/ }).click();
+  await page.getByText("Each recipe is fitted to about 400 kcal a serving.").waitFor();
+  await page.getByRole("radio", { name: /^More protein/ }).click();
+  await page.getByText("Each recipe is fitted to about 400 kcal and 30 g protein a serving.").waitFor();
+  const first = (await cards.first().innerText()).replace(/\n/g, " ");
+  const kcal = Number(/(\d[\d,]*) kcal/i.exec(first)?.[1]?.replace(",", "") ?? /(\d+)\s*KCAL/.exec(first)?.[1]);
+  expect(kcal > 300 && kcal < 520, `closest fit near 400 kcal first, got ${kcal} in ${first.slice(0, 80)}`);
+  await page.getByRole("button", { name: "Type my own numbers" }).click();
+  await page.getByLabel("Calories a serving").fill("550");
+  await page.getByLabel("Protein (g)").fill("40");
+  await page.getByLabel("Fat, at most (g)").fill("18");
+  await page.getByRole("button", { name: "Use my numbers" }).click();
+  await page.getByText("Each recipe is fitted to about 550 kcal and 40 g protein, no more than 18 g fat a serving.").waitFor();
+  await page.getByRole("button", { name: "Show recipes as written" }).click();
+  await page.getByText("Recipes are shown as written.").waitFor();
+  await page.reload();
+  await page.getByText("Recipes are shown as written.").waitFor(); // remembered
+  await ctx.close();
+});
+
+await step("a fitted recipe shows the full label and can be seen as written", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
+  await page.getByRole("heading", { name: "Full nutrition per serving" }).waitFor();
+  for (const row of ["Energy", "Fat", "of which saturates", "Carbohydrate", "of which sugars", "Fibre", "Protein", "Salt"]) await page.getByRole("term").filter({ hasText: new RegExp(`^${row}$`) }).first().waitFor();
+  await page.getByText(/The amounts below are changed to fit\./).waitFor();
+  const chicken = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
+  const fitted = await chicken.innerText();
+  await page.getByRole("button", { name: "Show it as written" }).click();
+  await page.getByText("Showing the recipe as written.").waitFor();
+  const written = await chicken.innerText();
+  expect(written.startsWith("300 g"), `as written: 300 g chicken, got ${written.slice(0, 30)}`);
+  expect(fitted !== written, "fitting changed the chicken amount");
+  await ctx.close();
+});
+
+await step("halal: chicken recipes use halal-named chicken, others are left out and said so", async () => {
+  const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, preferences: { ...baseSettings.preferences, halalOnly: true } } }));
+  await page.goto(BASE + "/app/recipes");
+  await page.getByText(/Your diet:/).waitFor();
+  await page.getByText("Halal", { exact: false }).first().waitFor();
+  await page.getByText(/recipes? (is|are) left out for your diet/).waitFor();
+  expect((await page.getByRole("link", { name: /Turkey bolognese/ }).count()) === 0, "turkey left out for halal");
+  await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
+  await page.getByText(/Halal chicken breast fillets/).waitFor();
+  await page.getByRole("link", { name: /Halal/ }).first().waitFor();
+  await page.getByText(/check each pack before you buy/).waitFor();
+  await ctx.close();
+});
+
+await step("Ask Pip: big buttons, what is sent, the recipe from real products, save it, and an honest error", async () => {
+  const { ctx, page } = await newPage();
+  let sent = null;
+  let fail = false;
+  await page.route("**/api/v1/recipe", async (r) => {
+    if (r.request().method() === "GET") return r.fulfill({ contentType: "application/json", body: JSON.stringify({ enabled: true }) });
+    sent = JSON.parse(r.request().postData() ?? "{}");
+    await new Promise((res) => setTimeout(res, 400));
+    return fail ? r.fulfill({ status: 502, contentType: "application/json", body: JSON.stringify({ error: "no_recipe", message: "Pip couldn't make a recipe this time. Please try again, maybe with different words." }) }) : r.fulfill({ contentType: "application/json", body: JSON.stringify({ recipe: AI_ANSWER }) });
+  });
+  await page.goto(BASE + "/app/recipes");
+  await page.getByRole("link", { name: /Ask Pip to make a recipe/ }).click();
+  await page.getByRole("heading", { level: 1, name: "Ask Pip" }).waitFor();
+  await page.getByRole("radio", { name: "Dinner" }).click();
+  await page.getByRole("radio", { name: "2", exact: true }).click();
+  await page.getByRole("button", { name: "Comfort food" }).click();
+  await page.getByText(/Pip uses AI from Anthropic/).waitFor();
+  await page.getByRole("button", { name: "Make my recipe" }).click();
+  await page.getByText("I'm writing your recipe now…").waitFor();
+  await page.getByRole("heading", { level: 1, name: "Chicken and bean rice" }).waitFor({ timeout: 15000 });
+  expect(JSON.stringify(Object.keys(sent).sort()) === JSON.stringify(["diet", "meal", "pantry", "servings", "shop", "target", "wish"]), `only the choices are sent, got ${Object.keys(sent)}`);
+  expect(sent.meal === "dinner" && sent.servings === 2 && sent.wish === "Comfort food" && sent.target.kcal === 700 && sent.target.protein === 55, `choices sent: ${JSON.stringify({ ...sent, pantry: sent.pantry.length })}`);
+  expect(sent.pantry.length > 20 && sent.pantry.every((p) => p.key && p.product && typeof p.kcal === "number"), "the pantry of real products");
+  await page.getByText("Made by Pip").first().waitFor();
+  await page.getByText(/Pip wrote this recipe with AI from real products/).waitFor();
+  await page.getByRole("heading", { name: "Full nutrition per serving" }).waitFor();
+  await page.getByRole("button", { name: "Save this recipe" }).click();
+  await page.getByText("Saved to Your recipes.").waitFor();
+  await page.goto(BASE + "/app/recipes");
+  await page.getByRole("heading", { name: "Your recipes" }).waitFor();
+  await page.getByRole("link", { name: /Made by Pip.*Chicken and bean rice/s }).click();
+  await page.getByRole("heading", { level: 1, name: "Chicken and bean rice" }).waitFor();
+  fail = true;
+  await page.goto(BASE + "/app/recipes/make?r=sainsburys");
+  await page.getByRole("button", { name: "Make my recipe" }).click();
+  await page.getByText(/Pip couldn't make a recipe this time/).waitFor({ timeout: 15000 });
+  await ctx.close();
+});
+
 for (const scheme of ["light", "dark"]) {
   await step(`axe: recipes list and a recipe (${scheme})`, async () => {
     const { ctx, page } = await newPage(scheme);
-    for (const path of ["/app/recipes", "/app/recipes/view?id=chickpea-curry&r=sainsburys"]) {
+    await page.route("**/api/v1/recipe", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ enabled: true }) }));
+    for (const path of ["/app/recipes", "/app/recipes/view?id=chickpea-curry&r=sainsburys", "/app/recipes/make?r=sainsburys"]) {
       await page.goto(BASE + path);
-      await page.locator(path.includes("view") ? "text=How to make it" : "a[href*='/app/recipes/view']").first().waitFor();
+      await page.locator(path.includes("view") ? "text=How to make it" : path.includes("make") ? "text=Make my recipe" : "a[href*='/app/recipes/view']").first().waitFor();
       await page.waitForTimeout(600);
       await page.addScriptTag({ path: AXE });
       const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));

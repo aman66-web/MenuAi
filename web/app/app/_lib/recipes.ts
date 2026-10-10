@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
-import { RECIPES, recipeTotals, resolveRecipe, type Recipe, type RecipeTotals, type ResolvedRecipe } from "@/lib/mm/recipes";
+import { useEffect, useMemo, useState } from "react";
+import { fitDistance, fitRecipe, recipeForDiet, recipeTotals, resolveRecipe, RECIPES, type MealTarget, type Recipe, type RecipeTotals } from "@/lib/mm/recipes";
+import type { DietPrefs } from "@/lib/mm/pantry";
 import type { ShopManifest, ShopProduct } from "@/lib/mm/shopProducts";
 
 // Recipes filled with one shop's own products (lib/mm/recipes.ts). The shop's full list is loaded once and cached (_lib/shopProducts.ts).
@@ -16,17 +17,43 @@ export function recipeShop(manifest: ShopManifest | null, asked: string | null, 
 
 export interface RecipeCard {
   recipe: Recipe;
-  resolved: ResolvedRecipe;
-  totals: RecipeTotals | null;
+  totals: RecipeTotals;
+  /** How close one serving is to the target (0 = spot on); 0 when there is no target. */
+  distance: number;
 }
 
-/** Every recipe resolved against a shop's products (only complete ones have totals). */
-export function useRecipeCards(products: readonly ShopProduct[] | null): RecipeCard[] {
+/** Every recipe that suits the diet, fitted to the target when there is one (else as written). Recipes not complete at this shop are left out. */
+export function useRecipeCards(recipes: readonly Recipe[] | null, products: readonly ShopProduct[] | null, diet: DietPrefs, target: MealTarget | null): { cards: RecipeCard[]; leftOut: number } {
+  const dietKey = JSON.stringify(diet);
+  const targetKey = JSON.stringify(target);
   return useMemo(() => {
-    if (!products) return [];
-    return RECIPES.map((recipe) => {
-      const resolved = resolveRecipe(recipe, products);
-      return { recipe, resolved, totals: recipeTotals(resolved) };
-    });
-  }, [products]);
+    if (!products) return { cards: [], leftOut: 0 };
+    const all = recipes ?? RECIPES;
+    const d = JSON.parse(dietKey) as DietPrefs;
+    const t = JSON.parse(targetKey) as MealTarget | null;
+    let leftOut = 0;
+    const cards: RecipeCard[] = [];
+    for (const base of all) {
+      const recipe = recipeForDiet(base, d);
+      if (!recipe) { leftOut++; continue; }
+      const totals = t ? fitRecipe(recipe, products, {}, t)?.totals : recipeTotals(resolveRecipe(recipe, products));
+      if (!totals) continue;
+      cards.push({ recipe, totals, distance: t ? fitDistance(totals.perServing, t) : 0 });
+    }
+    return { cards, leftOut };
+  }, [recipes, products, dietKey, targetKey]);
+}
+
+/** Whether Pip's recipe maker is switched on (the server has its key). Null until known; false when the check fails. */
+export function useRecipeMakerEnabled(): boolean | null {
+  const [on, setOn] = useState<boolean | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/v1/recipe").then((r) => (r.ok ? r.json() : { enabled: false })).then(
+      (j: { enabled?: boolean }) => { if (!cancelled) setOn(j.enabled === true); },
+      () => { if (!cancelled) setOn(false); },
+    );
+    return () => { cancelled = true; };
+  }, []);
+  return on;
 }

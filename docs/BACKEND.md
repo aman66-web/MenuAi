@@ -80,6 +80,15 @@ Message 5–4,000 chars; email optional (needed only if the user wants a reply).
   400 for an invalid email, 429 after 5 sign-ups an hour from one caller. `source` comes from `?ref=` or
   `utm_source=` on the landing-page link, e.g. `https://<domain>/?ref=tiktok`.
 - `GET /api/health` → `{"ok": true, "time": "<ISO date>"}` (uptime checks; doesn't touch the database).
+- `GET /api/v1/recipe` → `{"enabled": true|false}` (whether `ANTHROPIC_API_KEY` is set).
+- `POST /api/v1/recipe` — Pip's recipe maker (web app; the iPhone app can use it later). Body: `{ shop, meal, servings (1-6), target
+  {kcal, protein?, carbsMax?, fatMax?}, diet {vegetarianOnly?, veganOnly?, halalOnly?, noPork?, noBeef?, avoidAllergens?}, wish (≤100 chars),
+  pantry [{key, label, unit, product, kcal, protein, carbs, fat, drained?}] }` (the browser builds the pantry from the shop's published list;
+  the server keeps only pantry kinds the diet allows). → 200 `{ recipe: {name, blurb, servings, minutes, ingredients [{key, amount, role}],
+  method[], extras[]} }`; the app works out every number from the product labels. 400 bad body, 403 not from our own pages (Origin), 422 not
+  enough ingredients for the diet, 429 too many (5 per 10 minutes, 25 a day per caller, in memory per server instance), 502 no usable recipe,
+  503 not switched on. Model: Claude Opus 5.5 (`web/lib/recipeAi.ts`), low effort, structured output, Anthropic's server-side fallback.
+  Nothing is stored. Cost: roughly a few pence per recipe; set a monthly spend limit in the Anthropic console.
 
 ### Rate limits (per caller per hour)
 Reports 30 · chain requests 30 · support 5 · waitlist 5. Constants: `web/lib/handlers.ts`.

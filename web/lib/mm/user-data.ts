@@ -51,6 +51,18 @@ export interface UserSettings {
   textSize?: TextSize;
   /** The supermarkets this person shops at (retailer ids, most used first): Groceries and Recipes open on the first one. */
   shops?: string[];
+  /** What Recipes fits each recipe to: a meal size (or the person's own numbers), more protein or not, or the recipes as written. */
+  recipeMeal?: RecipeMeal;
+}
+
+export interface RecipeMeal {
+  size: "small" | "normal" | "big" | "custom" | "written";
+  moreProtein: boolean;
+  /** Only for "custom": the person's own numbers per serving. */
+  kcal?: number;
+  protein?: number;
+  carbsMax?: number;
+  fatMax?: number;
 }
 
 export type TextSize = "standard" | "large" | "xlarge";
@@ -71,6 +83,21 @@ export const DEFAULT_SETTINGS: UserSettings = {
 };
 
 const SHOP_ID = /^[a-z0-9-]{2,30}$/;
+const MEAL_SIZES = ["small", "normal", "big", "custom", "written"] as const;
+
+function sanitizeRecipeMeal(raw: unknown): RecipeMeal | undefined {
+  if (!isObject(raw) || !MEAL_SIZES.includes(raw.size as RecipeMeal["size"])) return undefined;
+  const opt = (v: unknown, min: number, max: number) => (typeof v === "number" && Number.isFinite(v) && v >= min && v <= max ? Math.round(v) : undefined);
+  const kcal = opt(raw.kcal, 100, 3000);
+  const size = raw.size === "custom" && kcal === undefined ? "normal" : (raw.size as RecipeMeal["size"]);
+  const protein = opt(raw.protein, 1, 300);
+  const carbsMax = opt(raw.carbsMax, 1, 500);
+  const fatMax = opt(raw.fatMax, 1, 300);
+  return {
+    size, moreProtein: raw.moreProtein === true,
+    ...(size === "custom" ? { kcal, ...(protein ? { protein } : {}), ...(carbsMax ? { carbsMax } : {}), ...(fatMax ? { fatMax } : {}) } : {}),
+  };
+}
 const GOALS: readonly Goal[] = ["lose", "maintain", "buildMuscle", "glp1"];
 const isObject = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 const num = (v: unknown, fallback: number, min: number, max: number) =>
@@ -108,6 +135,7 @@ export function sanitizeSettings(raw: unknown): UserSettings {
     ...(Array.isArray(raw.shops) && raw.shops.some((x) => typeof x === "string" && SHOP_ID.test(x))
       ? { shops: [...new Set(raw.shops.filter((x): x is string => typeof x === "string" && SHOP_ID.test(x)))].slice(0, 12) }
       : {}),
+    ...(sanitizeRecipeMeal(raw.recipeMeal) ? { recipeMeal: sanitizeRecipeMeal(raw.recipeMeal) } : {}),
   };
 }
 

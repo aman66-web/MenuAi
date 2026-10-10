@@ -527,6 +527,35 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   founder:** the website headline/description and App Store title still say restaurants only ("Know your macros before you order", "Fast Food Macros"); say if you
   want them to cover shopping and cooking too.
 
+- 2026-10-10 — **Recipes you can fit to your numbers, recipes for your diet, and Pip's recipe maker with AI (founder: "complete macros ... allow the user to
+  choose what macros they want ... use AI to make the recipe based on that or their diet"; "old people use it too, so it needs to be straightforward").**
+  (1) **Pantry** (`lib/mm/pantry.ts`): 37 kinds of ingredient (each with its product match, its role, meat/fish/animal flags, the allergens it plainly contains, and
+  a halal-named variant where Sainsbury's sells one: Tariq Halal chicken and beef). Our recipes are built from it (now 17: Black bean chilli, Cod with butter beans,
+  Halloumi and chickpea wraps, Lentil and tomato pasta, Chicken thigh, bean and tomato rice added). (2) **Fit to your meal** (`fitRecipe`): the protein ingredients move
+  by one factor and the carb ones by another (each half to double), everything else stays as written; amounts rounded to 5 g (eggs to whole eggs) and every figure is then
+  worked out again from the labels. Recipes › **Your meal**: three big buttons (Small / Normal / Big = about 30% of the day's calories ±200 kcal; GLP-1 capped at the
+  comfortable meal size), Normal or **More protein** (an aim of 30% of the meal's calories from protein at 4 kcal/g), **Type my own numbers** (calories, protein, carbs
+  and fat limits), or **Show recipes as written**; remembered in Settings (`recipeMeal`). Recipes are sorted by closest fit. (3) **Full nutrition per serving**: energy
+  (kcal and kJ), fat, saturates, carbohydrate, sugars, fibre, protein, salt, each summed from the labels; a figure that any product doesn't print shows "not on every
+  label" (never filled in). (4) **Diet**: the Settings choices apply automatically (vegetarian, vegan, halal, no pork, no beef, allergies to avoid): a recipe with a
+  kind that plainly doesn't suit is left out ("3 recipes are left out for your diet"), halal uses halal-named meat only and leaves out shellfish and meat without a
+  halal-named product; Thai curry paste counts as fish (shrimp paste/fish sauce). Every screen says these are chosen by ingredient, not by each product's label: check each pack.
+  (5) **Pip's recipe maker** (`/app/recipes/make`, `lib/mm/aiRecipe.ts`, `lib/recipeHandler.ts`, `lib/recipeAi.ts`, `POST /api/v1/recipe`): big buttons for the meal,
+  how many people, the meal size, tap-to-fill ideas ("Comfort food", "A curry"...) or a short wish; the AI only chooses pantry kinds the diet allows (enforced in the
+  structured-output schema and again on the server and in the browser), the amounts and the words. **It never supplies a number shown**: the app finds the products, fits
+  the amounts and works out every figure from the labels. Its text is refused (and asked for once more) if the name or any step makes a health claim or gives a nutrition
+  figure or price; a claim in the blurb or an extra is dropped. Saved recipes stay on the device (`mm.v1.myRecipes`, "Your recipes", cleared by Clear data). Model:
+  **Claude Opus 5.5** at low effort, structured output, Anthropic's server-side refusal fallback (`fallbacks: "default"`). Rate limit 5 per 10 minutes and 25 a day per caller
+  (in memory per server instance), only our own pages may call it (Origin check), nothing stored. **New dependency `@anthropic-ai/sdk` 0.128.0** (pinned, released
+  22 Sep 2026) for the founder's AI request (CLAUDE.md rule 6: added because the founder asked for AI recipes; logged here). Privacy page: new section "Recipes and Pip's
+  recipe maker" and Anthropic in the processors list (last updated 10 October 2026). New copy (rule 8, logged here): "Your meal", "How big a meal?", "Small/Normal/Big",
+  "More protein", "as the recipe has it", "Type my own numbers", "Show recipes as written", "Each recipe is fitted to about …", "Full nutrition per serving", "not on every label",
+  "Your diet:", "… left out for your diet", "Ask Pip to make a recipe", "Ask Pip", "Which meal?", "How many people?", "Anything you'd like?", "Make my recipe", "I'm writing your
+  recipe now…", "Save this recipe", "Make another", "Your recipes", "Made by Pip", the AI note and the privacy line. Tests: 290 unit (pantry, fitting, diets, real-data
+  fits for all 17 recipes, halal at Sainsbury's, AI answer checks, server handler with a fake AI incl. retry/refusal/rate limit), `e2e/recipes.mjs` 10 steps (incl. what the
+  recipe maker sends: only shop, meal, servings, target, diet, wish and pantry), axe 0, no overflow at 200% text on the new screens.
+  **Not testable here:** a real call to the model (no API key in this environment); the whole flow is tested with a mocked answer.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -534,6 +563,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - `docs/BUILD_PLAN.md` M0–M10 (native iPhone app) are untouched and still planned.
 
 ## Founder to-do (things Claude can't do)
+
+- [ ] **Switch on Pip's recipe maker (AI recipes):** create an API key at console.anthropic.com › API Keys, set a monthly spend limit there (Settings › Limits; a recipe
+  costs roughly a few pence), then add it in Vercel › Project menumacros › Settings › Environment Variables as `ANTHROPIC_API_KEY` (Production and Preview) and redeploy.
+  Until then Recipes work as normal and "Ask Pip" says it isn't switched on yet (the button is hidden on the live site). Never paste the key into chat or the app.
 
 - [ ] Real bundle ID prefix, Team, App Group ID in Xcode signing and `AppConfig.swift`
 - [ ] Xcode: iPhone-only destination, iOS 17.0 minimum, capabilities (App Groups, HealthKit, In-App Purchase), shared scheme
