@@ -1,0 +1,154 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+big-r-sti,Big Rösti,Burgers,,803.0,37.0,59.0,46.0,14.0,,3.2,7.8,5.2,3349.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/big-rosti.html
+big-arch,Big Arch,Burgers,,1057.0,57.0,54.0,67.0,26.0,,4.1,15.0,4.0,4406.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/big-arch.html
+big-arch-with-bacon,Big Arch with Bacon,Burgers,,1103.0,62.0,54.0,70.0,28.0,,4.5,15.0,4.0,4599.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/big-arch-bacon.html
+big-mac,Big Mac,Burgers,,509.0,27.0,41.0,25.0,9.6,,2.0,8.1,3.4,2127.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/big-mac.html
+double-quarter-pounder-with-cheese,Double Quarter Pounder with Cheese,Burgers,,749.0,50.0,36.0,44.0,20.0,,2.8,11.0,2.5,3126.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/double-quarter-pounder-with-cheese.html
+quarter-pounder-with-cheese,Quarter Pounder with Cheese,Burgers,,514.0,31.0,36.0,27.0,13.0,,2.3,11.0,2.3,2148.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/quarter-pounder-with-cheese.html
+double-cheeseburger,Double Cheeseburger,Burgers,,452.0,27.0,31.0,24.0,11.0,,2.1,8.2,2.2,1886.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/double-cheeseburger.html
+cheeseburger,Cheeseburger,Burgers,,303.0,16.0,30.0,13.0,5.8,,1.4,7.5,2.1,1269.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/cheeseburger.html
+hamburger,Hamburger,Burgers,,255.0,13.0,29.0,9.2,3.5,,1.1,6.9,2.1,1072.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/hamburger.html
+double-filet-o-fish,Double Filet-O-Fish,Burgers,,453.0,24.0,45.0,19.0,3.7,,2.1,5.9,2.5,1897.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/double-filet-o-fish.html
+filet-o-fish,Filet-O-Fish,Burgers,,316.0,14.0,36.0,13.0,2.1,,1.4,5.4,2.2,1324.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/filet-o-fish.html
+mcplant,McPlant,Burgers,,426.0,19.0,40.0,20.0,6.5,,2.1,11.0,4.2,1783.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/vegan-mcplant.html
+maple-and-cheddar-chicken,Maple & Cheddar Chicken,Chicken,,642.0,29.0,70.0,27.0,5.5,,2.7,18.0,3.7,2692.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/maple-cheddar-chicken.html
+cheese-and-bacon-mccrispy,Cheese & Bacon McCrispy,Chicken,,578.0,33.0,55.0,24.0,5.3,,2.7,7.7,3.7,2421.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/cheese-bacon-mccrispy.html
+mccrispy,McCrispy,Chicken,,484.0,26.0,53.0,18.0,2.0,,1.9,6.9,3.7,2031.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mccrispy.html
+spicy-mccrispy,Spicy McCrispy,Chicken,,486.0,26.0,53.0,18.0,2.0,,2.0,6.2,3.6,2039.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/spicy-mccrispy.html
+the-mcdonalds-chicken-sharebox,The McDonald's Chicken Sharebox,Chicken,,1193.0,77.0,85.0,59.0,6.2,,4.3,1.1,5.4,4970.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/the-mcdonalds-chicken-sharebox.html
+9-chicken-selects-sharebox,9 Chicken Selects Sharebox,Chicken,,1008.0,70.0,66.0,50.0,4.9,,4.7,0.0,4.1,4181.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/9-chicken-selects-sharebox.html
+chicken-selects-5-pieces,Chicken Selects (5 pieces),Chicken,,560.0,39.0,36.0,28.0,2.7,,2.6,0.0,2.3,2323.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chicken-selects-5-pieces.html
+chicken-selects-3-pieces,Chicken Selects (3 pieces),Chicken,,336.0,23.0,22.0,17.0,1.6,,1.6,0.0,1.4,1394.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chicken-selects-3-pieces.html
+20-chicken-mcnuggets-sharebox,20 Chicken McNuggets Sharebox,Chicken,,869.0,50.0,68.0,43.0,4.9,,1.9,1.9,4.5,3638.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/20-chicken-mcnuggets-sharebox.html
+9-piece-chicken-mcnuggets,9 Piece Chicken McNuggets,Chicken,,391.0,22.0,31.0,19.0,2.2,,0.86,0.9,2.0,1637.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chicken-mcnuggets-9-pieces.html
+6-piece-chicken-mcnuggets,6 Piece Chicken McNuggets,Chicken,,261.0,15.0,21.0,13.0,1.5,,0.57,0.6,1.4,1092.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chicken-mcnuggets-6-pieces.html
+crispy-tikka-chicken-wrap,Crispy Tikka Chicken Wrap,Chicken,,455.0,21.0,50.0,18.0,2.0,,1.8,4.2,4.8,1902.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/the-tikka-chicken-one-crispy.html
+crispy-sweet-chilli-chicken-wrap,Crispy Sweet Chilli Chicken Wrap,Chicken,,453.0,21.0,53.0,16.0,1.9,,1.9,6.5,4.7,1894.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/the-sweet-chilli-chicken-one-crispy.html
+crispy-bbq-and-bacon-wrap,Crispy BBQ & Bacon Wrap,Chicken,,477.0,23.0,54.0,18.0,2.5,,2.1,6.3,4.6,1994.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/the-bbq-chicken-bacon-one-crispy.html
+mcchicken-sandwich,McChicken Sandwich,Chicken,,371.0,17.0,41.0,15.0,1.5,,1.2,7.0,2.7,1558.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mcchicken-sandwich.html
+mayo-chicken,Mayo Chicken,Chicken,,282.0,12.0,36.0,9.4,1.0,,0.92,5.1,2.1,1186.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mayo-chicken.html
+crispy-chicken-salad,Crispy Chicken Salad,Chicken,,355.0,21.0,24.0,18.0,3.5,,1.3,3.7,3.5,1483.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/crispy-chicken-salad.html
+crispy-chicken-and-bacon-salad,Crispy Chicken and Bacon Salad,Chicken,,401.0,26.0,25.0,21.0,4.5,,1.7,3.8,3.5,1676.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/crispy-chicken-bacon-salad.html
+paprika-mcshaker-fries-medium,Paprika McShaker Fries - Medium,Sides,Medium,345.0,3.6,43.0,17.0,1.5,,1.3,1.7,4.0,1445.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/paprika-shaker-fries-medium.html
+paprika-mcshaker-fries-large,Paprika McShaker Fries - Large,Sides,Large,452.0,4.6,56.0,22.0,2.0,,1.5,1.9,5.1,1890.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/paprika-shaker-fries-large.html
+mac-and-cheese-triangles,Mac & Cheese Triangles,Sides,,226.0,7.2,24.0,11.0,3.7,,1.0,0.9,1.2,949.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mac-cheese-triangles.html
+mac-and-cheese-triangles-sharebox,Mac & Cheese Triangles Sharebox,Sides,,679.0,22.0,71.0,33.0,11.0,,3.0,2.8,3.7,2846.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mac-cheese-triangles-sharebox.html
+mcdonalds-fries-small,McDonald's Fries - Small,Sides,Small,237.0,2.3,29.0,12.0,1.1,,0.44,0.4,2.6,990.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/fries-small.html
+mcdonalds-fries-medium,McDonald's Fries - Medium,Sides,Medium,337.0,3.3,42.0,17.0,1.5,,0.62,0.6,3.6,1410.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/fries-medium.html
+mcdonalds-fries-large,McDonald's Fries - Large,Sides,Large,444.0,4.4,55.0,22.0,2.0,,0.82,0.8,4.8,1855.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/fries-large.html
+side-salad,Side Salad,Sides,,58.0,1.2,3.8,4.0,1.1,,0.14,1.7,1.2,241.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/shaker-side-salad.html
+carrot-sticks,Carrot Sticks,Sides,,34.0,0.5,6.2,0.2,0.1,,0.08,5.8,2.4,141.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/carrot-sticks.html
+apple-slices,Apple Slices,Sides,,46.0,0.3,10.0,0.1,0.0,,0.0,10.0,1.8,194.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/apple-slices.html
+smores-mcflurry,S'mores McFlurry,Desserts,,338.0,6.0,51.0,12.0,7.5,,0.43,42.0,2.1,1420.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/smores-mcflurry.html
+smores-mini-mcflurry,S'mores Mini McFlurry,Desserts,Mini,169.0,3.0,26.0,5.8,3.7,,0.22,21.0,1.0,710.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/smores-mini-mcflurry.html
+oreo-mcflurry,Oreo McFlurry,Desserts,,260.0,5.2,39.0,9.0,6.0,,0.3,32.0,1.7,1093.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/oreo-mcflurry.html
+smarties-mcflurry,Smarties McFlurry,Desserts,,273.0,5.2,40.0,10.0,6.7,,0.19,37.0,1.5,1148.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/smarties-mcflurry.html
+chocolate-brownie,Chocolate Brownie,Desserts,,278.0,3.2,29.0,16.0,6.3,,0.04,24.0,1.6,1163.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chocolate-brownie.html
+mixed-berry-muffin,Mixed Berry Muffin,Desserts,,298.0,5.0,48.0,7.6,1.1,,0.43,25.0,5.2,1255.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mixed-berry-muffin.html
+sugar-donut,Sugar Donut,Desserts,,197.0,3.5,21.0,11.0,4.6,,0.33,5.7,0.8,823.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sugar-donut.html
+apple-pie,Apple Pie,Desserts,,243.0,2.3,27.0,14.0,3.0,,0.31,9.2,1.0,1016.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/apple-pie.html
+oreo-mcflurry-mini,Oreo McFlurry Mini,Desserts,Mini,130.0,2.6,19.0,4.5,3.0,,0.15,16.0,0.9,547.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/oreo-mcflurry-mini.html
+smarties-mcflurry-mini,Smarties McFlurry Mini,Desserts,Mini,137.0,2.6,20.0,5.0,3.3,,0.09,18.0,0.7,574.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/smarties-mini-mcflurry.html
+szechuan-dip,Szechuan Dip,Sauces,,91.0,1.4,16.0,2.1,0.9,,1.5,16.0,0.5,384.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/szechuan-dip.html
+vanilla-syrup,Vanilla Syrup,Sauces,,35.0,0.0,8.8,0.0,0.0,,0.0,8.4,0.0,150.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/vanilla-syrup.html
+caramel-syrup,Caramel Syrup,Sauces,,38.0,0.0,9.2,0.0,0.0,,0.27,9.0,0.0,156.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/caramel-syrup.html
+spicy-mayo-dip-40g,Spicy Mayo Dip - 40g,Sauces,,109.0,0.3,3.0,11.0,0.7,,0.84,1.2,0.2,449.0,40.0,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/spicy-mayo-dip.html
+sweet-chilli-dip,Sweet Chilli Dip,Sauces,,71.0,0.1,17.0,0.4,0.1,,0.56,14.0,0.3,299.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sweet-chilli-dip-40g.html
+garlic-mayo-dip,Garlic Mayo Dip,Sauces,,118.0,0.4,3.0,12.0,0.9,,0.36,0.8,0.2,486.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/garlic-mayonnaise-dip.html
+sweet-and-smoky-bbq-dip-40g,Sweet & Smoky BBQ Dip - 40g,Sauces,,60.0,0.4,15.0,0.0,0.0,,0.52,14.0,0.0,256.0,40.0,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sweet-and-smoky-bbq-dip-40g.html
+tomato-ketchup-25ml,Tomato Ketchup - 25ml,Sauces,25 ml,27.0,0.3,6.0,0.1,0.0,,0.53,4.6,0.6,114.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/tomato-ketchup-25ml.html
+sweet-curry-dip-25ml,Sweet Curry Dip - 25ml,Sauces,25 ml,47.0,0.3,10.0,0.4,0.0,,0.32,8.0,0.6,207.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sweet-curry-dip-25ml.html
+bbq-dip-25ml,BBQ Dip - 25ml,Sauces,25 ml,49.0,0.3,11.0,0.3,0.0,,0.54,9.3,0.4,207.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/bbq-dip-25ml.html
+sweet-and-sour-dip-25ml,Sweet & Sour Dip - 25ml,Sauces,25 ml,44.0,0.1,10.0,0.2,0.0,,0.21,8.7,0.4,185.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sweet-sour-dip-25ml.html
+milk-portion,Milk Portion,Sauces,,5.0,0.4,0.5,0.2,0.1,,0.01,0.5,0.0,22.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/milk-portion.html
+canderel-yellow-sweetener,Canderel Yellow Sweetener,Sauces,,2.0,0.0,0.4,0.0,0.0,,0.0,0.4,0.0,8.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/canderel-yellow-sweetener-sachet.html
+sugar-stick,Sugar Stick,Sauces,,12.0,0.0,3.0,0.0,0.0,,0.0,3.0,0.0,51.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sugar-stick.html
+strawberry-jam-15g,Strawberry Jam - 15g,Sauces,,39.0,0.1,9.6,0.0,0.0,,0.0,9.6,0.2,166.0,15.0,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/strawberry-jam-15g.html
+lurpak-spreadable,Lurpak Spreadable,Sauces,,54.0,0.0,0.0,6.0,2.8,,0.07,0.0,0.0,223.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/butter-portion.html
+lyles-golden-syrup,Lyle's Golden Syrup,Sauces,,63.0,0.1,16.0,0.0,0.0,,0.14,16.0,0.0,270.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/golden-syrup.html
+pancake-syrup-40g,Pancake Syrup - 40g,Sauces,,132.0,0.0,33.0,0.1,0.0,,0.0,25.0,0.0,560.0,40.0,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/pancake-syrup.html
+guava-x-sprite-zero,Guava x Sprite Zero,Cold Drinks,,6.0,0.1,0.3,0.0,0.0,,0.05,0.0,0.0,27.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/guava-x-sprite-zero.html
+chocolate-milkshake-small,Chocolate Milkshake - Small,Cold Drinks,Small,192.0,5.9,32.0,4.1,2.8,,0.35,27.0,1.1,808.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chocolate-milkshake-small.html
+chocolate-milkshake-medium,Chocolate Milkshake - Medium,Cold Drinks,Medium,364.0,11.0,61.0,7.8,5.3,,0.66,50.0,2.1,1536.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chocolate-milkshake-medium.html
+strawberry-milkshake-small,Strawberry Milkshake - Small,Cold Drinks,Small,188.0,5.5,33.0,3.7,2.6,,0.22,30.0,0.7,792.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/strawberry-milkshake-small.html
+strawberry-milkshake-medium,Strawberry Milkshake - Medium,Cold Drinks,Medium,356.0,11.0,62.0,7.0,4.9,,0.41,57.0,1.3,1501.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/strawberry-milkshake-medium.html
+banana-milkshake-small,Banana Milkshake - Small,Cold Drinks,Small,191.0,5.5,34.0,3.7,2.6,,0.2,30.0,0.7,807.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/banana-milkshake-small.html
+banana-milkshake-medium,Banana Milkshake - Medium,Cold Drinks,Medium,357.0,11.0,62.0,7.0,4.9,,0.39,58.0,1.3,1507.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/banana-milkshake-medium.html
+vanilla-milkshake-small,Vanilla Milkshake - Small,Cold Drinks,Small,192.0,5.5,34.0,3.7,2.6,,0.21,31.0,0.7,810.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/vanilla-milkshake-small.html
+vanilla-milkshake-medium,Vanilla Milkshake - Medium,Cold Drinks,Medium,366.0,11.0,64.0,7.0,4.9,,0.4,60.0,1.3,1543.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/vanilla-milkshake-medium.html
+coca-cola-zero-sugar-small,Coca-Cola Zero Sugar - Small,Cold Drinks,Small,1.0,0.0,0.0,0.0,0.0,,0.07,0.0,0.0,4.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/coca-cola-zero-sugar-small.html
+coca-cola-zero-sugar-medium,Coca-Cola Zero Sugar - Medium,Cold Drinks,Medium,1.0,0.0,0.0,0.0,0.0,,0.1,0.0,0.0,6.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/coca-cola-zero-sugar-medium.html
+coca-cola-zero-sugar-large,Coca-Cola Zero Sugar - Large,Cold Drinks,Large,2.0,0.0,0.0,0.0,0.0,,0.13,0.0,0.0,7.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/coca-cola-zero-sugar-large.html
+diet-coke-small,Diet Coke - Small,Cold Drinks,Small,1.0,0.0,0.0,0.0,0.0,,0.05,0.0,0.0,4.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/diet-coke-small.html
+diet-coke-medium,Diet Coke - Medium,Cold Drinks,Medium,1.0,0.0,0.0,0.0,0.0,,0.07,0.0,0.0,6.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/diet-coke-medium.html
+diet-coke-large,Diet Coke - Large,Cold Drinks,Large,2.0,0.0,0.0,0.0,0.0,,0.09,0.0,0.0,7.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/diet-coke-large.html
+sprite-zero-small,Sprite Zero - Small,Cold Drinks,Small,3.0,0.1,0.0,0.0,0.0,,0.03,0.0,0.0,13.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sprite-zero-small.html
+sprite-zero-medium,Sprite Zero - Medium,Cold Drinks,Medium,4.0,0.1,0.0,0.0,0.0,,0.05,0.0,0.0,20.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sprite-zero-medium.html
+sprite-zero-large,Sprite Zero - Large,Cold Drinks,Large,5.0,0.1,0.0,0.0,0.0,,0.07,0.0,0.0,25.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sprite-zero-large.html
+fanta-orange-zero-small,Fanta Orange Zero - Small,Cold Drinks,Small,3.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,13.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/fanta-orange-zero-small.html
+fanta-orange-zero-medium,Fanta Orange Zero - Medium,Cold Drinks,Medium,4.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,20.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/fanta-orange-zero-medium.html
+fanta-orange-zero-large,Fanta Orange Zero - Large,Cold Drinks,Large,5.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,25.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/fanta-orange-zero-large.html
+oasis-summer-fruits-zero-small,Oasis Summer Fruits Zero - Small,Cold Drinks,Small,7.0,0.0,1.2,0.0,0.0,,0.2,1.2,0.0,37.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/oasis-zero-small.html
+oasis-summer-fruits-zero-medium,Oasis Summer Fruits Zero - Medium,Cold Drinks,Medium,12.0,0.0,2.0,0.0,0.0,,0.32,2.0,0.0,60.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/oasis-zero-medium.html
+oasis-summer-fruits-zero-large,Oasis Summer Fruits Zero - Large,Cold Drinks,Large,15.0,0.0,2.5,0.0,0.0,,0.4,2.5,0.0,75.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/oasis-zero-large.html
+coca-cola-classic-small,Coca-Cola Classic - Small,Cold Drinks,Small,106.0,0.0,27.0,0.0,0.0,,0.0,27.0,0.0,451.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/coca-cola-small.html
+coca-cola-classic-medium,Coca-Cola Classic - Medium,Cold Drinks,Medium,170.0,0.0,42.0,0.0,0.0,,0.0,42.0,0.0,721.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/coca-cola-medium.html
+coca-cola-classic-large,Coca-Cola Classic - Large,Cold Drinks,Large,212.0,0.0,53.0,0.0,0.0,,0.0,53.0,0.0,901.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/coca-cola-large.html
+irn-bru-small,IRN-BRU - Small,Cold Drinks,Small,48.0,0.0,11.0,0.0,0.0,,0.0,11.0,0.0,203.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/irn-bru-small.html
+irn-bru-medium,IRN-BRU - Medium,Cold Drinks,Medium,76.0,0.0,18.0,0.0,0.0,,0.0,18.0,0.0,324.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/irn-bru-medium.html
+irn-bru-large,IRN-BRU - Large,Cold Drinks,Large,95.0,0.0,23.0,0.0,0.0,,0.0,23.0,0.0,405.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/irn-bru-large.html
+organic-milk,Organic Milk,Cold Drinks,,125.0,9.0,12.0,4.5,2.8,,0.28,12.0,0.0,524.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/organic-milk.html
+tropicana-apple-juice,Tropicana Apple Juice,Cold Drinks,,115.0,0.5,28.0,0.0,0.0,,0.0,25.0,1.5,488.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/tropicana-apple-juice.html
+tropicana-orange-juice,Tropicana Orange Juice,Cold Drinks,,100.0,2.0,23.0,0.0,0.0,,0.0,22.0,0.0,430.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/tropicana-orange-juice.html
+robinsons-fruit-shoot,Robinsons Fruit Shoot,Cold Drinks,,8.0,0.0,1.6,0.0,0.0,,0.06,1.6,0.0,36.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/robinsons-fruit-shoot.html
+semi-skimmed-milk-250ml,Semi Skimmed Milk - 250ml,Cold Drinks,250 ml,122.0,8.3,12.0,3.7,2.5,,0.37,12.0,0.0,512.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/semi-skimmed-milk-250ml.html
+brecon-carreg-natural-mineral-water-still-330ml,Brecon Carreg Natural Mineral Water (Still) - 330ml,Cold Drinks,330 ml,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/brecon-carreg.html
+smartwater-still-600ml,Smartwater (Still) - 600ml,Cold Drinks,600 ml,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/glaceau-smartwater-still-600ml.html
+deep-riverrock-water-330ml,Deep RiverRock Water - 330ml,Cold Drinks,330 ml,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/water-hm-deep-river-rock-330ml.html
+deep-riverrock-water-500ml,Deep RiverRock Water - 500ml,Cold Drinks,500 ml,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/water-deep-river-rock-500ml.html
+frozen-strawberry-lemonade-regular,Frozen Strawberry Lemonade - Regular,Cold Drinks,Regular,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/frozen-strawberry-lemonade-regular.html
+green-apple-x-sprite-zero,Green Apple x Sprite Zero,Cold Drinks,,6.0,0.1,0.2,0.0,0.0,,0.05,0.0,0.0,27.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/green-apple-x-sprite.html
+frozen-strawberry-lemonade-large,Frozen Strawberry Lemonade - Large,Cold Drinks,Large,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,0.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/frozen-strawberry-lemonade-large.html
+caramel-iced-frapp-regular,Caramel Iced Frappé - Regular,Cold Drinks,Regular,319.0,6.4,38.0,16.0,10.0,,0.31,33.0,0.7,1337.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/caramel-iced-frapp-regular.html
+caramel-iced-frapp-large,Caramel Iced Frappé - Large,Cold Drinks,Large,399.0,8.2,48.0,19.0,12.0,,0.4,42.0,1.0,1674.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/caramel-iced-frapp-large.html
+mango-and-pineapple-smoothie-regular,Mango & Pineapple Smoothie - Regular,Cold Drinks,Regular,153.0,1.2,34.0,0.5,0.1,,0.1,32.0,1.5,653.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mango-pineapple-iced-fruit-smoothie-regular.html
+mango-and-pineapple-smoothie-large,Mango & Pineapple Smoothie - Large,Cold Drinks,Large,200.0,1.6,44.0,0.7,0.1,,0.13,42.0,2.0,852.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mango-pineapple-iced-fruit-smoothie-large.html
+chicken-and-egg-mcmuffin,Chicken & Egg McMuffin,Breakfast,,396.0,22.0,38.0,17.0,4.6,,1.4,3.0,2.2,1660.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chicken-egg-mcmuffin.html
+chicken-and-bacon-mcmuffin,Chicken & Bacon McMuffin,Breakfast,,363.0,20.0,37.0,15.0,4.1,,1.6,2.9,2.2,1524.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/chicken-bacon-mcmuffin.html
+double-sausage-sandwich-with-ketchup,Double Sausage Sandwich with Ketchup,Breakfast,,455.0,28.0,31.0,24.0,9.0,,2.4,8.5,2.5,1848.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/double-sausage-sandwich-with-ketchup.html
+double-sausage-sandwich-with-brown-sauce,Double Sausage Sandwich with Brown Sauce,Breakfast,,458.0,28.0,31.0,24.0,9.0,,2.3,9.0,2.3,1914.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/double-sausage-sandwich-with-brown-sauce.html
+breakfast-wrap-with-ketchup,Breakfast Wrap with Ketchup,Breakfast,,661.0,35.0,52.0,34.0,10.0,,2.6,5.9,5.3,2766.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/breakfast-wrap-with-ketchup.html
+breakfast-wrap-with-brown-sauce,Breakfast Wrap with Brown Sauce,Breakfast,,666.0,35.0,53.0,34.0,10.0,,2.3,6.7,4.8,2785.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/breakfast-wrap-with-brown-sauce.html
+double-bacon-and-egg-mcmuffin,Double Bacon & Egg McMuffin,Breakfast,,377.0,24.0,27.0,19.0,6.7,,1.8,2.7,1.8,1575.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/double-bacon-egg-mcmuffin.html
+double-sausage-and-egg-mcmuffin,Double Sausage & Egg McMuffin,Breakfast,,552.0,36.0,28.0,33.0,11.0,,2.3,3.7,2.5,2303.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/double-sausage-egg-mcmuffin.html
+sausage-and-egg-mcmuffin,Sausage & Egg McMuffin,Breakfast,,424.0,25.0,27.0,23.0,8.2,,1.6,3.1,2.1,1770.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sausage-egg-mcmuffin.html
+bacon-and-egg-mcmuffin,Bacon & Egg McMuffin,Breakfast,,336.0,20.0,27.0,16.0,5.8,,1.4,2.6,1.8,1406.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/bacon-egg-mcmuffin.html
+egg-and-cheese-mcmuffin,Egg & Cheese McMuffin,Breakfast,,296.0,15.0,27.0,14.0,5.0,,0.96,2.6,1.8,1237.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/egg-cheese-mcmuffin.html
+muffin-with-jam,Muffin with Jam,Breakfast,,214.0,5.5,35.0,5.6,1.4,,0.44,11.0,1.9,903.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/muffin-jam.html
+sausage-sandwich-with-ketchup,Sausage Sandwich with Ketchup,Breakfast,,327.0,18.0,30.0,15.0,5.7,,1.7,8.0,2.2,1370.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sausage-sandwich-with-ketchup.html
+sausage-sandwich-with-brown-sauce,Sausage Sandwich with Brown Sauce,Breakfast,,330.0,17.0,31.0,15.0,5.7,,1.6,8.5,1.9,1381.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sausage-sandwich-with-brown-sauce.html
+cheesy-bacon-flatbread,Cheesy Bacon Flatbread,Breakfast,,280.0,14.0,28.0,12.0,5.9,,1.5,2.4,1.4,1171.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/cheesy-bacon-flatbread.html
+pancakes-and-syrup,Pancakes & Syrup,Breakfast,,464.0,9.0,98.0,3.2,0.5,,1.4,41.0,2.8,1967.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/pancakes-syrup.html
+hash-brown,Hash Brown,Breakfast,,127.0,1.1,13.0,7.4,0.7,,0.64,0.2,1.2,532.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/hash-brown.html
+porridge,Porridge,Breakfast,,154.0,7.8,23.0,3.0,1.3,,0.17,6.4,1.9,653.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/plain-porridge.html
+porridge-with-sugar,Porridge with Sugar,Breakfast,,206.0,9.0,31.0,4.3,2.0,,0.26,12.0,2.5,871.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/sugar-porridge.html
+porridge-with-strawberry-jam,Porridge with Strawberry Jam,Breakfast,,233.0,9.0,37.0,4.3,2.0,,0.26,18.0,2.7,986.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/jam-porridge.html
+porridge-with-lyles-golden-syrup,Porridge with Lyle's Golden Syrup,Breakfast,,326.0,9.0,61.0,4.3,2.0,,0.26,34.0,2.5,1380.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/golden-syrup-porridge.html
+flahavans-quick-oats,Flahavan's Quick Oats,Breakfast,,194.0,9.0,28.0,4.3,2.0,,0.26,8.8,2.5,820.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/flahavans-quick-oats.html
+mini-hash-browns-sharebox,Mini Hash Browns Sharebox,Sharers & Bundles,,316.0,2.8,34.0,18.0,1.3,,1.1,0.6,3.8,1318.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/mini-hash-browns-sharebox.html
+snack-wrap,Snack Wrap,Wraps & Salads,,282.0,11.0,31.0,12.0,1.3,,1.1,2.0,3.3,1178.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/snack-wrap.html
+flat-white,Flat White,McCafé,,86.0,6.3,8.4,3.1,1.9,,0.19,8.2,0.0,362.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/flat-white.html
+latte-regular,Latte - Regular,McCafé,Regular,145.0,11.0,14.0,5.2,3.2,,0.32,14.0,0.0,610.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/latte-regular.html
+latte-large,Latte - Large,McCafé,Large,197.0,14.0,19.0,7.1,4.3,,0.43,19.0,0.0,828.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/latte-large.html
+cappuccino-regular,Cappuccino - Regular,McCafé,Regular,89.0,6.4,8.6,3.4,2.1,,34.294484,8.6,0.0,372.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/cappuccino-regular.html
+cappuccino-large,Cappuccino - Large,McCafé,Large,120.0,8.7,12.0,4.5,2.8,,34.362971,12.0,0.0,503.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/cappuccino-large.html
+white-coffee-regular,White Coffee - Regular,McCafé,Regular,54.0,4.1,5.5,1.8,1.1,,0.11,4.7,0.0,229.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/white-coffee-regular.html
+white-coffee-large,White Coffee - Large,McCafé,Large,74.0,5.6,7.6,2.4,1.5,,0.16,6.4,0.0,313.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/white-coffee-large.html
+americano-regular,Americano - Regular,McCafé,Regular,6.0,0.6,0.8,0.0,0.0,,0.01,0.0,0.0,23.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/americano-regular.html
+americano-large,Americano - Large,McCafé,Large,8.0,0.8,1.1,0.0,0.0,,0.01,0.0,0.0,32.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/americano-large.html
+double-espresso,Double Espresso,McCafé,,1.0,0.1,0.2,0.0,0.0,,0.0,0.0,0.0,5.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/espresso.html
+espresso,Espresso,McCafé,,1.0,0.1,0.1,0.0,0.0,,0.0,0.0,0.0,3.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/espresso-single.html
+hot-chocolate-regular,Hot Chocolate - Regular,McCafé,Regular,173.0,2.2,30.0,4.3,2.2,,0.57,27.0,2.3,727.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/hot-chocolate-regular.html
+hot-chocolate-large,Hot Chocolate - Large,McCafé,Large,231.0,3.0,40.0,5.8,3.0,,0.77,36.0,3.1,974.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/hot-chocolate-large.html
+tea-regular,Tea - Regular,McCafé,Regular,6.0,0.4,0.8,0.2,0.1,,0.01,0.5,0.0,26.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/tea-regular.html
+tea-large,Tea - Large,McCafé,Large,12.0,0.7,1.4,0.4,0.2,,0.02,1.0,0.0,50.0,,,,,,,false,true,,,Read from https://www.mcdonalds.com/gb/en-gb/product/tea-large.html
