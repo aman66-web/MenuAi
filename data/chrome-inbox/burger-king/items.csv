@@ -1,0 +1,54 @@
+name,category,calories,protein_g,carbs_g,fat_g,sat_fat_g,sugar_g,fiber_g,salt_g,energy_kj,weight_g,serving,page_url,contains,may_contain
+Bacon Caesar Angus,Burgers,869,40,41,59,21,8,,6.8,3635.9,,,https://www.burgerking.co.uk/menu/picker-0a497976-a6f3-478f-a77c-68dd7877d356,milk;eggs;wheat;gluten,sesame;soya;mustard;celery
+Bacon Caesar Crispy Chicken,Chicken & veggie,762,31,57,45,12,8,,7.7,3188.2,,,https://www.burgerking.co.uk/menu/picker-03fa56b4-17f4-4027-8915-6107980e45a4,milk;eggs;wheat;gluten,soya;sesame;celery;mustard
+Large Fries,Sides,337,6.9,42,16,3.3,0.7,,0.6,1410,,,https://www.burgerking.co.uk/menu,,milk;fish;crustaceans;molluscs;soya;wheat;mustard;celery;gluten;sulphites
+Texan BBQ King,Burgers,996,53,63,59,22,13,,3.1,4167.3,,,https://www.burgerking.co.uk/menu/picker-4042b898-fe4d-4249-aac7-6e97cdcca7b8,milk;eggs;wheat;mustard;sesame;gluten,soya;celery
+Texan BBQ Royale,Burgers,691,28,66,34,8.6,16,,3.9,2891.1,,,https://www.burgerking.co.uk/menu/picker-16c25471-2318-49a5-be5f-db745f62a12a,milk;eggs;wheat;mustard;sesame;celery;gluten,soya
+Texan BBQ Double Royale,Burgers,922,43,79,47,9.9,16,,5,3857.6,,,https://www.burgerking.co.uk/menu/picker-a97468db-fd1c-4f9f-bd04-cd1860828ec6,milk;eggs;wheat;mustard;sesame;celery;gluten,soya
+BBQ Steakhouse Angus,Burgers,792,41,45,49,20,12,,2.8,3313.7,,,https://www.burgerking.co.uk/menu/picker-8bbd27c3-1e77-4695-8e8a-c4031d76f5e1,milk;wheat;mustard;gluten,eggs;sesame
+BBQ Steakhouse Crispy Chicken,Chicken & veggie,637,32,63,28,10,15,,3.7,2665.2,,,https://www.burgerking.co.uk/menu/picker-ac546e7a-d82b-4e3a-b446-b8314d6cfccb,milk;wheat;mustard;gluten,eggs;soya;sesame;celery
+WHOPPER® with Bacon and Cheese,Burgers,721,39,50,49,14,13,,3.7,3016.7,,,https://www.burgerking.co.uk/menu/picker-c0d49343-ee9e-4376-a8ac-934ac156f51f,milk;wheat;sesame;celery;gluten,eggs;mustard
+WHOPPER®,Burgers,595,29,53,30,8.2,11,,2.3,2489.5,,,https://www.burgerking.co.uk/menu/picker-23d38263-8347-4ddc-aec0-a738c3cc6578,wheat;sesame;celery;gluten,milk;eggs;soya;mustard
+Double WHOPPER®,Burgers,840,52,48,48,16,12,,2.3,3514.6,,,https://www.burgerking.co.uk/menu/picker-d0d2c428-1b2d-443a-86e2-739f161fa6db,wheat;sesame;celery;gluten,milk;eggs;soya;mustard
+Double Whopper® with Bacon and Cheese,Burgers,960,60,50,57,21,13,,3.8,4016.6,,,https://www.burgerking.co.uk/menu/picker-1785eadf-89b6-40f1-b6f8-28cddca44850,milk;wheat;sesame;celery;gluten,eggs;soya;mustard
+Bacon Double Cheese XL,Burgers,910,63,45,52,24,8.2,,3.8,3807.4,,,https://www.burgerking.co.uk/menu/picker-69dae60e-146d-4b37-8090-9c7639c79a5a,milk;wheat;sesame;gluten,eggs;soya;mustard;celery
+Bacon Double Cheeseburger,Burgers,440,30,26,24,11,4.5,,2.1,1841,,,https://www.burgerking.co.uk/menu/picker-0493aedb-baf4-47b8-ad61-029dde49b6fe,milk;wheat;mustard;sesame;celery;gluten,eggs;soya
+Chicken Royale,Chicken & veggie,568,23,52,29,3,6,,2.5,2376.5,,,https://www.burgerking.co.uk/menu/picker-e30e8df2-b618-45fc-b60a-27eaefa57894,wheat;sesame;celery;gluten,milk;eggs;soya;mustard
+Chicken Royale Bacon & Cheese,Chicken & veggie,690,31,54,38,7.8,7.8,,3.9,2887,,,https://www.burgerking.co.uk/menu/picker-734bb15c-6d84-46c3-a08e-871f0ac6576e,milk;wheat;sesame;celery;gluten,eggs;soya;mustard
+Double Chicken Royale,Chicken & veggie,792,38,65,41,3.9,6.3,,3.7,3313.7,,,https://www.burgerking.co.uk/menu/picker-780e10ef-7cd3-44a5-97f0-418d55a19cd1,wheat;sesame;celery;gluten,milk;eggs;soya;mustard
+Double Chicken Royale Bacon & Cheese,Chicken & veggie,846,42.1,62.3,47,9.1,8.2,,6.2,3539.7,,,https://www.burgerking.co.uk/menu/picker-95a26e75-830d-4fd6-9a85-2fc026871cba,milk;wheat;sesame;celery;gluten,eggs;soya;mustard
+Classic Chicken Melt,Chicken & veggie,411,19,40,19,6.3,4.2,,2,1719.6,,,https://www.burgerking.co.uk/menu/item-item_75259,milk;wheat;sesame;celery;gluten,eggs;soya;mustard
+Vegan Royale,Chicken & veggie,557,17,53,29,2.7,0.7,,2.9,2330.5,,,https://www.burgerking.co.uk/menu/picker-5b9b9566-997b-4a15-88dd-2ca2626de654,soya;wheat;sesame;gluten,milk;eggs;mustard;celery
+Plant-based WHOPPER®,Chicken & veggie,528,27,47,24,4.5,0.7,,2.5,2209.2,,,https://www.burgerking.co.uk/menu/picker-fe6d92f7-5bd2-455b-8bef-ff6939aabba5,soya;wheat;sesame;celery;gluten,milk;eggs;mustard
+6pc Onion Rings,Sides,225,4.6,42,9.8,2.2,0.7,,0.4,941.4,,,https://www.burgerking.co.uk/menu/picker-0a707f28-3aed-4678-8790-25a17d62584b,wheat;gluten,milk;eggs;soya;mustard;celery
+Hamburger,Burgers,247,14,26,9.4,3.7,5.3,,1.1,1033.4,,,https://www.burgerking.co.uk/menu/picker-11377de0-5046-423e-96ed-c155405c48fe,wheat;mustard;sesame;celery;gluten,milk;eggs
+Kids Hamburger,Kids,244,14,26,9.2,3.7,5.3,,0.8,1020.9,,,https://www.burgerking.co.uk/menu/picker-1ea7e05d-5527-465d-9a06-8ce6ce1999aa,wheat;sesame;celery;gluten,milk;eggs;soya;mustard
+Small Fries,Sides,208.8,2.4,28,8.8,2.5,0.3,,0.4,873.6,,,https://www.burgerking.co.uk/menu/picker-1ea7e05d-5527-465d-9a06-8ce6ce1999aa,,milk;eggs;fish;crustaceans;molluscs;soya;wheat;mustard;celery;gluten;sulphites
+4 Chilli Cheese Bites,Sides,217,6.4,20.1,12,5.2,0.7,,1.4,907.9,,,https://www.burgerking.co.uk/menu/picker-1ea7e05d-5527-465d-9a06-8ce6ce1999aa,milk;wheat;gluten,eggs;soya;mustard;celery
+9 Nuggets,Chicken & sides,382,20,27,21,3.2,1.8,,2.1,1598.3,,,https://www.burgerking.co.uk/menu/picker-335a685e-d422-478e-9a76-c6a5b742d9dc,wheat;celery;gluten,milk;eggs;soya;mustard
+6 Chilli Cheese Bites,Sides,318,10,31,17,7.3,1.4,,2,1330.5,,,https://www.burgerking.co.uk/menu/picker-464ce53b-3fd4-4e87-b0ac-903bcbc94e6f,milk;wheat;gluten,eggs;soya;mustard;celery
+Cheeseburger,Burgers,285,16,27,12,5.6,5.8,,1.6,1192.4,,,https://www.burgerking.co.uk/menu/picker-558a6077-a1a2-439a-9667-f5ea170cb3ea,milk;wheat;mustard;sesame;celery;gluten,eggs;soya
+9pc Kansas BBQ Chicken Fries,Sides,398,20.8,25.3,23.8,2.8,3.7,,1.1,1665.1,,,https://www.burgerking.co.uk/menu/picker-5bb909c4-8fef-4bf9-b1bc-86ac20ac05e0,wheat;gluten,milk;eggs;soya;mustard;celery
+Classic Double Beef Melt,Burgers,352,23,25,17,7.4,3.7,,1,1472.8,,,https://www.burgerking.co.uk/menu/picker-74e69c56-0d7d-4942-a079-f561ad551640,milk;wheat;sesame;gluten,eggs;soya;mustard;celery
+Regular Fries,Sides,269.1,3.1,36,11.4,3.3,0.4,,0.6,1126,,,https://www.burgerking.co.uk/menu/picker-74e69c56-0d7d-4942-a079-f561ad551640,,milk;eggs;fish;crustaceans;molluscs;soya;wheat;mustard;celery;gluten;sulphites
+3 Chilli Cheese Bites,Sides,162.8,4.8,15.1,9,3.9,0.5,,1,680.9,,,https://www.burgerking.co.uk/menu/picker-74e69c56-0d7d-4942-a079-f561ad551640,milk;wheat;gluten,eggs;soya;mustard;celery
+The Wagyu,Burgers,766,37.9,47,47,14.4,13,,1.8,3204.9,,,https://www.burgerking.co.uk/menu/picker-86e0f4ef-122e-4c31-95d5-c3a646701341,milk;sesame;gluten,eggs;soya
+Double Cheeseburger,Burgers,418,27,28,22,10,6.3,,2.2,1748.9,,,https://www.burgerking.co.uk/menu/picker-7c6cf418-9d65-4d81-9fca-884ce065637a,milk;wheat;mustard;sesame;celery;gluten,eggs;soya
+Big King Double Royale,Burgers,1159,46,110,57,9.5,12,,7.1,4849.3,,,https://www.burgerking.co.uk/menu/picker-bc674ecf-b99d-4ec5-8747-51fefa15d52f,,
+Big King Royale,Burgers,645,27,57,33,6.3,11,,4.8,2698.7,,,https://www.burgerking.co.uk/menu/picker-c4f63154-ca0d-48ad-b834-5b0620dc21a7,,
+Big King,Burgers,941,52,55,57,20,17,,3.6,3937.1,,,https://www.burgerking.co.uk/menu/picker-49e49a7f-82d6-463f-af7f-6b0e53b4805f,milk;eggs;wheat;mustard;sesame;gluten,soya;celery
+Bacon BBQ Chicken Stacker,Chicken & veggie,523,21,47,27,8,7.7,,2.6,2188.2,,,https://www.burgerking.co.uk/menu/picker-ea6b21d5-afda-4d4a-b7d3-ad758bc7a67c,milk;wheat;mustard;sesame;celery;gluten,eggs;soya
+4pc Kansas BBQ Chicken Fries,Sides,176.9,9.2,11.2,10.6,1.3,1.7,,0.5,740.1,,,https://www.burgerking.co.uk/menu/picker-ea6b21d5-afda-4d4a-b7d3-ad758bc7a67c,wheat;gluten,milk;eggs;soya;mustard;celery
+Bacon BBQ Stacker Melt Burger,Burgers,515,27,39,28,8.8,8.2,,1.6,2154.8,,,https://www.burgerking.co.uk/menu/picker-f4324670-cf9d-44ff-b173-f3717d15ff9b,milk;wheat;mustard;sesame;gluten,eggs;soya;celery
+9 Chilli Cheese Bites,Sides,477,15,47,25,11,2.1,,3.1,1995.8,,,https://www.burgerking.co.uk/menu/picker-f5d1efe3-8788-400a-8e48-a43746a67885,milk;wheat;gluten,eggs;soya;mustard;celery
+5pc Halloumi Fries,Sides,240,16,1.3,19,11.7,0.7,,1.8,1004.2,,,https://www.burgerking.co.uk/menu/picker-fc12e23d-762f-4758-a84d-4ab0fae93451,milk,eggs;soya;wheat;mustard;celery;gluten
+Kids Nuggets,Kids,169,9,12,9.2,1.4,0.7,,0.9,707.1,,,https://www.burgerking.co.uk/menu/picker-69cea646-dad4-4428-8822-e9b37c213c0f,wheat;celery;gluten,milk;eggs;soya;mustard
+Kids Cheeseburger,Kids,281,16,27,12,5.5,5.7,,1.3,1175.7,,,https://www.burgerking.co.uk/menu/picker-dce01677-51d2-49f5-8428-53ea41caab90,milk;wheat;sesame;celery;gluten,eggs;soya;mustard
+Truffle Loaded King Fries,Sides,666,8.9,61,42,7.7,0.7,,1.6,2786.5,,,https://www.burgerking.co.uk/menu/item-00d0d7a3-e9e6-458c-8017-367ec7216a6f,eggs;mustard,milk;soya;sesame;celery;gluten
+Breakfast King,Breakfast,505.5,34.7,37.4,23.6,9.9,9.9,,1.8,2115.1,,,https://www.burgerking.co.uk/menu/item-item_42432,milk;eggs;wheat;celery;gluten,sesame;soya;mustard
+Ultimate Breakfast sandwich,Breakfast,246.2,11.9,37,5.2,2,9.6,,2.1,1030,,,https://www.burgerking.co.uk/menu/item-item_42433,milk;eggs;wheat;celery;gluten,sesame;soya;mustard
+Sausage Butty,Breakfast,328.8,16.3,37.6,12.1,4.3,9.7,,1,1375.8,,,https://www.burgerking.co.uk/menu/item-item_42518,wheat;celery;gluten,sesame;soya;mustard
+Bacon and Egg Sandwich,Breakfast,246.2,11.9,37,5.2,2,9.6,,1.6,1030,,,https://www.burgerking.co.uk/menu/item-item_42520,milk;eggs;wheat;celery;gluten,sesame
+Sausage and Egg sandwich,Breakfast,199.9,6,37,2.7,1,9.5,,1.4,836.5,,,https://www.burgerking.co.uk/menu/item-item_42521,milk;eggs;wheat;celery;gluten,sesame;soya;mustard
+Gooey Salted Caramel Cheesecake Bar,Desserts,285,4.8,34.2,8.7,7.1,0.7,,0.4,1192.4,,,https://www.burgerking.co.uk/menu/item-item_88841,milk;eggs;wheat;gluten,tree nuts;soya
+Chocolate Brownie Cheesecake Bar,Desserts,294,4.5,35.2,15,7.5,0.7,,0.1,1230.1,,,https://www.burgerking.co.uk/menu/item-item_88842,milk;eggs;soya;wheat;gluten,tree nuts
