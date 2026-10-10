@@ -71,10 +71,7 @@ def H(s: str) -> str:
 
 
 def done_slugs(work: Path) -> set:
-    done: set = set()
-    if OUT.exists():
-        with open(OUT, newline="", encoding="utf-8") as f:
-            done |= {r["product_id"] for r in csv.DictReader(f)}
+    done: set = set()  # the stored reads are the record; the CSV is derived from them (counting its rows here would hide products that must be read again)
     for p in list(work.glob("results_*.tsv")) + list(work.glob("none_*.txt")):
         for line in p.read_text(encoding="utf-8").splitlines():
             if not line:
