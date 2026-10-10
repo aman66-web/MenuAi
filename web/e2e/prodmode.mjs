@@ -13,8 +13,8 @@ let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
 
-await step("home: real chains only (no sample data), even with a stale Pro override in storage", async () => {
-  await page.goto(BASE + "/app");
+await step("Eat out: real chains only (no sample data), even with a stale Pro override in storage", async () => {
+  await page.goto(BASE + "/app/eat-out");
   await vis(page.getByText(/\d+ UK restaurants/));
   await page.waitForTimeout(500);
   if (requests.some((r) => r.startsWith("/menus-sample"))) throw new Error("sample menus were requested in production");
@@ -22,17 +22,18 @@ await step("home: real chains only (no sample data), even with a stale Pro overr
   if (await page.getByText(/Cluck House|Bowl & Co/).count()) throw new Error("a fictional chain is listed");
   if (await page.getByText("Left today").count()) throw new Error("Pro UI visible although Pro cannot be unlocked here");
 });
-await step("home: honest empty state when no chain is published yet", async () => {
+await step("Eat out: honest empty state when no chain is published yet", async () => {
   // the published data now has real chains, so serve an empty (valid) manifest to check the state a new deploy starts in
   await page.route("**/menus/menus-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ schemaVersion: 1, dataVersion: 1, generatedAt: "2026-10-01T00:00:00Z", chains: [] }) }));
-  await page.goto(BASE + "/app");
+  await page.goto(BASE + "/app/eat-out");
   await vis(page.getByText("Menus are coming soon"));
   await vis(page.getByRole("button", { name: "Request a chain" }));
   await page.waitForTimeout(500);
   if (requests.some((r) => r.startsWith("/menus-sample"))) throw new Error("sample menus were requested in production");
   if (await page.getByText("fictional sample data").count()) throw new Error("sample banner visible");
-  if (await page.getByText("Left today").count()) throw new Error("Pro UI visible although Pro cannot be unlocked here");
-  await vis(page.getByText("Your targets:"));
+  await page.goto(BASE + "/app");
+  await vis(page.getByText("Your daily targets"));
+  if (await page.getByText("Left today:", { exact: true }).count()) throw new Error("Pro UI visible on Home although Pro cannot be unlocked here");
 });
 await step("a stale devProOverride does nothing in production: Today shows the free explainer and the honest paywall", async () => {
   await page.goto(BASE + "/app/today");
@@ -59,7 +60,7 @@ await step("an unknown chain says so politely", async () => {
   await vis(page.getByText("That restaurant isn't available."));
 });
 await step("request a chain still works from the empty state", async () => {
-  await page.goto(BASE + "/app");
+  await page.goto(BASE + "/app/eat-out");
   await page.getByRole("button", { name: "Request a chain" }).click();
   await page.getByLabel("Which restaurant?").fill("Real Burgers");
   await page.getByRole("button", { name: "Send request" }).click();
