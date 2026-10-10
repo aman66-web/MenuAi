@@ -1,0 +1,24 @@
+{
+ "chain": "mcdonalds",
+ "date": "2026-10-11",
+ "source_read": "the product pages on https://www.mcdonalds.com/gb/en-gb/product/<slug>.html (each prints a 'Nutritional Information' table per portion)",
+ "method": "Independent second read in the founder's Chrome: the table of each page was brought into view and read from a zoomed screenshot (the page's accessibility tree omits the fat, carbohydrate and protein cells, so text extraction cannot be used). 15 rows drawn at random (seed 31) from data/source/mcdonalds; kJ, kcal, fat, saturates, carbohydrates, sugars, fibre, protein and salt of each were compared with items.csv.",
+ "sample": [
+  "Big Mac",
+  "Double Bacon & Egg McMuffin",
+  "Crispy Chicken Salad",
+  "Tropicana Orange Juice",
+  "McDonald's Fries - Large",
+  "McPlant",
+  "McDonald's Fries - Medium",
+  "Snack Wrap",
+  "BBQ Dip - 25ml",
+  "Side Salad",
+  "Hamburger",
+  "Spicy McCrispy",
+  "McDonald's Fries - Small",
+  "Chicken & Egg McMuffin",
+  "Porridge with Lyle's Golden Syrup"
+ ],
+ "result": "15 of 15 rows match on every nutrient figure. Allergens were not re-read in this pass (they come from the bold words in each product's Ingredients & Allergens panel; 12 products print none, which is why the chain's allergens stay link-only). The Cappuccino salt figure (34 g) was seen again earlier on the page and the two rows stay held back."
+}
