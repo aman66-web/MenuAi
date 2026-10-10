@@ -1,0 +1,799 @@
+{
+ "schemaVersion": 1,
+ "id": "avanti-west-coast",
+ "name": "Avanti West Coast",
+ "cuisine": "Cafe",
+ "builderType": "standard",
+ "aliases": [
+  "avanti west coast",
+  "avanti",
+  "avanti west coast first class",
+  "avanti west coast onboard shop",
+  "west coast main line"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Avanti West Coast onboard menus with calories (First Class summer 2026 menus for Pendolino weekdays, Evero weekdays and weekends, valid 1 July to 13 October 2026, and the onboard shop menu, May 2026)",
+  "url": "https://www.avantiwestcoast.co.uk/classes-of-travel/first-class/first-class-service",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, for onboard food: First Class summer 2026 menus (Pendolino and Evero weekdays, weekends; valid 1 July - 13 October 2026) and the onboard shop menu. Protein, carbs, fat and allergens are not published. Dishes printed with different calories on different menus, and ranges, are left out.",
+ "categories": [
+  "First Class breakfast",
+  "First Class larger plates",
+  "First Class snacks & treats",
+  "First Class hot drinks",
+  "First Class soft drinks",
+  "Onboard shop food",
+  "Onboard shop hot drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "blueberry-brioche-rosette-bun",
+   "name": "Blueberry Brioche Rosette Bun",
+   "category": "First Class breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toasted-teacake",
+   "name": "Toasted Teacake",
+   "category": "First Class breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 347
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-berry-granola-tart",
+   "name": "Mixed Berry Granola Tart",
+   "category": "First Class breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 441
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "banana",
+   "name": "Banana",
+   "category": "First Class breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-great-british-breakfast",
+   "name": "The Great British Breakfast",
+   "category": "First Class breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-bruschetta",
+   "name": "Mushroom Bruschetta",
+   "category": "First Class breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 351
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-breakfast-grill",
+   "name": "The Breakfast Grill",
+   "category": "First Class breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 509
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-shawarma-wrap",
+   "name": "Chicken Shawarma Wrap",
+   "category": "First Class larger plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 416
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-en-cro-te",
+   "name": "Salmon En Croûte",
+   "category": "First Class larger plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 753
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orzo-pasta-salad",
+   "name": "Orzo Pasta Salad",
+   "category": "First Class larger plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ploughmans-platter-cheese-and-crackers",
+   "name": "Ploughman’s Platter, cheese & crackers",
+   "category": "First Class larger plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 382
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sea-salt-crisps",
+   "name": "Sea Salt Crisps",
+   "category": "First Class snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 217
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips-and-dips",
+   "name": "Chips & Dips",
+   "category": "First Class snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 204
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-corn-snacks",
+   "name": "Cheesy Corn Snacks",
+   "category": "First Class snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-and-orange-sprinkle-shortbread",
+   "name": "Lemon and Orange Sprinkle Shortbread",
+   "category": "First Class snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 221
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cox-and-co-chocolate",
+   "name": "Cox&Co Chocolate",
+   "category": "First Class snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 85
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eton-mess-dessert-pot",
+   "name": "Eton Mess Dessert Pot",
+   "category": "First Class snacks & treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 171
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "freshly-brewed-coffee",
+   "name": "Freshly Brewed Coffee",
+   "category": "First Class hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast-tea",
+   "name": "English Breakfast Tea",
+   "category": "First Class hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey-tea",
+   "name": "Earl Grey Tea",
+   "category": "First Class hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-tea",
+   "name": "Green Tea",
+   "category": "First Class hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moroccan-mint-tea",
+   "name": "Moroccan Mint Tea",
+   "category": "First Class hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaffeinated-tea",
+   "name": "Decaffeinated Tea",
+   "category": "First Class hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wenlock-spring-still-or-sparkling-water",
+   "name": "Wenlock Spring Still or Sparkling Water",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-or-apple-juice",
+   "name": "Orange or Apple Juice",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepsi-max",
+   "name": "Pepsi Max",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-light-lemonade",
+   "name": "Fever Tree Light Lemonade",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-light-tonic",
+   "name": "Fever Tree Light Tonic",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 23
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fever-tree-ginger-ale",
+   "name": "Fever Tree Ginger Ale",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "remedy-wild-berry-kombucha",
+   "name": "Remedy Wild Berry Kombucha",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-pickle-house-spiced-tomato-mix",
+   "name": "The Pickle House Spiced Tomato Mix",
+   "category": "First Class soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-golden-syrup",
+   "name": "Porridge Golden Syrup",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 254
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "porridge-no-added-sugar",
+   "name": "Porridge No Added Sugar",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll",
+   "name": "Bacon Roll",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 373
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll-gluten-free",
+   "name": "Bacon Roll (gluten free)",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheeseburger",
+   "name": "Classic Cheeseburger",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 615
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "falafel-flatbread",
+   "name": "Falafel Flatbread",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "free-range-egg-and-tomato-sandwich",
+   "name": "Free Range Egg & Tomato Sandwich",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 447
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-crunch-sandwich",
+   "name": "Tuna Crunch Sandwich",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 330
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad-sandwich",
+   "name": "Chicken Caesar Salad Sandwich",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 323
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheddar-cheese-ploughmans-sandwich",
+   "name": "Cheddar Cheese Ploughman's Sandwich",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blt-sandwich",
+   "name": "BLT Sandwich",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 479
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-hock-and-smoked-cheddar-sandwich",
+   "name": "Ham Hock & Smoked Cheddar Sandwich",
+   "category": "Onboard shop food",
+   "serving": "",
+   "nutrients": {
+    "calories": 594
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 11
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 106
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 208
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-tea",
+   "name": "Breakfast Tea",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "decaf-breakfast-tea",
+   "name": "Decaf Breakfast Tea",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint-tea",
+   "name": "Peppermint Tea",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coffee-syrups",
+   "name": "Coffee Syrups",
+   "category": "Onboard shop hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

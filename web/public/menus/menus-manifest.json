@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261010175455,
- "generatedAt": "2026-10-10T17:54:55Z",
+ "dataVersion": 20261010233359,
+ "generatedAt": "2026-10-10T23:33:59Z",
  "chains": [
   {
    "id": "abokado",
@@ -71,6 +71,18 @@
    "sample": false,
    "itemCount": 130,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "avanti-west-coast",
+   "name": "Avanti West Coast",
+   "cuisine": "Cafe",
+   "file": "chain-avanti-west-coast.json",
+   "sha256": "7ea6de29ef36fe26fa6276200047a181270348de46ace5ff65a401f3297a7ef4",
+   "contentHash": "1909cd8b912a5a8fb9c06793281bf57b4d90aa49338c1eb8903108572bab52c7",
+   "sample": false,
+   "itemCount": 53,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
   },
   {
    "id": "away-resorts",
@@ -1295,6 +1307,18 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "leonardo-hotels",
+   "name": "Leonardo Hotels",
+   "cuisine": "Hotel restaurant",
+   "file": "chain-leonardo-hotels.json",
+   "sha256": "99a1467b86b67511ca1f65ef12dc213b7f2de5b14422a027cf0ace2dd2323085",
+   "contentHash": "9226cc9b2983eb0b5a01ee8ca5149277820c07bc94e034ca2db71a6315f5e248",
+   "sample": false,
+   "itemCount": 94,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "little-dessert-shop",
    "name": "Little Dessert Shop",
    "cuisine": "Desserts",
@@ -1511,6 +1535,18 @@
    "sample": false,
    "itemCount": 84,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "pasta-evangelists",
+   "name": "Pasta Evangelists",
+   "cuisine": "Italian",
+   "file": "chain-pasta-evangelists.json",
+   "sha256": "ebe32656288fa86c393b27f090c1239c344154cff8cd5f79dccc9392f2e7b6c9",
+   "contentHash": "fec3dbd42de5525cad8ac313cf194ef4e5ebe75c7ceb4fef8aecc596f2bcbdeb",
+   "sample": false,
+   "itemCount": 239,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
   },
   {
    "id": "patisserie-valerie",
@@ -2323,6 +2359,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "db9e66dd75066a5552d22d602080c4f640c10fd7b06f1a09daf6411222ec163d"
+  "sha256": "a3795432cb68ecb9055313e7eb393d3346c549b74e8d424a3b88c26b25baa7af"
  }
 }

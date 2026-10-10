@@ -1,0 +1,5569 @@
+{
+ "schemaVersion": 1,
+ "id": "pasta-evangelists",
+ "name": "Pasta Evangelists",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "pasta evangelists",
+  "pastaevangelists"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Pasta Evangelists Restaurants Allergen Chart (Quality Management System 5.3.1b, a Google Sheets PDF export linked from the chain's Allergens page; the chart prints no date)",
+  "url": "https://docs.google.com/spreadsheets/d/1I2wXH_PQNO21w4CvaETgOLM7OBJDQCY5b4vq0cK0rEo/export?format=pdf&gid=1206536742&portrait=false&attachment=false",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per portion as the chart prints them (no weights); protein, carbs and fat are not published. Allergens and \"may contain\" are the chart's own columns, and the chart also says all dishes may contain traces of the 14 major allergens. Restaurants only: Harrods, delivery and events have separate charts.",
+ "allergenGuide": {
+  "title": "Pasta Evangelists Restaurants Allergen Chart (from the chain's Allergens page, no date printed)",
+  "url": "https://pastaevangelists.com/pages/allergens",
+  "checkedOn": "2026-10-10",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Bread & focaccia",
+  "Antipasti",
+  "Sides",
+  "Fresh pasta",
+  "Seasonal specials",
+  "Filled pasta",
+  "Baked pasta",
+  "Pasta shapes only",
+  "Add-ons & garnishes",
+  "Desserts",
+  "Soft drinks",
+  "Alcohol-free",
+  "Beer & ciders",
+  "Wines",
+  "Spirits",
+  "Cocktails",
+  "Hot drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "tomato-focaccia",
+   "name": "Tomato Focaccia",
+   "category": "Bread & focaccia",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "milk",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "sharing-pinsa-with-extra-virgin-olive-oil",
+   "name": "Sharing Pinsa with Extra Virgin Olive Oil",
+   "category": "Bread & focaccia",
+   "serving": "",
+   "nutrients": {
+    "calories": 540
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garlic-sharing-bread",
+   "name": "Garlic Sharing Bread",
+   "category": "Bread & focaccia",
+   "serving": "",
+   "nutrients": {
+    "calories": 794
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "cheesy-garlic-sharing-bread",
+   "name": "Cheesy Garlic Sharing Bread",
+   "category": "Bread & focaccia",
+   "serving": "",
+   "nutrients": {
+    "calories": 920
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "lupin",
+     "mustard"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "mediterranean-olives",
+   "name": "Mediterranean Olives",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "eggs",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "parmigiano-reggiano-chunks-with-taralli",
+   "name": "Parmigiano Reggiano Chunks With Taralli",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 471
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "zesty-rocket-salad",
+   "name": "Zesty Rocket Salad",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tomato-and-mozzarella-calzone",
+   "name": "Tomato & Mozzarella Calzone",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 312
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "italian-style-meatballs",
+   "name": "Italian-Style Meatballs",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 212
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fresh-burrata",
+   "name": "Fresh Burrata",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-calamary",
+   "name": "Crispy Calamary",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 749
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "molluscs"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "fish",
+     "milk",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "aubergine-parmigiana",
+   "name": "Aubergine Parmigiana",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "garlic-king-prawns",
+   "name": "Garlic King Prawns",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 422
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "burrata-sharing-board",
+   "name": "Burrata Sharing Board",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 834
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "burrata-sharing-board-charcuterie-add-on",
+   "name": "Burrata Sharing Board (Charcuterie Add-On)",
+   "category": "Antipasti",
+   "serving": "",
+   "nutrients": {
+    "calories": 1079
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "fish",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "grilled-mediterranean-vegetables",
+   "name": "Grilled Mediterranean Vegetables",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "spaghetti-al-pomodoro",
+   "name": "Spaghetti Al Pomodoro",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-al-pomodoro-with-burrata-add-on",
+   "name": "Spaghetti Al Pomodoro (With Burrata Add-on)",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 666
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-al-pomodoro-with-meatball-add-on",
+   "name": "Spaghetti Al Pomodoro (With Meatball Add-on)",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 689
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliatelle-alla-bolognese",
+   "name": "Tagliatelle Alla Bolognese",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 727
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-allarrabbiata",
+   "name": "Spaghetti All'arrabbiata",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 608
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-allarrabbiata-with-king-prawn-add-on",
+   "name": "Spaghetti All'arrabbiata (with King Prawn Add-on)",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-carbonara-of-dreams",
+   "name": "Spaghetti 'Carbonara of Dreams'",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 871
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spaghetti-carbonara-of-dreams-with-nduja-add-on",
+   "name": "Spaghetti 'Carbonara of Dreams' (with N'duja Add-on)",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 983
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pappardelle-beef-and-chianti-rag",
+   "name": "Pappardelle Beef & Chianti Ragù",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 677
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoni-cashew-pistachio-and-chilli-pesto",
+   "name": "Rigatoni Cashew, Pistachio & Chilli Pesto",
+   "category": "Fresh pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 810
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "nuts"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoni-alla-crema-di-fomaggi",
+   "name": "Rigatoni Alla Crema Di Fomaggi",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 867
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rigatoni-alla-crema-di-fomaggi-with-truffle-add-on",
+   "name": "Rigatoni Alla Crema Di Fomaggi (with Truffle Add On)",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 903
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "risotto-alla-crema-di-formaggi-e-tartufo",
+   "name": "Risotto Alla Crema Di Formaggi E Tartufo",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 997
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "mustard",
+     "sulphites"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pumpkin-gnocchi-with-sage-butter",
+   "name": "Pumpkin Gnocchi with Sage Butter",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 752
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliatelle-alla-boscaiola",
+   "name": "Tagliatelle Alla Boscaiola",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 647
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliatelle-alla-boscaiola-with-chicken-add-on",
+   "name": "Tagliatelle Alla Boscaiola (With Chicken Add-on)",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 725
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "tagliatelle-alla-boscaiola-with-truffle-sauce-add-on",
+   "name": "Tagliatelle Alla Boscaiola (With Truffle Sauce Add-on)",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 681
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "fusilli-pesto-alla-genovese-con-parmigiano-reggiano",
+   "name": "Fusilli Pesto Alla Genovese Con Parmigiano Reggiano",
+   "category": "Seasonal specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 837
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "king-prawn-lobster-and-crab-ravioli",
+   "name": "King Prawn, Lobster & Crab Ravioli",
+   "category": "Filled pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 728
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "truffle-and-burrata-soli",
+   "name": "Truffle & Burrata Soli",
+   "category": "Filled pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 818
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-and-burrata-limoncini",
+   "name": "Lemon & Burrata 'Limoncini'",
+   "category": "Filled pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 787
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "spinach-and-ricotta-agnolotti",
+   "name": "Spinach & Ricotta Agnolotti",
+   "category": "Filled pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 692
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-and-chianti-lasagne",
+   "name": "Beef & Chianti Lasagne",
+   "category": "Baked pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 596
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "eggs",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "truffle-mac-and-cheese",
+   "name": "Truffle Mac & Cheese",
+   "category": "Baked pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 659
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "plain-pasta-canestri-gigli-rigatoni-paccheri",
+   "name": "Plain Pasta (Canestri, Gigli, Rigatoni, Paccheri)",
+   "category": "Pasta shapes only",
+   "serving": "",
+   "nutrients": {
+    "calories": 457
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "egg-pasta-fusilli-spaghetti-tagliatelle-pappardelle",
+   "name": "Egg Pasta (Fusilli, Spaghetti, Tagliatelle, Pappardelle)",
+   "category": "Pasta shapes only",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "protein-penne",
+   "name": "Protein+ Penne",
+   "category": "Pasta shapes only",
+   "serving": "",
+   "nutrients": {
+    "calories": 420
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "gluten-free-gnocchi",
+   "name": "Gluten-Free Gnocchi",
+   "category": "Pasta shapes only",
+   "serving": "",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "supergreen-gnocchi",
+   "name": "Supergreen Gnocchi",
+   "category": "Pasta shapes only",
+   "serving": "",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "rainbow-gnocchi",
+   "name": "Rainbow Gnocchi",
+   "category": "Pasta shapes only",
+   "serving": "",
+   "nutrients": {
+    "calories": 360
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "beef-meatballs",
+   "name": "Beef Meatballs",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "king-prawns",
+   "name": "King Prawns",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 43
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "truffle-sauce",
+   "name": "Truffle Sauce",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 33
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chargrilled-chicken",
+   "name": "Chargrilled Chicken",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "crispy-pancetta-and-guanciale",
+   "name": "Crispy Pancetta & Guanciale",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 129
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "burrata",
+   "name": "Burrata",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 319
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "mozzarella-di-bufala-pdo",
+   "name": "Mozzarella Di Bufala PDO",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nduja-paste",
+   "name": "Nduja Paste",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 111
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ricotta-salata",
+   "name": "Ricotta Salata",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "parmigiano-reggiano-cheese",
+   "name": "Parmigiano-Reggiano Cheese",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grana-padano-cheese-shavings",
+   "name": "Grana Padano Cheese Shavings",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pecorino-romano-cheese",
+   "name": "Pecorino Romano Cheese",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-basil",
+   "name": "Fresh Basil",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-mint",
+   "name": "Fresh Mint",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-parsley",
+   "name": "Fresh Parsley",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-red-chilies",
+   "name": "Fresh Red Chilies",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-lemon-zest",
+   "name": "Fresh Lemon Zest",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-cherry-tomatoes",
+   "name": "Fresh Cherry Tomatoes",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "fresh-rocket",
+   "name": "Fresh Rocket",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-virgin-olive-oil",
+   "name": "Extra Virgin Olive Oil",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-virgin-olive-oil-with-natural-flavour-of-chilli-pepper-chilli-oil",
+   "name": "Extra Virgin Olive Oil with Natural Flavour of Chilli Pepper (Chilli Oil)",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "extra-virgin-olive-oil-with-natural-flavour-of-garlic-garlic-oil",
+   "name": "Extra Virgin Olive Oil with Natural Flavour of Garlic (Garlic Oil)",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "basil-oil-dark-green",
+   "name": "Basil Oil Dark Green",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "balsamic-dressing",
+   "name": "Balsamic Dressing",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "balsamic-vinegar-glaze",
+   "name": "Balsamic Vinegar Glaze",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garlic-butter",
+   "name": "Garlic Butter",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sea-salt-flakes",
+   "name": "Sea Salt Flakes",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "salt",
+   "name": "Salt",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "black-pepper",
+   "name": "Black Pepper",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dark-chocolate-shavings",
+   "name": "Dark Chocolate Shavings",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "tabasco-hot-sauce-tabasco-brand-pepper-sauce-sachets",
+   "name": "Tabasco Hot Sauce/Tabasco Brand Pepper Sauce Sachets",
+   "category": "Add-ons & garnishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 463
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "sicilian-style-pistachio-cake",
+   "name": "Sicilian-Style Pistachio Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 259
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts"
+    ],
+    "mayContain": [
+     "mustard",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "italian-style-profiteroles",
+   "name": "Italian-Style Profiteroles",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 268
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "flan-al-chioccolato-with-vanilla-gelato",
+   "name": "Flan al Chioccolato with Vanilla Gelato",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "affogato",
+   "name": "Affogato",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 166
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hackney-gelato-chocolate-2-scoops",
+   "name": "Hackney Gelato Chocolate - 2 scoops",
+   "category": "Desserts",
+   "serving": "2 scoops",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hackney-gelato-chocolate-1-scoop",
+   "name": "Hackney Gelato Chocolate - 1 scoop",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hackney-gelato-madagascan-vanilla-2-scoops",
+   "name": "Hackney Gelato Madagascan Vanilla - 2 scoops",
+   "category": "Desserts",
+   "serving": "2 scoops",
+   "nutrients": {
+    "calories": 334
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hackney-gelato-madagascan-vanilla-1-scoop",
+   "name": "Hackney Gelato Madagascan Vanilla - 1 scoop",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 167
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hackney-gelato-pistachio-2-scoops",
+   "name": "Hackney Gelato Pistachio - 2 scoops",
+   "category": "Desserts",
+   "serving": "2 scoops",
+   "nutrients": {
+    "calories": 324
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hackney-gelato-pistachio-1-scoop",
+   "name": "Hackney Gelato Pistachio - 1 scoop",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hackney-gelato-chocolate-mint-2-scoops",
+   "name": "Hackney Gelato Chocolate Mint - 2 scoops",
+   "category": "Desserts",
+   "serving": "2 scoops",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "hackney-gelato-chocolate-mint-1-scoop",
+   "name": "Hackney Gelato Chocolate Mint - 1 scoop",
+   "category": "Desserts",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 162
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "nuts",
+     "peanuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "monterosa-strawberry-cheesecake",
+   "name": "Monterosa Strawberry Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 247
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts",
+     "soya"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "lemon-sorbet",
+   "name": "Lemon Sorbet",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "san-pellegrino-limonata",
+   "name": "San Pellegrino Limonata",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "san-pellegrino-pomegranate-and-orange",
+   "name": "San Pellegrino Pomegranate & Orange",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "san-pellegrino-aranciata-rossa",
+   "name": "San Pellegrino Aranciata Rossa",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola",
+   "name": "Coca-Cola",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "coca-cola-zero",
+   "name": "Coca-Cola Zero",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "daily-dose-pure-smooth-orange-juice",
+   "name": "Daily Dose Pure Smooth Orange Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "daily-dose-apple-juice",
+   "name": "Daily Dose Apple Juice",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "celery"
+    ]
+   }
+  },
+  {
+   "id": "tassoni-ginger-beer",
+   "name": "TASSONI Ginger Beer",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tassoni-soda-water",
+   "name": "TASSONI Soda Water",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tassoni-tonic-water",
+   "name": "TASSONI Tonic Water",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tassoni-pompelmo-grapefruit-soda",
+   "name": "TASSONI Pompelmo (Grapefruit) Soda",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 43
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tassoni-chinotto-orange-soda",
+   "name": "TASSONI Chinotto (Orange) Soda",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tassoni-cedrata-citrus-soda",
+   "name": "TASSONI Cedrata (Citrus) Soda",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garden-spritz",
+   "name": "Garden Spritz",
+   "category": "Alcohol-free",
+   "serving": "",
+   "nutrients": {
+    "calories": 153
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "golden-chinotto",
+   "name": "Golden Chinotto",
+   "category": "Alcohol-free",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cedrata-spritz",
+   "name": "Cedrata Spritz",
+   "category": "Alcohol-free",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "birra-moretti-zero",
+   "name": "Birra Moretti Zero",
+   "category": "Alcohol-free",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "birra-moretti-330ml",
+   "name": "Birra Moretti (330ml)",
+   "category": "Beer & ciders",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "birra-moretti-660ml",
+   "name": "Birra Moretti (660ml)",
+   "category": "Beer & ciders",
+   "serving": "660ml",
+   "nutrients": {
+    "calories": 244
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "brewdog-punk-ipa-beer-5-4-abv",
+   "name": "BrewDog Punk IPA Beer (5.4% ABV)",
+   "category": "Beer & ciders",
+   "serving": "",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bulmers-cider-4-5-abv",
+   "name": "Bulmers Cider (4.5% ABV)",
+   "category": "Beer & ciders",
+   "serving": "",
+   "nutrients": {
+    "calories": 233
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ca-morlin-asolo-prosecco-11-abv-125ml",
+   "name": "Ca' Morlin, Asolo Prosecco, 11% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ca-di-alte-prosecco-11-abv-125ml",
+   "name": "Ca' di Alte, Prosecco, 11% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "prosecco-doc-contessa-rivata-11-abv-125ml",
+   "name": "Prosecco DOC Contessa Rivata, 11% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "champagne-sophie-baron-grand-reserve-brut-france-12-abv-125ml",
+   "name": "Champagne Sophie Baron, Grand Reserve Brut, France, 12% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grillo-vigneti-zab-2025-12-5-abv-125ml",
+   "name": "Grillo, Vigneti Zabù, 2025, 12.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 94
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grillo-vigneti-zab-2025-12-5-abv-175ml",
+   "name": "Grillo, Vigneti Zabù, 2025, 12.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "grillo-vigneti-zab-2025-12-5-abv-250ml",
+   "name": "Grillo, Vigneti Zabù, 2025, 12.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 189
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sauvignon-blanc-ponte-del-diavolo-friuli-venezia-giulia-italy-2025-12-5-abv-125ml",
+   "name": "Sauvignon Blanc, Ponte del Diavolo, Friuli-Venezia Giulia, Italy, 2025, 12.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 91
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sauvignon-blanc-ponte-del-diavolo-friuli-venezia-giulia-italy-2025-12-5-abv-175ml",
+   "name": "Sauvignon Blanc, Ponte del Diavolo, Friuli-Venezia Giulia, Italy, 2025, 12.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sauvignon-blanc-ponte-del-diavolo-friuli-venezia-giulia-italy-2025-12-5-abv-250ml",
+   "name": "Sauvignon Blanc, Ponte del Diavolo, Friuli-Venezia Giulia, Italy, 2025, 12.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 182
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garganega-trebbiano-saveroni-2024-12-5-abv-125ml",
+   "name": "Garganega/Trebbiano, Saveroni, 2024, 12.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garganega-trebbiano-saveroni-2024-12-5-abv-175ml",
+   "name": "Garganega/Trebbiano, Saveroni, 2024, 12.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "garganega-trebbiano-saveroni-2024-12-5-abv-250ml",
+   "name": "Garganega/Trebbiano, Saveroni, 2024, 12.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "saragat-vermentino-cantina-atzei-2024-13-abv-125ml",
+   "name": "'Saragat' Vermentino, Cantina Atzei, 2024, 13% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "saragat-vermentino-cantina-atzei-2024-13-abv-175ml",
+   "name": "'Saragat' Vermentino, Cantina Atzei, 2024, 13% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "saragat-vermentino-cantina-atzei-2024-13-abv-250ml",
+   "name": "'Saragat' Vermentino, Cantina Atzei, 2024, 13% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lugarara-gavi-di-gavi-la-giustiniana-2025-12-5-abv-125ml",
+   "name": "'Lugarara' Gavi di Gavi, La Giustiniana, 2025, 12.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lugarara-gavi-di-gavi-la-giustiniana-2025-12-5-abv-175ml",
+   "name": "'Lugarara' Gavi di Gavi, La Giustiniana, 2025, 12.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 145
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "lugarara-gavi-di-gavi-la-giustiniana-2025-12-5-abv-250ml",
+   "name": "'Lugarara' Gavi di Gavi, La Giustiniana, 2025, 12.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "verdicchio-classico-superiore-villa-bucci-2024-13-abv-125ml",
+   "name": "Verdicchio Classico Superiore, Villa Bucci, 2024, 13% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "verdicchio-classico-superiore-villa-bucci-2024-13-abv-175ml",
+   "name": "Verdicchio Classico Superiore, Villa Bucci, 2024, 13% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "verdicchio-classico-superiore-villa-bucci-2024-13-abv-250ml",
+   "name": "Verdicchio Classico Superiore, Villa Bucci, 2024, 13% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vie-di-romans-chardonnay-vie-di-romans-2023-13-5-abv-125ml",
+   "name": "'Vie di Romans' Chardonnay, Vie di Romans, 2023, 13.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 99
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vie-di-romans-chardonnay-vie-di-romans-2023-13-5-abv-175ml",
+   "name": "'Vie di Romans' Chardonnay, Vie di Romans, 2023, 13.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "vie-di-romans-chardonnay-vie-di-romans-2023-13-5-abv-250ml",
+   "name": "'Vie di Romans' Chardonnay, Vie di Romans, 2023, 13.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pinot-grigio-rosato-ponte-pietra-veneto-italy-2025-12-abv-125ml",
+   "name": "Pinot Grigio Rosato, Ponte Pietra, Veneto, Italy, 2025, 12% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 89
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pinot-grigio-rosato-ponte-pietra-veneto-italy-2025-12-abv-175ml",
+   "name": "Pinot Grigio Rosato, Ponte Pietra, Veneto, Italy, 2025, 12% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pinot-grigio-rosato-ponte-pietra-veneto-italy-2025-12-abv-250ml",
+   "name": "Pinot Grigio Rosato, Ponte Pietra, Veneto, Italy, 2025, 12% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rosa-dei-frati-ca-dei-frati-2024-12-5-abv-125ml",
+   "name": "'Rosa dei Frati', Ca' dei Frati, 2024, 12.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rosa-dei-frati-ca-dei-frati-2024-12-5-abv-175ml",
+   "name": "'Rosa dei Frati', Ca' dei Frati, 2024, 12.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rosa-dei-frati-ca-dei-frati-2024-12-5-abv-250ml",
+   "name": "'Rosa dei Frati', Ca' dei Frati, 2024, 12.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "montepulciano-dabruzzo-gran-sasso-italy-2025-14-5-abv-125ml",
+   "name": "Montepulciano d'Abruzzo, Gran Sasso, Italy, 2025, 14.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "montepulciano-dabruzzo-gran-sasso-italy-2025-14-5-abv-175ml",
+   "name": "Montepulciano d'Abruzzo, Gran Sasso, Italy, 2025, 14.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "montepulciano-dabruzzo-gran-sasso-italy-2025-14-5-abv-250ml",
+   "name": "Montepulciano d'Abruzzo, Gran Sasso, Italy, 2025, 14.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "primitivo-di-puglia-a-mano-italy-2023-13-abv-125ml",
+   "name": "Primitivo di Puglia, A Mano, Italy, 2023, 13% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "primitivo-di-puglia-a-mano-italy-2023-13-abv-175ml",
+   "name": "Primitivo di Puglia, A Mano, Italy, 2023, 13% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 126
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "primitivo-di-puglia-a-mano-italy-2023-13-abv-250ml",
+   "name": "Primitivo di Puglia, A Mano, Italy, 2023, 13% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nero-davola-curatolo-arini-sicily-italy-2024-13-5-abv-125ml",
+   "name": "Nero d'Avola, Curatolo Arini, Sicily, Italy, 2024, 13.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 136
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nero-davola-curatolo-arini-sicily-italy-2024-13-5-abv-175ml",
+   "name": "Nero d'Avola, Curatolo Arini, Sicily, Italy, 2024, 13.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "nero-davola-curatolo-arini-sicily-italy-2024-13-5-abv-250ml",
+   "name": "Nero d'Avola, Curatolo Arini, Sicily, Italy, 2024, 13.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 272
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "merlot-corvina-saveroni-2024-12-abv-125ml",
+   "name": "Merlot/Corvina, Saveroni, 2024, 12% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 95
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "merlot-corvina-saveroni-2024-12-abv-175ml",
+   "name": "Merlot/Corvina, Saveroni, 2024, 12% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "merlot-corvina-saveroni-2024-12-abv-250ml",
+   "name": "Merlot/Corvina, Saveroni, 2024, 12% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "valpolicella-allegrini-2025-12-5-abv-125ml",
+   "name": "Valpolicella, Allegrini, 2025, 12.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "valpolicella-allegrini-2025-12-5-abv-175ml",
+   "name": "Valpolicella, Allegrini, 2025, 12.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 121
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "valpolicella-allegrini-2025-12-5-abv-250ml",
+   "name": "Valpolicella, Allegrini, 2025, 12.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "terrazze-pinot-nero-tenuta-mazzolino-2023-13-5-abv-125ml",
+   "name": "'Terrazze' Pinot Nero, Tenuta Mazzolino, 2023, 13.5% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "terrazze-pinot-nero-tenuta-mazzolino-2023-13-5-abv-175ml",
+   "name": "'Terrazze' Pinot Nero, Tenuta Mazzolino, 2023, 13.5% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "terrazze-pinot-nero-tenuta-mazzolino-2023-13-5-abv-250ml",
+   "name": "'Terrazze' Pinot Nero, Tenuta Mazzolino, 2023, 13.5% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chianti-classico-dievole-2022-14-abv-125ml",
+   "name": "Chianti Classico, Dievole, 2022, 14% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chianti-classico-dievole-2022-14-abv-175ml",
+   "name": "Chianti Classico, Dievole, 2022, 14% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chianti-classico-dievole-2022-14-abv-250ml",
+   "name": "Chianti Classico, Dievole, 2022, 14% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "barolo-albe-g-d-vajra-2022-15-abv-125ml",
+   "name": "Barolo 'Albe', G.D. Vajra, 2022, 15% ABV - 125ml",
+   "category": "Wines",
+   "serving": "Approx. 125ml",
+   "nutrients": {
+    "calories": 120
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "barolo-albe-g-d-vajra-2022-15-abv-175ml",
+   "name": "Barolo 'Albe', G.D. Vajra, 2022, 15% ABV - 175ml",
+   "category": "Wines",
+   "serving": "175ml",
+   "nutrients": {
+    "calories": 168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "barolo-albe-g-d-vajra-2022-15-abv-250ml",
+   "name": "Barolo 'Albe', G.D. Vajra, 2022, 15% ABV - 250ml",
+   "category": "Wines",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malfy-gin-41-abv-single",
+   "name": "Malfy Gin (41% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malfy-gin-41-abv-double",
+   "name": "Malfy Gin (41% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malfy-gin-con-limone-41-abv-single",
+   "name": "Malfy Gin Con Limone (41% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malfy-gin-con-limone-41-abv-double",
+   "name": "Malfy Gin Con Limone (41% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malfy-gin-con-arancia-41-abv-single",
+   "name": "Malfy Gin Con Arancia (41% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "malfy-gin-con-arancia-41-abv-double",
+   "name": "Malfy Gin Con Arancia (41% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 114
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rooster-rojo-blanco-tequila-38-abv-single",
+   "name": "Rooster Rojo Blanco Tequila (38% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 49
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "rooster-rojo-blanco-tequila-38-abv-double",
+   "name": "Rooster Rojo Blanco Tequila (38% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 98
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flor-de-cana-clasico-5yo-rum-37-5-abv-single",
+   "name": "Flor de Cana Clasico 5yo Rum (37.5% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "flor-de-cana-clasico-5yo-rum-37-5-abv-double",
+   "name": "Flor de Cana Clasico 5yo Rum (37.5% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bayou-spiced-rum-40-abv-single",
+   "name": "Bayou Spiced Rum (40% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bayou-spiced-rum-40-abv-double",
+   "name": "Bayou Spiced Rum (40% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stoli-premium-vodka-40-abv-single",
+   "name": "Stoli Premium Vodka (40% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stoli-premium-vodka-40-abv-double",
+   "name": "Stoli Premium Vodka (40% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 112
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stoli-citrus-vodka-37-5-abv-single",
+   "name": "Stoli Citrus Vodka (37.5% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "stoli-citrus-vodka-37-5-abv-double",
+   "name": "Stoli Citrus Vodka (37.5% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 108
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "buffalo-trace-bourbon-whiskey-40-abv-single",
+   "name": "Buffalo Trace Bourbon Whiskey (40% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "buffalo-trace-bourbon-whiskey-40-abv-double",
+   "name": "Buffalo Trace Bourbon Whiskey (40% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "glenmorangie-10yr-old-malt-whisky-40-abv-single",
+   "name": "Glenmorangie 10yr Old Malt Whisky (40% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "glenmorangie-10yr-old-malt-whisky-40-abv-double",
+   "name": "Glenmorangie 10yr Old Malt Whisky (40% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jameson-irish-whiskey-40-abv-single",
+   "name": "Jameson Irish Whiskey (40% ABV) - Single",
+   "category": "Spirits",
+   "serving": "Single",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "jameson-irish-whiskey-40-abv-double",
+   "name": "Jameson Irish Whiskey (40% ABV) - Double",
+   "category": "Spirits",
+   "serving": "Double",
+   "nutrients": {
+    "calories": 110
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cassano-limoncello-29-7-30-3-abv-125ml",
+   "name": "Cassano, Limoncello (29.7-30.3% ABV) - 125ml",
+   "category": "Spirits",
+   "serving": "125ml",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "aperol-spritz",
+   "name": "Aperol Spritz",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 158
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "campari-spritz",
+   "name": "Campari Spritz",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "hugo-spritz",
+   "name": "Hugo Spritz",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kocktail-espresso-martini",
+   "name": "Kocktail Espresso Martini",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 200
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kocktail-classic-negroni",
+   "name": "Kocktail Classic Negroni",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kocktail-old-fashioned",
+   "name": "Kocktail Old Fashioned",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 260
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kocktail-passionfruit-martini",
+   "name": "Kocktail Passionfruit Martini",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "kocktail-margarita",
+   "name": "Kocktail Margarita",
+   "category": "Cocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 229
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "americano-black",
+   "name": "Americano (black)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "cappuccino-with-semi-skimmed-milk",
+   "name": "Cappuccino with Semi-Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 77
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caffe-latte-with-semi-skimmed-milk",
+   "name": "Caffe Latte with Semi-Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caffe-latte-with-soya-drink",
+   "name": "Caffe Latte with Soya Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 209
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caffe-latte-with-coconut-drink",
+   "name": "Caffe Latte with Coconut Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "caffe-latte-with-oat-drink",
+   "name": "Caffe Latte with Oat Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 262
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "chai-latte-with-semi-skimmed-milk",
+   "name": "Chai Latte with Semi-Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-soya-drink",
+   "name": "Chai Latte with Soya Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-coconut-drink",
+   "name": "Chai Latte with Coconut Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 165
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chai-latte-with-oat-drink",
+   "name": "Chai Latte with Oat Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 282
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "matcha-latte-with-semi-skimmed-milk",
+   "name": "Matcha Latte with Semi-Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-with-soya-drink",
+   "name": "Matcha Latte with Soya Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-with-coconut-drink",
+   "name": "Matcha Latte with Coconut Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 124
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "matcha-latte-with-oat-drink",
+   "name": "Matcha Latte with Oat Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-soya-drink",
+   "name": "Mocha with Soya Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-coconut-drink",
+   "name": "Mocha with Coconut Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 241
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten"
+    ]
+   }
+  },
+  {
+   "id": "mocha-with-oat-drink",
+   "name": "Mocha with Oat Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 356
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "hot-chocolate-with-semi-skimmed-milk",
+   "name": "Hot Chocolate with Semi-Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "tea-english-breakfast-or-earl-grey-with-semi-skimmed-milk",
+   "name": "Tea (English Breakfast or Earl Grey) with Semi- Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "twinings-english-breakfast-enveloped-tea-bags",
+   "name": "Twinings English Breakfast Enveloped Tea Bags",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "twinings-everyday-enveloped-tea-bags",
+   "name": "Twinings Everyday Enveloped Tea Bags",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "twinings-earl-grey-enveloped-tea-bags",
+   "name": "Twinings Earl Grey Enveloped Tea Bags",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "twinings-pure-peppermint-enveloped-tea-bags",
+   "name": "Twinings Pure Peppermint Enveloped Tea Bags",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "twinings-lemon-and-ginger-enveloped-tea-bags",
+   "name": "Twinings Lemon & Ginger Enveloped Tea Bags",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "twinings-cranberry-and-raspberry-enveloped-tea-bags",
+   "name": "Twinings Cranberry & Raspberry Enveloped Tea Bags",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "semi-skimmed-milk",
+   "name": "Semi Skimmed Milk",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 29
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "soya-drink",
+   "name": "Soya Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 26
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "oat-drink",
+   "name": "Oat Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "oats"
+    ]
+   }
+  },
+  {
+   "id": "coconut-drink",
+   "name": "Coconut Drink",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 19
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "monin-caramel-syrup",
+   "name": "Monin Caramel Syrup",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "monin-vanilla-syrup",
+   "name": "Monin Vanilla Syrup",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "monin-hazelnut-syrup",
+   "name": "Monin Hazelnut Syrup",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "whipped-cream",
+   "name": "Whipped Cream",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 13
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "nuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "mini-marshmallows",
+   "name": "Mini Marshmallows",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 48
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sucralose-sticks-sweetener-sachets",
+   "name": "Sucralose Sticks (Sweetener Sachets)",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "brown-sugar-stick",
+   "name": "Brown Sugar Stick",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "white-sugar-stick",
+   "name": "White Sugar Stick",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pasta-evangelists-branded-wafer",
+   "name": "Pasta Evangelists Branded Wafer",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 12
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "biscotti",
+   "name": "Biscotti",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 37
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,1466 @@
+{
+ "schemaVersion": 1,
+ "id": "leonardo-hotels",
+ "name": "Leonardo Hotels",
+ "cuisine": "Hotel restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "leonardo hotels",
+  "leonardo hotel",
+  "leonardo royal hotel",
+  "leonardo royal",
+  "leonardo inn",
+  "leonardo boutique hotel",
+  "bar and grill at leonardo's",
+  "leo's restaurant",
+  "leos bar and grill"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Leonardo Hotels UK restaurant menus with calories (Bar & Grill at Leonardo's, Leo's, children's and room service menus; PDFs linked from each hotel's restaurant page, files dated November 2024 to September 2026)",
+  "url": "https://www.leonardohotels.co.uk/united-kingdom",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as printed on Leonardo's menus; protein, carbs, fat and allergens are not published. Leonardo has one menu per brand shared by many hotels; only dishes on a menu linked from 2 or more of the 40 hotels read are listed, and names printed with two different values are left out.",
+ "categories": [
+  "Starters & sharing",
+  "Salads",
+  "Grills",
+  "Mains",
+  "Burgers",
+  "Pizza & pasta",
+  "Sandwiches & deli",
+  "Sides",
+  "Desserts",
+  "Sauces & extras",
+  "Kids menu"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "warm-flatbreads",
+   "name": "Warm flatbreads",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 567
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-glazed-chicken-wings",
+   "name": "Sticky glazed chicken wings",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 332
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frickles",
+   "name": "Frickles",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twice-cooked-pork-belly-bites",
+   "name": "Twice cooked pork belly bites",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 518
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosemary-and-beetroot-hummus",
+   "name": "Rosemary and beetroot hummus",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 516
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butternut-squash-and-chestnut-soup",
+   "name": "Butternut squash and chestnut soup",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 410
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiger-prawn-cocktail",
+   "name": "Tiger prawn cocktail",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 564
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stornoway-black-pudding-and-apple-croquette",
+   "name": "Stornoway black pudding and apple croquette",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 487
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-venison",
+   "name": "Smoked venison",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 489
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-mackerel",
+   "name": "Smoked mackerel",
+   "category": "Starters & sharing",
+   "serving": "",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-soya-bean-and-black-rice-salad-small",
+   "name": "Avocado, soya bean and black rice salad (small)",
+   "category": "Salads",
+   "serving": "Small",
+   "nutrients": {
+    "calories": 396
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado-soya-bean-and-black-rice-salad-large",
+   "name": "Avocado, soya bean and black rice salad (large)",
+   "category": "Salads",
+   "serving": "Large",
+   "nutrients": {
+    "calories": 764
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poke-bowl",
+   "name": "Poke bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 431
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8oz-ribeye-steak",
+   "name": "8oz ribeye steak",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1275
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rosemary-and-garlic-marinated-chicken-breast",
+   "name": "Rosemary and garlic marinated chicken breast",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1163
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "8oz-gammon-steak",
+   "name": "8oz Gammon steak",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1210
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-fillet-of-salmon",
+   "name": "Grilled fillet of salmon",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-swordfish-steak",
+   "name": "Grilled swordfish steak",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 539
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "225g-grilled-sirloin",
+   "name": "225g grilled Sirloin",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1153
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "250g-grilled-rib-eye",
+   "name": "250g grilled Rib eye",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 1458
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "145g-bavette-steak-frites",
+   "name": "145g Bavette steak frites",
+   "category": "Grills",
+   "serving": "",
+   "nutrients": {
+    "calories": 711
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-ale-pie",
+   "name": "Steak and ale pie",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1154
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-rogan-josh",
+   "name": "Chicken Rogan Josh",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1018
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cumberland-sausage-ring",
+   "name": "Cumberland sausage ring",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 830
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-haddock-fishcake",
+   "name": "Smoked haddock fishcake",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 503
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moroccan-roasted-cauliflower",
+   "name": "Moroccan roasted cauliflower",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 577
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-battered-fish-and-chips",
+   "name": "Classic battered fish and chips",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1255
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "malbec-braised-shin-of-beef-stew",
+   "name": "Malbec braised shin of beef stew",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 823
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-curry",
+   "name": "Katsu curry",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 916
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-celeriac-fondant",
+   "name": "Roasted celeriac fondant",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 948
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-and-truffle-ravioli",
+   "name": "Mushroom and truffle ravioli",
+   "category": "Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 518
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-beef-burger",
+   "name": "BBQ beef burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1396
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppered-beef-burger",
+   "name": "Peppered beef burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1620
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-fried-chicken-burger",
+   "name": "Buttermilk fried chicken burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 1041
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rustic-di-lusso-pizza",
+   "name": "Rustic di Lusso pizza",
+   "category": "Pizza & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 930
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-garden-club-pizza",
+   "name": "The Garden Club pizza",
+   "category": "Pizza & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 952
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-piccante-pizza",
+   "name": "Pepperoni Piccante pizza",
+   "category": "Pizza & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1129
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-chicken-pizza",
+   "name": "BBQ chicken pizza",
+   "category": "Pizza & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1105
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spaghetti-puttanesca",
+   "name": "Spaghetti Puttanesca",
+   "category": "Pizza & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beef-lasagne",
+   "name": "Beef lasagne",
+   "category": "Pizza & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 845
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stonebaked-margherita-pizza",
+   "name": "Stonebaked margherita pizza",
+   "category": "Pizza & pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 784
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-buttermilk-chicken",
+   "name": "Crispy buttermilk chicken",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 961
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-steak",
+   "name": "Grilled steak",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 1052
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leonardo-club-sandwich",
+   "name": "Leonardo club sandwich",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 1053
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-tuna-mayonnaise-and-cucumber",
+   "name": "Classic tuna mayonnaise and cucumber",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 566
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach-and-oat-wrap",
+   "name": "Spinach and oat wrap",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "beetroot-borani-and-feta",
+   "name": "Beetroot Borani and feta",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 580
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "filled-scrocchiarella-bread-milano-salami",
+   "name": "Filled Scrocchiarella bread, Milano salami",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 914
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "filled-scrocchiarella-bread-beetroot-and-rosemary-hummus",
+   "name": "Filled Scrocchiarella bread, beetroot and rosemary hummus",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "filled-scrocchiarella-bread-chicken-and-bacon-mayonnaise",
+   "name": "Filled Scrocchiarella bread, chicken and bacon mayonnaise",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 828
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "filled-scrocchiarella-bread-tiger-prawn",
+   "name": "Filled Scrocchiarella bread, tiger prawn",
+   "category": "Sandwiches & deli",
+   "serving": "",
+   "nutrients": {
+    "calories": 885
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "rocket-leaves",
+   "name": "Rocket leaves",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spiced-corn-wedges",
+   "name": "Spiced corn wedges",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 658
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffled-skinny-fries",
+   "name": "Truffled skinny fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 566
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honey-and-wholegrain-mustard-roasted-beetroot",
+   "name": "Honey and wholegrain mustard roasted beetroot",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wilted-seasonal-greens",
+   "name": "Wilted seasonal greens",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "camden-hells-beer-battered-onion-rings",
+   "name": "Camden Hells beer-battered onion rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamed-spinach",
+   "name": "Creamed spinach",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-chocolate-chip-cookie-dough",
+   "name": "Baked chocolate chip cookie dough",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 460
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-mousse",
+   "name": "Chocolate mousse",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 203
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lotus-biscoff-cheesecake",
+   "name": "Lotus Biscoff cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 610
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-fondant",
+   "name": "Hot chocolate fondant",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 602
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-and-raspberry-cheesecake",
+   "name": "White chocolate and raspberry cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 481
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-treacle-tart",
+   "name": "Warm treacle tart",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 648
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "artisan-cheese-walnuts-fruit-chutney",
+   "name": "Artisan cheese, walnuts, fruit chutney",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 832
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-charlotte",
+   "name": "Mango Charlotte",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "4oz-grilled-salmon-add-to-a-salad-or-pasta",
+   "name": "4oz grilled salmon (add to a salad or pasta)",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tarragon-cream-sauce",
+   "name": "Tarragon cream sauce",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-bacon-burger-topping",
+   "name": "Crispy bacon (burger topping)",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 154
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-hens-egg-burger-topping",
+   "name": "Fried hen's egg (burger topping)",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese-sauce",
+   "name": "Blue cheese sauce",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "two-fried-eggs",
+   "name": "Two fried eggs",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caf-de-paris-butter",
+   "name": "Café de Paris butter",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-pancetta-burger-topping",
+   "name": "Crispy pancetta (burger topping)",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-gruyere-burger-topping",
+   "name": "Grilled Gruyere (burger topping)",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 80
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-breaded-chicken-extra",
+   "name": "Crispy breaded chicken (extra)",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-swordfish-extra",
+   "name": "Grilled swordfish (extra)",
+   "category": "Sauces & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 172
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-bread-slices",
+   "name": "Cheesy garlic bread slices",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 405
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wings",
+   "name": "Wings",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 357
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-chicken-strips",
+   "name": "Fried chicken strips",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 733
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-cheese-and-tomato-pizza",
+   "name": "Classic cheese and tomato pizza",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 232
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arran-ice-cream",
+   "name": "Arran ice cream",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 246
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-fruit-salad",
+   "name": "Fresh fruit salad",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-veggie-sticks",
+   "name": "Crunchy Veggie Sticks",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 218
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-dough-ball-pops",
+   "name": "Cheesy Dough Ball Pops",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "magic-veggie-soup",
+   "name": "Magic Veggie Soup",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-taters",
+   "name": "Chicken & Taters",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 278
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-fish-fingers",
+   "name": "Crunchy Fish Fingers",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 454
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-party",
+   "name": "Pasta Party",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 180
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-burger-and-fries",
+   "name": "Mini Burger & Fries",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 622
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-pizza-slice",
+   "name": "Cheesy Pizza Slice",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 278
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-toffee-pud",
+   "name": "Sticky Toffee Pud",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 235
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scoopalicious-ice-cream",
+   "name": "Scoopalicious Ice Cream",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 284
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "choco-brownie-delight",
+   "name": "Choco Brownie Delight",
+   "category": "Kids menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
