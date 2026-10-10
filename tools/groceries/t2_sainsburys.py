@@ -139,6 +139,10 @@ def cmd_slices(a) -> int:
             continue
         seen[k].add(h)
         slices[k].append(slug)
+    existing = [work / f"slice{k}.txt" for k in range(a.first, a.first + a.n) if (work / f"slice{k}.txt").exists()]
+    if existing and not a.force:
+        print("REFUSED: these slice files already exist and readers are using them: " + ", ".join(p.name for p in existing) + ". Slices are handed out by the lead only (use --force to overwrite).")
+        return 1
     for k, s in enumerate(slices, start=a.first):
         (work / f"slice{k}.txt").write_text("\n".join(s) + "\n", encoding="utf-8")
     print(f"{len(rows)} products in {a.n} slices ({[len(s) for s in slices]}), {skipped} left for a later round")
@@ -275,6 +279,7 @@ def main() -> int:
         if name == "slices":
             sp.add_argument("--n", type=int, default=3)
             sp.add_argument("--limit", type=int, default=4000)
+            sp.add_argument("--force", action="store_true", help="overwrite slice files that already exist (the lead only)")
             sp.add_argument("--skip", type=int, default=0, help="start after this many products of the priority order (to add slices beyond ones already handed out)")
             sp.add_argument("--first", type=int, default=1, help="number of the first slice file written (slice<first>.txt ...)")
         if name in ("next", "append"):

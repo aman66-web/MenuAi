@@ -1,0 +1,8 @@
+Starbucks UK terms: already audited on 2026-10-06 and quoted in docs/IMAGE_TERMS.md (section starbucks): https://www.starbucks.co.uk/terms-of-use says Site Materials, including pictures, are protected by copyright and that
+you may not frame or use trademarks, logos or other proprietary information, including the images found at the Sites, without express written consent; all rights not expressly granted are reserved.
+
+robots.txt (starbucks.co.uk) disallows /api/ and any .pdf, not the /menu/product pages or the media host used here (www.digitalassets.starbucks.eu: the downloader's RFC 9309 check passed).
+
+How the photos were taken: each address was read from the network requests of the product's own page, opened one at a time in the founder's browser (no crawling, no script run on a page); the 56 files were downloaded one per second by tools/uk_extract/inbox_photos.py and only resized.
+
+Decision (CLAUDE.md rule 2, founder 2026-10-06): photos are installed for every chain even where its terms restrict reuse; that is the founder's accepted risk. A chain's photos come down the day it asks (delete its photos folder and images.csv). Never used in marketing, the share card, the app icon or store screenshots.

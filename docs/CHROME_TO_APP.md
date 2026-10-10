@@ -93,6 +93,15 @@ picture is in docs/CHAINS_WORK_LIST.md. Both sessions share the
 same Chrome, so ask each to work in its own tab or window; if they start fighting over the same tab, close one. Two sessions use
 your Claude usage twice as fast.
 
+## Tips learnt on the first long run (2026-10-10)
+
+- **Cheapest reader:** `get_page_text` on a product page often returns the whole nutrition panel (Starbucks, Burger King); use `find` for text hidden in collapsed panels, then `read_page` with a `ref_id` to confirm a dialog's exact text. `find` is a summariser: check every number (kcal against 4P+4C+9F, kJ against kcal x 4.184) and re-read flagged rows.
+- **Look for the site's own feeds** with `read_network_requests` (arm it with a first call, then reload): a JSON feed can verify and extend what the page shows (Sushi Shop's page-data.json, Turtle Bay's menu proxy).
+- **Photo addresses:** open the product's own page, then `read_network_requests` with a `urlPattern` for the image host (Burger King: `w=1077` finds only the hero picture; Starbucks: `_next/image`). The browser cache hides pictures you have already loaded: press cmd+shift+r and read again. Use a picture only where the page's heading names the same product; a page that is a meal, bundle or box of several products names a different item. Then `python3 tools/uk_extract/inbox_photos.py <chain> --apply` downloads them politely.
+- **Batches:** about 3 pages per `browser_batch` (navigate, wait 8-10 s, read); a longer batch can time out and keep running in the background.
+- **Chrome's PDF viewer cannot be read** by these tools, and downloading needs your OK: PDF-only chains are listed in `data/chrome-inbox/PDF_DOWNLOADS.md`.
+- **Never** accept a cookie banner, work round a check page, or run a script on a page.
+
 ## Chains to pilot first (calories shown on a page our scripts cannot read)
 
 Start with these, in this order, and stop after the first three if the yield is poor. The first four are the ones users look for most.
