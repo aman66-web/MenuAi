@@ -5,17 +5,19 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { formatDate } from "@/lib/mm/format";
-import { filterCaution, filterItems, groupByCategory, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
+import { anyDietFilter, filterCaution, filterItems, groupByCategory, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
 import { itemHref } from "@/lib/mm/routes";
 import { settingsStore, favoritesStore, toggleFavorite } from "@/lib/mm/stores";
 import type { Meal, MenuItem, Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
+import { DietPicker } from "../_components/DietPicker";
+import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
 import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, InfoIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { MacroLine } from "../_components/Nutrition";
 import { ReportSheet } from "../_components/Submit";
-import { Badge, Button, Chip, EmptyState, ErrorBox, inputClass, SampleBadge, Spinner } from "../_components/ui";
+import { Badge, Button, Chip, EmptyState, ErrorBox, inputClass, SampleBadge, Sheet, Spinner } from "../_components/ui";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
 
@@ -53,6 +55,10 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set());
   const [flatLimit, setFlatLimit] = useState(FLAT_PAGE);
   const [reporting, setReporting] = useState<MenuItem | "any" | null>(null);
+  const [allergyOpen, setAllergyOpen] = useState(false);
+  const halal = halalFor(chain.id);
+  const hasAllergenData = useMemo(() => chain.items.some((i) => i.allergens), [chain.items]);
+  const avoiding = prefs.avoidAllergens?.length ?? 0;
 
   const searching = query.trim().length > 0;
   const filtered = useMemo(() => filterItems(chain.items, prefs), [chain.items, prefs]);
@@ -61,12 +67,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const sections = useMemo(() => (grouped ? groupByCategory(chain, visible) : [{ category: "", items: visible }]), [chain, visible, grouped]);
   const large = chain.items.length > LARGE_MENU_ITEMS;
   const caloriesOnly = chain.nutritionLevel === "calories";
-  const clearFilters = () => setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false });
-  const anyFilter = prefs.vegetarianOnly || prefs.noPork || prefs.noBeef;
+  const clearFilters = () => setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false, ...(prefs.halalOnly ? { halalOnly: true } : {}) });
+  const anyFilter = anyDietFilter(prefs);
   const caution = filterCaution(prefs);
   const showCategoryChips = grouped && !searching && sections.length > 1;
 
-  const setPref = (key: keyof Preferences) => {
+  const setPref = (key: "vegetarianOnly" | "veganOnly" | "noPork" | "noBeef") => {
     setPrefs((p) => ({ ...p, [key]: !p[key] }));
     analytics.track({ name: "menuFiltered", kind: key });
   };
@@ -112,6 +118,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           <div className="min-w-0 space-y-1.5">
             {chain.note && <p>{chain.note}</p>}
             {caloriesOnly && <p className="font-semibold">{chain.name} publishes calories only: protein, carbs and fat aren&apos;t published, so there are no best-for-you picks, order builder or logging for this restaurant.</p>}
+            {halal && (
+              <p>
+                <span className="font-semibold">Halal{halal.scope === "some" ? " (some)" : ""}:</span> &ldquo;{halal.statement}&rdquo;{" "}
+                <a href={halal.url} target="_blank" rel="noopener noreferrer" className="text-muted underline underline-offset-2">{chain.name}&apos;s website</a>
+              </p>
+            )}
             <p className="app-numbers text-muted">
               <span className="font-semibold text-foreground">{chain.items.length} items</span> from{" "}
               <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{chain.source.title}</a>, checked {formatDate(chain.source.checkedOn)}.
@@ -128,10 +140,28 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       )}
       <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Filters">
         <Chip selected={prefs.vegetarianOnly} onClick={() => setPref("vegetarianOnly")}>Vegetarian</Chip>
+        <Chip selected={Boolean(prefs.veganOnly)} onClick={() => setPref("veganOnly")}>Vegan</Chip>
         <Chip selected={prefs.noPork} onClick={() => setPref("noPork")}>No pork</Chip>
         <Chip selected={prefs.noBeef} onClick={() => setPref("noBeef")}>No beef</Chip>
+        <Chip selected={avoiding > 0} aria-pressed={undefined} aria-haspopup="dialog" onClick={() => setAllergyOpen(true)}>
+          {avoiding > 0 ? `Allergies · ${avoiding}` : "Allergies"}
+        </Chip>
       </div>
       {caution && <p className="mt-2 text-sm text-muted">{caution}</p>}
+      {prefs.halalOnly && !halal && <p className="mt-2 text-sm text-muted">{chain.name}&apos;s website doesn&apos;t say its food is halal. {HALAL_CAUTION}</p>}
+      {avoiding > 0 && !hasAllergenData && (
+        <div role="note" className="glass mt-3 rounded-3xl p-4 text-sm">
+          <p className="font-semibold">{chain.name} hasn&apos;t published allergen details we can read, so its dishes can&apos;t be checked for allergies.</p>
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className="min-h-11 py-3 font-medium text-accent underline">See its own allergen information</a>}
+            <Button variant="secondary" onClick={() => setPrefs({ ...prefs, avoidAllergens: [] })}>Show all dishes</Button>
+          </div>
+        </div>
+      )}
+      <Sheet open={allergyOpen} onClose={() => setAllergyOpen(false)} title="Allergies to avoid">
+        <DietPicker value={prefs} onChange={(p) => setPrefs(p)} halal={false} />
+        <div className="mt-4"><Button full onClick={() => setAllergyOpen(false)}>Done</Button></div>
+      </Sheet>
 
       <div ref={bestRef}>
         {!caloriesOnly && <BestForYou index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} />}

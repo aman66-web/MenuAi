@@ -8,7 +8,8 @@ import { macroLine, nutrientAriaLabel } from "@/lib/mm/format";
 import { describeOrder, isOrderAvailable } from "@/lib/mm/order";
 import { deleteSavedOrder, restoreSavedOrder, savedStore } from "@/lib/mm/stores";
 import type { SavedOrder } from "@/lib/mm/user-data";
-import { BookmarkIcon, TrashIcon } from "../_components/icons";
+import { TrashIcon } from "../_components/icons";
+import { Pip } from "../_components/Mascot";
 import { MacroSummary } from "../_components/Nutrition";
 import { Badge, Button, EmptyState, LinkButton } from "../_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useStore } from "../_lib/hooks";
@@ -43,7 +44,7 @@ export default function SavedPage() {
 
       {saved.length === 0 ? (
         <div className="mt-6">
-          <EmptyState icon={<BookmarkIcon className="h-6 w-6" />} title="No saved orders yet" body="Save an order from any menu item, or from the order builder." action={<LinkButton href="/app" variant="secondary">Find a restaurant</LinkButton>} />
+          <EmptyState icon={<Pip mood="wave" size={64} />} title="No saved orders yet" body="Save an order from any menu item, or from the order builder." action={<LinkButton href="/app" variant="secondary">Find a restaurant</LinkButton>} />
         </div>
       ) : (
         <ul className="mt-4 space-y-3">

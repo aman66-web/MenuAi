@@ -1,6 +1,5 @@
 "use client";
 
-import { filterCaution } from "@/lib/mm/menu-view";
 import Link from "next/link";
 import { useState } from "react";
 import { DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
@@ -9,18 +8,26 @@ import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
 import { favoritesStore, logStore, outbox, outboxStore, savedStore, settingsStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
-import { DEFAULT_SETTINGS } from "@/lib/mm/user-data";
+import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
 import { site } from "@/site.config";
 import { ChevronRightIcon } from "../_components/icons";
 import { ContactForm } from "../_components/Submit";
+import { DietPicker } from "../_components/DietPicker";
+import { applyTextSize } from "../_lib/textSize";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Card, Field, inputClass, Segmented, Sheet, Toggle } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 
 // SPEC §7.9. Not on the web: Apple Health, Location, StoreKit's manage/restore rows (see docs/WEB_BUILD_PLAN.md).
+
+const TEXT_OPTIONS: ReadonlyArray<{ value: TextSize; label: string }> = [
+  { value: "standard", label: "Standard" },
+  { value: "large", label: "Large" },
+  { value: "xlarge", label: "Extra large" },
+];
 
 const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
   { value: "lose", label: "Lose" },
@@ -88,6 +95,10 @@ export default function SettingsPage() {
     <div>
       <h1 className="text-4xl font-extrabold tracking-tight">Settings</h1>
 
+      <Section title="Text size">
+        <Segmented label="Text size" value={settings.textSize ?? "standard"} options={TEXT_OPTIONS} onChange={(textSize) => { updateSettings({ textSize }); applyTextSize(textSize); }} />
+      </Section>
+
       <Section title="Goal">
         <Segmented label="Goal" value={settings.goal} options={GOAL_OPTIONS} onChange={(goal) => updateSettings({ goal })} />
         {settings.goal === "glp1" && <p className="mt-2 text-sm text-muted">Smaller, protein-first orders, capped at the meal size you set below.</p>}
@@ -118,13 +129,8 @@ export default function SettingsPage() {
         <p className="mt-2 text-xs text-muted">{SUGGESTION_NOTE}</p>
       </Section>
 
-      <Section title="Preferences">
-        <div className="divide-y divide-line">
-          <Toggle label="Vegetarian only" checked={settings.preferences.vegetarianOnly} onChange={(v) => updateSettings({ preferences: { ...settings.preferences, vegetarianOnly: v } })} />
-          <Toggle label="No pork" checked={settings.preferences.noPork} onChange={(v) => updateSettings({ preferences: { ...settings.preferences, noPork: v } })} />
-          <Toggle label="No beef" checked={settings.preferences.noBeef} onChange={(v) => updateSettings({ preferences: { ...settings.preferences, noBeef: v } })} />
-        </div>
-        {filterCaution(settings.preferences) && <p className="mt-2 text-xs text-muted">{filterCaution(settings.preferences)}</p>}
+      <Section title="Diet and allergies">
+        <DietPicker value={settings.preferences} onChange={(preferences) => updateSettings({ preferences })} />
       </Section>
 
       <Section title="Subscription">

@@ -5,7 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import { formatCalories, formatGrams, formatInt, macroLine } from "@/lib/mm/format";
-import { favoritesStore, logStore, savedStore, updateSettings } from "@/lib/mm/stores";
+import { favoritesStore, logStore, savedStore, settingsStore, updateSettings } from "@/lib/mm/stores";
+import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
@@ -32,8 +33,13 @@ export default function HomePage() {
   const [requesting, setRequesting] = useState(false);
   const [type, setType] = useBrowseType();
   const [fullOnly, setFullOnly] = useState(false);
+  const [halalOnly, setHalalOnly] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
+  const anyHalal = useMemo(() => menu.chains.some((c) => isAllHalal(c.id)), [menu.chains]);
 
-  const shownChains = useMemo(() => (fullOnly ? menu.chains.filter((c) => (c.nutritionLevel ?? "full") === "full") : menu.chains), [menu.chains, fullOnly]);
+  const shownChains = useMemo(
+    () => menu.chains.filter((c) => (!fullOnly || (c.nutritionLevel ?? "full") === "full") && (!halalOnly || isAllHalal(c.id))),
+    [menu.chains, fullOnly, halalOnly],
+  );
   const { popular, rest } = useMemo(() => splitChains(shownChains), [shownChains]);
   const restGroups = useMemo(() => groupByInitial(rest), [rest]);
   const types = useMemo(() => cuisineGroups(shownChains), [shownChains]);
@@ -148,6 +154,7 @@ export default function HomePage() {
             <div role="group" aria-label="Browse by type" className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5 pb-1">
               <Chip selected={!activeType} onClick={() => setType(null)}>All</Chip>
               {hasCaloriesOnly && <Chip selected={fullOnly} onClick={() => setFullOnly((v) => !v)}>Full nutrition only</Chip>}
+              {(anyHalal || halalOnly) && <Chip selected={halalOnly} onClick={() => setHalalOnly((v) => !v)}>Halal</Chip>}
               {types.map((t) => (
                 <Chip key={t.id} selected={activeType?.id === t.id} onClick={() => setType(activeType?.id === t.id ? null : t.id)}>
                   {t.label} <span className="app-numbers ml-1.5 text-xs font-medium opacity-70">{t.count}</span>
@@ -156,6 +163,7 @@ export default function HomePage() {
             </div>
           )}
 
+          {halalOnly && <p className="mt-2 text-sm text-muted">Restaurants whose own website says all their food is halal. {HALAL_CAUTION}</p>}
           {activeType ? (
             <section aria-label={activeType.label} className="mt-4">
               <div className="space-y-2.5">{typeChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>

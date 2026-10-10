@@ -1,5 +1,5 @@
-import type { Nutrients, Goal, Preferences } from "./types";
-import { NO_PREFERENCES } from "./types";
+import type { AllergenKey, Nutrients, Goal, Preferences } from "./types";
+import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP } from "./budget";
 import type { OrderLine } from "./order";
 
@@ -47,7 +47,13 @@ export interface UserSettings {
   /** Testing only (see config.DEV_TOOLS_ENABLED): pretend to be Pro. */
   devProOverride: boolean;
   lastMenuSyncAt?: string;
+  /** How big the app's text is (Settings and onboarding): standard 100%, large 115%, xlarge 130% of the browser's own size. */
+  textSize?: TextSize;
 }
+
+export type TextSize = "standard" | "large" | "xlarge";
+export const TEXT_SIZES: readonly TextSize[] = ["standard", "large", "xlarge"];
+export const TEXT_SCALE: Record<TextSize, number> = { standard: 100, large: 115, xlarge: 130 };
 
 export const DEFAULT_SETTINGS: UserSettings = {
   goal: "maintain",
@@ -83,6 +89,11 @@ export function sanitizeSettings(raw: unknown): UserSettings {
       vegetarianOnly: bool(prefs.vegetarianOnly, false),
       noPork: bool(prefs.noPork, false),
       noBeef: bool(prefs.noBeef, false),
+      ...(prefs.veganOnly === true ? { veganOnly: true } : {}),
+      ...(prefs.halalOnly === true ? { halalOnly: true } : {}),
+      ...(Array.isArray(prefs.avoidAllergens) && prefs.avoidAllergens.some((k) => ALLERGEN_KEYS.includes(k as AllergenKey))
+        ? { avoidAllergens: ALLERGEN_KEYS.filter((k) => (prefs.avoidAllergens as unknown[]).includes(k)) }
+        : {}),
     },
     hasCompletedOnboarding: bool(raw.hasCompletedOnboarding, false),
     dismissedTargetsCard: bool(raw.dismissedTargetsCard, false),
@@ -90,6 +101,7 @@ export function sanitizeSettings(raw: unknown): UserSettings {
     proActionCount: num(raw.proActionCount, 0, 0, 1e6),
     devProOverride: bool(raw.devProOverride, false),
     ...(typeof raw.lastMenuSyncAt === "string" ? { lastMenuSyncAt: raw.lastMenuSyncAt } : {}),
+    ...(TEXT_SIZES.includes(raw.textSize as TextSize) && raw.textSize !== "standard" ? { textSize: raw.textSize as TextSize } : {}),
   };
 }
 

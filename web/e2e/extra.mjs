@@ -10,8 +10,10 @@ await step("a shared link on a first visit goes through onboarding and then land
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/chain?id=cluck-house");
   await page.waitForURL(/\/app\/welcome\?next=/);
+  await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await page.getByRole("button", { name: "Let's go" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
-  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Skip" }).click();
+  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip" }).click();
   await page.getByRole("button", { name: "Start" }).click();
   await page.waitForURL(/\/app\/chain\?id=cluck-house/);
   await vis(page.getByRole("heading", { name: "Cluck House" }));
@@ -21,6 +23,7 @@ await step("onboarding goal radios work with the arrow keys (roving focus)", asy
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
+  await page.getByRole("button", { name: "Let's go" }).click();
   const first = page.getByRole("radio", { name: "Lose weight" });
   await first.focus();
   await page.keyboard.press("ArrowDown");
@@ -33,6 +36,7 @@ await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … ca
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
+  await page.getByRole("button", { name: "Let's go" }).click();
   await page.getByRole("radio", { name: "I'm on a GLP-1 medication" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await vis(page.getByText("Comfortable meal size:"));

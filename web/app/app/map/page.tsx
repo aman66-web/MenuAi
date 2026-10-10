@@ -6,6 +6,8 @@ import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 
 import { cuisineGroupId, cuisineGroups } from "@/lib/mm/cuisine";
 import { DEFAULT_RADIUS_MILES, directionsUrl, formatMiles, geocode, groupByChain, MAX_MAP_BRANCHES, MILES_RADII, nearbyBranches, type Area, type BranchesDoc, type LatLng } from "@/lib/mm/geo";
 import { chainHref } from "@/lib/mm/routes";
+import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
+import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
 import { DirectionsIcon, LocateIcon, PinIcon, SearchIcon } from "../_components/icons";
 import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
@@ -55,6 +57,7 @@ export default function NearbyPage() {
   const [radius, setRadius] = useState<number>(DEFAULT_RADIUS_MILES);
   const [types, setTypes] = useState<ReadonlySet<string>>(new Set());
   const [fullOnly, setFullOnly] = useState(false);
+  const [halalOnly, setHalalOnly] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
   const [typed, setTyped] = useState("");
   const [choices, setChoices] = useState<Area[]>([]);
   const [lookupMessage, setLookupMessage] = useState<string | null>(null);
@@ -130,7 +133,11 @@ export default function NearbyPage() {
 
   // Chains we can place on the map, narrowed by the full-nutrition switch, then (separately) by type.
   const byId = useMemo(() => new Map(menu.chains.filter((c) => !c.sample).map((c) => [c.id, c])), [menu.chains]);
-  const nutritionOk = useMemo(() => new Set([...byId.values()].filter((c) => !fullOnly || (c.nutritionLevel ?? "full") === "full").map((c) => c.id)), [byId, fullOnly]);
+  const nutritionOk = useMemo(
+    () => new Set([...byId.values()].filter((c) => (!fullOnly || (c.nutritionLevel ?? "full") === "full") && (!halalOnly || isAllHalal(c.id))).map((c) => c.id)),
+    [byId, fullOnly, halalOnly],
+  );
+  const anyHalal = useMemo(() => [...byId.keys()].some(isAllHalal), [byId]);
   const inRange = useMemo(() => (doc && origin ? nearbyBranches(doc, origin, radius, nutritionOk) : []), [doc, origin, radius, nutritionOk]);
   const typeChips = useMemo(() => cuisineGroups(groupByChain(inRange).map((g) => byId.get(g.chainId)!).filter(Boolean)), [inRange, byId]);
   const branches = useMemo(() => (types.size === 0 ? inRange : inRange.filter((b) => types.has(cuisineGroupId(byId.get(b.chainId)?.cuisine)))), [inRange, types, byId]);
@@ -193,10 +200,12 @@ export default function NearbyPage() {
             </div>
             <div role="group" aria-label="Filters" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5">
               <Chip selected={fullOnly} onClick={() => setFullOnly((v) => !v)} aria-describedby="full-help">Full nutrition only</Chip>
+              {(anyHalal || halalOnly) && <Chip selected={halalOnly} onClick={() => setHalalOnly((v) => !v)}>Halal</Chip>}
               {typeChips.length > 1 && <Chip selected={types.size === 0} onClick={() => setTypes(new Set())}>All types</Chip>}
               {typeChips.length > 1 && typeChips.map((t) => (<Chip key={t.id} selected={types.has(t.id)} onClick={() => toggleType(t.id)}>{t.label}</Chip>))}
             </div>
             <p id="full-help" className="sr-only">Only restaurants that publish calories, protein, carbs and fat for every item.</p>
+            {halalOnly && <p className="text-sm text-muted">Restaurants whose own website says all their food is halal. {HALAL_CAUTION}</p>}
           </div>
 
           <div className="relative mt-4 h-[46dvh] min-h-72 overflow-hidden rounded-3xl border border-line bg-soft-strong">

@@ -8,6 +8,7 @@ import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
+import { applyTextSize } from "../_lib/textSize";
 import { BasketIcon, BookmarkIcon, GearIcon, HomeIcon, PinIcon, TodayIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
 
@@ -24,7 +25,9 @@ export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const hydrated = useHydrated();
-  const onboarded = useSettings().hasCompletedOnboarding;
+  const settings = useSettings();
+  const onboarded = settings.hasCompletedOnboarding;
+  const textSize = settings.textSize;
   const fullScreen = pathname.startsWith("/app/welcome");
   const online = useOnline();
   const animate = useNavigatedOnce(pathname);
@@ -39,6 +42,11 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (process.env.NODE_ENV !== "production" || menu.status !== "ready" || menu.chains.length === 0) return;
     void warmOffline(chooseWarmChains(menu.chains, ownChains ? ownChains.split("|") : []));
   }, [menu.status, menu.chains, ownChains]);
+
+  // Text size from Settings / onboarding (the layout's inline script applies it before the first paint too).
+  useEffect(() => {
+    if (hydrated) applyTextSize(textSize);
+  }, [hydrated, textSize]);
 
   // First visit (SPEC §7.1): onboarding comes first, wherever the link pointed. It returns there when done.
   useEffect(() => {

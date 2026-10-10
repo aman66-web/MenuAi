@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 // First visit (SPEC §7.1): send people to onboarding before the app's JavaScript has even loaded, so they see the welcome
 // screen straight from its static HTML instead of a spinner then a redirect. Same rule as AppShell's effect, which stays as
 // the fallback (e.g. storage blocked). The settings key and shape are lib/mm/stores.ts + persist.ts ({ v, data }).
-const ONBOARDING_REDIRECT = `try{var p=location.pathname;if(!/^\\/app\\/(welcome|offline)/.test(p)){var s=JSON.parse(localStorage.getItem("mm.v1.settings")||"null");if(!(s&&s.data&&s.data.hasCompletedOnboarding))location.replace("/app/welcome?next="+encodeURIComponent(p+location.search))}}catch(e){}`;
+const ONBOARDING_REDIRECT = `try{var z=JSON.parse(localStorage.getItem("mm.v1.settings")||"null"),t=z&&z.data&&z.data.textSize;if(t==="large")document.documentElement.style.fontSize="115%";else if(t==="xlarge")document.documentElement.style.fontSize="130%"}catch(e){}try{var p=location.pathname;if(!/^\\/app\\/(welcome|offline)/.test(p)){var s=JSON.parse(localStorage.getItem("mm.v1.settings")||"null");if(!(s&&s.data&&s.data.hasCompletedOnboarding))location.replace("/app/welcome?next="+encodeURIComponent(p+location.search))}}catch(e){}`;
 
 export default function AppLayout({ children }: LayoutProps<"/app">) {
   return (

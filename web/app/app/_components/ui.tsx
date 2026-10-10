@@ -63,7 +63,7 @@ export function SectionTitle({ children, action }: { children: ReactNode; action
 export function EmptyState({ title, body, action, icon }: { title: string; body?: ReactNode; action?: ReactNode; icon?: ReactNode }) {
   return (
     <div className="glass rounded-3xl px-5 py-10 text-center">
-      <span aria-hidden className="icon-bubble-soft mx-auto mb-3 h-12 w-12">{icon ?? <span className="bg-sun h-3 w-3 rounded-full" />}</span>
+      <span aria-hidden className={`mx-auto mb-3 ${icon ? "inline-flex justify-center" : "icon-bubble-soft h-12 w-12"}`}>{icon ?? <span className="bg-sun h-3 w-3 rounded-full" />}</span>
       <p className="text-lg font-bold tracking-tight">{title}</p>
       {body && <p className="mx-auto mt-1 max-w-xs text-sm text-muted">{body}</p>}
       {action && <div className="mt-4 flex justify-center">{action}</div>}

@@ -8,6 +8,7 @@ import { loggedToday, MEAL_LABEL } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, nutrientsSpoken } from "@/lib/mm/format";
+import { chainForDiet } from "@/lib/mm/menu-view";
 import { NO_MATCHES_COPY, OUT_OF_BUDGET_BANNER, OUT_OF_BUDGET_EMPTY, rank, type Pick } from "@/lib/mm/ranking";
 import { logStore } from "@/lib/mm/stores";
 import type { Meal, Preferences } from "@/lib/mm/types";
@@ -32,7 +33,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
   const result = useMemo(
     () =>
       rank({
-        chain: index.chain,
+        chain: chainForDiet(index.chain, preferences),
         profile: { goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap },
         loggedCalories,
         meal,

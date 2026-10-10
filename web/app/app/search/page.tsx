@@ -10,6 +10,7 @@ import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyState, SampleBadge, SectionTitle } from "../_components/ui";
+import { PipSays } from "../_components/Mascot";
 import { useSearchIndex } from "../_lib/hooks";
 
 // SPEC §7.3: type-ahead over chain and item names, minimum 2 characters. Chains first, then items.
@@ -63,9 +64,8 @@ export default function SearchPage() {
             </div>
           </section>
         ) : (
-          <div className="mt-12 flex flex-col items-center text-center">
-            <span aria-hidden className="icon-bubble h-16 w-16"><SearchIcon className="h-7 w-7" /></span>
-            <p className="mt-4 max-w-[16rem] text-sm text-muted">Type at least {MIN_QUERY_LENGTH} letters of a restaurant or a dish.</p>
+          <div className="mx-auto mt-10 max-w-sm">
+            <PipSays mood="think">Type at least {MIN_QUERY_LENGTH} letters of a restaurant or a dish.</PipSays>
           </div>
         )
       )}

@@ -27,6 +27,14 @@ export const ListIcon = (p: P) => (<svg {...base(p)}><path d="M8 6h12M8 12h12M8 
 export const ForkIcon = (p: P) => (<svg {...base(p)}><path d="M7 3v8a3 3 0 006 0V3M10 3v18M17 3c-2 2-2 6 0 8v10" /></svg>);
 export const PencilIcon = (p: P) => (<svg {...base(p)}><path d="M4 20h4L19 9l-4-4L4 16z" /><path d="M13.5 6.5l4 4" /></svg>);
 export const ArrowRightIcon = (p: P) => (<svg {...base(p)}><path d="M5 12h14M13 6l6 6-6 6" /></svg>);
+export const ScaleIcon = (p: P) => (<svg {...base(p)}><path d="M12 4v16M5 20h14M6 8h12" /><path d="M6 8l-3 6a3 3 0 006 0zM18 8l-3 6a3 3 0 006 0z" /></svg>);
+export const TrendDownIcon = (p: P) => (<svg {...base(p)}><path d="M3 7l6 6 4-4 8 8" /><path d="M21 11v6h-6" /></svg>);
+export const PillIcon = (p: P) => (<svg {...base(p)}><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)" /><path d="M9.6 8.6l4.8 6.8" /></svg>);
+export const ShieldIcon = (p: P) => (<svg {...base(p)}><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></svg>);
+export const PhoneIcon = (p: P) => (<svg {...base(p)}><rect x="7" y="2.5" width="10" height="19" rx="2.5" /><path d="M11 18.5h2" /></svg>);
+export const GiftIcon = (p: P) => (<svg {...base(p)}><rect x="3.5" y="9" width="17" height="11.5" rx="1.5" /><path d="M2.5 9h19M12 9v11.5M12 9c-1.5-3.5-6-4-6-1.5S10 9 12 9zM12 9c1.5-3.5 6-4 6-1.5S14 9 12 9z" /></svg>);
+export const LeafIcon = (p: P) => (<svg {...base(p)}><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15" /><path d="M5 19l7-7" /></svg>);
+export const TextSizeIcon = (p: P) => (<svg {...base(p)}><path d="M3 18l4.5-12L12 18M4.6 14h5.8M14 18l3-8 3 8M15 15.5h4" /></svg>);
 export const BoltIcon = (p: P) => (<svg {...base(p)}><path d="M13 3L5 14h6l-1 7 8-11h-6z" /></svg>);
 
 // ---- cuisine glyphs for ChainMark: drawn for this app (simple shapes, no brand artwork) ----

@@ -7,7 +7,8 @@ import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { useGate } from "../_components/Paywall";
-import { TodayIcon, TrashIcon } from "../_components/icons";
+import { TrashIcon } from "../_components/icons";
+import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
 import { Button, Card, EmptyState } from "../_components/ui";
 import { useHydrated, useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -88,7 +89,7 @@ export default function TodayPage() {
       </Card>
 
       {todays.length === 0 ? (
-        <div className="mt-6"><EmptyState icon={<TodayIcon className="h-6 w-6" />} title="Nothing logged yet today" body="Open an item or build an order, then tap Log." /></div>
+        <div className="mt-6"><EmptyState icon={<Pip mood="point" size={64} />} title="Nothing logged yet today" body="Open an item or build an order, then tap Log." /></div>
       ) : (
         <ul className="glass mt-5 divide-y divide-line overflow-hidden rounded-3xl">
           {todays.map((e) => (

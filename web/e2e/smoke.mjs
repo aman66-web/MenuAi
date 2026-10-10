@@ -30,11 +30,14 @@ const visible = async (loc, timeout = 8000) => { await loc.waitFor({ state: "vis
 await step("first visit redirects to onboarding", async () => {
   await page.goto(`${BASE}/app`);
   await page.waitForURL(/\/app\/welcome/);
+  await visible(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await shot("00-onboarding-welcome");
+  await page.getByRole("button", { name: "Let's go" }).click();
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
-  await visible(text("Step 1 of 4"));
+  await visible(text("Step 1 of 5"));
   await shot("01-onboarding-goal");
 });
-await step("onboarding: goal → targets → preferences → how it works → Start", async () => {
+await step("onboarding: welcome → goal → targets → preferences → text size → how it works → Start", async () => {
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Your daily targets" }));
@@ -44,6 +47,10 @@ await step("onboarding: goal → targets → preferences → how it works → St
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Anything you avoid?" }));
   await page.getByRole("button", { name: "Skip" }).click();
+  await visible(page.getByRole("heading", { name: "Easy to read" }));
+  await page.getByRole("radio", { name: "Large", exact: true }).click();
+  await page.getByRole("radio", { name: "Standard", exact: true }).click();
+  await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Here's how it works" }));
   await visible(text("Pick a restaurant"));
   await shot("03-onboarding-how");

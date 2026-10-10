@@ -161,6 +161,12 @@ export interface Preferences {
   vegetarianOnly: boolean;
   noPork: boolean;
   noBeef: boolean;
+  /** Only dishes whose own name or menu section says vegan or plant-based (lib/mm/menu-view.ts isNamedVegan). */
+  veganOnly?: boolean;
+  /** Only restaurants that say on their own website that all their UK food is halal (lib/mm/halal.ts). Chain-level. */
+  halalOnly?: boolean;
+  /** Hide dishes whose guide lists one of these as "contains" or "may contain", and dishes with no allergen information. */
+  avoidAllergens?: AllergenKey[];
 }
 
 export const NO_PREFERENCES: Preferences = { vegetarianOnly: false, noPork: false, noBeef: false };

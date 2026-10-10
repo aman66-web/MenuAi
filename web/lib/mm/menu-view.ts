@@ -33,7 +33,44 @@ export function sortItems(items: readonly MenuItem[], kind: SortKind): MenuItem[
 }
 
 export function filterItems(items: readonly MenuItem[], prefs: Preferences): MenuItem[] {
-  return items.filter((i) => passesPreferences(i.tags, prefs));
+  return items.filter((i) => passesDiet(i, prefs));
+}
+
+const VEGAN_WORDS = /\bvegan\b|plant[\s-]?based/i;
+
+/** The dish's own name or its menu section says vegan or plant-based (what the restaurant prints; nothing inferred). */
+export function isNamedVegan(item: Pick<MenuItem, "name" | "category">): boolean {
+  return VEGAN_WORDS.test(item.name) || VEGAN_WORDS.test(item.category ?? "");
+}
+
+/** True when an allergen filter is on and the guide lists none of those allergens for this dish ("may contain" counts too). */
+export function freeOfAllergens(item: Pick<MenuItem, "allergens">, avoid: readonly string[] | undefined): boolean {
+  if (!avoid || avoid.length === 0) return true;
+  const a = item.allergens;
+  if (!a) return false; // no allergen information: we can't say it's free of anything
+  return !avoid.some((k) => (a.contains as readonly string[]).includes(k) || (a.mayContain as readonly string[]).includes(k));
+}
+
+/** Every diet and allergy filter the user has on (vegetarian, no pork/beef, vegan, allergens). Halal is chain-level (lib/mm/halal.ts). */
+export function passesDiet(item: MenuItem, prefs: Preferences): boolean {
+  if (!passesPreferences(item.tags, prefs)) return false;
+  if (prefs.veganOnly && !isNamedVegan(item)) return false;
+  return freeOfAllergens(item, prefs.avoidAllergens);
+}
+
+export const anyDietFilter = (p: Preferences): boolean =>
+  p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.avoidAllergens?.length);
+
+/**
+ * The chain as Best for you should see it with the extra filters (vegan, allergens) applied: dishes that fail are removed,
+ * and so are ready-made combinations built on them (or with no single base dish to check). The ranking itself is unchanged.
+ */
+export function chainForDiet(chain: Chain, prefs: Preferences): Chain {
+  const extra = Boolean(prefs.veganOnly) || Boolean(prefs.avoidAllergens?.length);
+  if (!extra) return chain;
+  const items = chain.items.filter((i) => passesDiet(i, prefs));
+  const kept = new Set(items.map((i) => i.id));
+  return { ...chain, items, combinations: chain.combinations.filter((c) => c.baseItemId !== null && kept.has(c.baseItemId)) };
 }
 
 /** "New" for 30 days after addedOn (a date, interpreted at local midnight). */
@@ -80,7 +117,11 @@ export const SECTION_PREVIEW_ITEMS = 6;
  * they can't promise anything (matters for halal and vegetarian users). Null when no filter is on.
  */
 export function filterCaution(prefs: Preferences): string | null {
-  const promises = [prefs.vegetarianOnly && "vegetarian", prefs.noPork && "pork-free", prefs.noBeef && "beef-free"].filter((p): p is string => Boolean(p));
-  if (promises.length === 0) return null;
-  return `We only know what each restaurant publishes, so this can't promise a dish is ${promises.join(" or ")}.`;
+  const promises = [prefs.vegetarianOnly && "vegetarian", prefs.veganOnly && "vegan", prefs.noPork && "pork-free", prefs.noBeef && "beef-free"].filter((p): p is string => Boolean(p));
+  const allergy = prefs.avoidAllergens?.length
+    ? "Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant."
+    : null;
+  if (promises.length === 0) return allergy;
+  const diet = `We only know what each restaurant publishes, so this can't promise a dish is ${promises.join(" or ")}.`;
+  return allergy ? `${diet} ${allergy}` : diet;
 }
