@@ -522,7 +522,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   products with their labels and prices" / "Recipes made from your shop's products, with the cost per serving". Tests: 9 unit (`tests/recipes.test.ts`, incl. every
   recipe resolving against the published Sainsbury's list), `e2e/recipes.mjs` (6, axe light/dark), a11y + large-text lists extended.
   **Found on the way (not changed):** some Sainsbury's product pages print cooked figures under a plain "per 100g" heading (e.g. its own Penne 1kg shows 164 kcal
-  per 100 g), so the "Every Sainsbury's product" list shows them as printed without the word "cooked"; recipes are protected by the kcal ranges. **Flagged for the
+  per 100 g); the Mac's Tier 2 extractor v7 (merged the same day) labels such figures "cooked" from the page's own nutrition guide and is re-reading dry
+  staples, so these rows fix themselves as the re-read reaches them (Penne 1kg not yet); recipes are protected by the kcal ranges meanwhile. **Flagged for the
   founder:** the website headline/description and App Store title still say restaurants only ("Know your macros before you order", "Fast Food Macros"); say if you
   want them to cover shopping and cooking too.
 
