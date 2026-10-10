@@ -25,13 +25,13 @@ async function step(name, fn) { try { await fn(); passed++; console.log("PASS", 
 const expect = (c, m) => { if (!c) throw new Error(m); };
 const money = (t) => Number(/£(\d+\.\d\d)/.exec(t)?.[1] ?? NaN);
 
-await step("Home shows eat out, shop, cook and the list; Cook opens the recipes", async () => {
+await step("the tab bar opens Recipes; Home's My recipes and My groceries tiles open their pages", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");
-  await page.getByRole("link", { name: "Find restaurants near you" }).waitFor();
-  await page.getByRole("link", { name: "Browse supermarket groceries" }).waitFor();
-  await page.getByRole("link", { name: /Your shopping list/ }).waitFor();
-  await page.getByRole("link", { name: "Cook from your shop" }).click();
+  await page.getByRole("link", { name: /My groceries/ }).waitFor();
+  await page.getByRole("link", { name: /My recipes/ }).click();
+  await page.getByRole("heading", { level: 1, name: "My recipes" }).waitFor();
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Recipes" }).click();
   await page.getByRole("heading", { level: 1, name: "Recipes from your shop" }).waitFor();
   await ctx.close();
 });
@@ -98,12 +98,43 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   await page.getByRole("button", { name: "Add all to my shopping list" }).click();
   await page.getByText("Added 4 products to your Sainsbury's list.").waitFor();
   await page.getByRole("link", { name: "See list" }).click();
-  await page.getByRole("heading", { level: 1, name: "Shopping list" }).waitFor();
+  await page.getByRole("heading", { level: 1, name: "My groceries" }).waitFor();
   const section = page.getByRole("region", { name: "Sainsbury's" });
   expect((await section.locator("li").count()) === 4, "4 items on the list");
   await section.getByText(second).waitFor();
   await section.getByText(/for the items with a price, at Sainsbury's prices checked/).waitFor();
   await page.getByRole("heading", { name: "How to make it" }).count(); // not on this page; just making sure nothing threw
+  await ctx.close();
+});
+
+await step("My groceries: type an item, tick it off, see the recipes it makes, add what one still needs, save a recipe to My recipes", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/groceries/list");
+  await page.getByRole("heading", { level: 1, name: "My groceries" }).waitFor();
+  await page.getByLabel("Add something to your list").fill("Chicken");
+  await page.getByRole("button", { name: "Add", exact: true }).click();
+  await page.getByText("Added “Chicken”.").waitFor();
+  const tick = page.getByRole("checkbox", { name: "Chicken: still to get" });
+  await tick.click();
+  await page.getByRole("checkbox", { name: "Chicken: in the basket", checked: true }).waitFor();
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.shopping")).data[0]);
+  expect(stored.custom === true && stored.done === true && stored.retailer === "own", JSON.stringify(stored));
+  await page.getByText(/\d+ recipes use something on your list/).first().waitFor();
+  await page.getByRole("heading", { name: "You might also need" }).waitFor();
+  await page.getByRole("link", { name: /What can I cook with this\?/ }).click();
+  await page.getByRole("heading", { level: 1, name: "Cook with your shopping list" }).waitFor();
+  const first = page.locator("ul > li.glass").first();
+  await first.getByText(/You have 1 of \d+ ingredients/).waitFor();
+  await first.getByRole("button", { name: /^Add the (other \d+|last one) to my list$/ }).click();
+  await first.getByText(/Added \d+ products? to your Sainsbury's list\./).waitFor();
+  const n = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.shopping")).data.length);
+  expect(n > 1, `list has ${n} items`);
+  await first.getByRole("link").first().click();
+  await page.getByRole("button", { name: "Save to My recipes" }).click();
+  await page.getByRole("button", { name: "Saved to My recipes", pressed: true }).waitFor();
+  await page.goto(BASE + "/app/recipes/saved");
+  await page.getByRole("heading", { name: "Saved recipes" }).waitFor();
+  expect((await page.locator("a[href*='/app/recipes/view']").count()) === 1, "one saved recipe");
   await ctx.close();
 });
 

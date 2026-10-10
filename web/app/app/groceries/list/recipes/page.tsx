@@ -47,11 +47,11 @@ function MatchCard({ m, file }: { m: ListRecipe; file: ShopFile }) {
           <Button variant="secondary" className="mt-3" onClick={() => { const n = addMissing(m, file); setAdded(n === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n, shop: file.name })); }}>
             <PlusIcon className="h-5 w-5" />{m.missing.length === 1 ? t("Add the last one to my list") : t("Add the other {n} to my list", { n: m.missing.length })}
           </Button>
-          <p role="status" aria-live="polite" className="mt-1 min-h-5 text-sm font-medium text-accent">{added}</p>
         </>
       ) : (
         <p className="mt-3 text-sm font-semibold">{t("Your list has everything this recipe uses.")}</p>
       )}
+      <p role="status" aria-live="polite" className="mt-1 min-h-5 text-sm font-medium text-accent">{added}</p>
     </li>
   );
 }

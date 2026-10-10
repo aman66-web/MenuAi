@@ -24,18 +24,15 @@ export function itemCovers(item: ShoppingItem, spec: IngredientSpec, products: r
   return specs.some((sp) => (product ? productFits(products, sp, product, meatFree) : nameFits(item.name, sp, !!item.custom)));
 }
 
-/** Which ingredients the list covers, each item counting for one ingredient only: exact matches first, then substitutes (a tin of kidney
- *  beans can stand in for black beans, but not also be the kidney beans). */
+/** Which ingredients the list covers, each item counting for one ingredient only. Only the ingredient itself counts, not its substitutes:
+ *  chicken on the list doesn't make a beef recipe "one you can make" (the recipe page still offers the swap). */
 function covered(list: readonly ShoppingItem[], recipe: Recipe, products: readonly ShopProduct[], byId: ReadonlyMap<string, ShopProduct>, retailer: string): Set<number> {
   const used = new Set<number>();
   const have = new Set<number>();
-  for (const subs of [false, true]) {
-    recipe.ingredients.forEach((spec, i) => {
-      if (have.has(i)) return;
-      const j = list.findIndex((item, k) => !used.has(k) && itemCovers(item, spec, products, byId, retailer, recipe, subs));
-      if (j >= 0) { used.add(j); have.add(i); }
-    });
-  }
+  recipe.ingredients.forEach((spec, i) => {
+    const j = list.findIndex((item, k) => !used.has(k) && itemCovers(item, spec, products, byId, retailer, recipe, false));
+    if (j >= 0) { used.add(j); have.add(i); }
+  });
   return have;
 }
 

@@ -28,7 +28,7 @@ const vis = (loc) => loc.waitFor({ state: "visible", timeout: 10000 });
 
 await step("service worker registers and activates on /app", async () => {
   await page.goto(BASE + "/app");
-  await vis(page.getByRole("heading", { name: "Where are you eating?" }));
+  await vis(page.getByRole("heading", { level: 1, name: "Today" }));
   await page.evaluate(() => navigator.serviceWorker.ready.then(() => true));
   const scope = await page.evaluate(async () => (await navigator.serviceWorker.getRegistration("/app"))?.scope);
   if (!scope?.endsWith("/app")) throw new Error("scope " + scope);
@@ -38,8 +38,8 @@ await step("visit pages online so they are cached (one chain opened, one only wa
   await vis(page.getByRole("heading", { name: "Bowl & Co." }));
   await page.goto(BASE + "/app/item?chain=bowl-and-co&item=chicken-bowl");
   await vis(page.getByRole("heading", { name: "Chicken bowl" }));
-  await page.goto(BASE + "/app");
-  await vis(page.getByRole("heading", { name: "Where are you eating?" }));
+  await page.goto(BASE + "/app/eat-out");
+  await vis(page.getByRole("heading", { level: 1, name: "Eat out" }));
   await page.waitForTimeout(7000); // warm-up fetches each chain page + menu in the background
 });
 await step("OFFLINE: reload an opened chain page → menu still shows", async () => {
@@ -59,9 +59,11 @@ await step("OFFLINE: a chain that was only warmed in the background also opens",
   await vis(page.getByRole("heading", { name: "KFC" }));
   await vis(page.getByText("Fillet Burger").first());
 });
-await step("OFFLINE: client navigation Home → chain works", async () => {
+await step("OFFLINE: client navigation Home → Eat out → chain works", async () => {
   await page.goto(BASE + "/app");
-  await vis(page.getByRole("heading", { name: "Where are you eating?" }));
+  await vis(page.getByRole("heading", { level: 1, name: "Today" }));
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Eat out" }).click();
+  await vis(page.getByRole("heading", { level: 1, name: "Eat out" }));
   await vis(page.getByRole("link", { name: /KFC/ }).first());
   await page.getByRole("link", { name: /KFC/ }).first().click();
   await vis(page.getByRole("heading", { name: "KFC" }));

@@ -86,13 +86,16 @@ describe("recipes from the shopping list", () => {
     expect(recipesFromList(other, RECIPES, products, "sainsburys").some((m) => m.recipe.id === curry.id)).toBe(true);
   });
 
-  it("one item on the list counts for one ingredient only (kidney beans can stand in for black beans, but not be both)", () => {
+  it("only the ingredient itself counts, once: kidney beans don't make the black beans too, chicken doesn't make a beef recipe", () => {
     const chilli = RECIPES.find((r) => r.id === "black-bean-chilli")!;
     const beans = chilli.ingredients.findIndex((i) => i.pantry === "kidney-beans");
     expect(beans).toBeGreaterThanOrEqual(0);
     const list = addToList([], customItem("red kidney beans")!);
     const m = recipesFromList(list, RECIPES, products, "sainsburys").find((x) => x.recipe.id === chilli.id)!;
     expect(m.have).toEqual([beans]);
+    const chicken = recipesFromList(addToList([], customItem("chicken")!), RECIPES, products, "sainsburys");
+    expect(chicken.length).toBeGreaterThan(0);
+    for (const x of chicken) expect(x.have.every((i) => x.recipe.ingredients[i]!.pantry?.startsWith("chicken"))).toBe(true);
   });
 
   it("only recipes that suit the diet are offered; an empty list offers nothing", () => {

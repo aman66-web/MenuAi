@@ -625,6 +625,32 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   the website, marketing, store screenshots or the app icon). New copy (rule 8, logged here): the language screen lines, "Change language", the welcome tagline, counts line and
   not-affiliated line; every translation.
 
+- 2026-10-10 — **A simpler layout: five tabs, Home is today, and Pip's intro (founder: "Screen 3/4/5 should be like this ... the nearby tab should be called
+  the eat out tab ... The saved tab should be the recipes tab ... the Home Screen will be the today screen ... 4 tabs ... 'my groceries' ... so an 90 year old can
+  easily understand and navigate it").** **Tabs:** Home · Eat out · Groceries · Recipes · Settings (was six; Today folded into Home). **Home** = today: the date, today's
+  numbers (Pro: calories left with a ring, protein left, eaten so far in kcal/protein/carbs/fat, "See what you've eaten today" → `/app/today`; free: the daily targets,
+  "Log your meals to see what's left today." and See Pro), then four big tiles: **My groceries** (`/app/groceries/list`), **My saved meals** (`/app/saved`: saved
+  restaurant orders + favourite restaurants), **My recipes** (`/app/recipes/saved`, new: a "Save to My recipes" button on every recipe of ours, plus Pip's) and **My diet**
+  (Settings › Diet and allergies). **Eat out** (`/app/eat-out`) = the old Home's restaurant list (search, all restaurants, Popular, Favourites, browse by type, A to Z) plus a
+  "Near me" card that opens the map (`/app/map`, now with a back button). **My groceries** = the shopping list, now with typed-in items ("Milk", any shop), tick-off as things go
+  in the basket (ticked items drop to the bottom, "Remove ticked", left out of the shared text), "What can I cook with this?" at the top → `/app/groceries/list/recipes`
+  (recipes that use something on the list, the fewest still to buy first, "You have 2 of 4 ingredients", one tap adds the rest: the recipe's own picks at the shop) and
+  "You might also need" (the missing ingredients of the recipe that uses most of the list). Matching (`lib/mm/listRecipes.ts`, 9 unit tests): a product from the same shop counts
+  by the recipes' own product rules, another shop's product or typed words by name; each list item counts for one ingredient, and only the ingredient itself (chicken on the
+  list doesn't make a beef recipe "one you can make"; the recipe still offers the swap). **Recipes tab**: no back button; when only one shop has a full list it says
+  "Ingredients from Sainsbury's. More supermarkets will appear here as we read their products and prices." (the shop picker appears with a second shop).
+  **Onboarding:** language → welcome ("Get started") → three Pip screens in a calm, adult tone (a large speech bubble above Pip: "Hi, I'm Pip." / "A few quick questions
+  and a short tour, and you're ready." · "It only takes a minute." / "Let's go!" with a short, quiet burst of brand-green confetti, none for reduced motion) → the six
+  questions; the last step is now the short tour: the tab bar, tab by tab, with the same icons. **Where the founder's plan was adjusted (told in chat):** (1) today's macros
+  need meals logged, and logging is Pro (SPEC §7.8; rule 8 not touched), so a free user sees their targets on Home with See Pro: **say if logging should be free**;
+  (2) recipes can only come from shops whose full product list, prices and labels we've read, so "filter by supermarket" shows one shop today; (3) suggestions come only from
+  recipes (no invented "people also buy"); (4) the two extra tiles chosen: My recipes and My diet. New copy (rule 8, logged here): every string above, "Eat out", "Near me",
+  "All restaurants", "Today's meals", "Any shop", "Get started", the tour lines; the Clear data sentence now says "the area you typed for Near me"; privacy page says "Near me
+  map". All of it translated into the 10 languages (by Claude, not yet checked by native speakers; Punjabi and Urdu greet with "Hello", not a religious greeting).
+  Checked on a production build: 419 unit tests, tsc, lint, e2e smoke 23, extra 11, recipes 13 (new: typed item, tick, cook-with-list, add missing, save to My recipes),
+  browse 9, calories 4, languages 5, groceries 6+8+5+4, offline 13 (new pages precached), map 6 of 7 (the known headless geolocation limit), axe 0 violations on every
+  screen incl. the new ones, no horizontal overflow at 100/150/200% text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -633,6 +659,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **Decide: should logging meals be free?** Home now opens on today's numbers, but those need meals logged, which the spec makes Pro. Free users see their targets and See Pro.
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
   cooking-safety lines and the onboarding. Each language is one file, `web/lib/mm/locales/<code>.json` (English → translation); a reviewer can edit it directly.
 - [ ] **Recipe pictures (Nano Banana):** paste each prompt from `docs/RECIPE_IMAGE_PROMPTS.md`, check the picture has no writing, packaging or logos, save it as
