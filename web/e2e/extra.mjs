@@ -59,6 +59,21 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await vis(page.getByRole("radiogroup", { name: "Goal" }).getByRole("radio", { name: "Other", checked: true }));
   await ctx.close();
 });
+await step("onboarding back button returns to the previous step, keeping the choice, and step 1 goes back to the start", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/welcome");
+  await page.getByRole("button", { name: "Let's go" }).click();
+  await page.getByRole("radio", { name: "Build muscle" }).click();
+  await page.getByRole("button", { name: "Continue" }).click();
+  await vis(page.getByRole("heading", { name: "Your daily targets" }));
+  await page.getByRole("button", { name: "Back to the previous step" }).click();
+  await vis(page.getByRole("heading", { name: "What's your goal?" }));
+  await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
+  await page.getByRole("button", { name: "Back to the start" }).click();
+  await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await ctx.close();
+});
 await step("menus unreachable → an honest error with Try again (not 'Menus are coming soon'), then it recovers", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, goal: "maintain", dailyCalories: 2000 } })));

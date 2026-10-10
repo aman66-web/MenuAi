@@ -599,6 +599,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   bottom of every step (five goal cards can run past the fold on a notched iPhone), like the welcome screen's button. New copy (logged here): "Other", the hint and Pip's line.
   Not in docs/SPEC.md (four goals); the native app should add it too. Checked: 398 unit tests, e2e extra 10 (new: Other in onboarding and Settings), smoke 22, axe 0, no overflow at 200% text.
 
+- 2026-10-10 — **Onboarding back button (founder: "Add a back button to go back to the previous screen").** Every onboarding step has a round back button left of
+  "Step n of 6": it returns to the step before with the choices kept (step 1 returns to Pip's welcome screen). Screen-reader names "Back to the previous step" /
+  "Back to the start" (new copy, logged here). Checked: e2e extra 11 (new: forward, back keeps the goal, back to the start), smoke 22, axe 0, no overflow at 200% text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

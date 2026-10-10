@@ -13,7 +13,7 @@ import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
-import { BasketIcon, BoltIcon, CheckIcon, DotsIcon, ForkIcon, GiftIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
+import { BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
 import { Pip, PipSays } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
@@ -72,6 +72,11 @@ export default function WelcomePage() {
 
   const next = () => {
     setStep((s) => s + 1);
+    window.scrollTo({ top: 0 });
+  };
+  // Back to the step before (step 1 goes back to the welcome screen); what was chosen is kept.
+  const back = () => {
+    setStep((s) => Math.max(0, s - 1));
     window.scrollTo({ top: 0 });
   };
   const skip = () => {
@@ -148,6 +153,9 @@ export default function WelcomePage() {
   return (
     <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col">
       <div className="flex items-center gap-3">
+        <button type="button" onClick={back} aria-label={step === 1 ? "Back to the start" : "Back to the previous step"} className="glass -ml-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <ChevronLeftIcon />
+        </button>
         <p className="text-sm font-semibold text-muted" aria-live="polite">Step {step} of {STEPS}</p>
         <div aria-hidden className="relative flex-1 py-3">
           <div className="h-2.5 overflow-hidden rounded-full bg-soft-strong">
