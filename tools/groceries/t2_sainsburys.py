@@ -46,6 +46,7 @@ def canon_state(state: str):
     return None
 
 
+STAPLES = re.compile(r"pasta|spaghetti|penne|fusilli|rigatoni|macaroni|farfalle|tagliatelle|linguine|lasagne|noodle|rice|couscous|quinoa|lentil|chickpea|bulgur|barley|polenta|semolina|vermicelli|orzo|risoni|oats|porridge|beans")
 PLAIN_WORDS = {"of product", "of food", "of the product", "of the food", "typical", "typical values", "typical analysis", "as sold", "amount"}
 BASIS = re.compile(r"(g|ml)(:[a-z][a-z ]{0,23})?|\?")
 FIELDS = ["per", "kj", "kcal", "fat", "saturates", "carbs", "sugars", "fibre", "protein", "salt"]
@@ -85,6 +86,9 @@ def done_slugs(work: Path) -> set:
                 continue
             # rows from v3/v4 whose energy figures contradict each other (a "kJ/kcal" label read as kcal = kJ) or that took the %reference-intake column are read again with v5
             if len(parts) == 13 and parts[12] in ("3", "4") and _suspect(parts):
+                continue
+            # dry staples read before extractor v7 may carry cooked figures under a plain "per 100g" heading (the page's own guide says "cooked"): read again with v7
+            if len(parts) == 13 and parts[12] in ("3", "4", "5", "6") and STAPLES.search(parts[0]) and parts[1] in ("g", "ml"):
                 continue
             if p.name.startswith("none_") and (len(parts) < 2 or parts[1] != "4"):
                 continue
@@ -194,7 +198,7 @@ def cmd_append(a) -> int:
         if slug in done:
             continue
         with open(work / f"results_{a.slice}.tsv", "a", encoding="utf-8") as f:
-            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "5"]) + "\n")
+            f.write("\t".join([slug] + parts[1:11] + [date.today().isoformat(), "7"]) + "\n")
         done.add(slug)
         ok += 1
     print(f"stored {ok}, no table {none}, rejected {len(bad)}; {len(pending(work, a.slice))} left in slice {a.slice}")
