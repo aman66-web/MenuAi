@@ -1,0 +1,7 @@
+{
+ "chain": "the-alchemist",
+ "date": "2026-10-11",
+ "source_read": "https://thealchemistbars.com/food/ (Large Plates menu; robots.txt allows it)",
+ "method": "Independent second read in the founder's Chrome with get_page_text on the page (the first read was by hand with find): all 24 dishes' printed calories and allergen words were compared with data/chrome-inbox/the-alchemist/items.csv by a script.",
+ "result": "24 of 24 dishes match on calories and on every allergen word (the two 'Chicken in a Basket' dishes are written with their filling in brackets in items.csv). Tempura Fish & Chips prints no gluten, so it stays held back as a row that contradicts its own name."
+}
