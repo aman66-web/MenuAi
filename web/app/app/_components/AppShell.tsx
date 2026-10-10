@@ -11,15 +11,16 @@ import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
 import { setLanguage, useT } from "../_lib/i18n";
-import { BasketIcon, BookmarkIcon, GearIcon, HomeIcon, PinIcon, TodayIcon } from "./icons";
+import { BasketIcon, ForkIcon, GearIcon, HomeIcon, PotIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
 
+// Five tabs, one job each (founder 2026-10-10): Home is today (your numbers and your own lists), then the three things the app does —
+// eat out, shop, cook — then Settings. Pages inside a tab keep that tab lit.
 const TABS = [
-  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
-  { href: "/app/map", label: tk("Nearby"), Icon: PinIcon, match: (p: string) => p.startsWith("/app/map") },
-  { href: "/app/groceries", label: tk("Groceries"), Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") || p.startsWith("/app/recipes") },
-  { href: "/app/saved", label: tk("Saved"), Icon: BookmarkIcon, match: (p: string) => p.startsWith("/app/saved") },
-  { href: "/app/today", label: tk("Today"), Icon: TodayIcon, match: (p: string) => p.startsWith("/app/today") },
+  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/today") || p.startsWith("/app/saved") || p.startsWith("/app/groceries/list") || p.startsWith("/app/recipes/saved") },
+  { href: "/app/eat-out", label: tk("Eat out"), Icon: ForkIcon, match: (p: string) => p.startsWith("/app/eat-out") || p.startsWith("/app/map") || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
+  { href: "/app/groceries", label: tk("Groceries"), Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") && !p.startsWith("/app/groceries/list") },
+  { href: "/app/recipes", label: tk("Recipes"), Icon: PotIcon, match: (p: string) => p.startsWith("/app/recipes") && !p.startsWith("/app/recipes/saved") },
   { href: "/app/settings", label: tk("Settings"), Icon: GearIcon, match: (p: string) => p.startsWith("/app/settings") },
 ] as const;
 
@@ -112,7 +113,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <Link
                       href={href}
                       aria-current={active ? "page" : undefined}
-                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-[10.5px] font-semibold tracking-wide transition-colors ${active ? "text-accent" : "text-muted hover:text-foreground"}`}
+                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-[11px] font-semibold tracking-wide transition-colors ${active ? "text-accent" : "text-muted hover:text-foreground"}`}
                     >
                       <span
                         aria-hidden

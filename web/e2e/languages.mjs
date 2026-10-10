@@ -28,7 +28,7 @@ await step("first screen is the language screen; Polski switches it to Polish an
   await page.getByRole("heading", { level: 1, name: pl["Choose your language"] }).waitFor();
   expect((await page.evaluate(() => document.documentElement.lang)) === "pl", "html lang=pl");
   await page.getByRole("button", { name: pl["Continue"] }).click();
-  await page.getByRole("button", { name: pl["Let's go"] }).waitFor();
+  await page.getByRole("button", { name: pl["Get started"] }).waitFor();
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.language);
   expect(saved === "pl", `saved language ${saved}`);
   await page.reload();
@@ -44,6 +44,7 @@ await step("a finished onboarding in Polish: Home and the tab bar in Polish; Set
   await page.goto(BASE + "/app/settings");
   await page.getByRole("heading", { level: 1, name: pl["Settings"] }).waitFor();
   await page.getByRole("link", { name: pl["Home"] }).first().waitFor();
+  await page.getByRole("link", { name: pl["Eat out"] }).first().waitFor();
   await page.getByRole("button", { name: /Polski/ }).click();
   await page.getByRole("dialog").getByRole("radio", { name: /English/ }).click();
   await page.getByRole("heading", { level: 1, name: "Settings" }).waitFor();

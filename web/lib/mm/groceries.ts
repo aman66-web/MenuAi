@@ -331,21 +331,54 @@ export interface ShoppingItem {
   /** The shelf price when it was added and the date the shop's list was read: shown as a guide, never kept up to date. */
   price?: number;
   checkedOn?: string;
+  /** Typed in by the person ("Milk"), not a product we know: no barcode, no shop, no numbers. Its retailer is CUSTOM_RETAILER. */
+  custom?: true;
+  /** Ticked off: already in the basket. */
+  done?: true;
 }
 
 export const MAX_SHOPPING_ITEMS = 200;
 export const MAX_QTY = 20;
 const SHOP_ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
 
-/** What identifies an item within one retailer: its barcode, else the shop's own product id. */
-export const itemCode = (i: Pick<ShoppingItem, "gtin" | "shopId">): string => i.gtin || i.shopId || "";
+/** The "retailer" of items the person typed in themselves (any shop). */
+export const CUSTOM_RETAILER = "own";
+export const MAX_CUSTOM_NAME = 60;
+
+/** What identifies an item within one retailer: its barcode, else the shop's own product id, else (typed in) its words. */
+export const itemCode = (i: Pick<ShoppingItem, "gtin" | "shopId" | "custom" | "name">): string =>
+  i.gtin || i.shopId || (i.custom ? `own:${i.name.trim().toLowerCase()}` : "");
+
+/** A typed-in item ("Milk", "Bread"): tidied up, or null when there are no words. Adding it again raises its quantity. */
+export function customItem(text: string): Omit<ShoppingItem, "qty" | "addedAt"> | null {
+  const name = text.replace(/\s+/g, " ").trim().slice(0, MAX_CUSTOM_NAME);
+  if (!/\p{L}|\p{N}/u.test(name)) return null;
+  return { gtin: "", retailer: CUSTOM_RETAILER, name, brand: "", size: "", custom: true };
+}
+
+function untick(x: ShoppingItem): ShoppingItem {
+  const y = { ...x };
+  delete y.done;
+  return y;
+}
+
+/** Tick an item off (in the basket) or back on. */
+export function toggleDone(list: readonly ShoppingItem[], code: string, retailer: string): ShoppingItem[] {
+  return list.map((x) => {
+    if (itemCode(x) !== code || x.retailer !== retailer) return x;
+    return x.done ? untick(x) : { ...x, done: true as const };
+  });
+}
+
+/** The list without the items ticked off. */
+export const withoutDone = (list: readonly ShoppingItem[]): ShoppingItem[] => list.filter((x) => !x.done);
 
 /** Adding the same product for the same retailer again raises its quantity (by `qty`, default 1). */
 export function addToList(list: readonly ShoppingItem[], item: Omit<ShoppingItem, "qty" | "addedAt">, now = new Date(), qty = 1): ShoppingItem[] {
   const code = itemCode(item);
   const add = Math.max(1, Math.floor(qty));
   const i = list.findIndex((x) => itemCode(x) === code && x.retailer === item.retailer);
-  if (i >= 0) return list.map((x, j) => (j === i ? { ...x, qty: Math.min(MAX_QTY, x.qty + add) } : x));
+  if (i >= 0) return list.map((x, j) => (j === i ? { ...untick(x), qty: Math.min(MAX_QTY, x.qty + add) } : x));
   if (list.length >= MAX_SHOPPING_ITEMS) return [...list];
   return [...list, { ...item, qty: Math.min(MAX_QTY, add), addedAt: now.toISOString() }];
 }
@@ -364,9 +397,11 @@ export function sanitizeShoppingList(raw: unknown): ShoppingItem[] {
     const x = r as Partial<ShoppingItem>;
     const gtin = typeof x?.gtin === "string" && /^\d{8,14}$/.test(x.gtin) ? x.gtin : "";
     const shopId = typeof x?.shopId === "string" && SHOP_ID.test(x.shopId) ? x.shopId : undefined;
-    if ((gtin || shopId) && typeof x.retailer === "string" && typeof x.name === "string" && x.name.length > 0) {
+    const custom = !gtin && !shopId && x?.custom === true && x.retailer === CUSTOM_RETAILER;
+    if ((gtin || shopId || custom) && typeof x.retailer === "string" && typeof x.name === "string" && x.name.trim().length > 0) {
       out.push({
-        gtin, ...(shopId ? { shopId } : {}), retailer: x.retailer.slice(0, 30), name: x.name.slice(0, 120), brand: typeof x.brand === "string" ? x.brand.slice(0, 80) : "",
+        gtin, ...(shopId ? { shopId } : {}), ...(custom ? { custom: true as const } : {}), ...(x.done === true ? { done: true as const } : {}),
+        retailer: x.retailer.slice(0, 30), name: x.name.slice(0, custom ? MAX_CUSTOM_NAME : 120), brand: typeof x.brand === "string" ? x.brand.slice(0, 80) : "",
         size: typeof x.size === "string" ? x.size.slice(0, 40) : "", qty: Math.min(MAX_QTY, Math.max(1, Math.floor(Number(x.qty) || 1))),
         addedAt: typeof x.addedAt === "string" ? x.addedAt : new Date(0).toISOString(),
         ...(typeof x.price === "number" && Number.isFinite(x.price) && x.price > 0 && x.price < 1000 ? { price: Math.round(x.price * 100) / 100 } : {}),
@@ -391,11 +426,14 @@ export function listTotals(items: readonly ShoppingItem[]): { total: number; pri
   return { total: Math.round(total * 100) / 100, priced, count: items.length, oldest };
 }
 
-/** Plain text for sharing or pasting into notes, grouped by retailer: "Aldi\n- 2 x Greek yogurt 500 g (5012345678900)". */
-export function listAsText(list: readonly ShoppingItem[]): string {
+/** A group's heading: the supermarket's name, or "Any shop" for items typed in. */
+export const groupName = (retailer: string, t: T = englishT): string => (retailer === CUSTOM_RETAILER ? t("Any shop") : retailerName(retailer));
+
+/** Plain text for sharing or pasting into notes, grouped by retailer: "Aldi\n- 2 x Greek yogurt 500 g (5012345678900)". Ticked items are left out. */
+export function listAsText(list: readonly ShoppingItem[], t: T = englishT): string {
   const groups = new Map<string, ShoppingItem[]>();
-  for (const i of list) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
-  return [...groups.entries()].map(([r, items]) => `${retailerName(r)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""}${i.gtin ? ` (${i.gtin})` : ""}`).join("\n")}`).join("\n\n");
+  for (const i of withoutDone(list)) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
+  return [...groups.entries()].map(([r, items]) => `${groupName(r, t)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""}${i.gtin ? ` (${i.gtin})` : ""}`).join("\n")}`).join("\n\n");
 }
 
 /** One place a product's picture can come from: always a supermarket's own photo (founder 2026-10-10: never Open Food Facts'). */

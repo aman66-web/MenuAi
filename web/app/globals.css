@@ -34,6 +34,7 @@
     radial-gradient(70% 40% at 50% 30%, rgba(45, 212, 191, 0.10), transparent 75%);
   --shadow-lift: 0 1px 1px rgba(6, 78, 59, 0.04), 0 6px 16px -8px rgba(6, 78, 59, 0.18), 0 22px 40px -28px rgba(6, 78, 59, 0.32);
   --tile: rgba(255, 255, 255, 0.72);
+  --bubble: #ffffff;
   --protein: #059669;
   --carbs: #0284c7;
   --fat: #9333ea;
@@ -63,6 +64,7 @@
       radial-gradient(70% 45% at 50% 34%, rgba(20, 184, 166, 0.10), transparent 75%);
     --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 10px 24px -14px rgba(0, 0, 0, 0.8), 0 28px 48px -30px rgba(0, 0, 0, 0.9);
     --tile: rgba(255, 255, 255, 0.06);
+    --bubble: #0f2219;
     --protein: #6ee7b7;
     --carbs: #7dd3fc;
     --fat: #d8b4fe;
@@ -226,8 +228,21 @@ p { text-wrap: pretty; }
 .confetti { pointer-events: none; position: absolute; inset: 0; overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .confetti { display: none; } }
 
-/* The speech bubble's tail points at Pip. */
+/* The speech bubble's tail points at Pip (on the other side for right-to-left languages). */
 .speech::before { content: ""; position: absolute; left: -7px; bottom: 10px; width: 14px; height: 14px; background: inherit; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: rotate(45deg); border-bottom-left-radius: 3px; }
+[dir="rtl"] .speech::before { left: auto; right: -7px; border-left: 0; border-bottom: 0; border-right: 1px solid var(--line); border-top: 1px solid var(--line); border-bottom-left-radius: 0; border-top-right-radius: 3px; }
+
+/* Onboarding intro: a large speech bubble above Pip, its tail pointing down at Pip. */
+.speech-down { position: relative; background: var(--bubble); border: 1px solid var(--line); box-shadow: var(--shadow-lift); }
+.speech-down::after { content: ""; position: absolute; left: 50%; bottom: -10px; width: 20px; height: 20px; background: var(--bubble); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: translateX(-50%) rotate(45deg); border-bottom-right-radius: 4px; }
+
+/* A short, quiet burst of colour from behind the bubble ("Let's go!"); nothing for reduced motion. */
+@keyframes confetti-burst { 0% { transform: translate(-50%, -50%) rotate(0deg) scale(0.6); opacity: 0; } 10% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--r)) scale(1); opacity: 0; } }
+.burst { pointer-events: none; position: absolute; inset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .burst > i { position: absolute; left: 50%; top: 50%; width: 7px; height: 12px; border-radius: 2px; opacity: 0; animation: confetti-burst 1.5s cubic-bezier(0.12, 0.7, 0.3, 1) forwards; }
+}
+@media (prefers-reduced-motion: reduce) { .burst { display: none; } }
 
 /* Pip's recipe maker: three dots while it writes (still for reduced motion) */
 .dot-pulse { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 9999px; background: var(--accent); animation: dot-pulse 1.1s ease-in-out infinite; }

@@ -39,7 +39,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   const t = useT();
   return (
     <div>
-      <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
       {children}
     </div>
   );
@@ -97,7 +97,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   return (
     <div>
       <div className="flex items-center justify-between">
-        <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+        <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
         <button
           type="button"
           onClick={() => toggleFavorite(chain.id)}

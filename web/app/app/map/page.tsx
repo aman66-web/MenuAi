@@ -10,7 +10,7 @@ import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
 import { tk } from "@/lib/mm/i18n";
 import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
-import { DirectionsIcon, LocateIcon, PinIcon, SearchIcon } from "../_components/icons";
+import { ChevronLeftIcon, DirectionsIcon, LocateIcon, PinIcon, SearchIcon } from "../_components/icons";
 import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
 import { useMenu } from "../_lib/hooks";
 import { loadBranches } from "../_lib/branches";
@@ -159,7 +159,8 @@ export default function NearbyPage() {
 
   return (
     <div>
-      <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Restaurants {near} you")} values={{ near: <span className="serif-em sun-text pe-0.5">{t("near")}</span> }} /></h1>
+      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Restaurants {near} you")} values={{ near: <span className="serif-em sun-text pe-0.5">{t("near")}</span> }} /></h1>
 
       {origin && !editing ? (
         <div className="glass mt-5 flex items-center gap-3 rounded-full py-1.5 ps-4 pe-1.5">

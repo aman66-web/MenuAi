@@ -7,7 +7,8 @@ import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { useGate } from "../_components/Paywall";
-import { TrashIcon } from "../_components/icons";
+import Link from "next/link";
+import { ChevronLeftIcon, TrashIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
 import { Button, Card, EmptyState } from "../_components/ui";
@@ -17,7 +18,7 @@ import { Rich } from "../_lib/Rich";
 
 const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" });
 
-// SPEC §7.8. Free: explainer + the paywall. Pro: totals against targets and today's entries.
+// SPEC §7.8, reached from Home's "today" card. Free: explainer + the paywall. Pro: totals against targets and today's entries.
 export default function TodayPage() {
   const hydrated = useHydrated();
   const t = useT();
@@ -35,7 +36,8 @@ export default function TodayPage() {
   if (!pro) {
     return (
       <div>
-        <h1 className="text-4xl font-extrabold tracking-tight">{t("Today")}</h1>
+        <BackHome />
+        <h1 className="mt-5 text-4xl font-extrabold tracking-tight">{t("Today's meals")}</h1>
         <Card hero className="mt-6 overflow-hidden p-6">
           {/* A picture of the Pro screen (no numbers: nothing here is a real figure). */}
           <div aria-hidden className="mb-5 flex items-center gap-4">
@@ -68,7 +70,8 @@ export default function TodayPage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-extrabold tracking-tight">{t("Today")}</h1>
+      <BackHome />
+      <h1 className="mt-5 text-4xl font-extrabold tracking-tight">{t("Today's meals")}</h1>
       <Card hero className="app-numbers mt-5 p-5">
         <div className="flex items-center gap-5">
           <Ring id="today" label={t("Calories")} fraction={calFraction} size={112} stroke={9}>
@@ -118,4 +121,9 @@ export default function TodayPage() {
       )}
     </div>
   );
+}
+
+function BackHome() {
+  const t = useT();
+  return <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>;
 }

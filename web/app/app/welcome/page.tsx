@@ -14,7 +14,7 @@ import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, GlobeIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, GlobeIcon, HomeIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TrendDownIcon } from "../_components/icons";
 import { LanguageList } from "../_components/LanguageList";
 import { LogoWall, type WallItem } from "../_components/LogoWall";
 import { logoFor } from "@/lib/mm/logos";
@@ -58,6 +58,7 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
 ];
 
 const STEPS = 6;
+const INTRO_SCREENS = 3;
 // Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else).
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
 
@@ -65,8 +66,10 @@ export default function WelcomePage() {
   const router = useRouter();
   const menu = useMenu();
   const initial = settingsStore.get();
-  // Step -1 is the language screen: the very first thing anyone sees (founder 2026-10-10).
+  // Step -1 is the language screen: the very first thing anyone sees (founder 2026-10-10). Step 0 is the welcome screen, then three short
+  // screens where Pip introduces itself (intro 1-3), then the questions (steps 1-6).
   const [step, setStep] = useState(-1);
+  const [intro, setIntro] = useState(0);
   const [picked, setPicked] = useState<Locale | null>(null);
   const hydrated = useHydrated();
   // Pre-selected: the language chosen before, else the browser's own language if we have it (nothing is sent anywhere), else English.
@@ -97,12 +100,14 @@ export default function WelcomePage() {
   };
 
   const next = () => {
-    setStep((s) => s + 1);
+    if (step === 0 && intro < INTRO_SCREENS) setIntro((i) => i + 1);
+    else setStep((s) => s + 1);
     window.scrollTo({ top: 0 });
   };
-  // Back to the step before (step 1 goes back to the welcome screen); what was chosen is kept.
+  // Back to the screen before (step 1 goes back to Pip's last intro screen); what was chosen is kept.
   const back = () => {
-    setStep((s) => Math.max(-1, s - 1));
+    if (step === 0 && intro > 0) setIntro((i) => i - 1);
+    else setStep((s) => Math.max(-1, s - 1));
     window.scrollTo({ top: 0 });
   };
   const skip = () => {
@@ -171,6 +176,42 @@ export default function WelcomePage() {
     );
   }
 
+  // Pip introduces itself in three short screens (founder 2026-10-10, after Mental Stint's sign-up): calm and plain, for adults.
+  if (step === 0 && intro > 0) {
+    const screens = [
+      { mood: "wave" as const, big: t("Hi, I'm Pip."), line: t("I'll show you the calories, protein and price of what you eat, before you order, buy or cook it.") },
+      { mood: "point" as const, big: t("A few quick questions and a short tour, and you're ready."), line: t("It only takes a minute.") },
+      { mood: "cheer" as const, big: t("Let's go!"), line: t("First up: what you're aiming for.") },
+    ];
+    const screen = screens[intro - 1]!;
+    return (
+      <div key={intro} className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col">
+        <button type="button" onClick={back} aria-label={t("Back to the previous step")} className="glass -ms-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <ChevronLeftIcon />
+        </button>
+        <div className="flex flex-1 flex-col items-center justify-center py-6 text-center">
+          <div className="relative w-full max-w-sm">
+            {intro === INTRO_SCREENS && <Burst />}
+            <div className="speech-down rise relative rounded-[2rem] px-6 py-7" aria-live="polite">
+              <h1 className="text-[2rem] font-extrabold leading-[1.1] tracking-tight">{screen.big}</h1>
+              <p className="mt-3 text-[17px] leading-snug text-muted">{screen.line}</p>
+            </div>
+          </div>
+          <div className="relative mt-8">
+            <span aria-hidden className="absolute inset-x-6 top-8 h-28 rounded-full opacity-60 blur-3xl [background:var(--sun)]" />
+            <div className="relative"><Pip mood={screen.mood} size={150} /></div>
+          </div>
+        </div>
+        <div className="sticky bottom-0 -mx-5 w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">
+          <Button full className="min-h-14 text-lg" onClick={next}>
+            {t("Continue")}
+            <span aria-hidden className="ms-1 grid h-8 w-8 place-items-center rounded-full bg-black/10"><ArrowRightIcon className="h-4 w-4" /></span>
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   if (step === 0) {
     const [brandFirst, ...brandRest] = site.name.split(" ");
     return (
@@ -206,11 +247,10 @@ export default function WelcomePage() {
         {/* stays in view on small screens, so the next step is never below the fold */}
         <div className="sticky bottom-0 -mx-5 mt-auto w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">
           <Button full className="min-h-14 text-lg" onClick={next}>
-            {t("Let's go")}
+            {t("Get started")}
             <span aria-hidden className="ms-1 grid h-8 w-8 place-items-center rounded-full bg-black/10"><ArrowRightIcon className="h-4 w-4" /></span>
           </Button>
-          <p className="mt-2 text-sm text-muted">{t("Takes about a minute.")}</p>
-          <p className="mt-1 text-xs text-muted">
+          <p className="mt-2 text-xs text-muted">
             <a href="/terms" className="underline underline-offset-2">{t("Terms")}</a> · <a href="/privacy" className="underline underline-offset-2">{t("Privacy")}</a> · {t("Not affiliated with any restaurant or shop shown.")}
           </p>
         </div>
@@ -222,7 +262,7 @@ export default function WelcomePage() {
   return (
     <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col">
       <div className="flex items-center gap-3">
-        <button type="button" onClick={back} aria-label={step === 1 ? t("Back to the start") : t("Back to the previous step")} className="glass -ms-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+        <button type="button" onClick={back} aria-label={t("Back to the previous step")} className="glass -ms-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
           <ChevronLeftIcon />
         </button>
         <p className="text-sm font-semibold text-muted" aria-live="polite">{t("Step {step} of {total}", { step, total: STEPS })}</p>
@@ -389,15 +429,18 @@ export default function WelcomePage() {
           </div>
           <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} shops={shops} />
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Here's how it {works}")} values={{ works: <span className="serif-em sun-text pe-0.5">{t("works")}</span> }} /></h1>
-          <ol className="stagger mt-6 space-y-3">
+          {/* the short tour: the tab bar, tab by tab, with the same icons */}
+          <p className="mt-2 text-muted">{t("Everything is in the bar at the bottom of the screen:")}</p>
+          <ol className="stagger mt-4 space-y-3">
             {[
-              { Icon: ForkIcon, text: t("Eating out? Pick a restaurant and build the order that fits your day") },
-              { Icon: BasketIcon, text: t("Shopping? See each product's calories, protein and price") },
-              { Icon: PotIcon, text: t("Cooking? Get recipes made from your shop's products") },
-            ].map(({ Icon, text }, i) => (
-              <li key={text} className="glass flex min-h-16 items-center gap-4 rounded-3xl px-4 py-3 text-lg font-semibold leading-snug">
-                <span aria-hidden className="icon-bubble relative h-12 w-12 shrink-0"><Icon className="h-6 w-6" /><span className="absolute -end-1 -top-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-foreground text-[11px] font-extrabold text-background">{i + 1}</span></span>
-                {text}
+              { Icon: HomeIcon, name: t("Home"), text: t("Today's numbers, your shopping list and what you've saved.") },
+              { Icon: ForkIcon, name: t("Eat out"), text: t("Every restaurant, café and pub, with the numbers for each dish.") },
+              { Icon: BasketIcon, name: t("Groceries"), text: t("Supermarket products with their labels and prices.") },
+              { Icon: PotIcon, name: t("Recipes"), text: t("Meals made from your shop's products, with the cost per serving.") },
+            ].map(({ Icon, name, text }) => (
+              <li key={name} className="glass flex min-h-16 items-center gap-4 rounded-3xl px-4 py-3 leading-snug">
+                <span aria-hidden className="icon-bubble h-12 w-12 shrink-0"><Icon className="h-6 w-6" /></span>
+                <span className="min-w-0 flex-1"><span className="block text-lg font-bold">{name}</span><span className="block text-[15px] text-muted">{text}</span></span>
               </li>
             ))}
           </ol>
@@ -477,6 +520,25 @@ function Actions({ onContinue, onSkip, continueDisabled }: { onContinue: () => v
     <div className="sticky bottom-0 -mx-5 mt-auto w-[calc(100%+2.5rem)] space-y-2 bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">
       <Button full className="min-h-14 text-lg" onClick={onContinue} disabled={continueDisabled}>{t("Continue")}</Button>
       <Button full variant="ghost" className="min-h-12 text-base" onClick={onSkip}>{t("Skip")}</Button>
+    </div>
+  );
+}
+
+/** A short, quiet burst from behind Pip's "Let's go!" bubble: brand greens and a touch of gold (decorative; nothing for reduced motion). */
+function Burst() {
+  const colours = ["#a3e635", "#34d399", "#10b981", "#059669", "#fbbf24", "#86efac"];
+  return (
+    <div aria-hidden className="burst">
+      {Array.from({ length: 22 }, (_, i) => {
+        const angle = (i / 22) * Math.PI * 2;
+        const dist = 120 + (i % 4) * 28;
+        return (
+          <i
+            key={i}
+            style={{ background: colours[i % colours.length], animationDelay: `${(i % 5) * 0.04}s`, "--dx": `${Math.round(Math.cos(angle) * dist * 1.2)}px`, "--dy": `${Math.round(Math.sin(angle) * dist * 0.8 + 40)}px`, "--r": `${(i % 2 ? 1 : -1) * (180 + i * 23)}deg` } as React.CSSProperties}
+          />
+        );
+      })}
     </div>
   );
 }

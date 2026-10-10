@@ -2,7 +2,7 @@
 
 import { filterCaution } from "@/lib/mm/menu-view";
 import { HALAL_CAUTION } from "@/lib/mm/halal";
-import { tk } from "@/lib/mm/i18n";
+import { tk, type T } from "@/lib/mm/i18n";
 import { ALLERGEN_KEYS, type AllergenKey, type Preferences } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 import { CheckIcon } from "./icons";
@@ -16,6 +16,11 @@ const DIETS: ReadonlyArray<{ key: "vegetarianOnly" | "veganOnly" | "halalOnly" |
   { key: "noPork", label: tk("No pork") },
   { key: "noBeef", label: tk("No beef") },
 ];
+
+/** The person's diet in a few words ("Vegetarian", "No milk"), from Settings. */
+export function dietWords(t: T, p: Preferences): string[] {
+  return [p.vegetarianOnly && t("Vegetarian"), p.veganOnly && t("Vegan"), p.halalOnly && t("Halal"), p.noPork && t("No pork"), p.noBeef && t("No beef"), ...(p.avoidAllergens ?? []).map((a) => t("No {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter((x): x is string => Boolean(x));
+}
 
 export const ALLERGEN_SHORT: Record<AllergenKey, string> = {
   gluten: tk("Gluten"), milk: tk("Milk"), eggs: tk("Eggs"), peanuts: tk("Peanuts"), nuts: tk("Tree nuts"), soya: tk("Soya"), fish: tk("Fish"),

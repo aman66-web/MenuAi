@@ -33,9 +33,13 @@ await step("first visit redirects to onboarding", async () => {
   await visible(page.getByRole("heading", { name: "Choose your language" }));
   await shot("00-onboarding-language");
   await page.getByRole("button", { name: "Continue" }).click();
-  await visible(page.getByRole("button", { name: "Let's go" }));
+  await visible(page.getByRole("button", { name: "Get started" }));
   await shot("00-onboarding-welcome");
-  await page.getByRole("button", { name: "Let's go" }).click();
+  await page.getByRole("button", { name: "Get started" }).click();
+  for (const heading of ["Hi, I'm Pip.", "A few quick questions and a short tour, and you're ready.", "Let's go!"]) {
+    await visible(page.getByRole("heading", { name: heading }));
+    await page.getByRole("button", { name: "Continue" }).click();
+  }
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
   await visible(text("Step 1 of 6"));
   await shot("01-onboarding-goal");
@@ -58,24 +62,31 @@ await step("onboarding: welcome → goal → targets → preferences → shops �
   await page.getByRole("radio", { name: "Standard", exact: true }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Here's how it works" }));
-  await visible(text("Pick a restaurant"));
+  await visible(text("Every restaurant, café and pub"));
   await shot("03-onboarding-how");
   await page.getByRole("button", { name: "Start" }).click();
   await page.waitForURL(/\/app\/?$/);
 });
-await step("home shows targets, search, popular chains and the sample banner", async () => {
-  await visible(page.getByRole("heading", { name: "Where are you eating?" }));
-  await visible(text("Your targets:"));
+await step("home is today: targets, the four tiles and the sample banner", async () => {
+  await visible(page.getByRole("heading", { level: 1, name: "Today" }));
+  await visible(text("Your daily targets"));
   await visible(text("2,400 kcal"));
-  await visible(page.getByRole("link", { name: /Bowl & Co\./ }));
-  await visible(page.getByRole("link", { name: /Cluck House/ }));
+  for (const name of [/My groceries/, /My saved meals/, /My recipes/, /My diet/]) await visible(page.getByRole("link", { name }));
   await visible(text("fictional sample data"));
   await shot("04-home");
 });
 await step("onboarding does not repeat on reload", async () => {
   await page.reload();
-  await visible(page.getByRole("heading", { name: "Where are you eating?" }));
+  await visible(page.getByRole("heading", { level: 1, name: "Today" }));
   if (page.url().includes("welcome")) throw new Error("redirected to welcome again");
+});
+await step("Eat out tab: search, Near me and every restaurant", async () => {
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Eat out" }).click();
+  await visible(page.getByRole("heading", { level: 1, name: "Eat out" }));
+  await visible(page.getByRole("link", { name: /Near me/ }));
+  await visible(page.getByRole("link", { name: /Bowl & Co\./ }));
+  await visible(page.getByRole("link", { name: /Cluck House/ }));
+  await shot("04b-eat-out");
 });
 await step("search finds nuggets and offers request when nothing matches", async () => {
   await page.getByRole("link", { name: "Search restaurants and items" }).click();
@@ -180,7 +191,7 @@ await step("builder: Add ingredient, Add item and quantity", async () => {
   await visible(page.getByRole("group", { name: /Order total: 760 kcal/ }));
   await shot("11-builder-two-lines");
 });
-await step("Save → Saved tab lists it; Log → Today shows it", async () => {
+await step("Save → My saved meals lists it; Log → today's meals shows it", async () => {
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await page.waitForURL("**/app/saved");
   await visible(text("2 × Agua fresca"));

@@ -34,6 +34,12 @@ export interface Favorite {
   addedAt: string;
 }
 
+/** A recipe from our recipe book the person saved ("My recipes"). */
+export interface RecipeSave {
+  id: string;
+  savedAt: string;
+}
+
 export interface UserSettings {
   goal: Goal;
   dailyCalories: number;
@@ -167,4 +173,14 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
 export function sanitizeFavorites(raw: unknown): Favorite[] {
   if (!Array.isArray(raw)) return [];
   return raw.filter((f): f is Favorite => isObject(f) && typeof f.chainId === "string" && typeof f.addedAt === "string");
+}
+
+export function sanitizeRecipeSaves(raw: unknown): RecipeSave[] {
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set<string>();
+  return raw.filter((r): r is RecipeSave => {
+    if (!isObject(r) || typeof r.id !== "string" || !/^[a-z0-9-]{1,80}$/.test(r.id) || typeof r.savedAt !== "string" || seen.has(r.id)) return false;
+    seen.add(r.id);
+    return true;
+  }).slice(0, 500);
 }

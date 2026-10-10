@@ -35,7 +35,7 @@ export default function Privacy() {
 
       <h2>Location</h2>
       <p>
-        The web app&apos;s Nearby screen can use your location, but only when you tap &ldquo;Use my location&rdquo; (or your
+        The web app&apos;s Near me map (in Eat out) can use your location, but only when you tap &ldquo;Use my location&rdquo; (or your
         browser has already been allowed to share it with this site). Your position is used in your browser to work out
         which restaurant branches are closest, using a list of branch positions that your browser downloads from us. We never
         store or receive your location, and it is not remembered on your device.
@@ -43,7 +43,7 @@ export default function Privacy() {
       <p>
         Instead of sharing your location you can type a postcode or town. That text (not your location) is sent to
         postcodes.io, a free UK postcode service, to find the place on the map. We remember the area you typed on your device
-        only, so Nearby opens there next time; &ldquo;Clear data on this device&rdquo; in Settings removes it.
+        only, so the Near me map opens there next time; &ldquo;Clear data on this device&rdquo; in Settings removes it.
       </p>
       <p>
         The map is drawn with tiles from OpenFreeMap. Like any online map, its server can see which part of the map your browser
@@ -122,7 +122,7 @@ export default function Privacy() {
         <li>TelemetryDeck receives the iPhone app&apos;s anonymous usage statistics.</li>
         <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage for the iPhone app.</li>
         <li>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there).</li>
-        <li>postcodes.io looks up the postcode or town you type on the web app&apos;s Nearby screen, and OpenFreeMap serves the map tiles there.</li>
+        <li>postcodes.io looks up the postcode or town you type on the web app&apos;s Near me map, and OpenFreeMap serves the map tiles there.</li>
         <li>Anthropic (the Claude AI) writes a recipe when you ask Pip to make one, from the choices on that page.</li>
       </ul>
       <p>We don&apos;t sell or share your data, show ads, or track you across other apps and websites.</p>

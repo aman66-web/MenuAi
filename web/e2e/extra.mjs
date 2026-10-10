@@ -4,6 +4,15 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
+// The welcome screen, then Pip's three short intro screens, to the first question.
+async function pastIntro(page) {
+  await page.getByRole("button", { name: "Get started" }).click();
+  for (const heading of ["Hi, I'm Pip.", "A few quick questions and a short tour, and you're ready.", "Let's go!"]) {
+    await vis(page.getByRole("heading", { name: heading }));
+    await page.getByRole("button", { name: "Continue" }).click();
+  }
+  await vis(page.getByRole("heading", { name: "What's your goal?" }));
+}
 
 await step("a shared link on a first visit goes through onboarding and then lands on the shared page", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
@@ -12,8 +21,7 @@ await step("a shared link on a first visit goes through onboarding and then land
   await page.waitForURL(/\/app\/welcome\?next=/);
   await vis(page.getByRole("heading", { name: "Choose your language" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  await vis(page.getByRole("button", { name: "Let's go" }));
-  await page.getByRole("button", { name: "Let's go" }).click();
+  await pastIntro(page);
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip" }).click();
   await page.getByRole("button", { name: "Start" }).click();
@@ -27,7 +35,7 @@ await step("onboarding goal radios work with the arrow keys (roving focus)", asy
   await page.goto(BASE + "/app/welcome");
   await vis(page.getByRole("heading", { name: "Choose your language" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: "Let's go" }).click();
+  await pastIntro(page);
   const first = page.getByRole("radio", { name: "Lose weight" });
   await first.focus();
   await page.keyboard.press("ArrowDown");
@@ -42,7 +50,7 @@ await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … ca
   await page.goto(BASE + "/app/welcome");
   await vis(page.getByRole("heading", { name: "Choose your language" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: "Let's go" }).click();
+  await pastIntro(page);
   await page.getByRole("radio", { name: "I'm on a GLP-1 medication" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await vis(page.getByText("Comfortable meal size:"));
@@ -55,7 +63,7 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await page.goto(BASE + "/app/welcome");
   await vis(page.getByRole("heading", { name: "Choose your language" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: "Let's go" }).click();
+  await pastIntro(page);
   await page.getByRole("radio", { name: /^Other/ }).click();
   await vis(page.getByText("No problem. I'll show you the numbers and keep your orders around your target."));
   await vis(page.getByRole("button", { name: "Continue" }));
@@ -67,21 +75,23 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await vis(page.getByRole("radiogroup", { name: "Goal" }).getByRole("radio", { name: "Other", checked: true }));
   await ctx.close();
 });
-await step("onboarding back button returns to the previous step, keeping the choice, and step 1 goes back to the start", async () => {
+await step("onboarding back button returns to the previous step, keeping the choice; step 1 goes back to Pip's intro, then the welcome screen", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
   await vis(page.getByRole("heading", { name: "Choose your language" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: "Let's go" }).click();
+  await pastIntro(page);
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await vis(page.getByRole("heading", { name: "Your daily targets" }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
-  await page.getByRole("button", { name: "Back to the start" }).click();
-  await vis(page.getByRole("button", { name: "Let's go" }));
+  await page.getByRole("button", { name: "Back to the previous step" }).click();
+  await vis(page.getByRole("heading", { name: "Let's go!" }));
+  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
+  await vis(page.getByRole("button", { name: "Get started" }));
   await ctx.close();
 });
 await step("menus unreachable → an honest error with Try again (not 'Menus are coming soon'), then it recovers", async () => {
@@ -89,7 +99,7 @@ await step("menus unreachable → an honest error with Try again (not 'Menus are
   await ctx.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, goal: "maintain", dailyCalories: 2000 } })));
   const page = await ctx.newPage();
   await page.route("**/menus*/menus-manifest.json", (r) => r.abort("internetdisconnected"));
-  await page.goto(BASE + "/app");
+  await page.goto(BASE + "/app/eat-out");
   await vis(page.getByText("Couldn't reach the menus."));
   if (await page.getByText("Menus are coming soon").count()) throw new Error("showed the empty state while unreachable");
   await page.unroute("**/menus*/menus-manifest.json");

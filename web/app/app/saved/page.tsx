@@ -6,15 +6,17 @@ import { useEffect, useRef, useState } from "react";
 import { FREE_SAVED_ORDER_LIMIT } from "@/lib/mm/config";
 import { macroLine, nutrientAriaLabel } from "@/lib/mm/format";
 import { describeOrder, isOrderAvailable } from "@/lib/mm/order";
-import { deleteSavedOrder, restoreSavedOrder, savedStore } from "@/lib/mm/stores";
+import { deleteSavedOrder, favoritesStore, restoreSavedOrder, savedStore } from "@/lib/mm/stores";
 import type { SavedOrder } from "@/lib/mm/user-data";
-import { TrashIcon } from "../_components/icons";
+import { ChainCard } from "../_components/ChainRow";
+import { ChevronLeftIcon, TrashIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { MacroSummary } from "../_components/Nutrition";
 import { Badge, Button, EmptyState, LinkButton } from "../_components/ui";
-import { useChainIndexes, useHydrated, useIsPro, useStore } from "../_lib/hooks";
+import { useChainIndexes, useHydrated, useIsPro, useMenu, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
+// "My saved meals" (from Home; founder 2026-10-10): the restaurant meals the person saved, then their favourite restaurants.
 // SPEC §7.7: most recent first. Pro: tap opens the builder. Free: read-only detail. A saved order whose item or
 // ingredient left the menu says "No longer on the menu", keeps its saved numbers, and can't be edited.
 export default function SavedPage() {
@@ -22,6 +24,9 @@ export default function SavedPage() {
   const t = useT();
   const saved = useStore(savedStore);
   const pro = useIsPro();
+  const favorites = useStore(favoritesStore);
+  const menu = useMenu();
+  const favoriteChains = menu.chains.filter((c) => favorites.some((f) => f.chainId === c.id));
   const indexes = useChainIndexes(saved.map((o) => o.chainId));
   const [open, setOpen] = useState<string | null>(null);
   const [undo, setUndo] = useState<SavedOrder | null>(null);
@@ -39,14 +44,15 @@ export default function SavedPage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-extrabold tracking-tight">{t("Saved")}</h1>
+      <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <h1 className="mt-5 text-4xl font-extrabold tracking-tight">{t("My saved meals")}</h1>
       {!pro && saved.length > 0 && (
         <p className="mt-1 text-sm text-muted">{t("{used} of {limit} free saved orders used.", { used: Math.min(saved.length, FREE_SAVED_ORDER_LIMIT), limit: FREE_SAVED_ORDER_LIMIT })}</p>
       )}
 
       {saved.length === 0 ? (
         <div className="mt-6">
-          <EmptyState icon={<Pip mood="wave" size={64} />} title={t("No saved orders yet")} body={t("Save an order from any menu item, or from the order builder.")} action={<LinkButton href="/app" variant="secondary">{t("Find a restaurant")}</LinkButton>} />
+          <EmptyState icon={<Pip mood="wave" size={64} />} title={t("No saved orders yet")} body={t("Save an order from any menu item, or from the order builder.")} action={<LinkButton href="/app/eat-out" variant="secondary">{t("Find a restaurant")}</LinkButton>} />
         </div>
       ) : (
         <ul className="mt-4 space-y-3">
@@ -85,6 +91,13 @@ export default function SavedPage() {
             );
           })}
         </ul>
+      )}
+
+      {favoriteChains.length > 0 && (
+        <section aria-labelledby="fav-heading" className="mt-8">
+          <h2 id="fav-heading" className="mb-3 text-xl font-extrabold tracking-tight">{t("Favourite restaurants")}</h2>
+          <div className="grid grid-cols-2 gap-3">{favoriteChains.map((c) => (<ChainCard key={c.id} chain={c} />))}</div>
+        </section>
       )}
 
       {undo && (

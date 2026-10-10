@@ -101,7 +101,7 @@ export function PipSays({ mood, children, size = 92 }: { mood?: PipMood; childre
   return (
     <div className="flex items-end gap-3">
       <Pip mood={mood} size={size} />
-      <p className="speech glass relative mb-3 min-w-0 flex-1 rounded-3xl rounded-bl-md px-4 py-3 text-[15px] font-medium leading-snug">{children}</p>
+      <p className="speech glass relative mb-3 min-w-0 flex-1 rounded-3xl rounded-es-md px-4 py-3 text-[15px] font-medium leading-snug">{children}</p>
     </div>
   );
 }

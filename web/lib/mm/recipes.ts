@@ -245,6 +245,22 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
   return out.sort((a, b) => a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
+/** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
+export function productFits(products: readonly ShopProduct[], spec: IngredientSpec, product: ShopProduct, meatFree = false): boolean {
+  return matching(products, spec, meatFree).includes(product);
+}
+
+/** Whether a name names this ingredient by its words alone (a product from another shop's list, or words the person typed). With `loose`
+ *  (typed in: "chicken", "milk") only the ingredient's first word must be there; a product name needs all of them. Never used for numbers. */
+export function nameFits(name: string, spec: IngredientSpec, loose = false): boolean {
+  const h = ` ${normalizeForSearch(name)} `;
+  const m = spec.match;
+  if (!m.all.length) return false;
+  if (loose ? !has(h, m.all[0]!) : !m.all.every((w) => has(h, w))) return false;
+  if (!loose && m.any && !m.any.some((w) => has(h, w))) return false;
+  return ![...GLOBAL_NONE, ...(m.none ?? [])].some((w) => has(h, w));
+}
+
 export interface ResolvedRecipe {
   recipe: Recipe;
   picks: Array<IngredientPick | null>;

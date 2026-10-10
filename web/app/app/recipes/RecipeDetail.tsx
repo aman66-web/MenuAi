@@ -9,12 +9,12 @@ import { candidates, fitRecipe, isMeatFree, recipeTotals, resolveRecipe, subSpec
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
 import { shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
-import { shoppingStore } from "@/lib/mm/stores";
+import { savedRecipesStore, shoppingStore, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
-import { BasketIcon, CheckIcon, InfoIcon, SwapIcon } from "../_components/icons";
+import { BasketIcon, BookmarkIcon, CheckIcon, InfoIcon, SwapIcon } from "../_components/icons";
 import { ItemHero } from "../_components/Nutrition";
 import { Button, Sheet } from "../_components/ui";
-import { useSettings } from "../_lib/hooks";
+import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
 import { targetSentence } from "./MealPicker";
@@ -147,6 +147,8 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
           </div>
         )}
       </div>
+
+      {!recipe.ai && <SaveRecipeButton id={recipe.id} />}
 
       {totals && !target && recipe.meal === "snack" && mealTargetFor(settings) && (
         <p className="glass mt-3 rounded-3xl p-4 text-sm font-semibold">{t("Snacks are shown as written, not fitted to your meal size.")}</p>
@@ -302,5 +304,16 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
         )}
       </Sheet>
     </div>
+  );
+}
+
+/** Save a recipe from our book to "My recipes" (on this device), or take it off. */
+function SaveRecipeButton({ id }: { id: string }) {
+  const t = useT();
+  const saved = useStore(savedRecipesStore).some((r) => r.id === id);
+  return (
+    <button type="button" aria-pressed={saved} onClick={() => toggleSavedRecipe(id)} className={`mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border px-5 text-base font-bold transition active:scale-[0.98] ${saved ? "border-transparent bg-accent-soft text-accent" : "glass hover:bg-soft-strong"}`}>
+      <BookmarkIcon filled={saved} className="h-5 w-5" />{saved ? t("Saved to My recipes") : t("Save to My recipes")}
+    </button>
   );
 }

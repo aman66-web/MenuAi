@@ -4,8 +4,8 @@ import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
 import {
-  DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeSavedOrders, sanitizeSettings,
-  type Favorite, type LogEntry, type SavedOrder, type UserSettings,
+  DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, sanitizeSavedOrders, sanitizeSettings,
+  type Favorite, type LogEntry, type RecipeSave, type SavedOrder, type UserSettings,
 } from "./user-data";
 
 // The browser-only stores (SPEC §5 "User data"). Nothing here ever leaves the device except submissions
@@ -20,6 +20,14 @@ export const outboxStore = createStore<OutboxItem[]>("mm.v1.outbox", [], { sanit
 export const shoppingStore = createStore<ShoppingItem[]>("mm.v1.shopping", [], { sanitize: sanitizeShoppingList });
 /** Recipes Pip wrote that the person saved (the pantry kinds and amounts, rebuilt from today's products when opened). On this device only. */
 export const myRecipesStore = createStore<SavedRecipe[]>("mm.v1.myRecipes", [], { sanitize: sanitizeSavedRecipes });
+/** Recipes from our book the person saved ("My recipes"), newest first. On this device only. */
+export const savedRecipesStore = createStore<RecipeSave[]>("mm.v1.savedRecipes", [], { sanitize: sanitizeRecipeSaves });
+
+/** Save a recipe from our book, or take it off "My recipes". */
+export function toggleSavedRecipe(id: string) {
+  savedRecipesStore.update((list) => (list.some((r) => r.id === id) ? list.filter((r) => r.id !== id) : [{ id, savedAt: new Date().toISOString() }, ...list]));
+  requestPersistentStorage();
+}
 
 export function newId(): string {
   return typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;

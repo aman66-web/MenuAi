@@ -63,7 +63,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   const saved = useStore(savedStore);
 
   const back = (
-    <Link href={props.chainId ? chainHref(props.chainId) : "/app"} aria-label={t("Back")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+    <Link href={props.chainId ? chainHref(props.chainId) : "/app/eat-out"} aria-label={t("Back")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
   );
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label={t("Loading")} /></div>);
   if (!pro) {

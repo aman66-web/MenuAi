@@ -29,9 +29,9 @@ let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
 
-await step("Home lists it as calories only, and 'Full nutrition only' hides it", async () => {
+await step("Eat out lists it as calories only, and 'Full nutrition only' hides it", async () => {
   const { ctx, page } = await newPage();
-  await page.goto(BASE + "/app");
+  await page.goto(BASE + "/app/eat-out");
   await page.getByRole("link", { name: /Calorie Corner/ }).waitFor();
   await page.getByText("calories only").first().waitFor();
   await page.getByRole("button", { name: "Full nutrition only" }).click();

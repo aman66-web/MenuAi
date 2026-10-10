@@ -3,17 +3,15 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
-import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
-import { formatPrice } from "@/lib/mm/groceries";
-import { formatDate, formatInt } from "@/lib/mm/format";
+import { formatDate } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { isMeatFree, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
-import { myRecipesStore } from "@/lib/mm/stores";
-import { ALLERGEN_SHORT } from "../_components/DietPicker";
-import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, PotIcon, SearchIcon } from "../_components/icons";
+import { myRecipesStore, savedRecipesStore } from "@/lib/mm/stores";
+import { dietWords } from "../_components/DietPicker";
+import { ArrowRightIcon, BookmarkIcon, PotIcon, SearchIcon } from "../_components/icons";
 import { Pip, PipSays } from "../_components/Mascot";
 import { useGate } from "../_components/Paywall";
 import { Button, Chip, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
@@ -23,6 +21,7 @@ import { Rich } from "../_lib/Rich";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
 import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
 import { MealPicker } from "./MealPicker";
+import { RecipeTile } from "./RecipeTile";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
 // nutrition its own page prints. Each recipe is fitted to the person's meal (size and protein) and their diet from Settings; Pip can write a
@@ -46,45 +45,6 @@ function sortCards(cards: RecipeCard[], sort: Sort): RecipeCard[] {
   return [...cards].sort((a, b) => key(a) - key(b) || a.recipe.name.localeCompare(b.recipe.name, "en-GB"));
 }
 
-/** The person's diet in a few words, from Settings. */
-function dietWords(t: T, p: ReturnType<typeof useSettings>["preferences"]): string[] {
-  return [p.vegetarianOnly && t("Vegetarian"), p.veganOnly && t("Vegan"), p.halalOnly && t("Halal"), p.noPork && t("No pork"), p.noBeef && t("No beef"), ...(p.avoidAllergens ?? []).map((a) => t("No {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter((x): x is string => Boolean(x));
-}
-
-function RecipeTile({ card, href, badge }: { card: RecipeCard; href: string; badge?: string }) {
-  const t = useT();
-  const { recipe, totals } = card;
-  // our recipe book is translated; what Pip wrote with AI is shown as it wrote it
-  const rt = (s: string) => (recipe.ai ? s : t(s));
-  const image = RECIPE_IMAGES[recipe.id];
-  return (
-    <Link href={href} prefetch={false} className="glass lift flex h-full min-w-0 flex-col rounded-3xl p-4">
-      {image && (
-        <span className="relative -mx-1 -mt-1 mb-3 block overflow-hidden rounded-2xl">
-          {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
-          <img src={image} alt="" loading="lazy" decoding="async" width={800} height={600} className="aspect-[4/3] w-full object-cover" />
-          <span className="absolute bottom-2 start-2 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-semibold text-white">{t("AI illustration")}</span>
-        </span>
-      )}
-      <span className="flex items-start gap-3">
-        {!image && <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 rounded-2xl"><PotIcon className="h-6 w-6" /></span>}
-        <span className="min-w-0 flex-1">
-          {badge && <span className="mb-1 inline-block rounded-full bg-accent-soft px-2 py-0.5 text-xs font-bold text-accent">{badge}</span>}
-          <span className="block text-[17px] font-extrabold leading-snug tracking-tight [overflow-wrap:anywhere]">{rt(recipe.name)}</span>
-          {recipe.blurb && <span className="mt-0.5 block text-sm text-muted">{rt(recipe.blurb)}</span>}
-        </span>
-        <ChevronRightIcon className="mt-1 h-5 w-5 shrink-0 text-muted" />
-      </span>
-      <span className="app-numbers mt-3 grid grid-cols-[repeat(auto-fit,minmax(5.5rem,1fr))] gap-2 text-center">
-        <span className="inset-card rounded-2xl px-2 py-2"><span className="block text-lg font-extrabold leading-tight">{formatInt(totals.perServing.kcal)}</span><span className="block text-[11px] font-bold uppercase tracking-[0.1em] text-muted">kcal</span></span>
-        <span className="rounded-2xl bg-accent-soft px-2 py-2"><span className="block text-lg font-extrabold leading-tight text-accent">{Math.round(totals.perServing.protein)}g</span><span className="block text-[11px] font-bold uppercase tracking-[0.1em] text-muted">{t("protein")}</span></span>
-        <span className="inset-card rounded-2xl px-2 py-2"><span className="block text-lg font-extrabold leading-tight">{totals.costPerServing !== null ? formatPrice(totals.costPerServing) : "–"}</span><span className="block text-[11px] font-bold uppercase tracking-[0.1em] text-muted">{t("each")}</span></span>
-      </span>
-      <span className="app-numbers mt-2 block text-xs text-muted">{t("Per serving")} · {t("{n}g carbs", { n: Math.round(totals.perServing.carbs) })} · {t("{n}g fat", { n: Math.round(totals.perServing.fat) })} · {t("serves {n}", { n: recipe.servings })} · {t("{n} min", { n: recipe.minutes })}{isMeatFree(recipe) ? ` · ${t("no meat or fish")}` : ""}</span>
-    </Link>
-  );
-}
-
 function RecipesScreen() {
   const t = useT();
   const poss = usePossessive();
@@ -100,6 +60,7 @@ function RecipesScreen() {
   const diet = settings.preferences;
   const { cards, leftOut } = useRecipeCards(null, products, diet, target);
   const saved = useStore(myRecipesStore);
+  const savedCount = useStore(savedRecipesStore).length + saved.length;
   const dietKey = JSON.stringify(diet);
   const mine = useMemo(() => saved.filter((s) => s.shop === shop).map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, shop, dietKey]);
   const mineCards = useRecipeCards(mine, products, diet, target).cards;
@@ -124,18 +85,24 @@ function RecipesScreen() {
 
   return (
     <div>
-      <Link href="/app/groceries" aria-label={t("Back to groceries")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
-      <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Recipes {em}")} values={{ em: <span className="serif-em sun-text pe-0.5">{t("from your shop")}</span> }} /></h1>
+      <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Recipes {em}")} values={{ em: <span className="serif-em sun-text pe-0.5">{t("from your shop")}</span> }} /></h1>
       <div className="mt-4">
         <PipSays mood="point" size={76}>
           {shopName ? t("Every ingredient is a real product at {shop}. Tell me how big a meal you'd like and I'll fit each recipe to it.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket. Tell me how big a meal you'd like and I'll fit each recipe to it.")}
         </PipSays>
       </div>
 
+      {/* Which supermarket the ingredients come from (founder 2026-10-10: "filter by what supermarkets they wanna use"). Only shops whose full
+          product list, prices and labels we've read can fill a recipe, so the choice grows as more lists are read. */}
       {manifest && manifest.retailers.length > 1 && shop && (
         <div className="mt-4">
           <Segmented label={t("Supermarket")} value={shop} options={manifest.retailers.map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
         </div>
+      )}
+      {manifest && manifest.retailers.length === 1 && shopName && (
+        <p className="mt-3 px-1 text-sm leading-snug">
+          <Rich text={t("Ingredients from {shop}.")} values={{ shop: <span className="font-bold">{shopName}</span> }} /> <span className="text-muted">{t("More supermarkets will appear here as we read their products and prices.")}</span>
+        </p>
       )}
 
       <div className="mt-4"><MealPicker /></div>
@@ -155,6 +122,12 @@ function RecipesScreen() {
           <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
         </button>
       )}
+
+      <Link href="/app/recipes/saved" className="glass lift group mt-3 flex min-h-14 items-center gap-3 rounded-full py-1.5 ps-4 pe-1.5 hover:bg-soft-strong">
+        <BookmarkIcon className="h-5 w-5 shrink-0 text-accent" />
+        <span className="min-w-0 flex-1 font-bold">{t("My recipes")}{savedCount > 0 && <span className="app-numbers font-semibold text-muted"> · {savedCount}</span>}</span>
+        <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0"><ArrowRightIcon className="h-5 w-5" /></span>
+      </Link>
 
       {mineCards.length > 0 && shop && (
         <section aria-labelledby="mine-heading" className="mt-6">

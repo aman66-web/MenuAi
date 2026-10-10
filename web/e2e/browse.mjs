@@ -22,12 +22,12 @@ async function step(name, fn) {
 }
 const expect = (cond, msg) => { if (!cond) throw new Error(msg); };
 
-await step("Home: honest count, type chips, and filtering by type", async () => {
+await step("Eat out: honest count, type chips, and filtering by type", async () => {
   const requests = [];
   page.on("request", (r) => r.url().includes("/menus/") && requests.push(new URL(r.url()).pathname));
-  await page.goto(BASE + "/app");
+  await page.goto(BASE + "/app/eat-out");
   await page.getByText(/\d+ UK restaurants/).waitFor();
-  expect(!requests.some((u) => /chain-/.test(u)), `Home fetched a chain menu: ${requests.filter((u) => /chain-/.test(u)).join(", ")}`);
+  expect(!requests.some((u) => /chain-/.test(u)), `Eat out fetched a chain menu: ${requests.filter((u) => /chain-/.test(u)).join(", ")}`);
   const group = page.getByRole("group", { name: "Browse by type" });
   await group.getByRole("button", { name: /^Pizza/ }).click();
   await page.getByRole("link", { name: /Pizza Hut/ }).waitFor();

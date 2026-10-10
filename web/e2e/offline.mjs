@@ -83,8 +83,8 @@ await step("OFFLINE: the order builder opens from a brand-new URL and totals liv
   await page.getByRole("button", { name: "Double chicken" }).click();
   await vis(page.getByRole("group", { name: /Order total: 835 kcal/ }));
 });
-await step("OFFLINE: Saved, Today and Settings tabs open on a hard load", async () => {
-  for (const [path, name] of [["/app/saved", "Saved"], ["/app/today", "Today"], ["/app/settings", "Settings"]]) {
+await step("OFFLINE: Eat out, My saved meals, today's meals, My groceries and Settings open on a hard load", async () => {
+  for (const [path, name] of [["/app/eat-out", "Eat out"], ["/app/saved", "My saved meals"], ["/app/today", "Today's meals"], ["/app/groceries/list", "My groceries"], ["/app/settings", "Settings"]]) {
     await page.goto(BASE + path);
     await vis(page.getByRole("heading", { name, exact: true }));
   }
