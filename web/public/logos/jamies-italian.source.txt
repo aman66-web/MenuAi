@@ -1,7 +1,11 @@
-status: skipped-unconfirmed
-file: none
-page: https://www.jamiesitalian.co.uk/
-why: The only header artwork is a large yellow "J" served as /icons/logo/jamies-overlay-vector.svg; its name says it is a decorative overlay, so it can't be confirmed as the logo and was not installed.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-retrieved: 2026-10-06
+status: installed
+file: jamies-italian.svg
+kind: header
+tile: light
+source_url: https://www.jamiesitalian.co.uk/icons/logo/jamies-italian.svg
+page_url: https://www.jamiesitalian.co.uk/
+terms_url: none found (the site links only privacy and cookie policies, no terms of use)
+terms_summary: Jamie's Italian's own site links no terms of use, so no clause on reusing its logo or marks was found.
+why: Own website header (https://www.jamiesitalian.co.uk/, the home link image, alt "Jamie's Italian"): the JAMIE'S ITALIAN wordmark SVG saved byte for byte. This replaces the 2026-10-06 record, which had found only the decorative "J" overlay (jamies-overlay-vector.svg, used over the hero photo), not this header file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allowed the page and the file
+retrieved: 2026-10-10

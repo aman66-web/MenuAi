@@ -1,7 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.nandos.co.uk/
-why: The chain's own site refused an automated visit (blocked); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
+status: installed
+file: nandos.svg
+kind: header
+tile: light
+source_url: https://www.nandos.co.uk/replatform/img/navigation/barci-icon.svg
+page_url: https://www.nandos.co.uk/
 terms_url: https://www.nandos.co.uk/nandos-terms-and-conditions
-terms_summary: Nando's terms reserve the Nando's name and mark and its images, grant no right to use its intellectual property, and allow downloads only for personal non-commercial use.
-retrieved: 2026-10-06
+terms_summary: Nando's terms reserve the Nando's name and mark and its images, grant no right to use its intellectual property, and allow downloads only for personal non-commercial use (as read on 2026-10-06).
+why: Own website header (https://www.nandos.co.uk/, the header logo link, img alt "Nando's logo"): the Barcelos cockerel SVG in its own red and black, saved byte for byte. The header's other logo file, logo-workmark.svg (the "Nando's" wordmark), is white-only artwork drawn over a background shape, so the full-colour cockerel was chosen. Retried 2026-10-10: the home page now answered normally (HTTP 200), where on 2026-10-06 it had refused.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

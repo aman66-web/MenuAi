@@ -42,12 +42,23 @@ def num(s: str):
     return v if 0 <= v < 5000 else None
 
 
+# Tesco's crawl printed the picture as the path after this address with the ".jpeg" ending and the query string taken off (raw/tesco_listing.txt, first
+# line: "add both back to rebuild the address"); the query put back is the tile size the listing showed (the same as the discovery lists' addresses).
+TESCO_MEDIA = "https://digitalcontent.api.tesco.com/v2/media/"
+TESCO_TILE = "?h=225&w=225"
+
+
 def image_url(retailer: str, photo: str) -> str:
     photo = (photo or "").strip()
     if not photo or photo.upper() == "NOIMG":
         return ""
     if re.fullmatch(r"\d+", photo) and retailer == "sainsburys":
         return f"https://assets.sainsburys-groceries.co.uk/gol/{photo}/1/640x640.jpg"
+    if retailer == "tesco" and not photo.startswith("https://"):
+        path = photo.lstrip("/")
+        if re.fullmatch(r"ghs/[0-9a-f-]{36}/[0-9a-f-]{36}(?:_\d+)?", path):
+            return f"{TESCO_MEDIA}{path}.jpeg{TESCO_TILE}"
+        return ""  # Tesco's "no image" tile (ghs-mktg/.../no-image) or anything else: no picture
     if photo.startswith("https://"):
         return photo
     return "https://" + photo.lstrip("/") if "/" in photo else ""

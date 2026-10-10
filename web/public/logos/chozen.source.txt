@@ -1,0 +1,12 @@
+status: skipped-blocked
+file: none
+kind: header
+source_url: https://chozen.co.uk/wp-content/uploads/2021/05/New-Chozen-logo-cropped.png
+page_url: https://chozen.co.uk/
+blocked_url: https://chozen.co.uk/wp-content/uploads/2021/05/New-Chozen-logo-cropped.png (HTTP 429 Too Many Requests)
+chrome_hint: Open https://chozen.co.uk/ and save the header logo at the top left (img alt "Chozen", file /wp-content/uploads/2021/05/New-Chozen-logo-cropped.png, 709 x 300) as chozen.png; tile: check on a contact sheet.
+terms_url: not reviewed (rate-limited)
+terms_summary: not reviewed: nothing was installed
+why: Retried once on 2026-10-10: robots.txt (allows everything) and the home page now load (HTTP 200, no challenge), but the logo file itself answered 429 Too Many Requests on the third request in about five seconds; a 429 is never retried or worked round. Chozen is an independent chain, so there is no owner brand page.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocks are never worked around
+retrieved: 2026-10-10

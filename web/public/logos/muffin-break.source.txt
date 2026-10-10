@@ -1,0 +1,11 @@
+status: installed
+file: muffin-break.svg
+kind: header
+tile: dark
+source_url: https://allergens-muffinbreak.co.uk/assets/logo-white-CpldNkT1.svg
+page_url: https://allergens-muffinbreak.co.uk/allergens/mbuk
+terms_url: https://www.muffinbreak.co.uk/ (not read: its robots.txt answers 403)
+terms_summary: Not read: www.muffinbreak.co.uk answers 403 to robots.txt, so none of its pages were opened; the allergen site has no terms page.
+why: The header logo of the chain's own allergen and nutrition site (the same site our data comes from), saved byte for byte; MUFFIN BREAK in dark red on white ribbons, made for a dark header, so dark tile. www.muffinbreak.co.uk was not opened (robots.txt 403); its header logo may differ. robots.txt: none on the allergen site (404 = no rules).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

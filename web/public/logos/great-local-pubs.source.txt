@@ -1,0 +1,12 @@
+status: installed
+file: great-local-pubs.png
+kind: site-icon
+tile: light
+source_url: https://24-social.com/stonegate/0VzKJgPbwtrMiQJ8zPdj/domains/68/favicon-68202602021546448782.ico
+page_url: https://www.greatlocalpubs.co.uk/
+chrome_hint: For a sharper logo: open https://tkmenus.com/greattraditionalpubs in a browser and save the page's share image https://images.tenkites.com/stonegate/unitsitelogo/Great_Local_Pubs.jpg (200 x 200), tile: light.
+terms_url: https://www.stonegategroup.co.uk/terms-conditions/
+terms_summary: Stonegate's terms (linked from the site footer) say "Stonegate Pubs and its brands and its and their respective logos are trade marks of Stonegate Pubs Company Limited" and "You must not use any part of the content on our Websites and Apps for commercial purposes without obtaining a licence to do so from us or our licensors"; they also forbid bots or scrapers copying content.
+why: The site has no logo file: its header and footer show "Great Local Pubs" as plain text, and its only icon is a 32 x 29 favicon.ico (the yellow GREAT LOCAL PUBS shield) served from 24-social.com, Stonegate's image host. The .ico holds one 32 x 29 image; it was saved as PNG with every pixel identical (container change only, checked) because the app accepts only svg/png/jpg/webp. It is small and soft when shown large. A 200 x 200 version (https://images.tenkites.com/stonegate/unitsitelogo/Great_Local_Pubs.jpg, the og:image of the chain's Ten Kites menu page https://tkmenus.com/greattraditionalpubs) was not downloaded: images.tenkites.com robots.txt says Disallow: /.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

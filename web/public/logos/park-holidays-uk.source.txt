@@ -1,0 +1,11 @@
+status: installed
+file: park-holidays-uk.svg
+kind: inline-svg
+tile: light
+source_url: https://www.parkholidays.com/ (inline <svg viewBox="0 0 160 33"> in the header's home link)
+page_url: https://www.parkholidays.com/
+terms_url: https://www.parkholidays.com/terms-and-conditions
+terms_summary: The terms page covers holiday bookings and park rules; no clause on logos, trade marks or reusing site content was found.
+why: Own website header: the PARK HOLIDAYS UK logo is an inline SVG with its own colours (navy, red, light blue); the <svg>...</svg> element was copied verbatim (it already carried xmlns), nothing changed (72 KB, paths only). robots.txt allows the page.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

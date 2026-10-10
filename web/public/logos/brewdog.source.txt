@@ -1,0 +1,11 @@
+status: installed
+file: brewdog.png
+kind: header
+source_url: https://brewdog.com/cdn/shop/files/BrewDogLogo_Shield_Black_Master_2.png?v=1772813524&width=240
+page_url: https://brewdog.com/
+terms_url: https://brewdog.com/pages/terms-and-conditions
+terms_summary: BrewDog's terms say all content "including ... text, graphics, logos, icons, images" is the property of BrewDog and "You may not reproduce, copy, distribute, store or in any other fashion re-use material from the Website unless ... given express written permission to do so by BrewDog."
+why: Own website header: the shield logo the header shows on mobile (img.bdh-header__logo-mobile, same size as served), saved as served as PNG; chosen over the desktop BREWDOG wordmark (BD_Fresh_Master_Wordmark_-_Small...png) because it stays legible in a small square tile. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

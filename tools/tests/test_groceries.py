@@ -45,7 +45,7 @@ class GroceryTests(unittest.TestCase):
         self.assertEqual((item["gtin"], item["name"], item["brand"], item["size"], item["per"]), ("5012345678900", "Greek Style Yogurt", "Aldi, Mamia", "500 g", "g"))
         self.assertEqual((item["kcal"], item["protein"], item["carbs"], item["fat"]), (97, 9, 4.2, 5))
         self.assertEqual((item["saturates"], item["sugars"], item["salt"], item["kj"]), (3.4, 4.1, 0.1, 406))
-        self.assertEqual(item["image"], "501/234/567/8900/front_en.12")
+        self.assertNotIn("image", item)  # no Open Food Facts picture, ever (founder 2026-10-10): only the shop's own photo is shown
         self.assertEqual(item["category"], "dairy-eggs")
         self.assertEqual(item["allergens"], {"contains": ["milk"], "mayContain": ["nuts"]})  # trace milk is already "contains"
 
@@ -218,6 +218,191 @@ class DetailsTests(unittest.TestCase):
     def test_the_most_specific_category_is_the_type(self):
         self.assertEqual(bg.type_for(["en:dairies", "en:milks", "en:semi-skimmed-milks"]), "semi-skimmed-milks")
         self.assertIsNone(bg.type_for([]))
+        self.assertIsNone(bg.type_for(["en:plant-based-foods-and-beverages", "en:plant-based-foods"]))  # an umbrella is not a kind of product to compare with
+
+    def test_umbrella_tags_no_longer_send_foods_to_the_wrong_type(self):
+        umbrella = ["en:plant-based-foods-and-beverages", "en:plant-based-foods"]
+        self.assertEqual(bg.category_for(umbrella + ["en:olive-tree-products", "en:olives", "en:green-olives"]), "cupboard")   # was Drinks
+        self.assertEqual(bg.category_for(umbrella + ["en:meat-alternatives", "en:tofu"]), "meat-alternatives")                 # was Drinks
+        self.assertEqual(bg.category_for(umbrella + ["en:seeds", "en:sunflower-seeds"]), "cupboard")
+        self.assertEqual(bg.category_for(umbrella + ["en:cereals-and-potatoes", "en:cereals-and-their-products", "en:doughs", "en:puff-pastry-sheets"]), "bakery")  # was Breakfast
+        self.assertEqual(bg.category_for(umbrella + ["en:cereals-and-their-products", "en:durum-wheat-semolinas-for-couscous"]), "cupboard")
+        self.assertEqual(bg.category_for(umbrella), "other")
+
+    def test_clear_type_rules_put_products_in_the_right_type(self):
+        cases = {
+            "crunchy-peanut-butters": "cupboard", "easter-eggs": "snacks-sweets", "scotch-eggs": "ready-meals", "salad-creams": "cupboard",
+            "vegetarian-sausages": "meat-alternatives", "vegetarian-hot-dog-sausages": "meat-alternatives", "chicken-kievs-substitutes": "meat-alternatives",
+            "chicken-tikka-masala": "ready-meals", "beef-dishes": "ready-meals", "butter-chicken-with-side-dishes": "ready-meals",
+            "apple-pies": "bakery", "brioches": "bakery", "panettone": "bakery", "spring-rolls": "ready-meals", "prawn-crackers": "snacks-sweets",
+            "puffed-rice-cakes": "snacks-sweets", "fish-cakes": "fish", "pickled-onions": "cupboard", "caster-sugars": "cupboard", "amber-maple-syrups": "cupboard",
+            "vegetarian-lasagne": "ready-meals", "fruits-in-syrup": "fruit-veg", "puff-pastry-meals": "ready-meals", "meat-pies": "ready-meals", "chocolate-covered-biscuits": "bakery",
+            "semi-skimmed-milks": "dairy-eggs", "chicken-breasts": "meat",
+        }
+        for tag, group in cases.items():
+            self.assertEqual(bg.category_for([f"en:{tag}"]), group, tag)
+        # a rule never catches a food only because of what it is in or with: the general tags above it still decide
+        for parent, tag, group in (("fishes", "sardines-in-olive-oil", "fish"), ("fishes", "mackerel-fillets-with-tomato-sauce", "fish"),
+                                   ("dairy-substitutes", "cheese-substitutes", "dairy-eggs")):
+            self.assertIsNone(bg.tag_group(tag), tag)
+            self.assertEqual(bg.category_for([f"en:{parent}", f"en:{tag}"]), group, tag)
+        self.assertIsNone(bg.tag_group("meat-in-puff-pastry"))  # a sausage roll is not pastry sheets
+
+    def test_a_built_product_is_moved_only_by_a_specific_rule_on_its_type(self):
+        self.assertEqual(bg.recategorise({"category": "drinks", "type": "green-olives"}), "cupboard")
+        self.assertEqual(bg.recategorise({"category": "meat", "type": "vegetarian-sausages"}), "meat-alternatives")
+        self.assertEqual(bg.recategorise({"category": "frozen", "type": "vegetarian-sausages"}), "frozen")       # frozen came from a tag no longer kept
+        self.assertEqual(bg.recategorise({"category": "drinks", "type": "plant-based-foods"}), "other")          # an umbrella type says nothing
+        self.assertEqual(bg.recategorise({"category": "snacks-sweets", "type": "mixed-nuts-and-dried-fruits"}), "snacks-sweets")  # word rules: kept as built
+        self.assertEqual(bg.recategorise({"category": "other"}), "other")
+        self.assertIn("meat-alternatives", bg.CATEGORY_LABELS)
+
+
+class ShopRuleTests(unittest.TestCase):
+    """A supermarket's own-brand product is listed only under that supermarket (founder 2026-10-10: "some brands are just mixed up")."""
+
+    def test_brand_entries_and_names_name_the_shop(self):
+        claims = lambda brand, name="x": bg.shop_claims(brand, name)[0]
+        self.assertEqual(claims("Coop, Sainsbury's, Cano"), {"coop", "sainsburys"})
+        self.assertEqual(claims("Stockwell & Co"), {"tesco"})
+        self.assertEqual(claims("Ms Molly's (Tesco), Tesco"), {"tesco"})
+        self.assertEqual(claims("Sainsbury's, Taste the difference"), {"sainsburys"})
+        self.assertEqual(claims("Taste The Difference"), {"sainsburys"})
+        self.assertEqual(claims("M&S Food"), {"marks-and-spencer"})
+        self.assertEqual(claims("Marks & Spencers"), {"marks-and-spencer"})
+        self.assertEqual(claims("Essential Waitrose"), {"waitrose"})
+        self.assertEqual(claims("No.1"), {"waitrose"})
+        self.assertEqual(claims("Asda Extra Special"), {"asda"})
+        self.assertEqual(claims("Extra Special"), {"asda"})
+        self.assertEqual(claims("The Best"), {"morrisons"})
+        self.assertEqual(claims("Dulano, Lidl"), {"lidl"})
+        self.assertEqual(claims("Iceland"), {"iceland"})
+        self.assertEqual(claims("Trader Joe's, Taste the difference"), {"other:trader-joes", "sainsburys"})
+        # other firms' brands, and labels other firms also use, name no shop
+        for brand in ("Kirsty's", "No1 Living", "Wickedly Welsh", "Deluxe", "Specially Selected", "Jumbo", "Icelandic Provisions", "Snack a Jacks", "Scoop", "Rinaldi", ""):
+            self.assertEqual(claims(brand), set(), brand)
+        self.assertEqual(bg.shop_claims("Co Op, Tesco", "Co-op Cherryade"), ({"coop", "tesco"}, {"coop"}))
+        self.assertEqual(bg.shop_claims("", "Tesco Finest Smoked Salmon")[1], {"tesco"})
+        self.assertEqual(bg.shop_claims("", "Iceland Cod Fillets")[1], set())  # Iceland is also a country: only a whole brand entry names that shop
+
+    def test_a_claim_on_a_barcode_the_shop_could_not_have_issued_is_not_believed(self):
+        self.assertEqual(bg.believed_claims("3023290001349", "Tesco", "Milky bar")[0], set())          # a French barcode typed in as "Tesco"
+        self.assertEqual(bg.believed_claims("7610900037322", "Emmi, Sainsbury's", "Biopot")[0], set())  # a Swiss one
+        self.assertEqual(bg.believed_claims("4056489737551", "Dulano, Lidl", "Antipasto")[0], {"lidl"})  # Lidl's German barcodes are its own
+        self.assertEqual(bg.believed_claims("5000128962575", "Coop", "Greek yogurt")[0], {"coop"})
+        self.assertEqual(bg.believed_claims("00113168", "Sainsbury's", "Petit pois")[0], {"sainsburys"})  # a shop's own short code
+        self.assertEqual(bg.believed_claims("0288508002355", "Tesco finest", "Cheddar")[0], {"tesco"})     # an in-store weighed-goods number
+
+    def test_company_prefixes(self):
+        self.assertEqual(bg.company_prefix("5059697123459"), "5059697")
+        self.assertEqual(bg.company_prefix("05063250552526"), "5063250")   # GTIN-14 written as EAN-13
+        self.assertEqual(bg.company_prefix("00113168"), "8:00")             # EAN-8: its first two digits
+        self.assertIsNone(bg.company_prefix("0288508002355"))               # in-store numbers belong to no one company
+        self.assertIsNone(bg.company_prefix("2028429900007"))
+        self.assertIsNone(bg.company_prefix("20284299"))
+
+    def test_prefixes_are_learned_from_the_catalogue_only_when_clear(self):
+        claims = {f"505969700{i:03d}0": {"tesco"} for i in range(9)} | {"5059697999990": set()}   # 9 of 10 name Tesco: 90%
+        claims |= {f"500012800{i:03d}0": {"coop"} for i in range(2)}                                # only 2: too few
+        claims |= {f"5010251000{i:02d}0": ({"sainsburys"} if i % 2 else {"morrisons"}) for i in range(8)}  # split: no owner
+        learned = bg.learn_prefixes(claims)
+        self.assertEqual(learned, {"5059697": ("tesco", 9)})
+
+    def test_decisions(self):
+        d = bg.decide_shops
+        self.assertEqual(d({"sainsburys"}, {"coop"}, set(), None, set())[0], {"coop"})                       # moved to its own shop
+        self.assertEqual(d({"tesco", "sainsburys"}, {"sainsburys"}, set(), None, set())[0], {"sainsburys"})  # taken off the other shop
+        self.assertEqual(d({"sainsburys"}, {"other:eurospin"}, set(), None, set())[0], set())                # a shop abroad: listed by none of ours
+        self.assertEqual(d({"sainsburys"}, {"coop", "sainsburys"}, set(), None, set())[0], set())            # can't tell: held back
+        self.assertEqual(d({"sainsburys"}, {"coop", "sainsburys"}, set(), ("coop", 4), set())[0], {"coop"})  # the barcode prefix tells
+        self.assertEqual(d({"tesco"}, {"coop", "tesco"}, {"coop"}, None, set())[0], {"coop"})                 # the name starts with one of them
+        self.assertEqual(d({"tesco"}, {"asda"}, set(), ("tesco", 15), set())[0], set())                      # brand and barcode disagree: held back
+        self.assertEqual(d({"sainsburys"}, set(), set(), ("tesco", 19), set())[0], {"sainsburys"})           # a prefix alone moves only when well proven
+        self.assertEqual(d({"sainsburys"}, set(), set(), ("tesco", 20), set())[0], {"tesco"})
+        self.assertEqual(d({"tesco"}, set(), set(), None, {"sainsburys"})[0], {"tesco", "sainsburys"})        # a shop's own website lists it: added
+        self.assertEqual(d({"tesco"}, {"iceland"}, set(), None, {"sainsburys"})[0], {"tesco", "sainsburys"})  # ...even when the brand says otherwise
+        self.assertEqual(d({"tesco", "sainsburys"}, {"sainsburys", "tesco"}, set(), None, {"sainsburys"})[0], {"sainsburys"})
+        self.assertEqual(d({"tesco"}, set(), set(), None, set())[0], {"tesco"})                               # a branded product stays where it is
+
+    def test_assign_shops_moves_copies_and_holds_back(self):
+        rec = lambda gtin, brand, name, **x: {"gtin": gtin, "brand": brand, "name": name, "kcal": 1, "protein": 1, "carbs": 1, "fat": 1, **x}
+        by_rid = {
+            "tesco": [rec("5000128962575", "Coop", "Greek yogurt", price={"amount": 1}, retailerImage="https://x"),  # Co-op's: moved, without Tesco's price or photo
+                      rec("00113168", "Sainsbury's", "Petit pois"),                                                  # Sainsbury's: only there
+                      rec("5000116125838", "Birds Eye", "Fish fingers"),                                             # branded, on Sainsbury's own website: added there
+                      rec("5059697000010", "Tesco", "Beans")],
+            "sainsburys": [rec("00113168", "Sainsbury's", "Petit pois"), rec("5010251733911", "Sainsbury's, Eurospin", "Cucumber")],  # can't tell: held back
+            "coop": [],
+        }
+        log: dict = {}
+        out = bg.assign_shops(by_rid, {bg.norm_code("5000116125838"): {"sainsburys"}}, log)
+        self.assertEqual([p["gtin"] for p in out["tesco"]], ["5000116125838", "5059697000010"])
+        self.assertEqual(sorted(p["gtin"] for p in out["sainsburys"]), ["00113168", "5000116125838"])
+        self.assertEqual([p["gtin"] for p in out["coop"]], ["5000128962575"])
+        self.assertNotIn("price", out["coop"][0])
+        self.assertNotIn("retailerImage", out["coop"][0])
+        self.assertEqual(log["moves"][("sainsburys", "removed", "held back: its brand and barcode name different supermarkets")], 1)
+        self.assertFalse(any("_keep" in p for items in out.values() for p in items))
+
+
+class ShopPhotoTests(unittest.TestCase):
+    """The shop's own picture is joined to a barcode by exact identifiers only; a name can only stop a picture, never choose one."""
+
+    def write(self, root: Path, rel: str, text: str):
+        path = root / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text)
+
+    def test_barcode_to_page_to_picture(self):
+        with tempfile.TemporaryDirectory() as d:
+            base = Path(d)
+            img = lambda n: f"https://digitalcontent.api.tesco.com/v2/media/ghs/{n}.jpeg?h=225&w=225"
+            self.write(base, "discovery/tesco-barcodes.csv", "product_id,gtin\n111,5012345678900\n")
+            self.write(base, "discovery/tesco.csv", f"product_id,name_on_page,price_gbp,unit_price_gbp,unit,category_path,page_url,image_url,in_stock,checked_on\n111,Tesco Greek Yogurt 500g,1,1,kg,x,https://www.tesco.com/groceries/en-GB/products/111,{img('a')},yes,2026-10-07\n")
+            self.write(base, "prices/tesco.csv", "gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on\n5012345678917,1.00,,,https://www.tesco.com/groceries/en-GB/products/222,2026-10-07\n")
+            header = "product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on\n"
+            self.write(base, "listing/tesco.csv", header + f"222,Tesco Cottage Cheese 300g,1,,,,,x,https://www.tesco.com/groceries/en-GB/products/222,{img('b')},2026-10-09\n"
+                       f"333,Tesco Plain Skyr 450g,1,,,,,x,https://www.tesco.com/groceries/en-GB/products/333,{img('c')},2026-10-09\n")
+            pages = bg.shop_pages("tesco", base)
+            self.assertEqual(pages[bg.norm_code("5012345678900")]["photos"], [(img("a"), "Tesco Greek Yogurt 500g")])
+            self.assertEqual(pages[bg.norm_code("5012345678917")]["photos"], [(img("b"), "Tesco Cottage Cheese 300g")])   # price row's page -> listing row
+            self.assertNotIn(bg.norm_code("5012345678924"), pages)  # page 333 has no barcode anywhere: never matched by its name
+            products = [{"gtin": "5012345678900", "name": "Greek Style Yogurt"}, {"gtin": "5012345678917", "name": "Whey Protein"}, {"gtin": "5012345678924", "name": "Plain Skyr"}]
+            rejected: set = set()
+            skipped: dict = {}
+            self.assertEqual(bg.apply_retailer_images("tesco", products, {}, skipped, pages=pages, rejected=rejected), 1)
+            self.assertEqual(products[0]["retailerImage"], img("a"))
+            self.assertNotIn("retailerImage", products[1])   # the shop's page for that barcode names a different product
+            self.assertNotIn("retailerImage", products[2])
+            self.assertEqual(rejected, {bg.norm_code("5012345678917")})
+            self.assertEqual(len(skipped["names disagree"]), 1)
+
+    def test_names_can_only_stop_a_picture(self):
+        self.assertFalse(bg.names_agree("Coockies", "Cherry Tomatoes 500g"))
+        self.assertFalse(bg.names_agree("Whole Scottish Porridge Oats", "Sainsbury's Vegetable Lasagne 400g"))
+        self.assertTrue(bg.names_agree("Medium Eggs", "The Happy Egg Co. Free Range Medium x6"))
+        self.assertTrue(bg.names_agree("Cous Cous", "Tesco Finest Moroccan Inspired Couscous 200g"))
+        self.assertTrue(bg.names_agree("Mature Chedder", "Cathedral City Mature Cheddar 350g"))
+        self.assertIsNone(bg.names_agree("Tesco Finest", "Something"))  # nothing to compare
+
+    def test_a_rejected_picture_has_no_stored_copy_either(self):
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d) / "photos"
+            folder.mkdir()
+            (folder / "0123456789ab.webp").write_bytes(b"x")
+            csv_path = Path(d) / "sainsburys.csv"
+            csv_path.write_text("gtin,image_url,page_url,checked_on,file\n5012345678900,https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg,https://www.sainsburys.co.uk/groceries/product/x,2026-10-08,0123456789ab.webp\n")
+            products = [{"gtin": "5012345678900"}]
+            self.assertEqual(bg.apply_stored_photos("sainsburys", products, [], rejected={"5012345678900"}, folder=folder, path=csv_path), 0)
+            self.assertNotIn("photo", products[0])
+
+    def test_tesco_listing_pictures_are_rebuilt_as_the_crawl_says(self):
+        import ingest_listing as il
+        u = "ghs/63de2b2b-9761-46fb-a709-d05b6298e588/695a3010-3d7c-4391-a2da-95dd49641046"
+        self.assertEqual(il.image_url("tesco", u + "_1469833947"), f"https://digitalcontent.api.tesco.com/v2/media/{u}_1469833947.jpeg?h=225&w=225")
+        self.assertEqual(il.image_url("tesco", u), f"https://digitalcontent.api.tesco.com/v2/media/{u}.jpeg?h=225&w=225")
+        self.assertEqual(il.image_url("tesco", "ghs-mktg/b0b04216-fa73-466d-a9d7-c9fcfa1ce9b3/no-image"), "")   # Tesco's own "no image" tile
+        self.assertEqual(il.image_url("tesco", "NOIMG"), "")
 
 
 class PriceFileTests(unittest.TestCase):

@@ -67,7 +67,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
   const selected = retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!;
   const p = forRetailer(listed, selected);
-  const photos = photoSources(listed, selected, 400);
+  const photos = photoSources(listed, selected);
   const per = perLabel(p);
   const sizes = sizeVariants(state.all, listed);
   const rating = priceRating(state.all, listed, selected);

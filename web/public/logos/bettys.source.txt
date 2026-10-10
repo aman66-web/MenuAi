@@ -1,8 +1,10 @@
 status: skipped-blocked
 file: none
-page: https://www.bettys.co.uk/
-why: The chain's own site answered an automated visit with an Imperva/Incapsula bot challenge page (/_Incapsula_Resource, no content); blocks are never worked around. Download the logo from https://www.bettys.co.uk/ yourself (right-click the header logo, Save Image) and send it, and it installs in one step.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-decision: founder, 2026-10-06 ("Use the actual logos for the brands")
-retrieved: 2026-10-08
+page_url: https://www.bettys.co.uk/
+blocked_url: https://www.bettys.co.uk/ (Imperva/Incapsula bot challenge, /_Incapsula_Resource); owner https://www.bettysandtaylors.co.uk/robots.txt answers 403
+chrome_hint: Open https://www.bettys.co.uk/ and save the "Bettys" script logo at the top centre of the header (right-click > Save Image As, or copy the <svg> element if inline) as bettys.svg/.png; or the Bettys logo on the owner's brands page at https://www.bettysandtaylors.co.uk/ (Our brands).
+terms_url: not reviewed (site blocked)
+terms_summary: not reviewed: nothing was installed
+why: Retried once on 2026-10-10: the home page again returned only an Imperva/Incapsula challenge (212 bytes, no content), and the owner Bettys & Taylors Group's site answers 403 to robots.txt; neither was worked round.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocks are never worked around
+retrieved: 2026-10-10

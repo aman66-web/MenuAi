@@ -1,0 +1,11 @@
+status: installed
+file: brightside.svg
+kind: inline-svg
+source_url: https://brightside.co.uk/ (inline <svg width="187" height="66"> in the header's "Logo" link, next to its animated dotlottie version)
+page_url: https://brightside.co.uk/
+terms_url: https://brightside.co.uk/terms-conditions/
+terms_summary: Brightside's terms page says only "This website is property of Loungers plc." and links policies; no clause on logos or trade marks was found.
+why: Own website header; the logo is an inline SVG, copied verbatim (it already carried xmlns); yellow sunflower and red "Brightside" wordmark. robots.txt allows the page.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

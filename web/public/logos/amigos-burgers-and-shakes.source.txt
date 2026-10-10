@@ -1,9 +1,11 @@
-status: skipped-blocked
-file: none
-source_url: https://static.wixstatic.com/media/4a7bb9_b434099550ad454ba6f9449a4db58604~mv2.png/v1/crop/x_0,y_1152,w_4500,h_2195/fill/w_420,h_204,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/amigos-new-logo-web-04.png
-page: https://www.amigosburgersandshakes.com/
-terms_url: not reviewed
-terms_summary: not reviewed
-why: The header logo is only served from Wix's image host static.wixstatic.com, whose robots.txt answers 403 (treated as disallow, never worked around); the founder can save the logo from the site header at https://www.amigosburgersandshakes.com/ (right-click, Save Image) and send it.
-decision: founder, 2026-10-06 ("Use the actual logos for the brands"); the www site's robots.txt allows everything but its logo file comes only from the blocked image host
-retrieved: 2026-10-08
+status: installed
+file: amigos-burgers-and-shakes.svg
+kind: inline-svg
+tile: dark
+source_url: https://www.amigosburgersandshakes.com/ (inline <svg> in the page footer, the home link "comp-kqz4y1wa")
+page_url: https://www.amigosburgersandshakes.com/
+terms_url: https://www.amigosburgersandshakes.com/legal
+terms_summary: Amigos' terms say "we or our licensors own the intellectual property rights in the website and material on the website ... all these intellectual property rights are reserved" and "You must not: republish material from this website (including republication on another website)".
+why: Own website: the header logo file is only on Wix's image host (static.wixstatic.com, whose robots.txt still answers 403 on 2026-10-10, so not fetched), but the page footer carries the same AMIGOS(TM) "Burgers & Shakes" wordmark as an inline SVG linking to the home page; copied verbatim (it already has xmlns). The artwork is cream (#f9f7e5) only, so it sits on a dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

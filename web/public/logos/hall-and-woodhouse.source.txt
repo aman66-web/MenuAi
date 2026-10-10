@@ -1,0 +1,11 @@
+status: installed
+file: hall-and-woodhouse.svg
+kind: inline-svg
+tile: light
+source_url: https://www.hall-woodhouse.co.uk/ (inline <svg> in span.site-header__logo--full of the desktop header)
+page_url: https://www.hall-woodhouse.co.uk/
+terms_url: https://www.hall-woodhouse.co.uk/terms-and-privacy/
+terms_summary: The site's "Terms and Privacy" page is a privacy notice; no clause on logos, trade marks or reusing site content was found.
+why: Own website header: the full logo (badger, 17 77 and HALL & WOODHOUSE in green) is an inline SVG with its own colours; the <svg>...</svg> element was copied verbatim (it already carried xmlns), nothing changed. robots.txt allows the page.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

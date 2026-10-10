@@ -1,0 +1,11 @@
+status: installed
+file: bens-cookies.svg
+kind: header
+source_url: https://www.benscookies.com/app/uploads/2024/07/logo.svg
+page_url: https://www.benscookies.com/
+terms_url: https://www.benscookies.com/shipping-terms/
+terms_summary: The only terms page the site links is Shipping Terms (orders and delivery); no clause on logos or trade marks was found.
+why: Own website header logo (a.logo img), saved byte for byte; red "Ben's Cookies" script. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

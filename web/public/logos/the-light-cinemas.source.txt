@@ -1,0 +1,11 @@
+status: installed
+file: the-light-cinemas.svg
+kind: header
+tile: dark
+source_url: https://www.thelight.co.uk/img/logo-white.svg
+page_url: https://www.thelight.co.uk/
+terms_url: https://cambridge.thelight.co.uk/terms
+terms_summary: The Light's terms (7.3) say the website's materials "are protected by copyright, trade mark and other intellectual property rights ... and may not be copied, reproduced, republished, uploaded, posted, transmitted or distributed in any way without our consent."
+why: Own website (https://www.thelight.co.uk/, the chain's landing page logo): "the light" wordmark SVG saved byte for byte; white lettering with the orange dots, made for a dark background, so it sits on a dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

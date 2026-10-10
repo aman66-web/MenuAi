@@ -1,0 +1,11 @@
+status: installed
+file: mytime-active.svg
+kind: header
+tile: light
+source_url: https://www.mytimeactive.co.uk/themes/custom/mytimeactive/logo.svg
+page_url: https://www.mytimeactive.co.uk/
+terms_url: https://www.mytimeactive.co.uk/website-terms-conditions
+terms_summary: Mytime Active's website terms prohibit "downloading, distribution, exhibition, copying, adaptation, modification of and dealing in any copyright material contained therein without the express written authorisation of Mytime Active" and say "Mytime Active reserves all its rights as proprietor of all its trademarks and logos."
+why: Own website header (a.site-logo img), saved byte for byte; purple and teal "mytimeactive" wordmark. robots.txt allows the page and the file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

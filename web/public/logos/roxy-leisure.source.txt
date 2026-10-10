@@ -1,0 +1,11 @@
+status: installed
+file: roxy-leisure.svg
+kind: header
+tile: dark
+source_url: https://roxyleisure.co.uk/wp-content/uploads/2022/05/ROXY-LOGO.svg
+page_url: https://roxyleisure.co.uk/
+terms_url: https://roxyleisure.co.uk/website-terms-of-use/
+terms_summary: Roxy Leisure's website terms say "“Roxy Lanes”, “Roxy Ball Room”, and “Booze & Ball Games” are trade marks of Roxy Leisure Ltd. You are not permitted to use them without our approval" and allow downloads of site material for personal use only.
+why: Own website header (https://roxyleisure.co.uk/, the header logo image): the ROXY wordmark SVG saved byte for byte; it is white-only artwork (drawn for the site's dark header), so it sits on a dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

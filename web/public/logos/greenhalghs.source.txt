@@ -1,0 +1,11 @@
+status: installed
+file: greenhalghs.webp
+kind: header
+tile: dark
+source_url: https://www.greenhalghs.com/wp-content/uploads/2020/02/greenhalghs-logo.png.webp
+page_url: https://www.greenhalghs.com/
+terms_url: https://www.greenhalghs.com/terms-conditions/
+terms_summary: Greenhalgh's terms say "Any redistribution or reproduction of part or all of the contents in any form is prohibited" apart from personal non-commercial extracts, and "You may not, except with our express written permission, distribute or commercially exploit the content, nor may you transmit it or store it in any other website".
+why: Own website header (.wd-main-logo img), the 700 x 183 WebP it serves, saved byte for byte; green "g" mark with a white "greenhalgh's" wordmark for the dark header, so dark tile. robots.txt allows the page and the file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

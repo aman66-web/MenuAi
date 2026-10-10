@@ -1,0 +1,11 @@
+status: installed
+file: tenpin.png
+kind: site-icon
+tile: light
+source_url: https://www.tenpin.co.uk/dist/images/apple-touch-icon.png
+page_url: https://www.tenpin.co.uk/
+terms_url: https://www.tenpin.co.uk/terms-privacy/website-terms-of-use/
+terms_summary: Tenpin's website terms (2.2) say "All trademarks, service marks, trade names, branding and logos on the Site identifying Tenpin ... are subject to copyright, design rights and trademarks owned by Tenpin" and grant no licence to use them; copying is allowed only for personal non-commercial purposes.
+why: The site's own apple-touch-icon (the mint Tenpin "t" mark), 180 x 180 PNG saved byte for byte. The header wordmark exists only as an inline SVG whose own colours (red fill, black stroke) are placeholders the page's stylesheet replaces with mint outlines, so a verbatim copy would not look like the logo; no standalone logo file was found.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

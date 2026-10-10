@@ -1,9 +1,12 @@
-status: skipped-blocked
-file: none
-source_url: https://prod.butlins-prod.magnolia-platform.com/.imaging/default/dam/Family-assets/Logos-and-Icons/90th-Birthday/butlins-logo-90th.png/jcr:content.png
-page: https://www.butlins.com/
-why: Butlin's header logo (currently a "90 years" anniversary version) is served only from its image host prod.butlins-prod.magnolia-platform.com, whose robots.txt request answered 401 (treated as disallow), and no logo file is served from www.butlins.com itself; nothing was downloaded. Save the logo from https://www.butlins.com/ yourself (right-click the header logo, Save Image) and send it, and it installs in one step.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-decision: founder, 2026-10-06 ("Use the actual logos for the brands")
-retrieved: 2026-10-08
+status: installed
+file: butlins.png
+kind: site-icon
+tile: light
+source_url: https://www.butlins.com/public/apple-touch-icon.png
+page_url: https://www.butlins.com/
+chrome_hint: For the full wordmark: open https://www.butlins.com/ and save the header logo at the top left (the "90 years" Butlin's logo, file butlins-logo-90th.png from prod.butlins-prod.magnolia-platform.com) as butlins.png, then switch kind to header.
+terms_url: https://www.butlins.com/terms-and-conditions
+terms_summary: Butlin's terms say "You can't copy anything off our website (even photos) without our written permission. Nothing in our agreement gives you or the people who come with you any rights over our trademarks or other intellectual property."
+why: Butlin's own site loads, but its header logo (butlins-logo-90th.png) is served only from prod.butlins-prod.magnolia-platform.com, whose robots.txt still answered 401 on 2026-10-10 (treated as disallow); its press page (/press) and corporate page (/corporate) offer no logo file on www.butlins.com, and Butlin's has been independent of Bourne Leisure since 2022 (butlins.com is its own corporate site). So the site's own apple-touch-icon is used: the white script "B" monogram on Butlin's red, 180 x 180, saved byte for byte. It has an opaque white surround, so it sits on a light tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

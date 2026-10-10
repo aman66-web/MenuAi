@@ -1,0 +1,11 @@
+status: installed
+file: parsons-bakery.webp
+kind: header
+tile: dark
+source_url: https://images.squarespace-cdn.com/content/v1/5bf6cdfbe749407fea3ad7b6/1555503421222-O464ZNHH0OV70X56RYUW/ParsonsLogo-white.png?format=500w
+page_url: https://www.parsonsbakery.co.uk/
+terms_url: https://www.parsonsbakery.co.uk/tcs
+terms_summary: The site's only T&Cs page is for a monthly prize draw; no clause on logos, trade marks or reusing site content was found.
+why: Own website header (img.Header-branding-logo, Squarespace), the 500w size its srcset lists, saved byte for byte as served (WebP, 500 x 313, 78 KB); white Parsons script with the gold sunburst for the dark header, so dark tile. robots.txt: www allows the page (its AI-crawler names share the * group, ordinary rules); the image host has no robots.txt (404).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

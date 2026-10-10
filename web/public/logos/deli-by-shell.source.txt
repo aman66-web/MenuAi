@@ -1,0 +1,9 @@
+status: skipped-unavailable
+file: none
+page_url: https://www.shell.co.uk/shell-service-stations/food-and-drink-offering/deli-by-shell.html
+chrome_hint: If a deli by Shell logo file exists on shell.co.uk (for example in a press release or on packaging artwork Shell publishes), save it from that page; otherwise the founder decides whether the Shell pecten (https://www.shell.co.uk/etc.clientlibs/amidala/clientlibs/theme-base/resources/favicon/apple-touch-icon.png) may stand in.
+terms_url: not reviewed
+terms_summary: not reviewed: nothing installed
+why: Rechecked 2026-10-10: the deli by Shell page's own content (deli-by-shell.model.json) lists 11 images, all food or partner photos (header, chilled range, hot food, confectionery, breakfast, meal deal, delivery, Costa, Budgens, lasagne), and no logo; Shell's 2019 deli media release now redirects to the archived media page. Shell is also the owner, so there is no separate owner brand page. The Shell pecten is the parent company's mark, not the deli brand's, so it was not used (same rule as bp / Wild Bean Café).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); no logo file for this brand is published on its own or its owner's site
+retrieved: 2026-10-10

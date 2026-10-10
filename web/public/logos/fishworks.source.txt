@@ -1,0 +1,11 @@
+status: installed
+file: fishworks.png
+kind: header
+source_url: https://www.fishworks.co.uk/build_assets/logo-white.png
+page_url: https://www.fishworks.co.uk/
+terms_url: none linked from the home page
+terms_summary: No website terms page is linked from Fishworks' home page (only modern slavery and gender pay documents), so no clause on logos or trade marks was found.
+why: Own website header logo (alt "Fishworks logo"), saved byte for byte (1138 px wide, 25 KB, not resized); white "FISHWORKS / FISHMONGER & RESTAURANT" artwork, so dark tile. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: dark

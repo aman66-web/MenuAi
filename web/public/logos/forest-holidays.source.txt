@@ -1,9 +1,12 @@
-status: skipped-blocked
-file: none
-page: https://www.forestholidays.co.uk/
-source_url: https://assets.forestholidays.co.uk/damprodblob/assets/siteassets/-images/header/fh_white_150_0a420d6724.svg
-why: The header logo is served only from assets.forestholidays.co.uk, whose robots.txt answers 403 Access Denied (treated as disallow), so the file was not fetched; to install it, save the logo from the header of https://www.forestholidays.co.uk/ in your browser (right-click, Save Image) and send it.
-terms_url: not reviewed
-terms_summary: not reviewed
-decision: founder, 2026-10-06 ("Use the actual logos for the brands"); assets.forestholidays.co.uk/robots.txt answered 403 Access Denied (treated as Disallow), so nothing was fetched from that host
-retrieved: 2026-10-08
+status: installed
+file: forest-holidays.png
+kind: site-icon
+tile: light
+source_url: https://www.forestholidays.co.uk/_next/static/media/apple-touch-icon.9ce6af94.png
+page_url: https://www.forestholidays.co.uk/
+chrome_hint: For the full wordmark: open https://www.forestholidays.co.uk/ and save the header logo at the top left (fh_white_150_0a420d6724.svg from assets.forestholidays.co.uk, white artwork: tile dark) as forest-holidays.svg, then switch kind to header.
+terms_url: https://www.forestholidays.co.uk/terms-of-use/
+terms_summary: Forest Holidays' terms of use say "You may not download, copy, reproduce, transmit, store, sell or distribute any content without the prior written consent of the copyright holder" (personal, non-commercial use excepted).
+why: The header logo is served only from assets.forestholidays.co.uk, whose robots.txt still answered 403 on 2026-10-10 (treated as disallow); the owner (Forge Holiday Group, Sykes) has no brands page that could be found or reached. So the site's own apple-touch-icon on www.forestholidays.co.uk is used: the white leaf sprig on Forest Holidays' green, 180 x 180, saved byte for byte.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

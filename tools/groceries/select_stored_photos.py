@@ -10,7 +10,7 @@ Order of preference (the products people see first): products with a price from 
 own picture address (`retailerImage`, written by build_groceries.py from the shop's own pages) are considered. Each row records the shop page that showed the
 picture (a price row's page, else the page of its listing row), so a photo is never matched on its own.
 
-Run `python3 tools/groceries/build_groceries.py --images-only` afterwards (adds `photo` to the products) and look at `photo_sheet.py` before committing.
+Run `python3 tools/groceries/build_groceries.py --patch` (or `--images-only`) afterwards (adds `photo` to the products) and look at `photo_sheet.py` before committing.
 """
 from __future__ import annotations
 

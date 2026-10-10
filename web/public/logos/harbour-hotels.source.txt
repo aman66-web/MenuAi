@@ -1,0 +1,11 @@
+status: installed
+file: harbour-hotels.webp
+kind: header
+tile: dark
+source_url: https://media-prod.harbourhotels.co.uk/hhweb-prod-media/media/wsynz2xc/harbour-hotels-white.png?h=200&g=0.5x0.5&fit=cover&q=85
+page_url: https://www.harbourhotels.co.uk/
+terms_url: https://www.harbourhotels.co.uk/terms-conditions
+terms_summary: Harbour Hotels' terms say "The content of the Websites is the copyright of the Company, and may not be copied, reproduced, published, distributed or amended for any other purpose without our prior written consent."
+why: Own website header (picture#logo), the 1x size its srcset lists, saved byte for byte as served (the image service answered image/webp for this .png address, 771 x 200); white HARBOUR HOTELS wordmark for the dark header, so dark tile. robots.txt: www allows the page; the media host answers 400 for robots.txt (no rules under RFC 9309).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

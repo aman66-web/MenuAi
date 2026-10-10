@@ -1,0 +1,11 @@
+status: installed
+file: jollibee.webp
+kind: header
+tile: light
+source_url: https://images.squarespace-cdn.com/content/v1/5f33b417d073c907b3c2e379/319640ab-b1da-4ebc-8b54-1075ba8f89f7/Red+logo+%28with+bee%29.png?format=1500w
+page_url: https://www.jollibee.uk/
+terms_url: none found (the site links only a privacy notice and cookie policy; /terms-and-conditions is 404)
+terms_summary: The chain's own site links no terms of use, so no clause on reusing its logo or marks was found.
+why: Own website header (img.header-title-logo, Squarespace), the exact address the header uses, saved byte for byte as served (WebP, 960 x 242, 18 KB; not scaled); red Jollibee wordmark with the bee. robots.txt: www allows the page (its AI-crawler names share the * group, ordinary rules); the image host has no robots.txt (404).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

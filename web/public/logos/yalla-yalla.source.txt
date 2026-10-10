@@ -1,0 +1,11 @@
+status: installed
+file: yalla-yalla.webp
+kind: header
+tile: dark
+source_url: https://yalla-yalla.co.uk/wp-content/uploads/2024/06/Group-1.webp
+page_url: https://yalla-yalla.co.uk/
+terms_url: none found (the home page links no terms or legal page)
+terms_summary: No terms of use are linked from the chain's own site, so no clause on reusing its logo or marks was found.
+why: Own website header (https://yalla-yalla.co.uk/, the site-logo widget, alt "yalla yalla lebanese kitchen logo"): 1056 x 388 WebP (12 KB) saved byte for byte; cream-on-transparent artwork made for a dark header, so it sits on a dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allowed the page and the file
+retrieved: 2026-10-10

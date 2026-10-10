@@ -2,16 +2,22 @@
 """Build web/public/groceries/ (one JSON per retailer + a manifest) from the Open Food Facts cache and the price files.
 
     python3 tools/groceries/build_groceries.py [--cache /private/tmp/off-cache] [--out web/public/groceries]
+    python3 tools/groceries/build_groceries.py --patch        # redo every step after the download on the files already built (no cache needed)
+    python3 tools/groceries/build_groceries.py --images-only  # only re-apply the shops' own photos to the files already built
 
 Inputs
-  * the cache written by tools/groceries/fetch_off.py (barcode, name, brand, size, per-100 g nutrition, allergens, photo): COMMUNITY data
+  * the cache written by tools/groceries/fetch_off.py (barcode, name, brand, size, per-100 g nutrition, allergens): COMMUNITY data. Its photos are
+    NOT used (founder 2026-10-10: every picture comes from the supermarket's own website)
   * data/groceries/images/<retailer>.csv (optional): the shop's own photo of a product; rows with a `file` are stored copies (see read_photos), written by tools/groceries/select_stored_photos.py
   * data/groceries/prices/<retailer>.csv (optional): `gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on` (+ optional `member_price_gbp,member_scheme,member_offer_ends`: the loyalty-card price beside the regular one) from the retailer's own
     website (collected in the founder's own Chrome: docs/NEXT_GROCERIES_PROMPT.md). Never estimated; a product without a row has no price.
+  * data/groceries/discovery/, details/, listing/ (optional): what the shops' own pages printed, used for the shop's photo (exact identifiers only) and as proof
+    that a shop sells a barcode (see assign_shops)
 
 Rules (docs/GROCERIES_PLAN.md, CLAUDE.md rule 1): numbers are copied, never invented or converted; a product is published only with a valid
 barcode (GS1 check digit), a name, and kcal, protein, carbs and fat per 100 g/ml all present and plausible. Allergens are the open
 database's tags mapped to the 14 UK allergens; "unknown" (no ingredients and no allergen tags) is kept as unknown, never as "none".
+A supermarket's own-brand product is listed only under that supermarket (assign_shops), whatever the open database's "stores" field says.
 """
 from __future__ import annotations
 
@@ -21,13 +27,14 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 RETAILERS = {"tesco": "Tesco", "sainsburys": "Sainsbury's", "asda": "Asda", "waitrose": "Waitrose", "lidl": "Lidl", "aldi": "Aldi",
              "morrisons": "Morrisons", "coop": "Co-op", "marks-and-spencer": "M&S", "iceland": "Iceland", "ocado": "Ocado"}
-IMAGE_HOST = "https://images.openfoodfacts.org/images/products/"
+SOURCE = "Open Food Facts contributors (ODbL)"
 
 ALLERGEN_TAGS = {
     "en:celery": "celery", "en:gluten": "gluten", "en:crustaceans": "crustaceans", "en:eggs": "eggs", "en:fish": "fish", "en:lupin": "lupin",
@@ -36,12 +43,63 @@ ALLERGEN_TAGS = {
 }
 ALLERGEN_ORDER = ["celery", "gluten", "crustaceans", "eggs", "fish", "lupin", "milk", "molluscs", "mustard", "nuts", "peanuts", "sesame", "soya", "sulphites"]
 
-# First matching group wins (checked in this order against the product's category tags).
+# Umbrella tags the open database puts above whole families of foods. They say nothing about the aisle, and their words mislead: under
+# "plant-based-foods-and-beverages" olives, tofu and seeds were filed as Drinks, under "cereals-and-their-products" pastry and couscous as Breakfast.
+UMBRELLA_TAGS = {"plant-based-foods-and-beverages", "plant-based-foods", "cereals-and-their-products", "cereals-and-potatoes", "foods-and-beverages", "food", "foods"}
+
+# Clear cases the word rules below got wrong (found by sampling each type chip, 2026-10-10). Each pattern must match a WHOLE tag; they are tried on a tag
+# before the word rules, in this order. A product is moved by its tag, never by hand.
+SPECIFIC_RULES = [(group, re.compile(pattern)) for group, pattern in (
+    # nut and seed butters are spreads, not dairy ("butters")
+    ("cupboard", r"(?:[a-z]+-){0,2}(?:peanut|nut|almond|cashew|hazelnut|pistachio|seed|mixed-nut|cereal)-butters?"),
+    # chocolate eggs are sweets and Scotch eggs picnic food, not "eggs"; salad cream is a condiment, not cream
+    ("snacks-sweets", r"(?:[a-z]+-)?(?:easter|chocolate|creme|caramel)-eggs?"),
+    ("ready-meals", r"scotch-eggs?"),
+    ("cupboard", r"salad-creams?"),
+    # spring rolls aren't bread rolls; prawn crackers and rice cakes are snacks, not bakery; fish cakes are fish
+    ("ready-meals", r"(?:vegetable-|duck-|chicken-|mini-)?spring-rolls?"),
+    ("snacks-sweets", r"prawn-crackers?|(?:puffed-)?(?:rice|corn)-cakes?(?:-with-[a-z-]+)?"),
+    ("fish", r"(?:thai-)?(?:fish|crab|salmon|cod|haddock|tuna|prawn)-?cakes?"),
+    # sweet pies, tarts, cheesecakes, doughnuts and viennoiseries are bakery, not ready meals ("pies") or fruit
+    ("bakery", r"(?:apple|mince|fruit|sweet|cherry|lemon-meringue|pecan|pumpkin|custard|bakewell|treacle|shelf-stable-sweet|chocolate)-pies?"
+               r"|(?:fruit-|custard-|bakewell-|lemon-|treacle-)?tarts?|(?:[a-z]+-)?turnovers?|framboisiers"
+               r"|(?:[a-z]+-){0,2}cheesecakes?|(?:jam-|glazed-)?doughnuts?|shortbreads?|snack-biscuit-with-[a-z-]+"),
+    ("bakery", r"brioches?(?:-[a-z-]+)?|panettones?|(?:chocolate-|butter-|almond-)?croissants?|pains?-au-chocolat|viennoiseries|(?:filled-)?focaccias?"
+               r"|(?:[a-z]+-)*crepes?-filled-with-[a-z-]+|blinis?"),
+    ("ready-meals", r"quiches?(?:-[a-z-]+)?|arancini|(?:refrigerated-)?falafels?|moussakas?|burritos?|(?:[a-z]+-)?lasagnes?|potato-dishes|canned-raviolis?|curry|curries"
+                    r"|(?:[a-z]+-)+(?:with|without)-side-dishes"),
+    # pastry and dough are baking and couscous, bulgur and starch are cupboard foods, not breakfast
+    ("bakery", r"(?:(?:puff|shortcrust|filo|pizza|pie|sweet|choux|flaky|pure-butter|butter|raw|cooked|ready-rolled)-){0,3}(?:pastry|doughs?)(?:-sheets?|-blocks?)?"),
+    ("cupboard", r"(?:durum-wheat-)?(?:wheat-)?semolinas?(?:-for-couscous)?|couscous|bulgur|(?:corn-)?starch(?:es)?|polenta|quinoa"),
+    ("breakfast", r"cereal-flakes(?:-with-[a-z-]+)?|(?:[a-z]+-)?cereals?-with-fruits|(?:[a-z]+-)?breakfast-cereals(?:-[a-z-]+)?|cereal-clusters(?:-with-[a-z-]+)?|extruded-flakes"),
+    # olives, pickles, seeds, miso, beans, stock and sauces named after a dish are cupboard foods, not drinks, meat or fruit
+    ("cupboard", r"(?:(?!in-|with-)[a-z]+-){0,3}olives(?:-(?:in|stuffed|with)-[a-z-]+)?|olive-tree-products|(?:(?!in-|with-)[a-z]+-){0,3}pickle[sd]?(?:-[a-z]+){0,3}"
+                 r"|(?:pickled-)?capers|(?:pickled-)?gherkins?|misos?|miso-pastes?|(?:[a-z]+-)?seeds|legumes|beans|pulses|fats"
+                 r"|(?:[a-z]+-)?bouillon(?:-[a-z]+)?|(?:[a-z]+-)?chutneys?|(?:[a-z]+-)?preserves|(?:[a-z]+-)?powders?|(?:[a-z]+-)*tomato-(?:pastes?|purees?)"
+                 r"|(?:(?!in-|with-)[a-z]+-){0,3}sauces?|grav(?:y|ies)"),
+    ("snacks-sweets", r"chocolate-covered-(?:raisins|fruits|nuts|peanuts|almonds|cranberries|ginger)|barres-aux-[a-z]+|(?:[a-z]+-)*cereal-bars?|rice-puddings?"),
+    ("dairy-eggs", r"petit-suisse(?:-[a-z-]+)?"),
+    ("drinks", r"juice"),
+    # meat alternatives are not meat (vegetarian sausages were under Meat) and not drinks
+    ("meat-alternatives", r"tofu|tempeh|seitan|textured-vegetable-protein|meat-analogues(?:-[a-z-]+)?|meat-alternatives?|meat-substitutes?|fish-analogues"
+                          r"|(?:[a-z]+-){0,2}(?:chicken|beef|pork|meat|sausage|burger|nugget|kiev|bacon|fish|kefta|lardons|cutlets|prepared-meat-cuts)s?-substitutes|substituts-des-lardons"
+                          r"|(?:vegetarian|vegan|plant-based|meat-free)-(?:[a-z]+-){0,2}(?:sausages?|patties|burgers?|hamburgers|nuggets?|grounds?|mince|balls|meatballs|bacon|rashers|chicken|pieces|fillets?|kievs?|schnitzels?)"
+                          r"|nuggets-from-soy-and-wheat-proteins"),
+    # dishes are ready meals even when they are named after their meat (chicken tikka masala was under Meat)
+    ("ready-meals", r"(?:chicken|beef|pork|lamb|turkey|duck|prawn|vegetable)-(?:tikka-masala|curry|curries|korma|jalfrezi|bhuna|madras|balti|biryani|risottos?|soups?|pizzas?|ravioli|lasagnes?|stews?|casseroles?|pakoras?|chow-mein|fried-rice|dishes)"
+                    r"|butter-chicken|chicken-and-vegetables-soup|instant-pasta-with-[a-z-]+|pasta-salad-with-[a-z-]+|chil[il]i-con-carne"),
+    # baking and cooking basics were "Other"
+    ("cupboard", r"(?:(?!in-|with-)[a-z]+-){0,2}(?:sugars?|syrups?|sweeteners?|cocoa-powders?|baking-powders?|baking-mixes|frostings?|sprinkles|icings?|thickeners|lards?|broths?|broth-stock"
+                 r"|stuffings?|cooking-helpers|meal-kits|fajitas?-kits?|yeasts?)"),
+    ("bakery", r"(?:[a-z]+-)?(?:pancakes?|crepes?|crepes-and-pancakes|flapjacks?|waffles?)(?:-with-[a-z-]+)?"),
+)]
+
+# Then the first matching group wins (checked in this order against the words of the tag).
 CATEGORY_RULES = [
     ("frozen", ["frozen"]),
     ("drinks", ["beverages", "drinks", "waters", "juices", "sodas", "teas", "coffees", "beers", "wines", "spirits", "milkshakes", "smoothies"]),
     ("ready-meals", ["meals", "pizzas", "pies", "sandwiches", "soups", "ready-meals", "lasagnes", "curries", "salads-prepared", "wraps"]),
-    ("breakfast", ["breakfast-cereals", "cereals-and-their-products", "granolas", "mueslis", "porridges", "oat-flakes", "breakfasts"]),
+    ("breakfast", ["breakfast-cereals", "granolas", "mueslis", "porridges", "porridge", "oat-flakes", "rolled-oats", "breakfasts"]),
     ("bakery", ["breads", "bakery", "pastries", "cakes", "biscuits", "croissants", "bagels", "muffins", "buns", "crackers", "rolls"]),
     ("dairy-eggs", ["dairies", "milks", "yogurts", "cheeses", "butters", "creams", "eggs", "dairy-substitutes", "plant-based-milks"]),
     ("meat", ["meats", "poultries", "sausages", "bacons", "hams", "beef", "pork", "chicken", "turkey", "lamb", "meat-based-products"]),
@@ -51,8 +109,8 @@ CATEGORY_RULES = [
     ("cupboard", ["sauces", "condiments", "oils", "spices", "vinegars", "dressings", "spreads", "jams", "honeys", "pastas", "rices", "flours", "canned-foods", "pulses", "grains", "noodles", "groceries", "seasonings", "stocks"]),
 ]
 CATEGORY_LABELS = {
-    "dairy-eggs": "Dairy and eggs", "meat": "Meat", "fish": "Fish and seafood", "bakery": "Bakery", "breakfast": "Breakfast", "fruit-veg": "Fruit and veg",
-    "snacks-sweets": "Snacks and sweets", "drinks": "Drinks", "ready-meals": "Ready meals", "cupboard": "Cupboard", "frozen": "Frozen", "other": "Other",
+    "dairy-eggs": "Dairy and eggs", "meat": "Meat", "meat-alternatives": "Meat alternatives", "fish": "Fish and seafood", "bakery": "Bakery", "breakfast": "Breakfast",
+    "fruit-veg": "Fruit and veg", "snacks-sweets": "Snacks and sweets", "drinks": "Drinks", "ready-meals": "Ready meals", "cupboard": "Cupboard", "frozen": "Frozen", "other": "Other",
 }
 
 
@@ -66,18 +124,42 @@ def gtin_ok(code: str) -> bool:
     return (10 - total % 10) % 10 == check
 
 
+def tag_group(slug: str) -> str | None:
+    """The group one category tag points to, or None when it points nowhere (an umbrella tag, or no rule matches)."""
+    if slug in UMBRELLA_TAGS:
+        return None
+    for group, pattern in SPECIFIC_RULES:
+        if pattern.fullmatch(slug):
+            return group
+    words = {slug, *slug.split("-")}
+    for group, keys in CATEGORY_RULES:
+        if any(k in words for k in keys):
+            return group
+    return None
+
+
 def category_for(tags: list[str]) -> str:
     """Open Food Facts lists category tags from general to specific; the most specific tag that matches a rule decides
     (so 'sandwich pickle' is a condiment even though a general tag higher up says 'beverages and foods')."""
     if any("frozen" in t.split(":", 1)[-1].split("-") for t in tags or []):
         return "frozen"  # frozen is a state, not a type: a frozen pizza is filed under Frozen
     for t in reversed(tags or []):
-        slug = t.split(":", 1)[-1]
-        words = {slug, *slug.split("-")}
-        for group, keys in CATEGORY_RULES:
-            if any(k in words for k in keys):
-                return group
+        group = tag_group(t.split(":", 1)[-1])
+        if group:
+            return group
     return "other"
+
+
+def recategorise(item: dict) -> str:
+    """The group for a product already built, whose full tag list is not kept (only `type`, its most specific tag): when one of SPECIFIC_RULES matches
+    the type it decides, exactly as category_for would; an umbrella type says nothing, so Other; a product under Frozen stays there (that came from a tag
+    we no longer have); otherwise the group it already has is kept (the word rules are unchanged, and the full tag list may have had a tag they matched)."""
+    current, kind = item.get("category") or "other", item.get("type") or ""
+    if current == "frozen" or not kind:
+        return current
+    if kind in UMBRELLA_TAGS:
+        return "other"
+    return next((group for group, pattern in SPECIFIC_RULES if pattern.fullmatch(kind)), current)
 
 
 def tidy(text: str) -> str:
@@ -132,15 +214,6 @@ def allergens_from(p: dict):
     return {"contains": sorted(contains, key=order), "mayContain": sorted(may, key=order)}
 
 
-def image_base(p: dict):
-    """'500/016/816/4012/front_en.123' from the front photo's address (sizes .100/.200/.400/.full are added by the app)."""
-    for key in ("image_front_url", "image_front_small_url"):
-        m = re.search(r"/images/products/(.+?)\.(?:\d+|full)\.jpg", p.get(key) or "")
-        if m:
-            return m.group(1)
-    return None
-
-
 def implausible(kcal: float, protein: float, carbs: float, fat: float) -> str | None:
     """Why four per-100 g numbers can't be right (None when they can): used for community data and for the shops' own pages alike."""
     if min(kcal, protein, carbs, fat) < 0 or max(protein, carbs, fat) > 100 or protein + carbs + fat > 101 or kcal > 950:
@@ -155,6 +228,8 @@ def type_for(tags: list[str]) -> str | None:
     """The most specific category tag ('semi-skimmed-milks'): what 'similar products' means for the price rating."""
     for t in reversed(tags or []):
         slug = t.split(":", 1)[-1].strip()
+        if slug in UMBRELLA_TAGS:
+            continue  # "plant-based foods" is not a kind of product to compare prices with
         if re.fullmatch(r"[a-z0-9-]{3,60}", slug):
             return slug
     return None
@@ -192,9 +267,7 @@ def convert(p: dict, reasons: dict) -> dict | None:
         out["serving"] = {"size": " ".join(p["serving_size"].split()), "kcal": r1(sk), "protein": r1(sp), "carbs": r1(sc), "fat": r1(sf)}
     al = allergens_from(p)
     out["allergens"] = al
-    img = image_base(p)
-    if img:
-        out["image"] = img
+    # No picture from the open database (founder 2026-10-10): the shop's own photo is added later (apply_retailer_images), else the app shows "no photo".
     out["category"] = category_for(p.get("categories_tags") or [])
     kind = type_for(p.get("categories_tags") or [])
     if kind:
@@ -327,36 +400,102 @@ def clean_image_url(rid: str, url: str, skipped: dict):
     return url
 
 
-def read_discovery_images(rid: str) -> dict:
-    """norm barcode -> image URL, from data/groceries/discovery/<rid>.csv (product_id, image_url) joined with <rid>-barcodes.csv (product_id, gtin)."""
-    base = ROOT / "data" / "groceries" / "discovery"
-    disc, codes = base / f"{rid}.csv", base / f"{rid}-barcodes.csv"
-    if not disc.exists() or not codes.exists():
-        return {}
-    with open(codes, newline="", encoding="utf-8-sig") as f:
-        by_id = {(r.get("product_id") or "").strip(): norm_code(r.get("gtin") or "") for r in csv.DictReader(f)}
-    out: dict = {}
-    with open(disc, newline="", encoding="utf-8-sig") as f:
-        for r in csv.DictReader(f):
-            code = by_id.get((r.get("product_id") or "").strip())
-            if code and (r.get("image_url") or "").strip():
-                out[code] = r["image_url"].strip()
-    return out
+def page_key(rid: str, url: str) -> str:
+    """The shop's own id of a product page, from its address: Tesco's number (/products/<n>), Sainsbury's slug (the last part of the address)."""
+    url = (url or "").strip().split("?")[0]
+    if rid == "tesco":
+        m = re.search(r"/products/(\d+)", url)
+        return m.group(1) if m else ""
+    tail = url.rstrip("/").rsplit("/", 1)[-1].lower()
+    return tail if re.fullmatch(r"[a-z0-9][a-z0-9\-_.%]{0,119}", tail) else ""
 
 
-def read_image_list(rid: str) -> dict:
-    """norm barcode -> image URL, from data/groceries/images/<rid>.csv (gtin, image_url, page_url, checked_on): one row per product the shop's own
-    page was opened for, written by the Chrome session of docs/NEXT_GROCERIES_IMAGES_PROMPT.md."""
-    path = ROOT / "data" / "groceries" / "images" / f"{rid}.csv"
-    out: dict = {}
+def _rows(path: Path) -> list[dict]:
     if not path.exists():
-        return out
+        return []
     with open(path, newline="", encoding="utf-8-sig") as f:
-        for r in csv.DictReader(f):
-            code = (r.get("gtin") or "").strip()
-            if gtin_ok(code) and (r.get("page_url") or "").strip().startswith("https://") and re.fullmatch(r"\d{4}-\d{2}-\d{2}", (r.get("checked_on") or "").strip()):
-                out[norm_code(code)] = (r.get("image_url") or "").strip()
+        return list(csv.DictReader(f))
+
+
+def shop_pages(rid: str, base: Path | None = None) -> dict[str, dict]:
+    """What the shop's own pages say about each barcode, joined ONLY through exact identifiers (never by name):
+    norm barcode -> {"photos": [(image url, name the shop printed beside it)], "keys": {the shop's page ids}}.
+
+    Barcode -> page: a product page we read that gave the barcode (discovery/<rid>.csv + <rid>-barcodes.csv; details/<rid>.csv), a photo row
+    (images/<rid>.csv) and a price row (prices/<rid>.csv: the product page the price was read from). Page -> picture: that row's own picture, then the
+    shop's listing row with the same page id (listing/<rid>.csv). Order of preference: image rows, product-page details, discovery lists, listing rows."""
+    base = base or ROOT / "data" / "groceries"
+    out: dict[str, dict] = {}
+
+    def entry(code: str) -> dict:
+        return out.setdefault(code, {"photos": [], "keys": set()})
+
+    def ok(code: str) -> str:
+        code = (code or "").strip()
+        return norm_code(code) if gtin_ok(code) else ""
+
+    for r in _rows(base / "images" / f"{rid}.csv"):
+        code = ok(r.get("gtin"))
+        if code:
+            e = entry(code)
+            e["keys"].add(page_key(rid, r.get("page_url")))
+            if (r.get("image_url") or "").strip():
+                e["photos"].append(((r.get("image_url") or "").strip(), ""))
+    for r in _rows(base / "details" / f"{rid}.csv"):
+        code = ok(r.get("gtin"))
+        if code:
+            e = entry(code)
+            e["keys"] |= {page_key(rid, r.get("page_url")), (r.get("product_id") or "").strip() if rid == "tesco" else ""}
+            if (r.get("image_url") or "").strip():
+                e["photos"].append(((r.get("image_url") or "").strip(), " ".join((r.get("name_on_page") or "").split())))
+    by_id = {(r.get("product_id") or "").strip(): ok(r.get("gtin")) for r in _rows(base / "discovery" / f"{rid}-barcodes.csv")}
+    for r in _rows(base / "discovery" / f"{rid}.csv"):
+        code = by_id.get((r.get("product_id") or "").strip())
+        if code:
+            e = entry(code)
+            e["keys"] |= {page_key(rid, r.get("page_url")), (r.get("product_id") or "").strip() if rid == "tesco" else ""}
+            if (r.get("image_url") or "").strip():
+                e["photos"].append(((r.get("image_url") or "").strip(), " ".join((r.get("name_on_page") or "").split())))
+    for r in _rows(base / "prices" / f"{rid}.csv"):
+        code = ok(r.get("gtin"))
+        if code:
+            entry(code)["keys"].add(page_key(rid, r.get("page_url")))
+    listing = {(r.get("product_id") or "").strip().lower(): r for r in _rows(base / "listing" / f"{rid}.csv")}
+    for e in out.values():
+        e["keys"].discard("")
+        for key in sorted(e["keys"]):
+            r = listing.get(key.lower())
+            if r and (r.get("image_url") or "").strip():
+                e["photos"].append(((r.get("image_url") or "").strip(), " ".join((r.get("name") or "").split())))
     return out
+
+
+# A picture is never matched by name, but a name can stop one: when the name the shop printed for that page shares no word with the product's own name,
+# the open database's record for the barcode is probably a different product ("Coockies" for the shop's Cherry Tomatoes), so the photo would contradict
+# the name shown. Words that say nothing about what the product is are ignored.
+NAME_STOP = {"the", "and", "with", "for", "from", "our", "new", "free", "range", "british", "organic", "fresh", "pack", "large", "small", "mini", "medium",
+             "style", "classic", "original", "natural", "reduced", "fat", "low", "light", "extra", "finest", "taste", "difference", "tesco", "tescos",
+             "sainsburys", "sainsbury", "essential", "selection", "flavour", "flavoured", "made", "recipe", "plus", "each", "approx", "per", "sliced",
+             "whole", "family", "value", "everyday", "premium", "luxury", "deluxe", "only", "ready", "eat", "inspired", "multipack", "loose"}
+
+
+def name_words(text: str) -> set[str]:
+    t = unicodedata.normalize("NFKD", text or "").encode("ascii", "ignore").decode().lower().replace("'", "")
+    t = re.sub(r"\d+(?:\.\d+)?\s*(?:x\s*\d+(?:\.\d+)?\s*)?(?:kg|g|ml|cl|l|ltr|litres?|pk|pack)?\b", " ", t)
+    words = {w for w in re.findall(r"[a-z]+", t) if len(w) >= 3 and w not in NAME_STOP}
+    return words | {w[:-1] for w in words if w.endswith("s") and len(w) > 3}  # "eggs" also as "egg"
+
+
+def names_agree(ours: str, theirs: str) -> bool | None:
+    """True when the two names share a word (or the start of one: "chedder"/"cheddar"), False when they share none, None when either says nothing."""
+    a, b = name_words(ours), name_words(theirs)
+    if not a or not b:
+        return None
+
+    def same(x: str, y: str) -> bool:
+        return x == y or (min(len(x), len(y)) >= 4 and (x.startswith(y) or y.startswith(x))) or (len(x) >= 5 and len(y) >= 5 and x[:5] == y[:5])
+
+    return any(same(x, y) for x in a for y in b)
 
 
 def read_excludes(rid: str, path: Path | None = None) -> set:
@@ -372,29 +511,41 @@ def read_excludes(rid: str, path: Path | None = None) -> set:
     return out
 
 
-def apply_retailer_images(rid: str, products: list, details: dict, skipped: dict) -> int:
-    """Set `retailerImage` on every product the shop's own pages gave a photo for (image list, then page details, then the discovery lists)."""
-    listed, found, excluded = read_image_list(rid), read_discovery_images(rid), read_excludes(rid)
+def apply_retailer_images(rid: str, products: list, details: dict, skipped: dict, pages: dict | None = None, rejected: set | None = None) -> int:
+    """Set `retailerImage` on every product the shop's own pages gave a photo for (shop_pages, joined by exact identifiers only); remove it from the rest.
+    A photo whose page name shares no word with the product's name is not used: its barcode goes into `rejected` (and the report), so no stored copy is shown either."""
+    pages = shop_pages(rid) if pages is None else pages
+    excluded = read_excludes(rid)
+    rejected = set() if rejected is None else rejected
     n = 0
     for it in products:
         code = norm_code(it["gtin"])
+        it.pop("retailerImage", None)
         if code in excluded:
-            it.pop("retailerImage", None)
             continue
-        url = (clean_image_url(rid, listed.get(code, ""), skipped) or clean_image_url(rid, (details.get(it["gtin"]) or {}).get("image_url") or "", skipped)
-               or clean_image_url(rid, found.get(code, ""), skipped))
-        if url:
-            it["retailerImage"] = url
+        d = details.get(it["gtin"]) or {}
+        cands = ([((d.get("image_url") or "").strip(), " ".join((d.get("name_on_page") or "").split()))] if (d.get("image_url") or "").strip() else []) + pages.get(code, {}).get("photos", [])
+        disagree = False
+        for url, shop_name in cands:
+            u = clean_image_url(rid, url, skipped)
+            if not u:
+                continue
+            if shop_name and names_agree(it.get("name", ""), shop_name) is False:
+                disagree = True
+                continue
+            it["retailerImage"] = u
             n += 1
-        else:
-            it.pop("retailerImage", None)
+            break
+        if disagree and "retailerImage" not in it:
+            rejected.add(code)
+            skipped.setdefault("names disagree", []).append(f"{it['gtin']} {it.get('name', '')!r} vs the shop's {cands[0][1]!r}")
     return n
 
 
-def apply_stored_photos(rid: str, products: list, problems: list, **where) -> int:
+def apply_stored_photos(rid: str, products: list, problems: list, rejected: set | frozenset = frozenset(), **where) -> int:
     """Set `photo` (the file name of our stored copy of the shop's own photo) on every product that has one; remove it from the rest."""
     photos = read_photos(rid, problems, **where)
-    excluded = read_excludes(rid)
+    excluded = read_excludes(rid) | set(rejected)
     n = 0
     for it in products:
         f = None if norm_code(it["gtin"]) in excluded else photos.get(it["gtin"])
@@ -404,6 +555,216 @@ def apply_stored_photos(rid: str, products: list, problems: list, **where) -> in
         else:
             it.pop("photo", None)
     return n
+
+
+# ---------------------------------------------------------------- which supermarket sells a product (founder 2026-10-10: "some brands are just mixed up")
+# The open database's "stores" field is typed in by volunteers and is often wrong (a Co-op orange juice filed under Sainsbury's). One firm rule decides:
+# a supermarket's OWN-BRAND product is sold only by that supermarket. A brand entry names a shop when it contains the shop's name, or when the whole
+# entry is one of the shop's own labels. Every label below was checked against the catalogue (REPORT.md "Own-brand labels": the files it appears in,
+# how often it sits beside the shop's name, how often its barcodes carry the shop's company prefix). Labels other firms also use are left out (Lidl's "Deluxe").
+SHOP_NAMES = {
+    "tesco": r"tesco'?s?|tescos", "sainsburys": r"sainsbury'?s?|sainsburys", "coop": r"co-?op|co op|co-operative|cooperative",
+    "marks-and-spencer": r"m ?& ?s|marks (?:&|and) spencers?", "waitrose": r"waitrose", "asda": r"asda", "morrisons": r"morrisons",
+    "aldi": r"aldi", "lidl": r"lidl", "ocado": r"ocado",
+}
+OWN_LABELS = {
+    "tesco": r"(?:tesco'?s? )?finest|stockwell(?: (?:& )?co\.?)?|t\. ?e\. stockwell|ms molly'?s|creamfields|eastman'?s(?: deli foods)?|(?:the )?growers?'? harvest"
+             r"|hearty food(?: co\.?)?|wicked kitchen|plant chef|h\.? ?w\.? nevill'?s?|nevill'?s|rosedene farms|nightingale farms|redmere farms|woodside farms"
+             r"|willow farms|bay fishmongers|fire pit|everyday value|root & soul",
+    "sainsburys": r"(?:by )?taste[ -]the[ -]difference|so organic|stamford street(?: co\.?)?|hubbard'?s foodstore|be good to yourself|plant pioneers",
+    "coop": r"irresistible|the co-operative",
+    "asda": r"extra special|just essentials|smart price|chosen by you",
+    "morrisons": r"the best|m? ?savers|market street",
+    "marks-and-spencer": r"percy pig",
+    "waitrose": r"no\.? ?1|duchy organic|duchy originals",
+    "lidl": r"milbona|dulano",
+    "iceland": r"iceland(?: luxury)?",
+}
+OTHER_SHOPS = {"eurospin": r"eurospin", "trader-joes": r"trader joe'?s"}  # supermarkets abroad: their own brands are sold by none of ours
+_NAME_RE = {rid: re.compile(rf"(?<![a-z])(?:{pat})(?![a-z])") for rid, pat in SHOP_NAMES.items()}
+_LABEL_RE = {rid: re.compile(pat) for rid, pat in OWN_LABELS.items()}
+_OTHER_RE = {oid: re.compile(rf"(?<![a-z])(?:{pat})(?![a-z])") for oid, pat in OTHER_SHOPS.items()}
+SHOP_FIELDS = ("price", "retailerImage", "photo", "pageUrl", "checkedOn", "ingredients", "advice", "other", "portion", "inStock", "source")
+
+
+def _plain(text: str) -> str:
+    return " ".join(unicodedata.normalize("NFKC", text or "").lower().replace("’", "'").replace("‘", "'").split()).strip(" .,*-")
+
+
+def shop_claims(brand: str, name: str) -> tuple[set, set]:
+    """(shops the brand field names as the product's own brand, shops the product's name starts with). "other:<id>" = a supermarket abroad."""
+    claims: set = set()
+    for entry in (brand or "").split(","):
+        e = _plain(entry)
+        if not e:
+            continue
+        bare = _plain(re.sub(r"\([^)]*\)", " ", e))  # "fire pit (tesco)": the label without the bracket (the bracket still names the shop)
+        claims |= {rid for rid, rx in _NAME_RE.items() if rx.search(e)}
+        claims |= {rid for rid, rx in _LABEL_RE.items() if rx.fullmatch(bare)}
+        claims |= {f"other:{oid}" for oid, rx in _OTHER_RE.items() if rx.search(e)}
+    n = _plain(name)
+    named = {rid for rid, rx in _NAME_RE.items() if rid != "ocado" and rx.match(n) and rx.match(n).start() == 0}
+    return claims | named, named
+
+
+def code13(code: str) -> str:
+    """A barcode as 13 digits (or 8 for EAN-8): GTIN-14 and UPC-12 written the EAN-13 way."""
+    c = (code or "").strip()
+    if len(c) == 14 and c.startswith("0"):
+        c = c[1:]
+    if len(c) == 12:
+        c = "0" + c
+    return c
+
+
+def company_prefix(code: str) -> str | None:
+    """The part of a barcode that names the company that issued it: the first 7 digits of an EAN-13, the first 2 of an EAN-8 (for a shop's own short
+    codes). None for in-store numbers (EAN-13 starting 2 or 02, EAN-8 starting 2), which every shop reuses for weighed goods."""
+    c = code13(code)
+    if len(c) == 8:
+        return None if c[0] == "2" else f"8:{c[:2]}"
+    if len(c) != 13 or c[0] == "2" or c[:2] == "02":
+        return None
+    return c[:7]
+
+
+def issued_where_shop_issues(rid: str, code: str) -> bool:
+    """A UK supermarket's own brand carries a UK barcode (GS1 UK, 50...), Aldi's and Lidl's also German ones (40-44), or a shop's own short or in-store
+    number. A claim on a barcode from elsewhere (a Swiss "Coop" yogurt, a French chocolate bar typed in as "Tesco") is not believed."""
+    c = code13(code)
+    if len(c) == 8 or (len(c) == 13 and (c[0] == "2" or c[:2] == "02")):
+        return True
+    return c[:2] in ({"40", "41", "42", "43", "44", "50"} if rid in ("aldi", "lidl") else {"50"})
+
+
+def believed_claims(code: str, brand: str, name: str) -> tuple[set, set]:
+    claims, named = shop_claims(brand, name)
+    keep = {c for c in claims if c.startswith("other:") or issued_where_shop_issues(c, code)}
+    return keep, named & keep
+
+
+def learn_prefixes(claims_by_code: dict[str, set], min_n: int = 3, purity: float = 0.9) -> dict[str, tuple[str, int]]:
+    """`claims_by_code`: barcode AS WRITTEN (not stripped of leading zeros: an EAN-8 must stay 8 digits) -> shops its brand names.
+    Company prefix -> (shop, how many barcodes) when at least `min_n` barcodes with that prefix name the shop and at least `purity` of ALL barcodes
+    with it do (branded products with the prefix count against it). Learned from the catalogue itself, so it follows the data."""
+    seen: dict[str, list[set]] = {}
+    for code, claims in claims_by_code.items():
+        p = company_prefix(code)
+        if p:
+            seen.setdefault(p, []).append(claims)
+    out: dict[str, tuple[str, int]] = {}
+    for p, lists in seen.items():
+        counts: dict[str, int] = {}
+        for claims in lists:
+            for c in claims:
+                counts[c] = counts.get(c, 0) + 1
+        best = [(c, k) for c, k in counts.items() if k >= min_n and k >= purity * len(lists)]
+        if len(best) == 1:
+            out[p] = best[0]
+    return out
+
+
+PREFIX_ALONE_MIN = 20  # a barcode with no brand typed in follows its company prefix only when that prefix is well proven
+
+
+def decide_shops(listed: set, claims: set, named: set, prefix: tuple[str, int] | None, confirmed: set) -> tuple[set, str]:
+    """Which shops list one barcode, and why. `listed` = the shops whose files have it now, `claims` = shops its brand or name says it belongs to,
+    `prefix` = (shop, n) when its barcode prefix is a shop's, `confirmed` = shops whose own website showed this barcode (the strongest proof)."""
+    cands = set(claims)
+    if prefix:
+        owner, n = prefix
+        if not cands:
+            if n >= PREFIX_ALONE_MIN:
+                cands = {owner}
+        elif owner in cands:
+            cands = {owner}
+        else:
+            cands.add(owner)
+    if len(cands) > 1 and len(named & cands) == 1:
+        cands = named & cands  # the name starts with one of them ("Co-op Cherryade" typed in as "Co Op, Tesco")
+    if confirmed:
+        agree = cands & confirmed
+        if agree:
+            return agree, "own brand"
+        if cands:
+            return listed | confirmed, "brand says another shop but a shop's own website lists it"
+        return listed | confirmed, "on the shop's own website"
+    if not cands:
+        return set(listed), "branded"
+    if len(cands) == 1:
+        owner = next(iter(cands))
+        return ({owner} if owner in RETAILERS else set()), ("own brand" if owner in RETAILERS else "own brand of a supermarket abroad")
+    return set(), "held back: its brand and barcode name different supermarkets"
+
+
+def read_shop_evidence(base: Path | None = None) -> dict[str, set]:
+    """norm barcode -> shops whose own website showed it (a price row, a product page read, a discovery list's barcode, a photo row)."""
+    base = base or ROOT / "data" / "groceries"
+    out: dict[str, set] = {}
+    for rid in RETAILERS:
+        for path in (base / "prices" / f"{rid}.csv", base / "details" / f"{rid}.csv", base / "images" / f"{rid}.csv", base / "discovery" / f"{rid}-barcodes.csv"):
+            for r in _rows(path):
+                code = (r.get("gtin") or "").strip()
+                if gtin_ok(code):
+                    out.setdefault(norm_code(code), set()).add(rid)
+    return out
+
+
+def assign_shops(by_rid: dict[str, list[dict]], evidence: dict[str, set], log: dict | None = None) -> dict[str, list[dict]]:
+    """Put each barcode under the shops decide_shops picks. A product added to a shop starts as a copy of its record in another file without that file's
+    shop-only fields (price, photo, the shop page's details); one whose record carries another shop's own page numbers is not copied. `log` collects counts."""
+    log = {} if log is None else log
+    per: dict[str, dict[str, dict]] = {}
+    for rid, items in by_rid.items():
+        for it in items:
+            per.setdefault(norm_code(it["gtin"]), {})[rid] = it
+    believed: dict[str, tuple[set, set]] = {}
+    for code, recs in per.items():
+        claims, named = set(), set()
+        for it in recs.values():
+            c, n = believed_claims(it["gtin"], it.get("brand", ""), it.get("name", ""))
+            claims |= c
+            named |= n
+        believed[code] = (claims, named)
+    prefixes = learn_prefixes({next(iter(per[code].values()))["gtin"]: c for code, (c, _) in believed.items()})  # keyed by a barcode as written: its length matters
+    log["prefixes"] = prefixes
+    out: dict[str, list[dict]] = {rid: [] for rid in by_rid}
+    moves: dict = log.setdefault("moves", {})
+    examples: dict = log.setdefault("examples", {})
+    for rid, items in by_rid.items():
+        for it in items:
+            code = norm_code(it["gtin"])
+            recs = per[code]
+            if next(iter(recs)) != rid:
+                continue  # each barcode is decided once, at its first file
+            claims, named = believed[code]
+            shops, why = decide_shops(set(recs), claims, named, prefixes.get(company_prefix(it["gtin"]) or ""), evidence.get(code, set()) & set(by_rid))
+            shops &= set(by_rid)
+            for r in recs:
+                if r not in shops:
+                    moves[(r, "removed", why)] = moves.get((r, "removed", why), 0) + 1
+                    examples.setdefault((r, "removed", why), []).append(f"{it['gtin']} {it.get('brand', '')} | {it.get('name', '')}")
+            template = next((x for x in recs.values() if not x.get("pageUrl") and x.get("source") != "retailer"), None)
+            for s in shops:
+                if s in recs:
+                    continue
+                if template is None:
+                    moves[(s, "not added (only another shop's own page numbers)", why)] = moves.get((s, "not added (only another shop's own page numbers)", why), 0) + 1
+                    continue
+                copy = {k: v for k, v in json.loads(json.dumps(template)).items() if k not in SHOP_FIELDS}
+                recs[s] = copy
+                moves[(s, "added", why)] = moves.get((s, "added", why), 0) + 1
+                examples.setdefault((s, "added", why), []).append(f"{it['gtin']} {it.get('brand', '')} | {it.get('name', '')}")
+            for s in shops:
+                if s in recs:
+                    recs[s]["_keep"] = True
+    for rid, items in by_rid.items():
+        out[rid] = [it for it in items if it.pop("_keep", False)]
+    for code, recs in per.items():
+        for s, it in recs.items():
+            if it.pop("_keep", False):
+                out[s].append(it)  # added to a shop it wasn't in
+    return out
 
 
 def apply_details(item: dict, d: dict, notes: dict) -> None:
@@ -459,23 +820,21 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", type=Path, default=Path("/private/tmp/off-cache"))
     ap.add_argument("--out", type=Path, default=ROOT / "web" / "public" / "groceries")
+    ap.add_argument("--patch", action="store_true", help="redo every step after the download (shops, types, prices, details, photos) on the files already in --out; needs no Open Food Facts cache")
     ap.add_argument("--images-only", action="store_true", help="only (re)apply the shops' own photos to the files already in --out; needs no Open Food Facts cache")
     args = ap.parse_args()
     if args.images_only:
         return patch_images(args.out)
+    if args.patch:
+        return patch(args.out)
     today = date.today().isoformat()
     args.out.mkdir(parents=True, exist_ok=True)
-    manifest = {"v": 1, "generatedOn": today, "source": "Open Food Facts contributors (ODbL); photos CC BY-SA", "retailers": [], "categories": [{"id": k, "label": v} for k, v in CATEGORY_LABELS.items()]}
-    report = ["# Groceries build report", "", f"Built {today} from the Open Food Facts cache ({args.cache}).", "", "| retailer | products | with photo | allergens known | with price |", "|---|---|---|---|---|"]
     reasons_total: dict = {}
-    problems: list = []
-    detail_notes: dict = {}
-    image_skipped: dict = {}
-    for rid, label in RETAILERS.items():
-        pages = sorted(args.cache.glob(f"{rid}-*.json"))
+    by_rid: dict[str, list[dict]] = {}
+    for rid in RETAILERS:
         seen: dict = {}
         reasons: dict = {}
-        for page in pages:
+        for page in sorted(args.cache.glob(f"{rid}-*.json")):
             for p in json.loads(page.read_text()).get("products", []):
                 code = str(p.get("code") or "").strip()
                 if code in seen:
@@ -483,38 +842,120 @@ def main() -> int:
                 item = convert(p, reasons)
                 if item:
                     seen[code] = item
-        prices = read_prices(rid, problems)
-        details = read_details(rid, problems)
-        products = list(seen.values())
+        by_rid[rid] = list(seen.values())
+        for k, v in reasons.items():
+            reasons_total[(rid, k)] = v
+    left_out = [f"- {rid}: {why}: {n}" for (rid, why), n in sorted(reasons_total.items())]
+    return finish(by_rid, args.out, today, f"Built {today} from the Open Food Facts cache ({args.cache}).", left_out, {})
+
+
+def finish(by_rid: dict[str, list[dict]], out: Path, today: str, head: str, left_out: list, recat: dict) -> int:
+    """Everything after the download, shared by a full build and --patch: which shops list each product, prices, the shops' own page details and photos;
+    then the files, the manifest and data/groceries/REPORT.md."""
+    problems: list = []
+    shop_log: dict = {}
+    labels = own_label_evidence(by_rid)
+    by_rid = assign_shops(by_rid, read_shop_evidence(), shop_log)
+    manifest = {"v": 1, "generatedOn": today, "source": SOURCE, "retailers": [], "categories": [{"id": k, "label": v} for k, v in CATEGORY_LABELS.items()]}
+    table = ["| retailer | products | with the shop's own photo | of those, a stored copy | allergens known | with price |", "|---|---|---|---|---|---|"]
+    detail_notes: dict = {}
+    image_skipped: dict = {}
+    for rid, label in RETAILERS.items():
+        products = by_rid.get(rid, [])
+        prices, details = read_prices(rid, problems), read_details(rid, problems)
         notes: dict = {}
         for it in products:
+            it.pop("price", None)
             if it["gtin"] in prices:
                 it["price"] = prices[it["gtin"]]
             if it["gtin"] in details:
                 apply_details(it, details[it["gtin"]], notes)
         detail_notes[rid] = (sum(1 for it in products if "pageUrl" in it), notes)
-        apply_retailer_images(rid, products, details, image_skipped.setdefault(rid, {}))
-        apply_stored_photos(rid, products, problems)
-        for k, v in reasons.items():
-            reasons_total[(rid, k)] = v
-        doc = {"v": 1, "retailer": rid, "name": label, "generatedOn": today, "source": manifest["source"], "products": products}
+        rejected: set = set()
+        apply_retailer_images(rid, products, details, image_skipped.setdefault(rid, {}), rejected=rejected)
+        apply_stored_photos(rid, products, problems, rejected=rejected)
+        doc = {"v": 1, "retailer": rid, "name": label, "generatedOn": today, "source": SOURCE, "products": products}
         file = f"{rid}.json"
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
-        (args.out / file).write_text(text)
+        (out / file).write_text(text)
         manifest["retailers"].append({"id": rid, "name": label, "file": file, "count": len(products), "sha256": hashlib.sha256(text.encode()).hexdigest()})
-        report.append(f"| {label} | {len(products)} | {sum(1 for p in products if 'image' in p)} | {sum(1 for p in products if p['allergens'] is not None)} | {sum(1 for p in products if 'price' in p)} |")
-        print(f"{rid}: {len(products)} products")
-    (args.out / "groceries-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+        table.append(f"| {label} | {len(products)} | {sum(1 for p in products if p.get('retailerImage'))} | {sum(1 for p in products if p.get('photo'))} | "
+                     f"{sum(1 for p in products if p['allergens'] is not None)} | {sum(1 for p in products if 'price' in p)} |")
+        print(f"{rid}: {len(products)} products, {sum(1 for p in products if p.get('retailerImage'))} with the shop's own photo ({sum(1 for p in products if p.get('photo'))} stored)")
+    (out / "groceries-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+    report = ["# Groceries build report", "", head, "", "Pictures come only from the supermarkets' own websites (founder 2026-10-10); a product without one shows \"no photo\".", ""] + table
     if any(n for n, _ in detail_notes.values()):
         report += ["", "## Details read from the supermarkets' own pages", ""]
         for rid, (n, notes) in detail_notes.items():
             if n:
                 extra = {"own": "use the shop's own numbers", "differs": "of those, kcal differs from Open Food Facts by over 20%", "basis": "numbers not per 100 g/ml in our unit (kept Open Food Facts')", "incomplete": "own numbers incomplete (kept Open Food Facts')", "implausible": "own numbers failed the checks (kept Open Food Facts')"}
                 report.append(f"- {RETAILERS[rid]}: {n} products with details; " + "; ".join(f"{notes[k]} {v}" for k, v in extra.items() if notes.get(k)))
-    report += photo_report(args.out, image_skipped)
-    report += ["", "## Left out (and why)", ""] + [f"- {rid}: {why}: {n}" for (rid, why), n in sorted(reasons_total.items())] + (["", "## Problems with price and photo files", ""] + [f"- {p}" for p in problems] if problems else [])
+    report += shop_report(shop_log, labels)
+    report += photo_report(out, image_skipped)
+    report += category_report(by_rid, recat)
+    report += ["", "## Left out (and why)", ""] + left_out + (["", "## Problems with price and photo files", ""] + [f"- {p}" for p in problems] if problems else [])
     (ROOT / "data" / "groceries" / "REPORT.md").write_text("\n".join(report) + "\n")
     return 0
+
+
+def own_label_evidence(by_rid: dict[str, list[dict]]) -> list[str]:
+    """For REPORT.md: each own label found in the brand fields (an entry that is a shop's label without the shop's name in it), with the files it appears in,
+    how often the same brand field also names the shop, and how many of its barcodes carry a company prefix the catalogue ties to that shop."""
+    claims_by_code: dict[str, set] = {}
+    for items in by_rid.values():
+        for it in items:
+            claims_by_code.setdefault(it["gtin"], set()).update(believed_claims(it["gtin"], it.get("brand", ""), it.get("name", ""))[0])
+    prefixes = learn_prefixes(claims_by_code)
+    seen: dict = {}
+    for rid, items in by_rid.items():
+        for it in items:
+            entries = [_plain(e) for e in (it.get("brand") or "").split(",") if _plain(e)]
+            for e in entries:
+                bare = _plain(re.sub(r"\([^)]*\)", " ", e))
+                for shop, rx in _LABEL_RE.items():
+                    name_rx = _NAME_RE.get(shop)
+                    if rx.fullmatch(bare) and not (name_rx and name_rx.search(e)):
+                        row = seen.setdefault((shop, bare), {"n": 0, "files": {}, "with_name": 0, "prefix": 0})
+                        row["n"] += 1
+                        row["files"][rid] = row["files"].get(rid, 0) + 1
+                        row["with_name"] += bool(name_rx) and any(name_rx.search(x) for x in entries)
+                        row["prefix"] += (prefixes.get(company_prefix(it["gtin"]) or "") or ("",))[0] == shop
+    lines = ["", "## Own-brand labels (checked against the catalogue)", "", "| shop | label | products | in files | brand field also names the shop | barcode prefix is the shop's |", "|---|---|---|---|---|---|"]
+    for (shop, label), row in sorted(seen.items()):
+        lines.append(f"| {RETAILERS.get(shop, shop)} | {label} | {row['n']} | {', '.join(f'{RETAILERS[r]} {k}' for r, k in row['files'].items())} | {row['with_name']} | {row['prefix']} |")
+    return lines
+
+
+def shop_report(log: dict, labels: list) -> list:
+    lines = ["", "## Which supermarket lists a product", "",
+             "Rule: a supermarket's own-brand product is listed only under that supermarket (brand field, a name starting with the shop's name, or a barcode",
+             "company prefix the catalogue ties to one shop); a shop whose own website showed the barcode always lists it. Changes this build:", ""]
+    moves = log.get("moves", {})
+    if not moves:
+        lines.append("- none")
+    for (rid, what, why), n in sorted(moves.items()):
+        ex = log.get("examples", {}).get((rid, what, why), [])
+        lines.append(f"- {RETAILERS.get(rid, rid)}: {what} {n} ({why})" + (": " + "; ".join(ex[:6]) + (" ..." if len(ex) > 6 else "") if ex else ""))
+    pre = log.get("prefixes", {})
+    if pre:
+        by_shop: dict = {}
+        for p, (shop, n) in pre.items():
+            by_shop.setdefault(shop, []).append(f"{p} ({n})")
+        lines += ["", "Barcode company prefixes the catalogue ties to one shop (barcodes naming it):", ""]
+        lines += [f"- {RETAILERS.get(shop, shop)}: " + ", ".join(sorted(v)) for shop, v in sorted(by_shop.items())]
+    return lines + labels
+
+
+def category_report(by_rid: dict[str, list[dict]], recat: dict) -> list:
+    counts: dict = {}
+    for items in by_rid.values():
+        for it in items:
+            counts[it.get("category", "other")] = counts.get(it.get("category", "other"), 0) + 1
+    lines = ["", "## Types", "", "- " + ", ".join(f"{CATEGORY_LABELS.get(k, k)} {v}" for k, v in sorted(counts.items(), key=lambda x: -x[1]))]
+    if recat:
+        lines += ["", "Moved to another type by the rules (from -> to: products):", ""]
+        lines += [f"- {CATEGORY_LABELS.get(a, a)} -> {CATEGORY_LABELS.get(b, b)}: {n} ({', '.join(sorted(kinds)[:8])}{' ...' if len(kinds) > 8 else ''})" for (a, b), (n, kinds) in sorted(recat.items(), key=lambda x: -x[1][0])]
+    return lines
 
 
 def photo_report(out: Path, skipped: dict) -> list:
@@ -526,10 +967,42 @@ def photo_report(out: Path, skipped: dict) -> list:
         products = json.loads(path.read_text()).get("products", [])
         n = sum(1 for p in products if p.get("retailerImage"))
         stored = sum(1 for p in products if p.get("photo"))
-        extra = skipped.get(rid) or {}
-        if n or stored or extra:
-            lines.append(f"- {label}: {n} of {len(products)} products have the shop's photo address, {stored} also have a stored copy" + (f"; ignored (host not on the list in IMAGE_HOSTS): {extra}" if extra else ""))
+        extra = {k: v for k, v in (skipped.get(rid) or {}).items() if k != "names disagree"}
+        disagree = (skipped.get(rid) or {}).get("names disagree", [])
+        if n or stored or extra or disagree:
+            lines.append(f"- {label}: {n} of {len(products)} products have the shop's own photo, {stored} also have a stored copy; {len(products) - n} show \"no photo\""
+                         + (f"; ignored (host not on the list in IMAGE_HOSTS): {extra}" if extra else ""))
+            if disagree:
+                lines.append(f"  - not used because the shop's page names a different product ({len(disagree)}): " + "; ".join(disagree))
     return lines
+
+
+def patch(out: Path) -> int:
+    """--patch: the files already built are the input (their per-shop records), so the shop rule, the type rules, prices, details and photos can be redone
+    without the Open Food Facts cache. The open database's picture field is dropped. The old report's "Left out" section is carried over."""
+    manifest = json.loads((out / "groceries-manifest.json").read_text())
+    by_rid: dict[str, list[dict]] = {}
+    recat: dict = {}
+    for entry in manifest["retailers"]:
+        items = json.loads((out / entry["file"]).read_text())["products"]
+        for it in items:
+            it.pop("image", None)  # Open Food Facts' picture: never shown (founder 2026-10-10)
+            if it.get("type") in UMBRELLA_TAGS:
+                it.pop("type")
+            new = recategorise(it)
+            if new != it.get("category"):
+                key = (it.get("category"), new)
+                n, kinds = recat.get(key, (0, set()))
+                recat[key] = (n + 1, kinds | {it.get("type", "")})
+                it["category"] = new
+        by_rid[entry["id"]] = items
+    for rid in RETAILERS:
+        by_rid.setdefault(rid, [])
+    old = (ROOT / "data" / "groceries" / "REPORT.md")
+    text = old.read_text() if old.exists() else ""
+    left = text.split("## Left out (and why)", 1)[1].split("\n## ", 1)[0].strip().splitlines() if "## Left out (and why)" in text else []
+    today = date.today().isoformat()
+    return finish(by_rid, out, today, f"Patched {today} from the files built on {manifest.get('generatedOn', '?')} (python3 tools/groceries/build_groceries.py --patch; no Open Food Facts download).", left, recat)
 
 
 def patch_images(out: Path) -> int:
@@ -542,13 +1015,18 @@ def patch_images(out: Path) -> int:
         rid = entry["id"]
         path = out / entry["file"]
         doc = json.loads(path.read_text())
+        for it in doc["products"]:
+            it.pop("image", None)  # Open Food Facts' picture: never shown (founder 2026-10-10)
         details = read_details(rid, [])
-        n = apply_retailer_images(rid, doc["products"], details, skipped.setdefault(rid, {}))
-        stored = apply_stored_photos(rid, doc["products"], problems)
+        rejected: set = set()
+        n = apply_retailer_images(rid, doc["products"], details, skipped.setdefault(rid, {}), rejected=rejected)
+        stored = apply_stored_photos(rid, doc["products"], problems, rejected=rejected)
+        doc["source"] = SOURCE
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
         path.write_text(text)
         entry["sha256"] = hashlib.sha256(text.encode()).hexdigest()
-        print(f"{rid}: {n} of {len(doc['products'])} products have the shop's own photo ({stored} of them stored on our site)" + (f" (ignored hosts: {skipped[rid]})" if skipped[rid] else ""))
+        print(f"{rid}: {n} of {len(doc['products'])} products have the shop's own photo ({stored} of them stored on our site)")
+    manifest["source"] = SOURCE
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
     for p in problems:
         print(f"problem: {p}")

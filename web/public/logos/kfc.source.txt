@@ -1,7 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.kfc.co.uk/
-why: The chain's own site refused an automated visit (Access Denied); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
+status: installed
+file: kfc.svg
+kind: header
+tile: light
+source_url: https://brand-uk.assets.kfc.co.uk/drupal/production/2026-06/KFC_header_logo.svg
+page_url: https://www.kfc.co.uk/
 terms_url: https://www.kfc.co.uk/terms-conditions
-terms_summary: KFC's site terms say its trademarks may not be reproduced or copied without the express written permission of KFC, and offer no logo download.
-retrieved: 2026-10-06
+terms_summary: KFC's site terms say its trademarks may not be reproduced or copied without the express written permission of KFC, and offer no logo download (as read on 2026-10-06).
+why: Own website header (https://www.kfc.co.uk/, img alt "KFC logo", served from KFC's own asset host that also serves its nutrition PDF): the red KFC wordmark SVG saved byte for byte. Retried 2026-10-10: the home page now answered normally (HTTP 200), where on 2026-10-06 it had refused with Access Denied.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

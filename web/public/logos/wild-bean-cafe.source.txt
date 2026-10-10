@@ -1,8 +1,12 @@
-status: skipped-unavailable
+status: skipped-blocked
 file: none
-page: https://www.bp.com/en_gb/united-kingdom/home/products-and-services/our-offer/wild-bean-cafe.html
-why: The chain's own pages (bp.com Wild Bean Cafe home, food, drinks, deals, nutritional information; wildbeancafe.com redirects there) show only bp's own header logo, a different brand, and no Wild Bean Cafe logo file; send a Wild Bean Cafe logo saved from a bp or Wild Bean Cafe source and it installs in one step.
+kind: owner-brand-page
+source_url: https://assets.bp.com/rendition/6cqieuqhq4no/master/1TjbXaIcmVaKbjzL9224Li/edf6a695fdc3248b48c6e4704524e69c/wbc-logo-566x378.png
+page_url: https://www.bp.com/about-us/who-we-are/our-brands
+blocked_url: https://assets.bp.com/robots.txt (403)
+chrome_hint: Open https://www.bp.com/about-us/who-we-are/our-brands and, in the "wildbean cafe" card ("A brand on the move across four continents"), save the card image (alt "wbc logo", file wbc-logo-566x378.png) as wild-bean-cafe.png; it is a 566 x 378 card picture, so check it shows only the logo.
 terms_url: not reviewed
-terms_summary: not reviewed
-decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt allowed the pages, but no logo file for this brand is published on them
-retrieved: 2026-10-08
+terms_summary: not reviewed: nothing was installed
+why: The chain's own pages on bp.com (Wild Bean Cafe home, "Our Wild Bean offer") show only bp's logos (checked earlier on 2026-10-10). Its owner bp's "Our brands" page (www.bp.com/about-us/who-we-are/our-brands, robots.txt allows it) shows the Wild Bean Cafe logo, but the file is served only from assets.bp.com, whose robots.txt answers 403 (treated as disallow), so it was not downloaded. bp's own logo is a different brand and was not used.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocks are never worked around
+retrieved: 2026-10-10

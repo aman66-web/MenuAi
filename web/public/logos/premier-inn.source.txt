@@ -1,7 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.premierinn.com/gb/en/home.html
-why: The chain's own site refused an automated visit (page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.premierinn.com/gb/en/home.html); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-retrieved: 2026-10-06
+status: installed
+file: premier-inn.svg
+kind: header
+tile: light
+source_url: https://www.premierinn.com/content/dam/pi/websites/desktop/icons/brand/premier-inn-logo-2026.svg
+page_url: https://www.premierinn.com/gb/en/home.html
+terms_url: https://www.premierinn.com/gb/en/terms/terms-of-use.html
+terms_summary: Premier Inn's terms of use (7) say "The Premier Inn word, device and logo are registered trademarks ... You may not use any of our intellectual property rights without our express written consent".
+why: Own website header (the page's header image setting names this file): the purple Premier Inn pill logo with moon and stars, SVG saved byte for byte. Retried 2026-10-10: the site now answered normally (HTTP 200), where on 2026-10-06 it had failed with an HTTP/2 protocol error.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

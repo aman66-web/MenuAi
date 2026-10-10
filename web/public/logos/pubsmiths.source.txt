@@ -1,0 +1,11 @@
+status: installed
+file: pubsmiths.svg
+kind: header
+tile: light
+source_url: https://24-social.com/images/stonegate-0VzKJgPbwtrMiQJ8zPdj-sg-brand-asset-669-logo-66920250114112859.svg/public
+page_url: https://www.pubsmiths.co.uk/
+terms_url: https://www.stonegategroup.co.uk/terms-conditions/
+terms_summary: Stonegate's terms (linked from the site footer) say "Stonegate Pubs and its brands and its and their respective logos are trade marks of Stonegate Pubs Company Limited" and "You must not use any part of the content on our Websites and Apps for commercial purposes without obtaining a licence to do so from us or our licensors"; they also forbid bots or scrapers copying content.
+why: Own website header (and footer) logo image, hosted on 24-social.com, Stonegate's image host, saved byte for byte; navy PUBSMITHS SIGNATURE LOCALS roundel. robots.txt: pubsmiths.co.uk allows the page; 24-social.com has only content-signal comments, no rules.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

@@ -1,0 +1,11 @@
+status: installed
+file: riva-blu.svg
+kind: header
+tile: light
+source_url: https://cdn.sanity.io/images/rc9i3xda/production/794cfe6f44068acc4c95817176e20156b03b02df-584x272.svg
+page_url: https://www.rivablu.co.uk/
+terms_url: https://www.rivablu.co.uk/terms-conditions
+terms_summary: Riva Blu's terms say "All content, including text, photography, and design, is the property of Riva Blu and may not be reproduced without written permission."
+why: Own website header (img alt="Riva Blu" in the home link, served from the site's Sanity image CDN), saved byte for byte; black RIVA with teal "blu". robots.txt allows the page and the file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

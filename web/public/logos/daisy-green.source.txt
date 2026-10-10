@@ -1,0 +1,11 @@
+status: installed
+file: daisy-green.png
+kind: header
+source_url: https://images.squarespace-cdn.com/content/v1/5efca20cfe631d16cf605e66/89c80d70-a0a2-4e1c-a707-3fdc3273eff1/Frame+3.png?format=1500w
+page_url: https://www.daisygreenfood.com/
+terms_url: none linked from the home page
+terms_summary: No website terms page is linked from Daisy Green's home page, so no clause on logos or trade marks was found.
+why: Own website header logo (the Squarespace header image, alt "DAISY | GREEN"), saved as served as PNG (1500 px wide, 12 KB, not resized); the header mark reads "DAISY." with a small flower, black. Image host has no robots.txt (404) and the page is allowed.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

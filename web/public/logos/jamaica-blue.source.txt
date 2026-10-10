@@ -1,0 +1,11 @@
+status: installed
+file: jamaica-blue.svg
+kind: header
+tile: dark
+source_url: https://allergens-jamaicablue.co.uk/assets/JB-logo-white-BTEW9B1v.svg
+page_url: https://allergens-jamaicablue.co.uk/allergens/jbuk
+terms_url: https://www.jamaicablue.co.uk/terms-and-conditions/ (answered 403, not read)
+terms_summary: Not read: the terms page on jamaicablue.co.uk answered 403; the allergen site has no terms page.
+why: The header logo of the chain's own allergen and nutrition site (the same site our data comes from; its header links back to www.jamaicablue.co.uk), saved byte for byte; white cup and JamaicaBlue wordmark, so dark tile. The main site's header PNG (https://www.jamaicablue.co.uk/wp-content/themes/jamaicablue/inc/img/InlineReversedWhite.png) and its JB-logo-white.svg both answered 403 and were not retried. robots.txt: none on the allergen site (404 = no rules).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

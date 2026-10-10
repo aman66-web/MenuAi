@@ -1,7 +1,11 @@
-status: skipped-no-file
-file: none
-page: https://www.coffee1.co.uk/
-why: The header logo is a character in the site's icon font (<i class="icon-c1-logo">), not a file; saving it would mean redrawing it.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-retrieved: 2026-10-06
+status: installed
+file: coffee-1.png
+kind: site-icon
+source_url: https://www.coffee1.co.uk/wp-content/themes/v1/images/favicon.png
+page_url: https://www.coffee1.co.uk/
+terms_url: https://www.coffee1.co.uk/terms-and-conditions/
+terms_summary: Coffee #1's terms say "We are the owner or the licensee of all intellectual property rights in our site, and in the material published on it", allow one copy or extracts "for your personal use", and that "The unauthorised use of these trademarks would constitute a violation of our intellectual property rights."
+why: The header logo is a character in the site's icon font (<i class="icon-c1-logo">; the old <img src="images/logo.png"> is commented out), so there is no logo file. Installed the site's own icon instead (favicon.png, 368 x 301, the "#1" mark), saved byte for byte. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

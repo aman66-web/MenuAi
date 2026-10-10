@@ -1,0 +1,10 @@
+status: skipped-blocked
+file: none
+page_url: https://www.simmonsbakers.com/
+blocked_url: https://cdn.prod.website-files.com/6a3281ddf2ebea446380cb56/6a32ae57eef7c3f3e3e457b9_Vector.svg (cdn.prod.website-files.com/robots.txt answers 403)
+chrome_hint: Open https://sourdough.simmonsbakers.com/ (Simmons' own sourdough page, linked from its home page header) and save the top-left nav logo image (alt text "A picture of the Simmons logo", file ...e457b9_Vector.svg) as simmons-bakers.svg.
+terms_url: https://www.simmonsbakers.com/tandcs
+terms_summary: Simmons' terms say "You are only allowed to use content found on this Website as expressly agreed by Simmons (Bakers) Ltd. Any reproduction or redistribution of our content may result in civil and criminal penalties."
+why: Retried once on 2026-10-10: www.simmonsbakers.com still draws its SIMMONS "Baking since 1838" wordmark from a shared CSS sprite (application.css puts .Logo-link in the same sprite as share buttons and stripes), which would need cropping; the only standalone file is on the Webflow CDN, whose robots.txt answers 403. The site icon (apple-touch-icon-180x180.png) is a plain gingerbread-man drawing that does not identify Simmons, so it was not used. Simmons is family-owned: no owner brand page.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocks are never worked around
+retrieved: 2026-10-10

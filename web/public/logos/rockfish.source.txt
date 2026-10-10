@@ -1,0 +1,11 @@
+status: installed
+file: rockfish.svg
+kind: inline-svg
+tile: light
+source_url: https://therockfish.co.uk/ (inline <svg class="logo logo-rockfish"> in the page header, copied verbatim; it already had its xmlns; artwork uses currentColor, so it renders black on its own)
+page_url: https://therockfish.co.uk/
+terms_url: https://therockfish.co.uk/policies/terms-of-service
+terms_summary: Rockfish's terms of service say "You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service ... without express written permission by us" and forbid infringing its intellectual property rights; nothing specific on logos.
+why: Own website header (https://therockfish.co.uk/): the ROCKFISH wordmark is drawn as an inline SVG, copied verbatim, nothing recoloured or redrawn.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page
+retrieved: 2026-10-10

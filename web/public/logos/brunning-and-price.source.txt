@@ -1,0 +1,11 @@
+status: installed
+file: brunning-and-price.png
+kind: site-icon
+source_url: https://www.brunningandprice.co.uk/img/favicon/1.png
+page_url: https://www.brunningandprice.co.uk/
+terms_url: https://www.brunningandprice.co.uk/company/tsandcs/
+terms_summary: Brunning & Price's terms cover table, event and bedroom bookings, vouchers and its mailing list; no clause on logos or trade marks was found.
+why: The site has no logo file: its header shows "Brunning & Price" as plain text. Installed its own site icon instead (the only icon it publishes, a framed tree, 32 x 32 px), saved byte for byte; it is small, so it looks soft when scaled up. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

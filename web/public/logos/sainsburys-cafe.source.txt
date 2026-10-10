@@ -1,0 +1,11 @@
+status: installed
+file: sainsburys-cafe.svg
+kind: header
+tile: light
+source_url: https://help.sainsburys.co.uk/permanent-b0b701/assets/images/logo.3eb6efa2.svg
+page_url: https://help.sainsburys.co.uk/help/products/products-instore-allergen
+terms_url: https://help.sainsburys.co.uk/help/terms-and-conditions/terms-conditions
+terms_summary: Sainsbury's terms say "you are authorised to view and download our Website for your personal use only"; no clause names logos or trade marks.
+why: Sainsbury's own help site (the site that serves the café menus and the in-store allergen page) shows this orange Sainsbury's wordmark in its header; saved byte for byte. It is the Sainsbury's mark, not a café-only mark: the café is Sainsbury's own and carries its name, and no separate Sainsbury's Café logo file was found (the café's page on www.sainsburys.co.uk refuses this environment: robots.txt answers 403, so it was not visited).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); help.sainsburys.co.uk robots.txt answers 404 (no rules)
+retrieved: 2026-10-10

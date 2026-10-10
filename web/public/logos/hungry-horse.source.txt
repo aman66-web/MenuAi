@@ -1,8 +1,10 @@
 status: skipped-blocked
 file: none
-page: https://www.hungryhorse.co.uk/
-why: The chain's own site answered 403 Access Denied (Akamai) to https://www.hungryhorse.co.uk/robots.txt, treated as a block and never worked around; download the logo from the site header yourself and send it, and it installs in one step.
-terms_url: not reviewed
-terms_summary: not reviewed
-decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocked, so nothing was fetched beyond robots.txt
-retrieved: 2026-10-08
+page_url: https://www.hungryhorse.co.uk/
+blocked_url: https://www.hungryhorse.co.uk/robots.txt (403 Access Denied, Akamai); owner page https://www.greeneking.co.uk/pubs-restaurants-hotels/hungry-horse (greeneking.co.uk/robots.txt also 403 Access Denied)
+chrome_hint: Open https://www.hungryhorse.co.uk/ and save the Hungry Horse logo at the top left of the header (right-click > Save Image As; if it is an inline SVG, copy the <svg> element) as hungry-horse.png/.svg; or, on Greene King's brand page https://www.greeneking.co.uk/pubs-restaurants-hotels/hungry-horse, save the Hungry Horse logo shown on the page (not the Greene King logo).
+terms_url: not reviewed (site blocked)
+terms_summary: not reviewed: nothing was installed
+why: Retried once on 2026-10-10: the chain's own site still answers 403 Access Denied to robots.txt, and so does its owner Greene King's corporate site (www.greeneking.co.uk), so nothing was fetched from either; Greene King's careers site (jobs.greeneking.co.uk/hungry-horse-jobs) shows only Greene King's own logo.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocks are never worked around
+retrieved: 2026-10-10

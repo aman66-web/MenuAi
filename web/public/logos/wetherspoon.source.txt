@@ -1,0 +1,11 @@
+status: installed
+file: wetherspoon.svg
+kind: inline-svg
+tile: light
+source_url: https://www.jdwetherspoon.com/ (inline <svg> inside <h1 class="site-logo"> in the page header, copied verbatim; it already had its xmlns)
+page_url: https://www.jdwetherspoon.com/
+terms_url: https://www.jdwetherspoon.com/terms-conditions/
+terms_summary: Wetherspoon's terms say "No part of this material may be reproduced in any form, including storing it in any medium by electronic means ... save that you may print copies of the material on this site for your own private purposes. Commercial use is not permitted."; nothing names logos specifically.
+why: Own website header (https://www.jdwetherspoon.com/): the dark "wetherspoon" wordmark is drawn as an inline SVG, copied verbatim, nothing recoloured or redrawn.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page
+retrieved: 2026-10-10

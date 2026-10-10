@@ -1,9 +1,11 @@
-status: skipped-unavailable
-file: none
-page: https://www.giraffe.net/
-source_url: https://www.giraffe.net/assets/_site/global/navigation/giraffe-logo.svg
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-why: The only logo on the chain's own site (https://www.giraffe.net/assets/_site/global/navigation/giraffe-logo.svg, the round "g" badge) is a 233 KB SVG that wraps an embedded PNG, over the 200 KB limit; the founder can approve it as an exception.
-decision: founder, 2026-10-06 ("Use the actual logos for the brands")
-retrieved: 2026-10-08
+status: installed
+file: giraffe.png
+kind: site-icon
+tile: light
+source_url: https://www.giraffe.net/assets/_site/global/favicon.png
+page_url: https://www.giraffe.net/
+terms_url: none found (the home page links no terms; /terms-and-conditions is 404)
+terms_summary: The chain's own site links no terms of use, so no clause on reusing its logo or marks was found.
+why: The site's own icon: the black round badge with the white "g", 96 x 96 PNG saved byte for byte (its largest icon; the 1024 px icon the page names answers 404). The header logo (https://www.giraffe.net/assets/_site/global/navigation/giraffe-logo.svg, 239 KB) is the same badge drawn as a white "g" path over an embedded 1603 px PNG that is only the black speckled texture, so that PNG cannot be used on its own and the SVG is over the size limit. robots.txt allows the page and the file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

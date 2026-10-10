@@ -1,0 +1,12 @@
+status: skipped-blocked
+file: none
+kind: header
+source_url: https://cdn.prod.website-files.com/6620f05a08d0d180b3793c38/6a2953f970ac2da380f402a9_HP-Logo-main.png
+page_url: https://www.honipoke.com/
+blocked_url: https://cdn.prod.website-files.com/robots.txt (403)
+chrome_hint: Open https://www.honipoke.com/ and save the header logo image (top centre, HP-Logo-main.png from cdn.prod.website-files.com) as honi-poke.png; a wide version is used in the pop-up (6634a66d5013bb37932405e0_Logo%20wide.svg). Tile: check on a contact sheet.
+terms_url: https://www.honipoke.com/legal
+terms_summary: The site's Legal page is a privacy notice; no clause on logos, trade marks or reusing site content was found.
+why: Retried once on 2026-10-10: www.honipoke.com loads, but its logo, site icon and every other image are served only from cdn.prod.website-files.com, whose robots.txt still answers 403 (treated as disallow); the page's only inline SVGs are the menu and close icons. Honi Poke is independent, so there is no owner brand page.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocks are never worked around
+retrieved: 2026-10-10

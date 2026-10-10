@@ -1,0 +1,11 @@
+status: installed
+file: oodles-wok.webp
+kind: header
+tile: light
+source_url: https://oodleswok.co.uk/assets/logo.webp
+page_url: https://oodleswok.co.uk/
+terms_url: https://oodleswok.co.uk/terms/
+terms_summary: Oodles Wok's terms say "Our material must not be used, reproduced or stored in any other website or included in any public or private system/service, without the express written permission of Oodles Chinese Holdings Ltd." and that its material is protected "as the trademark, copyright and any intellectual property wholly owned by Oodles Chinese Holdings Ltd."
+why: Own website header: the dark-on-light logo (img.logo-dark-on-light) the header swaps in on a light background, saved byte for byte (WebP, 1024 x 724, 31 KB); black OODLES with the red chilli and red "wok". The header's other file is a white version (/assets/oodleswokwhitelogo.webp). robots.txt allows the page and the file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

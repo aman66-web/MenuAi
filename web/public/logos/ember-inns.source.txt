@@ -1,7 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.emberinns.co.uk/
-why: The chain's own site refused an automated visit (Attention Required! | Cloudflare); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-retrieved: 2026-10-06
+status: installed
+file: ember-inns.png
+kind: header
+tile: light
+source_url: https://www.emberinns.co.uk/content/dam/ember/images/theme/2025/emberinns-logo-d.png
+page_url: https://www.emberinns.co.uk/
+terms_url: https://www.emberinns.co.uk/termsandconditions
+terms_summary: Mitchells & Butlers' site terms (identical on every brand site) say: "All copyright, trade marks and other intellectual property rights in the material comprising this Site are owned by or licensed to Mitchells & Butlers or its subsidiaries. Any reproduction or use of such trade marks and other intellectual property rights, save as permitted hereby, is strictly prohibited and may result in civil and/or criminal liability" and "Commercial use is not permitted."
+why: Own website header (https://www.emberinns.co.uk/, the header's data-logo file): the dark teal fireplace mark and EMBER INNS wordmark; the file is 1200 px wide, so it was scaled down proportionally to 600 px (nothing else changed). Retried once on 2026-10-10: robots.txt, the home page and the logo file all answered normally (HTTP 200), where earlier the site had answered with a Cloudflare challenge.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

@@ -1,0 +1,11 @@
+status: installed
+file: maroush.webp
+kind: header
+tile: light
+source_url: https://www.maroush.com/wp-content/uploads/2020/12/maroush-logo-red-2-1.png
+page_url: https://www.maroush.com/
+terms_url: none found (the site links only a privacy policy; /terms-and-conditions/ is 404)
+terms_summary: The chain's own site links no terms of use, so no clause on reusing its logo or marks was found.
+why: Own website: the red MAROUSH logo ("Lebanese Cuisine since 1981") in the page's top image widget and its schema.org Organization logo, saved byte for byte as served (the site answered image/webp for this .png address, 250 x 184). robots.txt allows the page and the file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

@@ -1,0 +1,11 @@
+status: installed
+file: cornish-bakehouse.png
+kind: header
+source_url: https://images.squarespace-cdn.com/content/v1/6426c5e39bc4fe1255a002e5/479f134d-754d-4540-b325-044a918dc913/logo.png?format=1500w
+page_url: https://www.cornish-bakehouse.com/
+terms_url: https://www.cornish-bakehouse.com/privacy
+terms_summary: Cornish Bakehouse's "Privacy & Legalities" page says "Other than for your own personal use or internal business purposes, you may not without our prior written consent: copy, reproduce, use, or otherwise deal with any content on the Website".
+why: Own website header logo (the Squarespace header image, alt "Cornish Bakehouse", served from the site's own Squarespace image store), saved as served as PNG; its "BAKEHOUSE" lettering is cream and almost disappears on white, so dark tile. Image host has no robots.txt (404) and the page is allowed.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: dark

@@ -1,0 +1,11 @@
+status: installed
+file: bakers-and-baristas.png
+kind: header
+source_url: https://www.bakersbaristas.com/cdn/shop/files/logo-stacked.png?height=114&v=1782906134
+page_url: https://www.bakersbaristas.com/
+terms_url: https://www.bakersbaristas.com/pages/terms-conditions
+terms_summary: Bakers + Baristas' terms page covers gift cards and orders only; no clause on logos or trade marks was found (footer: "© Copyright 2026 Bakers + Baristas UK Ltd, Bakers + Baristas Ireland. All rights reserved").
+why: Own website header logo (img.header-logo__image, the 3x size from its own srcset), saved as served as PNG; white "BAKERS + BARISTAS" artwork, so dark tile. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: dark

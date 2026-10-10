@@ -1,0 +1,11 @@
+status: installed
+file: flat-iron.svg
+kind: header
+tile: dark
+source_url: https://flatironsteak.co.uk/wp-content/themes/flatiron4/images/flat-iron-white.svg
+page_url: https://flatironsteak.co.uk/
+terms_url: https://flatironsteak.co.uk/terms-and-conditions/
+terms_summary: Flat Iron's terms and conditions cover use of the website, liability and links; no clause on logos, trade marks or reusing site content was found.
+why: Own website header (div.logo, whose CSS background is this file), saved byte for byte; white FLAT IRON wordmark made for the dark header, so dark tile. robots.txt allows the page and the file.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

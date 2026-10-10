@@ -1,0 +1,11 @@
+status: installed
+file: showcase-cinemas.png
+kind: header
+tile: dark
+source_url: https://cms-assets.webediamovies.pro/production/4756/cf4ac4100865158e19f9278dcbf5e44d.png
+page_url: https://www.showcasecinemas.co.uk/
+terms_url: https://www.showcasecinemas.co.uk/terms/
+terms_summary: Showcase's website terms say its intellectual property "includes trademarks, trade names ... You will not copy, download, transmit, reproduce, print or exploit for commercial purposes any material contained within the Website."
+why: Own website header (https://www.showcasecinemas.co.uk/, the home link's picture, served from the site's own asset host that also serves its nutrition PDF): the original 2555 x 480 PNG scaled down proportionally to 600 x 113 (nothing else changed); white-only artwork, so it sits on a dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

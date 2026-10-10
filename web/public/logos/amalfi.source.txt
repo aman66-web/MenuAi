@@ -1,0 +1,11 @@
+status: installed
+file: amalfi.png
+kind: header
+source_url: https://www.amalfi.co.uk/assets/amalfi/images/logo.png
+page_url: https://www.amalfi.co.uk/
+terms_url: https://www.amalfi.co.uk/terms-and-conditions
+terms_summary: Amalfi's terms page covers bookings, pre-orders and offers only; no clause on logos, trade marks or reusing site content was found (footer: "© 2026 Amalfi Ristorante Part of The Big Table Group Limited").
+why: Own website header (the .nav-logo element's CSS background image), saved byte for byte; white "AMALFI RISTORANTE" artwork for the site's dark header, so dark tile. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: dark

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Stored copies of the supermarket's own product photos (Option D, founder's decision 2026-10-09; photo rules docs/UK_DATA_PLAYBOOK.md Phase 4).
 
-The app shows, in this order: our stored 400 px copy -> the shop's own picture hotlinked -> the Open Food Facts picture -> "no photo".
+The app shows, in this order: our stored 400 px copy -> the shop's own picture hotlinked -> "no photo" (never Open Food Facts' pictures: founder 2026-10-10).
 This module holds the shared pieces for the first step; the entry point that CHOOSES which products get a stored copy is
 tools/groceries/select_stored_photos.py. The older pilot flow still works:
 

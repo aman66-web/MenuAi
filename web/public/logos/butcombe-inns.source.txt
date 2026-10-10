@@ -1,0 +1,11 @@
+status: installed
+file: butcombe-inns.svg
+kind: header
+source_url: https://butcombe.com/content/uploads/2024/05/butcombe_logo_dark.svg
+page_url: https://butcombe.com/
+terms_url: https://butcombe.com/legal-notices/
+terms_summary: Butcombe's Legal Notices page lists its statements and loyalty, app, gift card and supplier terms; no website clause on logos or trade marks was found.
+why: Own website header logo ("Dark Site Logo", the dark "BUTCOMBE PUBS & INNS" version the header shows on a light background), saved byte for byte; the SVG wraps the chain's own embedded PNG artwork (77 KB). robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

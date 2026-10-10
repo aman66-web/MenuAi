@@ -1,8 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.myvue.com/
-why: The chain's own site answered an automated visit with a Cloudflare challenge page ("Just a moment...", HTTP 403) so no logo was fetched; blocks are never worked around. Save the logo from https://www.myvue.com/ in your own browser (right-click the header logo, Save Image) and send it, and it installs in one step.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-decision: founder, 2026-10-06 ("Use the actual logos for the brands")
-retrieved: 2026-10-08
+status: installed
+file: vue.png
+kind: owner-brand-page
+tile: dark
+source_url: https://vue-international.com/templates/g5_helium/custom/images/brands/Vue_UK_Ireland_RGB_transparent.png
+page_url: https://vue-international.com/markets/uk-i
+terms_url: not found (vue-international.com links a privacy policy, cookie policy and statements, no website terms); myvue.com blocked
+terms_summary: No website terms of use were found on Vue International's site (footer: privacy policy, cookie policy, tax strategy, modern slavery statement, gender pay report; "© Vue. All Rights Reserved."), so no clause on logos or marks was seen.
+why: The chain's own site https://www.myvue.com/ was retried once on 2026-10-10 and again answered a Cloudflare challenge (HTTP 403, cf-mitigated: challenge), not worked round. Its owner Vue International's corporate site shows each market brand's logo in its brands strip; on the UK & Ireland market page it is the "VUE UK AND IRELAND" logo (img alt "VUE - Uk and Ireland", linking to /markets/uk-i), saved byte for byte. The flame-coloured VUE letters read on either tile, but "UK AND IRELAND" is white, so it sits on a dark tile. Not the parent's own corporate logo (that is a separate file, Vue_nostrapline_RGB_NOLOZENGE_PNG24.png).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

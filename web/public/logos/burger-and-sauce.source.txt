@@ -1,0 +1,11 @@
+status: installed
+file: burger-and-sauce.svg
+kind: header
+source_url: https://burgerandsauce.com/wp-content/uploads/2020/11/burger_and_sauce_logo_primary_bk.svg
+page_url: https://burgerandsauce.com/
+terms_url: none linked from the home page
+terms_summary: No website terms page is linked from Burger & Sauce's home page, so no clause on logos or trade marks was found.
+why: Own website header logo (img.site-logo-hd, alt "Burger & Sauce Logo"), the black version, saved byte for byte. robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

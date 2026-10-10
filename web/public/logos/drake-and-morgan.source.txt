@@ -1,8 +1,11 @@
-status: skipped-unavailable
-file: none
-page: https://www.drakeandmorgan.co.uk/
-why: The chain's own site shows its name in the header as plain styled text (an <h1> set in the "agenda-condensed" font, no image or SVG file) and serves only favicons and app icons, which are not allowed; to install a logo, save one from the chain's own press or brand material (or the logo on its printed menus) and send it.
-terms_url: not reviewed
-terms_summary: not reviewed
-decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt of drakeandmorgan.co.uk and its CDN host allow everything (empty Disallow), nothing blocked
-retrieved: 2026-10-08
+status: installed
+file: drake-and-morgan.png
+kind: site-icon
+tile: light
+source_url: https://bunny-wp-pullzone-qmiugihikq.b-cdn.net/wp-content/themes/drake-morgan/images/favicons/apple-touch-icon.png
+page_url: https://www.drakeandmorgan.co.uk/
+terms_url: none found (the site links only a privacy policy; /terms-and-conditions/ is 404)
+terms_summary: The chain's own site links no terms of use, so no clause on reusing its logo or marks was found.
+why: The site has no logo file: its header shows "Drake & Morgan" as styled text (an <h1>). This is its own apple-touch-icon (the theme's, 180 x 180: white D&M in a frame on a pink square), served from the site's CDN pull zone and saved byte for byte. The older 192 px WordPress site icon (a blurry compass) was not used. robots.txt of the site and the CDN allow everything.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10

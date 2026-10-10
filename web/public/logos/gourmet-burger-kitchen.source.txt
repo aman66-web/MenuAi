@@ -1,7 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.gbk.co.uk/
-why: The chain's own site didn't load within 30 seconds (gbkinfo.com returned 404, gbk.co.uk timed out); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
-terms_url: not reviewed
-terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say
-retrieved: 2026-10-06
+status: installed
+file: gourmet-burger-kitchen.svg
+kind: inline-svg
+tile: light
+source_url: https://gbk.co.uk/ (inline <svg> the page's own script https://gbk.co.uk/js/site.js writes into the header link #logo, component "logo-diamond")
+page_url: https://gbk.co.uk/
+terms_url: not found (gbk.co.uk links only a privacy policy and gift-card terms)
+terms_summary: No website terms of use were found on gbk.co.uk (only https://gbk.co.uk/privacy-policy and gift-card terms), so no clause on logos or marks was seen.
+why: Own website header: the GBK diamond logo is an inline SVG that the site's Vue script renders into the header; its elements and attributes (viewBox, rects, paths, polygons, class and Vue's data-v scope attribute) were copied verbatim from the script into the file, nothing added. It has no fill of its own (the site colours it with CSS), so it renders black on a white tile, like Côte and Pizza Union. Retried 2026-10-10: www.gbk.co.uk has an expired TLS certificate (not bypassed), but https://gbk.co.uk/ is the same site with a valid certificate and robots.txt allows everything.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and the file
+retrieved: 2026-10-10

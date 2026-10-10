@@ -1,0 +1,11 @@
+status: installed
+file: cluckd.svg
+kind: header
+source_url: https://cluckd.co.uk/wp-content/themes/genesis-block-theme/images/logo.svg
+page_url: https://cluckd.co.uk/
+terms_url: https://cluckd.co.uk/terms-and-conditions/
+terms_summary: Cluck'd's terms say "This website contains material owned by or licensed to Cluck'd" and "Reproduction, distribution, or commercial use of any material on our site is prohibited unless expressly authorised."
+why: Own website header logo (img.mainLogo), saved byte for byte; orange "CLUCK'D" with "GRILLED CHICKEN YOUR WAY". robots.txt allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

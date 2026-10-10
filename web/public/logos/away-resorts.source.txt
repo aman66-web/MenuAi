@@ -1,0 +1,11 @@
+status: installed
+file: away-resorts.svg
+kind: inline-svg
+source_url: https://www.awayresorts.co.uk/ (inline SVG symbol id="svg-away-resorts-logo" in the page's sprite, drawn by the header's <svg><use xlink:href="#svg-away-resorts-logo"></use></svg>)
+page_url: https://www.awayresorts.co.uk/
+terms_url: https://www.awayresorts.co.uk/website-terms-use/
+terms_summary: Away Resorts' website terms say "We are the owner or the licensee of all intellectual property rights in our Website, and in the material published on it", allow one copy or extracts "for your personal use", and forbid "text or data mining or web scraping" without prior written consent.
+why: Own website header; the logo exists only as a symbol in the page's inline sprite (the logo file named in its structured data answers 404). The symbol's paths are copied unchanged into a standalone <svg> with the same viewBox (only the <symbol> wrapper became <svg> with xmlns); the paths have no fill, so it renders black on a white tile. robots.txt allows the page.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-10
+tile: light

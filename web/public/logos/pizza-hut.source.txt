@@ -1,7 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.pizzahut.co.uk/
-why: The chain's own site refused an automated visit (page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.pizzahut.co.uk/); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
+status: installed
+file: pizza-hut.svg
+kind: inline-svg
+tile: light
+source_url: https://www.pizzahut.co.uk/ (inline <svg> in the header's "Logo" link, rendered by the page's own script; copied verbatim from the page as rendered in a browser, it already had its xmlns; artwork uses currentColor, so on its own it renders black, where the site shows it white on its red header)
+page_url: https://www.pizzahut.co.uk/
 terms_url: https://www.pizzahut.co.uk/restaurants/about/terms-and-conditions
-terms_summary: The terms page body is loaded by script and was not present in the page as served (no browser was available and no workaround was attempted), so no licence to use the logo could be confirmed; with no download offered, nothing was installed.
-retrieved: 2026-10-06
+terms_summary: Not read: the terms page body is loaded by script (2026-10-06 reading); installed under the founder's decision to use the chains' own logos whatever their site terms say.
+why: The Pizza Hut roof mark is the only logo in the site header; the site serves no logo file (the mark is built into its script bundle) and its only icon file is a 270 KB ICO, so the header's inline SVG was copied verbatim. Retried 2026-10-10: the site now answered normally (HTTP 200), where on 2026-10-06 it had failed with an HTTP/2 protocol error.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the page and its files
+retrieved: 2026-10-10

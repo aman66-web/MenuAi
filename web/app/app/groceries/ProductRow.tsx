@@ -3,22 +3,18 @@
 import Link from "next/link";
 import { forRetailer, formatPrice, perLabel, photoSources, productLine, retailerName, type ListedProduct } from "@/lib/mm/groceries";
 import { ChevronRightIcon } from "../_components/icons";
-import { usePhotoSource } from "./ProductPhoto";
+import { PhotoTile } from "./ProductPhoto";
 
-/** A product in a list: photo (our stored copy of the supermarket's own, else its own picture, else Open Food Facts'; decorative), name, size, per-100 g numbers, price when we have one. */
+/** A product in a list: photo (our stored copy of the supermarket's own, else its own picture, else "no photo"; decorative), name, size, per-100 g numbers, price when we have one. */
 export function ProductRow({ product: listed, retailer }: { product: ListedProduct; retailer: string | null }) {
   // Under a supermarket filter the row reads as that supermarket lists it (its own name, size and numbers).
   const product = forRetailer(listed, retailer);
-  const { current, fail } = usePhotoSource(photoSources(listed, retailer, 100));
   const shown = retailer && product.prices[retailer] ? product.prices[retailer] : Object.values(product.prices)[0];
   const priceFrom = shown ? Object.entries(product.prices).find(([, v]) => v === shown)?.[0] : undefined;
   const href = `/app/groceries/product?code=${product.gtin}${retailer ? `&r=${retailer}` : ""}`;
   return (
     <Link href={href} prefetch={false} className="glass flex min-h-20 items-center gap-3 rounded-3xl p-3 transition active:scale-[0.99] hover:bg-soft-strong">
-      <span className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl border border-line bg-white">
-        {/* eslint-disable-next-line @next/next/no-img-element -- a third-party product photo, decorative: the name is plain text beside it */}
-        {current ? <img key={current.src} src={current.src} alt="" width={64} height={64} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={fail} className="h-full w-full object-contain" /> : <span aria-hidden className="text-xs text-muted">no photo</span>}
-      </span>
+      <PhotoTile sources={photoSources(listed, retailer)} />
       <span className="min-w-0 flex-1">
         <span className="block text-[15px] font-bold leading-snug tracking-tight">{product.name}</span>
         <span className="block truncate text-sm text-muted">{[product.brand, product.size].filter(Boolean).join(" · ")}</span>
