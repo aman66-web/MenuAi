@@ -1,0 +1,11 @@
+status: installed
+file: pasta-evangelists.svg
+kind: footer logo file (the header logo is drawn by empty extended-logo / compact-logo elements with no image in the page HTML)
+tile: light
+source_url: https://pastaevangelists.com/cdn/shop/t/882/assets/Logo-desk.svg?v=54758118971925229861791284333
+page_url: https://pastaevangelists.com/
+terms_url: https://pastaevangelists.com/pages/terms-and-conditions
+terms_summary: Pasta Evangelists' terms and conditions cover orders, cancellations and pasta plans (its /policies/terms-of-service holds a competition's rules) and neither has any clause about trade marks, logos or copyright, so no logo permission or restriction was found (as read on 2026-10-11).
+why: The footer of the chain's own home page shows this file (img class footer__logo, served from its own Shopify theme assets on pastaevangelists.com): the rust-red "Pasta Evangelists" lockup with its face mark, 83 x 88 viewBox, 40,447 bytes, saved byte for byte. The JSON-LD logo (a PNG on cdn.shopify.com) was not used because this vector file is on the chain's own host.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of pastaevangelists.com (Shopify storefront, Allow /) allowed the page and the file
+retrieved: 2026-10-11

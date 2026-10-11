@@ -1,0 +1,11 @@
+status: installed
+file: shepherd-neame.svg
+kind: organisation logo (file named in the home page's own JSON-LD "logo" ImageObject; also the site's footer logo)
+tile: dark
+source_url: https://www.shepherdneame.co.uk/_next/static/images/Shepherd-neame-logo-449083c3af73b39ac40935bd4584b89d.svg
+page_url: https://www.shepherdneame.co.uk/
+terms_url: https://www.shepherdneame.co.uk/legal/website-terms-conditions
+terms_summary: Shepherd Neame's website terms allow personal non-commercial use but say the copyright and other intellectual property in all material on the site is owned by Shepherd Neame or its licensors and must not be reproduced without its prior consent (as read on 2026-10-11).
+why: The logo file the site itself declares (JSON-LD, "Shepherd Neame logo") from its own host: the white "SHEPHERD NEAME - Britain's oldest brewer" lockup with the hop and crook mark, 434 x 305, 18,077 bytes, saved byte for byte. It is white on transparent (artwork for a dark footer), so it needs the dark tile. The other logo-like image in the page (SN-PRIMARY-POS-RGB.png on snsites.co.uk) sits in an award card and is not the declared logo, so it was not used.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of shepherdneame.co.uk (Crawl-delay: 10, Disallow /*.pdf) allowed the page and the file, and every request to the host was spaced at least 10 seconds apart
+retrieved: 2026-10-11

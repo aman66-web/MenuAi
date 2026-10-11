@@ -1,0 +1,11 @@
+status: installed
+file: leonardo-hotels.svg
+kind: header
+tile: light
+source_url: https://www.leonardohotels.co.uk/assets/images/logo2_red.svg
+page_url: https://www.leonardohotels.co.uk/
+terms_url: https://business.leonardohotels.co.uk/terms_and_conditions
+terms_summary: Leonardo Hotels UK's site terms say you may print information for your own travel but may not reproduce, replicate, sell, resell or otherwise exploit the website without prior written permission, and its disclaimer page has no logo or trade-mark clause (as read on 2026-10-11).
+why: Own website header (https://www.leonardohotels.co.uk/, img class big-logo, alt "Leonardo Hotels - Homepage"): the red square mark with the white "LEONARDO Hotels" wordmark, 600 x 600 viewBox, 5,536 bytes, saved byte for byte. The home page's JSON-LD names the same file name on the group's other domain (leonardo-hotels.com); the file used is the one this UK site serves. Not the parent group's (Fattal) logo.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of leonardohotels.co.uk (Allow /, Disallow /booking) allowed the page and the file; business.leonardohotels.co.uk robots.txt was read before its two terms pages
+retrieved: 2026-10-11

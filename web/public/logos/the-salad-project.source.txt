@@ -1,0 +1,11 @@
+status: installed
+file: the-salad-project.svg
+kind: header (the symbol mark only: the site's floating header shows no wordmark)
+tile: light
+source_url: https://www.saladproject.co.uk/cdn/shop/files/Vector.svg?v=1777415734
+page_url: https://www.saladproject.co.uk/
+terms_url: not found (the footer links no terms page, /policies/terms-of-service answers 404 and the site's pages sitemap lists only contact, food, locations, app, catering, faqs and about)
+terms_summary: The Salad Project's site has no terms-of-use page that could be found, so no logo permission or restriction was found (as read on 2026-10-11).
+why: Own website header (https://www.saladproject.co.uk/, floating-nav logo link, img alt "The Salad Project"): the dark-green geometric symbol (triangle, square, half-circle), 16 x 24 viewBox, 1,479 bytes, saved byte for byte from the page's own file with the width=100 resize parameter left off (Shopify returns an SVG unchanged). The footer also carries a light-green wordmark PNG, not used: too pale for a plain tile and not the header logo.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of saladproject.co.uk (Shopify storefront, Allow /) allowed the page and the file
+retrieved: 2026-10-11

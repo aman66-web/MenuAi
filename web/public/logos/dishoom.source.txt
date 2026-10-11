@@ -1,0 +1,11 @@
+status: installed
+file: dishoom.svg
+kind: organisation logo (file named in the home page's own JSON-LD; its path data is identical to the inline SVG in the site header)
+tile: light
+source_url: https://cdn.sanity.io/images/daku84np/production/9a797eca7ee2bd6f644710d59ebd52e7fdedef69-161x18.svg
+page_url: https://www.dishoom.com/
+terms_url: https://www.dishoom.com/policies/
+terms_summary: Dishoom's policies page lists only its privacy, cookie and gender-pay policies and no website terms of use, so no logo permission or restriction was found (as read on 2026-10-11).
+why: The header draws the "DISHOOM" wordmark as an inline SVG; the same artwork is the logo file the site declares as its organisation logo (JSON-LD "logo") on its own Sanity asset host, 161 x 18 viewBox, 8,811 bytes, saved byte for byte (compared path for path with the inline header SVG: identical). It is drawn with fill="currentColor", which an image renders black, so it needs the light tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of dishoom.com allowed the page; robots.txt of cdn.sanity.io (Allow /files/cgnmnbqj/, Disallow /*.pdf) allowed the file
+retrieved: 2026-10-11

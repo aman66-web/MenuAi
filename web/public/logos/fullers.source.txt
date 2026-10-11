@@ -1,0 +1,11 @@
+status: skipped-unavailable
+file: none
+kind: none
+tile: none
+source_url: https://www.fullers.co.uk/ answered HTTP 403 with a Cloudflare "Just a moment..." challenge page (one request, 2026-10-11); nothing else was requested
+page_url: https://www.fullers.co.uk/
+terms_url: not reviewed
+terms_summary: not read: the site's pages sit behind a Cloudflare challenge, so its terms were not requested (checked 2026-10-11).
+why: robots.txt answered 200 and allowed "/", but the home page answered 403 and a challenge, so no logo file on the chain's own site could be found and nothing was worked round. A Fuller's pub's own website that shows the Fuller's mark is not the chain's own brand file, so none was used. To add it, the founder can save the header logo from https://www.fullers.co.uk/ in their own browser and send it.
+decision: stopped per the Phase 3 rule; no logo installed
+retrieved: 2026-10-11

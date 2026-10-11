@@ -1,0 +1,11 @@
+status: installed
+file: avanti-west-coast.svg
+kind: header
+tile: light
+source_url: https://www.avantiwestcoast.co.uk/-/media/brand-assets/logos/avanti-west-coast-logo---black-1.svg?h=48&iar=0&hash=22220A64714CB5FFFD55E988000E1132
+page_url: https://www.avantiwestcoast.co.uk/
+terms_url: https://www.avantiwestcoast.co.uk/about-us/Policies-and-Procedures/Terms-and-Conditions
+terms_summary: Avanti's site terms say it owns or licenses all intellectual property on the site, content may be used only for personal non-commercial purposes, and its linking rules say a linking site shall not use its logos, trade marks or service marks without its express prior written permission (as read on 2026-10-11).
+why: Own website header (https://www.avantiwestcoast.co.uk/, img alt "Avanti West Coast logo", served from the site's own /-/media/brand-assets/logos/ folder): the navy "AVANTI WEST COAST" wordmark with the orange triangle, 168 x 76 viewBox, 6,729 bytes, saved byte for byte from the exact URL the header uses (the h=48 query is a Sitecore resize hint: an SVG comes back unchanged).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of avantiwestcoast.co.uk (Disallow /sitecore and /beta only) allowed the page and the file
+retrieved: 2026-10-11

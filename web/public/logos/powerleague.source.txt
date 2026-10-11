@@ -1,0 +1,11 @@
+status: installed
+file: powerleague.png
+kind: header
+tile: light
+source_url: https://www.powerleague.com/wp-content/uploads/2022/11/pl_logo.png
+page_url: https://www.powerleague.com/
+terms_url: https://www.powerleague.com/terms-and-conditions/
+terms_summary: Powerleague's terms say the content and design of its site are copyright of Powerleague Fives Ltd and that copying or incorporating them elsewhere is prohibited except for personal non-commercial use, with no logo-specific clause (as read on 2026-10-11).
+why: Own website header (https://www.powerleague.com/, the logo img's full-size data-src): the green shield with "POWER LEAGUE" in white above a football, 226 x 278 px PNG, 9,573 bytes, saved byte for byte (not scaled; the 150x150 thumbnail in src was not used). Reads well on white and on near-black.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of powerleague.com (Crawl-delay: 60, Disallow /*? so no URL with a query string was requested) allowed the page and the file, and every request to the host (robots.txt, home page, logo, terms page) was spaced at least 60 seconds apart
+retrieved: 2026-10-11

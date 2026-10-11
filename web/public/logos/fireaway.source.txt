@@ -1,0 +1,11 @@
+status: installed
+file: fireaway.png
+kind: organisation logo (file named in the home page's own JSON-LD "logo"; the same file is the logo in the site's own header settings)
+tile: dark
+source_url: https://cdn.prd01firuk.solutions4delivery.com/ecom-cms/ecom-cms/assets/Fire_Away_Logo_7e73d72de3.png
+page_url: https://www.fireaway.co.uk/
+terms_url: https://www.fireaway.co.uk/terms-of-use
+terms_summary: Fireaway's terms page holds only its offer, promotion and giveaway terms, with no clause about trade marks, logos or copyright, so no logo permission or restriction was found (read in a browser on 2026-10-11 because the page text is loaded by script).
+why: The header is drawn by script from the site's own content settings, so this is the file those settings and the JSON-LD name: the white "FIREAWAY" wordmark beside the orange flame disc, 548 x 168 px PNG, 4,004 bytes, saved byte for byte (not scaled). White on transparent, so it needs the dark tile. The file sits on the delivery platform's asset host that serves this chain's own site content (Azure Blob behind Cloudflare). FOR THE FOUNDER'S ATTENTION: that host's robots.txt answers HTTP 400 "OutOfRangeInput" (it serves no robots file), which is neither a block (no 403, 429 or challenge) nor a Disallow; RFC 9309 treats a 4xx robots.txt as no rules, so one GET of the single file was made. Say the word and fireaway.png and this record come out.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt of www.fireaway.co.uk allowed the page; the asset host's robots.txt gave no rules (400, above)
+retrieved: 2026-10-11
