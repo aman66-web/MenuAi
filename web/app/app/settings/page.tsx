@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
+import { ALL_FREE_FOR_TESTING, DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
 import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
@@ -162,7 +162,7 @@ export default function SettingsPage() {
 
       <Section title={t("Subscription")}>
         <Card className="p-4">
-          <p className="font-semibold">{isPro(settings) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
+          <p className="font-semibold">{isPro(settings) ? (ALL_FREE_FOR_TESTING || PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
           {!PAYMENTS_ENABLED && <p className="mt-1 text-sm text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
         </Card>
       </Section>

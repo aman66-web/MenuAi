@@ -32,15 +32,13 @@ await step("Eat out: honest empty state when no chain is published yet", async (
   if (requests.some((r) => r.startsWith("/menus-sample"))) throw new Error("sample menus were requested in production");
   if (await page.getByText("fictional sample data").count()) throw new Error("sample banner visible");
   await page.goto(BASE + "/app");
-  await vis(page.getByText("Left today:", { exact: true })); // logging is free (founder 2026-10-11)
+  await vis(page.getByText("Your daily targets"));
+  if (await page.getByText("Left today:", { exact: true }).count()) throw new Error("Pro UI visible on Home although Pro cannot be unlocked here");
 });
-await step("a stale devProOverride does nothing in production: Today is free, Best for you shows the honest paywall", async () => {
+await step("a stale devProOverride does nothing in production: Today shows the free explainer and the honest paywall", async () => {
   await page.goto(BASE + "/app/today");
-  await vis(page.getByRole("heading", { name: "Today's meals" }));
-  await page.unroute("**/menus/menus-manifest.json"); // the empty-state step above stubbed it
-  await page.goto(BASE + "/app/chain?id=kfc");
-  await vis(page.getByRole("button", { name: /See your 5 best orders/ }));
-  await page.getByRole("button", { name: /See your 5 best orders/ }).click();
+  await vis(page.getByRole("button", { name: "See Pro" }));
+  await page.getByRole("button", { name: "See Pro" }).click();
   await vis(page.getByText("Pro isn't on the web yet."));
   if (await page.getByRole("button", { name: /Unlock Pro preview/ }).count()) throw new Error("testing unlock is visible in production");
 });
@@ -62,7 +60,6 @@ await step("an unknown chain says so politely", async () => {
   await vis(page.getByText("That restaurant isn't available."));
 });
 await step("request a chain still works from the empty state", async () => {
-  await page.route("**/menus/menus-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ schemaVersion: 1, dataVersion: 1, generatedAt: "2026-10-01T00:00:00Z", chains: [] }) }));
   await page.goto(BASE + "/app/eat-out");
   await page.getByRole("button", { name: "Request a chain" }).click();
   await page.getByLabel("Which restaurant?").fill("Real Burgers");

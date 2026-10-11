@@ -2,24 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 import { loggedToday, isSameLocalDay } from "@/lib/mm/budget";
+import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
+import { useGate } from "../_components/Paywall";
 import Link from "next/link";
 import { ChevronLeftIcon, TrashIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
-import { Card, EmptyState } from "../_components/ui";
-import { useHydrated, useNow, useSettings, useStore } from "../_lib/hooks";
+import { Button, Card, EmptyState } from "../_components/ui";
+import { useHydrated, useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
 const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" });
 
-// SPEC §7.8, reached from Home's "today" card: totals against targets and today's entries. Free for everyone (founder 2026-10-11).
+// SPEC §7.8, reached from Home's "today" card. Free: explainer + the paywall. Pro: totals against targets and today's entries.
 export default function TodayPage() {
   const hydrated = useHydrated();
   const t = useT();
+  const pro = useIsPro();
+  const { showPaywall } = useGate();
   const settings = useSettings();
   const log = useStore(logStore);
   const now = useNow();
@@ -28,6 +32,29 @@ export default function TodayPage() {
   useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
 
   if (!hydrated) return null;
+
+  if (!pro) {
+    return (
+      <div>
+        <BackHome />
+        <h1 className="mt-5 text-4xl font-extrabold tracking-tight">{t("Today's meals")}</h1>
+        <Card hero className="mt-6 overflow-hidden p-6">
+          {/* A picture of the Pro screen (no numbers: nothing here is a real figure). */}
+          <div aria-hidden className="mb-5 flex items-center gap-4">
+            <Ring id="today-preview" label="" fraction={0.68} size={92} stroke={10} />
+            <div className="flex-1 space-y-3">
+              <div className="h-2.5 w-4/5 rounded-full bg-[var(--ring-track)]"><div className="bg-sun h-full w-3/5 rounded-full" /></div>
+              <div className="h-2.5 w-3/5 rounded-full bg-[var(--ring-track)]"><div className="h-full w-2/5 rounded-full bg-protein" /></div>
+              <div className="h-2.5 w-2/3 rounded-full bg-[var(--ring-track)]"><div className="h-full w-1/2 rounded-full bg-carbs" /></div>
+            </div>
+          </div>
+          <p className="text-lg font-bold tracking-tight"><Rich text={t("Keep track of what you eat {today}")} values={{ today: <span className="serif-em sun-text pe-0.5">{t("today")}</span> }} /></p>
+          <p className="mt-1 text-sm text-muted">{t("Log a meal from any order and see your calories and protein against your targets, so you always know what's left.")}</p>
+          <Button className="mt-4" onClick={() => showPaywall("log")}>{PAYMENTS_ENABLED ? t("Try Pro free") : t("See Pro")}</Button>
+        </Card>
+      </div>
+    );
+  }
 
   const totals = loggedToday(log, now);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now)).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));

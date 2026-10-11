@@ -14,7 +14,7 @@ Run against a **production build** (the service worker only exists in production
 
 ```bash
 cd web
-NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 npm run build && npm start -- -p 3101 &     # samples on: fictional chains + Pro preview toggle
+NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 NEXT_PUBLIC_ALL_FREE=0 npm run build && npm start -- -p 3101 &     # samples on; paywall on (ALL_FREE_FOR_TESTING off)
 cd e2e
 BASE=http://localhost:3101 node smoke.mjs        # onboarding → chain → paywall → Best for you → builder → save/log → settings
 node extra.mjs                                    # shared-link onboarding, menus-unreachable error, undo, save-changes, search rules

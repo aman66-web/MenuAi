@@ -1,15 +1,14 @@
-import { DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, PRO_PREVIEW_FROM_ENV } from "./config";
+import { ALL_FREE_FOR_TESTING, DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, PRO_PREVIEW_FROM_ENV } from "./config";
 import { englishT, tk, type T } from "./i18n";
 import type { UserSettings } from "./user-data";
 
 // SPEC §4: free vs Pro. Payments are not wired on the web yet, so "Pro" comes only from the preview switches.
-// Logging meals and the Today screen are free (founder 2026-10-11, "Yes please"), so "log" is no longer a paywall trigger.
 // When payments exist, this is the one place to add a verified purchase.
 
-export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "recipeMaker";
+export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker";
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">): boolean {
-  return PRO_PREVIEW_FROM_ENV || (DEV_TOOLS_ENABLED && settings.devProOverride);
+  return ALL_FREE_FOR_TESTING || PRO_PREVIEW_FROM_ENV || (DEV_TOOLS_ENABLED && settings.devProOverride);
 }
 
 /** Does this action need the paywall? Pro actions are gated; the 4th saved order is gated. */
@@ -51,6 +50,7 @@ export const PAYWALL_TITLE = tk("Build the perfect order, every time");
 export const PAYWALL_BULLETS = [
   tk("Top 5 picks for your goal at every chain"),
   tk("Build your order with live totals"),
+  tk("Keep a log of what you eat today"),
   tk("Unlimited saved orders"),
   tk("Pip makes new recipes just for you"),
 ] as const;

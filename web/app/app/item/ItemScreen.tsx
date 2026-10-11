@@ -84,12 +84,14 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           <Button
             variant="secondary"
             full
-            onClick={() => {
-              addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
-              analytics.track({ name: "mealLogged" });
-              countProAction();
-              setMessage(tk("Logged to Today."));
-            }}
+            onClick={() =>
+              gate("log", () => {
+                addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
+                analytics.track({ name: "mealLogged" });
+                countProAction();
+                setMessage(tk("Logged to Today."));
+              })
+            }
           >
             {t("Log")}
           </Button>

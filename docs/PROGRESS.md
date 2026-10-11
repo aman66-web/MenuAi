@@ -683,15 +683,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   second, stops on 401/403/429) and `assemble_logos.py` (now also builds `SQUARE_ICONS`). Checked: 421 unit tests, e2e smoke 23, extra 11, browse 9,
   axe 0 in light and dark, map 6 of 7 (the known headless geolocation limit); screenshots of Eat out and the map in light and dark.
 
-- 2026-10-11 — **Founder: "Yes please for both": logging meals is free, and Kick Ass Burrito is published.** (1) **Logging is free:** the Log button on an
-  item and in the builder no longer opens the paywall, the Today screen shows today's meals for everyone, and Home shows "Left today" with the ring and
-  what's been eaten for everyone (the free "Your daily targets" card and its See Pro button are gone). Best for you's meal budget now subtracts what's been
-  logged for everyone (free users still see it blurred). The paywall bullet "Keep a log of what you eat today" is removed (it isn't a Pro feature any more)
-  and the website FAQ now reads "Full menus with calories and macros, and a log of what you eat today, are free for everyone. Pro adds the ranked best orders
-  and the order builder." Pro is now: the top 5 picks, the order builder, unlimited saved orders (3 free) and Pip's recipe maker. `docs/SPEC.md` §3, §4, §6
-  and §7.8 updated to match; for the native app, writing to Apple Health stays Pro (its trigger renamed `health`), say if it should be free too.
-  (2) **Kick Ass Burrito** (52 items, full nutrition and allergens) moved from `data/held-unpublished/` to `data/source/` and published: **221 chains live**.
-  Checked: unit tests, e2e smoke, extra (new step: a free user logs from an item, Today and Home show it, no paywall), prodmode and a11y (new "today (free)" screen).
+- 2026-10-11 — **Founder: "Yes please for both"**, then **"It should be pro. But right now I need all the features free so I can test them."**
+  (1) **Logging stays Pro** (the brief free-logging change was undone the same hour: Log buttons, Today, Home's free targets card, the paywall
+  bullet, the website FAQ and docs/SPEC.md are back as they were). (2) **Every Pro feature is free while the founder tests:** one switch,
+  `ALL_FREE_FOR_TESTING` in `web/lib/mm/config.ts` (on by default; `NEXT_PUBLIC_ALL_FREE=0` turns it off), makes everyone count as Pro, so the
+  paywall never appears; Settings shows "Pro (preview, for testing)". **Switch it off before launch** (founder to-do). The browser tests build
+  with `NEXT_PUBLIC_ALL_FREE=0` so they still check the paywall (e2e/README.md). (3) **Kick Ass Burrito** (52 items, full nutrition and
+  allergens) moved from `data/held-unpublished/` to `data/source/` and published: **221 chains live**.
 
 ## Known issues
 
@@ -701,7 +699,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 ## Founder to-do (things Claude can't do)
 
-- [x] **Decide: should logging meals be free?** Yes (2026-10-11): logging and Today are free.
+- [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
+- [ ] **Before launch: switch off `ALL_FREE_FOR_TESTING`** in `web/lib/mm/config.ts` (every Pro feature is free while you test), then redeploy
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
   cooking-safety lines and the onboarding. Each language is one file, `web/lib/mm/locales/<code>.json` (English → translation); a reviewer can edit it directly.
 - [ ] **Recipe pictures (Nano Banana):** paste each prompt from `docs/RECIPE_IMAGE_PROMPTS.md`, check the picture has no writing, packaging or logos, save it as

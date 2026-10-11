@@ -30,7 +30,7 @@ const goals = [
 ];
 
 const faqs = [
-  { q: "Is it free?", a: "Full menus with calories and macros, and a log of what you eat today, are free for everyone. Pro adds the ranked best orders and the order builder. Pricing will be shown before you pay for anything." },
+  { q: "Is it free?", a: "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." },
   { q: "Where do the numbers come from?", a: "From each restaurant's own published nutrition information. We show the source and the date we last checked on every chain, never estimate missing values, and fix reported mistakes within 48 hours." },
   { q: "Which restaurants?", a: `${stats.chains > 0 ? `${stats.chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
   { q: "Is it an app?", a: "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later." },

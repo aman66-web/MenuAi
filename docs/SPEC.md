@@ -54,7 +54,7 @@ layout work in v1; it runs in compatibility mode). The fictional sample chains s
 
 **v1 (this build):** onboarding; goals and targets; home with nearby chains, favourites, search;
 chain page with full menu, sort, filter; item detail; "Best for you" (Pro); order builder (Pro);
-saved orders (3 free, unlimited Pro); Today log (free since 2026-10-11, founder); Apple Health logging (Pro); share card;
+saved orders (3 free, unlimited Pro); Today log (Pro); Apple Health logging (Pro); share card;
 report a number; request a chain; settings; subscriptions with free trial; trial reminder;
 review prompt; analytics; offline menus with remote updates.
 
@@ -83,10 +83,10 @@ restaurant logos, brand colours or food photos; ads; selling data.
 | Saved orders | 3 | Unlimited | `saveLimit` |
 | "Best for you" top 5 | blurred preview | ✓ | `bestForYou` |
 | Order builder (customise) | — | ✓ | `orderBuilder` |
-| Log a meal (Today totals, "left today") | ✓ | ✓ | (free since 2026-10-11, founder) |
-| Write to Apple Health | — | ✓ | `health` |
+| Log a meal (Today totals, "left today") | — | ✓ | `log` |
+| Write to Apple Health | — | ✓ | `log` |
 
-Everyone sees "left today" on Home (logging is free since 2026-10-11).
+Free users see "Your targets" (not "left today") on Home, because nothing is logged.
 Cancelling Pro never deletes data: saved orders beyond 3 stay visible and usable read-only;
 logs stay; Pro actions lock again.
 
@@ -212,7 +212,7 @@ Test vectors (calories, protein):
   lunch 10:30–15:59, dinner from 16:00. Shares: breakfast 0.25, lunch 0.35, dinner 0.40.
 - `mealBudget = min(remaining, round(dailyCalories × share))`; GLP-1 goal:
   `mealBudget = min(remaining, glp1MealCap)`.
-- Logged calories count for everyone (logging is free since 2026-10-11).
+- Free users: logged is always 0, so remaining = daily target.
 
 ### 6.4 Ranking engine ("Best for you")
 
@@ -320,7 +320,7 @@ Sample chains (`sample == true`) appear only in DEBUG builds, with a "Sample dat
 
 ### 7.5 Item detail (sheet or push)
 Name, serving, big calories, then protein/carbs/fat, then sat fat, sodium, sugar, fibre
-("not published" when missing). Buttons: **Customise** (Pro → builder), **Log** (free),
+("not published" when missing). Buttons: **Customise** (Pro → builder), **Log** (Pro),
 **Save**, **Share**. "Report a number" link.
 
 ### 7.6 Order builder (Pro)
@@ -338,8 +338,8 @@ List by most recent; chain name; totals. Tap → builder (Pro) or read-only deta
 delete. Free: when 3 exist, the 4th Save shows paywall `saveLimit`. If a referenced item/component
 no longer exists: row label "No longer on the menu", nutrients from the snapshot, builder disabled.
 
-### 7.8 Today (tab, free since 2026-10-11)
-Totals vs targets (calories, protein; carbs and fat as
+### 7.8 Today (tab, Pro)
+Free: explainer + "Try Pro free". Pro: totals vs targets (calories, protein; carbs and fat as
 plain numbers), list of today's entries (time, name, chain, kcal, protein), swipe to delete
 (also deletes Health samples if written). "Plan dinner" placeholder hidden until v1.1.
 
