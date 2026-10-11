@@ -60,8 +60,12 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    supermarket's item, never with packaging, logos, brand names or writing in it, never presented as a photo of a product.
    Founder's decision (2026-10-10, "have all the logos of the restaurants and grocery stores moving at the top"): the onboarding
    welcome screen may show a moving wall of the official logo files of chains that are in the app (unmodified, on their plain tiles,
-   `web/app/app/_components/LogoWall.tsx`) with the line "Not affiliated with any restaurant or shop shown."; supermarkets appear by
-   plain-text name (we hold no supermarket logo files). Never on the website, marketing, store screenshots or the app icon.
+   `web/app/app/_components/LogoWall.tsx`) with the line "Not affiliated with any restaurant or shop shown."; a supermarket whose logo
+   file we don't hold appears by plain-text name. Never on the website, marketing, store screenshots or the app icon. Founder's decision
+   (2026-10-11, "Add all logos for grocery stores too"): each supermarket's own official logo file (and its own square icon) may sit next
+   to its name in the app's grocery screens, the shopping list, the shop picker and the welcome wall, under exactly the same rules as the
+   restaurant logos (from the company's own website or press page, unmodified, `web/public/logos/shops/` + `SOURCES.md`, taken down the
+   day its owner asks).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
    through the API: reports, chain requests, support messages). **Never put a Supabase key in the

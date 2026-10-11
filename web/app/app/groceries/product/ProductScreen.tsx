@@ -9,6 +9,7 @@ import { addToList } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { AllergenTable } from "../../_components/Allergens";
 import { ChevronLeftIcon, CopyIcon, InfoIcon } from "../../_components/icons";
+import { ShopMark } from "../../_components/ChainMark";
 import { Button, ErrorBox, Spinner } from "../../_components/ui";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
 import { useT } from "../../_lib/i18n";
@@ -173,8 +174,8 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         <nav aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
           {listed.retailers.map((r) => (
             <Link key={r} href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} aria-current={r === selected ? "page" : undefined}
-              className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-semibold transition active:scale-[0.97] ${r === selected ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft hover:bg-soft-strong"}`}>
-              {retailerName(r)}
+              className={`inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full border pe-4 ps-1.5 text-sm font-semibold transition active:scale-[0.97] ${r === selected ? "border-accent bg-accent-soft text-accent" : "border-line bg-soft hover:bg-soft-strong"}`}>
+              <ShopMark shopId={r} size="xs" />{retailerName(r)}
             </Link>
           ))}
         </nav>

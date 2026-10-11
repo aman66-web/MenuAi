@@ -1,10 +1,10 @@
 "use client";
 
-import { logoFor, tileArt } from "@/lib/mm/logos";
+import { logoFor, shopLogoFor, tileArt } from "@/lib/mm/logos";
 
 // The welcome screen's moving wall (founder 2026-10-10: "have all the logos of the restaurants and grocery stores moving at the top").
-// Restaurants show their own official logo file, unmodified, on its plain tile (CLAUDE.md rule 2: the founder's decision for this
-// screen); supermarkets show their name in plain text, because we hold no logo files of theirs. Decorative: screen readers get one
+// Restaurants and supermarkets show their own official logo file, unmodified, on its plain tile (CLAUDE.md rule 2: the founder's
+// decisions of 2026-10-10 and 2026-10-11); a supermarket whose file we don't hold shows its name in plain text. Decorative: screen readers get one
 // sentence instead (the caller's `label`). Rows drift slowly in alternating directions; with reduced motion they stand still.
 
 export interface WallItem {
@@ -16,7 +16,7 @@ export interface WallItem {
 const ROWS = 4;
 
 function Tile({ item }: { item: WallItem }) {
-  const logo = item.kind === "restaurant" ? logoFor(item.id) : undefined;
+  const logo = item.kind === "restaurant" ? logoFor(item.id) : shopLogoFor(item.id);
   if (logo) {
     // the chain's square icon edge to edge when it fills its square, else its file on the plain tile
     const art = tileArt(logo);

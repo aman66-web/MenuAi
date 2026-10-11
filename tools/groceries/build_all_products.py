@@ -90,6 +90,25 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
     return out
 
 
+def read_listing_photos(shop: str, problems: list[str]) -> dict[str, str]:
+    """Photos read later from a product's own page for listing rows that had none (founder 2026-10-11: every product should show its shop's own
+    photo): data/groceries/images/<shop>-listing.csv, columns product_id,image_url,page_url,checked_on, written by the Chrome run in
+    docs/NEXT_GROCERIES_IMAGES_PROMPT.md. Only the shop's own image host, and only when page_url is that product's own page, are accepted."""
+    path = ROOT / "data" / "groceries" / "images" / f"{shop}-listing.csv"
+    out: dict[str, str] = {}
+    if not path.exists():
+        return out
+    base = PHOTO_BASE.get(shop, "")
+    with open(path, newline="", encoding="utf-8") as f:
+        for line, r in enumerate(csv.DictReader(f), start=2):
+            pid, url, page = (r.get("product_id") or "").strip(), (r.get("image_url") or "").strip(), (r.get("page_url") or "").strip()
+            if not (SLUG.fullmatch(pid) and base and url.startswith(base) and page.rstrip("/").endswith("/" + pid)):
+                problems.append(f"{shop}-listing.csv line {line}: not the shop's own photo of that product's page ({pid!r})")
+                continue
+            out[pid] = url
+    return out
+
+
 def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict | None = None, nutrition: dict | None = None) -> dict | None:
     path = path or ROOT / "data" / "groceries" / "listing" / f"{shop}.csv"
     if not path.exists():
@@ -101,6 +120,7 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
     schemes: list[str] = []
     products = []
     days = set()
+    extra_photos = read_listing_photos(shop, problems)
     with open(path, newline="", encoding="utf-8") as f:
         for line, r in enumerate(csv.DictReader(f), start=2):
             pid, name = (r.get("product_id") or "").strip(), " ".join((r.get("name") or "").split())
@@ -121,7 +141,7 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
                 cats.append(cat)
             if member is not None and scheme not in schemes:
                 schemes.append(scheme)
-            photo = re.search(r"/gol/(\d+)/", r.get("image_url") or "")
+            photo = re.search(r"/gol/(\d+)/", r.get("image_url") or "") or re.search(r"/gol/(\d+)/", extra_photos.get(pid, ""))
             days.add((r.get("checked_on") or "").strip())
             n = nut.get(pid) or nut.get(pid.lower())
             if n:

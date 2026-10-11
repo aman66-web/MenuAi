@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { CHAIN_LOGOS, logoFor, SQUARE_ICONS, tileArt } from "../lib/mm/logos";
+import { CHAIN_LOGOS, logoFor, SHOP_LOGOS, shopLogoFor, SQUARE_ICONS, tileArt } from "../lib/mm/logos";
+import { RETAILERS } from "../lib/mm/groceries";
 
 const pub = new URL("../public", import.meta.url).pathname;
 
@@ -31,6 +32,20 @@ describe("chain logos", () => {
     const id = Object.keys(CHAIN_LOGOS).find((k) => !SQUARE_ICONS[k]);
     if (!id) return;
     expect(tileArt(logoFor(id)!)).toEqual({ src: CHAIN_LOGOS[id]!.src, full: false, tile: CHAIN_LOGOS[id]!.tile ?? "light" });
+  });
+  it("every supermarket logo is one of our shops, exists in /logos/shops/ and is recorded as installed", () => {
+    const ids = new Set(RETAILERS.map((r) => r.id as string));
+    for (const [id, logo] of Object.entries(SHOP_LOGOS)) {
+      expect(ids.has(id), id).toBe(true);
+      for (const src of [logo.src, logo.square?.src].filter((x): x is string => !!x)) {
+        expect(src).toMatch(new RegExp(`^/logos/shops/(square/)?${id}\\.(svg|png|webp|jpg)$`));
+        expect(existsSync(pub + src), `${src} missing`).toBe(true);
+        const rec = src.includes("/square/") ? `${pub}/logos/shops/square/${id}.source.txt` : `${pub}/logos/shops/${id}.source.txt`;
+        expect(readFileSync(rec, "utf8")).toContain("status: installed");
+      }
+      expect(shopLogoFor(id)).toBe(logo);
+    }
+    expect(shopLogoFor("not-a-shop")).toBeUndefined();
   });
   it("returns nothing for an unknown or missing chain", () => {
     expect(logoFor(undefined)).toBeUndefined();

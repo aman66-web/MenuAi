@@ -3,6 +3,9 @@
 
 Writes data/groceries/wanted-images/<retailer>.csv (gtin, name, size) for every product in web/public/groceries/<retailer>.json
 without `retailerImage`, own-brand and high-protein products first (the order of data/groceries/wanted/<retailer>.csv when it exists).
+Also writes data/groceries/wanted-images/<shop>-listing.csv (product_id, name, page_url) for every product in a shop's full list
+(web/public/groceries/all/<shop>.json) that has no photo address yet; the photo read from that page goes in
+data/groceries/images/<shop>-listing.csv (read by build_all_products.py).
 The Chrome session of docs/NEXT_GROCERIES_IMAGES_PROMPT.md works through these lists. Usage: python3 tools/groceries/missing_images.py
 """
 from __future__ import annotations
@@ -39,5 +42,21 @@ def main() -> int:
     return 0
 
 
+def listing_gaps() -> None:
+    all_manifest = SRC / "all" / "all-manifest.json"
+    if not all_manifest.exists():
+        return
+    for entry in json.loads(all_manifest.read_text())["retailers"]:
+        f = json.loads((SRC / "all" / entry["file"]).read_text())
+        todo = [r for r in f["products"] if not r[8]]
+        with open(OUT / f"{entry['id']}-listing.csv", "w", newline="", encoding="utf-8") as out:
+            w = csv.writer(out)
+            w.writerow(["product_id", "name", "page_url"])
+            for r in todo:
+                w.writerow([r[0], r[1], f["pageBase"] + r[0]])
+        print(f"{entry['id']} full list: {len(todo)} of {len(f['products'])} products still need their shop's own photo")
+
+
 if __name__ == "__main__":
+    listing_gaps()
     raise SystemExit(main())

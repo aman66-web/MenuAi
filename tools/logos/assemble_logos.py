@@ -21,6 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 LOGOS = ROOT / "web" / "public" / "logos"
 SQUARE = LOGOS / "square"
+SHOPS = LOGOS / "shops"
 TS = ROOT / "web" / "lib" / "mm" / "logos.ts"
 SOURCES = LOGOS / "SOURCES.md"
 EXT_OK = {".svg", ".png", ".jpg", ".jpeg", ".webp"}
@@ -99,6 +100,54 @@ def assemble_square(ts: str, problems: list[str]) -> tuple[str, str, int]:
     return ts_new, md, len(lines)
 
 
+def assemble_shops(ts: str, problems: list[str]) -> tuple[str, str, int]:
+    """New logos.ts text with a rebuilt SHOP_LOGOS block (supermarkets: public/logos/shops/), the shops' SOURCES.md, and how many are listed."""
+    lines: list[str] = []
+    rows: list[str] = []
+    ids = sorted({sc.name[: -len(".source.txt")] for sc in SHOPS.glob("*.source.txt")} | {sc.name[: -len(".source.txt")] for sc in (SHOPS / "square").glob("*.source.txt")})
+    for sid in ids:
+        rec = read_record(SHOPS / f"{sid}.source.txt") if (SHOPS / f"{sid}.source.txt").is_file() else {}
+        sq = read_record(SHOPS / "square" / f"{sid}.source.txt") if (SHOPS / "square" / f"{sid}.source.txt").is_file() else {}
+        for kind, r, folder in (("logo", rec, SHOPS), ("square icon", sq, SHOPS / "square")):
+            if r:
+                rows.append(f"| {sid} | {kind} | {r.get('status', '')} | {(r.get('why') or '').replace('|', '/')} | {(r.get('terms_url') or 'not reviewed').replace('|', '/')} | {r.get('retrieved', '')} |")
+        def ok(r: dict[str, str], folder: Path, limit: int) -> Path | None:
+            if r.get("status") != "installed":
+                return None
+            f = folder / r.get("file", "")
+            if not r.get("file") or f.suffix.lower() not in EXT_OK or not f.is_file() or not r["file"].startswith(sid + "."):
+                problems.append(f"shop {sid}: record says installed but file {r.get('file')!r} is missing or misnamed")
+                return None
+            if f.suffix.lower() == ".svg" and BAD_SVG.search(f.read_bytes()):
+                problems.append(f"shop {sid}: SVG contains script or external references: not installed")
+                return None
+            if f.stat().st_size > limit:
+                problems.append(f"shop {sid}: file larger than {limit // 1000} KB")
+                return None
+            return f
+        main_f = ok(rec, SHOPS, 200_000)
+        sq_f = ok(sq, SHOPS / "square", 100_000)
+        if not main_f and not sq_f:
+            continue
+        parts = []
+        if main_f:
+            parts.append(f'src: "/logos/shops/{main_f.name}"' + (', tile: "dark"' if rec.get("tile") == "dark" else ""))
+        if sq_f:
+            full, tile = square_display(sq_f, sq)
+            sqs = f'src: "/logos/shops/square/{sq_f.name}"' + (", full: true" if full else "") + (', tile: "dark"' if tile == "dark" and not full else "")
+            if not main_f:
+                parts.append(f'src: "/logos/shops/square/{sq_f.name}"')
+            parts.append(f"square: {{ {sqs} }}")
+        lines.append(f'  "{sid}": {{ {", ".join(parts)} }},')
+    m = re.search(r"(export const SHOP_LOGOS[^{]*\{\n)(.*?)(\n?\};)", ts, re.S)
+    assert m, "SHOP_LOGOS block not found"
+    ts_new = ts[: m.start(2)] + "\n".join(lines) + ts[m.end(2):] if lines else ts[: m.start(2)] + ts[m.end(2):]
+    md = ("# Supermarket logos\n\nEach supermarket's own logo (and its own square icon where one of its sites serves one), saved as its own website serves it "
+          "(founder 2026-10-11: \"Add all logos for grocery stores too\"). Same rules and take-down promise as the restaurant logos in `../SOURCES.md`.\n\n"
+          "| Shop | File | Status | Why | Terms page | Retrieved |\n|---|---|---|---|---|---|\n" + "\n".join(rows) + "\n")
+    return ts_new, md, len(lines)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="report only, write nothing")
@@ -158,9 +207,11 @@ def main() -> int:
     md_new = head + "| Chain | Status | Why | Terms page | Retrieved |\n|---|---|---|---|---|\n" + "\n".join(old_rows[k] for k in sorted(old_rows)) + "\n"
 
     ts_new, square_md, n_square = assemble_square(ts_new, problems)
+    ts_new, shops_md, n_shops = assemble_shops(ts_new, problems)
 
     print(f"{len(new_lines)} logo(s) to add: {', '.join(sorted(new_lines)) or '-'}")
     print(f"{n_square} square icon(s) listed")
+    print(f"{n_shops} supermarket logo(s) listed")
     for p in problems:
         print("PROBLEM:", p)
     if not args.check:
@@ -168,6 +219,8 @@ def main() -> int:
         SOURCES.write_text(md_new, encoding="utf-8")
         if SQUARE.is_dir():
             (SQUARE / "SOURCES.md").write_text(square_md, encoding="utf-8")
+        if SHOPS.is_dir():
+            (SHOPS / "SOURCES.md").write_text(shops_md, encoding="utf-8")
     return 1 if problems else 0
 
 

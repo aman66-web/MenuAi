@@ -6,6 +6,7 @@ import { barcodeQuery, GROCERY_SORTS, RETAILERS, searchProducts, type GrocerySor
 import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
 import { ArrowRightIcon, BasketIcon, PotIcon, ScanIcon, SearchIcon } from "../_components/icons";
+import { ShopMark } from "../_components/ChainMark";
 import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
 import { useGroceryCatalogue, useGroceryManifest } from "../_lib/groceries";
 import { useShopManifest } from "../_lib/shopProducts";
@@ -83,14 +84,14 @@ export default function GroceriesPage() {
       <div role="group" aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
         <Chip selected={retailer === null} onClick={() => { setRetailer(null); reset(); }}>{t("All")}</Chip>
         {RETAILERS.filter((r) => !catalogue.manifest || counts.has(r.id)).map((r) => (
-          <Chip key={r.id} selected={retailer === r.id} onClick={() => { setRetailer(r.id); reset(); }}>{r.name}</Chip>
+          <Chip key={r.id} selected={retailer === r.id} onClick={() => { setRetailer(r.id); reset(); }} className="gap-2 ps-1.5"><ShopMark shopId={r.id} size="xs" />{r.name}</Chip>
         ))}
       </div>
       {fullLists && fullLists.retailers.filter((r) => !retailer || r.id === retailer).length > 0 && (
         <div className="mt-2 flex flex-wrap gap-2">
           {fullLists.retailers.filter((r) => !retailer || r.id === retailer).map((r) => (
-            <Link key={r.id} href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className="inline-flex min-h-11 items-center rounded-full border border-line bg-soft px-4 text-sm font-semibold transition active:scale-[0.97] hover:bg-soft-strong">
-              {t("Every {shop} product", { shop: r.name })} <span className="app-numbers ms-1 text-muted">· {r.count.toLocaleString("en-GB")}</span>
+            <Link key={r.id} href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-soft pe-4 ps-1.5 text-sm font-semibold transition active:scale-[0.97] hover:bg-soft-strong">
+              <ShopMark shopId={r.id} size="xs" />{t("Every {shop} product", { shop: r.name })} <span className="app-numbers ms-1 text-muted">· {r.count.toLocaleString("en-GB")}</span>
             </Link>
           ))}
         </div>

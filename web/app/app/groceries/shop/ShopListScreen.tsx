@@ -5,6 +5,7 @@ import { useDeferredValue, useMemo, useState } from "react";
 import { SHOP_SORTS, searchShopProducts, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
 import { formatDate } from "@/lib/mm/format";
 import { ChevronLeftIcon, SearchIcon } from "../../_components/icons";
+import { ShopMark } from "../../_components/ChainMark";
 import { Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
@@ -42,7 +43,8 @@ export function ShopListScreen({ shop }: { shop: string }) {
   return (
     <div>
       {back}
-      <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Every {shop} product")} values={{ shop: <span className="serif-em sun-text pe-0.5">{file.name}</span> }} /></h1>
+      <div className="mt-4"><ShopMark shopId={file.retailer} size="lg" /></div>
+      <h1 className="mt-3 text-[2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Every {shop} product")} values={{ shop: <span className="serif-em sun-text pe-0.5">{file.name}</span> }} /></h1>
       <p className="mt-1 text-sm text-muted">
         {nutritionCount > 0
           ? t("{n} products with the name and price as {shop} lists them, checked {date}. Calories, protein and allergens appear only for products whose page we've read ({count} so far).", { n: products.length.toLocaleString("en-GB"), shop: file.name, date: formatDate(file.checkedOn, t), count: nutritionCount.toLocaleString("en-GB") })

@@ -7,6 +7,7 @@ import { formatDate } from "@/lib/mm/format";
 import { nextToBuy } from "@/lib/mm/listRecipes";
 import { shoppingStore } from "@/lib/mm/stores";
 import { ArrowRightIcon, CheckIcon, ChevronLeftIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
+import { ShopMark } from "../../_components/ChainMark";
 import { Button, EmptyState, inputClass } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
@@ -83,7 +84,7 @@ export default function ShoppingListPage() {
             const sorted = [...items.filter((i) => !i.done), ...items.filter((i) => i.done)];
             return (
               <section key={retailer} aria-label={groupName(retailer, t)} className="mt-5">
-                <h2 className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-muted">{groupName(retailer, t)}</h2>
+                <h2 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-muted">{retailer !== CUSTOM_RETAILER && <ShopMark shopId={retailer} size="xs" />}{groupName(retailer, t)}</h2>
                 <ul className="space-y-2">
                   {sorted.map((i) => {
                     const code = itemCode(i);

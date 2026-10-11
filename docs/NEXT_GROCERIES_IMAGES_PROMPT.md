@@ -27,6 +27,20 @@ missing, per supermarket, in `data/groceries/wanted-images/<retailer>.csv` (gtin
 `gtin` = the barcode from the wanted row (digits only), `image_url` = the photo's https URL, `page_url` = the product page you read it from,
 `checked_on` = today (YYYY-MM-DD).
 
+## Also: products in a shop's full list ("Every Sainsbury's product") with no photo
+
+Founder 2026-10-11: "ensure all items have images from their respective grocery chain". The full Sainsbury's list shows the shop's own photo for
+16,473 of 17,036 products; the other 563 had no picture on the category pages they were listed from. `python3 tools/groceries/missing_images.py`
+writes them to `data/groceries/wanted-images/sainsburys-listing.csv` (product_id, name, page_url). Open each `page_url` (the shop's own product
+page), and if the page shows the product's own photo, write a row to `data/groceries/images/sainsburys-listing.csv` with columns exactly
+`product_id,image_url,page_url,checked_on` (the photo's address on `assets.sainsburys-groceries.co.uk/gol/...` as the page serves it; the same
+rules as above: a placeholder or "image coming soon" is not a photo, so write nothing). Then `python3 tools/groceries/build_all_products.py`
+fills them in (it accepts only the shop's own image host and only a page_url that is that product's own page).
+
+Where the lists stand (2026-10-11): Tesco 4,136 of 4,475 catalogue products without a shop photo, Sainsbury's 1,927 of 2,736, Sainsbury's full
+list 563 of 17,036. Tesco photos are hotlinked addresses only (never stored: its image host answers 403 to robots.txt), and Tesco's terms ban
+bots and AI tools, so collecting more Tesco addresses waits on the founder's open Tesco decision (docs/PROGRESS.md, founder to-do).
+
 ## Image hosts
 
 `tools/groceries/build_groceries.py` only accepts photo URLs on a shop's own image host (`IMAGE_HOSTS`): Tesco `digitalcontent.api.tesco.com`,
