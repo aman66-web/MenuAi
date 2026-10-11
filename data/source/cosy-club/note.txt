@@ -1,0 +1,1 @@
+Calories only, as Cosy Club's own menu pages print them (the page hides them until "Hide Calories" is set to No); protein, carbs and fat are not published. Menus differ a little between venues, so a dish is listed only where the venues' pages agree on its calories and allergens. Alcoholic drinks are not listed.

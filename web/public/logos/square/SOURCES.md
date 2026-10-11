@@ -65,6 +65,7 @@ Each chain's own square icon (apple-touch-icon, web-app manifest icon or SVG sit
 | cooplands | installed | apple-touch-icon | https://cooplands-bakery.co.uk/wp-content/uploads/2024/09/cropped-logo-icon-dark-300x300.png | the chain's own apple-touch-icon, declared by its home page https://cooplands-bakery.co.uk/; saved unchanged (scaled down proportionally to 256 px) | 2026-10-11 |
 | cornish-bakehouse | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
 | cornish-bakery | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
+| cosy-club | installed | manifest-icon | https://cosyclub.co.uk/images/favicons/web-app-manifest-512x512.png | the chain's own manifest-icon, declared by its home page https://cosyclub.co.uk/; saved unchanged (scaled down proportionally to 256 px) | 2026-10-11 |
 | cote-brasserie | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
 | creams-cafe | installed | apple-touch-icon | https://storage.googleapis.com/creams-website-media/2022/10/cropped-Creams-Primary-Logo-300x300.png | the chain's own apple-touch-icon, declared by its home page https://www.creamscafe.com/; saved unchanged (scaled down proportionally to 256 px) | 2026-10-11 |
 | daisy-green | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |

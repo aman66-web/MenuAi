@@ -1,0 +1,9 @@
+status: installed
+file: cosy-club.png
+kind: manifest-icon
+opaque: yes
+source_url: https://cosyclub.co.uk/images/favicons/web-app-manifest-512x512.png
+page_url: https://cosyclub.co.uk/
+why: the chain's own manifest-icon, declared by its home page https://cosyclub.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 6705d907403cf092b2ba41a2a544fc02af6aca436033952dca1d2ee33a45c363
+retrieved: 2026-10-11

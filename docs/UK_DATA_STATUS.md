@@ -366,6 +366,21 @@ logo, the same file as the supermarket logo); square icons for Chef & Brewer (C&
 - **Coffee Republic**: its site's TLS certificate has expired, so robots.txt can't be read with verification on (never turned off).
 - **Bannatyne** (about 45 health clubs, calories only on some club menu flyers, ~15 dishes each, figures differing between versions): not started; low value.
 
+## Added 11 October (evening)
+
+Founder: "Keep adding more restaurants". Same rules as the afternoon: official sources only, copied by script, robots.txt (RFC 9309) honoured,
+no alcoholic drinks, sites that disagree published only where 2+ agree; each chain passed `check_chain.py` with 0 errors and 0 high audit flags
+and had an independent second read (`data/audit/verified/<chain>.json`). Triage rows: `data/candidates/triage6/evening.csv`.
+
+| Chain | Items | Level | Sites | Source and rule |
+|---|---|---|---|---|
+| Cosy Club | 215 | calories + allergens | 38 venues (the chain's own location list) | Each venue's own menu record names the Ten Kites page its menu page embeds (`tenkites_menu`); five Autumn/Winter 2026 pages (cosyclubss26, -2602, -2604, -2605, -2606) and Swansea's staging copy of -2604 print every dish with the same calories and allergens (0 conflicts). Calories are hidden behind the page's visible "Hide Calories" switch, as on the Lounge pages (same accepted decision). Not used: Stamford's link (cosyclubaw2503), which still holds last season's Spring/Summer 2026 menu. Left out: Oxford's Sunday Roast menu (1 venue), every alcoholic drink (wine menu, cocktails, spirits, Irish Coffee). Triaged NO-DATA on 8 October (the menus are not in the static page; they are in the venue records). |
+
+Logos: Cosy Club's header lockup (inline SVG, copied verbatim) and its own web-app manifest icon as the square icon.
+
+**Checked and not added this evening:**
+- **The Kebab Shop** (thekebabshop.com, nutrition PDF October 2025): a San Diego chain, no Great Britain sites.
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

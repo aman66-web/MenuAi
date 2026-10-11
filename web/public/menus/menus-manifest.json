@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011114633,
- "generatedAt": "2026-10-11T11:46:33Z",
+ "dataVersion": 20261011144554,
+ "generatedAt": "2026-10-11T14:45:54Z",
  "chains": [
   {
    "id": "abokado",
@@ -717,6 +717,18 @@
    "sample": false,
    "itemCount": 141,
    "checkedOn": "2026-10-09"
+  },
+  {
+   "id": "cosy-club",
+   "name": "Cosy Club",
+   "cuisine": "Cafe bar",
+   "file": "chain-cosy-club.json",
+   "sha256": "e642faf3302c1737ca94b724a5166778286000b38c2fc88fbccccca9f18397f6",
+   "contentHash": "e2bfa1a446047c6b874d24bc9d44632bc315d90e457a791873b0c2bc63ddfcdb",
+   "sample": false,
+   "itemCount": 215,
+   "checkedOn": "2026-10-11",
+   "nutritionLevel": "calories"
   },
   {
    "id": "cote-brasserie",
@@ -2579,6 +2591,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "a3300bc046fe3f50933bf74129077d15ac6db032b29733a360ee3931b328cd07"
+  "sha256": "a24e7003025f6bf37568d8d34ed68d84b4921dd4399e0639884c4095824a70c9"
  }
 }
