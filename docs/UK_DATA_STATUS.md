@@ -310,6 +310,30 @@ source (every agent compared at least 15 items, mostly 20-60, or every row of a 
 - **Set aside, not published** (`data/held-unpublished/`): **Chaophraya** (6 restaurants; the Ten Kites page and the chain's own igfd.menu pages disagree, only 5 of 88 dishes agree).
   **Not extracted:** Chick-fil-A UK (3 GB sites; its allergen sheet prints every nutrient per 100 g only, never converted).
 
+## Added 10-11 October 2026 (overnight push toward 300)
+
+| Chain | Items | Level | Source and rule |
+|---|---|---|---|
+| Pasta Evangelists | 239 | calories + allergens | the chain's own Restaurants chart (Google Sheets PDF export linked from its Allergens page); 14 GB sites; 9 rows held back (allergen cells contradicting the dish, a wine size that disagrees with its other sizes) |
+| Leonardo Hotels | 94 | calories | hotel restaurant menu PDFs linked by 32 of 41 UK hotel pages; image-only menus read by eye and checked with OCR at two resolutions; 48 dishes left out where another of the chain's menus prints a different kcal |
+| Avanti West Coast | 53 | calories | First Class summer 2026 menus (valid to 13 October 2026: re-extract when the autumn menus appear) and the onboard shop menu; ranges and names with different kcal on different menus left out |
+| The Salad Project | 15 | full + allergens | food page and the chain's live guide agree for all 15; the old unlinked May 2026 PDF differs and is not used |
+| Zizzi | 237 | calories | own HTML menus at 127 GB restaurants (robots allowed); a dish is published only where 2+ sites print the same kcal and none differs |
+| ASK Italian | 178 | calories | own HTML menus at 55 restaurants, same rule |
+| Coco di Mama | 185 | calories | own HTML menus at 148 sites; all pasta left out (the page says "Kcals shown are for sauce only") |
+| PizzaExpress | 176 | calories | own menu page (mobile-pay.pizzaexpress.com, no robots rules; the same at the 7 restaurants read); Classic pizzas and Dr Pepper held back (one figure for two sizes), Mac & Cheese held back (two kcal for one dish) |
+| Dishoom | 201 | calories + allergens | own served-app menu (one menu for 13 restaurants); dishes with conflicting figures, half/full figures or no allergen record left out |
+| Fuller's | 155 | full + allergens | Fuller's Ten Kites menus linked from 10 pubs' own websites (fullers.co.uk refuses this environment); published only where name, every figure and allergens are identical at 2+ pubs |
+| Shepherd Neame | 297 | full + allergens | Ten Kites menus linked from 51 of its 277 pubs' websites (the pub list from the chain's own locator); same 2+ pubs rule |
+| Fireaway | 62 | calories | own JS menu read at 8 stores in different regions (identical everywhere); whole 12" pizza at the size shown |
+| Powerleague | 18 | calories | Q2 May 2026 club menu PDF (the same lines in three tier files); 5 clubs' pages list a bar (the minimum) |
+
+Checked and not added tonight: Angus Steakhouse (4 sites; its data host disallows all), Urban Greens (calories hidden by the chain with
+display:none), Coffee Republic (bot challenge), Robinsons (403 again; one pub menu found), Kick Ass Burrito (delivery-only brand with no website
+of its own: founder's call), Brewhouse & Kitchen (its PDF host answers 403 to robots.txt), AirHop (its data host answers 403 to robots.txt),
+TeamSport (PDF disallowed). New discovery (`data/candidates/triage4/`): travel 47 checked (0 usable), leisure 35, restaurants long tail 49, pubs 46,
+menu platforms 23, re-test of 75 blocked chains (20 reachable now).
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

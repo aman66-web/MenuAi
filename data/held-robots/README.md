@@ -15,6 +15,14 @@ downloaded by script from a host that disallows it:
 The standing rule (docs/UK_DATA_PLAYBOOK.md): a robots.txt Disallow stops us and we never work round it. So these chains are not in the
 app (`tools/build_menus.py` reads only `data/source/`). Nothing was changed or deleted: each folder here is exactly what was published.
 
+## Update 2026-10-11: four are back, from their own HTML menus
+
+ASK Italian, Zizzi, Coco di Mama and PizzaExpress are published again, **calories only**, from each chain's own HTML menu pages, which
+robots.txt allows (`tools/uk_extract/zizzi_html.py`, `ask_italian_html.py`, `coco_di_mama_html.py` with the shared reader `azzurri_html.py`, and
+`pizza_express_html.py`). Nothing in this folder and none of the PDFs was used; the old PDF readers moved to `tools/uk_extract/held_pdf/`.
+The folders here stay as the record of what was published from the PDFs (with full nutrition and allergens): a PDF you save from your own
+browser would bring those figures back.
+
 ## To put one back
 
 Either (a) download the chain's official PDF yourself in your browser from the chain's own page (a person is not what robots.txt is
