@@ -405,7 +405,7 @@ def main() -> int:
     items, holdback, report, used = build(args.pages)
     first = TK_PREFIX + "cosyclubss26"
     out = write_chain_folder(
-        chain_id=CHAIN_ID, name="Cosy Club", cuisine="Cafe bar",
+        chain_id=CHAIN_ID, name="Cosy Club", cuisine="Cafe",
         source_title=("Cosy Club menus on Ten Kites linked from each venue's menu page (menus.tenkites.com/loungers/cosyclubss26 and its "
                       "sister pages cosyclubss2602, cosyclubss2604, cosyclubss2605, cosyclubss2606: Autumn/Winter 2026 Breakfast, Lunch, "
                       f"Dinner, Desserts, Kids, Gluten Free, Vegan and drinks menus; read {args.checked_on})"),

@@ -517,7 +517,7 @@ def main() -> int:
         raise SystemExit(f"names not unique: {sorted(n for n in names if names.count(n) > 1)}")
     print("\n".join(report))
     out = write_chain_folder(
-        chain_id=CHAIN_ID, name="Squire's Garden Centres", cuisine="Garden centre cafe",
+        chain_id=CHAIN_ID, name="Squire's Garden Centres", cuisine="Cafe",
         source_title=(f"Squire's Garden Centres café bar menus, Autumn/Winter 2026 (breakfast, lunch, drinks and Little Gardener's PDFs linked "
                       f"from each of the 17 café bar pages on squiresgardencentres.co.uk; read {args.checked_on})"),
         source_url=f"{SITE}/cafe-bars/menus-2/", checked_on=args.checked_on,

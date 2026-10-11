@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011161744,
- "generatedAt": "2026-10-11T16:17:44Z",
+ "dataVersion": 20261011164121,
+ "generatedAt": "2026-10-11T16:41:21Z",
  "chains": [
   {
    "id": "abokado",
@@ -306,10 +306,10 @@
   {
    "id": "blue-diamond",
    "name": "Blue Diamond",
-   "cuisine": "Garden centre cafe",
+   "cuisine": "Cafe",
    "file": "chain-blue-diamond.json",
-   "sha256": "c1b378104abf37bba909f999e8874cd521d59d2182766ac01eac4e66c1fdabef",
-   "contentHash": "28118b4033d0a67bca007ea795bd092730d38c5b93781b0c6783ea497a49be6b",
+   "sha256": "b3a54716705708ca5171b844c3481325eb96373ed6cc8df05ae86bc0d4554cdf",
+   "contentHash": "47e3d26e2a121cfa1b95ffcc1637b0aa53a9fbdaa241a897ae586ec15c50f1d2",
    "sample": false,
    "itemCount": 125,
    "checkedOn": "2026-10-11",
@@ -733,10 +733,10 @@
   {
    "id": "cosy-club",
    "name": "Cosy Club",
-   "cuisine": "Cafe bar",
+   "cuisine": "Cafe",
    "file": "chain-cosy-club.json",
-   "sha256": "e642faf3302c1737ca94b724a5166778286000b38c2fc88fbccccca9f18397f6",
-   "contentHash": "e2bfa1a446047c6b874d24bc9d44632bc315d90e457a791873b0c2bc63ddfcdb",
+   "sha256": "a91650422f6323ba8115217e13835fde967f0a94d1ba1bd2626747d0b791d99f",
+   "contentHash": "6e8bfdd917ca3ba7d643631f33a5b06da6d3758e58f1d46f1c49df7283c6d430",
    "sample": false,
    "itemCount": 215,
    "checkedOn": "2026-10-11",
@@ -2144,10 +2144,10 @@
   {
    "id": "squires-garden-centres",
    "name": "Squire's Garden Centres",
-   "cuisine": "Garden centre cafe",
+   "cuisine": "Cafe",
    "file": "chain-squires-garden-centres.json",
-   "sha256": "94288babbaaae694eb2c8579cc6b48de636aadeb0c66d012870c1df4260f311a",
-   "contentHash": "294478e29385605abe2618618900914a8f29a9445d1bb40c1e66a63b4fbbc0f1",
+   "sha256": "4e64edaae43adf6fca1b112586394e89d0c0926d39fb3ceac8f876299bcb3de9",
+   "contentHash": "a3e028a461cf63546c97cd66bc62c7ab16d3c06842a12886e976f04a32492183",
    "sample": false,
    "itemCount": 169,
    "checkedOn": "2026-10-11",
@@ -2626,6 +2626,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "07986a22c5a330555a3ab98bac75ec407bb7fc283f84ecc0df472eb7c5674d5a"
+  "sha256": "f3237e62b8b908aaac3e8d609d47d149be1fd7c00271b7bdfe34e45327bc1db0"
  }
 }

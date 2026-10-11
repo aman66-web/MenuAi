@@ -298,7 +298,7 @@ def main() -> int:
         i.pop("base_name", None)
         i.pop("page_label", None)
     out = write_chain_folder(
-        chain_id=CHAIN_ID, name="Blue Diamond", cuisine="Garden centre cafe",
+        chain_id=CHAIN_ID, name="Blue Diamond", cuisine="Cafe",
         source_title=(f"Blue Diamond Garden Centres: Our Calorie-Counted Menus (breakfast, lunch, Sunday lunch, drinks and patisserie pages on "
                       f"bluediamond.gg; figures printed on each dish's picture; read {args.checked_on})"),
         source_url=BASE, checked_on=args.checked_on, aliases=["blue diamond", "blue diamond garden centre", "blue diamond restaurant"],

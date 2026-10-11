@@ -398,6 +398,18 @@ theme folder) and its own apple-touch-icon as the square icon.
   browser here; not pursued.
 - **Smashburger UK** (7 GB venues): its ordering app loads the menu and nutrition from its own API, which answers 401 without the app's token:
   stopped (never worked round).
+- **Crêpeaffaire**: crepeaffaire.com answers 403 to robots.txt itself: stopped.
+- **Tank & Paddle** (Stonegate): full nutrition on its Ten Kites page (Main Menu February 2025), but the brand's own site lists only 2 venues
+  (under the 3-site rule).
+- **Waterfields** (36 North West bakeries; for your decision): 22 of its 50 products print a nutrition table, and 6 of those contradict
+  themselves (Lancashire Pastie and Potato & Meat Pie print about 3,300-3,600 kJ against 400-480 kcal; the Small White Tin Loaf prints the
+  large loaf's 1,680 kcal; the Large White Tin Loaf prints sodium 10.4 g against salt 4.16 g; the White Baguette prints one unlabelled
+  column; Pastie Large repeats the Potato & Meat Pie table). Undated (product photos from 2022). About 16 self-consistent rows (pastries,
+  cream cakes, pies, small loaves) could go live as a thin full-nutrition chain if you want it.
+- **No calories on their menus** (menus found and opened): Klondyke/Strikes garden centres (England core menu), Cherry Lane garden centres,
+  Pennells garden centres, Revolución de Cuba (one food PDF for every bar); **no menus or nutrition found**: Hillier (23 restaurant pages,
+  rechecked), Poundbakery, Oakman Inns (its site now runs on Upham Inns', allergens only).
+- **Blocked**: Van Hage (TLS error), Stewarts Garden Centres (proxy 502), Frosts Garden Centres (403).
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
