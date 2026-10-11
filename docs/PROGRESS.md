@@ -955,6 +955,20 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   smoke 23, extra 12, browse 9, calories 4, languages 5, offline 13, a11y 0 violations (incl. the comparison and the opened halal quote), no overflow at 200% text
   (incl. both compare tabs and KFC's page); screenshots in light and dark.
 
+- 2026-10-11 (evening) — **228 chains, 35,978 items live (116 full nutrition, 112 calories only): four more restaurants** (founder: "Keep adding more
+  restaurants"; added by a helper in its own worktree, merged here; details and every chain checked in docs/UK_DATA_STATUS.md "Added 11 October (evening)" and
+  `data/candidates/triage6/evening.csv`). **Cosy Club** (215, calories and allergens, 38 venues, the Ten Kites menus its own venue records name; its calories sit behind
+  a visible "Hide Calories" switch, used as for Loungers), **Pilpel** (18, full nutrition **per ingredient** as its own calculator prints them, 7 London sites; nothing
+  added up, the note says so, and no ingredient is ranked as a meal), **Blue Diamond** (125, calories, about 45 garden centres; figures printed on each dish's picture,
+  read by OCR and checked twice by eye, 48 OCR misreads corrected from the eye check) and **Squire's Garden Centres** (169, calories, 17 café bars; Autumn/Winter 2026
+  menu PDFs, a dish listed only where 2+ café bars print the same figure; based on uncooked ingredients, as its menus say; afternoon tea left out because its figures
+  are for parts of one set). Each passed check_chain with 0 errors and 0 high audit flags and had a second read by another method; logos from each chain's own site
+  (square icons for Cosy Club and Squire's). No alcoholic drinks added. Checked and not added: Walkabout (its Ten Kites page and its own PDFs disagree), M&S Café,
+  Smashburger, Crêpeaffaire, Van Hage, Stewarts, Frosts (blocked), Tank & Paddle (2 venues), Wingstop UK, Deep Blue, Bob & Berts (no calories without picking a store),
+  Klondyke/Strikes, Cherry Lane, Pennells, Revolución de Cuba (no calories printed), Hillier, Poundbakery, Oakman Inns (no menus or nutrition). The reachable pool is
+  close to exhausted. **For you to decide:** Waterfields (36 North West bakeries) prints nutrition for 22 products but 6 contradict themselves; about 16 consistent rows
+  could go live as a thin full-nutrition chain. Checked after the merge: 460 unit, 138 Python.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -990,6 +1004,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] **Supermarket logos: Tesco and Co-op** blocked us; save each from its own site in your browser (`data/chrome-inbox/QUEUE-LOGOS.md`)
 - [ ] **Logos (11 of 220 missing):** Atis, Bettys, Buy & Bite, Costa, Domino's, Fuller's, Honi Poke, Kokoro, McDonald's, Tesco Café, Wild Bean Café (their sites block us, disallow robots, or serve no logo file we may use; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
 - [x] **Decide: Kick Ass Burrito**: publish (2026-10-11), now live.
+- [ ] **Decide: Waterfields** (36 North West bakeries): publish the ~16 products whose own figures agree (6 of its 22 nutrition tables contradict themselves), or leave it out
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
