@@ -6,12 +6,12 @@ import { candidates, drainedSize, fitRecipe, isMeatFree, mealSizes, moreProteinG
 import { mealTargetFor } from "../lib/mm/mealTarget";
 import { pantryForDiet } from "../lib/mm/pantry";
 import { addToList, itemCode, listAsText, listTotals, sanitizeShoppingList, setQty } from "../lib/mm/groceries";
-import { decodeShopProducts, type ShopNutrition, type ShopProduct } from "../lib/mm/shopProducts";
+import { decodeShopProducts, type PricedProduct, type ShopNutrition, type ShopProduct } from "../lib/mm/shopProducts";
 
 const nut = (kcal: number, protein: number, carbs: number, fat: number, per: "g" | "ml" = "g", state = ""): ShopNutrition =>
   ({ kcal, protein, carbs, fat, saturates: null, sugars: null, fibre: null, salt: null, kj: null, per, state }) as ShopNutrition;
 
-const product = (id: string, name: string, price: number, unitPrice: number | null, unit: string, nutrition: ShopNutrition | null): ShopProduct =>
+const product = (id: string, name: string, price: number, unitPrice: number | null, unit: string, nutrition: ShopNutrition | null): PricedProduct =>
   ({ id, name, price, unitPrice, unit, member: null, category: "Food cupboard", photoId: "", gtin: "", nutrition });
 
 const RICE_SPEC: IngredientSpec = { key: "rice", label: "Rice", amount: 150, unit: "g", match: { all: ["rice"], any: ["basmati"], none: ["microwave"], kcal: [320, 400] } };
@@ -55,6 +55,10 @@ describe("matching an ingredient", () => {
     const meat = [product("x", "Graham Crackers Basmati Rice 1kg", 2, 2, "per kg", nut(350, 7, 78, 1))];
     expect(candidates(meat, RICE_SPEC, true).length).toBe(1); // "ham" is not a word in "Graham"
     expect(candidates([product("y", "Basmati Rice with Ham 1kg", 2, 2, "per kg", nut(350, 7, 78, 1))], RICE_SPEC, true)).toEqual([]);
+  });
+  it("never uses a product the shop shows no price for (Lidl's everyday range)", () => {
+    const inStore: ShopProduct = { ...product("n", "Basmati Rice 1kg", 1, null, "", nut(350, 7, 78, 1)), price: null };
+    expect(candidates([inStore, product("p", "Basmati Rice 2kg", 3.5, 1.75, "per kg", nut(350, 7.4, 78, 0.6))], RICE_SPEC).map((c) => c.product.id)).toEqual(["p"]);
   });
   it("uses drained labels for a drained amount, and plain labels only for products sold drained", () => {
     const beans = [

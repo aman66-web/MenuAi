@@ -10,7 +10,8 @@ make up. The shops publish every product page in a sitemap that robots.txt point
 Asda refuses this environment (403), so Asda gets no page addresses: the app links to the shop's own search for the product name instead.
 Fetched with tools/uk_extract/images_common.polite_get (robots.txt honoured, never works round a block). Only ids in the listing are written.
 Aldi answers that client 403 (even for robots.txt), so it is never asked again from here: its sitemap was read once on 2026-10-11 with a plain request
-that its robots.txt allowed, and is passed in with `--from aldi=FILE` (a copy saved from the founder's browser works the same way).
+that its robots.txt allowed, and is passed in with `--from aldi=FILE` (a copy saved from the founder's browser works the same way). Lidl's sitemap as read
+on 2026-10-11 is kept as data/groceries/listing/raw/lidl_product_sitemap.xml (tools/groceries/lidl_range.py reads every product page it lists).
 """
 from __future__ import annotations
 

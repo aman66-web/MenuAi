@@ -1,6 +1,6 @@
 import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind } from "./pantry";
 import { normalizeForSearch } from "./search";
-import type { ShopProduct } from "./shopProducts";
+import { hasPrice, type PricedProduct, type ShopProduct } from "./shopProducts";
 
 export type { IngredientMatch } from "./pantry";
 
@@ -183,7 +183,7 @@ export function packSize(name: string, unit: "g" | "ml"): number | null {
 
 /** The drained weight of a can or carton in grams: printed in its name ("(240g*)", "(102g Drained)" per can, "(4x102g Drained)"),
  *  else the quantity the shop's own price per kg is for (the shop prices canned food by drained weight), else the name's pack weight. */
-export function drainedSize(product: Pick<ShopProduct, "name" | "price" | "unitPrice" | "unit">): number | null {
+export function drainedSize(product: Pick<PricedProduct, "name" | "price" | "unitPrice" | "unit">): number | null {
   const n = product.name.toLowerCase();
   const d = /\((?:(\d+)\s*x\s*)?(\d+(?:\.\d+)?)\s*(kg|g)\s*(?:\*|drained)\s*\)/.exec(n);
   if (d) {
@@ -197,7 +197,7 @@ export function drainedSize(product: Pick<ShopProduct, "name" | "price" | "unitP
 
 export interface IngredientPick {
   spec: IngredientSpec;
-  product: ShopProduct;
+  product: PricedProduct;
   /** Packs to buy for the recipe's amount (1 when the pack size isn't printed in its name). */
   packs: number;
   /** For a product sold one at a time (a pepper, an onion): how many whole ones the recipe uses. */
@@ -215,7 +215,7 @@ export function itemCount(name: string): number {
   return n >= 1 && n <= 48 ? n : 1;
 }
 
-export function pickFor(spec: IngredientSpec, product: ShopProduct): IngredientPick {
+export function pickFor(spec: IngredientSpec, product: PricedProduct): IngredientPick {
   const size = spec.drained ? drainedSize(product) : packSize(product.name, spec.unit);
   const perKgOrLitre = product.unitPrice !== null && (spec.unit === "g" ? product.unit === "per kg" : product.unit === "per litre");
   // Loose produce is priced by the kilo and you buy only what you use.
@@ -240,17 +240,18 @@ export function pickFor(spec: IngredientSpec, product: ShopProduct): IngredientP
 /** Products at the shop that can stand for this ingredient, cheapest basket first (then price per kg/litre, then name). */
 // Which products match a kind depends only on the kind's rules, so it is worked out once per shop list (100 recipes would otherwise scan
 // the whole list hundreds of times).
-const matchCache = new WeakMap<readonly ShopProduct[], Map<string, ShopProduct[]>>();
+const matchCache = new WeakMap<readonly ShopProduct[], Map<string, PricedProduct[]>>();
 
-function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): ShopProduct[] {
+function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): PricedProduct[] {
   let byRule = matchCache.get(products);
   if (!byRule) { byRule = new Map(); matchCache.set(products, byRule); }
   const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree]);
   const cached = byRule.get(rule);
   if (cached) return cached;
   const m = spec.match;
-  const list: ShopProduct[] = [];
+  const list: PricedProduct[] = [];
   for (const p of products) {
+    if (!hasPrice(p)) continue; // a recipe prices every ingredient: a product the shop shows no price for can't be used
     const n = p.nutrition;
     const h = hay(p);
     if (n) {
@@ -288,7 +289,7 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
 export function productFits(products: readonly ShopProduct[], spec: IngredientSpec, product: ShopProduct, meatFree = false): boolean {
-  return matching(products, spec, meatFree).includes(product);
+  return (matching(products, spec, meatFree) as readonly ShopProduct[]).includes(product);
 }
 
 /** Whether a name names this ingredient by its words alone (a product from another shop's list, or words the person typed). With `loose`

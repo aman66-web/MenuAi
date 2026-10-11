@@ -9,7 +9,7 @@ import { normalizeForSearch } from "./search";
  *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
 export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?];
-export type ShopRow = [string, string, number, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
+export type ShopRow = [string, string, number | null, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
 
 export interface ShopFile {
   v: 1;
@@ -32,7 +32,8 @@ export interface ShopFile {
 export interface ShopManifest {
   v: 1;
   /** `nutrition`: how many products have numbers read from their own page (recipes need them; absent = none). */
-  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number }>;
+  /** `priced`: how many show a price (absent = all of them; fewer only for Lidl, whose everyday range has no price online). */
+  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number; priced?: number }>;
 }
 
 /** The shops recipes can use: only those with products whose label we have read (recipes work out every figure from the labels). */
@@ -57,7 +58,8 @@ export interface ShopNutrition {
 export interface ShopProduct {
   id: string;
   name: string;
-  price: number;
+  /** null only where the shop's own page prints no price (Lidl's everyday range: Lidl prices online only its weekly offers). The app says "Price in store". */
+  price: number | null;
   unitPrice: number | null;
   /** "per kg", "per litre", "each". */
   unit: string;
@@ -74,6 +76,10 @@ export interface ShopProduct {
    *  of its exact barcode (founder 2026-10-11; tools/groceries/build_all_products.py fill_photos). `from` is that shop's id, or "off". */
   otherPhoto?: { src: string; from: string };
 }
+
+/** A product with a shelf price: recipes and anything that adds up money use only these. */
+export type PricedProduct = ShopProduct & { price: number };
+export const hasPrice = (p: ShopProduct): p is PricedProduct => p.price !== null;
 
 export function isShopFile(x: unknown): x is ShopFile {
   const f = x as ShopFile;
@@ -128,9 +134,9 @@ export function decodeShopProducts(f: ShopFile): ShopProduct[] {
   for (const r of f.products) {
     if (!Array.isArray(r) || r.length < 10) continue;
     const [id, name, price, unitPrice, unit, member, scheme, cat, photoId, gtin, n, page, other] = r;
-    if (typeof id !== "string" || !ID.test(id) || typeof name !== "string" || typeof price !== "number") continue;
-    const m = typeof member === "number" && scheme !== null && f.schemes[scheme] ? { amount: member, scheme: f.schemes[scheme] } : null;
-    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" ? unitPrice : null, unit: unit || "", member: m, category: f.categories[cat] ?? "Other", photoId: templated(f) ? (safe(photoId, PHOTO_ID) ? photoId : "") : /^\d+$/.test(photoId) ? photoId : "", page: safe(page, PAGE_PATH) ? page : "", gtin: gtin || "", nutrition: decodeNutrition(n), ...(decodeOtherPhoto(other) ? { otherPhoto: decodeOtherPhoto(other) } : {}) });
+    if (typeof id !== "string" || !ID.test(id) || typeof name !== "string" || (price !== null && (typeof price !== "number" || !(price > 0)))) continue;
+    const m = typeof member === "number" && price !== null && scheme !== null && f.schemes[scheme] ? { amount: member, scheme: f.schemes[scheme] } : null;
+    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" && price !== null ? unitPrice : null, unit: unit || "", member: m, category: f.categories[cat] ?? "Other", photoId: templated(f) ? (safe(photoId, PHOTO_ID) ? photoId : "") : /^\d+$/.test(photoId) ? photoId : "", page: safe(page, PAGE_PATH) ? page : "", gtin: gtin || "", nutrition: decodeNutrition(n), ...(decodeOtherPhoto(other) ? { otherPhoto: decodeOtherPhoto(other) } : {}) });
   }
   return out;
 }
@@ -206,8 +212,9 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
   const letter = (p: ShopProduct) => (/^\p{L}/u.test(p.name) ? 0 : 1);
   const name = (a: ShopProduct, b: ShopProduct) => letter(a) - letter(b) || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" });
   const by = f.sort ?? "name";
-  if (by === "price") list.sort((a, b) => a.price - b.price || name(a, b));
-  else if (by === "priceDesc") list.sort((a, b) => b.price - a.price || name(a, b));
+  // products whose price is only in store (Lidl's everyday range) go last either way
+  if (by === "price") list.sort((a, b) => (a.price ?? Number.POSITIVE_INFINITY) - (b.price ?? Number.POSITIVE_INFINITY) || name(a, b));
+  else if (by === "priceDesc") list.sort((a, b) => (b.price ?? Number.NEGATIVE_INFINITY) - (a.price ?? Number.NEGATIVE_INFINITY) || name(a, b));
   else if (by === "unit") list.sort((a, b) => (a.unitPrice ?? Number.POSITIVE_INFINITY) - (b.unitPrice ?? Number.POSITIVE_INFINITY) || name(a, b));
   else if (by === "density" || by === "protein") {
     // products without numbers, and those whose numbers are for the cooked or prepared food, go last: they can't be compared with food as sold, and nothing is guessed for them

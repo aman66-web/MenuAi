@@ -13,7 +13,8 @@ Waitrose, Morrisons, Iceland and M&S too, each the founder's accepted risk again
 says it isn't food or drink (candles, sparklers, flower bouquets, M&S flower gifts) is left out.
 Output per shop (compact, one array per product so 17,000 products stay about 3 MB before compression):
   {"v":1,"retailer","name","checkedOn","pageBase","photoBase","categories":[top-level names],"schemes":[card names],
-   "nutritionCheckedOn","products":[[id, name, price, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
+   "nutritionCheckedOn","products":[[id, name, price|null, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
+`price` is null only for a Lidl product whose own page prints no price (PRICE_IN_STORE: Lidl prices online only its weekly offers; the app says "Price in store").
 `nutrition` is [kcal, protein, carbs, fat, saturates|null, sugars|null, fibre|null, salt|null, kJ|null, "g"|"ml", state] per 100 g/ml, state "" or the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), copied from the product's own page by
 tools/groceries/t2_sainsburys.py (data/groceries/nutrition/<shop>.csv); a "<0.5" row counts as 0 (docs/DATA.md); null when that page has not been read.
 `id` is the shop's own product id (Sainsbury's: its page slug, so the page is pageBase + id). `photoId` is the shop's own picture id: for Sainsbury's the number
@@ -258,9 +259,32 @@ def asda_barcode(photo_id: str) -> bool:
     return photo_id.isdigit() and bg.gtin_ok(photo_id) and not bg.restricted_code(photo_id)
 
 
+# Lidl prints a price on its website only for its weekly offers and special buys; its everyday range has a page with no price (founder 2026-10-11:
+# "Add all, say 'Price in store'"). Rows from MORE_ROWS (tools/groceries/lidl_range.py, Lidl's own product pages) may therefore have no price: the app
+# says "Price in store". Every other shop, and Lidl's own category-page rows, keep "no price printed -> not listed".
+PRICE_IN_STORE = {"lidl"}
+MORE_ROWS = {"lidl": ROOT / "data" / "groceries" / "listing" / "lidl-range.csv"}
+
+
+def listing_rows(path: Path, more: Path | None = None):
+    """(line, row, from_more) for the shop's listing, then the rows of `more` (MORE_ROWS) whose id the listing doesn't have (the listing row wins: it
+    carries the offer and card price)."""
+    seen: set[str] = set()
+    with open(path, newline="", encoding="utf-8") as f:
+        for line, r in enumerate(csv.DictReader(f), start=2):
+            seen.add((r.get("product_id") or "").strip())
+            yield line, r, False
+    if more and more.exists():
+        with open(more, newline="", encoding="utf-8") as f:
+            for line, r in enumerate(csv.DictReader(f), start=2):
+                if (r.get("product_id") or "").strip() not in seen:
+                    yield line, r, True
+
+
 def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict | None = None, nutrition: dict | None = None,
-               pages: dict | None = None, photos: dict | None = None) -> dict | None:
-    path = path or ROOT / "data" / "groceries" / "listing" / f"{shop}.csv"
+               pages: dict | None = None, photos: dict | None = None, more: Path | None = None) -> dict | None:
+    if path is None:
+        path, more = ROOT / "data" / "groceries" / "listing" / f"{shop}.csv", more or MORE_ROWS.get(shop)
     if not path.exists():
         return None
     gt = gtins if gtins is not None else gtins_by_slug(shop)
@@ -272,49 +296,55 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
     days = set()
     extra_photos = photos if photos is not None else read_listing_photos(shop, problems)
     pages = pages if pages is not None else read_pages(shop, problems)
-    with open(path, newline="", encoding="utf-8") as f:
-        for line, r in enumerate(csv.DictReader(f), start=2):
-            pid, name = (r.get("product_id") or "").strip(), " ".join((r.get("name") or "").split())
-            if not SLUG.fullmatch(pid) or len(name) < 2 or name == "?":
-                problems.append(f"{shop} line {line}: bad id or name ({pid!r})")
-                continue
-            price, unit_price = num(r.get("price_gbp")), num(r.get("unit_price_gbp"))
-            if price is None or price <= 0:
-                continue  # no price printed (out of stock or a placeholder): not listed
-            member = num(r.get("member_price_gbp"))
-            scheme = (r.get("member_scheme") or "").strip()
-            if member is not None and (member >= price or not scheme):
-                member = None  # a card price counts only when it is lower and named
-            if not_food(name) or (shop in NOT_FOOD_IDS and NOT_FOOD_IDS[shop].search(pid)) or name.strip().lower() in ADVERT:
-                continue  # groceries only, and no advert tiles
-            if is_alcohol(name, r.get("category_path") or ""):
-                continue  # no alcoholic drinks (founder 2026-10-11)
-            cat = category_for(shop, (r.get("category_path") or "").split(" | "))
-            if cat is None:
-                continue
-            if cat not in cats:
-                cats.append(cat)
-            if member is not None and scheme not in schemes:
-                schemes.append(scheme)
-            photo_re = SHOPS[shop]["photo"]
-            photo = photo_re.search(r.get("image_url") or "") or photo_re.search(extra_photos.get(pid, ""))
-            days.add((r.get("checked_on") or "").strip())
-            n = nut.get(pid) or nut.get(pid.lower())
-            if n:
-                nut_days.add(n[1])
-            gtin = gt.get(pid.lower(), "")
-            if not gtin and shop == "asda" and photo and asda_barcode(photo.group(1)):
-                gtin = photo.group(1)  # Asda names its product pictures by barcode: the app links it to the full product page where the catalogue has it
-            if not gtin:
-                gtin = barcode_by_name(name)  # founder 2026-10-11: the same branded name and pack size as a barcoded product at another shop
-            row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
-                   member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gtin,
-                   n[0] if n else None]
-            if pid in pages:
-                row.append(pages[pid])
-            elif SHOPS[shop].get("pagePath"):
-                row.append(SHOPS[shop]["pagePath"].format(id=pid))
-            products.append(row)
+    for line, r, from_more in listing_rows(path, more):
+        pid, name = (r.get("product_id") or "").strip(), " ".join((r.get("name") or "").split())
+        if not SLUG.fullmatch(pid) or len(name) < 2 or name == "?":
+            problems.append(f"{shop} line {line}: bad id or name ({pid!r})")
+            continue
+        price, unit_price = num(r.get("price_gbp")), num(r.get("unit_price_gbp"))
+        if price is not None and price <= 0:
+            price = None
+        if price is None and not (from_more and shop in PRICE_IN_STORE):
+            continue  # no price printed (out of stock or a placeholder): not listed
+        if from_more and pid not in pages:
+            url = (r.get("page_url") or "").strip()
+            rest = url[len(SHOPS[shop]["pageBase"]):] if url.startswith(SHOPS[shop]["pageBase"]) else ""
+            if PAGE_PATH.fullmatch(rest) and ".." not in rest and rest.endswith("/" + pid):
+                pages[pid] = rest
+        member = num(r.get("member_price_gbp"))
+        scheme = (r.get("member_scheme") or "").strip()
+        if member is not None and (price is None or member >= price or not scheme):
+            member = None  # a card price counts only when it is lower and named
+        if not_food(name) or (shop in NOT_FOOD_IDS and NOT_FOOD_IDS[shop].search(pid)) or name.strip().lower() in ADVERT:
+            continue  # groceries only, and no advert tiles
+        if is_alcohol(name, r.get("category_path") or ""):
+            continue  # no alcoholic drinks (founder 2026-10-11)
+        cat = category_for(shop, (r.get("category_path") or "").split(" | "))
+        if cat is None:
+            continue
+        if cat not in cats:
+            cats.append(cat)
+        if member is not None and scheme not in schemes:
+            schemes.append(scheme)
+        photo_re = SHOPS[shop]["photo"]
+        photo = photo_re.search(r.get("image_url") or "") or photo_re.search(extra_photos.get(pid, ""))
+        days.add((r.get("checked_on") or "").strip())
+        n = nut.get(pid) or nut.get(pid.lower())
+        if n:
+            nut_days.add(n[1])
+        gtin = gt.get(pid.lower(), "")
+        if not gtin and shop == "asda" and photo and asda_barcode(photo.group(1)):
+            gtin = photo.group(1)  # Asda names its product pictures by barcode: the app links it to the full product page where the catalogue has it
+        if not gtin:
+            gtin = barcode_by_name(name)  # founder 2026-10-11: the same branded name and pack size as a barcoded product at another shop
+        row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
+               member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gtin,
+               n[0] if n else None]
+        if pid in pages:
+            row.append(pages[pid])
+        elif SHOPS[shop].get("pagePath"):
+            row.append(SHOPS[shop]["pagePath"].format(id=pid))
+        products.append(row)
     days.discard("")
     cfg = SHOPS[shop]
     head = {"v": 1, "retailer": shop, "name": cfg["name"], "checkedOn": min(days) if days else "", "pageBase": cfg["pageBase"], "photoBase": cfg["photoBase"]}
@@ -432,9 +462,10 @@ def main() -> int:
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
         (OUT / f"{shop}.json").write_text(text)
         with_nutrition = sum(1 for p in doc["products"] if p[10])
+        priced = sum(1 for p in doc["products"] if p[2] is not None)
         manifest["retailers"].append({"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
-                                      "nutrition": with_nutrition, "sha256": hashlib.sha256(text.encode()).hexdigest()})
-        print(f"{shop}: {len(doc['products'])} products, {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
+                                      "nutrition": with_nutrition, "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()})
+        print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
               f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition, {len(doc['categories'])} categories")
     (OUT / "all-manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:

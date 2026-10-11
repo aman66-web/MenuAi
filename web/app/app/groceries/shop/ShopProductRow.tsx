@@ -17,7 +17,7 @@ export function ShopProductRow({ file, product }: { file: ShopFile; product: Sho
       <span className="min-w-[9rem] flex-1">
         <span className="block text-[15px] font-bold leading-snug tracking-tight">{product.name}</span>
         <span className="app-numbers mt-0.5 block text-sm">
-          <span className="font-semibold text-accent">{formatPrice(product.price)}</span>
+          {product.price !== null ? <span className="font-semibold text-accent">{formatPrice(product.price)}</span> : <span className="font-semibold">{t("Price in store")}</span>}
           {product.unitPrice !== null && product.unit && <span className="text-muted"> · {formatPrice(product.unitPrice)} {product.unit}</span>}
         </span>
         {product.member && <span className="app-numbers block text-sm text-muted">{t("{price} with {scheme}", { price: formatPrice(product.member.amount), scheme: product.member.scheme.replace(/ price$/i, "") })}</span>}

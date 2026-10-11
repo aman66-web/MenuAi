@@ -66,10 +66,17 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         <h1 className="text-[1.7rem] font-extrabold leading-[1.1] tracking-tight">{product.name}</h1>
         <p className="mt-1 text-sm text-muted">{product.category}</p>
         {foodDietProblem({ name: product.name, category: product.category }, prefs) && <p className="mt-3 flex items-start gap-2 rounded-2xl bg-soft px-3 py-2 text-sm"><InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-muted" />{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p>}
-        <p className="app-numbers mt-5">
-          <span className="sun-text text-5xl font-extrabold leading-none tracking-tighter">{formatPrice(product.price)}</span>
-          {product.unitPrice !== null && product.unit && <span className="ms-2 text-muted">{formatPrice(product.unitPrice)} {product.unit}</span>}
-        </p>
+        {product.price !== null ? (
+          <p className="app-numbers mt-5">
+            <span className="sun-text text-5xl font-extrabold leading-none tracking-tighter">{formatPrice(product.price)}</span>
+            {product.unitPrice !== null && product.unit && <span className="ms-2 text-muted">{formatPrice(product.unitPrice)} {product.unit}</span>}
+          </p>
+        ) : (
+          <>
+            <p className="mt-5 text-3xl font-extrabold leading-tight tracking-tight">{t("Price in store")}</p>
+            <p className="mt-2 text-base">{t("{shop} shows prices on its website only for its weekly offers. Check this product's price in store.", { shop: file.name })}</p>
+          </>
+        )}
         {product.member && (
           <p className="app-numbers mt-2 text-base">
             <span className="font-extrabold text-accent">{formatPrice(product.member.amount)}</span> <span className="font-semibold">{t("with {scheme}", { scheme: product.member.scheme.replace(/ price$/i, "") })}</span>
@@ -80,7 +87,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       </div>
 
       <div className="mt-3">
-        <Button full onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price, checkedOn: file.checkedOn })); setAdded(t("Added to your {shop} list.", { shop: file.name })); }}>
+        <Button full onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price ?? undefined, checkedOn: file.checkedOn })); setAdded(t("Added to your {shop} list.", { shop: file.name })); }}>
           <BasketIcon className="h-5 w-5" />{t("Add to my list")}
         </Button>
         <p role="status" aria-live="polite" className="mt-2 min-h-5 text-center text-sm font-medium text-accent">{added && <>{added} <Link href="/app/groceries/list" className="underline underline-offset-2">{t("See list")}</Link></>}</p>

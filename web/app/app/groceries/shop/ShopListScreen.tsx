@@ -76,6 +76,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
   }, [products, deferred, category, card, nutrition, sort, diet, unsuited]);
   const hasCard = useMemo(() => products.some((p) => p.member), [products]);
   const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
+  const pricedCount = useMemo(() => products.reduce((n, p) => n + (p.price !== null ? 1 : 0), 0), [products]);
   const reset = () => setShown(PAGE);
   const back = (<Link href="/app/groceries" aria-label={t("Back to groceries")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
 
@@ -91,7 +92,9 @@ export function ShopListScreen({ shop }: { shop: string }) {
         <h1 className="text-[2rem] font-extrabold leading-[1.05] tracking-tight [overflow-wrap:anywhere]">{file.name}</h1>
       </div>
       <p className="app-numbers mt-2 text-base text-muted">
-        {t("{n} products, with the prices {shop} showed on {date}.", { n: products.length.toLocaleString("en-GB"), shop: file.name, date: formatDate(file.checkedOn, t) })}{" "}
+        {pricedCount === products.length
+          ? t("{n} products, with the prices {shop} showed on {date}.", { n: products.length.toLocaleString("en-GB"), shop: file.name, date: formatDate(file.checkedOn, t) })
+          : `${t("{n} products from {shopPossessive} website, checked {date}.", { n: products.length.toLocaleString("en-GB"), shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} ${t("{count} show a price. {shop} shows the others' prices only in store.", { count: pricedCount.toLocaleString("en-GB"), shop: file.name })}`}{" "}
         {nutritionCount > 0 ? t("{count} of them show calories and protein.", { count: nutritionCount.toLocaleString("en-GB") }) : t("Calories and protein aren't shown for these yet.")}
       </p>
 

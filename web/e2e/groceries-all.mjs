@@ -149,6 +149,42 @@ await step("another shop's list (founder 2026-10-11): its own photo template, it
   await ctx.close();
 });
 
+await step("Lidl's everyday range (founder 2026-10-11): a product Lidl prints no price for says \"Price in store\", never a made-up price", async () => {
+  const img = "mn0YeAqoX/sm:0/w:1500/h:1125/cz/M6Ly9w.jpg";
+  const lidl = { v: 1, retailer: "lidl", name: "Lidl", checkedOn: "2026-10-11", pageBase: "https://www.lidl.co.uk/p/", photoBase: "https://imgproxy-retcat.assets.schwarz/",
+    photoTemplate: "https://imgproxy-retcat.assets.schwarz/{photo}", categories: ["Frozen", "Food Cupboard"], schemes: ["Lidl Plus"],
+    products: [
+      ["p10003405", "Spinach", null, null, "", null, null, 0, img, "", null, "spinach/p10003405"],
+      ["p10052648", "KULJANKA Vegetable Salad", 1.49, 3.47, "per kg", 1.29, 0, 1, img, "", null, "kuljanka-vegetable-salad/p10052648"],
+      ["p10054828", "BELBAKE Mincemeat", 2.99, null, "", null, null, 1, img, "", null, "belbake-mincemeat/p10054828"],
+    ] };
+  const two = { v: 1, retailers: [allManifest.retailers[0], { id: "lidl", name: "Lidl", file: "lidl.json", count: 3, priced: 2, checkedOn: "2026-10-11", sha256: "" }] };
+  for (const scheme of ["light", "dark"]) {
+    const { ctx, page } = await newPage();
+    await page.emulateMedia({ colorScheme: scheme });
+    await page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(two) }));
+    await page.route("**/groceries/all/lidl.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(lidl) }));
+    await page.route("**/imgproxy-retcat.assets.schwarz/**", (r) => r.fulfill({ contentType: "image/png", body: PNG }));
+    await page.goto(BASE + "/app/groceries/shop?r=lidl");
+    await page.getByRole("heading", { level: 1, name: "Lidl" }).waitFor();
+    await page.getByText(/3 products from Lidl's website, checked .*2 show a price\. Lidl shows the others' prices only in store\./).waitFor();
+    expect(await page.getByRole("link", { name: /Spinach.*Price in store/ }).isVisible(), "the row says Price in store");
+    expect(await page.getByRole("link", { name: /Vegetable Salad.*£1\.49/ }).isVisible(), "an offer keeps its printed price");
+    await page.getByLabel("Sort").selectOption({ label: "Price, lowest first" });
+    const names = await page.locator("a[href*='/app/groceries/shop/item']").allInnerTexts();
+    expect(/Spinach/.test(names[names.length - 1] ?? ""), `no price sorts last, got ${names.map((n) => n.split("\n")[0])}`);
+    await page.getByRole("link", { name: /Spinach/ }).click();
+    await page.getByRole("heading", { level: 1, name: "Spinach" }).waitFor();
+    await page.getByText("Lidl shows prices on its website only for its weekly offers. Check this product's price in store.").waitFor();
+    expect((await page.getByText(/£/).count()) === 0, "no price shown anywhere on the page");
+    expect((await page.getByRole("link", { name: /Open it on Lidl's website/ }).getAttribute("href")) === "https://www.lidl.co.uk/p/spinach/p10003405", "Lidl's own page");
+    await page.addScriptTag({ path: AXE });
+    const result = await page.evaluate(async () => await axe.run(document, { resultTypes: ["violations"] }));
+    expect(result.violations.length === 0, `${scheme}: ${result.violations.map((v) => `${v.id} (${v.nodes[0]?.target})`).join(", ")}`);
+    await ctx.close();
+  }
+});
+
 await step("accessibility: the full list and a product with nutrition have no axe violations in light and dark", async () => {
   for (const scheme of ["light", "dark"]) {
     for (const path of ["/app/groceries/shop?r=sainsburys", "/app/groceries/shop/item?r=sainsburys&id=sainsburys-multiseed-loaf-800g"]) {

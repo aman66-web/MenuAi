@@ -54,6 +54,15 @@ describe("every-product lists", () => {
     const ps = decodeShopProducts({ ...file, products: [row("a-1", "-196 Lemon Shochu 330ml"), row("b-1", "1000 Stories Bourbon 75cl"), row("c-1", "apple Juice 1l"), row("d-1", "Banana Bread 400g")] });
     expect(searchShopProducts(ps, { sort: "name" }).map((p) => p.id)).toEqual(["c-1", "d-1", "a-1", "b-1"]);
   });
+  it("keeps a product whose price is only in store (Lidl's everyday range), with no unit or card price, and sorts it last by price", () => {
+    const row = (id: string, price: number | null, member: number | null = null) => [id, `Item ${id}`, price, 2, "per kg", member, member === null ? null : 0, 0, "", ""] as ShopFile["products"][number];
+    const ps = decodeShopProducts({ ...file, products: [row("a-1", null, 0.5), row("b-1", 1.5), row("c-1", 0.8), row("d-1", -1 as never), row("e-1", "1" as never)] });
+    expect(ps.map((p) => p.id)).toEqual(["a-1", "b-1", "c-1"]); // a negative or non-number price is a malformed row
+    expect(ps[0]).toMatchObject({ price: null, unitPrice: null, member: null });
+    expect(searchShopProducts(ps, { sort: "price" }).map((p) => p.id)).toEqual(["c-1", "b-1", "a-1"]);
+    expect(searchShopProducts(ps, { sort: "priceDesc" }).map((p) => p.id)).toEqual(["b-1", "c-1", "a-1"]);
+    expect(searchShopProducts(ps, { sort: "unit" }).map((p) => p.id)).toEqual(["b-1", "c-1", "a-1"]);
+  });
   it("writes a possessive without doubling the s", () => {
     expect(possessive("Sainsbury's")).toBe("Sainsbury's");
     expect(possessive("Tesco")).toBe("Tesco's");

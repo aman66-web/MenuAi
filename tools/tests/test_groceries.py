@@ -486,6 +486,49 @@ class OtherShopListTests(unittest.TestCase):
         self.assertEqual(lp.og_image(page), "https://imgproxy-retcat.assets.schwarz/Dq/sm:0/w:1500/cz/M6Ly9w.jpg")
         self.assertEqual(lp.og_image('<meta property="og:image" content="https://evil.example.com/x.jpg">'), "")
 
+    def test_lidl_everyday_range_without_a_price(self):
+        """Lidl's own product pages (lidl_range.py): a product its page prints no price for is listed as "Price in store", for Lidl only."""
+        head = "product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on"
+        img = "https://imgproxy-retcat.assets.schwarz/mn0Ye/sm:0/w:1500/cz/M6Ly9w.jpg"
+        with tempfile.TemporaryDirectory() as d:
+            listing, more = Path(d) / "lidl.csv", Path(d) / "lidl-range.csv"
+            listing.write_text(head + "\np10052648,KULJANKA Vegetable Salad,1.49,3.47,per kg,1.29,Lidl Plus,Food & Drink / Food Cupboard,,,2026-10-08\n")
+            more.write_text(head + ",availability\n"
+                            "p10052648,KULJANKA Vegetable Salad,1.59,,,,,Food & Drink / Food Cupboard,https://www.lidl.co.uk/p/kuljanka/p10052648,,2026-10-11,Available in store now\n"
+                            f"p10003405,Spinach,,,,,,Food & Drink / Frozen,https://www.lidl.co.uk/p/spinach/p10003405,{img},2026-10-11,Available in store now\n"
+                            "p10000001,Odd page,,,,,,Food & Drink / Bakery,https://evil.example.com/p/x/p10000001,,2026-10-11,Available in store now\n")
+            problems: list = []
+            doc = bap.build_shop("lidl", problems, path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more)
+            asda = bap.build_shop("asda", problems, path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more)
+        rows = {r[0]: r for r in doc["products"]}
+        self.assertEqual(sorted(rows), ["p10000001", "p10003405", "p10052648"])
+        self.assertEqual(rows["p10052648"][2], 1.49)                 # the category page's row wins (offer and Lidl Plus price)
+        self.assertEqual(rows["p10052648"][5], 1.29)
+        spinach = rows["p10003405"]
+        self.assertEqual((spinach[2], spinach[3], spinach[5]), (None, None, None))   # no price printed: nothing estimated
+        self.assertEqual((spinach[8], spinach[11]), (img[len("https://imgproxy-retcat.assets.schwarz/"):], "spinach/p10003405"))
+        self.assertEqual(doc["categories"][spinach[7]], "Frozen")
+        self.assertEqual(len(rows["p10000001"]), 11)                # a page address that isn't Lidl's own is not used
+        self.assertNotIn("p10003405", [r[0] for r in asda["products"]])   # every other shop: no price printed -> not listed
+
+    def test_lidl_page_reader(self):
+        import lidl_range as lr
+        offer = '"offers":[{"@type":"Offer",{price}"priceCurrency":"GBP","itemCondition":"NewCondition","availability":"InStoreOnly"}]'
+        page = ('<meta property="og:title" content="Spinach - Lidl">'
+                '"categoryPrimary":"Food","wonCategoryPrimary":"Worlds of need/Food and near food/Frozen food (Frozen food)/Frozen Fruit &amp; Vegetables"'
+                '<h1 class="heading__title" data-qa-label="keyfacts-title" data-v-1>Spinach </h1>' + offer.replace("{price}", "") +
+                '{"text":90,"type":91},"Available in store now","IN_STORE_TODAY_DATE_RANGE",'
+                '<meta property="og:image" content="https://imgproxy-retcat.assets.schwarz/mn0Ye/sm:0/w:1500/cz/M6Ly9w.jpg">')
+        r = lr.parse("https://www.lidl.co.uk/p/spinach/p10003405", "p10003405", page)
+        self.assertEqual((r["name"], r["category"], r["price"], r["availability"]), ("Spinach", "Food", "", "Available in store now"))
+        self.assertEqual(lr.aisle_of(r["won"]), "Frozen")
+        self.assertTrue(lr.on_sale(r))
+        priced = lr.parse("u", "p1", page.replace(offer.replace("{price}", ""), offer.replace("{price}", '"price":1.49,')))
+        self.assertEqual(priced["price"], "1.49")
+        self.assertIsNone(lr.aisle_of("Worlds of need/Pet supplies/Dog food"))
+        self.assertFalse(lr.on_sale({"availability": ""}))
+        self.assertTrue(lr.on_sale({"availability": "In store from 15.10"}))
+
 
 class MoreShopListTests(unittest.TestCase):
     """Tesco, Waitrose, Morrisons, Iceland and M&S lists (founder 2026-10-11: "all the grocery stores, all the items ... only groceries")."""
