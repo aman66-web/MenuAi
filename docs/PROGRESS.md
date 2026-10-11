@@ -853,6 +853,20 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   recipes 13 (new: sizes hidden until Adjust), languages 5, groceries 6, groceries-all 6, compare 8, photos 4, diet 5, share, offline 13, a11y 0 violations,
   no horizontal overflow at 100/150/200% text; screenshots in light, dark and extra-large text, and the tab bar in Spanish and Italian.
 
+- 2026-10-11 — **Home has two tiles: "Shopping list" and "My meals" (founder's sketch on the Home screenshot: "there needs to be one of them ... my meals
+  ... two tabs ... your recipes ... your favourite restaurant meals ... very dead simple page"; "the My Diet one, there's no need for it").** "My groceries"
+  is now **Shopping list** (tile and page title). **My meals** (`/app/meals`, line "Your favourite meals", count of saved recipes and restaurant meals) is one
+  page with two big tabs, **Recipes** (recipes saved from our book and the ones Pip made) and **Restaurant meals** (saved orders, then favourite
+  restaurants); the tab is kept in the address (`?tab=restaurant`), saving an order from the builder opens that tab, and with no recipes saved but some
+  restaurant meals it opens on Restaurant meals. The old addresses `/app/saved` and `/app/recipes/saved` forward to the matching tab (bookmarks and
+  installed copies keep working; the service worker precaches `/app/meals`). The **My diet** tile is gone (diet stays in Settings › Diet and allergies and
+  on every restaurant page's "Your diet … Change" line). The recipe button now reads "Save to My meals" and the Recipes tab's pill "My meals". Nothing about
+  the data changed. New copy (rule 8, logged here; translated into the 10 languages by AI): "My meals", "Restaurant meals", "Your favourite meals",
+  "Save to My meals", "Saved to My meals", "Open any recipe and tap “Save to My meals”. It will be here next time.", "Back to shopping list"; no longer
+  used: "My groceries", "My saved meals", "My recipes", "My diet" and their tile lines. Checked: 446 unit tests, tsc, lint, e2e smoke 23 (new: only the
+  two tiles), recipes 13 (new: the tile opens My meals, tabs switch, both old addresses forward), extra 11, languages 5, a11y 0 violations, offline 13,
+  no overflow at 200% text; screenshots of Home and both tabs in light, dark and extra-large text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

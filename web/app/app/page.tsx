@@ -5,19 +5,19 @@ import { loggedToday, remainingToday } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { localeInfo } from "@/lib/mm/i18n";
-import { favoritesStore, logStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
-import { dietWords } from "./_components/DietPicker";
+import { logStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { useGate } from "./_components/Paywall";
 import { Ring } from "./_components/Ring";
-import { ArrowRightIcon, BookmarkIcon, LeafIcon, ListIcon, PencilIcon, PotIcon } from "./_components/icons";
+import { ArrowRightIcon, BookmarkIcon, ListIcon, PencilIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
 import { useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
 import { Rich } from "./_lib/Rich";
 
 // Home is today (founder 2026-10-10: "the Home Screen will be the today screen where at the top it will have today's macros, then below that
-// ... 4 tabs"): the day's numbers first, then four big tiles for the person's own things. Eating out, groceries and recipes have their own
-// tabs. Logging meals is Pro (SPEC §7.8), so a free user sees their targets here with a way to see Pro; nothing about the gating changed.
+// ... 4 tabs"): the day's numbers first, then the person's own things. Founder 2026-10-11: just two big tiles, "Shopping list" and "My meals"
+// (saved recipes and saved restaurant meals together, on one page with two tabs); diet lives in Settings. Eating out, groceries and recipes
+// have their own tabs. Logging meals is Pro (SPEC §7.8), so a free user sees their targets here with a way to see Pro; nothing about the gating changed.
 
 function HomeTile({ href, Icon, title, line, badge }: { href: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode; title: string; line: string; badge?: number }) {
   return (
@@ -27,8 +27,8 @@ function HomeTile({ href, Icon, title, line, badge }: { href: string; Icon: (p: 
         {badge ? <span aria-hidden className="app-numbers rounded-full bg-accent-soft px-2.5 py-1 text-sm font-extrabold text-accent">{badge}</span> : null}
       </span>
       <span>
-        <span className="block text-[17px] font-extrabold leading-snug tracking-tight">{title}</span>
-        <span className="mt-0.5 block text-sm leading-snug text-muted">{line}</span>
+        <span className="block text-lg font-extrabold leading-snug tracking-tight">{title}</span>
+        <span className="mt-0.5 block text-base leading-snug text-muted">{line}</span>
       </span>
     </Link>
   );
@@ -45,7 +45,6 @@ export default function HomePage() {
   const log = useStore(logStore);
   const shopping = useStore(shoppingStore);
   const saved = useStore(savedStore);
-  const favorites = useStore(favoritesStore);
   const savedRecipes = useStore(savedRecipesStore);
   const pipRecipes = useStore(myRecipesStore);
   const now = useNow();
@@ -60,16 +59,11 @@ export default function HomePage() {
 
   const toBuy = shopping.filter((i) => !i.done).length;
   const groceriesLine = shopping.length === 0 ? t("Your shopping list") : toBuy === 0 ? t("All picked up") : toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy });
-  const meals = saved.length + favorites.length;
-  const mealsLine = saved.length > 0 ? (saved.length === 1 ? t("1 saved meal") : t("{n} saved meals", { n: saved.length })) : favorites.length > 0 ? (favorites.length === 1 ? t("1 favourite restaurant") : t("{n} favourite restaurants", { n: favorites.length })) : t("Restaurant meals you save");
-  const recipeCount = savedRecipes.length + pipRecipes.length;
-  const recipesLine = recipeCount === 0 ? t("Recipes you save") : recipeCount === 1 ? t("1 saved recipe") : t("{n} saved recipes", { n: recipeCount });
-  const diet = dietWords(t, settings.preferences);
-  const dietLine = diet.length ? diet.slice(0, 3).join(" · ") + (diet.length > 3 ? " …" : "") : t("Nothing left out");
+  const meals = saved.length + savedRecipes.length + pipRecipes.length;
 
   return (
     <div>
-      <p className="text-sm font-semibold text-muted">{date}</p>
+      <p className="text-base font-semibold text-muted">{date}</p>
       <h1 className="mt-0.5 text-[2.75rem] font-extrabold leading-[1.0] tracking-[-0.035em]">{t("Today")}</h1>
 
       {SAMPLES_ENABLED && menu.chains.some((c) => c.sample) && (
@@ -95,7 +89,7 @@ export default function HomePage() {
                 )}
               </div>
             </div>
-            <p className="mt-4 text-xs font-bold uppercase tracking-[0.12em] text-muted">{t("Eaten so far")}</p>
+            <p className="mt-4 text-sm font-bold text-muted">{t("Eaten so far")}</p>
             <dl className="mt-1.5 grid grid-cols-2 gap-2 text-center">
               {[
                 { label: "kcal", value: formatInt(eaten.calories) },
@@ -104,7 +98,7 @@ export default function HomePage() {
                 { label: t("fat"), value: formatGrams(eaten.fat) },
               ].map((x) => (
                 <div key={x.label} className="inset-card flex flex-col-reverse rounded-2xl px-2 py-2">
-                  <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-muted">{x.label}</dt>
+                  <dt className="text-sm font-bold text-muted">{x.label}</dt>
                   <dd className="text-lg font-extrabold leading-tight">{x.value}</dd>
                 </div>
               ))}
@@ -152,10 +146,8 @@ export default function HomePage() {
 
       <h2 className="sr-only">{t("Your things")}</h2>
       <div className="stagger mt-5 grid grid-cols-2 gap-3">
-        <HomeTile href="/app/groceries/list" Icon={ListIcon} title={t("My groceries")} line={groceriesLine} badge={toBuy} />
-        <HomeTile href="/app/saved" Icon={BookmarkIcon} title={t("My saved meals")} line={mealsLine} badge={meals} />
-        <HomeTile href="/app/recipes/saved" Icon={PotIcon} title={t("My recipes")} line={recipesLine} badge={recipeCount} />
-        <HomeTile href="/app/settings#diet" Icon={LeafIcon} title={t("My diet")} line={dietLine} />
+        <HomeTile href="/app/groceries/list" Icon={ListIcon} title={t("Shopping list")} line={groceriesLine} badge={toBuy} />
+        <HomeTile href="/app/meals" Icon={BookmarkIcon} title={t("My meals")} line={t("Your favourite meals")} badge={meals} />
       </div>
     </div>
   );

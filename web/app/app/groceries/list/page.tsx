@@ -14,7 +14,7 @@ import { usePossessive, useT } from "../../_lib/i18n";
 import { addMissing, useListRecipes } from "../../_lib/listRecipes";
 import { Rich } from "../../_lib/Rich";
 
-// "My groceries" (founder 2026-10-10): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
+// "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
 // recipes; tick things off as they go in the basket. At the top: the recipes this list can make, and what one of them still needs. Share or
 // copy it as text. Shelf prices are noted when products are added (a guide: never kept up to date).
 export default function ShoppingListPage() {
@@ -51,7 +51,7 @@ export default function ShoppingListPage() {
   return (
     <div>
       <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-      <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("My {groceries}")} values={{ groceries: <span className="serif-em sun-text pe-0.5">{t("groceries")}</span> }} /></h1>
+      <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight">{t("Shopping list")}</h1>
       <p className="mt-1 text-[15px] text-muted">{t("Your shopping list. Tick things off as they go in your basket.")}</p>
 
       <form onSubmit={addTyped} className="mt-4 flex gap-2">

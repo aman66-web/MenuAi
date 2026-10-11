@@ -67,11 +67,12 @@ await step("onboarding: welcome → goal → targets → preferences → shops �
   await page.getByRole("button", { name: "Start" }).click();
   await page.waitForURL(/\/app\/?$/);
 });
-await step("home is today: targets, the four tiles and the sample banner", async () => {
+await step("home is today: targets, the two tiles and the sample banner", async () => {
   await visible(page.getByRole("heading", { level: 1, name: "Today" }));
   await visible(text("Your daily targets"));
   await visible(text("2,400 kcal"));
-  for (const name of [/My groceries/, /My saved meals/, /My recipes/, /My diet/]) await visible(page.getByRole("link", { name }));
+  for (const name of [/Shopping list/, /My meals/]) await visible(page.getByRole("link", { name }));
+  for (const name of [/My groceries/, /My saved meals/, /My recipes/, /My diet/]) if (await page.getByRole("link", { name }).count()) throw new Error(`old tile still on Home: ${name}`);
   await visible(text("fictional sample data"));
   await shot("04-home");
 });
@@ -197,9 +198,10 @@ await step("builder: Add ingredient, Add item and quantity", async () => {
   await visible(page.getByRole("group", { name: /Order total: 760 kcal/ }));
   await shot("11-builder-two-lines");
 });
-await step("Save → My saved meals lists it; Log → today's meals shows it", async () => {
+await step("Save → My meals › Restaurant meals lists it; Log → today's meals shows it", async () => {
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await page.waitForURL("**/app/saved");
+  await page.waitForURL("**/app/meals?tab=restaurant");
+  await visible(page.getByRole("tab", { name: /Restaurant meals/, selected: true }));
   await visible(text("2 × Agua fresca"));
   await visible(text("760 kcal"));
   await shot("12-saved");

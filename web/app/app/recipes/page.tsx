@@ -155,9 +155,9 @@ function RecipesScreen() {
         </button>
       )}
 
-      <Link href="/app/recipes/saved" className="glass lift group mt-3 flex min-h-14 items-center gap-3 rounded-full py-1.5 ps-4 pe-1.5 hover:bg-soft-strong">
+      <Link href="/app/meals?tab=recipes" className="glass lift group mt-3 flex min-h-14 items-center gap-3 rounded-full py-1.5 ps-4 pe-1.5 hover:bg-soft-strong">
         <BookmarkIcon className="h-5 w-5 shrink-0 text-accent" />
-        <span className="min-w-0 flex-1 font-bold">{t("My recipes")}{savedCount > 0 && <span className="app-numbers font-semibold text-muted"> · {savedCount}</span>}</span>
+        <span className="min-w-0 flex-1 font-bold">{t("My meals")}{savedCount > 0 && <span className="app-numbers font-semibold text-muted"> · {savedCount}</span>}</span>
         <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
 

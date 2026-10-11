@@ -233,7 +233,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                   if (start.savedId) {
                     // Editing a saved order: update it in place (no duplicate, and it never counts against the free limit).
                     updateSavedOrder(start.savedId, { name: entry.name, lines, nutrients: total, dataVersionAtSave: entry.dataVersionAtSave });
-                    router.push("/app/saved");
+                    router.push("/app/meals?tab=restaurant");
                     return;
                   }
                   gate("saveLimit", () => {
@@ -241,7 +241,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                     analytics.track({ name: "orderSaved" });
                     countProAction();
                     setNotice(null);
-                    router.push("/app/saved");
+                    router.push("/app/meals?tab=restaurant");
                   });
                 }}
               >

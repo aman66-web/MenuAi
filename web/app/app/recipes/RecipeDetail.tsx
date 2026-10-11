@@ -328,13 +328,13 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
   );
 }
 
-/** Save a recipe from our book to "My recipes" (on this device), or take it off. */
+/** Save a recipe from our book to "My meals" (on this device), or take it off. */
 function SaveRecipeButton({ id }: { id: string }) {
   const t = useT();
   const saved = useStore(savedRecipesStore).some((r) => r.id === id);
   return (
     <button type="button" aria-pressed={saved} onClick={() => toggleSavedRecipe(id)} className={`mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border px-5 text-base font-bold transition active:scale-[0.98] ${saved ? "border-transparent bg-accent-soft text-accent" : "glass hover:bg-soft-strong"}`}>
-      <BookmarkIcon filled={saved} className="h-5 w-5" />{saved ? t("Saved to My recipes") : t("Save to My recipes")}
+      <BookmarkIcon filled={saved} className="h-5 w-5" />{saved ? t("Saved to My meals") : t("Save to My meals")}
     </button>
   );
 }

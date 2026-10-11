@@ -115,7 +115,7 @@ await step("saved orders are NOT marked 'No longer on the menu' while the menus 
   });
   const page = await ctx.newPage();
   await page.route("**/menus*/**", (r) => r.abort("internetdisconnected"));
-  await page.goto(BASE + "/app/saved");
+  await page.goto(BASE + "/app/meals?tab=restaurant");
   await vis(page.getByRole("heading", { name: "Chicken bowl" }));
   await page.waitForTimeout(800);
   if (await page.getByText("No longer on the menu").count()) throw new Error("wrongly marked as removed");
@@ -134,7 +134,7 @@ await step("builder opened from a saved order updates it in place ('Save changes
   await page.getByRole("button", { name: "Double chicken" }).click();
   await vis(page.getByRole("group", { name: /Order total: 835 kcal/ }));
   await page.getByRole("button", { name: "Save changes" }).click();
-  await page.waitForURL("**/app/saved");
+  await page.waitForURL("**/app/meals?tab=restaurant");
   await vis(page.getByText("835 kcal"));
   const count = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.saved")).data.length);
   if (count !== 1) throw new Error("saved orders: " + count);
@@ -145,7 +145,7 @@ await step("undo restores the original saved order and log entry (same id and da
   const original = { id: "s9", createdAt: "2026-09-01T08:30:00.000Z", chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Keep me", lines: [{ kind: "components", itemId: "chicken-bowl", components: [{ id: "chicken", qty: 1 }] }], nutrients: { calories: 180, protein: 32, carbs: 0, fat: 7 }, dataVersionAtSave: 1 };
   await ctx.addInitScript(([o]) => { if (localStorage.getItem("mm.v1.settings")) return; localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, goal: "maintain", dailyCalories: 2000 } })); localStorage.setItem("mm.v1.saved", JSON.stringify({ v: 1, data: [o] })); }, [original]);
   const page = await ctx.newPage();
-  await page.goto(BASE + "/app/saved");
+  await page.goto(BASE + "/app/meals?tab=restaurant");
   await page.getByRole("button", { name: "Delete Keep me" }).click();
   await page.getByRole("button", { name: "Undo" }).click();
   await vis(page.getByRole("heading", { name: "Keep me" }));
