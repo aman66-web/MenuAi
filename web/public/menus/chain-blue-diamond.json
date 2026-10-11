@@ -1,0 +1,1833 @@
+{
+ "schemaVersion": 1,
+ "id": "blue-diamond",
+ "name": "Blue Diamond",
+ "cuisine": "Garden centre cafe",
+ "builderType": "standard",
+ "aliases": [
+  "blue diamond",
+  "blue diamond garden centre",
+  "blue diamond restaurant"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Blue Diamond Garden Centres: Our Calorie-Counted Menus (breakfast, lunch, Sunday lunch, drinks and patisserie pages on bluediamond.gg; figures printed on each dish's picture; read 2026-10-11)",
+  "url": "https://www.bluediamond.gg/our-restaurant-menus-calorie-counts",
+  "checkedOn": "2026-10-11"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, from Blue Diamond's own calorie-counted online menus (each figure printed on the dish's picture); protein, carbs and fat are not published. Blue Diamond says menus and prices may vary by garden centre. Alcoholic drinks are not listed.",
+ "categories": [
+  "Breakfast",
+  "Breakfast Specials",
+  "Extras",
+  "Brunch",
+  "Hot Mains",
+  "Sides",
+  "Baked Potatoes",
+  "Plated Salads",
+  "Toasted Ciabatta",
+  "Between the Breads",
+  "Deli Salads",
+  "Eat Right Deli - Choose Main",
+  "Roast Dinners and Hot Food",
+  "Roast Dinner Sides",
+  "Hot Drinks",
+  "Summer Drinks",
+  "Milkshakes"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "full-english-breakfast",
+   "name": "Full English Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 1467
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "light-breakfast",
+   "name": "Light Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 831
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegetarian-breakfast",
+   "name": "Vegetarian Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "childs-breakfast",
+   "name": "Child’s Breakfast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-eggs-on-toast",
+   "name": "Fried Eggs on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 423
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poached-eggs-on-toast",
+   "name": "Poached Eggs on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 378
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-eggs-on-toast",
+   "name": "Scrambled Eggs on Toast",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 517
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast-and-preserve",
+   "name": "Toast and Preserve",
+   "category": "Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 462
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-royale",
+   "name": "Eggs Royale",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-benedict",
+   "name": "Eggs Benedict",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-cypriot",
+   "name": "Eggs Cypriot",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 1042
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-rarebit",
+   "name": "Eggs Rarebit",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 693
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croque-madame-breakfast-specials",
+   "name": "Croque Madame (breakfast specials)",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 726
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-style-pancake-stack",
+   "name": "American Style Pancake Stack",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 746
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-style-pancake-stack-v",
+   "name": "American Style Pancake Stack (V)",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 569
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "breakfast-sundae",
+   "name": "Breakfast Sundae",
+   "category": "Breakfast Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon",
+   "name": "Bacon",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage",
+   "name": "Sausage",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 325
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi",
+   "name": "Halloumi",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 240
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-browns",
+   "name": "Hash Browns",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 322
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black Pudding",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 90
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham",
+   "name": "Ham",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 141
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-salmon",
+   "name": "Smoked Salmon",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 88
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato",
+   "name": "Tomato",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 51
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushrooms",
+   "name": "Mushrooms",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 65
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach",
+   "name": "Spinach",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 78
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hollandaise",
+   "name": "Hollandaise",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poached-eggs",
+   "name": "Poached Eggs",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fried-eggs",
+   "name": "Fried Eggs",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 185
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scrambled-eggs",
+   "name": "Scrambled Eggs",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-diamond-chicken-club-sandwich",
+   "name": "Blue Diamond Chicken Club Sandwich",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1356
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croque-madame-brunch",
+   "name": "Croque Madame (brunch)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 1278
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "potato-and-chorizo-hash",
+   "name": "Potato & Chorizo Hash",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-egg-omelette-cheese-and-mushroom-breakfast-menu-brunch",
+   "name": "Three Egg Omelette - Cheese & Mushroom (breakfast menu, brunch)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 976
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-and-avocado-bruschetta",
+   "name": "Tomato & Avocado Bruschetta",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 596
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-egg-omelette-ham-and-cheese-brunch",
+   "name": "Three Egg Omelette - Ham & Cheese (brunch)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 786
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-egg-omelette-cheese-and-mushroom-lunch-menu-brunch",
+   "name": "Three Egg Omelette - Cheese & Mushroom (lunch menu, brunch)",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 766
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-egg-omelette-plain",
+   "name": "Three Egg Omelette - Plain",
+   "category": "Brunch",
+   "serving": "",
+   "nutrients": {
+    "calories": 551
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-fish-and-chips",
+   "name": "Classic Fish & Chips",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1373
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-beef-burger",
+   "name": "Signature Beef Burger",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1684
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butternut-squash-and-feta-risotto",
+   "name": "Butternut Squash & Feta Risotto",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 782
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-beef-lasagne",
+   "name": "Traditional Beef Lasagne",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1282
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wholetail-scampi",
+   "name": "Wholetail Scampi",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1281
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "parmesan-kale-and-squash-pie",
+   "name": "Parmesan, Kale & Squash Pie",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "steak-and-ale-pie",
+   "name": "Steak & Ale Pie",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1111
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "signature-sausage-and-mash",
+   "name": "Signature Sausage & Mash",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 967
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-egg-and-chips",
+   "name": "Ham, Egg & Chips",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1058
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-egg-omelette-ham-and-cheese-hot-mains",
+   "name": "Three Egg Omelette - Ham & Cheese (hot mains)",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 984
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-diamond-fish-sandwich",
+   "name": "Blue Diamond Fish Sandwich",
+   "category": "Hot Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 825
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-cheesy-chips",
+   "name": "Bacon Cheesy Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 1036
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-gourmet-chips",
+   "name": "Cheesy Gourmet Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 933
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gourmet-chips",
+   "name": "Gourmet Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-ciabatta-with-dressed-salad",
+   "name": "Garlic Ciabatta with Dressed Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 569
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seasonal-salad",
+   "name": "Seasonal Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 36
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "onion-rings",
+   "name": "Onion Rings",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 278
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-beef-chilli-con-carne",
+   "name": "Homemade Beef Chilli Con Carne",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1098
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-coronation-chicken",
+   "name": "Homemade Coronation Chicken",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 940
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-marie-rose-baked-potatoes",
+   "name": "Prawn Marie Rose (baked potatoes)",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 671
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise",
+   "name": "Tuna Mayonnaise",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 812
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "melted-brie-and-crispy-bacon",
+   "name": "Melted Brie & Crispy Bacon",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 982
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans-and-mature-cheddar-cheese",
+   "name": "Baked Beans & Mature Cheddar Cheese",
+   "category": "Baked Potatoes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1038
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-ploughmans-platter",
+   "name": "Traditional Ploughman’s Platter",
+   "category": "Plated Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 1281
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar Salad",
+   "category": "Plated Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 707
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-goats-cheese-and-roasted-beetroot-salad",
+   "name": "Warm Goats Cheese & Roasted Beetroot Salad",
+   "category": "Plated Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 654
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "glazed-ham-mature-cheddar-and-tomato",
+   "name": "Glazed Ham, Mature Cheddar & Tomato",
+   "category": "Toasted Ciabatta",
+   "serving": "",
+   "nutrients": {
+    "calories": 747
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-back-bacon-brie-and-cranberry-sauce",
+   "name": "Grilled Back Bacon, Brie & Cranberry Sauce",
+   "category": "Toasted Ciabatta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1050
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ranch-chicken-with-bacon-spring-onion-and-cheddar",
+   "name": "Ranch Chicken with Bacon, Spring Onion & Cheddar",
+   "category": "Toasted Ciabatta",
+   "serving": "",
+   "nutrients": {
+    "calories": 812
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-applewood-vegan-cheese-tomato-and-basil",
+   "name": "Smoked Applewood Vegan Cheese, Tomato & Basil",
+   "category": "Toasted Ciabatta",
+   "serving": "",
+   "nutrients": {
+    "calories": 612
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-black-pepper-mayonnaise-and-cheddar-melt",
+   "name": "Tuna, Black Pepper Mayonnaise & Cheddar Melt",
+   "category": "Toasted Ciabatta",
+   "serving": "",
+   "nutrients": {
+    "calories": 911
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-classic-coronation-chicken",
+   "name": "Homemade Classic Coronation Chicken",
+   "category": "Between the Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 742
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "prawn-marie-rose-between-the-breads",
+   "name": "Prawn Marie Rose (between the breads)",
+   "category": "Between the Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 527
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tuna-mayonnaise-and-cucumber",
+   "name": "Tuna Mayonnaise & Cucumber",
+   "category": "Between the Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 746
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "egg-mayonnaise-and-chive",
+   "name": "Egg Mayonnaise & Chive",
+   "category": "Between the Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 654
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-cheese-ploughmans",
+   "name": "Ham & Cheese Ploughman’s",
+   "category": "Between the Breads",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garden-leaf-salad",
+   "name": "Garden Leaf Salad",
+   "category": "Deli Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-classic-coleslaw",
+   "name": "Homemade Classic Coleslaw",
+   "category": "Deli Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "italian-style-pasta-salad",
+   "name": "Italian Style Pasta Salad",
+   "category": "Deli Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 214
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "quinoa-salad",
+   "name": "Quinoa Salad",
+   "category": "Deli Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 207
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-barley",
+   "name": "Mediterranean Barley",
+   "category": "Deli Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "herb-and-lemon-poached-salmon",
+   "name": "Herb & Lemon Poached Salmon",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 384
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "quiche-lorraine",
+   "name": "Quiche Lorraine",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "brie-and-caramelised-onion-quiche",
+   "name": "Brie & Caramelised Onion Quiche",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 483
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "homemade-parmesan-herb-crusted-chicken",
+   "name": "Homemade Parmesan Herb-crusted Chicken",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 342
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cornish-beef-pasty",
+   "name": "Cornish Beef Pasty",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 554
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "traditional-sausage-roll",
+   "name": "Traditional Sausage Roll",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 603
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-pork-pie",
+   "name": "Classic Pork Pie",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 528
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pea-and-feta-frittata",
+   "name": "Pea & Feta Frittata",
+   "category": "Eat Right Deli - Choose Main",
+   "serving": "",
+   "nutrients": {
+    "calories": 333
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-topside-of-beef",
+   "name": "Roast Topside of Beef",
+   "category": "Roast Dinners and Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1589
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-thyme-roast-chicken",
+   "name": "Garlic & Thyme Roast Chicken",
+   "category": "Roast Dinners and Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roast-pork-loin",
+   "name": "Roast Pork Loin",
+   "category": "Roast Dinners and Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1359
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-meats",
+   "name": "Three Meats",
+   "category": "Roast Dinners and Hot Food",
+   "serving": "",
+   "nutrients": {
+    "calories": 1596
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-seasonal-vegetables",
+   "name": "Roasted Seasonal Vegetables",
+   "category": "Roast Dinner Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 544
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "thyme-roasted-potatoes",
+   "name": "Thyme Roasted Potatoes",
+   "category": "Roast Dinner Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 292
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "yorkshire-pudding-and-red-wine-gravy",
+   "name": "Yorkshire Pudding & Red Wine Gravy",
+   "category": "Roast Dinner Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 253
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-regular",
+   "name": "Americano (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano-large",
+   "name": "Americano (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-regular",
+   "name": "Cappuccino (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino-large",
+   "name": "Cappuccino (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-single",
+   "name": "Espresso (Single)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso-double",
+   "name": "Espresso (Double)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-regular",
+   "name": "Latte (Regular)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 160
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte-large",
+   "name": "Latte (Large)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 303
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cafeti-re-with-milk-for-one",
+   "name": "Cafetière with Milk (For One)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 68
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cafeti-re-with-milk-for-two",
+   "name": "Cafetière with Milk (For Two)",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 266
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate-with-cream",
+   "name": "Hot Chocolate with Cream",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 352
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "luxury-hot-chocolate-with-cream-and-marshmallows",
+   "name": "Luxury Hot Chocolate with Cream & Marshmallows",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chai-latte",
+   "name": "Chai Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "matcha-latte",
+   "name": "Matcha Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 155
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-tea-for-one",
+   "name": "Pot of Tea for One",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pot-of-speciality-loose-leaf-tea-for-one",
+   "name": "Pot of Speciality Loose Leaf Tea for One",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Hot Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sparkling-peach-iced-tea",
+   "name": "Sparkling Peach Iced Tea",
+   "category": "Summer Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "passionfruit-and-citrus-cooler",
+   "name": "Passionfruit & Citrus Cooler",
+   "category": "Summer Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 133
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "watermelon-iced-cooler",
+   "name": "Watermelon Iced Cooler",
+   "category": "Summer Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cherryade-cooler",
+   "name": "Cherryade Cooler",
+   "category": "Summer Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-iced-latte",
+   "name": "Salted Caramel Iced Latte",
+   "category": "Summer Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu-iced-latte",
+   "name": "Tiramisu Iced Latte",
+   "category": "Summer Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 291
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-shortcake-iced-matcha",
+   "name": "Strawberry Shortcake Iced Matcha",
+   "category": "Summer Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 300
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake",
+   "name": "Vanilla Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake",
+   "name": "Strawberry Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 385
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake",
+   "name": "Chocolate Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 393
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

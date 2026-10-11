@@ -50,6 +50,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "bistrot-pierre": { src: "/logos/bistrot-pierre.svg" },
   "blacklock": { src: "/logos/blacklock.svg" },
   "blank-street-coffee": { src: "/logos/blank-street-coffee.svg" },
+  "blue-diamond": { src: "/logos/blue-diamond.png" },
   "boston-tea-party": { src: "/logos/boston-tea-party.svg", tile: "dark" },
   "brasserie-blanc": { src: "/logos/brasserie-blanc.svg", tile: "dark" },
   "brewdog": { src: "/logos/brewdog.png" },

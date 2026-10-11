@@ -376,8 +376,10 @@ and had an independent second read (`data/audit/verified/<chain>.json`). Triage 
 |---|---|---|---|---|
 | Cosy Club | 215 | calories + allergens | 38 venues (the chain's own location list) | Each venue's own menu record names the Ten Kites page its menu page embeds (`tenkites_menu`); five Autumn/Winter 2026 pages (cosyclubss26, -2602, -2604, -2605, -2606) and Swansea's staging copy of -2604 print every dish with the same calories and allergens (0 conflicts). Calories are hidden behind the page's visible "Hide Calories" switch, as on the Lounge pages (same accepted decision). Not used: Stamford's link (cosyclubaw2503), which still holds last season's Spring/Summer 2026 menu. Left out: Oxford's Sunday Roast menu (1 venue), every alcoholic drink (wine menu, cocktails, spirits, Irish Coffee). Triaged NO-DATA on 8 October (the menus are not in the static page; they are in the venue records). |
 | Pilpel | 18 | full (per ingredient) | 7 London sites (own locations page) | The chain's own nutrition calculator (pilpel.co.uk/nutrition): kcal, protein, carbs, fat, saturates and salt for each of 18 ingredients (pitas, falafel, salads, sauces, toppings), "based on average serving per person". Pilpel publishes no figure for a finished pita or box (the calculator only adds up ticked ingredients), so each ingredient is its own item, never summed (BarBurrito's approach); none is suggested as a meal. No date on the page; no allergen information published. Triaged GO on 10 October as a builder and not extracted then. |
+| Blue Diamond | 125 | calories | about 45 garden centres in England and Wales (its sitemap's location pages) | The chain's own "Our Calorie-Counted Menus" (breakfast, lunch, Sunday lunch and drinks pages on bluediamond.gg; "menus and prices may vary by location"). Each dish is a picture with its calories printed in a circle, so every card (143 placements, 132 pictures) was read by OCR at two enlargements and by eye twice (whole card and circle alone); 48 cards where OCR misread or doubted are fixed by eye in the script, keyed by each picture's SHA-256. Summer Drinks marked limited time. No allergen information published. Triaged NO-MACROS on 8 October (calories only, pictures) when calories-only chains were not being added. |
 
-Logos: Cosy Club's header lockup (inline SVG, copied verbatim) and its own web-app manifest icon as the square icon.
+Logos: Cosy Club's header lockup (inline SVG, copied verbatim) and its own web-app manifest icon as the square icon; Pilpel's and Blue
+Diamond's header logo files, saved as served (neither site serves a square icon of 120 px or more).
 
 **Checked and not added this evening:**
 - **The Kebab Shop** (thekebabshop.com, nutrition PDF October 2025): a San Diego chain, no Great Britain sites.
@@ -392,6 +394,8 @@ Logos: Cosy Club's header lockup (inline SVG, copied verbatim) and its own web-a
 - **Deep Blue fish & chips** (about 45 sites) and **Bob & Berts** (about 35 shops, mostly Northern Ireland): their nutrition is said to be on their
   Vita Mojo ordering apps (order.deepbluerestaurants.com, bobandberts.vmos.io), which render no menu items without a store search in a headless
   browser here; not pursued.
+- **Smashburger UK** (7 GB venues): its ordering app loads the menu and nutrition from its own API, which answers 401 without the app's token:
+  stopped (never worked round).
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 

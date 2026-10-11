@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011145833,
- "generatedAt": "2026-10-11T14:58:33Z",
+ "dataVersion": 20261011153554,
+ "generatedAt": "2026-10-11T15:35:54Z",
  "chains": [
   {
    "id": "abokado",
@@ -301,6 +301,18 @@
    "sample": false,
    "itemCount": 178,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "blue-diamond",
+   "name": "Blue Diamond",
+   "cuisine": "Garden centre cafe",
+   "file": "chain-blue-diamond.json",
+   "sha256": "c1b378104abf37bba909f999e8874cd521d59d2182766ac01eac4e66c1fdabef",
+   "contentHash": "28118b4033d0a67bca007ea795bd092730d38c5b93781b0c6783ea497a49be6b",
+   "sample": false,
+   "itemCount": 125,
+   "checkedOn": "2026-10-11",
    "nutritionLevel": "calories"
   },
   {
@@ -2602,6 +2614,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "fa27d0b3da0ed3cdc6f1f417ba96115af5cdb4360e61a581e34a011f312e191c"
+  "sha256": "08471fec07f746ea895a1ba423fac55f7fc7cd330cdda2cfbbf504f5719cff29"
  }
 }
