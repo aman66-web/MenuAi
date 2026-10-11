@@ -7,29 +7,29 @@
    "id": "tesco",
    "name": "Tesco",
    "file": "tesco.json",
-   "count": 4915,
-   "sha256": "de6be21d658f0673ce9f20ac781b8920236ed595a2ed004ad0411cb80c45a285"
+   "count": 5164,
+   "sha256": "f7cbaaaf780c45cf14a30bbcac22b8619f713eaa1ada92a6cd6bd380ceac585c"
   },
   {
    "id": "sainsburys",
    "name": "Sainsbury's",
    "file": "sainsburys.json",
-   "count": 3839,
-   "sha256": "6eb04cb4a95099f5149c9fd03e02a616ff0b6caffdde9d5ffa96f67911cbac3d"
+   "count": 4477,
+   "sha256": "4beda00ad1db494dd1551b6ca39f29d3472cd98bbadc03a236995a2cdcce0d28"
   },
   {
    "id": "asda",
    "name": "Asda",
    "file": "asda.json",
-   "count": 6740,
-   "sha256": "3ba41f2d6ef26ec81248079a952e4c36c718e91325119010b782285dc7b9681a"
+   "count": 6741,
+   "sha256": "a0a755e67f29627d133df6399b24811f6ea2e65f6aea8b3987e8ae65415163aa"
   },
   {
    "id": "waitrose",
    "name": "Waitrose",
    "file": "waitrose.json",
-   "count": 2,
-   "sha256": "072d3464af2c6bc994735e9b7615d69859cd60412fe78be8a99857b969ded5e6"
+   "count": 489,
+   "sha256": "4a51bd121079d293a953ae1cec15c03480e5d70cc086bac6c76070a2ba594c5e"
   },
   {
    "id": "lidl",
@@ -42,15 +42,15 @@
    "id": "aldi",
    "name": "Aldi",
    "file": "aldi.json",
-   "count": 0,
-   "sha256": "811fd99bc9452a062f802924f546e4bc057845b40847466cc67ddc9710df0ea3"
+   "count": 1,
+   "sha256": "f989f198b0129ca99e32e2ea5c7d79c107a2e574c954ce9c2bedc7601aee6a9f"
   },
   {
    "id": "morrisons",
    "name": "Morrisons",
    "file": "morrisons.json",
-   "count": 0,
-   "sha256": "dc73b85a79335aa5c2b93d4595b4190d53c2a7a41708f120b0b585dc54ae85e2"
+   "count": 1215,
+   "sha256": "93a75590892d42e40c275a076e87421d43abdf78a407293f9e5befc30974e799"
   },
   {
    "id": "coop",
@@ -70,8 +70,8 @@
    "id": "iceland",
    "name": "Iceland",
    "file": "iceland.json",
-   "count": 0,
-   "sha256": "025da837f5bdb0b47725f5fdf0bb0fca04402644e21fa42c8c6f35c1e0c6b16c"
+   "count": 1096,
+   "sha256": "b4bcaf5d81d7f770c62fd2bce28ee012eab5670fe7108d02c2661f9a5987618d"
   },
   {
    "id": "ocado",

@@ -809,6 +809,18 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   groceries 6, groceries-all 6, compare 8, diet 5, smoke 23, extra 11, languages 5, a11y 0 violations, no overflow at 200% text; contact sheet of 36 new
   Asda catalogue products (every photo matches its name).
 
+- 2026-10-11 — **Same product at different shops by exact name and pack size (founder's answer: "Yes, exact name + size").** A branded list row
+  without a barcode now takes the barcode of the one product in the barcoded lists (Asda's pictures, Sainsbury's and Tesco pages read) whose name and
+  pack size are identical after tidying (`name_key` in `tools/groceries/build_groceries.py`: lower case, "&" = "and", units written one way, punctuation
+  dropped). Never a shop's own brand (a name naming any supermarket or one of their ranges), never a name without a size, and a name two barcodes share
+  is left out. Matched: Tesco +315, Waitrose 667, Morrisons 1,677, Iceland 1,531, Sainsbury's +931 rows; a sheet of 30 random pairs was checked by eye
+  (every pair the same product). The catalogue now lists each match under its shop with that shop's own name, photo and price (search link where the
+  list has no page): Waitrose 489, Morrisons 1,215, Iceland 1,096, Tesco 5,164 (1,088 with Tesco's photo), Sainsbury's 4,477; **2,685 products show
+  prices at 2+ shops** (683 before), e.g. Heinz Cream of Tomato Soup 400g at Morrisons, Asda (lowest), Sainsbury's and Iceland. The lists carry
+  the barcode for 1,583 Tesco, 1,682 Morrisons, 668 Waitrose and 1,537 Iceland products, so those link to the full page. Catalogue files total 10.6 MB
+  (the "all shops" view loads them all; the simpler one-shop Groceries screen comes next). Checked: 133 Python, 445 unit tests, e2e groceries 6,
+  groceries-all 6, compare 8, diet 5, recipes 13, smoke 23; screenshot of the five-shop product page.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

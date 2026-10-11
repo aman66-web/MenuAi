@@ -6,16 +6,16 @@ Pictures come only from the supermarkets' own websites (founder 2026-10-10); a p
 
 | retailer | products | with the shop's own photo | of those, a stored copy | allergens known | with price |
 |---|---|---|---|---|---|
-| Tesco | 4915 | 834 | 0 | 3163 | 814 |
-| Sainsbury's | 3839 | 1964 | 794 | 2816 | 1366 |
-| Asda | 6740 | 6731 | 0 | 4810 | 6712 |
-| Waitrose | 2 | 0 | 0 | 2 | 0 |
+| Tesco | 5164 | 1088 | 0 | 3377 | 1065 |
+| Sainsbury's | 4477 | 2596 | 794 | 3376 | 2003 |
+| Asda | 6741 | 6732 | 0 | 4812 | 6713 |
+| Waitrose | 489 | 487 | 0 | 441 | 487 |
 | Lidl | 1 | 0 | 0 | 1 | 0 |
-| Aldi | 0 | 0 | 0 | 0 | 0 |
-| Morrisons | 0 | 0 | 0 | 0 | 0 |
+| Aldi | 1 | 1 | 0 | 1 | 1 |
+| Morrisons | 1215 | 1215 | 0 | 1045 | 1215 |
 | Co-op | 3 | 0 | 0 | 2 | 0 |
 | M&S | 2 | 0 | 0 | 1 | 0 |
-| Iceland | 0 | 0 | 0 | 0 | 0 |
+| Iceland | 1096 | 1094 | 0 | 948 | 1096 |
 | Ocado | 0 | 0 | 0 | 0 | 0 |
 
 ## Details read from the supermarkets' own pages
@@ -27,18 +27,26 @@ Pictures come only from the supermarkets' own websites (founder 2026-10-10); a p
 Rule: a supermarket's own-brand product is listed only under that supermarket (brand field, a name starting with the shop's name, or a barcode
 company prefix the catalogue ties to one shop); a shop whose own website showed the barcode always lists it. Changes this build:
 
-- Asda: added 2 (brand says another shop but a shop's own website lists it): 5088722225449 Sainsbury's | Apple soreen; 5000326011624 golden yolker | Tesco golden yoker
-- Asda: added 570 (on the shop's own website): 3023290001349 Tesco | Milky bar; 5000157024671 H J Heinz Foods UK Ltd | Beanz in a rich tomato sauce; 5025125000037 Jasons | Sourdough grain and seeds; 7622210584724 Green & Black's Organic | Intense Dark 85% Cocoa; 5010029000016 Weetabix | Weetabix; 5010265002911 Ryvita | Dark Rye Crispbread ...
-- Asda: added 1 (own brand): 5054781971801 Tesco | Wholewheat spaghetti
-- Sainsbury's: added 173 (on the shop's own website): 54051256 alpro | Dessert Chocolate Flavour; 54051294 alpro | Dessert Vanilla Flavour; 0813636021932 Califia Farms | Oat Milk; 0813636022953 Califia Farms | Oat Barista Blend; 0850004207390 Beyond Meat | Beyond Burger; 0898999000503 Vita Coco | Coconut Water ...
-- Tesco: added 1 (on the shop's own website): 5038862238854 Innocent | Green energy
-- Tesco: removed 1 (held back: its brand and barcode name different supermarkets): 5052449637984 Tesco | Cheesy Balls
-- Tesco: removed 1 (own brand): 5054781971801 Tesco | Wholewheat spaghetti
+- Aldi: added 1 (on the shop's own website): 5010478882140 Swizzels | Swizzels Sweet Shop Favourites Tub 650g
+- Asda: added 3 (on the shop's own website): 0898999000503 Vita Coco | Vita Coco Original Coconut Water 1 Litre; 5038862102506 Innocent | Innocent Smooth Orange Juice 900ml; 5060504310116 holy moly | Holy Moly Smashed Avocado 150g
+- Asda: removed 2 (own brand): 50457366 Heinz, Morrisons | Heinz Tomato Ketchup Glass Bottle 342g; 5000221609568 Tesco | Mr Kipling Cherry Bakewell Mini Cake Bites 220g
+- Iceland: added 2 (brand says another shop but a shop's own website lists it): 5000149029493 M&S | Aunt Bessie's Duck Fat Roast Potatoes 700g; 5012035957025 Haribo, Tesco | Haribo Starmix Fruit & Cola Flavour Jelly & Foam Sweets Gift Box 380g
+- Iceland: added 1094 (on the shop's own website): 3023290001349 Tesco | Milky bar; 5000157024671 H J Heinz Foods UK Ltd | Beanz in a rich tomato sauce; 5000426171518 After Eight, Nestlé, Nestle UK Limited | After Eight Mint; 5000157062673 Heinz | Cream of Tomato Soup; 5010044000121 Warburtons | Original Toastie Soft & Sliced White Loaf; 5014213001049 Meridian | Crunchy Peanut Butter ...
+- Morrisons: added 2 (brand says another shop but a shop's own website lists it): 5010084103332 Iceland, Jus-Rol | Puff Pastry Block; 5000149029493 M&S | Aunt Bessie's Duck Fat Roast Potatoes 700g
+- Morrisons: added 1212 (on the shop's own website): 3023290001349 Tesco | Milky bar; 5000426171518 After Eight, Nestlé, Nestle UK Limited | After Eight Mint; 5000157062673 Heinz | Cream of Tomato Soup; 3415581101928 Häagen-Dazs | Vanilla Ice Cream; 5060367181274 pip & nut | Smooth Peanut Butter; 5000354800931 Ambrosia | Rice Pudding ...
+- Morrisons: added 1 (own brand): 50457366 Heinz, Morrisons | Heinz Tomato Ketchup Glass Bottle 342g
+- Sainsbury's: added 1 (brand says another shop but a shop's own website lists it): 5060108451673 Coop, Fever Tree | Fever-Tree Refreshingly Light Elderflower Tonic Water 500ml
+- Sainsbury's: added 637 (on the shop's own website): 5000426171518 After Eight, Nestlé, Nestle UK Limited | After Eight Mint; 5000157062673 Heinz | Cream of Tomato Soup; 5060367181274 pip & nut | Smooth Peanut Butter; 5000108030904 Quaker | Jumbo Oats; 5036589254874 Yeo Valley | Kefir Mango & Passion Fruit; 5020411121151 Nutella, Ferrero | Nutella ...
+- Tesco: added 1 (brand says another shop but a shop's own website lists it): 5000149029493 M&S | Aunt Bessie's Duck Fat Roast Potatoes 700g
+- Tesco: added 247 (on the shop's own website): 50513024 Saint Agur | Saint Agur Blue Creme Cheese 150g; 3045320518283 Bonne Maman | Bonne Maman Creme Caramel Dessert 4x100g; 3073780400862 Babybel, Bel | Mini Babybel Original Cheese Snacks 6x20g; 3341502000110 Saint Agur | Saint Agur Blue Cheese 150g; 3608580081562 Bonne Maman | Bonne Maman Clementine & Lemon Mousse Dessert 2x70g; 4016241030573 Arla | Arla Skyr Natural Icelandic Style Yogurt 450g ...
+- Tesco: added 1 (own brand): 5000221609568 Tesco | Mr Kipling Cherry Bakewell Mini Cake Bites 220g
+- Waitrose: added 1 (brand says another shop but a shop's own website lists it): 5010084103332 Iceland, Jus-Rol | Puff Pastry Block
+- Waitrose: added 486 (on the shop's own website): 5000157024671 H J Heinz Foods UK Ltd | Beanz in a rich tomato sauce; 5070000126579 Bio&Me | Granola Super Nutty; 5060367181274 pip & nut | Smooth Peanut Butter; 7290104507045 Sabra | Sabra Houmous Extra; 5000108030904 Quaker | Jumbo Oats; 5036589253273 Yeo Valley | Kefir ...
 
 Barcode company prefixes the catalogue ties to one shop (barcodes naming it):
 
-- Asda: 5050854 (76), 5051413 (81), 5052449 (125), 5054070 (191), 5054781 (345), 5057172 (371), 5063089 (673)
-- Sainsbury's: 5063334 (434), 8:00 (1350), 8:01 (948), 8:44 (3)
+- Asda: 5050854 (78), 5051413 (81), 5052449 (126), 5054070 (199), 5054781 (352), 5057172 (384), 5063089 (684), 5063717 (63)
+- Sainsbury's: 5063334 (442), 8:00 (1350), 8:01 (948), 8:44 (3)
 - Tesco: 5000119 (60), 5000358 (26), 5000436 (42), 5000462 (16), 5010204 (28), 5018374 (37), 5031021 (22), 5050179 (24), 5051007 (13), 5051008 (10), 5051140 (17), 5051277 (16), 5051399 (18), 5051622 (9), 5051790 (17), 5051898 (24), 5052003 (21), 5052004 (20), 5052109 (29), 5052319 (15), 5052320 (37), 5052909 (34), 5052910 (62), 5053526 (46), 5053947 (61), 5054268 (49), 5054269 (52), 5054402 (43), 5054775 (40), 5057008 (67), 5057373 (72), 5057545 (158), 5057753 (517), 5057967 (69), 5059316 (4), 5059512 (106), 5059697 (921), 5063250 (198), 5063445 (157), 5063446 (44), 8:03 (364), 8:10 (114), 8:11 (3)
 
 ## Own-brand labels (checked against the catalogue)
@@ -86,16 +94,24 @@ Barcode company prefixes the catalogue ties to one shop (barcodes naming it):
 
 ## Photos from the supermarkets' own websites (a stored copy where we hold one, else hotlinked)
 
-- Tesco: 834 of 4915 products have the shop's own photo, 0 also have a stored copy; 4081 show "no photo"
+- Tesco: 1088 of 5164 products have the shop's own photo, 0 also have a stored copy; 4076 show "no photo"
   - not used because the shop's page names a different product (4): 5038862630962 'Frozen Straberries' vs the shop's 'innocent Kids Smoothies Cherries, Strawberries & Apples 4 x 150ml'; 5057545009598 'Fromage frais' vs the shop's 'Tesco Free From Raspberry Strawberry Soya Alternative 4X90g'; 10024423 'Cataloupe' vs the shop's 'Tesco Cantaloupe Melon Each'; 5038862238854 'Green energy' vs the shop's 'Innocent Super Smoothie Invigorate, Kiwi & Cucumber Juice with Vitamins 300ml'
-- Sainsbury's: 1964 of 3839 products have the shop's own photo, 794 also have a stored copy; 1875 show "no photo"
-  - not used because the shop's page names a different product (4): 5038862236911 'Invigorate' vs the shop's 'Innocent Green Energise, Kiwi, Cucumber, Apple & Matcha Super Smoothie with Vitamins 750ml'; 5060100601861 'No Sugar Milk' vs the shop's 'Koko Unsweetened Coconut UHT 1L'; 5056053305673 'vegemince' vs the shop's 'Linda Mccartney Vegetarian Mince 500g'; 5060360508771 'Icelandic Style Strained Yoghurt' vs the shop's 'Danone Skyr 450g High Protein 0% Fat Natural Yogurt'
-- Asda: 6731 of 6740 products have the shop's own photo, 0 also have a stored copy; 9 show "no photo"
+- Sainsbury's: 2596 of 4477 products have the shop's own photo, 794 also have a stored copy; 1881 show "no photo"
+  - not used because the shop's page names a different product (5): 5038862236911 'Invigorate' vs the shop's 'Innocent Green Energise, Kiwi, Cucumber, Apple & Matcha Super Smoothie with Vitamins 750ml'; 5060100601861 'No Sugar Milk' vs the shop's 'Koko Unsweetened Coconut UHT 1L'; 5056053305673 'vegemince' vs the shop's 'Linda Mccartney Vegetarian Mince 500g'; 5060360508771 'Icelandic Style Strained Yoghurt' vs the shop's 'Danone Skyr 450g High Protein 0% Fat Natural Yogurt'; 8720701144538 'Everything Bar' vs the shop's "Tony's Chocolonely Milk Chocolate with Caramel, Pretzel, Almond, Nougat & Sea Salt 180g"
+- Asda: 6732 of 6741 products have the shop's own photo, 0 also have a stored copy; 9 show "no photo"
   - not used because the shop's page names a different product (7): 5000237117446 'Original Salted Potato Rings' vs the shop's 'Hula Hoops Original Multipack Crisps 6 Pack'; 5038862236911 'Invigorate' vs the shop's 'Innocent Green Energise, Kiwi, Cucumber, Apple & Matcha Super Smoothie with Vitamins 750ml'; 8720701144538 'Everything Bar' vs the shop's "Tony's Chocolonely Milk Chocolate with Caramel, Pretzel, Almond, Nougat and Sea Salt 180g"; 5000295136793 'Light made with Buttermilk' vs the shop's 'Clover Light Spread 500g'; 5000295141292 'Light made with Buttermilk' vs the shop's 'Clover Light Spread 1kg'; 5060100601885 'Unsweetened Coconut' vs the shop's 'Koko Dairy Free Dairy Free Sugar Free 1L'; 5099337000079 'Billy Bear' vs the shop's 'Character Kids 6 Slices 100g'
+- Waitrose: 487 of 489 products have the shop's own photo, 0 also have a stored copy; 2 show "no photo"
+- Aldi: 1 of 1 products have the shop's own photo, 0 also have a stored copy; 0 show "no photo"
+- Morrisons: 1215 of 1215 products have the shop's own photo, 0 also have a stored copy; 0 show "no photo"
+- Iceland: 1094 of 1096 products have the shop's own photo, 0 also have a stored copy; 2 show "no photo"
 
 ## Types
 
-- Other 4105, Cupboard 2207, Snacks and sweets 1376, Bakery 1312, Drinks 1249, Dairy and eggs 1224, Ready meals 1099, Fruit and veg 867, Meat 805, Frozen 429, Fish and seafood 298, Meat alternatives 267, Breakfast 264
+- Other 4814, Cupboard 2974, Snacks and sweets 1867, Drinks 1718, Dairy and eggs 1549, Bakery 1522, Ready meals 1244, Fruit and veg 991, Meat 916, Frozen 575, Breakfast 402, Fish and seafood 320, Meat alternatives 297
+
+Moved to another type by the rules (from -> to: products):
+
+- Drinks -> Cupboard: 1 (cocoa-powders)
 
 ## Left out (and why)
 
@@ -109,7 +125,7 @@ Barcode company prefixes the catalogue ties to one shop (barcodes naming it):
 - tesco: invalid barcode: 62
 - tesco: kcal, protein, carbs or fat missing: 542
 - tesco: no usable name: 158
-- barcodes from the shops' own lists added with Open Food Facts records: Tesco 502, Asda 6164, Sainsbury's 999
+- barcodes from the shops' own lists added with Open Food Facts records: 
 - barcode records not used: energy doesn't match macros (check): 211
 - barcode records not used: energy far below what the protein and fat give (e.g. 0 kcal with 4 g protein): 17
 - barcode records not used: implausible numbers: 40

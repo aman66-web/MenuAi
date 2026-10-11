@@ -8,7 +8,7 @@
    "count": 17002,
    "checkedOn": "2026-10-08",
    "nutrition": 12741,
-   "sha256": "3485e70f2daab865b031be068ecce384a21223e3c636057c7a56a5e7a2f63892"
+   "sha256": "ddf6546932c07156ee14e8db9e6da5586936c600b4c87f122cf4e282f78e7625"
   },
   {
    "id": "tesco",
@@ -17,7 +17,7 @@
    "count": 6086,
    "checkedOn": "2026-10-09",
    "nutrition": 0,
-   "sha256": "92ce48660893d414e575f296546002b2ffc36cb11a744df5903a3ccc07865234"
+   "sha256": "d46b668746547500c57e0dce1930dafb0cdffa379f2ed7499146b982bebda0f7"
   },
   {
    "id": "asda",
@@ -26,7 +26,7 @@
    "count": 11820,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "2a79d41ea8192361c21bda84b6be923504dd8ada7a3aa43220892bfd18f24806"
+   "sha256": "8bfb476d5cd9233bb779938df2891aa7b1f84a6175313111a7f0729c8af72d3c"
   },
   {
    "id": "aldi",
@@ -35,7 +35,7 @@
    "count": 3466,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "c4d738af889370f54c7219e23f90921c10daa8e6e375384bb93a232c23d9faff"
+   "sha256": "0d9a32a9b78cbc7835c3759b2d8a636eff0c29d70eee74981a722da7ef72a999"
   },
   {
    "id": "lidl",
@@ -53,7 +53,7 @@
    "count": 18382,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "a1e9d56bf79ef0d8b1953c029943697180512080a21eff256ba44a531c8fa49f"
+   "sha256": "0cf0d36eed5ad74f31a395b14e2c4a16813083e059428f5d61e7d5f883b4fc8b"
   },
   {
    "id": "waitrose",
@@ -62,7 +62,7 @@
    "count": 11424,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "0cb66d8c8a89ee6ca77a148ea6599413bd42e358b2f4413419dd0ed2d534ebd9"
+   "sha256": "090523980dd903e6b35d886a3a4e8635ee37e01eb99669d15c29f4012f54e7aa"
   },
   {
    "id": "iceland",
@@ -71,7 +71,7 @@
    "count": 6202,
    "checkedOn": "2026-10-09",
    "nutrition": 0,
-   "sha256": "049facb1cf891b4cca1be59d13a1c44f6dcad5eea697d64e025abec7c2c3f041"
+   "sha256": "e169b968e7cf3ebbdde8751cb20e29d94a7ac1b92dcd7074737e3f63dd440260"
   },
   {
    "id": "marks-and-spencer",

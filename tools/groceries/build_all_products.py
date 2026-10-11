@@ -224,6 +224,16 @@ def read_listing_photos(shop: str, problems: list[str]) -> dict[str, str]:
     return out
 
 
+def barcode_by_name(name: str) -> str:
+    """The barcode of the one branded product with exactly this name and pack size in the barcoded lists (build_groceries.name_barcodes), else ""."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import build_groceries as bg  # noqa: E402
+
+    key = bg.name_key(name)
+    code = bg.name_barcodes().get(key, "") if key else ""
+    return code if code and not bg.restricted_code(code) else ""
+
+
 def asda_barcode(photo_id: str) -> bool:
     """An Asda picture id that is a real barcode (GS1 check digit, not a shop-internal number)."""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -277,6 +287,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             gtin = gt.get(pid.lower(), "")
             if not gtin and shop == "asda" and photo and asda_barcode(photo.group(1)):
                 gtin = photo.group(1)  # Asda names its product pictures by barcode: the app links it to the full product page where the catalogue has it
+            if not gtin:
+                gtin = barcode_by_name(name)  # founder 2026-10-11: the same branded name and pack size as a barcoded product at another shop
             row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
                    member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gtin,
                    n[0] if n else None]

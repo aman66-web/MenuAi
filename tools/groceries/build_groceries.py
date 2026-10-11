@@ -389,8 +389,20 @@ IMAGE_HOSTS = {
     "tesco": ("digitalcontent.api.tesco.com",),
     "sainsburys": ("assets.sainsburys-groceries.co.uk",),
     "asda": ("asdagroceries.scene7.com",),
+    # the shops' own picture servers their category pages use (founder 2026-10-11: every shop's products with its own photos)
+    "waitrose": ("ecom-su-static-prod.wtrecom.com",),
+    "morrisons": ("groceries.morrisons.com",),
+    "iceland": ("assets.iceland.co.uk",),
+    "marks-and-spencer": ("assets.digitalcontent.marksandspencer.app",),
+    "aldi": ("dm.emea.cms.aldi.cx",),
+    "lidl": ("imgproxy-retcat.assets.schwarz",),
 }
 ASDA_SEARCH = "https://www.asda.com/groceries/search/"  # Asda's own search for a product's name (its page addresses aren't known)
+# Each shop's own search for a product's name, for list rows that carry no page address
+SHOP_SEARCH = {"asda": ASDA_SEARCH, "waitrose": "https://www.waitrose.com/ecom/shop/search?searchTerm=", "morrisons": "https://groceries.morrisons.com/search?entry=",
+               "marks-and-spencer": "https://www.marksandspencer.com/search?searchTerm=", "aldi": "https://www.aldi.co.uk/results?q=", "lidl": "https://www.lidl.co.uk/q/search?q=",
+               "tesco": "https://www.tesco.com/groceries/en-GB/search?query=", "iceland": "https://www.iceland.co.uk/search?q=",
+               "sainsburys": "https://www.sainsburys.co.uk/gol-ui/SearchResults/"}
 ASDA_PHOTO = re.compile(r"^https://asdagroceries\.scene7\.com/is/image/asdagroceries/(\d{8,14})$")
 
 
@@ -486,10 +498,13 @@ def shop_pages(rid: str, base: Path | None = None) -> dict[str, dict]:
         code = ok(r.get("gtin"))
         if code:
             entry(code)["keys"].add(page_key(rid, r.get("page_url")))
-    if rid == "asda":
-        for code, r in listing_rows(rid, base).items():
-            url = (r.get("image_url") or "").strip()
-            entry(code)["photos"].append((f"{url}?wid=400&hei=400&fit=constrain&fmt=jpg", " ".join((r.get("name") or "").split())))
+    for code, r in listing_rows(rid, base).items():
+        url = (r.get("image_url") or "").strip()
+        if not url:
+            continue
+        if rid == "asda":
+            url = f"{url}?wid=400&hei=400&fit=constrain&fmt=jpg"
+        entry(code)["photos"].append((url, " ".join((r.get("name") or "").split())))
     listing = {(r.get("product_id") or "").strip().lower(): r for r in _rows(base / "listing" / f"{rid}.csv")}
     for e in out.values():
         e["keys"].discard("")
@@ -500,18 +515,39 @@ def shop_pages(rid: str, base: Path | None = None) -> dict[str, dict]:
     return out
 
 
-def listing_rows(rid: str, base: Path | None = None) -> dict[str, dict]:
-    """norm barcode -> the shop's own list row (data/groceries/listing/<rid>.csv) for that barcode, joined ONLY through exact identifiers: Asda's
-    picture id where it is a valid barcode (Asda names its product pictures by barcode), and for the other shops the barcode a product page we read
-    showed (discovery/<rid>.csv + <rid>-barcodes.csv) joined to the list row of that page. Shop-internal numbers (restricted_code) are never used."""
-    base = base or ROOT / "data" / "groceries"
+# Founder 2026-10-11: a branded product at two shops is the same item when its name and pack size match exactly ("Galaxy Milk Chocolate Bar 100g"
+# at Asda, Iceland, Morrisons and Waitrose). Never a shop's own brand (a name that names any supermarket or one of their ranges), never without a size.
+OWN_BRAND = re.compile(r"\b(?:tesco|sainsbury s?|sainsburys|asda|waitrose|morrisons|iceland|m and s|marks and spencer|aldi|lidl|co op|ocado|stamford street|"
+                       r"hearty food co|ms molly|plant chef|by sainsbury s|taste the difference|so organic|just essentials|extra special|essential waitrose|"
+                       r"no 1|the best|savers|market street|nutmeg|specially selected|everyday essentials|nature s pick|harvest morn|brooklea|mamia|"
+                       r"milbona|deluxe|vemondo|chef select|crownfield|cien|snack day|nightingale farms|world deli|plant kitchen|collection|"
+                       r"irresistible|honest value|luxury|finest|exceptional)\b")
+SIZED = re.compile(r"\b\d+(?:\.\d+)?(?:kg|g|ml|cl|l)\b|\b\d+x\d")
+
+
+def name_key(name: str) -> str | None:
+    """A branded product's name and pack size as one comparable key, or None (no size, or a shop's own brand). Exact after this: lower case, "&" as "and",
+    units written one way (1 Litre -> 1l, 4 x 330ml -> 4x330ml), punctuation dropped. "Galaxy Milk Chocolate Bar 100g" -> "galaxy milk chocolate bar 100g"."""
+    n = (name or "").lower().replace("&", " and ").replace("’", "'").replace("'", "")
+    n = re.sub(r"(\d+(?:\.\d+)?)\s*(kg|kgs|g|gm|grams?|ml|millilitres?|cl|l|ltr|litres?|liters?)\b",
+               lambda m: m.group(1) + {"kgs": "kg", "gm": "g", "gram": "g", "grams": "g", "millilitre": "ml", "millilitres": "ml", "ltr": "l", "litre": "l",
+                                       "litres": "l", "liter": "l", "liters": "l"}.get(m.group(2), m.group(2)), n)
+    n = re.sub(r"(\d)\s*[x×]\s*(\d)", r"\1x\2", n)
+    n = " ".join(re.sub(r"[^a-z0-9. ]+", " ", n).replace(" .", " ").split())
+    if not SIZED.search(n) or OWN_BRAND.search(n):
+        return None
+    return n
+
+
+def _barcode_rows(rid: str, base: Path) -> dict[str, dict]:
+    """norm barcode -> list row, through exact identifiers only (listing_rows without the name matches)."""
     rows = _rows(base / "listing" / f"{rid}.csv")
     out: dict[str, dict] = {}
     if rid == "asda":
         for r in rows:
             m = ASDA_PHOTO.match((r.get("image_url") or "").strip())
             if m and gtin_ok(m.group(1)) and not restricted_code(m.group(1)):
-                out.setdefault(norm_code(m.group(1)), r)
+                out.setdefault(norm_code(m.group(1)), {**r, "_code": m.group(1)})
         return out
     by_id = {(r.get("product_id") or "").strip(): (r.get("gtin") or "").strip() for r in _rows(base / "discovery" / f"{rid}-barcodes.csv")}
     listed = {(r.get("product_id") or "").strip().lower(): r for r in rows}
@@ -519,7 +555,45 @@ def listing_rows(rid: str, base: Path | None = None) -> dict[str, dict]:
         code = by_id.get((r.get("product_id") or "").strip(), "")
         row = listed.get(page_key(rid, r.get("page_url")).lower()) or listed.get((r.get("product_id") or "").strip().lower())
         if row and gtin_ok(code) and not restricted_code(code):
-            out.setdefault(norm_code(code), row)
+            out.setdefault(norm_code(code), {**row, "_code": code})
+    return out
+
+
+BARCODED_LISTS = ("asda", "sainsburys", "tesco")  # the lists whose rows carry a barcode (Asda's pictures; pages read at Sainsbury's and Tesco)
+_NAME_CACHE: dict = {}
+
+
+def name_barcodes(base: Path | None = None) -> dict[str, str]:
+    """name_key -> the barcode (as the shop's list or page wrote it) of the one branded product with that exact name and size in the barcoded lists.
+    A key that two different barcodes share is left out (it can't be told which product a third shop's row is)."""
+    base = base or ROOT / "data" / "groceries"
+    if base in _NAME_CACHE:
+        return _NAME_CACHE[base]
+    found: dict[str, set] = {}
+    spelled: dict[str, str] = {}
+    for rid in BARCODED_LISTS:
+        for code, r in _barcode_rows(rid, base).items():
+            key = name_key(r.get("name") or "")
+            if key:
+                found.setdefault(key, set()).add(code)
+                spelled.setdefault(code, r.get("_code") or code)
+    out = {k: spelled[next(iter(v))] for k, v in found.items() if len(v) == 1}
+    _NAME_CACHE[base] = out
+    return out
+
+
+def listing_rows(rid: str, base: Path | None = None) -> dict[str, dict]:
+    """norm barcode -> the shop's own list row (data/groceries/listing/<rid>.csv) for that barcode: through exact identifiers (Asda's picture id where it
+    is a valid barcode, as Asda names its product pictures by barcode; for the other shops the barcode a product page we read showed, joined to the list
+    row of that page), then (founder 2026-10-11) a branded row whose name and pack size match exactly one barcoded product's (name_key). Shop-internal
+    numbers (restricted_code) are never used."""
+    base = base or ROOT / "data" / "groceries"
+    out = _barcode_rows(rid, base)
+    names = name_barcodes(base)
+    for r in _rows(base / "listing" / f"{rid}.csv"):
+        code = names.get(name_key(r.get("name") or "") or "")
+        if code and not restricted_code(code):
+            out.setdefault(norm_code(code), {**r, "_code": code, "_by_name": "1"})
     return out
 
 
@@ -532,7 +606,7 @@ def listing_prices(rid: str, rows: dict[str, dict] | None = None) -> dict[str, d
         price, checked = num(r.get("price_gbp")), (r.get("checked_on") or "").strip()
         url = (r.get("page_url") or "").strip()
         if rid == "asda" or not url.startswith("https://"):
-            url = ASDA_SEARCH + urllib.parse.quote(" ".join((r.get("name") or "").split())) if rid == "asda" else ""
+            url = SHOP_SEARCH[rid] + urllib.parse.quote(" ".join((r.get("name") or "").split())) if rid in SHOP_SEARCH else ""
         if price is None or not (0 < price < 500) or not url or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", checked):
             continue
         entry: dict = {"amount": r2(price), "url": url, "checkedOn": checked}

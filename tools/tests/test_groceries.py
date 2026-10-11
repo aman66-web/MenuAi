@@ -852,3 +852,39 @@ class ListingBarcodeTests(unittest.TestCase):
             lines = bg.add_codes(by_rid, Path(d), lists)
         self.assertEqual([it["gtin"] for it in by_rid["asda"]], ["5411188080213"])      # the cookies record names another product; the third isn't on a shop list
         self.assertTrue(any("share no word" in line for line in lines))
+
+
+class NameMatchTests(unittest.TestCase):
+    """Founder 2026-10-11: a branded product is the same item at two shops when its name and pack size match exactly; never a shop's own brand."""
+
+    def test_the_key_is_exact_after_tidying(self):
+        self.assertEqual(bg.name_key("Galaxy Milk Chocolate Bar 100g"), "galaxy milk chocolate bar 100g")
+        self.assertEqual(bg.name_key("Alpro Soya Drink 1 Litre"), bg.name_key("Alpro Soya Drink 1L"))
+        self.assertEqual(bg.name_key("Cornetto MAX Pistachio Ice Cream Cones 4 x 90ml"), bg.name_key("Cornetto MAX Pistachio Ice Cream Cones 4x 90 ml"))
+        self.assertEqual(bg.name_key("Sweet Baby Ray's Barbecue Sauce 510g"), "sweet baby rays barbecue sauce 510g")
+        self.assertNotEqual(bg.name_key("Galaxy Milk Chocolate Bar 100g"), bg.name_key("Galaxy Milk Chocolate Bar 110g"))  # another size is another product
+        self.assertNotEqual(bg.name_key("Heinz Baked Beans 415g"), bg.name_key("Heinz Baked Beanz 415g"))
+
+    def test_own_brands_and_unsized_names_never_match(self):
+        for name in ("Tesco Baked Beans 420g", "Sainsbury's Lemon Curd 411g", "ASDA Semi Skimmed Milk 2L", "Morrisons The Best Sausages 400g",
+                     "Essential Waitrose Butter 250g", "M&S Percy Pig 170g", "Galaxy Milk Chocolate Bar"):
+            self.assertIsNone(bg.name_key(name), name)
+
+    def test_rows_take_the_one_barcode_of_their_exact_name_and_ambiguous_names_none(self):
+        header = "product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on\n"
+        with tempfile.TemporaryDirectory() as d:
+            base = Path(d)
+            (base / "listing").mkdir()
+            (base / "listing" / "asda.csv").write_text(header +
+                "1,Galaxy Milk Chocolate Bar 100g,1.50,,,,,Sweets,,https://asdagroceries.scene7.com/is/image/asdagroceries/5000159407236,2026-10-08\n"
+                "2,Capri Sun Orange 330ml,1.00,,,,,Drinks,,https://asdagroceries.scene7.com/is/image/asdagroceries/5010084702399,2026-10-08\n"
+                "3,Capri-Sun Orange 330ml,1.00,,,,,Drinks,,https://asdagroceries.scene7.com/is/image/asdagroceries/5411188080213,2026-10-08\n")
+            (base / "listing" / "waitrose.csv").write_text(header +
+                "065131-1-1,Galaxy Milk Chocolate Bar 100g,1.60,,,,,food_cupboard/chocolate,,https://ecom-su-static-prod.wtrecom.com/images/products/9/LN_065131_BP_9.jpg,2026-10-08\n"
+                "065132-1-1,Capri Sun Orange 330ml,1.10,,,,,drinks,,https://ecom-su-static-prod.wtrecom.com/images/products/9/LN_065132_BP_9.jpg,2026-10-08\n")
+            bg._NAME_CACHE.pop(base, None)
+            rows = bg.listing_rows("waitrose", base)
+        self.assertEqual(list(rows), ["5000159407236"])                                  # two Asda barcodes share the Capri Sun name: no match
+        self.assertEqual(rows["5000159407236"]["name"], "Galaxy Milk Chocolate Bar 100g")
+        price = bg.listing_prices("waitrose", rows)["5000159407236"]
+        self.assertTrue(price["url"].startswith("https://www.waitrose.com/ecom/shop/search?searchTerm="))
