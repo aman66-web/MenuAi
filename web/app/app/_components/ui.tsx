@@ -67,10 +67,15 @@ export function EmptyState({ title, body, action, icon }: { title: string; body?
     <div className="glass rounded-3xl px-5 py-10 text-center">
       <span aria-hidden className={`mx-auto mb-3 ${icon ? "inline-flex justify-center" : "icon-bubble-soft h-12 w-12"}`}>{icon ?? <span className="bg-sun h-3 w-3 rounded-full" />}</span>
       <p className="text-lg font-bold tracking-tight">{title}</p>
-      {body && <p className="mx-auto mt-1 max-w-xs text-sm text-muted">{body}</p>}
+      {body && <p className="mx-auto mt-1 max-w-sm text-base text-muted">{body}</p>}
       {action && <div className="mt-4 flex justify-center">{action}</div>}
     </div>
   );
+}
+
+/** A big round icon for an empty state ("nothing here yet"). */
+export function EmptyIcon({ children }: { children: ReactNode }) {
+  return <span className="grid h-14 w-14 place-items-center rounded-full bg-accent-soft text-accent [&>svg]:h-7 [&>svg]:w-7">{children}</span>;
 }
 
 export function Spinner({ label }: { label?: string }) {

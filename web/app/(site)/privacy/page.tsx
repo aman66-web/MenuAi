@@ -19,7 +19,7 @@ export default function Privacy() {
 
       <h2>What stays on your phone or in your browser</h2>
       <ul>
-        <li>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten).</li>
+        <li>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare.</li>
         <li>
           In the iPhone app these are stored only on your device. In the web app they are stored only in this browser
           on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). We never

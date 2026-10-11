@@ -7,6 +7,8 @@ import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { Allergens } from "@/lib/mm/types";
 import { addToList } from "@/lib/mm/groceries";
+import { CompareButton } from "../../_components/CompareButton";
+import { compareFoodFromListed } from "../../_lib/compare";
 import { shoppingStore } from "@/lib/mm/stores";
 import { AllergenTable } from "../../_components/Allergens";
 import { ChevronLeftIcon, CopyIcon, InfoIcon } from "../../_components/icons";
@@ -315,6 +317,8 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         <p role="status" aria-live="polite" className="min-h-5 text-sm font-medium text-accent">{added}</p>
         {added && <Link href="/app/groceries/list" className="inline-flex min-h-11 items-center text-sm font-semibold text-accent underline">{t("Open your shopping list")}</Link>}
       </div>
+
+      <div className="mt-3"><CompareButton full item={compareFoodFromListed(listed, selected)} /></div>
 
       <p className="mt-4 text-xs text-muted">
         {t("Not affiliated with {shop}.", { shop: p.retailers.map(retailerName).join(", ") })} <Rich text={t("Data: {link}, licensed under the Open Database Licence.")} values={{ link: <a className="underline" href={`https://world.openfoodfacts.org/product/${p.gtin}`} target="_blank" rel="noopener noreferrer">{t("this product on Open Food Facts")}<span className="sr-only"> {t("(opens in a new tab)")}</span></a> }} />

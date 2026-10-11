@@ -60,6 +60,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const [prefs, setPrefs] = useState<Preferences>(() => settingsStore.get().preferences);
   const [sort, setSort] = useState<SortKind>("menu");
   const [query, setQuery] = useState("");
+  const [halalOpen, setHalalOpen] = useState(false);
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set());
   const [flatLimit, setFlatLimit] = useState(FLAT_PAGE);
   const [reporting, setReporting] = useState<MenuItem | "any" | null>(null);
@@ -130,10 +131,21 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             {chain.note && <p>{chain.note}</p>}
             {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks, order builder or logging for this restaurant.", { chain: chain.name })}</p>}
             {halal && (
-              <p>
-                <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span> &ldquo;{halal.statement}&rdquo;{" "}
-                <a href={halal.url} target="_blank" rel="noopener noreferrer" className="text-muted underline underline-offset-2">{t("{chain}'s website", { chain: chain.name })}</a>
-              </p>
+              <div>
+                <p className="flex flex-wrap items-center gap-x-2">
+                  <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span>
+                  <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 font-semibold text-accent underline underline-offset-2">
+                    {t("What {chain} says", { chain: chain.name })}
+                    <ChevronRightIcon className={`h-4 w-4 transition-transform ${halalOpen ? "-rotate-90" : "rotate-90"}`} />
+                  </button>
+                </p>
+                {halalOpen && (
+                  <p id="halal-quote" className="mt-1 rounded-2xl bg-soft px-3 py-2">
+                    &ldquo;{halal.statement}&rdquo;{" "}
+                    <a href={halal.url} target="_blank" rel="noopener noreferrer" className="text-muted underline underline-offset-2">{t("{chain}'s website", { chain: chain.name })}</a>
+                  </p>
+                )}
+              </div>
             )}
             <p className="app-numbers text-muted">
               <Rich
@@ -163,7 +175,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <p className="mb-1.5 mt-3 text-base font-bold">{t("Which meal?")}</p>
             <div className="flex flex-wrap gap-1 rounded-[1.5rem] bg-soft p-1" role="group" aria-label={t("Meal")}>
               {MEALS.map((m) => (
-                <Chip key={m} segment className="flex-1 justify-center px-2" selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
+                <Chip key={m} segment className="flex-auto justify-center whitespace-nowrap px-3" selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
               ))}
             </div>
           </>

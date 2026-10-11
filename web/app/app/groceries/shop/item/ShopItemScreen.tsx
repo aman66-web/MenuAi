@@ -14,6 +14,8 @@ import { usePossessive, useT } from "../../../_lib/i18n";
 import { useSettings } from "../../../_lib/hooks";
 import { useShopProducts } from "../../../_lib/shopProducts";
 import { ProductPhotoFigure } from "../../ProductPhoto";
+import { CompareButton } from "../../../_components/CompareButton";
+import { compareFoodFromShop } from "../../../_lib/compare";
 
 // One product from a shop's full list: what the shop's own category page printed. We have not read this product's page, so no calories, protein or allergens
 // here unless its barcode is one the Groceries list already has numbers for (then the full page is one tap away).
@@ -46,6 +48,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const photos = shopPhotoSources(file, product);
   const page = shopPageUrl(file, product);
   const nutrition = product.nutrition;
+  const compareItem = compareFoodFromShop(file, product);
   const rows: Array<[string, string]> = nutrition
     ? [
         ...(nutrition.kj !== null ? [[t("Energy"), `${nutrition.kj.toLocaleString("en-GB")} kJ`] as [string, string]] : []),
@@ -91,6 +94,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
           <BasketIcon className="h-5 w-5" />{t("Add to my list")}
         </Button>
         <p role="status" aria-live="polite" className="mt-2 min-h-5 text-center text-sm font-medium text-accent">{added && <>{added} <Link href="/app/groceries/list" className="underline underline-offset-2">{t("See list")}</Link></>}</p>
+        {compareItem && <CompareButton full item={compareItem} />}
       </div>
 
       <section aria-labelledby="nutrition-heading" className="glass mt-3 rounded-3xl p-5">

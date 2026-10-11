@@ -149,6 +149,9 @@ export function forRetailer(p: ListedProduct, retailer: string | null | undefine
 }
 
 /** Protein grams per 100 kcal (0 when there are no calories): same measure as the restaurant lists. */
+/** Below this much protein per 100 g or ml, "most protein per 100 kcal" lists a product after the others. */
+export const MIN_DENSITY_PROTEIN = 1;
+
 export function proteinPer100Kcal(p: Pick<GroceryProduct, "kcal" | "protein">): number {
   return p.kcal > 0 ? (p.protein / p.kcal) * 100 : 0;
 }
@@ -200,7 +203,9 @@ export function searchProducts(products: readonly ListedProduct[], f: GroceryFil
   const by = f.sort ?? "density";
   const name = (a: GroceryProduct, b: GroceryProduct) => a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" });
   list = [...list];
-  if (by === "density") list.sort((a, b) => proteinPer100Kcal(b) - proteinPer100Kcal(a) || name(a, b));
+  // "Most protein per 100 kcal": a product with under 1 g of protein per 100 g goes after the rest (a sugar-free drink with 0.5 g and 2 kcal would
+  // otherwise top the list); its numbers are unchanged
+  if (by === "density") list.sort((a, b) => Number(a.protein < MIN_DENSITY_PROTEIN) - Number(b.protein < MIN_DENSITY_PROTEIN) || proteinPer100Kcal(b) - proteinPer100Kcal(a) || name(a, b));
   else if (by === "protein") list.sort((a, b) => b.protein - a.protein || name(a, b));
   else if (by === "kcal") list.sort((a, b) => a.kcal - b.kcal || name(a, b));
   else list.sort(name);

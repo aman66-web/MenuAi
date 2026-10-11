@@ -15,6 +15,8 @@ import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { AllergenSection } from "../_components/Allergens";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
+import { CompareButton } from "../_components/CompareButton";
+import { compareDish } from "../_lib/compare";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, ErrorBox, Spinner } from "../_components/ui";
 import { useChain, useMenu } from "../_lib/hooks";
@@ -130,6 +132,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
       ) : (
         <p className="mt-6 text-base text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
       )}
+
+      <div className="mt-2"><CompareButton full item={compareDish(chain, item)} /></div>
 
       <p className="mt-4 text-sm text-muted">
         {t("Not affiliated with {chain}.", { chain: chain.name })}{" "}

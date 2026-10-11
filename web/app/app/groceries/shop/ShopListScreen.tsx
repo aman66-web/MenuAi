@@ -8,7 +8,7 @@ import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/li
 import type { GroceryProduct } from "@/lib/mm/groceries";
 import { ChevronLeftIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../../_components/ui";
+import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner, inputClass } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
 import { useShopProducts } from "../../_lib/shopProducts";
@@ -130,7 +130,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <p className="mt-2 text-xs text-muted">{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p>}
       <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
-        <div className="mt-3"><EmptyState title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>
+        <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>
       ) : (
         <ul className="mt-3 space-y-2.5">
           {results.slice(0, shown).map((p) => (<li key={p.id}><ShopProductRow file={file} product={p} /></li>))}

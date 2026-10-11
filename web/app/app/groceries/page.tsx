@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { barcodeQuery, RETAILERS } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
-import { BasketIcon, ChevronRightIcon, ScanIcon, SearchIcon } from "../_components/icons";
+import { BasketIcon, ChevronRightIcon, CompareIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { ShopMark } from "../_components/ChainMark";
 import { Button, Spinner } from "../_components/ui";
 import { useSettings, useStore } from "../_lib/hooks";
@@ -65,6 +65,9 @@ export default function GroceriesPage() {
         <Button full variant="secondary" className="min-h-14 text-base" onClick={() => setScanning(true)}><ScanIcon className="h-5 w-5" />{t("Scan a barcode")}</Button>
         <Link href="/app/groceries/search" className="glass inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full px-5 text-base font-bold transition active:scale-[0.98] hover:bg-soft-strong">
           <SearchIcon className="h-5 w-5" />{t("Search every shop at once")}
+        </Link>
+        <Link href="/app/compare?tab=food" className="glass inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full px-5 text-base font-bold transition active:scale-[0.98] hover:bg-soft-strong">
+          <CompareIcon className="h-5 w-5" />{t("Compare products")}
         </Link>
       </div>
 

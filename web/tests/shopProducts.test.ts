@@ -63,6 +63,12 @@ describe("every-product lists", () => {
     expect(searchShopProducts(ps, { sort: "priceDesc" }).map((p) => p.id)).toEqual(["b-1", "c-1", "a-1"]);
     expect(searchShopProducts(ps, { sort: "unit" }).map((p) => p.id)).toEqual(["b-1", "c-1", "a-1"]);
   });
+  it("by protein per 100 kcal, a product with under 1 g of protein goes after the others", () => {
+    const row = (id: string, kcal: number, protein: number) => [id, `Item ${id}`, 1, null, "", null, null, 0, "", "", [kcal, protein, 1, 0, null, null, null, null, null, "ml", ""]] as ShopFile["products"][number];
+    const ps = decodeShopProducts({ ...file, products: [row("drink-1", 2, 0.5), row("milk-1", 50, 3.4), row("shake-1", 70, 10)] });
+    expect(searchShopProducts(ps, { sort: "density" }).map((p) => p.id)).toEqual(["shake-1", "milk-1", "drink-1"]);
+    expect(searchShopProducts(ps, { sort: "protein" }).map((p) => p.id)).toEqual(["shake-1", "milk-1", "drink-1"]);
+  });
   it("writes a possessive without doubling the s", () => {
     expect(possessive("Sainsbury's")).toBe("Sainsbury's");
     expect(possessive("Tesco")).toBe("Tesco's");

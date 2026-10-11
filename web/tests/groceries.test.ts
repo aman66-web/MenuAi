@@ -20,6 +20,14 @@ describe("groceries", () => {
     expect(searchProducts(all, { query: "MAMIA" }).length).toBe(1);
     expect(searchProducts(all, { query: "ogurt" })).toEqual([]); // not the middle of a word
   });
+  it("lists products with under 1 g of protein after the others by protein per 100 kcal (a 2 kcal drink can't top the list)", () => {
+    const drinks = mergeProducts([file("tesco", [
+      p({ gtin: "5000000000101", name: "Kombucha", kcal: 2, protein: 0.5 }),
+      p({ gtin: "5000000000102", name: "Chicken Breast", kcal: 106, protein: 24 }),
+      p({ gtin: "5000000000103", name: "Skyr", kcal: 64, protein: 11 }),
+    ])]);
+    expect(searchProducts(drinks, { sort: "density" }).map((x) => x.name)).toEqual(["Chicken Breast", "Skyr", "Kombucha"]);
+  });
   it("finds a product by barcode, with or without a leading zero", () => {
     expect(barcodeQuery("5 012345-678900")).toBe("5012345678900");
     expect(barcodeQuery("012345678905")).toBe("12345678905");

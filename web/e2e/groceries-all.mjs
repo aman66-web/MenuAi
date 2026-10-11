@@ -51,7 +51,8 @@ await step("Groceries asks \"Which shop?\" and offers only the shops that have a
   const b = await newPage({ allow: false });
   await b.page.goto(BASE + "/app/groceries");
   await b.page.getByText(/Not here yet: Tesco, Sainsbury's/).waitFor();
-  expect((await b.page.getByRole("link", { name: /products$/ }).count()) === 0, "no shop without a list");
+  expect((await b.page.getByRole("link", { name: /\d products?$/ }).count()) === 0, "no shop without a list");
+  await b.page.getByRole("link", { name: "Compare products" }).waitFor();
   await b.ctx.close();
 });
 
@@ -71,8 +72,13 @@ await step("full list: count, search by words, type filter, card price, sort, sh
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has nutrition" }).click();
   // the loaf's numbers come from its own page; the yogurt's from the catalogue's record for the same barcode
   await page.getByText("2 products", { exact: true }).waitFor();
-  await page.getByText(/250 kcal · 9.5g protein · 41g carbs · 4.2g fat per 100 g/).waitFor();
-  await page.getByText(/97 kcal · 9g protein · 4.2g carbs · 5g fat per 100 g/).waitFor();
+  // calories and protein as two pills (carbs and fat are on the product's own page)
+  const loaf = page.getByRole("link", { name: /Multiseed Loaf/ });
+  await loaf.getByText("250 kcal", { exact: true }).waitFor();
+  await loaf.getByText("9.5g protein", { exact: true }).waitFor();
+  const yogurt = page.getByRole("link", { name: /Greek Style Natural Yogurt/ });
+  await yogurt.getByText("97 kcal", { exact: true }).waitFor();
+  await yogurt.getByText("9g protein", { exact: true }).waitFor();
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has nutrition" }).click();
   await page.getByRole("combobox", { name: "Sort" }).selectOption("density");
   const top = await page.locator("a[href*='/groceries/shop/item']").first().innerText();

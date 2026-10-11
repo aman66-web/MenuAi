@@ -1,7 +1,7 @@
 // "Every product" lists (founder 2026-10-09, docs/GROCERIES_PLAN.md): what a supermarket's own category pages printed for each product (name, price,
 // unit price, card price, picture), with NO nutrition unless we have read the product's own page. Built by tools/groceries/build_all_products.py from
 // the listing crawls; one compact array per product so a 17,000-product shop stays about 2.5 MB.
-import type { PhotoSource } from "./groceries";
+import { MIN_DENSITY_PROTEIN, type PhotoSource } from "./groceries";
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 
@@ -219,7 +219,9 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
   else if (by === "density" || by === "protein") {
     // products without numbers, and those whose numbers are for the cooked or prepared food, go last: they can't be compared with food as sold, and nothing is guessed for them
     const key = (p: ShopProduct) => (p.nutrition && !p.nutrition.state ? (by === "density" ? (p.nutrition.kcal > 0 ? (p.nutrition.protein / p.nutrition.kcal) * 100 : 0) : p.nutrition.protein) : Number.NEGATIVE_INFINITY);
-    list.sort((a, b) => key(b) - key(a) || name(a, b));
+    // by density, a product with under 1 g of protein per 100 g goes after those with more (a 2 kcal drink with 0.5 g would otherwise top the list)
+    const low = (p: ShopProduct) => Number(by === "density" && !!p.nutrition && !p.nutrition.state && p.nutrition.protein < MIN_DENSITY_PROTEIN);
+    list.sort((a, b) => low(a) - low(b) || key(b) - key(a) || name(a, b));
   } else list.sort(name);
   return list;
 }

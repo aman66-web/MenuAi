@@ -8,7 +8,7 @@ import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
 import { BasketIcon, ChevronLeftIcon, ScanIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../../_components/ui";
+import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner, inputClass } from "../../_components/ui";
 import { useGroceryCatalogue, useGroceryManifest } from "../../_lib/groceries";
 import { useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
@@ -109,7 +109,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
           {caution && <p className="mt-3 text-xs text-muted">{caution}</p>}
           <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length === 1 ? (isBarcode ? t("1 product with that barcode") : t("1 product")) : isBarcode ? t("{n} products with that barcode", { n: results.length.toLocaleString("en-GB") }) : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
           {results.length === 0 ? (
-            <div className="mt-3"><EmptyState title={t("No products match.")} body={isBarcode ? t("That barcode isn't in our list yet.") : t("Try fewer words, another supermarket, or a different type.")} /></div>
+            <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={isBarcode ? t("That barcode isn't in our list yet.") : t("Try fewer words, another supermarket, or a different type.")} /></div>
           ) : (
             <ul className="mt-3 space-y-2.5">
               {results.slice(0, shown).map((p) => (<li key={p.gtin}><ProductRow product={p} retailer={retailer} /></li>))}

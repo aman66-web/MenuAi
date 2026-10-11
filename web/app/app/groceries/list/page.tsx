@@ -6,9 +6,9 @@ import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCod
 import { formatDate } from "@/lib/mm/format";
 import { nextToBuy } from "@/lib/mm/listRecipes";
 import { shoppingStore } from "@/lib/mm/stores";
-import { ArrowRightIcon, CheckIcon, ChevronLeftIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
+import { ArrowRightIcon, BasketIcon, CheckIcon, ChevronLeftIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Button, EmptyState, inputClass } from "../../_components/ui";
+import { Button, EmptyIcon, EmptyState, inputClass } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { addMissing, useListRecipes } from "../../_lib/listRecipes";
@@ -64,7 +64,7 @@ export default function ShoppingListPage() {
       <p role="status" aria-live="polite" className="mt-2 min-h-5 text-sm font-medium text-accent">{note}</p>
 
       {!hydrated ? null : list.length === 0 ? (
-        <div className="mt-2"><EmptyState title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2"><Link href="/app/groceries" className="btn-sun inline-flex min-h-11 items-center rounded-full px-5 font-bold text-on-accent">{t("Browse groceries")}</Link><Link href="/app/recipes" className="glass inline-flex min-h-11 items-center rounded-full px-5 font-bold">{t("See recipes")}</Link></div>} /></div>
+        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2"><Link href="/app/groceries" className="btn-sun inline-flex min-h-11 items-center rounded-full px-5 font-bold text-on-accent">{t("Browse groceries")}</Link><Link href="/app/recipes" className="glass inline-flex min-h-11 items-center rounded-full px-5 font-bold">{t("See recipes")}</Link></div>} /></div>
       ) : (
         <>
           {/* At the top, as asked: what this list can make (its own products, matched by the recipes' rules). */}

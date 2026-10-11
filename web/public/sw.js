@@ -17,8 +17,8 @@ const DATA = `${VERSION}-data`;
 const IMAGES = `${VERSION}-images`;
 const MAX_ENTRIES = { [PAGES]: 80, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150 };
 const NETWORK_TIMEOUT_MS = 5000;
-const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/recipes", "/app/recipes/view", "/app/recipes/make", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/today", "/app/settings", "/app/settings/numbers", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
-const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder", "/app/groceries/product", "/app/groceries/search", "/app/groceries/shop", "/app/groceries/shop/item", "/app/recipes", "/app/recipes/view", "/app/recipes/make", "/app/meals"];
+const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/recipes", "/app/recipes/view", "/app/recipes/make", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/compare", "/app/today", "/app/settings", "/app/settings/numbers", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
+const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder", "/app/groceries/product", "/app/groceries/search", "/app/groceries/shop", "/app/groceries/shop/item", "/app/recipes", "/app/recipes/view", "/app/recipes/make", "/app/meals", "/app/compare"];
 
 /** Page navigations to the query-driven shells share one cache entry; everything else is keyed by its full URL. */
 function cacheKey(request) {

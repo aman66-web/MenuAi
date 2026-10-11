@@ -9,7 +9,7 @@ import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainCard, ChainRow } from "../_components/ChainRow";
-import { ArrowRightIcon, ChevronRightIcon, PinIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { ArrowRightIcon, ChevronRightIcon, CompareIcon, PinIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyState, ErrorBox, SectionTitle, Spinner } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
@@ -82,6 +82,14 @@ export default function EatOutPage() {
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("My favourite restaurants")}</span>
           <span className="block text-base text-muted">{favoriteChains.length === 0 ? t("Keep the places you go to here") : favoriteChains.length === 1 ? t("1 restaurant") : t("{n} restaurants", { n: favoriteChains.length })}</span>
+        </span>
+        <ChevronRightIcon className="h-6 w-6 shrink-0 text-muted" />
+      </Link>
+      <Link href="/app/compare?tab=dish" className="glass lift group mt-3 flex min-h-[4.75rem] items-center gap-4 rounded-[1.75rem] p-4 hover:bg-soft-strong">
+        <span aria-hidden className="icon-bubble-soft h-12 w-12 shrink-0 rounded-2xl"><CompareIcon className="h-6 w-6" /></span>
+        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+          <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("Compare dishes")}</span>
+          <span className="block text-base text-muted">{t("Put dishes side by side, even from different restaurants")}</span>
         </span>
         <ChevronRightIcon className="h-6 w-6 shrink-0 text-muted" />
       </Link>

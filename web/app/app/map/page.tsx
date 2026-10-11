@@ -11,7 +11,7 @@ import { tk } from "@/lib/mm/i18n";
 import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, DirectionsIcon, LocateIcon, PinIcon, SearchIcon } from "../_components/icons";
-import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
+import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
 import { useMenu } from "../_lib/hooks";
 import { loadBranches } from "../_lib/branches";
 import { useT } from "../_lib/i18n";
@@ -197,7 +197,7 @@ export default function NearbyPage() {
       )}
 
       {!origin ? (
-        <div className="mt-6"><EmptyState title={t("Where are you eating?")} body={t("Share your location or type a postcode or town to see the restaurants around you.")} /></div>
+        <div className="mt-6"><EmptyState icon={<EmptyIcon><PinIcon /></EmptyIcon>} title={t("Where are you eating?")} body={t("Share your location or type a postcode or town to see the restaurants around you.")} /></div>
       ) : docError ? (
         <div className="mt-6"><ErrorBox message={t("Couldn't load the restaurant locations. Check your connection.")} onRetry={retryBranches} /></div>
       ) : !doc || menu.status !== "ready" ? (

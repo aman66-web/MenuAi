@@ -36,6 +36,8 @@ const pages = [
   ["paywall", "/app/today", false, async (p) => { await p.getByRole("button", { name: /See Pro/ }).click(); await p.waitForTimeout(400); }],
   ["report sheet", "/app/item?chain=cluck-house&item=waffle-fries", true, async (p) => { await p.getByRole("button", { name: "Report a number" }).click(); await p.waitForTimeout(400); }],
   ["my meals: restaurant meals", "/app/meals?tab=restaurant", true, async () => {}],
+  ["compare: two dishes side by side", "/app/compare?tab=dish", true, async (p) => { await p.evaluate(() => localStorage.setItem("mm.v1.compare", JSON.stringify({ v: 1, data: [1, 2].map((n) => ({ key: `dish:bowl-and-co:d${n}`, kind: "dish", name: `Bowl ${n}`, from: "Bowl & Co", fromId: "bowl-and-co", href: "/app/item?chain=bowl-and-co&item=chicken-bowl", basis: "serving", source: "restaurant", addedAt: "2026-10-11T12:00:00.000Z", numbers: { kcal: 500 + n * 50, protein: 30 + n, carbs: 50, sugars: null, fat: 15, saturates: null, fibre: 6, salt: 2 } })) }))); await p.reload(); await p.getByRole("heading", { name: "Side by side" }).waitFor(); }],
+  ["restaurant page: halal quote opened", "/app/chain?id=kfc", true, async (p) => { const b = p.getByRole("button", { name: /What KFC says/ }); if (await b.count()) await b.click(); }],
   ["today", "/app/today", true, async () => {}],
   ["settings", "/app/settings", true, async () => {}],
   ["numbers", "/app/settings/numbers", true, async () => {}],

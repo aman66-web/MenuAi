@@ -65,3 +65,5 @@ export const SandwichIcon = (p: P) => (<svg {...base(p)}><path d="M3 10l9-6 9 6z
 export const MoonIcon = (p: P) => (<svg {...base(p)}><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></svg>);
 export const AppleIcon = (p: P) => (<svg {...base(p)}><path d="M12 7c-1.6-1.5-6-1.6-6.8 2.6C4.5 13.4 7 20 9.5 20c1 0 1.5-.6 2.5-.6s1.5.6 2.5.6C17 20 19.5 13.4 18.8 9.6 18 5.4 13.6 5.5 12 7zM12 7c0-2 1-3.5 3-4" /></svg>);
 export const CopyIcon = (p: P) => (<svg {...base(p)}><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M5.5 15.5V6.5a2 2 0 012-2h9" /></svg>);
+/** Two bars of different heights with a divider: "compare side by side". */
+export const CompareIcon = (p: P) => (<svg {...base(p)}><path d="M12 3v18" /><rect x="4" y="9" width="5" height="10" rx="1.2" /><rect x="15" y="5" width="5" height="14" rx="1.2" /></svg>);
