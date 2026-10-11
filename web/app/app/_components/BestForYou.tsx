@@ -31,7 +31,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
   const now = useNow();
 
   // Free users log nothing, so what's left is always the daily target (SPEC §6.3).
-  const loggedCalories = pro ? loggedToday(log, now).calories : 0;
+  const loggedCalories = loggedToday(log, now).calories; // logging is free (founder 2026-10-11), so what's logged counts for everyone
   const result = useMemo(
     () =>
       rank({

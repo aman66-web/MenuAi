@@ -3,9 +3,10 @@ import { englishT, tk, type T } from "./i18n";
 import type { UserSettings } from "./user-data";
 
 // SPEC §4: free vs Pro. Payments are not wired on the web yet, so "Pro" comes only from the preview switches.
+// Logging meals and the Today screen are free (founder 2026-10-11, "Yes please"), so "log" is no longer a paywall trigger.
 // When payments exist, this is the one place to add a verified purchase.
 
-export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker";
+export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "recipeMaker";
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">): boolean {
   return PRO_PREVIEW_FROM_ENV || (DEV_TOOLS_ENABLED && settings.devProOverride);
@@ -50,7 +51,6 @@ export const PAYWALL_TITLE = tk("Build the perfect order, every time");
 export const PAYWALL_BULLETS = [
   tk("Top 5 picks for your goal at every chain"),
   tk("Build your order with live totals"),
-  tk("Keep a log of what you eat today"),
   tk("Unlimited saved orders"),
   tk("Pip makes new recipes just for you"),
 ] as const;

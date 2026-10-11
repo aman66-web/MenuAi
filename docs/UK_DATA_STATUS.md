@@ -332,10 +332,10 @@ source (every agent compared at least 15 items, mostly 20-60, or every row of a 
 | Booths Café | 79 | calories | Menu 1 (autumn 2026) served at 8 of 15 cafés, Menus 2 and 3 for the smaller cafés with the same calories |
 | Subway | 195 | full | its own product pages on www.subway.com (212 read, robots allowed; the media.subway.com PDF not used); 17 held back (two products named alike with different figures, figures that contradict each other, all-zero pages); the page doesn't say which bread or fillings a sub's figures include, and the note says so |
 | Atis | 16 | full | the curated dishes on atis.life (16 London sites); 3 left out (a range, two side pots with calories only) |
+| Kick Ass Burrito | 52 | full + allergens | Big Table Group's Ten Kites menu (food and Drinks tabs), read 11 October 2026; a delivery-only brand cooked in Big Table Group kitchens (about 17 on delivery apps), published on the founder's go-ahead (2026-10-11); Philly Beef Burrito held back (218 g fat), a filling batch and drinks with no figures left out |
 
 Checked and not added tonight: Angus Steakhouse (4 sites; its data host disallows all), Urban Greens (calories hidden by the chain with
-display:none), Coffee Republic (bot challenge), Robinsons (403 again; one pub menu found), Kick Ass Burrito (delivery-only brand with no website
-of its own: extracted and held in `data/held-unpublished/`, founder's call), Brewhouse & Kitchen (its PDF host answers 403 to robots.txt), AirHop (its data host answers 403 to robots.txt),
+display:none), Coffee Republic (bot challenge), Robinsons (403 again; one pub menu found), Brewhouse & Kitchen (its PDF host answers 403 to robots.txt), AirHop (its data host answers 403 to robots.txt),
 TeamSport (PDF disallowed). New discovery (`data/candidates/triage4/`): travel 47 checked (0 usable), leisure 35, restaurants long tail 49, pubs 46,
 menu platforms 23, re-test of 75 blocked chains (20 reachable now).
 

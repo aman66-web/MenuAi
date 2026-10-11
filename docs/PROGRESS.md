@@ -683,6 +683,16 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   second, stops on 401/403/429) and `assemble_logos.py` (now also builds `SQUARE_ICONS`). Checked: 421 unit tests, e2e smoke 23, extra 11, browse 9,
   axe 0 in light and dark, map 6 of 7 (the known headless geolocation limit); screenshots of Eat out and the map in light and dark.
 
+- 2026-10-11 — **Founder: "Yes please for both": logging meals is free, and Kick Ass Burrito is published.** (1) **Logging is free:** the Log button on an
+  item and in the builder no longer opens the paywall, the Today screen shows today's meals for everyone, and Home shows "Left today" with the ring and
+  what's been eaten for everyone (the free "Your daily targets" card and its See Pro button are gone). Best for you's meal budget now subtracts what's been
+  logged for everyone (free users still see it blurred). The paywall bullet "Keep a log of what you eat today" is removed (it isn't a Pro feature any more)
+  and the website FAQ now reads "Full menus with calories and macros, and a log of what you eat today, are free for everyone. Pro adds the ranked best orders
+  and the order builder." Pro is now: the top 5 picks, the order builder, unlimited saved orders (3 free) and Pip's recipe maker. `docs/SPEC.md` §3, §4, §6
+  and §7.8 updated to match; for the native app, writing to Apple Health stays Pro (its trigger renamed `health`), say if it should be free too.
+  (2) **Kick Ass Burrito** (52 items, full nutrition and allergens) moved from `data/held-unpublished/` to `data/source/` and published: **221 chains live**.
+  Checked: unit tests, e2e smoke, extra (new step: a free user logs from an item, Today and Home show it, no paywall), prodmode and a11y (new "today (free)" screen).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -691,7 +701,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 ## Founder to-do (things Claude can't do)
 
-- [ ] **Decide: should logging meals be free?** Home now opens on today's numbers, but those need meals logged, which the spec makes Pro. Free users see their targets and See Pro.
+- [x] **Decide: should logging meals be free?** Yes (2026-10-11): logging and Today are free.
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
   cooking-safety lines and the onboarding. Each language is one file, `web/lib/mm/locales/<code>.json` (English → translation); a reviewer can edit it directly.
 - [ ] **Recipe pictures (Nano Banana):** paste each prompt from `docs/RECIPE_IMAGE_PROMPTS.md`, check the picture has no writing, packaging or logos, save it as
@@ -715,7 +725,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
 - [ ] **Logos (11 of 220 missing):** Atis, Bettys, Buy & Bite, Costa, Domino's, Fuller's, Honi Poke, Kokoro, McDonald's, Tesco Café, Wild Bean Café (their sites block us, disallow robots, or serve no logo file we may use; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
-- [ ] **Decide: Kick Ass Burrito** (delivery-only Big Table Group brand, 52 items with full nutrition and allergens, ready in `data/held-unpublished/`): publish or leave out
+- [x] **Decide: Kick Ass Burrito**: publish (2026-10-11), now live.
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)

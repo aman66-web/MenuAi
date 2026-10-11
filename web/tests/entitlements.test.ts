@@ -1,13 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { needsPaywall, paywallCopy, type PaywallTrigger } from "../lib/mm/entitlements";
+import { needsPaywall, PAYWALL_BULLETS, paywallCopy, type PaywallTrigger } from "../lib/mm/entitlements";
 
 describe("gating matrix (SPEC §4)", () => {
-  const triggers: PaywallTrigger[] = ["bestForYou", "orderBuilder", "log", "recipeMaker"];
+  const triggers: PaywallTrigger[] = ["bestForYou", "orderBuilder", "recipeMaker"];
   it("free users hit the paywall on every Pro action; Pro users never do", () => {
     for (const t of triggers) {
       expect(needsPaywall(t, { pro: false })).toBe(true);
       expect(needsPaywall(t, { pro: true })).toBe(false);
     }
+  });
+  it("logging is free (founder 2026-10-11): it is not a paywall trigger and the paywall doesn't sell it", () => {
+    expect(triggers).not.toContain("log");
+    for (const b of PAYWALL_BULLETS) expect(b.toLowerCase()).not.toMatch(/\blog\b/);
   });
   it("saveLimit: free users can save 3 orders, the 4th hits the paywall; Pro is unlimited", () => {
     expect(needsPaywall("saveLimit", { pro: false, savedCount: 0 })).toBe(false);

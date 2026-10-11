@@ -1,0 +1,1701 @@
+{
+ "schemaVersion": 1,
+ "id": "kick-ass-burrito",
+ "name": "Kick Ass Burrito",
+ "cuisine": "Mexican",
+ "builderType": "standard",
+ "aliases": [
+  "kick ass burrito",
+  "kickass burrito"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Kick Ass Burrito Nutrition (per portion) menus: Kick Ass Burrito and Drinks (page generated 2026-10-11)",
+  "url": "https://menus.tenkites.com/thebigtg/kickassburrito",
+  "checkedOn": "2026-10-11"
+ },
+ "note": "A delivery-only brand cooked in Big Table Group restaurant kitchens and ordered through delivery apps. Per portion as printed on the menu page; sauces, extra fillings and sides are listed on their own, so add the parts you order.",
+ "allergenGuide": {
+  "title": "Kick Ass Burrito Dietary Information (allergens) on its online Kick Ass Burrito and Drinks menus (Ten Kites page generated 2026-10-11)",
+  "url": "https://menus.tenkites.com/thebigtg/kickassburrito",
+  "checkedOn": "2026-10-11",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Burritos",
+  "Big Boy Burritos",
+  "Limited-time burritos",
+  "Bowls",
+  "Side kicks",
+  "Desserts",
+  "Sauces & dips",
+  "Add-ons & extras",
+  "Drinks: Soft drinks",
+  "Drinks: Alcohol"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "mighty-meat-burrito",
+   "name": "Mighty Meat Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 756,
+    "protein": 33.5,
+    "carbs": 85.8,
+    "fat": 29.2,
+    "saturatedFat": 11.4,
+    "sugar": 11.4,
+    "salt": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "beef-chilli-burrito",
+   "name": "Beef Chilli Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 668,
+    "protein": 25.1,
+    "carbs": 88.5,
+    "fat": 22.7,
+    "saturatedFat": 10.2,
+    "sugar": 9.8,
+    "salt": 3.6
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tinga-burrito",
+   "name": "Chicken Tinga Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 792,
+    "protein": 32.8,
+    "carbs": 94.3,
+    "fat": 29.8,
+    "saturatedFat": 13,
+    "sugar": 17.2,
+    "salt": 4.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "beef-brisket-burrito",
+   "name": "Beef brisket Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 720,
+    "protein": 26.1,
+    "carbs": 84.6,
+    "fat": 29.1,
+    "saturatedFat": 11.4,
+    "sugar": 11.4,
+    "salt": 3.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "five-bean-chilli-burrito",
+   "name": "Five Bean Chilli Burrito",
+   "category": "Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 625,
+    "protein": 22,
+    "carbs": 88.3,
+    "fat": 19,
+    "saturatedFat": 8.5,
+    "sugar": 10.6,
+    "salt": 3.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "big-beef-chilli-burrito",
+   "name": "Big Beef Chilli Burrito",
+   "category": "Big Boy Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1104,
+    "protein": 39.7,
+    "carbs": 154.1,
+    "fat": 34.6,
+    "saturatedFat": 14.2,
+    "sugar": 14.4,
+    "salt": 5.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "big-chicken-tinga-burrito",
+   "name": "Big Chicken Tinga Burrito",
+   "category": "Big Boy Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1089,
+    "protein": 48.2,
+    "carbs": 143.9,
+    "fat": 32.8,
+    "saturatedFat": 13,
+    "sugar": 12.1,
+    "salt": 5.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "rye",
+     "barley",
+     "oats",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "big-beef-brisket-burrito",
+   "name": "Big Beef brisket Burrito",
+   "category": "Big Boy Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1182,
+    "protein": 41.2,
+    "carbs": 148.2,
+    "fat": 44.2,
+    "saturatedFat": 16,
+    "sugar": 16.8,
+    "salt": 5.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "big-five-bean-chilli-burrito",
+   "name": "Big Five Bean Chilli Burrito",
+   "category": "Big Boy Burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1039,
+    "protein": 35,
+    "carbs": 153.8,
+    "fat": 28.9,
+    "saturatedFat": 11.7,
+    "sugar": 15.6,
+    "salt": 4.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "sriracha-beef-burrito",
+   "name": "Sriracha Beef Burrito",
+   "category": "Limited-time burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 776,
+    "protein": 26.5,
+    "carbs": 96.7,
+    "fat": 29.5,
+    "saturatedFat": 11.4,
+    "sugar": 20.4,
+    "salt": 6.3
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "k-pop-gochujang-burrito",
+   "name": "K-Pop Gochujang Burrito",
+   "category": "Limited-time burritos",
+   "serving": "",
+   "nutrients": {
+    "calories": 1217,
+    "protein": 35.6,
+    "carbs": 101,
+    "fat": 73.1,
+    "saturatedFat": 14.4,
+    "sugar": 20.3,
+    "salt": 4.7
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "gluten",
+     "milk",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "crustaceans",
+     "eggs",
+     "fish",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ],
+    "cereals": [
+     "wheat",
+     "barley",
+     "spelt",
+     "kamut"
+    ]
+   }
+  },
+  {
+   "id": "chicken-tinga-bowl",
+   "name": "Chicken Tinga Bowl",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 493,
+    "protein": 28.5,
+    "carbs": 35.4,
+    "fat": 25.3,
+    "saturatedFat": 7.9,
+    "sugar": 8.8,
+    "salt": 3.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "beef-brisket-bowl",
+   "name": "Beef Brisket Bowl",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 586,
+    "protein": 21.5,
+    "carbs": 39.8,
+    "fat": 36.7,
+    "saturatedFat": 10.9,
+    "sugar": 13.5,
+    "salt": 4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "veggie-chilli-bowl",
+   "name": "Veggie Chilli Bowl",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 561,
+    "protein": 18,
+    "carbs": 70.8,
+    "fat": 22.1,
+    "saturatedFat": 6.6,
+    "sugar": 15.1,
+    "salt": 4.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "beef-chilli-bowl",
+   "name": "Beef Chilli Bowl",
+   "category": "Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 508,
+    "protein": 20,
+    "carbs": 45.6,
+    "fat": 27.1,
+    "saturatedFat": 9.1,
+    "sugar": 11.1,
+    "salt": 3.7
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "tortilla-chips-and-dips",
+   "name": "Tortilla Chips & Dips",
+   "category": "Side kicks",
+   "serving": "",
+   "nutrients": {
+    "calories": 233,
+    "protein": 4.4,
+    "carbs": 28,
+    "fat": 11.1,
+    "saturatedFat": 3.6,
+    "sugar": 6.3,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "nuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "fries",
+   "name": "Fries",
+   "category": "Side kicks",
+   "serving": "",
+   "nutrients": {
+    "calories": 317,
+    "protein": 4.5,
+    "carbs": 45,
+    "fat": 12.1,
+    "saturatedFat": 1.2,
+    "sugar": 1.6,
+    "salt": 1.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "Side kicks",
+   "serving": "",
+   "nutrients": {
+    "calories": 342,
+    "protein": 2.7,
+    "carbs": 39.6,
+    "fat": 17.5,
+    "saturatedFat": 2.3,
+    "sugar": 12.8,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "halloumi-bites",
+   "name": "Halloumi Bites",
+   "category": "Side kicks",
+   "serving": "",
+   "nutrients": {
+    "calories": 579,
+    "protein": 23.5,
+    "carbs": 41.7,
+    "fat": 34.5,
+    "saturatedFat": 15.4,
+    "sugar": 40.8,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "beef-chilli-loaded-fries",
+   "name": "Beef Chilli Loaded Fries",
+   "category": "Side kicks",
+   "serving": "",
+   "nutrients": {
+    "calories": 647,
+    "protein": 23.2,
+    "carbs": 67.7,
+    "fat": 30.8,
+    "saturatedFat": 11.2,
+    "sugar": 10.6,
+    "salt": 5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "veggie-chilli-loaded-fries",
+   "name": "Veggie Chilli Loaded Fries",
+   "category": "Side kicks",
+   "serving": "",
+   "nutrients": {
+    "calories": 579,
+    "protein": 18.3,
+    "carbs": 67,
+    "fat": 25.1,
+    "saturatedFat": 8.7,
+    "sugar": 11.6,
+    "salt": 4.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery",
+     "milk",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "eggs",
+     "mustard",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "small-churros-three-cinnamon-sugar-dusted",
+   "name": "Small Churros (three cinnamon-sugar dusted)",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 476,
+    "protein": 5.7,
+    "carbs": 43.1,
+    "fat": 30.8,
+    "saturatedFat": 2.4,
+    "sugar": 7.6,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [
+     "eggs",
+     "milk",
+     "mustard",
+     "nuts",
+     "soya",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "sharer-churros-with-dulce-de-leche-chocolate-ganache-and-tropical-mango-dipping-sauce",
+   "name": "Sharer Churros with Dulce de leche, Chocolate Ganache and Tropical Mango Dipping Sauce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1465,
+    "protein": 20.8,
+    "carbs": 185.9,
+    "fat": 71.7,
+    "saturatedFat": 10.4,
+    "sugar": 94.8,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "eggs",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "passionfruit-and-white-chocolate-cheesecake",
+   "name": "Passionfruit & White Chocolate Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 387,
+    "protein": 5.6,
+    "carbs": 49.9,
+    "fat": 21.6,
+    "saturatedFat": 13.3,
+    "sugar": 39.3,
+    "salt": 0.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "ben-and-jerrys-chocolate-fudge-ice-cream",
+   "name": "Ben & Jerry's Chocolate Fudge Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1009,
+    "protein": 17.2,
+    "carbs": 116.3,
+    "fat": 51.2,
+    "saturatedFat": 31.6,
+    "sugar": 111.6,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "ben-and-jerrys-cookie-dough-ice-cream",
+   "name": "Ben & Jerry's Cookie Dough Ice Cream",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1093,
+    "protein": 16.3,
+    "carbs": 125.6,
+    "fat": 60.5,
+    "saturatedFat": 37.2,
+    "sugar": 102.3,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "soya"
+    ],
+    "mayContain": [
+     "nuts"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "pot-of-guacamole",
+   "name": "Pot Of Guacamole",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 98,
+    "protein": 1.5,
+    "carbs": 4.3,
+    "fat": 8.4,
+    "saturatedFat": 2.3,
+    "sugar": 1.5,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pot-of-salsa",
+   "name": "Pot Of Salsa",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 13,
+    "protein": 0.7,
+    "carbs": 2.1,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 1.8,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "celery"
+    ],
+    "mayContain": [
+     "mustard",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pot-of-bbq-sauce",
+   "name": "Pot Of BBQ Sauce",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 79,
+    "protein": 0.3,
+    "carbs": 19.3,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 17.6,
+    "salt": 0.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pot-of-aji-salsa",
+   "name": "Pot of Aji Salsa",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 27,
+    "protein": 0.5,
+    "carbs": 5.9,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 5.4,
+    "salt": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pot-of-k-pop-bbq",
+   "name": "Pot of K-Pop BBQ",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 57,
+    "protein": 0.5,
+    "carbs": 12.1,
+    "fat": 0.4,
+    "saturatedFat": 0.1,
+    "sugar": 9,
+    "salt": 2.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pot-of-smoky-chipotle",
+   "name": "Pot of Smoky Chipotle",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 24,
+    "protein": 0.5,
+    "carbs": 3.4,
+    "fat": 0.8,
+    "saturatedFat": 0.1,
+    "sugar": 2.2,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "pot-of-sriracha",
+   "name": "Pot of Sriracha",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 28,
+    "protein": 0.2,
+    "carbs": 6.1,
+    "fat": 0.2,
+    "saturatedFat": 0,
+    "sugar": 4.5,
+    "salt": 1.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "pot-of-sour-cream-pot",
+   "name": "Pot Of Sour Cream Pot",
+   "category": "Sauces & dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 61,
+    "protein": 1.8,
+    "carbs": 2.2,
+    "fat": 5,
+    "saturatedFat": 3.2,
+    "sugar": 2.2,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "bbq-sauce-burrito-heat-choice",
+   "name": "BBQ Sauce (burrito heat choice)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 118,
+    "protein": 0.5,
+    "carbs": 29,
+    "fat": 0.1,
+    "saturatedFat": 0,
+    "sugar": 26.3,
+    "salt": 0.9
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "k-pop-bbq-sauce-burrito-heat-choice",
+   "name": "K-Pop BBQ Sauce (burrito heat choice)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 63,
+    "protein": 1.6,
+    "carbs": 12.5,
+    "fat": 0.8,
+    "saturatedFat": 0.1,
+    "sugar": 10,
+    "salt": 1.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sriracha-burrito-heat-choice",
+   "name": "Sriracha (burrito heat choice)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 85,
+    "protein": 0.7,
+    "carbs": 18.2,
+    "fat": 0.6,
+    "saturatedFat": 0.1,
+    "sugar": 13.5,
+    "salt": 3.8
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": [
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "smoky-chipotle-burrito-heat-choice",
+   "name": "Smoky Chipotle (burrito heat choice)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 35,
+    "protein": 0.7,
+    "carbs": 5.1,
+    "fat": 1.2,
+    "saturatedFat": 0.1,
+    "sugar": 3.3,
+    "salt": 0.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-beef-chilli-extra-filling",
+   "name": "Double Beef Chilli (extra filling)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 114,
+    "protein": 6.7,
+    "carbs": 10.7,
+    "fat": 5.2,
+    "saturatedFat": 1.8,
+    "sugar": 3.1,
+    "salt": 1.1
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-chicken-tinga-extra-filling",
+   "name": "Double Chicken Tinga (extra filling)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 104,
+    "protein": 12.4,
+    "carbs": 3.9,
+    "fat": 4,
+    "saturatedFat": 1,
+    "sugar": 1.6,
+    "salt": 1.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-beef-brisket-extra-filling",
+   "name": "Double Beef Brisket (extra filling)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 166,
+    "protein": 7.7,
+    "carbs": 6.8,
+    "fat": 11.6,
+    "saturatedFat": 3,
+    "sugar": 4.7,
+    "salt": 1.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sulphites"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "double-veg-chilli-extra-filling",
+   "name": "Double Veg Chilli (extra filling)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 71,
+    "protein": 3.6,
+    "carbs": 10.6,
+    "fat": 1.4,
+    "saturatedFat": 0.1,
+    "sugar": 3.9,
+    "salt": 0.7
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "dulce-de-leche-dessert-sauce-choice",
+   "name": "Dulce de leche (dessert sauce choice)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 156,
+    "protein": 3.7,
+    "carbs": 26.5,
+    "fat": 3.9,
+    "saturatedFat": 2.3,
+    "sugar": 26.5,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "chocolate-ganache-dessert-sauce-choice",
+   "name": "Chocolate Ganache (dessert sauce choice)",
+   "category": "Add-ons & extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 112,
+    "protein": 0.7,
+    "carbs": 24,
+    "fat": 2.5,
+    "saturatedFat": 1.5,
+    "sugar": 22.4,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "soya"
+    ],
+    "mayContain": [
+     "milk",
+     "nuts"
+    ]
+   }
+  },
+  {
+   "id": "coca-cola-can",
+   "name": "Coca Cola Can",
+   "category": "Drinks: Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139,
+    "protein": 0,
+    "carbs": 35,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 35,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "diet-coke-can",
+   "name": "Diet Coke Can",
+   "category": "Drinks: Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "sprite-can",
+   "name": "Sprite Can",
+   "category": "Drinks: Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 46,
+    "protein": 0,
+    "carbs": 10.9,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 10.9,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ting-can",
+   "name": "Ting Can",
+   "category": "Drinks: Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 53,
+    "protein": 0.3,
+    "carbs": 12.2,
+    "fat": 0.3,
+    "saturatedFat": 0.3,
+    "sugar": 11.6,
+    "salt": 0.1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "irn-bru-sugar-free",
+   "name": "Irn-Bru Sugar-free",
+   "category": "Drinks: Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "red-bull-original",
+   "name": "Red Bull Original",
+   "category": "Drinks: Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 115,
+    "protein": 0,
+    "carbs": 27.5,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 27.5,
+    "salt": 0.3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "ginger-beer-can",
+   "name": "Ginger Beer Can",
+   "category": "Drinks: Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 67,
+    "protein": 1.7,
+    "carbs": 16.3,
+    "fat": 1.7,
+    "saturatedFat": 0.3,
+    "sugar": 16.3,
+    "salt": 0.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [],
+    "mayContain": []
+   }
+  },
+  {
+   "id": "corona-can",
+   "name": "Corona Can",
+   "category": "Drinks: Alcohol",
+   "serving": "",
+   "nutrients": {
+    "calories": 139,
+    "protein": 1,
+    "carbs": 13.2,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 0.7,
+    "salt": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten"
+    ],
+    "mayContain": [],
+    "cereals": [
+     "barley"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

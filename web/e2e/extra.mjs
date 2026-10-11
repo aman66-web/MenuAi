@@ -178,6 +178,23 @@ await step("settings: 'Menus updated' shows a real date, Segmented controls are 
   if (!h || h.height < 44) throw new Error("height " + h?.height);
   await ctx.close();
 });
+await step("logging is free (founder 2026-10-11): a free user logs from an item, Today and Home show it, no paywall", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, goal: "maintain", dailyCalories: 2000, hasSetTargets: true } })); });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/item?chain=bowl-and-co&item=chicken-bowl");
+  await page.getByRole("button", { name: "Log", exact: true }).click();
+  await vis(page.getByText("Logged to Today."));
+  if (await page.getByRole("heading", { name: "Build the perfect order, every time" }).count()) throw new Error("the paywall opened for logging");
+  await page.goto(BASE + "/app/today");
+  await vis(page.getByRole("heading", { name: "Today's meals" }));
+  await vis(page.getByText("Chicken bowl").first());
+  if (await page.getByRole("button", { name: /See Pro|Try Pro free/ }).count()) throw new Error("Today still asks for Pro");
+  await page.goto(BASE + "/app");
+  await vis(page.getByText("Left today:", { exact: true }));
+  await vis(page.getByText("1,345 kcal"));
+  await ctx.close();
+});
 console.log(`\n${pass} passed, ${fail} failed`);
 await browser.close();
 process.exit(fail ? 1 : 0);

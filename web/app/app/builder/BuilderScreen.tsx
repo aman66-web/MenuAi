@@ -248,14 +248,12 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
               <Button
                 variant="secondary"
                 full
-                onClick={() =>
-                  gate("log", () => {
-                    addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource() });
-                    analytics.track({ name: "mealLogged" });
-                    countProAction();
-                    router.push("/app/today");
-                  })
-                }
+                onClick={() => {
+                  addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource() });
+                  analytics.track({ name: "mealLogged" });
+                  countProAction();
+                  router.push("/app/today");
+                }}
               >
                 {t("Log")}
               </Button>

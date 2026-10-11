@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011022819,
- "generatedAt": "2026-10-11T02:28:19Z",
+ "dataVersion": 20261011031434,
+ "generatedAt": "2026-10-11T03:14:34Z",
  "chains": [
   {
    "id": "abokado",
@@ -1378,6 +1378,17 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "kick-ass-burrito",
+   "name": "Kick Ass Burrito",
+   "cuisine": "Mexican",
+   "file": "chain-kick-ass-burrito.json",
+   "sha256": "701c5cf95cccab004bd6130e98188be4a56c9e2c66aa06e730683d5bfe012f04",
+   "contentHash": "5fe2f7aa256b7140ef82743b684b667ecc7aa0fa4a1a71840d1728808a3e3460",
+   "sample": false,
+   "itemCount": 52,
+   "checkedOn": "2026-10-11"
+  },
+  {
    "id": "kokoro",
    "name": "Kokoro",
    "cuisine": "Japanese",
@@ -2533,6 +2544,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "b7e97d04dd0ba515c1881bc55fd9f1962487421a22045479cb20dc8cfea32b21"
+  "sha256": "e664cdaf062a46a9433bcfcf043bf81e8ae773ee98e1e7c7912ae3be5750ed9d"
  }
 }

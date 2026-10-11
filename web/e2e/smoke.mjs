@@ -67,9 +67,9 @@ await step("onboarding: welcome → goal → targets → preferences → shops �
   await page.getByRole("button", { name: "Start" }).click();
   await page.waitForURL(/\/app\/?$/);
 });
-await step("home is today: targets, the four tiles and the sample banner", async () => {
+await step("home is today: what's left (free), the four tiles and the sample banner", async () => {
   await visible(page.getByRole("heading", { level: 1, name: "Today" }));
-  await visible(text("Your daily targets"));
+  await visible(text("Left today:"));
   await visible(text("2,400 kcal"));
   for (const name of [/My groceries/, /My saved meals/, /My recipes/, /My diet/]) await visible(page.getByRole("link", { name }));
   await visible(text("fictional sample data"));
