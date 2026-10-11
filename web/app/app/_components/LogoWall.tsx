@@ -1,6 +1,6 @@
 "use client";
 
-import { logoFor } from "@/lib/mm/logos";
+import { logoFor, tileArt } from "@/lib/mm/logos";
 
 // The welcome screen's moving wall (founder 2026-10-10: "have all the logos of the restaurants and grocery stores moving at the top").
 // Restaurants show their own official logo file, unmodified, on its plain tile (CLAUDE.md rule 2: the founder's decision for this
@@ -18,10 +18,12 @@ const ROWS = 4;
 function Tile({ item }: { item: WallItem }) {
   const logo = item.kind === "restaurant" ? logoFor(item.id) : undefined;
   if (logo) {
+    // the chain's square icon edge to edge when it fills its square, else its file on the plain tile
+    const art = tileArt(logo);
     return (
-      <span className={`block h-[4.75rem] w-[4.75rem] shrink-0 rounded-[1.35rem] p-2.5 shadow-[0_10px_24px_-12px_rgba(0,0,0,0.45)] ring-1 ring-black/5 ${logo.tile === "dark" ? "bg-[#0b0b0b]" : "bg-white"}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element -- the chain's own logo file, unmodified, scaled to fit inside the tile (never cropped) */}
-        <img src={logo.src} alt="" loading="eager" decoding="async" className="h-full w-full object-contain" />
+      <span className={`block h-[4.75rem] w-[4.75rem] shrink-0 overflow-hidden rounded-[1.35rem] shadow-[0_10px_24px_-12px_rgba(0,0,0,0.45)] ring-1 ring-black/5 ${art.full ? "" : `p-2.5 ${art.tile === "dark" ? "bg-[#0b0b0b]" : "bg-white"}`}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- the chain's own file, unmodified, scaled to fit inside the tile (never cropped) */}
+        <img src={art.src} alt="" loading="eager" decoding="async" className="h-full w-full object-contain" />
       </span>
     );
   }

@@ -6,7 +6,7 @@ import type { ExpressionSpecification, FilterSpecification, GeoJSONSource, Map a
 import type { LatLng } from "@/lib/mm/geo";
 import type { T } from "@/lib/mm/i18n";
 import { fitContain } from "@/lib/mm/logoFit";
-import { logoFor } from "@/lib/mm/logos";
+import { logoFor, tileArt } from "@/lib/mm/logos";
 import { useT } from "../_lib/i18n";
 
 // The map itself: MapLibre drawing free OpenFreeMap tiles (founder's decision 2026-10-06). Pins are a GeoJSON layer, so a few
@@ -64,22 +64,24 @@ function loadImage(src: string): Promise<HTMLImageElement | null> {
 }
 
 /** Whether anything but the plain tile was drawn inside the logo's box (some phones drew an empty tile for a file that had loaded). */
-function hasArtwork(data: ImageData, darkTile: boolean): boolean {
-  const bg = darkTile ? 11 : 255;
+function hasArtwork(data: ImageData): boolean {
   const from = Math.round(((CANVAS - TILE) / 2 + PAD) * PIXEL_RATIO);
   const to = Math.round(((CANVAS + TILE) / 2 - PAD) * PIXEL_RATIO);
+  // the background is whatever sits at the box's corner: the plain tile, or a full-square icon's own background
+  const c = (from * data.width + from) * 4;
+  const [br, bgc, bb] = [data.data[c]!, data.data[c + 1]!, data.data[c + 2]!];
   let ink = 0;
   for (let y = from; y < to; y++) {
     for (let x = from; x < to; x++) {
       const i = (y * data.width + x) * 4;
-      if (Math.abs(data.data[i]! - bg) + Math.abs(data.data[i + 1]! - bg) + Math.abs(data.data[i + 2]! - bg) > 48) ink++;
+      if (Math.abs(data.data[i]! - br) + Math.abs(data.data[i + 1]! - bgc) + Math.abs(data.data[i + 2]! - bb) > 48) ink++;
     }
   }
   return ink >= 12;
 }
 
 /** The chain's logo file on its plain tile, as map icon pixels; null if the file can't be loaded or drew nothing (the green dot stays). */
-async function drawLogoTile(src: string, darkTile: boolean): Promise<ImageData | null> {
+async function drawLogoTile(src: string, darkTile: boolean, full = false): Promise<ImageData | null> {
   const img = await loadImage(src);
   if (!img) return null;
   await img.decode().catch(() => undefined); // decoded before drawing, so the tile is never drawn empty
@@ -101,11 +103,22 @@ async function drawLogoTile(src: string, darkTile: boolean): Promise<ImageData |
   ctx.lineWidth = 1;
   ctx.strokeStyle = darkTile ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.16)";
   ctx.stroke();
-  const box = TILE - 2 * PAD;
-  const fit = fitContain(img.naturalWidth, img.naturalHeight, box, box);
-  ctx.drawImage(img, x0 + PAD + fit.x, x0 + PAD + fit.y, fit.w, fit.h);
+  if (full) {
+    // a square icon that fills its square: drawn edge to edge inside the tile's rounded corners (scaled to fit, never cropped)
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(x0, x0, TILE, TILE, 9);
+    ctx.clip();
+    const fit = fitContain(img.naturalWidth, img.naturalHeight, TILE, TILE);
+    ctx.drawImage(img, x0 + fit.x, x0 + fit.y, fit.w, fit.h);
+    ctx.restore();
+  } else {
+    const box = TILE - 2 * PAD;
+    const fit = fitContain(img.naturalWidth, img.naturalHeight, box, box);
+    ctx.drawImage(img, x0 + PAD + fit.x, x0 + PAD + fit.y, fit.w, fit.h);
+  }
   const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  return hasArtwork(data, darkTile) ? data : null;
+  return hasArtwork(data) ? data : null;
 }
 
 // Pins shrink as the map zooms out (a town's worth of branches at once) and are full size from street level.
@@ -147,7 +160,8 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
       const logo = logoFor(id);
       if (!logo) continue;
       logoTried.current.add(id);
-      const data = await drawLogoTile(logo.src, logo.tile === "dark");
+      const art = tileArt(logo);
+      const data = (await drawLogoTile(art.src, art.tile === "dark", art.full)) ?? (art.fallback ? await drawLogoTile(art.fallback, logo.tile === "dark") : null);
       if (mapRef.current !== map || !data) continue; // the map was replaced meanwhile, or the file didn't load: the dot stays
       if (!map.hasImage(`logo-${id}`)) map.addImage(`logo-${id}`, data, { pixelRatio: PIXEL_RATIO });
       logoIds.current.add(id);

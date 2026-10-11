@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { CHAIN_LOGOS, logoFor } from "../lib/mm/logos";
+import { CHAIN_LOGOS, logoFor, SQUARE_ICONS, tileArt } from "../lib/mm/logos";
 
 const pub = new URL("../public", import.meta.url).pathname;
 
@@ -13,6 +13,24 @@ describe("chain logos", () => {
       expect(existsSync(`${pub}/logos/${id}.source.txt`), `${id}.source.txt missing`).toBe(true);
       expect(sources).toContain(`| ${id} | installed |`);
     }
+  });
+  it("every square icon exists in /logos/square/, is recorded as installed, and is shown in preference to the wide logo", () => {
+    const sources = Object.keys(SQUARE_ICONS).length ? readFileSync(`${pub}/logos/square/SOURCES.md`, "utf8") : "";
+    for (const [id, sq] of Object.entries(SQUARE_ICONS)) {
+      expect(sq.src).toMatch(new RegExp(`^/logos/square/${id}\\.(svg|png)$`));
+      expect(existsSync(pub + sq.src), `${sq.src} missing`).toBe(true);
+      expect(readFileSync(`${pub}/logos/square/${id}.source.txt`, "utf8")).toContain("status: installed");
+      expect(sources).toContain(`| ${id} | installed |`);
+      const logo = logoFor(id)!;
+      expect(logo.square).toEqual(sq);
+      expect(tileArt(logo).src).toBe(sq.src);
+      if (CHAIN_LOGOS[id]) expect(tileArt(logo).fallback).toBe(CHAIN_LOGOS[id]!.src);
+    }
+  });
+  it("a chain without a square icon shows its logo file on its own tile", () => {
+    const id = Object.keys(CHAIN_LOGOS).find((k) => !SQUARE_ICONS[k]);
+    if (!id) return;
+    expect(tileArt(logoFor(id)!)).toEqual({ src: CHAIN_LOGOS[id]!.src, full: false, tile: CHAIN_LOGOS[id]!.tile ?? "light" });
   });
   it("returns nothing for an unknown or missing chain", () => {
     expect(logoFor(undefined)).toBeUndefined();

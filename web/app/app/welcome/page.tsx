@@ -59,7 +59,8 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
 
 const STEPS = 6;
 const INTRO_SCREENS = 3;
-// Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else).
+// Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else; a chain with
+// its own small square icon is shown by that instead).
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
 
 export default function WelcomePage() {
@@ -130,7 +131,7 @@ export default function WelcomePage() {
   // The welcome wall: restaurants in the app that have an official logo file (well-known ones first, then the rest; a few very large
   // files left out so the first screen stays quick), mixed with the supermarkets by name.
   const wallItems = useMemo<WallItem[]>(() => {
-    const withLogo = real.filter((c) => logoFor(c.id) && !HEAVY_LOGOS.has(c.id));
+    const withLogo = real.filter((c) => { const l = logoFor(c.id); return !!l && (!!l.square || !HEAVY_LOGOS.has(c.id)); });
     const popular = POPULAR_ORDER.map((id) => withLogo.find((c) => c.id === id)).filter((c): c is (typeof withLogo)[number] => !!c);
     const rest = withLogo.filter((c) => !POPULAR_ORDER.includes(c.id)).sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
     const chains: WallItem[] = [...popular, ...rest].slice(0, 36).map((c) => ({ id: c.id, name: c.name, kind: "restaurant" }));

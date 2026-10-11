@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { logoFor } from "@/lib/mm/logos";
+import { logoFor, tileArt } from "@/lib/mm/logos";
 import { BakeryGlyph, BurgerGlyph, ChickenGlyph, CoffeeGlyph, ForkIcon, PizzaGlyph, SandwichGlyph, TacoGlyph } from "./icons";
 
-// A small tile that tells restaurants apart at a glance. If the chain's own official logo file is installed (see
-// lib/mm/logos.ts) it is shown UNMODIFIED, contained on a plain light tile, only to identify the restaurant. Otherwise
-// it is one of our own cuisine glyphs. The name is always plain text next to it, so the tile is decorative (aria-hidden).
+// A small square tile that tells restaurants apart at a glance. If the chain's own official files are installed (see
+// lib/mm/logos.ts) its square icon is shown (edge to edge when it fills its square), else its logo file contained on a plain tile:
+// always UNMODIFIED, only to identify the restaurant. Otherwise it is one of our own cuisine glyphs. The name is always plain text next
+// to it, so the tile is decorative (aria-hidden).
 
 const GLYPHS: Array<[RegExp, (className: string) => ReactNode]> = [
   [/burger/i, (c) => <BurgerGlyph className={c} />],
@@ -24,15 +25,21 @@ function glyphFor(cuisine: string | undefined, className: string): ReactNode {
 }
 
 export function ChainMark({ chainId, cuisine, size = "md" }: { chainId?: string; cuisine?: string; size?: "sm" | "md" | "lg" | "xl" }) {
-  const [logoFailed, setLogoFailed] = useState(false);
-  const logo = logoFailed ? undefined : logoFor(chainId);
+  // 0: the square icon (or the logo file), 1: the logo file after the square icon failed to load, 2: our glyph
+  const [failed, setFailed] = useState(0);
+  const logo = logoFor(chainId);
+  const art = logo ? tileArt(logo) : undefined;
+  const src = art ? (failed === 0 ? art.src : failed === 1 ? art.fallback : undefined) : undefined;
+  const full = !!art && failed === 0 && art.full;
+  const dark = failed === 0 ? art?.tile === "dark" : logo?.tile === "dark";
   const box = size === "xl" ? "h-20 w-20 rounded-[1.6rem]" : size === "lg" ? "h-16 w-16 rounded-3xl" : size === "sm" ? "h-9 w-9 rounded-xl" : "h-12 w-12 rounded-2xl";
   const glyph = size === "xl" ? "h-10 w-10" : size === "lg" ? "h-8 w-8" : size === "sm" ? "h-5 w-5" : "h-6 w-6";
-  if (logo) {
+  if (src) {
+    const pad = full ? "" : size === "sm" ? "p-1" : size === "xl" ? "p-2.5" : "p-1.5";
     return (
-      <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line shadow-[0_6px_14px_-8px_rgba(0,0,0,0.35)] ${size === "sm" ? "p-1" : size === "xl" ? "p-2.5" : "p-1.5"} ${logo.tile === "dark" ? "bg-[#111]" : "bg-white"} ${box}`}>
+      <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line shadow-[0_6px_14px_-8px_rgba(0,0,0,0.35)] ${pad} ${full ? "" : dark ? "bg-[#111]" : "bg-white"} ${box}`}>
         {/* eslint-disable-next-line @next/next/no-img-element -- the official file, used as published: no resizing pipeline, no recolouring */}
-        <img src={logo.src} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" onError={() => setLogoFailed(true)} />
+        <img src={src} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" onError={() => setFailed((f) => (f === 0 && art?.fallback ? 1 : 2))} />
       </span>
     );
   }
