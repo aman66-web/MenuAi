@@ -366,6 +366,51 @@ logo, the same file as the supermarket logo); square icons for Chef & Brewer (C&
 - **Coffee Republic**: its site's TLS certificate has expired, so robots.txt can't be read with verification on (never turned off).
 - **Bannatyne** (about 45 health clubs, calories only on some club menu flyers, ~15 dishes each, figures differing between versions): not started; low value.
 
+## Added 11 October (evening)
+
+Founder: "Keep adding more restaurants". Same rules as the afternoon: official sources only, copied by script, robots.txt (RFC 9309) honoured,
+no alcoholic drinks, sites that disagree published only where 2+ agree; each chain passed `check_chain.py` with 0 errors and 0 high audit flags
+and had an independent second read (`data/audit/verified/<chain>.json`). Triage rows: `data/candidates/triage6/evening.csv`.
+
+| Chain | Items | Level | Sites | Source and rule |
+|---|---|---|---|---|
+| Cosy Club | 215 | calories + allergens | 38 venues (the chain's own location list) | Each venue's own menu record names the Ten Kites page its menu page embeds (`tenkites_menu`); five Autumn/Winter 2026 pages (cosyclubss26, -2602, -2604, -2605, -2606) and Swansea's staging copy of -2604 print every dish with the same calories and allergens (0 conflicts). Calories are hidden behind the page's visible "Hide Calories" switch, as on the Lounge pages (same accepted decision). Not used: Stamford's link (cosyclubaw2503), which still holds last season's Spring/Summer 2026 menu. Left out: Oxford's Sunday Roast menu (1 venue), every alcoholic drink (wine menu, cocktails, spirits, Irish Coffee). Triaged NO-DATA on 8 October (the menus are not in the static page; they are in the venue records). |
+| Pilpel | 18 | full (per ingredient) | 7 London sites (own locations page) | The chain's own nutrition calculator (pilpel.co.uk/nutrition): kcal, protein, carbs, fat, saturates and salt for each of 18 ingredients (pitas, falafel, salads, sauces, toppings), "based on average serving per person". Pilpel publishes no figure for a finished pita or box (the calculator only adds up ticked ingredients), so each ingredient is its own item, never summed (BarBurrito's approach); none is suggested as a meal. No date on the page; no allergen information published. Triaged GO on 10 October as a builder and not extracted then. |
+| Blue Diamond | 125 | calories | about 45 garden centres in England and Wales (its sitemap's location pages) | The chain's own "Our Calorie-Counted Menus" (breakfast, lunch, Sunday lunch and drinks pages on bluediamond.gg; "menus and prices may vary by location"). Each dish is a picture with its calories printed in a circle, so every card (143 placements, 132 pictures) was read by OCR at two enlargements and by eye twice (whole card and circle alone); 48 cards where OCR misread or doubted are fixed by eye in the script, keyed by each picture's SHA-256. Summer Drinks marked limited time. No allergen information published. Triaged NO-MACROS on 8 October (calories only, pictures) when calories-only chains were not being added. |
+| Squire's Garden Centres | 169 | calories | 17 café bars in Surrey, Sussex, Berkshire and Middlesex (the site's own café bar list) | Each café bar's own page links its Autumn/Winter 2026 breakfast, lunch, drinks and Little Gardener's (children's) menus as PDFs with a text layer; every dish line prints its calories. Read from the PDFs' word boxes and type sizes (options under a priced heading, REGULAR/LARGE drink sizes, the children's menu cut into its four columns), and every figure on every PDF must be used or left out by a named rule. Three lunch layouts and Chertsey's own versions agree: no dish is printed with different calories, and each published dish is on the menus of 2+ café bars (sourdough and children's pizzas at Badshot Lea and Wokingham only). Left out: afternoon tea (figures for the parts of one set) and the "Swap salad for chips 192kcal" lines (side or difference unclear). Calories are based on uncooked ingredients (the menus say so). No allergen chart online. Only in an untriaged discovery list before. |
+
+Logos: Cosy Club's header lockup (inline SVG, copied verbatim) and its own web-app manifest icon as the square icon; Pilpel's and Blue
+Diamond's header logo files, saved as served (neither site serves a square icon of 120 px or more); Squire's header wordmark (from its
+theme folder) and its own apple-touch-icon as the square icon.
+
+**Checked and not added this evening:**
+- **The Kebab Shop** (thekebabshop.com, nutrition PDF October 2025): a San Diego chain, no Great Britain sites.
+- **Walkabout** (Stonegate; 5 venues on walkaboutbars.co.uk: Blackpool, Colchester, Glasgow, Lincoln, Manchester Printworks): four venue pages link
+  its Ten Kites allergen and nutrition page (tkmenus.com/walkabout, full nutrition, "Main Menu - February 2025", data dated September 2026), but the
+  same venues' own food menus (January 2025 PDFs on Stonegate's 24-social host, and the brand menus page's September 2024 PDF) print different
+  calories for most dishes (The Classic Melt 1,092 kcal printed vs 812 kcal plus a 287 kcal patty on Ten Kites; Pizza dough balls 467 vs 472; Karaage
+  Loaded Fries 1,406 vs 1,402). Two official sources that disagree on most rows: not added (never chosen between).
+- **M&S Café**: menus are Flipsnack flipbooks (player.flipsnack.com), whose robots.txt cannot be read from here: not fetched.
+- **Wingstop UK**: the ordering site's menu shows no calories until a restaurant is chosen ("nutritional information varies based on location");
+  per-restaurant menus not pursued.
+- **Deep Blue fish & chips** (about 45 sites) and **Bob & Berts** (about 35 shops, mostly Northern Ireland): their nutrition is said to be on their
+  Vita Mojo ordering apps (order.deepbluerestaurants.com, bobandberts.vmos.io), which render no menu items without a store search in a headless
+  browser here; not pursued.
+- **Smashburger UK** (7 GB venues): its ordering app loads the menu and nutrition from its own API, which answers 401 without the app's token:
+  stopped (never worked round).
+- **Crêpeaffaire**: crepeaffaire.com answers 403 to robots.txt itself: stopped.
+- **Tank & Paddle** (Stonegate): full nutrition on its Ten Kites page (Main Menu February 2025), but the brand's own site lists only 2 venues
+  (under the 3-site rule).
+- **Waterfields** (36 North West bakeries; for your decision): 22 of its 50 products print a nutrition table, and 6 of those contradict
+  themselves (Lancashire Pastie and Potato & Meat Pie print about 3,300-3,600 kJ against 400-480 kcal; the Small White Tin Loaf prints the
+  large loaf's 1,680 kcal; the Large White Tin Loaf prints sodium 10.4 g against salt 4.16 g; the White Baguette prints one unlabelled
+  column; Pastie Large repeats the Potato & Meat Pie table). Undated (product photos from 2022). About 16 self-consistent rows (pastries,
+  cream cakes, pies, small loaves) could go live as a thin full-nutrition chain if you want it.
+- **No calories on their menus** (menus found and opened): Klondyke/Strikes garden centres (England core menu), Cherry Lane garden centres,
+  Pennells garden centres, Revolución de Cuba (one food PDF for every bar); **no menus or nutrition found**: Hillier (23 restaurant pages,
+  rechecked), Poundbakery, Oakman Inns (its site now runs on Upham Inns', allergens only).
+- **Blocked**: Van Hage (TLS error), Stewarts Garden Centres (proxy 502), Frosts Garden Centres (403).
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

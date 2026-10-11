@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011114633,
- "generatedAt": "2026-10-11T11:46:33Z",
+ "dataVersion": 20261011164121,
+ "generatedAt": "2026-10-11T16:41:21Z",
  "chains": [
   {
    "id": "abokado",
@@ -301,6 +301,18 @@
    "sample": false,
    "itemCount": 178,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "blue-diamond",
+   "name": "Blue Diamond",
+   "cuisine": "Cafe",
+   "file": "chain-blue-diamond.json",
+   "sha256": "b3a54716705708ca5171b844c3481325eb96373ed6cc8df05ae86bc0d4554cdf",
+   "contentHash": "47e3d26e2a121cfa1b95ffcc1637b0aa53a9fbdaa241a897ae586ec15c50f1d2",
+   "sample": false,
+   "itemCount": 125,
+   "checkedOn": "2026-10-11",
    "nutritionLevel": "calories"
   },
   {
@@ -717,6 +729,18 @@
    "sample": false,
    "itemCount": 141,
    "checkedOn": "2026-10-09"
+  },
+  {
+   "id": "cosy-club",
+   "name": "Cosy Club",
+   "cuisine": "Cafe",
+   "file": "chain-cosy-club.json",
+   "sha256": "a91650422f6323ba8115217e13835fde967f0a94d1ba1bd2626747d0b791d99f",
+   "contentHash": "6e8bfdd917ca3ba7d643631f33a5b06da6d3758e58f1d46f1c49df7283c6d430",
+   "sample": false,
+   "itemCount": 215,
+   "checkedOn": "2026-10-11",
+   "nutritionLevel": "calories"
   },
   {
    "id": "cote-brasserie",
@@ -1723,6 +1747,17 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "pilpel",
+   "name": "Pilpel",
+   "cuisine": "Middle Eastern",
+   "file": "chain-pilpel.json",
+   "sha256": "589ea965453c8ca08d7bfefbd9018840493ba8c4ce3876136dfd9ec238dc727a",
+   "contentHash": "f2d2affd0ff1c6d77aca39e99cce76f081f3655d01e6307d27c02770764d1ac7",
+   "sample": false,
+   "itemCount": 18,
+   "checkedOn": "2026-10-11"
+  },
+  {
    "id": "ping-pong",
    "name": "Ping Pong",
    "cuisine": "Chinese",
@@ -2105,6 +2140,18 @@
    "sample": false,
    "itemCount": 198,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "squires-garden-centres",
+   "name": "Squire's Garden Centres",
+   "cuisine": "Cafe",
+   "file": "chain-squires-garden-centres.json",
+   "sha256": "4e64edaae43adf6fca1b112586394e89d0c0926d39fb3ceac8f876299bcb3de9",
+   "contentHash": "a3e028a461cf63546c97cd66bc62c7ab16d3c06842a12886e976f04a32492183",
+   "sample": false,
+   "itemCount": 169,
+   "checkedOn": "2026-10-11",
+   "nutritionLevel": "calories"
   },
   {
    "id": "starbucks",
@@ -2579,6 +2626,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "a3300bc046fe3f50933bf74129077d15ac6db032b29733a360ee3931b328cd07"
+  "sha256": "f3237e62b8b908aaac3e8d609d47d149be1fd7c00271b7bdfe34e45327bc1db0"
  }
 }

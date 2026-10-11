@@ -1,0 +1,9 @@
+status: installed
+file: squires-garden-centres.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://digital.squires.garden/cb:X_7p.260/w:180/h:180/q:mauto/f:best/https://www.squiresgardencentres.co.uk/wp-content/uploads/2024/10/logo.png
+page_url: https://www.squiresgardencentres.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.squiresgardencentres.co.uk/; saved unchanged
+sha256: 13cf7cbf06beb62c2c0434db413637899cc6a073b5c089adbebab378f985c54e
+retrieved: 2026-10-11

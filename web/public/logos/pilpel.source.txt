@@ -1,0 +1,11 @@
+status: installed
+file: pilpel.png
+kind: header
+source_url: https://www.pilpel.co.uk/content/themes/pilpelv3/img/pilpel-logo.png
+page_url: https://www.pilpel.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo (<img alt="Pilpel Logo" class="logo">), saved byte for byte (209 x 65 PNG, red "pilpel" wordmark with a chilli); looked at on white and dark. robots.txt of www.pilpel.co.uk disallows only /wp/wp-admin/.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-11
+tile: light
