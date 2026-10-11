@@ -5,19 +5,28 @@
    "id": "sainsburys",
    "name": "Sainsbury's",
    "file": "sainsburys.json",
-   "count": 17036,
+   "count": 17002,
    "checkedOn": "2026-10-08",
    "nutrition": 12741,
-   "sha256": "18d5fe4d74c3ab5e9ab31291f73e44d16ea92e89490ecda65e94fd6858b2bc39"
+   "sha256": "3485e70f2daab865b031be068ecce384a21223e3c636057c7a56a5e7a2f63892"
+  },
+  {
+   "id": "tesco",
+   "name": "Tesco",
+   "file": "tesco.json",
+   "count": 6086,
+   "checkedOn": "2026-10-09",
+   "nutrition": 0,
+   "sha256": "92ce48660893d414e575f296546002b2ffc36cb11a744df5903a3ccc07865234"
   },
   {
    "id": "asda",
    "name": "Asda",
    "file": "asda.json",
-   "count": 11839,
+   "count": 11820,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "4fb7d99b4f7d5803eecfcf4d73c91f2c258a4b51bbe46d18d4367a95441d89a2"
+   "sha256": "6494b42f18f47f0ab3dc05326eb45dfb57b1c1a8944a0a9c276cca4d3a7ca0a4"
   },
   {
    "id": "aldi",
@@ -36,6 +45,42 @@
    "checkedOn": "2026-10-08",
    "nutrition": 0,
    "sha256": "15d58f34de7d0c96cc6ec2a47a9f544058962368fefa7c5f435609e6bdc4ee2f"
+  },
+  {
+   "id": "morrisons",
+   "name": "Morrisons",
+   "file": "morrisons.json",
+   "count": 18382,
+   "checkedOn": "2026-10-08",
+   "nutrition": 0,
+   "sha256": "a1e9d56bf79ef0d8b1953c029943697180512080a21eff256ba44a531c8fa49f"
+  },
+  {
+   "id": "waitrose",
+   "name": "Waitrose",
+   "file": "waitrose.json",
+   "count": 11424,
+   "checkedOn": "2026-10-08",
+   "nutrition": 0,
+   "sha256": "0cb66d8c8a89ee6ca77a148ea6599413bd42e358b2f4413419dd0ed2d534ebd9"
+  },
+  {
+   "id": "iceland",
+   "name": "Iceland",
+   "file": "iceland.json",
+   "count": 6202,
+   "checkedOn": "2026-10-09",
+   "nutrition": 0,
+   "sha256": "049facb1cf891b4cca1be59d13a1c44f6dcad5eea697d64e025abec7c2c3f041"
+  },
+  {
+   "id": "marks-and-spencer",
+   "name": "M&S",
+   "file": "marks-and-spencer.json",
+   "count": 291,
+   "checkedOn": "2026-10-08",
+   "nutrition": 0,
+   "sha256": "8def3c48d16b0eab2bc62c710b77dbb88a9b4a682b20a321d5ea63d2164ce798"
   }
  ]
 }

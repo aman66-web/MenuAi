@@ -106,6 +106,20 @@ describe("other shops' lists: photo templates, page paths, search links", () => 
     expect(shopPhotoUrl(sb, m!)).toBe("https://assets.sainsburys-groceries.co.uk/gol/777/image.jpg");
     expect(x!.photoId).toBe("");
   });
+  it("Iceland: an encoded picture path and the /p/x/<id>.html page; Morrisons: a two-part picture id and the shop's search", () => {
+    const ice: ShopFile = { ...base, retailer: "iceland", name: "Iceland", pageBase: "https://www.iceland.co.uk/p/x/", photoBase: "https://assets.iceland.co.uk/i/",
+      photoTemplate: "https://assets.iceland.co.uk/i/{photo}?w=400&h=400",
+      products: [["89177", "Slimming World Salt & Pepper Chow Mein 550g", 4, 7.27, "per kg", null, null, 0, "iceland/slimming_world_salt_%26_pepper_550g_89177.jpg", "", null, "89177.html"]] };
+    const [chow] = decodeShopProducts(ice);
+    expect(shopPhotoUrl(ice, chow!)).toBe("https://assets.iceland.co.uk/i/iceland/slimming_world_salt_%26_pepper_550g_89177.jpg?w=400&h=400");
+    expect(shopPageUrl(ice, chow!)).toBe("https://www.iceland.co.uk/p/x/89177.html");
+    const mor: ShopFile = { ...base, retailer: "morrisons", name: "Morrisons", pageBase: "https://groceries.morrisons.com/search?entry=", pageSearch: true,
+      photoBase: "https://groceries.morrisons.com/images-v3/", photoTemplate: "https://groceries.morrisons.com/images-v3/{photo}/300x300.jpg",
+      products: [["115455355", "Fyffes Bananas 5 Pack", 0.78, 0.156, "each", null, null, 0, "4b85987b-1398-4173-a0c1-3546047c9d74/b41f9f6e-707e-4e0a-8296-8981b52f8d62", ""]] };
+    const [bananas] = decodeShopProducts(mor);
+    expect(shopPhotoUrl(mor, bananas!)).toBe("https://groceries.morrisons.com/images-v3/4b85987b-1398-4173-a0c1-3546047c9d74/b41f9f6e-707e-4e0a-8296-8981b52f8d62/300x300.jpg");
+    expect(shopPageUrl(mor, bananas!)).toBe("https://groceries.morrisons.com/search?entry=Fyffes%20Bananas%205%20Pack");
+  });
   it("a template that isn't https or has no {photo} gives no picture", () => {
     const f = { photoBase: "https://x/", photoTemplate: "http://x/{photo}" };
     expect(shopPhotoUrl(f, { photoId: "abc" })).toBeUndefined();

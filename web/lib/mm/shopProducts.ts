@@ -83,7 +83,7 @@ export function isShopManifest(x: unknown): x is ShopManifest {
 
 const ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
 // A picture id put into a shop's photoTemplate, and a page path put after pageBase: the characters those addresses use, never "..".
-const PHOTO_ID = /^[A-Za-z0-9_\-./:=]{1,400}$/;
+const PHOTO_ID = /^[A-Za-z0-9_\-./:=%]{1,400}$/;
 const PAGE_PATH = /^[A-Za-z0-9][A-Za-z0-9\-_.%/]{0,199}$/;
 const safe = (v: unknown, re: RegExp): v is string => typeof v === "string" && re.test(v) && !v.includes("..");
 const templated = (f: Pick<ShopFile, "photoTemplate">) => typeof f.photoTemplate === "string" && f.photoTemplate.startsWith("https://") && f.photoTemplate.includes("{photo}");

@@ -1,0 +1,148 @@
+category_path,category_url,pages_loaded,tiles_seen,last_page_info,checked_on
+fruit-veg/fruit,https://groceries.morrisons.com/categories/fruit-veg/fruit/176757,1,177,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/vegetables,https://groceries.morrisons.com/categories/fruit-veg/vegetables/176756,1,214,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/salads,https://groceries.morrisons.com/categories/fruit-veg/salads/176758,1,112,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/nuts-seeds-dried-fruit,https://groceries.morrisons.com/categories/fruit-veg/nuts-seeds-dried-fruit/179310,1,98,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/fresh-herbs,https://groceries.morrisons.com/categories/fruit-veg/fresh-herbs/176833,1,22,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/wonky-fruit-veg,https://groceries.morrisons.com/categories/fruit-veg/wonky-fruit-veg/176760,1,8,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/the-best-fruit-veg,https://groceries.morrisons.com/categories/fruit-veg/the-best-fruit-veg/187987,1,52,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/fresh-herbs (rest),https://groceries.morrisons.com/categories/fruit-veg/fresh-herbs/176833,1,22,,2026-10-08
+meat-fish/chicken,https://groceries.morrisons.com/categories/meat-fish/chicken/184534,1,122,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+meat-fish/beef,https://groceries.morrisons.com/categories/meat-fish/beef/179580,1,146,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+meat-fish/chicken (rest),https://groceries.morrisons.com/categories/meat-fish/chicken/184534,1,138,,2026-10-08
+meat-fish/beef (rest),https://groceries.morrisons.com/categories/meat-fish/beef/179580,1,170,,2026-10-08
+meat-fish/lamb,https://groceries.morrisons.com/categories/meat-fish/lamb/179599,1,66,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+meat-fish/turkey,https://groceries.morrisons.com/categories/meat-fish/turkey/176751,1,28,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+meat-fish/duck-venison-game,https://groceries.morrisons.com/categories/meat-fish/duck-venison-game/179628,1,19,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fruit-veg/nuts-seeds-dried-fruit (rest),https://groceries.morrisons.com/categories/fruit-veg/nuts-seeds-dried-fruit/179310,1,0,,2026-10-08
+meat-fish/chicken (last 2 of 138),https://groceries.morrisons.com/categories/meat-fish/chicken/184534,1,0,,2026-10-08
+meat-fish/turkey (last 2 of 28),https://groceries.morrisons.com/categories/meat-fish/turkey/176751,1,0,,2026-10-08
+meat-fish/beef (last 18 of 177; the list ended at 177 = 50+24x5+7),https://groceries.morrisons.com/categories/meat-fish/beef/179580,1,0,,2026-10-08
+meat-fish/pork-gammon,https://groceries.morrisons.com/categories/meat-fish/pork-gammon/179589,1,294,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+meat-fish/pork-gammon (cont.),lines 136-278 of 281,1,0,,2026-10-08
+meat-fish/fish-seafood,https://groceries.morrisons.com/categories/meat-fish/fish-seafood/184367,1,172,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+meat-fish/meat-free,https://groceries.morrisons.com/categories/meat-fish/meat-free/179633,1,32,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+meat-fish/bbq-meat,https://groceries.morrisons.com/categories/meat-fish/bbq-meat/188648,2,161,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05; RECHECK; tile links carry a query string)",2026-10-08
+meat-fish/gravy-puddings-stuffings-sauces,https://groceries.morrisons.com/categories/meat-fish/gravy-puddings-stuffings-sauces/194275,1,50,,2026-10-08
+meat-fish/gravy-puddings-stuffings-sauces (rest),https://groceries.morrisons.com/categories/meat-fish/gravy-puddings-stuffings-sauces/194275,1,0,,2026-10-08
+fresh-foods/garlic-bread,https://groceries.morrisons.com/categories/fresh-foods/garlic-bread/177460,1,24,,2026-10-08
+meat-fish/the-best-meat-fish-poultry,https://groceries.morrisons.com/categories/meat-fish/the-best-meat-fish-poultry/179548,2,203,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05; RECHECK)",2026-10-08
+fresh-foods/soups-sauces,https://groceries.morrisons.com/categories/fresh-foods/soups-sauces/176771,1,50,,2026-10-08
+fresh-foods/milk-eggs-butter,https://groceries.morrisons.com/categories/fresh-foods/milk-eggs-butter/176763,1,524,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fresh-foods/cheese,https://groceries.morrisons.com/categories/fresh-foods/cheese/176764,1,360,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+"fresh-foods/cheese (cont., lines 181-360)",,1,0,,2026-10-08
+fresh-foods/ready-meals,https://groceries.morrisons.com/categories/fresh-foods/ready-meals/176768,1,621,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fresh-foods/yogurts,https://groceries.morrisons.com/categories/fresh-foods/yogurts/185546,1,350,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fresh-foods/cooked-meats,https://groceries.morrisons.com/categories/fresh-foods/cooked-meats/176770,1,288,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fresh-foods/pies-quiches,https://groceries.morrisons.com/categories/fresh-foods/pies-quiches/176772,1,325,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fresh-foods/dips-salads,https://groceries.morrisons.com/categories/fresh-foods/dips-salads/176773,1,178,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fresh-foods/vegetarian-fresh-food,https://groceries.morrisons.com/categories/fresh-foods/vegetarian-fresh-food/177817,1,90,"Page 1 of 1 (infinite scroll, all loaded)",2026-10-08
+fresh-foods/chilled-juice-smoothies,https://groceries.morrisons.com/categories/fresh-foods/chilled-juice-smoothies/176766,1,152,"Page 1 of 1 (infinite scroll, all loaded at zoom 0.05)",2026-10-08
+fresh-foods/desserts,https://groceries.morrisons.com/categories/fresh-foods/desserts/176769,1,198,"Page 1 of 1 (infinite scroll, all loaded at zoom 0.05)",2026-10-08
+fresh-foods/soups-sauces (cont.),https://groceries.morrisons.com/categories/fresh-foods/soups-sauces/176771,1,72,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+fresh-foods/pasta,https://groceries.morrisons.com/categories/fresh-foods/pasta/187310,1,60,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+fresh-foods/pizza,https://groceries.morrisons.com/categories/fresh-foods/pizza/176767,2,154,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05; RECHECK incl. the known gap 109463922)",2026-10-08
+bakery-cakes/bread-rolls-part-baked,https://groceries.morrisons.com/categories/bakery-cakes/bread-rolls-part-baked/165658,1,99,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/bread,https://groceries.morrisons.com/categories/bakery-cakes/bread/165657,1,159,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+fresh-foods/food-to-go,https://groceries.morrisons.com/categories/fresh-foods/food-to-go/188187,1,397,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/breakfast-bakery,https://groceries.morrisons.com/categories/bakery-cakes/breakfast-bakery/193211,1,125,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/wraps-pittas-thins,https://groceries.morrisons.com/categories/bakery-cakes/wraps-pittas-thins/165663,1,35,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/naans-flatbreads,https://groceries.morrisons.com/categories/bakery-cakes/naans-flatbreads/165662,1,41,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/fruited-loaves-scones-hot-cross-buns,https://groceries.morrisons.com/categories/bakery-cakes/fruited-loaves-scones-hot-cross-buns/165661,1,63,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+"fresh-foods/food-to-go (rest, after id 110403468)",https://groceries.morrisons.com/categories/fresh-foods/food-to-go/188187,1,396,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/christmas-cakes-mince-pies,https://groceries.morrisons.com/categories/bakery-cakes/christmas-cakes-mince-pies/194556,1,29,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/cakes-cupcakes,https://groceries.morrisons.com/categories/bakery-cakes/cakes-cupcakes/187311,1,354,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/birthday-celebration-cakes,https://groceries.morrisons.com/categories/bakery-cakes/birthday-celebration-cakes/156705,1,100,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/doughnuts-muffins,https://groceries.morrisons.com/categories/bakery-cakes/doughnuts-muffins/193226,1,54,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/pies-tarts,https://groceries.morrisons.com/categories/bakery-cakes/pies-tarts/187312,1,37,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/cookies-biscuits,https://groceries.morrisons.com/categories/bakery-cakes/cookies-biscuits/154757,1,81,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+bakery-cakes/free-from-bakery,https://groceries.morrisons.com/categories/bakery-cakes/free-from-bakery/151242,1,46,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/ready-meals,https://groceries.morrisons.com/categories/frozen-food/ready-meals/185055,1,167,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/chicken-meat,https://groceries.morrisons.com/categories/frozen-food/chicken-meat/180333,1,167,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/ready-meals (re-print of block 15: a retyping error in the first pass),https://groceries.morrisons.com/categories/frozen-food/ready-meals/185055,1,167,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/fish-seafood,https://groceries.morrisons.com/categories/frozen-food/fish-seafood/180364,1,158,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/vegetables-sides,https://groceries.morrisons.com/categories/frozen-food/vegetables-sides/185020,1,88,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/chips-potatoes,https://groceries.morrisons.com/categories/frozen-food/chips-potatoes/185021,1,95,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/ice-cream,https://groceries.morrisons.com/categories/frozen-food/ice-cream/180396,2,560,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/garlic-bread,https://groceries.morrisons.com/categories/frozen-food/garlic-bread/180425,1,7,Page 1 of 1,2026-10-08
+frozen-food/yorkshire-puddings-sides,https://groceries.morrisons.com/categories/frozen-food/yorkshire-puddings-sides/185022,1,15,Page 1 of 1,2026-10-08
+frozen-food/fruit,https://groceries.morrisons.com/categories/frozen-food/fruit/180403,1,18,Page 1 of 1,2026-10-08
+frozen-food/party-food,https://groceries.morrisons.com/categories/frozen-food/party-food/185069,1,70,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/applied-nutrition,https://groceries.morrisons.com/categories/frozen-food/applied-nutrition/194299,1,16,Page 1 of 1,2026-10-08
+frozen-food/desserts,https://groceries.morrisons.com/categories/frozen-food/desserts/180395,1,100,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/frozen-pizza,https://groceries.morrisons.com/categories/frozen-food/frozen-pizza/180426,1,114,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/frozen-pizza (re-print of block 7 after a CRC rejection),https://groceries.morrisons.com/categories/frozen-food/frozen-pizza/180426,1,0,,2026-10-08
+frozen-food/easy-meal-times,https://groceries.morrisons.com/categories/frozen-food/easy-meal-times/180464,1,164,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/pies,https://groceries.morrisons.com/categories/frozen-food/pies/185023,1,59,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/vegetarian,https://groceries.morrisons.com/categories/frozen-food/vegetarian/185018,1,49,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/vegan,https://groceries.morrisons.com/categories/frozen-food/vegan/192325,1,46,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+frozen-food/free-from,https://groceries.morrisons.com/categories/frozen-food/free-from/185019,1,22,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/tins-cans-packets,https://groceries.morrisons.com/categories/food-cupboard/tins-cans-packets/102637,2,0,,2026-10-08
+food-cupboard/tins-cans-packets,(part 1 continued: lines 231-340),1,0,,2026-10-08
+food-cupboard/tins-cans-packets,(part 2: lines 341-520 of 683),1,0,,2026-10-08
+food-cupboard/tins-cans-packets,(part 2 re-send of block 17 after a CRC rejection),1,0,,2026-10-08
+food-cupboard/tins-cans-packets,(part 3: lines 521-683 of 683),1,0,,2026-10-08
+food-cupboard/cooking-ingredients,https://groceries.morrisons.com/categories/food-cupboard/cooking-ingredients/102770,1,0,,2026-10-08
+food-cupboard/cooking-ingredients,(part 2: lines 171-340),1,0,,2026-10-08
+food-cupboard/cooking-ingredients,(part 3: lines 341-510),1,0,,2026-10-08
+food-cupboard/cooking-ingredients,(part 4: lines 511-680),1,0,,2026-10-08
+food-cupboard/cooking-ingredients,(part 5: lines 681-764),1,0,,2026-10-08
+food-cupboard/cooking-sauces-kits,https://groceries.morrisons.com/categories/food-cupboard/cooking-sauces-kits/182502,1,0,,2026-10-08
+food-cupboard/cooking-sauces-kits,(part 1 continued: lines 131-170),1,0,,2026-10-08
+food-cupboard/cooking-sauces-kits,(part 2: lines 171-340),1,0,,2026-10-08
+food-cupboard/cooking-sauces-kits,re-print of block 22 (retyping error),1,0,,2026-10-08
+food-cupboard/cooking-sauces-kits,(part 3: lines 341-520),1,0,,2026-10-08
+food-cupboard/cooking-sauces-kits,(part 4: lines 521-549),1,0,,2026-10-08
+food-cupboard/table-sauces-condiments-dressings,https://groceries.morrisons.com/categories/food-cupboard/table-sauces-condiments-dressings/102735,1,323,,2026-10-08
+food-cupboard/table-sauces-condiments-dressings,re-print of block 9 (retyping error),1,0,,2026-10-08
+food-cupboard/table-sauces-condiments-dressings,(part 2: lines 171-340),1,0,,2026-10-08
+food-cupboard/rice-pasta-noodles-pulses,https://groceries.morrisons.com/categories/food-cupboard/rice-pasta-noodles-pulses/102605,1,473,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/breakfast-cereal,https://groceries.morrisons.com/categories/food-cupboard/breakfast-cereal/180005,1,361,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/baking-ingredients,https://groceries.morrisons.com/categories/food-cupboard/baking-ingredients/177910,1,399,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/jams-honey-spreads,https://groceries.morrisons.com/categories/food-cupboard/jams-honey-spreads/104894,1,175,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/coffee,https://groceries.morrisons.com/categories/food-cupboard/coffee/186649,1,337,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/tea-hot-drinks,https://groceries.morrisons.com/categories/food-cupboard/tea-hot-drinks/171766,1,231,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/pickled-foods,https://groceries.morrisons.com/categories/food-cupboard/pickled-foods/102715,1,96,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/rice-pudding-desserts,https://groceries.morrisons.com/categories/food-cupboard/rice-pudding-desserts/104773,1,178,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/sugar-sweeteners,https://groceries.morrisons.com/categories/food-cupboard/sugar-sweeteners/104867,1,49,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-cupboard/john-west-brand-shop,https://groceries.morrisons.com/categories/food-cupboard/john-west-brand-shop/194375,1,30,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+treats-snacks/chocolate-sweets,https://groceries.morrisons.com/categories/treats-snacks/chocolate-sweets/106130,1,1091,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+treats-snacks/crisps-nuts-snacking-fruits,https://groceries.morrisons.com/categories/treats-snacks/crisps-nuts-snacking-fruits/193650,1,592,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+treats-snacks/biscuits-snack-bars,https://groceries.morrisons.com/categories/treats-snacks/biscuits-snack-bars/182321,1,538,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+treats-snacks/crackers-savoury-biscuits,https://groceries.morrisons.com/categories/treats-snacks/crackers-savoury-biscuits/187313,1,180,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+treats-snacks/free-from-snacks,https://groceries.morrisons.com/categories/treats-snacks/free-from-snacks/193649,1,104,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+treats-snacks/healthy-snacks,https://groceries.morrisons.com/categories/treats-snacks/healthy-snacks/171579,1,108,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/fizzy-drinks,https://groceries.morrisons.com/categories/drinks/fizzy-drinks/155074,1,326,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/juice-smoothies,https://groceries.morrisons.com/categories/drinks/juice-smoothies/155285,1,87,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/squash,https://groceries.morrisons.com/categories/drinks/squash/155111,1,85,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/water,https://groceries.morrisons.com/categories/drinks/water/155115,1,138,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/energy-sports-drinks,https://groceries.morrisons.com/categories/drinks/energy-sports-drinks/155047,1,169,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/mixers-adult-soft-drinks,https://groceries.morrisons.com/categories/drinks/mixers-adult-soft-drinks/155105,1,146,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/kids-drinks,https://groceries.morrisons.com/categories/drinks/kids-drinks/155097,1,69,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/wellness-drinks,https://groceries.morrisons.com/categories/drinks/wellness-drinks/193315,1,109,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/iced-coffee,https://groceries.morrisons.com/categories/drinks/iced-coffee/161016,1,39,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+drinks/coca-cola-sponsored-shop,https://groceries.morrisons.com/categories/drinks/coca-cola-sponsored-shop/170328,1,162,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-to-order/giant-cookies,https://groceries.morrisons.com/categories/food-to-order/giant-cookies/191328,1,20,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-to-order/sandwich-wrap-sushi-platters,https://groceries.morrisons.com/categories/food-to-order/sandwich-wrap-sushi-platters/190865,1,22,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-to-order/cakes-desserts,https://groceries.morrisons.com/categories/food-to-order/cakes-desserts/190868,1,46,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-to-order/sharing-platters,https://groceries.morrisons.com/categories/food-to-order/sharing-platters/190866,1,26,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+food-to-order/pasta-deli-cheese,https://groceries.morrisons.com/categories/food-to-order/pasta-deli-cheese/190867,1,24,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+beer-wines-spirits/hard-seltzer,https://groceries.morrisons.com/categories/beer-wines-spirits/hard-seltzer/182578,1,3,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+beer-wines-spirits/gifting,https://groceries.morrisons.com/categories/beer-wines-spirits/gifting/194610,1,11,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+beer-wines-spirits/pre-mixed-drinks-cocktails,https://groceries.morrisons.com/categories/beer-wines-spirits/pre-mixed-drinks-cocktails/151527,1,214,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+beer-wines-spirits/champagne-prosecco-sparkling-wine,https://groceries.morrisons.com/categories/beer-wines-spirits/champagne-prosecco-sparkling-wine/176436,1,81,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+beer-wines-spirits/spirits-liqueurs,https://groceries.morrisons.com/categories/beer-wines-spirits/spirits-liqueurs/105916,1,462,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+beer-wines-spirits/beer-cider,https://groceries.morrisons.com/categories/beer-wines-spirits/beer-cider/150066,1,776,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+beer-wines-spirits/wine,https://groceries.morrisons.com/categories/beer-wines-spirits/wine/176432,1,628,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+world-foods/asian-food,https://groceries.morrisons.com/categories/world-foods/asian-food/192244,1,853,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+world-foods/european-food-shop,https://groceries.morrisons.com/categories/world-foods/european-food-shop/192061,1,303,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+world-foods/halal-food-shop,https://groceries.morrisons.com/categories/world-foods/halal-food-shop/182143,1,114,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+world-foods/kosher-food-shop,https://groceries.morrisons.com/categories/world-foods/kosher-food-shop/182145,1,102,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+world-foods/african-carribean-food-shop,https://groceries.morrisons.com/categories/world-foods/african-carribean-food-shop/182138,1,181,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+world-foods/american,https://groceries.morrisons.com/categories/world-foods/american/182166,1,15,"Page 1 of 1 (single load, ended)",2026-10-08
+world-foods/irish,https://groceries.morrisons.com/categories/world-foods/irish/182167,1,22,"Page 1 of 1 (single load, ended)",2026-10-08
+dietary-lifestyle-foods/free-from,https://groceries.morrisons.com/categories/dietary-lifestyle-foods/free-from/175652,1,817,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+dietary-lifestyle-foods/vegan,https://groceries.morrisons.com/categories/dietary-lifestyle-foods/vegan/173637,1,587,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+dietary-lifestyle-foods/organic-shop,https://groceries.morrisons.com/categories/dietary-lifestyle-foods/organic-shop/191664,1,226,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+dietary-lifestyle-foods/high-protein,https://groceries.morrisons.com/categories/dietary-lifestyle-foods/high-protein/191663,1,372,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08
+dietary-lifestyle-foods/applied-nutrition,https://groceries.morrisons.com/categories/dietary-lifestyle-foods/applied-nutrition/193662,1,63,"Page 1 of 1 (infinite scroll, loaded at zoom 0.05)",2026-10-08

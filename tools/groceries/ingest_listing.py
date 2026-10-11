@@ -5,8 +5,12 @@
 
 Raw input (written by the crawling agents, docs/NEXT_GROCERIES_DISCOVERY_PROMPT.md "Tier 1"): a header line per listing page
 `#CAT <category path> | <category url> | Page k of N | tiles T`, then one line per product, copied exactly as the extractor printed it:
-`product_id|name|price|unit_price|unit|price2|unit_price2|card|photo` (9 fields; the first pilot used 8: no photo, and `N` = Nectar).
+`product_id|name|price|unit_price|unit|price2|unit_price2|card|photo` (9 fields; the first pilot used 8: no photo, and `N` = Nectar; Morrisons adds a 10th,
+the tile's size line, which is put after the name when the name doesn't already carry it, as the tile prints the two together).
 When `card` is set the FIRST price pair is the loyalty-card price and the SECOND is the regular price; otherwise the first pair is the regular price.
+A card value that is a note or a multi-buy (Aldi "note: ...", Morrisons' "... Meal Deal ...") is not a card price; M&S "MULTI"/"FROM" tiles (two prices
+without "was", or a "From" price) have no single price, so they are left out. Waitrose loose items ("Typical weight ...") print an estimated price, so
+they are left out too (never shown as if it were the shelf price).
 
 Nothing is invented: a field the line doesn't have stays blank, numbers are copied, a line that doesn't parse is reported and left out.
 One row per product id (a product listed in several categories keeps every category path, " | "-separated).
@@ -26,15 +30,23 @@ ROOT = Path(__file__).resolve().parents[2]
 PRODUCT_URL = {
     "sainsburys": "https://www.sainsburys.co.uk/groceries/product/{id}",
     "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}",
+    "iceland": "https://www.iceland.co.uk/p/x/{id}.html",  # the slug is ignored by Iceland's site (checked once by the crawl)
 }
 ALDI_MEDIA = "https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/"  # + <uuid>/<any file name>: the address the tile uses
 ASDA_MEDIA = "https://asdagroceries.scene7.com/is/image/asdagroceries/"  # + the tile's image id (the barcode for branded items)
+WAITROSE_MEDIA = "https://ecom-su-static-prod.wtrecom.com/images/products/"  # "D" = 9/LN_<first 6 digits of the product id>_BP_9.jpg (the crawl's note)
+MORRISONS_MEDIA = "https://groceries.morrisons.com/images-v3/"  # + <uuid1>/<uuid2>/300x300.jpg; a lone uuid is uuid2 under the crawl's fixed uuid1
+MORRISONS_UUID1 = "4b85987b-1398-4173-a0c1-3546047c9d74"
+ICELAND_MEDIA = "https://assets.iceland.co.uk/i/"  # + the tile's picture path
+MS_MEDIA = "https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/"  # "a:<id>" = this host's image id
+UUID = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 HEADER = ["product_id", "name", "price_gbp", "unit_price_gbp", "unit", "member_price_gbp", "member_scheme", "category_path", "page_url", "image_url", "checked_on"]
-UNITS = {"kg": "per kg", "litre": "per litre", "l": "per litre", "ltr": "per litre", "ea": "each", "each": "each", "unit": "each", "mtr": "per metre"}
+UNITS = {"kg": "per kg", "litre": "per litre", "l": "per litre", "ltr": "per litre", "ea": "each", "each": "each", "unit": "each", "item": "each", "mtr": "per metre"}
 # The quantity a unit price is printed per, as (multiplier to per kg / per litre / each, unit): Aldi prints "100 G" or "75 CL", Asda "per 10g", Lidl "kg".
 # Only exact conversions of the printed figure (per 100 g x 10 = per kg); a unit we can't read leaves the unit price out (never guessed).
 UNIT_QTY = {"g": (1000, "per kg"), "kg": (1, "per kg"), "ml": (1000, "per litre"), "cl": (100, "per litre"), "l": (1, "per litre"), "litre": (1, "per litre"),
-            "ltr": (1, "per litre"), "lt": (1, "per litre"), "each": (1, "each"), "ea": (1, "each"), "unit": (1, "each")}
+            "ltr": (1, "per litre"), "lt": (1, "per litre"), "each": (1, "each"), "ea": (1, "each"), "unit": (1, "each"),
+            "gram": (1000, "per kg"), "kilogram": (1, "per kg"), "millilitre": (1000, "per litre")}
 
 
 def unit_basis(unit: str) -> tuple[float, str] | None:
@@ -76,6 +88,18 @@ def image_url(retailer: str, photo: str) -> str:
         return f"{ALDI_MEDIA}{photo}/image" if re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", photo) else ""
     if retailer == "asda" and not photo.startswith("https://"):
         return f"{ASDA_MEDIA}{photo}" if re.fullmatch(r"[0-9A-Za-z_-]{4,40}", photo) else ""
+    if retailer == "waitrose":
+        return ""  # handled in waitrose_image (needs the product id)
+    if retailer == "morrisons":
+        if re.fullmatch(UUID, photo):
+            return f"{MORRISONS_MEDIA}{MORRISONS_UUID1}/{photo}/300x300.jpg"
+        return f"{MORRISONS_MEDIA}{photo}/300x300.jpg" if re.fullmatch(f"{UUID}/{UUID}", photo) else ""
+    if retailer == "iceland":
+        path = photo.split("?")[0].lstrip("/")  # Iceland's image service serves the path with or without a file ending; "&" is sent encoded
+        ok = re.fullmatch(r"iceland/[A-Za-z0-9_\-.&]{3,200}", path) and ".." not in path and "loading" not in path
+        return f"{ICELAND_MEDIA}{path.replace('&', '%26')}" if ok else ""
+    if retailer == "marks-and-spencer":
+        return f"{MS_MEDIA}{photo[2:]}" if re.fullmatch(r"a:[A-Za-z0-9_]{6,80}", photo) else ""  # "x:" (another host) is never used
     if retailer == "lidl":
         return photo if photo.startswith("https://imgproxy-retcat.assets.schwarz/") else ""  # the listing kept only a storage key: the address comes from the product page
     if retailer == "tesco" and not photo.startswith("https://"):
@@ -86,6 +110,29 @@ def image_url(retailer: str, photo: str) -> str:
     if photo.startswith("https://"):
         return photo
     return "https://" + photo.lstrip("/") if "/" in photo else ""
+
+
+def waitrose_image(pid: str, photo: str) -> str:
+    """Waitrose's "D" = the shop's own picture of the product line (the first 6 digits of the id); anything else is left without a picture."""
+    m = re.match(r"(\d{6})-", pid)
+    return f"{WAITROSE_MEDIA}9/LN_{m.group(1)}_BP_9.jpg" if photo.strip() == "D" and m else ""
+
+
+SIZE = re.compile(r"[\w .,%/x-]{1,30}")
+# A name that already carries a quantity ("1664 Blanc ... 4x330ml", "Hot Dogs ... 260g") keeps it as it is: the size line would only repeat it.
+HAS_QTY = re.compile(r"\d+(?:\.\d+)?\s*(?:g|kg|ml|cl|l|ltr|litres?)\b|\d+\s*(?:pack|pk|per pack)\b|\bx\s*\d+|\d+\s*x\b", re.I)
+
+
+def with_size(name: str, size: str) -> str:
+    """Morrisons prints the size on its own line under the name: the two together are what the tile shows ("Explore Sable Seedless Grapes 400g")."""
+    size = " ".join((size or "").split())
+    if not size or not SIZE.fullmatch(size) or HAS_QTY.search(name) or size.replace(" ", "").lower() in name.replace(" ", "").lower():
+        return name
+    return f"{name} {size}"
+
+
+def pic(retailer: str, pid: str, photo: str) -> str:
+    return waitrose_image(pid, photo) if retailer == "waitrose" else image_url(retailer, photo)
 
 
 def parse(retailer: str, files: list[str], checked_on: str, url_template: str | None):
@@ -112,18 +159,34 @@ def parse(retailer: str, files: list[str], checked_on: str, url_template: str | 
                 continue
             if line.startswith("#") or line.startswith("Page ") or re.match(r"^N \d+", line):
                 continue
+            known = re.fullmatch(r"K\|(\S+)", line)
+            if known:  # M&S: a tile already printed in full above (only adds this category to it)
+                row = rows.get(known.group(1))
+                if row is not None and cat and cat not in row["category_path"] and len(row["category_path"]) < 3:
+                    row["category_path"].append(cat)
+                continue
             f = [x.strip() for x in line.split("|")]
             if len(f) < 8:
                 problems.append(f"{Path(fn).name}:{ln}: too few fields ({len(f)})")
                 continue
-            f += [""] * (9 - len(f))
-            pid, name, p1, u1, unit, p2, u2, card, photo = f[:9]
-            if len(f) > 9 or not pid or " " in pid or not name:
+            f += [""] * (10 - len(f))
+            pid, name, p1, u1, unit, p2, u2, card, photo, size = f[:10]
+            if retailer == "iceland":
+                m = re.fullmatch(r"/?p/[^/]*/([A-Za-z0-9]+)\.html", pid)  # a few lines kept the page path instead of its id
+                pid = m.group(1) if m else pid
+            if len(f) > 10 or not pid or " " in pid or not name:
                 problems.append(f"{Path(fn).name}:{ln}: bad id or name")
                 continue
+            if card in ("MULTI", "FROM"):
+                problems.append(f"{Path(fn).name}:{ln}: no single price on the tile ({card}, {pid})")
+                continue
+            if retailer == "waitrose" and "typical weight" in name.lower():
+                problems.append(f"{Path(fn).name}:{ln}: estimated price for a loose item ({pid})")
+                continue
+            name = with_size(name, size)
             is_nectar_flag = card == "N"
-            if card.lower().startswith("note:"):
-                card = ""  # Aldi prints a note ("While Stock Lasts", "Save 40%"), not a loyalty-card price: the first price is the shelf price
+            if card.lower().startswith("note:") or "meal deal" in card.lower():
+                card = ""  # Aldi prints a note ("While Stock Lasts", "Save 40%"), Morrisons a meal deal: not a single-item card price, so the first price is the shelf price
             scheme = "Nectar price" if is_nectar_flag else card
             first, second = num(p1), num(p2)
             if scheme and second is None:
@@ -151,10 +214,10 @@ def parse(retailer: str, files: list[str], checked_on: str, url_template: str | 
                     "member_price_gbp": f"{member:.2f}" if member is not None else "",
                     "member_scheme": scheme if member is not None else "",
                     "category_path": [], "page_url": template.format(id=pid) if template else "",
-                    "image_url": image_url(retailer, photo), "checked_on": checked_on,
+                    "image_url": pic(retailer, pid, photo), "checked_on": checked_on,
                 }
             elif not row["image_url"]:
-                row["image_url"] = image_url(retailer, photo)
+                row["image_url"] = pic(retailer, pid, photo)
             if cat and cat not in row["category_path"] and len(row["category_path"]) < 3:
                 row["category_path"].append(cat)
     return rows, cov, problems

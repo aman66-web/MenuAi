@@ -759,6 +759,23 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Checked: 444 unit tests, 124 Python, e2e groceries-all 6 (new: a second shop's photo template, sitemap page link and both lists), groceries 6, compare 8,
   diet 5, recipes 13, smoke 23, a11y 0 violations; each new list in light and dark (photos load, no overflow, also at the largest text size).
 
+- 2026-10-11 — **Every grocery list published: nine supermarkets, 74,911 products, each with its own shop's photo (founder: "I say yes" = Tesco photos;
+  "all the grocery stores, all the items ... only groceries").** Added Tesco 6,086, Waitrose 11,424, Morrisons 18,382, Iceland 6,202 and M&S 291 to the
+  "Every {shop} product" lists (Sainsbury's 17,002, Asda 11,820, Aldi 3,466, Lidl 238 as before), built from the crawls of each shop's own category pages
+  (8-9 Oct). Each is the founder's accepted risk against its terms (quoted in docs/IMAGE_TERMS.md: Tesco bans bots and AI tools; M&S bans crawling, copying and
+  commercial use; Iceland 3.2 and Waitrose forbid reproducing content without permission; Morrisons allows extracts for own use only). Photos load from each
+  shop's own image server (Waitrose, Morrisons, Iceland and M&S: random sets of 36 looked at on contact sheets, every one shows the product named; Tesco's
+  server refuses this environment, so its 6,063 photos could not be looked at here and load only in visitors' browsers, falling back to "no photo").
+  Links: Iceland to the product's own page; Tesco to its product page; Waitrose, Morrisons and M&S to the shop's own search for the name (their crawls kept
+  no page addresses). Rules (`tools/groceries/ingest_listing.py`): Morrisons' size line follows the name only when the name has no quantity; a Morrisons meal
+  deal is not a card price (529 real More Card prices kept); Waitrose loose items priced as an estimate ("Typical weight ...", 105) and M&S tiles with two
+  prices and no "was" (12) are left out, never shown as a shelf price. **Groceries only** (`not_food` in `build_all_products.py`, applied to every shop, so
+  Sainsbury's lost 14 and Asda 7): birthday candles and sparklers, cake toppers, flower bouquets, M&S flower gifts, cake cases, coffee filter papers, a dog toy;
+  a cake named after its decoration ("Balloon & Stars Cake") and charcoal-cooked kebabs stay. Still no nutrition for these lists except Sainsbury's (next:
+  barcode matches). **Co-op** has no list (it blocks even through a UK VPN) and **Ocado's** crawl stays quarantined. Tesco's crawl covers fresh food, bakery
+  and most of frozen (Tesco's bot check stopped it); the rest needs the Chrome run. No new copy. Checked: 129 Python, 445 unit tests, tsc, lint, e2e
+  groceries-all 6, groceries 6, diet 5, smoke 23; screenshots of Morrisons' list, an Iceland product (photo + "Open it on Iceland's website") and Groceries.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -798,7 +815,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
 - [ ] Decide whether to promote the newest build to Production (it is only on Previews, behind Vercel login)
-- [ ] **Grocery crawl decisions:** (1) Tesco: approve crawling in the permission system (Shift+Tab out of auto mode, or an allow rule for tab creation) or tell me to skip it; (2) Co-op and Iceland: turn on a UK VPN and tell me; (3) Ocado: say whether the quarantined data may be used or should be deleted; (4) which store lists may be published given each shop's terms (decided 2026-10-11: Sainsbury's, Asda, Aldi, Lidl live; Morrisons, Waitrose, Tesco, Iceland, M&S held); (5) whether to build the "browse every product" layer and read product pages for nutrition
+- [ ] **Grocery crawl decisions:** (1) Tesco: approve crawling in the permission system (Shift+Tab out of auto mode, or an allow rule for tab creation) or tell me to skip it; (2) Co-op and Iceland: turn on a UK VPN and tell me; (3) Ocado: say whether the quarantined data may be used or should be deleted; (4) which store lists may be published given each shop's terms (decided 2026-10-11: all nine with a list are live; Co-op blocked, Ocado quarantined); (5) whether to build the "browse every product" layer and read product pages for nutrition
 - [x] **Tesco photos:** yes, your accepted risk (2026-10-11). Tesco's image server refuses the cloud environment, so more Tesco photos come from the Chrome run on your Mac (docs/NEXT_GROCERIES_IMAGES_PROMPT.md)
 - [ ] **Food images, your decision per chain:** the photo feature is built and works (checked with real KFC, Subway and Nando's photos), but the terms of **every chain checked (11 of 11: KFC, Subway, Nando's, Pret, Greggs, Five Guys, Pizza Express, Prezzo, Wagamama, Pizza Hut, Starbucks) say images/content may not be copied or reused without written permission or a licence** (exact quotes: `docs/IMAGE_TERMS.md`). You told me you'd checked you may use them, so I built it, but I haven't installed any photos until you confirm for chains whose terms say this. Options: (1) tell me "install them" for all or named chains (your legal risk; I keep the sources + `images.csv`, and delete a chain's photos the day it asks); (2) email the chains for written permission (the prepared photo sets for Pizza Hut, Starbucks, KFC, Subway, Nando's, Pret, Greggs and Five Guys are kept ready and install in one step); (3) leave photos out for now (cuisine icons stay)
 - [ ] **Xcode preview shell:** follow docs/XCODE_PREVIEW_SHELL.md (Vercel Production Branch → create the Xcode project → ask Claude on the Mac to copy the files → Run on your iPhone)

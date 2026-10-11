@@ -25,8 +25,10 @@ for several chains exist outside the repo and install in one step if the founder
 
 ## SUPERMARKETS (groceries), read 2026-10-08 (Tesco, Sainsbury's)
 
-**2026-10-11 founder decisions:** Tesco photos yes (accepted risk); full product lists with the shop's own photos for Asda, Aldi and Lidl (accepted risk;
-Morrisons, Waitrose, Tesco, Iceland and M&S lists stay in `data/` only). What each terms check found (`data/groceries/listing/raw/<shop>_terms.txt`):
+**2026-10-11 founder decisions:** Tesco photos yes (accepted risk); full product lists with the shop's own photos for Asda, Aldi and Lidl (accepted risk),
+then "all the grocery stores, all the items": Tesco, Waitrose, Morrisons, Iceland and M&S lists published the same day, each the founder's accepted risk against
+the clause quoted below (Co-op has no list: it blocks even from a UK VPN; Ocado's crawl stays quarantined and unused). What each terms check found
+(`data/groceries/listing/raw/<shop>_terms.txt`):
 - **aldi** https://www.aldi.co.uk/corporate/terms-and-conditions: forbids "any systematic or automated data collection activities on or in relation to our
   Site ... without our express written consent (such as scraping, data mining, data extraction and data harvesting)" and "You must not use any part of the
   content on our Site or our App for commercial purposes without obtaining a licence to do so". The founder was told this and chose to publish (2026-10-11).
@@ -37,6 +39,21 @@ Morrisons, Waitrose, Tesco, Iceland and M&S lists stay in `data/` only). What ea
   product's own page (imgproxy-retcat.assets.schwarz), read one page a second (robots.txt allows /p/).
 - **tesco**: its image host answers 403 to this environment for the photos themselves, so no Tesco copies are stored; the 332 hotlinked Tesco photos stay.
   The founder's yes lets a Chrome run on their Mac read Tesco product pages for barcodes and photo addresses (docs/NEXT_GROCERIES_IMAGES_PROMPT.md).
+  Its full list (6,086 groceries from the crawl, which Tesco's bot check stopped part-way) shows Tesco's own photo addresses from the listing tiles, loaded
+  from Tesco by the visitor's browser (never stored; this environment can't load them, so they were not looked at on a contact sheet). Terms: see below
+  ("bots, crawlers, scrapers, or AI tools ... without our prior written consent").
+- **waitrose** (terms "Last updated: 22 January 2026"): "No part of this website may be reproduced in any material forms (including storing in any medium by
+  electronic means) without the prior written permission of Waitrose Limited." No clause on bots or scraping. robots.txt allows the browse pages. Photos load from
+  ecom-su-static-prod.wtrecom.com (its robots.txt answers a missing-file error); links open Waitrose's own search for the product name.
+- **morrisons** ("Terms and Conditions of Use" 2.1-2.2): extracts may be printed and downloaded "for your own use" if unmodified, and "any use of extracts from
+  the Website other than in accordance with paragraph 2.1 ... " is not permitted. No clause on bots or scraping; robots.txt allows category and product pages.
+  Photos load from groceries.morrisons.com/images-v3 (robots.txt allows it); links open Morrisons' own search.
+- **iceland** (terms 3.2): "you must not otherwise copy, reproduce, transmit, publish, display, distribute, commercially exploit, use or create derivative works of
+  any material data and content on our website without our prior written [permission]". No clause on bots. Photos load from assets.iceland.co.uk (no robots.txt);
+  links open the product's own page (/p/x/<id>.html).
+- **marks-and-spencer**: "You may not, without our prior written consent, copy, reproduce, crawl, frame, republish, download ... the web pages or materials on the
+  Website ..." and "You may not use the content of the Website for any commercial purposes whatsoever." Only 291 groceries (M&S sells food online only as
+  food-to-order, gifts and Christmas food; its flower gifts are left out). Photos load from assets.digitalcontent.marksandspencer.app; links open M&S's own search.
 
 Same use as the restaurant photos (the shop's own photo of the exact product, resized only; founder's go-ahead 2026-10-08). Nothing here is legal advice.
 - **tesco** https://www.tesco.com/shop/en-GB/zone/general-terms-and-conditions: "The content of the Site is protected by copyright, trade marks, database and other intellectual property rights. You may retrieve and display the content of the Site on a computer screen, store such content in electronic form on disk (but not any server or other storage device connected to a network) or print one copy of such content for your own personal, non-commercial use ... You may not otherwise reproduce, modify, copy or distribute or use fo[r commercial purposes]" and "Prohibited automated access: you must not use any automated system, software, or process (including bots, crawlers, scrapers, or AI tools) to access, extract, or collect data from this Site for any purpose without our prior written consent." **This also covers the price collection, not only photos.** robots.txt (read in the browser): no rule against product pages or images. Image host digitalcontent.api.tesco.com answers 403 to scripts for /robots.txt (and in a browser): the shared helper treats that as "do not fetch", so Tesco photos are NOT downloaded (the host does serve the photo itself, HTTP 200 with `access-control-allow-origin: *`); the founder decides.

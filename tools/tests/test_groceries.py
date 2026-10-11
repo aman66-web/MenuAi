@@ -487,6 +487,102 @@ class OtherShopListTests(unittest.TestCase):
         self.assertEqual(lp.og_image('<meta property="og:image" content="https://evil.example.com/x.jpg">'), "")
 
 
+class MoreShopListTests(unittest.TestCase):
+    """Tesco, Waitrose, Morrisons, Iceland and M&S lists (founder 2026-10-11: "all the grocery stores, all the items ... only groceries")."""
+
+    def test_listing_lines_of_each_shop(self):
+        import ingest_listing as il
+        with tempfile.TemporaryDirectory() as d:
+            mor = Path(d) / "morrisons_listing.txt"
+            mor.write_text("#CAT fruit-veg/fruit | https://x | tiles 3\n"
+                           "1|Explore Sable Seedless Grapes|1.50|3.75|kg||||b41f9f6e-707e-4e0a-8296-8981b52f8d62|400g\n"
+                           "2|Morrisons Blueberries 150g Punnet|2.00|13.33|kg|2.40|16.00|More Card|7cda084e-d45b-4fea-b7a9-ab6cc4545ed8|150g\n"
+                           "3|King Prawns|2.30|28.75|kg|||MCd To Go Meal Deal for £3.65|20d1020e-d392-430a-bf99-2a3dbbc303c2|80g\n"
+                           "4|Fyffes Bananas 5 Pack|0.78|0.156|item||||20d1020e-d392-430a-bf99-2a3dbbc303c2/7cda084e-d45b-4fea-b7a9-ab6cc4545ed8|5 per pack\n")
+            rows, _, problems = il.parse("morrisons", [str(mor)], "2026-10-08", None)
+            self.assertEqual(problems, [])
+            self.assertEqual(rows["1"]["name"], "Explore Sable Seedless Grapes 400g")          # the tile's size line follows the name
+            self.assertEqual(rows["2"]["name"], "Morrisons Blueberries 150g Punnet")           # already there: not repeated
+            self.assertEqual((rows["2"]["price_gbp"], rows["2"]["member_price_gbp"]), ("2.40", "2.00"))
+            self.assertEqual((rows["3"]["price_gbp"], rows["3"]["member_price_gbp"]), ("2.30", ""))  # a meal deal is not a card price
+            self.assertEqual(rows["4"]["unit"], "each")
+            self.assertEqual(rows["1"]["image_url"], "https://groceries.morrisons.com/images-v3/4b85987b-1398-4173-a0c1-3546047c9d74/b41f9f6e-707e-4e0a-8296-8981b52f8d62/300x300.jpg")
+            self.assertTrue(rows["4"]["image_url"].endswith("/20d1020e-d392-430a-bf99-2a3dbbc303c2/7cda084e-d45b-4fea-b7a9-ab6cc4545ed8/300x300.jpg"))
+
+            wai = Path(d) / "waitrose_listing.txt"
+            wai.write_text("#CAT bakery/fresh_bread | https://x | tiles 2\n"
+                           "065131-33004-33005|Waitrose Baguette|1.10|4.40|kg||||D\n"
+                           "604336-502747-502748|No.1 Salted Caramel Tart Typical weight 945g|14.50|15.34|kg||||D\n")
+            rows, _, problems = il.parse("waitrose", [str(wai)], "2026-10-08", None)
+            self.assertEqual(list(rows), ["065131-33004-33005"])                               # an estimated loose-item price is never shown
+            self.assertEqual(len(problems), 1)
+            self.assertEqual(rows["065131-33004-33005"]["image_url"], "https://ecom-su-static-prod.wtrecom.com/images/products/9/LN_065131_BP_9.jpg")
+
+            ice = Path(d) / "iceland_listing.txt"
+            ice.write_text("#CAT Frozen > frozen-pies | https://x | tiles 3\n"
+                           "89177|Slimming World Salt & Pepper Chow Mein 550g|4.00|7.27|kg||||iceland/slimming_world_salt_&_pepper_chicken_chow_mein_550g_89177.jpg\n"
+                           "/p/iceland-majestics-334g/B60037.html|Iceland 4 Majestics 334g|3.00|0.9|per 100 gram||||iceland/B60037_Majestics_12\n"
+                           "101294||9.00|10.00|kg||||iceland.a.bigcontent.io/v1/static/icelandloading\n")
+            rows, _, problems = il.parse("iceland", [str(ice)], "2026-10-09", None)
+            self.assertEqual(len(problems), 1)                                                   # no name: left out
+            self.assertEqual(rows["89177"]["image_url"], "https://assets.iceland.co.uk/i/iceland/slimming_world_salt_%26_pepper_chicken_chow_mein_550g_89177.jpg")
+            self.assertEqual((rows["B60037"]["page_url"], rows["B60037"]["unit_price_gbp"], rows["B60037"]["unit"]),
+                             ("https://www.iceland.co.uk/p/x/B60037.html", "9", "per kg"))
+
+            ms = Path(d) / "marks-and-spencer_listing.txt"
+            ms.write_text("#CAT Food to order > Cakes | https://x | tiles 2\n"
+                          "ckp60095316|M&S Rainbow Cake (Serves 12)|35||||||a:SD_FD_F09A_00346825_NC_X_EC_0\n"
+                          "pb44706492|Whole Bronze Turkey|72|||135||MULTI|a:MS_FD_F01C_29426669_NC_X_EC_0\n"
+                          "#CAT Food to order > Cakes > Birthday cakes | https://y | tiles 1\n"
+                          "K|ckp60095316\n")
+            rows, _, problems = il.parse("marks-and-spencer", [str(ms)], "2026-10-09", None)
+            self.assertEqual(list(rows), ["ckp60095316"])                                      # two prices without "was": no single price
+            cake = rows["ckp60095316"]
+            self.assertEqual(cake["category_path"], ["Food to order > Cakes", "Food to order > Cakes > Birthday cakes"])
+            self.assertEqual(cake["image_url"], "https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/SD_FD_F09A_00346825_NC_X_EC_0")
+
+    def build(self, shop: str, rows: list[str]):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / f"{shop}.csv"
+            path.write_text("product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on\n" + "\n".join(rows) + "\n")
+            problems: list = []
+            doc = bap.build_shop(shop, problems, path=path, gtins={}, nutrition={}, pages={}, photos={})
+        return doc, problems
+
+    def test_aisles_photos_pages_and_groceries_only(self):
+        doc, _ = self.build("waitrose", [
+            "065131-33004-33005,Waitrose Baguette,1.10,4.4,per kg,,,bakery/fresh_bread,,https://ecom-su-static-prod.wtrecom.com/images/products/9/LN_065131_BP_9.jpg,2026-10-08",
+            "1-2-3,Talking Tables 16 Gold Candles Each,3.00,,,,,bakery/cakes,,,2026-10-08",
+            "2-3-4,Candles Celebration Cake each,20.00,,,,,bakery/cakes,,,2026-10-08"])
+        self.assertEqual([p[1] for p in doc["products"]], ["Waitrose Baguette", "Candles Celebration Cake each"])  # candles out; a cake named after them stays
+        bread = doc["products"][0]
+        self.assertEqual((bread[8], doc["categories"][bread[7]], doc["pageSearch"]), ("065131", "Bakery", True))
+        self.assertEqual(doc["photoTemplate"].replace("{photo}", bread[8]), "https://ecom-su-static-prod.wtrecom.com/images/products/11/LN_065131_BP_11.jpg")
+        doc, _ = self.build("morrisons", ["1,Morrisons Chicken Breast Fillets 300g,3.00,10,per kg,,,meat-fish/chicken,,"
+                                          "https://groceries.morrisons.com/images-v3/4b85987b-1398-4173-a0c1-3546047c9d74/b41f9f6e-707e-4e0a-8296-8981b52f8d62/300x300.jpg,2026-10-08"])
+        self.assertEqual(doc["categories"], ["Meat & Fish"])
+        self.assertEqual(doc["products"][0][8], "4b85987b-1398-4173-a0c1-3546047c9d74/b41f9f6e-707e-4e0a-8296-8981b52f8d62")
+        doc, _ = self.build("iceland", ["87650,Iceland Chicken Breast Fillets 600g,4.00,6.67,per kg,,,Frozen > frozen-meat-and-chicken,https://www.iceland.co.uk/p/x/87650.html,"
+                                        "https://assets.iceland.co.uk/i/iceland/iceland_chicken_breast_fillets_600g_87650.jpg,2026-10-09"])
+        chicken = doc["products"][0]
+        self.assertEqual((chicken[8], chicken[11], doc["categories"]), ("iceland/iceland_chicken_breast_fillets_600g_87650.jpg", "87650.html", ["Frozen"]))
+        doc, _ = self.build("tesco", ["300734646,Tesco Finest Cherries 300G,4.40,14.67,per kg,,,fresh-food > fresh-fruit,,"
+                                      "https://digitalcontent.api.tesco.com/v2/media/ghs/01071426-3898-47d0-ae3b-4a8567fbedf2/90b7413d-097d-4d94-a921-000000000000_1.jpeg?h=225&w=225,2026-10-09",
+                                      "1,Tesco White Roses Flowers Bouquet,5.00,,,,,fresh-food > fresh-vegetables-and-fresh-flowers,,,2026-10-09"])
+        self.assertEqual([p[1] for p in doc["products"]], ["Tesco Finest Cherries 300G"])
+        self.assertEqual((doc["products"][0][8], doc["categories"]), ("ghs/01071426-3898-47d0-ae3b-4a8567fbedf2/90b7413d-097d-4d94-a921-000000000000_1", ["Fresh Food"]))
+        doc, _ = self.build("marks-and-spencer", ["flp1,Flower Market Roses with Chocolates,40,,,,,Food & drink gifts (all),,,2026-10-09",
+                                                  "ckp1,M&S Rainbow Cake (Serves 12),35,,,,,Food to order > Cakes,,,2026-10-09"])
+        self.assertEqual([p[0] for p in doc["products"]], ["ckp1"])                               # M&S flower gifts are not groceries
+
+    def test_non_food_words(self):
+        for name in ("Dr. Oetker Number 0 Candle", "Birthday Cake Sparkler Candle Number 2", "Dr. Oetker Birthday Cake Topper", "Finest Rose & Lily Bouquet", "Tesco Belle Bouquet"):
+            self.assertTrue(bap.not_food(name), name)
+        for name in ("Jaume Serra Bouquet Cava Brut 75cl", "Waitrose Rose Bouquet Cake each", "Jahan Charcoal Chicken Kebabs 500g", "Peter's Yard Rye, Charcoal Sourdough Crackers 90g",
+                     "10th Birthday Balloon & Stars Cake each", "M and M's Crispy Party Bag 850g", "Plant Kitchen Brownies"):
+            self.assertFalse(bap.not_food(name), name)
+
+
 class PriceFileTests(unittest.TestCase):
     def read(self, body: str):
         with tempfile.TemporaryDirectory() as d:
@@ -636,7 +732,8 @@ class PriceFileTests(unittest.TestCase):
         self.assertIsNone(brita[3])                                                         # no unit price printed: none invented
         self.assertEqual(len(problems), 1)                                                  # the bad id is reported, the unpriced row is simply not listed
         self.assertEqual(doc["checkedOn"], "2026-10-08")                                    # the earliest day: never fresher than the oldest row
-        self.assertEqual(bap.PUBLISH, ("sainsburys", "asda", "aldi", "lidl"))                # founder 2026-10-11: no other shop is published without their go-ahead
+        # founder 2026-10-11: "all the grocery stores, all the items" (Co-op and Ocado have no usable list; no other shop without their go-ahead)
+        self.assertEqual(bap.PUBLISH, ("sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "waitrose", "iceland", "marks-and-spencer"))
 
     def test_tier2_heading_words_become_clear_labels_or_the_basis_is_dropped(self):
         self.assertEqual(t2.canon_state(""), "")

@@ -126,6 +126,7 @@ describe("other shops' aisle names", () => {
     expect(foodDietProblem({ name: "Something", category: "Meat, Poultry & Fish" }, veg)).toBe("meat");
     expect(foodDietProblem({ name: "Something", category: "Meat & Poultry" }, veg)).toBe("meat");
     expect(foodDietProblem({ name: "Something", category: "Fish & Seafood" }, veg)).toBe("fish");
+    expect(foodDietProblem({ name: "Something", category: "Meat & Fish" }, veg)).toBe("meat");
     expect(foodDietProblem({ name: "Something", category: "Fish & Seafood" }, halal)).toBeNull();
     expect(foodDietProblem({ name: "Something", category: "Wine, Beer & Spirits" }, halal)).toBe("alcohol");
     expect(foodDietProblem({ name: "Something", category: "Beer, Wine & Spirits" }, halal)).toBe("alcohol");

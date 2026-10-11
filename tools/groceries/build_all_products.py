@@ -8,7 +8,9 @@ Input: data/groceries/listing/<shop>.csv (tools/groceries/ingest_listing.py): on
 (data/groceries/discovery/<shop>*.csv or details/): the app shows them as "price only" and links to the shop's own page. Nothing is estimated.
 
 Only shops in PUBLISH are written. Add a shop there only after the founder has seen its terms (see data/groceries/listing/raw/<shop>_terms.txt).
-Founder 2026-10-11: Asda, Aldi and Lidl published too (no clause against it in their terms); Morrisons, Waitrose, Tesco, Iceland and M&S stay in data/ only.
+Founder 2026-10-11: Asda, Aldi and Lidl published (their accepted risk where the terms restrict it), then "all the grocery stores, all the items": Tesco,
+Waitrose, Morrisons, Iceland and M&S too, each the founder's accepted risk against its terms (docs/IMAGE_TERMS.md). Groceries only: a product whose name
+says it isn't food or drink (candles, sparklers, flower bouquets, M&S flower gifts) is left out.
 Output per shop (compact, one array per product so 17,000 products stay about 3 MB before compression):
   {"v":1,"retailer","name","checkedOn","pageBase","photoBase","categories":[top-level names],"schemes":[card names],
    "nutritionCheckedOn","products":[[id, name, price, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
@@ -31,13 +33,37 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "public" / "groceries" / "all"
-PUBLISH = ("sainsburys", "asda", "aldi", "lidl")  # shops whose lists may be shown in the app; every other crawl stays in data/ only
+PUBLISH = ("sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "waitrose", "iceland", "marks-and-spencer")  # shops whose lists the app shows
 # Per shop: the name shown, the page address base, the picture host (and the template the app fills), how to read the picture id from the listing's
 # address, whether pages come from data/groceries/listing/<shop>-pages.csv, and how the shop's own category path becomes the type shown.
 ALDI_AISLES = {"fresh-food": "Fresh Food", "chilled-food": "Chilled Food", "food-cupboard": "Food Cupboard", "frozen-food": "Frozen Food", "bakery": "Bakery",
                "drinks": "Drinks", "alcohol": "Alcohol", "baby-toddler": "Baby & Toddler"}
 ALDI_OTHER = {"vegetarian-plant-based": "Vegetarian & Plant Based", "higher-protein-food-drink": "Higher Protein", "christmas-new-year": "Christmas & New Year",
               "autumn-range": "Autumn Range", "halloween": "Halloween", "specialbuys": "Specialbuys"}
+# Top-level aisles as the shops name them (their own words, in their own order of words), from the crawl's category slugs.
+WAITROSE_AISLES = {"fresh_and_chilled": "Fresh & Chilled", "food_cupboard": "Food Cupboard", "beer_wine_and_spirits": "Beer, Wine & Spirits",
+                   "tea_coffee_and_soft_drinks": "Tea, Coffee & Soft Drinks", "bakery": "Bakery", "frozen": "Frozen", "baby_and_toddler": "Baby & Toddler"}
+MORRISONS_AISLES = {"fruit-veg": "Fruit & Veg", "meat-fish": "Meat & Fish", "fresh-foods": "Fresh", "bakery-cakes": "Bakery & Cakes", "food-cupboard": "Food Cupboard",
+                    "frozen-food": "Frozen", "drinks": "Drinks", "beer-wines-spirits": "Beer, Wine & Spirits", "world-foods": "World Foods",
+                    "treats-snacks": "Treats & Snacks", "food-to-order": "Food to Order", "dietary-lifestyle-foods": "Dietary & Lifestyle"}
+TESCO_AISLES = {"fresh-food": "Fresh Food", "bakery": "Bakery", "frozen-food": "Frozen Food"}
+# Not food or drink, going by the product's own name (groceries only, founder 2026-10-11); "bouquet" alone is also a wine word, so it needs a flower word.
+# A cake named after its decoration ("Candles Celebration Cake", "Balloon & Stars Cake", "Rose Bouquet Madeira Cake") is food: a food word after the match keeps it.
+NON_FOOD = re.compile(r"\b(?:candles?|sparklers?|cake toppers?|balloons?|napkins?|paper plates?|bin bags?|kitchen rolls?|toilet rolls?|batter(?:y|ies)|"
+                      r"light bulbs?|firelighters|charcoal briquettes|lumpwood charcoal|gift cards?|carrier bags?|bags? for life|"
+                      r"(?:cupcake|muffin|cake|baking) cases|filter papers|piping bags?|cake boards?|cocktail sticks|cling film|baking parchment|"
+                      r"foil trays?|kitchen foil|tin foil|freezer bags?|food bags?|dog toys?|dog treats?|dog chews?|cat treats?|pet treats?|for dogs|for cats)\b"
+                      r"|\b(?:roses?|lil(?:y|ies)|tulips?|chrysanthemums?|carnations?|flowers?|alstroemeria|stems)\b.*\bbouquet\b|\bbouquet\b.*\b(?:roses?|lil(?:y|ies)|tulips?|flowers?|stems)\b"
+                      r"|^tesco \w+ bouquet$", re.I)
+FOOD_AFTER = re.compile(r"\b(?:cakes?|crackers|kebabs?|biscuits?|cupcakes?)\b", re.I)
+
+
+def not_food(name: str) -> bool:
+    m = NON_FOOD.search(name)
+    return bool(m) and not FOOD_AFTER.search(name, m.end())
+
+
+NOT_FOOD_IDS = {"marks-and-spencer": re.compile(r"^flp")}  # M&S "flowers with a treat" gifts
 SHOPS = {
     "sainsburys": {"name": "Sainsbury's", "pageBase": "https://www.sainsburys.co.uk/groceries/product/", "photoBase": "https://assets.sainsburys-groceries.co.uk/gol/",
                    "photo": re.compile(r"/gol/(\d+)/")},
@@ -52,6 +78,27 @@ SHOPS = {
     "lidl": {"name": "Lidl", "pageBase": "https://www.lidl.co.uk/p/", "pages": True, "photoBase": "https://imgproxy-retcat.assets.schwarz/",
              "photoTemplate": "https://imgproxy-retcat.assets.schwarz/{photo}",
              "photo": re.compile(r"^https://imgproxy-retcat\.assets\.schwarz/([A-Za-z0-9_\-./:=]{10,400})$")},
+    # Tesco's image server refuses this environment (403) but serves browsers: its pictures are loaded from Tesco, never stored.
+    "tesco": {"name": "Tesco", "pageBase": "https://www.tesco.com/groceries/en-GB/products/", "photoBase": "https://digitalcontent.api.tesco.com/v2/media/",
+              "photoTemplate": "https://digitalcontent.api.tesco.com/v2/media/{photo}.jpeg?h=225&w=225",
+              "photo": re.compile(r"^https://digitalcontent\.api\.tesco\.com/v2/media/(ghs/[0-9a-f-]{36}/[0-9a-f-]{36}(?:_\d+)?)\.jpeg")},
+    # Waitrose, Morrisons and M&S: the crawl kept no page addresses (they carry a name slug), so the app opens the shop's own search for the name.
+    "waitrose": {"name": "Waitrose", "pageBase": "https://www.waitrose.com/ecom/shop/search?searchTerm=", "pageSearch": True,
+                 "photoBase": "https://ecom-su-static-prod.wtrecom.com/images/products/",
+                 "photoTemplate": "https://ecom-su-static-prod.wtrecom.com/images/products/11/LN_{photo}_BP_11.jpg",
+                 "photo": re.compile(r"^https://ecom-su-static-prod\.wtrecom\.com/images/products/\d+/LN_(\d{6})_BP_\d+\.jpg$")},
+    "morrisons": {"name": "Morrisons", "pageBase": "https://groceries.morrisons.com/search?entry=", "pageSearch": True,
+                  "photoBase": "https://groceries.morrisons.com/images-v3/",
+                  "photoTemplate": "https://groceries.morrisons.com/images-v3/{photo}/300x300.jpg",
+                  "photo": re.compile(r"^https://groceries\.morrisons\.com/images-v3/([0-9a-f-]{36}/[0-9a-f-]{36})/300x300\.jpg$")},
+    # Iceland's page opens from /p/x/<id>.html (its site ignores the slug): written as each product's page path.
+    "iceland": {"name": "Iceland", "pageBase": "https://www.iceland.co.uk/p/x/", "pagePath": "{id}.html", "photoBase": "https://assets.iceland.co.uk/i/",
+                "photoTemplate": "https://assets.iceland.co.uk/i/{photo}?w=400&h=400",
+                "photo": re.compile(r"^https://assets\.iceland\.co\.uk/i/(iceland/[A-Za-z0-9_\-.%]{3,220})$")},
+    "marks-and-spencer": {"name": "M&S", "pageBase": "https://www.marksandspencer.com/search?searchTerm=", "pageSearch": True,
+                          "photoBase": "https://assets.digitalcontent.marksandspencer.app/image/upload/",
+                          "photoTemplate": "https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/{photo}",
+                          "photo": re.compile(r"^https://assets\.digitalcontent\.marksandspencer\.app/image/upload/w_400,q_auto,f_jpg/([A-Za-z0-9_]{6,80})$")},
 }
 NAMES = {k: v["name"] for k, v in SHOPS.items()}
 PAGE_BASE = {k: v["pageBase"] for k, v in SHOPS.items()}
@@ -74,7 +121,13 @@ def category_for(shop: str, paths: list[str]) -> str | None:
     if shop == "lidl":
         food = next((p for p in paths if p.split(" / ")[0].strip() == "Food & Drink" and " / " in p), None)
         return food.split(" / ")[1].strip() if food else None
-    top = paths[0].split(" > ")[0].strip()
+    if shop in ("waitrose", "morrisons"):
+        top = paths[0].split("/")[0].strip()
+        aisles = WAITROSE_AISLES if shop == "waitrose" else MORRISONS_AISLES
+        return aisles.get(top) or top.replace("_", " ").replace("-", " ").capitalize()
+    top = re.sub(r"\s*\(.*$", "", paths[0].split(" > ")[0]).strip()  # "Food & drink gifts (all)" -> "Food & drink gifts"
+    if shop == "tesco":
+        return TESCO_AISLES.get(top) or top.replace("-", " ").capitalize()
     return top if top and top != "?" else "Other"
 
 
@@ -198,6 +251,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             scheme = (r.get("member_scheme") or "").strip()
             if member is not None and (member >= price or not scheme):
                 member = None  # a card price counts only when it is lower and named
+            if not_food(name) or (shop in NOT_FOOD_IDS and NOT_FOOD_IDS[shop].search(pid)):
+                continue  # groceries only
             cat = category_for(shop, (r.get("category_path") or "").split(" | "))
             if cat is None:
                 continue
@@ -216,6 +271,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
                    n[0] if n else None]
             if pid in pages:
                 row.append(pages[pid])
+            elif SHOPS[shop].get("pagePath"):
+                row.append(SHOPS[shop]["pagePath"].format(id=pid))
             products.append(row)
     days.discard("")
     cfg = SHOPS[shop]
