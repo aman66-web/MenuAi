@@ -1,0 +1,115 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+the-belly-buster,The Belly Buster,Breakfast,,1839,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu; not on the Scottish menu
+big-breakfast,Big Breakfast,Breakfast,,1481,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu; not on the Scottish menu
+full-english-breakfast,Full English Breakfast,Breakfast,,945,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu; not on the Scottish menu
+small-breakfast,Small Breakfast,Breakfast,,744,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu; not on the Scottish menu
+stacked-pancakes-with-nutella,Stacked Pancakes (with Nutella),Breakfast,,543,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+heinz-baked-beanz-on-toast,Heinz Baked Beanz on Toast,Breakfast,,617,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+creamy-porridge,Creamy Porridge,Breakfast,,330,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+toasted-fruit-teacake,Toasted Fruit Teacake,Breakfast,,383,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+fried-eggs-on-toast,Fried Eggs on Toast,Breakfast,,679,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+poached-eggs-on-toast,Poached Eggs on Toast,Breakfast,,508,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+scrambled-eggs-on-toast,Scrambled Eggs on Toast,Breakfast,,613,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+white-or-brown-toast-with-butter-or-vegan-spread,White or Brown Toast (with butter or vegan spread),Breakfast extras,,190,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+strawberry-jam-add,Strawberry Jam (add),Breakfast extras,,111,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+marmalade-add,Marmalade (add),Breakfast extras,,113,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+honey-add,Honey (add),Breakfast extras,,86,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+nutella-add,Nutella (add),Breakfast extras,,78,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+smashed-avocado-add-to-eggs-on-toast,Smashed Avocado (add to eggs on toast),Breakfast extras,,167,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+cheesy-slice-add-to-a-breakfast-roll,Cheesy Slice (add to a breakfast roll),Breakfast extras,,43,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+bacon-breakfast-roll,Bacon Breakfast Roll,Breakfast rolls & wraps,,444,,,,,,,,,,,,,,,contains_pork,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+sausage-breakfast-roll,Sausage Breakfast Roll,Breakfast rolls & wraps,,568,,,,,,,,,,,,,,,contains_pork,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+veggie-sausage-breakfast-roll,Veggie Sausage Breakfast Roll,Breakfast rolls & wraps,,474,,,,,,,,,,,,,,,vegetarian,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+fried-eggs-breakfast-roll,Fried Eggs Breakfast Roll,Breakfast rolls & wraps,,582,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+bacon-build-your-own-breakfast,Bacon (build your own breakfast),Build your own breakfast (per item),,53,,,,,,,,,,,,,,,contains_pork,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+sausage-build-your-own-breakfast,Sausage (build your own breakfast),Build your own breakfast (per item),,141,,,,,,,,,,,,,,,contains_pork,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+veggie-sausage-build-your-own-breakfast,Veggie Sausage (build your own breakfast),Build your own breakfast (per item),,98,,,,,,,,,,,,,,,vegetarian,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+fried-egg-build-your-own-breakfast,Fried Egg (build your own breakfast),Build your own breakfast (per item),,148,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+poached-egg-build-your-own-breakfast,Poached Egg (build your own breakfast),Build your own breakfast (per item),,63,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu; not on the Scottish menu
+scrambled-egg-build-your-own-breakfast,Scrambled Egg (build your own breakfast),Build your own breakfast (per item),,115,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+black-pudding-build-your-own-breakfast,Black Pudding (build your own breakfast),Build your own breakfast (per item),,113,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+smashed-avocado-build-your-own-breakfast,Smashed Avocado (build your own breakfast),Build your own breakfast (per item),,167,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+dr-sch-r-gluten-free-roll-build-your-own-breakfast,Dr Schär Gluten Free Roll (build your own breakfast),Build your own breakfast (per item),,141,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+heinz-baked-beanz-build-your-own-breakfast,Heinz Baked Beanz (build your own breakfast),Build your own breakfast (per item),,78,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+hash-brown-build-your-own-breakfast,Hash Brown (build your own breakfast),Build your own breakfast (per item),,134,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu; not on the Scottish menu
+sliced-mushrooms-build-your-own-breakfast,Sliced Mushrooms (build your own breakfast),Build your own breakfast (per item),,7,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+chopped-tomatoes-build-your-own-breakfast,Chopped Tomatoes (build your own breakfast),Build your own breakfast (per item),,17,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+fried-bread-build-your-own-breakfast,Fried Bread (build your own breakfast),Build your own breakfast (per item),,221,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+white-brown-toast-build-your-own-breakfast,White/Brown Toast (build your own breakfast),Build your own breakfast (per item),,190,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+white-brown-bread-build-your-own-breakfast,White/Brown Bread (build your own breakfast),Build your own breakfast (per item),,190,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+classic-hand-battered-fish-chips-and-mushy-peas,"Classic Hand Battered Fish, Chips & Mushy Peas",Mains,,908,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+small-hand-battered-fish-chips-and-mushy-peas,"Small Hand Battered Fish, Chips & Mushy Peas",Mains,,505,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu; not on the Scottish menu
+wholetail-whitby-scampi-chips-and-mushy-peas,"Wholetail Whitby Scampi, Chips & Mushy Peas",Mains,,633,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+fish-butty,Fish Butty,Mains,,900,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+sausage-egg-chips-and-beans,"Sausage, Egg, Chips & Beans",Mains,,960,,,,,,,,,,,,,,,contains_pork,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+sausage-egg-chips-and-beans-vegetarian-option,"Sausage, Egg, Chips & Beans (vegetarian option)",Mains,,791,,,,,,,,,,,,,,,vegetarian,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+bangers-mash-garden-peas-and-gravy,"Bangers, Mash, Garden Peas & Gravy",Mains,,803,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+bangers-mash-garden-peas-and-gravy-vegetarian-option,"Bangers, Mash, Garden Peas & Gravy (vegetarian option)",Mains,,675,,,,,,,,,,,,,,,vegetarian,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+ham-egg-and-chips,"Ham, Egg & Chips",Mains,,702,,,,,,,,,,,,,,,contains_pork,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+lasagne-garlic-bread-and-side-salad,"Lasagne, Garlic Bread & Side Salad",Mains,,775,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+goodfellas-mac-and-cheese-garlic-bread-and-side-salad,"Goodfella's Mac & Cheese, Garlic Bread & Side Salad",Mains,,862,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+chicken-tikka-masala-rice-and-naan-bread,"Chicken Tikka Masala, Rice & Naan Bread",Mains,,772,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+katsu-chicken-curry-and-rice,Katsu Chicken Curry & Rice,Mains,,604,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+british-beef-steak-pie-mash-garden-peas-and-gravy,"British Beef Steak Pie, Mash, Garden Peas & Gravy",Mains,,951,,,,,,,,,,,,,,,contains_beef,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+liver-and-onions-with-mash-and-gravy,Liver & Onions with Mash & Gravy,Mains,,521,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+minced-beef-stew-with-mash-and-gravy,Minced Beef Stew with Mash & Gravy,Mains,,538,,,,,,,,,,,,,,,contains_beef,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+cheese-and-onion-quiche-chips-and-beans,"Cheese & Onion Quiche, Chips & Beans",Mains,,841,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+cheese-and-onion-quiche-salad-and-coleslaw,"Cheese & Onion Quiche, Salad & Coleslaw",Mains,,803,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+loaded-baked-potato-with-butter-or-vegan-spread-and-side-salad-before-toppings,"Loaded Baked Potato (with butter or vegan spread and side salad, before toppings)",Mains,,276,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+heinz-baked-beanz-baked-potato-topping,Heinz Baked Beanz (baked potato topping),Mains,,78,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+tuna-mayo-baked-potato-topping,Tuna Mayo (baked potato topping),Mains,,324,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+grated-cheddar-cheese-baked-potato-topping,Grated Cheddar Cheese (baked potato topping),Mains,,259,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+veggie-chilli-baked-potato-topping,Veggie Chilli (baked potato topping),Mains,,98,,,,,,,,,,,,,,,vegetarian,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+coleslaw-baked-potato-topping,Coleslaw (baked potato topping),Mains,,257,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+boneless-crispy-chicken-bites-wrap-and-chips,Boneless Crispy Chicken Bites Wrap & Chips,Chicken,,994,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+boneless-crispy-chicken-bites-and-rice,Boneless Crispy Chicken Bites & Rice,Chicken,,611,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+boneless-crispy-chicken-bites-and-chips,Boneless Crispy Chicken Bites & Chips,Chicken,,642,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+chicken-breast-skewer-and-chips,Chicken Breast Skewer & Chips,Chicken,,588,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+chicken-breast-skewer-wrap-and-chips,Chicken Breast Skewer Wrap & Chips,Chicken,,857,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+chicken-breast-skewer-and-rice,Chicken Breast Skewer & Rice,Chicken,,556,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+quarter-pounder-cheese-burger,Quarter Pounder Cheese Burger,Burgers,,1214,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+birds-eye-chicken-shop-burger,Birds Eye Chicken Shop Burger,Burgers,,1228,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+vegan-burger,Vegan Burger,Burgers,,1152,,,,,,,,,,,,,,,vegetarian,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+bacon-add-to-a-burger,Bacon (add to a burger),Burgers,,53,,,,,,,,,,,,,,,contains_pork,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+extra-burger-add,Extra Burger (add),Burgers,,321,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+extra-chicken-burger-add,Extra Chicken Burger (add),Burgers,,335,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+extra-vegan-burger-add,Extra Vegan Burger (add),Burgers,,302,,,,,,,,,,,,,,,vegetarian,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+heinz-tomato-soup-with-a-bread-roll-and-butter,Heinz Tomato Soup (with a bread roll and butter),Soup & salads,,381,,,,,,,,,,,,,,,,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+ham-and-egg-salad,Ham & Egg Salad,Soup & salads,,278,,,,,,,,,,,,,,,contains_pork,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+vegan-strip-salad,Vegan Strip Salad,Soup & salads,,557,,,,,,,,,,,,,,,vegetarian,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+chicken-and-bacon-salad,Chicken & Bacon Salad,Soup & salads,,335,,,,,,,,,,,,,,,contains_pork,false,true,,,On the England & Wales menu and the Scottish menu with the same calories
+chips-add,Chips (add),Sides & sauces,,388,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+side-salad,Side Salad,Sides & sauces,,61,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+mozzarella-sticks,Mozzarella Sticks,Sides & sauces,,503,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+beer-battered-onion-rings,Beer Battered Onion Rings,Sides & sauces,,326,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+mini-cheesy-hash-brown-bites,Mini Cheesy Hash Brown Bites,Sides & sauces,,285,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+chips,Chips,Sides & sauces,,388,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+white-or-brown-slice-of-bread-and-butter,White or Brown Slice of Bread & Butter,Sides & sauces,,190,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+bread-roll-with-butter-or-vegan-spread,Bread Roll (with butter or vegan spread),Sides & sauces,,229,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+two-garlic-bread-slices,Two Garlic Bread Slices,Sides & sauces,,233,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+curry-sauce,Curry Sauce,Sides & sauces,,36,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+gravy,Gravy,Sides & sauces,,35,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+coleslaw,Coleslaw,Sides & sauces,,257,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+bbq-sauce,BBQ Sauce,Sides & sauces,,101,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+sweet-chilli-sauce,Sweet Chilli Sauce,Sides & sauces,,123,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+garlic-and-herb-sauce,Garlic & Herb Sauce,Sides & sauces,,288,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+kids-breakfast-on-waffles-before-toppings,Kids' Breakfast on Waffles (before toppings),Kids: breakfast (per item),,235,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+heinz-baked-beanz-kids-breakfast-topping,Heinz Baked Beanz (kids' breakfast topping),Kids: breakfast (per item),,78,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+veggie-sausage-kids-breakfast-topping,Veggie Sausage (kids' breakfast topping),Kids: breakfast (per item),,98,,,,,,,,,,,,,,,vegetarian,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+scrambled-egg-kids-breakfast-topping,Scrambled Egg (kids' breakfast topping),Kids: breakfast (per item),,115,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+fried-egg-kids-breakfast-topping,Fried Egg (kids' breakfast topping),Kids: breakfast (per item),,148,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+sausage-kids-breakfast-topping,Sausage (kids' breakfast topping),Kids: breakfast (per item),,141,,,,,,,,,,,,,,,contains_pork,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+bacon-kids-breakfast-topping,Bacon (kids' breakfast topping),Kids: breakfast (per item),,53,,,,,,,,,,,,,,,contains_pork,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+four-birds-eye-chicken-dippers-kids,Four Birds Eye Chicken Dippers (kids),Kids: mix & match (per item),,265,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+three-birds-eye-fish-fingers-kids,Three Birds Eye Fish Fingers (kids),Kids: mix & match (per item),,257,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+goodfellas-mini-margherita-pizza-kids,Goodfella's Mini Margherita Pizza (kids),Kids: mix & match (per item),,228,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+two-sausages-kids,Two Sausages (kids),Kids: mix & match (per item),,282,,,,,,,,,,,,,,,contains_pork,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+two-veggie-sausages-kids,Two Veggie Sausages (kids),Kids: mix & match (per item),,196,,,,,,,,,,,,,,,vegetarian,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+birds-eye-mini-potato-waffles-kids,Birds Eye Mini Potato Waffles (kids),Kids: mix & match (per item),,235,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+birds-eye-crispy-chips-kids,Birds Eye Crispy Chips (kids),Kids: mix & match (per item),,159,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+aunt-bessies-mash-potato-kids,Aunt Bessie's Mash Potato (kids),Kids: mix & match (per item),,153,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+aunt-bessies-yorkshire-pudding-kids,Aunt Bessie's Yorkshire Pudding (kids),Kids: mix & match (per item),,46,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+birds-eye-garden-peas-kids,Birds Eye Garden Peas (kids),Kids: mix & match (per item),,41,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+birds-eye-steamfresh-veg-kids,Birds Eye Steamfresh Veg (kids),Kids: mix & match (per item),,63,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+heinz-baked-beanz-kids,Heinz Baked Beanz (kids),Kids: mix & match (per item),,78,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories
+goodfellas-mac-and-cheese-and-garlic-bread-kids,Goodfella's Mac & Cheese & Garlic Bread (kids),Kids: mix & match (per item),,685,,,,,,,,,,,,,,,,false,false,,,On the England & Wales menu and the Scottish menu with the same calories

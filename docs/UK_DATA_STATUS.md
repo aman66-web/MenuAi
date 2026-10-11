@@ -339,6 +339,33 @@ display:none), Coffee Republic (bot challenge), Robinsons (403 again; one pub me
 TeamSport (PDF disallowed). New discovery (`data/candidates/triage4/`): travel 47 checked (0 usable), leisure 35, restaurants long tail 49, pubs 46,
 menu platforms 23, re-test of 75 blocked chains (20 reachable now).
 
+## Added 11 October (afternoon)
+
+Founder: "get another agent to also add more restaurants as well" and "You don't need to add alcohol drinks ... like whisky etc. Just no point".
+From today **no alcoholic drink is added for any chain**: the three scripts below skip beer, cider, wine, spirits, cocktails and shots by section
+(alcohol-free 0% drinks stay). Every number copied by script from the chain's own source; each passed `check_chain.py` with 0 errors, 0 warnings
+and 0 high audit flags, and had an independent re-read (`data/audit/verified/<chain>.json`).
+
+| Chain | Items | Level | Sites | Source and rule |
+|---|---|---|---|---|
+| The Chapter Collection | 163 (9 held back) | full + allergens | 6 London pubs (Stonegate's premium pubs, listed on its own sites page) | Stonegate's Ten Kites data for the brand (tkmenus.com/thechaptercollection, linked from the chain's menus page): main, bar snacks, steak, lunch, Sunday, brunch, dessert, no-gluten, kids and kids' Sunday menus, all September 2026. Held back: 4 dishes whose kcal disagrees with both their own kJ and macros (Chicken Wings, N'duja & Pork Sausage Roll, Ultimate Cheese Toastie, Spicy Coated Chicken Burger), 2 drinks whose kJ is ten times their kcal, 3 allergen rows that contradict the dish (kids' Mini Fish & Chips and Chocolate Brownie with no gluten, Chickpea Hummus with no sesame). Left out: 124 alcoholic drinks, 182 hot-drink rows (printed without their milk), sharing platters (Bites & Buns), festive, set and meeting menus. Skipped on 9 October as "6 pubs" under the then 10-site bar; full-nutrition chains need 3+ sites now. |
+| Chef & Brewer | 204 | calories (allergens link-only) | 138 pubs read (139 menu pages in the chain's sitemap; one answers 404, no online menu) | Each pub's own online menu, the getmenus feed of Greene King's pub platform (same as Hungry Horse); every product, by the feed's own product id, prints the same calories at all 138 pubs (0 differ, 0 at one pub only). Left out: 41 alcoholic drinks (5,494 rows), "... of the Day" dishes, rows with no calories. Allergens: Smart Chef (robots.txt Disallow: /), so the chain's allergens page is the link. Triaged NO-DATA in round 1 (only the Smart Chef allergen view was found); the calories are in the pub pages' own feed. |
+| Morrisons Café | 114 | calories (allergens link-only) | Morrisons' in-store cafés ("all of our Cafés"; several hundred stores) | The café page's "View Menu" poster (England & Wales, file dated 5-5-26, PDF created 17 April 2026) on Morrisons' own Contentful host, read by word position with every kcal word claimed once; compared with the Scottish poster: 8 breakfast dishes printed under the same name with different calories (the Scottish recipes add tattie scones and lorne sausage) are left out, never chosen between; Scotland-only dishes are not published. Allergen guide (TS01K, V49, 28/09/2026) uses different dish names, so link only. Triaged NO-DATA earlier (old pages retired); the menu now sits at morrisons.com/terms/cafe-menu. Build-your-own breakfast items and toppings are per item. |
+
+Logos: all three from the chains' own sites (Chef & Brewer's file is the white wordmark, on the dark tile; Morrisons Café uses the Morrisons header
+logo, the same file as the supermarket logo); square icons for Chef & Brewer (C&B Collection) and Morrisons Café (wheat mark).
+
+**Checked and not added this afternoon:**
+- **Fazenda / Fogo de Chão UK** (6 restaurants): the only reachable source is one restaurant's Ten Kites page (Bishopsgate, PDF name dated 6 November 2024); the chain renamed itself Fogo de Chão and its own sites can't be reached from here (fazenda.co.uk: proxy 502; fogodechao.co.uk: TLS name error), so neither the site count nor that the menu is current can be confirmed.
+- **Roti UK** (3 sites, all in London industrial estates, i.e. delivery kitchens): its menu page prints full macros but several figures cannot belong to the dishes named (Citrus Grilled Prawn Pita 44 kcal and 2 g protein; Harvest Bowl with chicken and saffron rice 178 kcal; Citrus Grilled Prawn Salad 220 kcal), so the page is not reliable enough to copy.
+- **Carl's Jr UK**: still 2 sites (Cardiff, Swansea delivery) on its own locations page; full nutrition needs 3+.
+- **Imperial Hotels** (7 Bloomsbury hotels): each hotel has its own restaurants and menus (Poppadom Indian Kitchen and Woolf & Whistle at the Tavistock, Arcus at The Imperial...), so no shared menu that 2+ sites print.
+- **Marston's** and **Metropolitan Pub Company**: every pub has its own website and menu; no brand-wide menu feed found within the time available.
+- **Pesto** (M&B): no guide at allergens.mbplc.io/AllergenGuidePestoEstate.html (404); its allergen app's script still answers 403.
+- **Old English Inns** (Greene King): the site can't be reached from here (proxy 502).
+- **Coffee Republic**: its site's TLS certificate has expired, so robots.txt can't be read with verification on (never turned off).
+- **Bannatyne** (about 45 health clubs, calories only on some club menu flyers, ~15 dishes each, figures differing between versions): not started; low value.
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

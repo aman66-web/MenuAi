@@ -1,0 +1,11 @@
+status: installed
+file: the-chapter-collection.svg
+kind: header
+tile: light
+source_url: https://24-social.com/stonegate/1788529387-chapter-collection
+page_url: https://www.thechaptercollection.co.uk/
+terms_url: https://www.thechaptercollection.co.uk/terms-and-conditions
+terms_summary: The Chapter Collection is a Stonegate brand; Stonegate's terms say "Stonegate Pubs and its brands and its and their respective logos are trade marks of Stonegate Pubs Company Limited" and forbid commercial use of website content without a licence (same terms as Pubsmiths and Great Local Pubs).
+why: Own website header logo image (img alt "The Chapter Collection", the dark version; a white version is used on dark backgrounds), hosted on 24-social.com, Stonegate's image host, saved byte for byte; gold door-knocker mark with THE CHAPTER COLLECTION wordmark, 37 KB SVG with no script or external references. robots.txt: thechaptercollection.co.uk allows the page; 24-social.com has only content-signal comments, no rules.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-11
