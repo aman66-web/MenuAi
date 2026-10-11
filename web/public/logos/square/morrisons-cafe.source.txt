@@ -1,0 +1,9 @@
+status: installed
+file: morrisons-cafe.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.morrisons.com/_next/static/media/apple-touch-icon.0-dlucwqcd-nz.png
+page_url: https://www.morrisons.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.morrisons.com/; saved unchanged
+sha256: 23c5a9a9bf03a85ccec13f82b74182ea69349df1f7c29e2c4ae2c13c5d4275df
+retrieved: 2026-10-11

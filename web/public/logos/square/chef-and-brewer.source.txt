@@ -1,0 +1,10 @@
+status: installed
+file: chef-and-brewer.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/affbaaac179f4de6acefd39b92284196?v=8a55bff4
+page_url: https://www.chefandbrewer.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.chefandbrewer.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: b98527fd4949a9b1656d7e01271d1ef5f04b728a5fe606e66a2ab84f5e6c3bc7
+retrieved: 2026-10-11
+tile: light

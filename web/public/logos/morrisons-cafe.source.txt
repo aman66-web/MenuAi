@@ -1,0 +1,11 @@
+status: installed
+file: morrisons-cafe.svg
+kind: header
+tile: light
+source_url: https://www.morrisons.com/_next/static/media/morrisons-logo.0ij88frbd63gw.svg
+page_url: https://www.morrisons.com/inspiration/shopping-at-morrisons/cafe
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decisions to use the chains' and supermarkets' own logos whatever their site terms say
+why: The header logo of Morrisons' own café page (the café is Morrisons' own and carries its name; no separate Morrisons Café logo file was found), saved byte for byte; it is the same file as the Morrisons supermarket logo already installed (web/public/logos/shops/morrisons.svg, sha256 9a3f4d8645dc74c9b8e78b2064091d5cf1cafa1cd7a0a45aa2ec0b954f0eee32). robots.txt of www.morrisons.com allows it.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-11 ("Add all logos for grocery stores too"); same precedent as Sainsbury's Café
+retrieved: 2026-10-11

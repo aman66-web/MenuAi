@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011053210,
- "generatedAt": "2026-10-11T05:32:10Z",
+ "dataVersion": 20261011114633,
+ "generatedAt": "2026-10-11T11:46:33Z",
  "chains": [
   {
    "id": "abokado",
@@ -556,6 +556,18 @@
    "sample": false,
    "itemCount": 131,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "chef-and-brewer",
+   "name": "Chef & Brewer",
+   "cuisine": "Pub",
+   "file": "chain-chef-and-brewer.json",
+   "sha256": "9a97de9806f317781001ff8a622828c0643322cc2b86c63cf3cb3ae864695b90",
+   "contentHash": "064776c22ec985e8b31a66efc4a748cadd8bceb0c83eac83067ca309d7edd50c",
+   "sample": false,
+   "itemCount": 204,
+   "checkedOn": "2026-10-11",
    "nutritionLevel": "calories"
   },
   {
@@ -1539,6 +1551,18 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "morrisons-cafe",
+   "name": "Morrisons Café",
+   "cuisine": "Cafe",
+   "file": "chain-morrisons-cafe.json",
+   "sha256": "df6f23adcbb566f353a5d2d7569e39ab4e28f9edf03f164f3da26aa5b690b006",
+   "contentHash": "0a22661e01b023cdc47afea05595ed51bfc83e2a11e81e27c690d1efd071b47f",
+   "sample": false,
+   "itemCount": 114,
+   "checkedOn": "2026-10-11",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "mowgli",
    "name": "Mowgli Street Food",
    "cuisine": "Indian",
@@ -2234,6 +2258,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "the-chapter-collection",
+   "name": "The Chapter Collection",
+   "cuisine": "Pub",
+   "file": "chain-the-chapter-collection.json",
+   "sha256": "a70bbb68a4b1dcdda3d9e5aca0dbcba2e8f7340b600d146012270a93527e4f49",
+   "contentHash": "f51e50c844c509e66871cbfcae669cd3c4870af43260f33ddb872a8cbf1dead4",
+   "sample": false,
+   "itemCount": 163,
+   "checkedOn": "2026-10-11"
+  },
+  {
    "id": "the-light-cinemas",
    "name": "The Light Cinemas",
    "cuisine": "Cinema",
@@ -2544,6 +2579,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "9db375506cd1a5f9ba41600195797ba52317f4605d41bd98b0dd4f9372c100fa"
+  "sha256": "a3300bc046fe3f50933bf74129077d15ac6db032b29733a360ee3931b328cd07"
  }
 }
