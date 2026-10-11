@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261010233359,
- "generatedAt": "2026-10-10T23:33:59Z",
+ "dataVersion": 20261011003828,
+ "generatedAt": "2026-10-11T00:38:28Z",
  "chains": [
   {
    "id": "abokado",
@@ -59,6 +59,18 @@
    "sample": false,
    "itemCount": 33,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "ask-italian",
+   "name": "ASK Italian",
+   "cuisine": "Italian",
+   "file": "chain-ask-italian.json",
+   "sha256": "0d164a1be1a15f15c1795f651e560600e78a981706a3df0b1fb8c7531d8e809f",
+   "contentHash": "17a2618c1f67a5dd7e0f42ea78c103b80ac9fb218660d7b4c9631054093e3198",
+   "sample": false,
+   "itemCount": 178,
+   "checkedOn": "2026-10-10",
    "nutritionLevel": "calories"
   },
   {
@@ -580,6 +592,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "coco-di-mama",
+   "name": "Coco di Mama",
+   "cuisine": "Italian",
+   "file": "chain-coco-di-mama.json",
+   "sha256": "3d833b8bb480b615fd42807be1e5c8d689b81c28f7e114eb0adf2c71a8bda315",
+   "contentHash": "d65100f52ed944cf10bec7ef4e4727c45ce1131cf3b72e2590a5489dce66234b",
+   "sample": false,
+   "itemCount": 185,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "coffee-1",
    "name": "Coffee #1",
    "cuisine": "Coffee",
@@ -720,6 +744,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "dishoom",
+   "name": "Dishoom",
+   "cuisine": "Indian",
+   "file": "chain-dishoom.json",
+   "sha256": "12e42d36df95f394677c01559245e1f0c30f575dc63efd01f8ad50c3a8c005a0",
+   "contentHash": "c5f3e6cc8c1a83cc5e0c55da728b7a96d5c9b91c8ce4f20c6fc7cc9aee324a0f",
+   "sample": false,
+   "itemCount": 201,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "dominos",
    "name": "Domino's",
    "cuisine": "Pizza",
@@ -835,6 +871,18 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "fireaway",
+   "name": "Fireaway",
+   "cuisine": "Pizza",
+   "file": "chain-fireaway.json",
+   "sha256": "48d379553cc52198579377d95c77165a0b327fc65467e59d495df515dd314d31",
+   "contentHash": "c373edeb19469a27de2c1ec67c16450092e15541ee80075ee5dc05014154cdbc",
+   "sample": false,
+   "itemCount": 62,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "fishworks",
    "name": "Fishworks",
    "cuisine": "Seafood",
@@ -914,6 +962,17 @@
    "sample": false,
    "itemCount": 250,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "fullers",
+   "name": "Fuller's",
+   "cuisine": "Pub",
+   "file": "chain-fullers.json",
+   "sha256": "dd35bb5fde4b3cd2e25daf0fb749cd82849b88253fb8d9fa25fe7c6a2e626a1b",
+   "contentHash": "05897bf6a5c17ba9a2e498f756b9cc31953f882edcaa32c78987edc34bef087c",
+   "sample": false,
+   "itemCount": 155,
+   "checkedOn": "2026-10-10"
   },
   {
    "id": "gails",
@@ -1594,6 +1653,18 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "pizza-express",
+   "name": "PizzaExpress",
+   "cuisine": "Pizza",
+   "file": "chain-pizza-express.json",
+   "sha256": "71f386bd061b3c37a07406c5a2231862efba1d765edc35a4c1a2e4bed259ab9d",
+   "contentHash": "60e0f36705fdcdee822113b2c6410af9b0d542ceca8aae015525fd7a7b1f06f9",
+   "sample": false,
+   "itemCount": 176,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "pizza-hut",
    "name": "Pizza Hut",
    "cuisine": "Pizza",
@@ -1637,6 +1708,18 @@
    "sample": false,
    "itemCount": 187,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "powerleague",
+   "name": "Powerleague",
+   "cuisine": "Bar & Kitchen",
+   "file": "chain-powerleague.json",
+   "sha256": "c69e224cdd1fd5fb45e7d8f31a27ce783d98e70a9e795c4edfeace6cf9eabeeb",
+   "contentHash": "f123e092f2fb0931d80deacb8b6af2c8dc13482522c65424cfda29ec7ed63441",
+   "sample": false,
+   "itemCount": 18,
+   "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
   },
   {
    "id": "premier-inn",
@@ -1852,6 +1935,17 @@
    "sample": false,
    "itemCount": 10,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "shepherd-neame",
+   "name": "Shepherd Neame",
+   "cuisine": "Pub",
+   "file": "chain-shepherd-neame.json",
+   "sha256": "b216a5dd16b5930066ff6b7f8d77fa7213d9a5077f9662aef34bac90e54f6747",
+   "contentHash": "023d49361a6f0423d38a59be502fed79d58a7174e2afb15be15d6602d26ca6d3",
+   "sample": false,
+   "itemCount": 297,
+   "checkedOn": "2026-10-11"
   },
   {
    "id": "showcase-cinemas",
@@ -2093,6 +2187,17 @@
    "sample": false,
    "itemCount": 214,
    "checkedOn": "2026-10-09"
+  },
+  {
+   "id": "the-salad-project",
+   "name": "The Salad Project",
+   "cuisine": "Bowls",
+   "file": "chain-the-salad-project.json",
+   "sha256": "c39e4e56c357d5064ad89a594f405de2936c72e185a4c8c58d9c1cdd1178d5b9",
+   "contentHash": "4881d9f8acaccfc7d3e36e945734b34e17e14fa93fd599332524ac4e385b1212",
+   "sample": false,
+   "itemCount": 15,
+   "checkedOn": "2026-10-10"
   },
   {
    "id": "third-space",
@@ -2355,10 +2460,22 @@
    "itemCount": 65,
    "checkedOn": "2026-10-09",
    "nutritionLevel": "calories"
+  },
+  {
+   "id": "zizzi",
+   "name": "Zizzi",
+   "cuisine": "Italian",
+   "file": "chain-zizzi.json",
+   "sha256": "4a3fdd0b78b866cf26678261934c352d26fc2aab3ae713a93045f7c51168592f",
+   "contentHash": "09700409b5260d1ed4e5b3912d45e7a8585f6e43294d6ff7a46df3d191f4f81a",
+   "sample": false,
+   "itemCount": 237,
+   "checkedOn": "2026-10-11",
+   "nutritionLevel": "calories"
   }
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "a3795432cb68ecb9055313e7eb393d3346c549b74e8d424a3b88c26b25baa7af"
+  "sha256": "ba449143ab0d923606aea2441fe91df91e3fa70f07504b43d03be8cedcfb2391"
  }
 }

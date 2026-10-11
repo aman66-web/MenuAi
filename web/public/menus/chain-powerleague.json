@@ -1,0 +1,298 @@
+{
+ "schemaVersion": 1,
+ "id": "powerleague",
+ "name": "Powerleague",
+ "cuisine": "Bar & Kitchen",
+ "builderType": "standard",
+ "aliases": [
+  "powerleague",
+  "power league",
+  "powerleague football",
+  "powerleague soccer centre"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Powerleague Food and Drink Menu, Q2 May 2026 (calories per dish; same figures in the Tier 3, Tier 4 and Scotland files)",
+  "url": "https://www.powerleague.com/wp-content/uploads/2026/05/469U-PL-Q2-MAY_DIGITAL-MENU_A4_TIER-3_SINGLE-PAGES_FINAL-compressed.pdf",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed on Powerleague's May 2026 food and drink menu; the same figures are in every price tier. Not every club has a bar or stocks every item. Two hot dogs sold at selected locations only are not listed.",
+ "categories": [
+  "Breakfast rolls",
+  "Chicago Town pizzas",
+  "Hot food",
+  "Kids' food"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "sausage-roll",
+   "name": "Sausage Roll",
+   "category": "Breakfast rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 519
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-roll",
+   "name": "Bacon Roll",
+   "category": "Breakfast rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 559
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-bacon-roll",
+   "name": "Sausage & Bacon Roll",
+   "category": "Breakfast rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 588
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-sausage-roll",
+   "name": "Veggie Sausage Roll",
+   "category": "Breakfast rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-cheese",
+   "name": "Loaded Cheese",
+   "category": "Chicago Town pizzas",
+   "serving": "12\" pizza",
+   "nutrients": {
+    "calories": 1712
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-pepperoni",
+   "name": "Loaded Pepperoni",
+   "category": "Chicago Town pizzas",
+   "serving": "12\" pizza",
+   "nutrients": {
+    "calories": 1744
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "magnificent-meat-feast",
+   "name": "Magnificent Meat Feast",
+   "category": "Chicago Town pizzas",
+   "serving": "12\" pizza",
+   "nutrients": {
+    "calories": 1613
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salt-and-pepper-chicken",
+   "name": "Salt & Pepper Chicken",
+   "category": "Chicago Town pizzas",
+   "serving": "12\" pizza",
+   "nutrients": {
+    "calories": 1836
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-bbq-jackfruit",
+   "name": "Vegan BBQ Jackfruit",
+   "category": "Chicago Town pizzas",
+   "serving": "10\" pizza",
+   "nutrients": {
+    "calories": 1186
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tear-n-share-cheesy-dough-balls",
+   "name": "Tear 'n' Share Cheesy Dough Balls",
+   "category": "Chicago Town pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1279
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "12-chicken-nuggets-and-dips",
+   "name": "12 Chicken Nuggets & Dips",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 658
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "portion-of-chips",
+   "name": "Portion of Chips",
+   "category": "Hot food",
+   "serving": "",
+   "nutrients": {
+    "calories": 261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-individual-cheese-pizza",
+   "name": "Kids' Individual Cheese Pizza",
+   "category": "Kids' food",
+   "serving": "",
+   "nutrients": {
+    "calories": 367
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "6-chicken-nuggets-and-dips",
+   "name": "6 Chicken Nuggets & Dips",
+   "category": "Kids' food",
+   "serving": "",
+   "nutrients": {
+    "calories": 372
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hartleys-raspberry-jelly",
+   "name": "Hartleys Raspberry Jelly",
+   "category": "Kids' food",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "frube-tube-mixed-flavours",
+   "name": "Frube Tube (mixed flavours)",
+   "category": "Kids' food",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "soreen-lunch-box-loaf",
+   "name": "Soreen Lunch Box Loaf",
+   "category": "Kids' food",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kelloggs-variety-cereal-pack",
+   "name": "Kellogg's Variety Cereal Pack",
+   "category": "Kids' food",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

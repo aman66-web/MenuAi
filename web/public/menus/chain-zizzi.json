@@ -1,0 +1,3762 @@
+{
+ "schemaVersion": 1,
+ "id": "zizzi",
+ "name": "Zizzi",
+ "cuisine": "Italian",
+ "builderType": "standard",
+ "aliases": [
+  "zizzi",
+  "zizzi italian"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Zizzi menu pages with calories (zizzi.co.uk/menus and each restaurant's menu pages: full menu, 3 course, 2 course lunch, Bambini and festive set menus), read 10-11 October 2026",
+  "url": "https://www.zizzi.co.uk/menus",
+  "checkedOn": "2026-10-11"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as printed on Zizzi's menu pages (approximate, core dishes without substitutions); protein, carbs, fat and allergens are not published. Alcoholic drinks print no calories. A dish whose calories differ on another menu (such as Two Feast for £50) carries that menu's name.",
+ "categories": [
+  "Pasta",
+  "Coffee & Tea",
+  "Bambini - Drinks",
+  "Soft Drinks & Mocktails",
+  "Starters",
+  "The Rustica",
+  "Salads",
+  "Signature Dishes",
+  "Pizza",
+  "Desserts",
+  "Superiore Pasta",
+  "On The Side",
+  "To Share",
+  "Bambini - Sides",
+  "Non-Gluten Pizzas",
+  "Non-Gluten Pastas",
+  "2 Course Lunch Menu - Mains",
+  "Bambini Menu - Starters",
+  "Bambini Menu - Desserts",
+  "Bambini Menu - Mains",
+  "Festive Set Menu - Starters",
+  "Festive Set Menu - Mains",
+  "Festive Set Menu - Desserts",
+  "Two Feast for £50 - Starters",
+  "Two Feast for £50 - Mains"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "all-out-lasagne",
+   "name": "All Out Lasagne",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1123
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bolognese-classico",
+   "name": "Bolognese Classico",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 553
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-carbonara",
+   "name": "Chorizo Carbonara",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1099
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pesto-rosso",
+   "name": "Pesto Rosso",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1098
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-della-casa",
+   "name": "Pollo Della Casa",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 863
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-piccante",
+   "name": "Pollo Piccante",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1289
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pomodoro",
+   "name": "Pomodoro",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 586
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ravioli-di-capra",
+   "name": "Ravioli Di Capra",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 654
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "six-layer-lasagne",
+   "name": "Six Layer Lasagne",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 872
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-lentil-ragu",
+   "name": "Vegan Lentil Ragu",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 576
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-pomodoro",
+   "name": "Vegan Pomodoro",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 574
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-rainbow-lasagne",
+   "name": "Vegan Rainbow Lasagne",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 769
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-espresso",
+   "name": "Double Espresso",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "earl-grey",
+   "name": "Earl Grey",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "english-breakfast",
+   "name": "English Breakfast",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresh-mint-tea",
+   "name": "Fresh Mint Tea",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 21
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 231
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-cioccolata",
+   "name": "Hot Cioccolata",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ice-americano",
+   "name": "Ice Americano",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "iced-latte",
+   "name": "Iced Latte",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 123
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-americano",
+   "name": "Oat Americano",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 47
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-cappuccino",
+   "name": "Oat Cappuccino",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-flat-white",
+   "name": "Oat Flat White",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 128
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-latte",
+   "name": "Oat Latte",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-macchiato",
+   "name": "Oat Macchiato",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 27
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-mocha",
+   "name": "Oat Mocha",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peppermint",
+   "name": "Peppermint",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pure-green",
+   "name": "Pure Green",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "single-espresso",
+   "name": "Single Espresso",
+   "category": "Coffee & Tea",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-and-blackcurrant-squash",
+   "name": "Apple & Blackcurrant Squash",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flawsome-apple-and-blackcurrant",
+   "name": "Flawsome Apple & Blackcurrant",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 72
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flawsome-sweet-apple",
+   "name": "Flawsome Sweet Apple",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 70
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-apple-juice",
+   "name": "Kids Apple Juice",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-milk",
+   "name": "Kids Milk",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 92
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-oat-milk",
+   "name": "Kids Oat Milk",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 96
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-orange-juice",
+   "name": "Kids Orange Juice",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 100
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-squash",
+   "name": "Orange Squash",
+   "category": "Bambini - Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 102
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser",
+   "name": "Appletiser",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 121
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-sparkling-water-large",
+   "name": "Belu Sparkling Water Large",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-sparkling-water-small",
+   "name": "Belu Sparkling Water Small",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-still-water-large",
+   "name": "Belu Still Water Large",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "belu-water-still-small",
+   "name": "Belu Water Still Small",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blood-orange-and-elderflower-tonic",
+   "name": "Blood Orange & Elderflower Tonic",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-large",
+   "name": "Coke Large",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 291
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-small",
+   "name": "Coke Small",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-large",
+   "name": "Coke Zero Large",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coke-zero-small",
+   "name": "Coke Zero Small",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-large",
+   "name": "Diet Coke Large",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-small",
+   "name": "Diet Coke Small",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hip-pop-berries-and-cherries",
+   "name": "Hip Pop Berries & Cherries",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hip-pop-kombucha-blueberry-and-ginger",
+   "name": "Hip Pop Kombucha Blueberry & Ginger",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hip-pop-strawberry-and-pineapple",
+   "name": "Hip Pop Strawberry & Pineapple",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 53
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lime-and-mint-cooler",
+   "name": "Lime & Mint Cooler",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 60
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "morello-cherry-refresher",
+   "name": "Morello Cherry Refresher",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 203
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "original-tonic",
+   "name": "Original Tonic",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 34
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "passion-fruit-sparkler",
+   "name": "Passion Fruit Sparkler",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peroni-0-0",
+   "name": "Peroni 0.0%",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pineapple-and-citrus-refresher",
+   "name": "Pineapple and Citrus Refresher",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 192
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-and-mint-cooler",
+   "name": "Raspberry & Mint Cooler",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-blood-orange",
+   "name": "San Pellegrino Blood Orange",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 66
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-lemon",
+   "name": "San Pellegrino Lemon",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-large",
+   "name": "Sprite Zero Large",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-zero-small",
+   "name": "Sprite Zero Small",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sparkler",
+   "name": "Strawberry Sparkler",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 41
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-cbd-blend",
+   "name": "Trip CBD Blend",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 28
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "trip-mindful-blend",
+   "name": "Trip Mindful Blend",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 22
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "zesty-still-lemonade",
+   "name": "Zesty Still Lemonade",
+   "category": "Soft Drinks & Mocktails",
+   "serving": "",
+   "nutrients": {
+    "calories": 62
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aubergine-fritti",
+   "name": "Aubergine Fritti",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 252
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-classica",
+   "name": "Bruschetta Classica",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burrata-caprese",
+   "name": "Burrata Caprese",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 392
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari-large",
+   "name": "Calamari Large",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 857
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari-small",
+   "name": "Calamari Small",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 501
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chilli-garlic-bread",
+   "name": "Cheesy Chilli Garlic Bread",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 766
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-calabrese-dip",
+   "name": "Chicken Spiedini with Calabrese Dip",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 320
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-calamari-large",
+   "name": "Chilli Calamari - Large",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1031
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-calamari-small",
+   "name": "Chilli Calamari - Small",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 636
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-and-mozzarella-bombe",
+   "name": "Chorizo & Mozzarella Bombe",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 899
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-crusts",
+   "name": "Dough Crusts",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 642
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fonduta-formaggi",
+   "name": "Fonduta Formaggi",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 859
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-mozzarella-bombe",
+   "name": "Garlic & Mozzarella Bombe",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 745
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 607
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-mozzarella",
+   "name": "Garlic Bread with Mozzarella",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 688
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-mozzarella-and-caramelised-onions",
+   "name": "Garlic Bread with Mozzarella & Caramelised Onions",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 750
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "king-prawn-spiedini",
+   "name": "King Prawn Spiedini",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 147
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "la-bomba-meatballs",
+   "name": "La Bomba Meatballs",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 670
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-arancini",
+   "name": "Mozzarella Arancini",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 343
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-brindisi",
+   "name": "Mushroom Brindisi",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 636
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "olive-bowl",
+   "name": "Olive Bowl",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-crisps",
+   "name": "Pasta Crisps",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 166
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-fritti",
+   "name": "Pollo Fritti",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-fritti-double-portion",
+   "name": "Pollo Fritti Double Portion",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1178
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-pig-fonduta",
+   "name": "Sticky Pig Fonduta",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 1086
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "aubergine-parmigiana",
+   "name": "Aubergine Parmigiana",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 995
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carne-sofia",
+   "name": "Carne Sofia",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1117
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-and-fiery-roquito",
+   "name": "Chicken & Fiery Roquito",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1113
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita",
+   "name": "Margherita",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 941
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-campagna",
+   "name": "Pepperoni Campagna",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 988
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-premio",
+   "name": "Pepperoni Premio",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1080
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "piccante",
+   "name": "Piccante",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1594
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pinoli",
+   "name": "Pinoli",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 995
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "primavera",
+   "name": "Primavera",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1388
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sticky-pig",
+   "name": "Sticky Pig",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1792
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-salami",
+   "name": "Truffle Salami",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1186
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-margherita",
+   "name": "Vegan Margherita",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 888
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "venison-pepperoni",
+   "name": "Venison Pepperoni",
+   "category": "The Rustica",
+   "serving": "",
+   "nutrients": {
+    "calories": 1190
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-bean-salad",
+   "name": "Butter Bean Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-caesar-salad",
+   "name": "Chicken Caesar Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 733
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-tomato-caesar-salad",
+   "name": "Salmon & Tomato Caesar Salad",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 609
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "butter-bean-stufato",
+   "name": "Butter Bean Stufato",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 978
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-cacciatore",
+   "name": "Chicken Cacciatore",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 807
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "funghi-risotto",
+   "name": "Funghi Risotto",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 961
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-honey-glazed-duck",
+   "name": "Hot Honey Glazed Duck",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1195
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mediterranean-sea-bass",
+   "name": "Mediterranean Sea Bass",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 661
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-calabrese",
+   "name": "Pollo Calabrese",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1060
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-milanese",
+   "name": "Pollo Milanese",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1215
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-pesto-risotto",
+   "name": "Salmon & Pesto Risotto",
+   "category": "Signature Dishes",
+   "serving": "",
+   "nutrients": {
+    "calories": 1243
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calzone-carne-piccante",
+   "name": "Calzone Carne Piccante",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1002
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calzone-pollo-spinaci",
+   "name": "Calzone Pollo Spinaci",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1030
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-margherita",
+   "name": "Classic Margherita",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 741
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-pinoli",
+   "name": "Classic Pinoli",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 842
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-vegan-margherita-pizza",
+   "name": "Classic Vegan Margherita Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 703
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classico-pepperoni-campagna",
+   "name": "Classico Pepperoni Campagna",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 836
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-and-pesto",
+   "name": "Pollo & Pesto",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 699
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "candy-floss-dolce",
+   "name": "Candy Floss Dolce",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 274
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-caramello-sundae",
+   "name": "Chocolate Caramello Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 632
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fudge-cake",
+   "name": "Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gooey-chocolate-chip-cookie-dough",
+   "name": "Gooey Chocolate Chip Cookie Dough",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1009
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-cheesecake",
+   "name": "Honeycomb Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 598
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "limoncello-basque",
+   "name": "Limoncello Basque",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 507
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-collins-cheesecake",
+   "name": "Raspberry Collins Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 494
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-bread-and-butter-pudding-v",
+   "name": "Salted Caramel Bread & Butter Pudding V",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-chocolate-brownie",
+   "name": "Salted Caramel Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 682
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 366
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chianti-beef-ragu",
+   "name": "Chianti Beef Ragu",
+   "category": "Superiore Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 645
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilli-king-prawn",
+   "name": "Chilli King Prawn",
+   "category": "Superiore Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 774
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatballs-alla-vodka",
+   "name": "Meatballs Alla Vodka",
+   "category": "Superiore Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1186
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seafood-vongole",
+   "name": "Seafood Vongole",
+   "category": "Superiore Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1221
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-carbonara",
+   "name": "Truffle Carbonara",
+   "category": "Superiore Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1207
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-carbonara-sharepan",
+   "name": "Truffle Carbonara Sharepan",
+   "category": "Superiore Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 2267
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "On The Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 729
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "courgetti-fritti",
+   "name": "Courgetti Fritti",
+   "category": "On The Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 485
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "five-cheese-gnocchi",
+   "name": "Five Cheese Gnocchi",
+   "category": "On The Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 406
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fresca-greens",
+   "name": "Fresca Greens",
+   "category": "On The Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 106
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-bolognese-chips",
+   "name": "Loaded Bolognese Chips",
+   "category": "On The Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 899
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-leaf-salad",
+   "name": "Mixed Leaf Salad",
+   "category": "On The Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries",
+   "name": "Sweet Potato Fries",
+   "category": "On The Side",
+   "serving": "",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "favourites-board",
+   "name": "Favourites Board",
+   "category": "To Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 2141
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fonduta-board",
+   "name": "Fonduta Board",
+   "category": "To Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 1974
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grande-antipasto",
+   "name": "Grande Antipasto",
+   "category": "To Share",
+   "serving": "",
+   "nutrients": {
+    "calories": 1434
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-chips",
+   "name": "Kids Chips",
+   "category": "Bambini - Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 364
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-green-beans",
+   "name": "Kids Green Beans",
+   "category": "Bambini - Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 15
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-sweet-potato-fries",
+   "name": "Kids Sweet Potato Fries",
+   "category": "Bambini - Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 239
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-aubergine-parmigiana",
+   "name": "Non-Gluten Aubergine Parmigiana",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1006
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-carne-sofia",
+   "name": "Non-Gluten Carne Sofia",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1142
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-chicken-and-fiery-roquito",
+   "name": "Non-Gluten Chicken & Fiery Roquito",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-margherita-pizza",
+   "name": "Non-Gluten Margherita Pizza",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 900
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pepperoni-campagna-pizza",
+   "name": "Non-Gluten Pepperoni Campagna Pizza",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1015
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pepperoni-premio-pizza",
+   "name": "Non-Gluten Pepperoni Premio Pizza",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1104
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-piccante-pizza",
+   "name": "Non-Gluten Piccante Pizza",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1621
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pinoli-pizza",
+   "name": "Non-Gluten Pinoli Pizza",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 984
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-primavera",
+   "name": "Non-Gluten Primavera",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1390
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-roast-pollo-and-pesto",
+   "name": "Non-Gluten Roast Pollo & Pesto",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 783
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-sticky-pig-pizza",
+   "name": "Non-Gluten Sticky Pig Pizza",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1816
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-truffle-salami",
+   "name": "Non-Gluten Truffle Salami",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1210
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-vegan-margherita-pizza",
+   "name": "Non-Gluten Vegan Margherita Pizza",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 912
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-venison-pepperoni",
+   "name": "Non-Gluten Venison Pepperoni",
+   "category": "Non-Gluten Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1306
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-meatballs-alla-vodka",
+   "name": "Non-Gluten Meatballs Alla Vodka",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1131
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-bolognese-classico",
+   "name": "Non-Gluten Pasta Bolognese Classico",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 525
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-chianti-beef-ragu",
+   "name": "Non-Gluten Pasta Chianti Beef Ragu",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 592
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-chilli-king-prawn",
+   "name": "Non-Gluten Pasta Chilli King Prawn",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 721
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-chorizo-carbonara",
+   "name": "Non-gluten Pasta Chorizo Carbonara",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1071
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-lentil-ragu",
+   "name": "Non-gluten Pasta Lentil Ragu",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 729
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-pollo-piccante",
+   "name": "Non-Gluten Pasta Pollo Piccante",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1261
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-truffle-carbonara",
+   "name": "Non-Gluten Pasta Truffle Carbonara",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1154
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pasta-vegan-pomodoro",
+   "name": "Non-Gluten Pasta Vegan Pomodoro",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 546
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pesto-rosso",
+   "name": "Non-Gluten Pesto Rosso",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 975
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-pomodoro",
+   "name": "Non-Gluten Pomodoro",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-seafood-vongole",
+   "name": "Non-Gluten Seafood Vongole",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1168
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "non-gluten-truffle-carbonara-sharepan",
+   "name": "Non-Gluten Truffle Carbonara Sharepan",
+   "category": "Non-Gluten Pastas",
+   "serving": "",
+   "nutrients": {
+    "calories": 2161
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pepperoni-campagna-2-course-lunch-menu",
+   "name": "Pepperoni Campagna (2 Course Lunch Menu)",
+   "category": "2 Course Lunch Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 962
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-cucumber-and-dough-crust",
+   "name": "Carrot, Cucumber & Dough Crust",
+   "category": "Bambini Menu - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 219
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "carrot-cucumber-and-pasta-crisps",
+   "name": "Carrot, Cucumber & Pasta Crisps",
+   "category": "Bambini Menu - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chilly-billy-ice-lolly",
+   "name": "Chilly Billy Ice Lolly",
+   "category": "Bambini Menu - Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-gelato",
+   "name": "Chocolate Gelato",
+   "category": "Bambini Menu - Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-fruit-pot",
+   "name": "Kids Fruit Pot",
+   "category": "Bambini Menu - Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 23
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-gelato",
+   "name": "Vanilla Gelato",
+   "category": "Bambini Menu - Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 61
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-bolognese",
+   "name": "Kids Casareccia Bolognese",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-cheese-pasta",
+   "name": "Kids Casareccia Cheese Pasta",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 362
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-lentil-ragu",
+   "name": "Kids Casareccia Lentil Ragu",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-casareccia-pomodoro",
+   "name": "Kids Casareccia Pomodoro",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 281
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-bolognese-pasta",
+   "name": "Kids Non-Gluten Bolognese Pasta",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 244
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-cheese-pasta",
+   "name": "Kids Non-Gluten Cheese Pasta",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 348
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-margherita-pizza",
+   "name": "Kids Non-Gluten Margherita Pizza",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 639
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-pomodoro-pasta",
+   "name": "Kids Non-Gluten Pomodoro Pasta",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 267
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-non-gluten-vegan-lentil-ragu",
+   "name": "Kids Non-Gluten Vegan Lentil Ragu",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 317
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-bolognese",
+   "name": "Kids Spaghetti Bolognese",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 258
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-cheese-sauce",
+   "name": "Kids Spaghetti Cheese Sauce",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 362
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-lentil-ragu",
+   "name": "Kids Spaghetti Lentil Ragu",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 331
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-spaghetti-pomodoro",
+   "name": "Kids Spaghetti Pomodoro",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 281
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-vegan-pizza-margherita",
+   "name": "Kids Vegan Pizza Margherita",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 362
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mini-non-gluten-vegan-margherita",
+   "name": "Mini Non-Gluten Vegan Margherita",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 627
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizza-margherita",
+   "name": "Pizza Margherita",
+   "category": "Bambini Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 389
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-truffle-arancini",
+   "name": "Black Truffle Arancini",
+   "category": "Festive Set Menu - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 353
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pig-in-blanket-bombe",
+   "name": "Pig in Blanket Bombe",
+   "category": "Festive Set Menu - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 896
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-and-prosciutto-roast-chicken-with-gnocchi",
+   "name": "Cranberry & Prosciutto Roast Chicken with Gnocchi",
+   "category": "Festive Set Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1152
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-and-prosciutto-roast-chicken-with-potatoes",
+   "name": "Cranberry & Prosciutto Roast Chicken with potatoes",
+   "category": "Festive Set Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1196
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lobster-and-five-cheese-casareccia",
+   "name": "Lobster & Five Cheese Casareccia",
+   "category": "Festive Set Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1691
+   },
+   "tags": [],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-baked-gnocchi",
+   "name": "Vegan Baked Gnocchi",
+   "category": "Festive Set Menu - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 748
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-christmas-tree",
+   "name": "Pistachio Christmas Tree",
+   "category": "Festive Set Menu - Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 639
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": true,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-classica-two-feast-for-50",
+   "name": "Bruschetta Classica (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 428
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari-small-two-feast-for-50",
+   "name": "Calamari Small (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 499
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-chilli-garlic-bread-two-feast-for-50",
+   "name": "Cheesy Chilli Garlic Bread (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 737
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-calabrese-dip-two-feast-for-50",
+   "name": "Chicken Spiedini with Calabrese Dip (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 321
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-crispy-chilli-oil",
+   "name": "Chicken Spiedini with Crispy Chilli Oil",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 491
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-fiery-la-bomba",
+   "name": "Chicken Spiedini with Fiery La Bomba",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 334
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-garlic-aioli",
+   "name": "Chicken Spiedini with Garlic Aioli",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-genovese-pesto",
+   "name": "Chicken Spiedini with Genovese Pesto",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 441
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-spiedini-with-roquito-hot-honey",
+   "name": "Chicken Spiedini with Roquito Hot Honey",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-crusts-two-feast-for-50",
+   "name": "Dough Crusts (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-two-feast-for-50",
+   "name": "Garlic Bread (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-mozzarella-two-feast-for-50",
+   "name": "Garlic Bread with Mozzarella (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 659
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-mozzarella-and-caramelised-onions-two-feast-for-50",
+   "name": "Garlic Bread with Mozzarella & Caramelised Onions (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 720
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-brindisi-two-feast-for-50",
+   "name": "Mushroom Brindisi (Two Feast for £50)",
+   "category": "Two Feast for £50 - Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 660
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chorizo-carbonara-two-feast-for-50",
+   "name": "Chorizo Carbonara (Two Feast for £50)",
+   "category": "Two Feast for £50 - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1100
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-margherita-two-feast-for-50",
+   "name": "Classic Margherita (Two Feast for £50)",
+   "category": "Two Feast for £50 - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 699
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classic-pinoli-two-feast-for-50",
+   "name": "Classic Pinoli (Two Feast for £50)",
+   "category": "Two Feast for £50 - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 796
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "classico-pepperoni-campagna-two-feast-for-50",
+   "name": "Classico Pepperoni Campagna (Two Feast for £50)",
+   "category": "Two Feast for £50 - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 806
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pesto-rosso-two-feast-for-50",
+   "name": "Pesto Rosso (Two Feast for £50)",
+   "category": "Two Feast for £50 - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 1004
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ravioli-di-capra-two-feast-for-50",
+   "name": "Ravioli Di Capra (Two Feast for £50)",
+   "category": "Two Feast for £50 - Mains",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

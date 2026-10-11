@@ -1,0 +1,643 @@
+{
+ "schemaVersion": 1,
+ "id": "the-salad-project",
+ "name": "The Salad Project",
+ "cuisine": "Bowls",
+ "builderType": "standard",
+ "aliases": [
+  "the salad project",
+  "salad project",
+  "saladproject"
+ ],
+ "sample": false,
+ "source": {
+  "title": "The Salad Project food page and its live guide: nutrition and allergens, London menu (accessed 2026-10-10, no date shown)",
+  "url": "https://www.saladproject.co.uk/pages/food",
+  "checkedOn": "2026-10-10"
+ },
+ "note": "Per dish as the chain lists it (its ingredients include the dressing), for its 15 London shops; its Paris menu differs. The chain's food page and live guide agree; an older allergen PDF (25 May 2026) prints different figures and is not used.",
+ "allergenGuide": {
+  "title": "The Salad Project live allergen and dietary guide (Absolutely Salad Project, London menu)",
+  "url": "https://absolutelysaladproject.com/uk/allergens",
+  "checkedOn": "2026-10-10",
+  "mayContainPublished": true,
+  "complete": true
+ },
+ "categories": [
+  "Salads",
+  "Protein bowls"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "big-feta-energy",
+   "name": "Big Feta Energy",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 623,
+    "protein": 16.5,
+    "carbs": 35,
+    "fat": 48.2,
+    "saturatedFat": 13.3,
+    "sugar": 22.3,
+    "fiber": 9.4,
+    "salt": 2.18,
+    "energyKj": 2607,
+    "weight": 412.2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "nuts": [
+     "walnut"
+    ]
+   }
+  },
+  {
+   "id": "mex-on-the-beach-sesame-chilli-tofu",
+   "name": "Mex on the Beach - Sesame Chilli Tofu",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 636,
+    "protein": 31.8,
+    "carbs": 40,
+    "fat": 40.5,
+    "saturatedFat": 5.3,
+    "sugar": 11.6,
+    "fiber": 13.9,
+    "salt": 2.7,
+    "energyKj": 2659,
+    "weight": 468.5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts"
+    ]
+   }
+  },
+  {
+   "id": "mex-on-the-beach-honey-mustard-chicken",
+   "name": "Mex on the Beach - Honey Mustard Chicken",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 757,
+    "protein": 51.3,
+    "carbs": 46.3,
+    "fat": 42.6,
+    "saturatedFat": 7.6,
+    "sugar": 17.9,
+    "fiber": 11.8,
+    "salt": 3.59,
+    "energyKj": 3168,
+    "weight": 498
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "milk",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "miso-salmon",
+   "name": "Miso Salmon",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 700,
+    "protein": 38.1,
+    "carbs": 60.4,
+    "fat": 39.4,
+    "saturatedFat": 5.9,
+    "sugar": 10.1,
+    "fiber": 12,
+    "salt": 4.41,
+    "energyKj": 2920,
+    "weight": 436.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "fish",
+     "nuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "peanuts",
+     "sulphites"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "thai-me-up-bold-bean-satay",
+   "name": "Thai Me Up - Bold Bean Satay",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 835,
+    "protein": 28.1,
+    "carbs": 87,
+    "fat": 39.8,
+    "saturatedFat": 5.3,
+    "sugar": 15.6,
+    "fiber": 21,
+    "salt": 6.4,
+    "energyKj": 3496,
+    "weight": 484.6
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "milk",
+     "sulphites"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "thai-me-up-honey-mustard-chicken",
+   "name": "Thai Me Up - Honey Mustard Chicken",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 863,
+    "protein": 56.8,
+    "carbs": 68.2,
+    "fat": 40.9,
+    "saturatedFat": 7.6,
+    "sugar": 17.7,
+    "fiber": 10.8,
+    "salt": 5.01,
+    "energyKj": 3610,
+    "weight": 484.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk"
+    ]
+   }
+  },
+  {
+   "id": "the-farm-table-by-julius-roberts",
+   "name": "The Farm Table by Julius Roberts",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 539,
+    "protein": 34.9,
+    "carbs": 55.1,
+    "fat": 20.6,
+    "saturatedFat": 5.2,
+    "sugar": 8.9,
+    "fiber": 9.6,
+    "salt": 4.12,
+    "energyKj": 2244,
+    "weight": 448.5
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": true,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "milk",
+     "sesame"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "soya",
+     "sulphites"
+    ],
+    "cereals": [
+     "wheat"
+    ]
+   }
+  },
+  {
+   "id": "the-goat",
+   "name": "The GOAT",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 943,
+    "protein": 58,
+    "carbs": 53.4,
+    "fat": 57.3,
+    "saturatedFat": 15.4,
+    "sugar": 28.1,
+    "fiber": 7,
+    "salt": 4.32,
+    "energyKj": 3945,
+    "weight": 438.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "milk",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "peanuts",
+     "sesame",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "the-sp-caesar-black-pepper-prawns",
+   "name": "The SP Caesar - Black Pepper Prawns",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 387,
+    "protein": 24.2,
+    "carbs": 21.5,
+    "fat": 24.1,
+    "saturatedFat": 8.7,
+    "sugar": 7,
+    "fiber": 4.8,
+    "salt": 4.44,
+    "energyKj": 1619,
+    "weight": 328.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "nuts",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "cereals": [
+     "wheat",
+     "barley"
+    ]
+   }
+  },
+  {
+   "id": "bbq-protein-bowl",
+   "name": "BBQ Protein Bowl",
+   "category": "Protein bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1217,
+    "protein": 72.7,
+    "carbs": 116,
+    "fat": 53.2,
+    "saturatedFat": 12.6,
+    "sugar": 15.3,
+    "fiber": 13.8,
+    "salt": 6.26,
+    "energyKj": 5084,
+    "weight": 629.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "milk",
+     "mustard",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "nuts",
+     "peanuts",
+     "sesame"
+    ]
+   }
+  },
+  {
+   "id": "caesar-protein-bowl",
+   "name": "Caesar Protein Bowl",
+   "category": "Protein bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1174,
+    "protein": 75.5,
+    "carbs": 84.1,
+    "fat": 60.9,
+    "saturatedFat": 11.1,
+    "sugar": 9.2,
+    "fiber": 11.2,
+    "salt": 5.1,
+    "energyKj": 4916,
+    "weight": 621.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "gluten",
+     "eggs",
+     "fish",
+     "milk",
+     "nuts",
+     "soya",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "mustard",
+     "peanuts",
+     "sesame"
+    ],
+    "nuts": [
+     "cashew"
+    ]
+   }
+  },
+  {
+   "id": "middle-feast-protein-bowl",
+   "name": "Middle Feast Protein Bowl",
+   "category": "Protein bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 954,
+    "protein": 63.3,
+    "carbs": 50.2,
+    "fat": 52.8,
+    "saturatedFat": 8.9,
+    "sugar": 6.7,
+    "fiber": 24.4,
+    "salt": 4.62,
+    "energyKj": 3997,
+    "weight": 637
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "mustard",
+     "sesame",
+     "sulphites"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "nuts",
+     "peanuts",
+     "soya"
+    ]
+   }
+  },
+  {
+   "id": "satay-protein-bowl-sesame-chilli-tofu",
+   "name": "Satay Protein Bowl - Sesame-Chilli Tofu",
+   "category": "Protein bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1162,
+    "protein": 52.7,
+    "carbs": 112.5,
+    "fat": 53.7,
+    "saturatedFat": 7.6,
+    "sugar": 10.9,
+    "fiber": 23.2,
+    "salt": 8.12,
+    "energyKj": 4858,
+    "weight": 601.4
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "gluten",
+     "crustaceans",
+     "eggs",
+     "fish",
+     "milk",
+     "molluscs",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "satay-protein-bowl-cajun-chicken-thighs",
+   "name": "Satay Protein Bowl - Cajun Chicken Thighs",
+   "category": "Protein bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1294,
+    "protein": 70.4,
+    "carbs": 112.9,
+    "fat": 60.7,
+    "saturatedFat": 10.3,
+    "sugar": 11,
+    "fiber": 22,
+    "salt": 8.13,
+    "energyKj": 5410,
+    "weight": 644.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "eggs",
+     "peanuts",
+     "sesame",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "crustaceans",
+     "fish",
+     "milk",
+     "molluscs",
+     "mustard",
+     "nuts",
+     "sulphites"
+    ]
+   }
+  },
+  {
+   "id": "surf-turf-protein-bowl",
+   "name": "Surf + Turf Protein Bowl",
+   "category": "Protein bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 1040,
+    "protein": 64.9,
+    "carbs": 94.3,
+    "fat": 45.8,
+    "saturatedFat": 7.8,
+    "sugar": 9.4,
+    "fiber": 13.9,
+    "salt": 8.1,
+    "energyKj": 4356,
+    "weight": 581.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": [],
+   "allergens": {
+    "contains": [
+     "crustaceans",
+     "eggs",
+     "nuts",
+     "soya"
+    ],
+    "mayContain": [
+     "celery",
+     "gluten",
+     "milk",
+     "mustard",
+     "peanuts",
+     "sesame",
+     "sulphites"
+    ]
+   }
+  }
+ ],
+ "combinations": []
+}

@@ -1,0 +1,2823 @@
+{
+ "schemaVersion": 1,
+ "id": "pizza-express",
+ "name": "PizzaExpress",
+ "cuisine": "Pizza",
+ "builderType": "standard",
+ "aliases": [
+  "pizza express",
+  "pizzaexpress"
+ ],
+ "sample": false,
+ "source": {
+  "title": "PizzaExpress online menu with calories per dish (mobile-pay.pizzaexpress.com, the page the Menu link on pizzaexpress.com opens; identical at the 7 England, Scotland and Wales restaurants read)",
+  "url": "https://mobile-pay.pizzaexpress.com/restaurant-menu/main-menu",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, per dish as printed on PizzaExpress's own menu page (the same at the 7 England, Scotland and Wales restaurants read); protein, carbs, fat and allergens are not published there. Classic pizzas and Dr Pepper are left out: the page shows one figure for two sizes. Tea, Americano and Dolcetti figures leave out milk, coffee or tea.",
+ "categories": [
+  "Appetisers",
+  "Dough Balls",
+  "To share",
+  "Starters",
+  "Sides",
+  "Dips",
+  "Romana pizzas",
+  "Leggera pizzas",
+  "Gluten-free pizzas",
+  "Salads",
+  "Al forno pasta",
+  "Desserts",
+  "Dolcetti",
+  "Gelato and sorbet",
+  "Piccolo kids' menu",
+  "Kids' drinks",
+  "Hot drinks",
+  "Soft drinks",
+  "Juices and sparkles",
+  "Beer and cider"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "pepperoni-bites",
+   "name": "Pepperoni Bites",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 326
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "marinated-green-olives",
+   "name": "Marinated Green Olives",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "slow-roasted-tomatoes",
+   "name": "Slow-Roasted Tomatoes",
+   "category": "Appetisers",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-balls-pizzaexpress",
+   "name": "Dough Balls ‘PizzaExpress’",
+   "category": "Dough Balls",
+   "serving": "",
+   "nutrients": {
+    "calories": 450
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dynamite-dough-balls",
+   "name": "Dynamite Dough Balls",
+   "category": "Dough Balls",
+   "serving": "",
+   "nutrients": {
+    "calories": 469
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-balls-al-forno",
+   "name": "Dough Balls Al Forno",
+   "category": "Dough Balls",
+   "serving": "",
+   "nutrients": {
+    "calories": 527
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-pesto-dough-balls",
+   "name": "Loaded Pesto Dough Balls",
+   "category": "Dough Balls",
+   "serving": "",
+   "nutrients": {
+    "calories": 424
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-balls-sharer",
+   "name": "Dough Balls Sharer",
+   "category": "To share",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 998
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-dough-balls-sharer",
+   "name": "Vegan Dough Balls Sharer",
+   "category": "To share",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 987
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sharing-trio",
+   "name": "Sharing Trio",
+   "category": "To share",
+   "serving": "Serves 2",
+   "nutrients": {
+    "calories": 1346
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatballs-al-forno",
+   "name": "Meatballs Al Forno",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 590
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "firecracker-chicken-wings",
+   "name": "Firecracker Chicken Wings",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 572
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caprese-salad",
+   "name": "Caprese Salad",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 494
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cajun-prawns",
+   "name": "Cajun Prawns",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 340
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calamari",
+   "name": "Calamari",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 587
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "truffle-cacio-e-pepe-bites",
+   "name": "Truffle Cacio e Pepe Bites",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 337
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-chicken-goujons",
+   "name": "Buttermilk Chicken Goujons",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 500
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-sticks",
+   "name": "Mozzarella Sticks",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 535
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-mozzarella",
+   "name": "Garlic Bread with Mozzarella",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 355
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bruschetta-originale-pizzaexpress",
+   "name": "Bruschetta Originale ‘PizzaExpress’",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-and-herb-chicken-wings",
+   "name": "Lemon & Herb Chicken Wings",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 476
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-dough-balls-pizzaexpress",
+   "name": "Vegan Dough Balls 'PizzaExpress'",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 474
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread-with-vegan-mozzarella-alternative",
+   "name": "Garlic Bread with Vegan Mozzarella Alternative",
+   "category": "Starters",
+   "serving": "",
+   "nutrients": {
+    "calories": 299
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "halloumi-bites",
+   "name": "Halloumi Bites",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 651
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "polenta-chips",
+   "name": "Polenta Chips",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-ranch-slaw",
+   "name": "Buttermilk Ranch Slaw",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 235
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mixed-salad",
+   "name": "Mixed Salad",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 150
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blue-cheese",
+   "name": "Blue Cheese",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 93
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-butter",
+   "name": "Garlic Butter",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 205
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pizzanaise",
+   "name": "Pizzanaise®",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "italian-tomato",
+   "name": "Italian Tomato",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-smoky-bbq",
+   "name": "Sweet & Smoky BBQ",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "basil-and-pine-kernel-pesto",
+   "name": "Basil & Pine Kernel Pesto",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 142
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "houmous",
+   "name": "Houmous",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 106
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-parsley-spread",
+   "name": "Garlic & Parsley Spread",
+   "category": "Dips",
+   "serving": "",
+   "nutrients": {
+    "calories": 178
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meatball-italiano",
+   "name": "Meatball Italiano",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1201
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "calabrian-feast",
+   "name": "Calabrian Feast",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1259
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-hot",
+   "name": "American Hot",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 932
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "giardiniera",
+   "name": "Giardiniera",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 885
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoky-bbq-chicken",
+   "name": "Smoky BBQ Chicken",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 942
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "moroccan-chicken",
+   "name": "Moroccan Chicken",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 939
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "padana",
+   "name": "Padana",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 824
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-ad-astra",
+   "name": "Pollo ad Astra",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 877
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-burnt-ends",
+   "name": "BBQ Burnt Ends",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1009
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diavolo-xx-hot",
+   "name": "Diavolo XX Hot",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1145
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "funghi-di-bosco",
+   "name": "Funghi di Bosco",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 883
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-harissa-melanzane",
+   "name": "Vegan Harissa Melanzane",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 870
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-funghi-di-bosco",
+   "name": "Vegan Funghi di Bosco",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 702
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-padana",
+   "name": "Vegan Padana",
+   "category": "Romana pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leggera-giardiniera",
+   "name": "Leggera Giardiniera",
+   "category": "Leggera pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leggera-pomodoro",
+   "name": "Leggera Pomodoro",
+   "category": "Leggera pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 472
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leggera-vegan-giardiniera",
+   "name": "Leggera Vegan Giardiniera",
+   "category": "Leggera pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 502
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leggera-pollo-ad-astra",
+   "name": "Leggera Pollo ad Astra",
+   "category": "Leggera pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 540
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leggera-padana",
+   "name": "Leggera Padana",
+   "category": "Leggera pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 545
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "leggera-american-hot",
+   "name": "Leggera American Hot",
+   "category": "Leggera pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 563
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-meatball-italiano",
+   "name": "Gluten-Free Meatball Italiano",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1117
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-calabrian-feast",
+   "name": "Gluten-Free Calabrian Feast",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1116
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-american-hot",
+   "name": "Gluten-Free American Hot",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 851
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-giardiniera",
+   "name": "Gluten-Free Giardiniera",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 801
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-smoky-bbq-chicken",
+   "name": "Gluten-Free Smoky BBQ Chicken",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 836
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-moroccan-chicken",
+   "name": "Gluten-Free Moroccan Chicken",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 855
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-padana",
+   "name": "Gluten-Free Padana",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 774
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-pollo-ad-astra",
+   "name": "Gluten-Free Pollo ad Astra",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 793
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-bbq-burnt-ends",
+   "name": "Gluten-Free BBQ Burnt Ends",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 846
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-funghi-di-bosco",
+   "name": "Gluten-Free Funghi di Bosco",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 778
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-diavolo-xx-hot",
+   "name": "Gluten-Free Diavolo XX Hot",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 1026
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-la-reine",
+   "name": "Gluten-Free La Reine",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 723
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-american",
+   "name": "Gluten-Free American",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 823
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-fiorentina",
+   "name": "Gluten-Free Fiorentina",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 832
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-margherita",
+   "name": "Gluten-Free Margherita",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-sloppy-giuseppe",
+   "name": "Gluten-Free Sloppy Giuseppe",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 790
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-vegan-harissa-melanzane",
+   "name": "Gluten-Free Vegan Harissa Melanzane",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 775
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-vegan-funghi-di-bosco",
+   "name": "Gluten-Free Vegan Funghi di Bosco",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 626
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-vegan-padana",
+   "name": "Gluten-Free Vegan Padana",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 640
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-vegan-margherita",
+   "name": "Gluten-Free Vegan Margherita",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 574
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-vegan-giardiniera",
+   "name": "Gluten-Free Vegan Giardiniera",
+   "category": "Gluten-free pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 690
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "warm-roasted-veg-and-chicken-bowl",
+   "name": "Warm Roasted Veg & Chicken Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 567
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "goats-cheese-and-beetroot-buddha-bowl",
+   "name": "Goat's Cheese & Beetroot Buddha Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 872
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-buddha-bowl",
+   "name": "Vegan Buddha Bowl",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 780
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ni-oise",
+   "name": "Niçoise",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 801
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grand-chicken-caesar",
+   "name": "Grand Chicken Caesar",
+   "category": "Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 869
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mushroom-and-truffle-pappardelle",
+   "name": "Mushroom & Truffle Pappardelle",
+   "category": "Al forno pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 964
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-pesto",
+   "name": "Pollo Pesto",
+   "category": "Al forno pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1076
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lasagna-classica",
+   "name": "Lasagna Classica",
+   "category": "Al forno pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 597
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cannelloni",
+   "name": "Cannelloni",
+   "category": "Al forno pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 757
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-peperonata",
+   "name": "Vegan Peperonata",
+   "category": "Al forno pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 471
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-pollo-pesto",
+   "name": "Gluten-Free Pollo Pesto",
+   "category": "Al forno pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 1033
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-vegan-peperonata",
+   "name": "Gluten-Free Vegan Peperonata",
+   "category": "Al forno pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 429
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sicilian-lemon-delight",
+   "name": "Sicilian Lemon Delight",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 55
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "white-chocolate-blondie",
+   "name": "White Chocolate Blondie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 684
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-and-raspberry-cheesecake",
+   "name": "Lemon & Raspberry Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 449
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-belgian-chocolate-brownie",
+   "name": "Double Belgian Chocolate Brownie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 647
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-vanilla-cheesecake",
+   "name": "Baked Vanilla Cheesecake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 633
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-fudge-cake",
+   "name": "Chocolate Fudge Cake",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 641
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 515
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "honeycomb-and-caramel-cream-slice",
+   "name": "Honeycomb & Caramel Cream Slice",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 621
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-billionaires-sundae",
+   "name": "Biscoff® Billionaire's Sundae",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 685
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "choc-ice-bites",
+   "name": "Choc Ice Bites",
+   "category": "Dolcetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 67
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stem-ginger-cake",
+   "name": "Stem Ginger Cake",
+   "category": "Dolcetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 255
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "biscoff-cheesecake",
+   "name": "Biscoff® Cheesecake",
+   "category": "Dolcetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 304
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caff-reale",
+   "name": "Caffè Reale",
+   "category": "Dolcetti",
+   "serving": "",
+   "nutrients": {
+    "calories": 253
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "stracciatella-gelato-aka-chocolate-chip",
+   "name": "Stracciatella Gelato (aka Chocolate Chip)",
+   "category": "Gelato and sorbet",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 132
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-gelato",
+   "name": "Vanilla Gelato",
+   "category": "Gelato and sorbet",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salted-caramel-gelato",
+   "name": "Salted Caramel Gelato",
+   "category": "Gelato and sorbet",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sorbet",
+   "name": "Raspberry Sorbet",
+   "category": "Gelato and sorbet",
+   "serving": "1 scoop",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-balls-with-creamy-houmous-piccolo",
+   "name": "Dough Balls with creamy houmous (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 197
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-dough-balls-with-creamy-houmous-piccolo",
+   "name": "Gluten-Free Dough Balls with creamy houmous (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "dough-balls-with-garlic-butter-piccolo",
+   "name": "Dough Balls with garlic butter (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 194
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-dough-balls-with-garlic-butter-piccolo",
+   "name": "Gluten-Free Dough Balls with garlic butter (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 418
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-piccolo",
+   "name": "Margherita (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-piccolo",
+   "name": "American (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 436
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pollo-piccolo",
+   "name": "Pollo (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 393
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ham-and-mushroom-piccolo",
+   "name": "Ham & Mushroom (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 385
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-margherita-piccolo",
+   "name": "Gluten-Free Margherita (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 350
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-american-piccolo",
+   "name": "Gluten-Free American (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 417
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-pollo-piccolo",
+   "name": "Gluten-Free Pollo (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 374
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-ham-and-mushroom-piccolo",
+   "name": "Gluten-Free Ham & Mushroom (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 365
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bolognese-with-macaroni-pasta-piccolo",
+   "name": "Bolognese with Macaroni Pasta (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 427
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "napoletana-with-macaroni-pasta-piccolo",
+   "name": "Napoletana with Macaroni Pasta (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 276
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "creamy-pesto-with-macaroni-pasta-piccolo",
+   "name": "Creamy Pesto with Macaroni Pasta (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 482
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-fusilli-pasta-bolognese-piccolo",
+   "name": "Gluten-Free Fusilli Pasta Bolognese (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 399
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-fusilli-pasta-napoletana-piccolo",
+   "name": "Gluten-Free Fusilli Pasta Napoletana (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 248
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gluten-free-fusilli-pasta-creamy-pesto-piccolo",
+   "name": "Gluten-Free Fusilli Pasta Creamy Pesto (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 454
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buttermilk-chicken-goujons-piccolo",
+   "name": "Buttermilk Chicken Goujons (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 294
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-brownie-piccolo",
+   "name": "Chocolate Brownie (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 251
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-organic-fruity-ice-lolly-piccolo",
+   "name": "Pip Organic Fruity Ice Lolly (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 18
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pip-organic-rainbow-ice-lolly-piccolo",
+   "name": "Pip Organic Rainbow Ice Lolly (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 20
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberries-and-cream-piccolo",
+   "name": "Strawberries & Cream (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-mossy-bottom-meltdown-piccolo",
+   "name": "The Mossy Bottom Meltdown (Piccolo)",
+   "category": "Piccolo kids' menu",
+   "serving": "",
+   "nutrients": {
+    "calories": 137
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arla-big-milk",
+   "name": "Arla Big Milk",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "innocent-apple-and-mango",
+   "name": "Innocent Apple & Mango",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "innocent-apple-and-strawberry",
+   "name": "Innocent Apple & Strawberry",
+   "category": "Kids' drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "espresso",
+   "name": "Espresso",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "americano",
+   "name": "Americano",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "latte",
+   "name": "Latte",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 116
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "flat-white",
+   "name": "Flat White",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 97
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 84
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "macchiato",
+   "name": "Macchiato",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 14
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mocha",
+   "name": "Mocha",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 195
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-drink-latte",
+   "name": "Oat Drink Latte",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 146
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-drink-flat-white",
+   "name": "Oat Drink Flat White",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 122
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-drink-cappuccino",
+   "name": "Oat Drink Cappuccino",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 105
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-drink-macchiato",
+   "name": "Oat Drink Macchiato",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 17
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-drink-mocha",
+   "name": "Oat Drink Mocha",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 228
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oat-drink-hot-chocolate",
+   "name": "Oat Drink Hot Chocolate",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 226
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twinings-tea-english-breakfast",
+   "name": "Twinings tea, English Breakfast",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twinings-tea-earl-grey",
+   "name": "Twinings tea, Earl Grey",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twinings-tea-green-tea",
+   "name": "Twinings tea, Green Tea",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twinings-tea-double-mint",
+   "name": "Twinings tea, Double Mint",
+   "category": "Hot drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 2
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-classic",
+   "name": "Coca-Cola Classic",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-zero-sugar",
+   "name": "Coca-Cola Zero Sugar",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke",
+   "name": "Diet Coke",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta",
+   "name": "Fanta",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite",
+   "name": "Sprite",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 3
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "appletiser",
+   "name": "Appletiser",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 118
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oasis-summer-fruits",
+   "name": "Oasis Summer Fruits",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 59
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lipton-peach-ice-tea",
+   "name": "Lipton Peach Ice Tea",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 44
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-aranciata-rossa",
+   "name": "San Pellegrino Aranciata Rossa",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 69
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-limonata",
+   "name": "San Pellegrino Limonata",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "acqua-panna-still-mineral-water",
+   "name": "Acqua Panna Still Mineral Water",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "san-pellegrino-sparkling-mineral-water",
+   "name": "San Pellegrino Sparkling Mineral Water",
+   "category": "Soft drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 0
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crodino-spritz",
+   "name": "Crodino Spritz",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 30
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-sparkle",
+   "name": "Raspberry Sparkle",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 56
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ginger-and-lime-sparkle",
+   "name": "Ginger & Lime Sparkle",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peach-sparkle",
+   "name": "Peach Sparkle",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 82
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "elderflower-and-mint-sparkle",
+   "name": "Elderflower & Mint Sparkle",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "living-things-watermelon-and-lime",
+   "name": "Living Things Watermelon & Lime",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 46
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "one-living-ginger-kombucha",
+   "name": "One Living Ginger Kombucha",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "passion-fruit-still-lemonade",
+   "name": "Passion Fruit Still Lemonade",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 45
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple Juice",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange Juice",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 86
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-sicilian-still-lemonade",
+   "name": "Strawberry Sicilian Still Lemonade",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 40
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sicilian-still-lemonade",
+   "name": "Sicilian Still Lemonade",
+   "category": "Juices and sparkles",
+   "serving": "",
+   "nutrients": {
+    "calories": 38
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peroni-nastro-azzuro-0-0-abv-0",
+   "name": "Peroni Nastro Azzuro 0.0 (ABV 0%)",
+   "category": "Beer and cider",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 76
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peroni-0-0-sicilian-lemon-abv-0",
+   "name": "Peroni 0.0 Sicilian Lemon (ABV 0%)",
+   "category": "Beer and cider",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

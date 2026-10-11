@@ -1,0 +1,926 @@
+{
+ "schemaVersion": 1,
+ "id": "fireaway",
+ "name": "Fireaway",
+ "cuisine": "Pizza",
+ "builderType": "standard",
+ "aliases": [
+  "fireaway",
+  "fireaway pizza",
+  "fire away",
+  "fire away pizza"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Fireaway online menu with calories (fireaway.co.uk/menu, as shown to customers of 8 shops, October 2026)",
+  "url": "https://www.fireaway.co.uk/menu",
+  "checkedOn": "2026-10-10"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories only, as the Fireaway website prints them for each product. A pizza's figure is for the whole pizza at the size shown. Sauce flavours, mix-ins and extra toppings you choose are not counted. Other pizza sizes and crusts are not listed.",
+ "categories": [
+  "Pizzas",
+  "Specials",
+  "Sides & Salads",
+  "Pasta",
+  "Milkshakes",
+  "Desserts",
+  "Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "king-pepperoni-pizza",
+   "name": "King Pepperoni Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1062
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "margherita-pizza",
+   "name": "Margherita Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 907
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-heaven-pizza",
+   "name": "Meat Heaven Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1218
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "meat-head-pizza",
+   "name": "Meat Head Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1157
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-boss-pizza",
+   "name": "BBQ Boss Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1011
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-supreme-pizza",
+   "name": "Veggie Supreme Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1012
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-supreme-pizza",
+   "name": "Vegan Supreme Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1028
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "asian-fusion-pizza",
+   "name": "Asian Fusion Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 971
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "twisted-hawaiian-pizza",
+   "name": "Twisted Hawaiian Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 964
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "buffalo-chicken-pizza",
+   "name": "Buffalo² Chicken Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1274
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "amalfi-pizza",
+   "name": "Amalfi Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 999
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fireaway-special-pizza",
+   "name": "Fireaway Special Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1270
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roma-pizza",
+   "name": "Roma Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1066
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pestoroni",
+   "name": "Pestoroni",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1254
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diavola-pizza",
+   "name": "Diavola Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1058
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "arrabbiata-pizza",
+   "name": "Arrabbiata Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1225
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-pizza",
+   "name": "Cheesy Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1131
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexicano-pizza",
+   "name": "Mexicano Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 978
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "burner-pizza",
+   "name": "Burner Pizza",
+   "category": "Pizzas",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 923
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "kids-margherita-pizza",
+   "name": "Kids Margherita Pizza",
+   "category": "Pizzas",
+   "serving": "",
+   "nutrients": {
+    "calories": 844
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheeseburger-pizza",
+   "name": "Cheeseburger Pizza",
+   "category": "Specials",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1118
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "american-hot-pizza",
+   "name": "American Hot Pizza",
+   "category": "Specials",
+   "serving": "12\" Large Regular Crust",
+   "nutrients": {
+    "calories": 1096
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smores-pizza",
+   "name": "S'mores Pizza",
+   "category": "Specials",
+   "serving": "",
+   "nutrients": {
+    "calories": 880
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-garlic-bread",
+   "name": "Cheesy Garlic Bread",
+   "category": "Sides & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 847
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-bread",
+   "name": "Garlic Bread",
+   "category": "Sides & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 704
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "house-potato-wedges",
+   "name": "House Potato Wedges",
+   "category": "Sides & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 277
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-strips",
+   "name": "Crispy Chicken Strips",
+   "category": "Sides & Salads",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 462
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-wings",
+   "name": "Chicken Wings",
+   "category": "Sides & Salads",
+   "serving": "6 pieces",
+   "nutrients": {
+    "calories": 555
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vegan-strips",
+   "name": "Vegan Strips",
+   "category": "Sides & Salads",
+   "serving": "4 pieces",
+   "nutrients": {
+    "calories": 454
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "caprese-salad",
+   "name": "Caprese Salad",
+   "category": "Sides & Salads",
+   "serving": "",
+   "nutrients": {
+    "calories": 328
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mac-and-cheese",
+   "name": "Mac & Cheese",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 848
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-rose",
+   "name": "Pasta Rosé",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 719
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-pesto",
+   "name": "Chicken Pesto",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 741
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pasta-diavola",
+   "name": "Pasta Diavola",
+   "category": "Pasta",
+   "serving": "",
+   "nutrients": {
+    "calories": 549
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "oreo-milkshake",
+   "name": "Oreo Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 607
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lotus-biscoff-milkshake",
+   "name": "Lotus Biscoff Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 595
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-milkshake",
+   "name": "Nutella Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 607
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "vanilla-milkshake",
+   "name": "Vanilla Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 445
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strawberry-milkshake",
+   "name": "Strawberry Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 598
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-milkshake",
+   "name": "Chocolate Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 738
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bubble-gum-milkshake",
+   "name": "Bubble-gum Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 598
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pistachio-milkshake",
+   "name": "Pistachio Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 742
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "custard-cream-milkshake",
+   "name": "Custard Cream Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 680
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mango-milkshake",
+   "name": "Mango Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 583
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "raspberry-milkshake",
+   "name": "Raspberry Milkshake",
+   "category": "Milkshakes",
+   "serving": "",
+   "nutrients": {
+    "calories": 596
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crunchy-goblin",
+   "name": "Crunchy Goblin",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 1327
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "nutella-pizza",
+   "name": "Nutella Pizza",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 935
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-og-cookie",
+   "name": "The OG Cookie",
+   "category": "Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 533
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cannoli-4-pcs",
+   "name": "Cannoli (4 pcs)",
+   "category": "Desserts",
+   "serving": "4 pieces",
+   "nutrients": {
+    "calories": 1013
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-330ml",
+   "name": "Coca-Cola 330ml",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 139
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-330ml",
+   "name": "Diet Coke 330ml",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-zero-sugar-330ml",
+   "name": "Coca-Cola Zero Sugar 330ml",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sprite-330ml",
+   "name": "Sprite 330ml",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta-orange-330ml",
+   "name": "Fanta Orange 330ml",
+   "category": "Drinks",
+   "serving": "330ml",
+   "nutrients": {
+    "calories": 63
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-250ml",
+   "name": "Red Bull 250ml",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 117
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-sugar-free-250ml",
+   "name": "Red Bull Sugar Free 250ml",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "red-bull-tropical-red-250ml",
+   "name": "Red Bull Tropical Red 250ml",
+   "category": "Drinks",
+   "serving": "250ml",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "capri-sun-orange-200ml",
+   "name": "Capri Sun Orange 200ml",
+   "category": "Drinks",
+   "serving": "200ml",
+   "nutrients": {
+    "calories": 58
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-1-25l",
+   "name": "Coca-Cola 1.25L",
+   "category": "Drinks",
+   "serving": "1.25L",
+   "nutrients": {
+    "calories": 525
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "diet-coke-1-25l",
+   "name": "Diet Coke 1.25L",
+   "category": "Drinks",
+   "serving": "1.25L",
+   "nutrients": {
+    "calories": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coca-cola-zero-sugar-1-25l",
+   "name": "Coca-Cola Zero Sugar 1.25L",
+   "category": "Drinks",
+   "serving": "1.25L",
+   "nutrients": {
+    "calories": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fanta-orange-1-25l",
+   "name": "Fanta Orange 1.25L",
+   "category": "Drinks",
+   "serving": "1.25L",
+   "nutrients": {
+    "calories": 238
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
