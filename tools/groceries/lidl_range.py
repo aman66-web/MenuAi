@@ -158,9 +158,25 @@ def aisle_of(won: str, name: str = "") -> str | None:
     return AISLES.get(parts[2])
 
 
+SOON_DAYS = 7  # a special buy "In store from" a date more than a week after the page was read is not listed yet (a later read brings it in)
+
+
 def on_sale(r: dict) -> bool:
+    """On sale now, or from a date within SOON_DAYS of the day the page was read ("In store from 15.10")."""
     a = r.get("availability", "")
-    return a == "Available in store now" or a.startswith("In store from")
+    if a == "Available in store now":
+        return True
+    m = re.fullmatch(r"In store from (\d{1,2})\.(\d{1,2})\.?", a)
+    if not m:
+        return False
+    try:
+        read = date.fromisoformat(r.get("checked_on") or "")
+        day = date(read.year, int(m.group(2)), int(m.group(1)))
+    except ValueError:
+        return False
+    if (day - read).days < -180:
+        day = day.replace(year=read.year + 1)  # "from 05.01" read in December
+    return (day - read).days <= SOON_DAYS
 
 
 def cmd_write() -> int:
@@ -181,7 +197,7 @@ def cmd_write() -> int:
         elif aisle is None:
             why["not food (Lidl's own aisle)"] += 1
         elif not on_sale(r):
-            why[f"not on sale ({r.get('availability') or 'no availability shown'})"] += 1
+            why["not on sale yet (in store more than a week later)" if r.get("availability", "").startswith("In store from") else "no availability shown"] += 1
         elif aisle == "Wine, Beer & Spirits" or is_alcohol(name, f"Food & Drink / {aisle}"):
             why["alcohol"] += 1
         else:

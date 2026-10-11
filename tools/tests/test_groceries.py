@@ -492,16 +492,20 @@ class OtherShopListTests(unittest.TestCase):
         img = "https://imgproxy-retcat.assets.schwarz/mn0Ye/sm:0/w:1500/cz/M6Ly9w.jpg"
         with tempfile.TemporaryDirectory() as d:
             listing, more = Path(d) / "lidl.csv", Path(d) / "lidl-range.csv"
-            listing.write_text(head + "\np10052648,KULJANKA Vegetable Salad,1.49,3.47,per kg,1.29,Lidl Plus,Food & Drink / Food Cupboard,,,2026-10-08\n")
+            listing.write_text(head + "\np10052648,KULJANKA Vegetable Salad,1.49,3.47,per kg,1.29,Lidl Plus,Food & Drink / Food Cupboard,,,2026-10-08\n"
+                               "p10056233,Pomegranate [Each],0.65,,,,,Offers / Pick of the Week,,,2026-10-08\n")
             more.write_text(head + ",availability\n"
                             "p10052648,KULJANKA Vegetable Salad,1.59,,,,,Food & Drink / Food Cupboard,https://www.lidl.co.uk/p/kuljanka/p10052648,,2026-10-11,Available in store now\n"
                             f"p10003405,Spinach,,,,,,Food & Drink / Frozen,https://www.lidl.co.uk/p/spinach/p10003405,{img},2026-10-11,Available in store now\n"
-                            "p10000001,Odd page,,,,,,Food & Drink / Bakery,https://evil.example.com/p/x/p10000001,,2026-10-11,Available in store now\n")
+                            "p10000001,Odd page,,,,,,Food & Drink / Bakery,https://evil.example.com/p/x/p10000001,,2026-10-11,Available in store now\n"
+                            "p10056233,Pomegranate,0.65,,,,,Food & Drink / Fruit & veg,https://www.lidl.co.uk/p/pomegranate/p10056233,,2026-10-11,Available in store now\n")
             problems: list = []
-            doc = bap.build_shop("lidl", problems, path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more)
+            doc = bap.build_shop("lidl", problems, path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more, exclude=set())
+            hidden = bap.build_shop("lidl", problems, path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more, exclude={("lidl", "p10003405")})
             asda = bap.build_shop("asda", problems, path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more)
         rows = {r[0]: r for r in doc["products"]}
-        self.assertEqual(sorted(rows), ["p10000001", "p10003405", "p10052648"])
+        self.assertEqual(sorted(rows), ["p10000001", "p10003405", "p10052648", "p10056233"])
+        self.assertEqual((rows["p10056233"][1], rows["p10056233"][2], rows["p10056233"][11]), ("Pomegranate", 0.65, "pomegranate/p10056233"))  # an offer-page-only row gives way to its own page
         self.assertEqual(rows["p10052648"][2], 1.49)                 # the category page's row wins (offer and Lidl Plus price)
         self.assertEqual(rows["p10052648"][5], 1.29)
         spinach = rows["p10003405"]
@@ -510,6 +514,7 @@ class OtherShopListTests(unittest.TestCase):
         self.assertEqual(doc["categories"][spinach[7]], "Frozen")
         self.assertEqual(len(rows["p10000001"]), 11)                # a page address that isn't Lidl's own is not used
         self.assertNotIn("p10003405", [r[0] for r in asda["products"]])   # every other shop: no price printed -> not listed
+        self.assertEqual(next(r for r in hidden["products"] if r[0] == "p10003405")[8], "")   # a photo on listing-exclude.csv is not shown
 
     def test_lidl_page_reader(self):
         import lidl_range as lr
@@ -534,7 +539,11 @@ class OtherShopListTests(unittest.TestCase):
         self.assertIsNone(lr.aisle_of("Worlds of need/Food and near food/Drugstore & Personal Care/Vitamins & Sports Nutrition", "Vitamin C Effervescent Tablets"))
         self.assertEqual(lr.aisle_of("Worlds of need/Food and near food/Candy & Snacks/Nuts", "Alesto Walnuts"), "Confectionery & Snacks")
         self.assertFalse(lr.on_sale({"availability": ""}))
-        self.assertTrue(lr.on_sale({"availability": "In store from 15.10"}))
+        self.assertTrue(lr.on_sale({"availability": "In store from 15.10", "checked_on": "2026-10-11"}))
+        self.assertTrue(lr.on_sale({"availability": "In store from 18.10", "checked_on": "2026-10-11"}))
+        self.assertTrue(lr.on_sale({"availability": "In store from 01.10", "checked_on": "2026-10-11"}))
+        self.assertFalse(lr.on_sale({"availability": "In store from 19.11", "checked_on": "2026-10-11"}))
+        self.assertTrue(lr.on_sale({"availability": "In store from 02.01", "checked_on": "2026-12-28"}))
 
 
 class MoreShopListTests(unittest.TestCase):

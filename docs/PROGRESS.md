@@ -910,6 +910,29 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   No alcoholic drinks were added (founder's rule of 11 October; 0% drinks stay). Checked and not added: Fazenda/Fogo de Chão, Roti UK, Carl's Jr UK, Imperial Hotels,
   Marston's, Metropolitan Pub Co; blocked: Pesto, Old English Inns, Coffee Republic. The reachable pool is close to exhausted.
 
+- 2026-10-11 (evening) — **Every Lidl product (founder: "Lidl only has 193 products you need all of them"; answer to the price question: "Add all, say
+  'Price in store'").** Lidl's website lists in its "Food & Drink" pages only its weekly offers and special buys (the 270 crawled, 193 after the alcohol rule).
+  Its own product sitemap (saved: `data/groceries/listing/raw/lidl_product_sitemap.xml`) has a page for the everyday range too; every one of its 1,918 pages
+  was read once (`tools/groceries/lidl_range.py read`: robots.txt allows /p/, about one page a second, nothing refused; only the few fields needed are kept,
+  `raw/lidl_pages.jsonl`). Those pages carry the name, Lidl's own aisle, Lidl's own photo and "Available in store now", but **most print no price** (the page's
+  offer has none and its data says `price: null`), and **none prints a barcode or nutrition**. Kept (`lidl_range.py write` -> `data/groceries/listing/lidl-range.csv`,
+  summary in `raw/lidl_range_summary.txt`): food in Lidl's own food aisles only (Lidl files hand wash, candles, nappies and pet food under its food world too,
+  so those aisles are left out; baby food and formula and protein snacks/drinks stay, vitamin pills don't), on sale now or "In store from" a date within a week
+  (21 special buys due later are left out until a later read), no alcohol (Lidl's wine/beer/spirits world and `is_alcohol`). **Lidl now lists 1,037 products
+  (was 193): 264 with a price, 773 "Price in store"**; 1,022 with Lidl's own photo. **Exception for Lidl only** to "every item says the price": the builder lets a
+  row from Lidl's own product pages have no price (`PRICE_IN_STORE` in `build_all_products.py`); every other shop, and Lidl's offer-page rows, still need a printed
+  price; a product's own page stands in for an offer-page-only row (27 such, e.g. carrots, salmon fillets). The app shows **"Price in store"** in the row and on
+  the product page with "{shop} shows prices on its website only for its weekly offers. Check this product's price in store."; the list line reads "{n} products
+  from {shop}'s website, checked {date}. {count} show a price. {shop} shows the others' prices only in store."; price sorts put them last; recipes never use a
+  product without a price (`hasPrice`); the shopping list total already counts only items with a price. **Photos looked at:** a contact sheet of 72 random new
+  ones (71 right) plus every photo shared by different products and an automatic scan of all 1,036 for blank or empty pictures: **14 left out** in the new
+  `data/groceries/images/listing-exclude.csv` (read by the builder, so a rerun can't bring them back): 4 of Lidl's "MISSING IMAGE" placeholder, 8 blank white
+  pictures Lidl serves for several products, the vanilla protein pudding showing the chocolate pot, and plain crisps showing the ridge-cut pack. New copy (rule 8,
+  logged here; translated into the 10 languages by AI): "Price in store" and the two sentences above. Checked: 138 Python (new: page reader, aisles, "in store
+  from" dates, unpriced rows Lidl-only, offer row giving way, photo exclusions), 453 unit (null price decode and sort, recipes skip unpriced products), e2e
+  groceries-all 7 (new: an unpriced Lidl product, light and dark, axe 0), groceries 6, compare 8, diet 5, recipes 13, smoke 23; screenshots of the real Lidl list
+  and a product in light, dark and extra-large text (no overflow).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

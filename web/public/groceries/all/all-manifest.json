@@ -8,6 +8,7 @@
    "count": 15310,
    "checkedOn": "2026-10-08",
    "nutrition": 12712,
+   "priced": 15310,
    "sha256": "517221dd9629db92e25b9dda7a2eaefcca1c777dbc968c966d295fd4ae5435d4"
   },
   {
@@ -17,6 +18,7 @@
    "count": 6079,
    "checkedOn": "2026-10-09",
    "nutrition": 0,
+   "priced": 6079,
    "sha256": "2ad503b0b825b6bd0bafefdc865eee0cbaf1cd617daebc4ef189d6fbb1b68736"
   },
   {
@@ -26,6 +28,7 @@
    "count": 10527,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
+   "priced": 10527,
    "sha256": "ccdd954b67e2e99bd166f3e0c39e9fb1940077a5370bbbae8992747588ca4312"
   },
   {
@@ -35,16 +38,18 @@
    "count": 3207,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
+   "priced": 3207,
    "sha256": "1848e8e92f3cdc372ad6cfcde601fa15f8b1f86757b35da1337e7ad65412824a"
   },
   {
    "id": "lidl",
    "name": "Lidl",
    "file": "lidl.json",
-   "count": 193,
+   "count": 1037,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "d0d1748ed7994c282583f9a0f638f6abf8b3b797e518b5142babc5fe6ee14212"
+   "priced": 264,
+   "sha256": "671afd619ca59fb753ab39a00d364cab0f880c07249d2ce5ebb08fc6bdbf84ae"
   },
   {
    "id": "morrisons",
@@ -53,6 +58,7 @@
    "count": 16373,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
+   "priced": 16373,
    "sha256": "88561ff0e31079f839fb6e36f41cd019230a86de4ea4b732948d817463974c4f"
   },
   {
@@ -62,6 +68,7 @@
    "count": 9726,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
+   "priced": 9726,
    "sha256": "4a02aee310d28b6546e29cd9f0eef1123f9aa88731298feb4a922124a0e84ca3"
   },
   {
@@ -71,6 +78,7 @@
    "count": 5976,
    "checkedOn": "2026-10-09",
    "nutrition": 0,
+   "priced": 5976,
    "sha256": "c933a126839f273de1a1c2952def8c5bfcb2d1dfe0a9c9990a4c509097ebabeb"
   },
   {
@@ -80,6 +88,7 @@
    "count": 194,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
+   "priced": 194,
    "sha256": "9bb4e8cc5a6720d715fba71ebcd686b64cb68ff8cbf7ce94694d04fa01fc9063"
   }
  ]

@@ -1,0 +1,78 @@
+Lidl product pages read: 1918 (sitemap lidl_product_sitemap.xml)
+
+Result:
+    859  not food (Lidl's own aisle)
+    812  kept, no price printed (Price in store)
+    224  kept, price printed
+     21  not on sale yet (in store more than a week later)
+      2  no availability shown
+
+Lidl's own aisles seen (world / aisle):
+    179  Food and near food / Candy & Snacks
+    168  Baby, child & toys / Toys
+    125  Food and near food / Meat & Poultry
+    123  Food and near food / Frozen food (Frozen food)
+    118  Food and near food / Food Cupboard
+    104  Wine, beer, and spirits / Wine
+    102  Food and near food / Cheese, dairy products & eggs
+     84  Food and near food / Bakery
+     82  Food and near food / Fruit & vegetables
+     57  Food and near food / Ready meals
+     49  Food and near food / Muesli & Spreads
+     48  Food and near food / Baby & Child
+     47  Food and near food / Drugstore & Personal Care
+     45  Food and near food / Drinks
+     45  Living & Furnishing / Decoration
+     43  Kitchen & Household / Kitchen appliances
+     42  Wine, beer, and spirits / Beer & Cider
+     34  Food and near food / Pet supplies
+     34  Kitchen & Household / Cooking & Baking
+     32  Food and near food / Oils, Spices & Sauces
+     31  Sport & Leisure / Camping & Outdoor
+     28  Kitchen & Household / Household cleaning
+     28  DIY store & garden / Flowers, plants & plant accessories
+     27  Sport & Leisure / Pet supplies
+     26  Fashion & Accessories / Women's fashion
+     24  Kitchen & Household / Storage & Organization
+     20  Wine, beer, and spirits / Spirits
+     18  Food and near food / Coffee, tea & cocoa
+     17  Fashion & Accessories / Menswear
+     16  Baby, child & toys / Baby & children's equipment
+     14  DIY store & garden / Garden equipment & garden tools
+     11  Food and near food / Fish & Seafood
+     11  Food and near food / Household
+     10  Wine, beer, and spirits / Champagne, sparkling wine & Co.
+     10  Sport & Leisure / Fireworks
+      9  Living & Furnishing / Lighting
+      8  Living & Furnishing / Multimedia & Technology
+      8  Food and near food / Flowers & plants
+      7  Pet Supplies / Cat Supplies
+      6  Living & Furnishing / Living room
+      5  Living & Furnishing / Beauty & body care
+      4  Baby, child & toys / School & Creative
+      3  (none)
+      3  Kitchen & Household / Table setting & tableware
+      2  Living & Furnishing / Hallway & storage room
+      1  Pet Supplies / Bird Supplies
+      1  Baby, child & toys / Children's clothing 2-8 years
+      1  Living & Furnishing / Bathroom
+      1  Living & Furnishing / Garden & Balcony
+      1  Articles hidden from WoN Nav / Articles hidden from WoN Nav
+      1  DIY store & garden / Car & Motorcycle
+      1  Living & Furnishing / Heating & cooling
+      1  Kitchen & Household / Washing & ironing
+      1  DIY store & garden / Workshop & Hardware
+      1  DIY store & garden / Garden sheds & roofing
+      1  Pet Supplies / Dog Supplies
+
+Availability shown:
+   1577  Available in store now
+    230  In store from 15.10
+     85  In store from 18.10
+      9  In store from 29.10
+      6  In store from 22.10
+      5  In store from 19.11
+      2  (none)
+      2  In store from 26.11
+      1  In store from 01.10
+      1  In store from 12.10

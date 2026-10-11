@@ -241,6 +241,17 @@ def read_listing_photos(shop: str, problems: list[str]) -> dict[str, str]:
     return out
 
 
+def read_listing_exclude(path: Path | None = None) -> set[tuple[str, str]]:
+    """(shop, product id) whose listing photo must not be shown, from data/groceries/images/listing-exclude.csv (`shop,product_id,reason`): a placeholder
+    ("MISSING IMAGE", a blank picture) or a picture of another variety, found by looking at contact sheets. The row then shows another supermarket's photo of
+    the same product where one exists, else "no photo"."""
+    path = path or ROOT / "data" / "groceries" / "images" / "listing-exclude.csv"
+    if not path.exists():
+        return set()
+    with open(path, newline="", encoding="utf-8") as f:
+        return {((r.get("shop") or "").strip(), (r.get("product_id") or "").strip()) for r in csv.DictReader(f)}
+
+
 def barcode_by_name(name: str) -> str:
     """The barcode of the one branded product with exactly this name and pack size in the barcoded lists (build_groceries.name_barcodes), else ""."""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -267,22 +278,20 @@ MORE_ROWS = {"lidl": ROOT / "data" / "groceries" / "listing" / "lidl-range.csv"}
 
 
 def listing_rows(path: Path, more: Path | None = None):
-    """(line, row, from_more) for the shop's listing, then the rows of `more` (MORE_ROWS) whose id the listing doesn't have (the listing row wins: it
-    carries the offer and card price)."""
-    seen: set[str] = set()
+    """(line, row, from_more) for the shop's listing, then every row of `more` (MORE_ROWS). The caller lists a `more` row only when the listing didn't
+    list that product (the listing row wins: it carries the offer and card price; a listing row left out, e.g. one seen only on an offer page, gives
+    way to the product's own page)."""
     with open(path, newline="", encoding="utf-8") as f:
         for line, r in enumerate(csv.DictReader(f), start=2):
-            seen.add((r.get("product_id") or "").strip())
             yield line, r, False
     if more and more.exists():
         with open(more, newline="", encoding="utf-8") as f:
             for line, r in enumerate(csv.DictReader(f), start=2):
-                if (r.get("product_id") or "").strip() not in seen:
-                    yield line, r, True
+                yield line, r, True
 
 
 def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict | None = None, nutrition: dict | None = None,
-               pages: dict | None = None, photos: dict | None = None, more: Path | None = None) -> dict | None:
+               pages: dict | None = None, photos: dict | None = None, more: Path | None = None, exclude: set | None = None) -> dict | None:
     if path is None:
         path, more = ROOT / "data" / "groceries" / "listing" / f"{shop}.csv", more or MORE_ROWS.get(shop)
     if not path.exists():
@@ -296,6 +305,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
     days = set()
     extra_photos = photos if photos is not None else read_listing_photos(shop, problems)
     pages = pages if pages is not None else read_pages(shop, problems)
+    exclude = exclude if exclude is not None else read_listing_exclude()
+    listed: set[str] = set()
     for line, r, from_more in listing_rows(path, more):
         pid, name = (r.get("product_id") or "").strip(), " ".join((r.get("name") or "").split())
         if not SLUG.fullmatch(pid) or len(name) < 2 or name == "?":
@@ -304,6 +315,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
         price, unit_price = num(r.get("price_gbp")), num(r.get("unit_price_gbp"))
         if price is not None and price <= 0:
             price = None
+        if from_more and pid in listed:
+            continue
         if price is None and not (from_more and shop in PRICE_IN_STORE):
             continue  # no price printed (out of stock or a placeholder): not listed
         if from_more and pid not in pages:
@@ -328,6 +341,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             schemes.append(scheme)
         photo_re = SHOPS[shop]["photo"]
         photo = photo_re.search(r.get("image_url") or "") or photo_re.search(extra_photos.get(pid, ""))
+        if (shop, pid) in exclude:
+            photo = None  # a placeholder or another variety's picture (listing-exclude.csv)
         days.add((r.get("checked_on") or "").strip())
         n = nut.get(pid) or nut.get(pid.lower())
         if n:
@@ -345,6 +360,7 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
         elif SHOPS[shop].get("pagePath"):
             row.append(SHOPS[shop]["pagePath"].format(id=pid))
         products.append(row)
+        listed.add(pid)
     days.discard("")
     cfg = SHOPS[shop]
     head = {"v": 1, "retailer": shop, "name": cfg["name"], "checkedOn": min(days) if days else "", "pageBase": cfg["pageBase"], "photoBase": cfg["photoBase"]}
