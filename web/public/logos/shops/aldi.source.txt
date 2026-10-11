@@ -1,0 +1,11 @@
+status: installed
+file: aldi.svg
+tile: light
+source_url: https://www.aldipresscentre.co.uk/wp-content/themes/twentytwenty-child/images/aldi_logo.svg
+page: https://www.aldipresscentre.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Aldi UK's own press centre header (https://www.aldipresscentre.co.uk/); saved as served; robots.txt allows it (Disallow empty, crawl-delay 10 s honoured).
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: 6cc67805adf00a2a4b14d5fa1d5c78406cc8480a9900a4c66b07b3114895675a

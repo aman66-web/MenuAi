@@ -1,84 +1,84 @@
 {
  "v": 1,
- "generatedOn": "2026-10-10",
+ "generatedOn": "2026-10-11",
  "source": "Open Food Facts contributors (ODbL)",
  "retailers": [
   {
    "id": "tesco",
    "name": "Tesco",
    "file": "tesco.json",
-   "count": 4475,
-   "sha256": "535dfd2cfd3db5e407a909fa43b456d704b00b568db3f47b803cdba187734c77"
+   "count": 4472,
+   "sha256": "fdf84579aa2abc19209c273cf01fd3a301f4ce9c831a744f4093fc452ccc5aa6"
   },
   {
    "id": "sainsburys",
    "name": "Sainsbury's",
    "file": "sainsburys.json",
-   "count": 2736,
-   "sha256": "426890fdf7979db42744e0f3fbc2b9f119c9b2020be39402ecff7e0b31b268ac"
+   "count": 2724,
+   "sha256": "c76adb6a19cca0cfb6b1f8716ccf0dc8870b34fe1493fdd804a84c2dc0ab18d7"
   },
   {
    "id": "asda",
    "name": "Asda",
    "file": "asda.json",
    "count": 3,
-   "sha256": "c3efbd92de459ff5b30352397a7d6b8cb2769cd361eb4292202553aa8c5697bd"
+   "sha256": "f28839101238b36e34d71ee79e7269cf2f4dffe94279e1960cefe4efb4ffd6d3"
   },
   {
    "id": "waitrose",
    "name": "Waitrose",
    "file": "waitrose.json",
    "count": 2,
-   "sha256": "1561a4834eabd8629505cf81f2c30b46f5a7a871ba3fc0b42eb74b40866e0b8d"
+   "sha256": "072d3464af2c6bc994735e9b7615d69859cd60412fe78be8a99857b969ded5e6"
   },
   {
    "id": "lidl",
    "name": "Lidl",
    "file": "lidl.json",
    "count": 1,
-   "sha256": "9fce2517b44e1c0b3f0481cfa381c3d3e881e20697f1631362120ac2f561ddce"
+   "sha256": "f39da90ce5937e11b641d89d42698a2981f94a6a50986952259e611da04535b4"
   },
   {
    "id": "aldi",
    "name": "Aldi",
    "file": "aldi.json",
    "count": 0,
-   "sha256": "0feb90033281a17b857bbb1c17a1da2333777823a83ee0329e5c8c64060a3c60"
+   "sha256": "811fd99bc9452a062f802924f546e4bc057845b40847466cc67ddc9710df0ea3"
   },
   {
    "id": "morrisons",
    "name": "Morrisons",
    "file": "morrisons.json",
    "count": 0,
-   "sha256": "e1de47ac633863ac2d83b126cf24e07f8f009e6f49821a58b7791d6eebac0c40"
+   "sha256": "dc73b85a79335aa5c2b93d4595b4190d53c2a7a41708f120b0b585dc54ae85e2"
   },
   {
    "id": "coop",
    "name": "Co-op",
    "file": "coop.json",
    "count": 3,
-   "sha256": "23128e864714a6f4d374befba9245f34b3b60f591567664e919e54d3b9bf3bdf"
+   "sha256": "7a6f447bb5b59cf20a375cd186fc6ec9f327d8ee10541dc239fe4d1a60a47375"
   },
   {
    "id": "marks-and-spencer",
    "name": "M&S",
    "file": "marks-and-spencer.json",
    "count": 2,
-   "sha256": "d95de0a22b54efd4368cfdd46c8cb3c0a61f362362099c27e8cd2a18a3ed18f2"
+   "sha256": "3395b4b3d2215d1a3fc3b27e299b57a608d0dd75931fde9dc9f20b739532b532"
   },
   {
    "id": "iceland",
    "name": "Iceland",
    "file": "iceland.json",
    "count": 0,
-   "sha256": "d7d07ff551e2448cbe1c56593445a754984732601bc33c72a734b14521ddc1d0"
+   "sha256": "025da837f5bdb0b47725f5fdf0bb0fca04402644e21fa42c8c6f35c1e0c6b16c"
   },
   {
    "id": "ocado",
    "name": "Ocado",
    "file": "ocado.json",
    "count": 0,
-   "sha256": "b6e876628ed6c29c1261acb4c4a81311d4883b695b04398e461c96213f79ff99"
+   "sha256": "f2cb62b680f880872a39a6ac26a74ee0c818a0305e856cd2435fd8137ab3e14e"
   }
  ],
  "categories": [

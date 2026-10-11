@@ -1,0 +1,11 @@
+status: installed
+file: asda.svg
+tile: light
+source_url: https://asda.jobs/assets/imgs/asda-logo.svg
+page: https://asda.jobs/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Asda's own careers site (https://asda.jobs/), the file its page declares as the company logo in its JSON-LD; saved as served. It is Asda's single-colour wordmark (fill currentColor, so it shows black); asda.com and corporate.asda.com refuse this environment, so the green version was not reachable. robots.txt allows it (crawl-delay 15 s honoured).
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: 3dcb9d316f3ca06e6624f1e9195e259a30af76fd33f0e7c97bb6aa5beec12f17

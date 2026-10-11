@@ -1,0 +1,9 @@
+status: installed
+file: sainsburys.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://corporate.sainsburys.co.uk/media/_favicon/7d45f083-8040-43fe-a369-90bf8243c45f/apple-touch-icon.png?v=639257856889070000
+page_url: https://corporate.sainsburys.co.uk/
+why: the company's own apple-touch-icon, declared by its corporate home page https://corporate.sainsburys.co.uk/; saved unchanged
+sha256: 0925485ae8324093cfbecc97cfd9585ca0430f350bb0cc9ad856810b470b83d9
+retrieved: 2026-10-11

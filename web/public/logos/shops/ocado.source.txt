@@ -1,0 +1,11 @@
+status: installed
+file: ocado.svg
+tile: light
+source_url: https://ocadoretail.com/wp-content/themes/b4st-master/img/ocado-logo.svg
+page: https://ocadoretail.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Ocado Retail's own corporate site header (https://ocadoretail.com/, the company that runs Ocado.com; 'Ocado Retail' logo); saved as served; robots.txt allows it. Ocado.com itself draws its logo from an icon sprite (no standalone file) and Ocado Group's files sit on a host whose robots.txt refuses us.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: 8fb095361fec381cac120e4482df29caade18441fed5a3757fd7258ba801b410

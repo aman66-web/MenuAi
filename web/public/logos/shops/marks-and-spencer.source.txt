@@ -1,0 +1,11 @@
+status: installed
+file: marks-and-spencer.svg
+tile: light
+source_url: https://static.marksandspencer.com/images/MAndSLogo-v2.svg?key=v3
+page: https://www.marksandspencer.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Marks & Spencer's own shopping site header (https://www.marksandspencer.com/, 'Go to the M&S home page'), file served from its own static host; saved as served; that host has no robots.txt (404).
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: f278a4edc92d1df4d7bd92ffb15cff139a44f74558b8a031506ac0b43a4ece54

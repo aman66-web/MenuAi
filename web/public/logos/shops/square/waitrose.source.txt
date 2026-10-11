@@ -1,0 +1,4 @@
+status: skipped-unavailable
+page_url: https://www.johnlewispartnership.co.uk/
+why: Waitrose's own shopping site (https://www.waitrose.com/) does not answer this environment (timeouts, then an HTTP/2 INTERNAL_ERROR reset; treated as a refusal, not worked round), and the John Lewis Partnership corporate site declares only its own partnership icon, not a Waitrose one.
+retrieved: 2026-10-11

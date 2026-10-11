@@ -1,0 +1,4 @@
+status: skipped-unavailable
+page_url: https://www.tescoplc.com/
+why: Tesco's own sites (tescoplc.com, tesco.com, realfood.tesco.com) answer HTTP 403, and careers.tesco.com declares no apple-touch-icon or manifest icon (favicon.ico only).
+retrieved: 2026-10-11

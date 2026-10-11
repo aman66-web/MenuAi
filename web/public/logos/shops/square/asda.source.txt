@@ -1,0 +1,9 @@
+status: installed
+file: asda.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://asda.jobs/assets/imgs/favicons/apple-touch-icon.png
+page_url: https://asda.jobs/
+why: Asda's own careers site apple-touch-icon (the green Asda 'A'), declared by its home page https://asda.jobs/; saved unchanged
+sha256: 827bf1dd59294f50465875da1b0952533c20b28cd6ff7d61239be670f3804331
+retrieved: 2026-10-11

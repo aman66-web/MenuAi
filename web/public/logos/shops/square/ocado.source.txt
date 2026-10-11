@@ -1,0 +1,4 @@
+status: skipped-unavailable
+page_url: https://ocadoretail.com/
+why: No square icon of 120 px or more: Ocado Retail's own site declares only a 64 px favicon.png (the purple swirl) as its apple-touch-icon, www.ocado.com serves only a small favicon.ico, and Ocado Group's larger icons sit on cdn.prod.website-files.com, whose robots.txt answers 403 (not worked round).
+retrieved: 2026-10-11

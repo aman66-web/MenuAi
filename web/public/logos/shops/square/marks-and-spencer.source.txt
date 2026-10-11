@@ -1,0 +1,4 @@
+status: skipped-unavailable
+page_url: https://www.marksandspencer.com/
+why: No usable square icon: M&S declares no apple-touch-icon or manifest icon; the file at /apple-touch-icon.png on www.marksandspencer.com is an old 'add to home screen' graphic, not the M&S mark, and the corporate site's only icon is a small favicon.jpg.
+retrieved: 2026-10-11

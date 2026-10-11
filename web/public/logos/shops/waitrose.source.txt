@@ -1,0 +1,11 @@
+status: installed
+file: waitrose.svg
+tile: light
+source_url: https://www.johnlewispartnership.co.uk/~/media/Images/J/john-lewis/corp/custom-components/portrait-text-media-carousel/waitrose.svg
+page: https://www.johnlewispartnership.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: John Lewis Partnership's own corporate home page (https://www.johnlewispartnership.co.uk/), its Waitrose panel shows the Waitrose wordmark; saved as served; robots.txt does not disallow /~/media/.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: ee20af961138cf5be80b0118748e05cb43b6cdd5f7d7ec986d362c18bdf3035b

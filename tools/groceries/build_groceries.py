@@ -221,6 +221,9 @@ def implausible(kcal: float, protein: float, carbs: float, fat: float) -> str | 
     est = 4 * protein + 4 * carbs + 9 * fat
     if kcal >= 40 and abs(kcal - est) / kcal > 0.4 and abs(kcal - est) > 50:
         return "energy doesn't match macros (check)"
+    pf = 4 * protein + 9 * fat  # protein and fat always carry energy (carbs may be mostly polyols or fibre, as in sugar-free gum and sweeteners)
+    if pf >= 20 and kcal < 0.6 * pf - 5:
+        return "energy far below what the protein and fat give (e.g. 0 kcal with 4 g protein)"
     return None
 
 
@@ -985,6 +988,10 @@ def patch(out: Path) -> int:
     recat: dict = {}
     for entry in manifest["retailers"]:
         items = json.loads((out / entry["file"]).read_text())["products"]
+        dropped = [it for it in items if implausible(it["kcal"], it["protein"], it["carbs"], it["fat"])]
+        if dropped:
+            print(f"{entry['id']}: {len(dropped)} product(s) left out, their numbers can't be right: " + "; ".join(f"{d['name']} ({d['kcal']} kcal, {d['protein']} g protein)" for d in dropped[:5]) + (" ..." if len(dropped) > 5 else ""))
+            items = [it for it in items if it not in dropped]
         for it in items:
             it.pop("image", None)  # Open Food Facts' picture: never shown (founder 2026-10-10)
             if it.get("type") in UMBRELLA_TAGS:

@@ -1,0 +1,9 @@
+status: installed
+file: iceland.png
+kind: manifest-icon
+opaque: yes
+source_url: https://www.iceland.co.uk/mobify/bundle/2042/static/img/global/favicon-512x512.png
+page_url: https://www.iceland.co.uk/
+why: Iceland's own web-app manifest icon (512 px, https://www.iceland.co.uk/mobify/bundle/2042/static/manifest.json), declared by its shopping site; saved unchanged (scaled down proportionally to 256 px)
+sha256: 890ef5cfd14b8aff93d3c4b3e971e1d108e4fe58815cd240c8a26f3b907eba70
+retrieved: 2026-10-11

@@ -1,0 +1,11 @@
+status: installed
+file: iceland.png
+tile: light
+source_url: https://about.iceland.co.uk/wp-content/uploads/2017/11/logo-1.png
+page: https://about.iceland.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Iceland's own corporate site header (https://about.iceland.co.uk/, 'About Iceland' logo, 190 px wide); saved as served; robots.txt allows it. Its shopping site draws the logo as an inline SVG, so there is no file there.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: 9dea319296b3b83cc0567c5afc37596db8dcab08eba66e8acfe0d3d07e860126

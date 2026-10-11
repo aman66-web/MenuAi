@@ -1,0 +1,9 @@
+status: installed
+file: lidl.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://corporate.lidl.co.uk/bundles/nucleuscomponent/corporate/assets/@lidl/global/apple-touch-icon.3ab6ca3b81f2fb2e83150c4935fef188.png
+page_url: https://corporate.lidl.co.uk/
+why: Lidl GB's own corporate site apple-touch-icon, declared by its home page https://corporate.lidl.co.uk/; saved unchanged
+sha256: 41eaa3a3eff42140ea10ddae403f5c1057856892ac319bca36844bcaab026e7c
+retrieved: 2026-10-11

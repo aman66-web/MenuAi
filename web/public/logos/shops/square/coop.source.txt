@@ -1,0 +1,4 @@
+status: skipped-unavailable
+page_url: https://www.coop.co.uk/
+why: Co-op's own sites (coop.co.uk, co-operative.coop) answer with an Imperva 'Pardon Our Interruption' challenge page, so we stopped without reading their icon links.
+retrieved: 2026-10-11

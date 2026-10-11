@@ -1,0 +1,11 @@
+status: installed
+file: morrisons.svg
+tile: light
+source_url: https://www.morrisons.com/_next/static/media/morrisons-logo.0ij88frbd63gw.svg
+page: https://www.morrisons.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Morrisons' own shopping site header (https://www.morrisons.com/, the 'Morrisons Supermarkets' logo); saved as served; robots.txt allows it.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: 9a3f4d8645dc74c9b8e78b2064091d5cf1cafa1cd7a0a45aa2ec0b954f0eee32

@@ -90,7 +90,7 @@ def assemble_square(ts: str, problems: list[str]) -> tuple[str, str, int]:
         lines.append(f'  "{cid}": {{ src: "/logos/square/{f}"{extra} }},')
     m = re.search(r"(export const SQUARE_ICONS[^{]*\{\n)(.*?)(\n?\};)", ts, re.S)
     assert m, "SQUARE_ICONS block not found"
-    ts_new = ts[: m.start(2)] + "\n".join(lines) + ts[m.end(2):] if lines else ts[: m.start(2)] + ts[m.end(2):]
+    ts_new = ts[: m.start(2)] + "\n".join(lines) + ("" if m.group(3).startswith("\n") else "\n") + ts[m.end(2):] if lines else ts[: m.start(2)] + ts[m.end(2):]
     md = ("# Square icons\n\nEach chain's own square icon (apple-touch-icon, web-app manifest icon or SVG site icon) as its own website serves it, "
           "saved unchanged (a raster over 256 px only scaled down proportionally), fetched by `tools/logos/fetch_square_icons.py` with robots.txt "
           "honoured. Shown in the app's square logo tiles in preference to the wide logo file (founder 2026-10-11: \"All logos should be 1:1\"). "
@@ -141,7 +141,7 @@ def assemble_shops(ts: str, problems: list[str]) -> tuple[str, str, int]:
         lines.append(f'  "{sid}": {{ {", ".join(parts)} }},')
     m = re.search(r"(export const SHOP_LOGOS[^{]*\{\n)(.*?)(\n?\};)", ts, re.S)
     assert m, "SHOP_LOGOS block not found"
-    ts_new = ts[: m.start(2)] + "\n".join(lines) + ts[m.end(2):] if lines else ts[: m.start(2)] + ts[m.end(2):]
+    ts_new = ts[: m.start(2)] + "\n".join(lines) + ("" if m.group(3).startswith("\n") else "\n") + ts[m.end(2):] if lines else ts[: m.start(2)] + ts[m.end(2):]
     md = ("# Supermarket logos\n\nEach supermarket's own logo (and its own square icon where one of its sites serves one), saved as its own website serves it "
           "(founder 2026-10-11: \"Add all logos for grocery stores too\"). Same rules and take-down promise as the restaurant logos in `../SOURCES.md`.\n\n"
           "| Shop | File | Status | Why | Terms page | Retrieved |\n|---|---|---|---|---|---|\n" + "\n".join(rows) + "\n")

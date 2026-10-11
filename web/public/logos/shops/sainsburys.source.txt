@@ -1,0 +1,11 @@
+status: installed
+file: sainsburys.svg
+tile: light
+source_url: https://corporate.sainsburys.co.uk/media/5qeg3beh/sainsburys-logo.svg
+page: https://corporate.sainsburys.co.uk/about-us/our-brands/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Sainsbury's own corporate site, its Our brands page (https://corporate.sainsburys.co.uk/about-us/our-brands/), the Sainsbury's brand logo; saved as served; robots.txt allows it (Disallow empty).
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: 1efd9a405049246fc33bb7945635d1f19478c89c3488daa7c8b9e8c814ad7510

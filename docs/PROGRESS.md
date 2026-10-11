@@ -691,6 +691,30 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   with `NEXT_PUBLIC_ALL_FREE=0` so they still check the paywall (e2e/README.md). (3) **Kick Ass Burrito** (52 items, full nutrition and
   allergens) moved from `data/held-unpublished/` to `data/source/` and published: **221 chains live**.
 
+- 2026-10-11 — **Photos for every product, and supermarket logos (founder: "Make sure you are adding images for every product too", "ensure all items have
+  images from their respective grocery chain", "Add all logos for grocery stores too").** **Menu photos:** 8 helpers went through the 162 chains that had none, under
+  the same rules as before (the chain's own site or feed only, robots.txt honoured, exact name or product-record matches, every set looked at on a contact sheet;
+  photos with promotional lettering, printed figures, placeholders, drawn illustrations or another product's picture left out). Added 1,135 photos on 21 chains:
+  Subway 146, ASK Italian 143, Zizzi 134, Coco di Mama 131, Nando's 123, Sushi Shop 123, Fireaway 57, Starbucks 55 (re-matched to its current items), Baynes 38,
+  Turtle Bay 32, KFC 28, Greenhalgh's 26, Wild Bean Café 23, Ben's Cookies 19, Burger King 18, The Salad Project 11, Third Space 9, Sizzling Pubs 8, Chopstix 8,
+  Brightside 2, Flat Iron 1. **4,329 of 37,226 items (12%) on 80 chains now have the chain's own photo** (was 3,194). The rest can't get one from here: most
+  pubs, hotels, holiday parks, cinemas and many restaurants publish no per-dish photos (menus are PDFs or text), every Ten Kites-hosted menu's photos sit on
+  images.tenkites.com (robots.txt `Disallow: /`), several sites block this environment (McDonald's, Domino's, Costa, Muffin Break, the Mitchells & Butlers
+  brands, Bettys), and some chains keep their photos on hosts whose robots.txt answers 403 (Atis, The Alchemist, Honi Poke, The Breakfast Club, Buy & Bite, Kokoro,
+  Tortilla, Sbarro, Amigos: scripts written and kept, not run; founder decision (d) below). **Supermarket logos:** each shop's own logo next to its name on the
+  Groceries chips, "Every {shop} product", the product page's shop switcher, the shopping list, the shop picker and the welcome wall (`SHOP_LOGOS`, `ShopMark`;
+  CLAUDE.md rule 2 amended): 9 of 11 installed from the companies' own sites (Sainsbury's and Aldi from their corporate/press pages, Waitrose from the John Lewis
+  Partnership's, Asda from asda.jobs, the rest from the shopping sites), 6 with their own square icon; **Tesco and Co-op** blocked us (queued for the founder's
+  browser in `data/chrome-inbox/QUEUE-LOGOS.md`; they show a basket meanwhile). Asda's wordmark file is single-colour (shows black), its square icon is the green A.
+  **Grocery photos:** the full Sainsbury's list has the shop's own photo for 16,473 of 17,036 products (the other 563 had none on the category pages); the barcode
+  catalogue has Sainsbury's 809 of 2,736 and Tesco 339 of 4,475: the only link from a barcode to the shop's photo is the shop's product page, which refuses this
+  environment, so the rest needs the founder's Chrome run (`docs/NEXT_GROCERIES_IMAGES_PROMPT.md`, wanted lists in `data/groceries/wanted-images/`, full-list gaps
+  read by `build_all_products.py` from `data/groceries/images/<shop>-listing.csv`). **Grocery data fix found on the way:** 15 community records whose calories can't
+  match their protein and fat (e.g. "Breast mini fillets" 0.1 kcal with 4 g protein, "Cottage Pie Recipe Mix" 1.9 kcal) sat at the top of the default "most protein
+  per 100 kcal" list; `build_groceries.implausible` now also rejects energy far below what the protein and fat give (carbs are left out of that check because
+  sugar-free gum and sweeteners are mostly polyols), and they are out of the app. Checked: 423 unit tests, 115 Python, e2e smoke 23, extra 11, a11y 0 violations,
+  groceries 6, groceries-all 5, groceries-compare 8, groceries-photos 4.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -723,6 +747,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
+- [ ] **Supermarket logos: Tesco and Co-op** blocked us; save each from its own site in your browser (`data/chrome-inbox/QUEUE-LOGOS.md`)
 - [ ] **Logos (11 of 220 missing):** Atis, Bettys, Buy & Bite, Costa, Domino's, Fuller's, Honi Poke, Kokoro, McDonald's, Tesco Café, Wild Bean Café (their sites block us, disallow robots, or serve no logo file we may use; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
 - [x] **Decide: Kick Ass Burrito**: publish (2026-10-11), now live.
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
@@ -734,5 +759,5 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] **Food images, your decision per chain:** the photo feature is built and works (checked with real KFC, Subway and Nando's photos), but the terms of **every chain checked (11 of 11: KFC, Subway, Nando's, Pret, Greggs, Five Guys, Pizza Express, Prezzo, Wagamama, Pizza Hut, Starbucks) say images/content may not be copied or reused without written permission or a licence** (exact quotes: `docs/IMAGE_TERMS.md`). You told me you'd checked you may use them, so I built it, but I haven't installed any photos until you confirm for chains whose terms say this. Options: (1) tell me "install them" for all or named chains (your legal risk; I keep the sources + `images.csv`, and delete a chain's photos the day it asks); (2) email the chains for written permission (the prepared photo sets for Pizza Hut, Starbucks, KFC, Subway, Nando's, Pret, Greggs and Five Guys are kept ready and install in one step); (3) leave photos out for now (cuisine icons stay)
 - [ ] **Xcode preview shell:** follow docs/XCODE_PREVIEW_SHELL.md (Vercel Production Branch → create the Xcode project → ask Claude on the Mac to copy the files → Run on your iPhone)
 - [ ] **Chains to send me files for (saved from your own browser):** McDonald's, Domino's, Papa Johns, Costa; Coffee Republic's PDF (`data/held-downloads/coffee-republic.pdf`); Sushi Shop's 177 product pages; Brewhouse & Kitchen's allergen matrix; Dave's Hot Chicken's two allergen PDFs; the Angus Steakhouse ifoodi page, John Lewis restaurants page, Betty's allergen page; Subway, Zizzi, Pizza Express, ASK, Coco di Mama, Ole & Steen, Starbucks and Burger King PDFs (held in `data/held-robots/`). Exact addresses: `docs/UK_DATA_STATUS.md` ("Blocked: needs a file from you")
-- [ ] **Decide:** (a) The Salad Project, Thaikhun, Byron: ask the chains which figures are current, or say "publish the page figures" / "publish anyway"; (b) Honi Poke and Chiquito: keep or remove (both have thin or self-inconsistent data, notes explain); (c) Jollibee's drinks (March 2023 chart); (d) whether a 403 on an image host's robots.txt may be read as "no rules" (RFC 9309 says yes; I stopped instead) for Sbarro, Amigos, Kokoro, Tortilla photos; (e) Wetherspoon's terms clause and Boston Tea Party's vendor-hosted photos; (f) Norse Catering (school lunches): say "publish" if you want it
+- [ ] **Decide:** (a) The Salad Project, Thaikhun, Byron: ask the chains which figures are current, or say "publish the page figures" / "publish anyway"; (b) Honi Poke and Chiquito: keep or remove (both have thin or self-inconsistent data, notes explain); (c) Jollibee's drinks (March 2023 chart); (d) whether a 403 on an image host's robots.txt may be read as "no rules" (RFC 9309 says yes; I stopped instead) for the photos of Sbarro, Amigos, Kokoro, Tortilla, Atis, The Alchemist, Honi Poke, The Breakfast Club and Buy & Bite (scripts ready); (e) Wetherspoon's terms clause and Boston Tea Party's vendor-hosted photos; (f) Norse Catering (school lunches): say "publish" if you want it
 - [ ] **For more complete-nutrition chains, save from your own browser:** Dave's Hot Chicken's "Nutritional Guide April 2026" PDF (https://cdn.sanity.io/files/ysupxjc9/production/4197d7ab55a5f626cea8dacde450fd8788c28063.pdf/Nutritional-Guide-April-2026.pdf), one Hungry Horse pub report from smartchef.co.uk (it may print full macros), Atis's four guide PDFs and Smith & Western's PDF; and decide whether the 80 calories-only chains stay live

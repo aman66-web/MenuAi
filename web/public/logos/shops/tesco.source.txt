@@ -1,0 +1,5 @@
+status: skipped-blocked
+page: https://www.tescoplc.com/
+why: Tesco's own sites refuse this environment (HTTP 403 on www.tescoplc.com, www.tesco.com and realfood.tesco.com, robots.txt included for tescoplc.com); careers.tesco.com answers but its only logo file is the 'TESCO Careers' lock-up, not the plain Tesco logo, so it was not installed. Save the logo from the header of https://www.tescoplc.com/ (or https://www.tesco.com/) in your own browser.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11

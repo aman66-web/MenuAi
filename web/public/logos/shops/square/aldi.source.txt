@@ -1,0 +1,9 @@
+status: installed
+file: aldi.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.aldipresscentre.co.uk/wp-content/uploads/2020/07/cropped-ALDI_2017-1-180x180.png
+page_url: https://www.aldipresscentre.co.uk/
+why: Aldi UK's own press centre apple-touch-icon, declared by its home page https://www.aldipresscentre.co.uk/; saved unchanged (the logo on a transparent square)
+sha256: f9bff19063ead29cae7e82cda0b4dcda6f4a03ef54429c49c7d79886b02ed649
+retrieved: 2026-10-11

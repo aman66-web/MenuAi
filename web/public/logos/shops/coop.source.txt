@@ -1,0 +1,5 @@
+status: skipped-blocked
+page: https://www.coop.co.uk/
+why: Co-op's own sites (https://www.coop.co.uk/ and https://www.co-operative.coop/) answer with an Imperva 'Pardon Our Interruption' challenge page (robots.txt itself is fine), so we stopped; save the logo from the header of https://www.coop.co.uk/ (right-click the logo, Save Image) in your own browser.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11

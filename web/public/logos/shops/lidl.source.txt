@@ -1,0 +1,11 @@
+status: installed
+file: lidl.svg
+tile: light
+source_url: https://www.lidl.co.uk/static/assets/lidl-shop-great-britain-453962.svg
+page: https://www.lidl.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Lidl GB's own shopping site header (https://www.lidl.co.uk/, 'Lidl Great Britain Logo'); saved as served; robots.txt does not disallow /static/assets/.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
+retrieved: 2026-10-11
+sha256: 6d11999b85edde588d932775b04cfc87698e868ec08a5729857b5d7106642a73
