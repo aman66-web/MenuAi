@@ -1,0 +1,6 @@
+item_id,reason
+club-sandwich,allergen row contradicts the dish name: a sandwich (bread) but no gluten is marked (neither 'Contains' nor 'May contain'). Restore by deleting this entry once the chain confirms the allergens.
+rigatoni-mac-and-cheese,"The chain's own page contradicts itself for this dish, so nothing is chosen: 572356 kcal in one portion is not credible; 22021.4 g of protein in one portion is not credible; 56628.8 g of carbohydrate in one portion is not credible; 28175.3 g of fat in one portion is not credible; salt 2556.2 g in one portion is not credible."
+roasted-bone-marrow,"The chain's own page contradicts itself for this dish, so nothing is chosen: printed calories (690) differ by more than 30% from the energy of its own protein, carbs and fat (about 263 kcal)."
+miniature-chocolate-brownie,allergen row contradicts the dish name: a brownie but no gluten is marked (neither 'Contains' nor 'May contain'). Restore by deleting this entry once the chain confirms the allergens.
+fusilli-pesto-pasta-childrens,allergen row contradicts the dish name: fusilli pasta but no gluten is marked (neither 'Contains' nor 'May contain'). Restore by deleting this entry once the chain confirms the allergens.

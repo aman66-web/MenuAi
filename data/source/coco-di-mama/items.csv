@@ -1,0 +1,186 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+almond-croissant-v,Almond Croissant (V),Pastries,,546,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+butter-croissant-v,Butter Croissant (V),Pastries,,302,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+caprese-croissant-v,Caprese Croissant (V),Pastries,,400,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+cotto-ham-and-cheese-croissant,Cotto Ham & Cheese Croissant,Pastries,,462,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+pain-au-chocolat-v,Pain au Chocolat (V),Pastries,,391,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-croissant-v,Pistachio Croissant (V),Pastries,,393,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+americano-large,Americano - Large,Hot Coffees,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+americano-small,Americano - Small,Hot Coffees,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-latte-large,Biscoff Latte - Large,Hot Coffees,,288,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-latte-small,Biscoff Latte - Small,Hot Coffees,,206,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+cappuccino-large,Cappuccino - Large,Hot Coffees,,165,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+cappuccino-small,Cappuccino - Small,Hot Coffees,,110,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+espresso-double,Espresso - Double,Hot Coffees,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+flat-white-large,Flat White - Large,Hot Coffees,,188,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+flat-white-small,Flat White - Small,Hot Coffees,,135,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+latte-large,Latte - Large,Hot Coffees,,182,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+latte-small,Latte - Small,Hot Coffees,,114,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+macchiato-double,Macchiato - Double,Hot Coffees,,15,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+macchiato-single,Macchiato - Single,Hot Coffees,,15,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+mocha-large,Mocha - Large,Hot Coffees,,303,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+mocha-small,Mocha - Small,Hot Coffees,,236,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-latte-large,Pistachio Latte - Large,Hot Coffees,,265,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-latte-small,Pistachio Latte - Small,Hot Coffees,,250,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+the-good-brew-filter-large,The Good Brew Filter - Large,Hot Coffees,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+the-good-brew-filter-small,The Good Brew Filter - Small,Hot Coffees,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+white-chocolate-and-hazelnut-latte-large,White Chocolate & Hazelnut Latte - Large,Hot Coffees,,344,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+white-chocolate-and-hazelnut-latte-small,White Chocolate & Hazelnut Latte - Small,Hot Coffees,,251,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+antipasti-balance-bowl-ve,Antipasti Balance Bowl (VE),Salads,,818,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+caprese-side-salad-v,Caprese Side Salad (V),Salads,,126,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+green-goddess-chicken-power-pot,Green Goddess Chicken Power Pot,Salads,,291,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+hot-smoked-salmon-and-pesto-bowl-by-emma-petersen,Hot Smoked Salmon & Pesto Bowl by Emma Petersen,Salads,,462,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+pesto-pollo-pasta-fit-bowl,Pesto Pollo Pasta Fit Bowl,Salads,,492,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+power-chicken-caesar,Power Chicken Caesar,Salads,,684,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+pulled-lemon-chicken-balance-bowl,Pulled Lemon Chicken Balance Bowl,Salads,,577,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+apple,Apple,Yoghurts & Fruit,,80,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+apple-and-cinnamon-overnight-oats-v,Apple & Cinnamon Overnight Oats (V),Yoghurts & Fruit,,277,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+banana,Banana,Yoghurts & Fruit,,67,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+banana-honey-granola-yoghurt-v,Banana Honey Granola Yoghurt (V),Yoghurts & Fruit,,337,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+big-boy-bircher-v,Big Boy Bircher (V),Yoghurts & Fruit,,352,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+chocolate-and-coconut-chia-pudding-ve,Chocolate & Coconut Chia Pudding (VE),Yoghurts & Fruit,,298,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+compote-granola-yoghurt-v,Compote Granola Yoghurt (V),Yoghurts & Fruit,,255,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+mango-and-coconut-smoothie-pot-v,Mango & Coconut Smoothie Pot (V),Yoghurts & Fruit,,176,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-matcha-pot-v,Pistachio Matcha Pot (V),Yoghurts & Fruit,,314,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+tiramisu-overnight-oats-ve,Tiramisu Overnight Oats (VE),Yoghurts & Fruit,,438,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+very-berry-fruit-pot,Very Berry Fruit Pot,Yoghurts & Fruit,,53,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+aqua-libra-sparkling,Aqua Libra Sparkling,Cold Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+aqua-libra-still,Aqua Libra Still,Cold Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+coca-cola,Coca Cola,Cold Drinks,,139,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+coca-cola-zero,Coca Cola Zero,Cold Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+daily-dose-ginger-zinger,Daily Dose Ginger Zinger,Cold Drinks,,102,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+daily-dose-orange-juice,Daily Dose Orange Juice,Cold Drinks,,141,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+daily-dose-pomm-juice,Daily Dose Pomm Juice,Cold Drinks,,120,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+diet-coke,Diet Coke,Cold Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+living-things-cherry-and-lime,Living Things Cherry & Lime,Cold Drinks,,40,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+living-things-watermelon-and-lime,Living Things Watermelon & Lime,Cold Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+san-pellegrino-blood-orange,San Pellegrino Blood Orange,Cold Drinks,,59,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+san-pellegrino-lemon,San Pellegrino Lemon,Cold Drinks,,63,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+sprite-zero,Sprite Zero,Cold Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+tenzing-raspberry-and-yuzu,Tenzing Raspberry & Yuzu,Cold Drinks,,59,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+trip-elderflower-and-mint,TRIP Elderflower & Mint,Cold Drinks,,22,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+bacon-and-avo-egg-box,Bacon & Avo Egg Box,Breakfast,,307,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+bacon-and-sausage-on-multigrain-sourdough-large,Bacon & Sausage on Multigrain Sourdough - Large,Breakfast,,907,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+bacon-and-sausage-on-multigrain-sourdough-small,Bacon & Sausage on Multigrain Sourdough - Small,Breakfast,,718,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+bacon-and-sausage-on-white-sourdough-large,Bacon & Sausage on White Sourdough - Large,Breakfast,,998,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+bacon-and-sausage-on-white-sourdough-small,Bacon & Sausage on White Sourdough - Small,Breakfast,,659,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+coco-hash-browns-ve,Coco Hash Browns (VE),Breakfast,,122,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+cocos-breakfast-puccia,Coco's Breakfast Puccia,Breakfast,,596,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+cocos-classic-large-v,Coco's Classic - Large (V),Breakfast,,315,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+cocos-classic-small-v,Coco's Classic - Small (V),Breakfast,,247,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+crispy-bacon-on-multigrain-sourdough-large,Crispy Bacon on Multigrain Sourdough - Large,Breakfast,,691,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+crispy-bacon-on-multigrain-sourdough-small,Crispy Bacon on Multigrain Sourdough -Small,Breakfast,,473,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+crispy-bacon-on-white-sourdough-large,Crispy Bacon on White Sourdough - Large,Breakfast,,673,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+crispy-bacon-on-white-sourdough-small,Crispy Bacon on White Sourdough - Small,Breakfast,,461,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+mushroom-and-avo-egg-box-v,Mushroom & Avo Egg Box (V),Breakfast,,158,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+naked-porridge-small-v,Naked Porridge - Small (V),Breakfast,,204,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pesto-mushroom-and-avo-egg-puccia-v,"Pesto, Mushroom & Avo Egg Puccia (V)",Breakfast,,506,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pork-and-sage-sausage-on-multigrain-sourdough-large,Pork & Sage Sausage on Multigrain Sourdough - Large,Breakfast,,863,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+pork-and-sage-sausage-on-multigrain-sourdough-small,Pork & Sage Sausage on Multigrain Sourdough - Small,Breakfast,,490,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+pork-and-sage-sausage-on-white-sourdough-large,Pork & Sage Sausage on White Sourdough - Large,Breakfast,,562,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+pork-and-sage-sausage-on-white-sourdough-small,Pork & Sage Sausage on White Sourdough - Small,Breakfast,,450,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+salmon-and-avo-egg-box,Salmon & Avo Egg Box,Breakfast,,185,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+superfood-peanut-porridge-large-v,Superfood Peanut Porridge - Large (V),Breakfast,,400,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+superfood-peanut-porridge-small-v,Superfood Peanut Porridge - Small (V),Breakfast,,332,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+berry-bomboloni-trio-v,Berry Bomboloni Trio (V),Sweet Treats,,316,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-bomboloni-v,Biscoff Bomboloni (V),Sweet Treats,,106,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-bomboloni-trio-v,Biscoff Bomboloni Trio (V),Sweet Treats,,317,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-donut-ve,Biscoff Donut (VE),Sweet Treats,,258,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+chocolate-hazelnut-bomboloni-v,Chocolate Hazelnut Bomboloni (V),Sweet Treats,,121,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+chocolate-hazelnut-bomboloni-trio-v,Chocolate Hazelnut Bomboloni Trio (V),Sweet Treats,,363,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+crackin-cookies-belgian-choc-chunk-v,Crackin' Cookies - Belgian Choc Chunk (V),Sweet Treats,,275,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+double-choc-bomboloni-v,Double Choc Bomboloni (V),Sweet Treats,,106,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+double-choc-bomboloni-trio-v,Double Choc Bomboloni Trio (V),Sweet Treats,,317,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-bomboloni-v,Pistachio Bomboloni (V),Sweet Treats,,107,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-bomboloni-trio-v,Pistachio Bomboloni Trio (V),Sweet Treats,,322,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+tonys-chocolonely-caramel-sea-salt-v,Tony's Chocolonely - Caramel Sea Salt (V),Sweet Treats,,249,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+tonys-chocolonely-milk-chocolate-v,Tony's Chocolonely - Milk Chocolate (V),Sweet Treats,,268,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+very-berry-bomboloni-v,Very Berry Bomboloni (V),Sweet Treats,,106,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-iced-latte-large,Biscoff Iced Latte - Large,Iced Coffees,,288,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-iced-latte-small,Biscoff Iced Latte - Small,Iced Coffees,,206,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+caramel-iced-latte-large,Caramel iced Latte - Large,Iced Coffees,,237,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+caramel-iced-latte-small,Caramel Iced Latte - Small,Iced Coffees,,153,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+coconut-vanilla-iced-latte-large,Coconut Vanilla Iced Latte - Large,Iced Coffees,,236,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+coconut-vanilla-iced-latte-small,Coconut Vanilla Iced Latte - Small,Iced Coffees,,181,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-americano-large,Iced Americano - Large,Iced Coffees,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-americano-small,Iced Americano - Small,Iced Coffees,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-latte-large,Iced Latte - Large,Iced Coffees,,169,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-latte-small,Iced Latte - Small,Iced Coffees,,117,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-iced-latte-large,Pistachio Iced Latte - Large,Iced Coffees,,405,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pistachio-iced-latte-small,Pistachio Iced Latte - Small,Iced Coffees,,294,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+white-chocolate-and-hazelnut-iced-latte-large,White Chocolate & Hazelnut Iced Latte - Large,Iced Coffees,,407,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+white-chocolate-and-hazelnut-iced-latte-small,White Chocolate & Hazelnut Iced Latte - Small,Iced Coffees,,296,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-matcha-latte-large,Biscoff Matcha Latte - Large,Matcha,,290,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+biscoff-matcha-latte-small,Biscoff Matcha Latte - Small,Matcha,,208,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-biscoff-matcha-large,Iced Biscoff Matcha - Large,Matcha,,290,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-biscoff-matcha-small,Iced Biscoff Matcha - Small,Matcha,,208,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-cherry-matcha-large,Iced Cherry Matcha - Large,Matcha,,270,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-cherry-matcha-small,Iced Cherry Matcha - Small,Matcha,,186,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-coconut-vanilla-matcha-large,Iced Coconut Vanilla Matcha - Large,Matcha,,236,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-coconut-vanilla-matcha-small,Iced Coconut Vanilla Matcha - Small,Matcha,,183,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-matcha-latte-large,Iced Matcha Latte - Large,Matcha,,176,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-matcha-latte-small,Iced Matcha Latte - Small,Matcha,,124,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-pistachio-matcha-large,Iced Pistachio Matcha - Large,Matcha,,354,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+iced-pistachio-matcha-small,Iced Pistachio Matcha - Small,Matcha,,213,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+matcha-latte-large,Matcha Latte - Large,Matcha,,189,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+matcha-latte-small,Matcha Latte - Small,Matcha,,123,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+calabrian-chilli-pulled-pork-mac-and-cheese,Calabrian Chilli Pulled Pork Mac & Cheese,Hot & Hearty,,741,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+cocos-mac-and-cheese-v,Coco's Mac & Cheese (V),Hot & Hearty,,803,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+lasagne-soup,Lasagne Soup,Hot & Hearty,,460,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 12 sites
+signature-beef-lasagne,Signature Beef Lasagne,Hot & Hearty,,691,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 12 sites
+spicy-pollo-lasagne,Spicy Pollo Lasagne,Hot & Hearty,,678,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+calabrian-hot-honey-chicken-parm-on-sourdough-ciabatta,Calabrian Hot Honey Chicken Parm on Sourdough Ciabatta,Sandwiches,,722,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+caprese-on-multigrain-sourdough-v,Caprese on Multigrain Sourdough (V),Sandwiches,,510,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+chicken-caesar-and-bacon-on-sourdough,Chicken Caesar & Bacon on Sourdough,Sandwiches,,631,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+pesto-chicken-and-mozzarella-on-multigrain-sourdough,Pesto Chicken & Mozzarella on Multigrain Sourdough,Sandwiches,,757,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+prosciutto-and-mozzarella-on-multigrain-sourdough,Prosciutto & Mozzarella on Multigrain Sourdough,Sandwiches,,682,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+spicy-milanese-and-mozzarella-on-sourdough,Spicy Milanese & Mozzarella on Sourdough,Sandwiches,,949,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+calabrian-hot-honey-glazed-salmon-power-bowl,Calabrian Hot Honey Glazed Salmon Power Bowl,Mediterranean Power Bowls,,689,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+lemon-and-herb-chicken-power-bowl,Lemon & Herb Chicken Power Bowl,Mediterranean Power Bowls,,706,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+pesto-and-sunblush-tomato-chickpea-power-bowl-ve,Pesto & Sunblush Tomato Chickpea Power Bowl (VE),Mediterranean Power Bowls,,507,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+eat-real-hummus-chips-caramelised-onion-and-balsamic-ve,Eat Real Hummus Chips - Caramelised Onion & Balsamic (VE),Sides,,201,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+eat-real-hummus-chips-italian-cheese-and-black-pepper-ve,Eat Real Hummus Chips - Italian Cheese & Black Pepper (VE),Sides,,202,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+herby-hash-bites-v,Herby Hash Bites (V),Sides,,266,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+loaded-caesar-dip-with-basil-crostini,Loaded Caesar Dip with Basil Crostini,Sides,,193,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+milanese-chicken-bites-and-hot-honey-mayo,Milanese Chicken Bites & Hot Honey Mayo,Sides,,310,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+milanese-chicken-bites-and-pesto-mayo,Milanese Chicken Bites & Pesto Mayo,Sides,,306,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 12 sites
+pipers-crisps-chorizo,Pipers Crisps - Chorizo,Sides,,210,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+pipers-crisps-cider-vinegar-and-sea-salt-v,Pipers Crisps - Cider Vinegar & Sea Salt (V),Sides,,209,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+pipers-crisps-sea-salt-ve,Pipers Crisps - Sea Salt (VE),Sides,,213,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+sourdough-garlic-bread-with-mozzarella-v,Sourdough Garlic Bread with Mozzarella (V),Sides,,221,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+sourdough-garlic-bread-with-rosemary-ve,Sourdough Garlic Bread with Rosemary (VE),Sides,,192,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+three-cheese-mac-and-cheese-bites-v,Three Cheese Mac & Cheese Bites (V),Sides,,234,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+truffle-hash-bites-v,Truffle Hash Bites (V),Sides,,272,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+fancy-teas,Fancy Teas,Tea & Hot Chocolate,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+hot-chocolate-large,Hot Chocolate - Large,Tea & Hot Chocolate,,274,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+hot-chocolate-small,Hot Chocolate - Small,Tea & Hot Chocolate,,207,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+fiery-nduja-salami-and-chilli-honey-pinsa,"Fiery Nduja, Salami & Chilli Honey Pinsa",Sourdough Pinsas,,607,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+ham-and-mushroom-pinsa,Ham & Mushroom Pinsa,Sourdough Pinsas,,459,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 12 sites
+margherita-pinsa-v,Margherita Pinsa (V),Sourdough Pinsas,,438,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 12 sites
+banging-biscoff-cheesecake-v,Banging Biscoff Cheesecake (V),Delivery kitchen menu - Sweet Treats,,499,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 25 sites
+chocolate-brownie-bites-v,Chocolate Brownie Bites (V),Delivery kitchen menu - Sweet Treats,,574,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 135 sites
+coco-choco-fudge-cake-ve,Coco Choco Fudge Cake (VE),Delivery kitchen menu - Sweet Treats,,609,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+mega-bomboloni-party-v-x9,Mega Bomboloni Party (V) x9,Delivery kitchen menu - Sweet Treats,,952,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 135 sites
+pistachio-bomboloni-trio-v-x3,Pistachio Bomboloni Trio (V) x3,Delivery kitchen menu - Sweet Treats,,322,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+ultimate-bomboloni-party-v,Ultimate Bomboloni Party (V),Delivery kitchen menu - Sweet Treats,,958,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+belu-water-sparkling,Belu Water Sparkling,Delivery kitchen menu - Drinks,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 135 sites
+belu-water-still,Belu Water Still,Delivery kitchen menu - Drinks,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 135 sites
+san-pellegrino-blood-orange-2,San Pellegrino - Blood Orange,Delivery kitchen menu - Drinks,,66,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+san-pellegrino-lemon-2,San Pellegrino - Lemon,Delivery kitchen menu - Drinks,,63,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+trip-blood-orange,Trip - Blood Orange,Delivery kitchen menu - Drinks,,22,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+calamari,Calamari,Delivery kitchen menu - Sides,,570,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 25 sites
+cheeky-caprese-side-salad-v,Cheeky Caprese Side Salad (V),Delivery kitchen menu - Sides,,222,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+coco-chunky-chips-v,Coco Chunky Chips (V),Delivery kitchen menu - Sides,,556,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 25 sites
+coco-fries,Coco Fries,Delivery kitchen menu - Sides,,710,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+double-up-coco-chunky-chips-v,Double Up Coco Chunky Chips (V),Delivery kitchen menu - Sides,,1112,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 25 sites
+double-up-tomato-basil-and-mozzarella-arancini-v-x6,"Double Up Tomato, Basil & Mozzarella Arancini (V) x6",Delivery kitchen menu - Sides,,632,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+mac-and-cheese-bites-v-x-5,Mac & Cheese Bites (V) x 5,Delivery kitchen menu - Sides,,367,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+marinated-olives-ve,Marinated Olives (VE),Delivery kitchen menu - Sides,,218,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 25 sites
+mixed-olives-ve,Mixed Olives (VE),Delivery kitchen menu - Sides,,150,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+nduja-garlic-bread-dip,Nduja Garlic Bread + Dip,Delivery kitchen menu - Sides,,976,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 110 sites
+rosemary-garlic-bread-ve,Rosemary Garlic Bread (VE),Delivery kitchen menu - Sides,,635,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+rosemary-garlic-pizza-bread-ve,Rosemary Garlic Pizza Bread (VE),Delivery kitchen menu - Sides,,623,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 25 sites
+tomato-basil-and-mozzarella-arancini-v-x3,"Tomato, Basil & Mozzarella Arancini (V) x3",Delivery kitchen menu - Sides,,316,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 110 sites
+trio-of-dips-v,Trio of Dips (V),Delivery kitchen menu - Sides,,171,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 25 sites
+salami-piccante-pinsa,Salami Piccante Pinsa,Delivery kitchen menu - Sourdough Pinsas,,560,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 110 sites
+spicy-pollo-pinsa,Spicy Pollo Pinsa,Delivery kitchen menu - Sourdough Pinsas,,547,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 110 sites

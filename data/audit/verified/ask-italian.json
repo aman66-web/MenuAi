@@ -1,0 +1,14 @@
+{
+ "chain": "ask-italian",
+ "date": "2026-10-10",
+ "source_read": "https://www.askitalian.co.uk/menus and the menu pages of the 55 open restaurants in its sitemap (full menu + Grande Set Menu + Kids Set Menu tabs, 165 pages), downloaded 2026-10-10 23:46-23:56 UTC; central /menus SHA-256 bc929242590709751c7af8c11eb43c88c2c219e3354610c4da9253fcef2b24c0. robots.txt (RFC 9309 matcher): User-agent * Allow / ; Disallow /api/ /studio/ /bookings/share/ /_next/. No other host contacted. The nutrition/allergen PDFs on cdn.sanity.io (robots: Disallow /*.pdf) were not used.",
+ "method": "Fresh copies of 4 pages were downloaded with curl on 2026-10-10 (Glasgow full menu, Glasgow Grande Set Menu, Glasgow Kids Set Menu, Worthing Grande Set Menu: Worthing is one of the 2 restaurants with the minority Grande menu) and read offline in headless Chromium with JavaScript off and every network request aborted (innerText of each dish card: name, 'NNN kcal', Vegetarian/Vegan chips), a different method from the script's regex parse of its own cache. 35 published rows picked by rule (lowest and highest calories, then the middle row and the second row of every category, set-menu rows included) were compared name by name and number by number, plus the vegetarian tag against the page's chips.",
+ "compared_items": 35,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 35,
+ "not_verifiable": "allergens: none published (the chain's allergen source is a PDF on a host whose robots.txt disallows it; the per-dish allergen list in the page's script data is not shown on the page and was not used), so nothing was compared. Alcoholic drinks print no calories on the page (35 dishes) and are not published.",
+ "notes": "Calories-only chain. In the script's own checks every dish's rendered 'NNN kcal' equals the number in the page's script data (all 165 pages), the central page's JSON-LD agrees with its rendered text for all 177 names, and the central page agrees with the 55 restaurants. Full menu: all 177 dishes print identical calories at all 55 restaurants (0 left out). The Grande Set Menu exists in two versions: 53 restaurants print one, London Spring Street and Worthing print another (25 dishes with other calories or names); a name printed with two values is left out (17 dishes), and the dishes only the 2-restaurant version prints (e.g. Vegan - Margherita 759, Pollo Millanese 1009, with the page's own spelling) are published because they match at both restaurants, as the rule says."
+}

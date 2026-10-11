@@ -1,0 +1,238 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+all-out-lasagne,All Out Lasagne,Pasta,,1123,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 127 sites
+bolognese-classico,Bolognese Classico,Pasta,,553,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 127 sites
+chorizo-carbonara,Chorizo Carbonara,Pasta,,1099,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+pesto-rosso,Pesto Rosso,Pasta,,1098,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+pollo-della-casa,Pollo Della Casa,Pasta,,863,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+pollo-piccante,Pollo Piccante,Pasta,,1289,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+pomodoro,Pomodoro,Pasta,,586,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+ravioli-di-capra,Ravioli Di Capra,Pasta,,654,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+six-layer-lasagne,Six Layer Lasagne,Pasta,,872,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 127 sites
+vegan-lentil-ragu,Vegan Lentil Ragu,Pasta,,576,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+vegan-pomodoro,Vegan Pomodoro,Pasta,,574,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+vegan-rainbow-lasagne,Vegan Rainbow Lasagne,Pasta,,769,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+americano,Americano,Coffee & Tea,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+cappuccino,Cappuccino,Coffee & Tea,,69,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+double-espresso,Double Espresso,Coffee & Tea,,20,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+earl-grey,Earl Grey,Coffee & Tea,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+english-breakfast,English Breakfast,Coffee & Tea,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+flat-white,Flat White,Coffee & Tea,,123,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+fresh-mint-tea,Fresh Mint Tea,Coffee & Tea,,21,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+hot-chocolate,Hot Chocolate,Coffee & Tea,,231,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+hot-cioccolata,Hot Cioccolata,Coffee & Tea,,320,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+ice-americano,Ice Americano,Coffee & Tea,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+iced-latte,Iced Latte,Coffee & Tea,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+latte,Latte,Coffee & Tea,,123,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+macchiato,Macchiato,Coffee & Tea,,86,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+mocha,Mocha,Coffee & Tea,,116,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+oat-americano,Oat Americano,Coffee & Tea,,47,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+oat-cappuccino,Oat Cappuccino,Coffee & Tea,,71,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+oat-flat-white,Oat Flat White,Coffee & Tea,,128,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+oat-latte,Oat Latte,Coffee & Tea,,127,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+oat-macchiato,Oat Macchiato,Coffee & Tea,,27,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+oat-mocha,Oat Mocha,Coffee & Tea,,116,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+peppermint,Peppermint,Coffee & Tea,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+pure-green,Pure Green,Coffee & Tea,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+single-espresso,Single Espresso,Coffee & Tea,,20,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+apple-and-blackcurrant-squash,Apple & Blackcurrant Squash,Bambini - Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+flawsome-apple-and-blackcurrant,Flawsome Apple & Blackcurrant,Bambini - Drinks,,72,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+flawsome-sweet-apple,Flawsome Sweet Apple,Bambini - Drinks,,70,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-apple-juice,Kids Apple Juice,Bambini - Drinks,,82,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-milk,Kids Milk,Bambini - Drinks,,92,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-oat-milk,Kids Oat Milk,Bambini - Drinks,,96,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-orange-juice,Kids Orange Juice,Bambini - Drinks,,100,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+orange-squash,Orange Squash,Bambini - Drinks,,0,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+apple-juice,Apple Juice,Soft Drinks & Mocktails,,102,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+appletiser,Appletiser,Soft Drinks & Mocktails,,121,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+belu-sparkling-water-large,Belu Sparkling Water Large,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+belu-sparkling-water-small,Belu Sparkling Water Small,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+belu-still-water-large,Belu Still Water Large,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+belu-water-still-small,Belu Water Still Small,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+blood-orange-and-elderflower-tonic,Blood Orange & Elderflower Tonic,Soft Drinks & Mocktails,,34,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+coke-large,Coke Large,Soft Drinks & Mocktails,,291,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+coke-small,Coke Small,Soft Drinks & Mocktails,,146,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+coke-zero-large,Coke Zero Large,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+coke-zero-small,Coke Zero Small,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+diet-coke-large,Diet Coke Large,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+diet-coke-small,Diet Coke Small,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+hip-pop-berries-and-cherries,Hip Pop Berries & Cherries,Soft Drinks & Mocktails,,46,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+hip-pop-kombucha-blueberry-and-ginger,Hip Pop Kombucha Blueberry & Ginger,Soft Drinks & Mocktails,,53,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+hip-pop-strawberry-and-pineapple,Hip Pop Strawberry & Pineapple,Soft Drinks & Mocktails,,53,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+lime-and-mint-cooler,Lime & Mint Cooler,Soft Drinks & Mocktails,,60,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+morello-cherry-refresher,Morello Cherry Refresher,Soft Drinks & Mocktails,,203,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+orange-juice,Orange Juice,Soft Drinks & Mocktails,,125,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+original-tonic,Original Tonic,Soft Drinks & Mocktails,,34,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+passion-fruit-sparkler,Passion Fruit Sparkler,Soft Drinks & Mocktails,,74,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+peroni-0-0,Peroni 0.0%,Soft Drinks & Mocktails,,73,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+pineapple-and-citrus-refresher,Pineapple and Citrus Refresher,Soft Drinks & Mocktails,,192,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+raspberry-and-mint-cooler,Raspberry & Mint Cooler,Soft Drinks & Mocktails,,59,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+san-pellegrino-blood-orange,San Pellegrino Blood Orange,Soft Drinks & Mocktails,,66,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+san-pellegrino-lemon,San Pellegrino Lemon,Soft Drinks & Mocktails,,63,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+sprite-zero-large,Sprite Zero Large,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+sprite-zero-small,Sprite Zero Small,Soft Drinks & Mocktails,,1,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+strawberry-sparkler,Strawberry Sparkler,Soft Drinks & Mocktails,,41,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+trip-cbd-blend,Trip CBD Blend,Soft Drinks & Mocktails,,28,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+trip-mindful-blend,Trip Mindful Blend,Soft Drinks & Mocktails,,22,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+zesty-still-lemonade,Zesty Still Lemonade,Soft Drinks & Mocktails,,62,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+aubergine-fritti,Aubergine Fritti,Starters,,252,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+bruschetta-classica,Bruschetta Classica,Starters,,450,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+burrata-caprese,Burrata Caprese,Starters,,392,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+calamari-large,Calamari Large,Starters,,857,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+calamari-small,Calamari Small,Starters,,501,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+cheesy-chilli-garlic-bread,Cheesy Chilli Garlic Bread,Starters,,766,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+chicken-spiedini-with-calabrese-dip,Chicken Spiedini with Calabrese Dip,Starters,,320,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+chilli-calamari-large,Chilli Calamari - Large,Starters,,1031,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+chilli-calamari-small,Chilli Calamari - Small,Starters,,636,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+chorizo-and-mozzarella-bombe,Chorizo & Mozzarella Bombe,Starters,,899,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+dough-crusts,Dough Crusts,Starters,,642,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+fonduta-formaggi,Fonduta Formaggi,Starters,,859,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+garlic-and-mozzarella-bombe,Garlic & Mozzarella Bombe,Starters,,745,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+garlic-bread,Garlic Bread,Starters,,607,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+garlic-bread-with-mozzarella,Garlic Bread with Mozzarella,Starters,,688,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+garlic-bread-with-mozzarella-and-caramelised-onions,Garlic Bread with Mozzarella & Caramelised Onions,Starters,,750,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+king-prawn-spiedini,King Prawn Spiedini,Starters,,147,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+la-bomba-meatballs,La Bomba Meatballs,Starters,,670,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+mozzarella-arancini,Mozzarella Arancini,Starters,,343,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+mushroom-brindisi,Mushroom Brindisi,Starters,,636,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+olive-bowl,Olive Bowl,Starters,,150,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+pasta-crisps,Pasta Crisps,Starters,,166,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+pollo-fritti,Pollo Fritti,Starters,,605,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+pollo-fritti-double-portion,Pollo Fritti Double Portion,Starters,,1178,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+sticky-pig-fonduta,Sticky Pig Fonduta,Starters,,1086,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+aubergine-parmigiana,Aubergine Parmigiana,The Rustica,,995,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+carne-sofia,Carne Sofia,The Rustica,,1117,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+chicken-and-fiery-roquito,Chicken & Fiery Roquito,The Rustica,,1113,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+margherita,Margherita,The Rustica,,941,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+pepperoni-campagna,Pepperoni Campagna,The Rustica,,988,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+pepperoni-premio,Pepperoni Premio,The Rustica,,1080,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+piccante,Piccante,The Rustica,,1594,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+pinoli,Pinoli,The Rustica,,995,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+primavera,Primavera,The Rustica,,1388,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+sticky-pig,Sticky Pig,The Rustica,,1792,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+truffle-salami,Truffle Salami,The Rustica,,1186,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+vegan-margherita,Vegan Margherita,The Rustica,,888,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+venison-pepperoni,Venison Pepperoni,The Rustica,,1190,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+butter-bean-salad,Butter Bean Salad,Salads,,474,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+chicken-caesar-salad,Chicken Caesar Salad,Salads,,733,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+salmon-and-tomato-caesar-salad,Salmon & Tomato Caesar Salad,Salads,,609,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+butter-bean-stufato,Butter Bean Stufato,Signature Dishes,,978,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+chicken-cacciatore,Chicken Cacciatore,Signature Dishes,,807,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+funghi-risotto,Funghi Risotto,Signature Dishes,,961,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+hot-honey-glazed-duck,Hot Honey Glazed Duck,Signature Dishes,,1195,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+mediterranean-sea-bass,Mediterranean Sea Bass,Signature Dishes,,661,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+pollo-calabrese,Pollo Calabrese,Signature Dishes,,1060,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+pollo-milanese,Pollo Milanese,Signature Dishes,,1215,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+salmon-and-pesto-risotto,Salmon & Pesto Risotto,Signature Dishes,,1243,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+calzone-carne-piccante,Calzone Carne Piccante,Pizza,,1002,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+calzone-pollo-spinaci,Calzone Pollo Spinaci,Pizza,,1030,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+classic-margherita,Classic Margherita,Pizza,,741,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+classic-pinoli,Classic Pinoli,Pizza,,842,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+classic-vegan-margherita-pizza,Classic Vegan Margherita Pizza,Pizza,,703,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+classico-pepperoni-campagna,Classico Pepperoni Campagna,Pizza,,836,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+pollo-and-pesto,Pollo & Pesto,Pizza,,699,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+candy-floss-dolce,Candy Floss Dolce,Desserts,,274,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+chocolate-caramello-sundae,Chocolate Caramello Sundae,Desserts,,632,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+fudge-cake,Fudge Cake,Desserts,,685,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+gooey-chocolate-chip-cookie-dough,Gooey Chocolate Chip Cookie Dough,Desserts,,1009,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+honeycomb-cheesecake,Honeycomb Cheesecake,Desserts,,598,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+limoncello-basque,Limoncello Basque,Desserts,,507,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+raspberry-collins-cheesecake,Raspberry Collins Cheesecake,Desserts,,494,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+salted-caramel-bread-and-butter-pudding-v,Salted Caramel Bread & Butter Pudding V,Desserts,,641,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+salted-caramel-chocolate-brownie,Salted Caramel Chocolate Brownie,Desserts,,682,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+tiramisu,Tiramisu,Desserts,,366,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+chianti-beef-ragu,Chianti Beef Ragu,Superiore Pasta,,645,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 127 sites
+chilli-king-prawn,Chilli King Prawn,Superiore Pasta,,774,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+meatballs-alla-vodka,Meatballs Alla Vodka,Superiore Pasta,,1186,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+seafood-vongole,Seafood Vongole,Superiore Pasta,,1221,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+truffle-carbonara,Truffle Carbonara,Superiore Pasta,,1207,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+truffle-carbonara-sharepan,Truffle Carbonara Sharepan,Superiore Pasta,,2267,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+chips,Chips,On The Side,,729,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+courgetti-fritti,Courgetti Fritti,On The Side,,485,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+five-cheese-gnocchi,Five Cheese Gnocchi,On The Side,,406,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+fresca-greens,Fresca Greens,On The Side,,106,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+loaded-bolognese-chips,Loaded Bolognese Chips,On The Side,,899,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 127 sites
+mixed-leaf-salad,Mixed Leaf Salad,On The Side,,67,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+sweet-potato-fries,Sweet Potato Fries,On The Side,,478,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+favourites-board,Favourites Board,To Share,,2141,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+fonduta-board,Fonduta Board,To Share,,1974,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+grande-antipasto,Grande Antipasto,To Share,,1434,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+kids-chips,Kids Chips,Bambini - Sides,,364,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-green-beans,Kids Green Beans,Bambini - Sides,,15,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-sweet-potato-fries,Kids Sweet Potato Fries,Bambini - Sides,,239,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-aubergine-parmigiana,Non-Gluten Aubergine Parmigiana,Non-Gluten Pizzas,,1006,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-carne-sofia,Non-Gluten Carne Sofia,Non-Gluten Pizzas,,1142,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-chicken-and-fiery-roquito,Non-Gluten Chicken & Fiery Roquito,Non-Gluten Pizzas,,1139,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+non-gluten-margherita-pizza,Non-Gluten Margherita Pizza,Non-Gluten Pizzas,,900,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-pepperoni-campagna-pizza,Non-Gluten Pepperoni Campagna Pizza,Non-Gluten Pizzas,,1015,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-pepperoni-premio-pizza,Non-Gluten Pepperoni Premio Pizza,Non-Gluten Pizzas,,1104,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-piccante-pizza,Non-Gluten Piccante Pizza,Non-Gluten Pizzas,,1621,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-pinoli-pizza,Non-Gluten Pinoli Pizza,Non-Gluten Pizzas,,984,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-primavera,Non-Gluten Primavera,Non-Gluten Pizzas,,1390,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-roast-pollo-and-pesto,Non-Gluten Roast Pollo & Pesto,Non-Gluten Pizzas,,783,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+non-gluten-sticky-pig-pizza,Non-Gluten Sticky Pig Pizza,Non-Gluten Pizzas,,1816,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-truffle-salami,Non-Gluten Truffle Salami,Non-Gluten Pizzas,,1210,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-vegan-margherita-pizza,Non-Gluten Vegan Margherita Pizza,Non-Gluten Pizzas,,912,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-venison-pepperoni,Non-Gluten Venison Pepperoni,Non-Gluten Pizzas,,1306,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-meatballs-alla-vodka,Non-Gluten Meatballs Alla Vodka,Non-Gluten Pastas,,1131,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-bolognese-classico,Non-Gluten Pasta Bolognese Classico,Non-Gluten Pastas,,525,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-chianti-beef-ragu,Non-Gluten Pasta Chianti Beef Ragu,Non-Gluten Pastas,,592,,,,,,,,,,,,,,,contains_beef,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-chilli-king-prawn,Non-Gluten Pasta Chilli King Prawn,Non-Gluten Pastas,,721,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-chorizo-carbonara,Non-gluten Pasta Chorizo Carbonara,Non-Gluten Pastas,,1071,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-lentil-ragu,Non-gluten Pasta Lentil Ragu,Non-Gluten Pastas,,729,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-pollo-piccante,Non-Gluten Pasta Pollo Piccante,Non-Gluten Pastas,,1261,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-truffle-carbonara,Non-Gluten Pasta Truffle Carbonara,Non-Gluten Pastas,,1154,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+non-gluten-pasta-vegan-pomodoro,Non-Gluten Pasta Vegan Pomodoro,Non-Gluten Pastas,,546,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-pesto-rosso,Non-Gluten Pesto Rosso,Non-Gluten Pastas,,975,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+non-gluten-pomodoro,Non-Gluten Pomodoro,Non-Gluten Pastas,,685,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+non-gluten-seafood-vongole,Non-Gluten Seafood Vongole,Non-Gluten Pastas,,1168,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+non-gluten-truffle-carbonara-sharepan,Non-Gluten Truffle Carbonara Sharepan,Non-Gluten Pastas,,2161,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 127 sites
+pepperoni-campagna-2-course-lunch-menu,Pepperoni Campagna (2 Course Lunch Menu),2 Course Lunch Menu - Mains,,962,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 118 sites
+carrot-cucumber-and-dough-crust,"Carrot, Cucumber & Dough Crust",Bambini Menu - Starters,,219,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+carrot-cucumber-and-pasta-crisps,"Carrot, Cucumber & Pasta Crisps",Bambini Menu - Starters,,82,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+chilly-billy-ice-lolly,Chilly Billy Ice Lolly,Bambini Menu - Desserts,,44,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+chocolate-gelato,Chocolate Gelato,Bambini Menu - Desserts,,69,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-fruit-pot,Kids Fruit Pot,Bambini Menu - Desserts,,23,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+vanilla-gelato,Vanilla Gelato,Bambini Menu - Desserts,,61,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-casareccia-bolognese,Kids Casareccia Bolognese,Bambini Menu - Mains,,258,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+kids-casareccia-cheese-pasta,Kids Casareccia Cheese Pasta,Bambini Menu - Mains,,362,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-casareccia-lentil-ragu,Kids Casareccia Lentil Ragu,Bambini Menu - Mains,,331,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-casareccia-pomodoro,Kids Casareccia Pomodoro,Bambini Menu - Mains,,281,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-non-gluten-bolognese-pasta,Kids Non-Gluten Bolognese Pasta,Bambini Menu - Mains,,244,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+kids-non-gluten-cheese-pasta,Kids Non-Gluten Cheese Pasta,Bambini Menu - Mains,,348,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-non-gluten-margherita-pizza,Kids Non-Gluten Margherita Pizza,Bambini Menu - Mains,,639,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-non-gluten-pomodoro-pasta,Kids Non-Gluten Pomodoro Pasta,Bambini Menu - Mains,,267,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-non-gluten-vegan-lentil-ragu,Kids Non-Gluten Vegan Lentil Ragu,Bambini Menu - Mains,,317,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-spaghetti-bolognese,Kids Spaghetti Bolognese,Bambini Menu - Mains,,258,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 127 sites
+kids-spaghetti-cheese-sauce,Kids Spaghetti Cheese Sauce,Bambini Menu - Mains,,362,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-spaghetti-lentil-ragu,Kids Spaghetti Lentil Ragu,Bambini Menu - Mains,,331,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-spaghetti-pomodoro,Kids Spaghetti Pomodoro,Bambini Menu - Mains,,281,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+kids-vegan-pizza-margherita,Kids Vegan Pizza Margherita,Bambini Menu - Mains,,362,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+mini-non-gluten-vegan-margherita,Mini Non-Gluten Vegan Margherita,Bambini Menu - Mains,,627,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+pizza-margherita,Pizza Margherita,Bambini Menu - Mains,,389,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 127 sites
+black-truffle-arancini,Black Truffle Arancini,Festive Set Menu - Starters,,353,,,,,,,,,,,,,,,vegetarian,true,false,,,printed with the same calories at 127 sites
+pig-in-blanket-bombe,Pig in Blanket Bombe,Festive Set Menu - Starters,,896,,,,,,,,,,,,,,,contains_pork,true,false,,,printed with the same calories at 127 sites
+cranberry-and-prosciutto-roast-chicken-with-gnocchi,Cranberry & Prosciutto Roast Chicken with Gnocchi,Festive Set Menu - Mains,,1152,,,,,,,,,,,,,,,contains_pork,true,false,,,printed with the same calories at 127 sites
+cranberry-and-prosciutto-roast-chicken-with-potatoes,Cranberry & Prosciutto Roast Chicken with potatoes,Festive Set Menu - Mains,,1196,,,,,,,,,,,,,,,contains_pork,true,false,,,printed with the same calories at 127 sites
+lobster-and-five-cheese-casareccia,Lobster & Five Cheese Casareccia,Festive Set Menu - Mains,,1691,,,,,,,,,,,,,,,,true,false,,,printed with the same calories at 127 sites
+vegan-baked-gnocchi,Vegan Baked Gnocchi,Festive Set Menu - Mains,,748,,,,,,,,,,,,,,,vegetarian,true,false,,,printed with the same calories at 127 sites
+pistachio-christmas-tree,Pistachio Christmas Tree,Festive Set Menu - Desserts,,639,,,,,,,,,,,,,,,vegetarian,true,false,,,printed with the same calories at 127 sites
+bruschetta-classica-two-feast-for-50,Bruschetta Classica (Two Feast for £50),Two Feast for £50 - Starters,,428,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+calamari-small-two-feast-for-50,Calamari Small (Two Feast for £50),Two Feast for £50 - Starters,,499,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+cheesy-chilli-garlic-bread-two-feast-for-50,Cheesy Chilli Garlic Bread (Two Feast for £50),Two Feast for £50 - Starters,,737,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+chicken-spiedini-with-calabrese-dip-two-feast-for-50,Chicken Spiedini with Calabrese Dip (Two Feast for £50),Two Feast for £50 - Starters,,321,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+chicken-spiedini-with-crispy-chilli-oil,Chicken Spiedini with Crispy Chilli Oil,Two Feast for £50 - Starters,,491,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+chicken-spiedini-with-fiery-la-bomba,Chicken Spiedini with Fiery La Bomba,Two Feast for £50 - Starters,,334,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+chicken-spiedini-with-garlic-aioli,Chicken Spiedini with Garlic Aioli,Two Feast for £50 - Starters,,436,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+chicken-spiedini-with-genovese-pesto,Chicken Spiedini with Genovese Pesto,Two Feast for £50 - Starters,,441,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+chicken-spiedini-with-roquito-hot-honey,Chicken Spiedini with Roquito Hot Honey,Two Feast for £50 - Starters,,399,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+dough-crusts-two-feast-for-50,Dough Crusts (Two Feast for £50),Two Feast for £50 - Starters,,660,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+garlic-bread-two-feast-for-50,Garlic Bread (Two Feast for £50),Two Feast for £50 - Starters,,605,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+garlic-bread-with-mozzarella-two-feast-for-50,Garlic Bread with Mozzarella (Two Feast for £50),Two Feast for £50 - Starters,,659,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+garlic-bread-with-mozzarella-and-caramelised-onions-two-feast-for-50,Garlic Bread with Mozzarella & Caramelised Onions (Two Feast for £50),Two Feast for £50 - Starters,,720,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+mushroom-brindisi-two-feast-for-50,Mushroom Brindisi (Two Feast for £50),Two Feast for £50 - Starters,,660,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+chorizo-carbonara-two-feast-for-50,Chorizo Carbonara (Two Feast for £50),Two Feast for £50 - Mains,,1100,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 9 sites
+classic-margherita-two-feast-for-50,Classic Margherita (Two Feast for £50),Two Feast for £50 - Mains,,699,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+classic-pinoli-two-feast-for-50,Classic Pinoli (Two Feast for £50),Two Feast for £50 - Mains,,796,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites
+classico-pepperoni-campagna-two-feast-for-50,Classico Pepperoni Campagna (Two Feast for £50),Two Feast for £50 - Mains,,806,,,,,,,,,,,,,,,contains_pork,false,false,,,printed with the same calories at 9 sites
+pesto-rosso-two-feast-for-50,Pesto Rosso (Two Feast for £50),Two Feast for £50 - Mains,,1004,,,,,,,,,,,,,,,,false,false,,,printed with the same calories at 9 sites
+ravioli-di-capra-two-feast-for-50,Ravioli Di Capra (Two Feast for £50),Two Feast for £50 - Mains,,651,,,,,,,,,,,,,,,vegetarian,false,false,,,printed with the same calories at 9 sites

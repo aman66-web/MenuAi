@@ -1,0 +1,19 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+sausage-roll,Sausage Roll,Breakfast rolls,,519,,,,,,,,,,,,,,,contains_pork,false,false,,,printed as 519 kcal under 'SAUSAGE ROLL'
+bacon-roll,Bacon Roll,Breakfast rolls,,559,,,,,,,,,,,,,,,contains_pork,false,false,,,printed as 559 kcal under 'BACON ROLL'
+sausage-and-bacon-roll,Sausage & Bacon Roll,Breakfast rolls,,588,,,,,,,,,,,,,,,contains_pork,false,false,,,printed as 588 kcal under 'SAUSAGE & BACON ROLL'
+veggie-sausage-roll,Veggie Sausage Roll,Breakfast rolls,,429,,,,,,,,,,,,,,,vegetarian,false,false,,,printed as 429 kcal under 'VEGGIE SAUSAGE ROLL'
+loaded-cheese,Loaded Cheese,Chicago Town pizzas,"12"" pizza",1712,,,,,,,,,,,,,,,,false,false,,,"printed as 1,712 kcal under 'LOADED CHEESE'"
+loaded-pepperoni,Loaded Pepperoni,Chicago Town pizzas,"12"" pizza",1744,,,,,,,,,,,,,,,contains_pork,false,false,,,"printed as 1,744 kcal under 'LOADED PEPPERONI'"
+magnificent-meat-feast,Magnificent Meat Feast,Chicago Town pizzas,"12"" pizza",1613,,,,,,,,,,,,,,,contains_pork|contains_beef,false,false,,,"printed as 1,613 kcal under 'MAGNIFICENT MEAT FEAST'"
+salt-and-pepper-chicken,Salt & Pepper Chicken,Chicago Town pizzas,"12"" pizza",1836,,,,,,,,,,,,,,,,false,false,,,"printed as 1,836 kcal under 'SALT & PEPPER CHICKEN'"
+vegan-bbq-jackfruit,Vegan BBQ Jackfruit,Chicago Town pizzas,"10"" pizza",1186,,,,,,,,,,,,,,,vegetarian,false,false,,,"printed as 1,186 kcal under 'VEGAN BBQ JACKFRUIT'"
+tear-n-share-cheesy-dough-balls,Tear 'n' Share Cheesy Dough Balls,Chicago Town pizzas,,1279,,,,,,,,,,,,,,,,false,false,,,"printed as 1,279 kcal under 'TEAR ‘N’ SHARE CHEESY DOUGH BALLS'"
+12-chicken-nuggets-and-dips,12 Chicken Nuggets & Dips,Hot food,,658,,,,,,,,,,,,,,,,false,false,,,printed as 658 kcal under '12 CHICKEN NUGGETS & DIPS'
+portion-of-chips,Portion of Chips,Hot food,,261,,,,,,,,,,,,,,,,false,false,,,printed as 261 kcal under 'PORTION OF CHIPS'
+kids-individual-cheese-pizza,Kids' Individual Cheese Pizza,Kids' food,,367,,,,,,,,,,,,,,,,false,false,,,printed as 367 kcal under 'KIDS’ INDIVIDUAL CHEESE PIZZA - 1 OF 5-A-DAY'
+6-chicken-nuggets-and-dips,6 Chicken Nuggets & Dips,Kids' food,,372,,,,,,,,,,,,,,,,false,false,,,printed as 372 kcal under '6 CHICKEN NUGGETS & DIPS'
+hartleys-raspberry-jelly,Hartleys Raspberry Jelly,Kids' food,,5,,,,,,,,,,,,,,,,false,false,,,printed as 5 kcal under 'HARTLEYS RASPBERRY JELLY'
+frube-tube-mixed-flavours,Frube Tube (mixed flavours),Kids' food,,45,,,,,,,,,,,,,,,,false,false,,,printed as 45 kcal under 'FRUBE TUBE (MIXED FLAVOURS)'
+soreen-lunch-box-loaf,Soreen Lunch Box Loaf,Kids' food,,92,,,,,,,,,,,,,,,,false,false,,,printed as 92 kcal under 'SOREEN LUNCH BOX LOAF'
+kelloggs-variety-cereal-pack,Kellogg's Variety Cereal Pack,Kids' food,,100,,,,,,,,,,,,,,,,false,false,,,printed as 100 kcal under 'KELLOGG’S VARIETY CEREAL PACK'

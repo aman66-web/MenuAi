@@ -1,0 +1,1 @@
+Menus differ by pub, so a dish is listed only if its name, figures and allergens are identical at every pub that prints it, and at 2 or more of the 10 pubs read. Figures are per portion. Tea and coffee, and sauces, sides and flavours offered with another dish, are not listed.

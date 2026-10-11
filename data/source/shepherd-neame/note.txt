@@ -1,0 +1,1 @@
+Menus differ by pub, so a dish is listed only if its name, figures and allergens are identical at every pub that prints it, and at 2 or more of the 51 pubs read. Figures are per portion. Hot drinks, festive and group menus are not listed.
