@@ -1,0 +1,213 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+ham-sub,Ham Sub,Subs,182 g,324,21,42,7.9,3.2,,1.8,6.4,3,1354,182,,,,,contains_pork,false,true,,,product 4967; listed under Subs > Deli Classics
+turkey-breast-sub,Turkey Breast Sub,Subs,183 g,312,22,41,6.6,2.8,,1.8,6.1,2.7,1304,183,,,,,,false,true,,,product 4968; listed under Subs > Deli Classics
+turkey-and-ham-sub,Turkey & Ham Sub,Subs,192 g,327,23,42,7.4,3,,2,6.3,2.9,1368,192,,,,,contains_pork,false,true,,,product 4970; listed under Subs > Deli Classics
+spicy-italian-sub,Spicy Italian Sub,Subs,186 g,498,22,43,27,10,,3.2,5.7,2.7,2085,186,,,,,contains_pork,false,true,,,product 4976; listed under Subs > Deli Classics
+classic-b-m-t-sub,Classic B.M.T.® Sub,Subs,178 g,421,20,42,19,6.4,,2.7,5.5,2.8,1762,178,,,,,contains_pork,false,true,,,product 11226; listed under Subs > Deli Classics
+honey-mustard-deli-toastie,Honey Mustard Deli Toastie,Subs,175 g,362,21,41,12,4.8,,2.1,8.5,3,1515,175,,,,,contains_pork,false,true,,,product 13448; listed under Subs > Deli Classics
+chicken-and-bacon-sub,Chicken & Bacon Sub,Subs,274 g,634,45,44,32,17,,2.8,6,2.6,2651,274,,,,,contains_pork,false,true,,,product 15732; listed under Subs > Chicken
+chicken-breast-sub,Chicken Breast Sub,Subs,185 g,298,24,42,3.3,0.9,,1.5,6.6,2.4,1247,185,,,,,,false,true,,,product 4964; listed under Subs > Chicken
+chicken-tikka-sub,Chicken Tikka Sub,Subs,185 g,302,26,42,3.7,0.8,,1.2,6,3.5,1265,185,,,,,,false,true,,,product 4966; listed under Subs > Chicken
+tex-mexan-sub,Tex Mexan Sub,Subs,260 g,556,32,58,21,5.8,,2.4,9.2,5,2328,260,,,,,,false,true,,,product 11086; listed under Subs > Chicken
+rotisserie-style-chicken-sub,Rotisserie-Style Chicken Sub,Subs,177 g,310,22,38,7.6,2.5,,1.4,5.6,2.5,1297,177,,,,,,false,true,,,product 12904; listed under Subs > Chicken
+honey-mustard-bbq-sub,Honey Mustard BBQ Sub,Subs,258 g,430,28,44,15,5.7,,2.4,12,3.5,1800,258,,,,,contains_pork,false,true,,,product 13447; listed under Subs > Chicken
+tuna-mayo-sub,Tuna Mayo Sub,Subs,200 g,400,22,43,16,3.4,,1.8,6.6,2.4,1675,200,,,,,,false,true,,,product 4978; listed under Subs > Tuna
+chilli-beef-sub,Chilli Beef Sub,Subs,241 g,363,21,50,8.1,3.4,,2.2,8.3,4.6,1518,241,,,,,contains_beef,false,true,,,product 81606; listed under Subs > Meaty
+meatball-marinara-sub,Meatball Marinara Sub,Subs,238 g,420,21,53,16,5.3,,1.9,12,4.7,1757,238,,,,,,false,true,,,product 4975; listed under Subs > Meaty
+big-breakwich-sub,Big Breakwich Sub,Subs,260 g,557,27,54,26,8.1,,2.7,9,4.2,2331,260,,,,,contains_pork,false,true,,,product 11088; listed under Subs > Meaty
+philly-steak-sub,Philly Steak Sub,Subs,177 g,340,21,49,7.1,2.9,,1.6,9.3,3,1422,177,,,,,contains_beef,false,true,,,product 11229; listed under Subs > Meaty
+garlic-cheese-steak-sub,Garlic Cheese Steak Sub,Subs,272 g,539,24,51,27,6.7,,2.1,12,4.1,2254,272,,,,,contains_beef,false,true,,,product 12176; listed under Subs > Meaty
+stacked-bacon-and-cheese-toastie,Stacked Bacon & Cheese Toastie,Subs,164 g,481,27,42,24,10,,3,10,2.6,2013,164,,,,,contains_pork,false,true,,,product 12190; listed under Subs > Meaty
+taco-beef-sub,Taco Beef Sub,Subs,289 g,743,16,52,51,8,,3.3,11,4.8,3109,289,,,,,contains_beef,false,true,,,product 13778; listed under Subs > Meaty
+big-cheese-steak-toastie,Big Cheese Steak Toastie,Subs,211 g,463,25,47,19,7.3,,2.4,11,3.3,1936,211,,,,,contains_beef,false,true,,,product 13786; listed under Subs > Meaty
+5-bean-chilli-sub,5 Bean Chilli Sub,Subs,241 g,337,14,55,6.6,2.7,,2.2,10,6.3,1410,241,,,,,,false,true,,,product 15731; listed under Subs > Veggie
+veggie-delite-sub,Veggie Delite® Sub,Subs,163 g,227,8.3,42,2.4,0.5,,0.64,6.6,3.2,949,163,,,,,vegetarian,false,true,,,product 4963; listed under Subs > Veggie
+plant-patty-ve-sub,Plant Patty (VE) Sub,Subs,211 g,424,21,51,14,3.4,,2,7.2,5.1,1776,211,,,,,vegetarian,false,true,,,product 7148; listed under Subs > Veggie
+ham-and-cheese-saver-sub-toastie,Ham & Cheese Saver Sub Toastie,Saver Subs,151 g,380,20,39,16,5.2,,2.1,6.3,2.7,1591,151,,,,,contains_pork,false,true,,,product 7560; listed under Saver Subs
+nacho-chicken-saver-sub,Nacho Chicken Saver Sub,Saver Subs,201 g,423,18,49,17,3.4,,1.8,7,3.5,1770,201,,,,,,false,true,,,product 9763; listed under Saver Subs
+blt-saver-sub,BLT Saver Sub,Saver Subs,146 g,317,14,38,13,2.4,,1.5,6.3,2.9,1326,146,,,,,contains_pork,false,true,,,product 5528; listed under Saver Subs
+triple-cheese-saver-sub-toastie,Triple Cheese Saver Sub Toastie,Saver Subs,140 g,345,14,44,13,6.5,,1.5,11,2.5,1445,140,,,,,,false,true,,,product 13459; listed under Saver Subs
+ham-wrap,Ham Wrap,Wraps,203 g,393,20,51,11,3.6,,2.4,4.6,4.9,1645,203,,,,,contains_pork,false,true,,,product 8926; listed under Wraps > Deli Classics
+spicy-italian-wrap,Spicy Italian Wrap,Wraps,207 g,568,21,51,30,10,,3.8,4,4.6,2375,207,,,,,contains_pork,false,true,,,product 8934; listed under Wraps > Deli Classics
+turkey-and-ham-wrap,Turkey & Ham Wrap,Wraps,232 g,415,26,50,11,3.5,,2.9,4.8,4.9,1738,232,,,,,contains_pork,false,true,,,product 8938; listed under Wraps > Deli Classics
+turkey-breast-wrap,Turkey Breast Wrap,Wraps,204 g,381,21,50,10,3.1,,2.4,4.4,4.6,1595,204,,,,,,false,true,,,product 8939; listed under Wraps > Deli Classics
+classic-b-m-t-wrap,Classic B.M.T.® Wrap,Wraps,199 g,491,20,51,23,6.7,,3.2,3.8,4.7,2053,199,,,,,contains_pork,false,true,,,product 11228; listed under Wraps > Deli Classics
+chicken-and-bacon-wrap,Chicken & Bacon Wrap,Wraps,300 g,710,45,54,35,18,,3.4,4.7,4.4,2972,300,,,,,contains_pork,false,true,,,product 15734; listed under Wraps > Chicken
+chicken-breast-wrap,Chicken Breast Wrap,Wraps,218 g,410,25,51,10,3.4,,2.3,5.3,4.3,1715,218,,,,,,false,true,,,product 8922; listed under Wraps > Chicken
+chicken-tikka-wrap,Chicken Tikka Wrap,Wraps,218 g,414,27,51,11,3.3,,2.1,4.7,5.4,1733,218,,,,,,false,true,,,product 8925; listed under Wraps > Chicken
+rotisserie-style-chicken-wrap,Rotisserie-Style Chicken Wrap,Wraps,191 g,354,19,49,7.7,1.1,,1.7,3.6,4.3,1479,191,,,,,,false,true,,,product 8933; listed under Wraps > Chicken
+tuna-mayo-wrap,Tuna Mayo Wrap,Wraps,208 g,427,19,51,16,1.6,,2.1,4.5,4.3,1788,208,,,,,,false,true,,,product 8937; listed under Wraps > Tuna
+chilli-beef-wrap,Chilli Beef Wrap,Wraps,267 g,439,21,60,12,3.7,,2.8,7,6.4,1839,267,,,,,contains_beef,false,true,,,product 81644; listed under Wraps > Meaty
+meatball-marinara-wrap,Meatball Marinara Wrap,Wraps,252 g,463,19,65,16,3.9,,2.2,9.7,6.5,1938,252,,,,,,false,true,,,product 8929; listed under Wraps > Meaty
+philly-steak-wrap,Philly Steak Wrap,Wraps,186 g,367,17,57,7.1,1.1,,1.9,7.1,4.9,1535,186,,,,,contains_beef,false,true,,,product 11231; listed under Wraps > Meaty
+toasted-big-breakwich-wrap,Toasted Big Breakwich Wrap,Wraps,299 g,685,29,67,33,11,,3.6,7.8,6,2867,299,,,,,contains_pork,false,true,,,product 12202; listed under Wraps > Meaty
+taco-beef-wrap,Taco Beef Wrap,Wraps,315 g,829,16,64,55,8.8,,3.9,9.7,6.6,3468,315,,,,,contains_beef,false,true,,,product 13795; listed under Wraps > Meaty
+5-bean-chilli-wrap,5 Bean Chilli Wrap,Wraps,267 g,414,14,64,10,3.1,,2.8,8.8,8.1,1731,267,,,,,,false,true,,,product 15733; listed under Wraps > Veggie
+plant-patty-ve-wrap,Plant Patty (VE) Wrap,Wraps,232 g,494,20,60,18,3.7,,2.6,5.5,7,2066,232,,,,,vegetarian,false,true,,,product 8941; listed under Wraps > Veggie
+veggie-delite-wrap,Veggie Delite® Wrap,Wraps,195 g,339,9.9,51,9.4,3,,1.5,5.3,5.1,1417,195,,,,,vegetarian,false,true,,,product 8943; listed under Wraps > Veggie
+smashed-falafel-wrap,Smashed Falafel Wrap,Wraps,168 g,485,12,62,21,3.9,,2.3,4.4,9.8,2031,168,,,,,,false,true,,,product 15264; listed under Wraps > Veggie
+ham-salad,Ham Salad,Salads,192 g,89,12,4.8,2.3,0.7,,0.93,3.4,2.2,372,192,,,,,contains_pork,false,true,,,product 4990; listed under Salads > Deli Classics
+turkey-and-ham-salad,Turkey & Ham Salad,Salads,214 g,135,17,4.9,5.3,2.7,,1.4,3.7,2.1,564,214,,,,,contains_pork,false,true,,,product 4992; listed under Salads > Deli Classics
+turkey-breast-salad,Turkey Breast Salad,Salads,205 g,119,15,4.4,4.5,2.5,,1.3,3.5,1.9,500,205,,,,,,false,true,,,product 4993; listed under Salads > Deli Classics
+spicy-italian-salad,Spicy Italian Salad,Salads,208 g,306,16,5.9,25,9.7,,2.6,3.1,2,1280,208,,,,,contains_pork,false,true,,,product 5230; listed under Salads > Deli Classics
+classic-b-m-t-salad,Classic B.M.T.® Salad,Salads,175 g,224,14,4.4,17,6,,2.1,2.2,1.9,936,175,,,,,contains_pork,false,true,,,product 11227; listed under Salads > Deli Classics
+chicken-and-bacon-salad,Chicken & Bacon Salad,Salads,310 g,486,43,8.6,18,18,,2.6,4.1,1.8,2031,310,,,,,contains_pork,false,true,,,product 15736; listed under Salads > Chicken
+chicken-breast-salad,Chicken Breast Salad,Salads,219 g,148,20,5.3,4.7,2.7,,1.2,4.4,1.7,620,219,,,,,,false,true,,,product 4988; listed under Salads > Chicken
+chicken-tikka-salad,Chicken Tikka Salad,Salads,219 g,152,22,5.6,5.1,2.6,,0.95,3.8,2.7,638,219,,,,,,false,true,,,product 4989; listed under Salads > Chicken
+rotisserie-style-chicken-salad,Rotisserie-Style Chicken Salad,Salads,192 g,92,14,3.5,2.1,0.4,,0.52,2.7,1.7,384,192,,,,,,false,true,,,product 6362; listed under Salads > Chicken
+tuna-mayo-salad,Tuna Mayo Salad,Salads,209 g,166,13,5.9,10,1,,0.94,3.6,1.7,693,209,,,,,,false,true,,,product 5243; listed under Salads > Tuna
+chilli-beef-salad,Chilli Beef Salad,Salads,250 g,175,16,14,6,3,,1.6,5.8,3.6,732,250,,,,,contains_beef,false,true,,,product 88734; listed under Salads > Meaty
+meatball-marinara-salad,Meatball Marinara Salad,Salads,261 g,204,13,19,11,3.2,,1,9,4.2,851,261,,,,,,false,true,,,product 5520; listed under Salads > Meaty
+philly-steak-salad,Philly Steak Salad,Salads,195 g,107,12,11,1.5,0.4,,0.73,6.4,2.6,448,195,,,,,contains_beef,false,true,,,product 11230; listed under Salads > Meaty
+5-bean-chilli-salad,5 Bean Chilli Salad,Salads,268 g,152,8.4,19,4.5,2.4,,1.6,7.9,5.4,636,268,,,,,,false,true,,,product 15735; listed under Salads > Veggie
+veggie-delite-salad,Veggie Delite® Salad,Salads,245 g,91,4.9,8,4,2.3,,0.38,5.8,3.3,381,245,,,,,vegetarian,false,true,,,product 4987; listed under Salads > Veggie
+plant-patty-ve-salad,Plant Patty (VE) Salad,Salads,233 g,232,15,14,12,3.1,,1.4,4.6,4.4,971,233,,,,,vegetarian,false,true,,,product 7152; listed under Salads > Veggie
+smashed-falafel-salad,Smashed Falafel Salad,Salads,171 g,275,6.8,17,21,3.6,,1.4,3.8,7.3,1149,171,,,,,,false,true,,,product 15265; listed under Salads > Veggie
+baked-beans-and-cheese-jacket-potato,Baked Beans & Cheese Jacket Potato,Jacket Potatoes,464 g,522,21,69,17,9.9,,1.6,8.6,13,2185,464,,,,,,false,true,,,product 13618; listed under Jacket Potatoes > Most Popular
+tuna-mayo-and-cheese-jacket-potato,Tuna Mayo & Cheese Jacket Potato,Jacket Potatoes,398 g,558,26,54,27,11,,1.6,3,7.4,2334,398,,,,,,false,true,,,product 13620; listed under Jacket Potatoes > Most Popular
+taco-beef-and-cheese-jacket-potato,Taco Beef & Cheese Jacket Potato,Jacket Potatoes,380 g,524,20,58,23,13,,1.4,2,8.4,2194,380,,,,,contains_beef,false,true,,,product 13632; listed under Jacket Potatoes > Most Popular
+ham-and-cheese-jacket-potato,Ham & Cheese Jacket Potato,Jacket Potatoes,380 g,481,25,53,19,10,,1.6,2.8,8,2014,380,,,,,contains_pork,false,true,,,product 13621; listed under Jacket Potatoes > Deli Classics
+turkey-breast-and-cheese-jacket-potato,Turkey Breast & Cheese Jacket Potato,Jacket Potatoes,381 g,469,26,52,18,10,,1.7,2.6,7.7,1964,381,,,,,,false,true,,,product 13624; listed under Jacket Potatoes > Deli Classics
+classic-b-m-t-jacket-potato,Classic B.M.T.® Jacket Potato,Jacket Potatoes,390 g,561,27,53,27,13,,2.3,2.6,8,2349,390,,,,,contains_pork,false,true,,,product 13626; listed under Jacket Potatoes > Deli Classics
+ham-turkey-breast-and-cheese-jacket-potato,"Ham, Turkey Breast & Cheese Jacket Potato",Jacket Potatoes,390 g,485,27,52,18,10,,1.8,2.8,7.9,2028,390,,,,,contains_pork,false,true,,,product 13629; listed under Jacket Potatoes > Deli Classics
+spicy-italian-and-cheese-jacket-potato,Spicy Italian & Cheese Jacket Potato,Jacket Potatoes,384 g,656,26,53,38,17,,3,2.1,7.7,2744,384,,,,,contains_pork,false,true,,,product 13630; listed under Jacket Potatoes > Deli Classics
+chicken-and-bacon-jacket-potato,Chicken & Bacon Jacket Potato,Jacket Potatoes,389 g,521,30,51,21,11,,1.6,2.4,7.5,2180,389,,,,,contains_pork,false,true,,,product 15737; listed under Jacket Potatoes > Chicken
+chicken-tikka-and-cheese-jacket-potato,Chicken Tikka & Cheese Jacket Potato,Jacket Potatoes,395 g,502,32,53,18,10,,1.4,2.9,8.5,2102,395,,,,,,false,true,,,product 13623; listed under Jacket Potatoes > Chicken
+chicken-breast-and-cheese-jacket-potato,Chicken Breast & Cheese Jacket Potato,Jacket Potatoes,395 g,498,30,53,18,10,,1.6,3.4,7.4,2084,395,,,,,,false,true,,,product 13627; listed under Jacket Potatoes > Chicken
+rotisserie-style-chicken-and-cheese-jacket-potato,Rotisserie-Style Chicken & Cheese Jacket Potato,Jacket Potatoes,380 g,484,27,51,19,10,,1.2,2.1,7.4,2025,380,,,,,,false,true,,,product 13628; listed under Jacket Potatoes > Chicken
+honey-mustard-bbq-jacket-potato,Honey Mustard BBQ Jacket Potato,Jacket Potatoes,584 g,597,32,63,24,11,,2.1,12,10,2499,584,,,,,contains_pork,false,true,,,product 13782; listed under Jacket Potatoes > Chicken
+tex-mexan-jacket-potato,Tex Mexan Jacket Potato,Jacket Potatoes,465 g,678,32,71,28,11,,2.1,5.7,9.9,2838,465,,,,,,false,true,,,product 14891; listed under Jacket Potatoes > Chicken
+furious-chicken-jacket-potato,Furious Chicken Jacket Potato,Jacket Potatoes,592 g,718,29,65,37,12,,2.3,5.8,11,3006,592,,,,,,false,true,,,product 14892; listed under Jacket Potatoes > Chicken
+shawarma-spiced-chicken-jacket-potato,Shawarma Spiced Chicken Jacket Potato,Jacket Potatoes,395 g,529,26,55,23,11,,1.9,3.1,8.4,2214,395,,,,,,false,true,,,product 15462; listed under Jacket Potatoes > Chicken
+beef-chilli-jacket-potato,Beef Chilli Jacket Potato,Jacket Potatoes,446 g,528,26,62,19,10,,3,5.2,9.7,2210,446,,,,,contains_beef,false,true,,,product 88332; listed under Jacket Potatoes > Meaty
+philly-steak-and-cheese-jacket-potato,Philly Steak & Cheese Jacket Potato,Jacket Potatoes,395 g,499,25,59,18,10,,1.4,5.9,8.1,2087,395,,,,,contains_beef,false,true,,,product 13619; listed under Jacket Potatoes > Meaty
+meatball-marinara-and-cheese-jacket-potato,Meatball Marinara & Cheese Jacket Potato,Jacket Potatoes,461 g,595,26,67,27,13,,1.7,8.5,9.7,2490,461,,,,,,false,true,,,product 13622; listed under Jacket Potatoes > Meaty
+big-breakwich-jacket-potato,Big Breakwich Jacket Potato,Jacket Potatoes,502 g,738,32,69,37,16,,2.5,6.4,9.6,3088,502,,,,,contains_pork,false,true,,,product 14893; listed under Jacket Potatoes > Meaty
+garlic-cheese-steak-jacket-potato,Garlic Cheese Steak Jacket Potato,Jacket Potatoes,588 g,687,27,67,34,12,,1.7,10,11,2876,588,,,,,contains_beef,false,true,,,product 14894; listed under Jacket Potatoes > Meaty
+5-bean-chilli-jacket-potato,5 Bean Chilli Jacket Potato,Jacket Potatoes,446 g,502,19,66,17,9.8,,3,6.9,11,2102,446,,,,,,false,true,,,product 81221; listed under Jacket Potatoes > Veggie
+veggie-delite-jacket-potato,Veggie Delite® Jacket Potato,Jacket Potatoes,324 g,413,14,51,17,9.9,,0.72,2,7.4,1728,324,,,,,,false,true,,,product 13617; listed under Jacket Potatoes > Veggie
+plant-patty-and-cheese-jacket-potato-ve,Plant Patty & Cheese Jacket Potato (VE),Jacket Potatoes,391 g,474,19,64,15,5,,1.5,3.3,10,1985,391,,,,,vegetarian,false,true,,,product 13625; listed under Jacket Potatoes > Veggie
+meatballs,Meatballs,Sides,164 g,230,15,19,14,5,,1.3,7.6,2.6,961,164,,,,,contains_pork|contains_beef,false,true,,,product 5350; listed under Sides > Sides
+hash-browns-6-pieces,Hash Browns - 6 pieces,Sides,211 g,286,3.6,45,11,0.8,,2.6,24,2.3,1195,211,,,,,,false,true,,,product 6770; listed under Sides > Sides
+nacho-chicken-bites-6-pieces,Nacho Chicken Bites - 6 pieces,Sides,208 g,660,16,29,52,4.8,,3.3,6.4,2.5,2761,208,,,,,,false,true,,,product 10024; listed under Sides > Sides
+nacho-chicken-bites-9-pieces,Nacho Chicken Bites - 9 pieces,Sides,262 g,795,24,40,58,5.7,,4,6.8,3.3,3326,262,,,,,,false,true,,,product 10026; listed under Sides > Sides
+margherita-slice-v,Margherita Slice (V),Sides,64.5 g,148,8.5,13,7.5,4.4,,0.62,2.8,0.8,620,64.5,,,,,vegetarian,false,true,,,product 10785; listed under Sides > Sides
+pepperoni-slice,Pepperoni Slice,Sides,68.5 g,176,8.9,13,10,4.4,,1.1,2.7,0.9,738,68.5,,,,,contains_pork,false,true,,,product 10786; listed under Sides > Sides
+side-salad,Side Salad,Sides,81 g,15,0.7,2.6,0.1,0,,0.01,2,1,64,81,,,,,,false,true,,,product 10790; listed under Sides > Sides
+hash-browns-9-pieces,Hash Browns - 9 pieces,Sides,267 g,378,4.9,57,16,1.2,,3,24,3.5,1583,267,,,,,,false,true,,,product 10792; listed under Sides > Sides
+cheesy-garlic-slice-v,Cheesy Garlic Slice (V),Sides,49.5 g,171,8.2,10,11,4.7,,0.59,1.3,0.5,715,49.5,,,,,vegetarian,false,true,,,product 10985; listed under Sides > Sides
+footlong-margherita-slice-v,Footlong Margherita Slice (V),Sides,129 g,296,17,25,15,8.8,,1.2,5.5,1.6,1240,129,,,,,vegetarian,false,true,,,product 12408; listed under Sides > Sides
+footlong-cheesy-garlic-slice-v,Footlong Cheesy Garlic Slice (V),Sides,95 g,308,16,20,18,9.1,,1.1,2.5,1.1,1288,95,,,,,vegetarian,false,true,,,product 12409; listed under Sides > Sides
+footlong-pepperoni-slice,Footlong Pepperoni Slice,Sides,137 g,353,18,25,21,8.8,,2.3,5.4,1.8,1476,137,,,,,contains_pork,false,true,,,product 12410; listed under Sides > Sides
+footlong-pepperoni-slice-2,Footlong Pepperoni Slice,Sides,133 g,340,18,25,20,7.4,,1.8,5.3,2.3,1422,133,,,,,contains_pork,false,true,,,product 12411; listed under Sides > Sides
+waffle-fries-regular,Waffle Fries - regular,Sides,114 g,198,3,26,8.2,1.1,,1.1,3.5,4,830,114,,,,,,false,true,,,product 12581; listed under Sides > Sides
+baked-beans-snack-pot,Baked Beans Snack Pot,Sides,140 g,109,6.6,18,0.3,0,,0.84,6.6,5.2,457,140,,,,,,false,true,,,product 13633; listed under Sides > Sides
+doritos-nachos,Doritos® Nachos,Sides,207 g,586,19,58,30,10,,1.6,4.8,7.1,2453,207,,,,,,false,true,,,product 14967; listed under Sides > Sides
+doritos-sharer-nachos,Doritos® Sharer Nachos,Sides,287 g,964,29,84,54,16,,3.1,7.8,9.2,4034,287,,,,,,false,false,,,product 14968; listed under Sides > Sides
+5-bean-chilli-loaded-nachos,5 Bean Chilli Loaded Nachos,Sides,229 g,557,16,67,24,6,,2.2,6,9.2,2330,229,,,,,,false,true,,,product 15721; listed under Sides > Sides
+5-bean-chilli-loaded-waffle-fries,5 Bean Chilli Loaded Waffle Fries,Sides,228 g,348,13,36,16,5.6,,2.3,4.6,7.1,1455,228,,,,,,false,true,,,product 15722; listed under Sides > Sides
+beef-chilli-protein-pot,Beef Chilli protein pot,Sides,121 g,115,12,11,2.4,0.8,,1.3,3.2,2.1,480,121,,,,,contains_beef,false,true,,,product 15723; listed under Sides > Sides
+5-bean-chilli-protein-pot,5 Bean Chilli Protein Pot,Sides,121 g,89,4.7,15,0.9,0.2,,1.3,4.9,3.8,372,121,,,,,,false,true,,,product 15724; listed under Sides > Sides
+5x-mozzarella-and-cheddar-bites,5x Mozzarella & Cheddar Bites,Sides,75 g,255,11,19,15,6.1,,1.3,1.3,1.6,1067,75,,,,,,false,true,,,product 15725; listed under Sides > Sides
+beef-chilli-loaded-nachos,Beef Chilli Loaded Nachos,Sides,329 g,625,25,69,6.7,6.7,,2.7,9.3,9.8,2610,329,,,,,contains_beef,false,true,,,product 86543; listed under Sides > Sides
+beef-chilli-loaded-waffle-fries,Beef Chilli Loaded Waffle Fries,Sides,248 g,388,21,35,17,6.3,,2.6,3.7,6.1,1625,248,,,,,contains_beef,false,true,,,product 82340; listed under Sides > Sides
+12x-mozzarella-and-cheddar-bites,12x Mozzarella & Cheddar Bites,Sides,180 g,612,26,45,15,15,,3.1,3.2,3.8,2561,180,,,,,,false,true,,,product 84747; listed under Sides > Sides
+sauce-dunk-pot,Sauce Dunk Pot,Sides,150 g,585,0.9,12,59,4.5,,2.7,8.1,1.5,2448,150,,,,,,false,false,,,product 15726; listed under Sides > Sides
+triple-cheese-footlong-dipper,Triple Cheese Footlong Dipper,Footlong Sidekicks,147 g,450,18,50,20,9.4,,2.2,3.6,3.9,1882,147,,,,,,false,true,,,product 12583; listed under Sides > Footlong Sidekicks
+pepperoni-and-cheese-footlong-dipper,Pepperoni & Cheese Footlong Dipper,Footlong Sidekicks,137 g,433,15,49,19,7.3,,2.5,3.4,4,1812,137,,,,,contains_pork,false,true,,,product 12586; listed under Sides > Footlong Sidekicks
+taco-beef-footlong-dipper,Taco Beef Footlong Dipper,Footlong Sidekicks,154 g,430,15,53,17,6.9,,2.2,3.3,4.5,1798,154,,,,,contains_beef,false,true,,,product 13395; listed under Sides > Footlong Sidekicks
+doritos-tangy-cheese,DORITOS® Tangy Cheese,Crisps,44 g,222,2.9,25,11,1.1,,0.53,1.2,2.5,930,44,,,,,,false,false,,,product 9388; listed under Sides > Crisps
+walkers-cheese-and-onion,Walkers Cheese & Onion,Crisps,32.5 g,161,1.8,18,8.7,0.7,,0.39,0.9,1.4,674,32.5,,,,,,false,false,,,product 9390; listed under Sides > Crisps
+quavers-cheese,Quavers Cheese,Crisps,20 g,107,0.5,12,6.2,0.5,,0.17,0.5,0.2,449,20,,,,,,false,false,,,product 9394; listed under Sides > Crisps
+walkers-ready-salted,Walkers Ready Salted,Crisps,32.5 g,170,2,17,10,0.8,,0.18,0.1,1.4,713,32.5,,,,,,false,false,,,product 9397; listed under Sides > Crisps
+walkers-oven-baked-cheese-and-onion,Walkers Oven Baked Cheese & Onion,Crisps,22 g,96,1.5,15,3,0.3,,0.21,1.7,1.4,403,22,,,,,,false,false,,,product 9485; listed under Sides > Crisps
+doritos-cool-original,DORITOS® Cool Original,Crisps,44 g,219,2.6,26,11,1.5,,0.65,1.2,2.5,915,44,,,,,,false,false,,,product 9952; listed under Sides > Crisps
+snack-a-jacks-salt-and-vinegar,Snack A Jacks Salt & Vinegar,Crisps,23 g,94,1.6,18,1.7,0.2,,0.25,0.4,0.2,394,23,,,,,,false,false,,,product 9958; listed under Sides > Crisps
+doritos-chilli-heatwave,DORITOS® Chilli Heatwave,Crisps,44 g,220,2.6,26,11,0.9,,0.61,2.5,2.4,920,44,,,,,,false,false,,,product 9959; listed under Sides > Crisps
+sensation-thai-sweet-chili,Sensation Thai Sweet Chili,Crisps,40 g,197,2.8,24,9.9,0.9,,0.23,1.6,1.6,826,40,,,,,,false,false,,,product 9960; listed under Sides > Crisps
+walkers-salt-and-vinegar,Walkers Salt & Vinegar,Crisps,32.5 g,168,0.5,17,10,0.8,,0.21,0.3,1.4,704,32.5,,,,,,false,false,,,product 9962; listed under Sides > Crisps
+walkers-monster-munch-roast-beef,Walkers Monster Munch Roast Beef,Crisps,40 g,197,2.8,24,10,0.9,,0,1.2,0.7,824,40,,,,,,false,false,,,product 9964; listed under Sides > Crisps
+walkers-max-paprika,Walkers Max Paprika,Crisps,42.5 g,228,1.1,26,13,1.1,,0.36,1.1,0.5,954,42.5,,,,,,false,false,,,product 9965; listed under Sides > Crisps
+walkers-prawn-cocktail,Walkers Prawn Cocktail,Crisps,32.5 g,169,2,17,9.9,0.8,,0.42,0.6,1.4,707,32.5,,,,,,false,false,,,product 9966; listed under Sides > Crisps
+walkers-squares-salt-and-vinegar,Walkers Squares Salt & Vinegar,Crisps,27.5 g,122,1.8,17,5,0.4,,0.24,1,1.5,511,27.5,,,,,,false,false,,,product 9987; listed under Sides > Crisps
+propercorn-sweet-and-salty-popcorn,Propercorn Sweet and Salty Popcorn,Crisps,30 g,140,2.3,17,6.1,0.5,,0.2,3.4,3.8,584,30,,,,,,false,false,,,product 15727; listed under Sides > Crisps
+chocolate-chunk-cookie,Chocolate Chunk Cookie,Cookies,45 g,214,2.3,28,10,5.1,,0.28,16,1.2,896,45,,,,,,false,false,,,product 5323; listed under Cookies & Treats > Cookies
+white-chip-macadamia-nut-cookie,White Chip Macadamia Nut Cookie,Cookies,45 g,215,2.3,27,10,5.1,,0.42,16,0.5,900,45,,,,,,false,false,,,product 5327; listed under Cookies & Treats > Cookies
+oat-and-raisin-cookie,Oat & Raisin Cookie,Cookies,45 g,149,1.1,15,0.4,0.1,,0.06,5.9,2.6,621,45,,,,,,false,false,,,product 5329; listed under Cookies & Treats > Cookies
+rainbow-chocolate-chip-cookie,Rainbow Chocolate Chip Cookie,Cookies,45 g,212,2.2,28,9.8,5,,0.29,18,1.5,889,45,,,,,,false,false,,,product 5397; listed under Cookies & Treats > Cookies
+double-chocolate-cookie-ve,Double Chocolate Cookie (Ve),Cookies,45 g,217,2,27,11,5.7,,0.28,17,2.2,910,45,,,,,vegetarian,false,false,,,product 9400; listed under Cookies & Treats > Cookies
+3x-chocolate-chunk-cookies,3x Chocolate Chunk Cookies,Cookies,135 g,643,6.8,83,30,15,,0.84,47,3.5,2689,135,,,,,,false,false,,,product 9998; listed under Cookies & Treats > Cookies
+3x-rainbow-chocolate-chip-cookies,3x Rainbow Chocolate Chip Cookies,Cookies,135 g,641,6.6,85,30,15,,0.86,54,4.6,2683,135,,,,,,false,false,,,product 9999; listed under Cookies & Treats > Cookies
+raspberry-cheesecake-cookie-x3,Raspberry Cheesecake Cookie x3,Cookies,135 g,625,7.4,82,29,16,,0.88,49,0.7,2615,135,,,,,,false,false,,,product 10000; listed under Cookies & Treats > Cookies
+raspberry-cheesecake-cookie,Raspberry Cheesecake Cookie,Cookies,45 g,208,2.5,27,9.6,5.4,,0.29,16,0.2,872,45,,,,,,false,false,,,product 10001; listed under Cookies & Treats > Cookies
+3x-double-chocolate-cookies-ve,3x Double Chocolate Cookies - (Ve),Cookies,135 g,652,5.9,80,33,17,,0.84,50,6.6,2730,135,,,,,vegetarian,false,false,,,product 11692; listed under Cookies & Treats > Cookies
+3x-oat-and-raisin-cookie,3x Oat & Raisin Cookie,Cookies,135 g,446,3.4,44,1.1,0.2,,0.18,18,7.8,1864,135,,,,,,false,false,,,product 15338; listed under Cookies & Treats > Cookies
+pumpkin-spiced-cookie,Pumpkin Spiced Cookie,Cookies,45 g,194,2.3,27,8.3,4.1,,0.25,17,1.1,813,45,,,,,,false,false,,,product 15703; listed under Cookies & Treats > Cookies
+3x-pumpkin-spiced-cookie,3x Pumpkin Spiced Cookie,Cookies,135 g,583,6.9,81,25,12,,0.74,50,3.4,2440,135,,,,,,false,false,,,product 15704; listed under Cookies & Treats > Cookies
+matcha-and-white-chocolate-chip-cookie,Matcha & White Chocolate Chip Cookie,Cookies,45 g,193,2.4,27,8,4.2,,0.27,16,0.9,808,45,,,,,,false,false,,,product 15707; listed under Cookies & Treats > Cookies
+3x-matcha-and-white-chocolate-chip-cookie,3x Matcha & White Chocolate Chip Cookie,Cookies,135 g,579,7.3,82,13,13,,0.81,48,2.6,2423,135,,,,,,false,false,,,product 15708; listed under Cookies & Treats > Cookies
+bear-yoyo,Bear Yoyo,Sweet Treats,20 g,11,0.1,2.6,0,0,,0,1.7,0.4,47,20,,,,,,false,false,,,product 15339; listed under Cookies & Treats > Sweet Treats
+ben-and-jerrys-cookie-dough-ice-cream-465ml,Ben & Jerry's Cookie Dough Ice Cream (465ml),Sweet Treats,322 g,870,13,100,48,30,,0,81,0,3641,322,,,,,,false,false,,,product 10370; listed under Cookies & Treats > Sweet Treats
+ben-and-jerrys-chocolate-fudge-brownie-100ml,Ben & Jerrys Chocolate Fudge Brownie 100ml,Sweet Treats,100 g,250,4.3,29,13,7.8,,0,27,0,1047,100,,,,,,false,false,,,product 10823; listed under Cookies & Treats > Sweet Treats
+ben-and-jerrys-caramel-chew-chew-100ml,Ben & Jerrys Caramel Chew Chew 100ml,Sweet Treats,72 g,216,2.7,23,12,8.6,,0.14,21,0,904,72,,,,,,false,false,,,product 10844; listed under Cookies & Treats > Sweet Treats
+ben-and-jerrys-cookie-dough-100ml,Ben & Jerrys Cookie Dough 100ml,Sweet Treats,87 g,235,3.5,27,13,8,,0,22,0,984,87,,,,,,false,false,,,product 10846; listed under Cookies & Treats > Sweet Treats
+ben-and-jerrys-non-dairy-cookies-on-cookie-dough-ice-cream-100ml,Ben & Jerry's Non-Dairy Cookies on Cookie Dough Ice Cream 100ml,Sweet Treats,100 ml,248,1.8,32,12,5.9,,0.26,19,0,1037,,,,,,,false,false,,,product 11516; listed under Cookies & Treats > Sweet Treats
+lipton-ice-tea-peach-500ml,Lipton Ice Tea Peach 500ml,Bottled Drinks,500 g,95,2.5,24,2.5,0.5,,0.1,23,0,397,500,,,,,,false,false,,,product 9298; listed under Drinks > Bottled Drinks
+tropicana-orange-juice-250ml,Tropicana Orange Juice 250ml,Bottled Drinks,250 g,103,2,23,0,0,,0,21,2,429,250,,,,,,false,false,,,product 9398; listed under Drinks > Bottled Drinks
+princes-gate-still-water-500ml,Princes Gate Still Water 500ml,Bottled Drinks,500 g,0,0,0,0,0,,0,0,0,0,500,,,,,,false,false,,,product 9404; listed under Drinks > Bottled Drinks
+appletiser-250ml,Appletiser 250ml,Bottled Drinks,250 ml,118,0,28,0,0,,0,26,0,492,,,,,,,false,false,,,product 12337; listed under Drinks > Bottled Drinks
+costa-caramel-latte-250ml,Costa Caramel Latte 250ml,Bottled Drinks,250 ml,96,3,13,3.8,2.8,,0.15,8.8,0,400,,,,,,,false,false,,,product 12363; listed under Drinks > Bottled Drinks
+oasis-summer-fruits-500ml,Oasis Summer Fruits 500ml,Bottled Drinks,500 ml,88,0,21,0,0,,0.4,21,0,370,,,,,,,false,false,,,product 12364; listed under Drinks > Bottled Drinks
+powerade-berry-tropical-500ml,Powerade Berry Tropical 500ml,Bottled Drinks,500 ml,92,0,21,0,0,,0.65,21,0,385,,,,,,,false,false,,,product 12365; listed under Drinks > Bottled Drinks
+sprite-zero-500ml,Sprite Zero 500ml,Bottled Drinks,500 ml,6,0,0,0,0,,0.35,0,0,25,,,,,,,false,false,,,product 12366; listed under Drinks > Bottled Drinks
+dr-pepper-500ml,Dr Pepper 500ml,Bottled Drinks,500 ml,102,0,25,0,0,,0,25,0,425,,,,,,,false,false,,,product 12367; listed under Drinks > Bottled Drinks
+fanta-fruit-twist-500ml,Fanta Fruit Twist 500ml,Bottled Drinks,500 ml,102,0,24,0,0,,0,24,0,425,,,,,,,false,false,,,product 12368; listed under Drinks > Bottled Drinks
+fanta-orange-500ml,Fanta Orange 500ml,Bottled Drinks,500 ml,97,0,23,0,0,,0,0,0,405,,,,,,,false,false,,,product 12369; listed under Drinks > Bottled Drinks
+fanta-lemon-500ml,Fanta Lemon 500ml,Bottled Drinks,500 ml,97,0,23,0,0,,0.1,23,0,405,,,,,,,false,false,,,product 12370; listed under Drinks > Bottled Drinks
+oasis-citrus-punch-500ml,Oasis Citrus Punch 500ml,Bottled Drinks,500 ml,92,0,21,0,0,,0.4,21,0,385,,,,,,,false,false,,,product 12371; listed under Drinks > Bottled Drinks
+sprite-500ml,Sprite 500ml,Bottled Drinks,500 ml,73,0,17,0,0,,0.05,17,0,305,,,,,,,false,false,,,product 12372; listed under Drinks > Bottled Drinks
+costa-brownie-frappe-250ml,Costa Brownie Frappe 250ml,Bottled Drinks,250 ml,103,2,23,0,0,,0,21,1.5,430,,,,,,,false,false,,,product 12373; listed under Drinks > Bottled Drinks
+sprite-1-25l,Sprite 1.25L,Bottled Drinks,1250 ml,182,0,41,0,0,,0.13,41,0,762,,,,,,,false,false,,,product 12374; listed under Drinks > Bottled Drinks
+fanta-orange-1-25l,Fanta Orange 1.25L,Bottled Drinks,1250 ml,242,0,58,0,0,,0,58,0,1012,,,,,,,false,false,,,product 12375; listed under Drinks > Bottled Drinks
+coca-cola-original-500ml,Coca-Cola Original 500ml,Bottled Drinks,500 ml,215,0,53,0,0,,0,0,0,900,,,,,,,false,false,,,product 12376; listed under Drinks > Bottled Drinks
+coca-cola-original-1-25l,Coca-Cola Original 1.25L,Bottled Drinks,1250 ml,538,0,133,0,0,,0,133,0,2250,,,,,,,false,false,,,product 12377; listed under Drinks > Bottled Drinks
+coca-cola-zero-500ml,Coca-Cola Zero 500ml,Bottled Drinks,500 ml,2,0,0,0,0,,0.1,0,0,7,,,,,,,false,false,,,product 12378; listed under Drinks > Bottled Drinks
+coca-cola-zero-cherry-500ml,Coca-Cola Zero Cherry 500ml,Bottled Drinks,500 ml,2,0,0,0,0,,0.1,0,0,7,,,,,,,false,false,,,product 12379; listed under Drinks > Bottled Drinks
+coca-cola-zero-vanilla-500ml,Coca-Cola Zero Vanilla 500ml,Bottled Drinks,500 ml,2,0,0,0,300,,0.1,0,0,7,,,,,,,false,false,,,product 12380; listed under Drinks > Bottled Drinks
+coca-cola-diet-caffeine-free-500ml,Coca-Cola Diet Caffeine Free 500ml,Bottled Drinks,500 ml,2,0,0,0,0,,0,0,0,8,,,,,,,false,false,,,product 12381; listed under Drinks > Bottled Drinks
+diet-coke-sublime-500ml,Diet Coke Sublime 500ml,Bottled Drinks,500 ml,2,0,0,0,0,,0.05,0,0,9,,,,,,,false,false,,,product 12382; listed under Drinks > Bottled Drinks
+coke-zero-1-25l,Coke Zero 1.25L,Bottled Drinks,1250 ml,4,0,0,0,0,,2.5,0,0,18,,,,,,,false,false,,,product 12383; listed under Drinks > Bottled Drinks
+diet-coke-500ml,Diet Coke 500ml,Bottled Drinks,500 ml,2,0,0,0,0,,0,0,0,8,,,,,,,false,false,,,product 12384; listed under Drinks > Bottled Drinks
+diet-coke-1-25l,Diet Coke 1.25L,Bottled Drinks,1250 ml,5,0,0,0,0,,0,0,0,20,,,,,,,false,false,,,product 12385; listed under Drinks > Bottled Drinks
+coke-zero-cherry-1-25l,Coke Zero Cherry 1.25L,Bottled Drinks,1250 ml,4,0,0,0,0,,0.25,0,0,18,,,,,,,false,false,,,product 12386; listed under Drinks > Bottled Drinks
+costa-latte-250ml,Costa Latte 250ml,Bottled Drinks,250 ml,124,7,18,2.8,1.8,,0.25,13,0,520,,,,,,,false,false,,,product 12387; listed under Drinks > Bottled Drinks
+costa-double-shot-flat-white-200ml,Costa Double shot Flat White 200ml,Bottled Drinks,200 ml,76,2.6,11,2.2,1.4,,0.12,7,0,318,,,,,,,false,false,,,product 12388; listed under Drinks > Bottled Drinks
+vital-water-mango-passionfruit-450ml,Vital Water Mango Passionfruit 450ml,Bottled Drinks,450 ml,36,0,8.1,0,0,,0.14,8.1,0,151,,,,,,,false,false,,,product 15517; listed under Drinks > Bottled Drinks
+vital-water-prickly-pear-450ml,Vital Water Prickly Pear 450ml,Bottled Drinks,450 ml,36,0,8.1,0,0,,0.14,8.1,0,151,,,,,,,false,false,,,product 15518; listed under Drinks > Bottled Drinks
+powerade-golden-mango-500ml,Powerade Golden Mango 500ml,Bottled Drinks,500 ml,85,0,21,0,0,,0.65,21,0,356,,,,,,,false,false,,,product 15572; listed under Drinks > Bottled Drinks
+powerade-cherry-500ml,Powerade Cherry 500ml,Bottled Drinks,500 ml,85,0,20,0,0,,0.9,20,0,356,,,,,,,false,false,,,product 15574; listed under Drinks > Bottled Drinks
+coca-cola-zero-sugar-1-5l,Coca-Cola Zero Sugar 1.5L,Bottled Drinks,1500 ml,5,0,0,0,0,,0.3,0,0,21,,,,,,,false,false,,,product 15668; listed under Drinks > Bottled Drinks
+diet-coke-1-5l,Diet Coke 1.5L,Bottled Drinks,1500 ml,6,0,0,0,0,,0,0,0,24,,,,,,,false,false,,,product 15669; listed under Drinks > Bottled Drinks
+fanta-orange-1-5l,Fanta Orange 1.5L,Bottled Drinks,1500 ml,290,0,69,0,0,,0,0,0,1215,,,,,,,false,false,,,product 15670; listed under Drinks > Bottled Drinks
+dr-pepper-1-5l,Dr Pepper 1.5L,Bottled Drinks,1500 ml,305,0,74,0,0,,0,74,0,1275,,,,,,,false,false,,,product 15671; listed under Drinks > Bottled Drinks
+sprite-1-5l,Sprite 1.5L,Bottled Drinks,1500 ml,219,0,50,0,0,,0.15,50,0,915,,,,,,,false,false,,,product 15672; listed under Drinks > Bottled Drinks
+coca-cola-original-taste-1-5l,Coca-Cola Original Taste 1.5L,Bottled Drinks,1500 ml,645,0,159,0,0,,0,0,0,2700,,,,,,,false,false,,,product 15673; listed under Drinks > Bottled Drinks
+coca-cola-zero-sugar-cherry-float-500ml,Coca-Cola Zero Sugar Cherry Float 500ml,Bottled Drinks,500 ml,5,0,0,0,0,,0.05,0,0,21,,,,,,,false,false,,,product 15698; listed under Drinks > Bottled Drinks
+diet-coke-cherry-500ml,Diet Coke Cherry 500ml,Bottled Drinks,500 ml,5,0,0,0,0,,0.1,0,0,21,,,,,,,false,false,,,product 15700; listed under Drinks > Bottled Drinks
+dr-pepper-zero-cherry-crush-500ml,Dr Pepper Zero Cherry Crush 500ml,Bottled Drinks,500 ml,5,0,0,0,0,,0,0,0,21,,,,,,,false,false,,,product 15701; listed under Drinks > Bottled Drinks
+dr-pepper-cream-swirl-500ml,Dr Pepper Cream Swirl 500ml,Bottled Drinks,500 ml,80,0,20,0,0,,0,20,0,335,,,,,,,false,false,,,product 15702; listed under Drinks > Bottled Drinks
+monster-original-500ml,Monster Original 500ml,Bottled Drinks,500 ml,237,0,60,0,0,,0.96,55,0,992,,,,,,,false,false,,,product 15728; listed under Drinks > Bottled Drinks
+monster-ultra-zero-sugar-500ml,Monster Ultra Zero Sugar 500ml,Bottled Drinks,500 ml,11,0,4.4,0,0,,1,0,0,46,,,,,,,false,false,,,product 15729; listed under Drinks > Bottled Drinks
+monster-juiced-mango-loco-500ml,Monster Juiced Mango Loco 500ml,Bottled Drinks,500 ml,239,0,60,0,0,,0.24,56,0,1000,,,,,,,false,false,,,product 15730; listed under Drinks > Bottled Drinks
+large-coffee,Large Coffee,Hot Drinks,585 g,51,2.1,7.7,1.3,0.6,,0.02,0.1,0.8,214,585,,,,,,false,false,,,product 9366; listed under Drinks > Hot Drinks
+regular-latte,Regular Latte,Hot Drinks,304 ml,151,2.3,18,4.6,2.8,,0.24,9.5,0.8,632,,,,,,,false,false,,,product 9367; listed under Drinks > Hot Drinks
+large-latte,Large Latte,Hot Drinks,460 g,240,2.9,27,7.5,4.6,,0.41,17,1.1,1005,460,,,,,,false,false,,,product 9375; listed under Drinks > Hot Drinks
+regular-tea,Regular Tea,Hot Drinks,0 g,0,0,0,0,0,,0,0,0,0,0,,,,,,false,false,,,product 9376; listed under Drinks > Hot Drinks
+large-tea,Large Tea,Hot Drinks,0 g,0,0,0,0,0,,0,0,0,0,0,,,,,,false,false,,,product 9377; listed under Drinks > Hot Drinks
+regular-cappuccino,Regular Cappuccino,Hot Drinks,244 g,137,2.3,16,4.2,2.5,,0.2,8.1,0.8,572,244,,,,,,false,false,,,product 9378; listed under Drinks > Hot Drinks
+large-cappuccino,Large Cappuccino,Hot Drinks,390 g,575,21,83,15,7,,0.31,6.8,7.9,2404,390,,,,,,false,false,,,product 9379; listed under Drinks > Hot Drinks
+large-hot-chocolate,Large Hot Chocolate,Hot Drinks,72.8 ml,309,5.8,51,8.4,6.2,,0.36,44,3.6,1295,,,,,,,false,false,,,product 9968; listed under Drinks > Hot Drinks
+regular-hot-chocolate,Regular Hot Chocolate,Hot Drinks,28 g,119,2.2,20,3.2,2.4,,0.14,17,1.4,498,28,,,,,,false,false,,,product 9969; listed under Drinks > Hot Drinks
+large-dispensed-drink,Large Dispensed Drink,Dispensed Drinks,0 g,0,0,0,0,0,,0,0,0,0,0,,,,,,false,false,,,product 11303; listed under Drinks > Dispensed Drinks
+regular-dispensed-drink,Regular Dispensed Drink,Dispensed Drinks,0 g,0,0,0,0,0,,0,0,0,0,0,,,,,,false,false,,,product 11304; listed under Drinks > Dispensed Drinks
+dips,Dips,Dips,14 g,50,0.4,1.2,4.9,0.5,,0.33,0.7,0.1,210,14,,,,,,false,false,,,product 9945; listed under Sides > Dips

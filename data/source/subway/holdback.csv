@@ -1,0 +1,18 @@
+item_id,reason
+footlong-pepperoni-slice,"Two products (12410, 12411) are both named 'Footlong Pepperoni Slice' and print different figures; the page does not say which is which."
+footlong-pepperoni-slice-2,"Two products (12410, 12411) are both named 'Footlong Pepperoni Slice' and print different figures; the page does not say which is which."
+beef-chilli-loaded-nachos,"Calories 625 but protein, carbs and fat on the same page give 436 kcal (30% apart): the page contradicts itself."
+12x-mozzarella-and-cheddar-bites,"Calories 612 but protein, carbs and fat on the same page give 419 kcal (32% apart): the page contradicts itself."
+oat-and-raisin-cookie,"Calories 149 but protein, carbs and fat on the same page give 68 kcal (54% apart): the page contradicts itself."
+3x-oat-and-raisin-cookie,"Calories 446 but protein, carbs and fat on the same page give 200 kcal (55% apart): the page contradicts itself."
+3x-matcha-and-white-chocolate-chip-cookie,A pack of three prints fat 13 but the single (Matcha & White Chocolate Chip Cookie) prints 8 (three would be about 24): the page's own figures disagree.
+lipton-ice-tea-peach-500ml,"Calories 95 but protein, carbs and fat on the same page give 128 kcal (35% apart): the page contradicts itself."
+coca-cola-zero-vanilla-500ml,"Saturates exceed fat, or sugars exceed carbohydrate, on the same page."
+regular-tea,"The page prints serving size 0 g and 0 for every figure, i.e. no figures."
+large-tea,"The page prints serving size 0 g and 0 for every figure, i.e. no figures."
+regular-cappuccino,"Regular and Large cappuccino differ too much: 137 kcal in 244 g against 575 kcal in 390 g; the page cannot be right for both, so neither is published."
+large-cappuccino,"Regular and Large cappuccino differ too much: 137 kcal in 244 g against 575 kcal in 390 g; the page cannot be right for both, so neither is published."
+large-hot-chocolate,"65 g of protein, carbs and fat cannot be in a 72.8 ml drink."
+large-dispensed-drink,"The page prints serving size 0 g and 0 for every figure, i.e. no figures."
+regular-dispensed-drink,"The page prints serving size 0 g and 0 for every figure, i.e. no figures."
+dips,"The page is a single entry named Dips with no flavour or description (the sides say 'a dip of your choice'), so its 14 g / 50 kcal cannot be tied to one dip."

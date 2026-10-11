@@ -23,6 +23,10 @@ robots.txt allows (`tools/uk_extract/zizzi_html.py`, `ask_italian_html.py`, `coc
 The folders here stay as the record of what was published from the PDFs (with full nutrition and allergens): a PDF you save from your own
 browser would bring those figures back.
 
+**Subway** is back too (2026-10-11), with full nutrition and no allergens, from its own product pages on www.subway.com
+(robots.txt disallows only `/sitecore/` and some delivery-locator paths): `tools/uk_extract/subway_html.py`. The `media.subway.com`
+PDF was not used.
+
 ## To put one back
 
 Either (a) download the chain's official PDF yourself in your browser from the chain's own page (a person is not what robots.txt is
