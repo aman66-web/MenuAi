@@ -496,7 +496,9 @@
    "nutrients": {
     "calories": 250
    },
-   "tags": [],
+   "tags": [
+    "contains_beef"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

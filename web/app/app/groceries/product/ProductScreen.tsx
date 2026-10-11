@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts, perLabel, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
+import { foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { Allergens } from "@/lib/mm/types";
 import { addToList } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
@@ -12,6 +13,7 @@ import { ChevronLeftIcon, CopyIcon, InfoIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { Button, ErrorBox, Spinner } from "../../_components/ui";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
+import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
 import { ProductPhotoFigure } from "../ProductPhoto";
@@ -35,6 +37,7 @@ type State = { status: "loading" } | { status: "missing" } | { status: "error" }
 
 export function ProductScreen({ code, retailerHint }: { code: string; retailerHint: string | null }) {
   const t = useT();
+  const prefs = useSettings().preferences;
   const wanted = barcodeQuery(code);
   const [state, setState] = useState<State>({ status: "loading" });
   const [added, setAdded] = useState<string | null>(null);
@@ -93,6 +96,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
     ...(p.salt !== undefined ? [[t("Salt"), `${p.salt}g`] as [string, string]] : []),
   ];
   const containsCount = p.allergens?.contains.length ?? 0;
+  const unsuited = foodDietProblem(listedFacts(listed), prefs) !== null;
 
   return (
     <div>
@@ -103,6 +107,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         {p.brand && <p className="kicker">{p.brand}</p>}
         <h1 className="text-[1.7rem] font-extrabold leading-[1.1] tracking-tight">{p.name}</h1>
         {p.size && <p className="mt-1 text-sm text-muted">{p.size}</p>}
+        {unsuited && <p className="mt-3 flex items-start gap-2 rounded-2xl bg-soft px-3 py-2 text-sm"><InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-muted" />{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p>}
         <div role="group" aria-label={t("{name}, {kcal} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat {per}", { name: p.name, kcal: p.kcal, protein: p.protein, carbs: p.carbs, fat: p.fat, per })} className="app-numbers mt-5">
           <div className="flex items-end gap-2">
             <span className="sun-text text-7xl font-extrabold leading-[0.9] tracking-tighter">{Math.round(p.kcal)}</span>

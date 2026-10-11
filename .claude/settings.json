@@ -1,6 +1,9 @@
 {
   "permissions": {
     "allow": [
+      "Bash",
+      "WebFetch",
+      "WebSearch",
       "Bash(./scripts/test.sh *)",
       "Bash(xcodebuild *)",
       "Bash(xcrun simctl *)",
@@ -19,7 +22,9 @@
     ],
     "deny": [
       "Read(./web/.env.local)",
-      "Read(./web/.env)"
+      "Read(./web/.env)",
+      "Bash(cat ./web/.env*)",
+      "Bash(cat web/.env*)"
     ],
     "ask": [
       "Bash(git push *)",

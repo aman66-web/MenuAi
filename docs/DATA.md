@@ -99,7 +99,7 @@ normal case). For such a chain:
 | id, name, category | yes | Category order in the file = display order in the app |
 | serving | no | "1 bowl", "8 pieces", "20 fl oz" |
 | nutrient columns | yes for standard items | For items with `components`, leave blank: totals are computed from the parts. If typed anyway, a >5% difference is a warning |
-| tags | no | For component items, tags are derived from the parts (vegetarian only if every part is) |
+| tags | no | For component items, tags are derived from the parts (vegetarian only if every part is). The pipeline also adds `contains_pork` / `contains_beef` wherever the dish's own name plainly says so (bacon, ham, chorizo, black pudding...; beef, brisket, sirloin, rump...), so the No pork / No beef filters don't depend on each script: text in brackets is ignored ("Peppercorn sauce (to the sirloin steak)"), and a dish marked vegetarian or named as a meat-free version is never tagged (`name_tags` in `tools/build_menus.py`) |
 | limited_time | no (false) | Shows a "Limited time" label |
 | rankable | no (true) | false = never suggested by "Best for you" (drinks, sauces, desserts) |
 | components | no | Default recipe: `chicken\|white-rice\|black-beans`; a double portion is `chicken:2` (never list a component twice) |
@@ -259,6 +259,12 @@ Example (trimmed) from the fictional sample:
   ]
 }
 ```
+
+Search file (`menus-search.json`, listed in the manifest with its own `sha256`): `{ "schemaVersion": 1, "chains": [ { "id", "name",
+"cuisine", "aliases", "sample", "items": [ [itemId, name, calories, diet?] ] } ] }`. `diet` is present only when it isn't empty: `v` =
+vegetarian tag, `p` = contains_pork, `b` = contains_beef, `n` = the name or menu section says vegan or plant-based, then `a` + the
+item's contains-or-may-contain allergens as a base-36 bit mask (bit i = the i-th allergen in the order of the allergen list above),
+present only when the item has allergen information. It lets search apply the diet settings without downloading every menu.
 
 Manifest:
 

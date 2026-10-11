@@ -2207,7 +2207,9 @@
     "saturatedFat": 4.1,
     "sugar": 0.7
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

@@ -594,7 +594,9 @@
     "sugar": 10.8,
     "salt": 9.3
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

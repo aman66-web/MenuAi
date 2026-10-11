@@ -288,6 +288,33 @@ def short_hash(obj) -> str:
     return hashlib.sha1(repr(obj).encode()).hexdigest()[:8]
 
 
+# Dish names that plainly say pork or beef (docs/DATA.md "Tags": contains_pork / contains_beef "only when the guide's item name or ingredients
+# say so"). Applied to every chain so the No pork / No beef filters don't depend on each extraction script remembering it. Text in brackets is
+# left out first: it names the dish an add-on goes with ("Peppercorn sauce (to the sirloin steak)"), not what is in it. A dish the chain marks
+# vegetarian, or whose name says it is a meat-free version ("THIS Isn't Bacon", "'nduja'" in quotes), is never tagged.
+_NAME_VEG = re.compile(r"\b(?:vegan|vegetarian|veggie|plant[\s-]?based|meat[\s-]?free|meatless|(?:no|without|minus)[\s-](?:the\s)?(?:meat|pork|beef|bacon|ham|chicken|steak|chorizo)|isn['’]?t|not|quorn|tofu|walkers|monster munch|"
+                       r"seitan|tempeh|jackfruit|(?:bacon|ham|beef|pork|steak|chorizo)[\s-]style|flavou?r(?:ed)?|crisps|mock|faux|v)\b|['‘’\"](?:bacon|ham|beef|steak|pork|chorizo|n'?duja|salami|pepperoni)['‘’\"]", re.I)
+_PORK = re.compile(r"(?<!\bturkey )(?<!\bchicken )(?<!\bbeef )(?<!\blamb )(?<!\bhalal )(?<!\bpheasant )(?<!\bvenison )(?<!\bduck )\b(?:pork|bacon|ham|hams|gammon|prosciutto|pancetta|chorizo|salami|"
+                   r"n'?duja|'nduja|lardons?|porchetta|black pudding|pigs? in (?:a )?blankets?|parma ham|serrano ham)\b", re.I)
+_BEEF = re.compile(r"(?<!\blamb )(?<!\bpork )(?<!\bvenison )(?<!\bgammon )\b(?:beef(?!\s+tomato)|brisket|veal|wagyu|sirloin|rib-?eye|rump|bresaola|oxtail|chateaubriand|bavette|picanha|t-bone|fillet steak|"
+                   r"flat iron steak|corned beef)\b", re.I)
+
+
+def name_tags(name: str, tags: list[str]) -> list[str]:
+    """tags plus contains_pork / contains_beef where the dish's own name plainly says so (see the note above)."""
+    if "vegetarian" in tags:
+        return tags
+    main = re.sub(r"\([^)]*\)|\[[^\]]*\]", " ", name or "")
+    if _NAME_VEG.search(main):
+        return tags
+    out = set(tags)
+    if _PORK.search(main):
+        out.add("contains_pork")
+    if _BEEF.search(main):
+        out.add("contains_beef")
+    return sorted(out)
+
+
 def combine_tags(tag_lists: list[list[str]]) -> list[str]:
     tags = set()
     for tl in tag_lists:
@@ -395,7 +422,7 @@ def load_chain(folder: Path) -> ChainBuild:
             "name": r["name"],
             "portion": r["portion"],
             "nutrients": n,
-            "tags": parse_tags(r["tags"], w, E),
+            "tags": name_tags(r["name"], parse_tags(r["tags"], w, E)),
             "removable": parse_bool(r["removable"], False, w, E),
             "allowDouble": parse_bool(r["allow_double"], False, w, E),
         }
@@ -464,6 +491,7 @@ def load_chain(folder: Path) -> ChainBuild:
         else:
             n = typed or {}
             tags = parse_tags(r["tags"], w, E)
+        tags = name_tags(r["name"], tags)
         if all(k in n for k in REQUIRED_NUTRIENTS) and (p := energy_problem(n)):
             W.append(f"{w} ({r['name']}): {p}. Re-check the source.")
 
@@ -612,6 +640,8 @@ def load_chain(folder: Path) -> ChainBuild:
             if mod_tags:
                 W.append(f"{w}: tags on a 'remove' modifier are ignored (removing never adds tags)")
                 mod_tags = []
+        if kind == "add":
+            mod_tags = name_tags(r["label"], mod_tags)
         b.items[item_id]["modifiers"].append({"id": mod_id, "label": r["label"], "kind": kind, "nutrients": n, "tags": mod_tags})
 
     if b.chain.get("builderType") == "build_your_own" and not b.components:
@@ -764,15 +794,41 @@ def chain_document(b: ChainBuild) -> dict:
             "combinations": b.combinations}
 
 
+_VEGAN_WORDS = re.compile(r"\bvegan\b|plant[\s-]?based", re.I)  # the same words as the app's isNamedVegan (web/lib/mm/menu-view.ts)
+_B36 = "0123456789abcdefghijklmnopqrstuvwxyz"
+
+
+def search_diet(item: dict) -> str:
+    """What the app's diet filters need to know about an item, in a few letters (docs/DATA.md "Search file"): v = vegetarian tag,
+    p = contains_pork, b = contains_beef, n = the name or menu section says vegan or plant-based, then 'a' + the allergen guide's
+    contains-or-may-contain allergens as a base-36 bit mask (bit i = ALLERGENS[i]) when the item has allergen information."""
+    tags = item.get("tags", [])
+    out = ("v" if "vegetarian" in tags else "") + ("p" if "contains_pork" in tags else "") + ("b" if "contains_beef" in tags else "")
+    if _VEGAN_WORDS.search(item["name"]) or _VEGAN_WORDS.search(item.get("category") or ""):
+        out += "n"
+    a = item.get("allergens")
+    if a:
+        mask = sum(1 << ALLERGENS.index(k) for k in set(a["contains"]) | set(a["mayContain"]))
+        digits = ""
+        while True:
+            mask, r = divmod(mask, 36)
+            digits = _B36[r] + digits
+            if mask == 0:
+                break
+        out += "a" + digits
+    return out
+
+
 def search_document(out: Path, manifest_chains: list) -> dict:
-    """Compact index for the app's search: chain names plus [item id, name, calories] per item, so search never has to
-    download every full menu. Built from the chain files just written, so it can never disagree with them."""
+    """Compact index for the app's search: chain names plus [item id, name, calories] per item (and a 4th entry, the diet letters of
+    search_diet, when there are any), so search never has to download every full menu. Built from the chain files just written, so it
+    can never disagree with them."""
     chains = []
     for c in manifest_chains:
         doc = json.loads((out / c["file"]).read_text())
         chains.append({
             "id": doc["id"], "name": doc["name"], "cuisine": doc["cuisine"], "aliases": doc["aliases"], "sample": doc["sample"],
-            "items": [[i["id"], i["name"], i["nutrients"]["calories"]] for i in doc["items"]],
+            "items": [[i["id"], i["name"], i["nutrients"]["calories"], *([d] if (d := search_diet(i)) else [])] for i in doc["items"]],
         })
     return {"schemaVersion": SCHEMA_VERSION, "chains": chains}
 

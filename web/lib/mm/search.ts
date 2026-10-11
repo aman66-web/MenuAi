@@ -1,4 +1,5 @@
-import type { Chain } from "./types";
+import { passesPreferences } from "./ranking";
+import { ALLERGEN_KEYS, type AllergenKey, type Chain, type MenuItem, type Preferences, type Tag } from "./types";
 
 // SPEC §7.3: type-ahead over chain and item names. Minimum 2 characters, case- and diacritic-insensitive,
 // matches the start of the name or the start of any word in it ("nugg" → Nuggets, "wrap" → Chicken wrap).
@@ -36,6 +37,54 @@ export interface ItemHit {
 export interface SearchResults {
   chains: ChainHit[];
   items: ItemHit[];
+  /** Matching dishes left out because they don't fit the diet settings passed to search(). */
+  hiddenByDiet: number;
+}
+
+/** What the diet filters need to know about a dish without its full menu (the search file's diet letters, docs/DATA.md). */
+export interface DietFacts {
+  tags: Tag[];
+  namedVegan: boolean;
+  /** The guide's contains-or-may-contain allergens; null = no allergen information. */
+  allergens: AllergenKey[] | null;
+}
+
+const VEGAN_WORDS = /\bvegan\b|plant[\s-]?based/i; // the same words as isNamedVegan (menu-view.ts) and the pipeline's search_diet
+
+/** Decode the search file's diet letters: v/p/b = tags, n = named vegan, a<base 36> = allergen bit mask (bit i = ALLERGEN_KEYS[i]). */
+export function decodeDiet(raw: string | undefined): DietFacts {
+  const s = raw ?? "";
+  const at = s.indexOf("a");
+  const letters = at === -1 ? s : s.slice(0, at);
+  const tags: Tag[] = [];
+  if (letters.includes("v")) tags.push("vegetarian");
+  if (letters.includes("p")) tags.push("contains_pork");
+  if (letters.includes("b")) tags.push("contains_beef");
+  let allergens: AllergenKey[] | null = null;
+  if (at !== -1) {
+    const mask = parseInt(s.slice(at + 1), 36);
+    allergens = Number.isFinite(mask) ? ALLERGEN_KEYS.filter((_, i) => (mask >> i) & 1) : null;
+  }
+  return { tags, namedVegan: letters.includes("n"), allergens };
+}
+
+/** The same facts read from a full menu item (for indexes built from whole chains). */
+export function dietFactsOf(item: Pick<MenuItem, "tags" | "name" | "category" | "allergens">): DietFacts {
+  const a = item.allergens;
+  return {
+    tags: [...item.tags],
+    namedVegan: VEGAN_WORDS.test(item.name) || VEGAN_WORDS.test(item.category ?? ""),
+    allergens: a ? ALLERGEN_KEYS.filter((k) => a.contains.includes(k) || a.mayContain.includes(k)) : null,
+  };
+}
+
+/** Same rule as passesDiet (menu-view.ts): tags, named vegan, and no avoided allergen (dishes without allergen information fail an allergy filter). */
+export function fitsDiet(d: DietFacts, prefs: Preferences): boolean {
+  if (!passesPreferences(d.tags, prefs)) return false;
+  if (prefs.veganOnly && !d.namedVegan) return false;
+  const avoid = prefs.avoidAllergens ?? [];
+  if (avoid.length === 0) return true;
+  return d.allergens !== null && !avoid.some((k) => d.allergens!.includes(k));
 }
 
 interface IndexedChain extends ChainHit {
@@ -43,6 +92,7 @@ interface IndexedChain extends ChainHit {
 }
 interface IndexedItem extends ItemHit {
   norm: string;
+  diet: DietFacts;
 }
 
 export interface SearchIndex {
@@ -69,20 +119,21 @@ export function buildSearchIndex(chains: readonly Chain[]): SearchIndex {
         calories: item.nutrients.calories,
         sample: chain.sample,
         norm: normalizeForSearch(item.name),
+        diet: dietFactsOf(item),
       });
     }
   }
   return index;
 }
 
-/** One chain in the pipeline's compact search file (menus-search.json): items are [item id, name, calories]. */
+/** One chain in the pipeline's compact search file (menus-search.json): items are [item id, name, calories, diet letters?] (docs/DATA.md). */
 export interface CompactSearchChain {
   id: string;
   name: string;
   cuisine: string;
   aliases: string[];
   sample: boolean;
-  items: Array<[string, string, number]>;
+  items: Array<[string, string, number, string?]>;
 }
 
 /** The same index as buildSearchIndex, built from the compact file so no full menu has to be downloaded to search. */
@@ -96,8 +147,8 @@ export function buildSearchIndexFromCompact(chains: readonly CompactSearchChain[
       sample: chain.sample,
       norms: [chain.name, ...chain.aliases].map(normalizeForSearch).filter(Boolean),
     });
-    for (const [itemId, name, calories] of chain.items) {
-      index.items.push({ chainId: chain.id, chainName: chain.name, itemId, name, calories, sample: chain.sample, norm: normalizeForSearch(name) });
+    for (const [itemId, name, calories, diet] of chain.items) {
+      index.items.push({ chainId: chain.id, chainName: chain.name, itemId, name, calories, sample: chain.sample, norm: normalizeForSearch(name), diet: decodeDiet(diet) });
     }
   }
   return index;
@@ -112,9 +163,10 @@ function matchRank(norm: string, q: string): 0 | 1 | null {
 
 const byName = (a: string, b: string) => a.localeCompare(b, "en-US");
 
-export function search(index: SearchIndex, rawQuery: string, maxItems = 40): SearchResults {
+/** `diet`: the person's diet settings; dishes that don't fit are left out (and counted in hiddenByDiet). */
+export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet?: Preferences): SearchResults {
   const q = normalizeForSearch(rawQuery);
-  if (q.length < MIN_QUERY_LENGTH) return { chains: [], items: [] };
+  if (q.length < MIN_QUERY_LENGTH) return { chains: [], items: [], hiddenByDiet: 0 };
 
   const chains = index.chains
     .map((c) => ({ c, rank: Math.min(...c.norms.map((n) => matchRank(n, q) ?? 2)) }))
@@ -122,9 +174,11 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40): Sea
     .sort((a, b) => a.rank - b.rank || byName(a.c.name, b.c.name))
     .map(({ c }) => ({ chainId: c.chainId, name: c.name, cuisine: c.cuisine, sample: c.sample }));
 
-  const items = index.items
+  const matched = index.items
     .map((i) => ({ i, rank: matchRank(i.norm, q) }))
-    .filter((x): x is { i: IndexedItem; rank: 0 | 1 } => x.rank !== null)
+    .filter((x): x is { i: IndexedItem; rank: 0 | 1 } => x.rank !== null);
+  const fitting = diet ? matched.filter((x) => fitsDiet(x.i.diet, diet)) : matched;
+  const items = fitting
     .sort((a, b) => a.rank - b.rank || byName(a.i.chainName, b.i.chainName) || byName(a.i.name, b.i.name))
     .slice(0, maxItems)
     .map(({ i }) => ({
@@ -136,7 +190,7 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40): Sea
       sample: i.sample,
     }));
 
-  return { chains, items };
+  return { chains, items, hiddenByDiet: matched.length - fitting.length };
 }
 
 /** One character folded for matching (lower case, accents dropped) without changing the string's length. */

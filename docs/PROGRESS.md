@@ -715,6 +715,28 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   sugar-free gum and sweeteners are mostly polyols), and they are out of the app. Checked: 423 unit tests, 115 Python, e2e smoke 23, extra 11, a11y 0 violations,
   groceries 6, groceries-all 5, groceries-compare 8, groceries-photos 4.
 
+- 2026-10-11 — **Diet settings everywhere (founder: "I put in vegetarian and it's suggesting meat items, fix all of this please and categorise everything").**
+  Checked first: no restaurant dish naming meat or fish carries the vegetarian tag (the 15 that mention a meat word are crisps flavours, "'prawn'
+  crackers", oyster mushrooms, add-ons and meat-free versions), so the restaurant page and Best for you were right. The leaks were the screens that
+  ignored the setting: **Groceries**, a shop's **full list**, **search** and the **order builder's pickers**. Now: (1) groceries
+  (`lib/mm/foodDiet.ts`, 13 tests) leave out a product when its own name, brand, type, category, ingredients or allergens plainly say it doesn't suit
+  (vegetarian: meat or fish, incl. gelatine and dishes like "chilli con carne"; vegan: also milk, eggs, honey unless the plant version is named; no pork /
+  no beef: those words, gelatine counted for both; halal: pork, alcohol, and meat not named halal; allergies: as on restaurant pages, and a full shop list,
+  which has no allergens, says it can't filter them). Meat-free versions are kept ("Quorn ... Chicken Style", "This Isn't Bacon"). Nothing is inferred the
+  other way: a product that stays isn't promised to suit, and the list says "We go by each product's name, type and label, so this can't promise a product
+  is {vegetarian}. Always check the pack." A product page that doesn't fit says so. (2) Search and the builder use the restaurant rule (tags, named vegan,
+  allergens); the search file now carries each dish's diet letters (`docs/DATA.md` "Search file"; +50 KB gzipped). (3) Every screen has a **"Fits my diet"**
+  chip (on by default when any diet is set) to see everything. (4) **Categorising:** the pipeline now adds `contains_pork` / `contains_beef` wherever a
+  dish's own name says so (`name_tags` in `tools/build_menus.py`; bracketed add-on context ignored, meat-free versions and vegetarian dishes never
+  tagged): **108 dishes in 46 chains** gained a tag (Burger King's and McDonald's bacon items, Costa and Starbucks ham/bacon, Domino's 'nduja, black
+  pudding everywhere, steaks such as rump/sirloin/chateaubriand). (5) Found while checking: **115 grocery records whose label kJ and kcal disagree** (e.g.
+  "Fruit jellies" 0.2 kcal but 1,446 kJ) are now left out (one of the two is wrong; `implausible()` in `build_groceries.py`). Recipes already followed the diet.
+  New copy (rule 8, logged here; translated into the 10 languages by Claude, not yet checked by native speakers): "Fits my diet", the grocery caution
+  sentence, "This product doesn't fit your diet settings, going by its name, type and label.", "We haven't read allergens for these products, so your
+  allergy settings can't hide any here. Always check the pack." Checked: 439 unit tests, 119 Python, e2e diet (new, 5), smoke 23, extra 11, groceries
+  6+5+8, recipes 13, browse 9, axe 0 on the full list. **Permissions:** `.claude/settings.json` now allows every shell command, web fetch and search
+  without asking; `git push` and the Supabase database commands still ask (CLAUDE.md rule 4).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

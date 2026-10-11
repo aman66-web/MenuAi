@@ -214,8 +214,9 @@ def allergens_from(p: dict):
     return {"contains": sorted(contains, key=order), "mayContain": sorted(may, key=order)}
 
 
-def implausible(kcal: float, protein: float, carbs: float, fat: float) -> str | None:
-    """Why four per-100 g numbers can't be right (None when they can): used for community data and for the shops' own pages alike."""
+def implausible(kcal: float, protein: float, carbs: float, fat: float, kj: float | None = None) -> str | None:
+    """Why four per-100 g numbers can't be right (None when they can): used for community data and for the shops' own pages alike.
+    With `kj`, a label whose kJ and kcal disagree (1 kcal = 4.184 kJ) is left out too: one of the two is wrong and we can't tell which."""
     if min(kcal, protein, carbs, fat) < 0 or max(protein, carbs, fat) > 100 or protein + carbs + fat > 101 or kcal > 950:
         return "implausible numbers"
     est = 4 * protein + 4 * carbs + 9 * fat
@@ -224,6 +225,8 @@ def implausible(kcal: float, protein: float, carbs: float, fat: float) -> str | 
     pf = 4 * protein + 9 * fat  # protein and fat always carry energy (carbs may be mostly polyols or fibre, as in sugar-free gum and sweeteners)
     if pf >= 20 and kcal < 0.6 * pf - 5:
         return "energy far below what the protein and fat give (e.g. 0 kcal with 4 g protein)"
+    if kj is not None and kj > 0 and abs(kj - 4.184 * kcal) > max(60, 0.15 * kj):
+        return "kJ and kcal disagree"
     return None
 
 
@@ -253,7 +256,7 @@ def convert(p: dict, reasons: dict) -> dict | None:
     kcal, protein, carbs, fat = (num(n.get(k)) for k in ("energy-kcal_100g", "proteins_100g", "carbohydrates_100g", "fat_100g"))
     if None in (kcal, protein, carbs, fat):
         return skip("kcal, protein, carbs or fat missing")
-    bad = implausible(kcal, protein, carbs, fat)
+    bad = implausible(kcal, protein, carbs, fat, num(n.get("energy-kj_100g")))
     if bad:
         return skip(bad)
     qty = " ".join((p.get("quantity") or "").split())
@@ -802,7 +805,7 @@ def apply_details(item: dict, d: dict, notes: dict) -> None:
     if None in (kcal, protein, carbs, fat):
         notes["incomplete"] = notes.get("incomplete", 0) + 1
         return
-    if implausible(kcal, protein, carbs, fat):
+    if implausible(kcal, protein, carbs, fat, printed_num(d.get("energy_kj"))):
         notes["implausible"] = notes.get("implausible", 0) + 1
         return
     if item["kcal"] and abs(kcal - item["kcal"]) / max(item["kcal"], 1) > 0.2 and abs(kcal - item["kcal"]) > 15:
@@ -988,7 +991,7 @@ def patch(out: Path) -> int:
     recat: dict = {}
     for entry in manifest["retailers"]:
         items = json.loads((out / entry["file"]).read_text())["products"]
-        dropped = [it for it in items if implausible(it["kcal"], it["protein"], it["carbs"], it["fat"])]
+        dropped = [it for it in items if implausible(it["kcal"], it["protein"], it["carbs"], it["fat"], it.get("kj"))]
         if dropped:
             print(f"{entry['id']}: {len(dropped)} product(s) left out, their numbers can't be right: " + "; ".join(f"{d['name']} ({d['kcal']} kcal, {d['protein']} g protein)" for d in dropped[:5]) + (" ..." if len(dropped) > 5 else ""))
             items = [it for it in items if it not in dropped]

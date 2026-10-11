@@ -17,13 +17,15 @@ import {
 } from "@/lib/mm/order";
 import { addLogEntry, addSavedOrder, countProAction, logStore, savedStore, updateSavedOrder } from "@/lib/mm/stores";
 import type { LogSource, SavedOrder } from "@/lib/mm/user-data";
+import { anyDietFilter, passesDiet } from "@/lib/mm/menu-view";
+import { passesPreferences } from "@/lib/mm/ranking";
 import type { MenuComponent } from "@/lib/mm/types";
 import { AllergenSection } from "../_components/Allergens";
 import { useGate } from "../_components/Paywall";
 import { ChevronLeftIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
 import { MacroSummary } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
-import { Button, Card, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
+import { Button, Card, Chip, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
 import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
@@ -364,19 +366,26 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
   lines: OrderLine[]; onClose: () => void; onPickComponent: (id: string) => void; onPickItem: (id: string) => void;
 }) {
   const t = useT();
+  // The diet settings (Settings › Diet) apply to what can be added, as on the restaurant's page; one tap shows everything.
+  const prefs = useSettings().preferences;
+  const [dietOn, setDietOn] = useState(true);
+  const diet = anyDietFilter(prefs) && dietOn;
+  const dietChip = anyDietFilter(prefs) ? <div className="mb-3"><Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip></div> : null;
   const line = picker && picker.type !== "item" ? (lines[picker.lineIndex] as ComponentLine | undefined) : undefined;
   const optionGroups: Array<{ title: string; items: MenuComponent[] }> = [];
+  const fitComponent = (c: MenuComponent) => !diet || passesPreferences(c.tags, prefs);
   if (picker?.type === "add" && line?.kind === "components") {
-    for (const [group, list] of addableComponents(ix, line)) optionGroups.push({ title: t(GROUP_LABEL[group] ?? group), items: list });
+    for (const [group, list] of addableComponents(ix, line)) optionGroups.push({ title: t(GROUP_LABEL[group] ?? group), items: list.filter(fitComponent) });
   }
   if (picker?.type === "swap" && line?.kind === "components") {
-    const list = swapOptions(ix, line, picker.componentId);
+    const list = swapOptions(ix, line, picker.componentId).filter(fitComponent);
     optionGroups.push({ title: t("Swap {name} for", { name: ix.components.get(picker.componentId)?.name ?? "" }), items: list });
   }
   return (
     <>
       <Sheet open={picker?.type === "add" || picker?.type === "swap"} onClose={onClose} title={picker?.type === "swap" ? t("Swap ingredient") : t("Add ingredient")}>
-        {optionGroups.map((g) => (
+        {dietChip}
+        {optionGroups.filter((g) => g.items.length > 0).map((g) => (
           <section key={g.title} className="mb-3">
             <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{g.title}</h3>
             <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
@@ -393,8 +402,9 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
         ))}
       </Sheet>
       <Sheet open={picker?.type === "item"} onClose={onClose} title={t("Add item")}>
+        {dietChip}
         {ix.chain.categories.map((cat) => {
-          const items = ix.chain.items.filter((i) => i.category === cat);
+          const items = ix.chain.items.filter((i) => i.category === cat && (!diet || passesDiet(i, prefs)));
           return items.length === 0 ? null : (
             <section key={cat} className="mb-3">
               <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{cat}</h3>

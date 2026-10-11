@@ -93,7 +93,9 @@
     "salt": 4.5,
     "energyKj": 4599
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -335,7 +337,9 @@
     "salt": 2.7,
     "energyKj": 2421
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -599,7 +603,9 @@
     "salt": 2.1,
     "energyKj": 1994
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -687,7 +693,9 @@
     "salt": 1.7,
     "energyKj": 1676
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2583,7 +2591,9 @@
     "salt": 1.6,
     "energyKj": 1524
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2693,7 +2703,9 @@
     "salt": 1.8,
     "energyKj": 1575
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2759,7 +2771,9 @@
     "salt": 1.4,
     "energyKj": 1406
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -2869,7 +2883,9 @@
     "salt": 1.5,
     "energyKj": 1171
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

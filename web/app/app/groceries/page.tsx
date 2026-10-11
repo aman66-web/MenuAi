@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useDeferredValue, useMemo, useState } from "react";
+import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import { barcodeQuery, GROCERY_SORTS, RETAILERS, searchProducts, type GrocerySort } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
@@ -33,6 +34,7 @@ export default function GroceriesPage() {
   const [shown, setShown] = useState(PAGE);
   const [retry, setRetry] = useState(0);
   const [scanning, setScanning] = useState(false);
+  const [dietOn, setDietOn] = useState(true);
   const deferred = useDeferredValue(query);
   const settings = useSettings();
   const catManifest = useGroceryManifest();
@@ -41,7 +43,18 @@ export default function GroceriesPage() {
   const catalogue = useGroceryCatalogue(retailer, retry);
   const fullLists = useShopManifest();
 
-  const results = useMemo(() => searchProducts(catalogue.products, { query: deferred, retailer: retailer, category, priced, sort }), [catalogue.products, deferred, retailer, category, priced, sort]);
+  // The person's diet settings (Settings › Diet) leave out products that plainly don't suit (lib/mm/foodDiet.ts); one tap shows everything.
+  const prefs = settings.preferences;
+  const diet = anyFoodDiet(prefs) && dietOn;
+  const suits = useMemo(() => {
+    if (!anyFoodDiet(prefs)) return null;
+    return new Set(catalogue.products.filter((p) => !foodDietProblem(listedFacts(p), prefs)).map((p) => p.gtin));
+  }, [catalogue.products, prefs]);
+  const results = useMemo(() => {
+    const found = searchProducts(catalogue.products, { query: deferred, retailer: retailer, category, priced, sort });
+    return diet && suits ? found.filter((p) => suits.has(p.gtin)) : found;
+  }, [catalogue.products, deferred, retailer, category, priced, sort, diet, suits]);
+  const caution = diet ? foodDietCaution(prefs, t) : null;
   const categories = useMemo(() => {
     const counts = new Map<string, number>();
     for (const p of catalogue.products) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
@@ -97,12 +110,13 @@ export default function GroceriesPage() {
         </div>
       )}
       <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
+        {anyFoodDiet(prefs) && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
         {anyPrices && <Chip selected={priced} onClick={() => { setPriced((v) => !v); reset(); }}>{t("Has a price")}</Chip>}
         <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>{t("All types")}</Chip>
         {categories.map((c) => (<Chip key={c.id} selected={category === c.id} onClick={() => { setCategory(c.id); reset(); }}>{t(c.label)}</Chip>))}
       </div>
       <label className="mt-3 flex items-center justify-end gap-2 text-sm">
-        <span className="text-muted">{t("Sort")}</span>
+        <span className="shrink-0 text-muted">{t("Sort")}</span>
         <select className={`${inputClass} min-h-11 w-auto py-0 text-sm`} value={sort} onChange={(e) => { setSort(e.target.value as GrocerySort); reset(); }}>
           {GROCERY_SORTS.map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
         </select>
@@ -114,6 +128,7 @@ export default function GroceriesPage() {
         <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
       ) : (
         <>
+          {caution && <p className="mt-3 text-xs text-muted">{caution}</p>}
           <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length === 1 ? (isBarcode ? t("1 product with that barcode") : t("1 product")) : isBarcode ? t("{n} products with that barcode", { n: results.length.toLocaleString("en-GB") }) : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
           {results.length === 0 ? (
             <div className="mt-3"><EmptyState title={t("No products match.")} body={isBarcode ? t("That barcode isn't in our list yet.") : t("Try fewer words, another supermarket, or a different type.")} /></div>

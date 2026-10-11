@@ -1,13 +1,13 @@
 # Groceries build report
 
-Patched 2026-10-11 from the files built on 2026-10-10 (python3 tools/groceries/build_groceries.py --patch; no Open Food Facts download).
+Patched 2026-10-11 from the files built on 2026-10-11 (python3 tools/groceries/build_groceries.py --patch; no Open Food Facts download).
 
 Pictures come only from the supermarkets' own websites (founder 2026-10-10); a product without one shows "no photo".
 
 | retailer | products | with the shop's own photo | of those, a stored copy | allergens known | with price |
 |---|---|---|---|---|---|
-| Tesco | 4472 | 338 | 0 | 2829 | 165 |
-| Sainsbury's | 2724 | 808 | 808 | 2076 | 123 |
+| Tesco | 4414 | 332 | 0 | 2789 | 162 |
+| Sainsbury's | 2667 | 794 | 794 | 2030 | 118 |
 | Asda | 3 | 0 | 0 | 3 | 0 |
 | Waitrose | 2 | 0 | 0 | 2 | 0 |
 | Lidl | 1 | 0 | 0 | 1 | 0 |
@@ -31,8 +31,8 @@ company prefix the catalogue ties to one shop); a shop whose own website showed 
 
 Barcode company prefixes the catalogue ties to one shop (barcodes naming it):
 
-- Sainsbury's: 5063334 (290), 8:00 (1375), 8:01 (973), 8:44 (3)
-- Tesco: 5000119 (61), 5000358 (26), 5000436 (42), 5000462 (16), 5010204 (25), 5018374 (37), 5031021 (23), 5050179 (22), 5051007 (13), 5051008 (10), 5051140 (17), 5051277 (14), 5051399 (19), 5051622 (7), 5051790 (17), 5051898 (24), 5052003 (20), 5052004 (19), 5052109 (28), 5052319 (15), 5052320 (35), 5052909 (34), 5052910 (56), 5053526 (48), 5053947 (59), 5054268 (48), 5054269 (51), 5054402 (40), 5054775 (40), 5057008 (63), 5057373 (67), 5057545 (157), 5057753 (507), 5057967 (70), 5059316 (4), 5059512 (102), 5059697 (881), 5063250 (186), 5063445 (145), 5063446 (39), 8:03 (368), 8:10 (84)
+- Sainsbury's: 5063334 (286), 8:00 (1350), 8:01 (948), 8:44 (3)
+- Tesco: 5000119 (58), 5000358 (25), 5000436 (42), 5000462 (16), 5010204 (25), 5018374 (35), 5031021 (21), 5050179 (22), 5051007 (13), 5051008 (10), 5051140 (17), 5051277 (14), 5051399 (17), 5051622 (7), 5051790 (16), 5051898 (23), 5052003 (20), 5052004 (18), 5052109 (28), 5052319 (14), 5052320 (35), 5052909 (33), 5052910 (56), 5053526 (46), 5053947 (56), 5054268 (48), 5054269 (51), 5054402 (40), 5054775 (39), 5057008 (63), 5057373 (67), 5057545 (156), 5057753 (501), 5057967 (68), 5059316 (4), 5059512 (101), 5059697 (874), 5063250 (186), 5063445 (143), 5063446 (38), 8:03 (364), 8:10 (83), 8:11 (3)
 
 ## Own-brand labels (checked against the catalogue)
 
@@ -47,7 +47,7 @@ Barcode company prefixes the catalogue ties to one shop (barcodes naming it):
 | Sainsbury's | so organic | 8 | Sainsbury's 8 | 8 | 8 |
 | Sainsbury's | stamford street | 3 | Sainsbury's 3 | 3 | 3 |
 | Sainsbury's | stamford street co | 4 | Sainsbury's 4 | 4 | 4 |
-| Sainsbury's | taste the difference | 143 | Sainsbury's 143 | 88 | 138 |
+| Sainsbury's | taste the difference | 142 | Sainsbury's 142 | 87 | 137 |
 | Sainsbury's | taste-the-difference | 1 | Sainsbury's 1 | 1 | 1 |
 | Tesco | bay fishmongers | 2 | Tesco 2 | 0 | 2 |
 | Tesco | creamfields | 18 | Tesco 18 | 2 | 14 |
@@ -62,7 +62,7 @@ Barcode company prefixes the catalogue ties to one shop (barcodes naming it):
 | Tesco | hearty food | 1 | Tesco 1 | 0 | 1 |
 | Tesco | hearty food co | 9 | Tesco 9 | 3 | 9 |
 | Tesco | ms molly's | 4 | Tesco 4 | 1 | 4 |
-| Tesco | nevill's | 4 | Tesco 4 | 0 | 4 |
+| Tesco | nevill's | 3 | Tesco 3 | 0 | 3 |
 | Tesco | nightingale farms | 2 | Tesco 2 | 1 | 2 |
 | Tesco | plant chef | 12 | Tesco 12 | 6 | 12 |
 | Tesco | redmere farms | 1 | Tesco 1 | 1 | 1 |
@@ -78,14 +78,14 @@ Barcode company prefixes the catalogue ties to one shop (barcodes naming it):
 
 ## Photos from the supermarkets' own websites (a stored copy where we hold one, else hotlinked)
 
-- Tesco: 338 of 4472 products have the shop's own photo, 0 also have a stored copy; 4134 show "no photo"
+- Tesco: 332 of 4414 products have the shop's own photo, 0 also have a stored copy; 4082 show "no photo"
   - not used because the shop's page names a different product (3): 5038862630962 'Frozen Straberries' vs the shop's 'innocent Kids Smoothies Cherries, Strawberries & Apples 4 x 150ml'; 5057545009598 'Fromage frais' vs the shop's 'Tesco Free From Raspberry Strawberry Soya Alternative 4X90g'; 10024423 'Cataloupe' vs the shop's 'Tesco Cantaloupe Melon Each'
-- Sainsbury's: 808 of 2724 products have the shop's own photo, 808 also have a stored copy; 1916 show "no photo"
+- Sainsbury's: 794 of 2667 products have the shop's own photo, 794 also have a stored copy; 1873 show "no photo"
   - not used because the shop's page names a different product (2): 5038862236911 'Invigorate' vs the shop's 'Innocent Green Energise, Kiwi, Cucumber, Apple & Matcha Super Smoothie with Vitamins 750ml'; 5060100601861 'No Sugar Milk' vs the shop's 'Koko Unsweetened Coconut UHT 1L'
 
 ## Types
 
-- Other 1300, Cupboard 1084, Bakery 807, Ready meals 721, Snacks and sweets 612, Fruit and veg 592, Dairy and eggs 531, Meat 529, Drinks 308, Frozen 235, Fish and seafood 229, Meat alternatives 135, Breakfast 124
+- Other 1288, Cupboard 1061, Bakery 796, Ready meals 711, Snacks and sweets 605, Fruit and veg 578, Dairy and eggs 522, Meat 518, Drinks 305, Frozen 231, Fish and seafood 225, Meat alternatives 130, Breakfast 122
 
 ## Left out (and why)
 

@@ -674,3 +674,47 @@ class CaloriesOnlyTests(unittest.TestCase):
         _, _, doc, manifest = self.build(self.ROW, "a,Cod,Mains,1,900,,,,,,,,,,,,2026-10-01,\n")
         jsonschema.validate(doc, json.loads((ROOT / "data/schema/chain.schema.json").read_text()))
         self.assertEqual(manifest["nutritionLevel"], "calories")
+
+
+class DietTests(unittest.TestCase):
+    """Name-based pork/beef tags and the diet letters in the search file (docs/DATA.md)."""
+
+    def test_name_tags_add_pork_and_beef_from_the_dish_name_only(self):
+        self.assertEqual(bm.name_tags("Bacon Double Cheeseburger", []), ["contains_pork"])
+        self.assertEqual(bm.name_tags("Magnifica Chicken & Nduja - Large", []), ["contains_pork"])
+        self.assertEqual(bm.name_tags("8oz Rump", []), ["contains_beef"])
+        self.assertEqual(bm.name_tags("Bresaola & salami board", []), ["contains_beef", "contains_pork"])
+        self.assertEqual(bm.name_tags("Bacon Butty", ["contains_pork"]), ["contains_pork"])
+
+    def test_name_tags_leave_alone_add_on_context_meat_free_versions_and_other_meats(self):
+        for name in ["Peppercorn sauce (to the sirloin steak)", "Fried eggs (with gammon steak)", "THIS™ Isn’t Beef Burger (VG)",
+                     "Turkey Ham Toastie", "Lamb rump, tomato salad", "Pan-Roasted Lamb Rump", "Beef tomato salad",
+                     "Smoky Bacon Flavour Crisps", "Bacon Cheeseburger without bacon", "Koko 'bacon' bites"]:
+            self.assertEqual(bm.name_tags(name, []), [], name)
+        self.assertEqual(bm.name_tags("Chorizo Arancini", ["vegetarian"]), ["vegetarian"])
+
+    def test_pipeline_applies_name_tags_to_items_and_add_modifiers(self):
+        with tempfile.TemporaryDirectory() as d:
+            src, out = Path(d) / "src", Path(d) / "out"
+            write_chain(src, builder="standard",
+                        items=item_row("burger", "Bacon Burger", "Burgers", nutrients="500,30,40,20,,,,")
+                        + item_row("plain", "Cheeseburger", "Burgers", nutrients="400,25,40,15,,,,"),
+                        modifiers="plain,add-bacon,Add bacon,add,80,6,0,6,,,,,\n")
+            with contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(bm.main(["--source", str(src), "--out", str(out)]), 0)
+            doc = json.loads((out / "chain-test-chain.json").read_text())
+            items = {i["id"]: i for i in doc["items"]}
+            self.assertEqual(items["burger"]["tags"], ["contains_pork"])
+            self.assertEqual(items["plain"]["tags"], [])
+            self.assertEqual(items["plain"]["modifiers"][0]["tags"], ["contains_pork"])
+
+    def test_search_diet_letters(self):
+        self.assertEqual(bm.search_diet({"name": "Fries", "tags": ["vegetarian"]}), "v")
+        self.assertEqual(bm.search_diet({"name": "Bacon roll", "tags": ["contains_pork"]}), "p")
+        self.assertEqual(bm.search_diet({"name": "Vegan wrap", "category": "Wraps", "tags": ["vegetarian"]}), "vn")
+        self.assertEqual(bm.search_diet({"name": "Bowl", "category": "Plant-based", "tags": []}), "n")
+        self.assertEqual(bm.search_diet({"name": "Chips", "tags": []}), "")
+        # celery = bit 0, gluten = bit 1, milk = bit 6: 1 + 2 + 64 = 67 = "1v" in base 36
+        a = {"contains": ["gluten", "milk"], "mayContain": ["celery"]}
+        self.assertEqual(bm.search_diet({"name": "Wrap", "tags": [], "allergens": a}), "a1v")
+        self.assertEqual(bm.search_diet({"name": "Water", "tags": [], "allergens": {"contains": [], "mayContain": []}}), "a0")

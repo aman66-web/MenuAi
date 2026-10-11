@@ -3603,7 +3603,9 @@
     "sugar": 0,
     "salt": 1
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

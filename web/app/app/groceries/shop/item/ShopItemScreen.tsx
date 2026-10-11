@@ -5,11 +5,13 @@ import { useEffect, useMemo, useState } from "react";
 import { addToList, formatPrice } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { formatDate } from "@/lib/mm/format";
+import { foodDietProblem } from "@/lib/mm/foodDiet";
 import { nutritionBasis, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
-import { BasketIcon, ChevronLeftIcon, ExternalIcon } from "../../../_components/icons";
+import { BasketIcon, ChevronLeftIcon, ExternalIcon, InfoIcon } from "../../../_components/icons";
 import { Button, ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
 import { usePossessive, useT } from "../../../_lib/i18n";
+import { useSettings } from "../../../_lib/hooks";
 import { useShopProducts } from "../../../_lib/shopProducts";
 import { ProductPhotoFigure } from "../../ProductPhoto";
 
@@ -18,6 +20,7 @@ import { ProductPhotoFigure } from "../../ProductPhoto";
 export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const t = useT();
   const poss = usePossessive();
+  const prefs = useSettings().preferences;
   const [retry, setRetry] = useState(0);
   const state = useShopProducts(shop, retry);
   const product = useMemo(() => (state.status === "ready" ? state.products.find((p) => p.id === id) : undefined), [state, id]);
@@ -62,6 +65,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         <p className="kicker">{file.name}</p>
         <h1 className="text-[1.7rem] font-extrabold leading-[1.1] tracking-tight">{product.name}</h1>
         <p className="mt-1 text-sm text-muted">{product.category}</p>
+        {foodDietProblem({ name: product.name, category: product.category }, prefs) && <p className="mt-3 flex items-start gap-2 rounded-2xl bg-soft px-3 py-2 text-sm"><InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-muted" />{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p>}
         <p className="app-numbers mt-5">
           <span className="sun-text text-5xl font-extrabold leading-none tracking-tighter">{formatPrice(product.price)}</span>
           {product.unitPrice !== null && product.unit && <span className="ms-2 text-muted">{formatPrice(product.unitPrice)} {product.unit}</span>}

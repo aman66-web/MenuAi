@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261009151229,
- "generatedAt": "2026-10-09T15:12:29Z",
+ "dataVersion": 20261011053044,
+ "generatedAt": "2026-10-11T05:30:44Z",
  "chains": [
   {
    "id": "bowl-and-co",
@@ -28,6 +28,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "b849ea6e12787c9b23f263e8635ebffef39a48f1d46a8bda4880aaf8b4487691"
+  "sha256": "d0ebfd376abe3fd13c79d5fbbafa1090616f12aaeb60af9cd0391b129d3ce382"
  }
 }

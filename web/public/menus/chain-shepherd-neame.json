@@ -421,7 +421,9 @@
     "saturatedFat": 9.3,
     "salt": 7.8
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],

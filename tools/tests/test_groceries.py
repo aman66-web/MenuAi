@@ -55,6 +55,7 @@ class GroceryTests(unittest.TestCase):
             ({"nutriments": {"energy-kcal_100g": None}}, "kcal, protein, carbs or fat missing"),
             ({"nutriments": {"fat_100g": 70, "proteins_100g": 40}}, "implausible numbers"),
             ({"nutriments": {"energy-kcal_100g": 600}}, "energy doesn't match macros (check)"),
+            ({"nutriments": {"energy-kj_100g": 2000}}, "kJ and kcal disagree"),
             ({"code": "5012345678901"}, "invalid barcode"),
             ({"product_name": ""}, "no usable name"),
         ]:
@@ -199,7 +200,7 @@ class DetailsTests(unittest.TestCase):
 
     def test_available_carbohydrate_printed_in_the_other_rows_is_the_carbohydrate(self):
         it, notes = self.item(), {}
-        bg.apply_details(it, self.row(energy_kcal="473kcal", protein_g="6.1g", fat_g="20.5g", carbs_g="", other_nutrients="Available Carbohydrate: 62.9g; * Reference intake"), notes)
+        bg.apply_details(it, self.row(energy_kj="1980kJ", energy_kcal="473kcal", protein_g="6.1g", fat_g="20.5g", carbs_g="", other_nutrients="Available Carbohydrate: 62.9g; * Reference intake"), notes)
         self.assertEqual(it["carbs"], 62.9)
         self.assertEqual(it["source"], "retailer")
 

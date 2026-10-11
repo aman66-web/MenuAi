@@ -132,7 +132,9 @@
     "salt": 1.3,
     "energyKj": 2489
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": true,
    "components": [],
@@ -9681,7 +9683,9 @@
     "salt": 2.2,
     "energyKj": 1294
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],
@@ -9785,7 +9789,9 @@
     "salt": 0.7,
     "energyKj": 1728
    },
-   "tags": [],
+   "tags": [
+    "contains_pork"
+   ],
    "limitedTime": false,
    "rankable": false,
    "components": [],

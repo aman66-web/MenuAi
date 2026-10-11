@@ -5,13 +5,14 @@ import { chainHref, itemHref } from "@/lib/mm/routes";
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { formatCalories } from "@/lib/mm/format";
+import { anyDietFilter, filterCaution } from "@/lib/mm/menu-view";
 import { addRecentSearch, highlightRange, MIN_QUERY_LENGTH, normalizeForSearch, search } from "@/lib/mm/search";
 import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyState, SampleBadge, SectionTitle } from "../_components/ui";
 import { PipSays } from "../_components/Mascot";
-import { useSearchIndex } from "../_lib/hooks";
+import { useSearchIndex, useSettings } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
 // SPEC §7.3: type-ahead over chain and item names, minimum 2 characters. Chains first, then items.
@@ -22,9 +23,13 @@ export default function SearchPage() {
   const { searchIndex, loadedCount, totalCount } = useSearchIndex();
   const [requesting, setRequesting] = useState(false);
   const [recent, setRecent] = useRecentSearches();
-  const results = useMemo(() => search(searchIndex, deferred), [searchIndex, deferred]);
+  // The diet settings (Settings › Diet) apply here as on a restaurant's page; one tap shows every dish.
+  const prefs = useSettings().preferences;
+  const [dietOn, setDietOn] = useState(true);
+  const diet = anyDietFilter(prefs) && dietOn;
+  const results = useMemo(() => search(searchIndex, deferred, 40, diet ? prefs : undefined), [searchIndex, deferred, diet, prefs]);
   const active = normalizeForSearch(deferred).length >= MIN_QUERY_LENGTH;
-  const empty = results.chains.length === 0 && results.items.length === 0;
+  const empty = results.chains.length === 0 && results.items.length === 0 && results.hiddenByDiet === 0;
   const stillLoading = loadedCount < totalCount;
   const remember = () => setRecent(addRecentSearch(recent, deferred));
 
@@ -111,6 +116,17 @@ export default function SearchPage() {
             ))}
           </ul>
         </>
+      )}
+
+      {active && anyDietFilter(prefs) && (results.items.length > 0 || results.hiddenByDiet > 0) && (
+        <div className="mt-4">
+          <Chip selected={dietOn} onClick={() => setDietOn((v) => !v)}>{t("Fits my diet")}</Chip>
+          {diet && <p className="mt-2 text-xs text-muted">{filterCaution(prefs, t)}</p>}
+        </div>
+      )}
+
+      {results.items.length === 0 && results.hiddenByDiet > 0 && (
+        <div className="mt-3"><EmptyState title={t("Nothing here matches your filters.")} /></div>
       )}
 
       {results.items.length > 0 && (

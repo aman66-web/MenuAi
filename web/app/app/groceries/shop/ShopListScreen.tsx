@@ -4,11 +4,13 @@ import Link from "next/link";
 import { useDeferredValue, useMemo, useState } from "react";
 import { SHOP_SORTS, searchShopProducts, type ShopProduct, type ShopSort } from "@/lib/mm/shopProducts";
 import { formatDate } from "@/lib/mm/format";
+import { anyFoodDiet, foodDietCaution, foodDietProblem } from "@/lib/mm/foodDiet";
 import { ChevronLeftIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
+import { useSettings } from "../../_lib/hooks";
 import { useShopProducts } from "../../_lib/shopProducts";
 import { ShopProductRow } from "./ShopProductRow";
 
@@ -28,9 +30,17 @@ export function ShopListScreen({ shop }: { shop: string }) {
   const [nutrition, setNutrition] = useState(false);
   const [sort, setSort] = useState<ShopSort>("name");
   const [shown, setShown] = useState(PAGE);
+  const [dietOn, setDietOn] = useState(true);
+  const prefs = useSettings().preferences;
   const deferred = useDeferredValue(query);
   const products = state.status === "ready" ? state.products : NONE;
-  const results = useMemo(() => searchShopProducts(products, { query: deferred, category, card, nutrition, sort }), [products, deferred, category, card, nutrition, sort]);
+  // Diet settings: only the shop's own name and category are known here (no ingredients or allergens), so only those can leave a product out.
+  const unsuited = useMemo(() => (anyFoodDiet(prefs) ? new Set(products.filter((p) => foodDietProblem({ name: p.name, category: p.category }, prefs)).map((p) => p.id)) : null), [products, prefs]);
+  const diet = !!unsuited && dietOn;
+  const results = useMemo(() => {
+    const found = searchShopProducts(products, { query: deferred, category, card, nutrition, sort });
+    return diet && unsuited ? found.filter((p) => !unsuited.has(p.id)) : found;
+  }, [products, deferred, category, card, nutrition, sort, diet, unsuited]);
   const hasCard = useMemo(() => products.some((p) => p.member), [products]);
   const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
   const reset = () => setShown(PAGE);
@@ -58,19 +68,22 @@ export function ShopListScreen({ shop }: { shop: string }) {
       </label>
 
       <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+        {unsuited && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
         {nutritionCount > 0 && <Chip selected={nutrition} onClick={() => { setNutrition((v) => !v); reset(); }}>{t("Has nutrition")}</Chip>}
         {hasCard && <Chip selected={card} onClick={() => { setCard((v) => !v); reset(); }}>{t("Has a card price")}</Chip>}
         <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>{t("All types")}</Chip>
         {file.categories.map((c) => (<Chip key={c} selected={category === c} onClick={() => { setCategory(c); reset(); }}>{c}</Chip>))}
       </div>
       <label className="mt-3 flex items-center justify-end gap-2 text-sm">
-        <span className="text-muted">{t("Sort")}</span>
+        <span className="shrink-0 text-muted">{t("Sort")}</span>
         <select className={`${inputClass} min-h-11 w-auto py-0 text-sm`} value={sort} onChange={(e) => { setSort(e.target.value as ShopSort); reset(); }}>
           {SHOP_SORTS.filter((o) => nutritionCount > 0 || (o.value !== "density" && o.value !== "protein")).map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
         </select>
       </label>
 
       {(sort === "density" || sort === "protein") && <p className="mt-2 text-xs text-muted">{t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+      {diet && foodDietCaution(prefs, t) && <p className="mt-3 text-xs text-muted">{foodDietCaution(prefs, t)}</p>}
+      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <p className="mt-2 text-xs text-muted">{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p>}
       <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
         <div className="mt-3"><EmptyState title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>

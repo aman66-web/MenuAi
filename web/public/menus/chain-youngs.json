@@ -89,6 +89,7 @@
     "calories": 1372
    },
    "tags": [
+    "contains_beef",
     "contains_pork"
    ],
    "limitedTime": false,
