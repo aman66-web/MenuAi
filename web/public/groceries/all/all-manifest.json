@@ -7,7 +7,35 @@
    "file": "sainsburys.json",
    "count": 17036,
    "checkedOn": "2026-10-08",
+   "nutrition": 12741,
    "sha256": "18d5fe4d74c3ab5e9ab31291f73e44d16ea92e89490ecda65e94fd6858b2bc39"
+  },
+  {
+   "id": "asda",
+   "name": "Asda",
+   "file": "asda.json",
+   "count": 11839,
+   "checkedOn": "2026-10-08",
+   "nutrition": 0,
+   "sha256": "4fb7d99b4f7d5803eecfcf4d73c91f2c258a4b51bbe46d18d4367a95441d89a2"
+  },
+  {
+   "id": "aldi",
+   "name": "Aldi",
+   "file": "aldi.json",
+   "count": 3466,
+   "checkedOn": "2026-10-08",
+   "nutrition": 0,
+   "sha256": "c4d738af889370f54c7219e23f90921c10daa8e6e375384bb93a232c23d9faff"
+  },
+  {
+   "id": "lidl",
+   "name": "Lidl",
+   "file": "lidl.json",
+   "count": 238,
+   "checkedOn": "2026-10-08",
+   "nutrition": 0,
+   "sha256": "15d58f34de7d0c96cc6ec2a47a9f544058962368fefa7c5f435609e6bdc4ee2f"
   }
  ]
 }

@@ -406,6 +406,87 @@ class ShopPhotoTests(unittest.TestCase):
         self.assertEqual(il.image_url("tesco", "NOIMG"), "")
 
 
+class OtherShopListTests(unittest.TestCase):
+    """Asda, Aldi and Lidl lists (founder 2026-10-11): picture addresses, unit prices, page paths, types."""
+
+    def test_listing_pictures_units_and_offer_notes(self):
+        import ingest_listing as il
+        self.assertEqual(il.image_url("asda", "20337087"), "https://asdagroceries.scene7.com/is/image/asdagroceries/20337087")
+        self.assertEqual(il.image_url("aldi", "b55a9555-b044-484b-b1a0-9b4490319df5"),
+                         "https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/b55a9555-b044-484b-b1a0-9b4490319df5/image")
+        self.assertEqual(il.image_url("aldi", "not-a-uuid"), "")
+        self.assertEqual(il.image_url("lidl", "uk/1/ABC.jpg"), "")  # a storage key, not an address: the photo comes from the product page
+        self.assertEqual(il.unit_basis("1 KG"), (1, "per kg"))
+        self.assertEqual(il.unit_basis("100 G"), (10, "per kg"))
+        self.assertAlmostEqual(il.unit_basis("75 CL")[0], 1 / 0.75)
+        self.assertEqual(il.unit_basis("per litre"), (1, "per litre"))
+        self.assertEqual(il.unit_basis("per 10g"), (100, "per kg"))
+        self.assertEqual(il.unit_basis("1 Each"), (1, "each"))
+        self.assertIsNone(il.unit_basis("pomegranate"))
+        with tempfile.TemporaryDirectory() as d:
+            raw = Path(d) / "aldi_listing.txt"
+            raw.write_text("#CAT fresh-food/fruit | https://x | tiles 2\n"
+                           "339805|NATURE'S PICK Apple 200 g|0.99|0.50|100 G|||note:While Stock Lasts|a1189ed0-b092-48d6-9bb2-debff6e5ff11\n"
+                           "672124|NATURE'S PICK Avocado|0.69||||||\n")
+            rows, _, problems = il.parse("aldi", [str(raw)], "2026-10-08", None)
+        self.assertEqual(problems, [])
+        apple = rows["339805"]
+        self.assertEqual((apple["price_gbp"], apple["member_price_gbp"], apple["unit_price_gbp"], apple["unit"]), ("0.99", "", "5", "per kg"))
+        self.assertEqual(rows["672124"]["image_url"], "")
+
+    def build(self, shop: str, rows: list[str], pages=None, photos=None):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / f"{shop}.csv"
+            path.write_text("product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on\n" + "\n".join(rows) + "\n")
+            problems: list = []
+            doc = bap.build_shop(shop, problems, path=path, gtins={}, nutrition={}, pages=pages or {}, photos=photos or {})
+        return doc, problems
+
+    def test_asda_template_search_links_and_types(self):
+        doc, problems = self.build("asda", [
+            "165468,ASDA Semi Skimmed Milk 4 Pints,1.65,0.726,per litre,,,Chilled Food > Milk | Chilled Food > Dairy,,https://asdagroceries.scene7.com/is/image/asdagroceries/20337087,2026-10-08",
+            "1,Out of stock,,,,,,Bakery > Bread,,https://asdagroceries.scene7.com/is/image/asdagroceries/1234,2026-10-08",
+            "2,Foreign photo,1.00,,,,,? > ?,,https://evil.example.com/x.jpg,2026-10-08"])
+        self.assertEqual(problems, [])
+        milk, foreign = doc["products"]
+        self.assertEqual((milk[8], doc["categories"][milk[7]], len(milk)), ("20337087", "Chilled Food", 11))
+        self.assertEqual((foreign[8], doc["categories"][foreign[7]]), ("", "Other"))       # only the shop's own picture host
+        self.assertTrue(doc["pageSearch"])
+        self.assertIn("{photo}", doc["photoTemplate"])
+
+    def test_aldi_page_paths_and_main_aisle(self):
+        doc, _ = self.build("aldi", [
+            "340660002,NATURE'S PICK Apple + Grape Snack Pack,0.39,,,,,christmas-new-year/party | fresh-food/fruit,,https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/b55a9555-b044-484b-b1a0-9b4490319df5/image,2026-10-08",
+            "9,Seasonal only,1.00,,,,,halloween/sweets,,,2026-10-08"],
+            pages={"340660002": "nature-s-pick-apple-grape-snack-pack-000000000340660002"})
+        snack, seasonal = doc["products"]
+        self.assertEqual(snack[8], "b55a9555-b044-484b-b1a0-9b4490319df5")
+        self.assertEqual(snack[11], "nature-s-pick-apple-grape-snack-pack-000000000340660002")
+        self.assertEqual(doc["categories"][snack[7]], "Fresh Food")                        # the main aisle wins over a seasonal one
+        self.assertEqual((doc["categories"][seasonal[7]], len(seasonal)), ("Halloween", 11))
+
+    def test_lidl_photos_from_product_pages_and_offer_only_rows_left_out(self):
+        img = "https://imgproxy-retcat.assets.schwarz/DqDe/sm:0/w:1500/h:1125/cz/M6Ly9w.jpg"
+        doc, _ = self.build("lidl", [
+            "p10052648,KULJANKA Vegetable Salad,1.49,3.47,per kg,,,Food & Drink / Food Cupboard | Offers / Pick of the Week,,,2026-10-08",
+            "p99,Next week's deal,2.99,,,,,Offers / Pick of the Week (NEXT WEEK),,,2026-10-08"],
+            pages={"p10052648": "kuljanka-vegetable-salad-with-white-cabbage/p10052648"}, photos={"p10052648": img})
+        self.assertEqual([p[0] for p in doc["products"]], ["p10052648"])
+        salad = doc["products"][0]
+        self.assertEqual((salad[8], doc["categories"][salad[7]]), (img[len("https://imgproxy-retcat.assets.schwarz/"):], "Food Cupboard"))
+
+    def test_sitemap_and_og_image_readers(self):
+        import shop_pages as sp
+        import lidl_photos as lp
+        xml = ("<url><loc>https://www.aldi.co.uk/product/nature-s-pick-apple-000000000340660002</loc></url>"
+               "<url><loc>https://www.aldi.co.uk/products/fresh-food/k/1</loc></url>")
+        self.assertEqual(sp.page_paths("aldi", xml), {"340660002": "nature-s-pick-apple-000000000340660002"})
+        self.assertEqual(sp.page_paths("lidl", "<loc>https://www.lidl.co.uk/p/marmite/p10000037</loc>"), {"p10000037": "marmite/p10000037"})
+        page = '<meta property="og:image" content="https://imgproxy-retcat.assets.schwarz/Dq/sm:0/w:1500/cz/M6Ly9w.jpg">'
+        self.assertEqual(lp.og_image(page), "https://imgproxy-retcat.assets.schwarz/Dq/sm:0/w:1500/cz/M6Ly9w.jpg")
+        self.assertEqual(lp.og_image('<meta property="og:image" content="https://evil.example.com/x.jpg">'), "")
+
+
 class PriceFileTests(unittest.TestCase):
     def read(self, body: str):
         with tempfile.TemporaryDirectory() as d:
@@ -555,7 +636,7 @@ class PriceFileTests(unittest.TestCase):
         self.assertIsNone(brita[3])                                                         # no unit price printed: none invented
         self.assertEqual(len(problems), 1)                                                  # the bad id is reported, the unpriced row is simply not listed
         self.assertEqual(doc["checkedOn"], "2026-10-08")                                    # the earliest day: never fresher than the oldest row
-        self.assertEqual(bap.PUBLISH, ("sainsburys",))                                       # no other shop is published without the founder's go-ahead
+        self.assertEqual(bap.PUBLISH, ("sainsburys", "asda", "aldi", "lidl"))                # founder 2026-10-11: no other shop is published without their go-ahead
 
     def test_tier2_heading_words_become_clear_labels_or_the_basis_is_dropped(self):
         self.assertEqual(t2.canon_state(""), "")

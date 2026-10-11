@@ -737,6 +737,28 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   6+5+8, recipes 13, browse 9, axe 0 on the full list. **Permissions:** `.claude/settings.json` now allows every shell command, web fetch and search
   without asking; `git push` and the Supabase database commands still ask (CLAUDE.md rule 4).
 
+- 2026-10-11 — **Every Asda, Aldi and Lidl product, with each shop's own photos (founder: "What about the other grocery stores, ensure they all also have
+  photos too"; answers: Tesco photos yes; publish Asda, Aldi and Lidl lists, all three as their accepted risk).** **Correction to the 2026-10-09 entry:**
+  "Sainsbury's, Asda, Aldi, Lidl have no relevant clause found" was wrong for two of them: **Aldi's terms forbid "systematic or automated data collection ...
+  (such as scraping ...)" without written consent and using its content "for commercial purposes without obtaining a licence"; Asda's terms were never read**
+  (robots.txt disallows /terms*, and its site refuses this environment). Only Lidl has no such clause. The founder was told this and chose to publish all three.
+  New "Every {shop} product" lists, built like Sainsbury's from the crawls of each shop's own category pages (8 Oct; names and prices as printed; no
+  nutrition, so recipes stay on Sainsbury's: `recipeShops()` uses only shops whose labels we've read): **Asda 11,839 products, all with Asda's photo**
+  (asdagroceries.scene7.com; links go to Asda's own search for the product, since its page addresses aren't known); **Aldi 3,466, 3,403 with Aldi's photo**
+  (dm.emea.cms.aldi.cx; 3,450 link to the product's own page from Aldi's sitemap_products.xml, which Aldi answered once and then refused our script's client:
+  the saved copy is `data/groceries/listing/raw/aldi_sitemap_products.xml`, never re-fetched); **Lidl 238, 237 with Lidl's photo** (each product's own page read
+  once for its og:image, 269 pages, 1 a second, robots.txt allows /p/; the 32 products found only on offer pages, some of them next week's deals, are left out).
+  Photos are loaded from the shops' own servers (not stored). Every Lidl photo, and 108 random Asda and Aldi ones, were looked at on contact sheets: each shows
+  the product named (one Asda picture failed to load and the row shows "no photo"). Unit prices are copied as printed and converted only exactly (Aldi "100 G"
+  x10 = per kg, "75 CL" /0.75 = per litre). The diet filter knows these shops' aisle names (Asda "Meat, Poultry & Fish", Lidl "Meat & Poultry" / "Fish &
+  Seafood", "Wine, Beer & Spirits", Aldi "Alcohol"). Asda links now use www.asda.com/groceries/search/ (the old groceries.asda.com address only redirects to
+  Asda's home page; the product page's Asda search link is fixed too). **Tesco:** the founder said yes, but Tesco's image server refuses this environment for the
+  photos themselves (403), so no copies are stored; the 332 Tesco photos keep loading from Tesco, and the Chrome run (docs/NEXT_GROCERIES_IMAGES_PROMPT.md) may now
+  read Tesco product pages for barcodes and photos. Morrisons, Waitrose, Tesco, Iceland and M&S lists stay in `data/` only. Tools: `tools/groceries/shop_pages.py`,
+  `tools/groceries/lidl_photos.py`; `ingest_listing.py` and `build_all_products.py` handle the three shops (Sainsbury's file unchanged byte for byte). No new copy.
+  Checked: 444 unit tests, 124 Python, e2e groceries-all 6 (new: a second shop's photo template, sitemap page link and both lists), groceries 6, compare 8,
+  diet 5, recipes 13, smoke 23, a11y 0 violations; each new list in light and dark (photos load, no overflow, also at the largest text size).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -776,8 +798,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
 - [ ] Decide whether to promote the newest build to Production (it is only on Previews, behind Vercel login)
-- [ ] **Grocery crawl decisions:** (1) Tesco: approve crawling in the permission system (Shift+Tab out of auto mode, or an allow rule for tab creation) or tell me to skip it; (2) Co-op and Iceland: turn on a UK VPN and tell me; (3) Ocado: say whether the quarantined data may be used or should be deleted; (4) which store lists may be published given each shop's terms (M&S: hold); (5) whether to build the "browse every product" layer and read product pages for nutrition
-- [ ] **Tesco photos and the Tesco terms:** its image host answers 403 to robots.txt and its terms prohibit AI tools / bots extracting data (quoted in docs/IMAGE_TERMS.md). Tell me whether to (a) keep prices only, (b) also install Tesco photos (a one-line allow for that host, your accepted risk), or (c) pause Tesco collection
+- [ ] **Grocery crawl decisions:** (1) Tesco: approve crawling in the permission system (Shift+Tab out of auto mode, or an allow rule for tab creation) or tell me to skip it; (2) Co-op and Iceland: turn on a UK VPN and tell me; (3) Ocado: say whether the quarantined data may be used or should be deleted; (4) which store lists may be published given each shop's terms (decided 2026-10-11: Sainsbury's, Asda, Aldi, Lidl live; Morrisons, Waitrose, Tesco, Iceland, M&S held); (5) whether to build the "browse every product" layer and read product pages for nutrition
+- [x] **Tesco photos:** yes, your accepted risk (2026-10-11). Tesco's image server refuses the cloud environment, so more Tesco photos come from the Chrome run on your Mac (docs/NEXT_GROCERIES_IMAGES_PROMPT.md)
 - [ ] **Food images, your decision per chain:** the photo feature is built and works (checked with real KFC, Subway and Nando's photos), but the terms of **every chain checked (11 of 11: KFC, Subway, Nando's, Pret, Greggs, Five Guys, Pizza Express, Prezzo, Wagamama, Pizza Hut, Starbucks) say images/content may not be copied or reused without written permission or a licence** (exact quotes: `docs/IMAGE_TERMS.md`). You told me you'd checked you may use them, so I built it, but I haven't installed any photos until you confirm for chains whose terms say this. Options: (1) tell me "install them" for all or named chains (your legal risk; I keep the sources + `images.csv`, and delete a chain's photos the day it asks); (2) email the chains for written permission (the prepared photo sets for Pizza Hut, Starbucks, KFC, Subway, Nando's, Pret, Greggs and Five Guys are kept ready and install in one step); (3) leave photos out for now (cuisine icons stay)
 - [ ] **Xcode preview shell:** follow docs/XCODE_PREVIEW_SHELL.md (Vercel Production Branch → create the Xcode project → ask Claude on the Mac to copy the files → Run on your iPhone)
 - [ ] **Chains to send me files for (saved from your own browser):** McDonald's, Domino's, Papa Johns, Costa; Coffee Republic's PDF (`data/held-downloads/coffee-republic.pdf`); Sushi Shop's 177 product pages; Brewhouse & Kitchen's allergen matrix; Dave's Hot Chicken's two allergen PDFs; the Angus Steakhouse ifoodi page, John Lewis restaurants page, Betty's allergen page; Subway, Zizzi, Pizza Express, ASK, Coco di Mama, Ole & Steen, Starbucks and Burger King PDFs (held in `data/held-robots/`). Exact addresses: `docs/UK_DATA_STATUS.md` ("Blocked: needs a file from you")

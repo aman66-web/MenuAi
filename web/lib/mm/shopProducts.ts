@@ -4,20 +4,23 @@
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 
-/** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?] where nutrition is
+/** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?, page?] where page is the product page's path after
+ *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
 export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?];
-export type ShopRow = [string, string, number, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?];
+export type ShopRow = [string, string, number, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?];
 
 export interface ShopFile {
   v: 1;
   retailer: string;
   name: string;
   checkedOn: string;
-  /** The shop's product page is pageBase + id. */
+  /** The shop's product page is pageBase + id (or + the row's page path; or, with pageSearch, + the product's name: the shop's own search for it). */
   pageBase: string;
-  /** The shop's picture of a product is photoBase + photoId + "/image.jpg". */
+  pageSearch?: boolean;
+  /** The shop's picture of a product is photoBase + photoId + "/image.jpg" (Sainsbury's), or photoTemplate with photoId in place of "{photo}". */
   photoBase: string;
+  photoTemplate?: string;
   categories: string[];
   schemes: string[];
   /** The earliest day a product page's nutrition was read (empty when none was). */
@@ -27,8 +30,12 @@ export interface ShopFile {
 
 export interface ShopManifest {
   v: 1;
-  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string }>;
+  /** `nutrition`: how many products have numbers read from their own page (recipes need them; absent = none). */
+  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number }>;
 }
+
+/** The shops recipes can use: only those with products whose label we have read (recipes work out every figure from the labels). */
+export const recipeShops = (m: ShopManifest | null): ShopManifest["retailers"] => (m ? m.retailers.filter((r) => (r.nutrition ?? 0) > 0) : []);
 
 /** Per 100 g or 100 ml, as the shop's own product page printed them ("<0.5" counted as 0). */
 export interface ShopNutrition {
@@ -56,6 +63,8 @@ export interface ShopProduct {
   member: { amount: number; scheme: string } | null;
   category: string;
   photoId: string;
+  /** The product page's path after pageBase, where it isn't pageBase + id ("" or absent otherwise). */
+  page?: string;
   /** Set only where the shop's own product page was read and showed a barcode: the full product page in the app is /app/groceries/product?code=. */
   gtin: string;
   /** Set only where the product's own page was read. */
@@ -73,6 +82,11 @@ export function isShopManifest(x: unknown): x is ShopManifest {
 }
 
 const ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
+// A picture id put into a shop's photoTemplate, and a page path put after pageBase: the characters those addresses use, never "..".
+const PHOTO_ID = /^[A-Za-z0-9_\-./:=]{1,400}$/;
+const PAGE_PATH = /^[A-Za-z0-9][A-Za-z0-9\-_.%/]{0,199}$/;
+const safe = (v: unknown, re: RegExp): v is string => typeof v === "string" && re.test(v) && !v.includes("..");
+const templated = (f: Pick<ShopFile, "photoTemplate">) => typeof f.photoTemplate === "string" && f.photoTemplate.startsWith("https://") && f.photoTemplate.includes("{photo}");
 
 /**
  * "per 100 g", or "per 100 g (grilled)" when the page's own heading says the numbers are for the grilled, cooked or prepared food
@@ -94,22 +108,26 @@ export function decodeShopProducts(f: ShopFile): ShopProduct[] {
   const out: ShopProduct[] = [];
   for (const r of f.products) {
     if (!Array.isArray(r) || r.length < 10) continue;
-    const [id, name, price, unitPrice, unit, member, scheme, cat, photoId, gtin, n] = r;
+    const [id, name, price, unitPrice, unit, member, scheme, cat, photoId, gtin, n, page] = r;
     if (typeof id !== "string" || !ID.test(id) || typeof name !== "string" || typeof price !== "number") continue;
     const m = typeof member === "number" && scheme !== null && f.schemes[scheme] ? { amount: member, scheme: f.schemes[scheme] } : null;
-    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" ? unitPrice : null, unit: unit || "", member: m, category: f.categories[cat] ?? "Other", photoId: /^\d+$/.test(photoId) ? photoId : "", gtin: gtin || "", nutrition: decodeNutrition(n) });
+    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" ? unitPrice : null, unit: unit || "", member: m, category: f.categories[cat] ?? "Other", photoId: templated(f) ? (safe(photoId, PHOTO_ID) ? photoId : "") : /^\d+$/.test(photoId) ? photoId : "", page: safe(page, PAGE_PATH) ? page : "", gtin: gtin || "", nutrition: decodeNutrition(n) });
   }
   return out;
 }
 
-/** The shop's own page for a product (https only). */
-export function shopPageUrl(f: Pick<ShopFile, "pageBase">, p: Pick<ShopProduct, "id">): string {
+/** The shop's own page for a product (https only): its page path, else the shop's own search for its name (pageSearch), else pageBase + id. */
+export function shopPageUrl(f: Pick<ShopFile, "pageBase" | "pageSearch">, p: Pick<ShopProduct, "id" | "name"> & { page?: string }): string {
+  if (p.page) return `${f.pageBase}${p.page}`;
+  if (f.pageSearch) return `${f.pageBase}${encodeURIComponent(p.name)}`;
   return `${f.pageBase}${p.id}`;
 }
 
 /** The shop's picture of a product, or undefined when its listing showed none. */
-export function shopPhotoUrl(f: Pick<ShopFile, "photoBase">, p: Pick<ShopProduct, "photoId">): string | undefined {
-  return p.photoId && f.photoBase.startsWith("https://") ? `${f.photoBase}${p.photoId}/image.jpg` : undefined;
+export function shopPhotoUrl(f: Pick<ShopFile, "photoBase" | "photoTemplate">, p: Pick<ShopProduct, "photoId">): string | undefined {
+  if (!p.photoId) return undefined;
+  if (f.photoTemplate !== undefined) return templated(f) && safe(p.photoId, PHOTO_ID) ? f.photoTemplate.replace("{photo}", p.photoId) : undefined;
+  return f.photoBase.startsWith("https://") ? `${f.photoBase}${p.photoId}/image.jpg` : undefined;
 }
 
 /** "Sainsbury's" stays "Sainsbury's", "Morrisons" -> "Morrisons'", "Tesco" -> "Tesco's", "M&S" -> "M&S's" (never a doubled possessive). */

@@ -27,8 +27,26 @@ PRODUCT_URL = {
     "sainsburys": "https://www.sainsburys.co.uk/groceries/product/{id}",
     "tesco": "https://www.tesco.com/groceries/en-GB/products/{id}",
 }
+ALDI_MEDIA = "https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/"  # + <uuid>/<any file name>: the address the tile uses
+ASDA_MEDIA = "https://asdagroceries.scene7.com/is/image/asdagroceries/"  # + the tile's image id (the barcode for branded items)
 HEADER = ["product_id", "name", "price_gbp", "unit_price_gbp", "unit", "member_price_gbp", "member_scheme", "category_path", "page_url", "image_url", "checked_on"]
-UNITS = {"kg": "per kg", "litre": "per litre", "l": "per litre", "ltr": "per litre", "ea": "each", "each": "each", "unit": "each"}
+UNITS = {"kg": "per kg", "litre": "per litre", "l": "per litre", "ltr": "per litre", "ea": "each", "each": "each", "unit": "each", "mtr": "per metre"}
+# The quantity a unit price is printed per, as (multiplier to per kg / per litre / each, unit): Aldi prints "100 G" or "75 CL", Asda "per 10g", Lidl "kg".
+# Only exact conversions of the printed figure (per 100 g x 10 = per kg); a unit we can't read leaves the unit price out (never guessed).
+UNIT_QTY = {"g": (1000, "per kg"), "kg": (1, "per kg"), "ml": (1000, "per litre"), "cl": (100, "per litre"), "l": (1, "per litre"), "litre": (1, "per litre"),
+            "ltr": (1, "per litre"), "lt": (1, "per litre"), "each": (1, "each"), "ea": (1, "each"), "unit": (1, "each")}
+
+
+def unit_basis(unit: str) -> tuple[float, str] | None:
+    """'1 KG' -> (1, 'per kg'), '100 G' -> (10, 'per kg'), '75 CL' -> (1.333.., 'per litre'), 'per litre' -> (1, 'per litre'), 'pomegranate' -> None."""
+    u = " ".join((unit or "").lower().replace("per ", "").split())
+    if u in UNITS:
+        return 1, UNITS[u]
+    m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*([a-z]+)", u)
+    if not m or m.group(2) not in UNIT_QTY or float(m.group(1)) <= 0:
+        return None
+    per, label = UNIT_QTY[m.group(2)]
+    return per / float(m.group(1)), label
 
 
 def num(s: str):
@@ -54,6 +72,12 @@ def image_url(retailer: str, photo: str) -> str:
         return ""
     if re.fullmatch(r"\d+", photo) and retailer == "sainsburys":
         return f"https://assets.sainsburys-groceries.co.uk/gol/{photo}/1/640x640.jpg"
+    if retailer == "aldi" and not photo.startswith("https://"):
+        return f"{ALDI_MEDIA}{photo}/image" if re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", photo) else ""
+    if retailer == "asda" and not photo.startswith("https://"):
+        return f"{ASDA_MEDIA}{photo}" if re.fullmatch(r"[0-9A-Za-z_-]{4,40}", photo) else ""
+    if retailer == "lidl":
+        return photo if photo.startswith("https://imgproxy-retcat.assets.schwarz/") else ""  # the listing kept only a storage key: the address comes from the product page
     if retailer == "tesco" and not photo.startswith("https://"):
         path = photo.lstrip("/")
         if re.fullmatch(r"ghs/[0-9a-f-]{36}/[0-9a-f-]{36}(?:_\d+)?", path):
@@ -98,6 +122,8 @@ def parse(retailer: str, files: list[str], checked_on: str, url_template: str | 
                 problems.append(f"{Path(fn).name}:{ln}: bad id or name")
                 continue
             is_nectar_flag = card == "N"
+            if card.lower().startswith("note:"):
+                card = ""  # Aldi prints a note ("While Stock Lasts", "Save 40%"), not a loyalty-card price: the first price is the shelf price
             scheme = "Nectar price" if is_nectar_flag else card
             first, second = num(p1), num(p2)
             if scheme and second is None:
@@ -110,7 +136,11 @@ def parse(retailer: str, files: list[str], checked_on: str, url_template: str | 
                     continue
             else:
                 member, regular, unit_price = None, first, num(u1)
-            unit_txt = UNITS.get(unit.lower(), unit) if unit else ""
+            basis = unit_basis(unit) if unit else None
+            if basis and unit_price is not None:
+                unit_price, unit_txt = round(unit_price * basis[0], 2), basis[1]
+            else:
+                unit_price, unit_txt = None, ""
             row = rows.get(pid)
             if row is None:
                 row = rows[pid] = {

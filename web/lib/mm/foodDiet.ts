@@ -62,8 +62,12 @@ const HALAL = /\bhalal\b/i;
 
 const MEAT_CATEGORIES = new Set(["meat"]);
 const FISH_CATEGORIES = new Set(["fish"]);
-const MEAT_OR_FISH_CATEGORIES = /^meat\s*(?:&|and)\s*fish$/i;
-const ALCOHOL_CATEGORIES = /^beer,?\s*wine\s*(?:&|and)\s*spirits$|^alcohol/i;
+// A shop's own aisle names: Sainsbury's "Meat & fish", Asda "Meat, Poultry & Fish", Lidl "Meat & Poultry" / "Fish & Seafood",
+// "Beer, wine & spirits" / Lidl "Wine, Beer & Spirits" / Aldi "Alcohol".
+const MEAT_OR_FISH_CATEGORIES = /^meat\b.*\bfish\b/i;
+const MEAT_ONLY_CATEGORIES = /^meat\b/i;
+const FISH_ONLY_CATEGORIES = /^fish\b/i;
+const ALCOHOL_CATEGORIES = /^(?=.*\b(?:beer|wine|spirits)\b.*\b(?:beer|wine|spirits)\b)|^alcohol/i;
 
 const has = (re: RegExp, except: RegExp | null, ...texts: Array<string | undefined>) =>
   texts.some((t) => !!t && re.test(except ? t.replace(new RegExp(except.source, "gi"), " ") : t));
@@ -89,8 +93,10 @@ export function foodSignals(f: FoodFacts): FoodSignals {
   // A meat-free product's name and type describe the style ("Quorn Chicken Style Pieces", type "meat-analogues"), so only its ingredients count.
   const texts = vegNamed ? [f.ingredients] : [...label, type, f.ingredients];
   const meatFishCategory = !vegNamed && !!f.category && MEAT_OR_FISH_CATEGORIES.test(f.category);
-  const fish = (!vegNamed && !!f.category && FISH_CATEGORIES.has(f.category)) || contains.some((a) => a === "fish" || a === "crustaceans" || a === "molluscs") || has(FISH, FISH_EXCEPT, ...texts);
-  const meat = (!vegNamed && !!f.category && MEAT_CATEGORIES.has(f.category)) || has(MEAT, MEAT_EXCEPT, ...texts) || has(MEAT_DISH, MEAT_EXCEPT, ...texts) || (meatFishCategory && !fish);
+  const meatCategory = !vegNamed && !!f.category && !meatFishCategory && MEAT_ONLY_CATEGORIES.test(f.category);
+  const fishCategory = !vegNamed && !!f.category && FISH_ONLY_CATEGORIES.test(f.category);
+  const fish = (!vegNamed && !!f.category && FISH_CATEGORIES.has(f.category)) || fishCategory || contains.some((a) => a === "fish" || a === "crustaceans" || a === "molluscs") || has(FISH, FISH_EXCEPT, ...texts);
+  const meat = (!vegNamed && !!f.category && MEAT_CATEGORIES.has(f.category)) || meatCategory || has(MEAT, MEAT_EXCEPT, ...texts) || has(MEAT_DISH, MEAT_EXCEPT, ...texts) || (meatFishCategory && !fish);
   return {
     vegNamed,
     meat,

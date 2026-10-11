@@ -22,7 +22,7 @@ import { ProductPhotoFigure } from "../ProductPhoto";
 const SEARCH_LINKS: Record<string, (code: string) => string> = {
   tesco: (c) => `https://www.tesco.com/groceries/en-GB/search?query=${c}`,
   sainsburys: (c) => `https://www.sainsburys.co.uk/gol-ui/SearchResults/${c}`,
-  asda: (c) => `https://groceries.asda.com/search/${c}`,
+  asda: (c) => `https://www.asda.com/groceries/search/${c}`,
   waitrose: (c) => `https://www.waitrose.com/ecom/shop/search?searchTerm=${c}`,
   aldi: (c) => `https://www.aldi.co.uk/results?q=${c}`,
   lidl: (c) => `https://www.lidl.co.uk/q/search?q=${c}`,

@@ -120,3 +120,17 @@ describe("helpers", () => {
     expect(foodDietCaution({ ...veg, halalOnly: true })).toBe("We go by each product's name, type and label, so this can't promise a product is vegetarian or halal. Always check the pack.");
   });
 });
+
+describe("other shops' aisle names", () => {
+  it("reads Asda, Lidl and Aldi aisles", () => {
+    expect(foodDietProblem({ name: "Something", category: "Meat, Poultry & Fish" }, veg)).toBe("meat");
+    expect(foodDietProblem({ name: "Something", category: "Meat & Poultry" }, veg)).toBe("meat");
+    expect(foodDietProblem({ name: "Something", category: "Fish & Seafood" }, veg)).toBe("fish");
+    expect(foodDietProblem({ name: "Something", category: "Fish & Seafood" }, halal)).toBeNull();
+    expect(foodDietProblem({ name: "Something", category: "Wine, Beer & Spirits" }, halal)).toBe("alcohol");
+    expect(foodDietProblem({ name: "Something", category: "Beer, Wine & Spirits" }, halal)).toBe("alcohol");
+    expect(foodDietProblem({ name: "Something", category: "Alcohol" }, halal)).toBe("alcohol");
+    expect(foodDietProblem({ name: "Something", category: "Chilled Food" }, halal)).toBeNull();
+    expect(foodDietProblem({ name: "Quorn Vegetarian Pieces", category: "Meat & Poultry" }, veg)).toBeNull();
+  });
+});

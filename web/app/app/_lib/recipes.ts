@@ -4,16 +4,18 @@ import { useEffect, useMemo, useState } from "react";
 import { fitDistance, fitRecipe, recipeForDiet, recipeTotals, resolveRecipe, type MealTarget, type Recipe, type RecipeTotals } from "@/lib/mm/recipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import type { DietPrefs } from "@/lib/mm/pantry";
-import type { ShopManifest, ShopProduct } from "@/lib/mm/shopProducts";
+import { recipeShops, type ShopManifest, type ShopProduct } from "@/lib/mm/shopProducts";
 
 // Recipes filled with one shop's own products (lib/mm/recipes.ts). The shop's full list is loaded once and cached (_lib/shopProducts.ts).
 
 /** The shop recipes open on: the one asked for, else the first of the person's supermarkets that has a full list, else the first full list. */
 export function recipeShop(manifest: ShopManifest | null, asked: string | null, mine: readonly string[] | undefined): string | null {
-  if (!manifest || manifest.retailers.length === 0) return null;
-  const has = (id: string | null | undefined): id is string => !!id && manifest.retailers.some((r) => r.id === id);
+  // Only shops whose product labels we have read: a list with names and prices alone (Asda, Aldi, Lidl today) can't make a recipe.
+  const shops = recipeShops(manifest);
+  if (shops.length === 0) return null;
+  const has = (id: string | null | undefined): id is string => !!id && shops.some((r) => r.id === id);
   if (has(asked)) return asked;
-  return mine?.find((id) => has(id)) ?? manifest.retailers[0]!.id;
+  return mine?.find((id) => has(id)) ?? shops[0]!.id;
 }
 
 export interface RecipeCard {

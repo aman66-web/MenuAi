@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, searchShopProducts, shopPageUrl, shopPhotoUrl, type ShopFile } from "../lib/mm/shopProducts";
+import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, type ShopFile } from "../lib/mm/shopProducts";
 
 const file: ShopFile = {
   v: 1, retailer: "sainsburys", name: "Sainsbury's", checkedOn: "2026-10-08", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/",
@@ -74,5 +74,49 @@ describe("every-product lists", () => {
     // unit price: the cheapest per kg first; a product with no unit price goes last
     expect(searchShopProducts(ps, { sort: "unit" }).map((p) => p.unitPrice)).toEqual([2, 2.3, null]);
     expect(searchShopProducts(ps, {}).map((p) => p.name)[0]).toBe("Brita Maxtra Filter – 3 pack");
+  });
+});
+
+describe("other shops' lists: photo templates, page paths, search links", () => {
+  const base = { v: 1 as const, checkedOn: "2026-10-08", categories: ["Chilled Food"], schemes: [], products: [] };
+  it("puts a safe picture id into the shop's template and rejects anything else", () => {
+    const asda: ShopFile = { ...base, retailer: "asda", name: "Asda", pageBase: "https://www.asda.com/groceries/search/", pageSearch: true,
+      photoBase: "https://asdagroceries.scene7.com/is/image/asdagroceries/", photoTemplate: "https://asdagroceries.scene7.com/is/image/asdagroceries/{photo}?wid=400",
+      products: [["165468", "ASDA Semi Skimmed Milk 4 Pints", 1.65, 0.726, "per litre", null, null, 0, "20337087", ""], ["2", "Bad", 1, null, "", null, null, 0, "../evil", ""]] };
+    const [milk, bad] = decodeShopProducts(asda);
+    expect(shopPhotoUrl(asda, milk!)).toBe("https://asdagroceries.scene7.com/is/image/asdagroceries/20337087?wid=400");
+    expect(bad!.photoId).toBe("");
+    expect(shopPhotoUrl(asda, bad!)).toBeUndefined();
+    expect(shopPageUrl(asda, milk!)).toBe("https://www.asda.com/groceries/search/ASDA%20Semi%20Skimmed%20Milk%204%20Pints");
+  });
+  it("uses the row's page path when there is one (Aldi, Lidl), and keeps Sainsbury's as it was", () => {
+    const aldi: ShopFile = { ...base, retailer: "aldi", name: "Aldi", pageBase: "https://www.aldi.co.uk/product/",
+      photoBase: "https://dm.emea.cms.aldi.cx/", photoTemplate: "https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/{photo}/image",
+      products: [["340660002", "NATURE'S PICK Apple + Grape Snack Pack", 0.39, null, "", null, null, 0, "b55a9555-b044-484b-b1a0-9b4490319df5", "", null, "nature-s-pick-apple-grape-snack-pack-000000000340660002"],
+        ["3", "Odd page", 1, null, "", null, null, 0, "", "", null, "../../x"]] };
+    const [p, odd] = decodeShopProducts(aldi);
+    expect(shopPageUrl(aldi, p!)).toBe("https://www.aldi.co.uk/product/nature-s-pick-apple-grape-snack-pack-000000000340660002");
+    expect(shopPhotoUrl(aldi, p!)).toBe("https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/b55a9555-b044-484b-b1a0-9b4490319df5/image");
+    expect(odd!.page).toBe("");
+    expect(shopPageUrl(aldi, odd!)).toBe("https://www.aldi.co.uk/product/3");
+    // no template: Sainsbury's numeric picture ids only
+    const sb: ShopFile = { ...base, retailer: "sainsburys", name: "Sainsbury's", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/",
+      products: [["milk-2l", "Milk", 1.5, null, "", null, null, 0, "777", ""], ["x", "X", 1, null, "", null, null, 0, "abc", ""]] };
+    const [m, x] = decodeShopProducts(sb);
+    expect(shopPhotoUrl(sb, m!)).toBe("https://assets.sainsburys-groceries.co.uk/gol/777/image.jpg");
+    expect(x!.photoId).toBe("");
+  });
+  it("a template that isn't https or has no {photo} gives no picture", () => {
+    const f = { photoBase: "https://x/", photoTemplate: "http://x/{photo}" };
+    expect(shopPhotoUrl(f, { photoId: "abc" })).toBeUndefined();
+    expect(shopPhotoUrl({ photoBase: "https://x/", photoTemplate: "https://x/fixed.jpg" }, { photoId: "abc" })).toBeUndefined();
+  });
+  it("recipes only use shops whose labels we have read", () => {
+    const m = { v: 1 as const, retailers: [
+      { id: "asda", name: "Asda", file: "asda.json", count: 11839, checkedOn: "2026-10-08", sha256: "", nutrition: 0 },
+      { id: "aldi", name: "Aldi", file: "aldi.json", count: 3400, checkedOn: "2026-10-08", sha256: "" },
+      { id: "sainsburys", name: "Sainsbury's", file: "sainsburys.json", count: 17036, checkedOn: "2026-10-08", sha256: "", nutrition: 12741 }] };
+    expect(recipeShops(m).map((r) => r.id)).toEqual(["sainsburys"]);
+    expect(recipeShops(null)).toEqual([]);
   });
 });

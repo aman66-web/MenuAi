@@ -19,6 +19,7 @@ import { useIsPro, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
+import { recipeShops } from "@/lib/mm/shopProducts";
 import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
 import { MealPicker } from "./MealPicker";
 import { RecipeTile } from "./RecipeTile";
@@ -94,12 +95,12 @@ function RecipesScreen() {
 
       {/* Which supermarket the ingredients come from (founder 2026-10-10: "filter by what supermarkets they wanna use"). Only shops whose full
           product list, prices and labels we've read can fill a recipe, so the choice grows as more lists are read. */}
-      {manifest && manifest.retailers.length > 1 && shop && (
+      {recipeShops(manifest).length > 1 && shop && (
         <div className="mt-4">
-          <Segmented label={t("Supermarket")} value={shop} options={manifest.retailers.map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
+          <Segmented label={t("Supermarket")} value={shop} options={recipeShops(manifest).map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
         </div>
       )}
-      {manifest && manifest.retailers.length === 1 && shopName && (
+      {recipeShops(manifest).length === 1 && shopName && (
         <p className="mt-3 px-1 text-sm leading-snug">
           <Rich text={t("Ingredients from {shop}.")} values={{ shop: <span className="font-bold">{shopName}</span> }} /> <span className="text-muted">{t("More supermarkets will appear here as we read their products and prices.")}</span>
         </p>

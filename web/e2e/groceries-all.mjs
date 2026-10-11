@@ -119,6 +119,31 @@ await step("a barcode we already have numbers for links to the full page; one we
   await ctx.close();
 });
 
+await step("another shop's list (founder 2026-10-11): its own photo template, its sitemap page link, and both lists on the Groceries screen", async () => {
+  const aldi = { v: 1, retailer: "aldi", name: "Aldi", checkedOn: "2026-10-08", pageBase: "https://www.aldi.co.uk/product/", photoBase: "https://dm.emea.cms.aldi.cx/",
+    photoTemplate: "https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/{photo}/image", categories: ["Fresh Food"], schemes: [],
+    products: [["340660002", "NATURE'S PICK Apple + Grape Snack Pack", 0.39, null, "", null, null, 0, "b55a9555-b044-484b-b1a0-9b4490319df5", "", null, "nature-s-pick-apple-grape-snack-pack-000000000340660002"]] };
+  const two = { v: 1, retailers: [allManifest.retailers[0], { id: "aldi", name: "Aldi", file: "aldi.json", count: 1, checkedOn: "2026-10-08", sha256: "" }] };
+  const { ctx, page } = await newPage();
+  const askedAldi = [];
+  await page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(two) }));
+  await page.route("**/groceries/all/aldi.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(aldi) }));
+  await page.route("**/dm.emea.cms.aldi.cx/**", (r) => { askedAldi.push(r.request().url()); return r.fulfill({ contentType: "image/png", body: PNG }); });
+  await page.goto(BASE + "/app/groceries");
+  await page.getByRole("link", { name: /Every Sainsbury's product/ }).waitFor();
+  await page.getByRole("link", { name: /Every Aldi product/ }).waitFor();
+  await page.getByRole("link", { name: /Every Aldi product/ }).click();
+  await page.getByRole("heading", { level: 1, name: /Every Aldi product/ }).waitFor();
+  await page.getByText("1 product", { exact: true }).waitFor();
+  await page.getByRole("link", { name: /Apple \+ Grape Snack Pack/ }).click();
+  await page.getByRole("heading", { level: 1, name: /Apple \+ Grape Snack Pack/ }).waitFor();
+  await page.getByText("Photo from the Aldi website").waitFor();
+  expect(askedAldi.some((u) => u.endsWith("/scaleWidth/400/b55a9555-b044-484b-b1a0-9b4490319df5/image")), `picture from Aldi's own host, got ${askedAldi}`);
+  const link = page.getByRole("link", { name: /Open it on Aldi's website/ });
+  expect((await link.getAttribute("href")) === "https://www.aldi.co.uk/product/nature-s-pick-apple-grape-snack-pack-000000000340660002", "the product's own page from the sitemap");
+  await ctx.close();
+});
+
 await step("accessibility: the full list and a product with nutrition have no axe violations in light and dark", async () => {
   for (const scheme of ["light", "dark"]) {
     for (const path of ["/app/groceries/shop?r=sainsburys", "/app/groceries/shop/item?r=sainsburys&id=sainsburys-multiseed-loaf-800g"]) {

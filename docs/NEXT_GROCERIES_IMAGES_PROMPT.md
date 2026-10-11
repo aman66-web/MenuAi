@@ -38,8 +38,11 @@ rules as above: a placeholder or "image coming soon" is not a photo, so write no
 fills them in (it accepts only the shop's own image host and only a page_url that is that product's own page).
 
 Where the lists stand (2026-10-11): Tesco 4,136 of 4,475 catalogue products without a shop photo, Sainsbury's 1,927 of 2,736, Sainsbury's full
-list 563 of 17,036. Tesco photos are hotlinked addresses only (never stored: its image host answers 403 to robots.txt), and Tesco's terms ban
-bots and AI tools, so collecting more Tesco addresses waits on the founder's open Tesco decision (docs/PROGRESS.md, founder to-do).
+list 563 of 17,036. Tesco photos are hotlinked addresses only (never stored: its image host answers 403 to this environment). **Founder 2026-10-11:
+yes to Tesco photos (accepted risk despite Tesco's ban on bots and AI tools)**, so this run may read Tesco product pages too: write `gtin|host/path|ALT`
+lines for Tesco exactly as for Sainsbury's (the barcode from the page, the photo address on digitalcontent.api.tesco.com), one page at a time, and stop at
+Tesco's security check page (never worked round). Asda, Aldi and Lidl now have their own full lists with the shops' photos (from the crawls and, for
+Lidl, each product's own page), so they need nothing from this run.
 
 ## Image hosts
 

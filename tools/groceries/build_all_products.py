@@ -8,12 +8,16 @@ Input: data/groceries/listing/<shop>.csv (tools/groceries/ingest_listing.py): on
 (data/groceries/discovery/<shop>*.csv or details/): the app shows them as "price only" and links to the shop's own page. Nothing is estimated.
 
 Only shops in PUBLISH are written. Add a shop there only after the founder has seen its terms (see data/groceries/listing/raw/<shop>_terms.txt).
+Founder 2026-10-11: Asda, Aldi and Lidl published too (no clause against it in their terms); Morrisons, Waitrose, Tesco, Iceland and M&S stay in data/ only.
 Output per shop (compact, one array per product so 17,000 products stay about 3 MB before compression):
   {"v":1,"retailer","name","checkedOn","pageBase","photoBase","categories":[top-level names],"schemes":[card names],
    "nutritionCheckedOn","products":[[id, name, price, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
 `nutrition` is [kcal, protein, carbs, fat, saturates|null, sugars|null, fibre|null, salt|null, kJ|null, "g"|"ml", state] per 100 g/ml, state "" or the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), copied from the product's own page by
 tools/groceries/t2_sainsburys.py (data/groceries/nutrition/<shop>.csv); a "<0.5" row counts as 0 (docs/DATA.md); null when that page has not been read.
-`id` is the shop's own product slug: the shop's page is pageBase + id. `photoId` is the number in the shop's picture address (photoBase + id + "/image.jpg").
+`id` is the shop's own product id (Sainsbury's: its page slug, so the page is pageBase + id). `photoId` is the shop's own picture id: for Sainsbury's the number
+in photoBase + id + "/image.jpg"; a shop with "photoTemplate" has it put in place of "{photo}". Shops whose page address isn't pageBase + id carry it as a 12th
+element (the path after pageBase, from the shop's own sitemap: tools/groceries/shop_pages.py); "pageSearch": true means pageBase + the product's name is the
+shop's own search for it (Asda: its site refuses this environment, so no page addresses).
 `gtin` is set only where the shop's own product page was read and showed a barcode (data/groceries/discovery/<shop>-barcodes.csv), so the app can link to the full page.
 """
 from __future__ import annotations
@@ -27,11 +31,69 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "public" / "groceries" / "all"
-NAMES = {"sainsburys": "Sainsbury's"}
-PUBLISH = ("sainsburys",)  # shops whose lists may be shown in the app; every other crawl stays in data/ only
-PAGE_BASE = {"sainsburys": "https://www.sainsburys.co.uk/groceries/product/"}
-PHOTO_BASE = {"sainsburys": "https://assets.sainsburys-groceries.co.uk/gol/"}
+PUBLISH = ("sainsburys", "asda", "aldi", "lidl")  # shops whose lists may be shown in the app; every other crawl stays in data/ only
+# Per shop: the name shown, the page address base, the picture host (and the template the app fills), how to read the picture id from the listing's
+# address, whether pages come from data/groceries/listing/<shop>-pages.csv, and how the shop's own category path becomes the type shown.
+ALDI_AISLES = {"fresh-food": "Fresh Food", "chilled-food": "Chilled Food", "food-cupboard": "Food Cupboard", "frozen-food": "Frozen Food", "bakery": "Bakery",
+               "drinks": "Drinks", "alcohol": "Alcohol", "baby-toddler": "Baby & Toddler"}
+ALDI_OTHER = {"vegetarian-plant-based": "Vegetarian & Plant Based", "higher-protein-food-drink": "Higher Protein", "christmas-new-year": "Christmas & New Year",
+              "autumn-range": "Autumn Range", "halloween": "Halloween", "specialbuys": "Specialbuys"}
+SHOPS = {
+    "sainsburys": {"name": "Sainsbury's", "pageBase": "https://www.sainsburys.co.uk/groceries/product/", "photoBase": "https://assets.sainsburys-groceries.co.uk/gol/",
+                   "photo": re.compile(r"/gol/(\d+)/")},
+    "asda": {"name": "Asda", "pageBase": "https://www.asda.com/groceries/search/", "pageSearch": True,
+             "photoBase": "https://asdagroceries.scene7.com/is/image/asdagroceries/",
+             "photoTemplate": "https://asdagroceries.scene7.com/is/image/asdagroceries/{photo}?wid=400&hei=400&fit=constrain&fmt=jpg",
+             "photo": re.compile(r"^https://asdagroceries\.scene7\.com/is/image/asdagroceries/([0-9A-Za-z_-]{4,40})$")},
+    "aldi": {"name": "Aldi", "pageBase": "https://www.aldi.co.uk/product/", "pages": True,
+             "photoBase": "https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/",
+             "photoTemplate": "https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/400/{photo}/image",
+             "photo": re.compile(r"^https://dm\.emea\.cms\.aldi\.cx/is/image/aldiprodeu/product/jpg/scaleWidth/\d+/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/")},
+    "lidl": {"name": "Lidl", "pageBase": "https://www.lidl.co.uk/p/", "pages": True, "photoBase": "https://imgproxy-retcat.assets.schwarz/",
+             "photoTemplate": "https://imgproxy-retcat.assets.schwarz/{photo}",
+             "photo": re.compile(r"^https://imgproxy-retcat\.assets\.schwarz/([A-Za-z0-9_\-./:=]{10,400})$")},
+}
+NAMES = {k: v["name"] for k, v in SHOPS.items()}
+PAGE_BASE = {k: v["pageBase"] for k, v in SHOPS.items()}
+PHOTO_BASE = {k: v["photoBase"] for k, v in SHOPS.items()}
 SLUG = re.compile(r"[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}")
+PAGE_PATH = re.compile(r"[A-Za-z0-9][A-Za-z0-9\-_.%/]{0,199}")
+
+
+def category_for(shop: str, paths: list[str]) -> str | None:
+    """The type a product is listed under, from the shop's own category paths (None = leave the product out: Lidl's offer-page-only products,
+    some of them next week's deals). Sainsbury's and Asda: the top level of the first path. Aldi: its main aisle when the product sits in one,
+    else the first. Lidl: the aisle under "Food & Drink"."""
+    paths = [p.strip() for p in paths if p.strip()]
+    if not paths:
+        return "Other"
+    if shop == "aldi":
+        tops = [p.split("/")[0].strip() for p in paths]
+        top = next((t for t in tops if t in ALDI_AISLES), tops[0])
+        return ALDI_AISLES.get(top) or ALDI_OTHER.get(top) or top.replace("-", " ").capitalize()
+    if shop == "lidl":
+        food = next((p for p in paths if p.split(" / ")[0].strip() == "Food & Drink" and " / " in p), None)
+        return food.split(" / ")[1].strip() if food else None
+    top = paths[0].split(" > ")[0].strip()
+    return top if top and top != "?" else "Other"
+
+
+def read_pages(shop: str, problems: list[str]) -> dict[str, str]:
+    """product id -> page path after the shop's pageBase, from data/groceries/listing/<shop>-pages.csv (the shop's own sitemap)."""
+    path = ROOT / "data" / "groceries" / "listing" / f"{shop}-pages.csv"
+    out: dict[str, str] = {}
+    if not SHOPS[shop].get("pages") or not path.exists():
+        return out
+    base = SHOPS[shop]["pageBase"]
+    with open(path, newline="", encoding="utf-8") as f:
+        for line, r in enumerate(csv.DictReader(f), start=2):
+            pid, url = (r.get("product_id") or "").strip(), (r.get("page_url") or "").strip()
+            rest = url[len(base):] if url.startswith(base) else ""
+            if not (pid and PAGE_PATH.fullmatch(rest) and ".." not in rest and rest.endswith(pid if shop == "lidl" else pid.zfill(18))):
+                problems.append(f"{shop}-pages.csv line {line}: not that product's page on the shop's site ({pid!r})")
+                continue
+            out[pid] = rest
+    return out
 
 
 def num(s: str):
@@ -109,7 +171,8 @@ def read_listing_photos(shop: str, problems: list[str]) -> dict[str, str]:
     return out
 
 
-def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict | None = None, nutrition: dict | None = None) -> dict | None:
+def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict | None = None, nutrition: dict | None = None,
+               pages: dict | None = None, photos: dict | None = None) -> dict | None:
     path = path or ROOT / "data" / "groceries" / "listing" / f"{shop}.csv"
     if not path.exists():
         return None
@@ -120,7 +183,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
     schemes: list[str] = []
     products = []
     days = set()
-    extra_photos = read_listing_photos(shop, problems)
+    extra_photos = photos if photos is not None else read_listing_photos(shop, problems)
+    pages = pages if pages is not None else read_pages(shop, problems)
     with open(path, newline="", encoding="utf-8") as f:
         for line, r in enumerate(csv.DictReader(f), start=2):
             pid, name = (r.get("product_id") or "").strip(), " ".join((r.get("name") or "").split())
@@ -134,24 +198,30 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             scheme = (r.get("member_scheme") or "").strip()
             if member is not None and (member >= price or not scheme):
                 member = None  # a card price counts only when it is lower and named
-            cat = (r.get("category_path") or "").split(" | ")[0].split(" > ")[0].strip()
-            if not cat:
-                cat = "Other"
+            cat = category_for(shop, (r.get("category_path") or "").split(" | "))
+            if cat is None:
+                continue
             if cat not in cats:
                 cats.append(cat)
             if member is not None and scheme not in schemes:
                 schemes.append(scheme)
-            photo = re.search(r"/gol/(\d+)/", r.get("image_url") or "") or re.search(r"/gol/(\d+)/", extra_photos.get(pid, ""))
+            photo_re = SHOPS[shop]["photo"]
+            photo = photo_re.search(r.get("image_url") or "") or photo_re.search(extra_photos.get(pid, ""))
             days.add((r.get("checked_on") or "").strip())
             n = nut.get(pid) or nut.get(pid.lower())
             if n:
                 nut_days.add(n[1])
-            products.append([pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
-                             member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gt.get(pid.lower(), ""),
-                             n[0] if n else None])
+            row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
+                   member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gt.get(pid.lower(), ""),
+                   n[0] if n else None]
+            if pid in pages:
+                row.append(pages[pid])
+            products.append(row)
     days.discard("")
-    return {"v": 1, "retailer": shop, "name": NAMES[shop], "checkedOn": min(days) if days else "", "pageBase": PAGE_BASE[shop], "photoBase": PHOTO_BASE[shop],
-            "categories": cats, "schemes": schemes, "nutritionCheckedOn": min(d for d in nut_days if d) if any(nut_days) else "", "products": products}
+    cfg = SHOPS[shop]
+    head = {"v": 1, "retailer": shop, "name": cfg["name"], "checkedOn": min(days) if days else "", "pageBase": cfg["pageBase"], "photoBase": cfg["photoBase"]}
+    head.update({k: cfg[k] for k in ("photoTemplate", "pageSearch") if k in cfg})
+    return {**head, "categories": cats, "schemes": schemes, "nutritionCheckedOn": min(d for d in nut_days if d) if any(nut_days) else "", "products": products}
 
 
 def main() -> int:
@@ -164,9 +234,11 @@ def main() -> int:
             continue
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
         (OUT / f"{shop}.json").write_text(text)
+        with_nutrition = sum(1 for p in doc["products"] if p[10])
         manifest["retailers"].append({"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
-                                      "sha256": hashlib.sha256(text.encode()).hexdigest()})
-        print(f"{shop}: {len(doc['products'])} products, {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[9])} with a barcode, {sum(1 for p in doc['products'] if p[10])} with nutrition, {len(doc['categories'])} categories")
+                                      "nutrition": with_nutrition, "sha256": hashlib.sha256(text.encode()).hexdigest()})
+        print(f"{shop}: {len(doc['products'])} products, {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
+              f"{sum(1 for p in doc['products'] if len(p) > 11)} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition, {len(doc['categories'])} categories")
     (OUT / "all-manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:
         print("problem:", p)

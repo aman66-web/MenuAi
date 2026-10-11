@@ -25,6 +25,19 @@ for several chains exist outside the repo and install in one step if the founder
 
 ## SUPERMARKETS (groceries), read 2026-10-08 (Tesco, Sainsbury's)
 
+**2026-10-11 founder decisions:** Tesco photos yes (accepted risk); full product lists with the shop's own photos for Asda, Aldi and Lidl (accepted risk;
+Morrisons, Waitrose, Tesco, Iceland and M&S lists stay in `data/` only). What each terms check found (`data/groceries/listing/raw/<shop>_terms.txt`):
+- **aldi** https://www.aldi.co.uk/corporate/terms-and-conditions: forbids "any systematic or automated data collection activities on or in relation to our
+  Site ... without our express written consent (such as scraping, data mining, data extraction and data harvesting)" and "You must not use any part of the
+  content on our Site or our App for commercial purposes without obtaining a licence to do so". The founder was told this and chose to publish (2026-10-11).
+  Photos load from Aldi's own image host dm.emea.cms.aldi.cx (no robots.txt). Product page addresses from its sitemap_products.xml (robots.txt allows it).
+- **asda** terms NOT read: robots.txt disallows /terms* and www.asda.com answers 403 to this environment. The founder chose to publish anyway (2026-10-11).
+  Photos load from asdagroceries.scene7.com (no robots.txt); the app links to Asda's own search for a product (no page addresses).
+- **lidl**: no website terms of use; its Legal Information page has no clause on copying, scraping or automated access. Photos: the og:image of each
+  product's own page (imgproxy-retcat.assets.schwarz), read one page a second (robots.txt allows /p/).
+- **tesco**: its image host answers 403 to this environment for the photos themselves, so no Tesco copies are stored; the 332 hotlinked Tesco photos stay.
+  The founder's yes lets a Chrome run on their Mac read Tesco product pages for barcodes and photo addresses (docs/NEXT_GROCERIES_IMAGES_PROMPT.md).
+
 Same use as the restaurant photos (the shop's own photo of the exact product, resized only; founder's go-ahead 2026-10-08). Nothing here is legal advice.
 - **tesco** https://www.tesco.com/shop/en-GB/zone/general-terms-and-conditions: "The content of the Site is protected by copyright, trade marks, database and other intellectual property rights. You may retrieve and display the content of the Site on a computer screen, store such content in electronic form on disk (but not any server or other storage device connected to a network) or print one copy of such content for your own personal, non-commercial use ... You may not otherwise reproduce, modify, copy or distribute or use fo[r commercial purposes]" and "Prohibited automated access: you must not use any automated system, software, or process (including bots, crawlers, scrapers, or AI tools) to access, extract, or collect data from this Site for any purpose without our prior written consent." **This also covers the price collection, not only photos.** robots.txt (read in the browser): no rule against product pages or images. Image host digitalcontent.api.tesco.com answers 403 to scripts for /robots.txt (and in a browser): the shared helper treats that as "do not fetch", so Tesco photos are NOT downloaded (the host does serve the photo itself, HTTP 200 with `access-control-allow-origin: *`); the founder decides.
 - **sainsburys** https://www.sainsburys.co.uk/terms (the groceries Terms & Conditions, 205 paragraphs, plus help.sainsburys.co.uk/help/terms-and-conditions/buying-online): no clause on copying content or images, or on automated access, found by keyword scan (copyright, image, photograph, reproduce, scrape, crawl, robot, automated, data mining, intellectual property, trade mark, licence). robots.txt (www.sainsburys.co.uk, read in the browser): disallows only account, checkout and search-servlet paths, not product pages. Image host assets.sainsburys-groceries.co.uk: no robots.txt (404 = no rules), serves the photo to a plain polite request.
