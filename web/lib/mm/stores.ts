@@ -23,6 +23,16 @@ export const myRecipesStore = createStore<SavedRecipe[]>("mm.v1.myRecipes", [], 
 /** Recipes from our book the person saved ("My recipes"), newest first. On this device only. */
 export const savedRecipesStore = createStore<RecipeSave[]>("mm.v1.savedRecipes", [], { sanitize: sanitizeRecipeSaves });
 
+/** Store-cupboard ingredients (pantry kinds: salt, cumin, oil...) the person says they already have: left off a recipe's basket and shopping list,
+ *  never out of its price a serving or its numbers. On this device only. */
+export const cupboardStore = createStore<string[]>("mm.v1.cupboard", [], {
+  sanitize: (x) => (Array.isArray(x) ? [...new Set(x.filter((k): k is string => typeof k === "string" && /^[a-z0-9-]{1,40}$/.test(k)))].slice(0, 200) : []),
+});
+
+export function toggleCupboard(key: string) {
+  cupboardStore.update((list) => (list.includes(key) ? list.filter((k) => k !== key) : [...list, key]));
+}
+
 /** Save a recipe from our book, or take it off "My recipes". */
 export function toggleSavedRecipe(id: string) {
   savedRecipesStore.update((list) => (list.some((r) => r.id === id) ? list.filter((r) => r.id !== id) : [{ id, savedAt: new Date().toISOString() }, ...list]));

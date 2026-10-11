@@ -12,7 +12,11 @@ Inputs
   * data/groceries/prices/<retailer>.csv (optional): `gtin,price_gbp,unit_price_gbp,unit,page_url,checked_on` (+ optional `member_price_gbp,member_scheme,member_offer_ends`: the loyalty-card price beside the regular one) from the retailer's own
     website (collected in the founder's own Chrome: docs/NEXT_GROCERIES_PROMPT.md). Never estimated; a product without a row has no price.
   * data/groceries/discovery/, details/, listing/ (optional): what the shops' own pages printed, used for the shop's photo (exact identifiers only) and as proof
-    that a shop sells a barcode (see assign_shops)
+    that a shop sells a barcode (see assign_shops). A shop's own list (listing_rows: Asda's pictures are named by barcode; other shops through a product
+    page read for its barcode) also gives that shop's own name for the product, its price as listed and its photo (founder 2026-10-11: products sold at
+    several shops share one listing, with every shop's price and photo)
+  * --patch --add-codes DIR: Open Food Facts records looked up by exact barcode for products the shops' lists show (tools/groceries/fetch_off_codes.py,
+    or off_export_filter.py from the daily export); each must pass the same checks and its name must share a word with the shop's own name for it
 
 Rules (docs/GROCERIES_PLAN.md, CLAUDE.md rule 1): numbers are copied, never invented or converted; a product is published only with a valid
 barcode (GS1 check digit), a name, and kcal, protein, carbs and fat per 100 g/ml all present and plausible. Allergens are the open
@@ -28,6 +32,7 @@ import json
 import re
 import sys
 import unicodedata
+import urllib.parse
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -383,12 +388,27 @@ def read_details(retailer: str, problems: list) -> dict:
 IMAGE_HOSTS = {
     "tesco": ("digitalcontent.api.tesco.com",),
     "sainsburys": ("assets.sainsburys-groceries.co.uk",),
+    "asda": ("asdagroceries.scene7.com",),
 }
+ASDA_SEARCH = "https://www.asda.com/groceries/search/"  # Asda's own search for a product's name (its page addresses aren't known)
+ASDA_PHOTO = re.compile(r"^https://asdagroceries\.scene7\.com/is/image/asdagroceries/(\d{8,14})$")
 
 
 def norm_code(code: str) -> str:
     """A barcode with leading zeros removed, so EAN-13 5063250552526 and its GTIN-14 form 05063250552526 are the same product."""
     return (code or "").strip().lstrip("0")
+
+
+def restricted_code(code: str) -> bool:
+    """A shop-internal (restricted circulation) number: EAN-8 starting 0 or 2, EAN-13 starting 2, 02 or 04 (UPC 2/4 too). Each shop gives these out
+    itself, so the same number can be a different product elsewhere and a community record for it may be another shop's product: never shared."""
+    n = norm_code(code)
+    if not n.isdigit():
+        return False
+    if len(n) <= 8:
+        return n.zfill(8)[0] in "02"
+    c = n.zfill(13)[-13:] if len(n) <= 13 else n[-13:]
+    return c[0] == "2" or c[:2] in ("02", "04")
 
 
 def clean_image_url(rid: str, url: str, skipped: dict):
@@ -466,6 +486,10 @@ def shop_pages(rid: str, base: Path | None = None) -> dict[str, dict]:
         code = ok(r.get("gtin"))
         if code:
             entry(code)["keys"].add(page_key(rid, r.get("page_url")))
+    if rid == "asda":
+        for code, r in listing_rows(rid, base).items():
+            url = (r.get("image_url") or "").strip()
+            entry(code)["photos"].append((f"{url}?wid=400&hei=400&fit=constrain&fmt=jpg", " ".join((r.get("name") or "").split())))
     listing = {(r.get("product_id") or "").strip().lower(): r for r in _rows(base / "listing" / f"{rid}.csv")}
     for e in out.values():
         e["keys"].discard("")
@@ -473,6 +497,52 @@ def shop_pages(rid: str, base: Path | None = None) -> dict[str, dict]:
             r = listing.get(key.lower())
             if r and (r.get("image_url") or "").strip():
                 e["photos"].append(((r.get("image_url") or "").strip(), " ".join((r.get("name") or "").split())))
+    return out
+
+
+def listing_rows(rid: str, base: Path | None = None) -> dict[str, dict]:
+    """norm barcode -> the shop's own list row (data/groceries/listing/<rid>.csv) for that barcode, joined ONLY through exact identifiers: Asda's
+    picture id where it is a valid barcode (Asda names its product pictures by barcode), and for the other shops the barcode a product page we read
+    showed (discovery/<rid>.csv + <rid>-barcodes.csv) joined to the list row of that page. Shop-internal numbers (restricted_code) are never used."""
+    base = base or ROOT / "data" / "groceries"
+    rows = _rows(base / "listing" / f"{rid}.csv")
+    out: dict[str, dict] = {}
+    if rid == "asda":
+        for r in rows:
+            m = ASDA_PHOTO.match((r.get("image_url") or "").strip())
+            if m and gtin_ok(m.group(1)) and not restricted_code(m.group(1)):
+                out.setdefault(norm_code(m.group(1)), r)
+        return out
+    by_id = {(r.get("product_id") or "").strip(): (r.get("gtin") or "").strip() for r in _rows(base / "discovery" / f"{rid}-barcodes.csv")}
+    listed = {(r.get("product_id") or "").strip().lower(): r for r in rows}
+    for r in _rows(base / "discovery" / f"{rid}.csv"):
+        code = by_id.get((r.get("product_id") or "").strip(), "")
+        row = listed.get(page_key(rid, r.get("page_url")).lower()) or listed.get((r.get("product_id") or "").strip().lower())
+        if row and gtin_ok(code) and not restricted_code(code):
+            out.setdefault(norm_code(code), row)
+    return out
+
+
+def listing_prices(rid: str, rows: dict[str, dict] | None = None) -> dict[str, dict]:
+    """norm barcode -> the price the shop's own list printed (as read_prices returns it), for barcodes listing_rows ties to a list row. Copied, never
+    estimated: the regular price, the unit price as printed and converted only exactly by ingest_listing, a lower named card price; dated the day read."""
+    rows = listing_rows(rid) if rows is None else rows
+    out: dict[str, dict] = {}
+    for code, r in rows.items():
+        price, checked = num(r.get("price_gbp")), (r.get("checked_on") or "").strip()
+        url = (r.get("page_url") or "").strip()
+        if rid == "asda" or not url.startswith("https://"):
+            url = ASDA_SEARCH + urllib.parse.quote(" ".join((r.get("name") or "").split())) if rid == "asda" else ""
+        if price is None or not (0 < price < 500) or not url or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", checked):
+            continue
+        entry: dict = {"amount": r2(price), "url": url, "checkedOn": checked}
+        unit_price, unit = num(r.get("unit_price_gbp")), (r.get("unit") or "").strip()
+        if unit_price and unit_price > 0 and unit:
+            entry["perUnit"] = {"amount": r2(unit_price), "unit": unit}
+        member, scheme = num(r.get("member_price_gbp")), " ".join((r.get("member_scheme") or "").split())[:40]
+        if member is not None and 0 < member < price and scheme:
+            entry["member"] = {"amount": r2(member), "scheme": scheme}
+        out[code] = entry
     return out
 
 
@@ -713,6 +783,8 @@ def read_shop_evidence(base: Path | None = None) -> dict[str, set]:
                 code = (r.get("gtin") or "").strip()
                 if gtin_ok(code):
                     out.setdefault(norm_code(code), set()).add(rid)
+        for code in listing_rows(rid, base):
+            out.setdefault(code, set()).add(rid)  # the shop's own category pages list it (Asda's picture id, or a page read for its barcode)
     return out
 
 
@@ -828,11 +900,12 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=ROOT / "web" / "public" / "groceries")
     ap.add_argument("--patch", action="store_true", help="redo every step after the download (shops, types, prices, details, photos) on the files already in --out; needs no Open Food Facts cache")
     ap.add_argument("--images-only", action="store_true", help="only (re)apply the shops' own photos to the files already in --out; needs no Open Food Facts cache")
+    ap.add_argument("--add-codes", type=Path, help="with --patch: also add the barcode records in this folder (tools/groceries/fetch_off_codes.py / off_export_filter.py)")
     args = ap.parse_args()
     if args.images_only:
         return patch_images(args.out)
     if args.patch:
-        return patch(args.out)
+        return patch(args.out, args.add_codes)
     today = date.today().isoformat()
     args.out.mkdir(parents=True, exist_ok=True)
     reasons_total: dict = {}
@@ -869,11 +942,19 @@ def finish(by_rid: dict[str, list[dict]], out: Path, today: str, head: str, left
     for rid, label in RETAILERS.items():
         products = by_rid.get(rid, [])
         prices, details = read_prices(rid, problems), read_details(rid, problems)
+        lrows = listing_rows(rid)
+        listed_prices = listing_prices(rid, lrows)
         notes: dict = {}
         for it in products:
             it.pop("price", None)
             if it["gtin"] in prices:
                 it["price"] = prices[it["gtin"]]
+            elif norm_code(it["gtin"]) in listed_prices:
+                it["price"] = listed_prices[norm_code(it["gtin"])]
+            lrow = lrows.get(norm_code(it["gtin"]))
+            shop_name = " ".join((lrow.get("name") or "").split()) if lrow else ""
+            if shop_name and it["gtin"] not in details and 2 <= len(shop_name) <= 140 and names_agree(it.get("name", ""), shop_name) is not False:
+                it["name"] = shop_name  # the shop's own name for it, exactly as its list prints it (a product page read replaces it below)
             if it["gtin"] in details:
                 apply_details(it, details[it["gtin"]], notes)
         detail_notes[rid] = (sum(1 for it in products if "pageUrl" in it), notes)
@@ -983,7 +1064,44 @@ def photo_report(out: Path, skipped: dict) -> list:
     return lines
 
 
-def patch(out: Path) -> int:
+def add_codes(by_rid: dict[str, list[dict]], folder: Path, lists: dict[str, dict[str, dict]] | None = None) -> list[str]:
+    """Add the Open Food Facts record of each barcode a shop's own list shows (listing_rows) and the catalogue doesn't have yet, under the first such shop
+    (assign_shops then lists it under every shop whose website shows it). The record passes convert's checks; it is used only when its name shares a word with
+    the name the shop's list prints for that barcode (a community record for the wrong product would show the wrong numbers next to the shop's photo).
+    Returns lines for the report."""
+    lists = {rid: listing_rows(rid) for rid in by_rid} if lists is None else lists
+    have = {norm_code(it["gtin"]) for items in by_rid.values() for it in items}
+    reasons: dict = {}
+    added: dict = {}
+    for f in sorted(folder.glob("*.json")):
+        try:
+            ans = json.loads(f.read_text())
+        except ValueError:
+            continue
+        if ans.get("status") != 1 or not isinstance(ans.get("product"), dict):
+            continue
+        item = convert(ans["product"], reasons)
+        if not item or norm_code(item["gtin"]) in have or restricted_code(item["gtin"]):
+            continue
+        code = norm_code(item["gtin"])
+        shops = [rid for rid in by_rid if code in lists.get(rid, {})]
+        agree = [rid for rid in shops if names_agree(item["name"], lists[rid][code].get("name", "")) is not False]
+        if not shops:
+            continue
+        if not agree:
+            reasons["its name and the shop's name for the barcode share no word"] = reasons.get("its name and the shop's name for the barcode share no word", 0) + 1
+            continue
+        by_rid[agree[0]].append(item)
+        have.add(code)
+        added[agree[0]] = added.get(agree[0], 0) + 1
+    lines = [f"- barcodes from the shops' own lists added with Open Food Facts records: " + ", ".join(f"{RETAILERS[r]} {n}" for r, n in added.items())]
+    lines += [f"- barcode records not used: {why}: {n}" for why, n in sorted(reasons.items())]
+    for line in lines:
+        print(line)
+    return lines
+
+
+def patch(out: Path, codes: Path | None = None) -> int:
     """--patch: the files already built are the input (their per-shop records), so the shop rule, the type rules, prices, details and photos can be redone
     without the Open Food Facts cache. The open database's picture field is dropped. The old report's "Left out" section is carried over."""
     manifest = json.loads((out / "groceries-manifest.json").read_text())
@@ -1011,6 +1129,8 @@ def patch(out: Path) -> int:
     old = (ROOT / "data" / "groceries" / "REPORT.md")
     text = old.read_text() if old.exists() else ""
     left = text.split("## Left out (and why)", 1)[1].split("\n## ", 1)[0].strip().splitlines() if "## Left out (and why)" in text else []
+    if codes:
+        left = [x for x in left if not x.startswith("- barcode")] + add_codes(by_rid, codes)
     today = date.today().isoformat()
     return finish(by_rid, out, today, f"Patched {today} from the files built on {manifest.get('generatedOn', '?')} (python3 tools/groceries/build_groceries.py --patch; no Open Food Facts download).", left, recat)
 

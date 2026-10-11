@@ -9,7 +9,8 @@ import { candidates, fitRecipe, isMeatFree, recipeTotals, resolveRecipe, subSpec
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
 import { shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
-import { savedRecipesStore, shoppingStore, toggleSavedRecipe } from "@/lib/mm/stores";
+import { PANTRY } from "@/lib/mm/pantry";
+import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { BasketIcon, BookmarkIcon, CheckIcon, InfoIcon, SwapIcon } from "../_components/icons";
 import { ItemHero } from "../_components/Nutrition";
@@ -32,17 +33,22 @@ function PickPhoto({ file, product }: { file: ShopFile; product: ShopProduct }) 
 
 const NOT_ON_LABEL = tk("not on every label");
 
-/** An ingredient's note in the reader's language: the counted ones ("about 2 eggs", made when a recipe is fitted) with their number as a value. */
+// Counted notes ("about 2 eggs", "about 1 pepper"), one pair per pantry kind sold or used by the piece, so each language can say them properly.
+const PIECE_NOTES: Record<string, [string, string]> = {
+  egg: [tk("about 1 egg"), tk("about {n} eggs")], wrap: [tk("about 1 wrap"), tk("about {n} wraps")], onion: [tk("about 1 onion"), tk("about {n} onions")],
+  "red onion": [tk("about 1 red onion"), tk("about {n} red onions")], pepper: [tk("about 1 pepper"), tk("about {n} peppers")],
+  carrot: [tk("about 1 carrot"), tk("about {n} carrots")], cucumber: [tk("about 1 cucumber"), tk("about {n} cucumbers")],
+  banana: [tk("about 1 banana"), tk("about {n} bananas")], apple: [tk("about 1 apple"), tk("about {n} apples")], clove: [tk("about 1 clove"), tk("about {n} cloves")],
+};
+const PIECE_WORD = new Map<string, string>([...PANTRY.values()].flatMap((k) => (k.pieceName ? [[k.pieceName[0], k.pieceName[0]], [k.pieceName[1], k.pieceName[0]]] as Array<[string, string]> : [])));
+
+/** An ingredient's note in the reader's language: the counted ones ("about 2 eggs", "about 1 pepper") with their number as a value. */
 function noteText(t: T, note: string): string {
-  const m = /^about (\d+) (egg|eggs|wrap|wraps)$/.exec(note);
-  if (!m) return t(note);
+  const m = /^about (\d+) ([a-z ]+)$/.exec(note);
+  const pair = m ? PIECE_NOTES[PIECE_WORD.get(m[2]!) ?? ""] : undefined;
+  if (!m || !pair) return t(note);
   const n = Number(m[1]);
-  switch (m[2]) {
-    case "egg": return t("about 1 egg");
-    case "eggs": return t("about {n} eggs", { n });
-    case "wrap": return t("about 1 wrap");
-    default: return t("about {n} wraps", { n });
-  }
+  return n === 1 ? t(pair[0]) : t(pair[1], { n });
 }
 
 export function RecipeDetail({ recipe, file, products, actions }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; actions?: React.ReactNode }) {
@@ -59,6 +65,8 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
   const [asWritten, setAsWritten] = useState(false);
   const [swapping, setSwapping] = useState<string | null>(null);
   const [added, setAdded] = useState<string | null>(null);
+  const haveList = useStore(cupboardStore);
+  const have = useMemo(() => new Set(haveList), [haveList]);
   const meatFree = isMeatFree(recipe);
   const withSubs = useMemo(() => withSubstitutes(recipe, subs), [recipe, subs]);
 
@@ -68,8 +76,10 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
     const resolved = resolveRecipe(withSubs, products, chosen);
     return { recipe: withSubs, resolved, totals: recipeTotals(resolved), fitted: false };
   }, [withSubs, products, chosen, target, asWritten]);
-  const { totals } = view;
+  // the basket leaves out the cupboard items the person has ticked; a serving's price and numbers never do
+  const totals = useMemo(() => (view.totals ? recipeTotals(view.resolved, have) : null), [view, have]);
   const picks = view.resolved.picks;
+  const hasIt = (spec: IngredientSpec) => !!spec.cupboard && !!spec.pantry && have.has(spec.pantry);
   const swapIndex = view.recipe.ingredients.findIndex((i) => i.key === swapping);
   // what the row shows: the pick's own spec when the shop lacked the ingredient and a substitute stands in
   const swapSpec = swapIndex >= 0 ? (picks[swapIndex]?.spec ?? view.recipe.ingredients[swapIndex]!) : null;
@@ -98,7 +108,7 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
   const prefs = settings.preferences;
   const dietNote = (prefs.avoidAllergens?.length ?? 0) > 0 || prefs.halalOnly || prefs.veganOnly || prefs.vegetarianOnly;
   const addAll = () => {
-    const ready = picks.filter((p): p is IngredientPick => !!p);
+    const ready = picks.filter((p): p is IngredientPick => !!p && !hasIt(p.spec));
     shoppingStore.update((list) => ready.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn }, new Date(), p.packs), list));
     setAdded(ready.length === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n: ready.length, shop: file.name }));
   };
@@ -187,6 +197,9 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
             ))}
           </dl>
           <p className="mt-2 text-xs text-muted">{t("Added up from each product's own label for the amounts below, before cooking. \"Not on every label\" means one of the products doesn't print that figure, so we don't give a total for it.")}</p>
+          {totals.notCounted.length > 0 && (
+            <p className="mt-2 text-xs font-semibold text-muted">{totals.notCounted.length === 1 ? t("We haven't read the label for {name} yet, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("We haven't read the labels for {names} yet, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+          )}
         </section>
       )}
 
@@ -216,12 +229,20 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
                 ) : (
                   <p className="mt-1 px-1 text-sm text-muted">{t("Not found at {shop} yet.", { shop: file.name })}</p>
                 )}
+                {p && spec.cupboard && spec.pantry && (
+                  <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
+                    <span className="text-sm text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
+                    <button type="button" aria-pressed={hasIt(spec)} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`ms-auto inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 text-sm font-bold transition active:scale-95 ${hasIt(spec) ? "bg-accent-soft text-accent" : "glass hover:bg-soft-strong"}`}>
+                      {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
+                    </button>
+                  </div>
+                )}
               </li>
             );
           })}
         </ul>
-        {recipe.extras.length > 0 && (
-          <p className="mt-3 px-1 text-sm text-muted"><span className="font-semibold text-foreground">{t("Also handy (not counted):")}</span> {recipe.extras.map(rt).join(", ")}.</p>
+        {(recipe.extras?.length ?? 0) > 0 && (
+          <p className="mt-3 px-1 text-sm text-muted"><span className="font-semibold text-foreground">{t("Also handy (not counted):")}</span> {recipe.extras!.map(rt).join(", ")}.</p>
         )}
         {view.resolved.complete && (
           <div className="mt-4">

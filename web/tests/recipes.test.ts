@@ -193,7 +193,9 @@ describe("fitting a recipe to someone's numbers", () => {
     expect(capped.totals.perServing.carbs).toBeLessThan(free.totals.perServing.carbs);
   });
   it("rounds eggs to whole eggs and says how many", () => {
-    const eggs = RECIPES.find((r) => r.id === "cheesy-egg-wraps")!;
+    const book = RECIPES.find((r) => r.id === "cheesy-egg-wraps")!;
+    // just the four main ingredients: this shop sells nothing else
+    const eggs = { ...book, ingredients: book.ingredients.filter((i) => ["eggs", "cheddar", "wraps", "milk"].includes(i.key)) };
     const shop = [
       product("e", "Free Range Medium Eggs 6 pack 360g", 1.8, 5, "per kg", nut(140, 12.5, 0.5, 9.5)),
       product("ch", "Mature Cheddar 400g", 3, 7.5, "per kg", nut(416, 25, 0.1, 35)),

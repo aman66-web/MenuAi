@@ -11,6 +11,35 @@ import { decodeShopProducts } from "../lib/mm/shopProducts";
 const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
 const SAFETY = /(no pink|piping hot|cooked through|flakes|opaque|set\b|until (?:just )?set|golden|pink all the way|cooked all the way)/i;
 const NEEDS_SAFETY = new Set(["chicken", "chicken-thigh", "beef-mince", "turkey-mince", "lamb-mince", "bacon", "salmon", "cod", "white-fish", "prawns", "eggs", "beef-steak"]);
+// Every food a step names must be bought (founder 2026-10-11: "make sure every recipe is fully complete"): a word in the method -> the pantry kinds
+// that can be it. A recipe whose method says "the cumin" must have cumin among its ingredients, so nobody gets home without it.
+const ANY_OIL = ["olive-oil", "vegetable-oil", "oil-spray"];
+const METHOD_FOODS: Array<[RegExp, string[]]> = [
+  [/\bcumin\b/i, ["cumin"]], [/\bpaprika\b/i, ["paprika", "smoked-paprika"]], [/\bcinnamon\b/i, ["cinnamon"]], [/\bturmeric\b/i, ["turmeric"]],
+  [/\bcurry powder\b/i, ["curry-powder"]], [/\bchilli powder\b/i, ["chilli-powder"]], [/\bchilli flakes\b/i, ["chilli-flakes"]],
+  [/\b(?:black|white) pepper\b|\bsalt and pepper\b|\bseason\b|(?<!fajita )\bseasoning\b/i, ["black-pepper", "white-pepper", "salt"]], [/\bsalt\b/i, ["salt"]],
+  [/\bgarlic\b/i, ["garlic"]], [/\bginger\b/i, ["ginger"]], [/\blemon\b/i, ["lemon-juice"]], [/\blime\b/i, ["lime-juice"]],
+  [/\bspring onions?\b/i, ["spring-onions"]], [/\bred onions?\b/i, ["red-onion"]], [/(?<!spring |red )\bonions?\b/i, ["onion", "red-onion"]],
+  [/\bcarrots?\b/i, ["carrots"]], [/\bcelery\b/i, []], [/(?<!black |white |cayenne |salt and |salt, )\bpeppers?\b(?! sauce)/i, ["peppers"]], [/\bchillies\b|\bchilli\b(?! (?:powder|flakes|sauce|con))/i, ["fresh-chilli", "chilli-flakes", "chilli-powder", "sweet-chilli"]],
+  [/\bspinach\b/i, ["spinach"]], [/\bcherry tomatoes\b/i, ["cherry-tomatoes"]], [/\bcucumber\b/i, ["cucumber"]], [/\blettuce\b/i, ["lettuce", "salad-leaves"]],
+  [/\b(?:salad )?leaves\b|\brocket\b|\bwatercress\b/i, ["salad-leaves", "lettuce", "spinach"]], [/\bgreen beans\b/i, ["green-beans"]], [/\bbroccoli\b/i, ["broccoli"]],
+  [/\bmangetout\b|\bsugar snaps?\b/i, ["mangetout"]], [/\bbeansprouts\b/i, ["beansprouts"]], [/\bmushrooms?\b/i, ["mushrooms"]], [/\bbananas?\b/i, ["banana"]],
+  [/\bapples?\b/i, ["apple"]], [/\bcoriander\b/i, ["fresh-coriander"]], [/\bparsley\b/i, ["fresh-parsley"]], [/\bbasil\b(?! pesto)/i, ["fresh-basil", "pesto"]],
+  [/\bdill\b/i, ["dill"]], [/\bchives\b/i, ["chives"]], [/\bmint\b/i, ["mint"]], [/\bthyme\b/i, ["thyme"]], [/\brosemary\b/i, ["rosemary"]], [/\boregano\b/i, ["oregano"]],
+  [/\b(?:dried |mixed )herbs\b/i, ["mixed-herbs", "oregano", "thyme", "rosemary"]], [/\bsesame\b/i, ["sesame-seeds", "mixed-seeds"]], [/\bmustard\b/i, ["mustard"]],
+  [/\bhorseradish\b/i, ["horseradish"]], [/\boil spray\b|\bspray\b/i, ANY_OIL], [/\boil\b/i, ANY_OIL], [/\bstock\b/i, ["stock-cube"]], [/\bhoney\b/i, ["honey"]],
+  [/\bvegetables\b/i, ["stir-fry-veg", "mixed-veg", "peas", "broccoli", "green-beans", "carrots", "peppers", "onion", "spinach", "sweetcorn", "mushrooms", "mangetout", "cherry-tomatoes"]],
+];
+const MENTION_OK = /\b(?:if you like|to taste|a splash of (?:hot )?water|boiling water|the rest|seasoning pack)\b/i;
+export function missingFoods(r: { method: string[]; ingredients: Array<{ pantry?: string }> }): string[] {
+  const have = new Set(r.ingredients.map((i) => i.pantry ?? ""));
+  const out: string[] = [];
+  for (const step of r.method) for (const [re, kinds] of METHOD_FOODS) {
+    const m = re.exec(step);
+    if (m && !kinds.some((k) => have.has(k)) && !(MENTION_OK.test(step) && /water/i.test(m[0]))) out.push(`"${m[0]}" in "${step}"`);
+  }
+  return out;
+}
 
 describe("the recipe book", () => {
   it("has unique ids and names", () => {
@@ -31,11 +60,12 @@ describe("the recipe book", () => {
       expect(cleanText(r.name, 60), `name "${r.name}"`).not.toBeNull();
       expect(r.blurb === "" || cleanText(r.blurb, 140) !== null, `blurb "${r.blurb}"`).toBe(true);
       for (const step of r.method) expect(cleanText(step, 300), `step "${step}"`).not.toBeNull();
-      for (const e of r.extras) expect(cleanText(e, 120), `extra "${e}"`).not.toBeNull();
+      expect(r.extras ?? [], "nothing left uncounted").toEqual([]);
+      expect(missingFoods(r), "every food the method names is an ingredient").toEqual([]);
       expect(new Set(r.ingredients.map((i) => i.key)).size, "an ingredient twice").toBe(r.ingredients.length);
       for (const i of r.ingredients) {
         expect(i.pantry && PANTRY.has(i.pantry), `pantry kind ${i.key}`).toBe(true);
-        expect(i.amount, `${i.key} amount`).toBeGreaterThanOrEqual(5);
+        expect(i.amount, `${i.key} amount`).toBeGreaterThanOrEqual(PANTRY.get(i.pantry ?? "")?.cupboard ? 1 : 5);
         expect(i.amount / r.servings, `${i.key} per serving`).toBeLessThanOrEqual(450);
         for (const s of i.subs ?? []) expect(PANTRY.has(s.key), `substitute ${s.key} for ${i.key}`).toBe(true);
       }
@@ -43,6 +73,7 @@ describe("the recipe book", () => {
       const resolved = resolveRecipe(r, products);
       expect(resolved.complete, `missing at Sainsbury's: ${r.ingredients.filter((_, k) => !resolved.picks[k]).map((i) => i.key).join(", ")}`).toBe(true);
       const t = recipeTotals(resolved)!;
+      expect(t.costPerServing, "a price a serving (every ingredient priced)").not.toBeNull();
       expect(t.perServing.kcal, "kcal a serving as written").toBeGreaterThan(r.meal === "snack" ? 60 : 180);
       expect(t.perServing.kcal, "kcal a serving as written").toBeLessThan(1100);
       expect(fitRecipe(r, products, {}, { kcal: 600, protein: 40 }), "fits").not.toBeNull();

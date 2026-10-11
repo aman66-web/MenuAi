@@ -776,6 +776,39 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   and most of frozen (Tesco's bot check stopped it); the rest needs the Chrome run. No new copy. Checked: 129 Python, 445 unit tests, tsc, lint, e2e
   groceries-all 6, groceries 6, diet 5, smoke 23; screenshots of Morrisons' list, an Iceland product (photo + "Open it on Iceland's website") and Groceries.
 
+- 2026-10-11 — **Every recipe complete, and products shared across shops by barcode (founder: "make sure every recipe is fully complete"; the Alpro example).**
+  **Recipes:** all 129 different "extras" (salt and pepper, oil, garlic, onions, lemons, herbs, spices, vegetables) are now real ingredients with amounts,
+  listed, priced and counted like everything else: 49 new pantry kinds (`lib/mm/pantry.ts`: seasonings, dried herbs, oils, garlic and ginger paste,
+  lemon/lime juice, onions, carrots, peppers, chillies, salad, beans, broccoli, herbs, bananas, apples), each matched to Sainsbury's products with a
+  read label. The chicken shawarma wraps now buy cumin, paprika, two garlic cloves, lemon juice, lettuce, tomatoes, cucumber, salt and pepper.
+  A test (`tests/recipeBook.test.ts`) fails any recipe whose method names a food it doesn't buy, any recipe with "extras" left, and any without a
+  price a serving; 3 methods were reworded (celery, which Sainsbury's has no label for, taken out of the minestrone; chives -> the spring onions
+  it buys; "cucumber or pepper" -> cucumber) and the tofu satay and chicken rice bowl now buy their vegetables. **Costs:** "a serving" includes
+  the share of each jar used (2 g of a 43 g jar of cumin); "to buy it all" includes the whole jar; whole items sold one at a time (a pepper, a
+  cucumber, a pack of 3 onions) are counted as whole items at the shop's own price each ("about 1 pepper"), loose produce by weight, and a pack
+  priced per kg without a weight in its name by the shop's own price ÷ price per kg. Store-cupboard items say "You may have this already" with an
+  "I have this" button that leaves them off the shopping list and the price to buy it all (remembered on this device, `mm.v1.cupboard`, cleared by
+  Clear data; privacy page says so); a serving's price and numbers always include them. Ground cinnamon's label hasn't been read yet: it is
+  listed and priced and the page says it isn't counted (never filled in). Among products within 50p of the cheapest, the one whose label
+  prints the most figures is chosen, so recipes with a blank saturates/sugars/salt row went from 23 to 4; **fibre is now blank in 74 recipes (44
+  before)** because salt, spice and lemon-juice labels don't print fibre. Oil and seasonings now count, so kcal rose a little (all 100 still
+  within the book's 60-1,100 kcal range). Pip's AI recipes must list seasonings as ingredients too (prompt and checks; old saved recipes keep
+  their notes). New copy (rule 8, logged here; translated into the 10 languages by AI): the 49 kind names, "You may have this already.", "I have
+  this", "Left off your list and the price to buy it all.", the two "label not read" sentences, the counted notes ("about 1 pepper"...), the Recipes
+  footer sentence ("including the pinch of salt and the spoon of oil") and the 4 reworded steps.
+  **Groceries by barcode:** the shops' own lists now prove a shop sells a barcode and give its own name, price and photo (Asda names its pictures by
+  barcode; Sainsbury's and Tesco through product pages read). Open Food Facts records for 12,908 such barcodes were taken from its daily export
+  (its product API answered 429 after ~200 reads; it asks bulk users to use the export: streamed once, only our barcodes kept), found for 9,913,
+  and added only when they pass the catalogue's checks and their name shares a word with the shop's own name (217 failed that). Shop-internal
+  numbers (EAN-8 0/2, EAN-13 2/02/04) are never shared between shops. Catalogue: **Asda 3 -> 6,740 products (6,731 with Asda's photo)**, Sainsbury's
+  2,667 -> 3,839, Tesco 4,414 -> 4,915 (834 with Tesco's photo, 136 more showing another shop's photo of the same barcode). Only 683 products are at 2+
+  of these shops, because the Tesco catalogue is mostly Tesco's own brand. Asda's full list now carries the barcode for 11,109 products, so 6,740 link
+  to their full page with nutrition. The rest (official labels, Tesco's unfinished categories, Co-op) needs the founder's Chrome:
+  `docs/NEXT_GROCERIES_ALL_SHOPS_PROMPT.md`. Tools: `tools/groceries/fetch_off_codes.py`, `off_export_filter.py`, `build_groceries.py --patch --add-codes`.
+  Checked: 130 Python, 445 unit tests, tsc, lint, e2e recipes 13 (new: 7 ingredients, "I have this" lowers the basket and leaves cumin off the list),
+  groceries 6, groceries-all 6, compare 8, diet 5, smoke 23, extra 11, languages 5, a11y 0 violations, no overflow at 200% text; contact sheet of 36 new
+  Asda catalogue products (every photo matches its name).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

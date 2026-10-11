@@ -12,8 +12,9 @@ const DOC = "../docs/RECIPE_IMAGE_PROMPTS.md";
 const plain = (s: string) => s.replace(/\s*\([^)]*\)/g, "").trim().toLowerCase();
 
 export function imagePrompt(r: Recipe): string {
-  const what = r.ingredients.map((i) => plain(i.label)).join(", ");
-  const extras = r.extras.length ? ` Also in the dish: ${r.extras.map(plain).join(", ")}.` : "";
+  // the dish as it looks: the foods, not the pinch of salt or the oil it was cooked in
+  const what = r.ingredients.filter((i) => !i.cupboard || ["garlic", "ginger", "lemon-juice", "lime-juice"].includes(i.pantry ?? "")).map((i) => plain(i.label)).join(", ");
+  const extras = r.extras?.length ? ` Also in the dish: ${r.extras.map(plain).join(", ")}.` : "";
   const serve = r.meal === "snack" ? "a small snack portion on a plain white plate" : "one home-made portion on a plain white plate or in a plain white bowl";
   return (
     `A realistic, appetising food photograph of ${r.name.toLowerCase()}: ${serve}, on a light wooden kitchen table, seen from a three-quarter angle, ` +

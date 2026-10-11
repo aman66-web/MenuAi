@@ -224,6 +224,14 @@ def read_listing_photos(shop: str, problems: list[str]) -> dict[str, str]:
     return out
 
 
+def asda_barcode(photo_id: str) -> bool:
+    """An Asda picture id that is a real barcode (GS1 check digit, not a shop-internal number)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import build_groceries as bg  # noqa: E402
+
+    return photo_id.isdigit() and bg.gtin_ok(photo_id) and not bg.restricted_code(photo_id)
+
+
 def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict | None = None, nutrition: dict | None = None,
                pages: dict | None = None, photos: dict | None = None) -> dict | None:
     path = path or ROOT / "data" / "groceries" / "listing" / f"{shop}.csv"
@@ -266,8 +274,11 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             n = nut.get(pid) or nut.get(pid.lower())
             if n:
                 nut_days.add(n[1])
+            gtin = gt.get(pid.lower(), "")
+            if not gtin and shop == "asda" and photo and asda_barcode(photo.group(1)):
+                gtin = photo.group(1)  # Asda names its product pictures by barcode: the app links it to the full product page where the catalogue has it
             row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
-                   member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gt.get(pid.lower(), ""),
+                   member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gtin,
                    n[0] if n else None]
             if pid in pages:
                 row.append(pages[pid])

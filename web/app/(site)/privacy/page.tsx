@@ -67,7 +67,7 @@ export default function Privacy() {
 
       <h2>Recipes and Pip&apos;s recipe maker</h2>
       <p>
-        Recipes are worked out in your browser from the supermarket&apos;s product list; your meal size, diet choices and saved recipes stay on your device.
+        Recipes are worked out in your browser from the supermarket&apos;s product list; your meal size, diet choices, saved recipes and the store-cupboard items you mark as already having stay on your device.
         If you ask Pip to make a recipe, we send what you chose on that page (the meal, how many people, the meal size and protein, your diet and allergy
         choices, and anything you typed in the &ldquo;Anything you&apos;d like?&rdquo; box) and the list of that shop&apos;s products it may use to our server, which passes
         them to Anthropic, the company that makes the Claude AI, to write the recipe. No name, account, location or anything else is sent, and we don&apos;t keep a

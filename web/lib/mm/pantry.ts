@@ -47,6 +47,10 @@ export interface PantryKind {
   /** One piece in grams, to say "about 4 eggs" (a cooking guide only: the numbers always use grams). */
   pieceGrams?: number;
   pieceName?: [string, string];
+  /** A store-cupboard item (seasoning, oil, dried herbs): the recipe page says "You may have this already" and lets the person leave it off the basket. */
+  cupboard?: boolean;
+  /** A pinch of something whose label we haven't read (ground cinnamon): still listed and priced, and named as not counted in the nutrition (never filled in). */
+  labelOptional?: boolean;
 }
 
 const PROCESSED = ["sliced", "cooked", "roast", "bites", "goujon", "cured", "hunters", "just cook", "sizzlers", "kyiv", "kiev", "italian", "cajun", "steaks", "battered", "tempura", "buttermilk", "firecracker", "chunks", "escalope", "burger", "sauce", "with", "marinated", "coated", "breaded", "smoked", "chargrill", "tikka", "piri", "fajita", "slices", "pieces", "strips", "skewer", "wrapped", "stuffed", "southern", "katsu", "bbq", "spiced", "lemon", "garlic", "herb", "glaze", "seasoned", "meatballs"];
@@ -300,6 +304,59 @@ const KINDS: PantryKind[] = [
   { key: "soy", label: "Soy sauce", unit: "ml", role: "other", contains: ["soya", "gluten"], match: { all: ["soy", "sauce"], none: ["sweet", "noodle", "chicken", "dark", "mushroom", "teriyaki", "garlic", "chilli", "vinegar", "pack"], kcal: [20, 120] } },
   { key: "peanut-butter", label: "Peanut butter", unit: "g", role: "other", contains: ["peanuts"], match: { all: ["peanut", "butter"], none: ["cups", "chocolate", "cookies", "bar", "biscuit", "bites", "powder", "jelly", "protein", "honey", "spread with"], kcal: [550, 700] } },
   { key: "houmous", label: "Houmous", unit: "g", role: "other", contains: ["sesame"], match: { all: ["houmous"], none: ["pepper", "chilli", "caramelised", "lemon", "garlic", "pine", "beetroot", "snack", "dippers", "pot", "x4", "4x", "olive", "harissa", "smoked", "jalapeno", "basil", "coriander", "edamame", "moroccan", "aromatic", "style", "topped", "spiced", "sweet", "falafel"], kcal: [150, 340] } },
+  // ---- seasonings, dried herbs and oils (founder 2026-10-11: every recipe lists, prices and counts everything it uses, down to the pinch of salt)
+  { key: "salt", label: "Salt", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["salt"], any: ["table salt", "fine sea salt", "cooking salt", "sea salt"], none: ["crisps", "seaweed", "rice", "caramel", "vinegar", "pepper", "onion", "celery", "garlic", "smoked", "flakes", "grinder"], kcal: [0, 10] } },
+  { key: "black-pepper", label: "Ground black pepper", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "black", "pepper"], none: ["tuna", "croutons", "butter", "crackers"], kcal: [200, 350] } },
+  { key: "white-pepper", label: "Ground white pepper", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "white", "pepper"], kcal: [200, 350] } },
+  { key: "cumin", label: "Ground cumin", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "cumin"], kcal: [300, 500] } },
+  { key: "paprika", label: "Paprika", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["paprika"], none: ["smoked", "hot", "crisps", "chips", "cassava", "lentil", "seasoning", "rice", "crunchers", "chickpeas", "bites", "almonds"], kcal: [250, 400] } },
+  { key: "smoked-paprika", label: "Smoked paprika", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["smoked", "paprika"], none: ["chickpeas", "bites", "crisps", "almonds", "houmous"], kcal: [250, 400] } },
+  { key: "chilli-powder", label: "Chilli powder", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["chilli", "powder"], none: ["con carne", "mix", "noodles"], kcal: [250, 500] } },
+  { key: "chilli-flakes", label: "Crushed chilli flakes", unit: "g", role: "other", cupboard: true, contains: [], match: { all: [], any: ["crushed chillies", "chilli flakes"], none: ["ancho", "chipotle", "oil"], kcal: [300, 450] } },
+  // Ground cinnamon's label hasn't been read at Sainsbury's yet: a pinch is listed and priced, and named as not counted in the nutrition.
+  { key: "cinnamon", label: "Ground cinnamon", unit: "g", role: "other", cupboard: true, labelOptional: true, contains: [], match: { all: ["ground", "cinnamon"], none: ["sweet", "dusting"] } },
+  { key: "turmeric", label: "Ground turmeric", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["turmeric"], none: ["granola", "paneer", "juice", "kombucha", "latte", "tea", "shot", "vinegar", "zinger", "raw"], kcal: [250, 450] } },
+  { key: "curry-powder", label: "Curry powder", unit: "g", role: "other", cupboard: true, contains: ["mustard"], match: { all: ["curry", "powder"], none: ["madras", "tikka", "caribbean"], kcal: [250, 450] } },
+  { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["mixed", "herbs"], kcal: [150, 350] } },
+  { key: "oregano", label: "Dried oregano", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["oregano"], none: ["fresh", "tomatoes", "crostini", "tofu", "focaccia", "pizza"], kcal: [200, 400] } },
+  { key: "thyme", label: "Dried thyme", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["thyme"], none: ["fresh", "bunched", "living", "tofu", "carrots", "stuffing", "lemon", "crisps", "chicken"], kcal: [200, 500] } },
+  { key: "rosemary", label: "Dried rosemary", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["rosemary"], none: ["fresh", "living", "stock", "bites", "sausages", "pie", "crisps", "focaccia", "bread", "pinsa", "biltong", "bloomer", "sourdough"], kcal: [250, 400] } },
+  { key: "dill", label: "Dried dill", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["dill"], none: ["sauerkraut", "pickle", "gherkin", "sauce", "salmon"], kcal: [250, 400] } },
+  { key: "chives", label: "Dried chives", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["chives"], none: ["living", "crackers", "cheddar", "pizzelle", "cheese"], kcal: [250, 400] } },
+  { key: "mint", label: "Dried mint", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["mint"], none: ["chewy", "dragees", "truffle", "assortment", "toffee", "rolls", "reindeer", "living", "sauce", "chocolate", "tea", "lamb", "minted"], kcal: [250, 330] } },
+  { key: "sesame-seeds", label: "Sesame seeds", unit: "g", role: "other", cupboard: true, contains: ["sesame"], match: { all: ["sesame", "seeds"], none: ["black", "roasted", "bagel", "bread", "bun", "crackers", "bar", "snaps", "oil"], kcal: [500, 700] } },
+  { key: "mustard", label: "Mustard (English, Dijon or wholegrain)", unit: "g", role: "other", cupboard: true, contains: ["mustard"], match: { all: ["mustard"], any: ["english", "dijon", "wholegrain"], none: ["seed", "powder", "mayo", "honey", "sauce", "cress", "pork", "sausage", "chicken", "ham"], kcal: [100, 250] } },
+  { key: "horseradish", label: "Horseradish sauce", unit: "ml", role: "other", cupboard: true, contains: ["mustard", "milk", "eggs"], animal: true, match: { all: ["horseradish", "sauce"], none: ["creamy", "mackerel", "beef", "crisps"], kcal: [100, 300] } },
+  { key: "vegetable-oil", label: "Vegetable or sunflower oil", unit: "ml", role: "other", cupboard: true, contains: [], match: { all: ["oil"], any: ["vegetable oil", "sunflower oil", "rapeseed oil"], none: ["spray", "spread", "tuna", "sardines", "mackerel", "in sunflower", "in vegetable", "organic", "palm", "vitamin", "garlic", "chilli"], kcal: [800, 910] } },
+  { key: "oil-spray", label: "Oil spray", unit: "ml", role: "other", cupboard: true, contains: [], match: { all: ["oil", "spray"], none: ["olive", "coconut", "cooking spray"], kcal: [700, 910] } },
+  { key: "garlic", label: "Garlic purée or paste", unit: "g", role: "other", cupboard: true, contains: [], pieceGrams: 5, pieceName: ["clove", "cloves"], match: { all: ["garlic"], any: ["puree", "paste", "crushed", "minced", "chopped"], none: ["ginger", "soy", "sticky", "bread", "tomato", "tomatoes", "passata", "couscous", "cous", "chilli", "herb", "pate", "tuna", "croutons", "butter", "olives", "mushrooms", "prawns", "potatoes"], kcal: [50, 400] } },
+  { key: "ginger", label: "Ginger purée or paste", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ginger"], any: ["puree", "paste", "crushed", "minced", "chopped"], none: ["garlic", "soy", "sticky", "crystallised", "stem", "biscuits", "cake", "glacé", "glace"], kcal: [10, 120] } },
+  { key: "lemon-juice", label: "Lemon juice", unit: "ml", role: "other", cupboard: true, contains: [], match: { all: ["lemon", "juice"], none: ["sliced", "apple", "pomegranate", "raspberry", "lime", "cordial", "squash", "smoothie", "ginger", "drink"], kcal: [10, 50] } },
+  { key: "lime-juice", label: "Lime juice", unit: "ml", role: "other", cupboard: true, contains: [], match: { all: ["lime", "juice"], none: ["guava", "innocent", "cordial", "squash", "smoothie", "coconut", "drink"], kcal: [10, 50] } },
+  // ---- fresh vegetables, herbs and fruit (raw labels only; whole items sold one at a time count as whole items: "1 pepper", at the shop's own price each)
+  { key: "onion", label: "Onion", unit: "g", role: "other", contains: [], pieceGrams: 150, pieceName: ["onion", "onions"], match: { all: ["onions"], none: ["red", "spring", "sweet", "rings", "crisps", "bhaji", "gravy", "sauce", "pickled", "chutney", "cheese", "sausage", "soup", "fried", "caramelised", "crispy", "salt", "pudding", "pie", "balsamic", "borettane", "silverskin", "twists", "slices", "chips", "organic"], kcal: [25, 50] } },
+  { key: "red-onion", label: "Red onion", unit: "g", role: "other", contains: [], pieceGrams: 150, pieceName: ["red onion", "red onions"], match: { all: ["red", "onions"], none: ["chutney", "marmalade", "relish", "crisps", "chips", "cheese", "sausage", "pickled", "bhaji", "confit", "caramelised", "sauce", "stuffing", "tortillas", "organic"], kcal: [25, 50] } },
+  { key: "spring-onions", label: "Spring onions", unit: "g", role: "other", contains: [], match: { all: ["spring", "onion"], none: ["crisps", "rolls", "scone", "sauce", "cheese", "dip", "organic", "bites"], kcal: [15, 40] } },
+  { key: "carrots", label: "Carrots", unit: "g", role: "other", contains: [], pieceGrams: 100, pieceName: ["carrot", "carrots"], match: { all: ["carrots"], none: ["in water", "sliced", "baby", "mini", "prepared", "batons", "cake", "juice", "glazed", "chips", "peas", "swede", "parsnip", "organic", "grated"], kcal: [25, 45] } },
+  { key: "peppers", label: "Peppers", unit: "g", role: "other", contains: [], pieceGrams: 160, pieceName: ["pepper", "peppers"], match: { all: [], any: ["red pepper", "yellow pepper", "orange pepper", "green pepper", "mixed peppers"], none: ["pointed", "sliced", "roasted", "stuffed", "flakes", "sauce", "crisps", "jar", "chargrilled", "houmous"], kcal: [15, 35] } },
+  { key: "fresh-chilli", label: "Fresh chillies", unit: "g", role: "other", contains: [], match: { all: [], any: ["mixed chillies", "finger chillies", "red chillies", "green chillies"], none: ["scotch", "crushed", "dried", "flakes", "sauce", "jar", "pickled", "chopped", "drained", "poppadoms"], kcal: [15, 45] } },
+  { key: "spinach", label: "Spinach", unit: "g", role: "other", contains: [], match: { all: ["spinach"], none: ["watercress", "rocket", "ricotta", "organic", "chopped", "frozen", "pouch", "baby food", "strawberry"], kcal: [12, 30] } },
+  { key: "cherry-tomatoes", label: "Cherry tomatoes", unit: "g", role: "other", contains: [], match: { all: ["cherry", "tomatoes"], none: ["juice", "peeled", "tinned", "in rich", "pomodorini", "datterini", "dried", "roasted"], kcal: [12, 35] } },
+  { key: "tomatoes", label: "Tomatoes", unit: "g", role: "other", contains: [], match: { all: ["tomatoes"], any: ["baby plum tomatoes", "tomatoes loose", "vine tomatoes", "large tomatoes", "salad tomatoes", "round tomatoes"], none: ["peeled", "in juice", "tinned", "dried", "roasted", "organic", "italian plum"], kcal: [12, 30] } },
+  { key: "cucumber", label: "Cucumber", unit: "g", role: "other", contains: [], pieceGrams: 300, pieceName: ["cucumber", "cucumbers"], match: { all: ["cucumber"], none: ["sweet", "sour", "smoothie", "pickle", "gherkin", "organic", "baby", "kiwi", "large"], kcal: [8, 20] } },
+  { key: "lettuce", label: "Lettuce", unit: "g", role: "other", contains: [], match: { all: [], any: ["iceberg lettuce", "shredded iceberg", "little gem", "romaine", "cos lettuce"], none: ["sandwich", "wrap", "chicken", "prawn", "kit", "organic"], kcal: [8, 25] } },
+  { key: "salad-leaves", label: "Salad leaves", unit: "g", role: "other", contains: [], match: { all: [], any: ["baby leaf salad", "mixed salad", "salad leaves", "wild rocket", "watercress", "lambs lettuce", "herb salad", "crispy salad", "sweet salad"], none: ["sandwich", "wrap", "chicken", "prawn", "kit", "organic", "pasta", "tuna", "cheese", "egg", "coleslaw", "potato", "dressing"], kcal: [8, 30] } },
+  { key: "green-beans", label: "Green beans", unit: "g", role: "other", contains: [], match: { all: ["green", "beans"], none: ["tinned", "in water", "sliced", "salad", "soup", "broccoli", "mangetout", "whole green beans 900g"], kcal: [20, 40] } },
+  { key: "broccoli", label: "Broccoli", unit: "g", role: "other", contains: [], match: { all: [], any: ["broccoli", "tenderstem"], none: ["cauliflower", "mangetout", "beans", "asparagus", "sprouting", "baby", "snacks", "sticks", "cheese", "bake", "pak choi", "bellaverde"], kcal: [25, 50] } },
+  { key: "mangetout", label: "Mangetout or sugar snap peas", unit: "g", role: "other", contains: [], match: { all: [], any: ["mange tout", "mangetout", "sugar snap"], none: ["broccoli", "beans", "asparagus", "edamame", "spring greens", "heinz", "pots"], kcal: [25, 50] } },
+  { key: "beansprouts", label: "Beansprouts", unit: "g", role: "other", contains: [], match: { all: ["beansprouts"], none: ["canned", "noodle", "stir fry"], kcal: [10, 70] } },
+  { key: "mushrooms", label: "Mushrooms", unit: "g", role: "other", contains: [], match: { all: ["mushrooms"], none: ["drained", "shiitake", "organic", "soup", "sauce", "stuffed", "dried", "risotto", "pate", "garlic"], kcal: [5, 40] } },
+  { key: "stir-fry-veg", label: "Fresh vegetable stir fry", unit: "g", role: "other", contains: [], match: { all: ["stir", "fry"], any: ["vegetable", "oriental"], none: ["noodle", "sauce", "chicken", "prawn", "beef", "kit", "baby", "pak choi"], kcal: [25, 80] } },
+  { key: "fresh-coriander", label: "Chopped coriander (fresh or frozen)", unit: "g", role: "other", contains: [], match: { all: ["coriander"], any: ["chopped coriander", "fresh coriander", "coriander bunch"], none: ["living", "seed", "ground", "leaf 9g"], kcal: [15, 60] } },
+  { key: "fresh-parsley", label: "Fresh parsley", unit: "g", role: "other", contains: [], match: { all: ["parsley"], none: ["living", "noodle", "soup", "sauce"], kcal: [30, 60] } },
+  { key: "fresh-basil", label: "Fresh basil", unit: "g", role: "other", contains: [], match: { all: ["basil"], none: ["living", "passata", "tomatoes", "tomato", "pesto", "seed", "tuna", "beans", "oil", "sauce", "pasta", "dolmio"], kcal: [20, 50] } },
+  { key: "banana", label: "Bananas", unit: "g", role: "other", contains: [], pieceGrams: 120, pieceName: ["banana", "bananas"], match: { all: ["bananas"], none: ["shrimps", "chips", "dried", "bread", "cake", "milk", "smoothie", "baby", "eclairs", "foam", "flavour", "organic"], kcal: [70, 100] } },
+  { key: "apple", label: "Apples", unit: "g", role: "other", contains: [], pieceGrams: 150, pieceName: ["apple", "apples"], match: { all: [], any: ["apple single", "single apple", "apples single", "royal gala apples", "braeburn apples", "british apples", "granny smith apples"], none: ["mini", "juice", "pie", "sauce", "grape", "pineapple", "strawberry", "porridge", "organic"], kcal: [40, 70] } },
 ];
 
 // What can stand in for what, best first: the same kind of food in the same form, used at the same weight unless a factor is given
@@ -364,6 +421,40 @@ const SUBS: Record<string, Array<string | [string, number]>> = {
   "almonds": ["mixed-seeds"],
   "mixed-seeds": ["almonds"],
   "honey": [],
+  "white-pepper": ["black-pepper"],
+  "black-pepper": ["white-pepper"],
+  "paprika": ["smoked-paprika"],
+  "smoked-paprika": ["paprika"],
+  "chilli-flakes": ["chilli-powder", "fresh-chilli"],
+  "chilli-powder": ["chilli-flakes"],
+  "fresh-chilli": ["chilli-flakes"],
+  "oregano": ["mixed-herbs"],
+  "thyme": ["mixed-herbs"],
+  "rosemary": ["mixed-herbs"],
+  "dill": ["fresh-parsley"],
+  "chives": ["spring-onions"],
+  "mint": ["fresh-parsley"],
+  "fresh-coriander": ["fresh-parsley"],
+  "fresh-parsley": ["fresh-coriander"],
+  "fresh-basil": [["oregano", 0.1], "fresh-parsley"],
+  "vegetable-oil": ["olive-oil"],
+  "oil-spray": ["vegetable-oil"],
+  "lemon-juice": ["lime-juice"],
+  "lime-juice": ["lemon-juice"],
+  "onion": ["red-onion"],
+  "red-onion": ["onion"],
+  "spring-onions": [["onion", 1]],
+  "cherry-tomatoes": ["tomatoes"],
+  "tomatoes": ["cherry-tomatoes"],
+  "lettuce": ["salad-leaves"],
+  "salad-leaves": ["lettuce", "spinach"],
+  "spinach": ["salad-leaves"],
+  "broccoli": ["green-beans", "mangetout"],
+  "green-beans": ["broccoli", "mangetout"],
+  "mangetout": ["green-beans", "broccoli"],
+  "beansprouts": ["stir-fry-veg"],
+  "stir-fry-veg": ["broccoli", "peas"],
+  "cinnamon": [],
 };
 for (const k of KINDS) {
   const subs = SUBS[k.key];

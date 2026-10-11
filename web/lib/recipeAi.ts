@@ -22,7 +22,6 @@ export function anthropicAsk(apiKey: string | undefined): AskPip | null {
       minutes: z.number().int(),
       ingredients: z.array(z.object({ key: z.enum(allowedKeys as [string, ...string[]]), amount: z.number(), role: z.enum(["protein", "carb", "other"]) })),
       method: z.array(z.string()),
-      extras: z.array(z.string()),
     });
     try {
       const res = await client.messages.parse({

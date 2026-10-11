@@ -808,3 +808,47 @@ class PriceFileTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ListingBarcodeTests(unittest.TestCase):
+    """Products sold at several shops share one listing, joined by exact barcode only (founder 2026-10-11, the Alpro example)."""
+
+    LISTING_HEADER = "product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on\n"
+
+    def test_shop_internal_numbers_are_never_shared(self):
+        for code in ("0000000462563", "00515290", "2000000012345", "0412345678905", "20123456"):
+            self.assertTrue(bg.restricted_code(code), code)
+        for code in ("5010084702399", "05063250552526", "96123456", "5000159407236"):
+            self.assertFalse(bg.restricted_code(code), code)
+
+    def test_asda_list_rows_by_picture_barcode_with_prices_and_search_links(self):
+        with tempfile.TemporaryDirectory() as d:
+            base = Path(d)
+            (base / "listing").mkdir()
+            (base / "listing" / "asda.csv").write_text(self.LISTING_HEADER +
+                "1,Alpro Soya Drink 1L,1.85,1.85,per litre,1.50,Asda Rewards,Chilled > Milk,,https://asdagroceries.scene7.com/is/image/asdagroceries/5411188080213,2026-10-08\n"
+                "2,ASDA Own Ham,2.00,,,,,Chilled > Ham,,https://asdagroceries.scene7.com/is/image/asdagroceries/0000000462563,2026-10-08\n"
+                "3,Not a barcode,1.00,,,,,Bakery,,https://asdagroceries.scene7.com/is/image/asdagroceries/1234567,2026-10-08\n")
+            rows = bg.listing_rows("asda", base)
+            self.assertEqual(list(rows), ["5411188080213"])                              # internal numbers and non-barcodes are left out
+            price = bg.listing_prices("asda", rows)["5411188080213"]
+            self.assertEqual(price["amount"], 1.85)
+            self.assertEqual(price["member"], {"amount": 1.5, "scheme": "Asda Rewards"})
+            self.assertEqual(price["url"], "https://www.asda.com/groceries/search/Alpro%20Soya%20Drink%201L")
+            self.assertIn("asda", bg.read_shop_evidence(base)["5411188080213"])          # the shop's own list proves it sells the barcode
+            photos = bg.shop_pages("asda", base)["5411188080213"]["photos"]
+            self.assertTrue(photos[0][0].startswith("https://asdagroceries.scene7.com/is/image/asdagroceries/5411188080213?"))
+
+    def test_added_records_need_a_shop_list_and_a_name_that_agrees(self):
+        good = {"code": "5411188080213", "product_name": "Soya drink", "nutriments": {"energy-kcal_100g": 39, "proteins_100g": 3, "carbohydrates_100g": 2.5, "fat_100g": 1.8}}
+        wrong = {**good, "code": "5000159407236", "product_name": "Chocolate cookies"}
+        unlisted = {**good, "code": "5010084702399"}
+        lists = {"asda": {"5411188080213": {"name": "Alpro Soya Drink 1L"}, "5000159407236": {"name": "Heinz Baked Beans 415g"}}, "tesco": {}}
+        by_rid = {"asda": [], "tesco": []}
+        with tempfile.TemporaryDirectory() as d:
+            for p in (good, wrong, unlisted):
+                (Path(d) / f"{p['code']}.json").write_text(json.dumps({"status": 1, "product": p}))
+            (Path(d) / "0.json").write_text(json.dumps({"status": 0}))
+            lines = bg.add_codes(by_rid, Path(d), lists)
+        self.assertEqual([it["gtin"] for it in by_rid["asda"]], ["5411188080213"])      # the cookies record names another product; the third isn't on a shop list
+        self.assertTrue(any("share no word" in line for line in lines))

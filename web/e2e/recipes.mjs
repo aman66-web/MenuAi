@@ -81,7 +81,16 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   await page.getByText("a serving", { exact: true }).waitFor();
   await page.getByText("to buy it all", { exact: true }).waitFor();
   const buy = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li");
-  expect((await buy.count()) === 4, "4 ingredients");
+  expect((await buy.count()) === 7, "7 ingredients: everything the method uses, down to the cumin");
+  // a store-cupboard item can be left off the basket and the list ("I have this"); its share stays in the price a serving
+  const cumin = buy.filter({ hasText: "Ground cumin" });
+  await cumin.getByText("You may have this already.").waitFor();
+  const basketBefore = await page.getByText("to buy it all", { exact: true }).locator("xpath=..").innerText();
+  await cumin.getByRole("button", { name: "I have this" }).click();
+  await cumin.getByText("Left off your list and the price to buy it all.").waitFor();
+  expect((await cumin.getByRole("button", { name: "I have this" }).getAttribute("aria-pressed")) === "true", "ticked");
+  const basketAfter = await page.getByText("to buy it all", { exact: true }).locator("xpath=..").innerText();
+  expect(basketAfter !== basketBefore, `the price to buy it all drops (${basketBefore} -> ${basketAfter})`);
   const riceRow = buy.nth(3);
   const before = await riceRow.innerText();
   await page.getByRole("button", { name: "Swap Rice" }).click();
@@ -96,11 +105,11 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   const after = await riceRow.innerText();
   expect(after !== before && after.includes(second), `swapped to ${second}`);
   await page.getByRole("button", { name: "Add all to my shopping list" }).click();
-  await page.getByText("Added 4 products to your Sainsbury's list.").waitFor();
+  await page.getByText("Added 6 products to your Sainsbury's list.").waitFor();
   await page.getByRole("link", { name: "See list" }).click();
   await page.getByRole("heading", { level: 1, name: "My groceries" }).waitFor();
   const section = page.getByRole("region", { name: "Sainsbury's" });
-  expect((await section.locator("li").count()) === 4, "4 items on the list");
+  expect((await section.locator("li").count()) === 6, "6 items on the list (not the cumin)");
   await section.getByText(second).waitFor();
   await section.getByText(/for the items with a price, at Sainsbury's prices checked/).waitFor();
   await page.getByRole("heading", { name: "How to make it" }).count(); // not on this page; just making sure nothing threw

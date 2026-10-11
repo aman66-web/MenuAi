@@ -39,7 +39,7 @@ function dataKeys(): string[] {
   for (const r of RECIPES) {
     add(r.name); add(r.blurb);
     r.method.forEach(add);
-    r.extras.forEach(add);
+    (r.extras ?? []).forEach(add);
     for (const i of r.ingredients) { add(i.label); add(i.note); }
   }
   for (const k of PANTRY.values()) { add(k.label); add(k.note); add(k.halal?.label); }

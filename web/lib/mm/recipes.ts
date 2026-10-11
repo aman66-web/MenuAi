@@ -32,6 +32,10 @@ export interface IngredientSpec {
   subFor?: string;
   /** Set when the person chose this substitute: the ingredient as the recipe has it. */
   original?: IngredientSpec;
+  /** A store-cupboard item (spices, oil, salt): the recipe page offers "You may have this already". */
+  cupboard?: boolean;
+  /** Its label may be one we haven't read: then it is listed and priced but not counted in the nutrition (and named as such). */
+  labelOptional?: boolean;
 }
 
 export interface Recipe {
@@ -42,8 +46,8 @@ export interface Recipe {
   minutes: number;
   ingredients: IngredientSpec[];
   method: string[];
-  /** Things the recipe uses that are not counted (store-cupboard bits, any vegetables you add). */
-  extras: string[];
+  /** Old field, kept for recipes saved before 2026-10-11: everything a recipe uses is now an ingredient (listed, priced and counted). */
+  extras?: string[];
   /** Written by Pip with AI (shown with its own caution). */
   ai?: boolean;
   /** Which meal it suits (for browsing). */
@@ -83,6 +87,8 @@ export function specFromKind(k: PantryKind, amount: number, opts: IngOpts = {}):
     key: k.key, pantry: k.key, label: opts.label ?? k.label, amount, unit: k.unit, match: k.match, role: opts.role ?? k.role,
     ...(subs?.length ? { subs } : {}),
     ...(k.drained ? { drained: true } : {}),
+    ...(k.cupboard ? { cupboard: true } : {}),
+    ...(k.labelOptional ? { labelOptional: true } : {}),
     ...(opts.note ?? (k.drained ? "drained" : k.note) ? { note: opts.note ?? (k.drained ? "drained" : k.note) } : {}),
   };
 }
@@ -194,17 +200,40 @@ export interface IngredientPick {
   product: ShopProduct;
   /** Packs to buy for the recipe's amount (1 when the pack size isn't printed in its name). */
   packs: number;
+  /** For a product sold one at a time (a pepper, an onion): how many whole ones the recipe uses. */
+  pieces?: number;
   /** What those packs cost at the shelf price. */
   basketCost: number;
   /** What the amount used costs at the shop's own price per kg or litre (null when the shop prints no such price). */
   usedCost: number | null;
 }
 
+/** How many items a pack of things sold one at a time holds ("Limes x5", "4 x Unwaxed Lemons", "Brown Onions x3"); 1 when the name says none. */
+export function itemCount(name: string): number {
+  const m = /(?:\bx\s*(\d+)\b|\b(\d+)\s*x\s+(?=[a-z]))/i.exec(name);
+  const n = Number(m?.[1] ?? m?.[2] ?? 1);
+  return n >= 1 && n <= 48 ? n : 1;
+}
+
 export function pickFor(spec: IngredientSpec, product: ShopProduct): IngredientPick {
   const size = spec.drained ? drainedSize(product) : packSize(product.name, spec.unit);
-  const packs = size ? Math.max(1, Math.ceil(spec.amount / size - 1e-9)) : 1;
   const perKgOrLitre = product.unitPrice !== null && (spec.unit === "g" ? product.unit === "per kg" : product.unit === "per litre");
-  const usedCost = perKgOrLitre ? (product.unitPrice! * spec.amount) / 1000 : size ? (product.price * spec.amount) / size : null;
+  // Loose produce is priced by the kilo and you buy only what you use.
+  if (perKgOrLitre && /\bloose\b/i.test(product.name) && product.price === product.unitPrice) {
+    const used = (product.unitPrice! * spec.amount) / 1000;
+    return { spec, product, packs: 1, basketCost: used, usedCost: used };
+  }
+  // Sold one at a time (a pepper, a cucumber, a pack of 3 onions): the recipe uses whole items, each at the shop's own price each.
+  const kind = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
+  if (!size && product.unit === "each" && product.unitPrice !== null && kind?.pieceGrams && spec.unit === "g") {
+    const pieces = Math.max(1, Math.ceil(spec.amount / kind.pieceGrams - 1e-9));
+    const packs = Math.max(1, Math.ceil(pieces / itemCount(product.name)));
+    return { spec, product, packs, pieces, basketCost: packs * product.price, usedCost: pieces * product.unitPrice };
+  }
+  // no weight in the name but a price per kg or litre: the shelf price is for (price ÷ price per kg) of it ("Small Whole Cucumber": 70p at £3.89/kg)
+  const sized = size ?? (perKgOrLitre && product.unitPrice! > 0 ? Math.round((product.price / product.unitPrice!) * 1000) : null);
+  const packs = sized ? Math.max(1, Math.ceil(spec.amount / sized - 1e-9)) : 1;
+  const usedCost = perKgOrLitre ? (product.unitPrice! * spec.amount) / 1000 : sized ? (product.price * spec.amount) / sized : null;
   return { spec, product, packs, basketCost: packs * product.price, usedCost };
 }
 
@@ -223,17 +252,19 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
   const list: ShopProduct[] = [];
   for (const p of products) {
     const n = p.nutrition;
-    if (!n || n.per !== spec.unit) continue;
     const h = hay(p);
-    // the label must be for the food as the recipe weighs it: as sold, or (for a drained amount) per 100 g drained or a product sold ready-drained
-    if (!(n.state === "" ? !spec.drained || has(h, "drained") || has(h, "no drain") : spec.drained && n.state === "drained")) continue;
+    if (n) {
+      if (n.per !== spec.unit) continue;
+      // the label must be for the food as the recipe weighs it: as sold, or (for a drained amount) per 100 g drained or a product sold ready-drained
+      if (!(n.state === "" ? !spec.drained || has(h, "drained") || has(h, "no drain") : spec.drained && n.state === "drained")) continue;
+    } else if (!spec.labelOptional) continue; // a pinch of a spice whose label we haven't read may still be listed and priced (not counted)
     if (!m.all.every((w) => has(h, w))) continue;
     if (m.any && !m.any.some((w) => has(h, w))) continue;
     if ([...GLOBAL_NONE, ...(m.none ?? [])].some((w) => has(h, w))) continue;
     if (meatFree && MEAT_WORDS.some((w) => has(h, w))) continue;
-    if (m.kcal && (n.kcal < m.kcal[0] || n.kcal > m.kcal[1])) continue;
-    if (m.minProtein !== undefined && n.protein < m.minProtein) continue;
-    if (m.maxFat !== undefined && n.fat > m.maxFat) continue;
+    if (n && m.kcal && (n.kcal < m.kcal[0] || n.kcal > m.kcal[1])) continue;
+    if (n && m.minProtein !== undefined && n.protein < m.minProtein) continue;
+    if (n && m.maxFat !== undefined && n.fat > m.maxFat) continue;
     list.push(p);
   }
   byRule.set(rule, list);
@@ -242,7 +273,17 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
 
 export function candidates(products: readonly ShopProduct[], spec: IngredientSpec, meatFree = false): IngredientPick[] {
   const out = matching(products, spec, meatFree).map((p) => pickFor(spec, p));
-  return out.sort((a, b) => a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
+  // Products whose cost for the amount used can be worked out come first (a serving's price needs it), then labels we've read. Among those within
+  // 50p of the cheapest basket, the label that prints the most figures wins (so the full nutrition table isn't left blank for a few pence); then the
+  // cheapest basket.
+  const ok = out.filter((c) => c.usedCost !== null && c.product.nutrition);
+  const cheapest = ok.length ? Math.min(...ok.map((c) => c.basketCost)) : Infinity;
+  const gaps = (c: IngredientPick) => {
+    const n = c.product.nutrition;
+    if (!n || c.usedCost === null || c.basketCost > cheapest + 0.5) return 100;
+    return 10 * [n.saturates, n.sugars, n.salt].filter((v) => v === null).length + Number(n.fibre === null);
+  };
+  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
@@ -290,20 +331,28 @@ export interface RecipeTotals {
   label: { kj: number | null; saturates: number | null; sugars: number | null; fibre: number | null; salt: number | null };
   /** The amounts used, at the shop's price per kg or litre, per serving (null if any ingredient has no such price). */
   costPerServing: number | null;
-  /** Whole packs to buy. */
+  /** Whole packs to buy (leaving out the cupboard items the person says they have). */
   basket: number;
+  /** Ingredients whose label we haven't read: listed and priced, not counted in the nutrition (their labels, in recipe order). */
+  notCounted: string[];
 }
 
-/** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. */
-export function recipeTotals(r: ResolvedRecipe): RecipeTotals | null {
+/** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
+ *  person says they already have (cupboard items): left out of the basket, never out of a serving's price or numbers. */
+export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): RecipeTotals | null {
   if (!r.complete) return null;
+  const notCounted: string[] = [];
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
   const more: Record<"kj" | "saturates" | "sugars" | "fibre" | "salt", number | null> = { kj: 0, saturates: 0, sugars: 0, fibre: 0, salt: 0 };
   let used = 0;
   let usedKnown = true;
   let basket = 0;
   for (const p of r.picks as IngredientPick[]) {
-    const n = p.product.nutrition!;
+    if (p.usedCost === null) usedKnown = false;
+    else used += p.usedCost;
+    if (!(p.spec.cupboard && p.spec.pantry && have.has(p.spec.pantry))) basket += p.basketCost;
+    const n = p.product.nutrition;
+    if (!n) { notCounted.push(p.spec.label); continue; }
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;
     sum.protein += n.protein * f;
@@ -313,9 +362,6 @@ export function recipeTotals(r: ResolvedRecipe): RecipeTotals | null {
       const v = n[k];
       more[k] = v === null || more[k] === null ? null : more[k]! + v * f;
     }
-    if (p.usedCost === null) usedKnown = false;
-    else used += p.usedCost;
-    basket += p.basketCost;
   }
   const s = r.recipe.servings;
   const round1 = (v: number) => Math.round(v * 10) / 10;
@@ -325,6 +371,7 @@ export function recipeTotals(r: ResolvedRecipe): RecipeTotals | null {
     label: { kj: per(more.kj, 0), saturates: per(more.saturates, 1), sugars: per(more.sugars, 1), fibre: per(more.fibre, 1), salt: per(more.salt, 2) },
     costPerServing: usedKnown ? Math.round((used / s) * 100) / 100 : null,
     basket: Math.round(basket * 100) / 100,
+    notCounted,
   };
 }
 
@@ -373,7 +420,7 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
   for (const p of picks) pinned[p.spec.key] = p.product.id;
   const s = recipe.servings;
   const per = picks.map((p) => {
-    const n = p.product.nutrition!;
+    const n = p.product.nutrition ?? { kcal: 0, protein: 0, carbs: 0, fat: 0 }; // a label we haven't read adds nothing (and is named as not counted)
     const g = p.spec.amount / 100 / s;
     return { role: p.spec.role ?? "other", kcal: n.kcal * g, protein: n.protein * g, carbs: n.carbs * g, fat: n.fat * g };
   });
