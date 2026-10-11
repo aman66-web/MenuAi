@@ -1,0 +1,11 @@
+status: installed
+file: squires-garden-centres.png
+kind: header
+source_url: https://www.squiresgardencentres.co.uk/wp-content/themes/squires/images/squires-logo.png
+page_url: https://www.squiresgardencentres.co.uk/
+terms_url: https://www.squiresgardencentres.co.uk/terms-conditions/
+terms_summary: not read in full; installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo (<div class="logo"><a href="https://www.squiresgardencentres.co.uk/"><img ... squires-logo.png>; the page serves it through its image service digital.squires.garden, the original file is fetched from the theme folder on the chain's own host), saved byte for byte (500 x 150 PNG, the SQUIRES GARDEN CENTRES wordmark); looked at on white. robots.txt of www.squiresgardencentres.co.uk disallows only admin, search and account paths.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-11
+tile: light

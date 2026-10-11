@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011153554,
- "generatedAt": "2026-10-11T15:35:54Z",
+ "dataVersion": 20261011161744,
+ "generatedAt": "2026-10-11T16:17:44Z",
  "chains": [
   {
    "id": "abokado",
@@ -2142,6 +2142,18 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "squires-garden-centres",
+   "name": "Squire's Garden Centres",
+   "cuisine": "Garden centre cafe",
+   "file": "chain-squires-garden-centres.json",
+   "sha256": "94288babbaaae694eb2c8579cc6b48de636aadeb0c66d012870c1df4260f311a",
+   "contentHash": "294478e29385605abe2618618900914a8f29a9445d1bb40c1e66a63b4fbbc0f1",
+   "sample": false,
+   "itemCount": 169,
+   "checkedOn": "2026-10-11",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "starbucks",
    "name": "Starbucks",
    "cuisine": "Coffee",
@@ -2614,6 +2626,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "08471fec07f746ea895a1ba423fac55f7fc7cd330cdda2cfbbf504f5719cff29"
+  "sha256": "07986a22c5a330555a3ab98bac75ec407bb7fc283f84ecc0df472eb7c5674d5a"
  }
 }
