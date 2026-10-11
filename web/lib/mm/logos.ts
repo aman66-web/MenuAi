@@ -163,6 +163,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "patisserie-valerie": { src: "/logos/patisserie-valerie.png" },
   "pepes-piri-piri": { src: "/logos/pepes-piri-piri.svg" },
   "pho": { src: "/logos/pho.svg", tile: "dark" },
+  "pilpel": { src: "/logos/pilpel.png" },
   "ping-pong": { src: "/logos/ping-pong.svg" },
   "pizza-express": { src: "/logos/pizza-express.svg" },
   "pizza-hut": { src: "/logos/pizza-hut.svg" },

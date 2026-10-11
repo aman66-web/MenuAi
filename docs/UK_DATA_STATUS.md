@@ -375,11 +375,23 @@ and had an independent second read (`data/audit/verified/<chain>.json`). Triage 
 | Chain | Items | Level | Sites | Source and rule |
 |---|---|---|---|---|
 | Cosy Club | 215 | calories + allergens | 38 venues (the chain's own location list) | Each venue's own menu record names the Ten Kites page its menu page embeds (`tenkites_menu`); five Autumn/Winter 2026 pages (cosyclubss26, -2602, -2604, -2605, -2606) and Swansea's staging copy of -2604 print every dish with the same calories and allergens (0 conflicts). Calories are hidden behind the page's visible "Hide Calories" switch, as on the Lounge pages (same accepted decision). Not used: Stamford's link (cosyclubaw2503), which still holds last season's Spring/Summer 2026 menu. Left out: Oxford's Sunday Roast menu (1 venue), every alcoholic drink (wine menu, cocktails, spirits, Irish Coffee). Triaged NO-DATA on 8 October (the menus are not in the static page; they are in the venue records). |
+| Pilpel | 18 | full (per ingredient) | 7 London sites (own locations page) | The chain's own nutrition calculator (pilpel.co.uk/nutrition): kcal, protein, carbs, fat, saturates and salt for each of 18 ingredients (pitas, falafel, salads, sauces, toppings), "based on average serving per person". Pilpel publishes no figure for a finished pita or box (the calculator only adds up ticked ingredients), so each ingredient is its own item, never summed (BarBurrito's approach); none is suggested as a meal. No date on the page; no allergen information published. Triaged GO on 10 October as a builder and not extracted then. |
 
 Logos: Cosy Club's header lockup (inline SVG, copied verbatim) and its own web-app manifest icon as the square icon.
 
 **Checked and not added this evening:**
 - **The Kebab Shop** (thekebabshop.com, nutrition PDF October 2025): a San Diego chain, no Great Britain sites.
+- **Walkabout** (Stonegate; 5 venues on walkaboutbars.co.uk: Blackpool, Colchester, Glasgow, Lincoln, Manchester Printworks): four venue pages link
+  its Ten Kites allergen and nutrition page (tkmenus.com/walkabout, full nutrition, "Main Menu - February 2025", data dated September 2026), but the
+  same venues' own food menus (January 2025 PDFs on Stonegate's 24-social host, and the brand menus page's September 2024 PDF) print different
+  calories for most dishes (The Classic Melt 1,092 kcal printed vs 812 kcal plus a 287 kcal patty on Ten Kites; Pizza dough balls 467 vs 472; Karaage
+  Loaded Fries 1,406 vs 1,402). Two official sources that disagree on most rows: not added (never chosen between).
+- **M&S Café**: menus are Flipsnack flipbooks (player.flipsnack.com), whose robots.txt cannot be read from here: not fetched.
+- **Wingstop UK**: the ordering site's menu shows no calories until a restaurant is chosen ("nutritional information varies based on location");
+  per-restaurant menus not pursued.
+- **Deep Blue fish & chips** (about 45 sites) and **Bob & Berts** (about 35 shops, mostly Northern Ireland): their nutrition is said to be on their
+  Vita Mojo ordering apps (order.deepbluerestaurants.com, bobandberts.vmos.io), which render no menu items without a store search in a headless
+  browser here; not pursued.
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 

@@ -156,6 +156,7 @@ an automated visit is skipped, never worked around. Take a logo down the day its
 | patisserie-valerie | installed | Own website header (https://patisserie-valerie.co.uk/, robots.txt allows it); the original uploaded file (600 x 101 PNG) saved as served, without the CDN's resize parameters. | not reviewed | 2026-10-08 |
 | pepes-piri-piri | installed | Own website header (https://pepes.co.uk/); saved as served. | not reviewed | 2026-10-06 |
 | pho | installed | Own website header (https://www.phocafe.co.uk/); saved as served. | not reviewed | 2026-10-06 |
+| pilpel | installed | Own website header logo (<img alt="Pilpel Logo" class="logo">), saved byte for byte (209 x 65 PNG, red "pilpel" wordmark with a chilli); looked at on white and dark. robots.txt of www.pilpel.co.uk disallows only /wp/wp-admin/. | not reviewed | 2026-10-11 |
 | ping-pong | installed | Own website header (https://www.pingpongdimsum.com/); saved as served. | not reviewed | 2026-10-06 |
 | pizza-express | installed | Own website header (https://www.pizzaexpress.com/); saved as served. | not reviewed | 2026-10-06 |
 | pizza-hut | installed | The Pizza Hut roof mark is the only logo in the site header; the site serves no logo file (the mark is built into its script bundle) and its only icon file is a 270 KB ICO, so the header's inline SVG was copied verbatim. Retried 2026-10-10: the site now answered normally (HTTP 200), where on 2026-10-06 it had failed with an HTTP/2 protocol error. | https://www.pizzahut.co.uk/restaurants/about/terms-and-conditions | 2026-10-10 |

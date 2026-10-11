@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011144554,
- "generatedAt": "2026-10-11T14:45:54Z",
+ "dataVersion": 20261011145833,
+ "generatedAt": "2026-10-11T14:58:33Z",
  "chains": [
   {
    "id": "abokado",
@@ -1735,6 +1735,17 @@
    "checkedOn": "2026-10-06"
   },
   {
+   "id": "pilpel",
+   "name": "Pilpel",
+   "cuisine": "Middle Eastern",
+   "file": "chain-pilpel.json",
+   "sha256": "589ea965453c8ca08d7bfefbd9018840493ba8c4ce3876136dfd9ec238dc727a",
+   "contentHash": "f2d2affd0ff1c6d77aca39e99cce76f081f3655d01e6307d27c02770764d1ac7",
+   "sample": false,
+   "itemCount": 18,
+   "checkedOn": "2026-10-11"
+  },
+  {
    "id": "ping-pong",
    "name": "Ping Pong",
    "cuisine": "Chinese",
@@ -2591,6 +2602,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "a24e7003025f6bf37568d8d34ed68d84b4921dd4399e0639884c4095824a70c9"
+  "sha256": "fa27d0b3da0ed3cdc6f1f417ba96115af5cdb4360e61a581e34a011f312e191c"
  }
 }
