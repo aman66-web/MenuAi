@@ -93,7 +93,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <PaywallProvider>
       <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
         {!online && (
-          <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-xs text-muted">
+          <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-sm text-muted">
             {t("You're offline. Menus you've opened still work.")}
           </p>
         )}
@@ -109,11 +109,11 @@ export function AppShell({ children }: { children: ReactNode }) {
               {TABS.map(({ href, label, Icon, match }) => {
                 const active = match(pathname);
                 return (
-                  <li key={href} className="flex-1">
+                  <li key={href} className="min-w-0 flex-1">
                     <Link
                       href={href}
                       aria-current={active ? "page" : undefined}
-                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-[11px] font-semibold tracking-wide transition-colors ${active ? "text-accent" : "text-muted hover:text-foreground"}`}
+                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-center text-[13px] font-bold leading-[1.1] transition-colors ${active ? "text-accent" : "text-muted hover:text-foreground"}`}
                     >
                       <span
                         aria-hidden
@@ -121,8 +121,9 @@ export function AppShell({ children }: { children: ReactNode }) {
                       >
                         <Icon className="h-5 w-5" />
                       </span>
-                      {/* one line in every language: a long word is cut short rather than pushing the bar taller */}
-                      <span className="block max-w-full truncate px-0.5">{t(label)}</span>
+                      {/* never pushes the other tabs off the bar: a long label ("Supermercado", "Impostazioni") is hyphenated onto a second line
+                          in a slightly smaller size, and broken anywhere only where the browser has no hyphenation for the language */}
+                      <span className={`line-clamp-2 block max-w-full hyphens-auto px-0.5 [overflow-wrap:anywhere] ${t(label).length > 9 ? "text-[11px]" : ""}`}>{t(label)}</span>
                     </Link>
                   </li>
                 );

@@ -159,7 +159,7 @@ export default function NearbyPage() {
 
   return (
     <div>
-      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Restaurants {near} you")} values={{ near: <span className="serif-em sun-text pe-0.5">{t("near")}</span> }} /></h1>
 
       {origin && !editing ? (

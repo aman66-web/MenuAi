@@ -76,7 +76,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
             <span aria-hidden className="bg-sun inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-on-accent">{i + 1}</span>
             <span className="min-w-0">
               <span className="block text-base font-bold leading-snug tracking-tight">{pick.name}</span>
-              <span className="mt-0.5 block text-sm text-muted">
+              <span className="mt-0.5 block text-base text-muted">
                 {pick.reason}
                 {pick.overBy !== undefined && <> · {t("Over by {kcal}", { kcal: formatCalories(pick.overBy) })}</>}
               </span>
@@ -94,9 +94,9 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
         <span id="best-heading">{t("Best for you")}</span>
       </SectionTitle>
       {result.mode === "ranked" && (
-        <p className="-mt-1 mb-3 text-sm text-muted">{t(MEAL_LABEL[meal])} · {t("up to {kcal}", { kcal: formatCalories(result.budget) })}</p>
+        <p className="-mt-1 mb-3 text-base text-muted">{t(MEAL_LABEL[meal])} · {t("up to {kcal}", { kcal: formatCalories(result.budget) })}</p>
       )}
-      {copy && <p role="status" className="mb-2 text-sm font-medium">{copy}</p>}
+      {copy && <p role="status" className="mb-2 text-base font-medium">{copy}</p>}
       {result.mode === "noMatches" && <Button variant="secondary" onClick={onClearFilters}>{t("Clear filters")}</Button>}
 
       {cards && (

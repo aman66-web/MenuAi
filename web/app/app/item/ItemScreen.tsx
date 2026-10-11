@@ -10,7 +10,7 @@ import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { addLogEntry, addSavedOrder, countProAction } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
-import { ChevronLeftIcon, InfoIcon } from "../_components/icons";
+import { ChevronLeftIcon, ChevronRightIcon, InfoIcon } from "../_components/icons";
 import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { AllergenSection } from "../_components/Allergens";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
@@ -21,6 +21,7 @@ import { useChain, useMenu } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
 // SPEC §7.5: name, serving, big calories, then protein/carbs/fat, then the optional nutrients ("not published").
+// Kept plain for older users (founder 2026-10-11): calories and protein are the big numbers; the other nutrients open under "More detail".
 export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: string }) {
   const t = useT();
   const router = useRouter();
@@ -29,9 +30,10 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const { status, index, error, retry } = useChain(chainId);
   const [message, setMessage] = useState<string | null>(null);
   const [reporting, setReporting] = useState(false);
+  const [detail, setDetail] = useState(false);
 
   const back = (
-    <Link href={chainHref(chainId)} aria-label={t("Back to menu")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+    <Link href={chainHref(chainId)} aria-label={t("Back to menu")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
   );
   if (status === "loading") return (<div>{back}<Spinner label={t("Loading item")} /></div>);
   if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></div>);
@@ -50,7 +52,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         <ItemHero nutrients={item.nutrients} name={item.name} media={<ItemPhotoHero image={item.image} chainName={chain.name} />}>
           <Link href={chainHref(chain.id)} className="kicker inline-flex min-h-11 items-center hover:underline">{chain.name}</Link>
           <h1 className="text-[1.9rem] font-extrabold leading-[1.1] tracking-tight">{item.name}</h1>
-          <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted">
+          <div className="mt-2 flex flex-wrap items-center gap-2 text-base text-muted">
             {item.serving && <span>{item.serving}</span>}
             {item.category && <Badge>{item.category}</Badge>}
             {item.limitedTime && <Badge>{t("Limited time")}</Badge>}
@@ -59,10 +61,19 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         </ItemHero>
       </div>
       <div className="mt-3"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
-      <div className="mt-3"><NutrientTable nutrients={item.nutrients} /></div>
+      <div className="mt-3">
+        <button type="button" aria-expanded={detail} aria-controls="more-detail" onClick={() => setDetail((d) => !d)} className="glass flex min-h-16 w-full items-center gap-3 rounded-[1.75rem] px-5 py-3 text-start transition active:scale-[0.99] hover:bg-soft-strong">
+          <span className="min-w-0 flex-1">
+            <span className="block text-base font-bold">{t("More detail")}</span>
+            <span className="block text-base text-muted">{t("Saturated fat, salt, sugar and fibre")}</span>
+          </span>
+          <ChevronRightIcon className={`h-5 w-5 shrink-0 text-muted transition-transform ${detail ? "-rotate-90" : "rotate-90"}`} />
+        </button>
+        {detail && <div id="more-detail" className="mt-2"><NutrientTable nutrients={item.nutrients} /></div>}
+      </div>
       {chain.note && (
-        <p className="mt-3 flex gap-2.5 px-1 text-sm text-muted">
-          <InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+        <p className="mt-3 flex gap-2.5 px-1 text-base text-muted">
+          <InfoIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
           <span>{chain.note}</span>
         </p>
       )}
@@ -115,7 +126,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
         <p role="status" aria-live="polite" className="mt-3 min-h-5 text-center text-sm font-medium text-accent">{message && t(message)}</p>
         </>
       ) : (
-        <p className="mt-6 text-sm text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
+        <p className="mt-6 text-base text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
       )}
 
       <p className="mt-4 text-sm text-muted">

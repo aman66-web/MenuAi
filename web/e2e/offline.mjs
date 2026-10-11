@@ -77,7 +77,8 @@ await step("OFFLINE: Save and Log still work (they are local)", async () => {
 await step("OFFLINE: an item never opened before still opens (static shell + warmed menu)", async () => {
   await page.goto(BASE + "/app/item?chain=kfc&item=fillet-burger");
   await vis(page.getByRole("heading", { name: "Fillet Burger" }));
-  await vis(page.getByText("Saturated fat"));
+  await page.getByRole("button", { name: /More detail/ }).click();
+  await vis(page.getByText("Saturated fat", { exact: true }));
 });
 await step("OFFLINE: the order builder opens from a brand-new URL and totals live", async () => {
   await page.goto(BASE + "/app/builder?chain=bowl-and-co&item=chicken-bowl");

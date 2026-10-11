@@ -37,7 +37,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
     return () => { cancelled = true; };
   }, [shop, gtin]);
 
-  const back = (<Link href={`/app/groceries/shop?r=${shop}`} aria-label={t("Back to the full list")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>);
+  const back = (<Link href={`/app/groceries/shop?r=${shop}`} aria-label={t("Back to the full list")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
   if (!product) return (<div>{back}<div className="mt-4"><ErrorBox message={t("That product isn't in the list.")} /></div></div>);

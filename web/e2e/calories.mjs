@@ -34,6 +34,7 @@ await step("Eat out lists it as calories only, and 'Full nutrition only' hides i
   await page.goto(BASE + "/app/eat-out");
   await page.getByRole("link", { name: /Calorie Corner/ }).waitFor();
   await page.getByText("calories only").first().waitFor();
+  await page.getByRole("button", { name: "More ways to find a restaurant" }).click();
   await page.getByRole("button", { name: "Full nutrition only" }).click();
   await page.waitForTimeout(300);
   expect((await page.getByRole("link", { name: /Calorie Corner/ }).count()) === 0, "still listed with the filter on");

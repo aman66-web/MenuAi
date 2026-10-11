@@ -122,13 +122,19 @@ await step("sorting flattens categories; filter chips narrow the menu", async ()
   await visible(firstRow);
   if (!(await firstRow.textContent()).includes("Chicken")) throw new Error("expected a chicken item first when sorting by protein");
   await page.getByLabel("Sort by").selectOption("menu");
-  await page.getByRole("button", { name: "Vegetarian" }).click();
+  await page.getByRole("button", { name: "Change" }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "Vegetarian" }).click();
+  await page.getByRole("button", { name: "Done" }).click();
+  await visible(text("Your diet: Vegetarian"));
   await visible(text("Agua fresca"));
-  await page.getByRole("button", { name: "Vegetarian" }).click();
+  await page.getByRole("button", { name: "Change" }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "Vegetarian" }).click();
+  await page.getByRole("button", { name: "Done" }).click();
 });
 await step("item detail: big calories, nutrients and 'not published'", async () => {
   await page.goto(`${BASE}/app/item?chain=cluck-house&item=pumpkin-shake`);
   await visible(page.getByRole("heading", { name: "Pumpkin spice shake" }));
+  await page.getByRole("button", { name: /More detail/ }).click();
   await visible(text("not published"));
   await visible(text("Limited time"));
   await shot("07-item");

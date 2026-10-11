@@ -10,7 +10,7 @@ import { itemHref } from "@/lib/mm/routes";
 import { settingsStore, favoritesStore, toggleFavorite } from "@/lib/mm/stores";
 import type { Meal, MenuItem, Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
-import { DietPicker } from "../_components/DietPicker";
+import { DietPicker, dietWords } from "../_components/DietPicker";
 import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
 import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, InfoIcon, SearchIcon, StarIcon } from "../_components/icons";
@@ -24,6 +24,8 @@ import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
 // SPEC §7.4: header, meal chip, Best for you, full menu (sort, filter, tags), source footer.
+// Kept plain for older users (founder 2026-10-11): the diet and allergy choices are one line ("Your diet: Vegetarian · Change") that opens
+// the same big-button picker as Settings, instead of a row of chips.
 // Real menus run to 650 rows, so the full menu has a sticky search + category bar, long menus open with each section
 // trimmed (tap to show the rest), off-screen rows skip layout (.cv-row), and a small button brings Best for you back.
 
@@ -39,7 +41,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   const t = useT();
   return (
     <div>
-      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       {children}
     </div>
   );
@@ -60,7 +62,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set());
   const [flatLimit, setFlatLimit] = useState(FLAT_PAGE);
   const [reporting, setReporting] = useState<MenuItem | "any" | null>(null);
-  const [allergyOpen, setAllergyOpen] = useState(false);
+  const [dietOpen, setDietOpen] = useState(false);
   const halal = halalFor(chain.id);
   const hasAllergenData = useMemo(() => chain.items.some((i) => i.allergens), [chain.items]);
   const avoiding = prefs.avoidAllergens?.length ?? 0;
@@ -77,10 +79,11 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const caution = filterCaution(prefs, t);
   const showCategoryChips = grouped && !searching && sections.length > 1;
 
-  const setPref = (key: "vegetarianOnly" | "veganOnly" | "noPork" | "noBeef") => {
-    setPrefs((p) => ({ ...p, [key]: !p[key] }));
-    analytics.track({ name: "menuFiltered", kind: key });
+  const changeDiet = (next: Preferences) => {
+    for (const key of ["vegetarianOnly", "veganOnly", "noPork", "noBeef"] as const) if (Boolean(next[key]) !== Boolean(prefs[key]) && next[key]) analytics.track({ name: "menuFiltered", kind: key });
+    setPrefs(next);
   };
+  const words = dietWords(t, prefs);
 
   const bestRef = useRef<HTMLDivElement>(null);
   const bestOffScreen = useScrolledPast(bestRef);
@@ -97,7 +100,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   return (
     <div>
       <div className="flex items-center justify-between">
-        <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+        <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
         <button
           type="button"
           onClick={() => toggleFavorite(chain.id)}
@@ -118,7 +121,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           </div>
         </div>
         {/* The data's limits come first: users must see them before trusting a number. */}
-        <div className="mt-4 flex gap-3 border-t border-line pt-4 text-sm">
+        <div className="mt-4 flex gap-3 border-t border-line pt-4 text-base">
           <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
           <div className="min-w-0 space-y-1.5">
             {chain.note && <p>{chain.note}</p>}
@@ -149,19 +152,14 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           ))}
         </div>
       )}
-      <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label={t("Filters")}>
-        <Chip selected={prefs.vegetarianOnly} onClick={() => setPref("vegetarianOnly")}>{t("Vegetarian")}</Chip>
-        <Chip selected={Boolean(prefs.veganOnly)} onClick={() => setPref("veganOnly")}>{t("Vegan")}</Chip>
-        <Chip selected={prefs.noPork} onClick={() => setPref("noPork")}>{t("No pork")}</Chip>
-        <Chip selected={prefs.noBeef} onClick={() => setPref("noBeef")}>{t("No beef")}</Chip>
-        <Chip selected={avoiding > 0} aria-pressed={undefined} aria-haspopup="dialog" onClick={() => setAllergyOpen(true)}>
-          {avoiding > 0 ? t("Allergies · {n}", { n: avoiding }) : t("Allergies")}
-        </Chip>
+      <div className="glass mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[1.5rem] py-2 pe-2 ps-4">
+        <p className="min-w-0 flex-1 text-base"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
+        <Button variant="secondary" aria-haspopup="dialog" onClick={() => setDietOpen(true)}>{t("Change")}</Button>
       </div>
-      {caution && <p className="mt-2 text-sm text-muted">{caution}</p>}
-      {prefs.halalOnly && !halal && <p className="mt-2 text-sm text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
+      {caution && <p className="mt-2 text-base text-muted">{caution}</p>}
+      {prefs.halalOnly && !halal && <p className="mt-2 text-base text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
       {avoiding > 0 && !hasAllergenData && (
-        <div role="note" className="glass mt-3 rounded-3xl p-4 text-sm">
+        <div role="note" className="glass mt-3 rounded-3xl p-4 text-base">
           <p className="font-semibold">{t("{chain} hasn't published allergen details we can read, so its dishes can't be checked for allergies.", { chain: chain.name })}</p>
           <div className="mt-2 flex flex-wrap items-center gap-3">
             {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className="min-h-11 py-3 font-medium text-accent underline">{t("See its own allergen information")}</a>}
@@ -169,21 +167,21 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           </div>
         </div>
       )}
-      <Sheet open={allergyOpen} onClose={() => setAllergyOpen(false)} title={t("Allergies to avoid")}>
-        <DietPicker value={prefs} onChange={(p) => setPrefs(p)} halal={false} />
-        <div className="mt-4"><Button full onClick={() => setAllergyOpen(false)}>{t("Done")}</Button></div>
+      <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
+        <DietPicker value={prefs} onChange={changeDiet} halal={false} />
+        <div className="mt-4"><Button full onClick={() => setDietOpen(false)}>{t("Done")}</Button></div>
       </Sheet>
 
       <div ref={bestRef}>
         {!caloriesOnly && <BestForYou index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} />}
       </div>
 
-      <div className="mb-2 mt-10 flex items-center justify-between gap-3">
-        <h2 id="full-menu" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Full menu")}</h2>
-        <label className="flex items-center gap-2 text-sm">
+      <div className="mb-2 mt-10 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <h2 id="full-menu" className="flex items-center gap-2.5 whitespace-nowrap text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Full menu")}</h2>
+        <label className="flex items-center gap-2 text-base">
           <span className="sr-only">{t("Sort by")}</span>
           <select
-            className={`${inputClass} min-h-11 w-auto py-0 text-sm`}
+            className={`${inputClass} min-h-12 w-auto py-0 text-base`}
             value={sort}
             onChange={(e) => {
               setSort(e.target.value as SortKind);
@@ -238,16 +236,16 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           return (
             <section key={s.category} id={sectionId(s.category)} data-category={s.category} aria-label={s.category} className="scroll-mt-36">
               <div className="mb-2 mt-6 flex items-baseline justify-between gap-3">
-                <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{s.category}</h3>
-                <span className="app-numbers rounded-full bg-soft-strong px-2 py-0.5 text-xs font-semibold text-muted">{s.items.length}</span>
+                <h3 className="text-lg font-extrabold tracking-tight">{s.category}</h3>
+                <span className="app-numbers rounded-full bg-soft-strong px-2.5 py-0.5 text-sm font-semibold text-muted">{s.items.length}</span>
               </div>
-              {allExtras && <p className="-mt-1 mb-2 text-xs text-muted">{t("Not suggested in Best for you.")}</p>}
+              {allExtras && <p className="-mt-1 mb-2 text-sm text-muted">{t("Not suggested in Best for you.")}</p>}
               <ItemList items={shown} chainId={chain.id} now={now} />
               {shown.length < s.items.length && (
                 <button
                   type="button"
                   onClick={() => setExpanded((e) => new Set(e).add(s.category))}
-                  className="mt-2 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft"
+                  className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-dashed border-line px-3 text-base font-semibold text-accent transition hover:bg-accent-soft"
                 >
                   {t("Show all {n} in {section}", { n: s.items.length, section: s.category })}
                 </button>
@@ -259,7 +257,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <section aria-label={t("All items")}>
           <ItemList items={visible.slice(0, flatLimit)} chainId={chain.id} now={now} />
           {visible.length > flatLimit && (
-            <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft">
+            <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-dashed border-line px-3 text-base font-semibold text-accent transition hover:bg-accent-soft">
               {t("Show {n} more", { n: Math.min(FLAT_PAGE, visible.length - flatLimit) })}
             </button>
           )}
@@ -324,7 +322,7 @@ function ItemList({ items, chainId, now }: { items: readonly MenuItem[]; chainId
                 <ItemThumb image={item.image} />
                 <span className="min-w-0">
                   <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <span className={`tracking-tight ${item.rankable ? "text-base font-bold" : "text-[15px] font-semibold"}`}>{item.name}</span>
+                    <span className={`text-base tracking-tight ${item.rankable ? "font-bold" : "font-semibold"}`}>{item.name}</span>
                     {isNew && <Badge tone="accent">{t("New")}</Badge>}
                     {item.limitedTime && <Badge>{t("Limited time")}</Badge>}
                   </span>

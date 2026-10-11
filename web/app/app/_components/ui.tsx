@@ -104,7 +104,7 @@ export function Chip({ selected, children, onClick, className, segment, ...rest 
       aria-pressed={selected}
       onClick={onClick}
       className={cx(
-        "inline-flex min-h-11 max-w-full shrink-0 items-center rounded-full border px-4 text-start text-sm font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+        "inline-flex min-h-11 max-w-full shrink-0 items-center rounded-full border px-4 text-start text-base font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
         selected
           ? "border-transparent bg-foreground text-background shadow-[0_6px_16px_-8px_rgba(0,0,0,0.45)]"
           : segment

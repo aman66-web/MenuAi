@@ -63,7 +63,8 @@ await step("recipes list: 100 recipes priced at Sainsbury's, 24 at a time, meal 
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "No meat or fish" }).click();
   const m = Number(/^(\d+) recipes match$/.exec((await page.getByRole("status").filter({ hasText: /recipes match$/ }).innerText()).trim())?.[1]);
   expect(m >= 30 && m < 100, `30+ meat-free recipes, got ${m}`);
-  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "All recipes" }).click();
+  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "No meat or fish" }).click();
+  await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
   await page.getByRole("radio", { name: "Lowest price" }).click();
   await page.waitForTimeout(200);
   const prices = [];
@@ -187,6 +188,8 @@ await step("your meal: sizes fit every recipe, own numbers, and recipes as writt
   await page.getByText("Each recipe is fitted to about 600 kcal a serving.").waitFor();
   const cards = page.locator("a[href*='/app/recipes/view']");
   await cards.first().waitFor();
+  expect((await page.getByRole("radio", { name: /^Small/ }).count()) === 0, "meal sizes shown before Adjust");
+  await page.getByRole("button", { name: "Adjust" }).click();
   await page.getByRole("radio", { name: /^Small, 400 kcal/ }).click();
   await page.getByText("Each recipe is fitted to about 400 kcal a serving.").waitFor();
   await page.getByRole("radio", { name: /^More protein/ }).click();

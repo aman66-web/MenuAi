@@ -28,6 +28,9 @@ await step("Eat out: honest count, type chips, and filtering by type", async () 
   await page.goto(BASE + "/app/eat-out");
   await page.getByText(/\d+ UK restaurants/).waitFor();
   expect(!requests.some((u) => /chain-/.test(u)), `Eat out fetched a chain menu: ${requests.filter((u) => /chain-/.test(u)).join(", ")}`);
+  expect(await page.getByRole("group", { name: "Browse by type" }).count() === 0, "type chips shown before asking");
+  const more = page.getByRole("button", { name: "More ways to find a restaurant" });
+  await more.click();
   const group = page.getByRole("group", { name: "Browse by type" });
   await group.getByRole("button", { name: /^Pizza/ }).click();
   await page.getByRole("link", { name: /Pizza Hut/ }).waitFor();
@@ -41,6 +44,12 @@ await step("Eat out: honest count, type chips, and filtering by type", async () 
   expect(await group.getByRole("button", { name: /^Pizza/ }).getAttribute("aria-pressed") === "true", "type choice not kept");
   await group.getByRole("button", { name: "All" }).click();
   await page.getByRole("heading", { name: "Popular" }).waitFor();
+  // closing the choices goes back to every restaurant
+  await group.getByRole("button", { name: /^Pizza/ }).click();
+  expect(await more.getAttribute("aria-expanded") === "true", "choices not marked open");
+  await more.click();
+  await page.getByRole("heading", { name: "Popular" }).waitFor();
+  expect(await page.getByRole("group", { name: "Browse by type" }).count() === 0, "choices still shown after closing");
 });
 
 await step("Home: A-Z jump scrolls to the letter", async () => {
@@ -87,7 +96,9 @@ await step("Chain: search within the menu", async () => {
 });
 
 await step("Chain: filter caution appears with a diet filter", async () => {
-  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "No pork" }).click();
+  await page.getByRole("button", { name: "Change" }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "No pork" }).click();
+  await page.getByRole("button", { name: "Done" }).click();
   await page.getByText("We only know what each restaurant publishes, so this can't promise a dish is pork-free.").waitFor();
 });
 

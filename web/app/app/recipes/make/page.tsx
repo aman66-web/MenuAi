@@ -100,7 +100,7 @@ function MakeScreen() {
     }
   };
 
-  const back = (<Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} aria-label={t("Back to recipes")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>);
+  const back = (<Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} aria-label={t("Back to recipes")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
 
   if (!hydrated) return <Spinner />;
 

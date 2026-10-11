@@ -837,6 +837,22 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Checked: 446 unit tests, tsc, lint, e2e groceries-all 6 (new first step: the shop picker), groceries 6, photos 4, compare 8, diet 5, smoke 23, extra 11,
   languages 5, offline 13, a11y 0 violations, no overflow at 200% text (the three grocery screens added to the large-text test).
 
+- 2026-10-11 — **Plainer screens for older users (founder: their 90-year-old granddad gets confused in Eat out, Groceries and Recipes).** Fewer
+  choices on screen at once, bigger text and words on buttons; nothing about the data, ranking or prices changed. **Eat out:** search, "Near me" and the
+  list; the type, "Full nutrition only" and "Halal" choices sit behind one "More ways to find a restaurant" button (wrapping, no sideways row; closing
+  it goes back to every restaurant). **A restaurant:** the five diet chips are one line, "Your diet: Vegetarian · Change", which opens the same big-button
+  picker as Settings (diets and allergies together); section headings, item names, notes and the "Show all" buttons are body size; in every item row
+  the calories and protein are darker than carbs and fat. **An item:** the big calories and protein stay; saturated fat, salt, sugar and fibre open
+  under "More detail" (the allergens stay in view). **Recipes:** the first question is "Which meal?" as five big buttons, then search and "No meat or
+  fish"; the meal-size choices open under "Adjust", next to the line saying what recipes are fitted to. **Everywhere:** every back button says "Back"
+  (was an arrow only), chips and the tab labels are bigger (a long translated label such as "Supermercado" now goes onto a second line instead of
+  pushing "Ajustes" off the bar), and the small grey 12 px text on these screens is body size. "Best for you" keeps its name: the plan's "Good choices
+  for you" would call food good (CLAUDE.md rule 3). New copy (rule 8, logged here; translated into the 10 languages by AI): "More ways to find a
+  restaurant", "More detail", "Saturated fat, salt, sugar and fibre", "Adjust"; "Allergies" and "Allergies · {n}" are no longer used. Checked: 446 unit
+  tests, tsc, lint, e2e smoke 23, extra 11, browse 9 (new: the choices are hidden until asked and closing them shows every restaurant), calories 4,
+  recipes 13 (new: sizes hidden until Adjust), languages 5, groceries 6, groceries-all 6, compare 8, photos 4, diet 5, share, offline 13, a11y 0 violations,
+  no horizontal overflow at 100/150/200% text; screenshots in light, dark and extra-large text, and the tab bar in Spanish and Italian.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

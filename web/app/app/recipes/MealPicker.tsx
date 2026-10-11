@@ -48,7 +48,8 @@ export function targetSentence(t: T, target: MealTarget | null, subject: "each" 
   return subject === "this" ? t("This recipe is fitted to about {kcal} kcal and {more} a serving.", { kcal, more }) : t("Each recipe is fitted to about {kcal} kcal and {more} a serving.", { kcal, more });
 }
 
-export function MealPicker() {
+/** `summary={false}` where the page already shows the sentence ("Each recipe is fitted to …") next to the button that opens this. */
+export function MealPicker({ summary = true }: { summary?: boolean } = {}) {
   const t = useT();
   const settings = useSettings();
   const meal = currentRecipeMeal(settings);
@@ -93,7 +94,7 @@ export function MealPicker() {
           </div>
         </>
       )}
-      <p role="status" aria-live="polite" className="app-numbers mt-3 rounded-2xl bg-accent-soft px-3 py-2 text-sm font-semibold">{targetSentence(t, target)}</p>
+      {summary && <p role="status" aria-live="polite" className="app-numbers mt-3 rounded-2xl bg-accent-soft px-3 py-2 text-base font-semibold">{targetSentence(t, target)}</p>}
 
       <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
         <button type="button" aria-expanded={own} onClick={() => setOwn((v) => !v)} className="min-h-11 text-sm font-bold text-accent underline underline-offset-4">{t("Type my own numbers")}</button>

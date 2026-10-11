@@ -36,9 +36,9 @@ export default function SearchPage() {
   return (
     <div>
       <h1 className="sr-only">{t("Search")}</h1>
-      <div className="flex items-center gap-2">
-        <Link href="/app/eat-out" aria-label={t("Back")} className="glass inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
-        <div className="relative flex-1">
+      <div className="flex flex-wrap items-center gap-2">
+        <Link href="/app/eat-out" aria-label={t("Back")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+        <div className="relative min-w-0 flex-1 basis-48">
           <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
             type="search"

@@ -147,7 +147,7 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
               <span className="tile rounded-full px-3 py-1">{t("{n} min", { n: recipe.minutes })}</span>
               {meatFree && <span className="tile rounded-full px-3 py-1">{t("No meat or fish")}</span>}
             </p>
-            <p className="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-muted">{t("Per serving")}</p>
+            <p className="mt-5 text-sm font-bold text-muted">{t("Per serving")}</p>
           </ItemHero>
         ) : (
           <div className="hero-card rounded-[2rem] p-6">
@@ -161,13 +161,13 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
       {!recipe.ai && <SaveRecipeButton id={recipe.id} />}
 
       {totals && !target && recipe.meal === "snack" && mealTargetFor(settings) && (
-        <p className="glass mt-3 rounded-3xl p-4 text-sm font-semibold">{t("Snacks are shown as written, not fitted to your meal size.")}</p>
+        <p className="glass mt-3 rounded-3xl p-4 text-base font-semibold">{t("Snacks are shown as written, not fitted to your meal size.")}</p>
       )}
 
       {totals && target && (
         <div className="glass mt-3 rounded-3xl p-4">
-          <p className="app-numbers text-sm font-semibold">{asWritten ? t("Showing the recipe as written.") : view.fitted ? `${targetSentence(t, target, "this")} ${t("The amounts below are changed to fit.")}` : t("This recipe already fits your meal, so nothing is changed.")}</p>
-          <button type="button" onClick={() => setAsWritten((v) => !v)} className="mt-1 min-h-11 text-sm font-bold text-accent underline underline-offset-4">{asWritten ? t("Fit it to my meal") : t("Show it as written")}</button>
+          <p className="app-numbers text-base font-semibold">{asWritten ? t("Showing the recipe as written.") : view.fitted ? `${targetSentence(t, target, "this")} ${t("The amounts below are changed to fit.")}` : t("This recipe already fits your meal, so nothing is changed.")}</p>
+          <button type="button" onClick={() => setAsWritten((v) => !v)} className="mt-1 min-h-11 text-base font-bold text-accent underline underline-offset-4">{asWritten ? t("Fit it to my meal") : t("Show it as written")}</button>
         </div>
       )}
 
@@ -175,11 +175,11 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
         <div className="glass mt-3 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-2 rounded-3xl p-3 app-numbers">
           <div className="rounded-2xl bg-accent-soft px-4 py-3">
             <p className="text-2xl font-extrabold tracking-tight text-accent">{totals.costPerServing !== null ? formatPrice(totals.costPerServing) : "–"}</p>
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{t("a serving")}</p>
+            <p className="text-sm font-bold text-muted">{t("a serving")}</p>
           </div>
           <div className="tile rounded-2xl px-4 py-3">
             <p className="text-2xl font-extrabold tracking-tight">{formatPrice(totals.basket)}</p>
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{t("to buy it all")}</p>
+            <p className="text-sm font-bold text-muted">{t("to buy it all")}</p>
           </div>
           <p className="col-span-full px-1 text-xs text-muted">{t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(file.name) })}</p>
         </div>
@@ -222,7 +222,7 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
                       <span className="block text-[15px] font-semibold leading-snug [overflow-wrap:anywhere]">{p.product.name}</span>
                       <span className="app-numbers block text-sm text-muted">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                     </Link>
-                    <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="glass ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition active:scale-95 hover:bg-soft-strong">
+                    <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="glass ms-auto inline-flex min-h-12 shrink-0 items-center gap-1.5 rounded-full px-4 text-base font-semibold transition active:scale-95 hover:bg-soft-strong">
                       <SwapIcon className="h-4 w-4" />{t("Swap")}
                     </button>
                   </div>
@@ -231,8 +231,8 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
                 )}
                 {p && spec.cupboard && spec.pantry && (
                   <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
-                    <span className="text-sm text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
-                    <button type="button" aria-pressed={hasIt(spec)} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`ms-auto inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 text-sm font-bold transition active:scale-95 ${hasIt(spec) ? "bg-accent-soft text-accent" : "glass hover:bg-soft-strong"}`}>
+                    <span className="text-base text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
+                    <button type="button" aria-pressed={hasIt(spec)} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`ms-auto inline-flex min-h-12 items-center gap-1.5 rounded-full px-4 text-base font-bold transition active:scale-95 ${hasIt(spec) ? "bg-accent-soft text-accent" : "glass hover:bg-soft-strong"}`}>
                       {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
                     </button>
                   </div>
@@ -255,7 +255,7 @@ export function RecipeDetail({ recipe, file, products, actions }: { recipe: Reci
       </section>
 
       {dietNote && (
-        <p className="glass mt-4 flex gap-3 rounded-3xl p-4 text-sm"><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{prefs.halalOnly ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.") : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}</span></p>
+        <p className="glass mt-4 flex gap-3 rounded-3xl p-4 text-base"><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{prefs.halalOnly ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.") : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}</span></p>
       )}
 
       <section aria-labelledby="method-heading" className="mt-6">

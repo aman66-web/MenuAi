@@ -65,7 +65,7 @@ export default function ListRecipesPage() {
 
   return (
     <div>
-      <Link href="/app/groceries/list" aria-label={t("Back to my groceries")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <Link href="/app/groceries/list" aria-label={t("Back to my groceries")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Cook with your {list}")} values={{ list: <span className="serif-em sun-text pe-0.5">{t("shopping list")}</span> }} /></h1>
       <div className="mt-4"><PipSays mood="point" size={72}>{t("These recipes use something on your list. Each one shows what you still need to buy.")}</PipSays></div>
 

@@ -9,7 +9,7 @@ import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
 import { ChainCard, ChainRow } from "../_components/ChainRow";
-import { ArrowRightIcon, PinIcon, SearchIcon } from "../_components/icons";
+import { ArrowRightIcon, ChevronRightIcon, PinIcon, SearchIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyState, ErrorBox, SectionTitle, Spinner } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
@@ -20,6 +20,8 @@ import { Rich } from "../_lib/Rich";
 
 // The Eat out tab (founder 2026-10-10: "find restaurants near you and also see all the restaurants we have and also search"): search, the
 // restaurants near you (the map), then every restaurant, café, pub and takeaway we have (SPEC §7.2's chain list: Popular, Favourites, A to Z).
+// Kept plain for older users (founder 2026-10-11): the type, "Full nutrition only" and "Halal" choices sit behind one "More ways to find a
+// restaurant" button instead of a sideways row of chips; closing it goes back to every restaurant.
 
 export default function EatOutPage() {
   const t = useT();
@@ -32,6 +34,12 @@ export default function EatOutPage() {
   const [fullOnly, setFullOnly] = useState(false);
   const [halalOnly, setHalalOnly] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
   const anyHalal = useMemo(() => menu.chains.some((c) => isAllHalal(c.id)), [menu.chains]);
+  const [moreOpen, setMoreOpen] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
+  useEffect(() => { if (type) setMoreOpen(true); }, [type]); // eslint-disable-line react-hooks/set-state-in-effect -- a type restored for this tab shows its choices
+  const toggleMore = () => {
+    if (moreOpen) { setType(null); setFullOnly(false); setHalalOnly(false); }
+    setMoreOpen(!moreOpen);
+  };
 
   const shownChains = useMemo(
     () => menu.chains.filter((c) => (!fullOnly || (c.nutritionLevel ?? "full") === "full") && (!halalOnly || isAllHalal(c.id))),
@@ -54,7 +62,7 @@ export default function EatOutPage() {
   return (
     <div>
       <h1 className="text-[2.75rem] font-extrabold leading-[1.0] tracking-[-0.035em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em sun-text pe-0.5">{t("out")}</span> }} /></h1>
-      <p className="mt-2 text-[15px] text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
+      <p className="mt-2 text-base text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
 
       <Link href="/app/search" className="glass lift group mt-5 flex min-h-[3.75rem] items-center gap-3 rounded-full ps-5 pe-2 text-muted hover:bg-soft-strong">
         <SearchIcon className="h-5 w-5 shrink-0 text-accent" />
@@ -65,7 +73,7 @@ export default function EatOutPage() {
         <span aria-hidden className="icon-bubble h-14 w-14 shrink-0 rounded-2xl"><PinIcon className="h-7 w-7" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("Near me")}</span>
-          <span className="block text-sm text-muted">{t("See the places to eat around you on a map.")}</span>
+          <span className="block text-base text-muted">{t("See the places to eat around you on a map.")}</span>
         </span>
         <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
@@ -95,19 +103,25 @@ export default function EatOutPage() {
             {realCount > 0 && <p className="app-numbers text-sm text-muted">{t("{n} UK restaurants", { n: realCount })}</p>}
           </div>
           {types.length > 1 && (
-            <div role="group" aria-label={t("Browse by type")} className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5 pb-1">
+            <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3 flex min-h-14 w-full items-center gap-3 rounded-2xl px-4 text-start text-base font-bold transition active:scale-[0.99] hover:bg-soft-strong">
+              <span className="min-w-0 flex-1">{t("More ways to find a restaurant")}</span>
+              <ChevronRightIcon className={`h-5 w-5 shrink-0 text-muted transition-transform ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
+            </button>
+          )}
+          {types.length > 1 && moreOpen && (
+            <div id="more-ways" role="group" aria-label={t("Browse by type")} className="mt-3 flex flex-wrap gap-2">
               <Chip selected={!activeType} onClick={() => setType(null)}>{t("All")}</Chip>
               {hasCaloriesOnly && <Chip selected={fullOnly} onClick={() => setFullOnly((v) => !v)}>{t("Full nutrition only")}</Chip>}
               {(anyHalal || halalOnly) && <Chip selected={halalOnly} onClick={() => setHalalOnly((v) => !v)}>{t("Halal")}</Chip>}
               {types.map((g) => (
                 <Chip key={g.id} selected={activeType?.id === g.id} onClick={() => setType(activeType?.id === g.id ? null : g.id)}>
-                  {t(g.label)} <span className="app-numbers ms-1.5 text-xs font-medium opacity-70">{g.count}</span>
+                  {t(g.label)} <span className="app-numbers ms-1.5 font-medium opacity-70">{g.count}</span>
                 </Chip>
               ))}
             </div>
           )}
 
-          {halalOnly && <p className="mt-2 text-sm text-muted">{t("Restaurants whose own website says all their food is halal.")} {t(HALAL_CAUTION)}</p>}
+          {halalOnly && <p className="mt-2 text-base text-muted">{t("Restaurants whose own website says all their food is halal.")} {t(HALAL_CAUTION)}</p>}
           {activeType ? (
             <section aria-label={t(activeType.label)} className="mt-4">
               <div className="space-y-2.5">{typeChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
@@ -138,7 +152,7 @@ export default function EatOutPage() {
               )}
               {restGroups.map((g) => (
                 <section key={g.letter} id={`az-${g.letter}`} aria-label={t("Restaurants starting with {letter}", { letter: g.letter })} className="mb-4 scroll-mt-4">
-                  <h3 className="mb-1.5 mt-3 text-xs font-bold uppercase tracking-[0.14em] text-muted">{g.letter}</h3>
+                  <h3 className="mb-1.5 mt-3 text-lg font-extrabold">{g.letter}</h3>
                   <div className="space-y-2">{g.chains.map((c) => (<ChainRow key={c.id} compact chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
                 </section>
               ))}

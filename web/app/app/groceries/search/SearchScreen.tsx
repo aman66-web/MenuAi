@@ -65,8 +65,8 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   const reset = () => setShown(PAGE);
   return (
     <div>
-      <div className="flex items-center justify-between gap-3">
-        <Link href="/app/groceries" aria-label={t("Back to groceries")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <Link href="/app/groceries" aria-label={t("Back to groceries")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
         <Link href="/app/groceries/list" className="glass relative inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full px-4 text-sm font-bold transition active:scale-95 hover:bg-soft-strong">
           <BasketIcon className="h-5 w-5" />{t("My list")}
           {list.length > 0 && <span className="app-numbers grid h-6 min-w-6 place-items-center rounded-full bg-accent px-1.5 text-xs font-bold text-background">{list.length}</span>}

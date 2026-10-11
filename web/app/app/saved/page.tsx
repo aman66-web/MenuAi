@@ -44,7 +44,7 @@ export default function SavedPage() {
 
   return (
     <div>
-      <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+      <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       <h1 className="mt-5 text-4xl font-extrabold tracking-tight">{t("My saved meals")}</h1>
       {!pro && saved.length > 0 && (
         <p className="mt-1 text-sm text-muted">{t("{used} of {limit} free saved orders used.", { used: Math.min(saved.length, FREE_SAVED_ORDER_LIMIT), limit: FREE_SAVED_ORDER_LIMIT })}</p>

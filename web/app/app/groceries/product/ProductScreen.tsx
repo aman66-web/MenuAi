@@ -65,7 +65,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
     return () => { cancelled = true; };
   }, [wanted, retailerHint]);
 
-  const back = (<Link href="/app/groceries" aria-label={t("Back to groceries")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>);
+  const back = (<Link href="/app/groceries" aria-label={t("Back to groceries")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} /></div></div>);
   if (state.status === "missing") return (<div>{back}<div className="mt-4"><ErrorBox message={t("That barcode isn't in our list yet.")} /></div></div>);

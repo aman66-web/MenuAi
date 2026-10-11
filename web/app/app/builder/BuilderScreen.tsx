@@ -65,7 +65,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   const saved = useStore(savedStore);
 
   const back = (
-    <Link href={props.chainId ? chainHref(props.chainId) : "/app/eat-out"} aria-label={t("Back")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></Link>
+    <Link href={props.chainId ? chainHref(props.chainId) : "/app/eat-out"} aria-label={t("Back")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
   );
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label={t("Loading")} /></div>);
   if (!pro) {
@@ -168,7 +168,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   return (
     <div>
       <div className="flex items-center justify-between">
-        <button type="button" onClick={() => router.back()} aria-label={t("Back")} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon /></button>
+        <button type="button" onClick={() => router.back()} aria-label={t("Back")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></button>
       </div>
       <p className="kicker mt-5">{chain.name}</p>
       <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">{t("Build your order")}</h1>
