@@ -50,31 +50,31 @@ OFFER = re.compile(r'"offers":\[\{"@type":"Offer",(?:"price":([0-9]+(?:\.[0-9]+)
 # the availability badge in the page's data: {"text":90,"type":91},"Available in store now","IN_STORE_TODAY_DATE_RANGE"
 BADGE = re.compile(r'\{"text":\d+,"type":\d+\},"([^"]{3,80})","([A-Z][A-Z_]{3,60})"')
 
-# Lidl's own aisles ("Worlds of need/Food and near food/<aisle>/...") -> the "Food & Drink" aisle names its category pages use (one Aisle menu in
-# the app). An aisle not named here is not food (pet food, drugstore, household) and is left out; the summary lists every value seen.
+# Lidl's own aisles ("Worlds of need/Food and near food/<aisle>/<sub-aisle>") -> the "Food & Drink" aisle names its category pages use, so the app's Aisle
+# menu stays one short list (Lidl's own words where its category pages have no such aisle). An aisle not named here is not food and is left out:
+# "Drugstore & Personal Care", "Pet supplies", "Household", "Baby & Child" (nappies, wipes) and everything outside "Food and near food" (Lidl files
+# candles and hand wash under "Food" too, so its categoryPrimary alone is not enough). The summary lists every aisle seen.
 AISLES = {
-    "Bread & bakery products": "Bakery",
-    "Bakery": "Bakery",
-    "Fruit & vegetables": "Fruit & veg",
-    "Fruit & Vegetables": "Fruit & veg",
-    "Meat, sausage & poultry": "Meat & Poultry",
-    "Meat & poultry": "Meat & Poultry",
-    "Fish & seafood": "Fish & Seafood",
-    "Cheese, dairy products & eggs": "Cheese, Dairy & Eggs",
     "Frozen food (Frozen food)": "Frozen",
-    "Frozen food": "Frozen",
-    "Chilled food": "Ready meals (Chilled Food)",
-    "Ready meals": "Ready meals (Chilled Food)",
+    "Meat & Poultry": "Meat & Poultry",
+    "Fish & Seafood": "Fish & Seafood",
     "Food Cupboard": "Food Cupboard",
-    "Oils, condiments & sauces": "Oils, Condiments & Sauces",
-    "Sweets & snacks": "Confectionery & Snacks",
-    "Confectionery & snacks": "Confectionery & Snacks",
-    "Coffee, tea & cocoa": "Coffee, Tea & Hot Chocolate",
-    "Hot drinks": "Coffee, Tea & Hot Chocolate",
-    "Non-alcoholic drinks": "Drinks",
+    "Cheese, dairy products & eggs": "Cheese, Dairy & Eggs",
+    "Candy & Snacks": "Confectionery & Snacks",
+    "Fruit & vegetables": "Fruit & veg",
+    "Muesli & Spreads": "Muesli & Spreads",
     "Drinks": "Drinks",
-    "Alcoholic drinks": "Wine, Beer & Spirits",
+    "Bakery": "Bakery",
+    "Ready meals": "Ready meals (Chilled Food)",
+    "Oils, Spices & Sauces": "Oils, Condiments & Sauces",
+    "Coffee, tea & cocoa": "Coffee, Tea & Hot Chocolate",
 }
+# Food sitting in a non-food aisle: only these sub-aisles (baby food and formula; protein snacks and drinks, not pills: see PILLS).
+SUB_AISLES = {
+    ("Baby & Child", "Baby Food & Formula"): "Baby Food & Formula",
+    ("Drugstore & Personal Care", "Vitamins & Sports Nutrition"): "Sports Nutrition",
+}
+PILLS = re.compile(r"\b(?:tablets?|capsules?|softgels?|gumm(?:y|ies)|effervescent|multivitamins?|vitamin [a-z0-9]+\b(?! drink)|supplements?|cod liver oil|omega[- ]?3)\b", re.I)
 
 
 def text(s: str) -> str:
@@ -148,10 +148,13 @@ def cmd_read(cache: Path) -> int:
     return 0
 
 
-def aisle_of(won: str) -> str | None:
+def aisle_of(won: str, name: str = "") -> str | None:
     parts = [p.strip() for p in won.split("/")]
     if len(parts) < 3 or parts[1] != "Food and near food":
         return None
+    sub = SUB_AISLES.get((parts[2], parts[3] if len(parts) > 3 else ""))
+    if sub:
+        return None if PILLS.search(name) else sub
     return AISLES.get(parts[2])
 
 
@@ -171,8 +174,8 @@ def cmd_write() -> int:
     for pid, r in sorted(pages.items(), key=lambda kv: int(kv[0][1:])):
         wons[" / ".join(r["won"].split("/")[1:3]) or "(none)"] += 1
         badges[r.get("availability") or "(none)"] += 1
-        aisle = aisle_of(r["won"]) if r.get("category") == "Food" else None
         name = " ".join(x for x in (r["brand"], r["name"]) if x)
+        aisle = aisle_of(r["won"], name) if r.get("category") == "Food" else None
         if not r["name"]:
             why["no name on the page"] += 1
         elif aisle is None:

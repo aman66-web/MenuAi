@@ -526,6 +526,13 @@ class OtherShopListTests(unittest.TestCase):
         priced = lr.parse("u", "p1", page.replace(offer.replace("{price}", ""), offer.replace("{price}", '"price":1.49,')))
         self.assertEqual(priced["price"], "1.49")
         self.assertIsNone(lr.aisle_of("Worlds of need/Pet supplies/Dog food"))
+        self.assertIsNone(lr.aisle_of("Worlds of need/Food and near food/Drugstore & Personal Care/Hair Care", "Cien Herbal Shampoo"))
+        self.assertIsNone(lr.aisle_of("Worlds of need/Living & Furnishing/Decoration", "Deluxe Botanical Candle"))
+        self.assertIsNone(lr.aisle_of("Worlds of need/Food and near food/Baby & Child/Baby Care", "Baby Wipes"))
+        self.assertEqual(lr.aisle_of("Worlds of need/Food and near food/Baby & Child/Baby Food & Formula", "Organic Baby Banana & Apple Pouch"), "Baby Food & Formula")
+        self.assertEqual(lr.aisle_of("Worlds of need/Food and near food/Drugstore & Personal Care/Vitamins & Sports Nutrition", "Milbona High Protein Drink"), "Sports Nutrition")
+        self.assertIsNone(lr.aisle_of("Worlds of need/Food and near food/Drugstore & Personal Care/Vitamins & Sports Nutrition", "Vitamin C Effervescent Tablets"))
+        self.assertEqual(lr.aisle_of("Worlds of need/Food and near food/Candy & Snacks/Nuts", "Alesto Walnuts"), "Confectionery & Snacks")
         self.assertFalse(lr.on_sale({"availability": ""}))
         self.assertTrue(lr.on_sale({"availability": "In store from 15.10"}))
 
