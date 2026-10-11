@@ -31,7 +31,7 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 
 await step("browse: the same barcode in two supermarkets is one product; filters narrow it", async () => {
   const { ctx, page } = await newPage();
-  await page.goto(BASE + "/app/groceries");
+  await page.goto(BASE + "/app/groceries/search");
   await page.getByText("3 products", { exact: true }).waitFor();
   await page.getByRole("group", { name: "Supermarket" }).getByRole("button", { name: "Aldi" }).click();
   await page.getByText("2 products", { exact: true }).waitFor();
@@ -43,7 +43,7 @@ await step("browse: the same barcode in two supermarkets is one product; filters
 
 await step("search by words and by barcode", async () => {
   const { ctx, page } = await newPage();
-  await page.goto(BASE + "/app/groceries");
+  await page.goto(BASE + "/app/groceries/search");
   await page.getByText("3 products", { exact: true }).waitFor();
   await page.getByRole("searchbox").fill("greek yog");
   await page.getByText("1 product", { exact: true }).waitFor();
@@ -98,7 +98,7 @@ await step("shopping list: add (per supermarket), quantity, text, empty", async 
 
 await step("barcode entry opens the product (the camera isn't needed)", async () => {
   const { ctx, page } = await newPage();
-  await page.goto(BASE + "/app/groceries");
+  await page.goto(BASE + "/app/groceries/search");
   await page.getByText("3 products", { exact: true }).waitFor();
   await page.getByRole("button", { name: "Scan a barcode" }).click();
   await page.getByLabel("Barcode number").fill("4056489000011");

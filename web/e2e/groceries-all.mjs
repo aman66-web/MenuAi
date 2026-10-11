@@ -39,23 +39,27 @@ let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
 
-await step("the Groceries screen links to a shop's full list only when there is one", async () => {
+await step("Groceries asks \"Which shop?\" and offers only the shops that have a list", async () => {
   const a = await newPage();
   await a.page.goto(BASE + "/app/groceries");
-  await a.page.getByRole("link", { name: /Every Sainsbury's product/ }).waitFor();
+  await a.page.getByRole("heading", { name: "Which shop?" }).waitFor();
+  await a.page.getByRole("link", { name: /^Sainsbury's\b.*products/ }).waitFor();
+  await a.page.getByText(/Not here yet: Tesco, Asda/).waitFor();
+  await a.page.getByRole("link", { name: "Search every shop at once" }).waitFor();
+  await a.page.getByRole("button", { name: "Scan a barcode" }).waitFor();
   await a.ctx.close();
   const b = await newPage({ allow: false });
   await b.page.goto(BASE + "/app/groceries");
-  await b.page.getByText("1 product", { exact: true }).waitFor();
-  expect((await b.page.getByRole("link", { name: /Every .* product/ }).count()) === 0, "no link without a list");
+  await b.page.getByText(/Not here yet: Tesco, Sainsbury's/).waitFor();
+  expect((await b.page.getByRole("link", { name: /products$/ }).count()) === 0, "no shop without a list");
   await b.ctx.close();
 });
 
 await step("full list: count, search by words, type filter, card price, sort, show more", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/groceries");
-  await page.getByRole("link", { name: /Every Sainsbury's product/ }).click();
-  await page.getByRole("heading", { level: 1, name: /Every Sainsbury's product/ }).waitFor();
+  await page.getByRole("link", { name: /^Sainsbury's\b.*products/ }).click();
+  await page.getByRole("heading", { level: 1, name: "Sainsbury's" }).waitFor();
   await page.getByText("73 products", { exact: true }).waitFor();
   await page.getByRole("searchbox").fill("greek yog");
   await page.getByText("1 product", { exact: true }).waitFor();
@@ -65,13 +69,15 @@ await step("full list: count, search by words, type filter, card price, sort, sh
   await page.getByRole("link", { name: /Multiseed Loaf/ }).waitFor();
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has a card price" }).click();
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has nutrition" }).click();
-  await page.getByText("1 product", { exact: true }).waitFor();
+  // the loaf's numbers come from its own page; the yogurt's from the catalogue's record for the same barcode
+  await page.getByText("2 products", { exact: true }).waitFor();
   await page.getByText(/250 kcal · 9.5g protein · 41g carbs · 4.2g fat per 100 g/).waitFor();
+  await page.getByText(/97 kcal · 9g protein · 4.2g carbs · 5g fat per 100 g/).waitFor();
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has nutrition" }).click();
-  await page.getByRole("combobox").selectOption("density");
+  await page.getByRole("combobox", { name: "Sort" }).selectOption("density");
   const top = await page.locator("a[href*='/groceries/shop/item']").first().innerText();
-  expect(/Multiseed Loaf/.test(top), `most protein per 100 kcal first, got ${top.slice(0, 50)}`);
-  await page.getByRole("combobox").selectOption("price");
+  expect(/Greek Style Natural Yogurt/.test(top), `most protein per 100 kcal first (the yogurt: 9 g in 97 kcal), got ${top.slice(0, 50)}`);
+  await page.getByRole("combobox", { name: "Sort" }).selectOption("price");
   const first = await page.locator("a[href*='/groceries/shop/item']").first().innerText();
   expect(/Greek Style Natural Yogurt/.test(first), `cheapest first, got ${first.slice(0, 60)}`);
   await page.getByRole("button", { name: /Show 13 more/ }).click();
@@ -130,10 +136,9 @@ await step("another shop's list (founder 2026-10-11): its own photo template, it
   await page.route("**/groceries/all/aldi.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(aldi) }));
   await page.route("**/dm.emea.cms.aldi.cx/**", (r) => { askedAldi.push(r.request().url()); return r.fulfill({ contentType: "image/png", body: PNG }); });
   await page.goto(BASE + "/app/groceries");
-  await page.getByRole("link", { name: /Every Sainsbury's product/ }).waitFor();
-  await page.getByRole("link", { name: /Every Aldi product/ }).waitFor();
-  await page.getByRole("link", { name: /Every Aldi product/ }).click();
-  await page.getByRole("heading", { level: 1, name: /Every Aldi product/ }).waitFor();
+  await page.getByRole("link", { name: /^Sainsbury's\b.*products/ }).waitFor();
+  await page.getByRole("link", { name: /^Aldi\b.*product/ }).click();
+  await page.getByRole("heading", { level: 1, name: "Aldi" }).waitFor();
   await page.getByText("1 product", { exact: true }).waitFor();
   await page.getByRole("link", { name: /Apple \+ Grape Snack Pack/ }).click();
   await page.getByRole("heading", { level: 1, name: /Apple \+ Grape Snack Pack/ }).waitFor();

@@ -31,7 +31,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
     if (!gtin) return;
     let cancelled = false;
     loadRetailer(shop).then(
-      (f) => { if (!cancelled) setInCatalogue(f.products.some((p) => p.gtin === gtin)); },
+      (f) => { if (!cancelled) setInCatalogue(f.products.some((p) => p.gtin.replace(/^0+/, "") === gtin.replace(/^0+/, ""))); },
       () => undefined,
     );
     return () => { cancelled = true; };

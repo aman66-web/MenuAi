@@ -172,7 +172,9 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
     if (f.nutrition && !p.nutrition) return false;
     return words.every((w) => hay(p).includes(` ${w}`));
   });
-  const name = (a: ShopProduct, b: ShopProduct) => a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" });
+  // like a phone's address book: names that start with a letter first, then those starting with a number or a sign ("-196 ...", "1000 Stories ...")
+  const letter = (p: ShopProduct) => (/^\p{L}/u.test(p.name) ? 0 : 1);
+  const name = (a: ShopProduct, b: ShopProduct) => letter(a) - letter(b) || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" });
   const by = f.sort ?? "name";
   if (by === "price") list.sort((a, b) => a.price - b.price || name(a, b));
   else if (by === "priceDesc") list.sort((a, b) => b.price - a.price || name(a, b));

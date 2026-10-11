@@ -39,7 +39,7 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 
 await step("Groceries: vegetarian leaves out the chicken and the tuna, says so, and one tap shows them", async () => {
   const { ctx, page } = await newPage();
-  await page.goto(BASE + "/app/groceries");
+  await page.goto(BASE + "/app/groceries/search");
   await page.getByText("1 product", { exact: true }).waitFor();
   expect(await page.getByText("Greek Style Yogurt").isVisible(), "yogurt shown");
   expect((await page.getByText("Chicken Breast Fillets").count()) === 0, "no chicken");
@@ -54,7 +54,7 @@ await step("Groceries: vegetarian leaves out the chicken and the tuna, says so, 
 
 await step("Groceries: no diet set, no chip and everything listed", async () => {
   const { ctx, page } = await newPage({});
-  await page.goto(BASE + "/app/groceries");
+  await page.goto(BASE + "/app/groceries/search");
   await page.getByText("3 products", { exact: true }).waitFor();
   expect((await page.getByRole("button", { name: "Fits my diet" }).count()) === 0, "no chip");
   await ctx.close();

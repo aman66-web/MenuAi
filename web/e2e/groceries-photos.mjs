@@ -56,7 +56,7 @@ await step("stored copy and the shop's picture both fail -> no picture box at al
   await page.goto(BASE + "/app/groceries/product?code=5012345678900&r=sainsburys");
   await page.getByRole("heading", { name: "Greek Style Yogurt" }).waitFor();
   await page.waitForFunction(() => !document.querySelector("figure"));
-  await page.goto(BASE + "/app/groceries");
+  await page.goto(BASE + "/app/groceries/search");
   const row = page.getByRole("link", { name: /Greek Style Yogurt/ });
   await row.waitFor();
   await row.getByText("no photo").waitFor();
@@ -67,7 +67,7 @@ await step("stored copy and the shop's picture both fail -> no picture box at al
 
 await step("list rows: stored, hotlink-only, old Open Food Facts-only and no-picture products each take their own route", async () => {
   const { ctx, page, asked } = await newPage(["stored", "shop", "off"]);
-  await page.goto(BASE + "/app/groceries");
+  await page.goto(BASE + "/app/groceries/search");
   await page.getByText("4 products", { exact: true }).waitFor();
   const srcOf = async (re) => page.getByRole("link", { name: re }).locator("img").getAttribute("src");
   expect((await srcOf(/Greek Style Yogurt/)) === "/grocery-images/sainsburys/0123456789ab.webp", "stored first");

@@ -124,7 +124,7 @@ await step("price check: where the price sits among similar products, about pric
 
 await step("a list under a supermarket filter reads as that supermarket names the product", async () => {
   const { ctx, page } = await newPage();
-  await page.goto(`${BASE}/app/groceries`);
+  await page.goto(`${BASE}/app/groceries/search`);
   await page.getByRole("group", { name: "Supermarket" }).getByRole("button", { name: "Sainsbury's" }).click();
   await page.getByRole("link", { name: /Cowbelle Semi-Skimmed Milk 2L/ }).waitFor();
   await ctx.close();

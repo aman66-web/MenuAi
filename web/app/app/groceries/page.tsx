@@ -1,156 +1,76 @@
 "use client";
 
 import Link from "next/link";
-import { useDeferredValue, useMemo, useState } from "react";
-import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
-import { barcodeQuery, GROCERY_SORTS, RETAILERS, searchProducts, type GrocerySort } from "@/lib/mm/groceries";
-import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
-import { ArrowRightIcon, BasketIcon, PotIcon, ScanIcon, SearchIcon } from "../_components/icons";
+import { useState } from "react";
+import { barcodeQuery, RETAILERS } from "@/lib/mm/groceries";
+import { shoppingStore } from "@/lib/mm/stores";
+import { BasketIcon, ChevronRightIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { ShopMark } from "../_components/ChainMark";
-import { Button, Chip, EmptyState, ErrorBox, inputClass, Spinner } from "../_components/ui";
-import { useGroceryCatalogue, useGroceryManifest } from "../_lib/groceries";
-import { useShopManifest } from "../_lib/shopProducts";
+import { Button, Spinner } from "../_components/ui";
 import { useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
-import { Rich } from "../_lib/Rich";
-import { ProductRow } from "./ProductRow";
+import { useShopManifest } from "../_lib/shopProducts";
 import { Scanner } from "./Scanner";
 
-// Supermarket groceries (founder's request 2026-10-07): search by name or barcode, per-100 g macros, allergens, prices where known.
-// Product data is community data from Open Food Facts, credited below; docs/GROCERIES_PLAN.md.
-const PAGE = 60;
+// Groceries starts with one plain question, "Which shop?" (founder 2026-10-11: simple enough for a 90-year-old). Each big button opens that shop's own
+// list: every product its pages showed, with its own photo and price, and the numbers where we have them. The person's own shops (onboarding, Settings)
+// come first. Searching every shop at once and scanning a barcode are one button each.
 
 export default function GroceriesPage() {
   const t = useT();
   const router = useRouter();
   const list = useStore(shoppingStore);
-  // undefined until the person picks: then the first of their supermarkets (Settings) that has products here, else All
-  const [picked, setPicked] = useState<string | null | undefined>(undefined);
-  const [category, setCategory] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<GrocerySort>("density");
-  const [priced, setPriced] = useState(false);
-  const [shown, setShown] = useState(PAGE);
-  const [retry, setRetry] = useState(0);
-  const [scanning, setScanning] = useState(false);
-  const [dietOn, setDietOn] = useState(true);
-  const deferred = useDeferredValue(query);
   const settings = useSettings();
-  const catManifest = useGroceryManifest();
-  const retailer = picked !== undefined ? picked : (settings.shops?.find((id) => catManifest?.retailers.some((r) => r.id === id && r.count > 0)) ?? null);
-  const setRetailer = (r: string | null) => setPicked(r);
-  const catalogue = useGroceryCatalogue(retailer, retry);
-  const fullLists = useShopManifest();
+  const lists = useShopManifest();
+  const [scanning, setScanning] = useState(false);
+  const mine = settings.shops ?? [];
+  const order = (id: string) => (mine.includes(id) ? mine.indexOf(id) : 100 + RETAILERS.findIndex((r) => r.id === id));
+  const shops = lists ? [...lists.retailers].sort((a, b) => order(a.id) - order(b.id)) : null;
+  const missing = lists ? RETAILERS.filter((r) => !lists.retailers.some((x) => x.id === r.id)).map((r) => r.name) : [];
 
-  // The person's diet settings (Settings › Diet) leave out products that plainly don't suit (lib/mm/foodDiet.ts); one tap shows everything.
-  const prefs = settings.preferences;
-  const diet = anyFoodDiet(prefs) && dietOn;
-  const suits = useMemo(() => {
-    if (!anyFoodDiet(prefs)) return null;
-    return new Set(catalogue.products.filter((p) => !foodDietProblem(listedFacts(p), prefs)).map((p) => p.gtin));
-  }, [catalogue.products, prefs]);
-  const results = useMemo(() => {
-    const found = searchProducts(catalogue.products, { query: deferred, retailer: retailer, category, priced, sort });
-    return diet && suits ? found.filter((p) => suits.has(p.gtin)) : found;
-  }, [catalogue.products, deferred, retailer, category, priced, sort, diet, suits]);
-  const caution = diet ? foodDietCaution(prefs, t) : null;
-  const categories = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const p of catalogue.products) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
-    return (catalogue.manifest?.categories ?? []).filter((c) => counts.has(c.id));
-  }, [catalogue.products, catalogue.manifest]);
-  const anyPrices = useMemo(() => catalogue.products.some((p) => Object.keys(p.prices).length > 0), [catalogue.products]);
-  const counts = new Map((catalogue.manifest?.retailers ?? []).map((r) => [r.id, r.count]));
-  const isBarcode = !!barcodeQuery(deferred);
-
-  const reset = () => setShown(PAGE);
   return (
     <div>
       <div className="flex items-start justify-between gap-3">
-        <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Shop {smart}")} values={{ smart: <span className="serif-em sun-text pe-0.5">{t("smart")}</span> }} /></h1>
-        <Link href="/app/groceries/list" aria-label={list.length === 1 ? t("Shopping list, 1 item") : t("Shopping list, {n} items", { n: list.length })} className="glass relative mt-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
-          <BasketIcon />
-          {list.length > 0 && <span aria-hidden className="app-numbers absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-[11px] font-bold text-background">{list.length}</span>}
+        <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight">{t("Groceries")}</h1>
+        <Link href="/app/groceries/list" className="glass relative mt-1 inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full px-4 text-sm font-bold transition active:scale-95 hover:bg-soft-strong">
+          <BasketIcon className="h-5 w-5" />{t("My list")}
+          {list.length > 0 && <span className="app-numbers grid h-6 min-w-6 place-items-center rounded-full bg-accent px-1.5 text-xs font-bold text-background">{list.length}</span>}
         </Link>
       </div>
-      <p className="mt-1 text-sm text-muted">{t("Products from the UK's biggest supermarkets: calories, protein, carbs, fat, allergens and the barcode for each product.")}</p>
+      <h2 className="mt-5 text-xl font-extrabold tracking-tight">{t("Which shop?")}</h2>
+      <p className="mt-1 text-base text-muted">{t("Tap a shop to see its products, prices and photos.")}</p>
 
-      <Link href="/app/recipes" className="glass lift group mt-4 flex min-h-[4.5rem] items-center gap-3 rounded-[1.75rem] p-3 ps-4 hover:bg-soft-strong">
-        <span aria-hidden className="icon-bubble h-11 w-11 shrink-0"><PotIcon className="h-5 w-5" /></span>
-        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-[15px] font-bold leading-snug tracking-tight">{t("Recipes from your shop")}</span>
-          <span className="block text-sm text-muted">{t("Real products and prices, with calories, protein and cost per serving.")}</span>
-        </span>
-        <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
-      </Link>
-
-      <div className="mt-4 flex gap-2">
-        <label className="relative flex-1">
-          <span className="sr-only">{t("Search products or type a barcode")}</span>
-          <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search groceries")} enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
-        </label>
-        <Button variant="secondary" onClick={() => setScanning(true)} aria-label={t("Scan a barcode")}><ScanIcon className="h-5 w-5" /></Button>
-      </div>
-
-      <div role="group" aria-label={t("Supermarket")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
-        <Chip selected={retailer === null} onClick={() => { setRetailer(null); reset(); }}>{t("All")}</Chip>
-        {RETAILERS.filter((r) => !catalogue.manifest || counts.has(r.id)).map((r) => (
-          <Chip key={r.id} selected={retailer === r.id} onClick={() => { setRetailer(r.id); reset(); }} className="gap-2 ps-1.5"><ShopMark shopId={r.id} size="xs" />{r.name}</Chip>
-        ))}
-      </div>
-      {fullLists && fullLists.retailers.filter((r) => !retailer || r.id === retailer).length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-2">
-          {fullLists.retailers.filter((r) => !retailer || r.id === retailer).map((r) => (
-            <Link key={r.id} href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-soft pe-4 ps-1.5 text-sm font-semibold transition active:scale-[0.97] hover:bg-soft-strong">
-              <ShopMark shopId={r.id} size="xs" />{t("Every {shop} product", { shop: r.name })} <span className="app-numbers ms-1 text-muted">· {r.count.toLocaleString("en-GB")}</span>
-            </Link>
-          ))}
-        </div>
-      )}
-      <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
-        {anyFoodDiet(prefs) && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
-        {anyPrices && <Chip selected={priced} onClick={() => { setPriced((v) => !v); reset(); }}>{t("Has a price")}</Chip>}
-        <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>{t("All types")}</Chip>
-        {categories.map((c) => (<Chip key={c.id} selected={category === c.id} onClick={() => { setCategory(c.id); reset(); }}>{t(c.label)}</Chip>))}
-      </div>
-      <label className="mt-3 flex items-center justify-end gap-2 text-sm">
-        <span className="shrink-0 text-muted">{t("Sort")}</span>
-        <select className={`${inputClass} min-h-11 w-auto py-0 text-sm`} value={sort} onChange={(e) => { setSort(e.target.value as GrocerySort); reset(); }}>
-          {GROCERY_SORTS.map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
-        </select>
-      </label>
-
-      {catalogue.status === "loading" ? (
+      {!shops ? (
         <Spinner label={t("Loading products")} />
-      ) : catalogue.status === "error" ? (
-        <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
       ) : (
-        <>
-          {caution && <p className="mt-3 text-xs text-muted">{caution}</p>}
-          <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length === 1 ? (isBarcode ? t("1 product with that barcode") : t("1 product")) : isBarcode ? t("{n} products with that barcode", { n: results.length.toLocaleString("en-GB") }) : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
-          {results.length === 0 ? (
-            <div className="mt-3"><EmptyState title={t("No products match.")} body={isBarcode ? t("That barcode isn't in our list yet.") : t("Try fewer words, another supermarket, or a different type.")} /></div>
-          ) : (
-            <ul className="mt-3 space-y-2.5">
-              {results.slice(0, shown).map((p) => (<li key={p.gtin}><ProductRow product={p} retailer={retailer} /></li>))}
-            </ul>
-          )}
-          {results.length > shown && (
-            <button type="button" onClick={() => setShown((n) => n + PAGE)} className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft">
-              {t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}
-            </button>
-          )}
-        </>
+        <ul className="mt-4 space-y-2.5">
+          {shops.map((r) => (
+            <li key={r.id}>
+              <Link href={`/app/groceries/shop?r=${r.id}`} prefetch={false} className="glass lift flex min-h-[4.5rem] items-center gap-4 rounded-[1.75rem] p-3 ps-4 hover:bg-soft-strong">
+                <ShopMark shopId={r.id} size="md" />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-lg font-extrabold leading-snug tracking-tight">{r.name}</span>
+                  <span className="app-numbers block text-base text-muted">{r.count === 1 ? t("1 product") : t("{n} products", { n: r.count.toLocaleString("en-GB") })}{mine.includes(r.id) ? ` · ${t("Your shop")}` : ""}</span>
+                </span>
+                <ChevronRightIcon className="h-6 w-6 shrink-0 text-muted" />
+              </Link>
+            </li>
+          ))}
+        </ul>
       )}
+      {missing.length > 0 && <p className="mt-3 text-base text-muted">{t("Not here yet: {shops}.", { shops: missing.join(", ") })}</p>}
 
-      <p className="mt-8 border-t border-line pt-4 text-xs text-muted">
-        {t("Product details come from Open Food Facts contributors (open data: openfoodfacts.org). They can be out of date or wrong, so always check the pack, especially for allergens.")}{" "}
-        {t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}
-      </p>
+      <div className="mt-6 space-y-2.5">
+        <Button full variant="secondary" className="min-h-14 text-base" onClick={() => setScanning(true)}><ScanIcon className="h-5 w-5" />{t("Scan a barcode")}</Button>
+        <Link href="/app/groceries/search" className="glass inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full px-5 text-base font-bold transition active:scale-[0.98] hover:bg-soft-strong">
+          <SearchIcon className="h-5 w-5" />{t("Search every shop at once")}
+        </Link>
+      </div>
 
-      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) { setQuery(c); setRetailer(null); router.push(`/app/groceries/product?code=${c}`); } }} />
+      <p className="mt-8 border-t border-line pt-4 text-sm text-muted">{t("Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.")}</p>
+
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) router.push(`/app/groceries/product?code=${c}`); }} />
     </div>
   );
 }

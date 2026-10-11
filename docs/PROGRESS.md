@@ -821,6 +821,22 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (the "all shops" view loads them all; the simpler one-shop Groceries screen comes next). Checked: 133 Python, 445 unit tests, e2e groceries 6,
   groceries-all 6, compare 8, diet 5, recipes 13, smoke 23; screenshot of the five-shop product page.
 
+- 2026-10-11 — **Groceries opens on "Which shop?" (founder: simple enough for their 90-year-old granddad; "Tesco's is missing all the photos").**
+  The Groceries tab is now one plain question: a big button per supermarket (its logo, name and how many products), the person's own shops first
+  ("Your shop"), "Not here yet: Co-op, Ocado." under them, then two buttons, "Scan a barcode" and "Search every shop at once". A shop's button opens
+  **that shop's own full list** as the main list (its own photo and price for nearly every product: Tesco's photo is on 6,063 of 6,086), with one search
+  box, an "Aisle" menu (was a sideways row of chips) and a labelled "Sort" menu; "Name A to Z" now lists names that start with a letter first (was
+  "-196 Shochu" and "1000 Stories" at the top). Products the list has no label for take the community numbers of the **same barcode** from the
+  barcode catalogue, so far more show calories and protein (Tesco 250 -> 1,012; barcodes compared ignoring leading zeros), and the footer says where
+  those numbers come from. The old all-shops screen moved to `/app/groceries/search` ("Search every shop", with a back button) and is unchanged
+  otherwise. New copy (rule 8, logged here; translated into the 10 languages by AI): "Which shop?", "Tap a shop to see its products, prices and photos.",
+  "Your shop", "Not here yet: {shops}.", "Search every shop at once", "Search every shop", "Find a product at every supermarket that sells it, with its
+  calories, protein and allergens.", "My list", "{n} products, with the prices {shop} showed on {date}.", "{count} of them show calories and protein.",
+  "Calories and protein aren't shown for these yet.", "Aisle", "Every aisle", "More {shop} products with their numbers", and the footer line on community
+  numbers. Found on the way (not changed): three list names lost a letter in the crawl ("?owicz" for Łowicz, "Zo?adkowa", an Iceland name ending in "?").
+  Checked: 446 unit tests, tsc, lint, e2e groceries-all 6 (new first step: the shop picker), groceries 6, photos 4, compare 8, diet 5, smoke 23, extra 11,
+  languages 5, offline 13, a11y 0 violations, no overflow at 200% text (the three grocery screens added to the large-text test).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

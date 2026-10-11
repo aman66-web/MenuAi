@@ -49,6 +49,11 @@ describe("every-product lists", () => {
     expect(searchShopProducts(grilled, { sort: "density" }).map((p) => p.id)).toEqual(["milk-1", "odd-1", "bacon-1"]);
     expect(searchShopProducts(ps, { sort: "density" }).slice(1).map((p) => p.name)).toEqual(["Brita Maxtra Filter – 3 pack", "Sainsbury's Greek Style Natural Yogurt 500g"]);
   });
+  it("sorts A to Z with names that start with a number or a sign after the letters", () => {
+    const row = (id: string, name: string) => [id, name, 1, null, "", null, null, 0, "", ""] as ShopFile["products"][number];
+    const ps = decodeShopProducts({ ...file, products: [row("a-1", "-196 Lemon Shochu 330ml"), row("b-1", "1000 Stories Bourbon 75cl"), row("c-1", "apple Juice 1l"), row("d-1", "Banana Bread 400g")] });
+    expect(searchShopProducts(ps, { sort: "name" }).map((p) => p.id)).toEqual(["c-1", "d-1", "a-1", "b-1"]);
+  });
   it("writes a possessive without doubling the s", () => {
     expect(possessive("Sainsbury's")).toBe("Sainsbury's");
     expect(possessive("Tesco")).toBe("Tesco's");
