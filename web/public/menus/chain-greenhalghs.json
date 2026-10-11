@@ -50,7 +50,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/f2318765416b.webp"
   },
   {
    "id": "plate-meat-pie",
@@ -67,7 +68,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/32f07f37b272.webp"
   },
   {
    "id": "500ml-pea-and-ham-soup",
@@ -84,7 +86,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/a3ea28ad67d0.webp"
   },
   {
    "id": "butter-pie",
@@ -100,7 +103,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/8c9f8be73a85.webp"
   },
   {
    "id": "deep-filled-multi-portion-beefsteak-pie",
@@ -116,7 +120,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/c943384e50b7.webp"
   },
   {
    "id": "beefsteak-pie",
@@ -133,7 +138,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/ce09b5d6de0c.webp"
   },
   {
    "id": "deep-filled-multi-portion-lancashire-pie",
@@ -149,7 +155,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/744247b23709.webp"
   },
   {
    "id": "steak-pudding",
@@ -166,7 +173,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/d0b8ded52899.webp"
   },
   {
    "id": "deep-filled-multi-portion-potato-and-meat-pie",
@@ -183,7 +191,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/ec9c4e5cb8f6.webp"
   },
   {
    "id": "steak-and-ale-pie",
@@ -201,7 +210,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/e6c6878af475.webp"
   },
   {
    "id": "cheese-and-onion-pie",
@@ -217,7 +227,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/e42f7b63bfa8.webp"
   },
   {
    "id": "potato-and-meat-pie",
@@ -234,7 +245,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/3d653d496e65.webp"
   },
   {
    "id": "individual-vanilla-slice",
@@ -248,7 +260,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/07f3876e6d70.webp"
   },
   {
    "id": "bavarian-slice-2-pack",
@@ -262,7 +275,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/5172011cae76.webp"
   },
   {
    "id": "chocolate-eclair-2-pack",
@@ -276,7 +290,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/e778f64a4f44.webp"
   },
   {
    "id": "cream-doughnut-2-pack",
@@ -292,7 +307,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/078d8ddb1963.webp"
   },
   {
    "id": "vanilla-slice-2-pack",
@@ -306,7 +322,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/07f3876e6d70.webp"
   },
   {
    "id": "cream-scone",
@@ -322,7 +339,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/e41af285bcee.webp"
   },
   {
    "id": "individual-cream-doughnut",
@@ -338,7 +356,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/078d8ddb1963.webp"
   },
   {
    "id": "individual-bavarian-slice",
@@ -352,7 +371,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/5172011cae76.webp"
   },
   {
    "id": "individual-chocolate-eclair",
@@ -366,7 +386,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/e778f64a4f44.webp"
   },
   {
    "id": "brown-soft-rolls-4-pack",
@@ -382,7 +403,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/ef69644e2b44.webp"
   },
   {
    "id": "white-scotch-baps-4s",
@@ -398,7 +420,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/263b2150ae94.webp"
   },
   {
    "id": "white-maxi-rolls-6-pack",
@@ -414,7 +437,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/111d070e72fa.webp"
   },
   {
    "id": "white-soft-rolls-4-pack",
@@ -428,7 +452,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/a61c25f269fb.webp"
   },
   {
    "id": "potato-and-meat-puff-pasty",
@@ -444,7 +469,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "greenhalghs/eaad3d7a7a44.webp"
   }
  ],
  "combinations": []

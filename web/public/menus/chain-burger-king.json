@@ -49,7 +49,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/45010433ec5f.webp"
   },
   {
    "id": "texan-bbq-king",
@@ -70,7 +71,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/c8e4a0d61893.webp"
   },
   {
    "id": "texan-bbq-royale",
@@ -91,7 +93,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/9363a2c93c4a.webp"
   },
   {
    "id": "texan-bbq-double-royale",
@@ -112,7 +115,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/cfd6e3e5a5c0.webp"
   },
   {
    "id": "bbq-steakhouse-angus",
@@ -133,7 +137,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/260abb87ae44.webp"
   },
   {
    "id": "whopper-with-bacon-and-cheese",
@@ -154,7 +159,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/e76740679da4.webp"
   },
   {
    "id": "whopper",
@@ -175,7 +181,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/c5df13bc0894.webp"
   },
   {
    "id": "double-whopper",
@@ -196,7 +203,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/7fcf74dc80fd.webp"
   },
   {
    "id": "double-whopper-with-bacon-and-cheese",
@@ -217,7 +225,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/49224753698f.webp"
   },
   {
    "id": "bacon-double-cheese-xl",
@@ -238,7 +247,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/8ee4310fd35c.webp"
   },
   {
    "id": "bacon-double-cheeseburger",
@@ -259,7 +269,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/8855e9f7f7a7.webp"
   },
   {
    "id": "hamburger",
@@ -322,7 +333,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/ac08210db9bf.webp"
   },
   {
    "id": "the-wagyu",
@@ -469,7 +481,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/9a773bf61164.webp"
   },
   {
    "id": "bbq-steakhouse-crispy-chicken",
@@ -490,7 +503,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/0e59e9726052.webp"
   },
   {
    "id": "chicken-royale",
@@ -511,7 +525,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/a9442a8a16aa.webp"
   },
   {
    "id": "chicken-royale-bacon-and-cheese",
@@ -532,7 +547,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/519c9e595813.webp"
   },
   {
    "id": "double-chicken-royale",
@@ -553,7 +569,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/dd25ac22fc13.webp"
   },
   {
    "id": "double-chicken-royale-bacon-and-cheese",
@@ -574,7 +591,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "burger-king/6e6c0577ef62.webp"
   },
   {
    "id": "classic-chicken-melt",

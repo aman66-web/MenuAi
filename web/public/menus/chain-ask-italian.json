@@ -54,7 +54,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b08f2ca0be14.webp"
   },
   {
    "id": "antipasti-classico",
@@ -70,7 +71,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/eecadaae153f.webp"
   },
   {
    "id": "crispy-pepperoni",
@@ -86,7 +88,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/63fc772c85fd.webp"
   },
   {
    "id": "garlic-bread",
@@ -102,7 +105,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/0a0de4b3ef5c.webp"
   },
   {
    "id": "italian-olives",
@@ -118,7 +122,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/8220d1729161.webp"
   },
   {
    "id": "lasagne-garlic-bread",
@@ -134,7 +139,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b43e1f5b27ab.webp"
   },
   {
    "id": "mozzarella-garlic-bread",
@@ -150,7 +156,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/23bc2fc81122.webp"
   },
   {
    "id": "pesto-and-cheese-dough-bites",
@@ -166,7 +173,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/8f69decb1cf6.webp"
   },
   {
    "id": "rosemary-and-olive-oil-bread",
@@ -182,7 +190,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/baed488c3c0f.webp"
   },
   {
    "id": "vegan-pesto-dough-bites",
@@ -198,7 +207,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/f31ae2189348.webp"
   },
   {
    "id": "vegan-spicy-tomato-dough-bites",
@@ -214,7 +224,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/e3a3706d62a7.webp"
   },
   {
    "id": "vegan-garlic-bread-with-mozzarisella",
@@ -230,7 +241,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b42154a48ce1.webp"
   },
   {
    "id": "nduja-and-luganica-sausage-frilly-tagliatelle",
@@ -246,7 +258,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/6d38e1882f8e.webp"
   },
   {
    "id": "burrata-and-pancetta-carbonara",
@@ -262,7 +275,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/1fda05d80dca.webp"
   },
   {
    "id": "garlic-king-prawn-tagliatelle",
@@ -276,7 +290,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b1eb74bdb74c.webp"
   },
   {
    "id": "pesto-stracciatella",
@@ -292,7 +307,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ad43fed5ad2a.webp"
   },
   {
    "id": "slow-cooked-beef-pappardelle",
@@ -308,7 +324,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/4e04dfb26744.webp"
   },
   {
    "id": "3-chicken-lecca-lecca",
@@ -338,7 +355,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/745116521846.webp"
   },
   {
    "id": "3-vegan-lecca-lecca",
@@ -354,7 +372,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/31a53d47e6cd.webp"
   },
   {
    "id": "5-chicken-lecca-lecca",
@@ -368,7 +387,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/98d4143f3ec2.webp"
   },
   {
    "id": "5-mozzarella-fritti-sticks",
@@ -384,7 +404,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/80849b60dd08.webp"
   },
   {
    "id": "5-vegan-lecca-lecca",
@@ -400,7 +421,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/6adc4dd6f4a9.webp"
   },
   {
    "id": "ask-favourites-sharer",
@@ -414,7 +436,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b7964e106f7f.webp"
   },
   {
    "id": "bruschetta-pizzetta",
@@ -430,7 +453,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/1577d00ec517.webp"
   },
   {
    "id": "burrata-tricolore",
@@ -446,7 +470,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/692da11cbec6.webp"
   },
   {
    "id": "calamari",
@@ -460,7 +485,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/8135978c7c0f.webp"
   },
   {
    "id": "cheese-fondue",
@@ -476,7 +502,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/eef46d7ac6fd.webp"
   },
   {
    "id": "king-prawn-al-forno",
@@ -490,7 +517,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/8edefdf3808f.webp"
   },
   {
    "id": "large-calamari",
@@ -504,7 +532,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/65032ca5f95f.webp"
   },
   {
    "id": "mushrooms-al-forno",
@@ -520,7 +549,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/a86bc757495b.webp"
   },
   {
    "id": "spicy-chicken-crocchettes",
@@ -536,7 +566,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b89ba3deb437.webp"
   },
   {
    "id": "trio-of-arancini",
@@ -552,7 +583,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/fba22238785c.webp"
   },
   {
    "id": "vegan-bruschetta-pizzetta",
@@ -584,7 +616,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/25f45e8fbf92.webp"
   },
   {
    "id": "americano-regular",
@@ -600,7 +633,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/25f45e8fbf92.webp"
   },
   {
    "id": "cappuccino-large",
@@ -616,7 +650,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/23e3308fa989.webp"
   },
   {
    "id": "cappuccino-regular",
@@ -632,7 +667,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/23e3308fa989.webp"
   },
   {
    "id": "earl-grey-tea",
@@ -648,7 +684,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/8ff5194bbe28.webp"
   },
   {
    "id": "espresso-large",
@@ -664,7 +701,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/85265702767b.webp"
   },
   {
    "id": "flat-white",
@@ -680,7 +718,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/0902c079b028.webp"
   },
   {
    "id": "fresh-mint-infusion",
@@ -696,7 +735,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/a10f6a779a15.webp"
   },
   {
    "id": "green-tea",
@@ -712,7 +752,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/360dc2d20c71.webp"
   },
   {
    "id": "hot-chocolate",
@@ -728,7 +769,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/400126e3a27e.webp"
   },
   {
    "id": "latte-large",
@@ -792,7 +834,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/14cdcb3886b6.webp"
   },
   {
    "id": "mocha-regular",
@@ -808,7 +851,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/14cdcb3886b6.webp"
   },
   {
    "id": "peppermint-tea",
@@ -824,7 +868,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/f2a46a15387b.webp"
   },
   {
    "id": "apple-juice",
@@ -856,7 +901,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/e9f22273e652.webp"
   },
   {
    "id": "belu-sparkling-water-330ml",
@@ -872,7 +918,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/73380e77a20e.webp"
   },
   {
    "id": "belu-sparkling-water-750ml",
@@ -888,7 +935,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c5494ccdf5cb.webp"
   },
   {
    "id": "belu-still-water-330ml",
@@ -904,7 +952,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/4067d5c46e48.webp"
   },
   {
    "id": "belu-still-water-750ml",
@@ -920,7 +969,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/9e0a7c36d5d5.webp"
   },
   {
    "id": "coca-cola-330ml",
@@ -936,7 +986,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/68bb3a1542d5.webp"
   },
   {
    "id": "coke-zero",
@@ -968,7 +1019,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/df981ef919bd.webp"
   },
   {
    "id": "diet-coke",
@@ -984,7 +1036,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/065605bfc44e.webp"
   },
   {
    "id": "ginger-and-yuzu-kombucha",
@@ -1000,7 +1053,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/d300fc559642.webp"
   },
   {
    "id": "ginger-beer",
@@ -1062,7 +1116,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/196296fdba69.webp"
   },
   {
    "id": "raspberry-craft-still-lemonade",
@@ -1078,7 +1133,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/f7d8054c8c1f.webp"
   },
   {
    "id": "san-pellegrino-aranciata-rosso",
@@ -1094,7 +1150,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/50c24d252d6d.webp"
   },
   {
    "id": "san-pellegrino-limonata",
@@ -1110,7 +1167,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/6b38de271b02.webp"
   },
   {
    "id": "sprite-zero",
@@ -1126,7 +1184,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c6d81932f91f.webp"
   },
   {
    "id": "baileys-tiramisu",
@@ -1142,7 +1201,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/89b9f9a9b648.webp"
   },
   {
    "id": "biscoff-cheesecake",
@@ -1158,7 +1218,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/10372cef64c8.webp"
   },
   {
    "id": "caramello-chocolate-torta",
@@ -1174,7 +1235,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/89ac91690edb.webp"
   },
   {
    "id": "chocolate-etna",
@@ -1190,7 +1252,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/482ab97b124a.webp"
   },
   {
    "id": "chocostachio-bomb",
@@ -1204,7 +1267,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/aa196c92c22e.webp"
   },
   {
    "id": "sicilian-lemon-tart",
@@ -1220,7 +1284,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/fcd505cbc4a7.webp"
   },
   {
    "id": "sticky-coffee-pudding",
@@ -1236,7 +1301,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/6b22a21a55c2.webp"
   },
   {
    "id": "the-lemon",
@@ -1252,7 +1318,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/3d2ab270d72d.webp"
   },
   {
    "id": "toffee-bomboloni-sundae",
@@ -1268,7 +1335,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/54d59df9bde3.webp"
   },
   {
    "id": "warm-chocolate-brownie",
@@ -1284,7 +1352,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ddfa6ed74108.webp"
   },
   {
    "id": "balsamic-glazed-greens",
@@ -1300,7 +1369,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/a4840e2b24e2.webp"
   },
   {
    "id": "bolognese-bites",
@@ -1314,7 +1384,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/145a70e357f3.webp"
   },
   {
    "id": "caesar-side-salad",
@@ -1328,7 +1399,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b9a13184135f.webp"
   },
   {
    "id": "calabrian-cauli-bites",
@@ -1344,7 +1416,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/1f8f739c4103.webp"
   },
   {
    "id": "chips-with-garlic-mayo",
@@ -1360,7 +1433,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c45d6a7899f8.webp"
   },
   {
    "id": "garlic-and-cheese-chips-with-garlic-mayo",
@@ -1376,7 +1450,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/e0b7983bc4fe.webp"
   },
   {
    "id": "hot-honey-luganica-sausages",
@@ -1392,7 +1467,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/003494cf6fb9.webp"
   },
   {
    "id": "seasoned-roast-potatoes",
@@ -1408,7 +1484,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/3ea844f9b14f.webp"
   },
   {
    "id": "side-salad",
@@ -1424,7 +1501,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/dbd30a25f0a7.webp"
   },
   {
    "id": "zucchini-fritti-with-garlic-mayo",
@@ -1440,7 +1518,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/3656f486113c.webp"
   },
   {
    "id": "caesar-classica",
@@ -1456,7 +1535,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/51ed3140e834.webp"
   },
   {
    "id": "gusto-salad",
@@ -1472,7 +1552,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/64c32300d6a0.webp"
   },
   {
    "id": "pollo-milanese-with-chips",
@@ -1486,7 +1567,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/4b35bd1009a9.webp"
   },
   {
    "id": "pollo-milanese-with-potatoes",
@@ -1500,7 +1582,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c16c0a1545bd.webp"
   },
   {
    "id": "sea-bass-alla-mediterranea",
@@ -1514,7 +1597,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ea27a36926ba.webp"
   },
   {
    "id": "tuscan-chicken-orzotto",
@@ -1528,7 +1612,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/2bd7679007bd.webp"
   },
   {
    "id": "calzone-carne-piccante",
@@ -1545,7 +1630,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/73e1fc6921f3.webp"
   },
   {
    "id": "capra-calabrese",
@@ -1561,7 +1647,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/a51c9eb976f7.webp"
   },
   {
    "id": "fiery-trio-di-carne",
@@ -1577,7 +1664,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/dbd5de7430d9.webp"
   },
   {
    "id": "margherita",
@@ -1593,7 +1681,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/f18ddc5bd67c.webp"
   },
   {
    "id": "pollo-coppa-e-funghi",
@@ -1609,7 +1698,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c630ed2e31cc.webp"
   },
   {
    "id": "pollo-piccante",
@@ -1623,7 +1713,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ac7bcfa043a4.webp"
   },
   {
    "id": "pomodoro-pesto",
@@ -1639,7 +1730,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/6b196137cceb.webp"
   },
   {
    "id": "primavera",
@@ -1655,7 +1747,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/be6313dc0e10.webp"
   },
   {
    "id": "salami-misti",
@@ -1671,7 +1764,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ee3135c8de2e.webp"
   },
   {
    "id": "stromboli",
@@ -1687,7 +1781,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/4b8730af7fe2.webp"
   },
   {
    "id": "truffle-funghi",
@@ -1703,7 +1798,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ab0486ec3f66.webp"
   },
   {
    "id": "vegan-margherita",
@@ -1751,7 +1847,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/e47f257c940b.webp"
   },
   {
    "id": "crodino",
@@ -1767,7 +1864,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/1f89509e892b.webp"
   },
   {
    "id": "lime-no-jito",
@@ -1783,7 +1881,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/f8e46a88d9e3.webp"
   },
   {
    "id": "passion-fruit-highball",
@@ -1799,7 +1898,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/db398544402a.webp"
   },
   {
    "id": "peach-bubble-tea",
@@ -1815,7 +1915,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c09994e6123d.webp"
   },
   {
    "id": "pineapple-martini",
@@ -1831,7 +1932,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/7768576a96d0.webp"
   },
   {
    "id": "strawberry-sling",
@@ -1847,7 +1949,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/5b9dbd670d06.webp"
   },
   {
    "id": "fettuccine-bolognese",
@@ -1863,7 +1966,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b4f6e3141792.webp"
   },
   {
    "id": "fettuccine-lentil-ragu",
@@ -1879,7 +1983,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b86e62dec6da.webp"
   },
   {
    "id": "linguine-carbonara",
@@ -1895,7 +2000,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/a38fbc8e997b.webp"
   },
   {
    "id": "linguine-con-frutti-di-mare",
@@ -1909,7 +2015,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/082414f6d98e.webp"
   },
   {
    "id": "risotto-con-funghi",
@@ -1925,7 +2032,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/bc11b8111cec.webp"
   },
   {
    "id": "spaghetti-pomodoro-with-mozzarella",
@@ -1941,7 +2049,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/55a5ba0d8350.webp"
   },
   {
    "id": "vegan-spaghetti-al-pomodoro",
@@ -1957,7 +2066,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c5171684b6d8.webp"
   },
   {
    "id": "funghi-della-casa",
@@ -1973,7 +2083,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ea08c5fb54b7.webp"
   },
   {
    "id": "funghi-della-casa-with-chicken",
@@ -1987,7 +2098,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/a1cfc3d301bf.webp"
   },
   {
    "id": "lasagne-classica",
@@ -2003,7 +2115,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/59cb3404f60f.webp"
   },
   {
    "id": "manzo-piccante",
@@ -2019,7 +2132,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b33853e3939c.webp"
   },
   {
    "id": "non-gluten-capra-calabrese",
@@ -2035,7 +2149,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/ff54e42d104c.webp"
   },
   {
    "id": "non-gluten-fiery-trio-di-carne",
@@ -2051,7 +2166,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/aacc4f58f87b.webp"
   },
   {
    "id": "non-gluten-garlic-king-prawn",
@@ -2065,7 +2181,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/0e27fdbcab28.webp"
   },
   {
    "id": "non-gluten-pollo-coppa-e-funghi",
@@ -2081,7 +2198,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/617529f29ceb.webp"
   },
   {
    "id": "non-gluten-pollo-piccante",
@@ -2095,7 +2213,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/00e291ad3fd3.webp"
   },
   {
    "id": "non-gluten-pomodoro-pesto",
@@ -2111,7 +2230,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c798ee7d505d.webp"
   },
   {
    "id": "non-gluten-primavera",
@@ -2127,7 +2247,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/9f83c75e0098.webp"
   },
   {
    "id": "non-gluten-salami-misti",
@@ -2143,7 +2264,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/f084b1c3d3fd.webp"
   },
   {
    "id": "non-gluten-stromboli",
@@ -2159,7 +2281,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/c8f391a57f11.webp"
   },
   {
    "id": "non-gluten-truffle-funghi",
@@ -2175,7 +2298,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/a14d9ff9dc89.webp"
   },
   {
    "id": "non-gluten-carbonara",
@@ -2191,7 +2315,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/4ae1885a3c54.webp"
   },
   {
    "id": "non-gluten-margherita",
@@ -2207,7 +2332,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/044570b99c7a.webp"
   },
   {
    "id": "non-gluten-vegan-margherita",
@@ -2223,7 +2349,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/8f07433f651a.webp"
   },
   {
    "id": "non-gluten-vegan-primavera",
@@ -2239,7 +2366,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/5a8530825fff.webp"
   },
   {
    "id": "non-gluten-bolognese",
@@ -2255,7 +2383,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/5f260d2b321c.webp"
   },
   {
    "id": "non-gluten-lentil-ragu",
@@ -2271,7 +2400,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/e2ff616c79d7.webp"
   },
   {
    "id": "3-chicken-lecca-lecca-2",
@@ -2535,7 +2665,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/b76a76687531.webp"
   },
   {
    "id": "build-your-own-sundae-berry-sorbet",
@@ -2647,7 +2778,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/7ca6c951891e.webp"
   },
   {
    "id": "gelato-doughnut-sandwich",
@@ -2679,7 +2811,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/1daafbc9ce59.webp"
   },
   {
    "id": "crinkly-veggie-dippers",
@@ -2695,7 +2828,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/6161c49aa133.webp"
   },
   {
    "id": "toasty-garlic-bread",
@@ -2711,7 +2845,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/1c32dc42e37e.webp"
   },
   {
    "id": "chicken-goujons-with-chips",
@@ -2725,7 +2860,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/52b8409389d3.webp"
   },
   {
    "id": "creamy-cheesy-carbonara",
@@ -2739,7 +2875,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/0f85709321cb.webp"
   },
   {
    "id": "crispy-chicken-burger",
@@ -2753,7 +2890,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/20a7ae33d748.webp"
   },
   {
    "id": "dip-and-dunk-curly-pasta",
@@ -2769,7 +2907,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/3daa0e974a4b.webp"
   },
   {
    "id": "kids-happy-face-pizza",
@@ -2785,7 +2924,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/844c66981b2c.webp"
   },
   {
    "id": "kids-presto-pesto-chicken-pasta",
@@ -2799,7 +2939,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/0f2ba9adc254.webp"
   },
   {
    "id": "kids-spaghetti-and-mighty-meatballs",
@@ -2813,7 +2954,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/cf3fd53c4e8d.webp"
   },
   {
    "id": "spaghetti-and-brilliant-bolognese",
@@ -2827,7 +2969,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "ask-italian/adf1267d4ae0.webp"
   }
  ],
  "combinations": []

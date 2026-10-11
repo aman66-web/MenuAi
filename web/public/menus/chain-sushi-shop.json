@@ -43,7 +43,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/5d0b811ffb71.webp"
   },
   {
    "id": "fried-chicken-handroll",
@@ -57,7 +58,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/9581773fb534.webp"
   },
   {
    "id": "spicy-tuna-handroll",
@@ -71,7 +73,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/600c2f2c6ffc.webp"
   },
   {
    "id": "salmon-handroll",
@@ -85,7 +88,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/357d871038e4.webp"
   },
   {
    "id": "tulip-kuro-edamame",
@@ -99,7 +103,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/8d576e843267.webp"
   },
   {
    "id": "sushi-prawn-koshou",
@@ -113,7 +118,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/3d31d0bea2ae.webp"
   },
   {
    "id": "star-sushi",
@@ -141,7 +147,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/b1d825c8616a.webp"
   },
   {
    "id": "salmon-sushi",
@@ -155,7 +162,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/71258f64504f.webp"
   },
   {
    "id": "yellowtail-sushi",
@@ -169,7 +177,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/44b564a608c7.webp"
   },
   {
    "id": "prawn-sushi",
@@ -183,7 +192,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/8d1e596874c1.webp"
   },
   {
    "id": "salmon-cheese-sushi",
@@ -197,7 +207,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/60ae6f3410fc.webp"
   },
   {
    "id": "teriyaki-salmon-sushi",
@@ -211,7 +222,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/a594cdcadffe.webp"
   },
   {
    "id": "rose-california",
@@ -239,7 +251,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/3d950f393c45.webp"
   },
   {
    "id": "california-kimchicken",
@@ -253,7 +266,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/14e3d2314cdf.webp"
   },
   {
    "id": "kenko-cajun-chicken-roll",
@@ -267,7 +281,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/5a201f06e789.webp"
   },
   {
    "id": "kenko-cooked-tuna-avocado",
@@ -281,7 +296,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/56a78a72dfda.webp"
   },
   {
    "id": "veggie-roll",
@@ -295,7 +311,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/d760e6a6468a.webp"
   },
   {
    "id": "salmon-and-crispy-onion-roll",
@@ -309,7 +326,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/cf0076c91e98.webp"
   },
   {
    "id": "kenko-salmon-avocado-roll",
@@ -323,7 +341,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/83c6d0b36371.webp"
   },
   {
    "id": "chicken-curry-roll",
@@ -337,7 +356,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/5047955cc99b.webp"
   },
   {
    "id": "salmon-avocado-roll",
@@ -351,7 +371,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/49c6fc1d71f2.webp"
   },
   {
    "id": "salmon-aburi-roll",
@@ -365,7 +386,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/3d7cfa488bb9.webp"
   },
   {
    "id": "tuna-avocado-roll",
@@ -379,7 +401,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/0f863e0e63ac.webp"
   },
   {
    "id": "tuna-and-truffle",
@@ -393,7 +416,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/900d253e06fe.webp"
   },
   {
    "id": "cooked-tuna-avocado-roll",
@@ -407,7 +431,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/72646fa04fa5.webp"
   },
   {
    "id": "prawn-tempura-roll",
@@ -421,7 +446,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/8a73013ac91d.webp"
   },
   {
    "id": "french-touch",
@@ -435,7 +461,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/17aab82b6ece.webp"
   },
   {
    "id": "chicken-katsu-roll",
@@ -449,7 +476,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/0eee9fd21925.webp"
   },
   {
    "id": "maguro-peanut-wasabi",
@@ -463,7 +491,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/3919f5b03887.webp"
   },
   {
    "id": "kenko-cheese-avocado-maki",
@@ -477,7 +506,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/53d53f03b558.webp"
   },
   {
    "id": "prince-maki",
@@ -505,7 +535,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/d22548550945.webp"
   },
   {
    "id": "avocado-maki",
@@ -519,7 +550,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/a5a816d9a9ee.webp"
   },
   {
    "id": "cheese-salmon-maki",
@@ -533,7 +565,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/362a72346895.webp"
   },
   {
    "id": "avocado-cheese-salmon",
@@ -547,7 +580,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/400fea52a12d.webp"
   },
   {
    "id": "cucumber-maki-roll",
@@ -561,7 +595,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/7622b4c20745.webp"
   },
   {
    "id": "avocado-cheese-maki-roll",
@@ -575,7 +610,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/2ad60a61d156.webp"
   },
   {
    "id": "salmon-maki-roll",
@@ -589,7 +625,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/6b5e2bc50259.webp"
   },
   {
    "id": "spicy-tuna-maki-roll",
@@ -603,7 +640,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/f5b6831b1f08.webp"
   },
   {
    "id": "spring-prawn-nanban",
@@ -617,7 +655,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/d7e31edcc595.webp"
   },
   {
    "id": "spring-salmon-guacamole",
@@ -659,7 +698,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/15ea43fda051.webp"
   },
   {
    "id": "prawn-guacamole-spring",
@@ -673,7 +713,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/11a25519179d.webp"
   },
   {
    "id": "yellowtail-basil-spring",
@@ -687,7 +728,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/69afd128eefb.webp"
   },
   {
    "id": "cucumber-cheese-spring-roll",
@@ -701,7 +743,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/ae67d3d6c7b0.webp"
   },
   {
    "id": "avocado-cheese-spring-roll",
@@ -715,7 +758,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/f4a95f76de8d.webp"
   },
   {
    "id": "tuna-tataki-spring",
@@ -729,7 +773,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/412af99ced19.webp"
   },
   {
    "id": "salmon-avocado-spring-roll",
@@ -743,7 +788,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/885e5eb9faa9.webp"
   },
   {
    "id": "salmon-tataki-spring-roll",
@@ -757,7 +803,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/a63b8cfdfd19.webp"
   },
   {
    "id": "tuna-avocado-spring-roll",
@@ -771,7 +818,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/60dfca8b795f.webp"
   },
   {
    "id": "cooked-tuna-avocado-spring-roll",
@@ -785,7 +833,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/752a4053c3ad.webp"
   },
   {
    "id": "fried-chicken-avocado-spring-roll",
@@ -799,7 +848,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/2c271fa4f382.webp"
   },
   {
    "id": "prawn-tempura-spring-roll",
@@ -813,7 +863,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/f239b4d409cb.webp"
   },
   {
    "id": "signature-maguro-spicy",
@@ -827,7 +878,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/fa040a0ad08d.webp"
   },
   {
    "id": "extreme-fire-signature",
@@ -841,7 +893,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/ad3f9d0fe316.webp"
   },
   {
    "id": "signature-nordic-flame-roll",
@@ -855,7 +908,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/a975f243192f.webp"
   },
   {
    "id": "color-fresh-roll",
@@ -869,7 +923,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/3bd26fcb68cc.webp"
   },
   {
    "id": "rock-n-roll",
@@ -883,7 +938,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/b3a8b102125d.webp"
   },
   {
    "id": "fire-roll",
@@ -897,7 +953,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/01b5b23f1e7a.webp"
   },
   {
    "id": "dragon-roll",
@@ -911,7 +968,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/f829dd99bf4d.webp"
   },
   {
    "id": "sashimi-tuna-5-pieces",
@@ -953,7 +1011,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/1e006cdd9dcc.webp"
   },
   {
    "id": "salmon-sashimi",
@@ -967,7 +1026,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/8e4add97c039.webp"
   },
   {
    "id": "mixed-sashimi-tuna-and-salmon",
@@ -981,7 +1041,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/d4f919c5daa0.webp"
   },
   {
    "id": "assorted-sashimi",
@@ -995,7 +1056,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/c979fb6af71e.webp"
   },
   {
    "id": "salmon-tataki",
@@ -1009,7 +1071,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/53e90f789b10.webp"
   },
   {
    "id": "tuna-tataki",
@@ -1023,7 +1086,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/dd7e439aa3bf.webp"
   },
   {
    "id": "caramel-popcorn-frozen-mochi",
@@ -1065,7 +1129,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/6e266bd89a24.webp"
   },
   {
    "id": "mango-passion-mochi",
@@ -1079,7 +1144,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/96a704021b47.webp"
   },
   {
    "id": "coconut-mochi",
@@ -1093,7 +1159,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/b5aeaa7df08e.webp"
   },
   {
    "id": "coconut-pearls",
@@ -1121,7 +1188,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/d1ac1d8dfcfa.webp"
   },
   {
    "id": "fresh-pineapple",
@@ -1135,7 +1203,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/044e7ce51dc9.webp"
   },
   {
    "id": "chocolate-fondant",
@@ -1149,7 +1218,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/ecf48713ad58.webp"
   },
   {
    "id": "cheesecake",
@@ -1177,7 +1247,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/7edd0a9ddc13.webp"
   },
   {
    "id": "crousty-chicken-katsu",
@@ -1191,7 +1262,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/ed83706bc15d.webp"
   },
   {
    "id": "crousty-sweet-curry",
@@ -1205,7 +1277,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/a06e09d8108b.webp"
   },
   {
    "id": "chicken-katsu-curry",
@@ -1219,7 +1292,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/c64d205ea3d3.webp"
   },
   {
    "id": "prawn-tempura-curry",
@@ -1233,7 +1307,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/4a011c73466a.webp"
   },
   {
    "id": "yakisoba-salmon",
@@ -1247,7 +1322,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/179d3c7a38f4.webp"
   },
   {
    "id": "yakisoba-prawn-tempura",
@@ -1261,7 +1337,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/4d60db11dba4.webp"
   },
   {
    "id": "yakisoba-chicken-katsu",
@@ -1275,7 +1352,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/29312f66b6dc.webp"
   },
   {
    "id": "ceviche-yellowtail",
@@ -1289,7 +1367,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/414f603dc654.webp"
   },
   {
    "id": "chirashi-mixed-tuna-and-salmon",
@@ -1303,7 +1382,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/401cb248b478.webp"
   },
   {
    "id": "salmon-chirashi",
@@ -1317,7 +1397,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/4c20b1c6e6a6.webp"
   },
   {
    "id": "salmon-avocado-chirashi",
@@ -1331,7 +1412,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/61b599e540a0.webp"
   },
   {
    "id": "marinated-chirashi",
@@ -1345,7 +1427,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/fbd999e5f85d.webp"
   },
   {
    "id": "spicy-tuna-poke-bowl",
@@ -1359,7 +1442,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/9b46003b6ca4.webp"
   },
   {
    "id": "teriyaki-salmon-poke-bowl",
@@ -1373,7 +1457,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/0647aa95edfc.webp"
   },
   {
    "id": "poke-bowl-veggie",
@@ -1387,7 +1472,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/18baf1394624.webp"
   },
   {
    "id": "box-adrien-cachot",
@@ -1401,7 +1487,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/801b7dc58f0c.webp"
   },
   {
    "id": "fresh-mix",
@@ -1415,7 +1502,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/71e4f8903f22.webp"
   },
   {
    "id": "little-salmon-mix",
@@ -1429,7 +1517,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/762022112a5e.webp"
   },
   {
    "id": "kenko-mix",
@@ -1443,7 +1532,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/db27443cd351.webp"
   },
   {
    "id": "salmon-lovers",
@@ -1457,7 +1547,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/09fb592a5648.webp"
   },
   {
    "id": "super-salmon",
@@ -1471,7 +1562,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/bf41208c70c1.webp"
   },
   {
    "id": "sunrise",
@@ -1485,7 +1577,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/feeee2a4bc90.webp"
   },
   {
    "id": "salmon-classic",
@@ -1499,7 +1592,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/427737a94236.webp"
   },
   {
    "id": "amateur-mix",
@@ -1513,7 +1607,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/3762b6a97ec9.webp"
   },
   {
    "id": "salmon-original",
@@ -1527,7 +1622,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/3ce59ba01682.webp"
   },
   {
    "id": "veggie-box",
@@ -1541,7 +1637,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/e4a7d97db02b.webp"
   },
   {
    "id": "kids-menu-salmon",
@@ -1555,7 +1652,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/60f45251306d.webp"
   },
   {
    "id": "kids-menu-cooked-tuna",
@@ -1569,7 +1667,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/c11e593dfe68.webp"
   },
   {
    "id": "sushi-box-of-the-moment",
@@ -1583,7 +1682,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/50b1d615e22e.webp"
   },
   {
    "id": "california-dream",
@@ -1597,7 +1697,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/60924bafc8bb.webp"
   },
   {
    "id": "box-le-petit-prince",
@@ -1611,7 +1712,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/c60b9d1c846e.webp"
   },
   {
    "id": "blackbox-classic",
@@ -1625,7 +1727,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/4aa11476f6ed.webp"
   },
   {
    "id": "blackbox-gourmet",
@@ -1639,7 +1742,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/c41af079eff2.webp"
   },
   {
    "id": "box-for-two-gourmet",
@@ -1653,7 +1757,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/0c974e3433c7.webp"
   },
   {
    "id": "box-for-two",
@@ -1667,7 +1772,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/734263cb6a2b.webp"
   },
   {
    "id": "sunday-club-offer",
@@ -1695,7 +1801,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/aa4ae88cb220.webp"
   },
   {
    "id": "happy-sushi-box",
@@ -1723,7 +1830,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/2d4f0a53f63c.webp"
   },
   {
    "id": "plain-rice",
@@ -1737,7 +1845,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/540392d9dab3.webp"
   },
   {
    "id": "sushi-rice",
@@ -1751,7 +1860,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/540392d9dab3.webp"
   },
   {
    "id": "kenko-rice",
@@ -1765,7 +1875,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/80dc6e77a5ce.webp"
   },
   {
    "id": "miso-soup",
@@ -1779,7 +1890,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/be89981a4d7c.webp"
   },
   {
    "id": "edamame",
@@ -1793,7 +1905,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/562a7f464239.webp"
   },
   {
    "id": "wasabi-coleslaw",
@@ -1807,7 +1920,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/e4b61a982e01.webp"
   },
   {
    "id": "cucumber-salad",
@@ -1821,7 +1935,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/ff10f2f2a6e8.webp"
   },
   {
    "id": "cabbage-salad",
@@ -1835,7 +1950,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/f84d451cbbe1.webp"
   },
   {
    "id": "carrot-salad-with-citrus-dressing",
@@ -1849,7 +1965,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/e952fa3ebb85.webp"
   },
   {
    "id": "seaweed-salad",
@@ -1863,7 +1980,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/df775b454d7e.webp"
   },
   {
    "id": "sweet-soy-sauce-5-oz",
@@ -1877,7 +1995,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/38c052b35771.webp"
   },
   {
    "id": "soy-sauce-5-oz",
@@ -1891,7 +2010,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/441c10b43816.webp"
   },
   {
    "id": "crispy-nori-sea-salt",
@@ -1905,7 +2025,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/5e147738a01d.webp"
   },
   {
    "id": "crispy-nori-hot-chilli",
@@ -1919,7 +2040,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/0a54f9237f74.webp"
   },
   {
    "id": "crispy-nori-korean-bbq",
@@ -1933,7 +2055,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "sushi-shop/4ccc66321ca3.webp"
   }
  ],
  "combinations": []

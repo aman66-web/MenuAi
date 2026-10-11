@@ -59,7 +59,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/d3bf07e6c976.webp"
   },
   {
    "id": "bolognese-classico",
@@ -121,7 +122,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/4e7d2e045092.webp"
   },
   {
    "id": "pollo-piccante",
@@ -135,7 +137,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/3ee7e3c42c23.webp"
   },
   {
    "id": "pomodoro",
@@ -167,7 +170,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/af0ecef1569b.webp"
   },
   {
    "id": "six-layer-lasagne",
@@ -183,7 +187,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/fbe687ab3946.webp"
   },
   {
    "id": "vegan-lentil-ragu",
@@ -215,7 +220,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/ba9c06af5aa4.webp"
   },
   {
    "id": "vegan-rainbow-lasagne",
@@ -231,7 +237,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/53c822c2a905.webp"
   },
   {
    "id": "americano",
@@ -615,7 +622,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/87e3c6827140.webp"
   },
   {
    "id": "flawsome-apple-and-blackcurrant",
@@ -631,7 +639,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/41dd9568c8be.webp"
   },
   {
    "id": "flawsome-sweet-apple",
@@ -647,7 +656,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a0c21d537dc8.webp"
   },
   {
    "id": "kids-apple-juice",
@@ -663,7 +673,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/b0f109476c88.webp"
   },
   {
    "id": "kids-milk",
@@ -679,7 +690,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/ba66a2238365.webp"
   },
   {
    "id": "kids-oat-milk",
@@ -695,7 +707,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/d2b100d7ed31.webp"
   },
   {
    "id": "kids-orange-juice",
@@ -711,7 +724,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8f34164b0551.webp"
   },
   {
    "id": "orange-squash",
@@ -727,7 +741,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/6e7522f498fb.webp"
   },
   {
    "id": "apple-juice",
@@ -1255,7 +1270,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/73e36d26b144.webp"
   },
   {
    "id": "bruschetta-classica",
@@ -1287,7 +1303,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/58343df2c61e.webp"
   },
   {
    "id": "calamari-large",
@@ -1301,7 +1318,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f12113f602a7.webp"
   },
   {
    "id": "calamari-small",
@@ -1315,7 +1333,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/eefa003766e2.webp"
   },
   {
    "id": "cheesy-chilli-garlic-bread",
@@ -1345,7 +1364,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/09174ae4bc3f.webp"
   },
   {
    "id": "chilli-calamari-large",
@@ -1359,7 +1379,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/46335c0ce7ed.webp"
   },
   {
    "id": "chilli-calamari-small",
@@ -1373,7 +1394,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/6be2bc402f89.webp"
   },
   {
    "id": "chorizo-and-mozzarella-bombe",
@@ -1389,7 +1411,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/855a40629a48.webp"
   },
   {
    "id": "dough-crusts",
@@ -1405,7 +1428,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/41cf6517beb7.webp"
   },
   {
    "id": "fonduta-formaggi",
@@ -1437,7 +1461,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f44f906c3e74.webp"
   },
   {
    "id": "garlic-bread",
@@ -1499,7 +1524,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/296502d46f06.webp"
   },
   {
    "id": "la-bomba-meatballs",
@@ -1515,7 +1541,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/4f28d65869bf.webp"
   },
   {
    "id": "mozzarella-arancini",
@@ -1531,7 +1558,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a2ef32e7122f.webp"
   },
   {
    "id": "mushroom-brindisi",
@@ -1547,7 +1575,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/2741be8b80db.webp"
   },
   {
    "id": "olive-bowl",
@@ -1579,7 +1608,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/601b48aba6dd.webp"
   },
   {
    "id": "pollo-fritti",
@@ -1593,7 +1623,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a17d9e41874c.webp"
   },
   {
    "id": "pollo-fritti-double-portion",
@@ -1607,7 +1638,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/66db0a4e9e24.webp"
   },
   {
    "id": "sticky-pig-fonduta",
@@ -1623,7 +1655,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/b8b714afacb4.webp"
   },
   {
    "id": "aubergine-parmigiana",
@@ -1639,7 +1672,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8d217532b318.webp"
   },
   {
    "id": "carne-sofia",
@@ -1655,7 +1689,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a21ab812d1ba.webp"
   },
   {
    "id": "chicken-and-fiery-roquito",
@@ -1669,7 +1704,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f2065b4651e8.webp"
   },
   {
    "id": "margherita",
@@ -1717,7 +1753,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/dcea1a000cc6.webp"
   },
   {
    "id": "piccante",
@@ -1733,7 +1770,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8af8b1335df0.webp"
   },
   {
    "id": "pinoli",
@@ -1765,7 +1803,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/7571c4935590.webp"
   },
   {
    "id": "sticky-pig",
@@ -1781,7 +1820,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/74419ee90462.webp"
   },
   {
    "id": "truffle-salami",
@@ -1797,7 +1837,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/88d87102f544.webp"
   },
   {
    "id": "vegan-margherita",
@@ -1813,7 +1854,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a255570650b6.webp"
   },
   {
    "id": "venison-pepperoni",
@@ -1829,7 +1871,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/866aff261845.webp"
   },
   {
    "id": "butter-bean-salad",
@@ -1845,7 +1888,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/73aeb2141f47.webp"
   },
   {
    "id": "chicken-caesar-salad",
@@ -1861,7 +1905,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/db62b3c00bff.webp"
   },
   {
    "id": "salmon-and-tomato-caesar-salad",
@@ -1875,7 +1920,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/14866d118400.webp"
   },
   {
    "id": "butter-bean-stufato",
@@ -1891,7 +1937,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/495b5cd7f849.webp"
   },
   {
    "id": "chicken-cacciatore",
@@ -1905,7 +1952,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/77f528b4efd3.webp"
   },
   {
    "id": "funghi-risotto",
@@ -1921,7 +1969,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/96bd60627bb0.webp"
   },
   {
    "id": "hot-honey-glazed-duck",
@@ -1935,7 +1984,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/ca4f39f139bf.webp"
   },
   {
    "id": "mediterranean-sea-bass",
@@ -1949,7 +1999,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/fa3d579eb8f9.webp"
   },
   {
    "id": "pollo-calabrese",
@@ -1965,7 +2016,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/1f7b388550d9.webp"
   },
   {
    "id": "pollo-milanese",
@@ -1979,7 +2031,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/d76ae385e60e.webp"
   },
   {
    "id": "salmon-and-pesto-risotto",
@@ -1993,7 +2046,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f190ae3a36b6.webp"
   },
   {
    "id": "calzone-carne-piccante",
@@ -2007,7 +2061,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/76e9ab6f5cd2.webp"
   },
   {
    "id": "calzone-pollo-spinaci",
@@ -2023,7 +2078,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/1d892199bb5e.webp"
   },
   {
    "id": "classic-margherita",
@@ -2039,7 +2095,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/48c6bdef8987.webp"
   },
   {
    "id": "classic-pinoli",
@@ -2055,7 +2112,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/b1d99557fc5a.webp"
   },
   {
    "id": "classic-vegan-margherita-pizza",
@@ -2071,7 +2129,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/2c5bb7ede661.webp"
   },
   {
    "id": "classico-pepperoni-campagna",
@@ -2087,7 +2146,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/816b0f2669d9.webp"
   },
   {
    "id": "pollo-and-pesto",
@@ -2117,7 +2177,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/7ce7bd4909d1.webp"
   },
   {
    "id": "chocolate-caramello-sundae",
@@ -2133,7 +2194,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/16904e6c156c.webp"
   },
   {
    "id": "fudge-cake",
@@ -2165,7 +2227,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/35d5e728d62d.webp"
   },
   {
    "id": "honeycomb-cheesecake",
@@ -2181,7 +2244,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/943dbe4010de.webp"
   },
   {
    "id": "limoncello-basque",
@@ -2197,7 +2261,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a2bad20ac83c.webp"
   },
   {
    "id": "raspberry-collins-cheesecake",
@@ -2213,7 +2278,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/4efd1530fb8f.webp"
   },
   {
    "id": "salted-caramel-bread-and-butter-pudding-v",
@@ -2229,7 +2295,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/22278ffc0d53.webp"
   },
   {
    "id": "salted-caramel-chocolate-brownie",
@@ -2277,7 +2344,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/71bd251e6111.webp"
   },
   {
    "id": "chilli-king-prawn",
@@ -2291,7 +2359,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/5b6f6c7f158a.webp"
   },
   {
    "id": "meatballs-alla-vodka",
@@ -2307,7 +2376,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/984ba0cc2489.webp"
   },
   {
    "id": "seafood-vongole",
@@ -2321,7 +2391,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/9bc4e98bc4f6.webp"
   },
   {
    "id": "truffle-carbonara",
@@ -2337,7 +2408,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/85b71ae304e9.webp"
   },
   {
    "id": "truffle-carbonara-sharepan",
@@ -2353,7 +2425,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/26746ac38893.webp"
   },
   {
    "id": "chips",
@@ -2369,7 +2442,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f2f0a7f61976.webp"
   },
   {
    "id": "courgetti-fritti",
@@ -2385,7 +2459,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/af5178146a79.webp"
   },
   {
    "id": "five-cheese-gnocchi",
@@ -2401,7 +2476,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/504f3926a34b.webp"
   },
   {
    "id": "fresca-greens",
@@ -2417,7 +2493,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/c6416459aa2d.webp"
   },
   {
    "id": "loaded-bolognese-chips",
@@ -2433,7 +2510,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/2d8f31b9e09d.webp"
   },
   {
    "id": "mixed-leaf-salad",
@@ -2465,7 +2543,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f08262fe5b3d.webp"
   },
   {
    "id": "favourites-board",
@@ -2479,7 +2558,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/14dcb1e5a3fd.webp"
   },
   {
    "id": "fonduta-board",
@@ -2495,7 +2575,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/fa2a05a9d92e.webp"
   },
   {
    "id": "grande-antipasto",
@@ -2511,7 +2592,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f4ba0ee4c350.webp"
   },
   {
    "id": "kids-chips",
@@ -2527,7 +2609,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/6b8321715961.webp"
   },
   {
    "id": "kids-green-beans",
@@ -2543,7 +2626,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/e5108a37dc49.webp"
   },
   {
    "id": "kids-sweet-potato-fries",
@@ -2559,7 +2643,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/c983af141654.webp"
   },
   {
    "id": "non-gluten-aubergine-parmigiana",
@@ -2575,7 +2660,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/489e4463f5c5.webp"
   },
   {
    "id": "non-gluten-carne-sofia",
@@ -2591,7 +2677,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/f9225b3ea9dc.webp"
   },
   {
    "id": "non-gluten-chicken-and-fiery-roquito",
@@ -2605,7 +2692,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/4888ff0cde43.webp"
   },
   {
    "id": "non-gluten-margherita-pizza",
@@ -2621,7 +2709,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/58d2d81617ad.webp"
   },
   {
    "id": "non-gluten-pepperoni-campagna-pizza",
@@ -2637,7 +2726,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/67ad947e612a.webp"
   },
   {
    "id": "non-gluten-pepperoni-premio-pizza",
@@ -2653,7 +2743,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/e44c8d451503.webp"
   },
   {
    "id": "non-gluten-piccante-pizza",
@@ -2669,7 +2760,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/28e788bb4808.webp"
   },
   {
    "id": "non-gluten-pinoli-pizza",
@@ -2685,7 +2777,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/e59857b29f06.webp"
   },
   {
    "id": "non-gluten-primavera",
@@ -2701,7 +2794,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/17771cdad4ad.webp"
   },
   {
    "id": "non-gluten-roast-pollo-and-pesto",
@@ -2715,7 +2809,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/79fb9d2314bb.webp"
   },
   {
    "id": "non-gluten-sticky-pig-pizza",
@@ -2731,7 +2826,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/759e9bb2b8c2.webp"
   },
   {
    "id": "non-gluten-truffle-salami",
@@ -2747,7 +2843,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/1098e5b52f40.webp"
   },
   {
    "id": "non-gluten-vegan-margherita-pizza",
@@ -2763,7 +2860,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8d93d719898a.webp"
   },
   {
    "id": "non-gluten-venison-pepperoni",
@@ -2779,7 +2877,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/760c4a01d793.webp"
   },
   {
    "id": "non-gluten-meatballs-alla-vodka",
@@ -2795,7 +2894,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/ae6dc469160e.webp"
   },
   {
    "id": "non-gluten-pasta-bolognese-classico",
@@ -2811,7 +2911,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/49bf7d50122c.webp"
   },
   {
    "id": "non-gluten-pasta-chianti-beef-ragu",
@@ -2827,7 +2928,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/1d18c3e6dad7.webp"
   },
   {
    "id": "non-gluten-pasta-chilli-king-prawn",
@@ -2841,7 +2943,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/e09f21b9cb5b.webp"
   },
   {
    "id": "non-gluten-pasta-chorizo-carbonara",
@@ -2857,7 +2960,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/ffe81d2e47ea.webp"
   },
   {
    "id": "non-gluten-pasta-lentil-ragu",
@@ -2873,7 +2977,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8d297ad2ef98.webp"
   },
   {
    "id": "non-gluten-pasta-pollo-piccante",
@@ -2887,7 +2992,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/ba66562b427a.webp"
   },
   {
    "id": "non-gluten-pasta-truffle-carbonara",
@@ -2903,7 +3009,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8e0e45a3da29.webp"
   },
   {
    "id": "non-gluten-pasta-vegan-pomodoro",
@@ -2919,7 +3026,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/496c6a6b0d5b.webp"
   },
   {
    "id": "non-gluten-pesto-rosso",
@@ -2933,7 +3041,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/664e056efc1f.webp"
   },
   {
    "id": "non-gluten-pomodoro",
@@ -2949,7 +3058,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/ca2aaaf50eb8.webp"
   },
   {
    "id": "non-gluten-seafood-vongole",
@@ -2963,7 +3073,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/c53e9d6e99a3.webp"
   },
   {
    "id": "non-gluten-truffle-carbonara-sharepan",
@@ -2979,7 +3090,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/d764e5fef2cf.webp"
   },
   {
    "id": "pepperoni-campagna-2-course-lunch-menu",
@@ -3011,7 +3123,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/6a052d69d832.webp"
   },
   {
    "id": "carrot-cucumber-and-pasta-crisps",
@@ -3027,7 +3140,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a8de0089f2b9.webp"
   },
   {
    "id": "chilly-billy-ice-lolly",
@@ -3043,7 +3157,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a5602ad130a8.webp"
   },
   {
    "id": "chocolate-gelato",
@@ -3059,7 +3174,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/d36bcbdac1e0.webp"
   },
   {
    "id": "kids-fruit-pot",
@@ -3075,7 +3191,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/315e5b99934c.webp"
   },
   {
    "id": "vanilla-gelato",
@@ -3091,7 +3208,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/79cdf0d77a5f.webp"
   },
   {
    "id": "kids-casareccia-bolognese",
@@ -3105,7 +3223,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/e55870323bdc.webp"
   },
   {
    "id": "kids-casareccia-cheese-pasta",
@@ -3121,7 +3240,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/3aa4a10695e7.webp"
   },
   {
    "id": "kids-casareccia-lentil-ragu",
@@ -3137,7 +3257,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/8df15828f6b7.webp"
   },
   {
    "id": "kids-casareccia-pomodoro",
@@ -3153,7 +3274,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/1e6d4837ec21.webp"
   },
   {
    "id": "kids-non-gluten-bolognese-pasta",
@@ -3245,7 +3367,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/894b5ee6c509.webp"
   },
   {
    "id": "kids-spaghetti-cheese-sauce",
@@ -3261,7 +3384,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/27fc502431c1.webp"
   },
   {
    "id": "kids-spaghetti-lentil-ragu",
@@ -3277,7 +3401,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/c24ca690e587.webp"
   },
   {
    "id": "kids-spaghetti-pomodoro",
@@ -3293,7 +3418,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/79f761d54e8f.webp"
   },
   {
    "id": "kids-vegan-pizza-margherita",
@@ -3341,7 +3467,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/456558a0332e.webp"
   },
   {
    "id": "black-truffle-arancini",
@@ -3357,7 +3484,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/574e2f1e193c.webp"
   },
   {
    "id": "pig-in-blanket-bombe",
@@ -3373,7 +3501,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/3f92de3c8889.webp"
   },
   {
    "id": "cranberry-and-prosciutto-roast-chicken-with-gnocchi",
@@ -3389,7 +3518,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/88530e61ce94.webp"
   },
   {
    "id": "cranberry-and-prosciutto-roast-chicken-with-potatoes",
@@ -3405,7 +3535,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/198f429c9558.webp"
   },
   {
    "id": "lobster-and-five-cheese-casareccia",
@@ -3419,7 +3550,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/7ade54289aa6.webp"
   },
   {
    "id": "vegan-baked-gnocchi",
@@ -3435,7 +3567,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/a12a6f00ea3b.webp"
   },
   {
    "id": "pistachio-christmas-tree",
@@ -3451,7 +3584,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "zizzi/5446b6e997c5.webp"
   },
   {
    "id": "bruschetta-classica-two-feast-for-50",

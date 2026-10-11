@@ -38,7 +38,8 @@
    "limitedTime": true,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/addf81e4ef0f.webp"
   },
   {
    "id": "banana-bread",
@@ -55,7 +56,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/1611cb9af56c.webp"
   },
   {
    "id": "berry-blast",
@@ -89,7 +91,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/44931947ab60.webp"
   },
   {
    "id": "breakfast-beat",
@@ -106,7 +109,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/997cc2bd14e0.webp"
   },
   {
    "id": "chocolate-chief",
@@ -123,7 +127,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/1256c5e6fbad.webp"
   },
   {
    "id": "ferrero-rocher",
@@ -140,7 +145,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/665d6f0aaeb3.webp"
   },
   {
    "id": "nutter-butter",
@@ -157,7 +163,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/032665c0bf54.webp"
   },
   {
    "id": "snickers",
@@ -174,7 +181,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/7ae7ec9500ec.webp"
   },
   {
    "id": "superhuman",
@@ -208,7 +216,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "third-space/2679f26ac383.webp"
   }
  ],
  "combinations": []

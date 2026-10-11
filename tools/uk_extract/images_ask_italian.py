@@ -18,6 +18,8 @@ robots.txt is honoured and any 401/403/429 stops the run (images_common.polite_g
 Terms (askitalian.co.uk/legal/terms-and-conditions): "This website contains material which is owned by or licensed to
 us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is
 prohibited other than in accordance with the copyright notice". Installed on the founder's decision of 2026-10-06.
+STATUS 2026-10-11: images.weareopenr.com/robots.txt answers HTTP 400 "Invalid path format" (RFC 9309: no rules) and serves the photos; the
+site's robots.txt (read 2026-10-11) allows /menus. Left out after looking: see REJECT.
 """
 from __future__ import annotations
 
@@ -39,8 +41,19 @@ CHAIN_ID = "ask-italian"
 BASE = "https://www.askitalian.co.uk"
 HUB = f"{BASE}/menus"
 IMAGE_HOST = "https://images.weareopenr.com/azzurri/"
-# Photos looked at and found unsuitable (not a photo of the dish, or printing nutrition claims): item ids. Empty = none.
-REJECT: set[str] = set()
+# Photos looked at on a contact sheet (2026-10-11) and left out (item id -> why). A rerun must not bring them back.
+_HEART = ("the page's picture is ASK's generic 'heart hands' line drawing, a placeholder, not a photo of the item "
+          "(the same drawing sits on 7 unrelated drinks, plus a cream-background copy on 2 more)")
+_SUNDAE = ("one photo (vanilla ice cream, sauce) is shown for all four 'Build Your Own Sundae' flavours: it cannot show "
+           "the berry sorbet, chocolate or salted caramel version")
+_CHILLY = "one photo of a Chilly Billy pouch is shown for two different flavours (apple and raspberry / orange and apple)"
+REJECT: dict[str, str] = {
+    **{i: _HEART for i in ("apple-juice", "babyccino", "ginger-beer", "latte-large", "macchiato", "orange-juice",
+                           "pineapple-juice", "coke-zero", "macchiato-large")},
+    **{i: _SUNDAE for i in ("build-your-own-sundae-berry-sorbet", "build-your-own-sundae-chocolate-ice-cream",
+                            "build-your-own-sundae-salted-caramel-gelato", "build-your-own-sundae-vanilla-ice-cream")},
+    **{i: _CHILLY for i in ("chilly-billy-pure-fruit-apple-and-raspberry", "chilly-billy-pure-fruit-orange-and-apple")},
+}
 
 
 def page_html(url: str, cache: Path) -> str:
@@ -139,7 +152,7 @@ def main() -> int:
             continue
         it = its[0]
         if it["id"] in REJECT:
-            skipped.append(f"{it['name']}: photo rejected on inspection")
+            skipped.append(f"{it['name']}: left out after looking: {REJECT[it['id']]}")
             continue
         if len(photos[key]) > 1:
             skipped.append(f"{it['name']}: the site shows {len(photos[key])} different photos for this name")

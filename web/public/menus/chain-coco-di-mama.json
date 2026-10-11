@@ -54,7 +54,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/220b5a5723f0.webp"
   },
   {
    "id": "butter-croissant-v",
@@ -70,7 +71,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/677a94ffe074.webp"
   },
   {
    "id": "caprese-croissant-v",
@@ -86,7 +88,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/a313b7b00053.webp"
   },
   {
    "id": "cotto-ham-and-cheese-croissant",
@@ -102,7 +105,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/a2b75d952f9c.webp"
   },
   {
    "id": "pain-au-chocolat-v",
@@ -118,7 +122,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f808cc59f2aa.webp"
   },
   {
    "id": "pistachio-croissant-v",
@@ -134,7 +139,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/5abc692ce816.webp"
   },
   {
    "id": "americano-large",
@@ -150,7 +156,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/34e491b004a3.webp"
   },
   {
    "id": "americano-small",
@@ -166,7 +173,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/34e491b004a3.webp"
   },
   {
    "id": "biscoff-latte-large",
@@ -182,7 +190,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/31046030a64c.webp"
   },
   {
    "id": "biscoff-latte-small",
@@ -198,7 +207,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/31046030a64c.webp"
   },
   {
    "id": "cappuccino-large",
@@ -214,7 +224,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0556ac29bd5e.webp"
   },
   {
    "id": "cappuccino-small",
@@ -230,7 +241,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0556ac29bd5e.webp"
   },
   {
    "id": "espresso-double",
@@ -246,7 +258,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/ddfde7e6009c.webp"
   },
   {
    "id": "flat-white-large",
@@ -262,7 +275,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b484e116e971.webp"
   },
   {
    "id": "flat-white-small",
@@ -278,7 +292,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b484e116e971.webp"
   },
   {
    "id": "latte-large",
@@ -326,7 +341,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/182514c24aae.webp"
   },
   {
    "id": "macchiato-single",
@@ -342,7 +358,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/8a3800cc208b.webp"
   },
   {
    "id": "mocha-large",
@@ -358,7 +375,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0202fdb8d862.webp"
   },
   {
    "id": "mocha-small",
@@ -374,7 +392,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0202fdb8d862.webp"
   },
   {
    "id": "pistachio-latte-large",
@@ -422,7 +441,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/2c66a62a3b7d.webp"
   },
   {
    "id": "the-good-brew-filter-small",
@@ -438,7 +458,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/2c66a62a3b7d.webp"
   },
   {
    "id": "white-chocolate-and-hazelnut-latte-large",
@@ -486,7 +507,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/ad13b583a447.webp"
   },
   {
    "id": "caprese-side-salad-v",
@@ -502,7 +524,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/bddf4878230f.webp"
   },
   {
    "id": "green-goddess-chicken-power-pot",
@@ -516,7 +539,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0ac2c51190e4.webp"
   },
   {
    "id": "hot-smoked-salmon-and-pesto-bowl-by-emma-petersen",
@@ -530,7 +554,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d9b44a8fbcda.webp"
   },
   {
    "id": "pesto-pollo-pasta-fit-bowl",
@@ -544,7 +569,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/41e3702e5b5f.webp"
   },
   {
    "id": "power-chicken-caesar",
@@ -560,7 +586,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/5b0ab48b39f6.webp"
   },
   {
    "id": "pulled-lemon-chicken-balance-bowl",
@@ -574,7 +601,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/848bd3600ba0.webp"
   },
   {
    "id": "apple",
@@ -590,7 +618,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0071c62d2819.webp"
   },
   {
    "id": "apple-and-cinnamon-overnight-oats-v",
@@ -606,7 +635,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/fa7304b75d4e.webp"
   },
   {
    "id": "banana",
@@ -622,7 +652,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/7241164b4331.webp"
   },
   {
    "id": "banana-honey-granola-yoghurt-v",
@@ -638,7 +669,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/59d654827342.webp"
   },
   {
    "id": "big-boy-bircher-v",
@@ -654,7 +686,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/be38f36c01a0.webp"
   },
   {
    "id": "chocolate-and-coconut-chia-pudding-ve",
@@ -670,7 +703,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/307116df3c9a.webp"
   },
   {
    "id": "compote-granola-yoghurt-v",
@@ -686,7 +720,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/c0a2616524ba.webp"
   },
   {
    "id": "mango-and-coconut-smoothie-pot-v",
@@ -718,7 +753,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d816d9d4741d.webp"
   },
   {
    "id": "tiramisu-overnight-oats-ve",
@@ -734,7 +770,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0cd36097b0e0.webp"
   },
   {
    "id": "very-berry-fruit-pot",
@@ -750,7 +787,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/2f87102aa4ef.webp"
   },
   {
    "id": "aqua-libra-sparkling",
@@ -766,7 +804,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/a13aebab5f61.webp"
   },
   {
    "id": "aqua-libra-still",
@@ -782,7 +821,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/4ef4a660454d.webp"
   },
   {
    "id": "coca-cola",
@@ -798,7 +838,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/8ec72c1e6e74.webp"
   },
   {
    "id": "coca-cola-zero",
@@ -814,7 +855,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/1986cd8c3ece.webp"
   },
   {
    "id": "daily-dose-ginger-zinger",
@@ -830,7 +872,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/91ade9fec2cd.webp"
   },
   {
    "id": "daily-dose-orange-juice",
@@ -846,7 +889,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/6384537dfba0.webp"
   },
   {
    "id": "daily-dose-pomm-juice",
@@ -860,7 +904,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/a5ec27752288.webp"
   },
   {
    "id": "diet-coke",
@@ -876,7 +921,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/635e6aff0f19.webp"
   },
   {
    "id": "living-things-cherry-and-lime",
@@ -892,7 +938,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/63128ffd861f.webp"
   },
   {
    "id": "living-things-watermelon-and-lime",
@@ -908,7 +955,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/775cff86d2e2.webp"
   },
   {
    "id": "san-pellegrino-blood-orange",
@@ -956,7 +1004,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/491249d54fb3.webp"
   },
   {
    "id": "tenzing-raspberry-and-yuzu",
@@ -972,7 +1021,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/74bab42f441d.webp"
   },
   {
    "id": "trip-elderflower-and-mint",
@@ -988,7 +1038,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/23490ee1f965.webp"
   },
   {
    "id": "bacon-and-avo-egg-box",
@@ -1004,7 +1055,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/2ae2516132b4.webp"
   },
   {
    "id": "bacon-and-sausage-on-multigrain-sourdough-large",
@@ -1020,7 +1072,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b7b244605b13.webp"
   },
   {
    "id": "bacon-and-sausage-on-multigrain-sourdough-small",
@@ -1036,7 +1089,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b7b244605b13.webp"
   },
   {
    "id": "bacon-and-sausage-on-white-sourdough-large",
@@ -1052,7 +1106,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/8d56a58caa03.webp"
   },
   {
    "id": "bacon-and-sausage-on-white-sourdough-small",
@@ -1068,7 +1123,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/8d56a58caa03.webp"
   },
   {
    "id": "coco-hash-browns-ve",
@@ -1084,7 +1140,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/1ebaf065ebb4.webp"
   },
   {
    "id": "cocos-breakfast-puccia",
@@ -1100,7 +1157,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0c22e9f02e53.webp"
   },
   {
    "id": "cocos-classic-large-v",
@@ -1116,7 +1174,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/a10a0e268757.webp"
   },
   {
    "id": "cocos-classic-small-v",
@@ -1132,7 +1191,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/a10a0e268757.webp"
   },
   {
    "id": "crispy-bacon-on-multigrain-sourdough-large",
@@ -1148,7 +1208,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/bb12d20b62c2.webp"
   },
   {
    "id": "crispy-bacon-on-multigrain-sourdough-small",
@@ -1164,7 +1225,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/bb12d20b62c2.webp"
   },
   {
    "id": "crispy-bacon-on-white-sourdough-large",
@@ -1180,7 +1242,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/28ed96ca260a.webp"
   },
   {
    "id": "crispy-bacon-on-white-sourdough-small",
@@ -1196,7 +1259,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/28ed96ca260a.webp"
   },
   {
    "id": "mushroom-and-avo-egg-box-v",
@@ -1212,7 +1276,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/092ea5b84f1b.webp"
   },
   {
    "id": "naked-porridge-small-v",
@@ -1228,7 +1293,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/6a8df54e3f55.webp"
   },
   {
    "id": "pesto-mushroom-and-avo-egg-puccia-v",
@@ -1244,7 +1310,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/de4d14b4edc4.webp"
   },
   {
    "id": "pork-and-sage-sausage-on-multigrain-sourdough-large",
@@ -1260,7 +1327,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/696a2ab5a1ee.webp"
   },
   {
    "id": "pork-and-sage-sausage-on-multigrain-sourdough-small",
@@ -1292,7 +1360,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b8168e0cccb1.webp"
   },
   {
    "id": "pork-and-sage-sausage-on-white-sourdough-small",
@@ -1308,7 +1377,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/b8168e0cccb1.webp"
   },
   {
    "id": "salmon-and-avo-egg-box",
@@ -1322,7 +1392,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/3f690b945d87.webp"
   },
   {
    "id": "superfood-peanut-porridge-large-v",
@@ -1338,7 +1409,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/3d52f8baab3d.webp"
   },
   {
    "id": "superfood-peanut-porridge-small-v",
@@ -1354,7 +1426,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/3d52f8baab3d.webp"
   },
   {
    "id": "berry-bomboloni-trio-v",
@@ -1370,7 +1443,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/aa825c26c0de.webp"
   },
   {
    "id": "biscoff-bomboloni-v",
@@ -1386,7 +1460,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/49e146567dd9.webp"
   },
   {
    "id": "biscoff-bomboloni-trio-v",
@@ -1402,7 +1477,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f720ee97cdb7.webp"
   },
   {
    "id": "biscoff-donut-ve",
@@ -1418,7 +1494,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/7156a110b2e1.webp"
   },
   {
    "id": "chocolate-hazelnut-bomboloni-v",
@@ -1434,7 +1511,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/51f6164f4c6f.webp"
   },
   {
    "id": "chocolate-hazelnut-bomboloni-trio-v",
@@ -1450,7 +1528,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f08746fae311.webp"
   },
   {
    "id": "crackin-cookies-belgian-choc-chunk-v",
@@ -1466,7 +1545,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/c378da832313.webp"
   },
   {
    "id": "double-choc-bomboloni-v",
@@ -1482,7 +1562,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/e834c81aa05e.webp"
   },
   {
    "id": "double-choc-bomboloni-trio-v",
@@ -1498,7 +1579,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/4e582bec6dd3.webp"
   },
   {
    "id": "pistachio-bomboloni-v",
@@ -1514,7 +1596,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/101358336daa.webp"
   },
   {
    "id": "pistachio-bomboloni-trio-v",
@@ -1530,7 +1613,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/4c8b348e50f6.webp"
   },
   {
    "id": "tonys-chocolonely-caramel-sea-salt-v",
@@ -1546,7 +1630,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/8d3967a346b2.webp"
   },
   {
    "id": "tonys-chocolonely-milk-chocolate-v",
@@ -1562,7 +1647,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/c2fc57644e05.webp"
   },
   {
    "id": "very-berry-bomboloni-v",
@@ -1578,7 +1664,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/cb347286229f.webp"
   },
   {
    "id": "biscoff-iced-latte-large",
@@ -1690,7 +1777,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d82b2ff0d018.webp"
   },
   {
    "id": "iced-americano-small",
@@ -1706,7 +1794,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d82b2ff0d018.webp"
   },
   {
    "id": "iced-latte-large",
@@ -1722,7 +1811,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/808b6909ac9e.webp"
   },
   {
    "id": "iced-latte-small",
@@ -1738,7 +1828,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/808b6909ac9e.webp"
   },
   {
    "id": "pistachio-iced-latte-large",
@@ -1754,7 +1845,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/810f94f3aa8e.webp"
   },
   {
    "id": "pistachio-iced-latte-small",
@@ -1770,7 +1862,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/810f94f3aa8e.webp"
   },
   {
    "id": "white-chocolate-and-hazelnut-iced-latte-large",
@@ -1786,7 +1879,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/65c7bf9dbf48.webp"
   },
   {
    "id": "white-chocolate-and-hazelnut-iced-latte-small",
@@ -1802,7 +1896,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/65c7bf9dbf48.webp"
   },
   {
    "id": "biscoff-matcha-latte-large",
@@ -1818,7 +1913,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d6788f5cfde0.webp"
   },
   {
    "id": "biscoff-matcha-latte-small",
@@ -1834,7 +1930,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d6788f5cfde0.webp"
   },
   {
    "id": "iced-biscoff-matcha-large",
@@ -1850,7 +1947,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/884014c7fed1.webp"
   },
   {
    "id": "iced-biscoff-matcha-small",
@@ -1866,7 +1964,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/884014c7fed1.webp"
   },
   {
    "id": "iced-cherry-matcha-large",
@@ -1882,7 +1981,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/9919c0f79d18.webp"
   },
   {
    "id": "iced-cherry-matcha-small",
@@ -1898,7 +1998,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/9919c0f79d18.webp"
   },
   {
    "id": "iced-coconut-vanilla-matcha-large",
@@ -1978,7 +2079,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/5249b532e87c.webp"
   },
   {
    "id": "iced-pistachio-matcha-small",
@@ -1994,7 +2096,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/5249b532e87c.webp"
   },
   {
    "id": "matcha-latte-large",
@@ -2010,7 +2113,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/4638c3f0dffa.webp"
   },
   {
    "id": "matcha-latte-small",
@@ -2026,7 +2130,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/4638c3f0dffa.webp"
   },
   {
    "id": "calabrian-chilli-pulled-pork-mac-and-cheese",
@@ -2058,7 +2163,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f2752ec8bf10.webp"
   },
   {
    "id": "lasagne-soup",
@@ -2074,7 +2180,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0daf580b9305.webp"
   },
   {
    "id": "signature-beef-lasagne",
@@ -2090,7 +2197,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/95296c01c546.webp"
   },
   {
    "id": "spicy-pollo-lasagne",
@@ -2104,7 +2212,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/e12dd13f31a5.webp"
   },
   {
    "id": "calabrian-hot-honey-chicken-parm-on-sourdough-ciabatta",
@@ -2118,7 +2227,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/62dccc1673b5.webp"
   },
   {
    "id": "caprese-on-multigrain-sourdough-v",
@@ -2134,7 +2244,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/ecff64a3f46b.webp"
   },
   {
    "id": "chicken-caesar-and-bacon-on-sourdough",
@@ -2150,7 +2261,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/81a44f7521fc.webp"
   },
   {
    "id": "pesto-chicken-and-mozzarella-on-multigrain-sourdough",
@@ -2164,7 +2276,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/d63768b1eadd.webp"
   },
   {
    "id": "prosciutto-and-mozzarella-on-multigrain-sourdough",
@@ -2180,7 +2293,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/60ebf686472c.webp"
   },
   {
    "id": "spicy-milanese-and-mozzarella-on-sourdough",
@@ -2194,7 +2308,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/7d493a440e7d.webp"
   },
   {
    "id": "calabrian-hot-honey-glazed-salmon-power-bowl",
@@ -2254,7 +2369,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/df5868b6333c.webp"
   },
   {
    "id": "eat-real-hummus-chips-italian-cheese-and-black-pepper-ve",
@@ -2270,7 +2386,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f6f4e6d88975.webp"
   },
   {
    "id": "herby-hash-bites-v",
@@ -2286,7 +2403,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/f78ca5fee8d3.webp"
   },
   {
    "id": "loaded-caesar-dip-with-basil-crostini",
@@ -2346,7 +2464,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/4411d326c5f6.webp"
   },
   {
    "id": "pipers-crisps-cider-vinegar-and-sea-salt-v",
@@ -2362,7 +2481,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/cee637b30840.webp"
   },
   {
    "id": "pipers-crisps-sea-salt-ve",
@@ -2378,7 +2498,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/0dae14f63c21.webp"
   },
   {
    "id": "sourdough-garlic-bread-with-mozzarella-v",
@@ -2394,7 +2515,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/c81b9e770ffc.webp"
   },
   {
    "id": "sourdough-garlic-bread-with-rosemary-ve",
@@ -2410,7 +2532,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/63f7a076644d.webp"
   },
   {
    "id": "three-cheese-mac-and-cheese-bites-v",
@@ -2426,7 +2549,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/8fc22779eb2d.webp"
   },
   {
    "id": "truffle-hash-bites-v",
@@ -2442,7 +2566,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/2f8f267e8d66.webp"
   },
   {
    "id": "fancy-teas",
@@ -2458,7 +2583,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/2f4da242531f.webp"
   },
   {
    "id": "hot-chocolate-large",
@@ -2474,7 +2600,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/766cc007dfba.webp"
   },
   {
    "id": "hot-chocolate-small",
@@ -2490,7 +2617,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/766cc007dfba.webp"
   },
   {
    "id": "fiery-nduja-salami-and-chilli-honey-pinsa",
@@ -2506,7 +2634,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/90c74fc338e9.webp"
   },
   {
    "id": "ham-and-mushroom-pinsa",
@@ -2522,7 +2651,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/7c1794073ab6.webp"
   },
   {
    "id": "margherita-pinsa-v",
@@ -2538,7 +2668,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "coco-di-mama/5a2d32669628.webp"
   },
   {
    "id": "banging-biscoff-cheesecake-v",

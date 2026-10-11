@@ -58,6 +58,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/5604e7128ed9.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -92,6 +93,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/bf05b22adf0d.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -128,6 +130,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/0661abee17eb.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -155,6 +158,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/a8449fda9d2a.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -182,6 +186,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/f83309d2cf9c.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -211,6 +216,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9a7237ab2690.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -240,6 +246,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/fa0af1e3e492.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -273,6 +280,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/b544d3cc0046.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -300,6 +308,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/5c883082d2a4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -333,6 +342,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/f9e342eb3b40.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -360,6 +370,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/4a8adfbdfb82.webp",
    "allergens": {
     "contains": [
      "nuts"
@@ -392,6 +403,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/76abcb81db83.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -417,6 +429,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/85124289ba37.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -442,6 +455,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/267f293d5254.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -467,6 +481,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/135bc4300b43.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -492,6 +507,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c58af623ea3b.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -517,6 +533,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/59e392c1c9e2.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -542,6 +559,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/7163d052c0f3.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -567,6 +585,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/b2dd5f573533.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -592,6 +611,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/1fc0bb261a7e.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -617,6 +637,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/8d5bbdd587a9.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -642,6 +663,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/66567b39e58e.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -667,6 +689,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/cb5ab40c83c5.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -692,6 +715,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/7ebae2111a10.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -721,6 +745,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/3b24bbcbfca0.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -750,6 +775,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/ac0151e1fe52.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -779,6 +805,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/8228010dd367.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -813,6 +840,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/1a8618a200cb.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -847,6 +875,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/08f79bf15ab4.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -881,6 +910,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/30044fa033be.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -914,6 +944,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/ef10fae177a5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -948,6 +979,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/d1e64a74edad.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -982,6 +1014,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/d85464a69821.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1015,6 +1048,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c4d9dc19ac66.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1048,6 +1082,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/6f61a9e63b10.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1080,6 +1115,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/05b697d1f06a.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -1110,6 +1146,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/ee714b37f111.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -1142,6 +1179,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/8480f9f719fb.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1171,6 +1209,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/a3cf35717527.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1209,6 +1248,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/971ff4e3dc2a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1245,6 +1285,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/f45414d60ccd.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1281,6 +1322,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9f96a71ee614.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1318,6 +1360,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/3f3b2b10be07.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1351,6 +1394,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/98f975465548.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1387,6 +1431,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/1aaf5153507c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1419,6 +1464,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9115b90aefde.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1444,6 +1490,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/1741dc4d7ef4.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1469,6 +1516,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/a7d3aa6a30aa.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1502,6 +1550,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/41e912fd659c.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1531,6 +1580,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/2bf358916720.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1558,6 +1608,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/73b3007e6b8b.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1641,6 +1692,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/6e8cbd965c74.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -1668,6 +1720,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/e9a7ccc2ec07.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1702,6 +1755,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/504839c81688.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1736,6 +1790,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/d949d09c6d96.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1763,6 +1818,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/d4517e6bd700.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1790,6 +1846,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/acf3f229ec71.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1817,6 +1874,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/a93bafcbfbce.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1844,6 +1902,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/a93bafcbfbce.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1871,6 +1930,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/e0c97ed74888.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1898,6 +1958,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/e0c97ed74888.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -1925,6 +1986,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/dccb5ef9a831.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -1960,6 +2022,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/dccb5ef9a831.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -1995,6 +2058,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/6b70a285cd1e.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -2026,6 +2090,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/6b70a285cd1e.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -2057,6 +2122,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9bdc21742c3a.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -2087,6 +2153,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9bdc21742c3a.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -2117,6 +2184,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/2b6a15e1fb0c.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2146,6 +2214,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/2b6a15e1fb0c.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2175,6 +2244,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c4ea2a11a344.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2204,6 +2274,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c4ea2a11a344.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2233,6 +2304,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c22332fcb090.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2260,6 +2332,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c22332fcb090.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2287,6 +2360,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/4b58d5611215.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2314,6 +2388,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/4b58d5611215.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2341,6 +2416,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/0d71f6ab87c7.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2368,6 +2444,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/0d71f6ab87c7.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2395,6 +2472,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9088abe62764.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -2429,6 +2507,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9088abe62764.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -2463,6 +2542,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/b0db23699715.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2490,6 +2570,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c3fcc4339ab7.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2517,6 +2598,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/121131ba440f.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -2544,6 +2626,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/5bad82898adb.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2571,6 +2654,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/eb093b78e1d8.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2598,6 +2682,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/7780d96a9941.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2625,6 +2710,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/93119022035b.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -2654,6 +2740,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/1d451e212109.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2681,6 +2768,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/a7f7f33ef4b4.webp",
    "allergens": {
     "contains": [
      "eggs",
@@ -2712,6 +2800,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/04841a4c0e63.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2737,6 +2826,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/50fb0fb34827.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2764,6 +2854,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/8f137d71ca35.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2791,6 +2882,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9261cbc36305.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2818,6 +2910,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/23039f2047f1.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2851,6 +2944,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/e74db82440ed.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2887,6 +2981,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/2c20c1508f4d.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -2919,6 +3014,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/fbfd043fbaef.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2946,6 +3042,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/63d43105e031.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2973,6 +3070,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/63d43105e031.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2998,6 +3096,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/2823af5b5b55.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3025,6 +3124,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/00499f2fd130.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3052,6 +3152,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/f324374032b2.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3079,6 +3180,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/aaf541aadd65.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3106,6 +3208,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/9bc40f314d02.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3133,6 +3236,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/3bde9e368b30.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3160,6 +3264,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/dab450a362b9.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3187,6 +3292,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/5452edf7a673.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3214,6 +3320,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/4b183a2f7969.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3241,6 +3348,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/c2b2a86a65ca.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3266,6 +3374,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/f3bcba1f921a.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -3293,6 +3402,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/6cd648f59c3d.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -3325,6 +3435,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/82e6833cc466.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -3354,6 +3465,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/b1094c6a620f.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -3386,6 +3498,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/3587d26595fc.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -3418,6 +3531,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/b75f737e5c37.webp",
    "allergens": {
     "contains": [
      "gluten"
@@ -3448,6 +3562,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/92c433bca143.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -3475,6 +3590,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/1a38dfd3d5ca.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -3502,6 +3618,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/e402390fc94c.webp",
    "allergens": {
     "contains": [
      "sulphites"
@@ -3531,6 +3648,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/3b2a574b00c0.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3568,6 +3686,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/0cc368a8a192.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3605,6 +3724,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/539eec82fcd5.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3642,6 +3762,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/41e912fd659c.webp",
    "allergens": {
     "contains": [
      "milk"
@@ -3671,6 +3792,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/4b8d729f97f2.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -3705,6 +3827,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "nandos/53f0e775d029.webp",
    "allergens": {
     "contains": [
      "gluten",

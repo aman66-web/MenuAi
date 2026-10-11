@@ -54,6 +54,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/3de7dc31eeb9.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -91,6 +92,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/1d1bbdd33935.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -128,6 +130,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/6918b2fd0fce.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -165,6 +168,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/4c1dc667ea6c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -202,6 +206,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/0d4a8872f20c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -239,6 +244,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/f4d9b886f875.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -276,6 +282,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/18d383fc1205.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -352,6 +359,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/0ccbd149eaa8.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -646,6 +654,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/546c206f2e2c.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -683,6 +692,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/fa7bb1cbbe59.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -757,6 +767,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/8d068893c0ec.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -793,6 +804,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/9d637e7ccd1b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -897,6 +909,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/be3979bb19e7.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -933,6 +946,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/ace2c6fe668d.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -969,6 +983,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/ed274513aef7.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1077,6 +1092,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/b516594cc7b7.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1113,6 +1129,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/36e4410069fc.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -1281,6 +1298,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/56cdcb46360f.webp",
    "allergens": {
     "contains": [
      "eggs"
@@ -1391,6 +1409,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/b61b0f9567c9.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -1554,6 +1573,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/acb5daa6df23.webp",
    "allergens": {
     "contains": [],
     "mayContain": [
@@ -1584,6 +1604,7 @@
    "rankable": true,
    "components": [],
    "modifiers": [],
+   "image": "kfc/2bd754afcc2a.webp",
    "allergens": {
     "contains": [
      "celery",
@@ -2016,6 +2037,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/0bac3258880b.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2078,6 +2100,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/a4e865e3c5fb.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2105,6 +2128,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/104eeb0aa747.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2132,6 +2156,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/234ca778f983.webp",
    "allergens": {
     "contains": [],
     "mayContain": []
@@ -2566,6 +2591,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/32d48ea8e69a.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2602,6 +2628,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/d1126154d2ca.webp",
    "allergens": {
     "contains": [
      "gluten",
@@ -2638,6 +2665,7 @@
    "rankable": false,
    "components": [],
    "modifiers": [],
+   "image": "kfc/d99c9d204aec.webp",
    "allergens": {
     "contains": [
      "gluten",

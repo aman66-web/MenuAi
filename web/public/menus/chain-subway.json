@@ -78,7 +78,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/55af8752f5a7.webp"
   },
   {
    "id": "turkey-and-ham-sub",
@@ -103,7 +104,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e7a579792096.webp"
   },
   {
    "id": "spicy-italian-sub",
@@ -128,7 +130,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/17db283ec650.webp"
   },
   {
    "id": "classic-b-m-t-sub",
@@ -153,7 +156,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/ba09f8e33c8a.webp"
   },
   {
    "id": "honey-mustard-deli-toastie",
@@ -178,7 +182,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e2aca11e2fc4.webp"
   },
   {
    "id": "chicken-and-bacon-sub",
@@ -272,7 +277,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/07dce67e802d.webp"
   },
   {
    "id": "rotisserie-style-chicken-sub",
@@ -320,7 +326,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1dca22ecb0a1.webp"
   },
   {
    "id": "tuna-mayo-sub",
@@ -343,7 +350,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/14156b26385a.webp"
   },
   {
    "id": "chilli-beef-sub",
@@ -391,7 +399,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/687fd667ae1b.webp"
   },
   {
    "id": "big-breakwich-sub",
@@ -416,7 +425,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/35c25596e75d.webp"
   },
   {
    "id": "philly-steak-sub",
@@ -466,7 +476,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/6747622c3f4a.webp"
   },
   {
    "id": "stacked-bacon-and-cheese-toastie",
@@ -491,7 +502,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/ca02d5d5e071.webp"
   },
   {
    "id": "taco-beef-sub",
@@ -516,7 +528,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/6cabb64b2904.webp"
   },
   {
    "id": "big-cheese-steak-toastie",
@@ -541,7 +554,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/106f0e70de85.webp"
   },
   {
    "id": "5-bean-chilli-sub",
@@ -589,7 +603,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/a4c4baf5dea6.webp"
   },
   {
    "id": "plant-patty-ve-sub",
@@ -614,7 +629,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/88c71af39796.webp"
   },
   {
    "id": "ham-and-cheese-saver-sub-toastie",
@@ -735,7 +751,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e27daa325e49.webp"
   },
   {
    "id": "spicy-italian-wrap",
@@ -760,7 +777,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1f80d5018b51.webp"
   },
   {
    "id": "turkey-and-ham-wrap",
@@ -785,7 +803,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/59f90664e059.webp"
   },
   {
    "id": "turkey-breast-wrap",
@@ -833,7 +852,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/38cdda154f9f.webp"
   },
   {
    "id": "chicken-and-bacon-wrap",
@@ -881,7 +901,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/cdbe74243616.webp"
   },
   {
    "id": "chicken-tikka-wrap",
@@ -950,7 +971,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e5071c5e3d4a.webp"
   },
   {
    "id": "chilli-beef-wrap",
@@ -998,7 +1020,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e7e838548372.webp"
   },
   {
    "id": "philly-steak-wrap",
@@ -1023,7 +1046,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/636e5957c54d.webp"
   },
   {
    "id": "toasted-big-breakwich-wrap",
@@ -1048,7 +1072,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/f84799e773d8.webp"
   },
   {
    "id": "taco-beef-wrap",
@@ -1073,7 +1098,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/8e59090c2b6d.webp"
   },
   {
    "id": "5-bean-chilli-wrap",
@@ -1121,7 +1147,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/d2992a643569.webp"
   },
   {
    "id": "veggie-delite-wrap",
@@ -1146,7 +1173,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/be8315beb1c8.webp"
   },
   {
    "id": "smashed-falafel-wrap",
@@ -1169,7 +1197,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/fcd0d787c301.webp"
   },
   {
    "id": "ham-salad",
@@ -1219,7 +1248,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/fda1ad670744.webp"
   },
   {
    "id": "turkey-breast-salad",
@@ -1267,7 +1297,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/ff3c032c28e5.webp"
   },
   {
    "id": "classic-b-m-t-salad",
@@ -1292,7 +1323,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1d219060a2e8.webp"
   },
   {
    "id": "chicken-and-bacon-salad",
@@ -1409,7 +1441,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/ba12a4e900c4.webp"
   },
   {
    "id": "chilli-beef-salad",
@@ -1457,7 +1490,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/51b8b9dc587f.webp"
   },
   {
    "id": "philly-steak-salad",
@@ -1530,7 +1564,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/5f0a6283f1eb.webp"
   },
   {
    "id": "plant-patty-ve-salad",
@@ -1555,7 +1590,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/5fde7ccc40f9.webp"
   },
   {
    "id": "smashed-falafel-salad",
@@ -1578,7 +1614,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/8e597163bc19.webp"
   },
   {
    "id": "baked-beans-and-cheese-jacket-potato",
@@ -1601,7 +1638,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/ce13ea69ca41.webp"
   },
   {
    "id": "tuna-mayo-and-cheese-jacket-potato",
@@ -1624,7 +1662,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/20e49ee88ec3.webp"
   },
   {
    "id": "taco-beef-and-cheese-jacket-potato",
@@ -1649,7 +1688,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/791222e4707b.webp"
   },
   {
    "id": "ham-and-cheese-jacket-potato",
@@ -1674,7 +1714,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/6ca75ab365fe.webp"
   },
   {
    "id": "turkey-breast-and-cheese-jacket-potato",
@@ -1697,7 +1738,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/65691644d8fd.webp"
   },
   {
    "id": "classic-b-m-t-jacket-potato",
@@ -1722,7 +1764,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/76bf40f885bb.webp"
   },
   {
    "id": "ham-turkey-breast-and-cheese-jacket-potato",
@@ -1747,7 +1790,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/c63cb34cc9f9.webp"
   },
   {
    "id": "spicy-italian-and-cheese-jacket-potato",
@@ -1772,7 +1816,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/426034ebe6d9.webp"
   },
   {
    "id": "chicken-and-bacon-jacket-potato",
@@ -1820,7 +1865,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/5789243c37c7.webp"
   },
   {
    "id": "chicken-breast-and-cheese-jacket-potato",
@@ -1843,7 +1889,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/539bb29b705c.webp"
   },
   {
    "id": "rotisserie-style-chicken-and-cheese-jacket-potato",
@@ -1866,7 +1913,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/cc53d30acbd3.webp"
   },
   {
    "id": "honey-mustard-bbq-jacket-potato",
@@ -1891,7 +1939,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/d4e25ae6e20e.webp"
   },
   {
    "id": "tex-mexan-jacket-potato",
@@ -1914,7 +1963,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1ee3fe6f9b3c.webp"
   },
   {
    "id": "furious-chicken-jacket-potato",
@@ -1937,7 +1987,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b6a678f3c88b.webp"
   },
   {
    "id": "shawarma-spiced-chicken-jacket-potato",
@@ -2010,7 +2061,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/6f7460dbfd6a.webp"
   },
   {
    "id": "meatball-marinara-and-cheese-jacket-potato",
@@ -2033,7 +2085,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/d79613fae8ba.webp"
   },
   {
    "id": "big-breakwich-jacket-potato",
@@ -2058,7 +2111,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/dc34e40cbb48.webp"
   },
   {
    "id": "garlic-cheese-steak-jacket-potato",
@@ -2083,7 +2137,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/996b464f1866.webp"
   },
   {
    "id": "5-bean-chilli-jacket-potato",
@@ -2129,7 +2184,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1fb92420e7f7.webp"
   },
   {
    "id": "plant-patty-and-cheese-jacket-potato-ve",
@@ -2154,7 +2210,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b8e204857b66.webp"
   },
   {
    "id": "meatballs",
@@ -2180,7 +2237,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/c558a84b9d87.webp"
   },
   {
    "id": "hash-browns-6-pieces",
@@ -2203,7 +2261,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/c0d06329b78e.webp"
   },
   {
    "id": "nacho-chicken-bites-6-pieces",
@@ -2226,7 +2285,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/67582b634210.webp"
   },
   {
    "id": "nacho-chicken-bites-9-pieces",
@@ -2249,7 +2309,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1f406a1da985.webp"
   },
   {
    "id": "margherita-slice-v",
@@ -2274,7 +2335,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/ee4f3519d159.webp"
   },
   {
    "id": "pepperoni-slice",
@@ -2299,7 +2361,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b6843d1dcd1a.webp"
   },
   {
    "id": "side-salad",
@@ -2322,7 +2385,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1a37f1eca630.webp"
   },
   {
    "id": "hash-browns-9-pieces",
@@ -2345,7 +2409,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/9335756460a0.webp"
   },
   {
    "id": "cheesy-garlic-slice-v",
@@ -2370,7 +2435,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/7df34217fd60.webp"
   },
   {
    "id": "footlong-margherita-slice-v",
@@ -2395,7 +2461,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/47cc2b77ecca.webp"
   },
   {
    "id": "footlong-cheesy-garlic-slice-v",
@@ -2420,7 +2487,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/8432cb2b6702.webp"
   },
   {
    "id": "waffle-fries-regular",
@@ -2443,7 +2511,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b92e09e76cc5.webp"
   },
   {
    "id": "baked-beans-snack-pot",
@@ -2466,7 +2535,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b75c4ee0651c.webp"
   },
   {
    "id": "doritos-nachos",
@@ -2489,7 +2559,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/56d44fad34d5.webp"
   },
   {
    "id": "doritos-sharer-nachos",
@@ -2512,7 +2583,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/08a162c64c7f.webp"
   },
   {
    "id": "5-bean-chilli-loaded-nachos",
@@ -2700,7 +2772,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/4bfe2ec7e768.webp"
   },
   {
    "id": "pepperoni-and-cheese-footlong-dipper",
@@ -2725,7 +2798,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/2ff835b7c214.webp"
   },
   {
    "id": "taco-beef-footlong-dipper",
@@ -2750,7 +2824,8 @@
    "limitedTime": false,
    "rankable": true,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/f99f6dfb741a.webp"
   },
   {
    "id": "doritos-tangy-cheese",
@@ -2773,7 +2848,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/08835aefc4f5.webp"
   },
   {
    "id": "walkers-cheese-and-onion",
@@ -2796,7 +2872,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/08245bde7a6e.webp"
   },
   {
    "id": "quavers-cheese",
@@ -2819,7 +2896,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1ef7930de79b.webp"
   },
   {
    "id": "walkers-ready-salted",
@@ -2842,7 +2920,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/be76bc4e1c7c.webp"
   },
   {
    "id": "walkers-oven-baked-cheese-and-onion",
@@ -2865,7 +2944,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/74a183816e72.webp"
   },
   {
    "id": "doritos-cool-original",
@@ -2888,7 +2968,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/7b74a7405380.webp"
   },
   {
    "id": "snack-a-jacks-salt-and-vinegar",
@@ -2911,7 +2992,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e17b4ebf38bd.webp"
   },
   {
    "id": "doritos-chilli-heatwave",
@@ -2934,7 +3016,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/9b9da0385dcf.webp"
   },
   {
    "id": "sensation-thai-sweet-chili",
@@ -2957,7 +3040,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/33e9d6c37a4c.webp"
   },
   {
    "id": "walkers-salt-and-vinegar",
@@ -2980,7 +3064,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b149fbfe5645.webp"
   },
   {
    "id": "walkers-monster-munch-roast-beef",
@@ -3003,7 +3088,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/ef84200a7047.webp"
   },
   {
    "id": "walkers-max-paprika",
@@ -3026,7 +3112,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/74b4b1a9decd.webp"
   },
   {
    "id": "walkers-prawn-cocktail",
@@ -3049,7 +3136,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/c47074e9fe68.webp"
   },
   {
    "id": "walkers-squares-salt-and-vinegar",
@@ -3072,7 +3160,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/8574c1ac1ce6.webp"
   },
   {
    "id": "propercorn-sweet-and-salty-popcorn",
@@ -3118,7 +3207,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/5a2fe6e85d1f.webp"
   },
   {
    "id": "white-chip-macadamia-nut-cookie",
@@ -3141,7 +3231,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/2b4ac0773627.webp"
   },
   {
    "id": "rainbow-chocolate-chip-cookie",
@@ -3164,7 +3255,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/cd9908f12af5.webp"
   },
   {
    "id": "double-chocolate-cookie-ve",
@@ -3189,7 +3281,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/8e8ae485511d.webp"
   },
   {
    "id": "3x-chocolate-chunk-cookies",
@@ -3212,7 +3305,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/9c374ab84ea7.webp"
   },
   {
    "id": "3x-rainbow-chocolate-chip-cookies",
@@ -3235,7 +3329,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/731f81c31bac.webp"
   },
   {
    "id": "raspberry-cheesecake-cookie-x3",
@@ -3258,7 +3353,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/d3f41dbd8f40.webp"
   },
   {
    "id": "raspberry-cheesecake-cookie",
@@ -3281,7 +3377,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/4815b94958b7.webp"
   },
   {
    "id": "3x-double-chocolate-cookies-ve",
@@ -3306,7 +3403,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/58e323557e1c.webp"
   },
   {
    "id": "pumpkin-spiced-cookie",
@@ -3398,7 +3496,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/190ccf98e282.webp"
   },
   {
    "id": "ben-and-jerrys-cookie-dough-ice-cream-465ml",
@@ -3421,7 +3520,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/71c54ca0d222.webp"
   },
   {
    "id": "ben-and-jerrys-chocolate-fudge-brownie-100ml",
@@ -3444,7 +3544,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/23104d06596f.webp"
   },
   {
    "id": "ben-and-jerrys-caramel-chew-chew-100ml",
@@ -3467,7 +3568,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/bc8f39d8353d.webp"
   },
   {
    "id": "ben-and-jerrys-cookie-dough-100ml",
@@ -3490,7 +3592,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/7053320f2a45.webp"
   },
   {
    "id": "ben-and-jerrys-non-dairy-cookies-on-cookie-dough-ice-cream-100ml",
@@ -3512,7 +3615,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/09a3fe495bf8.webp"
   },
   {
    "id": "tropicana-orange-juice-250ml",
@@ -3535,7 +3639,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/fb896be9adfd.webp"
   },
   {
    "id": "princes-gate-still-water-500ml",
@@ -3558,7 +3663,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/7ab8659b6566.webp"
   },
   {
    "id": "appletiser-250ml",
@@ -3580,7 +3686,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/2c6937200012.webp"
   },
   {
    "id": "costa-caramel-latte-250ml",
@@ -3602,7 +3709,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e509ec6f58d5.webp"
   },
   {
    "id": "oasis-summer-fruits-500ml",
@@ -3624,7 +3732,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/e78cab91748d.webp"
   },
   {
    "id": "powerade-berry-tropical-500ml",
@@ -3646,7 +3755,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b87d86681cee.webp"
   },
   {
    "id": "sprite-zero-500ml",
@@ -3668,7 +3778,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/52981fc1bdc0.webp"
   },
   {
    "id": "dr-pepper-500ml",
@@ -3690,7 +3801,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/50452315042c.webp"
   },
   {
    "id": "fanta-fruit-twist-500ml",
@@ -3712,7 +3824,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/5f96ed48f062.webp"
   },
   {
    "id": "fanta-orange-500ml",
@@ -3734,7 +3847,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/6dfc419e3048.webp"
   },
   {
    "id": "fanta-lemon-500ml",
@@ -3756,7 +3870,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/1f8db6ea8aef.webp"
   },
   {
    "id": "oasis-citrus-punch-500ml",
@@ -3778,7 +3893,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/99b29be6ff22.webp"
   },
   {
    "id": "sprite-500ml",
@@ -3800,7 +3916,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/d0da8c479d86.webp"
   },
   {
    "id": "costa-brownie-frappe-250ml",
@@ -3822,7 +3939,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/09bdc21551a2.webp"
   },
   {
    "id": "sprite-1-25l",
@@ -3844,7 +3962,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/9d4d8a5d8f74.webp"
   },
   {
    "id": "fanta-orange-1-25l",
@@ -3866,7 +3985,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/5a1206a25c41.webp"
   },
   {
    "id": "coca-cola-original-500ml",
@@ -3888,7 +4008,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/394a193036de.webp"
   },
   {
    "id": "coca-cola-original-1-25l",
@@ -3910,7 +4031,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/915ccba2ef9c.webp"
   },
   {
    "id": "coca-cola-zero-500ml",
@@ -3932,7 +4054,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/3175d37e8328.webp"
   },
   {
    "id": "coca-cola-zero-cherry-500ml",
@@ -3954,7 +4077,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/241a52830840.webp"
   },
   {
    "id": "coca-cola-diet-caffeine-free-500ml",
@@ -3976,7 +4100,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/a9b7700e3d70.webp"
   },
   {
    "id": "diet-coke-sublime-500ml",
@@ -3998,7 +4123,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/2bc57c745c5d.webp"
   },
   {
    "id": "coke-zero-1-25l",
@@ -4020,7 +4146,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/d1465f478de3.webp"
   },
   {
    "id": "diet-coke-500ml",
@@ -4042,7 +4169,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/b42b55724b3e.webp"
   },
   {
    "id": "diet-coke-1-25l",
@@ -4064,7 +4192,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/aea55e1d639c.webp"
   },
   {
    "id": "coke-zero-cherry-1-25l",
@@ -4086,7 +4215,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/241a52830840.webp"
   },
   {
    "id": "costa-latte-250ml",
@@ -4108,7 +4238,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/14aee7c89ec1.webp"
   },
   {
    "id": "costa-double-shot-flat-white-200ml",
@@ -4130,7 +4261,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/27b927aa8aa2.webp"
   },
   {
    "id": "vital-water-mango-passionfruit-450ml",
@@ -4152,7 +4284,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/4b69c80a0f96.webp"
   },
   {
    "id": "vital-water-prickly-pear-450ml",
@@ -4174,7 +4307,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/cdde2c54e475.webp"
   },
   {
    "id": "powerade-golden-mango-500ml",
@@ -4196,7 +4330,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/06e8fa6b2f80.webp"
   },
   {
    "id": "powerade-cherry-500ml",
@@ -4218,7 +4353,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/6b82d89161b3.webp"
   },
   {
    "id": "coca-cola-zero-sugar-1-5l",
@@ -4240,7 +4376,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/3138ebbf78b2.webp"
   },
   {
    "id": "diet-coke-1-5l",
@@ -4262,7 +4399,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/da76ed5fdd94.webp"
   },
   {
    "id": "fanta-orange-1-5l",
@@ -4284,7 +4422,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/72558a821003.webp"
   },
   {
    "id": "dr-pepper-1-5l",
@@ -4306,7 +4445,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/c0482c8af3ae.webp"
   },
   {
    "id": "sprite-1-5l",
@@ -4328,7 +4468,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/c015d3f2baed.webp"
   },
   {
    "id": "coca-cola-original-taste-1-5l",
@@ -4350,7 +4491,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/60d97480afb1.webp"
   },
   {
    "id": "coca-cola-zero-sugar-cherry-float-500ml",
@@ -4372,7 +4514,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/dda0d86a90fd.webp"
   },
   {
    "id": "diet-coke-cherry-500ml",
@@ -4394,7 +4537,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/9f74f701399f.webp"
   },
   {
    "id": "dr-pepper-zero-cherry-crush-500ml",
@@ -4416,7 +4560,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/014cd23f3f7b.webp"
   },
   {
    "id": "dr-pepper-cream-swirl-500ml",
@@ -4438,7 +4583,8 @@
    "limitedTime": false,
    "rankable": false,
    "components": [],
-   "modifiers": []
+   "modifiers": [],
+   "image": "subway/6e9df3dd3430.webp"
   },
   {
    "id": "monster-original-500ml",
