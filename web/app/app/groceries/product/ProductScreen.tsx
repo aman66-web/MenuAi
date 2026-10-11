@@ -55,8 +55,11 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
           files.push(await loadRetailer(id));
           // keep going: the same barcode may be sold by other retailers, which we list too
         }
-        const all = mergeProducts(files);
-        const found = all.find((p) => p.gtin.replace(/^0+/, "") === wanted);
+        // a shop counts only where its own list shows the price; a scanned barcode no shop prices still opens with its numbers
+        const priced = mergeProducts(files, { pricedOnly: true });
+        const pricedHit = priced.find((p) => p.gtin.replace(/^0+/, "") === wanted);
+        const all = pricedHit ? priced : mergeProducts(files);
+        const found = pricedHit ?? all.find((p) => p.gtin.replace(/^0+/, "") === wanted);
         if (!cancelled) setState(found ? { status: "ready", product: found, all } : { status: "missing" });
       } catch {
         if (!cancelled) setState({ status: "error" });

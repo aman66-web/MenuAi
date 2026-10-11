@@ -19,7 +19,7 @@ export default function Privacy() {
 
       <h2>What stays on your phone or in your browser</h2>
       <ul>
-        <li>Your goal, daily targets, preferences, favourite restaurants, saved orders and the meals you log.</li>
+        <li>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten).</li>
         <li>
           In the iPhone app these are stored only on your device. In the web app they are stored only in this browser
           on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). We never
@@ -58,9 +58,10 @@ export default function Privacy() {
       <h2>Groceries and barcodes</h2>
       <p>
         The web app&apos;s Groceries screen lists supermarket products using the open Open Food Facts database, which is community data and can be
-        wrong or out of date. Product photos are only ever the supermarket&apos;s own, shown from the first of these places that has one: a small copy we keep on our
-        own site (your browser then talks only to us); or the supermarket&apos;s own website, which loads the picture straight from that shop&apos;s servers, so the shop
-        can see your IP address and which pictures your browser asks for (we ask your browser not to say which page you are on). If a picture fails to load we try the
+        wrong or out of date. Product photos are shown from the first of these places that has one: a small copy we keep on our own site (your browser then
+        talks only to us); or a supermarket&apos;s own website, which loads the picture straight from that shop&apos;s servers, so the shop can see your IP address and
+        which pictures your browser asks for (we ask your browser not to say which page you are on); or, only for a product no supermarket&apos;s website has a photo
+        of, the Open Food Facts photo of that exact barcode, loaded from Open Food Facts&apos; servers, which can see the same. If a picture fails to load we try the
         next place, and show no picture if none loads.
         Your shopping list stays on your device. If you scan a barcode, the camera picture is read inside your browser and is never sent anywhere.
       </p>
@@ -121,7 +122,7 @@ export default function Privacy() {
         <li>Vercel hosts this website and the service that receives your messages.</li>
         <li>TelemetryDeck receives the iPhone app&apos;s anonymous usage statistics.</li>
         <li>Apple processes App Store purchases, Apple Maps searches and Apple Health storage for the iPhone app.</li>
-        <li>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there).</li>
+        <li>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there), or by Open Food Facts for a product no supermarket has a photo of.</li>
         <li>postcodes.io looks up the postcode or town you type on the web app&apos;s Near me map, and OpenFreeMap serves the map tiles there.</li>
         <li>Anthropic (the Claude AI) writes a recipe when you ask Pip to make one, from the choices on that page.</li>
       </ul>

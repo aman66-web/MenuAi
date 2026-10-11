@@ -207,7 +207,7 @@ await step("your meal: sizes fit every recipe, own numbers, and recipes as writt
   await page.getByRole("radio", { name: /^More protein/ }).click();
   await page.getByText("Each recipe is fitted to about 400 kcal and 30 g protein a serving.").waitFor();
   const first = (await cards.first().innerText()).replace(/\n/g, " ");
-  const kcal = Number(/(\d[\d,]*) kcal/i.exec(first)?.[1]?.replace(",", "") ?? /(\d+)\s*KCAL/.exec(first)?.[1]);
+  const kcal = Number(/(\d[\d,]*)\s*calories/i.exec(first)?.[1]?.replace(",", ""));
   expect(kcal > 300 && kcal < 520, `closest fit near 400 kcal first, got ${kcal} in ${first.slice(0, 80)}`);
   await page.getByRole("button", { name: "Type my own numbers" }).click();
   await page.getByLabel("Calories a serving").fill("550");

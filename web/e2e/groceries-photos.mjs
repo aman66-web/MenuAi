@@ -7,7 +7,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 const settings = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true } });
 const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==", "base64");
 
-const item = { name: "Greek Style Yogurt", brand: "Sainsbury's", size: "500 g", per: "g", kcal: 97, protein: 9, carbs: 4.2, fat: 5, allergens: null, category: "dairy-eggs", image: "501/234/567/8900/front_en.12" };
+const item = { name: "Greek Style Yogurt", brand: "Sainsbury's", size: "500 g", per: "g", kcal: 97, protein: 9, carbs: 4.2, fat: 5, allergens: null, category: "dairy-eggs", image: "501/234/567/8900/front_en.12", price: { amount: 1.5, url: "https://www.sainsburys.co.uk/groceries/product/x", checkedOn: "2026-10-09" } };
 const stored = { ...item, gtin: "5012345678900", photo: "0123456789ab.webp", retailerImage: "https://assets.sainsburys-groceries.co.uk/gol/1/image.jpg" };
 const hotlinkOnly = { ...item, gtin: "5012345678917", name: "Plain Skyr", retailerImage: "https://assets.sainsburys-groceries.co.uk/gol/2/image.jpg" };
 const offOnly = { ...item, gtin: "5012345678924", name: "Natural Quark" }; // an old file's Open Food Facts picture only: must show "no photo"

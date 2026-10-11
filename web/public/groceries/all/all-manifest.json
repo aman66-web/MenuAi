@@ -5,82 +5,82 @@
    "id": "sainsburys",
    "name": "Sainsbury's",
    "file": "sainsburys.json",
-   "count": 17002,
+   "count": 15310,
    "checkedOn": "2026-10-08",
-   "nutrition": 12741,
-   "sha256": "ddf6546932c07156ee14e8db9e6da5586936c600b4c87f122cf4e282f78e7625"
+   "nutrition": 12712,
+   "sha256": "517221dd9629db92e25b9dda7a2eaefcca1c777dbc968c966d295fd4ae5435d4"
   },
   {
    "id": "tesco",
    "name": "Tesco",
    "file": "tesco.json",
-   "count": 6086,
+   "count": 6079,
    "checkedOn": "2026-10-09",
    "nutrition": 0,
-   "sha256": "d46b668746547500c57e0dce1930dafb0cdffa379f2ed7499146b982bebda0f7"
+   "sha256": "2ad503b0b825b6bd0bafefdc865eee0cbaf1cd617daebc4ef189d6fbb1b68736"
   },
   {
    "id": "asda",
    "name": "Asda",
    "file": "asda.json",
-   "count": 11820,
+   "count": 10527,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "8bfb476d5cd9233bb779938df2891aa7b1f84a6175313111a7f0729c8af72d3c"
+   "sha256": "ccdd954b67e2e99bd166f3e0c39e9fb1940077a5370bbbae8992747588ca4312"
   },
   {
    "id": "aldi",
    "name": "Aldi",
    "file": "aldi.json",
-   "count": 3466,
+   "count": 3207,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "0d9a32a9b78cbc7835c3759b2d8a636eff0c29d70eee74981a722da7ef72a999"
+   "sha256": "1848e8e92f3cdc372ad6cfcde601fa15f8b1f86757b35da1337e7ad65412824a"
   },
   {
    "id": "lidl",
    "name": "Lidl",
    "file": "lidl.json",
-   "count": 238,
+   "count": 193,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "15d58f34de7d0c96cc6ec2a47a9f544058962368fefa7c5f435609e6bdc4ee2f"
+   "sha256": "d0d1748ed7994c282583f9a0f638f6abf8b3b797e518b5142babc5fe6ee14212"
   },
   {
    "id": "morrisons",
    "name": "Morrisons",
    "file": "morrisons.json",
-   "count": 18382,
+   "count": 16373,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "0cf0d36eed5ad74f31a395b14e2c4a16813083e059428f5d61e7d5f883b4fc8b"
+   "sha256": "88561ff0e31079f839fb6e36f41cd019230a86de4ea4b732948d817463974c4f"
   },
   {
    "id": "waitrose",
    "name": "Waitrose",
    "file": "waitrose.json",
-   "count": 11424,
+   "count": 9726,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "090523980dd903e6b35d886a3a4e8635ee37e01eb99669d15c29f4012f54e7aa"
+   "sha256": "4a02aee310d28b6546e29cd9f0eef1123f9aa88731298feb4a922124a0e84ca3"
   },
   {
    "id": "iceland",
    "name": "Iceland",
    "file": "iceland.json",
-   "count": 6202,
+   "count": 5976,
    "checkedOn": "2026-10-09",
    "nutrition": 0,
-   "sha256": "e169b968e7cf3ebbdde8751cb20e29d94a7ac1b92dcd7074737e3f63dd440260"
+   "sha256": "c933a126839f273de1a1c2952def8c5bfcb2d1dfe0a9c9990a4c509097ebabeb"
   },
   {
    "id": "marks-and-spencer",
    "name": "M&S",
    "file": "marks-and-spencer.json",
-   "count": 291,
+   "count": 194,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "sha256": "8def3c48d16b0eab2bc62c710b77dbb88a9b4a682b20a321d5ea63d2164ce798"
+   "sha256": "9bb4e8cc5a6720d715fba71ebcd686b64cb68ff8cbf7ce94694d04fa01fc9063"
   }
  ]
 }

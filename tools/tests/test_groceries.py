@@ -888,3 +888,45 @@ class NameMatchTests(unittest.TestCase):
         self.assertEqual(rows["5000159407236"]["name"], "Galaxy Milk Chocolate Bar 100g")
         price = bg.listing_prices("waitrose", rows)["5000159407236"]
         self.assertTrue(price["url"].startswith("https://www.waitrose.com/ecom/shop/search?searchTerm="))
+
+
+class AlcoholAndPhotoTests(unittest.TestCase):
+    """Founder 2026-10-11: no alcoholic drinks ("like whisky etc. Just no point"); every listed product should have a photo, from another supermarket's
+    website or the exact barcode's Open Food Facts photo where its own shop showed none."""
+
+    def test_alcohol_goes_but_alcohol_free_drinks_mixers_and_food_stay(self):
+        gone = [("Gordon's Gin 70cl", "Christmas"), ("Guinness Draught Stout 10x440ml", "Drinks"), ("Tesco Finest Cinsault Rose 75Cl", "fresh-food"),
+                ("Jack Daniel's and Coca-Cola 330ml", "tea_coffee_and_soft_drinks/fizzy_drinks/cola"), ("Adnams Broadside Premium Ale 6.0% 500ml", "Beer, Wine & Spirits > Beer"),
+                ("Four Loko Dark Berry Burst 440ml", "Beer, Wine & Spirits > Ready to Drink Spirits & Cocktails"), ("Cobra 620ml", "beer_wine_and_spirits/beer")]
+        stay = [("Heineken 0.0 Alcohol Free Premium Lager Beer 0% ABV Cans 6x330ml", "Beer, Wine & Spirits > Beer"), ("Fever-Tree Raspberry Mojito Mixer 4 x 150ml", "Hot drinks > mixers"),
+                ("Shloer Rosé Sparkling Fruit Drink 750ml", "Drinks"), ("Nielsen-Massey Rose Water 60ml", "Food cupboard"), ("Baileys Chocolate Truffles 200g", "Food cupboard"),
+                ("Cooks' Ingredients Mirin Rice Wine 150ml", "food_cupboard/cooking_sauces"), ("Exceptional by ASDA Mojito Mocktail 750ml", "Drinks > Fruit Juice"),
+                ("Pringles Prawn Cocktail 165g", "Snacks > cocktail crisps"), ("Sea Bass Fillets 240g", "Meat & fish"), ("Cawston Press Ginger Beer Cans 4x250ml", "soft drinks")]
+        for name, aisle in gone:
+            self.assertTrue(bg.is_alcohol(name, aisle), name)
+        for name, aisle in stay:
+            self.assertFalse(bg.is_alcohol(name, aisle), name)
+
+    def test_adverts_and_flowers_are_not_groceries(self):
+        for name in ("Rainbow Alstroemeria", "Tesco Oriental Lilies", "Simply Roses", "Seasonal Show"):
+            self.assertTrue(bap.not_food(name), name)
+        for name in ("Cadbury Roses Chocolate Assortment Carton 240 g", "Carnation Evaporated Milk 410g Tin", "Sunflower Seeds 200g", "Plant Pioneers Chocolate Cake 390g"):
+            self.assertFalse(bap.not_food(name), name)
+        self.assertIn("sponsored", bap.ADVERT)
+
+    def test_rows_without_a_photo_borrow_one_by_barcode_name_or_open_food_facts_never_an_own_brand(self):
+        row = lambda pid, name, photo="", gtin="": [pid, name, 1.0, None, "", None, None, 0, photo, gtin, None]
+        docs = {
+            "asda": {"products": [row("a1", "Heinz Baked Beans 415g", "5000157024671", "5000157024671"), row("a2", "Hovis Soft White Medium Sliced Bread 800g", "5010044000046")]},
+            "sainsburys": {"products": [row("s1", "Heinz Baked Beans 415g", gtin="05000157024671"), row("s2", "Hovis Soft Medium Sliced White Bread 800g"),
+                                        row("s3", "Sainsbury's White Bread 800g"), row("s4", "Nutella 350g", gtin="3017620422003"), row("s5", "Own Thing 100g", "123")]},
+        }
+        counts = bap.fill_photos(docs, off={"3017620422003": "https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.633.400.jpg"})
+        s = {r[0]: r for r in docs["sainsburys"]["products"]}
+        self.assertEqual(s["s1"][12][0], "asda")                                     # same barcode (leading zeros don't matter)
+        self.assertEqual(s["s2"][12][0], "asda")                                     # same words in another order, same size
+        self.assertEqual(len(s["s3"]), 11)                                           # a shop's own brand never borrows
+        self.assertEqual(s["s4"][12][0], "off")
+        self.assertEqual(s["s4"][11], "")                                            # the page slot stays empty
+        self.assertEqual(len(s["s5"]), 11)                                           # has its own photo
+        self.assertEqual(counts["sainsburys"], {"barcode": 1, "name": 1, "off": 1, "none": 1})

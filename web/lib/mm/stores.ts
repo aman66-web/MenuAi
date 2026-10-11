@@ -3,6 +3,7 @@ import { sanitizeSavedRecipes, type SavedRecipe } from "./aiRecipe";
 import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
+import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import {
   DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, sanitizeSavedOrders, sanitizeSettings,
   type Favorite, type LogEntry, type RecipeSave, type SavedOrder, type UserSettings,
@@ -28,6 +29,13 @@ export const savedRecipesStore = createStore<RecipeSave[]>("mm.v1.savedRecipes",
 export const cupboardStore = createStore<string[]>("mm.v1.cupboard", [], {
   sanitize: (x) => (Array.isArray(x) ? [...new Set(x.filter((k): k is string => typeof k === "string" && /^[a-z0-9-]{1,40}$/.test(k)))].slice(0, 200) : []),
 });
+
+/** Dishes opened in the last day ("Recently viewed" on the restaurant's page; lib/mm/recent.ts). On this device only. */
+export const recentStore = createStore<RecentView[]>("mm.v1.recentItems", [], { sanitize: sanitizeRecent });
+
+export function noteItemViewed(chainId: string, itemId: string) {
+  recentStore.update((list) => recordView(list, chainId, itemId));
+}
 
 export function toggleCupboard(key: string) {
   cupboardStore.update((list) => (list.includes(key) ? list.filter((k) => k !== key) : [...list, key]));

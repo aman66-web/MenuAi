@@ -1,6 +1,7 @@
 // "Every product" lists (founder 2026-10-09, docs/GROCERIES_PLAN.md): what a supermarket's own category pages printed for each product (name, price,
 // unit price, card price, picture), with NO nutrition unless we have read the product's own page. Built by tools/groceries/build_all_products.py from
 // the listing crawls; one compact array per product so a 17,000-product shop stays about 2.5 MB.
+import type { PhotoSource } from "./groceries";
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 
@@ -8,7 +9,7 @@ import { normalizeForSearch } from "./search";
  *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
  *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
 export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?];
-export type ShopRow = [string, string, number, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?];
+export type ShopRow = [string, string, number, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
 
 export interface ShopFile {
   v: 1;
@@ -69,6 +70,9 @@ export interface ShopProduct {
   gtin: string;
   /** Set only where the product's own page was read. */
   nutrition: ShopNutrition | null;
+  /** Only where the shop's listing showed no picture: the same product's photo from another supermarket's own website, or the Open Food Facts front photo
+   *  of its exact barcode (founder 2026-10-11; tools/groceries/build_all_products.py fill_photos). `from` is that shop's id, or "off". */
+  otherPhoto?: { src: string; from: string };
 }
 
 export function isShopFile(x: unknown): x is ShopFile {
@@ -103,15 +107,30 @@ function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition 
   return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "" };
 }
 
+// Where a borrowed photo may come from: the supermarkets' own image servers and Open Food Facts' (https only, checked again here).
+const OTHER_PHOTO_HOSTS = ["assets.sainsburys-groceries.co.uk", "asdagroceries.scene7.com", "dm.emea.cms.aldi.cx", "imgproxy-retcat.assets.schwarz", "digitalcontent.api.tesco.com",
+  "ecom-su-static-prod.wtrecom.com", "groceries.morrisons.com", "assets.iceland.co.uk", "assets.digitalcontent.marksandspencer.app", "images.openfoodfacts.org"];
+const OTHER_FROM = /^(?:off|[a-z][a-z-]{1,30})$/;
+
+function decodeOtherPhoto(x: unknown): ShopProduct["otherPhoto"] {
+  if (!Array.isArray(x) || x.length !== 2 || typeof x[0] !== "string" || typeof x[1] !== "string" || !OTHER_FROM.test(x[0])) return undefined;
+  try {
+    const u = new URL(x[1]);
+    return u.protocol === "https:" && OTHER_PHOTO_HOSTS.includes(u.hostname) && (x[0] === "off") === (u.hostname === "images.openfoodfacts.org") ? { src: u.href, from: x[0] } : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 /** Rows to products; a row that doesn't have the right shape is dropped, never guessed at. */
 export function decodeShopProducts(f: ShopFile): ShopProduct[] {
   const out: ShopProduct[] = [];
   for (const r of f.products) {
     if (!Array.isArray(r) || r.length < 10) continue;
-    const [id, name, price, unitPrice, unit, member, scheme, cat, photoId, gtin, n, page] = r;
+    const [id, name, price, unitPrice, unit, member, scheme, cat, photoId, gtin, n, page, other] = r;
     if (typeof id !== "string" || !ID.test(id) || typeof name !== "string" || typeof price !== "number") continue;
     const m = typeof member === "number" && scheme !== null && f.schemes[scheme] ? { amount: member, scheme: f.schemes[scheme] } : null;
-    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" ? unitPrice : null, unit: unit || "", member: m, category: f.categories[cat] ?? "Other", photoId: templated(f) ? (safe(photoId, PHOTO_ID) ? photoId : "") : /^\d+$/.test(photoId) ? photoId : "", page: safe(page, PAGE_PATH) ? page : "", gtin: gtin || "", nutrition: decodeNutrition(n) });
+    out.push({ id, name, price, unitPrice: typeof unitPrice === "number" ? unitPrice : null, unit: unit || "", member: m, category: f.categories[cat] ?? "Other", photoId: templated(f) ? (safe(photoId, PHOTO_ID) ? photoId : "") : /^\d+$/.test(photoId) ? photoId : "", page: safe(page, PAGE_PATH) ? page : "", gtin: gtin || "", nutrition: decodeNutrition(n), ...(decodeOtherPhoto(other) ? { otherPhoto: decodeOtherPhoto(other) } : {}) });
   }
   return out;
 }
@@ -121,6 +140,17 @@ export function shopPageUrl(f: Pick<ShopFile, "pageBase" | "pageSearch">, p: Pic
   if (p.page) return `${f.pageBase}${p.page}`;
   if (f.pageSearch) return `${f.pageBase}${encodeURIComponent(p.name)}`;
   return `${f.pageBase}${p.id}`;
+}
+
+/**
+ * Where a list product's picture comes from, best first: the shop's own photo, then (only where its listing showed none) the same product's photo from
+ * another supermarket's website or from Open Food Facts. The screen credits each one by name.
+ */
+export function shopPhotoSources(f: Pick<ShopFile, "retailer" | "photoBase" | "photoTemplate">, p: Pick<ShopProduct, "photoId" | "otherPhoto">): PhotoSource[] {
+  const own = shopPhotoUrl(f, p);
+  if (own) return [{ src: own, from: "retailer", shop: f.retailer }];
+  if (p.otherPhoto) return [p.otherPhoto.from === "off" ? { src: p.otherPhoto.src, from: "off", shop: "" } : { src: p.otherPhoto.src, from: "retailer", shop: p.otherPhoto.from }];
+  return [];
 }
 
 /** The shop's picture of a product, or undefined when its listing showed none. */

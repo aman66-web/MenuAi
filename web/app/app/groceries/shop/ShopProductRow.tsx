@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { formatPrice, productLine } from "@/lib/mm/groceries";
-import { nutritionBasis, shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { nutritionBasis, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { ChevronRightIcon } from "../../_components/icons";
 import { useT } from "../../_lib/i18n";
 import { PhotoTile } from "../ProductPhoto";
@@ -10,11 +10,10 @@ import { PhotoTile } from "../ProductPhoto";
 /** A product in a shop's full list: the shop's own picture (decorative), its name, price, price per kg or litre, any card price and, where we have read its page, the numbers per 100 g or ml. */
 export function ShopProductRow({ file, product }: { file: ShopFile; product: ShopProduct }) {
   const t = useT();
-  const src = shopPhotoUrl(file, product);
   const href = `/app/groceries/shop/item?r=${file.retailer}&id=${encodeURIComponent(product.id)}`;
   return (
     <Link href={href} prefetch={false} className="glass flex min-h-20 flex-wrap items-center gap-3 rounded-3xl p-3 transition active:scale-[0.99] hover:bg-soft-strong">
-      <PhotoTile sources={src ? [{ src, from: "retailer", shop: file.retailer }] : []} />
+      <PhotoTile sources={shopPhotoSources(file, product)} />
       <span className="min-w-[9rem] flex-1">
         <span className="block text-[15px] font-bold leading-snug tracking-tight">{product.name}</span>
         <span className="app-numbers mt-0.5 block text-sm">

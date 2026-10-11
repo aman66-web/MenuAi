@@ -139,3 +139,20 @@ describe("other shops' lists: photo templates, page paths, search links", () => 
     expect(recipeShops(null)).toEqual([]);
   });
 });
+
+describe("borrowed photos for list rows without one (founder 2026-10-11)", () => {
+  it("accepts another supermarket's or Open Food Facts' own image server only, and credits it", async () => {
+    const { shopPhotoSources } = await import("../lib/mm/shopProducts");
+    const row = (other: unknown) => ["x-1", "Hovis Bread 800g", 1.25, null, "", null, null, 0, "", "", null, "", other] as unknown as ShopFile["products"][number];
+    const decode = (other: unknown) => decodeShopProducts({ ...file, products: [row(other)] })[0]!;
+    const asda = decode(["asda", "https://asdagroceries.scene7.com/is/image/asdagroceries/5010044000046?wid=400"]);
+    expect(shopPhotoSources(file, asda)).toEqual([{ src: "https://asdagroceries.scene7.com/is/image/asdagroceries/5010044000046?wid=400", from: "retailer", shop: "asda" }]);
+    const off = decode(["off", "https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.633.400.jpg"]);
+    expect(shopPhotoSources(file, off)[0]).toMatchObject({ from: "off", shop: "" });
+    for (const bad of [["asda", "http://asdagroceries.scene7.com/x.jpg"], ["asda", "https://evil.example/x.jpg"], ["off", "https://asdagroceries.scene7.com/x"], ["asda", "https://images.openfoodfacts.org/x.jpg"], "nope"]) {
+      expect(decode(bad).otherPhoto).toBeUndefined();
+    }
+    // the shop's own photo always comes first
+    expect(shopPhotoSources(file, { ...asda, photoId: "6325944" })[0]).toMatchObject({ shop: "sainsburys" });
+  });
+});

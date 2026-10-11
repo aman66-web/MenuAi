@@ -124,3 +124,24 @@ describe("price rating", () => {
     expect(priceRating(all, all.find((x) => x.gtin === "5099999999999")!, "tesco")).toBeNull();
   });
 });
+
+describe("only shops that show a price (founder 2026-10-11)", () => {
+  it("lists a product under a shop only with that shop's price, keeps the left-out shop's photo, and drops products no shop prices", async () => {
+    const { photoSources, photoCaption } = await import("../lib/mm/groceries");
+    const off = "https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.633.400.jpg";
+    const all = mergeProducts([
+      file("tesco", [p({ gtin: "1", name: "Milk", retailerImage: "https://digitalcontent.api.tesco.com/v2/media/x.jpeg" }), p({ gtin: "2", name: "Beans", offImage: off })]),
+      file("asda", [p({ gtin: "1", name: "Milk", price: pr(1.1) }), p({ gtin: "3", name: "Rice", price: pr(2), offImage: off })]),
+    ], { pricedOnly: true });
+    expect(all.map((x) => x.gtin).sort()).toEqual(["1", "3"]);
+    const milk = all.find((x) => x.gtin === "1")!;
+    expect(milk.retailers).toEqual(["asda"]);
+    expect(photoSources(milk, "asda")[0]).toMatchObject({ from: "retailer", shop: "tesco" });
+    const rice = all.find((x) => x.gtin === "3")!;
+    const [src] = photoSources(rice, "asda");
+    expect(src).toEqual({ src: off, from: "off", shop: "" });
+    expect(photoCaption(src!)).toBe("Photo: Open Food Facts contributors (CC BY-SA)");
+    // an Open Food Facts address anywhere else is never used
+    expect(photoSources({ offImage: "https://evil.example/front_en.1.400.jpg" })).toEqual([]);
+  });
+});

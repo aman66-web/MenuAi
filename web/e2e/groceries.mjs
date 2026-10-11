@@ -7,10 +7,13 @@ const settings = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories:
 
 const yogurt = { gtin: "5012345678900", name: "Greek Style Yogurt", brand: "Mamia", size: "500 g", per: "g", kcal: 97, protein: 9, carbs: 4.2, fat: 5, saturates: 3.4, sugars: 4.1, salt: 0.1, kj: 406, allergens: { contains: ["milk"], mayContain: ["nuts"] }, image: "501/234/567/8900/front_en.12", category: "dairy-eggs", updated: "2026-03-01" };
 const chicken = { gtin: "4056489000011", name: "Chicken Breast Fillets", brand: "Aldi", size: "650 g", per: "g", kcal: 110, protein: 24, carbs: 0.5, fat: 1.5, allergens: null, category: "meat" };
+const beans = { gtin: "5000000000024", name: "Baked Beans in Tomato Sauce", brand: "Branded", size: "415 g", per: "g", kcal: 80, protein: 4.7, carbs: 12.5, fat: 0.4, allergens: null, category: "cupboard" }; // no shop price: opens from a scan, never listed
 const nuts = { gtin: "5000000000017", name: "Crunchy Peanut Butter", brand: "Tesco", size: "340 g", per: "g", kcal: 620, protein: 26, carbs: 12, fat: 51, allergens: { contains: ["peanuts", "soya"], mayContain: [] }, category: "cupboard" };
+// every shop record has a price: a shop counts as selling a product only where its own list shows the price (founder 2026-10-11)
+const tp = (amount) => ({ amount, url: "https://www.tesco.com/groceries/en-GB/products/1", checkedOn: "2026-10-07" });
 const files = {
-  aldi: { v: 1, retailer: "aldi", name: "Aldi", generatedOn: "2026-10-07", source: "t", products: [{ ...yogurt, price: { amount: 1.25, url: "https://www.aldi.co.uk/product/1", checkedOn: "2026-10-07", perUnit: { amount: 0.25, unit: "per 100 g" } } }, chicken] },
-  tesco: { v: 1, retailer: "tesco", name: "Tesco", generatedOn: "2026-10-07", source: "t", products: [yogurt, nuts] },
+  aldi: { v: 1, retailer: "aldi", name: "Aldi", generatedOn: "2026-10-07", source: "t", products: [{ ...yogurt, price: { amount: 1.25, url: "https://www.aldi.co.uk/product/1", checkedOn: "2026-10-07", perUnit: { amount: 0.25, unit: "per 100 g" } } }, { ...chicken, price: tp(3.49) }] },
+  tesco: { v: 1, retailer: "tesco", name: "Tesco", generatedOn: "2026-10-07", source: "t", products: [{ ...yogurt, price: tp(1.4) }, { ...nuts, price: tp(2.2) }, beans] },
 };
 const manifest = { v: 1, generatedOn: "2026-10-07", source: "Open Food Facts contributors", retailers: [{ id: "tesco", name: "Tesco", file: "tesco.json", count: 2, sha256: "" }, { id: "aldi", name: "Aldi", file: "aldi.json", count: 2, sha256: "" }],
   categories: [{ id: "dairy-eggs", label: "Dairy and eggs" }, { id: "meat", label: "Meat" }, { id: "cupboard", label: "Cupboard" }] };
@@ -76,6 +79,9 @@ await step("unknown allergens are never shown as 'none'", async () => {
   await page.goto(BASE + "/app/groceries/product?code=4056489000011");
   await page.getByText("Allergen information isn't recorded for this product. Check the pack.").waitFor();
   expect((await page.getByRole("table").count()) === 0, "an allergen table is shown for a product with unknown allergens");
+  // a barcode no shop prices still opens from a scan, with its numbers and no price
+  await page.goto(BASE + "/app/groceries/product?code=5000000000024");
+  await page.getByText("Allergen information isn't recorded for this product. Check the pack.").waitFor();
   await page.getByText(/haven't read a price/).waitFor();
   await ctx.close();
 });

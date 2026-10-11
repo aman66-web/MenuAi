@@ -11,7 +11,8 @@ const settings = (prefs) => JSON.stringify({ v: 1, data: { goal: "maintain", dai
 const chicken = { gtin: "4056489000011", name: "Chicken Breast Fillets", brand: "Aldi", size: "650 g", per: "g", kcal: 110, protein: 24, carbs: 0.5, fat: 1.5, allergens: null, category: "meat" };
 const tuna = { gtin: "4056489000028", name: "Tuna Chunks in Spring Water", brand: "Aldi", size: "160 g", per: "g", kcal: 105, protein: 25, carbs: 0, fat: 0.6, allergens: { contains: ["fish"], mayContain: [] }, category: "cupboard" };
 const yogurt = { gtin: "5012345678900", name: "Greek Style Yogurt", brand: "Mamia", size: "500 g", per: "g", kcal: 97, protein: 9, carbs: 4.2, fat: 5, allergens: { contains: ["milk"], mayContain: [] }, category: "dairy-eggs" };
-const aldi = { v: 1, retailer: "aldi", name: "Aldi", generatedOn: "2026-10-09", source: "t", products: [chicken, tuna, yogurt] };
+const ap = (amount) => ({ amount, url: "https://www.aldi.co.uk/product/1", checkedOn: "2026-10-09" }); // a shop counts only where it shows a price
+const aldi = { v: 1, retailer: "aldi", name: "Aldi", generatedOn: "2026-10-09", source: "t", products: [{ ...chicken, price: ap(3.49) }, { ...tuna, price: ap(0.89) }, { ...yogurt, price: ap(1.25) }] };
 const manifest = { v: 1, generatedOn: "2026-10-09", source: "Open Food Facts contributors", retailers: [{ id: "aldi", name: "Aldi", file: "aldi.json", count: 3, sha256: "" }], categories: [{ id: "meat", label: "Meat" }, { id: "cupboard", label: "Cupboard" }, { id: "dairy-eggs", label: "Dairy and eggs" }] };
 const rows = [
   ["sainsburys-chicken-thighs-1kg", "Sainsbury's British Chicken Thighs 1kg", 3.5, 3.5, "per kg", null, null, 0, "", ""],

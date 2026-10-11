@@ -29,7 +29,6 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   const [category, setCategory] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<GrocerySort>("density");
-  const [priced, setPriced] = useState(false);
   const [shown, setShown] = useState(PAGE);
   const [retry, setRetry] = useState(0);
   const [scanning, setScanning] = useState(false);
@@ -49,16 +48,15 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
     return new Set(catalogue.products.filter((p) => !foodDietProblem(listedFacts(p), prefs)).map((p) => p.gtin));
   }, [catalogue.products, prefs]);
   const results = useMemo(() => {
-    const found = searchProducts(catalogue.products, { query: deferred, retailer: retailer, category, priced, sort });
+    const found = searchProducts(catalogue.products, { query: deferred, retailer: retailer, category, sort });
     return diet && suits ? found.filter((p) => suits.has(p.gtin)) : found;
-  }, [catalogue.products, deferred, retailer, category, priced, sort, diet, suits]);
+  }, [catalogue.products, deferred, retailer, category, sort, diet, suits]);
   const caution = diet ? foodDietCaution(prefs, t) : null;
   const categories = useMemo(() => {
     const counts = new Map<string, number>();
     for (const p of catalogue.products) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
     return (catalogue.manifest?.categories ?? []).filter((c) => counts.has(c.id));
   }, [catalogue.products, catalogue.manifest]);
-  const anyPrices = useMemo(() => catalogue.products.some((p) => Object.keys(p.prices).length > 0), [catalogue.products]);
   const counts = new Map((catalogue.manifest?.retailers ?? []).map((r) => [r.id, r.count]));
   const isBarcode = !!barcodeQuery(deferred);
 
@@ -92,7 +90,6 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
       </div>
       <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
         {anyFoodDiet(prefs) && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
-        {anyPrices && <Chip selected={priced} onClick={() => { setPriced((v) => !v); reset(); }}>{t("Has a price")}</Chip>}
         <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>{t("All types")}</Chip>
         {categories.map((c) => (<Chip key={c.id} selected={category === c.id} onClick={() => { setCategory(c.id); reset(); }}>{t(c.label)}</Chip>))}
       </div>

@@ -7,7 +7,8 @@ import { mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { formatDate } from "@/lib/mm/format";
 import { anyDietFilter, filterCaution, filterItems, groupByCategory, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
 import { itemHref } from "@/lib/mm/routes";
-import { settingsStore, favoritesStore, toggleFavorite } from "@/lib/mm/stores";
+import { settingsStore, favoritesStore, recentStore, toggleFavorite } from "@/lib/mm/stores";
+import { recentFor } from "@/lib/mm/recent";
 import type { Meal, MenuItem, Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
 import { DietPicker, dietWords } from "../_components/DietPicker";
@@ -84,8 +85,10 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
     setPrefs(next);
   };
   const words = dietWords(t, prefs);
+  const recentLog = useStore(recentStore);
+  const recent = useMemo(() => recentFor(recentLog, chain.id, now).map((id) => index.items.get(id)).filter((i): i is MenuItem => !!i), [recentLog, chain.id, now, index]);
 
-  const bestRef = useRef<HTMLDivElement>(null);
+  const bestRef = useRef<HTMLElement>(null);
   const bestOffScreen = useScrolledPast(bestRef);
   const activeCategory = useActiveSection(showCategoryChips ? sections.map((s) => s.category) : []);
 
@@ -145,38 +148,49 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           </div>
         </div>
       </div>
-      {!caloriesOnly && (
-        <div className="glass mt-5 flex flex-wrap gap-1 rounded-[1.75rem] p-1" role="group" aria-label={t("Meal")}>
-          {MEALS.map((m) => (
-            <Chip key={m} segment className="flex-1 justify-center" selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
-          ))}
-        </div>
+      {recent.length > 0 && (
+        <section aria-labelledby="recent-heading" className="mt-5">
+          <h2 id="recent-heading" className="mb-2 flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Recently viewed")}</h2>
+          <ItemList items={recent} chainId={chain.id} now={now} />
+        </section>
       )}
-      <div className="glass mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[1.5rem] py-2 pe-2 ps-4">
-        <p className="min-w-0 flex-1 text-base"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
-        <Button variant="secondary" aria-haspopup="dialog" onClick={() => setDietOpen(true)}>{t("Change")}</Button>
-      </div>
-      {caution && <p className="mt-2 text-base text-muted">{caution}</p>}
-      {prefs.halalOnly && !halal && <p className="mt-2 text-base text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
-      {avoiding > 0 && !hasAllergenData && (
-        <div role="note" className="glass mt-3 rounded-3xl p-4 text-base">
-          <p className="font-semibold">{t("{chain} hasn't published allergen details we can read, so its dishes can't be checked for allergies.", { chain: chain.name })}</p>
-          <div className="mt-2 flex flex-wrap items-center gap-3">
-            {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className="min-h-11 py-3 font-medium text-accent underline">{t("See its own allergen information")}</a>}
-            <Button variant="secondary" onClick={() => setPrefs({ ...prefs, avoidAllergens: [] })}>{t("Show all dishes")}</Button>
+
+      {/* One card: what Best for you is picked for (the meal and the person's diet), then the picks. The diet also narrows the full menu below. */}
+      <section aria-labelledby="best-heading" ref={bestRef} className="glass mt-5 rounded-[1.75rem] p-4">
+        {!caloriesOnly && (
+          <>
+            <h2 id="best-heading" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Best for you")}</h2>
+            <p className="mb-1.5 mt-3 text-base font-bold">{t("Which meal?")}</p>
+            <div className="flex flex-wrap gap-1 rounded-[1.5rem] bg-soft p-1" role="group" aria-label={t("Meal")}>
+              {MEALS.map((m) => (
+                <Chip key={m} segment className="flex-1 justify-center px-2" selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
+              ))}
+            </div>
+          </>
+        )}
+        <div className={`flex flex-wrap items-center gap-x-3 gap-y-2 ${caloriesOnly ? "" : "mt-3 border-t border-line pt-3"}`}>
+          <p className="min-w-0 flex-1 text-base"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
+          <Button variant="secondary" aria-haspopup="dialog" onClick={() => setDietOpen(true)}>{t("Change")}</Button>
+        </div>
+        {caution && <p className="mt-2 text-base text-muted">{caution}</p>}
+        {prefs.halalOnly && !halal && <p className="mt-2 text-base text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
+        {avoiding > 0 && !hasAllergenData && (
+          <div role="note" className="mt-3 rounded-2xl bg-soft p-3 text-base">
+            <p className="font-semibold">{t("{chain} hasn't published allergen details we can read, so its dishes can't be checked for allergies.", { chain: chain.name })}</p>
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className="min-h-11 py-3 font-medium text-accent underline">{t("See its own allergen information")}</a>}
+              <Button variant="secondary" onClick={() => setPrefs({ ...prefs, avoidAllergens: [] })}>{t("Show all dishes")}</Button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+        {!caloriesOnly && <div className="mt-4"><BestForYou bare index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} /></div>}
+      </section>
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />
         <div className="mt-4"><Button full onClick={() => setDietOpen(false)}>{t("Done")}</Button></div>
       </Sheet>
 
-      <div ref={bestRef}>
-        {!caloriesOnly && <BestForYou index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} />}
-      </div>
-
-      <div className="mb-2 mt-10 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+      <div className="mb-2 mt-8 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <h2 id="full-menu" className="flex items-center gap-2.5 whitespace-nowrap text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Full menu")}</h2>
         <label className="flex items-center gap-2 text-base">
           <span className="sr-only">{t("Sort by")}</span>

@@ -867,6 +867,41 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   two tiles), recipes 13 (new: the tile opens My meals, tabs switch, both old addresses forward), extra 11, languages 5, a11y 0 violations, offline 13,
   no overflow at 200% text; screenshots of Home and both tabs in light, dark and extra-large text.
 
+- 2026-10-11 — **No alcohol, a photo and a price for every grocery listed, favourite restaurants, recently viewed, a tidier restaurant page and a new
+  Recipes look (founder's list).** **Groceries:** (1) "You don't need to add alcohol drinks ... like whisky etc. Just no point": every beer, lager, cider, wine,
+  spirit and alcoholic ready-to-drink is out of every shop's list and the barcode catalogue (`build_groceries.is_alcohol`: the shop's alcohol aisle, or the
+  product's own name naming an alcoholic drink with a drink size; alcohol-free versions, mixers, soft drinks and food that only names a drink stay, e.g. wine
+  vinegar, Baileys truffles, mirin; 22 test cases). Lists: Sainsbury's 15,310, Morrisons 16,373, Asda 10,527, Waitrose 9,726, Tesco 6,079, Iceland 5,976, Aldi 3,207,
+  M&S 194, Lidl 193 (67,585, was 74,911). Advert tiles ("Sponsored", "Occasions") and flowers are out too. (2) "Every item should have a photo and say the price":
+  the "Search every shop" catalogue now lists a product under a shop **only when that shop's own list shows its price** (`mergeProducts(..., { pricedOnly: true })`);
+  the community database's word alone no longer counts, which is why Tesco looked photo-less (3,996 of its 5,163 records had no Tesco price or photo; 1,065 are
+  listed now, all priced). Records left out still lend their photo, and a scanned barcode no shop prices still opens with its numbers. The "Has a price" chip
+  is gone (everything listed has one). (3) A list row with no photo of its own borrows the same product's photo from another supermarket's own website (same
+  barcode, or the same branded name and pack size with the words in any order; never a shop's own brand) and, where no supermarket has one, the **Open Food Facts
+  front photo of that exact barcode** (founder: "use the EAN number ... find an image of it ... if you can't find it on the supermarket's website"). Google image
+  search was not used: Google forbids automated searching and those pictures belong to whichever site posted them; Open Food Facts is looked up by the exact
+  barcode, licensed for reuse (CC BY-SA, credited "Photo: Open Food Facts contributors (CC BY-SA)") and allows this use. 84 barcodes were asked for
+  (`tools/groceries/fetch_off_images.py`, one request every 1.5 s), 78 had a front photo, every one was looked at on a contact sheet and **5 were left out**
+  (2 show the back of the pack, 1 is a different product, 2 too dark or blurry; recorded in `data/groceries/images/off-front.csv`); 74 catalogue products use one.
+  Still without any photo: **Sainsbury's 522 bakery products** (that aisle's crawl saved no pictures and they have no barcode, so they can't be looked up; they are
+  on the Chrome run's list, `data/groceries/wanted-images/sainsburys-listing.csv`), Aldi 61, Tesco 22, Iceland 20, Lidl 1. Tesco's photos load from Tesco's own
+  server, which refuses this cloud computer, so they could not be checked here. Privacy page updated (photos can come from Open Food Facts; the recently viewed
+  dishes below), last updated 11 October 2026. **Eat out:** a **"My favourite restaurants"** card under "Near me" opens `/app/eat-out/favourites`: the person's
+  favourites, then every restaurant with a big "Save" star (search by name); the same favourites as the star on a restaurant's page (the old Favourites grid on
+  Eat out is replaced by the card). **Recently viewed:** a dish opened is remembered on this device for **24 hours** (`lib/mm/recent.ts`, `mm.v1.recentItems`, at
+  most 60, cleared by Clear data) and listed at the top of that restaurant's page, newest first (up to 5); after a day it is gone. **A restaurant's page:** the meal
+  choice ("Which meal?"), the diet line ("Your diet: ... Change") and the Best for you picks are now one card, so it reads as "best for this meal and my diet";
+  smaller gaps between sections. **Recipes:** a header card with Pip and one sentence ("Every ingredient is a real product at Sainsbury's, with its price and the
+  nutrition of each serving."), search, "Which meal?" as four big buttons with our own simple icons (sunrise, sandwich, moon, apple) and "Any meal", one card
+  for what recipes are fitted to (Adjust) and the diet (Change); each recipe tile has a coloured band for its meal, a bigger name, and "calories", "protein" and
+  "a serving" (price) in words instead of KCAL/EACH, with "35 min", "Serves 4" and "No meat or fish" as labels. New copy (rule 8, logged here; translated into the
+  10 languages by AI): "My favourite restaurants", "Keep the places you go to here", "No favourite restaurants yet", "Tap the star next to a restaurant below, or on
+  its page, and it will be here next time.", "Add a restaurant", "Search restaurants", "Type a restaurant's name", "Type a name to find any of the {n} restaurants.",
+  "No restaurant matches “{query}”.", "Saved", "Recently viewed", the Recipes header sentence (with and without the shop's name), "Photo: Open Food Facts
+  contributors (CC BY-SA)". Checked: 136 Python, 451 unit tests, tsc, lint, e2e smoke 23, extra 12 (new: favourites and recently viewed incl. the 24-hour expiry),
+  browse 9, calories 4, recipes 13, groceries 6, groceries-all 6, compare 8, photos 4, diet 5, languages 5, a11y 0 violations, no overflow at 200% text;
+  screenshots of Eat out, favourites, a restaurant, Recipes and the Tesco catalogue in light, dark and extra-large text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

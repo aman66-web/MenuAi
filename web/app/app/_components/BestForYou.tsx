@@ -21,7 +21,7 @@ import { useT } from "../_lib/i18n";
 // SPEC §6.4 and §7.4 block 1. Uses the chain page's current filters and meal chip.
 // Free users see the real cards blurred under an overlay; Pro users can tap a card to open the builder prefilled.
 
-export function BestForYou({ index, meal, preferences, onClearFilters }: { index: ChainIndex; meal: Meal; preferences: Preferences; onClearFilters: () => void }) {
+export function BestForYou({ index, meal, preferences, onClearFilters, bare = false }: { index: ChainIndex; meal: Meal; preferences: Preferences; onClearFilters: () => void; bare?: boolean }) {
   const t = useT();
   const router = useRouter();
   const { gate, showPaywall } = useGate();
@@ -71,10 +71,10 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
             type="button"
             onClick={() => open(pick, i + 1)}
             disabled={!pro}
-            className={`app-numbers flex min-h-[4.5rem] w-full items-center gap-4 rounded-3xl p-4 text-start transition enabled:active:scale-[0.99] enabled:hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-accent ${i === 0 ? "hero-card" : "glass"}`}
+            className={`app-numbers flex min-h-[4.5rem] w-full flex-wrap items-center gap-x-4 gap-y-2 rounded-3xl p-4 text-start transition enabled:active:scale-[0.99] enabled:hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-accent ${i === 0 ? "hero-card" : "glass"}`}
           >
             <span aria-hidden className="bg-sun inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-on-accent">{i + 1}</span>
-            <span className="min-w-0">
+            <span className="min-w-0 flex-1 basis-[8rem] [overflow-wrap:anywhere]">
               <span className="block text-base font-bold leading-snug tracking-tight">{pick.name}</span>
               <span className="mt-0.5 block text-base text-muted">
                 {pick.reason}
@@ -88,11 +88,8 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
     </ol>
   );
 
-  return (
-    <section aria-labelledby="best-heading">
-      <SectionTitle>
-        <span id="best-heading">{t("Best for you")}</span>
-      </SectionTitle>
+  const body = (
+    <>
       {result.mode === "ranked" && (
         <p className="-mt-1 mb-3 text-base text-muted">{t(MEAL_LABEL[meal])} · {t("up to {kcal}", { kcal: formatCalories(result.budget) })}</p>
       )}
@@ -116,6 +113,16 @@ export function BestForYou({ index, meal, preferences, onClearFilters }: { index
           )}
         </div>
       )}
+    </>
+  );
+  // `bare`: the restaurant page puts the heading, the meal choice and the diet line around it in one card
+  if (bare) return body;
+  return (
+    <section aria-labelledby="best-heading">
+      <SectionTitle>
+        <span id="best-heading">{t("Best for you")}</span>
+      </SectionTitle>
+      {body}
     </section>
   );
 }

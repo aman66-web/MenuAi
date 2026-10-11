@@ -517,6 +517,53 @@ def shop_pages(rid: str, base: Path | None = None) -> dict[str, dict]:
 
 # Founder 2026-10-11: a branded product at two shops is the same item when its name and pack size match exactly ("Galaxy Milk Chocolate Bar 100g"
 # at Asda, Iceland, Morrisons and Waitrose). Never a shop's own brand (a name that names any supermarket or one of their ranges), never without a size.
+# Groceries only and no alcoholic drinks (founder 2026-10-11: "You don't need to add alcohol drinks ... like whisky etc. Just no point"). A product is left
+# out when the shop files it in an alcohol aisle, or its own name names an alcoholic drink together with a drink size ("Malbec 75cl", "Stella Artois 4 x 440ml").
+# Kept: alcohol-free versions ("0.0%", "alcohol free"), mixers and soft drinks that sit in those aisles (tonic, ginger beer, lemonade), and food that only
+# names a drink (wine vinegar, beer-battered fish, rum and raisin ice cream, Baileys chocolates).
+ALCOHOL_AISLE = re.compile(r"\b(?:beers?|wines?|spirits?|alcohol(?:ic)?|ciders?|lagers?|ales|prosecco|champagne|pre mixed|ready to drink|hard seltzers?|liqueurs?|fortified|sparkling wine)\b", re.I)
+NO_ALCOHOL = re.compile(r"\b(?:alcohol[ -]?free|non[ -]?alcoholic|de-?alcoholi[sz]ed|zero alcohol|no alcohol|alcohol removed|mocktails?|malt drink|alkoholfrei|sin alcohol)\b"
+                        r"|(?<![\d.])0(?:\.0+)?\s?%|(?<![\d.])0\.0\b|(?<![\d.])0\.5\s?%|(?<![\d.])0\.05\s?%|\b(?:corona cero|cero)\b", re.I)
+SOFT_DRINK = re.compile(r"\b(?:mixers?|soda|lemonade|cordial|juice|juice drink|squash|rose water|milkshake|syrup|grape drink|fruit drink|soft drink)\b|\brose'?s lime\b", re.I)
+PREMIX = re.compile(r"\b(?:jack daniel'?s|gordon'?s|smirnoff|bacardi|captain morgan|whisk(?:e)?y|vodka|gin|rum)\b.*(?:&|\band\b|\bwith\b).*\b(?:cola|coke|lemonade|tonic|soda|ginger)\b|\b\d+(?:\.\d+)?\s?%\s?(?:vol|abv)\b", re.I)
+ALCOHOL_WORD = re.compile(r"\b(?:whisk(?:e)?y|vodka|gin|rum|brandy|cognac|armagnac|tequila|mezcal|liqueurs?|prosecco|champagne|cava|wines?|lager|beers?|ales?|ipa|stout|porter|"
+                          r"pilsner|cider|perry|sherry|port|vermouth|bourbon|scotch|baileys|aperol|campari|pimm'?s|schnapps|sake|soju|mead|hard seltzer|alcoholic|"
+                          r"merlot|malbec|shiraz|syrah|sauvignon|chardonnay|pinot|rioja|cabernet|tempranillo|ros[eé] wine|moscato|riesling|grenache|zinfandel|prosecco|sangria|"
+                          r"chianti|montepulciano|primitivo|viognier|albari[nñ]o|gew[uü]rztraminer|cr[eé]mant|beaujolais|bordeaux|burgundy|chablis|claret|marsala|madeira|"
+                          r"amaretto|sambuca|limoncello|ouzo|jägermeister|jagermeister|kahlua|cointreau|smirnoff|gordon'?s|bacardi|captain morgan|jack daniel'?s|jameson|"
+                          r"famous grouse|glenfiddich|stella artois|budweiser|peroni|corona|heineken|carlsberg|guinness|kopparberg|strongbow|thatchers|magners|"
+                          r"san miguel|madri|birra moretti|coors|foster'?s|carling|cobra|kronenbourg|desperados|old speckled hen|hobgoblin|doom bar|bass|fruli|four loko|"
+                          r"pornstar martini|mojito|margarita|daiquiri|g&t)\b", re.I)
+DRINK_SIZE = re.compile(r"\b\d+(?:\.\d+)?\s?(?:cl|ml|l|ltr|litres?)\b|\b\d+\s?x\s?\d+(?:\.\d+)?\s?(?:cl|ml|l)\b|\bbottles?\b|\bcans?\b|\bmagnum\b", re.I)
+FOOD_WORD = re.compile(r"\b(?:vinegar|gums?|sauce|chocolates?|truffles?|cakes?|jelly|jellies|crisps|sweets|fudge|marmalade|mustard|gravy|batter(?:ed)?|sorbet|"
+                       r"ice cream|pudding|p[aâ]t[eé]|cheese|sausages?|chutney|glaze|marinade|stock|casserole|mix|cooking|jam|crackers?|biscuits?|caramel|"
+                       r"tiramisu|trifle|mince pies?|stollen|panettone|fruit cake|rich fruit|brownies?|sponge|cheesecake|bonbons?|liqueur chocolates|bites|"
+                       r"steak|pie|beef|pork|chicken|fish|cod|haddock|prawns?|mussels|risotto|soup|ham|salami|tea|coffee|yogh?urt|cream|custard|syrup|lollies|lolly|ranch|"
+                       r"rice wine|mirin|shaoxing|cooking wine|seasoning)\b", re.I)
+
+
+# Open Food Facts category tags of alcoholic drinks (the catalogue's "type"); "non-alcoholic-beers" and the vinegars are not in it.
+ALCOHOL_TYPES = {"beers", "ciders", "wheat-beers", "craft-beers", "lagers", "ales", "stouts", "alcoholic-beverages", "liqueurs", "wines", "red-wines",
+                 "white-wines", "rose-wines", "sparkling-wines", "champagnes", "proseccos", "spirits", "whiskies", "vodkas", "gins", "rums", "hard-seltzers"}
+
+
+def is_alcohol(name: str, aisle: str = "") -> bool:
+    """True for an alcoholic drink, going by the shop's own aisle and the product's own name (see ALCOHOL_AISLE above)."""
+    if NO_ALCOHOL.search(name):
+        return False
+    aisle = re.sub(r"[-_/]+", " ", aisle or "")
+    word = ALCOHOL_WORD.search(name)
+    if re.search(r"\bno[ -]?(?:and[ -]?)?low\b", aisle, re.I):
+        return bool(re.search(r"\blow alcohol\b", name, re.I)) and not re.search(r"\b0\.5\s?%", name)  # the no-and-low aisle: alcohol-free stays
+    if ALCOHOL_AISLE.search(aisle) and not re.search(r"\bsoft drinks?\b|\bmixers?\b|vinegar|cooking", aisle, re.I):
+        return True  # in an alcohol aisle only an alcohol-free version stays (checked above)
+    if re.search(r"\bros[eé]\b", name, re.I) and re.search(r"\b75\s?cl\b", name, re.I) and not SOFT_DRINK.search(name):
+        return True  # a rosé wine ("Cinsault Rose 75cl")
+    if not word or not DRINK_SIZE.search(name) or FOOD_WORD.search(name) or re.search(r"\bginger beer\b|\broot beer\b|\bginger ale\b", name, re.I):
+        return False
+    return not SOFT_DRINK.search(name) or bool(PREMIX.search(name))
+
+
 OWN_BRAND = re.compile(r"\b(?:tesco|sainsbury s?|sainsburys|asda|waitrose|morrisons|iceland|m and s|marks and spencer|aldi|lidl|co op|ocado|stamford street|"
                        r"hearty food co|ms molly|plant chef|by sainsbury s|taste the difference|so organic|just essentials|extra special|essential waitrose|"
                        r"no 1|the best|savers|market street|nutmeg|specially selected|everyday essentials|nature s pick|harvest morn|brooklea|mamia|"
@@ -1002,6 +1049,39 @@ def main() -> int:
     return finish(by_rid, args.out, today, f"Built {today} from the Open Food Facts cache ({args.cache}).", left_out, {})
 
 
+OFF_IMAGE = re.compile(r"^https://images\.openfoodfacts\.org/images/products/[0-9/]{8,40}/front_[a-z]{2}\.\d+\.(?:400|full)\.jpg$")
+
+
+def apply_off_images(by_rid: dict[str, list[dict]], path: Path | None = None, wanted: Path | None = None) -> int:
+    """Founder 2026-10-11 ("use the EAN number ... find an image of it ... if you can't find it on the supermarket's website"): a priced product that no
+    supermarket's website gave us a photo of gets the Open Food Facts front photo of exactly its barcode (`offImage`, credited to Open Food Facts
+    contributors, CC BY-SA), from data/groceries/images/off-front.csv (tools/groceries/fetch_off_images.py). The barcodes still missing one are written to
+    data/groceries/wanted-images/off-catalogue.csv for that fetcher. Returns how many products got one."""
+    path = path or ROOT / "data" / "groceries" / "images" / "off-front.csv"
+    wanted = wanted or ROOT / "data" / "groceries" / "wanted-images" / "off-catalogue.csv"
+    off: dict[str, str] = {}
+    if path.exists():
+        for r in _rows(path):
+            if OFF_IMAGE.match((r.get("image_url") or "").strip()) and (r.get("gtin") or "").strip().isdigit():
+                off[norm_code(r["gtin"].strip())] = r["image_url"].strip()
+    photographed = {norm_code(it["gtin"]) for items in by_rid.values() for it in items if it.get("retailerImage") or it.get("photo")}
+    used, missing = 0, set()
+    for items in by_rid.values():
+        for it in items:
+            it.pop("offImage", None)
+            code = norm_code(it["gtin"])
+            if "price" not in it or code in photographed:
+                continue
+            if code in off:
+                it["offImage"] = off[code]
+                used += 1
+            else:
+                missing.add(code)
+    wanted.parent.mkdir(parents=True, exist_ok=True)
+    wanted.write_text("gtin\n" + "".join(f"{c}\n" for c in sorted(missing)))
+    return used
+
+
 def finish(by_rid: dict[str, list[dict]], out: Path, today: str, head: str, left_out: list, recat: dict) -> int:
     """Everything after the download, shared by a full build and --patch: which shops list each product, prices, the shops' own page details and photos;
     then the files, the manifest and data/groceries/REPORT.md."""
@@ -1032,9 +1112,14 @@ def finish(by_rid: dict[str, list[dict]], out: Path, today: str, head: str, left
             if it["gtin"] in details:
                 apply_details(it, details[it["gtin"]], notes)
         detail_notes[rid] = (sum(1 for it in products if "pageUrl" in it), notes)
+        products = [it for it in products if not is_alcohol(it.get("name", ""), "beer wine spirits" if it.get("type") in ALCOHOL_TYPES else "")]  # after the shop's own name is in
         rejected: set = set()
         apply_retailer_images(rid, products, details, image_skipped.setdefault(rid, {}), rejected=rejected)
         apply_stored_photos(rid, products, problems, rejected=rejected)
+        by_rid[rid] = products
+    off_used = apply_off_images(by_rid)
+    for rid, label in RETAILERS.items():
+        products = by_rid.get(rid, [])
         doc = {"v": 1, "retailer": rid, "name": label, "generatedOn": today, "source": SOURCE, "products": products}
         file = f"{rid}.json"
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
@@ -1044,7 +1129,8 @@ def finish(by_rid: dict[str, list[dict]], out: Path, today: str, head: str, left
                      f"{sum(1 for p in products if p['allergens'] is not None)} | {sum(1 for p in products if 'price' in p)} |")
         print(f"{rid}: {len(products)} products, {sum(1 for p in products if p.get('retailerImage'))} with the shop's own photo ({sum(1 for p in products if p.get('photo'))} stored)")
     (out / "groceries-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
-    report = ["# Groceries build report", "", head, "", "Pictures come only from the supermarkets' own websites (founder 2026-10-10); a product without one shows \"no photo\".", ""] + table
+    report = ["# Groceries build report", "", head, "", "Pictures come from the supermarkets' own websites (founder 2026-10-10); where no supermarket has one, the Open Food Facts front "
+              f"photo of exactly that barcode is used (founder 2026-10-11): {off_used} products.", ""] + table
     if any(n for n, _ in detail_notes.values()):
         report += ["", "## Details read from the supermarkets' own pages", ""]
         for rid, (n, notes) in detail_notes.items():
@@ -1157,6 +1243,9 @@ def add_codes(by_rid: dict[str, list[dict]], folder: Path, lists: dict[str, dict
         item = convert(ans["product"], reasons)
         if not item or norm_code(item["gtin"]) in have or restricted_code(item["gtin"]):
             continue
+        if is_alcohol(item.get("name", ""), "beer wine spirits" if item.get("type") in ALCOHOL_TYPES else ""):
+            reasons["an alcoholic drink (founder 2026-10-11)"] = reasons.get("an alcoholic drink (founder 2026-10-11)", 0) + 1
+            continue
         code = norm_code(item["gtin"])
         shops = [rid for rid in by_rid if code in lists.get(rid, {})]
         agree = [rid for rid in shops if names_agree(item["name"], lists[rid][code].get("name", "")) is not False]
@@ -1183,6 +1272,10 @@ def patch(out: Path, codes: Path | None = None) -> int:
     recat: dict = {}
     for entry in manifest["retailers"]:
         items = json.loads((out / entry["file"]).read_text())["products"]
+        drink = [it for it in items if is_alcohol(it.get("name", ""), "beer wine spirits" if it.get("type") in ALCOHOL_TYPES else "")]
+        if drink:
+            print(f"{entry['id']}: {len(drink)} alcoholic drink(s) left out (founder 2026-10-11): " + "; ".join(d["name"] for d in drink[:4]) + (" ..." if len(drink) > 4 else ""))
+            items = [it for it in items if it not in drink]
         dropped = [it for it in items if implausible(it["kcal"], it["protein"], it["carbs"], it["fat"], it.get("kj"))]
         if dropped:
             print(f"{entry['id']}: {len(dropped)} product(s) left out, their numbers can't be right: " + "; ".join(f"{d['name']} ({d['kcal']} kcal, {d['protein']} g protein)" for d in dropped[:5]) + (" ..." if len(dropped) > 5 else ""))

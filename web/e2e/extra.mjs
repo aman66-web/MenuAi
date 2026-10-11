@@ -178,6 +178,32 @@ await step("settings: 'Menus updated' shows a real date, Segmented controls are 
   if (!h || h.height < 44) throw new Error("height " + h?.height);
   await ctx.close();
 });
+await step("Eat out › My favourite restaurants: star one from the list and it's kept; a dish opened shows under Recently viewed for a day only", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, goal: "maintain", dailyCalories: 2000 } })); });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/eat-out");
+  await page.getByRole("link", { name: /My favourite restaurants/ }).click();
+  await vis(page.getByRole("heading", { level: 1, name: "My favourite restaurants" }));
+  await vis(page.getByText("No favourite restaurants yet"));
+  await page.getByLabel("Search restaurants").fill("bowl");
+  await page.getByRole("button", { name: /Save Bowl & Co\./ }).click();
+  await vis(page.getByRole("button", { name: /Saved Bowl & Co\./, pressed: true }));
+  await vis(page.getByRole("link", { name: /Bowl & Co\./ }));
+  await page.goto(BASE + "/app/eat-out");
+  await vis(page.getByRole("link", { name: /My favourite restaurants.*1 restaurant/ }));
+  // recently viewed
+  await page.goto(BASE + "/app/item?chain=bowl-and-co&item=chicken-bowl");
+  await vis(page.getByRole("heading", { name: "Chicken bowl" }));
+  await page.goto(BASE + "/app/chain?id=bowl-and-co");
+  const recent = page.getByRole("region", { name: "Recently viewed" });
+  await vis(recent.getByRole("link", { name: /Chicken bowl/ }));
+  await page.evaluate(() => { const d = JSON.parse(localStorage.getItem("mm.v1.recentItems")); d.data = d.data.map((v) => ({ ...v, viewedAt: new Date(Date.now() - 25 * 3600_000).toISOString() })); localStorage.setItem("mm.v1.recentItems", JSON.stringify(d)); });
+  await page.reload();
+  await vis(page.getByRole("heading", { name: "Best for you" }));
+  if (await page.getByRole("heading", { name: "Recently viewed" }).count()) throw new Error("still shown after a day");
+  await ctx.close();
+});
 console.log(`\n${pass} passed, ${fail} failed`);
 await browser.close();
 process.exit(fail ? 1 : 0);

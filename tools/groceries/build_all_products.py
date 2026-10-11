@@ -21,6 +21,11 @@ in photoBase + id + "/image.jpg"; a shop with "photoTemplate" has it put in plac
 element (the path after pageBase, from the shop's own sitemap: tools/groceries/shop_pages.py); "pageSearch": true means pageBase + the product's name is the
 shop's own search for it (Asda: its site refuses this environment, so no page addresses).
 `gtin` is set only where the shop's own product page was read and showed a barcode (data/groceries/discovery/<shop>-barcodes.csv), so the app can link to the full page.
+A product the shop's own listing showed no picture for may carry a 13th element, [source, photo address] (founder 2026-10-11: "every item should have a photo";
+"use the EAN number ... find an image of it ... if you can't find it on the supermarket's website"): the same product's photo from another supermarket's own
+website (same barcode, or the same branded name and pack size, never a shop's own brand), else the Open Food Facts front photo of that exact barcode
+(data/groceries/images/off-front.csv, tools/groceries/fetch_off_images.py). The 12th element is then "" when the row has no page path.
+No alcoholic drinks (founder 2026-10-11, build_groceries.is_alcohol) and no advert tiles ("Sponsored", "Occasions").
 """
 from __future__ import annotations
 
@@ -30,6 +35,9 @@ import json
 import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_groceries import is_alcohol, name_key, norm_code  # noqa: E402  (shared with the barcode catalogue)
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "public" / "groceries" / "all"
@@ -58,9 +66,17 @@ NON_FOOD = re.compile(r"\b(?:candles?|sparklers?|cake toppers?|balloons?|napkins
 FOOD_AFTER = re.compile(r"\b(?:cakes?|crackers|kebabs?|biscuits?|cupcakes?)\b", re.I)
 
 
+FLOWERS = re.compile(r"\b(?:alstroemeria|carnations|chrysanthemums?|gerberas?|freesias?|lilies|tulips|sunflowers|orchids?|hydrangeas?|peonies|daffodils)\b"
+                     r"|^simply roses$|^seasonal show$|\broses? bunch\b|\bbunch of roses\b", re.I)
+NOT_FLOWER = re.compile(r"\b(?:chocolates?|cadbury|cakes?|tea|syrup|honey|jam|seeds|oil|water|cordial|lemonade|milk)\b", re.I)
+ADVERT = {"sponsored", "occasions", "advert", "advertisement", "promoted"}  # tiles on the category pages that aren't products
+
+
 def not_food(name: str) -> bool:
     m = NON_FOOD.search(name)
-    return bool(m) and not FOOD_AFTER.search(name, m.end())
+    if m and not FOOD_AFTER.search(name, m.end()):
+        return True
+    return bool(FLOWERS.search(name)) and not NOT_FLOWER.search(name)  # flowers and plants, not "Cadbury Roses" or "Sunflower Seeds"
 
 
 NOT_FOOD_IDS = {"marks-and-spencer": re.compile(r"^flp")}  # M&S "flowers with a treat" gifts
@@ -269,8 +285,10 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             scheme = (r.get("member_scheme") or "").strip()
             if member is not None and (member >= price or not scheme):
                 member = None  # a card price counts only when it is lower and named
-            if not_food(name) or (shop in NOT_FOOD_IDS and NOT_FOOD_IDS[shop].search(pid)):
-                continue  # groceries only
+            if not_food(name) or (shop in NOT_FOOD_IDS and NOT_FOOD_IDS[shop].search(pid)) or name.strip().lower() in ADVERT:
+                continue  # groceries only, and no advert tiles
+            if is_alcohol(name, r.get("category_path") or ""):
+                continue  # no alcoholic drinks (founder 2026-10-11)
             cat = category_for(shop, (r.get("category_path") or "").split(" | "))
             if cat is None:
                 continue
@@ -304,21 +322,120 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
     return {**head, "categories": cats, "schemes": schemes, "nutritionCheckedOn": min(d for d in nut_days if d) if any(nut_days) else "", "products": products}
 
 
+def own_photo_url(shop: str, photo_id: str) -> str:
+    cfg = SHOPS[shop]
+    return cfg["photoTemplate"].replace("{photo}", photo_id) if cfg.get("photoTemplate") else f"{cfg['photoBase']}{photo_id}/image.jpg"
+
+
+OFF_IMAGE = re.compile(r"^https://images\.openfoodfacts\.org/images/products/[0-9/]{8,40}/front_[a-z]{2}\.\d+\.(?:400|full)\.jpg$")
+
+
+def read_off_images(path: Path | None = None) -> dict[str, str]:
+    """Barcode -> Open Food Facts front photo of exactly that barcode (data/groceries/images/off-front.csv, tools/groceries/fetch_off_images.py)."""
+    path = path or ROOT / "data" / "groceries" / "images" / "off-front.csv"
+    out: dict[str, str] = {}
+    if path.exists():
+        with open(path, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                url = (r.get("image_url") or "").strip()
+                if OFF_IMAGE.match(url) and (r.get("gtin") or "").strip().isdigit():
+                    out[norm_code(r["gtin"].strip())] = url
+    return out
+
+
+def catalogue_photos(base: Path | None = None) -> dict[str, tuple[str, str]]:
+    """Barcode -> (shop, the shop's own photo) from the barcode catalogue (web/public/groceries/<shop>.json): photos read from the shops' own product pages."""
+    base = base or ROOT / "web" / "public" / "groceries"
+    out: dict[str, tuple[str, str]] = {}
+    for shop in SHOPS:
+        path = base / f"{shop}.json"
+        if not path.exists():
+            continue
+        for p in json.loads(path.read_text()).get("products", []):
+            url = p.get("retailerImage") or ""
+            if url.startswith("https://") and p.get("gtin") and norm_code(p["gtin"]) not in out:
+                out[norm_code(p["gtin"])] = (shop, url)
+    return out
+
+
+def word_set(key: str) -> str:
+    """The same words in any order ("hovis soft medium sliced white bread 800g" = "hovis soft white medium sliced bread 800g"): for photos only."""
+    return "words:" + " ".join(sorted(set(key.split())))
+
+
+def fill_photos(docs: dict[str, dict], extra_by_code: dict[str, tuple[str, str]] | None = None, off: dict[str, str] | None = None) -> dict[str, dict[str, int]]:
+    """Give each row without the shop's own photo the same product's photo from another supermarket's own website (same barcode first, then the same
+    branded name and pack size: build_groceries.name_key, never a shop's own brand), else the Open Food Facts front photo of its exact barcode.
+    Adds [source, address] as the row's 13th element. Returns counts per shop."""
+    by_code: dict[str, tuple[str, str]] = {}
+    by_name: dict[str, tuple[str, str]] = {}
+    for shop, doc in docs.items():
+        for r in doc["products"]:
+            if not r[8]:
+                continue
+            url = own_photo_url(shop, r[8])
+            if r[9]:
+                by_code.setdefault(norm_code(r[9]), (shop, url))
+            key = name_key(r[1])
+            if key:
+                by_name.setdefault(key, (shop, url))
+                by_name.setdefault(word_set(key), (shop, url))
+    for code, hit in (extra_by_code or {}).items():
+        by_code.setdefault(code, hit)
+    off = off or {}
+    counts: dict[str, dict[str, int]] = {}
+    for shop, doc in docs.items():
+        c = counts.setdefault(shop, {"barcode": 0, "name": 0, "off": 0, "none": 0})
+        for r in doc["products"]:
+            if r[8]:
+                continue
+            code = norm_code(r[9]) if r[9] else ""
+            hit = by_code.get(code) if code else None
+            hit = hit if hit and hit[0] != shop else None
+            how = "barcode"
+            if not hit:
+                key = name_key(r[1])
+                hit = (by_name.get(key) or by_name.get(word_set(key))) if key else None
+                hit = hit if hit and hit[0] != shop else None
+                how = "name"
+            if not hit and code in off:
+                hit, how = ("off", off[code]), "off"
+            if not hit:
+                c["none"] += 1
+                continue
+            while len(r) < 12:
+                r.append(None if len(r) == 10 else "")
+            r.append([hit[0], hit[1]])
+            c[how] += 1
+    return counts
+
+
+def write_wanted_off(docs: dict[str, dict], path: Path | None = None) -> int:
+    """Barcodes of listed products that still have no photo from any supermarket: the Open Food Facts photo fetcher's input."""
+    path = path or ROOT / "data" / "groceries" / "wanted-images" / "off.csv"
+    codes = sorted({norm_code(r[9]) for doc in docs.values() for r in doc["products"] if not r[8] and r[9] and len(r) < 13})
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("gtin\n" + "".join(f"{c}\n" for c in codes))
+    return len(codes)
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = {"v": 1, "retailers": []}
     problems: list = []
-    for shop in PUBLISH:
-        doc = build_shop(shop, problems)
-        if not doc:
-            continue
+    docs = {shop: doc for shop in PUBLISH if (doc := build_shop(shop, problems))}
+    filled = fill_photos(docs, catalogue_photos(), read_off_images())
+    print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
+    for shop, doc in docs.items():
+        c = filled[shop]
+        print(f"{shop}: photos from elsewhere for rows the shop showed none: {c['barcode']} by barcode, {c['name']} by name and size, {c['off']} Open Food Facts, {c['none']} still none")
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
         (OUT / f"{shop}.json").write_text(text)
         with_nutrition = sum(1 for p in doc["products"] if p[10])
         manifest["retailers"].append({"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
                                       "nutrition": with_nutrition, "sha256": hashlib.sha256(text.encode()).hexdigest()})
         print(f"{shop}: {len(doc['products'])} products, {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
-              f"{sum(1 for p in doc['products'] if len(p) > 11)} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition, {len(doc['categories'])} categories")
+              f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition, {len(doc['categories'])} categories")
     (OUT / "all-manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:
         print("problem:", p)

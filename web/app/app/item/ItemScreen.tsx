@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { tk } from "@/lib/mm/i18n";
 import { hasMacros } from "@/lib/mm/nutrients";
 import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm/order";
 import { builderHref, chainHref } from "@/lib/mm/routes";
-import { addLogEntry, addSavedOrder, countProAction } from "@/lib/mm/stores";
+import { addLogEntry, addSavedOrder, countProAction, noteItemViewed } from "@/lib/mm/stores";
 import { useGate } from "../_components/Paywall";
 import { ChevronLeftIcon, ChevronRightIcon, InfoIcon } from "../_components/icons";
 import { ItemPhotoHero } from "../_components/ItemPhoto";
@@ -31,6 +31,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const [message, setMessage] = useState<string | null>(null);
   const [reporting, setReporting] = useState(false);
   const [detail, setDetail] = useState(false);
+  const found = status === "ready" && !!index?.items.get(itemId);
+  useEffect(() => { if (found) noteItemViewed(chainId, itemId); }, [found, chainId, itemId]); // "Recently viewed" on the restaurant's page for a day
 
   const back = (
     <Link href={chainHref(chainId)} aria-label={t("Back to menu")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>

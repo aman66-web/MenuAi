@@ -8,7 +8,7 @@ import { tk, type T } from "@/lib/mm/i18n";
 import { candidates, fitRecipe, isMeatFree, recipeTotals, resolveRecipe, subSpec, withSubstitutes, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
-import { shopPhotoUrl, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
 import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
@@ -27,8 +27,7 @@ import { targetSentence } from "./MealPicker";
 const amountText = (s: IngredientSpec) => `${formatInt(s.amount)} ${s.unit}`;
 
 function PickPhoto({ file, product }: { file: ShopFile; product: ShopProduct }) {
-  const src = shopPhotoUrl(file, product);
-  return <PhotoTile sources={src ? [{ src, from: "retailer", shop: file.retailer }] : []} />;
+  return <PhotoTile sources={shopPhotoSources(file, product)} />;
 }
 
 const NOT_ON_LABEL = tk("not on every label");

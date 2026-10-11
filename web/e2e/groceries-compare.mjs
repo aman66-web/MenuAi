@@ -49,7 +49,8 @@ await step("opened from Tesco: Tesco's own name and price lead, the others are l
   await others.getByRole("link", { name: /£1\.45/ }).waitFor();
   await others.getByText("£0.15 cheaper").waitFor();
   await others.getByText("Lowest", { exact: true }).waitFor();
-  await others.getByText("price not read yet").waitFor(); // Aldi lists it but has no price
+  // Aldi's record has no price, so Aldi isn't listed as selling it (founder 2026-10-11: a shop counts only where its own list shows the price)
+  if (await others.getByText("Aldi", { exact: true }).count()) throw new Error("a shop without a price is listed");
   await ctx.close();
 });
 

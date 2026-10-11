@@ -55,6 +55,8 @@ export interface GroceryProduct {
   retailerImage?: string;
   /** File name of our own stored 400 px copy of that photo, served at /grocery-images/<retailer>/<photo> (only for the products seen most; never Tesco's). */
   photo?: string;
+  /** Only where no supermarket's website gave us a photo: the Open Food Facts front photo of exactly this barcode (founder 2026-10-11), credited to its contributors. */
+  offImage?: string;
   category: string;
   /** The database's most specific category ("semi-skimmed-milks"): what "similar products" means for the price rating. */
   type?: string;
@@ -99,6 +101,8 @@ export interface ListedProduct extends GroceryProduct {
   prices: Record<string, GroceryPrice>;
   /** Each supermarket's own record of the product (its exact name, size, numbers and details). */
   byRetailer: Record<string, GroceryProduct>;
+  /** Photos from the records of shops left out because their price isn't known (mergeProducts with pricedOnly): still that shop's own photo of the product. */
+  extraPhotos?: Record<string, PhotoFields>;
 }
 
 export function isGroceryFile(x: unknown): x is GroceryFile {
@@ -106,11 +110,20 @@ export function isGroceryFile(x: unknown): x is GroceryFile {
   return !!f && f.v === 1 && typeof f.retailer === "string" && Array.isArray(f.products);
 }
 
-/** Merge per-retailer files into one list by barcode (first file's details are the default; every retailer's own record and price is kept). */
-export function mergeProducts(files: readonly GroceryFile[]): ListedProduct[] {
+/**
+ * Merge per-retailer files into one list by barcode (first file's details are the default; every retailer's own record and price is kept).
+ * `pricedOnly` (founder 2026-10-11: "every item should have a photo and say the price"): a shop counts as selling a product only when its own list shows
+ * its price; the community database's word alone isn't enough. A record left out still lends its photo, and a product no shop prices is left out.
+ */
+export function mergeProducts(files: readonly GroceryFile[], opts: { pricedOnly?: boolean } = {}): ListedProduct[] {
   const byCode = new Map<string, ListedProduct>();
+  const spare = new Map<string, Record<string, GroceryProduct>>();
   for (const f of files) {
     for (const p of f.products) {
+      if (opts.pricedOnly && !p.price) {
+        spare.set(p.gtin, { ...spare.get(p.gtin), [f.retailer]: p });
+        continue;
+      }
       const existing = byCode.get(p.gtin);
       if (!existing) byCode.set(p.gtin, { ...p, retailers: [f.retailer], prices: p.price ? { [f.retailer]: p.price } : {}, byRetailer: { [f.retailer]: p } });
       else {
@@ -120,6 +133,10 @@ export function mergeProducts(files: readonly GroceryFile[]): ListedProduct[] {
         if (!existing.type && p.type) existing.type = p.type;
       }
     }
+  }
+  for (const [code, records] of spare) {
+    const p = byCode.get(code);
+    if (p) p.extraPhotos = Object.fromEntries(Object.entries(records).map(([r, x]) => [r, { photo: x.photo, retailerImage: x.retailerImage, offImage: x.offImage }]));
   }
   return [...byCode.values()];
 }
@@ -436,16 +453,20 @@ export function listAsText(list: readonly ShoppingItem[], t: T = englishT): stri
   return [...groups.entries()].map(([r, items]) => `${groupName(r, t)}\n${items.map((i) => `- ${i.qty} x ${i.name}${i.size ? ` ${i.size}` : ""}${i.gtin ? ` (${i.gtin})` : ""}`).join("\n")}`).join("\n\n");
 }
 
-/** One place a product's picture can come from: always a supermarket's own photo (founder 2026-10-10: never Open Food Facts'). */
+/**
+ * One place a product's picture can come from: a supermarket's own photo first; only where no supermarket's website has one, the Open Food Facts front
+ * photo of exactly that barcode (founder 2026-10-11, after "never Open Food Facts'" on 2026-10-10).
+ */
 export interface PhotoSource {
   src: string;
-  /** "stored" = our own copy of the supermarket's photo; "retailer" = the supermarket's picture loaded from its website. */
-  from: "stored" | "retailer";
-  /** The supermarket the picture is from. */
+  /** "stored" = our own copy of the supermarket's photo; "retailer" = the supermarket's picture loaded from its website; "off" = Open Food Facts. */
+  from: "stored" | "retailer" | "off";
+  /** The supermarket the picture is from ("" for Open Food Facts). */
   shop: string;
 }
 
-type PhotoFields = Pick<GroceryProduct, "photo" | "retailerImage">;
+type PhotoFields = Pick<GroceryProduct, "photo" | "retailerImage" | "offImage">;
+const OFF_IMAGE = /^https:\/\/images\.openfoodfacts\.org\/images\/products\/[0-9/]{8,40}\/front_[a-z]{2}\.\d+\.(?:400|full)\.jpg$/;
 const STORED_NAME = /^[0-9a-f]{12}\.webp$/;
 
 /**
@@ -453,17 +474,19 @@ const STORED_NAME = /^[0-9a-f]{12}\.webp$/;
  * then that supermarket's own picture loaded from its website. The screen tries them in order and moves on when one fails to load; when none is left it shows
  * "no photo". Only pictures we can credit to a named supermarket are returned. `prefer` is the supermarket the person came from: its pictures come first.
  */
-export function photoSources(p: PhotoFields & { retailers?: readonly string[]; byRetailer?: Record<string, PhotoFields> }, prefer?: string | null): PhotoSource[] {
+export function photoSources(p: PhotoFields & { retailers?: readonly string[]; byRetailer?: Record<string, PhotoFields>; extraPhotos?: Record<string, PhotoFields> }, prefer?: string | null): PhotoSource[] {
   const shops = p.retailers && p.byRetailer ? [...(prefer && p.retailers.includes(prefer) ? [prefer] : []), ...p.retailers.filter((r) => r !== prefer)] : [];
   const records: Array<[string | undefined, PhotoFields]> = shops.length ? shops.map((r) => [r, p.byRetailer?.[r] ?? p]) : [[prefer ?? undefined, p]];
+  records.push(...Object.entries(p.extraPhotos ?? {}));
   const out: PhotoSource[] = [];
   const add = (s: PhotoSource) => { if (!out.some((o) => o.src === s.src)) out.push(s); };
   for (const [shop, r] of records) if (shop && r.photo && STORED_NAME.test(r.photo)) add({ src: `/grocery-images/${shop}/${r.photo}`, from: "stored", shop });
   for (const [shop, r] of records) if (shop && r.retailerImage?.startsWith("https://")) add({ src: r.retailerImage, from: "retailer", shop });
+  if (!out.length) for (const [, r] of records) if (r.offImage && OFF_IMAGE.test(r.offImage)) add({ src: r.offImage, from: "off", shop: "" });
   return out;
 }
 
 /** The credit shown under a picture. */
 export function photoCaption(s: PhotoSource, t: T = englishT): string {
-  return t("Photo from the {shop} website", { shop: retailerName(s.shop) });
+  return s.from === "off" ? t("Photo: Open Food Facts contributors (CC BY-SA)") : t("Photo from the {shop} website", { shop: retailerName(s.shop) });
 }

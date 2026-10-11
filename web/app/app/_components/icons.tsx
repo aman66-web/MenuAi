@@ -58,4 +58,10 @@ export const DirectionsIcon = (p: P) => (<svg {...base(p)}><path d="M12 3l9 9-9 
 export const BasketIcon = (p: P) => (<svg {...base(p)}><path d="M3.5 9.5h17l-1.6 9a1.6 1.6 0 01-1.6 1.3H6.7a1.6 1.6 0 01-1.6-1.3z" /><path d="M8 9.5L11 4M16 9.5L13 4" /><path d="M9.5 13v3.5M14.5 13v3.5" /></svg>);
 export const ScanIcon = (p: P) => (<svg {...base(p)}><path d="M4 8V5.5A1.5 1.5 0 015.5 4H8M16 4h2.5A1.5 1.5 0 0120 5.5V8M20 16v2.5a1.5 1.5 0 01-1.5 1.5H16M8 20H5.5A1.5 1.5 0 014 18.5V16" /><path d="M8 8v8M11 8v8M14 8v8M17 8v8" /></svg>);
 export const PotIcon = (p: P) => (<svg {...base(p)}><path d="M4 10h16v5a5 5 0 01-5 5H9a5 5 0 01-5-5z" /><path d="M2 10h2M20 10h2M9 6.5c0-1 .8-1.5.8-2.5M12 6.5c0-1 .8-1.5.8-2.5M15 6.5c0-1 .8-1.5.8-2.5" /></svg>);
+
+// Meal icons for Recipes' "Which meal?" (founder 2026-10-11: make Recipes look better and easier to understand): our own simple line drawings.
+export const SunriseIcon = (p: P) => (<svg {...base(p)}><path d="M4 18h16M7 14a5 5 0 0 1 10 0M12 4v3M5.6 7.6l1.8 1.8M18.4 7.6l-1.8 1.8M3 21h18" /></svg>);
+export const SandwichIcon = (p: P) => (<svg {...base(p)}><path d="M3 10l9-6 9 6zM4 13h16M5 16.5c2 1 3-1 5 0s3 1 5 0 3-1 4 0M4 20h16" /></svg>);
+export const MoonIcon = (p: P) => (<svg {...base(p)}><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></svg>);
+export const AppleIcon = (p: P) => (<svg {...base(p)}><path d="M12 7c-1.6-1.5-6-1.6-6.8 2.6C4.5 13.4 7 20 9.5 20c1 0 1.5-.6 2.5-.6s1.5.6 2.5.6C17 20 19.5 13.4 18.8 9.6 18 5.4 13.6 5.5 12 7zM12 7c0-2 1-3.5 3-4" /></svg>);
 export const CopyIcon = (p: P) => (<svg {...base(p)}><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M5.5 15.5V6.5a2 2 0 012-2h9" /></svg>);

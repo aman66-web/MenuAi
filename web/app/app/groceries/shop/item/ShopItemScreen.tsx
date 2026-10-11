@@ -6,7 +6,7 @@ import { addToList, formatPrice } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem } from "@/lib/mm/foodDiet";
-import { nutritionBasis, shopPageUrl, shopPhotoUrl } from "@/lib/mm/shopProducts";
+import { nutritionBasis, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
 import { BasketIcon, ChevronLeftIcon, ExternalIcon, InfoIcon } from "../../../_components/icons";
 import { Button, ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
@@ -43,7 +43,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   if (!product) return (<div>{back}<div className="mt-4"><ErrorBox message={t("That product isn't in the list.")} /></div></div>);
 
   const { file } = state;
-  const photo = shopPhotoUrl(file, product);
+  const photos = shopPhotoSources(file, product);
   const page = shopPageUrl(file, product);
   const nutrition = product.nutrition;
   const rows: Array<[string, string]> = nutrition
@@ -59,7 +59,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   return (
     <div>
       {back}
-      <ProductPhotoFigure sources={photo ? [{ src: photo, from: "retailer", shop }] : []} />
+      <ProductPhotoFigure sources={photos} />
 
       <div className="hero-card mt-5 overflow-hidden rounded-[2rem] p-6">
         <p className="kicker">{file.name}</p>

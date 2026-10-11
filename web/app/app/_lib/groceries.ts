@@ -77,7 +77,7 @@ export function useGroceryCatalogue(retailer: string | null, retry = 0): Catalog
       cancelled = true;
     };
   }, [key, retailer]);
-  const products = useMemo(() => (state.key === key ? mergeProducts(state.files) : []), [state, key]);
+  const products = useMemo(() => (state.key === key ? mergeProducts(state.files, { pricedOnly: true }) : []), [state, key]);
   if (state.key !== key) return { status: "loading", products: [], manifest: state.manifest };
   if (state.error || !state.manifest) return { status: "error", products: [], manifest: state.manifest };
   return { status: "ready", products, manifest: state.manifest };
