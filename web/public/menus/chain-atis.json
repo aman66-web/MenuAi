@@ -1,0 +1,304 @@
+{
+ "schemaVersion": 1,
+ "id": "atis",
+ "name": "Atis",
+ "cuisine": "Bowls",
+ "builderType": "standard",
+ "aliases": [
+  "atis",
+  "atis life",
+  "atis london"
+ ],
+ "sample": false,
+ "source": {
+  "title": "atis menu pages with nutrition (atis.life/bowls-plates-sides and atis.life/wraps: curated bowls, plates, wraps and side pots), read 11 October 2026",
+  "url": "https://atis.life/bowls-plates-sides",
+  "checkedOn": "2026-10-11"
+ },
+ "note": "Calories, protein, carbs and fat per dish as printed on atis's menu pages, including the dressing (a regular dressing pot). Only the curated dishes are listed: build-your-own bowls and drinks publish their figures in PDF guides only. Allergens are not shown here.",
+ "categories": [
+  "Essentials Edit",
+  "Power Plates",
+  "Salad Bowls",
+  "Wraps",
+  "Side Pots"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-jalapeno-taco",
+   "name": "Chicken Jalapeno Taco",
+   "category": "Essentials Edit",
+   "serving": "",
+   "nutrients": {
+    "calories": 724,
+    "protein": 31,
+    "carbs": 24,
+    "fat": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackened-chicken-avo",
+   "name": "Blackened Chicken Avo",
+   "category": "Essentials Edit",
+   "serving": "",
+   "nutrients": {
+    "calories": 757,
+    "protein": 31,
+    "carbs": 11,
+    "fat": 62
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "high-steaks",
+   "name": "High Steaks",
+   "category": "Power Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 735,
+    "protein": 40,
+    "carbs": 33,
+    "fat": 49
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chipotle-chilli-salmon",
+   "name": "Chipotle Chilli Salmon",
+   "category": "Power Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 787,
+    "protein": 36,
+    "carbs": 22,
+    "fat": 42
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackened-chicken-grains",
+   "name": "Blackened Chicken Grains",
+   "category": "Power Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 877,
+    "protein": 43,
+    "carbs": 83,
+    "fat": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "satay-tofu-slaw",
+   "name": "Satay Tofu Slaw",
+   "category": "Power Plates",
+   "serving": "",
+   "nutrients": {
+    "calories": 846,
+    "protein": 31,
+    "carbs": 79,
+    "fat": 44
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "seiza-caesar",
+   "name": "Seiz’a Caesar",
+   "category": "Salad Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 296,
+    "protein": 15,
+    "carbs": 2,
+    "fat": 22
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-goddess",
+   "name": "Green Goddess",
+   "category": "Salad Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 331,
+    "protein": 14,
+    "carbs": 11,
+    "fat": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "double-crunch-thai",
+   "name": "Double Crunch Thai",
+   "category": "Salad Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 394,
+    "protein": 14,
+    "carbs": 19,
+    "fat": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "azteca",
+   "name": "Azteca",
+   "category": "Salad Bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 624,
+    "protein": 15,
+    "carbs": 21,
+    "fat": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blackened-chicken-ceasar",
+   "name": "Blackened Chicken Ceasar",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 568,
+    "protein": 33,
+    "carbs": 45,
+    "fat": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "lemon-herb-chicken-avo",
+   "name": "Lemon Herb Chicken Avo",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 585,
+    "protein": 24,
+    "carbs": 50,
+    "fat": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tahini-sweet-potato-avo",
+   "name": "Tahini Sweet Potato Avo",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 796,
+    "protein": 15,
+    "carbs": 82,
+    "fat": 46
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-satay-crunch",
+   "name": "Chicken Satay Crunch",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 570,
+    "protein": 30,
+    "carbs": 56,
+    "fat": 26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "herb-chicken-breast-pot",
+   "name": "Herb Chicken Breast Pot",
+   "category": "Side Pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 235,
+    "protein": 42,
+    "carbs": 4,
+    "fat": 4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tahini-greens-chickpeas",
+   "name": "Tahini Greens + Chickpeas",
+   "category": "Side Pots",
+   "serving": "",
+   "nutrients": {
+    "calories": 507,
+    "protein": 12,
+    "carbs": 13,
+    "fat": 40
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
