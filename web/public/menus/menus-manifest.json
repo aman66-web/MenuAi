@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011003828,
- "generatedAt": "2026-10-11T00:38:28Z",
+ "dataVersion": 20261011013604,
+ "generatedAt": "2026-10-11T01:36:04Z",
  "chains": [
   {
    "id": "abokado",
@@ -293,6 +293,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "booths-cafe",
+   "name": "Booths Café",
+   "cuisine": "Cafe",
+   "file": "chain-booths-cafe.json",
+   "sha256": "01bc89ca116f7c3c1dbad440dae701feee7c2281265f01dad397d0d98a14118b",
+   "contentHash": "2259fbf69b32159c1c0e4c90d3e22b45be522d3e1efae87e10eeb258c613c273",
+   "sample": false,
+   "itemCount": 79,
+   "checkedOn": "2026-10-11",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "boston-tea-party",
    "name": "Boston Tea Party",
    "cuisine": "Cafe",
@@ -443,6 +455,17 @@
    "sample": false,
    "itemCount": 601,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "buy-and-bite",
+   "name": "Buy & Bite",
+   "cuisine": "Asian",
+   "file": "chain-buy-and-bite.json",
+   "sha256": "1f7e399bdae06be68164f83a005430e3f16ac3c2dbd98f01ab236ca52dd75f98",
+   "contentHash": "44e3f77161393564f6e1b96a53e7723b03e634b564d0fc7ff37bb9cf73109dc4",
+   "sample": false,
+   "itemCount": 42,
+   "checkedOn": "2026-10-11"
   },
   {
    "id": "buzz-bingo",
@@ -1007,6 +1030,18 @@
    "sample": false,
    "itemCount": 236,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "goals-soccer-centres",
+   "name": "Goals",
+   "cuisine": "Bar & Kitchen",
+   "file": "chain-goals-soccer-centres.json",
+   "sha256": "ba73aca46d3ce8e2add96dbb63d70389cd1a0db9191c6bcbd2044f20036854c7",
+   "contentHash": "f0786c12119073ef8e8d1bbedcc8a91de10576bb87cf68b24c886561fa2c04e7",
+   "sample": false,
+   "itemCount": 19,
+   "checkedOn": "2026-10-11",
    "nutritionLevel": "calories"
   },
   {
@@ -2476,6 +2511,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "ba449143ab0d923606aea2441fe91df91e3fa70f07504b43d03be8cedcfb2391"
+  "sha256": "72bf04289eeccd605129875694ccc11404dd299992ca7fe899e4234a2c5b752a"
  }
 }

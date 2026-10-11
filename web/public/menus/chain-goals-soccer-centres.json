@@ -1,0 +1,315 @@
+{
+ "schemaVersion": 1,
+ "id": "goals-soccer-centres",
+ "name": "Goals",
+ "cuisine": "Bar & Kitchen",
+ "builderType": "standard",
+ "aliases": [
+  "goals",
+  "goals soccer centre",
+  "goals soccer centres",
+  "goals football",
+  "goals football centre",
+  "goals football centres"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Goals food menu (table-talker PDF fb-dl-table-talker-designs-v4, created 12 January 2026)",
+  "url": "https://cdn.goalsfootball.co.uk/media/zyue2gmn/fb-dl-table-talker-designs-v4.pdf",
+  "checkedOn": "2026-10-11"
+ },
+ "nutritionLevel": "calories",
+ "note": "Goals prints calories only, on one menu for all its clubs, and says not every item is stocked at every club. Calories are for the whole dish as listed (each pizza is a whole 12-inch Chicago Town pizza). Drinks print no calories and are not listed.",
+ "categories": [
+  "Burgers & hot dogs",
+  "Filled rolls",
+  "Chicken & wings",
+  "Sides",
+  "Pizza"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "quarter-pounder-with-cheese",
+   "name": "Quarter Pounder With Cheese",
+   "category": "Burgers & hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 749
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "quarter-pounder-with-cheese-and-fries",
+   "name": "Quarter Pounder With Cheese & Fries",
+   "category": "Burgers & hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 1159
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-goujon-burger",
+   "name": "Chicken Goujon Burger",
+   "category": "Burgers & hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 456
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-goujon-burger-and-fries",
+   "name": "Chicken Goujon Burger & Fries",
+   "category": "Burgers & hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 948
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-hotdog",
+   "name": "5\" Hotdog",
+   "category": "Burgers & hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 269
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "5-hotdog-with-fries",
+   "name": "5\" Hotdog With Fries",
+   "category": "Burgers & hot dogs",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-filled-roll",
+   "name": "Sausage Filled Roll",
+   "category": "Filled rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 605
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bacon-filled-roll",
+   "name": "Bacon Filled Roll",
+   "category": "Filled rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 409
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sausage-and-bacon-filled-roll",
+   "name": "Sausage & Bacon Filled Roll",
+   "category": "Filled rolls",
+   "serving": "",
+   "nutrients": {
+    "calories": 741
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-strips-3",
+   "name": "Chicken Strips (3)",
+   "category": "Chicken & wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 314
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-strips-5",
+   "name": "Chicken Strips (5)",
+   "category": "Chicken & wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 523
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-buffalo-chicken-wings-8",
+   "name": "Spicy Buffalo Chicken Wings (8)",
+   "category": "Chicken & wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 821
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-wings-4-and-chicken-strips-3",
+   "name": "Chicken Wings (4) & Chicken Strips (3)",
+   "category": "Chicken & wings",
+   "serving": "",
+   "nutrients": {
+    "calories": 725
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "french-fries",
+   "name": "French Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 492
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cheesy-fries",
+   "name": "Cheesy Fries",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 792
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "doritos-nachos",
+   "name": "Doritos Nachos",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 679
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicago-town-12-4-cheese-pizza",
+   "name": "Chicago Town 12\" 4 Cheese Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1437
+   },
+   "tags": [
+    "vegetarian"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicago-town-12-stuffed-crust-pepperoni-pizza",
+   "name": "Chicago Town 12\" Stuffed Crust Pepperoni Pizza",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1742
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicago-town-12-bbq-magnificent-meat-feast",
+   "name": "Chicago Town 12\" BBQ Magnificent Meat Feast",
+   "category": "Pizza",
+   "serving": "",
+   "nutrients": {
+    "calories": 1796
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

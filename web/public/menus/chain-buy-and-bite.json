@@ -1,0 +1,748 @@
+{
+ "schemaVersion": 1,
+ "id": "buy-and-bite",
+ "name": "Buy & Bite",
+ "cuisine": "Asian",
+ "builderType": "standard",
+ "aliases": [
+  "buy & bite",
+  "buy and bite",
+  "buy&bite",
+  "buyandbite",
+  "buy bite"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Buy & Bite Nutrition Guide (PDF created 3 October 2025)",
+  "url": "https://www.buyandbite.co.uk/_files/ugd/88035e_3b02e06dfeee4c43a4902f6be64b120c.pdf",
+  "checkedOn": "2026-10-11"
+ },
+ "note": "Buy & Bite prints calories, fat, carbs and protein for each dish in one guide for all three of its sites (no salt, sugar or saturated fat). Dishes whose figures repeat another dish's, or cannot add up, are not published.",
+ "categories": [
+  "Omurice",
+  "Rice bowls",
+  "Noodle bowls",
+  "Crunchy wraps",
+  "Loaded waffle fries",
+  "Bao buns & snacks",
+  "Sweet treats"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "green-curry-tofu-omurice",
+   "name": "Green Curry Tofu Omurice",
+   "category": "Omurice",
+   "serving": "",
+   "nutrients": {
+    "calories": 1060,
+    "protein": 35,
+    "carbs": 88,
+    "fat": 61
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-chicken-curry-omurice",
+   "name": "Katsu Chicken Curry Omurice",
+   "category": "Omurice",
+   "serving": "",
+   "nutrients": {
+    "calories": 964,
+    "protein": 38,
+    "carbs": 71,
+    "fat": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-curry-chicken-omurice",
+   "name": "Green Curry Chicken Omurice",
+   "category": "Omurice",
+   "serving": "",
+   "nutrients": {
+    "calories": 978,
+    "protein": 42,
+    "carbs": 70,
+    "fat": 57
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-curry-chicken-rice-bowl",
+   "name": "Green Curry Chicken Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 709,
+    "protein": 28,
+    "carbs": 90,
+    "fat": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-chicken-curry-rice-bowl",
+   "name": "Katsu Chicken Curry Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 608,
+    "protein": 24,
+    "carbs": 74,
+    "fat": 24
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "green-curry-tofu-rice-bowl",
+   "name": "Green Curry Tofu Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 790,
+    "protein": 21,
+    "carbs": 108,
+    "fat": 28
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-korean-chicken-rice-bowl",
+   "name": "Spicy Korean Chicken Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 495,
+    "protein": 26,
+    "carbs": 75,
+    "fat": 9.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-chicken-rice-bowl",
+   "name": "Sweet & Sour Chicken Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 672,
+    "protein": 21,
+    "carbs": 113,
+    "fat": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-tofu-rice-bowl",
+   "name": "Sweet & Sour Tofu Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 700,
+    "protein": 18,
+    "carbs": 125,
+    "fat": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "katsu-tofu-curry-rice-bowl",
+   "name": "Katsu Tofu Curry Rice Bowl",
+   "category": "Rice bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 581,
+    "protein": 17,
+    "carbs": 84,
+    "fat": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-spicy-chicken-noodle-bowl",
+   "name": "Korean Spicy Chicken Noodle Bowl",
+   "category": "Noodle bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 620,
+    "protein": 32,
+    "carbs": 64,
+    "fat": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-tofu-noodle-bowl",
+   "name": "Teriyaki Tofu Noodle Bowl",
+   "category": "Noodle bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 690,
+    "protein": 23,
+    "carbs": 85,
+    "fat": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-spicy-tofu-noodle-bowl",
+   "name": "Korean Spicy Tofu Noodle Bowl",
+   "category": "Noodle bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 642,
+    "protein": 23,
+    "carbs": 74,
+    "fat": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-chicken-noodle-salad",
+   "name": "Crispy Chicken Noodle Salad",
+   "category": "Noodle bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 511,
+    "protein": 26,
+    "carbs": 40,
+    "fat": 26
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-tofu-noodle-salad",
+   "name": "Crispy Tofu Noodle Salad",
+   "category": "Noodle bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 471,
+    "protein": 19,
+    "carbs": 49,
+    "fat": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-chicken-noodle-salad",
+   "name": "Miso Chicken Noodle Salad",
+   "category": "Noodle bowls",
+   "serving": "",
+   "nutrients": {
+    "calories": 402,
+    "protein": 26,
+    "carbs": 33,
+    "fat": 17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-sauce-tofu-wrap",
+   "name": "Korean Sauce Tofu Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 380,
+    "protein": 21,
+    "carbs": 49,
+    "fat": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-sauce-chicken-wrap",
+   "name": "Korean Sauce Chicken Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 501,
+    "protein": 19,
+    "carbs": 62,
+    "fat": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "korean-sauce-prawn-wrap",
+   "name": "Korean Sauce Prawn Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 318,
+    "protein": 20,
+    "carbs": 47,
+    "fat": 6.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sriracha-mayo-tofu-wrap",
+   "name": "Sriracha Mayo Tofu Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 417,
+    "protein": 20,
+    "carbs": 42,
+    "fat": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sriracha-mayo-chicken-wrap",
+   "name": "Sriracha Mayo Chicken Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 538,
+    "protein": 19,
+    "carbs": 55,
+    "fat": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sriracha-mayo-prawn-wrap",
+   "name": "Sriracha Mayo Prawn Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 355,
+    "protein": 20,
+    "carbs": 40,
+    "fat": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-tofu-wrap",
+   "name": "Teriyaki Tofu Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 425,
+    "protein": 20,
+    "carbs": 44,
+    "fat": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-chicken-wrap",
+   "name": "Teriyaki Chicken Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 547,
+    "protein": 19,
+    "carbs": 57,
+    "fat": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-prawn-wrap",
+   "name": "Teriyaki Prawn Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 20,
+    "carbs": 42,
+    "fat": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce-tofu-wrap",
+   "name": "BBQ Sauce Tofu Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 370,
+    "protein": 20,
+    "carbs": 47,
+    "fat": 13
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce-chicken-wrap",
+   "name": "BBQ Sauce Chicken Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 491,
+    "protein": 19,
+    "carbs": 60,
+    "fat": 20
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce-prawn-wrap",
+   "name": "BBQ Sauce Prawn Wrap",
+   "category": "Crunchy wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 308,
+    "protein": 20,
+    "carbs": 45,
+    "fat": 6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-waffle-fries",
+   "name": "BBQ Waffle Fries",
+   "category": "Loaded waffle fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 593,
+    "protein": 6,
+    "carbs": 81,
+    "fat": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tartar-sauce-fries",
+   "name": "Tartar Sauce Fries",
+   "category": "Loaded waffle fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 599,
+    "protein": 7,
+    "carbs": 76,
+    "fat": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "curry-fries",
+   "name": "Curry Fries",
+   "category": "Loaded waffle fries",
+   "serving": "",
+   "nutrients": {
+    "calories": 586,
+    "protein": 6,
+    "carbs": 76,
+    "fat": 30
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-korean-bao",
+   "name": "Spicy Korean Bao",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 364,
+    "protein": 16,
+    "carbs": 41,
+    "fat": 14
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "crispy-shrimp-bao",
+   "name": "Crispy Shrimp Bao",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 348,
+    "protein": 8.1,
+    "carbs": 38,
+    "fat": 18
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "roasted-chicken-bao",
+   "name": "Roasted Chicken Bao",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 356,
+    "protein": 14,
+    "carbs": 40,
+    "fat": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "gyozas-chicken-and-veg",
+   "name": "Gyozas (Chicken & Veg)",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 309,
+    "protein": 10,
+    "carbs": 29,
+    "fat": 17
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-karaage",
+   "name": "Chicken Karaage",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 411,
+    "protein": 8.6,
+    "carbs": 22,
+    "fat": 32
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "teriyaki-octopus-balls",
+   "name": "Teriyaki Octopus Balls",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 231,
+    "protein": 4.6,
+    "carbs": 20,
+    "fat": 15
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "miso-mushroom",
+   "name": "Miso Mushroom",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 81,
+    "protein": 3.3,
+    "carbs": 9.7,
+    "fat": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "asian-slaw",
+   "name": "Asian Slaw",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 99,
+    "protein": 2.7,
+    "carbs": 5,
+    "fat": 6.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "edamame-pot",
+   "name": "Edamame Pot",
+   "category": "Bao buns & snacks",
+   "serving": "",
+   "nutrients": {
+    "calories": 52,
+    "protein": 4.8,
+    "carbs": 1.6,
+    "fat": 2.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-balls",
+   "name": "Sweet Potato Balls",
+   "category": "Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 291,
+    "protein": 1.7,
+    "carbs": 48,
+    "fat": 10
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mochi",
+   "name": "Mochi",
+   "category": "Sweet treats",
+   "serving": "",
+   "nutrients": {
+    "calories": 250,
+    "protein": 3.5,
+    "carbs": 58,
+    "fat": 1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}
