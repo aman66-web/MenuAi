@@ -902,6 +902,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   browse 9, calories 4, recipes 13, groceries 6, groceries-all 6, compare 8, photos 4, diet 5, languages 5, a11y 0 violations, no overflow at 200% text;
   screenshots of Eat out, favourites, a restaurant, Recipes and the Tesco catalogue in light, dark and extra-large text.
 
+- 2026-10-11 (afternoon) — **224 chains live: three more restaurants** (founder: "get another agent to also add more restaurants"; added by a helper in its own
+  worktree, merged here; details in docs/UK_DATA_STATUS.md "Added 11 October (afternoon)"): **The Chapter Collection** (163 dishes, full nutrition and allergens,
+  6 Stonegate pubs; 9 held back where the chain's own figures contradict each other), **Chef & Brewer** (204, calories only, the same figures at all 138 pubs' own
+  menu feeds) and **Morrisons Café** (114, calories only, the café's own England and Wales menu; 8 breakfast dishes whose Scottish recipe prints other calories
+  under the same name are left out). Each passed check_chain with 0 errors and 0 high audit flags and had an independent re-read; logos from each chain's own site.
+  No alcoholic drinks were added (founder's rule of 11 October; 0% drinks stay). Checked and not added: Fazenda/Fogo de Chão, Roti UK, Carl's Jr UK, Imperial Hotels,
+  Marston's, Metropolitan Pub Co; blocked: Pesto, Old English Inns, Coffee Republic. The reachable pool is close to exhausted.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
