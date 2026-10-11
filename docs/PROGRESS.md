@@ -951,7 +951,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   supermarkets is one column on phones (no more "Sainsb ury's"); (5) empty states have a real icon (basket, map pin, search) and body-size text. New copy (rule 8,
   logged here; translated into the 10 languages by AI): every compare string ("Compare", "Compare products", "Compare dishes", "In your comparison", "Side by side",
   "Highest", "Lowest", "Protein for £1", "Price per kg", the basis lines, the empty-state and footer sentences), "What {chain} says", the Clear data sentence (adds
-  "what you picked to compare"). Checked: 460 unit, tsc, lint, e2e compare 3, groceries-all 7, groceries 6, compare(shops) 8, photos 4, diet 5, recipes 13,
+  "what you picked to compare"); **approved by the founder the same evening ("Yes that's ok")**. Checked: 460 unit, tsc, lint, e2e compare 3, groceries-all 7, groceries 6, compare(shops) 8, photos 4, diet 5, recipes 13,
   smoke 23, extra 12, browse 9, calories 4, languages 5, offline 13, a11y 0 violations (incl. the comparison and the opened halal quote), no overflow at 200% text
   (incl. both compare tabs and KFC's page); screenshots in light and dark.
 
