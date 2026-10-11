@@ -1,0 +1,1 @@
+Goals prints calories only, on one menu for all its clubs, and says not every item is stocked at every club. Calories are for the whole dish as listed (each pizza is a whole 12-inch Chicago Town pizza). Drinks print no calories and are not listed.

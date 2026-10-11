@@ -1,0 +1,50 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+green-curry-tofu-omurice,Green Curry Tofu Omurice,Omurice,,1060,35,88,61,,,,,,,,,,,,,false,true,,,Printed 'Green Curry Tofu' under OMURICE
+katsu-chicken-curry-omurice,Katsu Chicken Curry Omurice,Omurice,,964,38,71,57,,,,,,,,,,,,,false,true,,,Printed 'Katsu Chicken Curry' under OMURICE
+green-curry-chicken-omurice,Green Curry Chicken Omurice,Omurice,,978,42,70,57,,,,,,,,,,,,,false,true,,,Printed 'Green Curry Chicken' under OMURICE
+katsu-crispy-shrimp-curry-omurice,Katsu Crispy Shrimp Curry Omurice,Omurice,,869,31,76,48,,,,,,,,,,,,,false,true,,,Printed 'Katsu Crispy Shrimp Curry' under OMURICE
+sweet-and-sour-chicken-omurice,Sweet & Sour Chicken Omurice,Omurice,,848,38,72,44,,,,,,,,,,,,,false,true,,,Printed 'Sweet & Sour Chicken' under OMURICE
+teriyaki-chicken-omurice,Teriyaki Chicken Omurice,Omurice,,848,38,72,44,,,,,,,,,,,,,false,true,,,Printed 'Teriyaki Chicken' under OMURICE
+green-curry-chicken-rice-bowl,Green Curry Chicken Rice Bowl,Rice bowls,,709,28,90,25,,,,,,,,,,,,,false,true,,,Printed 'Green Curry Chicken' under RICE BOWLS
+katsu-chicken-curry-rice-bowl,Katsu Chicken Curry Rice Bowl,Rice bowls,,608,24,74,24,,,,,,,,,,,,,false,true,,,Printed 'Katsu Chicken Curry' under RICE BOWLS
+green-curry-tofu-rice-bowl,Green Curry Tofu Rice Bowl,Rice bowls,,790,21,108,28,,,,,,,,,,,,,false,true,,,Printed 'Green Curry Tofu' under RICE BOWLS
+katsu-crispy-shrimp-curry-rice-bowl,Katsu Crispy Shrimp Curry Rice Bowl,Rice bowls,,869,31,76,48,,,,,,,,,,,,,false,true,,,Printed 'Katsu Crispy Shrimp Curry' under RICE BOWLS
+spicy-korean-chicken-rice-bowl,Spicy Korean Chicken Rice Bowl,Rice bowls,,495,26,75,9.4,,,,,,,,,,,,,false,true,,,Printed 'Spicy Korean Chicken' under RICE BOWLS
+sweet-and-sour-chicken-rice-bowl,Sweet & Sour Chicken Rice Bowl,Rice bowls,,672,21,113,14,,,,,,,,,,,,,false,true,,,Printed 'Sweet & Sour Chicken' under RICE BOWLS
+sweet-and-sour-tofu-rice-bowl,Sweet & Sour Tofu Rice Bowl,Rice bowls,,700,18,125,13,,,,,,,,,,,,,false,true,,,Printed 'Sweet & Sour Tofu' under RICE BOWLS
+katsu-tofu-curry-rice-bowl,Katsu Tofu Curry Rice Bowl,Rice bowls,,581,17,84,18,,,,,,,,,,,,,false,true,,,Printed 'Katsu Tofu Curry' under RICE BOWLS
+miso-roasted-chicken-noodle-bowl,Miso Roasted Chicken Noodle Bowl,Noodle bowls,,560,30,5.7,23,,,,,,,,,,,,,false,true,,,Printed 'Miso Roasted Chicken' under NOODLE BOWLS
+korean-spicy-chicken-noodle-bowl,Korean Spicy Chicken Noodle Bowl,Noodle bowls,,620,32,64,25,,,,,,,,,,,,,false,true,,,Printed 'Korean Spicy Chicken' under NOODLE BOWLS
+teriyaki-tofu-noodle-bowl,Teriyaki Tofu Noodle Bowl,Noodle bowls,,690,23,85,27,,,,,,,,,,,,,false,true,,,Printed 'Teriyaki Tofu' under NOODLE BOWLS
+korean-spicy-tofu-noodle-bowl,Korean Spicy Tofu Noodle Bowl,Noodle bowls,,642,23,74,27,,,,,,,,,,,,,false,true,,,Printed 'Korean Spicy Tofu' under NOODLE BOWLS
+teriyaki-chicken-noodle-bowl,Teriyaki Chicken Noodle Bowl,Noodle bowls,,570,28,5.6,22,,,,,,,,,,,,,false,true,,,Printed 'Teriyaki Chicken' under NOODLE BOWLS
+crispy-chicken-noodle-salad,Crispy Chicken Noodle Salad,Noodle bowls,,511,26,40,26,,,,,,,,,,,,,false,true,,,Printed 'Crispy Chicken Noodle Salad' under NOODLE BOWLS
+crispy-tofu-noodle-salad,Crispy Tofu Noodle Salad,Noodle bowls,,471,19,49,20,,,,,,,,,,,,,false,true,,,Printed 'Crispy Tofu Noodle Salad' under NOODLE BOWLS
+miso-chicken-noodle-salad,Miso Chicken Noodle Salad,Noodle bowls,,402,26,33,17,,,,,,,,,,,,,false,true,,,Printed 'Miso Chicken Noodle Salad' under NOODLE BOWLS
+korean-sauce-tofu-wrap,Korean Sauce Tofu Wrap,Crunchy wraps,,380,21,49,13,,,,,,,,,,,,,false,true,,,Printed 'Korean Sauce Tofu Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+korean-sauce-chicken-wrap,Korean Sauce Chicken Wrap,Crunchy wraps,,501,19,62,20,,,,,,,,,,,,,false,true,,,Printed 'Chicken Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+korean-sauce-prawn-wrap,Korean Sauce Prawn Wrap,Crunchy wraps,,318,20,47,6.5,,,,,,,,,,,,,false,true,,,Printed 'Prawn Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+sriracha-mayo-tofu-wrap,Sriracha Mayo Tofu Wrap,Crunchy wraps,,417,20,42,20,,,,,,,,,,,,,false,true,,,Printed 'Sriracha Mayo Tofu Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+sriracha-mayo-chicken-wrap,Sriracha Mayo Chicken Wrap,Crunchy wraps,,538,19,55,27,,,,,,,,,,,,,false,true,,,Printed 'Chicken Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+sriracha-mayo-prawn-wrap,Sriracha Mayo Prawn Wrap,Crunchy wraps,,355,20,40,14,,,,,,,,,,,,,false,true,,,Printed 'Prawn Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+teriyaki-tofu-wrap,Teriyaki Tofu Wrap,Crunchy wraps,,425,20,44,20,,,,,,,,,,,,,false,true,,,Printed 'Teriyaki Tofu Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+teriyaki-chicken-wrap,Teriyaki Chicken Wrap,Crunchy wraps,,547,19,57,27,,,,,,,,,,,,,false,true,,,Printed 'Chicken Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+teriyaki-prawn-wrap,Teriyaki Prawn Wrap,Crunchy wraps,,364,20,42,14,,,,,,,,,,,,,false,true,,,Printed 'Prawn Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+bbq-sauce-tofu-wrap,BBQ Sauce Tofu Wrap,Crunchy wraps,,370,20,47,13,,,,,,,,,,,,,false,true,,,Printed 'BBQ Sauce Tofu Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+bbq-sauce-chicken-wrap,BBQ Sauce Chicken Wrap,Crunchy wraps,,491,19,60,20,,,,,,,,,,,,,false,true,,,Printed 'Chicken Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+bbq-sauce-prawn-wrap,BBQ Sauce Prawn Wrap,Crunchy wraps,,308,20,45,6,,,,,,,,,,,,,false,true,,,Printed 'Prawn Wrap' under CRUNCHY WRAPS; sauce taken from the row's first (bold) name
+bbq-waffle-fries,BBQ Waffle Fries,Loaded waffle fries,,593,6,81,27,,,,,,,,,,,,,false,true,,,Printed 'BBQ Waffle Fries' under LOADED WAFFLE FRIES
+tartar-sauce-fries,Tartar Sauce Fries,Loaded waffle fries,,599,7,76,30,,,,,,,,,,,,,false,true,,,Printed 'Tartar Sauce Fries' under LOADED WAFFLE FRIES
+curry-fries,Curry Fries,Loaded waffle fries,,586,6,76,30,,,,,,,,,,,,,false,true,,,Printed 'Curry Fries' under LOADED WAFFLE FRIES
+spicy-korean-bao,Spicy Korean Bao,Bao buns & snacks,,364,16,41,14,,,,,,,,,,,,,false,false,,,Printed 'Spicy Korean Bao' under BAO BUNS & SNACKS
+crispy-shrimp-bao,Crispy Shrimp Bao,Bao buns & snacks,,348,8.1,38,18,,,,,,,,,,,,,false,false,,,Printed 'Crispy Shrimp Bao' under BAO BUNS & SNACKS
+roasted-chicken-bao,Roasted Chicken Bao,Bao buns & snacks,,356,14,40,15,,,,,,,,,,,,,false,false,,,Printed 'Roasted Chicken Bao' under BAO BUNS & SNACKS
+crispy-shrimp-tempura,Crispy Shrimp Tempura,Bao buns & snacks,,869,31,76,48,,,,,,,,,,,,,false,false,,,Printed 'Crispy Shrimp Tempura' under BAO BUNS & SNACKS
+gyozas-chicken-and-veg,Gyozas (Chicken & Veg),Bao buns & snacks,,309,10,29,17,,,,,,,,,,,,,false,false,,,Printed 'Gyozas (Chicken & Veg)' under BAO BUNS & SNACKS
+chicken-karaage,Chicken Karaage,Bao buns & snacks,,411,8.6,22,32,,,,,,,,,,,,,false,false,,,Printed 'Chicken Karaage' under BAO BUNS & SNACKS
+teriyaki-octopus-balls,Teriyaki Octopus Balls,Bao buns & snacks,,231,4.6,20,15,,,,,,,,,,,,,false,false,,,Printed 'Teriyaki Octopus Balls' under BAO BUNS & SNACKS
+miso-mushroom,Miso Mushroom,Bao buns & snacks,,81,3.3,9.7,3.5,,,,,,,,,,,,,false,false,,,Printed 'Miso Mushroom' under BAO BUNS & SNACKS
+asian-slaw,Asian Slaw,Bao buns & snacks,,99,2.7,5.0,6.9,,,,,,,,,,,,,false,false,,,Printed 'Asian Slaw' under BAO BUNS & SNACKS
+edamame-pot,Edamame Pot,Bao buns & snacks,,52,4.8,1.6,2.4,,,,,,,,,,,,,false,false,,,Printed 'Edamame Pot' under BAO BUNS & SNACKS
+sweet-potato-balls,Sweet Potato Balls,Sweet treats,,291,1.7,48,10,,,,,,,,,,,,,false,false,,,Printed 'Sweet Potato Balls' under SWEET TREATS
+mochi,Mochi,Sweet treats,,250,3.5,58,1.0,,,,,,,,,,,,,false,false,,,Printed 'Mochi' under SWEET TREATS

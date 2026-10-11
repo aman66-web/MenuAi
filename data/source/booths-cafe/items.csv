@@ -1,0 +1,80 @@
+id,name,category,serving,calories,protein_g,carbs_g,fat_g,sat_fat_g,sodium_mg,salt_g,sugar_g,fiber_g,energy_kj,weight_g,mono_fat_g,poly_fat_g,trans_fat_g,caffeine_mg,tags,limited_time,rankable,components,added_on,notes
+bacon-breakfast-sandwich,Bacon Breakfast Sandwich,Breakfast sandwiches,,503,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'BACON' 503kcal on page 3; Served on a white or brown roll
+sausage-breakfast-sandwich,Sausage Breakfast Sandwich,Breakfast sandwiches,,655,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'SAUSAGE' 655kcal on page 3; Served on a white or brown roll
+sauteed-mushrooms-smashed-avocado-and-tomato-breakfast-sandwich,"Sautéed Mushrooms, Smashed Avocado & Tomato Breakfast Sandwich",Breakfast sandwiches,,369,,,,,,,,,,,,,,,,false,false,,,"Printed 'SAUTÉED MUSHROOMS, SMASHED AVOCADO & TOMATO' 369kcal on page 3"
+booths-signature-breakfast,Booths Signature Breakfast,Speciality breakfasts,,1073,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'BOOTHS SIGNATURE BREAKFAST' 1073kcal on page 3; Two rashers of bacon, pork sausage, black pudding..."
+booths-vegetarian-breakfast,Booths Vegetarian Breakfast,Speciality breakfasts,,1366,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'BOOTHS VEGETARIAN BREAKFAST' 1366kcal on page 3
+halloumi-avocado-and-poached-eggs-on-toast,"Halloumi, Avocado & Poached Eggs on Toast",On toast,,931,,,,,,,,,,,,,,,,false,false,,,"Printed 'HALLOUMI, AVOCADO & POACHED EGGS' 931kcal on page 3"
+scrambled-egg-on-toast,Scrambled Egg on Toast,On toast,,912,,,,,,,,,,,,,,,,false,false,,,"Printed 'SCRAMBLED EGG' 912kcal on page 3; Printed 'SCRAMBLED EGG 912kcal' with no description, under On Toast; 912 is much higher than the smashed avocado on toast beside it (431) and the Little Scrambled Egg on Toast (455), as printed"
+smashed-avocado-and-vine-tomatoes-on-toast,Smashed Avocado & Vine Tomatoes on Toast,On toast,,431,,,,,,,,,,,,,,,,false,false,,,Printed 'SMASHED AVOCADO & VINE TOMATOES' 431kcal on page 3
+fruit-teacake,Fruit Teacake,From our bakery,,375,,,,,,,,,,,,,,,,false,false,,,Printed 'FRUIT TEACAKE' 375kcal on page 3
+2-crumpets,2 Crumpets,From our bakery,,298,,,,,,,,,,,,,,,,false,false,,,Printed '2 CRUMPETS' 298kcal on page 3
+2-slices-of-toast-thick-cut-white-bread,2 Slices of Toast (thick cut white bread),From our bakery,,390,,,,,,,,,,,,,,,,false,false,,,Printed 'Thick cut white bread' 390kcal on page 3; Printed under '2 SLICES OF TOAST'
+2-slices-of-toast-thick-cut-wholemeal-bread,2 Slices of Toast (thick cut wholemeal bread),From our bakery,,336,,,,,,,,,,,,,,,,false,false,,,Printed 'Thick cut wholemeal bread' 336kcal on page 3; Printed under '2 SLICES OF TOAST'
+2-slices-of-toast-thick-cut-sourdough-bread,2 Slices of Toast (thick cut sourdough bread),From our bakery,,341,,,,,,,,,,,,,,,,false,false,,,Printed 'Thick cut sourdough bread' 341kcal on page 3; Printed under '2 SLICES OF TOAST'
+thursday-cottage-strawberry-jam,Thursday Cottage Strawberry Jam,From our bakery,,99,,,,,,,,,,,,,,,,false,false,,,Printed 'Strawberry jam' 99kcal on page 3; Printed under 'THURSDAY COTTAGE PRESERVES' (60p)
+thursday-cottage-blood-orange-marmalade,Thursday Cottage Blood Orange Marmalade,From our bakery,,100,,,,,,,,,,,,,,,,false,false,,,Printed 'Blood orange marmalade' 100kcal on page 3; Printed under 'THURSDAY COTTAGE PRESERVES' (60p)
+granola-with-seasonal-fruits,Granola with Seasonal Fruits,Fruit bowls,,376,,,,,,,,,,,,,,,,false,false,,,Printed 'GRANOLA WITH SEASONAL FRUITS' 376kcal on page 3
+fruit-salad,Fruit Salad,Fruit bowls,,110,,,,,,,,,,,,,,,,false,false,,,Printed 'FRUIT SALAD' 110kcal on page 3
+chicken-caesar-wrap,Chicken Caesar Wrap,Sandwiches & wraps,,653,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'CHICKEN CAESAR' 653kcal on page 4; British chicken breast, bacon, Caesar mayonnaise and lettuce, on a soft wrap"
+hot-smoked-salmon-sandwich,Hot Smoked Salmon Sandwich,Sandwiches & wraps,,549,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT SMOKED SALMON' 549kcal on page 4; On soft rye bread
+prawn-and-marie-rose-sauce-sandwich,Prawn & Marie Rose Sauce Sandwich,Sandwiches & wraps,,721,,,,,,,,,,,,,,,,false,false,,,Printed 'PRAWN & MARIE ROSE SAUCE' 721kcal on page 4; On harvester bread
+egg-mayonnaise-sandwich,Egg Mayonnaise Sandwich,Sandwiches & wraps,,793,,,,,,,,,,,,,,,,false,false,,,Printed 'EGG MAYONNAISE' 793kcal on page 4; On harvester bread
+fish-finger-sandwich,Fish Finger Sandwich,Hot sandwiches,,877,,,,,,,,,,,,,,,,false,false,,,Printed 'FISH FINGER SANDWICH' 877kcal on page 4
+ham-and-lancashire-cheese,Ham & Lancashire Cheese,Hot sandwiches,,846,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'HAM & LANCASHIRE CHEESE' 846kcal on page 4; Roast ham; on toasted thick cut white bread
+sausage-and-lancashire-cheese-toastie,Sausage & Lancashire Cheese Toastie,Hot sandwiches,,907,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'SAUSAGE & LANCASHIRE CHEESE TOASTIE' 907kcal on page 4; Booths pork sausage
+three-cheese-on-toast,Three Cheese on Toast,Hot sandwiches,,752,,,,,,,,,,,,,,,,false,false,,,Printed 'THREE CHEESE ON TOAST' 752kcal on page 4
+booths-french-fries,Booths French Fries,Sides,,346,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS FRENCH FRIES' 346kcal on page 4
+booths-chunky-chips,Booths Chunky Chips,Sides,,262,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS CHUNKY CHIPS' 262kcal on page 4
+margherita-pizza,Margherita Pizza,Pizzas,,626,,,,,,,,,,,,,,,,false,false,,,Printed 'MARGHERITA' 626kcal on page 5
+chorizo-nduja-and-hot-honey-pizza,"Chorizo, ‘Nduja & Hot Honey Pizza",Pizzas,,737,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'CHORIZO, ‘NDUJA & HOT HONEY' 737kcal on page 5; Smoky chorizo and spicy 'Nduja"
+booths-butchers-chilli-con-carne-jacket-potato,Booths Butchers Chilli Con Carne Jacket Potato,Jacket potatoes,,831,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS BUTCHERS CHILLI CON CARNE' 831kcal on page 5; Meat type not stated
+prawn-and-marie-rose-sauce-jacket-potato,Prawn & Marie Rose Sauce Jacket Potato,Jacket potatoes,,759,,,,,,,,,,,,,,,,false,false,,,Printed 'PRAWN & MARIE ROSE SAUCE' 759kcal on page 5
+booths-special-reserve-tasty-lancashire-cheese-jacket-potato,Booths Special Reserve Tasty Lancashire Cheese Jacket Potato,Jacket potatoes,,753,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS SPECIAL RESERVE TASTY LANCASHIRE CHEESE' 753kcal on page 5
+baked-beans-jacket-potato,Baked Beans Jacket Potato,Jacket potatoes,,708,,,,,,,,,,,,,,,,false,false,,,Printed 'BAKED BEANS' 708kcal on page 5
+ham-egg-and-chips,"Ham, Egg & Chips",Main meals,,725,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'HAM, EGG & CHIPS' 725kcal on page 5; British roast ham"
+cottage-pie,Cottage Pie,Main meals,,444,,,,,,,,,,,,,,,,false,false,,,Printed 'COTTAGE PIE' 444kcal on page 5; Meat type not stated
+prawn-and-marie-rose-sauce-salad,Prawn & Marie Rose Sauce Salad,Salads,,293,,,,,,,,,,,,,,,,false,false,,,Printed 'PRAWN & MARIE ROSE SAUCE' 293kcal on page 5
+goats-cheese-salad,Goat's Cheese Salad,Salads,,363,,,,,,,,,,,,,,,,false,false,,,Printed 'GOAT'S CHEESE' 363kcal on page 5
+woodland-mushroom-soup,Woodland Mushroom Soup,Soups,,375,,,,,,,,,,,,,,,,false,false,,,Printed 'WOODLAND MUSHROOM' 375kcal on page 5
+fragrant-spiced-lentil-soup,Fragrant Spiced Lentil Soup,Soups,,573,,,,,,,,,,,,,,,,false,false,,,Printed 'FRAGRANT SPICED LENTIL' 573kcal on page 5
+little-breakfast,Little Breakfast,Little breakfasts,,683,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'LITTLE BREAKFAST' 683kcal on page 6; Bacon, pork sausage, scrambled egg, hash brown and baked beans, with toast"
+little-vegetarian-breakfast,Little Vegetarian Breakfast,Little breakfasts,,805,,,,,,,,,,,,,,,vegetarian,false,false,,,Printed 'LITTLE VEGETARIAN BREAKFAST' 805kcal on page 6
+little-scrambled-egg-on-toast,Little Scrambled Egg on Toast,Little breakfasts,,455,,,,,,,,,,,,,,,,false,false,,,Printed 'SCRAMBLED EGG ON TOAST' 455kcal on page 6
+little-cheesy-beans-on-toast,Little Cheesy Beans on Toast,Little breakfasts,,345,,,,,,,,,,,,,,,,false,false,,,Printed 'CHEESY BEANS ON TOAST' 345kcal on page 6
+little-smashed-avocado-on-toast,Little Smashed Avocado on Toast,Little breakfasts,,238,,,,,,,,,,,,,,,,false,false,,,Printed 'SMASHED AVOCADO ON TOAST' 238kcal on page 6
+little-sausage-and-chips,Little Sausage & Chips,Little meals,,418,,,,,,,,,,,,,,,contains_pork,false,false,,,"Printed 'SAUSAGE & CHIPS' 418kcal on page 6; 2 pork sausages and French fries, with baked beans"
+little-fish-fingers-and-chips,Little Fish Fingers & Chips,Little meals,,325,,,,,,,,,,,,,,,,false,false,,,"Printed 'FISH FINGERS & CHIPS' 325kcal on page 6; 2 fish fingers and French fries, with baked beans"
+little-houmous-carrot-and-cucumber-sticks,"Little Houmous, Carrot & Cucumber Sticks",Little snacks,,193,,,,,,,,,,,,,,,,false,false,,,"Printed 'HOUMOUS, CARROT & CUCUMBER STICKS' 193kcal on page 6"
+little-fruit-salad,Little Fruit Salad,Little snacks,,55,,,,,,,,,,,,,,,,false,false,,,Printed 'FRUIT SALAD' 55kcal on page 6
+little-french-fries,Little French Fries,Little snacks,,115,,,,,,,,,,,,,,,,false,false,,,Printed 'FRENCH FRIES' 115kcal on page 6
+little-three-cheese-on-toast,Little Three Cheese on Toast,Little sandwiches,,352,,,,,,,,,,,,,,,,false,false,,,Printed 'THREE CHEESE ON TOAST' 352kcal on page 6
+little-ham-and-lancashire-cheese-toastie,Little Ham & Lancashire Cheese Toastie,Little sandwiches,,315,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'HAM & LANCASHIRE CHEESE TOASTIE' 315kcal on page 6; Ham
+little-lancashire-cheese-sandwich,Little Lancashire Cheese Sandwich,Little sandwiches,,328,,,,,,,,,,,,,,,,false,false,,,Printed 'LANCASHIRE CHEESE SANDWICH' 328kcal on page 6
+little-roast-ham-sandwich,Little Roast Ham Sandwich,Little sandwiches,,257,,,,,,,,,,,,,,,contains_pork,false,false,,,Printed 'ROAST HAM SANDWICH' 257kcal on page 6; Ham
+little-egg-mayonnaise-sandwich,Little Egg Mayonnaise Sandwich,Little sandwiches,,367,,,,,,,,,,,,,,,,false,false,,,Printed 'EGG MAYONNAISE SANDWICH' 367kcal on page 6
+little-hot-chocolate,Little Hot Chocolate,Little drinks,,267,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT CHOCOLATE' 267kcal on page 6; With cream and marshmallows
+little-glass-of-milk,Little Glass of Milk,Little drinks,,101,,,,,,,,,,,,,,,,false,false,,,Printed 'GLASS OF MILK' 101kcal on page 6
+little-babyccino,Little Babyccino,Little drinks,,50,,,,,,,,,,,,,,,,false,false,,,Printed 'BABYCCINO' 50kcal on page 6
+pot-of-tea,Pot of Tea,Tea,,39,,,,,,,,,,,,,,,,false,false,,,"Printed 'POT OF TEA' 39kcal on page 8; Breakfast or decaf, one printed value"
+flavoured-tea,Flavoured Tea,Tea,,2,,,,,,,,,,,,,,,,false,false,,,"Printed 'FLAVOURED TEA' 2kcal on page 8; Two flavours (lemon ginger & turmeric; hibiscous rose & sweet berries), one printed value"
+booths-assam-tea,Booths Assam Tea,Tea,,39,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS ASSAM' 39kcal on page 8; Loose leaf
+booths-earl-grey-tea,Booths Earl Grey Tea,Tea,,39,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS EARL GREY' 39kcal on page 8; Loose leaf
+booths-gunpowder-green-tea,Booths Gunpowder Green Tea,Tea,,0,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS GUNPOWDER GREEN' 0kcal on page 8; Loose leaf; printed 0kcal
+booths-moroccan-mint-tea,Booths Moroccan Mint Tea,Tea,,0,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS MOROCCAN MINT' 0kcal on page 8; Loose leaf; printed 0kcal
+cappuccino,Cappuccino,Coffee,,96,,,,,,,,,,,,,,,,false,false,,,Printed 'CAPPUCCINO' 96kcal on page 8
+latte,Latte,Coffee,,96,,,,,,,,,,,,,,,,false,false,,,Printed 'LATTE' 96kcal on page 8
+iced-latte,Iced Latte,Coffee,,96,,,,,,,,,,,,,,,,false,false,,,Printed 'ICED LATTE' 96kcal on page 8
+flat-white,Flat White,Coffee,,64,,,,,,,,,,,,,,,,false,false,,,Printed 'FLAT WHITE' 64kcal on page 8
+white-americano,White Americano,Coffee,,39,,,,,,,,,,,,,,,,false,false,,,Printed 'WHITE AMERICANO' 39kcal on page 8
+black-americano,Black Americano,Coffee,,7,,,,,,,,,,,,,,,,false,false,,,Printed 'BLACK AMERICANO' 7kcal on page 8
+espresso,Espresso,Coffee,,1,,,,,,,,,,,,,,,,false,false,,,Printed 'ESPRESSO' 1kcal on page 8
+mocha,Mocha,Coffee,,205,,,,,,,,,,,,,,,,false,false,,,Printed 'MOCHA' 205kcal on page 8
+add-flavoured-syrup-vanilla-caramel-or-cinnamon,"Add flavoured syrup (vanilla, caramel or cinnamon)",Coffee,,46,,,,,,,,,,,,,,,,false,false,,,"Printed 'Add flavoured syrup' 46kcal on page 8; The syrup's own value (50p), not a coffee total"
+booths-colombian-coffee,Booths Colombian Coffee,Coffee,,38,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS COLOMBIAN' 38kcal on page 8; Roast & Ground
+booths-monsoon-malabar-coffee,Booths Monsoon Malabar Coffee,Coffee,,38,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS MONSOON MALABAR' 38kcal on page 8; Roast & Ground
+booths-swiss-decaff-coffee,Booths Swiss Decaff Coffee,Coffee,,38,,,,,,,,,,,,,,,,false,false,,,Printed 'BOOTHS SWISS DECAFF' 38kcal on page 8; Roast & Ground
+hot-chocolate-with-cream-and-marshmallows,Hot Chocolate with Cream & Marshmallows,Hot chocolate,,441,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT CHOCOLATE WITH CREAM & MARSHMALLOWS' 441kcal on page 8
+hot-chocolate,Hot Chocolate,Hot chocolate,,361,,,,,,,,,,,,,,,,false,false,,,Printed 'HOT CHOCOLATE' 361kcal on page 8
+iced-vanilla-oat-matcha,Iced Vanilla Oat Matcha,Matcha,,172,,,,,,,,,,,,,,,,false,false,,,Printed 'ICED VANILLA OAT MATCHA' 172kcal on page 8
+freshly-squeezed-orange-juice,Freshly Squeezed Orange Juice,Soft drinks,,102,,,,,,,,,,,,,,,,false,false,,,Printed 'FRESHLY SQUEEZED ORANGE JUICE' 102kcal on page 8
