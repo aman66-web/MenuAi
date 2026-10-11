@@ -1,0 +1,9 @@
+status: installed
+file: wimpy.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://wimpy.uk.com/assets/img/frontend/icons/favicon/apple-touch-icon.png
+page_url: https://wimpy.uk.com/
+why: the chain's own apple-touch-icon, declared by its home page https://wimpy.uk.com/; saved unchanged
+sha256: 3a436d84220da3b87ef16515f705242e447f18ddaac72fae2ced186130c6a2db
+retrieved: 2026-10-11

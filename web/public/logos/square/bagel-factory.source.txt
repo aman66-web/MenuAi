@@ -1,0 +1,9 @@
+status: installed
+file: bagel-factory.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://bagelfactory.co.uk/wp-content/uploads/cropped-Nuovo-progetto-2-300x300.png
+page_url: https://bagelfactory.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://bagelfactory.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: f10b090df8c3a578dd9e9ec11fcf456ec1458b19da4d97c9396e4d0056b52487
+retrieved: 2026-10-11

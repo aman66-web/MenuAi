@@ -52,7 +52,7 @@ def square_display(path: Path, rec: dict[str, str]) -> tuple[bool, str]:
             mask = alpha.point(lambda a: 255 if a > 128 else 0)
             hist = grey.histogram(mask=mask)
             n = sum(hist)
-            if n and sum(i * c for i, c in enumerate(hist)) / n > 200:
+            if n and sum(i * c for i, c in enumerate(hist)) / n > 240:  # a white mark on transparency (a light badge stays on white)
                 tile = "dark"
     if rec.get("display") in ("full", "tile"):
         full = rec["display"] == "full"

@@ -1,0 +1,9 @@
+status: installed
+file: harbour-hotels.png
+kind: icon
+opaque: yes
+source_url: https://www.harbourhotels.co.uk/media/as3dsdom/apple-touch-icon.png
+page_url: https://www.harbourhotels.co.uk/
+why: the chain's own icon, declared by its home page https://www.harbourhotels.co.uk/; saved unchanged
+sha256: 51955e66482709ccfde44dd00e5074146d7f14cfa084c77c4d4c8beacc29cdba
+retrieved: 2026-10-11

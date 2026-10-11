@@ -1,0 +1,9 @@
+status: installed
+file: tim-hortons.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://timhortons.co.uk/front/assets/img/apple-touch-icon.png
+page_url: https://timhortons.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://timhortons.co.uk/; saved unchanged
+sha256: 594ea99ea5fdd31fbe812f28341e749332c77b5553413ab044faab92be9e1a5f
+retrieved: 2026-10-11

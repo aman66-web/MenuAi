@@ -1,0 +1,9 @@
+status: installed
+file: tenpin.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.tenpin.co.uk/dist/images/apple-touch-icon.png
+page_url: https://www.tenpin.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.tenpin.co.uk/; saved unchanged
+sha256: e458ebb1763288165b9ec210fe82b18d2d8edc9674fb89c4b3e50a761f70a14c
+retrieved: 2026-10-11

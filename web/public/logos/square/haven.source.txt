@@ -1,0 +1,9 @@
+status: installed
+file: haven.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.haven.com/assets/icons/apple-touch-icon.png
+page_url: https://www.haven.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.haven.com/; saved unchanged
+sha256: 644b585de25fe732f0d7323dd9dd569b76887fda32cf8876de221097de471e93
+retrieved: 2026-10-11

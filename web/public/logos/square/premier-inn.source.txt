@@ -1,0 +1,9 @@
+status: installed
+file: premier-inn.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.premierinn.com/content/dam/pi/websites/desktop/icons/favicons/apple-touch-icon-152x152-precomposed.png
+page_url: https://www.premierinn.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.premierinn.com/; saved unchanged
+sha256: 67e620aeefd856537486f38e0e28dec8e67b1aa73ba5836838a569f0f1729d6e
+retrieved: 2026-10-11

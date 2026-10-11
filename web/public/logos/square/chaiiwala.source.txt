@@ -1,0 +1,9 @@
+status: installed
+file: chaiiwala.png
+kind: icon
+opaque: no
+source_url: https://www.chaiiwala.co.uk/icon.png?icon.0.-r9ykwttepu.png
+page_url: https://www.chaiiwala.co.uk/
+why: the chain's own icon, declared by its home page https://www.chaiiwala.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 8bbf4e5510caaf72f5cc8930c965a50e83e57274dbcebcfc866c744d75817dd5
+retrieved: 2026-10-11

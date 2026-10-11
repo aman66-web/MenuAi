@@ -1,0 +1,9 @@
+status: installed
+file: popeyes.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://popeyesuk.com/apple-touch-icon.png
+page_url: https://popeyesuk.com/
+why: the chain's own apple-touch-icon, declared by its home page https://popeyesuk.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 4531e72e810dd0bf6c484620b2056ac8ba1bdf0083730abca0739bcbfc1db1b0
+retrieved: 2026-10-11

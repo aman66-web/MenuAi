@@ -1,0 +1,9 @@
+status: installed
+file: ping-pong.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.pingpongdimsum.com/wp-content/themes/PingPong-Theme/images/favicon/apple-touch-icon.png
+page_url: https://www.pingpongdimsum.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.pingpongdimsum.com/; saved unchanged
+sha256: 30ee93b9993380eaa5059ff978a21b8172af2c56523db70c535e8aa8fa0dccde
+retrieved: 2026-10-11

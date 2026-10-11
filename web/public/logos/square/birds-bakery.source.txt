@@ -1,0 +1,9 @@
+status: installed
+file: birds-bakery.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://birdsbakery.com/cdn/shop/t/5/assets/apple-touch-icon.png?v=1332991158236408091721814013
+page_url: https://birdsbakery.com/
+why: the chain's own apple-touch-icon, declared by its home page https://birdsbakery.com/; saved unchanged
+sha256: 21ed255c3497fcb652eef86d72589181cef4debfdaed516315de7f395cca20f3
+retrieved: 2026-10-11

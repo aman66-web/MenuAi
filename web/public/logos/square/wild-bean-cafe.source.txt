@@ -1,0 +1,8 @@
+status: rejected
+why: looked at on the contact sheet: the icon is bp's company mark, not Wild Bean Café's own (the earlier logo round left bp's logo out for the same reason)
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.bp.com/apple-icon.png?9d70f173904839e3
+page_url: https://www.bp.com/
+sha256: f9b1f97cde7eadda2aadd60c68ad89f213cb16c1882c8ce687ffe7c28fcae5b0
+retrieved: 2026-10-11

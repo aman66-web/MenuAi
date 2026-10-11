@@ -1,0 +1,9 @@
+status: installed
+file: warrens-bakery.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://warrensbakery.co.uk/content/uploads/2019/02/cropped-Leaf-Logo-180x180.png
+page_url: https://warrensbakery.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://warrensbakery.co.uk/; saved unchanged
+sha256: 9dcdbe81d846c3170a7b7ce47c3c7d9e4352a6433c8c720a2ea889e8c2e0fbb2
+retrieved: 2026-10-11

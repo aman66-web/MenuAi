@@ -1,0 +1,9 @@
+status: installed
+file: turtle-bay.png
+kind: icon
+opaque: no
+source_url: https://turtlebay.co.uk/assets/images/favicon.png
+page_url: https://turtlebay.co.uk/
+why: the chain's own icon, declared by its home page https://turtlebay.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: ccd0e9fc18821b7b4c4e360d2cb81200025b983937de950578f0da3bc6f01076
+retrieved: 2026-10-11

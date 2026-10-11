@@ -1,0 +1,9 @@
+status: installed
+file: creams-cafe.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://storage.googleapis.com/creams-website-media/2022/10/cropped-Creams-Primary-Logo-300x300.png
+page_url: https://www.creamscafe.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.creamscafe.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 0fde51c3395554f161ef284ea126b93bc8a1eaa2af28ae9d23e641770b2d88f0
+retrieved: 2026-10-11

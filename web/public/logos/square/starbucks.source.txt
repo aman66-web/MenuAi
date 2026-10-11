@@ -1,0 +1,9 @@
+status: installed
+file: starbucks.png
+kind: manifest-icon
+opaque: no
+source_url: https://www.starbucks.co.uk/assets/app/icons/manifest-icon-512.png
+page_url: https://www.starbucks.co.uk/
+why: the chain's own manifest-icon, declared by its home page https://www.starbucks.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: c91b5bf2b514573acfc587fe36e073b532e8796d80e25490d5bd93b6482f8bb8
+retrieved: 2026-10-11

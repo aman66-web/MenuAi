@@ -1,0 +1,9 @@
+status: installed
+file: vue.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://vue-international.com/templates/g5_helium/custom/images/favicon.png
+page_url: https://vue-international.com/
+why: the chain's own apple-touch-icon, declared by its home page https://vue-international.com/; saved unchanged
+sha256: 7faf1dd9db4fdc27d82fe78cdaad14a5c8ea3abe8647609f785a48e824786a9d
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: greggs.png
+kind: manifest-icon
+opaque: yes
+source_url: https://www.greggs.com/android-chrome-512x512.png
+page_url: https://www.greggs.com/
+why: the chain's own manifest-icon, declared by its home page https://www.greggs.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 719289ebe09a604bc22ec54d74df324bea4a1764559f68b15aa64b47d5cf8b5d
+retrieved: 2026-10-11

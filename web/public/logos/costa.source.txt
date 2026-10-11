@@ -1,11 +1,9 @@
-status: skipped-unavailable
+status: skipped-blocked
 file: none
-kind: none
-tile: none
-source_url: https://www.costa.co.uk/robots.txt could not be fetched: four attempts (3 with a browser User-Agent from Python, 1 with curl) ended in a read timeout or "HTTP/2 stream was not closed cleanly: INTERNAL_ERROR", never an HTTP status
-page_url: https://www.costa.co.uk
+source_url: https://www.costa.co.uk/robots.txt could not be fetched: the retry on 2026-10-11 (curl, browser User-Agent) ended in "HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR" with no HTTP status, as on 2026-10-10 (four attempts); other hosts answered normally through the same proxy
+page_url: https://www.costa.co.uk/
 terms_url: not reviewed
-terms_summary: not read: the site would not answer this environment, so neither its robots.txt nor its terms could be read (checked 2026-10-10).
-why: With robots.txt unreachable the rules cannot be checked (RFC 9309 treats an unreachable robots.txt as disallow), so no page or file was requested and nothing was worked round. To add it, the founder can save the header logo from the chain's own website in their own browser and send it.
+terms_summary: not read: the site would not answer this environment, so neither its robots.txt nor its terms could be read
+why: With robots.txt unreachable the rules cannot be checked (an unreachable robots.txt is treated as disallow), so no page or file was requested and nothing was worked round; one retry only, per the brief. To add it, the founder can save the header logo from https://www.costa.co.uk/ in their own browser and send it.
 decision: stopped per the Phase 3 rule; no logo installed
-retrieved: 2026-10-10
+retrieved: 2026-10-11

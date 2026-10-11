@@ -1,0 +1,9 @@
+status: installed
+file: the-light-cinemas.png
+kind: apple-touch-icon (default path)
+opaque: yes
+source_url: https://www.thelight.co.uk/apple-touch-icon.png
+page_url: https://www.thelight.co.uk/
+why: the chain's own apple-touch-icon (default path), declared by its home page https://www.thelight.co.uk/; saved unchanged
+sha256: fe46429d78f7bfba26e7d0b7fda4dcf3cd036f789650d07ad8f52e74db19ebe2
+retrieved: 2026-10-11

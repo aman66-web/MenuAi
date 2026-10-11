@@ -1,0 +1,3 @@
+status: skipped-unavailable
+why: home page refused or robots.txt disallows: HTTP 403 from https://www.fullers.co.uk/
+page_url: https://www.fullers.co.uk/

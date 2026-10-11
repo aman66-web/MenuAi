@@ -1,0 +1,9 @@
+status: installed
+file: drake-and-morgan.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://bunny-wp-pullzone-qmiugihikq.b-cdn.net/wp-content/uploads/2021/08/cropped-favicon-1-180x180.png
+page_url: https://www.drakeandmorgan.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.drakeandmorgan.co.uk/; saved unchanged
+sha256: 24386852828ce10b9117e13b9c204aa446788fc955c3d992bed506835d01db9f
+retrieved: 2026-10-11

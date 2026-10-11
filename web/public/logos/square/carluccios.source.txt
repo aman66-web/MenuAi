@@ -1,0 +1,9 @@
+status: installed
+file: carluccios.png
+kind: manifest-icon
+opaque: no
+source_url: https://www.carluccios.com/cdn/shop/files/favicon_6636159c-5b89-4b60-af7a-06cc8040b998_512x512.png?v=1787163598
+page_url: https://www.carluccios.com/
+why: the chain's own manifest-icon, declared by its home page https://www.carluccios.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 633ed50a9af54731a0c7b1e78560e8fabb7428ddfc8ce1b51d61e1aa5017cb6d
+retrieved: 2026-10-11

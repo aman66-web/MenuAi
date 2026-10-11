@@ -1,0 +1,9 @@
+status: installed
+file: daves-hot-chicken.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://cdn.sanity.io/images/ysupxjc9/production/db0c0e8206a83ef51caeb98d5b90d4dbc0325adb-4096x4083.png
+page_url: https://www.daveshotchicken.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.daveshotchicken.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: fc8c929c5caf0419c50eb58efa80d71de5d045b8afbf31e0638af4f930b0e0ab
+retrieved: 2026-10-11

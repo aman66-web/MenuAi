@@ -1,0 +1,9 @@
+status: installed
+file: baskin-robbins.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://baskinrobbins.co.uk/wp-content/uploads/2021/10/favicon-300x300.webp
+page_url: https://baskinrobbins.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://baskinrobbins.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 8190989581f5987ef3ea1ef014c89c826e8a43b7d614f1acdec0212904c2d557
+retrieved: 2026-10-11

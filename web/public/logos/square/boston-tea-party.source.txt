@@ -1,0 +1,9 @@
+status: installed
+file: boston-tea-party.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://bostonteaparty.co.uk/assets/img/icons/apple-touch-icon.png
+page_url: https://bostonteaparty.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://bostonteaparty.co.uk/; saved unchanged
+sha256: 2d3b18e6e398bfc601d1ae70277189740e7d227be0dbda7dd8c2eb26970c9f92
+retrieved: 2026-10-11

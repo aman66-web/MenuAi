@@ -68,10 +68,24 @@ def read_record(path: Path) -> dict[str, str]:
 
 
 # chains whose records point at a file host rather than their own home page
+# (each icon found this way is checked against the chain's logo on the contact sheet before it goes live)
 HOME = {
+    "be-at-one": "https://www.beatone.co.uk/",
+    "bills": "https://bills-website.co.uk/",
     "booths-cafe": "https://www.booths.co.uk/",
+    "comptoir-libanais": "https://www.comptoirlibanais.com/",
     "everyman": "https://www.everymancinema.com/",
     "goals-soccer-centres": "https://www.goalsfootball.co.uk/",
+    "greene-king": "https://www.greeneking.co.uk/",
+    "heritage-pubs": "https://www.heritagepubs.co.uk/",
+    "hollywood-bowl": "https://www.hollywoodbowl.co.uk/",
+    "jamaica-blue": "https://www.jamaicablue.co.uk/",
+    "mildreds": "https://www.mildreds.co.uk/",
+    "muffin-break": "https://www.muffinbreak.co.uk/",
+    "puccinos": "https://www.puccinos.com/",
+    "slug-and-lettuce": "https://www.slugandlettuce.co.uk/",
+    "social-pub-and-kitchen": "https://www.socialpubandkitchen.co.uk/",
+    "village-hotels": "https://www.village-hotels.co.uk/",
 }
 
 
@@ -124,6 +138,8 @@ def candidates(home: str, html: bytes, cache: Path) -> list[tuple[int, str, str]
                 out.append((250, url, "svg-icon"))
             elif size_of(ln.get("sizes", "")) >= MIN_PX:
                 out.append((100 + size_of(ln.get("sizes", "")), url, "icon"))
+            elif not ln.get("sizes"):
+                out.append((60, url, "icon"))  # size not declared: its real size is checked after download
     if manifest:
         try:
             data = json.loads(ic.polite_get(manifest, cache, accept="application/json,*/*;q=0.5"))
@@ -157,6 +173,8 @@ def check_image(raw: bytes, url: str) -> tuple[str, int, bool] | None:
         return ("svg", 512, False) if w > 0 and abs(w - h) / max(w, h) <= 0.02 else None
     try:
         im = Image.open(io.BytesIO(raw))
+        if im.format == "ICO":
+            im.size = max(im.info.get("sizes", {im.size}))  # the largest image the .ico holds (pixels unchanged)
         im.load()
     except Exception:  # noqa: BLE001
         return None
@@ -175,7 +193,10 @@ def save(cid: str, raw: bytes, kind: tuple[str, int, bool]) -> tuple[str, bytes]
     if ext == "svg":
         data = raw
     else:
-        im = Image.open(io.BytesIO(raw)).convert("RGBA")
+        im = Image.open(io.BytesIO(raw))
+        if im.format == "ICO":
+            im.size = max(im.info.get("sizes", {im.size}))
+        im = im.convert("RGBA")
         if im.size[0] > MAX_PX:
             im = im.resize((MAX_PX, MAX_PX), Image.LANCZOS)  # proportional (square stays square): the only change allowed
         buf = io.BytesIO()
@@ -238,7 +259,8 @@ def main() -> int:
             digest = hashlib.sha256(data).hexdigest()
             hashes.setdefault(digest, []).append(cid)
             write_record(rec_path, status="installed", file=name, kind=kind, opaque="yes" if info[2] else "no", source_url=url, page_url=home,
-                         why=f"the chain's own {kind}, declared by its home page {home}; saved unchanged" + (" (scaled down proportionally to 256 px)" if info[0] == "png" and info[1] >= MAX_PX else ""),
+                         why=f"the chain's own {kind}, declared by its home page {home}; saved unchanged" + (" (scaled down proportionally to 256 px)" if info[0] == "png" and info[1] >= MAX_PX else "")
+                         + (" (the largest image in its .ico, stored as PNG, pixels unchanged)" if raw[:4] == b"\x00\x00\x01\x00" else ""),
                          sha256=digest, retrieved=date.today().isoformat())
             print(f"    installed {name} ({kind}, opaque={info[2]})")
             summary["installed"] += 1

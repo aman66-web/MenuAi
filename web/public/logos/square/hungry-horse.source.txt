@@ -1,0 +1,9 @@
+status: installed
+file: hungry-horse.svg
+kind: apple-touch-icon
+opaque: no
+source_url: https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/488e45524f7145a7aaddfa5d20784c41?v=324d906b
+page_url: https://www.hungryhorse.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.hungryhorse.co.uk/; saved unchanged
+sha256: 5e6e17c22ee16b1e857c6876cb1fd98495becd3a8d5634cd292116df69cfdfa3
+retrieved: 2026-10-11

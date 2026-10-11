@@ -1,0 +1,9 @@
+status: installed
+file: gusto.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.gustorestaurants.com/wp-content/uploads/2026/09/cropped-GUSTO-GOLD-FAVICON-180x180.png
+page_url: https://www.gustorestaurants.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.gustorestaurants.com/; saved unchanged
+sha256: 16df437244d6fa56f068c44138c9d994d5b03a6d59363b306e42443bf72b4f83
+retrieved: 2026-10-11

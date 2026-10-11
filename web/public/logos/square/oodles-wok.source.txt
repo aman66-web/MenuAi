@@ -1,0 +1,9 @@
+status: installed
+file: oodles-wok.png
+kind: icon
+opaque: yes
+source_url: https://oodleswok.co.uk/icon.png?6387193e044523ce
+page_url: https://oodleswok.co.uk/
+why: the chain's own icon, declared by its home page https://oodleswok.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 568284c2c77bcbef309636cf06c8cbc2dace1eca184a09dd24153c8226977d30
+retrieved: 2026-10-11

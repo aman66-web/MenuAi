@@ -1,0 +1,9 @@
+status: installed
+file: places-leisure.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.placesleisure.org/img/favicon/apple-icon.png
+page_url: https://www.placesleisure.org/
+why: the chain's own apple-touch-icon, declared by its home page https://www.placesleisure.org/; saved unchanged
+sha256: 3cfc7b6579dc91ec645b24967385bbb3750ed2ef3e05b8ff07258214caf36cd0
+retrieved: 2026-10-11

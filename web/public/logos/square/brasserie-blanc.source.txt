@@ -1,0 +1,9 @@
+status: installed
+file: brasserie-blanc.png
+kind: manifest-icon
+opaque: no
+source_url: https://brasserieblanc.com/favicon/web-app-manifest-512x512.png
+page_url: https://brasserieblanc.com/
+why: the chain's own manifest-icon, declared by its home page https://brasserieblanc.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 2a38fc51355d68f318941f38f0c6e7d9a613b3346cf7a9065d7ede2241aee429
+retrieved: 2026-10-11

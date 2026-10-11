@@ -1,0 +1,9 @@
+status: installed
+file: pizza-hut.png
+kind: icon
+opaque: yes
+source_url: https://www.pizzahut.co.uk/static/favicon.ico
+page_url: https://www.pizzahut.co.uk/
+why: the chain's own icon, declared by its home page https://www.pizzahut.co.uk/; saved unchanged (scaled down proportionally to 256 px) (the largest image in its .ico, stored as PNG, pixels unchanged)
+sha256: cd604f3f4a39c677836f91289561f89bc124b7f1e01838b0758e3274666c1147
+retrieved: 2026-10-11

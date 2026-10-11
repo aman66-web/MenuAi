@@ -1,0 +1,9 @@
+status: installed
+file: chiquito.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.chiquito.co.uk/_nuxt/icons/icon_512x512.ef163a.png
+page_url: https://www.chiquito.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.chiquito.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 3d7c884ec98f9bbde9784485e0714c7319349b51e6191514e0934565bf560857
+retrieved: 2026-10-11

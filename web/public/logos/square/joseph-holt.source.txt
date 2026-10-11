@@ -1,0 +1,9 @@
+status: installed
+file: joseph-holt.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.joseph-holt.com/wp/themes/josephholt-theme/images/favicons/apple-touch-icon.png
+page_url: https://www.joseph-holt.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.joseph-holt.com/; saved unchanged
+sha256: e656ef8acf57936e095349d00c88964d0c8f87154342245c2fffd4a7a59c0068
+retrieved: 2026-10-11

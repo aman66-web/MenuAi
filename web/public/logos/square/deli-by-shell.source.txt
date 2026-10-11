@@ -1,0 +1,9 @@
+status: installed
+why: the chain's own manifest-icon, declared by its home page https://www.shell.co.uk/; saved unchanged (scaled down proportionally to 256 px). The café's name is "Deli by Shell", so Shell's own mark identifies it (unlike Wild Bean Café, whose name isn't bp's)
+file: deli-by-shell.png
+kind: manifest-icon
+opaque: no
+source_url: https://www.shell.co.uk/etc.clientlibs/amidala/clientlibs/theme-base/resources/favicon/google-touch-icon.png
+page_url: https://www.shell.co.uk/
+sha256: 4b343e4a9a10953435d0e6673a4c54c2a565a4411af37ab5bc8962204d3413f0
+retrieved: 2026-10-11

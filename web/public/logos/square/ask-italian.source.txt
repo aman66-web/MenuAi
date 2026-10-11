@@ -1,0 +1,9 @@
+status: installed
+file: ask-italian.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://cdn.sanity.io/images/ysupxjc9/production/025376a56702a9823a76e7c32783101473bc9aa1-2134x2134.png
+page_url: https://www.askitalian.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.askitalian.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 558fa978793e088a7f37fe72fa0013a92fd768e2a0340bfd7408ae0a2086770b
+retrieved: 2026-10-11

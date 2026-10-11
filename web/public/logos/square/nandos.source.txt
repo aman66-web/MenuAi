@@ -1,0 +1,8 @@
+status: rejected
+why: looked at on the contact sheet: the icon is a plain red heart that doesn't identify the chain at tile size; its rooster logo file stays
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.nandos.co.uk/apple-touch-icon.png
+page_url: https://www.nandos.co.uk/
+sha256: 3cf95deb152839282928e885c401d52ef09c6ef9b0ad5cbe3d01e207d404ddef
+retrieved: 2026-10-11

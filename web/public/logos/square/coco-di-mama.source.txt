@@ -1,0 +1,9 @@
+status: installed
+file: coco-di-mama.svg
+kind: apple-touch-icon
+opaque: no
+source_url: https://cdn.sanity.io/images/ysupxjc9/production/904916c8b0c23334841ba9055946a3d9bb923b43-49x49.svg
+page_url: https://www.cocodimama.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.cocodimama.co.uk/; saved unchanged
+sha256: 1146f9442431e05df30544db84c9bd9f629ac70920611b28f141a0fbeb676734
+retrieved: 2026-10-11

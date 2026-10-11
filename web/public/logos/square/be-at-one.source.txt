@@ -1,0 +1,9 @@
+status: installed
+file: be-at-one.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://24-social.com/stonegate/0VzKJgPbwtrMiQJ8zPdj/domains/92/favicon-92202603240922515721.ico
+page_url: https://www.beatone.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.beatone.co.uk/; saved unchanged (the largest image in its .ico, stored as PNG, pixels unchanged)
+sha256: fbe91b7229caf03e02d73c24a9ead3fda62999b710acd2dc16d052cbd35e2a7e
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: hard-rock-cafe.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://cafe.hardrock.com/files/templates/1732/favicon-apple-180x180.png
+page_url: https://cafe.hardrock.com/
+why: the chain's own apple-touch-icon, declared by its home page https://cafe.hardrock.com/; saved unchanged
+sha256: fe5f88a5c70226ca911c1d73baca1436500c5599590d8473e95e1a5213a9d36b
+retrieved: 2026-10-11

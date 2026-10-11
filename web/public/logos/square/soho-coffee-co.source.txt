@@ -1,0 +1,9 @@
+status: installed
+file: soho-coffee-co.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://sohocoffee.com/wp-content/uploads/2026/03/cropped-sohofav-180x180.png
+page_url: https://sohocoffee.com/
+why: the chain's own apple-touch-icon, declared by its home page https://sohocoffee.com/; saved unchanged
+sha256: 63ef49e978f58c5f163aadcacfe2d135d336a6cf792ac533ad01733746e063b9
+retrieved: 2026-10-11

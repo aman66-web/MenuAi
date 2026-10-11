@@ -1,0 +1,9 @@
+status: installed
+file: franco-manca.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.francomanca.co.uk/wp-content/uploads/2023/08/cropped-FrancoManca_Logo_Mark_RGB-180x180.jpg
+page_url: https://www.francomanca.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.francomanca.co.uk/; saved unchanged
+sha256: f04af64cb4f0f247c3a897a4f94d9d98df2bf88d66e40b89576ec08ae2181ad3
+retrieved: 2026-10-11

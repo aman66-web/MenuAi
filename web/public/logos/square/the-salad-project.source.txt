@@ -1,0 +1,9 @@
+status: installed
+file: the-salad-project.svg
+kind: svg-icon
+opaque: no
+source_url: https://www.saladproject.co.uk/cdn/shop/files/3_2.svg?crop=center&height=32&v=1745428546&width=32
+page_url: https://www.saladproject.co.uk/
+why: the chain's own svg-icon, declared by its home page https://www.saladproject.co.uk/; saved unchanged
+sha256: 4a21f005fc6007f824b6c156e59edf26caefb7befcabeaeb74f4fc589b737d65
+retrieved: 2026-10-11

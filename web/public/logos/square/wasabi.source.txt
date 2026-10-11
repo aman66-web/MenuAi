@@ -1,0 +1,9 @@
+status: installed
+file: wasabi.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.wasabi.uk.com/wp-content/uploads/2026/03/cropped-website-logo-header-3-180x180.png
+page_url: https://www.wasabi.uk.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.wasabi.uk.com/; saved unchanged
+sha256: 28a04d86563c8451a5b93a03121d771fb91f166c23f95b787c8d92c610fdc3ae
+retrieved: 2026-10-11

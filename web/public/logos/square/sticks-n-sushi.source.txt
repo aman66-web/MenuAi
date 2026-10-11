@@ -1,0 +1,3 @@
+status: skipped-unavailable
+why: no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page
+page_url: https://www.sticksnsushi.com/

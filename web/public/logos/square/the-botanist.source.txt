@@ -1,0 +1,9 @@
+status: installed
+file: the-botanist.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://thebotanist.uk.com/assets/favicon/apple-touch-icon.png
+page_url: https://thebotanist.uk.com/
+why: the chain's own apple-touch-icon, declared by its home page https://thebotanist.uk.com/; saved unchanged
+sha256: 7c2df3675df55e8861a1a92b02058510389b6b81f1073a792a61d53a1127a5e0
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: pizza-union.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.pizzaunion.com/wp-content/uploads/2026/08/cropped-favicon-180x180.jpg
+page_url: https://www.pizzaunion.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.pizzaunion.com/; saved unchanged
+sha256: dd202e4d75fab7692f59fa970db7bd057b2cd138299e18e27b15dbf3ca66a927
+retrieved: 2026-10-11

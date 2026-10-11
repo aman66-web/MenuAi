@@ -1,0 +1,9 @@
+status: skipped-blocked
+file: none
+source_url: https://atis-life.s3.eu-west-1.amazonaws.com/settings/01K0YGQJ5DM415Z58ZHSKNS4X6.svg
+page_url: https://atis.life/
+terms_url: not reviewed
+terms_summary: not reviewed
+why: The header logo (the same file is the site's JSON-LD logo) is served only from the chain's S3 bucket atis-life.s3.eu-west-1.amazonaws.com, whose robots.txt answers 403 AccessDenied (treated as disallow, never worked round), so nothing was downloaded. atis.life's own robots.txt allows the site; the founder can save the logo from https://atis.life/ in their own browser (right-click the header logo, Save Image; the file is white-on-dark CSS-filtered in the page header: use the file itself, https://atis-life.s3.eu-west-1.amazonaws.com/images/atis-logo.svg is the same bucket's other logo).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); stopped per the Phase 3 rule on a 403 robots.txt; no logo installed
+retrieved: 2026-10-11

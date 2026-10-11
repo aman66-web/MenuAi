@@ -1,0 +1,9 @@
+status: installed
+file: yo-sushi.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://yosushi.com/assets/img/favicons/apple-icon-180x180.png
+page_url: https://yosushi.com/
+why: the chain's own apple-touch-icon, declared by its home page https://yosushi.com/; saved unchanged
+sha256: 7f1a79b5fb38dd132cafaa331c7437c6de8a595d01cbcf3ac4aa2b78e2d0688f
+retrieved: 2026-10-11

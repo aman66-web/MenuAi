@@ -1,0 +1,9 @@
+status: installed
+file: zizzi.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://cdn.sanity.io/images/ysupxjc9/production/94f4457773446d4b16bdf42b32928faa84bd9d8d-1080x1080.png
+page_url: https://www.zizzi.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.zizzi.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: d57235872fe5d40c01f935beeec0da932e70d158d468f811d661addfc07a3e1d
+retrieved: 2026-10-11

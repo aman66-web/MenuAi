@@ -1,0 +1,9 @@
+status: installed
+file: pho.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.phocafe.co.uk/apple-touch-icon.png
+page_url: https://www.phocafe.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.phocafe.co.uk/; saved unchanged
+sha256: 552912d8bf8b771c37c7817051a89decef1da6eb22905548f5c9ccad389769a6
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: chipotle.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.chipotle.co.uk/etc.clientlibs/cmgaemacs/clientlibs/clientlib-base/resources/apple-touch-icon-180x180.png
+page_url: https://www.chipotle.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.chipotle.co.uk/; saved unchanged
+sha256: d54aeadf874116e3fe74d7f844df22e8b0c5368c09c7047e03288ade973cf10f
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: powerleague.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.powerleague.com/apple-touch-icon.png
+page_url: https://www.powerleague.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.powerleague.com/; saved unchanged
+sha256: e08865f3f37bf345cfbb742cca3c3bec50b5b2edeaad754f5a31018e21f336da
+retrieved: 2026-10-11

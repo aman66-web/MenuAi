@@ -1,0 +1,9 @@
+status: installed
+file: burger-and-sauce.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://burgerandsauce.com/wp-content/uploads/2021/08/cropped-burger-and-sauce-site-logo-300x300.png
+page_url: https://burgerandsauce.com/
+why: the chain's own apple-touch-icon, declared by its home page https://burgerandsauce.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: a8d38f59c9144e4df6e9dba3d4c2c588b925042bcdca433d444bc5b3dffd7895
+retrieved: 2026-10-11

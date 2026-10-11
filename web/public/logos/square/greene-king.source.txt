@@ -1,0 +1,9 @@
+status: installed
+file: greene-king.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/085a1052fab64c3c8c2e67c5f70ae3ba?v=1ffb333b
+page_url: https://www.greeneking.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.greeneking.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: a947650861d39fb4734ba2d51fddc0e5c718717e35ae34dce6ae2aece8b47047
+retrieved: 2026-10-11

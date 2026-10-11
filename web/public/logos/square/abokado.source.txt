@@ -1,0 +1,9 @@
+status: installed
+file: abokado.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://abokado.com/apple-touch-icon.png
+page_url: https://abokado.com/
+why: the chain's own apple-touch-icon, declared by its home page https://abokado.com/; saved unchanged
+sha256: d2689bd5f0bb79e2a53db09f38cb4e31a31b1b9cebe7e48fbb08a7f66d67b124
+retrieved: 2026-10-11

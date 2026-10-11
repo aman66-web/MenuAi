@@ -1,0 +1,9 @@
+status: installed
+file: pure.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.pure.co.uk/wp-content/uploads/cropped-Pure_Favicon-180x180.png
+page_url: https://www.pure.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.pure.co.uk/; saved unchanged
+sha256: e205dcaece9ea46cbc0e4c341484d9fa6a1a3a2986f61582d4c24d54d1b3ab04
+retrieved: 2026-10-11

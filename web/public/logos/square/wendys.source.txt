@@ -1,0 +1,9 @@
+status: installed
+file: wendys.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.wendys.com/themes/custom/wendys_main/favicons/apple-touch-icon-180x180.png
+page_url: https://www.wendys.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.wendys.com/; saved unchanged
+sha256: eca1212ffa26f252f55d69a206b8a2b50c8528b20a8f21ac44036297b330cafc
+retrieved: 2026-10-11

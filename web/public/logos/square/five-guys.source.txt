@@ -1,0 +1,9 @@
+status: installed
+file: five-guys.svg
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.fiveguys.co.uk/wp-content/uploads/sites/30/2024/11/logo-five-guys-square.svg
+page_url: https://www.fiveguys.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.fiveguys.co.uk/; saved unchanged
+sha256: 191420ec3f370e92b415e598b742dbef700b5f548e01e5d46d568e623f1b6243
+retrieved: 2026-10-11

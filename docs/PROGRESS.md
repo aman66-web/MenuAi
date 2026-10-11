@@ -659,6 +659,30 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   segments not covered before (travel food, leisure and hotels, the restaurant long tail, pub and bar brands: results in `data/candidates/triage4/`), and extraction of
   the calories-only chains already triaged (Leonardo Hotels, Avanti West Coast, Pasta Evangelists, Angus Steakhouse). Results are logged below as they land.
 
+- 2026-10-11 (early) — **Overnight result: 220 chains, 34,918 items live (113 full nutrition, 107 calories only), up from 202.** Added (details in
+  docs/UK_DATA_STATUS.md, "Added 10-11 October"): Pasta Evangelists, Leonardo Hotels, Avanti West Coast, The Salad Project, Zizzi, ASK Italian, Coco di
+  Mama, PizzaExpress (the four back from their own HTML menus, which robots.txt allows; the held PDFs stay unused), Dishoom, Fuller's, Shepherd Neame
+  (Ten Kites menus linked from their pubs' own sites, published only where 2+ pubs agree), Fireaway, Powerleague, Buy & Bite, Goals, Booths Café,
+  **Subway** (195 products with full nutrition from its own product pages; the old PDF readers moved to `tools/uk_extract/held_pdf/`) and Atis.
+  Every one passed `check_chain.py` with 0 errors and 0 high audit flags and had an independent re-read. Extracted but **held for you**:
+  Kick Ass Burrito (52 items, full nutrition and allergens, but a delivery-only brand with no website of its own: `data/held-unpublished/`).
+  Stopped by robots.txt or a block (not worked round): AirHop (its data host answers 403 to robots.txt), Brewhouse & Kitchen, Angus Steakhouse,
+  Coffee Republic, Robinsons, TeamSport. **300 is not reachable from official sources:** about 1,400 names have now been triaged; the rest publish no
+  per-dish figures, have closed, block automated access, or are too small. A realistic ceiling is about 225-235 without files from your own browser.
+- 2026-10-11 — **Square logos (founder: "All logos should be 1:1 too for the app").** Every logo tile was already a square, but a wide wordmark sat
+  in it with space above and below. A logo can't be cropped or redrawn (CLAUDE.md rule 2), so the tile now shows **the chain's own square icon**
+  where its website serves one (its apple-touch-icon, web-app manifest icon or SVG site icon), saved unchanged (rasters over 256 px only scaled
+  down proportionally) in `web/public/logos/square/` with a record per chain and `square/SOURCES.md`; an icon that fills its square is drawn edge to
+  edge (in our rounded tile, like an app icon on a phone), otherwise it sits on the plain tile. The wordmark is the fallback if the icon fails to
+  load. **126 of 220 chains** now have a square icon (5 have only that: Booths Café, Chozen, Deli by Shell, Hungry Horse, Simmons); the other 83
+  with a logo keep their wordmark on the square tile (their sites serve no square icon of 120 px or more, or block us). Every icon was looked at on a
+  contact sheet (`node web/e2e/square-sheet.mjs`); **left out after looking:** Blank Street (a plain green block), Nando's (a plain red heart; its
+  rooster logo stays), Wahaca (a plain yellow circle), Rudy's (a plain half circle) and Wild Bean Café (bp's company mark, as in the earlier logo
+  round). Deli by Shell shows Shell's mark (the café is named after Shell). Logos are on the list, restaurant pages, the welcome wall and the
+  map pins. Also new: Subway's logo (from its own newsroom site) and Goals'. Tools: `tools/logos/fetch_square_icons.py` (robots honoured, 1 request a
+  second, stops on 401/403/429) and `assemble_logos.py` (now also builds `SQUARE_ICONS`). Checked: 421 unit tests, e2e smoke 23, extra 11, browse 9,
+  axe 0 in light and dark, map 6 of 7 (the known headless geolocation limit); screenshots of Eat out and the map in light and dark.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -690,7 +714,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
-- [ ] **Logos (26 missing):** the 19 below plus Vue, Tesco Café, Hungry Horse, Amigos, Kokoro, Giraffe, Wild Bean Café. The first list: their sites block automated visits. To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me: KFC, Nando's, Pizza Hut, Subway, Premier Inn, GBK, Coffee #1, Jamie's Italian, and the M&B pubs (All Bar One, Browns, Ember Inns, Harvester, Miller & Carter, Nicholson's, O'Neill's, Sizzling Pubs, Stonehouse, Toby Carvery, Vintage Inns)
+- [ ] **Logos (11 of 220 missing):** Atis, Bettys, Buy & Bite, Costa, Domino's, Fuller's, Honi Poke, Kokoro, McDonald's, Tesco Café, Wild Bean Café (their sites block us, disallow robots, or serve no logo file we may use; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
+- [ ] **Decide: Kick Ass Burrito** (delivery-only Big Table Group brand, 52 items with full nutrition and allergens, ready in `data/held-unpublished/`): publish or leave out
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)

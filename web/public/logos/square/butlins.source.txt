@@ -1,0 +1,9 @@
+status: installed
+file: butlins.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.butlins.com/public/apple-touch-icon.png
+page_url: https://www.butlins.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.butlins.com/; saved unchanged
+sha256: 4a9b7d574e6aa3f8882040ba975a077d7db2bd88c02bead5cad0d718fc8db743
+retrieved: 2026-10-11

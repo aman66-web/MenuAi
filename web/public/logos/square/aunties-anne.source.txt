@@ -1,0 +1,9 @@
+status: installed
+file: aunties-anne.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.auntieannes.co.uk/wp-content/uploads/2021/03/cropped-AA-Fav-icon-transparent-180x180.png
+page_url: https://www.auntieannes.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.auntieannes.co.uk/; saved unchanged
+sha256: ef70aab7c0719f514d9eab92a5e30cda4c864812ac360d58f9b51c58bafeb6b8
+retrieved: 2026-10-11

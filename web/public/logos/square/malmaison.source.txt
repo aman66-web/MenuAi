@@ -1,0 +1,9 @@
+status: installed
+file: malmaison.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.malmaison.com/assets/images/malmaison/apple-touch-icon.png
+page_url: https://www.malmaison.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.malmaison.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: a4ac2967314bb4bb87362ff9aec20ad216fb15e1c0fdaea18aabad050afe5b87
+retrieved: 2026-10-11

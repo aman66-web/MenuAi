@@ -1,0 +1,9 @@
+status: installed
+file: chozen.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://chozen.co.uk/wp-content/uploads/2021/08/New-Chozen-favicon-300x300.png
+page_url: https://chozen.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://chozen.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: ab33ef09b40826f15988fc7038309359277afaa88d6663fe68f03d244836a9ae
+retrieved: 2026-10-11

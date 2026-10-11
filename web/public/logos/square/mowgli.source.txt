@@ -1,0 +1,9 @@
+status: installed
+file: mowgli.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://mowglistreetfood.com/wp-content/uploads/2026/04/cropped-favicon-180x180.gif
+page_url: https://mowglistreetfood.com/
+why: the chain's own apple-touch-icon, declared by its home page https://mowglistreetfood.com/; saved unchanged
+sha256: 14dace87d361cb4fd182473b67fce92f3ec06ce74ad7ea2e5f45b2ef1688b6f0
+retrieved: 2026-10-11

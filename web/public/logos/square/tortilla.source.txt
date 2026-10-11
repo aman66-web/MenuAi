@@ -1,0 +1,9 @@
+status: installed
+file: tortilla.png
+kind: manifest-icon
+opaque: yes
+source_url: https://www.tortilla.co.uk/android-chrome-512x512.png
+page_url: https://www.tortilla.co.uk/
+why: the chain's own manifest-icon, declared by its home page https://www.tortilla.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 622f05094fdf850391bd9e678682bb71247aa2c176e94e5c6a71e357047c29ff
+retrieved: 2026-10-11

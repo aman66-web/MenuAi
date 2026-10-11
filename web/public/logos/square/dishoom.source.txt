@@ -1,0 +1,9 @@
+status: installed
+file: dishoom.png
+kind: manifest-icon
+opaque: yes
+source_url: https://www.dishoom.com/android-chrome-512x512.png
+page_url: https://www.dishoom.com/
+why: the chain's own manifest-icon, declared by its home page https://www.dishoom.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: e47f829b76ee39066884192ba984a2b82a81aecab36588e1ad0f402cf5a61411
+retrieved: 2026-10-11

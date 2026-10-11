@@ -1,0 +1,9 @@
+status: installed
+file: dunkin.png
+kind: icon
+opaque: yes
+source_url: https://dunkin.co.uk/media/favicon/default/favicon_1.ico
+page_url: https://dunkin.co.uk/
+why: the chain's own icon, declared by its home page https://dunkin.co.uk/; saved unchanged (scaled down proportionally to 256 px) (the largest image in its .ico, stored as PNG, pixels unchanged)
+sha256: fe4c284d913dd4b0f9512c04a6c604bb9d901ef6fadc6ae233c84e959894f754
+retrieved: 2026-10-11

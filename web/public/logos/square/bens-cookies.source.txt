@@ -1,0 +1,9 @@
+status: installed
+file: bens-cookies.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.benscookies.com/app/themes/frogspark/fav.ico/apple-icon-180x180.png?v=1791681558
+page_url: https://www.benscookies.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.benscookies.com/; saved unchanged
+sha256: 3221e35891fcf62ce12d81fe1e5faaac20be8f4a3addb47424520d4b8b5f3c49
+retrieved: 2026-10-11

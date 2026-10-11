@@ -1,0 +1,8 @@
+status: rejected
+why: looked at on the contact sheet: the icon is a plain orange half circle that doesn't identify the chain at tile size; its logo file stays
+kind: apple-touch-icon
+opaque: yes
+source_url: https://assets.rudyspizza.co.uk/content/uploads/2025/12/favicon-300x300.png
+page_url: https://assets.rudyspizza.co.uk/
+sha256: b6bbd631aea360619c325f9203752fe69c1bf7d3d9091fc1bf3ecddd5cdc4d98
+retrieved: 2026-10-11

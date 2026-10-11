@@ -1,0 +1,9 @@
+status: installed
+file: showcase-cinemas.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://cms-assets.webediamovies.pro/cdn-cgi/image/width=180,height=180,fit=contain,quality=100/production/2/377a65741d19f5608d43ad59066b2852.png
+page_url: https://www.showcasecinemas.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.showcasecinemas.co.uk/; saved unchanged
+sha256: 98f2b7ae6c7209e991690665a4f653c7b5c42ed03b19ff7fc3a24b2f3b64ba69
+retrieved: 2026-10-11

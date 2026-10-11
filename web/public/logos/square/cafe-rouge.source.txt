@@ -1,0 +1,9 @@
+status: installed
+file: cafe-rouge.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.caferouge.com/_nuxt/icons/icon_512x512.e1b4d5.png
+page_url: https://www.caferouge.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.caferouge.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 57b643c8adf3dc9c5a9d07ff74206f77e8fb07062be2e48355fdead03f93657e
+retrieved: 2026-10-11

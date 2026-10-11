@@ -1,0 +1,9 @@
+status: installed
+file: blacklock.png
+kind: icon
+opaque: yes
+source_url: https://theblacklock.com/wp-content/themes/eshop/assets/images/favicon.jpg
+page_url: https://theblacklock.com/
+why: the chain's own icon, declared by its home page https://theblacklock.com/; saved unchanged
+sha256: e3cd90c72dd0d4df3a1285130e852393ed6028254fee34c60f8cdf9b5c847709
+retrieved: 2026-10-11

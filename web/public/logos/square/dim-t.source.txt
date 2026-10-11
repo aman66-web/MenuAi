@@ -1,0 +1,9 @@
+status: installed
+file: dim-t.png
+kind: icon
+opaque: no
+source_url: https://dimt.co.uk/wp-content/uploads/favicon-150x150.png
+page_url: https://dimt.co.uk/
+why: the chain's own icon, declared by its home page https://dimt.co.uk/; saved unchanged
+sha256: 2c12a1da63fd433289273cd21182148ba345003194b6ca0fef473c53acb0848e
+retrieved: 2026-10-11

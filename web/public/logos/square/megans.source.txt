@@ -1,0 +1,9 @@
+status: installed
+file: megans.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://megans.co.uk/wp-content/themes/megans/library/images/favicon/apple-touch-icon.png
+page_url: https://megans.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://megans.co.uk/; saved unchanged
+sha256: 9241a61e1be6b576255576653bacc6a7f018422e6c4c3e35c7011e53685df59b
+retrieved: 2026-10-11

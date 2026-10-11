@@ -1,0 +1,9 @@
+status: installed
+file: prezzo.png
+kind: icon
+opaque: yes
+source_url: https://www.prezzo.co.uk/favicon.ico?v=2
+page_url: https://www.prezzo.co.uk/
+why: the chain's own icon, declared by its home page https://www.prezzo.co.uk/; saved unchanged (scaled down proportionally to 256 px) (the largest image in its .ico, stored as PNG, pixels unchanged)
+sha256: c042a9d0e5b4496ed841725c9101282e6b587c44dd4ee4bd9716a9ce0ea72782
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: pret.png
+kind: apple-touch-icon (default path)
+opaque: yes
+source_url: https://www.pret.co.uk/apple-touch-icon.png
+page_url: https://www.pret.co.uk/
+why: the chain's own apple-touch-icon (default path), declared by its home page https://www.pret.co.uk/; saved unchanged
+sha256: 502c38713bda8885d8b550b76665f1f34c6248547f4611fef28e778c705ab27f
+retrieved: 2026-10-11

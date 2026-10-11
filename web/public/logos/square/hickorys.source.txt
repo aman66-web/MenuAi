@@ -1,0 +1,9 @@
+status: installed
+file: hickorys.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://hickorys.co.uk/app/uploads/2025/01/cropped-Hicks-logo-512x512-1-180x180.png
+page_url: https://hickorys.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://hickorys.co.uk/; saved unchanged
+sha256: a45b1d8557366e3c532f88986df7899f2c18ab9257e9641ad18da96fb80ce7f3
+retrieved: 2026-10-11

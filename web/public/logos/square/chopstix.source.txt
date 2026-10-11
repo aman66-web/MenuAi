@@ -1,0 +1,9 @@
+status: installed
+file: chopstix.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://chopstixnoodles.co.uk/wp-content/uploads/2024/07/cropped-favicon-180x180.png
+page_url: https://chopstixnoodles.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://chopstixnoodles.co.uk/; saved unchanged
+sha256: dff3fa95a44e1bb08c694b57b5943f2d894b4649988891c009f360b737838aba
+retrieved: 2026-10-11

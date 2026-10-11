@@ -1,0 +1,9 @@
+status: installed
+file: hotel-du-vin.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.hotelduvin.com/assets/images/hotelduvin/apple-touch-icon.png
+page_url: https://www.hotelduvin.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.hotelduvin.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 7465d494bedc43b5674c508560b461d56894f9014d68dbb2616dcf32384afc96
+retrieved: 2026-10-11

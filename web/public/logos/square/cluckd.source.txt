@@ -1,0 +1,9 @@
+status: installed
+file: cluckd.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://cluckd.co.uk/wp-content/uploads/2023/08/cropped-cluckddomination-180x180.png
+page_url: https://cluckd.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://cluckd.co.uk/; saved unchanged
+sha256: 5448fc1df6c15937ae82b8b10f23dbb536cb8f5643ad26a70bf28ef02a608434
+retrieved: 2026-10-11

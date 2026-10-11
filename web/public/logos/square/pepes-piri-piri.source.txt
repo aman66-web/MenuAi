@@ -1,0 +1,9 @@
+status: installed
+file: pepes-piri-piri.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://pepes.co.uk/wp-content/themes/pepes-2026/images/apple-touch-icon.png
+page_url: https://pepes.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://pepes.co.uk/; saved unchanged
+sha256: e89b68e96ef5e1ea8844e4b9c78c81d012b0aa21aeb4a12a8df07dfdf9d73d6c
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: barburrito.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://barburrito.co.uk/wp-content/uploads/2026/02/barburrito-favicon-300x300.png
+page_url: https://barburrito.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://barburrito.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 3f103c730dc9a527d261702900177c3cf8646b1e20459358469db268f587898f
+retrieved: 2026-10-11

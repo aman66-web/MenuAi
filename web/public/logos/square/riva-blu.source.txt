@@ -1,0 +1,9 @@
+status: installed
+file: riva-blu.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.rivablu.co.uk/apple-touch-icon.png
+page_url: https://www.rivablu.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.rivablu.co.uk/; saved unchanged
+sha256: e2d250103549f4e867873d72beec64b1fd8077749c9c5ae3f64687cccfde0158
+retrieved: 2026-10-11

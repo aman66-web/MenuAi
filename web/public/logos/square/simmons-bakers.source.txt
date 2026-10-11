@@ -1,0 +1,9 @@
+status: installed
+file: simmons-bakers.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.simmonsbakers.com/images/icons/apple-touch-icon-180x180.png
+page_url: https://www.simmonsbakers.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.simmonsbakers.com/; saved unchanged
+sha256: ba06ad8e5c37f352924f7478924d7ddebaa3df64ff02c6b74c18e47c3c220b5d
+retrieved: 2026-10-11

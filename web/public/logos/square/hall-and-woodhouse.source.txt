@@ -1,0 +1,9 @@
+status: installed
+file: hall-and-woodhouse.png
+kind: manifest-icon
+opaque: no
+source_url: https://www.hall-woodhouse.co.uk/android-chrome-512x512.png
+page_url: https://www.hall-woodhouse.co.uk/
+why: the chain's own manifest-icon, declared by its home page https://www.hall-woodhouse.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 98690cda5e45a38e41df965ed5d719583bf728cc394acc42781e348d57462778
+retrieved: 2026-10-11

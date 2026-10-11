@@ -1,0 +1,9 @@
+status: installed
+file: social-pub-and-kitchen.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://24-social.com/stonegate/0VzKJgPbwtrMiQJ8zPdj/domains/445/favicon-445202501241618201916.ico
+page_url: https://www.socialpubandkitchen.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.socialpubandkitchen.co.uk/; saved unchanged (scaled down proportionally to 256 px) (the largest image in its .ico, stored as PNG, pixels unchanged)
+sha256: 61f18014c18cdd265ec51d7804429d6322feab4d370be845006f58804edf9e54
+retrieved: 2026-10-11

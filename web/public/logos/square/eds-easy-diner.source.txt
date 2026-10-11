@@ -1,0 +1,9 @@
+status: installed
+file: eds-easy-diner.png
+kind: icon
+opaque: no
+source_url: https://www.edseasydiner.com/assets/static/logo_180x180.png
+page_url: https://www.edseasydiner.com/
+why: the chain's own icon, declared by its home page https://www.edseasydiner.com/; saved unchanged
+sha256: 6c3723f877fad32fa8db2df25ba90962e6d59bba8223b83288e1f446b5229486
+retrieved: 2026-10-11

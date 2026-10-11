@@ -1,0 +1,9 @@
+status: installed
+file: wetherspoon.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.jdwetherspoon.com/wp-content/uploads/2024/02/wetherspoon_favicon_400-300x300.png
+page_url: https://www.jdwetherspoon.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.jdwetherspoon.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 878c37c686c4c9608b59b12434475f9b7596c113d516ac64d07d7dd3b9df53df
+retrieved: 2026-10-11

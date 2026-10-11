@@ -1,0 +1,9 @@
+status: installed
+file: rola-wala.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://rolawala.com/wp-content/uploads/2022/03/cropped-icon-76-180x180.png
+page_url: https://rolawala.com/
+why: the chain's own apple-touch-icon, declared by its home page https://rolawala.com/; saved unchanged
+sha256: 06d4ac5247827b6038d8b64973b90fa0618533fd26aee50e1695f6c7badb9aa5
+retrieved: 2026-10-11

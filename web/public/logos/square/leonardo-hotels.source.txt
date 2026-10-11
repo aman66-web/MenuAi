@@ -1,0 +1,9 @@
+status: installed
+file: leonardo-hotels.png
+kind: manifest-icon
+opaque: yes
+source_url: https://www.leonardohotels.co.uk/assets/icons/icon-512x512.png
+page_url: https://www.leonardohotels.co.uk/
+why: the chain's own manifest-icon, declared by its home page https://www.leonardohotels.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 384b47f500ea81adcdeb6072478f16925b3ab85f7843cd075abc52be7e10f547
+retrieved: 2026-10-11

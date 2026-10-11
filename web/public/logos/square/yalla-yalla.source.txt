@@ -1,0 +1,9 @@
+status: installed
+file: yalla-yalla.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://yalla-yalla.co.uk/wp-content/uploads/2024/06/cropped-favicon-180x180.webp
+page_url: https://yalla-yalla.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://yalla-yalla.co.uk/; saved unchanged
+sha256: bb3a35d01831601f4bb7f6d5ba8ca6e4cf392d367b732f3bce58d68419190b84
+retrieved: 2026-10-11

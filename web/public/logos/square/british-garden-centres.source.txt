@@ -1,0 +1,9 @@
+status: installed
+file: british-garden-centres.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.britishgardencentres.com/wp-content/themes/britishgardencentres.com/public/images/favicons/apple-touch-icon.png
+page_url: https://www.britishgardencentres.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.britishgardencentres.com/; saved unchanged
+sha256: d0f22bc398621d36b4ec4af50bf516d338e8cc050cff8654e0c76ec7edf4ab2c
+retrieved: 2026-10-11

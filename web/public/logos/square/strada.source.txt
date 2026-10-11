@@ -1,0 +1,9 @@
+status: installed
+file: strada.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://strada.co.uk/wp-content/themes/strada/assets/images/favicon/apple-touch-icon.png
+page_url: https://strada.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://strada.co.uk/; saved unchanged
+sha256: 13788f6afd43fafc7bb53f7a1f96978eadc42300e645f213cd9997165660a14c
+retrieved: 2026-10-11

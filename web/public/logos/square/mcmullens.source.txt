@@ -1,0 +1,9 @@
+status: installed
+file: mcmullens.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.mcmullens.co.uk/app/uploads/2025/10/cropped-Logo-black-transparent-180x180.png
+page_url: https://www.mcmullens.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.mcmullens.co.uk/; saved unchanged
+sha256: 1fc7dcad80adc038328f6efbe568eaa2077d25c7e8e4f325170e196d359ef20a
+retrieved: 2026-10-11

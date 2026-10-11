@@ -1,0 +1,9 @@
+status: installed
+file: real-greek.png
+kind: icon
+opaque: no
+source_url: https://www.therealgreek.com/wp-content/themes/TheRealGreek-Theme/favicon.png
+page_url: https://www.therealgreek.com/
+why: the chain's own icon, declared by its home page https://www.therealgreek.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 8e23b974ead94ea483b00e6e873fba61503e7416478b35bd76d3605efe520c8b
+retrieved: 2026-10-11

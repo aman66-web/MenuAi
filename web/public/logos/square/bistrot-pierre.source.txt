@@ -1,0 +1,9 @@
+status: installed
+file: bistrot-pierre.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.bistrotpierre.co.uk/propeller/uploads/2026/09/cropped-Bistrot-Pierre-2026-Favicon-Blue-FE-180x180.png
+page_url: https://www.bistrotpierre.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.bistrotpierre.co.uk/; saved unchanged
+sha256: 1fcf91c15822d22cfb2a576829b297ce88450b9553b668be1e746f76947b9305
+retrieved: 2026-10-11

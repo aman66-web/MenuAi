@@ -1,0 +1,9 @@
+status: installed
+file: gails.svg
+kind: svg-icon
+opaque: no
+source_url: https://gails.com/cdn/shop/files/gails-favicon_66b0bcea-3241-4263-bf9f-020e1badd45a.svg?crop=center&height=32&v=1693471229&width=32
+page_url: https://gails.com/
+why: the chain's own svg-icon, declared by its home page https://gails.com/; saved unchanged
+sha256: d6ac8b3c73d28538bfbdeacb277f2427c90d492764cefaaee867ee885c8a8734
+retrieved: 2026-10-11

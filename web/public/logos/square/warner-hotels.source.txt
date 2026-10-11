@@ -1,0 +1,9 @@
+status: installed
+file: warner-hotels.png
+kind: manifest-icon
+opaque: yes
+source_url: https://www.warnerhotels.co.uk/static/images/favicons/favicon-512.png
+page_url: https://www.warnerhotels.co.uk/
+why: the chain's own manifest-icon, declared by its home page https://www.warnerhotels.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: f7bf0f8a14fb702aa55c676ba2689d4c3dfc4e6adca8a088c3c3e80702d44344
+retrieved: 2026-10-11

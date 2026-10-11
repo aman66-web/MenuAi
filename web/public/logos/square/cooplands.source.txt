@@ -1,0 +1,9 @@
+status: installed
+file: cooplands.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://cooplands-bakery.co.uk/wp-content/uploads/2024/09/cropped-logo-icon-dark-300x300.png
+page_url: https://cooplands-bakery.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://cooplands-bakery.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 5199a4d53daa2a577b3b82c57e96e9c0b664b5e334fbba2f36c6b7b778f0dff2
+retrieved: 2026-10-11

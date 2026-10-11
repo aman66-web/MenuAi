@@ -1,0 +1,9 @@
+status: installed
+file: tgi-fridays.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.tgifridays.co.uk/themes/custom/fridays/apple-touch-icon.png
+page_url: https://www.tgifridays.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.tgifridays.co.uk/; saved unchanged
+sha256: 51d576adb4a1137e33f0dd66e999059f244150547a1663c1c5b9629b0474d820
+retrieved: 2026-10-11

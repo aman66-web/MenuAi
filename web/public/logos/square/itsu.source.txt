@@ -1,0 +1,9 @@
+status: installed
+file: itsu.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.itsu.com/_nuxt/icons/icon_512x512.420c4f.png
+page_url: https://www.itsu.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.itsu.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: cd9ffb2f3fac4f881e008ee5c94b9ac826cbfa0b0c6123e7eb1ce52ac0490f1c
+retrieved: 2026-10-11

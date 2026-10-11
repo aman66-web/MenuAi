@@ -1,0 +1,9 @@
+status: installed
+file: amalfi.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.amalfi.co.uk/_nuxt/icons/icon_512x512.7741b9.png
+page_url: https://www.amalfi.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.amalfi.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: a45c60a203a58a31de2239c96d86cbad35c80d93eb4751fb6e0f272b94391292
+retrieved: 2026-10-11

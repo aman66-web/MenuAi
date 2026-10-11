@@ -1,0 +1,9 @@
+status: installed
+file: butcombe-inns.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://butcombe.com/apple-touch-icon.png
+page_url: https://butcombe.com/
+why: the chain's own apple-touch-icon, declared by its home page https://butcombe.com/; saved unchanged
+sha256: c94d8c70618ac3abd22f3e08b049e7dd46e985c78e142ec717b4b6d9a771bd30
+retrieved: 2026-10-11

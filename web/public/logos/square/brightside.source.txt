@@ -1,0 +1,9 @@
+status: installed
+file: brightside.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://brightside.co.uk/assets/img/favicon-152.png
+page_url: https://brightside.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://brightside.co.uk/; saved unchanged
+sha256: 85c615fe3020344ccbc74c7fdabc3178ca0b89dcebef02faac57841f4f1ed65c
+retrieved: 2026-10-11

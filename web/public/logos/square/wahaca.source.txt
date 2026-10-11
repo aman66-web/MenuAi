@@ -1,0 +1,8 @@
+status: rejected
+why: looked at on the contact sheet: the icon is a plain yellow circle that doesn't identify the chain at tile size; its logo file stays
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.wahaca.co.uk/wp-content/uploads/2025/04/cropped-0230_WAH_Favicon-180x180.png
+page_url: https://www.wahaca.co.uk/
+sha256: f2177c1bac3aafbe451cd300e9025e02eb7da8f99b822a3951ecb977b1b6698c
+retrieved: 2026-10-11

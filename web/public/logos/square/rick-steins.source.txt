@@ -1,0 +1,9 @@
+status: installed
+file: rick-steins.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://rickstein.com/wp-content/uploads/2024/02/cropped-Favicon-180x180.png
+page_url: https://rickstein.com/
+why: the chain's own apple-touch-icon, declared by its home page https://rickstein.com/; saved unchanged
+sha256: 20a05f29ae1d3f7a8dbdd29e286200eaaf28bb4da2333e58ed850d428c6ebabd
+retrieved: 2026-10-11

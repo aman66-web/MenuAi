@@ -1,7 +1,11 @@
-status: skipped-blocked
-file: none
-page: https://www.subway.com/en-GB
-why: The chain's own site refused an automated visit (page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.subway.com/en-GB); blocks are never worked around. Download the logo from the site yourself and send it, and it installs in one step.
+status: installed
+file: subway.png
+kind: header
+tile: light
+source_url: https://emea.newsroom.subway.com/images/header_footer/subway-logo.png
+page_url: https://emea.newsroom.subway.com/
 terms_url: https://www.subway.com/en-gb/legal/terms-of-use
-terms_summary: Subway's terms say the Subway name and logo are registered trademarks of Subway IP LLC, grant no licence to any of its trademarks or service marks, and prohibit unauthorised use.
-retrieved: 2026-10-06
+terms_summary: Subway's terms (section 2, Ownership) say the Subway name and logo are registered trademarks and service marks of Subway IP LLC and that unauthorised use of the Site's marks and content is prohibited.
+why: Header logo of Subway's own newsroom site (https://emea.newsroom.subway.com/, linked as "News" from the subway.com/en-gb footer; its robots.txt answers 404 = no rules); saved byte for byte (340 x 68 PNG, transparent). The main site's own header logo (https://www.subway.com/en-gb/media_1bf4d9bd9cc28824c0357159c9d0ab454d5611864.png) answers 404 today, so the header shows a broken image there; the 2026-10-06 skip (HTTP/2 error in a browser) no longer applies: subway.com/en-gb answered normally on 2026-10-11 and its robots.txt only disallows /sitecore/ and delivery-locator paths.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt allowed the host and file
+retrieved: 2026-10-11

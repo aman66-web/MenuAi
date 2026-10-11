@@ -1,0 +1,9 @@
+status: installed
+file: wenzels.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.wenzels.co.uk/wp-content/uploads/2026/01/cropped-apple-touch-icon-180x180.png
+page_url: https://www.wenzels.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.wenzels.co.uk/; saved unchanged
+sha256: 629f6102c36d2892ca200bedae8d2499b1e97087211ca26b738cdffbb4b78590
+retrieved: 2026-10-11

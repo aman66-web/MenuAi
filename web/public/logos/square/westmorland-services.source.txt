@@ -1,0 +1,9 @@
+status: installed
+file: westmorland-services.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://westmorlandfamily.com/wp-content/uploads/2023/01/cropped-1905_Green-Favicon_32px_Westmorland-1-180x180.png
+page_url: https://westmorlandfamily.com/
+why: the chain's own apple-touch-icon, declared by its home page https://westmorlandfamily.com/; saved unchanged
+sha256: 0a284ad3d9f46efe42fe1ef1aa067e239270b088a37d5910bf9f7ed938a60f01
+retrieved: 2026-10-11

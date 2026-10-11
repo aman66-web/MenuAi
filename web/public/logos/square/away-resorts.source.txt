@@ -1,0 +1,9 @@
+status: installed
+file: away-resorts.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://awrweb.azureedge.net/assets-app-service/static/production/1.10.5/dist/img/favicons/apple-touch-icon.png
+page_url: https://www.awayresorts.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.awayresorts.co.uk/; saved unchanged
+sha256: ae0326253baadff69246e398732bc07f823543b51f5b59aa1cb17d7c6bc3b56c
+retrieved: 2026-10-11

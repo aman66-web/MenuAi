@@ -1,0 +1,3 @@
+status: skipped-unavailable
+why: home page refused or robots.txt disallows: robots.txt disallows https://www.buyandbite.co.uk/
+page_url: https://www.buyandbite.co.uk/

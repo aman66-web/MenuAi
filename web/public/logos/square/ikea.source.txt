@@ -1,0 +1,9 @@
+status: installed
+file: ikea.png
+kind: apple-touch-icon (default path)
+opaque: yes
+source_url: https://www.ikea.com/apple-touch-icon.png
+page_url: https://www.ikea.com/
+why: the chain's own apple-touch-icon (default path), declared by its home page https://www.ikea.com/; saved unchanged
+sha256: b2b611b5476433c5120183a61b20a0931dd9f3ec06b741e8ec70b60273403bbb
+retrieved: 2026-10-11

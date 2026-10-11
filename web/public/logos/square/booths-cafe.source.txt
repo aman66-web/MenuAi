@@ -1,0 +1,9 @@
+status: installed
+file: booths-cafe.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.booths.co.uk/wp-content/uploads/cropped-Booths-favicon-180x180.png
+page_url: https://www.booths.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.booths.co.uk/; saved unchanged
+sha256: 6fdb91c7ae274b5b20c95b07106554bf007ffc7bfc5ca817b5998a4f02ca6502
+retrieved: 2026-10-11

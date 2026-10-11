@@ -1,0 +1,9 @@
+status: installed
+file: forest-holidays.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.forestholidays.co.uk/_next/static/media/apple-touch-icon.9ce6af94.png
+page_url: https://www.forestholidays.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.forestholidays.co.uk/; saved unchanged
+sha256: 7a201410da8fde3e56a62b70e7f17b79af9daf0b3d564f2d1d1cfaea51f70962
+retrieved: 2026-10-11

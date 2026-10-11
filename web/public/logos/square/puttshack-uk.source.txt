@@ -1,0 +1,9 @@
+status: installed
+file: puttshack-uk.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.puttshack.com/wp-content/uploads/2025/04/favicon-300x300.png
+page_url: https://www.puttshack.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.puttshack.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 56e0907775ff5a0df8534ae3fddd936614e72540cc95f26b74f80db277bc8b3a
+retrieved: 2026-10-11

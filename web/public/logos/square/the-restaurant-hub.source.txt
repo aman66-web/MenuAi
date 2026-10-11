@@ -1,0 +1,9 @@
+status: installed
+file: the-restaurant-hub.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://therestauranthub.co.uk/wp-content/uploads/2022/09/cropped-favicon-180x180.png
+page_url: https://therestauranthub.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://therestauranthub.co.uk/; saved unchanged
+sha256: eea6b8c75dd7dd6c8c2f7a92787dd42d1a7ed4d755b1d9f5d349ddca3b762dcf
+retrieved: 2026-10-11

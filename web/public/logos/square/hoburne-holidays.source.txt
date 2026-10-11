@@ -1,0 +1,9 @@
+status: installed
+file: hoburne-holidays.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.hoburne.com/images/favicons/apple-touch-icon.png
+page_url: https://www.hoburne.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.hoburne.com/; saved unchanged
+sha256: ed5d4450c52105edb55a033920d13361b653a31e00aa6c158b4c1980cb87d2a6
+retrieved: 2026-10-11

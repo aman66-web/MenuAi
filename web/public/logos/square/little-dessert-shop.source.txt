@@ -1,0 +1,9 @@
+status: installed
+file: little-dessert-shop.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.littledessertshop.co.uk/site/assets/images/uploads/icons/apple-icon-180x180.png
+page_url: https://www.littledessertshop.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.littledessertshop.co.uk/; saved unchanged
+sha256: a69771fd37473ae5933a908ebde52f8bd3ffea53824576b7b6c9a03149522877
+retrieved: 2026-10-11

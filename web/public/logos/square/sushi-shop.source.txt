@@ -1,0 +1,9 @@
+status: installed
+file: sushi-shop.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.mysushishop.co.uk/static/favicons/apple-touch-icon-180x180.png
+page_url: https://www.mysushishop.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.mysushishop.co.uk/; saved unchanged
+sha256: 6e5dbb14b87a06362b58b61d9cee13170a87b9b527d10078cd7049dc22a8db89
+retrieved: 2026-10-11

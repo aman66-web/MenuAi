@@ -1,0 +1,8 @@
+status: rejected
+why: looked at on the contact sheet: the icon is a plain green block that doesn't identify the chain at tile size; its logo file stays
+kind: apple-touch-icon
+opaque: no
+source_url: https://res.cloudinary.com/blank-street/image/upload/v1687957456/web/BlankStreet_Favicon_ihzdxu.png
+page_url: https://www.blankstreet.com/
+sha256: ea17d010dc8f59d535182caa9a8527421c520d4eb199c6cfaf366f4cf4e2772c
+retrieved: 2026-10-11

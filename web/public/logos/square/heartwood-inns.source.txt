@@ -1,0 +1,9 @@
+status: installed
+file: heartwood-inns.png
+kind: manifest-icon
+opaque: no
+source_url: https://heartwoodinns.com/favicon/android-chrome-512x512.png
+page_url: https://heartwoodinns.com/
+why: the chain's own manifest-icon, declared by its home page https://heartwoodinns.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 8e0ac2923f788b743beae7543e607a643013199e8628f57b069b0e0eda9aa862
+retrieved: 2026-10-11

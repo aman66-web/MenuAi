@@ -1,0 +1,9 @@
+status: installed
+file: flat-iron.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://flatironsteak.co.uk/wp-content/uploads/cropped-flatiron-siteicon-180x180.png
+page_url: https://flatironsteak.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://flatironsteak.co.uk/; saved unchanged
+sha256: aa0018faab5b10c72a25f8b9f2caba3fb029939ff34088b8565bff9644993263
+retrieved: 2026-10-11

@@ -1,0 +1,9 @@
+status: installed
+file: roxy-leisure.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://roxyleisure.co.uk/wp-content/uploads/2023/02/cropped-Roxy-Favicon4-180x180.png
+page_url: https://roxyleisure.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://roxyleisure.co.uk/; saved unchanged
+sha256: 3a3095993df8407e01b5bc1ca4ff3f1c4c01c053c27c6df3ea5b80d6a4bc53e1
+retrieved: 2026-10-11

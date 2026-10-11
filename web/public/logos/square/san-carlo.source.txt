@@ -1,0 +1,9 @@
+status: installed
+file: san-carlo.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://cdn-ilepifh.nitrocdn.com/ULdYuYTHwXynNyVmGEHhiykfHAlIoGAP/assets/images/optimized/rev-31f5574/cdn.sancarlo.co.uk/wp-content/uploads/2026/03/cropped-sc-mono-png-fav-180x180.png
+page_url: https://sancarlo.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://sancarlo.co.uk/; saved unchanged
+sha256: 43f9058b7eeef2b0fad9dd761c2db0dac39725fd2a18f400638d480c4812d728
+retrieved: 2026-10-11

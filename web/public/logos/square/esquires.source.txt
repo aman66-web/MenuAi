@@ -1,0 +1,9 @@
+status: installed
+file: esquires.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://esquirescoffee.co.uk/wp-content/uploads/2025/11/cropped-Uploaded-Approved-180x180.png
+page_url: https://esquirescoffee.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://esquirescoffee.co.uk/; saved unchanged
+sha256: 7841390f108b2885ccf174bc7f35e73a2914748edcffde708dfdef6f217b8bf8
+retrieved: 2026-10-11

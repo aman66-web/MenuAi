@@ -1,0 +1,9 @@
+status: installed
+file: fat-hippo.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://fathippo.co.uk/apple-touch-icon.png
+page_url: https://fathippo.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://fathippo.co.uk/; saved unchanged
+sha256: 86d249cccad74a196ce3e05181f67770c344cefd6ceb6b15db167280098dd5b1
+retrieved: 2026-10-11

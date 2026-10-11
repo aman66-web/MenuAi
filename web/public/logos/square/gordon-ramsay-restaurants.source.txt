@@ -1,0 +1,9 @@
+status: installed
+file: gordon-ramsay-restaurants.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.gordonramsayrestaurants.com/mysite/img/grr/apple-touch-icon-180x180.png
+page_url: https://www.gordonramsayrestaurants.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.gordonramsayrestaurants.com/; saved unchanged
+sha256: 8a81411da54d309d4cd1ed45fb67e5f65daf33eb2ad10385aab2db50e29f5a3b
+retrieved: 2026-10-11

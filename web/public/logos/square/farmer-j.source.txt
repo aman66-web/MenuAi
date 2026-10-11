@@ -1,0 +1,9 @@
+status: installed
+file: farmer-j.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.farmerj.com/wp-content/uploads/2018/06/cropped-farmerj-icon-180x180.png
+page_url: https://www.farmerj.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.farmerj.com/; saved unchanged
+sha256: 3b10508c59edf38cdead82af30f8c368222800907910b57a888ee4913e98e94a
+retrieved: 2026-10-11

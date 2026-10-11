@@ -1,0 +1,11 @@
+status: installed
+file: goals-soccer-centres.png
+kind: header
+tile: dark
+source_url: https://www.goalsfootball.co.uk/img/logo.png
+page_url: https://www.goalsfootball.co.uk/
+terms_url: https://www.goalsfootball.co.uk/customer-service/policies-and-documents/terms-and-conditions
+terms_summary: The site terms ("How you may use material on our site") say Northwind 5s Ltd (GOALS) owns the site's intellectual property, that content may be downloaded for personal use only, that illustrations or graphics must not be used separately from accompanying text, and that no part may be used for commercial purposes without a licence.
+why: Own website header (https://www.goalsfootball.co.uk/): the GOALS wordmark with "ACCEPT NO SUBSTITUTES", the origin file behind the header's /img/logo.png (the page requests resized copies through a cloudimg.io proxy; the origin file is saved as served, 238 x 124 PNG), white artwork meant for the dark header so it needs a dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk); robots.txt (User-agent: * Allow: /) allowed the page and the file
+retrieved: 2026-10-11

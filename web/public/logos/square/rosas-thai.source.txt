@@ -1,0 +1,9 @@
+status: installed
+file: rosas-thai.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://rosasthai.com/wp-content/uploads/2026/06/cropped-WhatsApp-Image-2026-06-05-at-11.59.34-180x180.jpeg
+page_url: https://rosasthai.com/
+why: the chain's own apple-touch-icon, declared by its home page https://rosasthai.com/; saved unchanged
+sha256: d40e878591f1ac7135b92c40bc459fef5ac05e8647658201b6444a98d4d731ab
+retrieved: 2026-10-11

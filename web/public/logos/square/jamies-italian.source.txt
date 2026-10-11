@@ -1,0 +1,9 @@
+status: installed
+file: jamies-italian.png
+kind: manifest-icon
+opaque: yes
+source_url: https://www.jamiesitalian.co.uk/web-app-manifest-512x512.png
+page_url: https://www.jamiesitalian.co.uk/
+why: the chain's own manifest-icon, declared by its home page https://www.jamiesitalian.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: fd36cf66bf053d567f5638de8ec5ede69319d97acbc0343fecbde9ee0002dae6
+retrieved: 2026-10-11
