@@ -1,9 +1,11 @@
-status: skipped-blocked
-file: none
-source_url: https://www.costa.co.uk/robots.txt could not be fetched: the retry on 2026-10-11 (curl, browser User-Agent) ended in "HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR" with no HTTP status, as on 2026-10-10 (four attempts); other hosts answered normally through the same proxy
-page_url: https://www.costa.co.uk/
-terms_url: not reviewed
-terms_summary: not read: the site would not answer this environment, so neither its robots.txt nor its terms could be read
-why: With robots.txt unreachable the rules cannot be checked (an unreachable robots.txt is treated as disallow), so no page or file was requested and nothing was worked round; one retry only, per the brief. To add it, the founder can save the header logo from https://www.costa.co.uk/ in their own browser and send it.
-decision: stopped per the Phase 3 rule; no logo installed
-retrieved: 2026-10-11
+status: installed
+file: costa.png
+kind: header
+tile: light
+source_url: https://www.coca-cola.com/content/dam/onexp/gb/en/logos/v2/uk_costa_coffee_logo_506x180.png
+page_url: https://www.coca-cola.com/gb/en/brands/costa-coffee
+terms_url: https://www.coca-cola.com/gb/en/legal/terms-of-service
+terms_summary: Coca-Cola's terms say its marks may not be used without its prior written permission and that other names and logos on the site are the trademarks of their owners.
+why: The Costa Coffee logo from the Costa Coffee brand page of its owner's own UK site (The Coca-Cola Company owns Costa; the page's og:image, alt "Costa Coffee logo."; robots.txt answers 200 and allows the page and file), saved byte for byte (506 x 180 PNG, transparent): the "COSTA COFFEE" wordmark. Costa's own site www.costa.co.uk could not be checked: its robots.txt request times out or ends in an HTTP/2 stream error (2026-10-10 to 2026-10-12), so nothing there was requested. Same route as Vue's logo (its owner's brand page).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); 2026-10-12 ("cant you do all those logos for me pls"); robots.txt allowed the host and file
+retrieved: 2026-10-12

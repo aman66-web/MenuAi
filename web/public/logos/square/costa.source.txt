@@ -1,0 +1,10 @@
+status: rejected
+file: costa.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://www.coca-cola.com/onexp-theme/b19d58d068ec72a29339f86541e07fe0d4715aa8b703198083872d5fe700a90e/resources/favicons/apple-touch-icon.png
+page_url: https://www.coca-cola.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.coca-cola.com/; saved unchanged
+sha256: e0bec10cab3d6dfcd931e118898c0edc3a2f1456faca18fbe090a7affee5d741
+retrieved: 2026-10-12
+rejected_why: the icon came from www.coca-cola.com (the record's page is Coca-Cola's Costa brand page), so it is Coca-Cola's own wave icon, not Costa's (looked at on a contact sheet, 2026-10-12)

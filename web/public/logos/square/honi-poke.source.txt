@@ -1,3 +1,9 @@
-status: skipped-unavailable
-why: no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page
+status: installed
+file: honi-poke.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://cdn.prod.website-files.com/6620f05a08d0d180b3793c38/663b78d31c734799d384a2b2_webclip.png
 page_url: https://www.honipoke.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.honipoke.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 62d26014a04d93a8f8eee103ad7db7496d2a31a6bd76ae56bbda4dfbc887a876
+retrieved: 2026-10-12

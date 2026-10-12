@@ -81,8 +81,9 @@ def _robots_allow(url: str) -> bool:
             with urllib.request.urlopen(req, timeout=20) as r:
                 _robots[key] = robots_rfc.parse(r.read().decode("utf-8", "replace"))
         except urllib.error.HTTPError as e:
-            # RFC 9309: a 4xx for robots.txt (404, 410, a CDN's odd 400...) means "no rules"; 401/403/429 and 5xx we treat
-            # conservatively as "do not fetch".
+            # RFC 9309: a 4xx for robots.txt (404, 410, a CDN's odd 400, a 403 "forbidden") means "no rules". Founder 2026-10-12 ("Yes, follow
+            # the standard"): a 403 on robots.txt is read as no rules, as the standard says. 401 and 429 (a refusal or "slow down") and 5xx
+            # (unreachable) still mean "do not fetch", and a page or file that itself answers 401/403/429 still stops the run (polite_get).
             # An Amazon S3 bucket answers 403 AccessDenied for a robots.txt it simply doesn't have (the bucket is the site's own public
             # image store; the site's own robots.txt is what states its rules). Treated as "no rules" for S3 bucket hosts only.
             s3_missing_file = e.code == 403 and re.search(r"\.s3[.-][a-z0-9-]*\.?amazonaws\.com$", host.netloc) is not None
@@ -93,7 +94,7 @@ def _robots_allow(url: str) -> bool:
             except Exception:
                 body = b""
             cdn_missing_file = e.code == 403 and (b"<Code>MissingKey</Code>" in body or b"<Code>NoSuchKey</Code>" in body)
-            _robots[key] = [] if (s3_missing_file or cdn_missing_file) else [("disallow", "/")] if e.code in (401, 403, 429) or e.code >= 500 else []
+            _robots[key] = [] if (s3_missing_file or cdn_missing_file or e.code == 403) else [("disallow", "/")] if e.code in (401, 429) or e.code >= 500 else []
         except Exception:
             _robots[key] = []
     return robots_rfc.allowed(_robots[key], host.path + ("?" + host.query if host.query else ""))

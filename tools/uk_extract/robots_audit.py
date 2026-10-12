@@ -3,7 +3,7 @@
 
 Usage: python3 tools/uk_extract/robots_audit.py
 Reads data/source/*/chain.csv (source_url) and allergen_guide.csv (url). Prints the addresses a crawler must not fetch, and the hosts whose
-robots.txt could not be read (403/5xx/network: look at those by hand). Run it after adding chains. A chain listed as disallowed must not be
+robots.txt could not be read (401/429/5xx/network: look at those by hand; a 403 or other 4xx means no rules, RFC 9309). Run it after adding chains. A chain listed as disallowed must not be
 published: move it to data/held-robots/ (see the README there).
 """
 from __future__ import annotations
@@ -54,9 +54,9 @@ def main() -> int:
             req = urllib.request.Request(f"https://{host}/robots.txt", headers={"User-Agent": UA})
             rules = robots_rfc.parse(urllib.request.urlopen(req, timeout=15).read().decode("utf-8", "replace"))
         except urllib.error.HTTPError as e:
-            if e.code in (401, 403, 429) or e.code >= 500:
+            if e.code in (401, 429) or e.code >= 500:
                 unreadable.append((host, e.code, sorted({c for c, _ in by_host[host]})[:4]))
-            continue  # other 4xx: no rules
+            continue  # other 4xx, 403 included: no rules (RFC 9309; founder 2026-10-12)
         except Exception as e:  # network trouble
             unreadable.append((host, str(e)[:40], sorted({c for c, _ in by_host[host]})[:4]))
             continue

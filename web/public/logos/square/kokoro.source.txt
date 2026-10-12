@@ -1,3 +1,10 @@
-status: skipped-unavailable
-why: no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page
+status: rejected
+file: kokoro.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://cdn.prod.website-files.com/67a6072523ff621bc008dd6a/6825b602d007f966723817b1_webclip.png
 page_url: https://www.kokorouk.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.kokorouk.com/; saved unchanged (scaled down proportionally to 256 px)
+sha256: 577a7d4b85a0242157181faba52fb2114e56ad334e1dd71e25d112d860010b9a
+retrieved: 2026-10-12
+rejected_why: a plain box-and-heart symbol without the name, not identifiable as Kokoro on its own (as Nando's plain heart was left out); the KOKORO wordmark stays (contact sheet, 2026-10-12)

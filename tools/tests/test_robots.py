@@ -31,3 +31,28 @@ class RobotsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RobotsStatusTests(unittest.TestCase):
+    """How images_common reads a robots.txt it can't get (founder 2026-10-12: follow RFC 9309, so a 403 means no rules)."""
+
+    def check(self, code: int) -> bool:
+        import io
+        import urllib.error
+        from unittest import mock
+
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "uk_extract"))
+        import images_common as ic
+
+        ic._robots.clear()
+        err = urllib.error.HTTPError("https://cdn.example.org/robots.txt", code, "x", {}, io.BytesIO(b"denied"))
+        with mock.patch("urllib.request.urlopen", side_effect=err):
+            return ic._robots_allow("https://cdn.example.org/logo.png")
+
+    def test_403_and_other_4xx_mean_no_rules(self):
+        self.assertTrue(self.check(403))
+        self.assertTrue(self.check(404))
+
+    def test_401_429_and_5xx_still_stop(self):
+        for code in (401, 429, 500, 503):
+            self.assertFalse(self.check(code), code)

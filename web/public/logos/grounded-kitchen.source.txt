@@ -1,8 +1,11 @@
-status: skipped-unavailable
-file:
-source_url: https://static.wixstatic.com/media/f443ca_8e148ad5e09f4ec2bbadf5f72b633dab~mv2.png
+status: installed
+file: grounded-kitchen.png
+kind: header
+tile: dark
+source_url: https://static.wixstatic.com/media/f443ca_8e148ad5e09f4ec2bbadf5f72b633dab~mv2.png/v1/fill/w_300,h_108,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Grounded%20Kitchen%20Logo%202024.png
 page_url: https://www.groundedkitchen.com/
-terms_url: https://www.groundedkitchen.com/
-terms_summary: not reached: the logo's only host answers 403 to its robots.txt.
-why: The header logo ("Grounded Kitchen Logo 2024") and the site icons are served only from static.wixstatic.com, whose robots.txt answers HTTP 403, so they were not fetched (the same stop as for Sbarro); the chain keeps its cuisine glyph.
+terms_url: not read for this logo round
+terms_summary: Installed whatever the site terms say (the founder's accepted risk, CLAUDE.md rule 2).
+why: Header logo of Grounded Kitchen's own site ("Grounded Kitchen Logo 2024"), the 300 x 108 PNG its header serves at 2x from Wix's image host (static.wixstatic.com: robots.txt answers 403, read as no rules per RFC 9309; founder 2026-10-12); www.groundedkitchen.com's robots.txt allows the page. Saved byte for byte as served (the 370 KB original was not used). White lettering, so it sits on the dark tile.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); 2026-10-12 ("cant you do all those logos for me pls"; robots.txt answering 403 read as no rules, RFC 9309: "Yes, follow the standard")
 retrieved: 2026-10-12

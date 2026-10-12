@@ -1,12 +1,12 @@
-status: skipped-blocked
-file: none
-kind: owner-brand-page
-source_url: https://assets.bp.com/rendition/6cqieuqhq4no/master/1TjbXaIcmVaKbjzL9224Li/edf6a695fdc3248b48c6e4704524e69c/wbc-logo-566x378.png
+status: rejected
+file: wild-bean-cafe.webp
+kind: header
+tile: light
+source_url: https://assets.bp.com/rendition/6cqieuqhq4no/master/1TjbXaIcmVaKbjzL9224Li/edf6a695fdc3248b48c6e4704524e69c/wbc-logo-566x378.png?w=560&h=373&fp_x=0.5&fp_y=0.5&q=50
 page_url: https://www.bp.com/about-us/who-we-are/our-brands
-blocked_url: https://assets.bp.com/robots.txt (403)
-chrome_hint: Open https://www.bp.com/about-us/who-we-are/our-brands and, in the "wildbean cafe" card ("A brand on the move across four continents"), save the card image (alt "wbc logo", file wbc-logo-566x378.png) as wild-bean-cafe.png; it is a 566 x 378 card picture, so check it shows only the logo.
-terms_url: not reviewed
-terms_summary: not reviewed: nothing was installed
-why: The chain's own pages on bp.com (Wild Bean Cafe home, "Our Wild Bean offer") show only bp's logos (checked earlier on 2026-10-10). Its owner bp's "Our brands" page (www.bp.com/about-us/who-we-are/our-brands, robots.txt allows it) shows the Wild Bean Cafe logo, but the file is served only from assets.bp.com, whose robots.txt answers 403 (treated as disallow), so it was not downloaded. bp's own logo is a different brand and was not used.
-decision: founder, 2026-10-06 ("Use the actual logos for the brands"); blocks are never worked around
-retrieved: 2026-10-10
+terms_url: not read for this logo round
+terms_summary: Installed whatever the site terms say (the founder's accepted risk, CLAUDE.md rule 2).
+why: The Wild Bean Cafe logo from its owner bp's own "Our brands" page (www.bp.com allows the page; the image host assets.bp.com answers 403 to robots.txt, read as no rules per RFC 9309; founder 2026-10-12), the 560 px rendition the page lists in its srcset (the file's own size is 566 x 378, so not enlarged); saved byte for byte as served (WebP). The chain's own pages on bp.com show only bp's logo.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); 2026-10-12 ("cant you do all those logos for me pls"; robots.txt answering 403 read as no rules, RFC 9309: "Yes, follow the standard")
+retrieved: 2026-10-12
+rejected_why: looked at on the tile (2026-10-12): the mark fills only about a third of the file, the rest is white space, so on our tile it is a dot too small to read; a logo can't be cropped (CLAUDE.md rule 2), so it is left out and the cuisine icon stays

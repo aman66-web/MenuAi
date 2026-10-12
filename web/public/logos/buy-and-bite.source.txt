@@ -1,0 +1,11 @@
+status: installed
+file: buy-and-bite.png
+kind: header
+tile: light
+source_url: https://static.wixstatic.com/media/88035e_18b4ad901c47438792e25394c6c6aa07~mv2.png/v1/fill/w_581,h_134,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/_edited.png
+page_url: https://www.buyandbite.co.uk/
+terms_url: not read for this logo round
+terms_summary: Installed whatever the site terms say (the founder's accepted risk, CLAUDE.md rule 2).
+why: Header logo of Buy & Bite's own site (the first, high-priority image of its header: the "buy&bite" wordmark with its mascot), served by Wix's image host (robots.txt answers 403, read as no rules per RFC 9309; founder 2026-10-12); www.buyandbite.co.uk's robots.txt allows / (only ?lightbox= addresses are disallowed; an earlier "disallowed" note came from a 429 'slow down' answer). Saved byte for byte as served (581 x 134 PNG).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); 2026-10-12 ("cant you do all those logos for me pls"; robots.txt answering 403 read as no rules, RFC 9309: "Yes, follow the standard")
+retrieved: 2026-10-12

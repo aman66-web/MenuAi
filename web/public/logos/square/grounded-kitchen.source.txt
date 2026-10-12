@@ -1,0 +1,9 @@
+status: installed
+file: grounded-kitchen.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://static.wixstatic.com/media/277d7c_8ca72b682bbf42cb823970234435c70d%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/277d7c_8ca72b682bbf42cb823970234435c70d%7Emv2.png
+page_url: https://www.groundedkitchen.com/
+why: the chain's own apple-touch-icon, declared by its home page https://www.groundedkitchen.com/; saved unchanged
+sha256: fa9a781d1991af1b568562008155c9ca37db5590367d9ab05181749ae5bcc80a
+retrieved: 2026-10-12
