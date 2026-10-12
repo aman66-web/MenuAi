@@ -1,0 +1,8 @@
+status: rejected
+why: looked at: the icon is a plain orange heart (the heart from the wordmark's apostrophe) that doesn't identify the chain at tile size; its logo file stays
+kind: icon
+opaque: no
+source_url: https://www.waterfields-bakers.co.uk/cdn/shop/files/waterfields-favicon.png?v=1643817850
+page_url: https://www.waterfields-bakers.co.uk/
+sha256: 27080541d444d2786f0dd87dca7e3d463de2cc46f9a33409dac2e661e2976f71
+retrieved: 2026-10-12

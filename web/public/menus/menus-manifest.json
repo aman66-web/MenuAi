@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012073750,
- "generatedAt": "2026-10-12T07:37:50Z",
+ "dataVersion": 20261012085056,
+ "generatedAt": "2026-10-12T08:50:56Z",
  "chains": [
   {
    "id": "abokado",
@@ -209,6 +209,18 @@
    "sample": false,
    "itemCount": 21,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "belhaven-pubs",
+   "name": "Belhaven Pubs",
+   "cuisine": "Pub",
+   "file": "chain-belhaven-pubs.json",
+   "sha256": "81e17ac8acd457a210429ac9a4f04e362528f8efbffd7c4b806f57e6fc9a7dc0",
+   "contentHash": "d90f9a8d979620c0baa650e6d9e69a243006aa0d871e408a88c8e2c1bbcc8705",
+   "sample": false,
+   "itemCount": 171,
+   "checkedOn": "2026-10-12",
+   "nutritionLevel": "calories"
   },
   {
    "id": "bella-italia",
@@ -802,6 +814,18 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "deep-blue",
+   "name": "Deep Blue",
+   "cuisine": "Seafood",
+   "file": "chain-deep-blue.json",
+   "sha256": "b411e805ec6f430b87c35ae8274dc9be7447965f076cd526d5e260b7979adcf0",
+   "contentHash": "f6658c3a4cee8d00f44ec5ee40f46010f4fb4d719f5e778c26c91cc688e54b78",
+   "sample": false,
+   "itemCount": 61,
+   "checkedOn": "2026-10-12",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "deli-by-shell",
    "name": "Deli by Shell",
    "cuisine": "Sandwiches",
@@ -940,6 +964,18 @@
    "sample": false,
    "itemCount": 76,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "farmhouse-inns",
+   "name": "Farmhouse Inns",
+   "cuisine": "Carvery",
+   "file": "chain-farmhouse-inns.json",
+   "sha256": "390fc7b287a1f5257ae9b47e5e2179e7413fb22d8627e8a29e4172e30b1f255b",
+   "contentHash": "877465a0a566fb3856fec87c613cda6ed770280bbdf16d6543441cd195c05efd",
+   "sample": false,
+   "itemCount": 119,
+   "checkedOn": "2026-10-12",
+   "nutritionLevel": "calories"
   },
   {
    "id": "fat-hippo",
@@ -1182,6 +1218,17 @@
    "sample": false,
    "itemCount": 263,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "grounded-kitchen",
+   "name": "Grounded Kitchen",
+   "cuisine": "Asian",
+   "file": "chain-grounded-kitchen.json",
+   "sha256": "8c9a0ad094effdf509d29a8bd7f1f29a97913f378eaf13e12784f282f940d7b7",
+   "contentHash": "e8a6d817f0122fc83867efbce88c39f62a3dd1e5a797ff0a38172fe2559f6bf7",
+   "sample": false,
+   "itemCount": 81,
+   "checkedOn": "2026-10-12"
   },
   {
    "id": "gusto",
@@ -2546,6 +2593,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "waterfields",
+   "name": "Waterfields",
+   "cuisine": "Bakery",
+   "file": "chain-waterfields.json",
+   "sha256": "bb4cd96a591498d12520b33c68d5553be7b7faa30af29c195187982afd2d8b37",
+   "contentHash": "674937cd8cf037dea94db1ae9f09cbc05a4e929d44d132512efa70f6015ea53a",
+   "sample": false,
+   "itemCount": 15,
+   "checkedOn": "2026-10-12"
+  },
+  {
    "id": "wendys",
    "name": "Wendy's",
    "cuisine": "Burgers",
@@ -2684,6 +2742,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "08361408ae90bbfc7d027561c413100e3ba3dd722835c6c79041d4f279ff633c"
+  "sha256": "6b919c5793ed10095b665461f26cc61030ce9512f11e9575649dd76c999a1f0e"
  }
 }

@@ -1,0 +1,11 @@
+status: installed
+file: belhaven-pubs.svg
+kind: header
+source_url: https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/c065090339e647fbb697af7f8bdce01c?v=e9fa1f3c
+page_url: https://www.belhaven.co.uk/pubs/angus/trades-house/menu
+terms_url: https://www.belhaven.co.uk/
+terms_summary: not read in full; installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo (<div class="main-header__logo"><a data-test-id="logo"><img src=".../api/public/content/c0650903..." alt="Belhaven">), served from Greene King's own content hub that the site uses for its images (robots.txt there: Disallow: /, Allow: /api/public/), saved byte for byte (94 x 48 SVG, the lion and BELHAVEN wordmark in near-black #201E1B); no script or external reference; looked at on white. robots.txt of www.belhaven.co.uk disallows only Sitecore, media and code folders.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-12
+tile: light

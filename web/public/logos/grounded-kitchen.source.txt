@@ -1,0 +1,8 @@
+status: skipped-unavailable
+file:
+source_url: https://static.wixstatic.com/media/f443ca_8e148ad5e09f4ec2bbadf5f72b633dab~mv2.png
+page_url: https://www.groundedkitchen.com/
+terms_url: https://www.groundedkitchen.com/
+terms_summary: not reached: the logo's only host answers 403 to its robots.txt.
+why: The header logo ("Grounded Kitchen Logo 2024") and the site icons are served only from static.wixstatic.com, whose robots.txt answers HTTP 403, so they were not fetched (the same stop as for Sbarro); the chain keeps its cuisine glyph.
+retrieved: 2026-10-12
