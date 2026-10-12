@@ -1,0 +1,1 @@
+Per serving, as Grounded Kitchen's ordering site prints each dish's nutrition once a restaurant is picked; 3 restaurants were read and only figures printed the same at 2 or more are shown. Figures are for the dish as listed (rice bowls and baos at the size named): the flavour, sauce or add-ons you choose are not counted.

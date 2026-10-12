@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012081554,
- "generatedAt": "2026-10-12T08:15:54Z",
+ "dataVersion": 20261012083910,
+ "generatedAt": "2026-10-12T08:39:10Z",
  "chains": [
   {
    "id": "abokado",
@@ -1182,6 +1182,17 @@
    "sample": false,
    "itemCount": 263,
    "checkedOn": "2026-10-06"
+  },
+  {
+   "id": "grounded-kitchen",
+   "name": "Grounded Kitchen",
+   "cuisine": "Asian",
+   "file": "chain-grounded-kitchen.json",
+   "sha256": "8c9a0ad094effdf509d29a8bd7f1f29a97913f378eaf13e12784f282f940d7b7",
+   "contentHash": "e8a6d817f0122fc83867efbce88c39f62a3dd1e5a797ff0a38172fe2559f6bf7",
+   "sample": false,
+   "itemCount": 81,
+   "checkedOn": "2026-10-12"
   },
   {
    "id": "gusto",
@@ -2661,6 +2672,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "eb657e34c95b8a7e30dd6368c59e2b916f6c7f347eaba4aefb2dff1e9d6f0088"
+  "sha256": "718fe8292d7b1ee338da59f0f18329bb045bfca32fe982a669cfaf347b9cf8d0"
  }
 }

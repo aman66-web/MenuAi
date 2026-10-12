@@ -76,6 +76,10 @@ def build(cache: Path, checked_on: str, out: Path | None) -> None:
             if re.match(SKIP, c["name"].strip(), re.I):
                 continue
             bl = vm.bundles(cache, store, c["uuid"])
+            for sub in vm.sub_categories(cache, store, c["uuid"]):
+                # sub-categories seen hold only gift vouchers and gluten-free meal deals; anything else must be looked at first
+                if sub.get("bundles") and not re.match(r"^(vouchers|gluten free bundles)$", (sub.get("name") or "").strip(), re.I):
+                    raise SystemExit(f"{sname} / {c['name']}: sub-category {sub.get('name')!r} holds products: look before publishing")
             text = (cache / f"{store}_cat_{c['uuid']}.txt").read_text(encoding="utf-8")
             names = [b["name"].strip() for b in bl]
             printed = vm.listing_kcal(text, names)

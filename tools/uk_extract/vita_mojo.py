@@ -90,19 +90,23 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
       fs.writeFileSync(`${outDir}/${store}_cat_${c.uuid}.txt`, await page.evaluate(() => document.body.innerText));
       if (mode !== 'products') continue;
       const cat = JSON.parse(fs.readFileSync(`${outDir}/${store}_cat_${c.uuid}.json`, 'utf8').split('\n').slice(1).join('\n')).payload;
-      for (const b of cat.bundles) {
+      const all = [...cat.bundles];
+      for (const sub of cat.categories || []) if (!SKIP.test(sub.name || '')) all.push(...(sub.bundles || []));
+      for (const b of all) {
         if (fs.existsSync(`${outDir}/${store}_prod_${b.uuid}.txt`)) continue;
         await sleep(Number(delay) * 1000);
         await open(`${origin}/store/${store}/menu/category/${c.uuid}/bundle/${b.uuid}/bundleCustomization?menuUUID=${menu}`);
         await waitFor(`prod_${b.uuid}`, `product ${b.name}`);
         await sleep(2000);
-        const tab = page.getByText('Nutrition', { exact: true }).locator('visible=true').first();
+        // the product page's second tab, "Nutrition" (when the product has per-serving figures); clicked as a visitor would
+        const tab = page.getByText('Nutrition', { exact: false }).locator('visible=true').first();
         let txt = '';
-        if (await tab.count()) {
-          await tab.click({ timeout: 10000, force: true });
+        try {
+          await tab.scrollIntoViewIfNeeded({ timeout: 8000 });
+          await tab.click({ timeout: 8000, force: true });
           await sleep(1500);
           txt = await page.evaluate(() => document.body.innerText);
-        } else {
+        } catch (e) {
           txt = 'NO NUTRITION TAB\n' + await page.evaluate(() => document.body.innerText);
         }
         fs.writeFileSync(`${outDir}/${store}_prod_${b.uuid}.txt`, txt);
@@ -155,6 +159,20 @@ def categories(cache: Path, store: str, menu: str) -> list[dict]:
 
 def bundles(cache: Path, store: str, cat: str) -> list[dict]:
     return load_json(cache / f"{store}_cat_{cat}.json")["payload"]["bundles"]
+
+
+def sub_categories(cache: Path, store: str, cat: str) -> list[dict]:
+    """Sub-categories of a category page (each with its own products, shown under its heading on the same page)."""
+    return load_json(cache / f"{store}_cat_{cat}.json")["payload"].get("categories") or []
+
+
+def all_bundles(cache: Path, store: str, cat: str, skip: str = r"^$") -> list[tuple[str | None, dict]]:
+    """(sub-category name or None, product) for every product on a category page, sub-categories matching `skip` left out."""
+    out: list[tuple[str | None, dict]] = [(None, b) for b in bundles(cache, store, cat)]
+    for sub in sub_categories(cache, store, cat):
+        if not re.match(skip, (sub.get("name") or "").strip(), re.I):
+            out += [(sub.get("name"), b) for b in sub.get("bundles") or []]
+    return out
 
 
 def store_info(cache: Path, store: str) -> dict:
@@ -210,6 +228,20 @@ def nutrition_from_text(text: str) -> dict[str, str] | None:
 
 def base_items(b: dict) -> list[dict]:
     return [it for it in b.get("items", []) if it.get("type") == "BUNDLE_BASE"]
+
+
+def default_size(b: dict) -> tuple[str, str] | None:
+    """(name, grams as printed in the data) of the size a product page opens on, when it offers sizes; None otherwise. The page's
+    "Nutrition facts per serving" describe that size (the other sizes are shown only as "+NNN kcal" on top)."""
+    for it in base_items(b):
+        for c in it.get("customizations") or []:
+            if c.get("type") != "size" or len(c.get("variations") or []) < 2:
+                continue
+            want = (c.get("meta") or {}).get("defaultValue")
+            for v in c["variations"]:
+                if v.get("uuid") == want and (v.get("name") or "").strip():
+                    return v["name"].strip(), str(v.get("value") or "")
+    return None
 
 
 def size_count(b: dict) -> int:
