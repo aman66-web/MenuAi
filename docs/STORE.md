@@ -97,7 +97,8 @@ the device only."
 
 - [ ] Decide which supermarkets the App Store version includes (web/app-content.json; food photos are in): see docs/APP_BUILD.md
 - [x] Domain: numbite.com (bought 12 October 2026, on Vercel, in the founder's name)
-- [ ] Vercel Pro; support email on the domain (forwarding); /privacy, /terms and /support read and true
+- [x] Vercel Pro (12 October 2026)
+- [ ] Support email on the domain (forwarding); /privacy, /terms and /support read and true
 - [ ] Optional: numbite.co.uk at a UK registrar, redirected to numbite.com
 - [ ] UK trade mark search for "Numbite" (gov.uk "Search for a trade mark"), and consider filing it (classes 9 and 42)
 - [ ] `./scripts/build_app_web.sh` (it talks to https://numbite.com by default), then build in Xcode

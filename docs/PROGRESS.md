@@ -1074,6 +1074,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   alias, so installed copies keep working. **Copy (rule 8):** the order share card printed the spec's placeholder "menumacros.app" (SPEC §11), a
   domain we don't own, whenever the site address was unset (it was, on the live site); it now prints "numbite.com". Store and build docs use
   numbite.com/privacy and /support. Still to do: Vercel Pro, a support@numbite.com forwarding address, and (optional) numbite.co.uk.
+  **Live the same day:** the founder upgraded the project to **Vercel Pro** (ends the Hobby 100-deployments-a-day cap that had blocked every build since
+  the rename, and Hobby's non-commercial rule); the Vercel connector attached `numbite.com` to project `menumacros` (verified at once) and `www.numbite.com`
+  as a 308 redirect to it, then deployed `main` (d4fb812) to Production. Checked on https://numbite.com: /app 200, title "Numbite", offline cache `mm-v5`,
+  social card from numbite.com, sitemap on numbite.com, /privacy and /support 200, API health 200, the iPhone app's preflight from `app://menumath` answered
+  204 with its origin allowed, `/logos/hidden.json` open to the app; `menumacros.vercel.app` serves the same build.
 
 ## Known issues
 
@@ -1085,7 +1090,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
-- [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (numbite.com bought 2026-10-12; next Vercel Pro and a support@numbite.com forwarding address, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
+- [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (numbite.com live and Vercel Pro since 2026-10-12; next a support@numbite.com forwarding address, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
 - [ ] **Decide which supermarkets go into the App Store version** (`web/app-content.json`; all nine until you say; the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S). Food photos: decided 2026-10-12, all in ("yes i want all the food photos there")
 - [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
@@ -1103,7 +1108,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [x] Supabase secret key added to Vercel (Production + Preview). Never paste it into chat or the app
 - [ ] Delete the test row "mcdonalds" in Supabase › chain_requests if you don't want it (or leave it: it's a valid request)
 - [ ] Payments for the web app (Stripe or RevenueCat Web Billing: both add a dependency/account; needs your decision)
-- [ ] ~~Domain~~ numbite.com bought (2026-10-12); still: support email on it, and Vercel Pro before the site is public
+- [x] numbite.com bought and live, Vercel Pro (2026-10-12); still: a support@numbite.com address (forwarding)
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
 - [x] Real chain data in `data/source/`: 72 UK chains (about 12,900 items) extracted from official sources (see docs/UK_DATA_STATUS.md, which lists what needs your decision); keep the two sample folders; release builds use `--no-samples`. 150 was not possible: only 62 of 210 candidates publish full official macros, and 25 more need a file from you
 - [x] App icon: plate and fork with a bite (founder's pick, 2026-10-12, `web/design/icon.svg`). Store screenshots: `web/e2e/store-shots.mjs`
