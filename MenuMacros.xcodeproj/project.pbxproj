@@ -282,7 +282,7 @@
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Menu Math";
+				INFOPLIST_KEY_CFBundleDisplayName = Numbite;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scans a product's barcode to show its calories and protein. The picture stays on this iPhone.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows restaurants near you on the map. Your location stays on this iPhone.";
@@ -468,7 +468,7 @@
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Menu Math";
+				INFOPLIST_KEY_CFBundleDisplayName = Numbite;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scans a product's barcode to show its calories and protein. The picture stays on this iPhone.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows restaurants near you on the map. Your location stays on this iPhone.";

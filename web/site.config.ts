@@ -1,8 +1,8 @@
 // One place for names, links and copy shared across the website.
 // Change `name` here if you pick a different app name (and update docs/STORE.md to match).
 export const site = {
-  name: "Menu Math",
-  appStoreTitle: "Menu Math: Fast Food Macros",
+  name: "Numbite",
+  appStoreTitle: "Numbite: Calories & Protein",
   tagline: "Know your macros before you order.",
   description:
     "Full calories, protein, carbs, fat and salt for every item at popular UK restaurant chains, and the best order for what you have left today.",

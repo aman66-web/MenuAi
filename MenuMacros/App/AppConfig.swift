@@ -4,7 +4,7 @@ import Foundation
 /// (docs/APP_BUILD.md): the web app reaches the live website itself (NEXT_PUBLIC_REMOTE_BASE in scripts/build_app_web.sh), so the
 /// example.com addresses below are only for the native screens planned later (docs/BUILD_PLAN.md).
 nonisolated enum AppConfig {
-    static let appName = "Menu Math"   // user-facing name; keep in sync with web/site.config.ts and docs/STORE.md
+    static let appName = "Numbite"   // user-facing name; keep in sync with web/site.config.ts and docs/STORE.md
     /// Where the packed web app starts (Features/WebApp/WebAppFiles.swift). The API on the live website allows this origin (web/lib/cors.ts).
     static let webAppStartURL = URL(string: "app://menumath/app")!
     static let websiteURL = URL(string: "https://example.com")!

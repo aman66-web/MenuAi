@@ -1,5 +1,7 @@
 # MenuMacros — product and technical spec (v1)
 
+> **2026-10-12:** the product is now called **Numbite** (docs/PROGRESS.md). Older names in this spec (MenuMacros, Menu Math) are history; the user-facing name comes from `web/site.config.ts` and `AppConfig.appName`.
+
 Read the section you need before implementing it. Section numbers are referenced from
 `docs/BUILD_PLAN.md`. The full business blueprint (market, marketing) is in
 `docs/MenuMacros_App_Blueprint.pdf`; you don't need it to write code. **Where the PDF and this

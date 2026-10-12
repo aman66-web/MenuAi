@@ -1,4 +1,4 @@
-/* Menu Math web app service worker.
+/* Numbite web app service worker.
  *
  * Goal: after you've opened something once, it keeps working with a poor or no connection.
  *  - /_next/static/* and /icons/*: cache-first (Next.js names contain a content hash; icons do not, so bump VERSION when they change)
@@ -10,7 +10,7 @@
  * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
  * Bump VERSION to drop all old caches.
  */
-const VERSION = "mm-v3"; // v3: green app icon (icon files keep their names, so changing them needs a bump)
+const VERSION = "mm-v4"; // v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;

@@ -33,9 +33,10 @@ docs/BACKEND.md                How the backend works + the API contract the app 
 docs/SETUP_VERCEL_SUPABASE.md  Step-by-step Vercel + Supabase setup (do this first)
 ```
 
-**The app name:** the website uses "Menu Math" (`web/site.config.ts`); the Xcode project and docs
-say MenuMacros. The project name never shows to users, so it can stay. If you pick a different name,
-change `web/site.config.ts` and `docs/STORE.md`.
+**The app name:** the app is called **Numbite** (founder 2026-10-12; `web/site.config.ts`, `AppConfig.appName`, the Xcode display name).
+The Xcode project, bundle ID and many docs still say MenuMacros (or the earlier "Menu Math"): those never show to users, so they stay.
+To change the name again, edit `web/site.config.ts`, `MenuMacros/App/AppConfig.swift`, the display name in `project.pbxproj` and
+`docs/STORE.md`, then run `node web/e2e/brand.mjs` (the social card prints the name).
 
 ## Order of setup
 

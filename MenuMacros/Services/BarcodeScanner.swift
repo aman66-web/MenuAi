@@ -6,7 +6,7 @@ import VisionKit
 nonisolated enum ScanOutcome: Equatable, Sendable {
     case code(String)
     case cancelled
-    /// The person refused the camera (Settings › Menu Math).
+    /// The person refused the camera (Settings › Numbite).
     case denied
     /// This iPhone can't scan (no camera, or no Neural Engine for the live scanner).
     case unavailable

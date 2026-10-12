@@ -65,13 +65,14 @@ website shows from the shops' own servers still load from those servers when onl
 ## Steps for the founder (things only you can do)
 
 1. **Decide** which supermarkets go in (web/app-content.json; food photos are in), or tell Claude.
-2. **Domain + Vercel Pro**, and a support email on the domain (Vercel › Project menumacros › Settings › Domains; then set
+2. **Domain (numbite.co.uk) + Vercel Pro**, and a support email on the domain (Vercel › Project menumacros › Settings › Domains; then set
    `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_SUPPORT_EMAIL`, and redeploy). Build the app with
    `NEXT_PUBLIC_REMOTE_BASE=https://<your-domain> ./scripts/build_app_web.sh` so it talks to the domain.
 3. **Read** /privacy, /terms and /support on the live site and confirm every sentence is true.
-4. **UK trade mark search** for "Menu Math": gov.uk › "Search for a trade mark" (classes 9 and 42 for apps).
-5. **App Store Connect** (appstoreconnect.apple.com) › Apps › + › New App: iOS, name "Menu Math: Eat Out & Macros" (or your choice),
-   primary language English (UK), bundle ID `com.amanmarwaha.MenuMacros`, SKU `menumath-ios`. Then:
+4. **Register the domains and check the name:** numbite.co.uk (main), numbite.com and numbite.app; then a UK trade mark search for
+   "Numbite": gov.uk › "Search for a trade mark" (classes 9 and 42 for apps), and consider filing it.
+5. **App Store Connect** (appstoreconnect.apple.com) › Apps › + › New App: iOS, name "Numbite: Calories & Protein" (or your choice),
+   primary language English (UK), bundle ID `com.amanmarwaha.MenuMacros`, SKU `numbite-ios`. Then:
    - Pricing and Availability: Free; United Kingdom.
    - App Privacy: answer from docs/STORE.md "App Privacy"; Privacy Policy URL `https://<your-domain>/privacy`.
    - Age Rating: from docs/STORE.md "Age rating".

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  Menu Math privacy manifest (free launch, docs/APP_BUILD.md and docs/STORE.md "App Privacy"). No tracking, no accounts, no analytics.
+  Numbite privacy manifest (free launch, docs/APP_BUILD.md and docs/STORE.md "App Privacy"). No tracking, no accounts, no analytics.
   The only data that leaves the phone is what the person chooses to send through the app: a number report (with an optional photo),
   a restaurant request, or a support message (with an optional email address so we can reply), plus a salted hash of the sender's IP
   address kept 30 days to stop spam (docs/BACKEND.md). Location and the camera are used on the phone only and are not collected.

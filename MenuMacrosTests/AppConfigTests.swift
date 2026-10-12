@@ -3,7 +3,7 @@ import Testing
 
 struct AppConfigTests {
     @Test func appNameMatchesTheWebsite() {
-        #expect(AppConfig.appName == "Menu Math")
+        #expect(AppConfig.appName == "Numbite")
     }
 
     @Test func theWebAppStartsOnTheAppsOwnScheme() {

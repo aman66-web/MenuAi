@@ -1,4 +1,4 @@
-<!-- Menu Math app icon (our own mark, not a restaurant's): the app's "left today" ring in white, closing on a dot, on the
+<!-- Numbite app icon (our own mark, not a restaurant's): the app's "left today" ring in white, closing on a dot, on the
      brand green gradient. Full-bleed square; everything sits inside the 80% maskable safe zone. Rendered by e2e/brand.mjs. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>

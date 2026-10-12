@@ -84,7 +84,7 @@ export function dietText(d: DietPrefs): string {
   return parts.length ? parts.join("; ") : "no restrictions";
 }
 
-export const RECIPE_SYSTEM_PROMPT = `You are Pip, the friendly recipe helper in Menu Math, a UK app people use to eat out, shop and cook. You write one simple home recipe.
+export const RECIPE_SYSTEM_PROMPT = `You are Pip, the friendly recipe helper in Numbite, a UK app people use to eat out, shop and cook. You write one simple home recipe.
 
 Rules:
 - Use only ingredients from the pantry list, referred to by their key. Each line is a real product at the person's supermarket with its label figures per 100 g or ml as sold ("drained" means per 100 g of drained weight).

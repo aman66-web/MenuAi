@@ -1,15 +1,17 @@
 # App Store listing and release checklist (free launch)
 
 Founder 2026-10-12: ship the app **free** (no subscription, no AI recipe maker), then add Pro and the extras in updates. The app is the web
-app packed inside an iPhone app (docs/APP_BUILD.md). Name: **Menu Math** ("MenuMacros" is taken by a similar app, "MenuMacros: Eat Out
-Healthily", June 2026). Everything below is a **draft for the founder to approve** (CLAUDE.md rule 8): numbers are from the published
+app packed inside an iPhone app (docs/APP_BUILD.md). Name: **Numbite** (founder 2026-10-12; numbers + bite). Checked that day: no app
+called Numbite on the UK or US App Store, nothing by that name on the web, and numbite.com, numbite.co.uk and numbite.app free; it is a
+coined word, the strongest kind of trade mark. Earlier names were dropped: "MenuMacros" is taken ("MenuMacros: Eat Out Healthily", June
+2026) and "Menu Math" used the US spelling and sounded restaurant-only. Everything below is a **draft for the founder to approve** (CLAUDE.md rule 8): numbers are from the published
 data on 12 October 2026; if web/app-content.json leaves shops or photos out of the app, update the numbers and the description.
 
 | Field (limit) | Text |
 |---|---|
-| App name (30) | **Menu Math: Eat Out & Macros** (27) |
-| Subtitle (30) | **Calories for UK menus & shops** (29) |
-| Keywords (100) | `calories,protein,macros,nutrition,restaurant,menu,counter,diet,glp1,recipes,grocery,takeaway,uk` (95) |
+| App name (30) | **Numbite: Calories & Protein** (27) |
+| Subtitle (30) | **UK menus, shops & recipes** (25) |
+| Keywords (100) | `macros,nutrition,restaurant,counter,diet,glp1,grocery,takeaway,supermarket,cooking,meal,food` (92; words already in the name and subtitle are indexed anyway, so they aren't repeated) |
 | Primary / secondary category | Food & Drink / Health & Fitness |
 | Promotional text (170) | Every dish at 238 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account, works offline. (125) |
 | Price | Free (no in-app purchases in this version) |
@@ -20,7 +22,7 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 
 ## Description (draft)
 
-Know the numbers before you eat. Menu Math shows the calories, protein, carbs and fat for every dish at 238 UK restaurants, cafés and
+Know the numbers before you eat. Numbite shows the calories, protein, carbs and fat for every dish at 238 UK restaurants, cafés and
 pubs, taken from each chain's own published nutrition information, with the source and the date we checked shown on every menu.
 
 Eat out. Search a restaurant or find the ones near you, see every dish's numbers, and get the best orders for your goal and what you
@@ -40,7 +42,7 @@ Easy to use. Large text options, a plain layout, and 11 languages.
 Private by design. No account, no ads, no tracking. Your settings, saved meals and lists stay on your phone. Your location is used on
 your phone only.
 
-Every feature is free. Menu Math isn't affiliated with any restaurant or shop, and doesn't give medical advice.
+Every feature is free. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
 
 ## Screenshots (6.9" iPhone, 1320 × 2868)
 
@@ -85,7 +87,7 @@ Pro and a domain before submitting.)
 
 ## Notes for App Review (draft)
 
-"Menu Math shows restaurants' and supermarkets' published nutrition information, works fully offline, and has no account or login. The
+"Numbite shows restaurants' and supermarkets' published nutrition information, works fully offline, and has no account or login. The
 app is free with no in-app purchases. Restaurant and shop names and logos are shown small next to the name only to identify whose menu or
 products are listed; the app says it is not affiliated with any of them, and we remove any logo the day its owner asks (we can do this
 without an app update). The barcode scanner (Groceries › Scan a barcode) and Near me (Eat out › Near me) use the camera and location on
@@ -95,10 +97,11 @@ the device only."
 
 - [ ] Decide which supermarkets the App Store version includes (web/app-content.json; food photos are in): see docs/APP_BUILD.md
 - [ ] Domain + Vercel Pro; support email on the domain; /privacy, /terms and /support read and true
-- [ ] UK trade mark search for "Menu Math" (gov.uk "Search for a trade mark")
+- [ ] Register numbite.co.uk (and numbite.com / numbite.app) now, before someone else does
+- [ ] UK trade mark search for "Numbite" (gov.uk "Search for a trade mark"), and consider filing it (classes 9 and 42)
 - [ ] `./scripts/build_app_web.sh` (with `NEXT_PUBLIC_REMOTE_BASE=https://<your-domain>` once the domain is live), then build in Xcode
 - [ ] Mac session: build, unit and UI tests, simulator check in airplane mode (docs/APP_BUILD.md "Checks before TestFlight")
-- [ ] App Store Connect: app record "Menu Math", bundle `com.amanmarwaha.MenuMacros`, price Free, UK availability
+- [ ] App Store Connect: app record "Numbite: Calories & Protein", bundle `com.amanmarwaha.MenuMacros`, price Free, UK availability
 - [ ] App Privacy form and age rating from the sections above; screenshots from `web/e2e/store-shots.mjs`
 - [ ] Archive and upload from Xcode; TestFlight on your own iPhone (scanner, Near me, share, offline)
 - [ ] Submit; release manually

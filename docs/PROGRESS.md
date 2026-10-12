@@ -82,7 +82,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 on Preview only, SUPABASE_URL on both. NEXT_PUBLIC_SUPPORT_EMAIL is set (Production + Preview) to
   the founder's personal address for now — public on the site, privacy page, terms, support page and "Email instead";
   swap for a domain address later (one Vercel env var + redeploy). Still to set: NEXT_PUBLIC_SITE_URL.
-- 2026-10-05 — User-facing name comes from `AppConfig.appName` (currently "Menu Math") — name not final.
+- 2026-10-05 — User-facing name comes from `AppConfig.appName` (currently "Menu Math") — name not final. (2026-10-12: now **Numbite**, see below.)
 
 - 2026-10-05 — **UK first, US later** (founder's call). Energy shows as "kcal", salt in g (UK guides print salt, not
   sodium: stored in `salt`, never converted from or to sodium), British spelling in new copy. The two fictional sample
@@ -1046,6 +1046,18 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   absent), diet 5, compare 3, groceries 6/7/8/4, languages 5, offline 13, a11y 0, large text, **prodmode 9** (as shipped: no Pro/AI wording anywhere,
   logging and builder open), **app-build 7** (the packed app with no signal, names-only wall, taken-down logo, fake bridge for scan/locate/share).
 
+- 2026-10-12 — **The app is now called Numbite** (founder: "are you sure this is the best name for my app i feel there must be one better", "think
+  of more", then "I like numbite actually" and "Yes, rename to Numbite"). Why: "Menu Math" used the US spelling ("maths" in the UK), sounded
+  restaurant-only and like homework. About 80 names were checked against the UK App Store and domains; most were taken (MenuMacros twice,
+  MacroMenu, MenuWise, MenuLens, Platewise, MealWise, MunchMap, Nosh, Plateful, Morsel, Forkcast's .co.uk/.app sites, Tuck In, Know Your Plate...).
+  **Numbite** (numbers + bite): no app of that name on the UK or US App Store, nothing on the web, numbite.com / .co.uk / .app free on 12 October
+  2026, a coined word. Changed: `web/site.config.ts` (`name`, `appStoreTitle` "Numbite: Calories & Protein"), `AppConfig.appName`, the Xcode
+  display name, the social card (re-rendered by `web/e2e/brand.mjs`), comments and docs/STORE.md (draft: subtitle "UK menus, shops & recipes",
+  keywords without repeats or brand names), docs/APP_BUILD.md, README. The name reaches every screen and translation through `site.name` / `{app}`,
+  so no translation changed. Unchanged on purpose: the bundle ID `com.amanmarwaha.MenuMacros`, the repo and folder names, the `app://menumath`
+  scheme (internal; the API's CORS allows exactly it), the `mm.v1.*` storage keys (saved data survives), the icon (no words) and Pip. Offline cache
+  bumped to `mm-v4` so installed copies pick up the new name.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1056,7 +1068,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
-- [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (domain + Vercel Pro, read the legal pages, UK trade mark search for "Menu Math", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
+- [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (register numbite.co.uk / .com / .app first, then Vercel Pro on the domain, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
 - [ ] **Decide which supermarkets go into the App Store version** (`web/app-content.json`; all nine until you say; the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S). Food photos: decided 2026-10-12, all in ("yes i want all the food photos there")
 - [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
