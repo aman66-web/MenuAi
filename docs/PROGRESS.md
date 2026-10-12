@@ -993,6 +993,20 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Imperial War Museums (no dish printed at 2+ sites), Rita's, Core, Carl's Jr UK, Tank & Paddle, Captain D's (still under 3 sites). Helper A (store-picked menus and
   Waterfields) is still running. Checked after the merges: 138 Python, 460 unit, menu build 233 chains 0 errors.
 
+- 2026-10-12 — **Round 7 A merged: 238 chains, 36,631 items live (120 full or mixed nutrition, 118 calories only).** Details in docs/UK_DATA_STATUS.md
+  ("Added 12 October (round 7A)") and `data/candidates/triage7/a.csv`. **Waterfields** (15 products, full nutrition, 36 North West shops, from each product's own
+  page; 7 held back: the 6 that contradict themselves and the Sausage Roll, whose 1,111 kJ can't match its 289 kcal), **Deep Blue** (61, calories, 7 fish and chip
+  shops, its own ordering site read at all 6 that take orders; published only where 2+ shops print the same figure; 12 products differ North vs South and are left
+  out), **Farmhouse Inns** (119, calories, all 62 pubs' own menu data on Greene King's platform; carveries and buffet breakfasts left out because their own text says
+  calories are at the counter; its full-macro PDF is the Autumn/Winter 2025 menu, a year old, so not used), **Grounded Kitchen** (81, full nutrition, 9 restaurants,
+  each product page's own nutrition per serving; no logo: its logo host answers 403 to robots.txt) and **Belhaven Pubs** (171, calories, 62 Scottish Greene King pubs
+  that print menus; 8 dishes printed with two figures left out). All five link to the chain's allergen information (none prints a complete allergen list we can
+  copy); no alcoholic drinks; second reads recorded. New shared reader `tools/uk_extract/vita_mojo.py` (the ordering platform behind Deep Blue and Grounded Kitchen).
+  Checked and not added: Bob & Berts (no calories on its ordering site), Wingstop UK (its ordering script answers 403), Pizza GoGo and Tops Pizza (their menus load
+  through paths robots.txt disallows), Chocoberry (its menu host disallows everything), Banyan, Pesto (Cloudflare challenge), and still blocked: Grosvenor Casinos,
+  Dobbies, Parkdean, Yates, Old English Inns, Topgolf. **Round 7 total: 10 chains** (228 → 238). Checked after the merges: 138 Python, 460 unit, menu build 238
+  chains 0 errors, production build, e2e smoke 23, browse 9, calories 4, extra 12, a11y 0 violations; Waterfields' and YO! To Go's pages looked at.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1028,7 +1042,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] **Supermarket logos: Tesco and Co-op** blocked us; save each from its own site in your browser (`data/chrome-inbox/QUEUE-LOGOS.md`)
 - [ ] **Logos (11 of 220 missing):** Atis, Bettys, Buy & Bite, Costa, Domino's, Fuller's, Honi Poke, Kokoro, McDonald's, Tesco Café, Wild Bean Café (their sites block us, disallow robots, or serve no logo file we may use; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
 - [x] **Decide: Kick Ass Burrito**: publish (2026-10-11), now live.
-- [x] **Decide: Waterfields**: publish the products whose own figures agree (2026-10-12)
+- [x] **Decide: Waterfields**: publish the products whose own figures agree (2026-10-12); live, 15 products
+- [ ] **Decide: YO! To Go** (the Yo! Sushi counters inside Tesco) is listed as its own chain because its menu and outlets differ; say if it should be folded into Yo! Sushi
+- [ ] **Logo: Grounded Kitchen** (its logo host answers 403 to robots.txt): save it from groundedkitchen.com in your browser and send it to me
+- [ ] **Need your own browser:** Wingstop UK (ordering script answers 403) and Pesto (Cloudflare challenge); Gravity MAX waits on decision (d) below
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
