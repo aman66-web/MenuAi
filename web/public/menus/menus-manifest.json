@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012072238,
- "generatedAt": "2026-10-12T07:22:38Z",
+ "dataVersion": 20261012072853,
+ "generatedAt": "2026-10-12T07:28:53Z",
  "chains": [
   {
    "id": "abokado",
@@ -59,6 +59,18 @@
    "sample": false,
    "itemCount": 33,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "apex-hotels",
+   "name": "Apex Hotels",
+   "cuisine": "Hotel restaurant",
+   "file": "chain-apex-hotels.json",
+   "sha256": "e10e590dbc9373ae5168bf517562933bb84b558dce6cc6bd91ce62299f4d6d3e",
+   "contentHash": "208cf45a70c82bbd62304f54d3ed24c4c53bc4c23e8906df9429716b70172973",
+   "sample": false,
+   "itemCount": 33,
+   "checkedOn": "2026-10-12",
    "nutritionLevel": "calories"
   },
   {
@@ -2649,6 +2661,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "8030c13f5a2f0880fb2a0e3265346c3dd08e84513a02f9bb4ec688a9d4fe638b"
+  "sha256": "53a13d6400c7a796371b925fa9218579d715b2b0202bb47c4bc61f183d9d90d8"
  }
 }

@@ -1,0 +1,504 @@
+{
+ "schemaVersion": 1,
+ "id": "apex-hotels",
+ "name": "Apex Hotels",
+ "cuisine": "Hotel restaurant",
+ "builderType": "standard",
+ "aliases": [
+  "apex hotels",
+  "apex hotel",
+  "the lampery",
+  "the orange artichoke"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Apex Hotels restaurant menus in England: Chambers (Apex Temple Court), The Lampery (Apex City of London) and The Orange Artichoke (Apex City of Bath), spring/summer 2026 PDFs",
+  "url": "https://www.apexhotels.co.uk/dining/",
+  "checkedOn": "2026-10-12"
+ },
+ "nutritionLevel": "calories",
+ "note": "Calories as printed on the menus of Apex's restaurants in England (Chambers and The Lampery in London, The Orange Artichoke in Bath); its Scottish hotels' menus print none. Menus differ by restaurant: a dish is listed only where two or more of them print the same figure.",
+ "categories": [
+  "Sides",
+  "Continental Breakfast",
+  "Cooked Classics",
+  "Extras",
+  "Drinks"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "roasted-asparagus",
+   "name": "Roasted Asparagus",
+   "category": "Sides",
+   "serving": "",
+   "nutrients": {
+    "calories": 83
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 306
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pain-au-chocolat",
+   "name": "Pain au Chocolat",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 288
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "danish-pastry",
+   "name": "Danish Pastry",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 315
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blueberry-muffin",
+   "name": "Blueberry Muffin",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 471
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chocolate-chip-muffin",
+   "name": "Chocolate Chip Muffin",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 561
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bircher-muesli",
+   "name": "Bircher Muesli",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 354
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "natural-yoghurt",
+   "name": "Natural yoghurt",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 198
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fruit-yoghurt",
+   "name": "Fruit yoghurt",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 210
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "selection-of-seasonal-sliced-fruits-and-berries",
+   "name": "Selection of Seasonal Sliced Fruits & Berries",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 115
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "selection-of-cured-meats-and-cheeses",
+   "name": "Selection of Cured Meats & Cheeses",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 497
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "toast",
+   "name": "Toast",
+   "category": "Continental Breakfast",
+   "serving": "",
+   "nutrients": {
+    "calories": 458
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "salmon-and-eggs",
+   "name": "Salmon & Eggs",
+   "category": "Cooked Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 643
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-florentine",
+   "name": "Eggs Florentine",
+   "category": "Cooked Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 478
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "three-egg-omelette",
+   "name": "Three Egg Omelette",
+   "category": "Cooked Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 390
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "scottish-porridge",
+   "name": "Scottish Porridge",
+   "category": "Cooked Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 624
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-a-fried-egg",
+   "name": "Add a Fried Egg",
+   "category": "Cooked Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 127
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "add-a-pork-sausage",
+   "name": "Add a Pork Sausage",
+   "category": "Cooked Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 190
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "eggs-your-way",
+   "name": "Eggs Your Way",
+   "category": "Cooked Classics",
+   "serving": "",
+   "nutrients": {
+    "calories": 370
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spinach",
+   "name": "Spinach",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 71
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-tomato",
+   "name": "Grilled Tomato",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 74
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 125
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "black-pudding",
+   "name": "Black Pudding",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 138
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pork-sausage",
+   "name": "Pork Sausage",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 383
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "smoked-streaky-bacon",
+   "name": "Smoked Streaky Bacon",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 201
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "unsmoked-back-bacon",
+   "name": "Unsmoked Back Bacon",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 157
+   },
+   "tags": [
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "hash-brown",
+   "name": "Hash Brown",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 163
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "baked-beans",
+   "name": "Baked Beans",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 54
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grilled-mushroom",
+   "name": "Grilled Mushroom",
+   "category": "Extras",
+   "serving": "",
+   "nutrients": {
+    "calories": 50
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "orange-juice",
+   "name": "Orange juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 87
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-juice",
+   "name": "Apple juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 148
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "grapefruit-juice",
+   "name": "Grapefruit juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 135
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "cranberry-juice",
+   "name": "Cranberry juice",
+   "category": "Drinks",
+   "serving": "",
+   "nutrients": {
+    "calories": 73
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

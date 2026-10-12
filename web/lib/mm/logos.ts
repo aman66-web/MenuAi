@@ -31,6 +31,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "all-bar-one": { src: "/logos/all-bar-one.png" },
   "amalfi": { src: "/logos/amalfi.png", tile: "dark" },
   "amigos-burgers-and-shakes": { src: "/logos/amigos-burgers-and-shakes.svg", tile: "dark" },
+  "apex-hotels": { src: "/logos/apex-hotels.svg", tile: "dark" },
   "ask-italian": { src: "/logos/ask-italian.svg" },
   "aunties-anne": { src: "/logos/aunties-anne.png" },
   "avanti-west-coast": { src: "/logos/avanti-west-coast.svg" },

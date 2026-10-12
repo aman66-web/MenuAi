@@ -1,0 +1,8 @@
+status: rejected
+why: looked at: a thin white letter A on a taupe square, served at the default /apple-touch-icon.png path but not declared by the home page (which declares only /favicon.png) and unlike the site's current yellow APEX HOTELS wordmark, so it may be an older mark; the wordmark logo file stays
+kind: apple-touch-icon (default path)
+opaque: yes
+source_url: https://www.apexhotels.co.uk/apple-touch-icon.png
+page_url: https://www.apexhotels.co.uk/
+sha256: 5e2c05b07c680525452183660b62b2ab9ae644d81f42933e41b1b18c0cac8b64
+retrieved: 2026-10-12

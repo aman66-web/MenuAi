@@ -1,0 +1,11 @@
+status: installed
+file: apex-hotels.svg
+kind: header
+tile: dark
+source_url: https://www.apexhotels.co.uk/media/cejplevw/apex-hotels-yellow-logo.svg
+page_url: https://www.apexhotels.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo (<img alt="Apex Hotels">), saved byte for byte (2,673-byte SVG, sha256 4076060c79d7f973891a0896df90457b1891c2c5f4edec7017c8c2a1ff17840a, no script or external references); a pale yellow (#ffe37b) APEX HOTELS wordmark that the site shows on a dark header, so it sits on the dark tile (it is hard to read on white); looked at rendered in Chromium on white and dark. robots.txt of www.apexhotels.co.uk does not disallow /media/.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-12
