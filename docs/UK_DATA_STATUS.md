@@ -430,10 +430,20 @@ before: official sources only, copied by script, robots.txt (RFC 9309) honoured,
   Sushi Gourmet (sushi counters in about 92 Sainsbury's), Mai Sushi (counters in M&S), Selekt Chicken, Gourmet Coffee Bar & Kitchen
   (railway stations), Urban Baristas, Bird & Blend Tea Co (only its retail teas per 100 ml), Peri Peri Original, B Kitchen (Tesco Express
   hot counters), Smoke & Pepper, Wok U Like, Cha Cha Chai, Mr Pretzels, Poppins Restaurants, 92 Degrees, CUPP Bubble Tea, Howe & Co (fish
-  and chip vans), Crispy Dosa, Chango Empanadas, Badiani, Kebabish Original, TGF Pizza, Toro's Steakhouse, M.A.K. Halal.
+  and chip vans), Crispy Dosa, Chango Empanadas, Badiani, Kebabish Original, TGF Pizza, Toro's Steakhouse, M.A.K. Halal, USA Chicken,
+  Metro's Fried Chicken, Freddy's Chicken & Pizza, Chennai Dosa, Craft Burger, Love Churros, Smoky Boys, Big Juicy Burgers, Hagen Espresso
+  Bars, Bunsik, The Belgian Waffle Company, Scooperb (allergen and ingredient lists only), Coffi Lab, Ohannes Burger, Chai Green, Mr Rice.
+- **Per 100 g only:** Happy Tokyo (sushi counters in Morrisons; a Sushi Daily brand, whose GB site prints nutrition per 100 g with no pack weight).
 - **Blocked:** Archie's (robots.txt: "User-agent: * Disallow: /"), Geek Retreat (HTTP 429).
 - **Already in the repo under another name:** Pausa cafés (Dunelm), Cafe W (Waterstones), Panku (Panku Streetfood), BB's Coffee & Muffins
-  (now Bakers + Baristas, published).
+  (now Bakers + Baristas, published), Cafe 89 (The Range's cafés), Gardener's Retreat (British Garden Centres, published).
+- **Not looked up one by one** (one name at 10-20 outlets, all small takeaway, dessert, coffee-van or ice-cream-van franchises): USA Fried
+  Chicken, Marini's, Safi's Desserts, Chesters Chicken, Chick King, Chunky Chicken, Tennessee Express, Perfect Chicken, Slamburger, Sushi
+  Handroll, Cafe2u, Super Whippy, Mister Softee. The 7,049 names with 3-9 outlets were not reviewed one by one (70 small chains among them
+  are marked in the shortlist).
+- **What the FSA data shows:** the chains people know are already in the repo; the names it adds are mostly small takeaway and café groups
+  that publish no figures (England's calorie-labelling law covers only businesses with 250+ employees). The useful finds were brands
+  trading inside other businesses under their own name (YO! To Go in Tesco), which brand lists miss.
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 

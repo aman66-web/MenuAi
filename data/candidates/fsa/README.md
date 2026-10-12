@@ -41,5 +41,12 @@ businesses, and 7,049 names with 3-9 outlets not reviewed one by one.
    `kind` column says whether it is a chain (one brand at several sites), several unrelated businesses that share a name, not a food
    business, or unclear. Chains were triaged largest first (`data/candidates/triage7/b.csv`).
 
+6. A second pass (`tools/discovery/fsa/concessions.py`) lists names registered at 4+ addresses *inside another business* (a supermarket,
+   department store, station, airport, services, retail park store, hospital or garden centre, from the address lines), because brands
+   that trade inside a host under their own name are missed by brand lists: it found YO! To Go (243 Tesco addresses), Sushi Gourmet
+   (Sainsbury's), Panku (Asda), Mai Sushi (M&S), Happy Tokyo (Morrisons), B Kitchen (Tesco Express), Pausa (Dunelm), Cafe 89 (The
+   Range) and Gardener's Retreat (garden centres); the rest are shops, chemists, fuel stations and contract caterers.
+   `tools/discovery/fsa/where.py REGEX` prints the hygiene records behind any name.
+
 Counts are of registrations in the hygiene data, not a census: a closed outlet can linger, a kiosk inside a supermarket counts, and
 an outlet registered under its operating company's name is missed.
