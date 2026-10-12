@@ -6,7 +6,7 @@
 import { chromium } from "playwright-core";
 import { mkdirSync, readFileSync } from "node:fs";
 const BASE = process.env.BASE ?? "http://localhost:3103";
-const LIVE = process.env.LIVE ?? "https://menumacros.vercel.app";
+const LIVE = process.env.LIVE ?? "https://numbite.com";
 const OUT = new URL("./shots/store/", import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 
@@ -29,7 +29,7 @@ const page = await ctx.newPage();
 await page.route(`${LIVE}/logos/hidden.json`, (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ v: 1, hidden }) }));
 await page.route(`${LIVE}/**`, (r) => r.abort());
 await page.route(/\/(menu-images|grocery-images)\//, (r) => r.abort());
-await page.route(/^https:\/\/(?!menumacros)/, (r) => r.abort());
+await page.route((url) => url.protocol === "https:" && url.origin !== new URL(LIVE).origin, (r) => r.abort());
 
 async function shot(name, path, ready) {
   await page.goto(BASE + path);

@@ -19,7 +19,7 @@ const appConfig: NextConfig = {
     ...env,
     NEXT_PUBLIC_APP_BUILD: "1",
     // where the app reaches the live website (newer menus, the taken-down logos list, the API)
-    NEXT_PUBLIC_REMOTE_BASE: process.env.NEXT_PUBLIC_REMOTE_BASE ?? "https://menumacros.vercel.app",
+    NEXT_PUBLIC_REMOTE_BASE: process.env.NEXT_PUBLIC_REMOTE_BASE ?? "https://numbite.com",
   },
 };
 

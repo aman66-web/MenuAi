@@ -65,18 +65,21 @@ website shows from the shops' own servers still load from those servers when onl
 ## Steps for the founder (things only you can do)
 
 1. **Decide** which supermarkets go in (web/app-content.json; food photos are in), or tell Claude.
-2. **Domain (numbite.co.uk) + Vercel Pro**, and a support email on the domain (Vercel › Project menumacros › Settings › Domains; then set
-   `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_SUPPORT_EMAIL`, and redeploy). Build the app with
-   `NEXT_PUBLIC_REMOTE_BASE=https://<your-domain> ./scripts/build_app_web.sh` so it talks to the domain.
+2. **Domain: numbite.com is bought** (12 October 2026, on Vercel, in your name). In Vercel › Project menumacros › Settings › Domains check it
+   shows "Valid Configuration" (add `www.numbite.com` redirecting to it). The website and the app use https://numbite.com by default
+   (`web/site.config.ts`, `NEXT_PUBLIC_REMOTE_BASE` in `scripts/build_app_web.sh`), so no setting is needed. Still to do: **Vercel Pro**, and a
+   support address on the domain (a free forwarding service sends support@numbite.com to your inbox; then set `NEXT_PUBLIC_SUPPORT_EMAIL` and
+   redeploy). Optional: numbite.co.uk from a UK registrar (Vercel doesn't sell .uk), added in Vercel › Domains with the DNS records it shows,
+   set to redirect to numbite.com.
 3. **Read** /privacy, /terms and /support on the live site and confirm every sentence is true.
-4. **Register the domains and check the name:** numbite.co.uk (main), numbite.com and numbite.app; then a UK trade mark search for
-   "Numbite": gov.uk › "Search for a trade mark" (classes 9 and 42 for apps), and consider filing it.
+4. **Check the name:** a UK trade mark search for "Numbite": gov.uk › "Search for a trade mark" (classes 9 and 42 for apps), and consider
+   filing it (numbite.com is already yours).
 5. **App Store Connect** (appstoreconnect.apple.com) › Apps › + › New App: iOS, name "Numbite: Calories & Protein" (or your choice),
    primary language English (UK), bundle ID `com.amanmarwaha.MenuMacros`, SKU `numbite-ios`. Then:
    - Pricing and Availability: Free; United Kingdom.
-   - App Privacy: answer from docs/STORE.md "App Privacy"; Privacy Policy URL `https://<your-domain>/privacy`.
+   - App Privacy: answer from docs/STORE.md "App Privacy"; Privacy Policy URL `https://numbite.com/privacy`.
    - Age Rating: from docs/STORE.md "Age rating".
-   - App Information: category Food & Drink, secondary Health & Fitness; Support URL `https://<your-domain>/support`.
+   - App Information: category Food & Drink, secondary Health & Fitness; Support URL `https://numbite.com/support`.
    - Version 1.0: description, keywords, promotional text and review notes from docs/STORE.md; screenshots from `web/e2e/shots/store/`.
 6. **Xcode** › Product › Archive (scheme MenuMacros, "Any iOS Device") › Distribute App › App Store Connect › Upload. Then in App Store
    Connect › TestFlight, install it on your iPhone and try: first launch with Wi-Fi and data off, a restaurant, an item, Groceries, a

@@ -16,9 +16,9 @@ export function ShareButton({ chainName, orderName, description, nutrients, full
   const host = (() => {
     try {
       const h = new URL(site.url).host;
-      return h.startsWith("localhost") ? "menumacros.app" : h;
+      return h.startsWith("localhost") ? "numbite.com" : h;
     } catch {
-      return "menumacros.app";
+      return "numbite.com";
     }
   })();
   return (

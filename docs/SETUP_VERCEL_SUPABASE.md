@@ -96,14 +96,14 @@ curl -s -X POST $B/api/v1/reports -H 'Content-Type: application/json' \
    views can't be edited).
 4. Vercel › Project › Settings › Cron Jobs: `/api/cron/cleanup` should be listed (runs daily).
 
-## 7. Domain and email (15 min, can wait until you've picked the final name)
+## 7. Domain and email
 
-1. Buy the domain (e.g. `menumath.co` or `getmenumath.com`).
-2. Vercel › Project › Settings › Domains → add it and follow the DNS instructions.
-3. Change `NEXT_PUBLIC_SITE_URL` to `https://<your-domain>` → Deployments › Redeploy.
-4. Set up `support@<your-domain>` (most registrars offer free email forwarding to your Gmail).
-5. Update `NEXT_PUBLIC_SUPPORT_EMAIL` → redeploy.
-6. Read `/privacy` and `/terms` on the live site and make sure every statement is true for you
+1. Done 12 October 2026: **numbite.com**, bought on Vercel (Project › Settings › Domains shows it; `www.numbite.com` redirects to it).
+   The site uses it by default (`web/site.config.ts`); setting `NEXT_PUBLIC_SITE_URL` is optional.
+2. Set up `support@numbite.com` (a free email-forwarding service, sending it to your own inbox; it needs a couple of DNS records added in
+   Vercel › Domains › numbite.com).
+3. Update `NEXT_PUBLIC_SUPPORT_EMAIL` → redeploy.
+4. Read `/privacy` and `/terms` on the live site and make sure every statement is true for you
    (they're written to match the spec; have a professional review them if you can).
 
 ## 8. Tell the app where everything is
@@ -116,11 +116,11 @@ its bundled menus (sync is skipped while the URLs are placeholders, and a 404 is
 In `MenuMacros/App/AppConfig.swift` (Claude creates it in M0; give it these values):
 
 ```swift
-static let menuBaseURL = URL(string: "https://<your-domain>/menus/")!
-static let apiBaseURL = URL(string: "https://<your-domain>/api/v1/")!
-static let websiteURL = URL(string: "https://<your-domain>")!
-static let privacyPolicyURL = URL(string: "https://<your-domain>/privacy")!
-static let supportEmail = "support@<your-domain>"
+static let menuBaseURL = URL(string: "https://numbite.com/menus/")!
+static let apiBaseURL = URL(string: "https://numbite.com/api/v1/")!
+static let websiteURL = URL(string: "https://numbite.com")!
+static let privacyPolicyURL = URL(string: "https://numbite.com/privacy")!
+static let supportEmail = "support@numbite.com"   // once the forwarding exists
 ```
 
 Menu updates later: `./scripts/publish_menus.sh` then `git push`.

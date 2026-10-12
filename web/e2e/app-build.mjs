@@ -5,7 +5,7 @@
 //   cd web && npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/app-build.mjs
 import { chromium } from "playwright-core";
 const BASE = process.env.BASE ?? "http://localhost:3103";
-const LIVE = process.env.LIVE ?? "https://menumacros.vercel.app";
+const LIVE = process.env.LIVE ?? "https://numbite.com";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const onboarded = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"] } });
 const FORBIDDEN = /\bPro\b|(?<!un)subscri|free trial|paywall|Anthropic|Ask Pip|Claude|Add .* to your Home Screen|iPhone Safari/i;

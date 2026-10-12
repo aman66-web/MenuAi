@@ -78,12 +78,12 @@ or treatment information: none (the app shows published nutrition only and says 
 
 ## URLs for App Store Connect
 
-- Privacy Policy URL: `https://<your-domain>/privacy`
-- Support URL: `https://<your-domain>/support`
-- Marketing URL: `https://<your-domain>`
+- Privacy Policy URL: `https://numbite.com/privacy`
+- Support URL: `https://numbite.com/support`
+- Marketing URL: `https://numbite.com`
 
-(Until there is a domain, `https://menumacros.vercel.app/...` works, but Vercel's free Hobby plan is for non-commercial use: move to Vercel
-Pro and a domain before submitting.)
+(numbite.com was bought on Vercel on 12 October 2026 and serves the same site as `menumacros.vercel.app`, which stays as an alias. Vercel's free
+Hobby plan is for non-commercial use: move to Vercel Pro before submitting.)
 
 ## Notes for App Review (draft)
 
@@ -96,10 +96,11 @@ the device only."
 ## Release checklist (free launch)
 
 - [ ] Decide which supermarkets the App Store version includes (web/app-content.json; food photos are in): see docs/APP_BUILD.md
-- [ ] Domain + Vercel Pro; support email on the domain; /privacy, /terms and /support read and true
-- [ ] Register numbite.co.uk (and numbite.com / numbite.app) now, before someone else does
+- [x] Domain: numbite.com (bought 12 October 2026, on Vercel, in the founder's name)
+- [ ] Vercel Pro; support email on the domain (forwarding); /privacy, /terms and /support read and true
+- [ ] Optional: numbite.co.uk at a UK registrar, redirected to numbite.com
 - [ ] UK trade mark search for "Numbite" (gov.uk "Search for a trade mark"), and consider filing it (classes 9 and 42)
-- [ ] `./scripts/build_app_web.sh` (with `NEXT_PUBLIC_REMOTE_BASE=https://<your-domain>` once the domain is live), then build in Xcode
+- [ ] `./scripts/build_app_web.sh` (it talks to https://numbite.com by default), then build in Xcode
 - [ ] Mac session: build, unit and UI tests, simulator check in airplane mode (docs/APP_BUILD.md "Checks before TestFlight")
 - [ ] App Store Connect: app record "Numbite: Calories & Protein", bundle `com.amanmarwaha.MenuMacros`, price Free, UK availability
 - [ ] App Privacy form and age rating from the sections above; screenshots from `web/e2e/store-shots.mjs`

@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_groceries as bg  # noqa: E402
 
-UA = "MenuMathCatalogue/1.0 (UK nutrition app; https://menumacros.vercel.app)"
+UA = "NumbiteCatalogue/1.0 (UK nutrition app; https://numbite.com)"
 API = "https://world.openfoodfacts.org/api/v2/product/{code}.json?fields={fields}"
 FIELDS = ",".join([
     "code", "product_name", "product_name_en", "brands", "quantity", "serving_size", "serving_quantity", "categories_tags", "nutriments",

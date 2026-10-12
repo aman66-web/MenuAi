@@ -25,7 +25,7 @@ from build_groceries import OFF_IMAGE, norm_code, restricted_code  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 WANTED = [ROOT / "data" / "groceries" / "wanted-images" / "off.csv", ROOT / "data" / "groceries" / "wanted-images" / "off-catalogue.csv"]
 OUT = ROOT / "data" / "groceries" / "images" / "off-front.csv"
-UA = "MenuMathCatalogue/1.0 (UK nutrition app; https://menumacros.vercel.app)"
+UA = "NumbiteCatalogue/1.0 (UK nutrition app; https://numbite.com)"
 API = "https://world.openfoodfacts.org/api/v2/product/{code}?fields=code,image_front_url"
 
 

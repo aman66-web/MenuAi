@@ -6,7 +6,8 @@ export const site = {
   tagline: "Know your macros before you order.",
   description:
     "Full calories, protein, carbs, fat and salt for every item at popular UK restaurant chains, and the best order for what you have left today.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // The website's own address (bought 2026-10-12). NEXT_PUBLIC_SITE_URL overrides it; menumacros.vercel.app stays as an alias.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://numbite.com",
   supportEmail: process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "support@example.com",
   // Set once the app is live (App Store Connect › App Information › Apple ID).
   appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL ?? "",

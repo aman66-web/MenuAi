@@ -1066,6 +1066,15 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   apple-icon, social card) and the iPhone's `AppIcon.appiconset/icon-1024.png` (1024 px, square, no transparency) drawn from the same file.
   Offline cache bumped to `mm-v5` so installed copies pick up the icon.
 
+- 2026-10-12 — **numbite.com** (founder: "should i buy on godaddy or you really think vercel for sure", then "ok ive bought numbite"). Bought by the
+  founder on Vercel in their own name (registered 12:41 UTC, renews 12 October 2027, Vercel's name servers); this session's Vercel connector couldn't
+  buy it (its token has no access to the account that holds the project). The website's own address (`web/site.config.ts` `url`, used for link
+  previews, the sitemap and robots) is now https://numbite.com unless `NEXT_PUBLIC_SITE_URL` says otherwise; the iPhone app's live site
+  (`NEXT_PUBLIC_REMOTE_BASE`, `scripts/build_app_web.sh`) and `AppConfig.swift`'s website addresses are numbite.com; `menumacros.vercel.app` stays as an
+  alias, so installed copies keep working. **Copy (rule 8):** the order share card printed the spec's placeholder "menumacros.app" (SPEC §11), a
+  domain we don't own, whenever the site address was unset (it was, on the live site); it now prints "numbite.com". Store and build docs use
+  numbite.com/privacy and /support. Still to do: Vercel Pro, a support@numbite.com forwarding address, and (optional) numbite.co.uk.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1076,7 +1085,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
-- [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (register numbite.co.uk / .com / .app first, then Vercel Pro on the domain, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
+- [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (numbite.com bought 2026-10-12; next Vercel Pro and a support@numbite.com forwarding address, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
 - [ ] **Decide which supermarkets go into the App Store version** (`web/app-content.json`; all nine until you say; the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S). Food photos: decided 2026-10-12, all in ("yes i want all the food photos there")
 - [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
@@ -1094,7 +1103,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [x] Supabase secret key added to Vercel (Production + Preview). Never paste it into chat or the app
 - [ ] Delete the test row "mcdonalds" in Supabase › chain_requests if you don't want it (or leave it: it's a valid request)
 - [ ] Payments for the web app (Stripe or RevenueCat Web Billing: both add a dependency/account; needs your decision)
-- [ ] Domain + support email; Vercel Pro before the site is public
+- [ ] ~~Domain~~ numbite.com bought (2026-10-12); still: support email on it, and Vercel Pro before the site is public
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
 - [x] Real chain data in `data/source/`: 72 UK chains (about 12,900 items) extracted from official sources (see docs/UK_DATA_STATUS.md, which lists what needs your decision); keep the two sample folders; release builds use `--no-samples`. 150 was not possible: only 62 of 210 candidates publish full official macros, and 25 more need a file from you
 - [x] App icon: plate and fork with a bite (founder's pick, 2026-10-12, `web/design/icon.svg`). Store screenshots: `web/e2e/store-shots.mjs`
