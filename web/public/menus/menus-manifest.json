@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011164121,
- "generatedAt": "2026-10-11T16:41:21Z",
+ "dataVersion": 20261012071733,
+ "generatedAt": "2026-10-12T07:17:33Z",
  "chains": [
   {
    "id": "abokado",
@@ -2600,6 +2600,17 @@
    "checkedOn": "2026-10-09"
   },
   {
+   "id": "yo-to-go",
+   "name": "YO! To Go",
+   "cuisine": "Japanese",
+   "file": "chain-yo-to-go.json",
+   "sha256": "f9ce6c255dc6157c6ee3a9740cc87c73d2116c72580d0433b41dfd603999e110",
+   "contentHash": "36346f2b5b6abb862a8f0b7c19414e36864c96c072f3b0504faba794617c5f68",
+   "sample": false,
+   "itemCount": 49,
+   "checkedOn": "2026-10-12"
+  },
+  {
    "id": "youngs",
    "name": "Young's",
    "cuisine": "Pub",
@@ -2626,6 +2637,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "f3237e62b8b908aaac3e8d609d47d149be1fd7c00271b7bdfe34e45327bc1db0"
+  "sha256": "3d8714562f3b71456da0004e14d9792c58024a1a84ec54cb54da20665041c68c"
  }
 }
