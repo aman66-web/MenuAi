@@ -1,0 +1,9 @@
+status: installed
+file: belhaven-pubs.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/1e85a1bcf63948b49787152c78abcca6?v=da8cec08
+page_url: https://www.belhaven.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.belhaven.co.uk/; saved unchanged
+sha256: 2ea058ca66f8748f277b03aca405b6555e29f274fe2dfce8646afed976a85f3f
+retrieved: 2026-10-12

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012083910,
- "generatedAt": "2026-10-12T08:39:10Z",
+ "dataVersion": 20261012084057,
+ "generatedAt": "2026-10-12T08:40:57Z",
  "chains": [
   {
    "id": "abokado",
@@ -197,6 +197,18 @@
    "sample": false,
    "itemCount": 21,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "belhaven-pubs",
+   "name": "Belhaven Pubs",
+   "cuisine": "Pub",
+   "file": "chain-belhaven-pubs.json",
+   "sha256": "81e17ac8acd457a210429ac9a4f04e362528f8efbffd7c4b806f57e6fc9a7dc0",
+   "contentHash": "d90f9a8d979620c0baa650e6d9e69a243006aa0d871e408a88c8e2c1bbcc8705",
+   "sample": false,
+   "itemCount": 171,
+   "checkedOn": "2026-10-12",
+   "nutritionLevel": "calories"
   },
   {
    "id": "bella-italia",
@@ -2672,6 +2684,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "718fe8292d7b1ee338da59f0f18329bb045bfca32fe982a669cfaf347b9cf8d0"
+  "sha256": "477d716094eb5d50cfb3bb2ef3a247292129467fc6a7deb051c2cc185e19effd"
  }
 }
