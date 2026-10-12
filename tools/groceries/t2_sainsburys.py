@@ -46,6 +46,7 @@ def canon_state(state: str):
     return None
 
 
+BREWED = re.compile(r"coffee|espresso|nescafe|lungo|pods?-|capsule|decaf|latte|cappuccino|(^|-)tea(-|$)|tea-?bags|infusion|kombucha-tea")
 STAPLES = re.compile(r"pasta|spaghetti|penne|fusilli|rigatoni|macaroni|farfalle|tagliatelle|linguine|lasagne|noodle|rice|couscous|quinoa|lentil|chickpea|bulgur|barley|polenta|semolina|vermicelli|orzo|risoni|oats|porridge|beans")
 PLAIN_WORDS = {"of product", "of food", "of the product", "of the food", "typical", "typical values", "typical analysis", "as sold", "amount"}
 BASIS = re.compile(r"(g|ml)(:[a-z][a-z ]{0,23})?|\?")
@@ -247,6 +248,8 @@ def cmd_ingest(a) -> int:
                 left += 1
                 continue
             state = label
+            if not state and n["kcal"] is not None and n["kcal"] <= 3 and BREWED.search(slug):
+                state = "brewed"  # coffee and tea pages print the figures for the made-up drink (about 1 kcal) under a plain "per 100g" heading
             if per not in ("g", "ml") or None in n.values():
                 why["incomplete (no per 100 g/ml basis or a main number missing)"] = why.get("incomplete (no per 100 g/ml basis or a main number missing)", 0) + 1
                 left += 1

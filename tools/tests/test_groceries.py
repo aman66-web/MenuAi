@@ -794,6 +794,14 @@ class PriceFileTests(unittest.TestCase):
         # founder 2026-10-11: "all the grocery stores, all the items" (Co-op and Ocado have no usable list; no other shop without their go-ahead)
         self.assertEqual(bap.PUBLISH, ("sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "waitrose", "iceland", "marks-and-spencer"))
 
+    def test_tier2_brewed_coffee_and_tea_figures_are_labelled_brewed(self):
+        import re
+        self.assertTrue(t2.BREWED.search("nescafe-gold-blend-instant-coffee-200g"))
+        self.assertTrue(t2.BREWED.search("yorkshire-tea-bags-x80-250g"))
+        self.assertTrue(t2.BREWED.search("kenco-millicano-smooth-latte-sachets"))
+        self.assertFalse(t2.BREWED.search("sainsburys-steak-and-ale-pie"))
+        self.assertFalse(t2.BREWED.search("sainsburys-sea-salt-flakes"))
+
     def test_tier2_heading_words_become_clear_labels_or_the_basis_is_dropped(self):
         self.assertEqual(t2.canon_state(""), "")
         self.assertEqual(t2.canon_state("of product"), "")
