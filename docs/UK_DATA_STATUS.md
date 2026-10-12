@@ -419,6 +419,8 @@ needed 3+). This round went back over every triage list (`data/candidates/triage
 re-checked each one's current GB site count on its own website. Same rules as before: official sources only, copied by script, robots.txt (RFC 9309)
 honoured, no alcoholic drinks, sites that disagree published only where 2+ agree; each chain passed `check_chain.py` with 0 errors and 0 high audit
 flags and had an independent second read (`data/audit/verified/<chain>.json`). Triage rows: `data/candidates/triage7/c.csv`.
+Result in this round's branch: **231 chains, 36,046 items** (117 full nutrition or mixed, 114 calories only). The size-only pool is now used up:
+every chain set aside for size has been re-counted, and the rest are still too small, print no figures, or have no dish printed at 2+ sites.
 
 | Chain | Items | Level | Sites | Source and rule |
 |---|---|---|---|---|
@@ -430,7 +432,9 @@ flags and had an independent second read (`data/audit/verified/<chain>.json`). T
 - **Gravity MAX** (4 venues with the "SIDES by Gravity MAX" kitchen, kcal and protein): the menu PDF's host cdn.gravity-global.com answers 403 for robots.txt, which stops us (your open decision (d)); not fetched.
 - **Still too small:** Rita's (one venue, Leeds), Core (one venue, Blackfriars), Carl's Jr UK (2: Cardiff, Swansea delivery), Tank & Paddle (2), Captain D's UK (2: Broadstairs, Maidstone); Orleans Smokehouse (2 at the last count; its site now answers 403 to our script, so not re-counted).
 - **Enough sites now, but no dish printed at 2+ of them:** Thistle Hotels (8 hotels; public menus with calories only at Heathrow T5's Aviator and at Trafalgar Square, sharing one figure), Royal Museums Greenwich (calories only on the Parkside Cafe menu), RHS Gardens (each garden its own menu), Imperial War Museums (only one Duxford restaurant menu found; the eat-and-drink page is gone).
-- **Not usable:** Yakinori (4 restaurants; the only figures are a May 2025 blog post quoting 14 dishes from an unlinked 2024 matrix, and most of those dishes are no longer on its menu), Harris + Hoole (3 shops; nutrition fields still empty), Edwardian Hotels (calories only on an in-room dining menu, which only guests can order from).
+- **Not usable:** Yakinori (4 restaurants; the only figures are a May 2025 blog post quoting 14 dishes from an unlinked 2024 matrix, and most of those dishes are no longer on its menu), Harris + Hoole (3 shops; nutrition fields still empty), Edwardian Hotels (calories only on an in-room dining menu, which only guests can order from), Cat & Wickets Pub Company (3 pubs; no calories on its pub pages), The Wolseley (2 London restaurants under the name; the group's other restaurants are separate brands with their own menus).
+- **Left for helper A (menus that need a store picked):** Grounded Kitchen (9 restaurants; its allergen guide says carbohydrate and sugar figures are on its Vita Mojo ordering site, which shows nothing until a store is chosen).
+- **Unchanged, other reasons** (re-read, not size): Chick-fil-A UK (per 100 g only), Urban Greens (calories hidden by the chain), Fazenda / Fogo de Chão (unreachable), Coffee Republic (expired certificate), Smith & Western (robots.txt 403), Paultons Park, Cadbury World, Hotel Café Royal, Ragdale Hall, Aramark at Alton Towers and the single-resort parks (one site each).
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 

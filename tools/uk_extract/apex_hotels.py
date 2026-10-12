@@ -86,7 +86,7 @@ def tidy(s: str) -> str:
 
 
 def pdf_links(page: str) -> list[str]:
-    links = sorted(set(re.findall(r'href="((?:https://www\.apexhotels\.co\.uk)?/media/[^"]+?\.pdf)"', page)))
+    links = sorted(set(re.findall(r'href="((?:' + re.escape(SITE) + r')?/media/[^"]+?\.pdf)"', page)))
     keep = []
     for link in links:
         fname = link.rsplit("/", 1)[-1].lower()
