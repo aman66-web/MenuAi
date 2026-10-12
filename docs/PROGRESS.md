@@ -977,6 +977,22 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Food Standards Agency's food hygiene open data (every food business by name, Open Government Licence: business names with 3+ outlets that no earlier list
   had); (C) chains earlier set aside only for having fewer than 5 sites. Results are logged below as they land.
 
+- 2026-10-12 — **Round 7 B and C merged: 233 chains, 36,184 items live (118 full or mixed nutrition, 115 calories only).** Details and every chain checked in
+  docs/UK_DATA_STATUS.md ("Added 12 October (round 7B, FSA discovery)" and "(round 7C, 3+ sites)") and `data/candidates/triage7/`. **C (chains set aside for size,
+  now 3+ sites):** **Papa's Fish & Chips** (5 items, full nutrition from its own December 2018 Campden BRI lab reports, unchanged byte for byte and still linked from
+  its nutrition page; 5 restaurants; the note gives the date; Mushy Peas stays held back), **Firmdale Hotels** (30, calories, 6 London hotel restaurants) and
+  **Apex Hotels** (33, calories, its 3 English restaurants that print calories), both published only where 2+ restaurants print the same dish name and figure and
+  no menu prints another. **B (new discovery from the Food Standards Agency's open data):** all 363 local-authority files read once (614,158 food businesses;
+  11,831 names with 3+ GB outlets; 7,893 not known before; files and scripts in `data/candidates/fsa/` and `tools/discovery/fsa/`); almost all are small groups that
+  publish no figures, but it found brands trading inside other shops: **YO! To Go** (49 products, full nutrition and allergens; YO! Sushi's own "Tesco kiosk menu",
+  289 counters inside Tesco; kept separate from Yo! Sushi because the menu and outlets differ; 20 held back where its own kJ/kcal or salt can't hold) and **The Sushi
+  Co** (89, calories, its own January 2026 counter menu, 38 outlets; its full-nutrition table exists only as two 2024 pictures that OCR couldn't read reliably).
+  Each passed check_chain with 0 errors and 0 high audit flags and had a second read by another method; logos from each chain's own site. Checked and not added
+  (reasons in the status doc): 39 FSA finds publish no figures (e.g. Sushi Gourmet, Mai Sushi, B Kitchen, Bird & Blend, Mr Pretzels, Kebabish Original), Happy Tokyo
+  (per 100 g only), Archie's and Geek Retreat (blocked), Gravity MAX (robots.txt answers 403: open decision (d)), Thistle, Royal Museums Greenwich, RHS Gardens and
+  Imperial War Museums (no dish printed at 2+ sites), Rita's, Core, Carl's Jr UK, Tank & Paddle, Captain D's (still under 3 sites). Helper A (store-picked menus and
+  Waterfields) is still running. Checked after the merges: 138 Python, 460 unit, menu build 233 chains 0 errors.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
