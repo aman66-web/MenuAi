@@ -969,6 +969,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   close to exhausted. **For you to decide:** Waterfields (36 North West bakeries) prints nutrition for 22 products but 6 contradict themselves; about 16 consistent rows
   could go live as a thin full-nutrition chain. Checked after the merge: 460 unit, 138 Python.
 
+- 2026-10-12 — **Founder: "keep adding more food chains please"; two answers.** (1) **A calories-only chain now needs 3 or more GB sites** (was 5 since
+  2026-10-10), the same bar as full-nutrition chains; every data rule is unchanged (official source only, copied by script, never estimated, robots.txt and
+  blocks honoured, sites that disagree published only where 2+ agree, no alcoholic drinks). (2) **Waterfields: publish the products whose own figures agree**
+  (about 16 of its 22 nutrition tables); the 6 that contradict themselves are held back and listed in its check report. Round 7 runs three helpers in their own
+  worktrees: (A) menus that show calories only after a store is picked (read 2+ stores, publish only what agrees) plus Waterfields; (B) new discovery from the
+  Food Standards Agency's food hygiene open data (every food business by name, Open Government Licence: business names with 3+ outlets that no earlier list
+  had); (C) chains earlier set aside only for having fewer than 5 sites. Results are logged below as they land.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1004,7 +1012,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] **Supermarket logos: Tesco and Co-op** blocked us; save each from its own site in your browser (`data/chrome-inbox/QUEUE-LOGOS.md`)
 - [ ] **Logos (11 of 220 missing):** Atis, Bettys, Buy & Bite, Costa, Domino's, Fuller's, Honi Poke, Kokoro, McDonald's, Tesco Café, Wild Bean Café (their sites block us, disallow robots, or serve no logo file we may use; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
 - [x] **Decide: Kick Ass Burrito**: publish (2026-10-11), now live.
-- [ ] **Decide: Waterfields** (36 North West bakeries): publish the ~16 products whose own figures agree (6 of its 22 nutrition tables contradict themselves), or leave it out
+- [x] **Decide: Waterfields**: publish the products whose own figures agree (2026-10-12)
 - [ ] Confirm the open data calls in docs/UK_DATA_STATUS.md (Starbucks default milks, Taco Bell's table hosted by Nutritionix, Subway sauces note, Pret from product pages)
 - [ ] Decide the £ price points and whether the target helper should offer kg / stone / cm
 - [ ] Approve the copy changes flagged above (§12.3 wording, App Store text, the pork/beef filter wording)
