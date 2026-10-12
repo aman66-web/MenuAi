@@ -1,0 +1,9 @@
+status: installed
+file: farmhouse-inns.png
+kind: apple-touch-icon
+opaque: no
+source_url: https://gkbr-p-001.sitecorecontenthub.cloud/api/public/content/aa745c45e68f431ea103865019e854a8?v=8e7b4360
+page_url: https://www.farmhouseinns.co.uk/
+why: the chain's own apple-touch-icon, declared by its home page https://www.farmhouseinns.co.uk/; saved unchanged (scaled down proportionally to 256 px)
+sha256: ef17141b4fae5302ec82f2fc29e00573b95668170d9a2da20201459484b46f5a
+retrieved: 2026-10-12

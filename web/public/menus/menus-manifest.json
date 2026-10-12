@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012074402,
- "generatedAt": "2026-10-12T07:44:02Z",
+ "dataVersion": 20261012081554,
+ "generatedAt": "2026-10-12T08:15:54Z",
  "chains": [
   {
    "id": "abokado",
@@ -940,6 +940,18 @@
    "sample": false,
    "itemCount": 76,
    "checkedOn": "2026-10-08"
+  },
+  {
+   "id": "farmhouse-inns",
+   "name": "Farmhouse Inns",
+   "cuisine": "Carvery",
+   "file": "chain-farmhouse-inns.json",
+   "sha256": "390fc7b287a1f5257ae9b47e5e2179e7413fb22d8627e8a29e4172e30b1f255b",
+   "contentHash": "877465a0a566fb3856fec87c613cda6ed770280bbdf16d6543441cd195c05efd",
+   "sample": false,
+   "itemCount": 119,
+   "checkedOn": "2026-10-12",
+   "nutritionLevel": "calories"
   },
   {
    "id": "fat-hippo",
@@ -2649,6 +2661,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "38256300112e95896edf044b6e6510dd798d1f1b2b80a0cbc84e7a9b81db497a"
+  "sha256": "eb657e34c95b8a7e30dd6368c59e2b916f6c7f347eaba4aefb2dff1e9d6f0088"
  }
 }
