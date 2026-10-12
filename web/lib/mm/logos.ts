@@ -228,6 +228,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "warner-hotels": { src: "/logos/warner-hotels.svg" },
   "warrens-bakery": { src: "/logos/warrens-bakery.svg" },
   "wasabi": { src: "/logos/wasabi.svg" },
+  "waterfields": { src: "/logos/waterfields.png" },
   "wendys": { src: "/logos/wendys.svg" },
   "wenzels": { src: "/logos/wenzels.svg", tile: "dark" },
   "westmorland-services": { src: "/logos/westmorland-services.svg", tile: "dark" },

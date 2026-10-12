@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011164121,
- "generatedAt": "2026-10-11T16:41:21Z",
+ "dataVersion": 20261012065801,
+ "generatedAt": "2026-10-12T06:58:01Z",
  "chains": [
   {
    "id": "abokado",
@@ -2499,6 +2499,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "waterfields",
+   "name": "Waterfields",
+   "cuisine": "Bakery",
+   "file": "chain-waterfields.json",
+   "sha256": "bb4cd96a591498d12520b33c68d5553be7b7faa30af29c195187982afd2d8b37",
+   "contentHash": "674937cd8cf037dea94db1ae9f09cbc05a4e929d44d132512efa70f6015ea53a",
+   "sample": false,
+   "itemCount": 15,
+   "checkedOn": "2026-10-12"
+  },
+  {
    "id": "wendys",
    "name": "Wendy's",
    "cuisine": "Burgers",
@@ -2626,6 +2637,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "f3237e62b8b908aaac3e8d609d47d149be1fd7c00271b7bdfe34e45327bc1db0"
+  "sha256": "09dcf9bbdd2396c617ce419b8cbbad5d68b41938910f086058e3a3aeea265297"
  }
 }

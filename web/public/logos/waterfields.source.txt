@@ -1,0 +1,11 @@
+status: installed
+file: waterfields.png
+kind: header
+source_url: https://www.waterfields-bakers.co.uk/cdn/shop/files/waterfields-logo-rgb-xl_440x.png?v=1646043236
+page_url: https://www.waterfields-bakers.co.uk/
+terms_url: https://www.waterfields-bakers.co.uk/pages/refund-policy
+terms_summary: not read in full; installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo (<img src="//www.waterfields-bakers.co.uk/cdn/shop/files/waterfields-logo-rgb-xl_440x.png?v=1646043236" itemprop="logo">, the size the page itself serves), saved byte for byte (440 x 99 PNG, the Waterfield's wordmark with its heart); looked at on white. robots.txt of www.waterfields-bakers.co.uk disallows only cart, checkout, account, admin, filter and /cdn/wpm/*.js paths.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-12
+tile: light

@@ -411,6 +411,22 @@ theme folder) and its own apple-touch-icon as the square icon.
   rechecked), Poundbakery, Oakman Inns (its site now runs on Upham Inns', allergens only).
 - **Blocked**: Van Hage (TLS error), Stewarts Garden Centres (proxy 502), Frosts Garden Centres (403).
 
+## Added 12 October (round 7A)
+
+Founder: "keep adding more food chains please". Helper A's segment: Waterfields (founder's decision of 12 October: publish the products whose
+own figures agree) and the chains whose menus show calories only after a store is picked. Quality bar: 3+ GB sites for full-nutrition and
+calories-only chains alike (founder, 12 October). Same rules as before: official sources only, copied by script, robots.txt (RFC 9309) honoured,
+no alcoholic drinks, sites that disagree published only where 2+ agree; `check_chain.py` 0 errors and 0 high audit flags; an independent second
+read (`data/audit/verified/<chain>.json`). Triage rows: `data/candidates/triage7/a.csv`.
+
+| Chain | Items | Level | Sites | Source and rule |
+|---|---|---|---|---|
+| Waterfields | 15 | full | 36 shops across the North West (the site's own banner) | The nutrition table at the end of each product's description on the chain's own Shopify shop (read from its product feed; the product pages' own JSON-LD descriptions were the second read, 164 figures, 0 differences): "Per item / per 100g", unrounded per-item figures copied as printed (per-100 g used only to check them). 22 of its 50 products print a table; **7 are held back** (`holdback.csv` names the figures): Lancashire Pastie and Potato and Meat Pie (kJ about 7.6-8.2 times kcal), Pastie Large (word for word the Potato and Meat Pie table), Small White Tin Loaf (its kcal is 8 times its per-100 g kcal while kJ and every macro are 4 times), Large White Tin Loaf (sodium 10.4 g against salt 4.16 g), White Baguette (one unlabelled column) and, beyond the six found on 11 October, the Sausage Roll (1,111 kJ against 289 kcal, 8% apart, and its per-item column repeats the per-100 g column). Medium Pork Pie's polyunsaturates print "0.5728 / 032", so that one figure is blank. Breads are whole loaves (not suggested as meals). Undated. Allergens link-only: the allergen page's 12 Google Sheets don't name several products exactly (Éclair, Vanilla, Steak Pie, Medium Pork Pie, Spicy Vegetable Pastie, Small Crown Cob, GI Bread) and the Cream Cakes sheet uses a "*" mark its key doesn't define. |
+
+Logos: Waterfields' header wordmark (saved as served); its site icon is a plain orange heart, looked at and not used as the square icon.
+
+**Checked and not added (round 7A):**
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):
