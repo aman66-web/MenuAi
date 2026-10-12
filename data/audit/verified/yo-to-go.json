@@ -1,0 +1,13 @@
+{
+ "chain": "yo-to-go",
+ "date": "2026-10-12",
+ "source_read": "YO! Sushi's Tesco kiosk menu (Ten Kites page https://menus.tenkites.com/yosushi/kiosk02, title 'TESCO MENU', linked as 'Tesco kiosk menu' from https://yosushi.com/allergens), saved 2026-10-12, sha256 d8c6f4a233da5ba835e5532521cb249cab37f242820861b9e369cfceb79579a4; robots.txt of menus.tenkites.com and yosushi.com allow both pages",
+ "compared_items": 49,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 20,
+ "marked_ok": 0,
+ "not_verifiable": "which Tesco stores have a kiosk today (the Food Standards Agency's hygiene-rating data lists 'Yo! To Go!' counters registered in Tesco stores across Great Britain); the page prints no date",
+ "notes": "Extraction: tenkites_c.read_table_layout (an HTML tree walk over the table layout, allergens cross-checked between the 14 columns, the 'Contains / May contain' line and the label ids). Second read, by a different method: plain regular expressions over the raw page, splitting it at each 'k10-recipe__wrapper', taking the product name, the per-serving nutrient row (header names zipped with the values), the data-calories attribute and the allergen ids in data-all-labels (contains + may contain) and data-no-may-labels (contains only), mapped through the page's own filter list (data-label-id/data-label-name): 70 products read, every one of the 49 published items found by name with all nine figures (kcal, kJ, fat, saturates, sugars, salt, protein, carbohydrate, fibre) and the data-calories attribute equal to items.csv, and the same contains / may-contain sets as allergens.csv: 0 mismatches. Held back (20): 14 products whose printed kJ and kcal disagree by more than 7% (mostly sushi rolls, hosomaki and onigiri whose kcal sits about 10% above their kJ; the same pattern as YO! Sushi's dine-in page), Chicken Katsu Curry and Pumpkin Katsu Curry Rice Bowl (salt printed as 900.8 g and 900.1 g), the two products both named 'YO! Korean Style Sweet Chilli Chicken Noodles' with different figures, and mango cheesecake / raspberry white chocolate mochi (identical figures except salt under different recipe ids). One exact duplicate row (Raspberry White Chocolate Mochi, printed twice with the same figures and allergens) dropped. Names: heating instructions ('- Heat me first!') and a code ('A1') removed from four names; nothing else changed."
+}

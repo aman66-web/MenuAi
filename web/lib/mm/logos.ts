@@ -218,6 +218,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "the-light-cinemas": { src: "/logos/the-light-cinemas.svg", tile: "dark" },
   "the-restaurant-hub": { src: "/logos/the-restaurant-hub.svg" },
   "the-salad-project": { src: "/logos/the-salad-project.svg" },
+  "the-sushi-co": { src: "/logos/the-sushi-co.png" },
   "third-space": { src: "/logos/third-space.svg" },
   "tim-hortons": { src: "/logos/tim-hortons.png" },
   "toby-carvery": { src: "/logos/toby-carvery.png" },
@@ -239,6 +240,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "wimpy": { src: "/logos/wimpy.svg" },
   "yalla-yalla": { src: "/logos/yalla-yalla.webp", tile: "dark" },
   "yo-sushi": { src: "/logos/yo-sushi.svg" },
+  "yo-to-go": { src: "/logos/yo-to-go.svg" },
   "youngs": { src: "/logos/youngs.webp" },
   "zizzi": { src: "/logos/zizzi.svg" },
 };
@@ -375,6 +377,7 @@ export const SQUARE_ICONS: Readonly<Record<string, NonNullable<ChainLogo["square
   "wimpy": { src: "/logos/square/wimpy.png", full: true },
   "yalla-yalla": { src: "/logos/square/yalla-yalla.png" },
   "yo-sushi": { src: "/logos/square/yo-sushi.png", full: true },
+  "yo-to-go": { src: "/logos/square/yo-to-go.png", full: true },
   "zizzi": { src: "/logos/square/zizzi.png", full: true },
 };
 

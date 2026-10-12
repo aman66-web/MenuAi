@@ -1,0 +1,47 @@
+id,name,fsa_gb_outlets,website,verdict,reason
+yo-to-go,YO! To Go! (YO! Sushi kiosks in Tesco),289,https://yosushi.com/allergens,GO,"FSA 'Yo! To Go!' counters registered inside Tesco stores. YO! Sushi's own Allergen & nutrition page links a 'Tesco kiosk menu' on Ten Kites (menus.tenkites.com/yosushi/kiosk02): full nutrition per pack and 14 allergens for 70 products, robots allowed. ADDED 2026-10-12."
+sushi-gourmet,Sushi Gourmet (kiosks in Sainsbury's),92,https://www.sushigourmet.co.uk/,NO-DATA,Sushi counters inside Sainsbury's (FSA addresses). The UK site points to sushigourmet.eu; its 'Nutritional values' page (17.09.20) is a general article and 'Our menu' prints no figures: no per-product nutrition online (packs only).
+mai-sushi,Mai Sushi (counters in M&S),37,,NO-DATA,Sushi counters inside Marks & Spencer stores (FSA addresses). No website of its own found (maisushi.co.uk is an unrelated Kings Cross restaurant).
+the-sushi-co,The Sushi Co,38,https://www.thesushico.co.uk/,GO-CALORIES,"Live sushi kitchens (London, Essex and beyond). The counter menu PDF linked from the home page (created 6 January 2026, text layer) prints pieces and kcal for every dish; ADDED 2026-10-12 (89 items, calories only; allergen matrix of 29 January 2026 linked, its names differ from the menu). Its Nutrition & Allergens page shows full nutrition only as two pictures uploaded August 2024 (963x656 px, no text layer; OCR of the gridded table was unreadable): not used."
+selekt-chicken,Selekt Chicken,32,,NO-DATA,"Fried-chicken takeaways (mostly London). No website of its own found (selektchicken.co.uk does not resolve); only delivery-app listings, which are not eligible."
+gourmet-coffee-bar,Gourmet Coffee Bar & Kitchen,29,https://gourmetcoffeebar.co.uk/locations/,NO-DATA,Railway-station coffee bars (about 30 stations). Home and locations pages print no menu figures; no nutrition or allergen page.
+urban-baristas,Urban Baristas,25,https://www.urbanbaristas.co.uk/,NO-DATA,London coffee shops (about 16). Shopify site with locations and franchise pages; no menu figures.
+bird-and-blend-tea,Bird & Blend Tea Co,30,https://www.birdandblendtea.com/pages/allergens-tea,NO-DATA,"Tea shops. The allergens page lists the loose-leaf retail teas (energy per 100 ml/g of the retail product), not the drinks served in the shops."
+peri-peri-original,Peri Peri Original,22,,NO-DATA,"Peri-peri takeaways (Bucks, Herts, Essex). No website of its own found; delivery-app listings only."
+b-kitchen,B Kitchen (hot counters in Tesco Express),21,,NO-DATA,Hot food counters inside London Tesco Express stores (FSA addresses). No website or published menu found.
+smoke-and-pepper,Smoke & Pepper,21,,NO-DATA,"Halal grill and burger restaurants (London, Milton Keynes, Liverpool, Rotherham...). No website of its own found; delivery-app listings only."
+wok-u-like,Wok U Like,20,,NO-DATA,"Chinese takeaways sharing a name (Wales, East, South East); no chain website found, each shop separate."
+archies,Archie's (burgers and shakes),19,https://archies.co.uk/,BLOCKED,"Manchester-based burger and shake bars (TRG Concessions brand). robots.txt of archies.co.uk ends with ""User-agent: * Disallow: /"" (only named search engines may crawl): stopped, not worked round. Calories appear on delivery apps only (not eligible)."
+cha-cha-chai,Cha Cha Chai,19,,NO-DATA,"Chai cafes (Manchester, Bolton, Birmingham, Middlesbrough...). No website of its own found; delivery-app listings only."
+geek-retreat,Geek Retreat,18,https://www.geek-retreat.uk/,BLOCKED,"Gaming cafes. The home page answered HTTP 429: stopped for this host, not retried."
+mr-pretzels,Mr Pretzels,18,,NO-DATA,Pretzel kiosks in shopping centres. mrpretzels.co.uk is a parked page; no UK site with figures found.
+poppins,Poppins Restaurants,26,https://www.poppinsrestaurants.co.uk/,NO-DATA,About 36 owner-run town-centre cafe restaurants under one name; the site prints no calories or nutrition.
+92-degrees,92 Degrees Coffee,16,https://92degrees.coffee/,NO-DATA,"Liverpool coffee shops; site shows locations and retail coffee only, no menu figures."
+cupp,CUPP Bubble Tea,32,,NO-DATA,"Bubble tea shops (CUPP / CUPP Bubble Tea); no official site with nutrition found, delivery-app listings only."
+howe-and-co,Howe & Co Fish & Chips,16,,NO-DATA,"A fleet of mobile fish and chip vans (Bucks, Oxon, Essex); no menu figures published."
+bakers-and-baristas-bbs,BB's Coffee & Muffins,10,https://www.bbscoffeeandmuffins.com/,KNOWN,"The site now redirects to Bakers + Baristas, already published (bakers-and-baristas)."
+crispy-dosa,Crispy Dosa,15,https://www.crispydosa.com/,NO-DATA,South Indian restaurants (London and South East); home page has no menu figures and /menu/ is 404.
+chango,Chango Empanadas,12,https://www.chango.co.uk/,NO-DATA,"Argentine empanada shops (London); Shopify ordering site, no nutrition."
+badiani,Badiani,10,https://www.badiani1932.com/menu/our-menu,NO-DATA,Florentine gelato shops (London); menu page lists flavours with no figures.
+kebabish-original,Kebabish Original,12,,NO-DATA,Franchised Pakistani grill restaurants (the chain says 60+ outlets); kebabishoriginal.co.uk does not resolve and no official site with figures was found; delivery-app listings only.
+tgf-pizza,TGF Pizza,13,,NO-DATA,"Pizza takeaways (Herts, Essex, London); no official site found, delivery-app listings only."
+toros-steakhouse,Toro's Steakhouse,11,,NO-DATA,"Halal steakhouses (Luton, Birmingham, Leicester, Nottingham, Liverpool); no official site with figures found."
+mak-halal,M.A.K. Halal,12,,NO-DATA,"Halal fast food (Birmingham, Cardiff, Manchester, Nottingham...); no official site found, delivery-app brand pages only."
+usa-chicken,USA Chicken,16,,NO-DATA,"Independent fried-chicken takeaways sharing a name (Chesterton, Woodville, Banbury...); no chain website."
+metros-fried-chicken,Metro's Fried Chicken,15,,NO-DATA,"Fried-chicken takeaways (south-east London, Kent); delivery-app brand page only, no website of its own."
+freddys-chicken-and-pizza,Freddy's Chicken & Pizza,15,,NO-DATA,"Chicken and pizza takeaways (North West, Leeds, Dagenham); delivery-app listings only."
+chennai-dosa,Chennai Dosa,13,https://www.chennaidosa.com/,NO-DATA,"South Indian restaurants (East Ham origin, about 10 sites); the domain serves an empty 3.7 KB page and no other official site with menu figures was found."
+craft-burger,Craft Burger,13,,NO-DATA,"Burger bars (Middlesbrough origin, North East, Salford, Ealing); no website of its own found, delivery-app listings only."
+love-churros,Love Churros London,13,https://www.lovechurros.co.uk/,NO-DATA,"Churros stalls and kiosks; lovechurros.co.uk is a parked page; no figures found."
+smoky-boys,Smoky Boys,11,,NO-DATA,"Halal burger and barbecue restaurants (London, Watford, Amersham); smokyboys.co.uk reset the connection; no other official site found."
+big-juicy-burgers,Big Juicy Burgers,11,,NO-DATA,"Burger takeaways (Watford, Chelmsford, Loughborough, Leicester...); delivery-app listings only."
+hagen-espresso-bar,Hagen Espresso Bars,12,https://thehagenproject.com/,NO-DATA,"London espresso bars (about 15); the site shows locations and an allergen statement, no menu figures."
+bunsik,Bunsik,12,,NO-DATA,"Korean street food (London, Manchester, Bristol; about 10); no official site with figures found."
+belgian-waffle-company,The Belgian Waffle Company,12,,NO-DATA,"Dessert shops (Levenshulme and others); no website of its own found."
+scooperb,Scooperb,10,https://scooperb.co.uk/ingredients-allergens/,NO-DATA,"Dessert lounges (about 11); the site publishes allergen and ingredient lists (July 2026) and a menu page with no calories."
+coffi-lab,Coffi Lab,12,,NO-DATA,"Coffee shops in South Wales and southern England (about 11); coffilab.com serves an empty page and no menu figures were found."
+ohannes-burger,Ohannes Burger,10,,NO-DATA,"Burger restaurants (Nottingham, Leicester, Liverpool, Salford); no website of its own found, delivery-app listings only."
+chai-green,Chai Green,12,,NO-DATA,"Desi breakfast and chai cafes (Birmingham, Cardiff, Sheffield; about 6); no official site with figures found."
+mr-rice,Mr Rice,12,,NO-DATA,"Chinese takeaways in Scotland sharing a name; no chain website."
+remaining-10plus,"USA Fried Chicken, Marini's, Safi's Desserts, Chesters Chicken, Chick King, Chunky Chicken, Tennessee Express, Perfect Chicken, Slamburger, Sushi Handroll, Cafe2u, Super Whippy, Mister Softee / Mr Softee",10-20 each,,NOT-TRIAGED,"Picked out of the FSA shortlist as one name at 10-20 outlets but not looked up one by one: fried-chicken and dessert takeaway franchises, a mobile coffee-van franchise and ice-cream van fleets, the kinds of business none of the 40 chains looked up above publish figures for."
+happy-tokyo,Happy Tokyo (sushi counters in Morrisons),12,https://sushidaily.com/gb-en/menu/avocado-maki/,NO-MACROS,"A Sushi Daily (KellyDeli) brand; Sushi Daily's GB site prints nutrition per 100 g only with no pack weight (triaged NO-MACROS earlier), so nothing can be published per pack."

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012072853,
- "generatedAt": "2026-10-12T07:28:53Z",
+ "dataVersion": 20261012073750,
+ "generatedAt": "2026-10-12T07:37:50Z",
  "chains": [
   {
    "id": "abokado",
@@ -2385,6 +2385,18 @@
    "checkedOn": "2026-10-10"
   },
   {
+   "id": "the-sushi-co",
+   "name": "The Sushi Co",
+   "cuisine": "Japanese",
+   "file": "chain-the-sushi-co.json",
+   "sha256": "408b9009d00ea2ad4aa21f581ed28389498305cc8d03f554b3b6849ba4ea7f52",
+   "contentHash": "94afc2b4576f1643eeb0c86c392b9761161c59d8daec863a32305eaac3267bfc",
+   "sample": false,
+   "itemCount": 89,
+   "checkedOn": "2026-10-12",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "third-space",
    "name": "Third Space",
    "cuisine": "Cafe",
@@ -2635,6 +2647,17 @@
    "checkedOn": "2026-10-09"
   },
   {
+   "id": "yo-to-go",
+   "name": "YO! To Go",
+   "cuisine": "Japanese",
+   "file": "chain-yo-to-go.json",
+   "sha256": "f9ce6c255dc6157c6ee3a9740cc87c73d2116c72580d0433b41dfd603999e110",
+   "contentHash": "36346f2b5b6abb862a8f0b7c19414e36864c96c072f3b0504faba794617c5f68",
+   "sample": false,
+   "itemCount": 49,
+   "checkedOn": "2026-10-12"
+  },
+  {
    "id": "youngs",
    "name": "Young's",
    "cuisine": "Pub",
@@ -2661,6 +2684,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "53a13d6400c7a796371b925fa9218579d715b2b0202bb47c4bc61f183d9d90d8"
+  "sha256": "08361408ae90bbfc7d027561c413100e3ba3dd722835c6c79041d4f279ff633c"
  }
 }

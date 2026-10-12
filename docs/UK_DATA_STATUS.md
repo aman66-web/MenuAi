@@ -436,6 +436,40 @@ every chain set aside for size has been re-counted, and the rest are still too s
 - **Left for helper A (menus that need a store picked):** Grounded Kitchen (9 restaurants; its allergen guide says carbohydrate and sugar figures are on its Vita Mojo ordering site, which shows nothing until a store is chosen).
 - **Unchanged, other reasons** (re-read, not size): Chick-fil-A UK (per 100 g only), Urban Greens (calories hidden by the chain), Fazenda / Fogo de Chão (unreachable), Coffee Republic (expired certificate), Smith & Western (robots.txt 403), Paultons Park, Cadbury World, Hotel Café Royal, Ragdale Hall, Aramark at Alton Towers and the single-resort parks (one site each).
 
+## Added 12 October (round 7B, FSA discovery)
+
+Founder: "keep adding more food chains please". Chains nobody had named yet were looked for in the Food Standards Agency's food
+hygiene open data (every food business in the UK by name, Open Government Licence; method, counts and shortlist in
+`data/candidates/fsa/`): 614,158 establishments, **11,831 normalised names with 3+ GB outlets**, **7,893 not already known** to the
+repo. By eye, 65 of those are one brand at 10+ outlets; they were triaged largest first (`data/candidates/triage7/b.csv`). Same rules as
+before: official sources only, copied by script, robots.txt (RFC 9309) honoured, no alcoholic drinks, 3+ GB sites; each chain passed
+`check_chain.py` with 0 errors and 0 high audit flags and had an independent second read (`data/audit/verified/<chain>.json`).
+
+| Chain | Items | Level | Sites | Source and rule |
+|---|---|---|---|---|
+| YO! To Go | 49 (20 held back) | full + allergens | 289 counters inside Tesco stores registered as "Yo! To Go!" in the FSA data | YO! Sushi's own Allergen & nutrition page (yosushi.com/allergens) links a "Tesco kiosk menu" on Ten Kites (menus.tenkites.com/yosushi/kiosk02): per-pack figures and the 14 allergens for 70 products, read with the same reader as YO! Sushi's dine-in page. Held back: 14 products whose printed kJ and kcal disagree by more than 7% (mostly rolls, hosomaki and onigiri, the same pattern as the dine-in page), Chicken Katsu Curry and Pumpkin Katsu Curry Rice Bowl (salt printed as 900.8 g and 900.1 g), two different products both named "YO! Korean Style Sweet Chilli Chicken Noodles", and two mochi printing identical figures under different recipes. Not dated on the page. Logo: YO! Sushi's own logo and square icon (the same files as yo-sushi). |
+| The Sushi Co | 89 | calories (allergens link-only) | 38 GB outlets registered as "The Sushi Co" in the FSA data (29 in London; the chain's store locator loads by script) | The counter menu PDF linked from the chain's home page (one page, created 6 January 2026, text layer): every dish prints its pieces and kcal ("KAPPA MAKI 8pc \| 126kcal"); read from word boxes and type sizes, every one of the 91 kcal figures used or left out by a named rule. Left out: Sweet Chilli Chicken and Black Pepper Chicken "with rice/noodles" (one figure for two dishes). Not used: the full-nutrition table on its Nutrition & Allergens page, which is two pictures uploaded August 2024 with no text layer (OCR of the gridded table was unreadable; four figures checked by eye agree with the menu). The allergen matrix (29 January 2026) names dishes differently, so it is linked. Logo: the chain's own black logo from its home page (no square icon served). |
+
+**Checked and not added** (round 7B; every row with its reason in `data/candidates/triage7/b.csv`):
+- **No figures published by the chain** (no website of its own, or a site with no menu figures; delivery-app calories are not eligible):
+  Sushi Gourmet (sushi counters in about 92 Sainsbury's), Mai Sushi (counters in M&S), Selekt Chicken, Gourmet Coffee Bar & Kitchen
+  (railway stations), Urban Baristas, Bird & Blend Tea Co (only its retail teas per 100 ml), Peri Peri Original, B Kitchen (Tesco Express
+  hot counters), Smoke & Pepper, Wok U Like, Cha Cha Chai, Mr Pretzels, Poppins Restaurants, 92 Degrees, CUPP Bubble Tea, Howe & Co (fish
+  and chip vans), Crispy Dosa, Chango Empanadas, Badiani, Kebabish Original, TGF Pizza, Toro's Steakhouse, M.A.K. Halal, USA Chicken,
+  Metro's Fried Chicken, Freddy's Chicken & Pizza, Chennai Dosa, Craft Burger, Love Churros, Smoky Boys, Big Juicy Burgers, Hagen Espresso
+  Bars, Bunsik, The Belgian Waffle Company, Scooperb (allergen and ingredient lists only), Coffi Lab, Ohannes Burger, Chai Green, Mr Rice.
+- **Per 100 g only:** Happy Tokyo (sushi counters in Morrisons; a Sushi Daily brand, whose GB site prints nutrition per 100 g with no pack weight).
+- **Blocked:** Archie's (robots.txt: "User-agent: * Disallow: /"), Geek Retreat (HTTP 429).
+- **Already in the repo under another name:** Pausa cafés (Dunelm), Cafe W (Waterstones), Panku (Panku Streetfood), BB's Coffee & Muffins
+  (now Bakers + Baristas, published), Cafe 89 (The Range's cafés), Gardener's Retreat (British Garden Centres, published).
+- **Not looked up one by one** (one name at 10-20 outlets, all small takeaway, dessert, coffee-van or ice-cream-van franchises): USA Fried
+  Chicken, Marini's, Safi's Desserts, Chesters Chicken, Chick King, Chunky Chicken, Tennessee Express, Perfect Chicken, Slamburger, Sushi
+  Handroll, Cafe2u, Super Whippy, Mister Softee. The 7,049 names with 3-9 outlets were not reviewed one by one (70 small chains among them
+  are marked in the shortlist).
+- **What the FSA data shows:** the chains people know are already in the repo; the names it adds are mostly small takeaway and café groups
+  that publish no figures (England's calorie-labelling law covers only businesses with 250+ employees). The useful finds were brands
+  trading inside other businesses under their own name (YO! To Go in Tesco), which brand lists miss.
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

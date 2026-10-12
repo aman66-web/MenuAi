@@ -1,0 +1,13 @@
+{
+ "chain": "the-sushi-co",
+ "date": "2026-10-12",
+ "source_read": "The Sushi Co counter menu https://thesushico.com/wp-content/uploads/2026/02/21945_TSC_CounterMenu_No-Pricing_530x297mm.pdf (linked from the chain's home page https://www.thesushico.co.uk/; one page, InDesign, created 6 January 2026, text layer), sha256 6b89b44b3449651e64538b259eb8cc626a915521f942da0f7679312e649412ef; robots.txt of thesushico.com disallows only /wp-admin/",
+ "compared_items": 89,
+ "nutrition_mismatches": 0,
+ "allergen_mismatches": 0,
+ "fixed": 0,
+ "held_back": 0,
+ "marked_ok": 0,
+ "not_verifiable": "the store list (the store locator loads it by script); the 38 GB outlets registered as 'The Sushi Co' in the Food Standards Agency's hygiene data (29 in London) are the site evidence. No allergens are published per menu name (the January 2026 allergen matrix uses other names), so the matrix is linked only.",
+ "notes": "Extraction reads word boxes and type sizes (pdftotext -bbox-layout): section headings are the 30 pt script lines, a dish belongs to the heading above it in its column, variants in the smaller type belong to the dish line above them, and every one of the 91 'NNNkcal' figures on the page is either used (89) or left out by a named rule (2: Sweet Chilli Chicken and Black Pepper Chicken 'WITH RICE/NOODLES', one figure for two different dishes). Second read, by a different method: pdftotext -raw (content-stream order, no coordinates or type sizes) searched with plain regular expressions: each item's printed upper-case name followed on the same raw line by its pieces and kcal (or, for the variants, the variant word and kcal within four raw lines of the dish heading; for the mochi and dorayaki, the flavour and kcal under 'MOCHI 2PC' / 'DORAYAKI'; for the signature box, '24pc | 1087kcal'): 89 of 89 confirmed, 0 mismatches; the raw text also holds exactly 91 kcal figures. As a further check, the chain's older nutrition picture (uploaded August 2024, not used) prints Kappa maki 125.8, Avocado maki 159.4, Salmon maki 184.7 and Inari nigiri 430.8 kcal, which round to the menu's 126, 159, 185 and 430. Vegetarian tags only where the menu marks V or VE."
+}
