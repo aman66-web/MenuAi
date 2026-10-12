@@ -100,6 +100,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "farmer-j": { src: "/logos/farmer-j.webp" },
   "fat-hippo": { src: "/logos/fat-hippo.svg", tile: "dark" },
   "fireaway": { src: "/logos/fireaway.png", tile: "dark" },
+  "firmdale-hotels": { src: "/logos/firmdale-hotels.svg", tile: "dark" },
   "fishworks": { src: "/logos/fishworks.png", tile: "dark" },
   "five-guys": { src: "/logos/five-guys.svg" },
   "flat-iron": { src: "/logos/flat-iron.svg", tile: "dark" },

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012065442,
- "generatedAt": "2026-10-12T06:54:42Z",
+ "dataVersion": 20261012072238,
+ "generatedAt": "2026-10-12T07:22:38Z",
  "chains": [
   {
    "id": "abokado",
@@ -950,6 +950,18 @@
    "sample": false,
    "itemCount": 62,
    "checkedOn": "2026-10-10",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "firmdale-hotels",
+   "name": "Firmdale Hotels",
+   "cuisine": "Hotel restaurant",
+   "file": "chain-firmdale-hotels.json",
+   "sha256": "6eae9ab0d78316d1467ca46a704141b806c320da0cd10f222b334981f9e2e5e9",
+   "contentHash": "6e59aa44dfb66b554fce79808b99571cf334f83bc38825cd3fa8c0cdf10ddf99",
+   "sample": false,
+   "itemCount": 30,
+   "checkedOn": "2026-10-12",
    "nutritionLevel": "calories"
   },
   {
@@ -2637,6 +2649,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "b5af151113e56b38a0cd64dd7cff15130c23655a5a076ffe45c5fae8221d3009"
+  "sha256": "8030c13f5a2f0880fb2a0e3265346c3dd08e84513a02f9bb4ec688a9d4fe638b"
  }
 }

@@ -1,0 +1,8 @@
+status: rejected
+why: looked at rendered on white and dark: the icon is a plain dress-form silhouette with no name that doesn't identify the chain at tile size; its FIRMDALE HOTELS wordmark logo file stays
+kind: apple-touch-icon
+opaque: no
+source_url: https://www.firmdalehotels.com/media/ut0nl2mb/firmdale-favicon-light.svg?width=180&height=180&v=1db9737dbe5d670
+page_url: https://www.firmdalehotels.com/
+sha256: 1164af77b1c49d6610d8aa53b5791924ab5823c0702ca9a5ecc18aabd57fcbd7
+retrieved: 2026-10-12

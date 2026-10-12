@@ -1,0 +1,11 @@
+status: installed
+file: firmdale-hotels.svg
+kind: header
+tile: dark
+source_url: https://www.firmdalehotels.com/media/zd1jz2ju/firmdale-logo-white.svg
+page_url: https://www.firmdalehotels.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo (<img class="primary-header__logo-image" alt="Firmdale Hotels - London & New York">), saved byte for byte (5,826-byte SVG, sha256 7c58fdb1a0d6dff022d24df569840b380572f7abfc6e3d6017810c7e79a1cf68, no script or external references); the file is the white version of the wordmark with its dress-form mark (the site shows it on a dark header), so it sits on the dark tile; looked at rendered in Chromium on white and dark. robots.txt of www.firmdalehotels.com has no rules (a Sitemap line only).
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-12
