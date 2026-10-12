@@ -1,0 +1,11 @@
+status: installed
+file: deep-blue.svg
+kind: header
+source_url: https://www.deepbluerestaurants.com/
+page_url: https://www.deepbluerestaurants.com/
+terms_url: https://www.deepbluerestaurants.com/privacy-policy-cookies-and-terms-conditions
+terms_summary: not read in full; installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo, an inline SVG (<a class="brand-logo-container"><svg class="brand-logo" data-name="DB_White_Logo-2 Image" viewBox="0 0 1127.76 1035.84">), copied verbatim as a standalone file (the FISH & CHIPS oval with two fish, DEEP BLUE, GREAT BRITISH FISH & CHIPS); every path is white (fill #fff) as served on the site's blue header, so dark tile; no script or external reference. Looked at on a dark background. robots.txt of www.deepbluerestaurants.com disallows only Drupal admin, user, search and README paths.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-12
+tile: dark

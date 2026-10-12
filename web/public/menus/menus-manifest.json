@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012065801,
- "generatedAt": "2026-10-12T06:58:01Z",
+ "dataVersion": 20261012074402,
+ "generatedAt": "2026-10-12T07:44:02Z",
  "chains": [
   {
    "id": "abokado",
@@ -787,6 +787,18 @@
    "sample": false,
    "itemCount": 51,
    "checkedOn": "2026-10-08",
+   "nutritionLevel": "calories"
+  },
+  {
+   "id": "deep-blue",
+   "name": "Deep Blue",
+   "cuisine": "Seafood",
+   "file": "chain-deep-blue.json",
+   "sha256": "b411e805ec6f430b87c35ae8274dc9be7447965f076cd526d5e260b7979adcf0",
+   "contentHash": "f6658c3a4cee8d00f44ec5ee40f46010f4fb4d719f5e778c26c91cc688e54b78",
+   "sample": false,
+   "itemCount": 61,
+   "checkedOn": "2026-10-12",
    "nutritionLevel": "calories"
   },
   {
@@ -2637,6 +2649,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "09dcf9bbdd2396c617ce419b8cbbad5d68b41938910f086058e3a3aeea265297"
+  "sha256": "38256300112e95896edf044b6e6510dd798d1f1b2b80a0cbc84e7a9b81db497a"
  }
 }

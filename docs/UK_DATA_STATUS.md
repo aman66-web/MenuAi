@@ -422,10 +422,22 @@ read (`data/audit/verified/<chain>.json`). Triage rows: `data/candidates/triage7
 | Chain | Items | Level | Sites | Source and rule |
 |---|---|---|---|---|
 | Waterfields | 15 | full | 36 shops across the North West (the site's own banner) | The nutrition table at the end of each product's description on the chain's own Shopify shop (read from its product feed; the product pages' own JSON-LD descriptions were the second read, 164 figures, 0 differences): "Per item / per 100g", unrounded per-item figures copied as printed (per-100 g used only to check them). 22 of its 50 products print a table; **7 are held back** (`holdback.csv` names the figures): Lancashire Pastie and Potato and Meat Pie (kJ about 7.6-8.2 times kcal), Pastie Large (word for word the Potato and Meat Pie table), Small White Tin Loaf (its kcal is 8 times its per-100 g kcal while kJ and every macro are 4 times), Large White Tin Loaf (sodium 10.4 g against salt 4.16 g), White Baguette (one unlabelled column) and, beyond the six found on 11 October, the Sausage Roll (1,111 kJ against 289 kcal, 8% apart, and its per-item column repeats the per-100 g column). Medium Pork Pie's polyunsaturates print "0.5728 / 032", so that one figure is blank. Breads are whole loaves (not suggested as meals). Undated. Allergens link-only: the allergen page's 12 Google Sheets don't name several products exactly (Éclair, Vanilla, Steak Pie, Medium Pork Pie, Spicy Vegetable Pastie, Small Crown Cob, GI Bread) and the Cream Cakes sheet uses a "*" mark its key doesn't define. |
+| Deep Blue | 61 | calories | 7 fish & chip restaurants (its own locations page); 6 take online orders | The chain's Nutritional Information page sends diners to its own ordering site (order.deepbluerestaurants.com, Vita Mojo), where the calories show only once a shop is picked. All 6 ordering shops read (3 East Yorkshire shops on the "North" menu, Newmarket, Horsham and Lymington on the "Takeaway Menu"), every category page rendered and the printed "NNN kcal" copied; the data each page loaded was the second read (303 tiles, 0 differences). Published only where the same name prints the same kcal at 2+ shops: **12 products print different figures in the North and the South** (cod, haddock, regular chips, chip butty, jumbo pork sausage, baked beans and 4 gluten-free versions) and are left out, as are 14 shown at one shop only, tiles printing 0 kcal (both hakes, a fish finger butty, 7 gluten-free lines), Senior meals (two sizes on one tile), meal-deal bundles and drinks printing no kcal. Held back: Boneless Chicken Wings (4) and (6) (both 403 kcal) and two Northern Bloc ice creams printing the lemon flavour's 82 kcal. No allergens (the allergen page's matrices date from 2021): link only. The chain says fried food at its Yorkshire shops is cooked in beef dripping (in the note). |
 
-Logos: Waterfields' header wordmark (saved as served); its site icon is a plain orange heart, looked at and not used as the square icon.
+Logos: Waterfields' header wordmark (saved as served); its site icon is a plain orange heart, looked at and not used as the square icon. Deep
+Blue's header logo (an inline white SVG, copied verbatim, dark tile) and its own web-app manifest icon as the square icon.
 
 **Checked and not added (round 7A):**
+- **Bob & Berts** (15 shops on its own ordering site, 9 in Great Britain): a shop picked (Blackpool), its menu tiles print prices only and the
+  data the page loads has an empty nutrition field for every product. No calories published.
+- **Wingstop UK**: wingstop.co.uk's own menu has no calories; each restaurant's COLLECT link goes to wingstop.vmos.io, whose app script answers
+  HTTP 403 to a normal headless browser (twice), so no shop menu renders. Stopped (never worked round).
+- **Pizza GoGo**: picking a store and loading its menu go through `/ajax/` and `/api/`, which its robots.txt disallows; its nutrition page
+  still says the information is being updated.
+- **Tops Pizza**: stores and menus load from `/api/`, which www.topspizza.co.uk's robots.txt disallows. Not opened.
+- **Chocoberry**: the menu is only in a Flipdish widget whose data host (api.flipdish.co) has `Disallow: /`.
+- **Banyan** (3 bars, Arc Inspirations): after choosing a bar, its PDF menus print no per-dish calories and its allergen menu page lists
+  allergens only.
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
