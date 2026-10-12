@@ -1058,6 +1058,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   scheme (internal; the API's CORS allows exactly it), the `mm.v1.*` storage keys (saved data survives), the icon (no words) and Pip. Offline cache
   bumped to `mm-v4` so installed copies pick up the new name.
 
+- 2026-10-12 — **New app icon: a white plate with a fork on it and a bite out of the rim** (founder: "it needs to be related to numbite ... number and bite",
+  "you need to think food when you see it", "do you think they look too childish"; picked "L · plate and fork" from the fourth round of drawings).
+  Rounds shown and dropped: a bitten 0 / N / # / bar chart (numbers, but no food), a cartoon doughnut, cookie, burger and pizza (food, but childish and
+  an odd signal for a calorie app), a donut-chart doughnut. Flat white on the same green gradient, no outlines or extra colours; our own mark, no
+  restaurant's product, and no bitten apple (too close to Apple's logo). `web/design/icon.svg` → `node web/e2e/brand.mjs` (PWA icons, favicon,
+  apple-icon, social card) and the iPhone's `AppIcon.appiconset/icon-1024.png` (1024 px, square, no transparency) drawn from the same file.
+  Offline cache bumped to `mm-v5` so installed copies pick up the icon.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1089,7 +1097,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Domain + support email; Vercel Pro before the site is public
 - [ ] Read the live /privacy and /terms pages and confirm every statement is true
 - [x] Real chain data in `data/source/`: 72 UK chains (about 12,900 items) extracted from official sources (see docs/UK_DATA_STATUS.md, which lists what needs your decision); keep the two sample folders; release builds use `--no-samples`. 150 was not possible: only 62 of 210 candidates publish full official macros, and 25 more need a file from you
-- [ ] App icon: an original icon now replaces the placeholder `M` (sun ring, `web/design/icon.svg`); tell me if you want a different mark. Store screenshots still to do
+- [x] App icon: plate and fork with a bite (founder's pick, 2026-10-12, `web/design/icon.svg`). Store screenshots: `web/e2e/store-shots.mjs`
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md

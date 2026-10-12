@@ -10,7 +10,7 @@
  * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
  * Bump VERSION to drop all old caches.
  */
-const VERSION = "mm-v4"; // v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
+const VERSION = "mm-v5"; // v5: plate-and-fork app icon; v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;
