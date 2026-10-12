@@ -20,7 +20,7 @@ website shows from the shops' own servers still load from those servers when onl
 
 ## Decision still open: what goes into the App Store version
 
-`web/app-content.json` (until the founder decides, everything is in, as on the website):
+`web/app-content.json`. **Food photos: all in** (founder 2026-10-12: "yes i want all the food photos there"). Which supermarkets: all nine until the founder decides.
 
 ```json
 { "menuPhotos": true, "shops": ["sainsburys", "asda", "aldi", "lidl", "tesco", "waitrose", "morrisons", "iceland", "marks-and-spencer"] }
@@ -64,7 +64,7 @@ website shows from the shops' own servers still load from those servers when onl
 
 ## Steps for the founder (things only you can do)
 
-1. **Decide** web/app-content.json (photos and shops), or tell Claude.
+1. **Decide** which supermarkets go in (web/app-content.json; food photos are in), or tell Claude.
 2. **Domain + Vercel Pro**, and a support email on the domain (Vercel › Project menumacros › Settings › Domains; then set
    `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_SUPPORT_EMAIL`, and redeploy). Build the app with
    `NEXT_PUBLIC_REMOTE_BASE=https://<your-domain> ./scripts/build_app_web.sh` so it talks to the domain.

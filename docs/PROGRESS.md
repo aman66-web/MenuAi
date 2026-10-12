@@ -1057,7 +1057,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
 - [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (domain + Vercel Pro, read the legal pages, UK trade mark search for "Menu Math", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
-- [ ] **Decide what goes into the App Store version** (`web/app-content.json`): the chains' food photos (yes/no) and which supermarkets (the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S)
+- [ ] **Decide which supermarkets go into the App Store version** (`web/app-content.json`; all nine until you say; the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S). Food photos: decided 2026-10-12, all in ("yes i want all the food photos there")
 - [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
   cooking-safety lines and the onboarding. Each language is one file, `web/lib/mm/locales/<code>.json` (English → translation); a reviewer can edit it directly.

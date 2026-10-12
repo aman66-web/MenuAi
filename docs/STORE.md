@@ -93,7 +93,7 @@ the device only."
 
 ## Release checklist (free launch)
 
-- [ ] Decide what the App Store version includes (web/app-content.json: menu photos, which supermarkets): see docs/APP_BUILD.md
+- [ ] Decide which supermarkets the App Store version includes (web/app-content.json; food photos are in): see docs/APP_BUILD.md
 - [ ] Domain + Vercel Pro; support email on the domain; /privacy, /terms and /support read and true
 - [ ] UK trade mark search for "Menu Math" (gov.uk "Search for a trade mark")
 - [ ] `./scripts/build_app_web.sh` (with `NEXT_PUBLIC_REMOTE_BASE=https://<your-domain>` once the domain is live), then build in Xcode
