@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
-import { SAMPLES_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
@@ -146,7 +146,7 @@ function RecipesScreen() {
         </div>
       </div>
 
-      {(makerOn || SAMPLES_ENABLED) && (
+      {AI_RECIPES_ENABLED && (makerOn || SAMPLES_ENABLED) && (
         <button type="button" onClick={() => gate("recipeMaker", () => router.push(makeHref))} className="hero-card lift group mt-4 flex min-h-[5.5rem] w-full items-center gap-3 rounded-[1.75rem] p-3 ps-2 text-start">
           <Pip mood="wave" size={64} />
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">

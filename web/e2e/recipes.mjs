@@ -1,5 +1,5 @@
 // Recipes from your shop: list (100 recipes: meal chips, search, paging), filters, sort, a recipe with swap, substitutes and "add all to my
-// list", the list's price total, Home's four tiles, Pip's recipe maker (Pro only), axe.
+// list", the list's price total, Home's four tiles, Pip's recipe maker switched off (free launch), axe.
 // Uses the real published Sainsbury's list (public/groceries/all/sainsburys.json); the shop's pictures are answered locally.
 // Run against a production build: BASE=http://localhost:3101 node e2e/recipes.mjs
 import { chromium } from "playwright-core";
@@ -10,7 +10,6 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 const baseSettings = { goal: "buildMuscle", dailyCalories: 2400, dailyProtein: 150, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"] };
 const settings = JSON.stringify({ v: 1, data: baseSettings });
 const proSettings = JSON.stringify({ v: 1, data: { ...baseSettings, devProOverride: true } });
-const AI_ANSWER = { name: "Chicken and bean rice", blurb: "A warming one-pot dinner.", servings: 2, minutes: 35, ingredients: [{ key: "chicken", amount: 300, role: "protein" }, { key: "kidney-beans", amount: 240, role: "other" }, { key: "chopped-tomatoes", amount: 400, role: "other" }, { key: "rice", amount: 150, role: "carb" }], method: ["Cook the rice as the pack says.", "Brown the chicken until cooked through with no pink left.", "Stir in the tomatoes and beans and simmer for 10 minutes."], extras: ["Smoked paprika"] };
 const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==", "base64");
 
 async function newPage(colorScheme = "light", data = settings) {
@@ -252,70 +251,33 @@ await step("halal: chicken recipes use halal-named chicken, others are left out 
   await ctx.close();
 });
 
-await step("Ask Pip is Pro: the card opens the paywall, the page offers Pro", async () => {
-  const { ctx, page } = await newPage();
-  await page.route("**/api/v1/recipe", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ enabled: true }) }));
-  await page.goto(BASE + "/app/recipes");
-  const card = page.getByRole("button", { name: /Ask Pip to make a recipe/ });
-  await card.getByText("Pro", { exact: true }).waitFor();
-  await card.click();
-  const paywall = page.getByRole("dialog");
-  await paywall.getByText("Pip makes new recipes just for you").waitFor();
-  await page.keyboard.press("Escape");
-  await page.goto(BASE + "/app/recipes/make?r=sainsburys");
-  await page.getByText(/Making a new recipe just for you is part of Menu Math Pro/).waitFor();
-  expect((await page.getByRole("button", { name: "Make my recipe" }).count()) === 0, "no maker for free users");
-  await page.getByRole("button", { name: "See Pro" }).click();
-  await page.getByRole("dialog").getByText("Pip makes new recipes just for you").waitFor();
-  await ctx.close();
-});
-
-await step("Ask Pip (Pro): big buttons, what is sent, the recipe from real products, save it, and an honest error", async () => {
+// Pip's AI recipe maker is switched off for the free launch (AI_RECIPES_ENABLED in lib/mm/config.ts, founder 2026-10-12). Its own
+// steps (Pro gate, big buttons, what is sent, saving) come back here when it is switched on again (see git history of this file).
+await step("Pip's recipe maker is off: no card even when the server says it's on, its address opens the recipes, and its API answers 404", async () => {
   const { ctx, page } = await newPage("light", proSettings);
-  let sent = null;
-  let fail = false;
-  await page.route("**/api/v1/recipe", async (r) => {
-    if (r.request().method() === "GET") return r.fulfill({ contentType: "application/json", body: JSON.stringify({ enabled: true }) });
-    sent = JSON.parse(r.request().postData() ?? "{}");
-    await new Promise((res) => setTimeout(res, 400));
-    return fail ? r.fulfill({ status: 502, contentType: "application/json", body: JSON.stringify({ error: "no_recipe", message: "Pip couldn't make a recipe this time. Please try again, maybe with different words." }) }) : r.fulfill({ contentType: "application/json", body: JSON.stringify({ recipe: AI_ANSWER }) });
-  });
+  let asked = 0;
+  await page.route("**/api/v1/recipe", (r) => { asked++; return r.fulfill({ contentType: "application/json", body: JSON.stringify({ enabled: true }) }); });
   await page.goto(BASE + "/app/recipes");
-  await page.getByRole("button", { name: /Ask Pip to make a recipe/ }).click();
-  await page.getByRole("heading", { level: 1, name: "Ask Pip" }).waitFor();
-  await page.getByRole("radio", { name: "Dinner" }).click();
-  await page.getByRole("radio", { name: "2", exact: true }).click();
-  await page.getByRole("button", { name: "Comfort food" }).click();
-  await page.getByText(/Pip uses AI from Anthropic/).waitFor();
-  await page.getByRole("button", { name: "Make my recipe" }).click();
-  await page.getByText("I'm writing your recipe now…").waitFor();
-  await page.getByRole("heading", { level: 1, name: "Chicken and bean rice" }).waitFor({ timeout: 15000 });
-  expect(JSON.stringify(Object.keys(sent).sort()) === JSON.stringify(["diet", "meal", "pantry", "servings", "shop", "target", "wish"]), `only the choices are sent, got ${Object.keys(sent)}`);
-  expect(sent.meal === "dinner" && sent.servings === 2 && sent.wish === "Comfort food" && sent.target.kcal === 700 && sent.target.protein === 55, `choices sent: ${JSON.stringify({ ...sent, pantry: sent.pantry.length })}`);
-  expect(sent.pantry.length > 20 && sent.pantry.every((p) => p.key && p.product && typeof p.kcal === "number"), "the pantry of real products");
-  await page.getByText("Made by Pip").first().waitFor();
-  await page.getByText(/Pip wrote this recipe with AI from real products/).waitFor();
-  await page.getByRole("heading", { name: "Full nutrition per serving" }).waitFor();
-  await page.getByRole("button", { name: "Save this recipe" }).click();
-  await page.getByText("Saved to Your recipes.").waitFor();
-  await page.goto(BASE + "/app/recipes");
-  await page.getByRole("heading", { name: "Your recipes" }).waitFor();
-  await page.getByRole("link", { name: /Made by Pip.*Chicken and bean rice/s }).click();
-  await page.getByRole("heading", { level: 1, name: "Chicken and bean rice" }).waitFor();
-  fail = true;
+  await page.locator("a[href*='/app/recipes/view']").first().waitFor();
+  expect((await page.getByRole("button", { name: /Ask Pip to make a recipe/ }).count()) === 0, "no Ask Pip card");
+  expect(asked === 0, `the recipes page never asks the recipe server, asked ${asked}`);
   await page.goto(BASE + "/app/recipes/make?r=sainsburys");
-  await page.getByRole("button", { name: "Make my recipe" }).click();
-  await page.getByText(/Pip couldn't make a recipe this time/).waitFor({ timeout: 15000 });
+  await page.waitForURL((u) => u.pathname === "/app/recipes" || u.pathname === "/app/recipes/");
+  expect((await page.getByRole("button", { name: "Make my recipe" }).count()) === 0, "no maker form");
+  await page.unroute("**/api/v1/recipe");
+  const api = await page.request.get(BASE + "/api/v1/recipe");
+  expect(api.status() === 404, `GET /api/v1/recipe is ${api.status()}`);
+  const post = await page.request.post(BASE + "/api/v1/recipe", { data: {}, headers: { Origin: BASE } });
+  expect(post.status() === 404, `POST /api/v1/recipe is ${post.status()}`);
   await ctx.close();
 });
 
 for (const scheme of ["light", "dark"]) {
   await step(`axe: recipes list and a recipe (${scheme})`, async () => {
     const { ctx, page } = await newPage(scheme, proSettings);
-    await page.route("**/api/v1/recipe", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ enabled: true }) }));
-    for (const path of ["/app/recipes", "/app/recipes/view?id=chickpea-curry&r=sainsburys", "/app/recipes/make?r=sainsburys"]) {
+    for (const path of ["/app/recipes", "/app/recipes/view?id=chickpea-curry&r=sainsburys"]) {
       await page.goto(BASE + path);
-      await page.locator(path.includes("view") ? "text=How to make it" : path.includes("make") ? "text=Make my recipe" : "a[href*='/app/recipes/view']").first().waitFor();
+      await page.locator(path.includes("view") ? "text=How to make it" : "a[href*='/app/recipes/view']").first().waitFor();
       await page.waitForTimeout(600);
       await page.addScriptTag({ path: AXE });
       const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));

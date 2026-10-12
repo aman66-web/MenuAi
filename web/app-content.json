@@ -1,0 +1,5 @@
+{
+  "note": "What goes inside the iPhone app (scripts/build_app_web.sh, docs/APP_BUILD.md). The website always has everything. menuPhotos: the chains' own item photos. shops: the supermarkets whose full product lists and catalogue are packed in (a shop left out also disappears from the app's Groceries). Founder to decide before the App Store build (2026-10-12): until then everything is in, the same as the website.",
+  "menuPhotos": true,
+  "shops": ["sainsburys", "asda", "aldi", "lidl", "tesco", "waitrose", "morrisons", "iceland", "marks-and-spencer"]
+}

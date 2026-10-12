@@ -7,6 +7,7 @@ import type { LatLng } from "@/lib/mm/geo";
 import type { T } from "@/lib/mm/i18n";
 import { fitContain } from "@/lib/mm/logoFit";
 import { logoFor, tileArt } from "@/lib/mm/logos";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useT } from "../_lib/i18n";
 
 // The map itself: MapLibre drawing free OpenFreeMap tiles (founder's decision 2026-10-06). Pins are a GeoJSON layer, so a few
@@ -146,7 +147,8 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
 
   // Pins of chains with a loaded logo are drawn as logos, the rest as dots; the selected pin gets a ring either way.
   const applyLogoState = useCallback((map: MapLibreMap) => {
-    const hasLogo: FilterSpecification = ["in", ["get", "chainId"], ["literal", [...logoIds.current]]];
+    // a logo taken down since it was loaded (public/logos/hidden.json) goes back to the dot
+    const hasLogo: FilterSpecification = ["in", ["get", "chainId"], ["literal", [...logoIds.current].filter((id) => logoFor(id))]];
     const isSelected: FilterSpecification = ["==", ["get", "id"], latest.current.selectedId ?? ""];
     if (map.getLayer("pins")) map.setFilter("pins", ["!", hasLogo]);
     if (map.getLayer("pin-logos")) map.setFilter("pin-logos", hasLogo);
@@ -256,6 +258,13 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
     (map.getSource("you") as GeoJSONSource | undefined)?.setData({ type: "FeatureCollection", features: [{ type: "Feature", geometry: { type: "Point", coordinates: [center.lng, center.lat] }, properties: {} }] });
     map.fitBounds(boundsFor(center, radiusMiles), { padding: 24, maxZoom: 16, duration: reduced() ? 0 : 500 });
   }, [center, radiusMiles]);
+
+  // A logo taken down while the map is open (public/logos/hidden.json) turns back into a dot.
+  const hiddenLogos = useHiddenLogos();
+  useEffect(() => {
+    const map = mapRef.current;
+    if (map && ready.current) applyLogoState(map);
+  }, [hiddenLogos, applyLogoState]);
 
   // Selection from the list or a tap.
   useEffect(() => {

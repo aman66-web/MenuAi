@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { Suspense, useMemo, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { MAX_WISH, pantryLines, recipeFromAi, recipeToSaved, type Meal, type RecipeRequest } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
+import { AI_RECIPES_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { mealSizes, type Recipe } from "@/lib/mm/recipes";
@@ -216,7 +217,15 @@ function MakeScreen() {
   );
 }
 
+/** While the maker is off (free launch, lib/mm/config.ts) its address opens the recipes instead. */
+function ForwardToRecipes() {
+  const router = useRouter();
+  useEffect(() => { router.replace("/app/recipes"); }, [router]);
+  return <Spinner />;
+}
+
 export default function MakePage() {
+  if (!AI_RECIPES_ENABLED) return <ForwardToRecipes />;
   return (
     <Suspense fallback={<Spinner />}>
       <MakeScreen />

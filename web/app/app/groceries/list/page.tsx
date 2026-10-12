@@ -13,6 +13,7 @@ import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { addMissing, useListRecipes } from "../../_lib/listRecipes";
 import { Rich } from "../../_lib/Rich";
+import { hasNative, nativeCall } from "@/lib/mm/native";
 
 // "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
 // recipes; tick things off as they go in the basket. At the top: the recipes this list can make, and what one of them still needs. Share or
@@ -33,6 +34,10 @@ export default function ShoppingListPage() {
 
   const share = async () => {
     const text = listAsText(list, t);
+    if (hasNative()) {
+      const r = await nativeCall("share", { title: t("Shopping list"), text }); // the iPhone's own share sheet
+      if (r.done || r.error === "cancelled") return;
+    }
     try {
       if (navigator.share) await navigator.share({ title: t("Shopping list"), text });
       else { await navigator.clipboard.writeText(text); setNote(t("Copied.")); }

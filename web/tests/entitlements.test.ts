@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ALL_FREE_FOR_TESTING } from "../lib/mm/config";
+import { AI_RECIPES_ENABLED, PRO_ENABLED } from "../lib/mm/config";
 import { isPro, needsPaywall, paywallCopy, type PaywallTrigger } from "../lib/mm/entitlements";
 
 describe("gating matrix (SPEC §4)", () => {
@@ -19,11 +19,14 @@ describe("gating matrix (SPEC §4)", () => {
   });
 });
 
-describe("testing switch (founder 2026-10-11)", () => {
-  it("while every feature is free for testing, everyone counts as Pro; logging stays a Pro feature underneath", () => {
-    expect(ALL_FREE_FOR_TESTING).toBe(process.env.NEXT_PUBLIC_ALL_FREE !== "0");
-    if (ALL_FREE_FOR_TESTING) expect(isPro({ devProOverride: false })).toBe(true);
+describe("free launch switches (founder 2026-10-12)", () => {
+  it("while Pro is switched off, everyone counts as Pro (every feature open, no paywall); logging stays a Pro feature underneath", () => {
+    expect(PRO_ENABLED).toBe(process.env.NEXT_PUBLIC_PRO === "1");
+    if (!PRO_ENABLED) expect(isPro({ devProOverride: false })).toBe(true);
     expect(needsPaywall("log", { pro: false })).toBe(true);
+  });
+  it("Pip's AI recipe maker is off, and is a constant (no environment variable or key can turn it on)", () => {
+    expect(AI_RECIPES_ENABLED).toBe(false);
   });
 });
 

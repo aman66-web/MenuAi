@@ -1,4 +1,4 @@
-import { ALL_FREE_FOR_TESTING, DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, PRO_PREVIEW_FROM_ENV } from "./config";
+import { DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, PRO_ENABLED, PRO_PREVIEW_FROM_ENV } from "./config";
 import { englishT, tk, type T } from "./i18n";
 import type { UserSettings } from "./user-data";
 
@@ -8,7 +8,7 @@ import type { UserSettings } from "./user-data";
 export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker";
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">): boolean {
-  return ALL_FREE_FOR_TESTING || PRO_PREVIEW_FROM_ENV || (DEV_TOOLS_ENABLED && settings.devProOverride);
+  return !PRO_ENABLED || PRO_PREVIEW_FROM_ENV || (DEV_TOOLS_ENABLED && settings.devProOverride);
 }
 
 /** Does this action need the paywall? Pro actions are gated; the 4th saved order is gated. */

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { API_BASE } from "@/lib/mm/config";
 
 export function SupportForm() {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
@@ -11,7 +12,7 @@ export function SupportForm() {
     const form = new FormData(event.currentTarget);
     setState("sending");
     try {
-      const res = await fetch("/api/v1/support", {
+      const res = await fetch(`${API_BASE}support`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

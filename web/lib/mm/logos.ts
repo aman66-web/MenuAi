@@ -421,12 +421,26 @@ export const SHOP_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "waitrose": { src: "/logos/shops/waitrose.svg" },
 };
 
-/** A supermarket's logo (by retailer id), if we hold its own file. */
-export function shopLogoFor(shopId: string | undefined): ChainLogo | undefined {
-  return shopId ? SHOP_LOGOS[shopId] : undefined;
+// Logos taken down without an app update (founder 2026-10-12, safeguards for the App Store): chain ids, and "shop:<id>" for supermarkets,
+// listed in public/logos/hidden.json on our website. The app reads that file when it's online (app/app/_lib/hiddenLogos.ts) and keeps the
+// last copy on the device, so a logo whose owner asks can come down the same day by adding one line and deploying the website.
+export function sanitizeHiddenLogos(raw: unknown): string[] {
+  const list = Array.isArray(raw) ? raw : raw && typeof raw === "object" && Array.isArray((raw as { hidden?: unknown }).hidden) ? (raw as { hidden: unknown[] }).hidden : [];
+  return [...new Set(list.filter((x): x is string => typeof x === "string" && /^(shop:)?[a-z0-9][a-z0-9-]{0,60}$/.test(x)))].slice(0, 500);
 }
 
-/** A chain's logo: its logo file and/or its square icon. */
+let hidden: ReadonlySet<string> = new Set();
+/** Set the taken-down list (called from the device's copy of public/logos/hidden.json). */
+export function setHiddenLogos(ids: readonly string[]): void {
+  hidden = new Set(ids);
+}
+
+/** A supermarket's logo (by retailer id), if we hold its own file and it hasn't been taken down. */
+export function shopLogoFor(shopId: string | undefined): ChainLogo | undefined {
+  return shopId && !hidden.has(`shop:${shopId}`) ? SHOP_LOGOS[shopId] : undefined;
+}
+
+/** A chain's logo: its logo file and/or its square icon, unless it has been taken down. */
 export function logoFor(chainId: string | undefined): ChainLogo | undefined {
-  return chainId ? MERGED.get(chainId) : undefined;
+  return chainId && !hidden.has(chainId) ? MERGED.get(chainId) : undefined;
 }

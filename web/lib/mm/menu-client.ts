@@ -10,7 +10,7 @@ import type { Chain, Manifest, ManifestChain } from "./types";
 export const SUPPORTED_SCHEMA_VERSION = 1;
 
 export interface MenuSource {
-  id: "release" | "sample";
+  id: "live" | "release" | "sample";
   baseUrl: string;
 }
 

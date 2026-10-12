@@ -8,6 +8,7 @@ import { isAllHalal } from "@/lib/mm/halal";
 import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
+import { APP_BUILD } from "@/lib/mm/config";
 import { guessLocale, localeInfo, tk, type Locale } from "@/lib/mm/i18n";
 import { SUGGESTION_NOTE } from "@/lib/mm/targets";
 import { settingsStore, updateSettings } from "@/lib/mm/stores";
@@ -24,6 +25,7 @@ import { Pip, PipSays } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Field, inputClass, radioKeyNav } from "../_components/ui";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useMenu } from "../_lib/hooks";
 import { applyTextSize } from "../_lib/textSize";
 import { setLanguage, useT } from "../_lib/i18n";
@@ -127,11 +129,13 @@ export default function WelcomePage() {
   const capNumber = Number(mealCap);
   const capValid = Number.isFinite(capNumber) && capNumber >= 100 && capNumber <= 2000;
   const real = useMemo(() => menu.chains.filter((c) => !c.sample), [menu.chains]);
+  const hiddenLogos = useHiddenLogos();
   const restaurants = real.length;
   // The welcome wall: restaurants in the app that have an official logo file (well-known ones first, then the rest; a few very large
   // files left out so the first screen stays quick), mixed with the supermarkets by name.
   const wallItems = useMemo<WallItem[]>(() => {
-    const withLogo = real.filter((c) => { const l = logoFor(c.id); return !!l && (!!l.square || !HEAVY_LOGOS.has(c.id)); });
+    // the iPhone app shows names only (LogoWall namesOnly), so any well-known chain can be on its wall
+    const withLogo = APP_BUILD ? real : real.filter((c) => { const l = logoFor(c.id); return !!l && (!!l.square || !HEAVY_LOGOS.has(c.id)); });
     const popular = POPULAR_ORDER.map((id) => withLogo.find((c) => c.id === id)).filter((c): c is (typeof withLogo)[number] => !!c);
     const rest = withLogo.filter((c) => !POPULAR_ORDER.includes(c.id)).sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
     const chains: WallItem[] = [...popular, ...rest].slice(0, 36).map((c) => ({ id: c.id, name: c.name, kind: "restaurant" }));
@@ -142,7 +146,7 @@ export default function WelcomePage() {
       if (j < shops.length) out.push(shops[j++]!);
     }
     return out;
-  }, [real]);
+  }, [real, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- logoFor reads the taken-down list, which hiddenLogos tracks
   // One well-known restaurant to show a real example at the end (a halal one if the user asked for halal).
   const teaserChainId = useMemo(() => {
     const full = real.filter((c) => (c.nutritionLevel ?? "full") === "full");
@@ -219,7 +223,7 @@ export default function WelcomePage() {
       <div className="flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col items-center text-center">
         {/* the wall runs edge to edge and up under the status bar */}
         <div className="relative -mx-5 w-[calc(100%+2.5rem)]" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
-          <LogoWall items={wallItems} label={t("Logos of restaurants and shops in the app")} />
+          <LogoWall items={wallItems} namesOnly={APP_BUILD} label={APP_BUILD ? t("Names of restaurants and shops in the app") : t("Logos of restaurants and shops in the app")} />
           <button type="button" onClick={back} aria-label={t("Change language")} className="glass absolute start-4 top-[calc(max(1.25rem,env(safe-area-inset-top))+0.25rem)] inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold shadow-md transition active:scale-95 hover:bg-soft-strong">
             <ChevronLeftIcon className="h-5 w-5" /><GlobeIcon className="h-4 w-4 text-accent" /><span lang={localeInfo(language).htmlLang}>{localeInfo(language).name}</span>
           </button>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SupportForm } from "./SupportForm";
 
@@ -20,13 +21,26 @@ export default function Support() {
             <h2 className="font-bold">A number looks wrong</h2>
             <p className="mt-1 text-muted">Open the item in the app and tap &ldquo;Report a number&rdquo;. We check every report within 48 hours.</p>
           </div>
+          {PRO_ENABLED ? (
+            <>
+              <div>
+                <h2 className="font-bold">Cancel or manage your subscription</h2>
+                <p className="mt-1 text-muted">On your iPhone: Settings › your name › Subscriptions, or in the app: Settings › Manage subscription.</p>
+              </div>
+              <div>
+                <h2 className="font-bold">Restore a purchase</h2>
+                <p className="mt-1 text-muted">In the app: Settings › Restore purchases.</p>
+              </div>
+            </>
+          ) : (
+            <div>
+              <h2 className="font-bold">Is anything paid?</h2>
+              <p className="mt-1 text-muted">No. Every feature is free and there is nothing to buy.</p>
+            </div>
+          )}
           <div>
-            <h2 className="font-bold">Cancel or manage your subscription</h2>
-            <p className="mt-1 text-muted">On your iPhone: Settings › your name › Subscriptions, or in the app: Settings › Manage subscription.</p>
-          </div>
-          <div>
-            <h2 className="font-bold">Restore a purchase</h2>
-            <p className="mt-1 text-muted">In the app: Settings › Restore purchases.</p>
+            <h2 className="font-bold">Your data</h2>
+            <p className="mt-1 text-muted">There is no account. Everything you set up stays on your phone; Settings › Clear data on this device removes it.</p>
           </div>
         </div>
       </div>

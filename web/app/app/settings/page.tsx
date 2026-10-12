@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ALL_FREE_FOR_TESTING, DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
+import { APP_BUILD, DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
 import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
@@ -160,12 +160,14 @@ export default function SettingsPage() {
         <ShopPicker value={settings.shops ?? []} onChange={(shops) => updateSettings({ shops: shops.length ? shops : undefined })} />
       </Section>
 
-      <Section title={t("Subscription")}>
-        <Card className="p-4">
-          <p className="font-semibold">{isPro(settings) ? (ALL_FREE_FOR_TESTING || PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
-          {!PAYMENTS_ENABLED && <p className="mt-1 text-sm text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
-        </Card>
-      </Section>
+      {PRO_ENABLED && (
+        <Section title={t("Subscription")}>
+          <Card className="p-4">
+            <p className="font-semibold">{isPro(settings) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
+            {!PAYMENTS_ENABLED && <p className="mt-1 text-sm text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
+          </Card>
+        </Section>
+      )}
 
       <Section title={t("About")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-3xl">
@@ -201,14 +203,14 @@ export default function SettingsPage() {
 
       <Section title={t("Your data")}>
         <p className="text-sm text-muted">{t("Your settings, saved orders and log stay on this device. We never receive them.")}</p>
-        <p className="mt-2 text-sm text-muted">{t("Browsers can clear site data they haven't seen in a while (iPhone Safari can after about a week). Adding {app} to your Home Screen, and opening it now and then, keeps your data safe.", { app: site.name })}</p>
+        {!APP_BUILD && <p className="mt-2 text-sm text-muted">{t("Browsers can clear site data they haven't seen in a while (iPhone Safari can after about a week). Adding {app} to your Home Screen, and opening it now and then, keeps your data safe.", { app: site.name })}</p>}
         <Button variant="secondary" className="mt-3" onClick={() => setClearOpen(true)}>{t("Clear data on this device")}</Button>
       </Section>
 
       {DEV_TOOLS_ENABLED && (
         <Section title={t("Testing tools")}>
           <div className="space-y-2 rounded-3xl border border-dashed border-line p-3">
-            <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />
+            {PRO_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
             <Button variant="secondary" full onClick={() => updateSettings({ hasCompletedOnboarding: false })}>{t("Reset onboarding")}</Button>
             <Button variant="secondary" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
           </div>
@@ -225,7 +227,7 @@ export default function SettingsPage() {
       </Sheet>
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title={t("Clear data on this device")}>
-        <p className="text-base">{t("This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
+        <p className="text-base">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
         <div className="mt-4 space-y-2 pb-2">
           <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>

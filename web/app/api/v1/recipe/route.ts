@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { AI_RECIPES_ENABLED } from "@/lib/mm/config";
 import { withJsonBody } from "@/lib/http";
 import { anthropicAsk } from "@/lib/recipeAi";
 import { handleRecipe, makeLimiter } from "@/lib/recipeHandler";
@@ -10,11 +11,15 @@ export const maxDuration = 60;
 
 const limiter = makeLimiter();
 
+const off = () => Response.json({ error: "not_found" }, { status: 404, headers: { "Cache-Control": "no-store" } });
+
 export function GET() {
+  if (!AI_RECIPES_ENABLED) return off(); // switched off for the free launch (lib/mm/config.ts), whatever keys are set
   return Response.json({ enabled: Boolean(process.env.ANTHROPIC_API_KEY) }, { headers: { "Cache-Control": "no-store" } });
 }
 
 export async function POST(request: Request) {
+  if (!AI_RECIPES_ENABLED) return off();
   // only our own pages may ask (a browser always sends Origin on a POST)
   const origin = request.headers.get("origin");
   if (!origin || new URL(origin).host !== new URL(request.url).host) {

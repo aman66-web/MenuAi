@@ -9,6 +9,7 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
+    ".next-app/**", // the iPhone app's static export (npm run build:app)
     "out/**",
     "build/**",
     "next-env.d.ts",

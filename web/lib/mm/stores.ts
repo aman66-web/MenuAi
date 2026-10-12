@@ -5,6 +5,7 @@ import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
+import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import {
   DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, sanitizeSavedOrders, sanitizeSettings,
   type Favorite, type LogEntry, type RecipeSave, type SavedOrder, type UserSettings,
@@ -36,6 +37,13 @@ export const recentStore = createStore<RecentView[]>("mm.v1.recentItems", [], { 
 
 /** Products and dishes picked to compare side by side (lib/mm/compare.ts): copies of the figures shown. On this device only. */
 export const compareStore = createStore<CompareItem[]>("mm.v1.compare", [], { sanitize: sanitizeCompare });
+
+/** The device's copy of the website's taken-down logos list (public/logos/hidden.json; lib/mm/logos.ts). Not personal data. */
+export const hiddenLogosStore = createStore<string[]>("mm.v1.hiddenLogos", [], { sanitize: sanitizeHiddenLogos });
+if (typeof window !== "undefined") {
+  setHiddenLogos(hiddenLogosStore.get());
+  hiddenLogosStore.subscribe(() => setHiddenLogos(hiddenLogosStore.get()));
+}
 
 export function noteItemViewed(chainId: string, itemId: string) {
   recentStore.update((list) => recordView(list, chainId, itemId));

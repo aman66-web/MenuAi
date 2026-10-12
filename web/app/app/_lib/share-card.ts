@@ -1,6 +1,7 @@
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
 import type { Nutrients } from "@/lib/mm/types";
+import { hasNative, nativeCall } from "@/lib/mm/native";
 
 // SPEC §11: a 1080×1350 card. Plain-text chain name, no logos or brand colours. Free for everyone.
 
@@ -90,6 +91,17 @@ export async function shareOrderCard(input: ShareCardInput): Promise<ShareResult
   const file = new File([blob], "my-order.png", { type: "image/png" });
   const { t } = input;
   const text = `${input.orderName} — ${formatCalories(input.nutrients.calories)}, ${formatGrams(input.nutrients.protein ?? 0)} ${t("protein")}`;
+  if (hasNative()) {
+    // In the iPhone app: the iPhone's own share sheet, with the picture
+    const imageDataUrl = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result));
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(blob);
+    });
+    const r = await nativeCall("share", { title: t("My order at {chain}", { chain: input.chainName }), text, imageDataUrl });
+    if (r.done || r.error === "cancelled") return r.done ? "shared" : "cancelled";
+  }
   try {
     if (navigator.canShare?.({ files: [file] })) {
       await navigator.share({ files: [file], title: t("My order at {chain}", { chain: input.chainName }), text });

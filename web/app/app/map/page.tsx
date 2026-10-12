@@ -8,6 +8,8 @@ import { DEFAULT_RADIUS_MILES, directionsUrl, formatMiles, geocode, groupByChain
 import { chainHref } from "@/lib/mm/routes";
 import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
 import { tk } from "@/lib/mm/i18n";
+import { hasNative, nativeCall } from "@/lib/mm/native";
+import { site } from "@/site.config";
 import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, DirectionsIcon, LocateIcon, PinIcon, SearchIcon } from "../_components/icons";
@@ -82,20 +84,37 @@ export default function NearbyPage() {
     loadBranches().then(setDoc, () => setDocError(true));
   };
 
-  const locateMe = useCallback(() => {
+  // `quietly`: only if the person already allowed it (on opening the map); never shows a prompt or an error.
+  const locateMe = useCallback((quietly = false) => {
+    const found = (lat: number, lng: number) => {
+      setOrigin({ lat, lng, label: tk("your location"), source: "gps" });
+      setLocating({ state: "idle" });
+      setEditing(false);
+      setChoices([]);
+      setSelectedId(null);
+    };
+    if (hasNative()) {
+      // In the iPhone app the iPhone finds the location (one system prompt); it stays on the phone like in the browser.
+      if (!quietly) setLocating({ state: "locating" });
+      void nativeCall("locate", { onlyIfAllowed: quietly }, 20_000).then((r) => {
+        if (r.lat !== undefined && r.lng !== undefined) return found(r.lat, r.lng);
+        if (quietly) return;
+        setLocating({
+          state: "error",
+          message: r.error === "denied"
+            ? tk("{app} isn't allowed to use your location. Turn it on in the iPhone's Settings, under {app}, or type a postcode or town instead.")
+            : tk("Couldn't work out where you are. Try again, or type a postcode or town instead."),
+        });
+      });
+      return;
+    }
     if (!("geolocation" in navigator)) {
       setLocating({ state: "error", message: tk("This browser can't share your location. Type a postcode or town instead.") });
       return;
     }
     setLocating({ state: "locating" });
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setOrigin({ lat: pos.coords.latitude, lng: pos.coords.longitude, label: tk("your location"), source: "gps" });
-        setLocating({ state: "idle" });
-        setEditing(false);
-        setChoices([]);
-        setSelectedId(null);
-      },
+      (pos) => found(pos.coords.latitude, pos.coords.longitude),
       (err) =>
         setLocating({
           state: "error",
@@ -114,7 +133,8 @@ export default function NearbyPage() {
     let cancelled = false;
     const saved = readSavedArea();
     if (saved) setOrigin(saved);
-    navigator.permissions?.query({ name: "geolocation" }).then((p) => { if (!cancelled && p.state === "granted") locateMe(); }, () => undefined);
+    if (hasNative()) locateMe(true);
+    else navigator.permissions?.query({ name: "geolocation" }).then((p) => { if (!cancelled && p.state === "granted") locateMe(); }, () => undefined);
     /* eslint-enable react-hooks/set-state-in-effect */
     return () => { cancelled = true; };
   }, [locateMe]);
@@ -170,7 +190,7 @@ export default function NearbyPage() {
         </div>
       ) : (
       <form onSubmit={search} className="glass mt-5 space-y-3 rounded-3xl p-4">
-        <Button type="button" full onClick={locateMe} disabled={locating.state === "locating"}>
+        <Button type="button" full onClick={() => locateMe()} disabled={locating.state === "locating"}>
           <LocateIcon className="h-5 w-5" /> {locating.state === "locating" ? t("Finding you…") : t("Use my location")}
         </Button>
         <div className="flex gap-2">
@@ -182,7 +202,7 @@ export default function NearbyPage() {
           <Button type="submit" variant="secondary">{t("Search")}</Button>
         </div>
         <p className="text-xs text-muted">{t("Your location stays on your phone: we use it only to find the closest branches. A typed postcode or town is looked up by postcodes.io.")}</p>
-        {locating.state === "error" && <p role="alert" className="text-sm font-medium text-accent">{t(locating.message)}</p>}
+        {locating.state === "error" && <p role="alert" className="text-sm font-medium text-accent">{t(locating.message, { app: site.name })}</p>}
         {lookupMessage && <p role="alert" className="text-sm font-medium text-accent">{t(lookupMessage)}</p>}
         {origin && <Button type="button" variant="ghost" full onClick={() => setEditing(false)}>{t("Cancel")}</Button>}
         {choices.length > 0 && (

@@ -14,7 +14,7 @@ Run against a **production build** (the service worker only exists in production
 
 ```bash
 cd web
-NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 NEXT_PUBLIC_ALL_FREE=0 npm run build && npm start -- -p 3101 &     # samples on; paywall on (ALL_FREE_FOR_TESTING off)
+NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 NEXT_PUBLIC_PRO=1 npm run build && npm start -- -p 3101 &     # samples on; Pro and the paywall on (PRO_ENABLED)
 cd e2e
 BASE=http://localhost:3101 node smoke.mjs        # onboarding → chain → paywall → Best for you → builder → save/log → settings
 node extra.mjs                                    # shared-link onboarding, menus-unreachable error, undo, save-changes, search rules
@@ -30,7 +30,9 @@ node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THE
 node brand.mjs                                    # re-render the app icon + social card from web/design/ (after a name change too)
 ```
 
-`prodmode.mjs` is for the **production default** (no sample data): build without `NEXT_PUBLIC_SHOW_SAMPLE_DATA`, start on port 3102
-(`BASE=http://localhost:3102 node prodmode.mjs`). It checks that only real chains show, the honest empty state (with an empty manifest), and that Pro cannot be unlocked.
+`prodmode.mjs` is for the **production default** as it ships for the free launch (no sample data, Pro and Pip's recipe maker off):
+build without `NEXT_PUBLIC_SHOW_SAMPLE_DATA` and `NEXT_PUBLIC_PRO`, start on port 3102 (`BASE=http://localhost:3102 node prodmode.mjs`).
+It checks that only real chains show, that every feature works with no paywall, that no screen or legal page mentions Pro, subscriptions,
+purchases or the AI recipe maker, and the honest empty state (with an empty manifest).
 
 Screenshots land in `e2e/shots/` (git-ignored).

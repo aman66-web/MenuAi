@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Terms" };
@@ -11,13 +12,15 @@ export default function Terms() {
       <h2>The app</h2>
       <p>
         Your use of the {site.name} app is governed by Apple&apos;s{" "}
-        <a href={site.appleStandardEula}>Licensed Application End User License Agreement</a>. Subscriptions are billed
-        and managed by Apple; you can cancel any time in your App Store account settings.
+        <a href={site.appleStandardEula}>Licensed Application End User License Agreement</a>.{" "}
+        {PRO_ENABLED
+          ? "Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
+          : "The app is free: there is nothing to buy in it."}
       </p>
 
       <h2>The web app</h2>
       <p>
-        The {site.name} web app (at /app on this website) is free to use. Paid features aren&apos;t available in it yet.
+        The {site.name} web app (at /app on this website) is free to use.{PRO_ENABLED ? " Paid features aren't available in it yet." : ""}{" "}
         Your goal, targets, saved orders and log are kept only in your browser; if you clear your browser&apos;s site
         data, or the browser removes it, they are deleted and we can&apos;t restore them.
       </p>
@@ -36,10 +39,11 @@ export default function Terms() {
         your needs, especially if you take medication or have a health condition.
       </p>
 
-      <h2>Restaurants</h2>
+      <h2>Restaurants and shops</h2>
       <p>
-        {site.name} is not affiliated with, endorsed by or sponsored by any restaurant. Restaurant names are used only
-        to identify whose menu is shown and remain the property of their owners.
+        {site.name} is not affiliated with, endorsed by or sponsored by any restaurant or supermarket. Their names and
+        logos are used only to identify whose menu or products are shown and remain the property of their owners. If you
+        own one and want it removed, email us and we&apos;ll take it down.
       </p>
 
       <h2>This website</h2>

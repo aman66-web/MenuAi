@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import { APP_BUILD } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { chooseWarmChains } from "@/lib/mm/popular";
 import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
+import { refreshHiddenLogos } from "../_lib/hiddenLogos";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
@@ -65,9 +67,12 @@ export function AppShell({ children }: { children: ReactNode }) {
     router.replace(`/app/welcome?next=${encodeURIComponent(next)}`);
   }, [hydrated, onboarded, pathname, router]);
 
-  // Offline support (public/sw.js). Production only, so development never serves stale files.
+  // Logos taken down at their owner's request (public/logos/hidden.json), read once per launch.
+  useEffect(() => { refreshHiddenLogos(); }, []);
+
+  // Offline support (public/sw.js). Production website only: development never serves stale files, and the iPhone app carries its files.
   useEffect(() => {
-    if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
+    if (process.env.NODE_ENV === "production" && !APP_BUILD && "serviceWorker" in navigator) {
       navigator.serviceWorker.register(`/sw.js?v=${process.env.NEXT_PUBLIC_BUILD_ID ?? "dev"}`, { scope: "/app", updateViaCache: "none" }).catch(() => undefined);
     }
   }, []);

@@ -1,11 +1,14 @@
 "use client";
 
 import { logoFor, shopLogoFor, tileArt } from "@/lib/mm/logos";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 
 // The welcome screen's moving wall (founder 2026-10-10: "have all the logos of the restaurants and grocery stores moving at the top").
 // Restaurants and supermarkets show their own official logo file, unmodified, on its plain tile (CLAUDE.md rule 2: the founder's
 // decisions of 2026-10-10 and 2026-10-11); a supermarket whose file we don't hold shows its name in plain text. Decorative: screen readers get one
 // sentence instead (the caller's `label`). Rows drift slowly in alternating directions; with reduced motion they stand still.
+// `namesOnly` (the iPhone app, founder 2026-10-12: logo safeguards for the App Store): every tile shows the plain-text name, no logo files,
+// because this first screen is the one place logos could read as promotion rather than just identifying a restaurant.
 
 export interface WallItem {
   id: string;
@@ -15,8 +18,8 @@ export interface WallItem {
 
 const ROWS = 4;
 
-function Tile({ item }: { item: WallItem }) {
-  const logo = item.kind === "restaurant" ? logoFor(item.id) : shopLogoFor(item.id);
+function Tile({ item, namesOnly }: { item: WallItem; namesOnly?: boolean }) {
+  const logo = namesOnly ? undefined : item.kind === "restaurant" ? logoFor(item.id) : shopLogoFor(item.id);
   if (logo) {
     // the chain's square icon edge to edge when it fills its square, else its file on the plain tile
     const art = tileArt(logo);
@@ -34,7 +37,8 @@ function Tile({ item }: { item: WallItem }) {
   );
 }
 
-export function LogoWall({ items, label }: { items: readonly WallItem[]; label: string }) {
+export function LogoWall({ items, label, namesOnly }: { items: readonly WallItem[]; label: string; namesOnly?: boolean }) {
+  useHiddenLogos();
   const rows: WallItem[][] = Array.from({ length: ROWS }, () => []);
   items.forEach((item, i) => rows[i % ROWS]!.push(item));
   return (
@@ -44,7 +48,7 @@ export function LogoWall({ items, label }: { items: readonly WallItem[]; label: 
         {rows.map((row, r) => (
           <div key={r} className={`marquee flex w-max gap-3 pr-3 ${r % 2 ? "marquee-reverse" : ""}`} style={{ animationDuration: `${46 + r * 7}s` }}>
             {/* twice over, so the row loops without a seam */}
-            {[...row, ...row].map((item, i) => (<Tile key={`${item.kind}-${item.id}-${i}`} item={item} />))}
+            {[...row, ...row].map((item, i) => (<Tile key={`${item.kind}-${item.id}-${i}`} item={item} namesOnly={namesOnly} />))}
           </div>
         ))}
       </div>

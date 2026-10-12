@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import { logoFor, shopLogoFor, tileArt, type ChainLogo } from "@/lib/mm/logos";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { BakeryGlyph, BasketIcon, BurgerGlyph, ChickenGlyph, CoffeeGlyph, ForkIcon, PizzaGlyph, SandwichGlyph, TacoGlyph } from "./icons";
 
 // A small square tile that tells restaurants (and supermarkets) apart at a glance. If the chain's own official files are installed (see
@@ -59,10 +60,12 @@ function GlyphTile({ size, children }: { size: Size; children: ReactNode }) {
 }
 
 export function ChainMark({ chainId, cuisine, size = "md" }: { chainId?: string; cuisine?: string; size?: Size }) {
+  useHiddenLogos();
   return <LogoTile key={chainId} logo={logoFor(chainId)} size={size} fallback={<GlyphTile size={size}>{glyphFor(cuisine, GLYPH[size])}</GlyphTile>} />;
 }
 
 /** A supermarket's own logo on its tile (founder 2026-10-11), or a basket when we hold no file of theirs. Decorative: the name is always beside it. */
 export function ShopMark({ shopId, size = "sm" }: { shopId: string; size?: Size }) {
+  useHiddenLogos();
   return <LogoTile key={shopId} logo={shopLogoFor(shopId)} size={size} fallback={<GlyphTile size={size}><BasketIcon className={GLYPH[size]} /></GlyphTile>} />;
 }

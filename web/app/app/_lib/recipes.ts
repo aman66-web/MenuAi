@@ -1,5 +1,6 @@
 "use client";
 
+import { AI_RECIPES_ENABLED } from "@/lib/mm/config";
 import { useEffect, useMemo, useState } from "react";
 import { fitDistance, fitRecipe, recipeForDiet, recipeTotals, resolveRecipe, type MealTarget, type Recipe, type RecipeTotals } from "@/lib/mm/recipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -51,8 +52,9 @@ export function useRecipeCards(recipes: readonly Recipe[] | null, products: read
 
 /** Whether Pip's recipe maker is switched on (the server has its key). Null until known; false when the check fails. */
 export function useRecipeMakerEnabled(): boolean | null {
-  const [on, setOn] = useState<boolean | null>(null);
+  const [on, setOn] = useState<boolean | null>(AI_RECIPES_ENABLED ? null : false);
   useEffect(() => {
+    if (!AI_RECIPES_ENABLED) return; // off for the free launch (lib/mm/config.ts): never asks the server
     let cancelled = false;
     fetch("/api/v1/recipe").then((r) => (r.ok ? r.json() : { enabled: false })).then(
       (j: { enabled?: boolean }) => { if (!cancelled) setOn(j.enabled === true); },

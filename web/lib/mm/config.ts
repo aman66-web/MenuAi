@@ -9,21 +9,37 @@ export const PRO_PREVIEW_FROM_ENV = process.env.NEXT_PUBLIC_PRO_PREVIEW === "1";
 export const DEV_TOOLS_ENABLED = SAMPLES_ENABLED || PRO_PREVIEW_FROM_ENV;
 
 /**
- * Founder 2026-10-11: "It should be pro. But right now I need all the features free so I can test them." While this is on, every Pro
- * feature is open to everyone (no paywall, nothing charged; Pro stays defined exactly as before). Switch it off before launch by setting
- * it to false here, or build with NEXT_PUBLIC_ALL_FREE=0 (the browser tests build that way so they still check the paywall).
+ * Pro (the paid features) is switched off for the free launch. Founder 2026-10-12: "we just make everything free right now, we dont add
+ * the ai features and we ship then after its on the app store then we add those extra improvements". While PRO_ENABLED is false, every
+ * feature is open to everyone and nothing about Pro, subscriptions or a paywall is shown anywhere (Pro stays defined underneath for when
+ * subscriptions arrive). The browser tests build with NEXT_PUBLIC_PRO=1 so they still check the paywall.
  */
-export const ALL_FREE_FOR_TESTING = process.env.NEXT_PUBLIC_ALL_FREE !== "0";
+export const PRO_ENABLED = process.env.NEXT_PUBLIC_PRO === "1";
 
-/** Flip to true once web payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
+/** Pip's AI recipe maker is off for the free launch (same founder message). A constant, not an environment variable, so adding an API key
+ *  can't switch it on by accident. Its code stays for later. */
+export const AI_RECIPES_ENABLED = false;
+
+/** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
 export const PAYMENTS_ENABLED = false;
 
+/** The iPhone app's build of the web app (npm run build:app): a static copy packed inside the app (docs/APP_BUILD.md). */
+export const APP_BUILD = process.env.NEXT_PUBLIC_APP_BUILD === "1";
+/** Where the app build reaches the live website for newer data and the API: absolute, no trailing slash. Empty on the website itself. */
+export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "").replace(/\/$/, "") : "";
+
+/** The chains' own item photos (CLAUDE.md rule 2). The iPhone app's build can leave them out (web/app-content.json, docs/APP_BUILD.md). */
+export const MENU_PHOTOS_ENABLED = process.env.NEXT_PUBLIC_MENU_PHOTOS !== "0";
+
 export const APP_VERSION = "web 1.0";
-export const API_BASE = "/api/v1/";
+/** Our API (reports, chain requests, messages). The iPhone app reaches it on the live website (lib/cors.ts lets the app's pages call it). */
+export const API_BASE = `${REMOTE_BASE}/api/v1/`;
 export const FREE_SAVED_ORDER_LIMIT = 3;
 export const NEW_ITEM_DAYS = 30;
 
-export const MENU_SOURCES: ReadonlyArray<{ id: "release" | "sample"; baseUrl: string }> = [
+export const MENU_SOURCES: ReadonlyArray<{ id: "live" | "release" | "sample"; baseUrl: string }> = [
+  // the iPhone app asks the live website first (newer menus when online; earlier sources win) and falls back to the menus packed inside it
+  ...(APP_BUILD && REMOTE_BASE ? ([{ id: "live", baseUrl: `${REMOTE_BASE}/menus/` }] as const) : []),
   { id: "release", baseUrl: "/menus/" },
   ...(SAMPLES_ENABLED ? ([{ id: "sample", baseUrl: "/menus-sample/" }] as const) : []),
 ];

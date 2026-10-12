@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { catalogueStats } from "@/lib/mm/catalogue";
 import type { Manifest } from "@/lib/mm/types";
+import { PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 // Read once at build time from the published data, so the headline numbers are never typed in by hand.
@@ -12,7 +13,7 @@ import { WaitlistForm } from "@/app/components/WaitlistForm";
 const steps = [
   { title: "Pick the restaurant", body: "Search by name and open the whole menu. Works offline once you've opened it." },
   { title: "See every item's numbers", body: "Calories, protein, carbs, fat and salt for the whole menu, free." },
-  { title: "Get the order that fits", body: "Pro ranks the five best orders for your goal and what's left today, and adds up custom orders as you tap." },
+  { title: "Get the order that fits", body: PRO_ENABLED ? "Pro ranks the five best orders for your goal and what's left today, and adds up custom orders as you tap." : "See the five best orders for your goal and what's left today, and add up your own order as you tap." },
 ];
 
 // The three things the app does (founder 2026-10-10: "it's also for groceries ... recipes based on where you shop").
@@ -30,7 +31,7 @@ const goals = [
 ];
 
 const faqs = [
-  { q: "Is it free?", a: "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." },
+  { q: "Is it free?", a: PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, with no account and nothing to buy." },
   { q: "Where do the numbers come from?", a: "From each restaurant's own published nutrition information. We show the source and the date we last checked on every chain, never estimate missing values, and fix reported mistakes within 48 hours." },
   { q: "Which restaurants?", a: `${stats.chains > 0 ? `${stats.chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
   { q: "Is it an app?", a: "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later." },
