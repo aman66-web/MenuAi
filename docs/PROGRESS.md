@@ -1080,6 +1080,15 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   social card from numbite.com, sitemap on numbite.com, /privacy and /support 200, API health 200, the iPhone app's preflight from `app://menumath` answered
   204 with its origin allowed, `/logos/hidden.json` open to the app; `menumacros.vercel.app` serves the same build.
 
+- 2026-10-12 — **Sign-in and sync across devices: decided, planned, not built** (founder: "we need to do the apple google and also set up resend i
+  need to set up the log in methods", then "Sync across devices"). Plan in `docs/ACCOUNTS_SYNC.md`:
+  - sign-in is optional (Apple, Google, email code via Resend), through our own API on Supabase Auth, so no Supabase key ever goes in the app;
+  - one `user_data` table, written only by the API;
+  - Settings › Account with "Delete my account".
+  CLAUDE.md rule 4 ("no accounts, no personal data off the device"), the privacy page and the App Store privacy answers are rewritten when it ships.
+  Part A (Apple, Google, Resend, Supabase dashboards) is the founder's, with a paste-ready prompt for Claude in Chrome on the Mac. The new migration is
+  applied only with the founder's go-ahead.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
