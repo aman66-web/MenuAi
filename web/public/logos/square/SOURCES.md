@@ -206,6 +206,7 @@ Each chain's own square icon (apple-touch-icon, web-app manifest icon or SVG sit
 | the-light-cinemas | installed | apple-touch-icon (default path) | https://www.thelight.co.uk/apple-touch-icon.png | the chain's own apple-touch-icon (default path), declared by its home page https://www.thelight.co.uk/; saved unchanged | 2026-10-11 |
 | the-restaurant-hub | installed | apple-touch-icon | https://therestauranthub.co.uk/wp-content/uploads/2022/09/cropped-favicon-180x180.png | the chain's own apple-touch-icon, declared by its home page https://therestauranthub.co.uk/; saved unchanged | 2026-10-11 |
 | the-salad-project | installed | svg-icon | https://www.saladproject.co.uk/cdn/shop/files/3_2.svg?crop=center&height=32&v=1745428546&width=32 | the chain's own svg-icon, declared by its home page https://www.saladproject.co.uk/; saved unchanged | 2026-10-11 |
+| the-sushi-co | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
 | third-space | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
 | tim-hortons | installed | apple-touch-icon | https://timhortons.co.uk/front/assets/img/apple-touch-icon.png | the chain's own apple-touch-icon, declared by its home page https://timhortons.co.uk/; saved unchanged | 2026-10-11 |
 | toby-carvery | skipped-unavailable |  |  | home page refused or robots.txt disallows: robots.txt disallows https://www.tobycarvery.co.uk/ |  |

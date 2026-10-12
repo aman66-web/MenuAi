@@ -215,6 +215,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "the-light-cinemas": { src: "/logos/the-light-cinemas.svg", tile: "dark" },
   "the-restaurant-hub": { src: "/logos/the-restaurant-hub.svg" },
   "the-salad-project": { src: "/logos/the-salad-project.svg" },
+  "the-sushi-co": { src: "/logos/the-sushi-co.png" },
   "third-space": { src: "/logos/third-space.svg" },
   "tim-hortons": { src: "/logos/tim-hortons.png" },
   "toby-carvery": { src: "/logos/toby-carvery.png" },

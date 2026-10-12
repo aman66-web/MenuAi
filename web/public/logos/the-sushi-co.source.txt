@@ -1,0 +1,11 @@
+status: installed
+file: the-sushi-co.png
+kind: page logo
+source_url: https://thesushico.com/wp-content/uploads/2025/05/2025-blacklogo-1-300x169.png
+page_url: https://www.thesushico.co.uk/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: The chain's own black logo ("Sushi Co Black Logo": THE SUSHI CO / LIVE SUSHI KITCHENS with chopsticks), shown on its home page https://www.thesushico.co.uk/ from its own host thesushico.com; saved byte for byte (300 x 169 PNG, sha256 cc23c7db233bbcab79babb2c00494aca216ee19ca16055bf1fdfd024a4269fb5). The header uses the white version of the same mark, so the black one is used on the light tile. robots.txt of thesushico.com disallows only /wp-admin/.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-12
+tile: light

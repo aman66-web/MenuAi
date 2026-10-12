@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012071733,
- "generatedAt": "2026-10-12T07:17:33Z",
+ "dataVersion": 20261012072920,
+ "generatedAt": "2026-10-12T07:29:20Z",
  "chains": [
   {
    "id": "abokado",
@@ -2350,6 +2350,18 @@
    "checkedOn": "2026-10-10"
   },
   {
+   "id": "the-sushi-co",
+   "name": "The Sushi Co",
+   "cuisine": "Japanese",
+   "file": "chain-the-sushi-co.json",
+   "sha256": "408b9009d00ea2ad4aa21f581ed28389498305cc8d03f554b3b6849ba4ea7f52",
+   "contentHash": "94afc2b4576f1643eeb0c86c392b9761161c59d8daec863a32305eaac3267bfc",
+   "sample": false,
+   "itemCount": 89,
+   "checkedOn": "2026-10-12",
+   "nutritionLevel": "calories"
+  },
+  {
    "id": "third-space",
    "name": "Third Space",
    "cuisine": "Cafe",
@@ -2637,6 +2649,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "3d8714562f3b71456da0004e14d9792c58024a1a84ec54cb54da20665041c68c"
+  "sha256": "52943b9eed121c819f8ba4ab2acd76c0fb6f68df67c2b8f688db04886305357e"
  }
 }
