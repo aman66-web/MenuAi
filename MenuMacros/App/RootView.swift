@@ -1,29 +1,36 @@
 import SwiftUI
 
-/// The four tabs (docs/SPEC.md §8): Home · Saved · Today · Settings. Placeholder screens until their milestones (M3, M7).
+/// The free launch (founder 2026-10-12): the whole app is the web app packed inside it (Features/WebApp, docs/APP_BUILD.md), full screen.
+/// Its own tab bar, screens and eleven languages come from the web app; the iPhone adds the scanner, location and share sheet.
 struct RootView: View {
-    private var versionText: String {
-        let info = Bundle.main.infoDictionary
-        let version = info?["CFBundleShortVersionString"] as? String ?? "?"
-        let build = info?["CFBundleVersion"] as? String ?? "?"
-        return "\(AppConfig.appName) \(version) (\(build))"
+    @Environment(AppEnvironment.self) private var environment
+    private let files: WebAppFiles?
+
+    init(files: WebAppFiles? = WebAppFiles()) {
+        self.files = files
     }
 
     var body: some View {
-        TabView {
-            PlaceholderScreen(title: "Home", message: "Restaurants, search and nearby chains arrive in the next milestones.", systemImage: "house")
-                .tabItem { Label("Home", systemImage: "house") }
-            PlaceholderScreen(title: "Saved", message: "Your saved orders will live here.", systemImage: "bookmark")
-                .tabItem { Label("Saved", systemImage: "bookmark") }
-            PlaceholderScreen(title: "Today", message: "What you've eaten today will live here.", systemImage: "clock")
-                .tabItem { Label("Today", systemImage: "clock") }
-            PlaceholderScreen(title: "Settings", message: "Targets, preferences and help will live here.", systemImage: "gearshape", footer: versionText)
-                .tabItem { Label("Settings", systemImage: "gearshape") }
+        if files != nil {
+            WebAppView(files: files, environment: environment)
+                .ignoresSafeArea()
+        } else {
+            // Only seen in a build made without running scripts/build_app_web.sh first.
+            ContentUnavailableView(
+                "The app's pages are missing",
+                systemImage: "shippingbox",
+                description: Text("Run scripts/build_app_web.sh, then build again in Xcode (docs/APP_BUILD.md).")
+            )
         }
     }
 }
 
-#Preview {
+#Preview("Pages missing") {
+    RootView(files: nil)
+        .environment(AppEnvironment.preview())
+}
+
+#Preview("App") {
     RootView()
-        .environment(AppEnvironment())
+        .environment(AppEnvironment.preview())
 }

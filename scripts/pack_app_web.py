@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Copy the iPhone app's static export of the web app (web/.next-app, from `npm run build:app`) into build/ios-web, keeping only what the
-app needs and what web/app-content.json allows (docs/APP_BUILD.md).
+"""Copy the iPhone app's static export of the web app (web/.next-app, from `npm run build:app`) into MenuMacros/Resources/WebApp.bundle
+(git-ignored; Xcode copies a .bundle folder into the app whole), keeping only what the app needs and what web/app-content.json allows
+(docs/APP_BUILD.md).
 
   * always left out: the fictional sample menus (menus-sample/) and the website's service worker (sw.js);
   * "menuPhotos": false leaves out menu-images/ (the build also sets NEXT_PUBLIC_MENU_PHOTOS=0, so no item asks for one);
@@ -8,7 +9,7 @@ app needs and what web/app-content.json allows (docs/APP_BUILD.md).
     list that isn't named is removed from both manifests and its files are left out, so it disappears from the app's Groceries. Catalogue
     entries for shops that have no full list (Co-op, Ocado: community data only) are kept as on the website.
 
-Usage: python3 scripts/pack_app_web.py web/.next-app build/ios-web web/app-content.json
+Usage: python3 scripts/pack_app_web.py web/.next-app MenuMacros/Resources/WebApp.bundle web/app-content.json
 Prints a size report. Nothing is edited except the two grocery manifests (rewritten without the shops left out).
 """
 from __future__ import annotations
@@ -65,7 +66,7 @@ def main(src: Path, dst: Path, content_file: Path) -> int:
             shutil.rmtree(dst / "grocery-images" / sid, ignore_errors=True)
 
     total = size(dst)
-    print(f"build/ios-web: {total / 1e6:.1f} MB")
+    print(f"{dst.name}: {total / 1e6:.1f} MB")
     for part in ["menus", "menu-images", "groceries", "grocery-images", "logos", "_next", "app"]:
         p = dst / part
         if p.exists():

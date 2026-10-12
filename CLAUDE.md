@@ -16,6 +16,7 @@ item at popular restaurant chains (free), plus "Best for you" ranked orders and 
 | Backend (Vercel site + API, Supabase), API contract for the app | `docs/BACKEND.md`; code in `web/` and `supabase/` |
 | The web app (built first; how it differs from the iPhone spec) | `docs/WEB_BUILD_PLAN.md`; code in `web/app/app/` and `web/lib/mm/` |
 | Founder's Vercel/Supabase setup steps | `docs/SETUP_VERCEL_SUPABASE.md` |
+| The iPhone app as shipped first (the web app packed inside it), free launch, logo safeguards | `docs/APP_BUILD.md`; code in `MenuMacros/Features/WebApp/`, `MenuMacros/Services/`, `scripts/build_app_web.sh` |
 | Business context (rarely needed) | `docs/MenuMacros_App_Blueprint.pdf` — where it differs from SPEC, SPEC wins |
 
 Current state of the build (always loaded):
@@ -65,7 +66,9 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    (2026-10-11, "Add all logos for grocery stores too"): each supermarket's own official logo file (and its own square icon) may sit next
    to its name in the app's grocery screens, the shopping list, the shop picker and the welcome wall, under exactly the same rules as the
    restaurant logos (from the company's own website or press page, unmodified, `web/public/logos/shops/` + `SOURCES.md`, taken down the
-   day its owner asks).
+   day its owner asks). Founder's decision (2026-10-12, free App Store launch, "Keep, with safeguards"): a logo can be taken
+   down without an app update by listing its chain id (or `shop:<id>`) in `web/public/logos/hidden.json` and deploying the website; the iPhone
+   app's welcome wall shows names only (no logo files); store screenshots never show a logo or a photo (`web/e2e/store-shots.mjs`).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
 4. **Privacy:** no accounts, no personal data off the device (except what the user chooses to send
    through the API: reports, chain requests, support messages). **Never put a Supabase key in the

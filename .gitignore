@@ -1,5 +1,7 @@
 # Build output
 build/
+# the web app packed for the iPhone app (scripts/build_app_web.sh; about 155 MB, rebuilt before each Xcode build)
+MenuMacros/Resources/WebApp.bundle/
 dist/
 DerivedData/
 *.xcresult

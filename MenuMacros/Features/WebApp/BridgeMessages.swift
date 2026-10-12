@@ -1,0 +1,88 @@
+import Foundation
+
+/// What the page asks the iPhone to do (web/lib/mm/native.ts): `{ id, action, payload }` posted to the "menumath" message handler.
+/// Anything that isn't exactly one of these is ignored.
+nonisolated enum BridgeRequest: Equatable, Sendable {
+    case scan(id: String)
+    case locate(id: String, onlyIfAllowed: Bool)
+    case share(id: String, content: ShareContent)
+
+    var id: String {
+        switch self {
+        case .scan(let id), .locate(let id, _), .share(let id, _): id
+        }
+    }
+
+    init?(body: Any) {
+        guard let message = body as? [String: Any],
+              let id = message["id"] as? String, Self.isValidID(id),
+              let action = message["action"] as? String else { return nil }
+        let payload = message["payload"] as? [String: Any] ?? [:]
+        switch action {
+        case "scan":
+            self = .scan(id: id)
+        case "locate":
+            self = .locate(id: id, onlyIfAllowed: payload["onlyIfAllowed"] as? Bool ?? false)
+        case "share":
+            guard let content = ShareContent(payload: payload) else { return nil }
+            self = .share(id: id, content: content)
+        default:
+            return nil
+        }
+    }
+
+    private static func isValidID(_ id: String) -> Bool {
+        !id.isEmpty && id.count <= 64 && id.allSatisfy { $0.isASCII && ($0.isLetter || $0.isNumber || $0 == "-") }
+    }
+}
+
+/// The text (and, for an order, the picture) to put in the share sheet.
+nonisolated struct ShareContent: Equatable, Sendable {
+    var title: String?
+    var text: String
+    /// PNG bytes of the share card, if the page sent one.
+    var image: Data?
+
+    static let maxTextLength = 20_000
+    static let maxImageBytes = 4_000_000
+
+    init(title: String? = nil, text: String, image: Data? = nil) {
+        self.title = title
+        self.text = text
+        self.image = image
+    }
+
+    init?(payload: [String: Any]) {
+        guard let text = payload["text"] as? String, !text.isEmpty, text.count <= Self.maxTextLength else { return nil }
+        self.text = text
+        title = (payload["title"] as? String).map { String($0.prefix(200)) }
+        if let dataURL = payload["imageDataUrl"] as? String {
+            let prefix = "data:image/png;base64,"
+            guard dataURL.hasPrefix(prefix),
+                  let bytes = Data(base64Encoded: String(dataURL.dropFirst(prefix.count))),
+                  bytes.count <= Self.maxImageBytes else { return nil }
+            image = bytes
+        } else {
+            image = nil
+        }
+    }
+}
+
+/// The answer, as plain JSON for window.__menumathReply(id, result). Only the fields the page reads (cleanNativeResult).
+nonisolated struct BridgeReply: Codable, Equatable, Sendable {
+    var code: String?
+    var lat: Double?
+    var lng: Double?
+    var done: Bool?
+    var error: String?
+
+    static func failure(_ reason: String) -> BridgeReply { BridgeReply(error: reason) }
+
+    /// The JavaScript that hands the answer to the page.
+    func script(for id: String) -> String? {
+        let encoder = JSONEncoder()
+        guard let reply = try? encoder.encode(self), let replyJSON = String(data: reply, encoding: .utf8),
+              let idData = try? encoder.encode(id), let idJSON = String(data: idData, encoding: .utf8) else { return nil }
+        return "window.__menumathReply && window.__menumathReply(\(idJSON), \(replyJSON));"
+    }
+}

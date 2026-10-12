@@ -23,7 +23,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 | Milestone | Status | Notes |
 |---|---|---|
-| M0 Project foundation | in progress | Xcode project + four-tab shell + AppConfig + icon + 2 tests created 2026-10-08, unit tests pass; still to do: PreviewContent dev assets, bundled menus, Xcode-only capability clicks (see decisions log) |
+| M0 Project foundation | in progress | Xcode project, AppConfig, icon (2026-10-08). **Free launch (2026-10-12): the app is the web app packed inside it** (docs/APP_BUILD.md): web view + scheme handler + scanner/location/share bridge written, not yet compiled (needs the Mac session) |
 | M1 Menu data layer | not started | |
 | M2 Settings, targets, onboarding | not started | |
 | M3 Home, nearby, search, favourites | not started | |
@@ -1019,6 +1019,33 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Café (`data/chrome-inbox/QUEUE-LOGOS.md`). Domino's wordmark is wide, so it is small on its square tile (no square icon is served). Decision (d) also unblocks the food-photo
   scripts already written for Sbarro, Amigos, Kokoro, Tortilla, Atis, The Alchemist, Honi Poke, The Breakfast Club and Buy & Bite. Not run yet.
 
+- 2026-10-12 — **Free launch on the App Store (founder: "we just make everything free right now, we dont add the ai features and we ship then
+  after its on the app store then we add those extra improvements"; answers: "Web app inside the app", name **Menu Math** ("MenuMacros" is taken by
+  "MenuMacros: Eat Out Healthily", June 2026), logos "Keep, with safeguards", then "do those 5 things").** (1) **Pro off:** `PRO_ENABLED` in
+  `web/lib/mm/config.ts` (off unless `NEXT_PUBLIC_PRO=1`, which the browser tests use) replaces `ALL_FREE_FOR_TESTING`: everyone has every feature
+  and no screen says Pro, subscription, trial or paywall; the Pro code stays for later. (2) **AI recipe maker off:** `AI_RECIPES_ENABLED = false`, a
+  constant so no key can turn it on: no card, `/app/recipes/make` forwards to the recipes, `/api/v1/recipe` answers 404; its code stays. (3) **Legal
+  pages** describe the free app: privacy (no purchases, no AI, no Apple Health, no usage statistics, the iPhone app keeps everything inside it;
+  last updated 12 October 2026), terms ("The app is free: there is nothing to buy in it"; names **and logos** of restaurants **and supermarkets**
+  only identify them, removed on request), support ("Is anything paid? No"), landing page FAQ ("Yes. Every feature is free"). (4) **Logo safeguards:**
+  `web/public/logos/hidden.json` takes a logo down on the website and in the app without an app update; the app's welcome wall shows names only;
+  store screenshots carry no logos or photos; App Review note in docs/STORE.md; CLAUDE.md rule 2 updated. (5) **The iPhone app** (docs/APP_BUILD.md):
+  `npm run build:app` (static export, `pageExtensions: ["tsx"]` so the API and robots/sitemap/manifest are left out) packed by
+  `scripts/build_app_web.sh` into `MenuMacros/Resources/WebApp.bundle` (git-ignored, 155 MB); `MenuMacros/Features/WebApp/` serves it on
+  `app://menumath/…` (works with no signal), `NativeBridge` + `Services/` give the iPhone's own barcode scanner (VisionKit), location (one prompt)
+  and share sheet (`web/lib/mm/native.ts`); online, newer menus and the taken-down list come from the live site and reports/requests/messages go
+  to its API (CORS only for `app://menumath`, `web/lib/cors.ts`); camera, location and export-compliance keys and `PrivacyInfo.xcprivacy` added.
+  **The Swift is written but not compiled** (no Xcode here): the Mac session builds and checks it (docs/APP_BUILD.md). `web/app-content.json`
+  holds the open decision (menu photos, which supermarkets go in the app; everything until decided). (6) **docs/STORE.md** rewritten for the free
+  launch (draft copy for approval, rule 8: "Menu Math: Eat Out & Macros", "Calories for UK menus & shops", keywords without brand names, App Privacy
+  and age-rating answers, review notes); `web/e2e/store-shots.mjs` takes six 1320 x 2868 screenshots with every logo and photo left out.
+  New copy (rule 8, logged here; translated into the 10 languages by Claude, not yet checked by native speakers): the app-only scanner and location
+  sentences ("{app} isn't allowed to use the camera…", "This iPhone can't scan barcodes…", "…or scan again.", "Scan again", "{app} isn't allowed
+  to use your location…"), "Names of restaurants and shops in the app", the clear-data sentence ending "from this phone"; site pages' new sentences
+  above (English only, like the rest of the site). Checked: 469 unit, 143 Python, e2e smoke 23, extra 12, browse 9, calories 4, recipes 12 (maker
+  absent), diet 5, compare 3, groceries 6/7/8/4, languages 5, offline 13, a11y 0, large text, **prodmode 9** (as shipped: no Pro/AI wording anywhere,
+  logging and builder open), **app-build 7** (the packed app with no signal, names-only wall, taken-down logo, fake bridge for scan/locate/share).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1028,18 +1055,21 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 ## Founder to-do (things Claude can't do)
 
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
-- [ ] **Before launch: switch off `ALL_FREE_FOR_TESTING`** in `web/lib/mm/config.ts` (every Pro feature is free while you test), then redeploy
+- [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
+- [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (domain + Vercel Pro, read the legal pages, UK trade mark search for "Menu Math", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
+- [ ] **Decide what goes into the App Store version** (`web/app-content.json`): the chains' food photos (yes/no) and which supermarkets (the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S)
+- [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)
 - [ ] **Translations: have a native speaker check each language before launch** (they were made by AI): at least the allergen names, "contains"/"may contain",
   cooking-safety lines and the onboarding. Each language is one file, `web/lib/mm/locales/<code>.json` (English → translation); a reviewer can edit it directly.
 - [ ] **Recipe pictures (Nano Banana):** paste each prompt from `docs/RECIPE_IMAGE_PROMPTS.md`, check the picture has no writing, packaging or logos, save it as
   `data/recipe-images/<recipe id>.png`, then run `python3 tools/recipes/import_recipe_images.py` (or send me the files and I'll do it)
-- [ ] **Switch on Pip's recipe maker (AI recipes):** create an API key at console.anthropic.com › API Keys, set a monthly spend limit there (Settings › Limits; a recipe
+- [ ] **Later, after launch: switch on Pip's recipe maker (AI recipes)** (off for the free launch: set `AI_RECIPES_ENABLED` back to true in `web/lib/mm/config.ts` and update the privacy page and App Privacy answers first): create an API key at console.anthropic.com › API Keys, set a monthly spend limit there (Settings › Limits; a recipe
   costs roughly a few pence), then add it in Vercel › Project menumacros › Settings › Environment Variables as `ANTHROPIC_API_KEY` (Production and Preview) and redeploy.
   Until then Recipes work as normal and "Ask Pip" says it isn't switched on yet (the button is hidden on the live site). Never paste the key into chat or the app.
 
 - [ ] Real bundle ID prefix, Team, App Group ID in Xcode signing and `AppConfig.swift`
 - [ ] Xcode: iPhone-only destination, iOS 17.0 minimum, capabilities (App Groups, HealthKit, In-App Purchase), shared scheme
-- [ ] App Store Connect: app record, subscription group, both products, 7-day trial offer
+- [ ] App Store Connect: app record (free launch: docs/APP_BUILD.md); the subscription group, products and trial come with Pro in a later update
 - [ ] Vercel + Supabase set up (docs/SETUP_VERCEL_SUPABASE.md) → put the URLs in `AppConfig`
 - [x] Supabase secret key added to Vercel (Production + Preview). Never paste it into chat or the app
 - [ ] Delete the test row "mcdonalds" in Supabase › chain_requests if you don't want it (or leave it: it's a valid request)

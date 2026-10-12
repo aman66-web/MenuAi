@@ -1,9 +1,12 @@
 import Foundation
 
-/// Fixed values the app needs (docs/SPEC.md §17). The URLs stay example.com placeholders until the site's address is final:
-/// while they are placeholders, menu sync is skipped and submissions stay queued in the outbox.
+/// Fixed values the app needs (docs/SPEC.md §17). Since the free launch (founder 2026-10-12) the app is the web app packed inside it
+/// (docs/APP_BUILD.md): the web app reaches the live website itself (NEXT_PUBLIC_REMOTE_BASE in scripts/build_app_web.sh), so the
+/// example.com addresses below are only for the native screens planned later (docs/BUILD_PLAN.md).
 nonisolated enum AppConfig {
     static let appName = "Menu Math"   // user-facing name; keep in sync with web/site.config.ts and docs/STORE.md
+    /// Where the packed web app starts (Features/WebApp/WebAppFiles.swift). The API on the live website allows this origin (web/lib/cors.ts).
+    static let webAppStartURL = URL(string: "app://menumath/app")!
     static let websiteURL = URL(string: "https://example.com")!
     static let menuBaseURL = URL(string: "https://example.com/menus/")!
     static let apiBaseURL = URL(string: "https://example.com/api/v1/")!
