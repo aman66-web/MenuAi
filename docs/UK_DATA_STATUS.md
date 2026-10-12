@@ -443,6 +443,12 @@ header logo and its apple-touch-icon (the Belhaven lion) the same way.
 - **Chocoberry**: the menu is only in a Flipdish widget whose data host (api.flipdish.co) has `Disallow: /`.
 - **Banyan** (3 bars, Arc Inspirations): after choosing a bar, its PDF menus print no per-dish calories and its allergen menu page lists
   allergens only.
+- **Pesto** (Mitchells & Butlers): each restaurant's dietary page links the M&B allergen app (safe2eat.mbplc.io); the app answers a
+  Cloudflare challenge (403, Turnstile) to a normal headless browser. Stopped (never worked round). If M&B gives Pesto a guide like All Bar
+  One's, `mb_guide.py` can read it: open the app in your own browser and send the guide's address.
+- **Still blocked when rechecked today** (never worked round): Grosvenor Casinos (robots.txt 403, Cloudflare), Dobbies (403), Parkdean
+  Resorts (robots.txt 403), Yates (523, origin unreachable), Old English Inns (the proxy answers 502). Topgolf's menus sit on
+  topgolf.kitchencut.com, whose robots.txt is `Disallow: /` (4 UK venues).
 
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
