@@ -82,8 +82,7 @@ or treatment information: none (the app shows published nutrition only and says 
 - Support URL: `https://numbite.com/support`
 - Marketing URL: `https://numbite.com`
 
-(numbite.com was bought on Vercel on 12 October 2026 and serves the same site as `menumacros.vercel.app`, which stays as an alias. Vercel's free
-Hobby plan is for non-commercial use: move to Vercel Pro before submitting.)
+(numbite.com was bought on Vercel on 12 October 2026 and is live on Vercel Pro; `menumacros.vercel.app` stays as an alias.)
 
 ## Notes for App Review (draft)
 
