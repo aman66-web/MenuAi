@@ -1,0 +1,11 @@
+status: installed
+file: papas-fish-and-chips.png
+kind: header
+source_url: https://papasfishandchips.com/wp-content/uploads/2017/10/Logo.png
+page_url: https://papasfishandchips.com/
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-06 to use the chains' own logos whatever their site terms say.
+why: Own website header logo (<img id="logo" alt="Papas">), saved byte for byte (855 x 339 PNG, gold "PAPAS" wordmark on transparency, 9,302 bytes, sha256 c5f983b1292f55c0241faf1fe8632bde0da299ab567d99d4596db1bad3c96afe); looked at on white. robots.txt of papasfishandchips.com disallows only /wp-admin/ and WooCommerce upload folders.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)
+retrieved: 2026-10-12
+tile: light

@@ -147,6 +147,7 @@ Each chain's own square icon (apple-touch-icon, web-app manifest icon or SVG sit
 | notcutts | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
 | oneills | skipped-unavailable |  |  | home page refused or robots.txt disallows: robots.txt disallows https://www.oneills.co.uk/ |  |
 | oodles-wok | installed | icon | https://oodleswok.co.uk/icon.png?6387193e044523ce | the chain's own icon, declared by its home page https://oodleswok.co.uk/; saved unchanged (scaled down proportionally to 256 px) | 2026-10-11 |
+| papas-fish-and-chips | rejected | apple-touch-icon | https://papasfishandchips.com/wp-content/uploads/2018/03/cropped-FAVICON1-1-180x180.png | looked at on white: the icon is a plain gold head silhouette with no name that doesn't identify the chain at tile size; its PAPAS wordmark logo file stays | 2026-10-12 |
 | park-holidays-uk | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
 | parsons-bakery | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |
 | pasta-evangelists | skipped-unavailable |  |  | no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page |  |

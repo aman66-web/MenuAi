@@ -411,6 +411,19 @@ theme folder) and its own apple-touch-icon as the square icon.
   rechecked), Poundbakery, Oakman Inns (its site now runs on Upham Inns', allergens only).
 - **Blocked**: Van Hage (TLS error), Stewarts Garden Centres (proxy 502), Frosts Garden Centres (403).
 
+## Added 12 October (round 7C, 3+ sites)
+
+Founder, 12 October: "keep adding more food chains please"; a calories-only chain now needs **3 or more GB sites** (was 5; full nutrition already
+needed 3+). This round went back over every triage list (`data/candidates/triage*`, `discovery/`, `uk-candidates.csv`), the not-added lists above and
+`data/held-unpublished/` for chains set aside **only because they were too small** that print official per-dish calories or full nutrition, and
+re-checked each one's current GB site count on its own website. Same rules as before: official sources only, copied by script, robots.txt (RFC 9309)
+honoured, no alcoholic drinks, sites that disagree published only where 2+ agree; each chain passed `check_chain.py` with 0 errors and 0 high audit
+flags and had an independent second read (`data/audit/verified/<chain>.json`). Triage rows: `data/candidates/triage7/c.csv`.
+
+| Chain | Items | Level | Sites | Source and rule |
+|---|---|---|---|---|
+| Papa's Fish & Chips | 5 (1 held back) | full (allergens link-only) | 5 restaurants on the chain's own find-us page (Blackpool, Cleethorpes, Hull (Willerby), Scarborough, Sheffield) | Moved back from `data/held-unpublished/` (held only for the old 10-site bar). The nutrition page still links the same six Campden BRI lab reports (PDFs created 23 December 2018, SHA-256 unchanged since 9 October) and still prints the calculator whose kcal match them; the note gives the 2018 date. Mushy Peas stays held back (the calculator's 114 kcal is the report's per-100 g figure, not its 198 kcal portion). Second read: every cell re-read by eye from fresh 110 dpi renders, 0 differences. Logo: the header wordmark (its square icon, a plain head silhouette, was left out). |
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

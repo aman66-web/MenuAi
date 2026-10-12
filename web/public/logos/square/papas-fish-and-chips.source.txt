@@ -1,0 +1,8 @@
+status: rejected
+why: looked at on white: the icon is a plain gold head silhouette with no name that doesn't identify the chain at tile size; its PAPAS wordmark logo file stays
+kind: apple-touch-icon
+opaque: no
+source_url: https://papasfishandchips.com/wp-content/uploads/2018/03/cropped-FAVICON1-1-180x180.png
+page_url: https://papasfishandchips.com/
+sha256: daa8e5971ed8551298ac057bf1e8213ba22ad7cecea1ce9e440b6b2c6db3b8ee
+retrieved: 2026-10-12

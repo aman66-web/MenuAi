@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261011164121,
- "generatedAt": "2026-10-11T16:41:21Z",
+ "dataVersion": 20261012065442,
+ "generatedAt": "2026-10-12T06:54:42Z",
  "chains": [
   {
    "id": "abokado",
@@ -1678,6 +1678,17 @@
    "checkedOn": "2026-10-08"
   },
   {
+   "id": "papas-fish-and-chips",
+   "name": "Papa's Fish & Chips",
+   "cuisine": "Seafood",
+   "file": "chain-papas-fish-and-chips.json",
+   "sha256": "cb5c834034663191cdef4e8c14fd12a032ee07682089206a44561c946fa23d68",
+   "contentHash": "2c24e56f4165884d58d49bf865aa5e17cfc24edafd6f012f561ae176208cbd4b",
+   "sample": false,
+   "itemCount": 5,
+   "checkedOn": "2026-10-12"
+  },
+  {
    "id": "park-holidays-uk",
    "name": "Park Holidays UK",
    "cuisine": "Holiday park restaurant",
@@ -2626,6 +2637,6 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "f3237e62b8b908aaac3e8d609d47d149be1fd7c00271b7bdfe34e45327bc1db0"
+  "sha256": "b5af151113e56b38a0cd64dd7cff15130c23655a5a076ffe45c5fae8221d3009"
  }
 }

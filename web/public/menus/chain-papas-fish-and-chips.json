@@ -1,0 +1,145 @@
+{
+ "schemaVersion": 1,
+ "id": "papas-fish-and-chips",
+ "name": "Papa's Fish & Chips",
+ "cuisine": "Seafood",
+ "builderType": "standard",
+ "aliases": [
+  "papas fish and chips",
+  "papa's fish and chips",
+  "papas fish & chips",
+  "papa's fish & chips"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Papa's Fish & Chips nutritional information: Campden BRI lab reports, PDFs created 23 December 2018 (2018 data)",
+  "url": "https://papasfishandchips.com/nutritional-information/",
+  "checkedOn": "2026-10-12"
+ },
+ "note": "Lab results from December 2018 (Campden BRI, UKAS accredited) for one regular takeaway portion of five items; the chain publishes no other figures. The fishcake's sodium is printed in a unit that can't be right, so it is not shown. Mushy peas are left out because the chain's own figures disagree. Fried in beef dripping unless the restaurant is asked for vegetable oil (not all can).",
+ "allergenGuide": {
+  "title": "Papa's Fish & Chips Allergen Guide: dishes and their allergen content, takeaway and restaurant (PDF created 2 April 2025)",
+  "url": "https://papasfishandchips.com/wp-content/uploads/2019/03/Allergen-Guide-5.pdf",
+  "checkedOn": "2026-10-12",
+  "mayContainPublished": true,
+  "complete": false
+ },
+ "categories": [
+  "Mains",
+  "Sides"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "battered-haddock",
+   "name": "Battered Haddock",
+   "category": "Mains",
+   "serving": "1 regular portion",
+   "nutrients": {
+    "calories": 217,
+    "protein": 29.2,
+    "carbs": 5.8,
+    "fat": 8.5,
+    "sodium": 210,
+    "energyKj": 909,
+    "weight": 131.4
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "battered-sausage",
+   "name": "Battered Sausage",
+   "category": "Mains",
+   "serving": "1 regular portion",
+   "nutrients": {
+    "calories": 174,
+    "protein": 7,
+    "carbs": 4.2,
+    "fat": 14.4,
+    "sodium": 585,
+    "energyKj": 724,
+    "weight": 53.2
+   },
+   "tags": [
+    "contains_beef",
+    "contains_pork"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fishcake",
+   "name": "Fishcake",
+   "category": "Mains",
+   "serving": "1 regular portion",
+   "nutrients": {
+    "calories": 212,
+    "protein": 8.8,
+    "carbs": 24.7,
+    "fat": 8.7,
+    "energyKj": 891,
+    "weight": 105
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chips",
+   "name": "Chips",
+   "category": "Sides",
+   "serving": "1 regular portion",
+   "nutrients": {
+    "calories": 358,
+    "protein": 7.8,
+    "carbs": 58.9,
+    "fat": 10,
+    "sodium": 10,
+    "energyKj": 1504,
+    "weight": 200
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "pattie",
+   "name": "Pattie",
+   "category": "Sides",
+   "serving": "1 regular portion",
+   "nutrients": {
+    "calories": 203,
+    "protein": 2.3,
+    "carbs": 21.3,
+    "fat": 12,
+    "sodium": 307,
+    "energyKj": 846,
+    "weight": 87.8
+   },
+   "tags": [
+    "contains_beef"
+   ],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

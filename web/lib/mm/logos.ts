@@ -158,6 +158,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "ole-and-steen": { src: "/logos/ole-and-steen.svg" },
   "oneills": { src: "/logos/oneills.png" },
   "oodles-wok": { src: "/logos/oodles-wok.webp" },
+  "papas-fish-and-chips": { src: "/logos/papas-fish-and-chips.png" },
   "park-holidays-uk": { src: "/logos/park-holidays-uk.svg" },
   "parsons-bakery": { src: "/logos/parsons-bakery.webp", tile: "dark" },
   "pasta-evangelists": { src: "/logos/pasta-evangelists.svg" },

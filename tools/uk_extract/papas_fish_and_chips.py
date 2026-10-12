@@ -249,7 +249,8 @@ def main() -> int:
     elif page is None and (args.pdfs / "nutritional-information.html").exists():
         page = args.pdfs / "nutritional-information.html"
     items, holdback, report = build(args.pdfs, page)
-    out = write_chain_folder(chain_id=CHAIN_ID, name="Papa's Fish & Chips", cuisine="Fish and chips", source_title=SOURCE_TITLE,
+    # "Seafood": an existing cuisine label (labels are translated text; "Fish and chips" has no translations)
+    out = write_chain_folder(chain_id=CHAIN_ID, name="Papa's Fish & Chips", cuisine="Seafood", source_title=SOURCE_TITLE,
                              source_url=PAGE_URL, checked_on=args.checked_on, aliases=ALIASES, items=items, out=args.out, note=NOTE,
                              holdback=holdback,
                              allergen_guide={"title": ALLERGEN_TITLE, "url": ALLERGEN_URL, "checked_on": args.checked_on,
