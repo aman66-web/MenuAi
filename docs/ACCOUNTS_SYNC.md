@@ -1,4 +1,4 @@
-# Sign-in and sync across devices (built 13 October 2026, on branch `claude/accounts-sync`; not live yet)
+# Sign-in and sync across devices (live since 14 October 2026; the real sign-in tests are the founder's)
 
 Founder, 12 October 2026: "we need to do the apple google and also set up resend i need to set up the log in methods", then, asked what sign-in
 should do: **"Sync across devices"**. This changes CLAUDE.md rule 4 ("no accounts, no personal data off the device"). The rule is rewritten
@@ -98,10 +98,15 @@ into the Supabase dashboard fields: never into chat, the repo, or a file.
   (100 a day). Check both pricing pages when signing up, since plans change.
 - **Apple's .p8 secret** (if Supabase asks for the generated secret) must be renewed every 6 months or Apple sign-in on the website stops.
 
-## Status: Part B is built (13 October 2026), not yet live
+## Status: Part B is built and deployed (13-14 October 2026)
 
-Part A is done (Apple, Google, Resend and Supabase set up; see docs/PROGRESS.md). Part B is built and tested on the branch
-`claude/accounts-sync`; nothing is pushed, deployed or applied to the live database yet.
+Part A is done (Apple, Google, Resend and Supabase set up; see docs/PROGRESS.md). Part B is built and tested. **On 14 October 2026** the founder
+ran the `user_data` migration in Supabase's SQL Editor (applied; RLS on, only `postgres` and `service_role` have access, 0 rows) and pushed
+`main` (commit fa68b8a); Vercel's production deployment succeeded. Checked on https://numbite.com without signing anyone in: `/api/v1/auth/session`
+answers `{"user":null}`, `/api/v1/sync` answers 401, the Google and Apple starts redirect to Supabase, which sends them on to Google (client
+`58782319115-0jean...`) and Apple (`com.amanmarwaha.numbite.web`) with the Supabase callback, the app's CORS pre-flight is allowed only for
+`app://menumath`, and the privacy and terms pages carry the new sections. **Not yet tried for real** (Claude may not create accounts on the live
+site): an email code, Google (whose secret in Supabase has never been proven), Apple, and syncing between two devices; steps 5 and 6 below.
 
 **Built:** migration `supabase/migrations/20261013120000_user_data.sql` (+ `supabase/tests/user_data.sql`); the API routes in docs/BACKEND.md
 ("Accounts and sync"); the shared merge rules (`web/lib/mm/syncMerge.ts`) and the browser's sync engine (`web/lib/mm/sync.ts`,
@@ -133,10 +138,10 @@ cases of "same whichever copy comes first"), `web/e2e/account.mjs` (8 browser ch
 
 1. **Check the Google secret.** Supabase › Authentication › Sign In / Providers › Google must hold the **web client's** secret (it starts with
    `GOCSPX-`). If it was ever pasted wrong, create a new secret on the "Numbite Web" client in Google Cloud and paste it there. Never into chat.
-2. **Say "go" for the database change.** The migration `20261013120000_user_data.sql` is applied to the live database only with your go-ahead
+2. ~~**Say "go" for the database change.**~~ **Done 14 October.** The migration `20261013120000_user_data.sql` is applied to the live database only with your go-ahead
    (CLAUDE.md rule 4); then run `supabase/tests/user_data.sql` in Supabase › SQL Editor (it rolls itself back and prints
    `ALL USER_DATA CHECKS PASSED`).
-3. **Merge and deploy.** Merge `claude/accounts-sync` into `claude/menumacros-kit` (and Production as you do today). Nothing else is needed in
+3. ~~**Merge and deploy.**~~ **Done 14 October (main = fa68b8a).** Merge `claude/accounts-sync` into `claude/menumacros-kit` (and Production as you do today). Nothing else is needed in
    Vercel: no new environment variables.
 4. **Xcode: done by Claude (13-14 October 2026).** The Sign in with Apple capability is `Config/MenuMacros.entitlements`, set as
    `CODE_SIGN_ENTITLEMENTS` on the app target (kept outside the synced `MenuMacros/` folder so it isn't copied into the app). It builds for the

@@ -1097,7 +1097,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   `_dmarc` added in Vercel DNS; a sending-only key restricted to numbite.com), Supabase (Site URL, redirect URLs `https://numbite.com/auth/callback`
   and `numbite://auth`, Apple, Google and Email enabled, custom SMTP, Magic Link template "Your Numbite sign-in code is {{ .Token }}…" with the
   subject "Your Numbite sign-in code"; the **Confirm sign up** template got the same text, because Supabase sends that one to a brand-new address's first code request and its default has only a link). **Part B** (branch `claude/accounts-sync`, not pushed): everything in docs/ACCOUNTS_SYNC.md "Status";
-  differences from the plan and the founder's steps are listed there. **Nothing is live:** the migration is not applied and the branch is not merged.
+  differences from the plan and the founder's steps are listed there. **Live since 14 October 2026:** the founder ran the migration in Supabase's SQL Editor and pushed `main` (fa68b8a); Vercel deployed it and the new routes answer correctly on numbite.com (docs/ACCOUNTS_SYNC.md "Status"). What is still untried is a real sign-in (email code, Google, Apple) and two-device sync.
   **Copy added (rule 8, logged here; translated into the 10 languages by AI, not yet checked by native speakers):** the sign-in sheet ("Sign in",
   "Continue with Apple/Google/email", "Your email address", "Send me a code", "6-digit code", the code and error lines, "Use a different email",
   "Send a new code", the privacy line), Settings › Account ("Account", "Signed in as", "Sync now", "Sign out", "Delete my account" and its
@@ -1121,7 +1121,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
-- [ ] **Sign-in and sync (built, not live): the founder's steps are in docs/ACCOUNTS_SYNC.md "Founder steps to take it live"**: check the Google secret, say "go" for the database migration, merge and deploy `claude/accounts-sync`, (the Sign in with Apple capability is already added: `Config/MenuMacros.entitlements`) test for real on the website and the iPhone, confirm the App Privacy answers
+- [ ] **Sign-in and sync (live; real tests still to do): the founder's remaining steps are in docs/ACCOUNTS_SYNC.md "Founder steps" 1, 5 and 6**: check the Google secret, test a real sign-in on the website and the iPhone (the Sign in with Apple capability is already added: `Config/MenuMacros.entitlements`), confirm the App Privacy answers
 - [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (numbite.com live and Vercel Pro since 2026-10-12; next a support@numbite.com forwarding address, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
 - [ ] **Decide which supermarkets go into the App Store version** (`web/app-content.json`; all nine until you say; the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S). Food photos: decided 2026-10-12, all in ("yes i want all the food photos there")
 - [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)
