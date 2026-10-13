@@ -1111,6 +1111,25 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   recipe page's "Back" link) and `a11y.mjs` (the welcome screen's "Change language" button) report `label-content-name-mismatch` on existing buttons whose
   spoken label doesn't contain their visible word; the first sync-engine test also caught and fixed untouched defaults being sent to the server.
 
+- 2026-10-14 — **App Review readiness check (founder: "go through the app like an app store developer").** Two independent reviewers (one read the code,
+  settings and docs against the guidelines of 8 June 2026; one tapped through every screen of the packed app in light, dark, extra-large text, three
+  languages and offline). **Fixed:** 71 placeholder `support@example.com` addresses inside the packed app (`build_app_web.sh` now needs
+  `NEXT_PUBLIC_SUPPORT_EMAIL` and refuses placeholders; built with the address the live site shows, `aman66@hotmail.co.uk`, **founder to confirm**); the
+  website landing page ("an iPhone app is planned", a waitlist) inside the app (now only forwards to /app) and a plain Back bar on the privacy, terms and
+  support pages inside the app; the camera purpose string (also covers the report photo); a caution under calorie targets below 1,200 and a GLP-1 line
+  ("follow the advice of your doctor or pharmacist") in onboarding and Settings; "How we get our numbers" no longer claims every number is a restaurant's
+  (supermarket numbers and recipes are explained); store text (age-rating answers: Health or Wellness Frequent, Medical Infrequent, Alcohol Infrequent;
+  "glp1" keyword dropped; "every dish" → "menu items"; new App Review notes); privacy page says the database is in the United States; Sign in with Apple
+  token revoke on account deletion (`web/lib/auth/apple.ts`, needs `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY` in Vercel: docs/ACCOUNTS_SYNC.md);
+  `appLogos` switch next to `menuPhotos` (app-content.json, default on). **Open decision (founder):** the chains' logos, item photos and the supermarkets'
+  scraped lists are third-party material used without permission (guideline 5.2.1; docs/IMAGE_TERMS.md): the reviewer's advice is to ship 1.0 with
+  `menuPhotos: false`, `appLogos: false` and only the shops whose terms allow it (about 70 MB instead of 161 MB), then add them back with permission.
+  **Not done:** real alcohol products remain in Iceland's grocery list (rule of 11 October) and about 450 alcoholic menu items are in 23 chains (declare in the
+  age rating); tap targets under 44 pt on small links (welcome Terms/Privacy, product-page shop links, map zoom buttons); minor polish (404 page dead end,
+  Settings footer "web 1.0", Co-op and Ocado listed as shops, map pins piling up in central London, an unstyled file input in the report sheet); the privacy
+  policy names no company and says nothing of the UK GDPR transfer basis for the US database (the founder to supply the company details); Apple's own
+  Sign in with Apple artwork instead of our drawn pill; the session lives in local storage, not the Keychain.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -6,6 +6,16 @@ import { site } from "@/site.config";
 export default function SiteLayout({ children }: LayoutProps<"/">) {
   return (
     <div className="min-h-full flex flex-col">
+      {APP_BUILD ? (
+        // Inside the iPhone app these pages (privacy, terms, support) are reached from Settings: a plain Back bar, not the website's header.
+        <header className="sticky top-0 z-30 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl pt-[env(safe-area-inset-top)]">
+          <div className="mx-auto flex min-h-14 w-full max-w-3xl items-center px-3">
+            <Link href="/app/settings" className="inline-flex min-h-11 items-center gap-1 rounded-full px-3 text-base font-bold text-accent">
+              <span aria-hidden>←</span> Back
+            </Link>
+          </div>
+        </header>
+      ) : (
       <header className="sticky top-0 z-30 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl">
         <div className="mx-auto flex min-h-16 w-full max-w-5xl flex-wrap items-center justify-between gap-x-2 px-5 py-2.5">
           <Link href={APP_BUILD ? "/app" : "/"} className="inline-flex min-h-11 items-center whitespace-nowrap text-lg font-extrabold tracking-tight">
@@ -18,6 +28,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
           </nav>
         </div>
       </header>
+      )}
       <main className="flex-1">{children}</main>
       <footer className="mx-auto w-full max-w-5xl px-5 py-10 text-sm text-muted border-t border-line mt-16">
         <div className="flex flex-wrap gap-x-6">

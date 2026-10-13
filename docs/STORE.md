@@ -86,7 +86,10 @@ Answer the questionnaire honestly. Notes: no violence, no user-to-user content, 
 (App Review 2.3.6): **Health or Wellness Topics: Frequent** (calorie tracking and dieting advice count, and the app is about little else);
 **Medical or Treatment Information: Infrequent** (the GLP-1 goal mentions a medicine class, and every number comes with "not medical advice");
 **Alcohol, Tobacco or Drug Use or References: Infrequent/Mild** (a few pub and restaurant menus list cocktails or ciders by name; alcohol is
-never added to the supermarket lists); everything else None. Expect a rating of about 13+; do not answer lower to look better.
+never added to the supermarket lists); everything else None. Expect a rating of about 13+; do not answer lower to look better. A tester counted about **450 alcoholic items in 23 restaurant and pub menus**
+(searching "vodka" or "beer" finds them, each with its calories): keep the alcohol answer honest, and note that the supermarket lists are meant to
+have none (the founder's rule of 11 October) but a few real alcohol products remain in Iceland's list (an alcoholic cherryade, vodka mixes, a
+Pinot Grigio, cream liqueurs): a data-cleaning job in `tools/groceries/build_groceries.py` (`is_alcohol`), not done.
 
 ## URLs for App Store Connect
 
