@@ -71,6 +71,8 @@ into the Supabase dashboard fields: never into chat, the repo, or a file.
 >      `noreply@numbite.com`, sender name `Numbite`.
 >    - Email Templates › Magic Link: replace the body with "Your Numbite sign-in code is {{ .Token }}. It expires in 1 hour. If you didn't ask
 >      for it, ignore this email."
+>    - Email Templates › **Confirm sign up**: the same body and the subject "Your Numbite sign-in code". (Added 13 October 2026: a brand-new
+>      address is signed up by its first code request, and Supabase then sends the "Confirm sign up" email, whose default text has a link and no code.)
 >
 > At the end, tell me which steps are done and which need me. Don't show any secret values.
 

@@ -5,7 +5,7 @@ import { handleSyncPut, MAX_SYNC_BODY_BYTES } from "@/lib/sync/handlers";
 // Merge what a device sends for one store into the stored copy, and return the merged store (lib/mm/syncMerge.ts has the rules).
 export const OPTIONS = authPreflight;
 
-export async function PUT(request: Request, route: RouteContext<"/api/v1/sync/[store]">) {
+export async function PUT(request: Request, route: { params: Promise<{ store: string }> }) {
   const { store } = await route.params;
   return authRoute(request, async (ctx) => {
     const who = await authenticate(request.headers, ctx);

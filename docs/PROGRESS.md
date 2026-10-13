@@ -1096,7 +1096,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   "In production" with non-sensitive scopes, Web and iOS clients), Resend (`numbite.com` verified in Ireland; DKIM, `rsend`/`send` CNAMEs and
   `_dmarc` added in Vercel DNS; a sending-only key restricted to numbite.com), Supabase (Site URL, redirect URLs `https://numbite.com/auth/callback`
   and `numbite://auth`, Apple, Google and Email enabled, custom SMTP, Magic Link template "Your Numbite sign-in code is {{ .Token }}…" with the
-  subject "Your Numbite sign-in code"). **Part B** (branch `claude/accounts-sync`, not pushed): everything in docs/ACCOUNTS_SYNC.md "Status";
+  subject "Your Numbite sign-in code"; the **Confirm sign up** template got the same text, because Supabase sends that one to a brand-new address's first code request and its default has only a link). **Part B** (branch `claude/accounts-sync`, not pushed): everything in docs/ACCOUNTS_SYNC.md "Status";
   differences from the plan and the founder's steps are listed there. **Nothing is live:** the migration is not applied and the branch is not merged.
   **Copy added (rule 8, logged here; translated into the 10 languages by AI, not yet checked by native speakers):** the sign-in sheet ("Sign in",
   "Continue with Apple/Google/email", "Your email address", "Send me a code", "6-digit code", the code and error lines, "Use a different email",

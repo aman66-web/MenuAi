@@ -15,7 +15,9 @@ function fakeBridge() {
   window.__bridgeCalls = [];
   window.webkit = { messageHandlers: { menumath: { postMessage(m) {
     window.__bridgeCalls.push(m.action);
-    const reply = m.action === "scan" ? { code: "5000157024671" } : m.action === "locate" ? (m.payload.onlyIfAllowed ? { error: "denied" } : { lat: 51.5072, lng: -0.1276 }) : { done: true };
+    const reply = m.action === "scan" ? { code: "5000157024671" } : m.action === "locate" ? (m.payload.onlyIfAllowed ? { error: "denied" } : { lat: 51.5072, lng: -0.1276 })
+      : m.action === "appleSignIn" ? { idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce" }
+      : m.action === "webAuth" ? { authCode: "A".repeat(60), verifier: "v".repeat(64) } : { done: true };
     setTimeout(() => window.__menumathReply(m.id, reply), 50);
   } } } };
 }
@@ -130,6 +132,47 @@ await step("the shopping list's Share opens the iPhone's share sheet", async () 
   const calls = await page.evaluate(() => window.__bridgeCalls);
   expect(calls.includes("share"), `bridge calls: ${calls}`);
   await ctx.close();
+});
+
+await step("iPhone sign-in: Sign in with Apple and Google go through the phone, the session is kept as a token (no cookies) and sent with each sync", async () => {
+  for (const provider of ["apple", "google"]) {
+    const { ctx, page } = await newPage({ bridge: true });
+    const seen = { auth: [], sync: [] };
+    const session = { accessToken: "AT-" + provider, refreshToken: "refresh-token-" + provider, expiresAt: Math.floor(Date.now() / 1000) + 3600, user: { id: "u-" + provider, email: provider + "@example.com" } };
+    // the app calls the live website's API (cross-origin from app://menumath, here from localhost): answer it, with the CORS headers the real one sends
+    const cors = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Content-Type, Authorization", "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS" };
+    await page.route(`${LIVE}/api/v1/**`, async (route) => {
+      const req = route.request();
+      if (req.method() === "OPTIONS") return route.fulfill({ status: 204, headers: cors });
+      const path = new URL(req.url()).pathname.replace(/^\/api\/v1\//, "");
+      const json = (status, body) => route.fulfill({ status, contentType: "application/json", headers: cors, body: JSON.stringify(body) });
+      if (path === "auth/apple") { seen.auth.push({ path, body: JSON.parse(req.postData()) }); return json(200, { ok: true, session }); }
+      if (path === "auth/exchange") { seen.auth.push({ path, body: JSON.parse(req.postData()) }); return json(200, { ok: true, session }); }
+      if (path === "auth/session") return json(200, { user: session.user });
+      if (path === "sync" && req.method() === "GET") { seen.sync.push(req.headers().authorization ?? ""); return json(200, { ok: true, stores: {} }); }
+      const m = /^sync\/(\w+)$/.exec(path);
+      if (m && req.method() === "PUT") { seen.sync.push(req.headers().authorization ?? ""); return json(200, { ok: true, state: JSON.parse(req.postData()).state }); }
+      return json(404, { error: "not_found" });
+    });
+    await page.goto(BASE + "/app/settings");
+    await page.getByRole("heading", { name: "Account" }).waitFor();
+    await page.getByRole("button", { name: "Sign in", exact: true }).click();
+    await page.getByRole("dialog").getByRole("button", { name: provider === "apple" ? "Continue with Apple" : "Continue with Google" }).click();
+    await page.getByText(provider + "@example.com", { exact: true }).waitFor();
+    const calls = await page.evaluate(() => window.__bridgeCalls);
+    expect(calls.includes(provider === "apple" ? "appleSignIn" : "webAuth"), `bridge calls: ${calls}`);
+    if (provider === "apple") expect(seen.auth[0].body.idToken === "aaa.bbb.ccc" && seen.auth[0].body.nonce === "n0nceN0nceN0nce", "Apple's token and nonce were sent to our API");
+    else expect(seen.auth[0].path === "auth/exchange" && seen.auth[0].body.code === "A".repeat(60) && seen.auth[0].body.verifier === "v".repeat(64), "the one-time code and verifier were exchanged");
+    // the session is kept inside the app and a store change is synced with it as a header
+    const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.session")));
+    expect(stored?.data?.accessToken === "AT-" + provider, "the app keeps its session");
+    await page.goto(BASE + "/app/groceries/list");
+    await page.getByPlaceholder("Add something, e.g. milk").fill("Milk");
+    await page.getByRole("button", { name: "Add", exact: true }).click();
+    await page.waitForTimeout(4500);
+    expect(seen.sync.length > 0 && seen.sync.every((h) => h === "Bearer AT-" + provider), `sync calls carry the session: ${JSON.stringify(seen.sync)}`);
+    await ctx.close();
+  }
 });
 
 await browser.close();
