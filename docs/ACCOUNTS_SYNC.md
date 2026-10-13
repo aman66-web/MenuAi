@@ -66,7 +66,8 @@ into the Supabase dashboard fields: never into chat, the repo, or a file.
 >    - Providers › Apple: on; client IDs `com.amanmarwaha.numbite.web,com.amanmarwaha.MenuMacros`, plus the Key ID, team ID and .p8 (or the
 >      secret its generator makes from them; note that it expires after 6 months and add a calendar reminder).
 >    - Providers › Google: on; both client IDs (web first, comma-separated) and the web client's secret.
->    - Providers › Email: on, with "Confirm email" on.
+>    - Providers › Email: on, with "Confirm email" on, and **Email OTP length 6** (Supabase's default is 8 digits; the app, the translations and
+>      the server all say and check 6. Set to 6 on 14 October 2026 after the first real code arrived with 8).
 >    - Emails › SMTP Settings: custom SMTP on; host `smtp.resend.com`, port 465, user `resend`, password = the Resend API key, sender
 >      `noreply@numbite.com`, sender name `Numbite`.
 >    - Email Templates › Magic Link: replace the body with "Your Numbite sign-in code is {{ .Token }}. It expires in 1 hour. If you didn't ask
