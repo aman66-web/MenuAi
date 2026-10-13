@@ -17,8 +17,9 @@ fi
 export NEXT_PUBLIC_SUPPORT_EMAIL
 unset NEXT_PUBLIC_SHOW_SAMPLE_DATA NEXT_PUBLIC_PRO NEXT_PUBLIC_PRO_PREVIEW
 photos=$(python3 -c 'import json; print("1" if json.load(open("app-content.json")).get("menuPhotos", True) else "0")')
+logos=$(python3 -c 'import json; print("1" if json.load(open("app-content.json")).get("appLogos", True) else "0")')
 rm -rf .next-app
-APP_BUILD=1 NEXT_PUBLIC_MENU_PHOTOS="$photos" NEXT_PUBLIC_REMOTE_BASE="${NEXT_PUBLIC_REMOTE_BASE:-https://numbite.com}" npx next build
+APP_BUILD=1 NEXT_PUBLIC_MENU_PHOTOS="$photos" NEXT_PUBLIC_APP_LOGOS="$logos" NEXT_PUBLIC_REMOTE_BASE="${NEXT_PUBLIC_REMOTE_BASE:-https://numbite.com}" npx next build
 python3 "$here/scripts/pack_app_web.py" .next-app "$here/MenuMacros/Resources/WebApp.bundle" app-content.json
 # Belt and braces: nothing placeholder may end up inside the app.
 if grep -rl "support@example.com" "$here/MenuMacros/Resources/WebApp.bundle" > /dev/null 2>&1; then

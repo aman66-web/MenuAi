@@ -1,5 +1,5 @@
 {
-  "note": "What goes inside the iPhone app (scripts/build_app_web.sh, docs/APP_BUILD.md). The website always has everything. menuPhotos: the chains' own item photos (founder 2026-10-12: \"yes i want all the food photos there\"). shops: the supermarkets whose full product lists and catalogue are packed in (a shop left out also disappears from the app's Groceries); every shop is in until the founder decides otherwise.",
+  "note": "What goes inside the iPhone app (scripts/build_app_web.sh, docs/APP_BUILD.md). The website always has everything. appLogos: the chains' and supermarkets' own logo files inside the app (false = our cuisine icons and plain shop names instead; the safest answer to App Review 5.2.1). menuPhotos: the chains' own item photos (founder 2026-10-12: \"yes i want all the food photos there\"). shops: the supermarkets whose full product lists and catalogue are packed in (a shop left out also disappears from the app's Groceries); every shop is in until the founder decides otherwise.",
   "menuPhotos": true,
   "shops": [
     "sainsburys",
@@ -11,5 +11,6 @@
     "morrisons",
     "iceland",
     "marks-and-spencer"
-  ]
+  ],
+  "appLogos": true
 }

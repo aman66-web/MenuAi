@@ -30,6 +30,9 @@ export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "
 
 /** The chains' own item photos (CLAUDE.md rule 2). The iPhone app's build can leave them out (web/app-content.json, docs/APP_BUILD.md). */
 export const MENU_PHOTOS_ENABLED = process.env.NEXT_PUBLIC_MENU_PHOTOS !== "0";
+/** The chains' and supermarkets' own logo files. The iPhone app can be built without them (web/app-content.json "appLogos": false → NEXT_PUBLIC_APP_LOGOS=0): chains then show our own
+ *  cuisine icons and shops their plain-text names. Off is the safest answer to App Review 5.2.1 (third-party trademarks); on is the founder's accepted-risk decision (CLAUDE.md rule 2). */
+export const LOGOS_ENABLED = process.env.NEXT_PUBLIC_APP_LOGOS !== "0";
 
 export const APP_VERSION = "web 1.0";
 /** Our API (reports, chain requests, messages). The iPhone app reaches it on the live website (lib/cors.ts lets the app's pages call it). */

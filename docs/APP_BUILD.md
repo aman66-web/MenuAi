@@ -90,3 +90,14 @@ website shows from the shops' own servers still load from those servers when onl
 
 Pro and subscriptions (`PRO_ENABLED`, StoreKit), Pip's AI recipe maker (`AI_RECIPES_ENABLED`, needs an API key and a privacy update),
 Apple Health, the photo or shop decisions above, and the native screens of docs/BUILD_PLAN.md if wanted. Each update goes through App Review.
+
+## What goes inside the app: the three switches (web/app-content.json)
+
+- `menuPhotos` (default true): the chains' own item photos (91 MB of the app). `false` leaves them out and shrinks the app by about 56%.
+- `appLogos` (default true): the chains' and supermarkets' own logo files. `false` leaves them out (cuisine icons and plain shop names show
+  instead). **App Review 5.2.1** (third-party trademarks and copyrighted material used without permission) is the biggest rejection risk
+  found in the 14 October 2026 guideline review; photos and logos are in only because of the founder's accepted-risk decisions (CLAUDE.md rule 2).
+- `shops`: which supermarkets' product lists are packed in.
+
+After changing a switch: `NEXT_PUBLIC_SUPPORT_EMAIL=<the address the live site shows> ./scripts/build_app_web.sh`, which refuses to run without a real
+contact address and fails if a placeholder ends up inside the app.

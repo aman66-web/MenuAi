@@ -1,3 +1,4 @@
+import { LOGOS_ENABLED } from "./config";
 // Official restaurant logos, shown unmodified next to a chain's plain-text name to identify it (founder's decisions
 // 2026-10-05 and 2026-10-06, see docs/PROGRESS.md and CLAUDE.md rule 2). A logo appears only if its file is listed here
 // AND exists in public/logos/. Nothing is drawn or recreated by us: each file is the chain's own artwork, saved exactly as
@@ -437,10 +438,10 @@ export function setHiddenLogos(ids: readonly string[]): void {
 
 /** A supermarket's logo (by retailer id), if we hold its own file and it hasn't been taken down. */
 export function shopLogoFor(shopId: string | undefined): ChainLogo | undefined {
-  return shopId && !hidden.has(`shop:${shopId}`) ? SHOP_LOGOS[shopId] : undefined;
+  return LOGOS_ENABLED && shopId && !hidden.has(`shop:${shopId}`) ? SHOP_LOGOS[shopId] : undefined;
 }
 
 /** A chain's logo: its logo file and/or its square icon, unless it has been taken down. */
 export function logoFor(chainId: string | undefined): ChainLogo | undefined {
-  return chainId && !hidden.has(chainId) ? MERGED.get(chainId) : undefined;
+  return LOGOS_ENABLED && chainId && !hidden.has(chainId) ? MERGED.get(chainId) : undefined;
 }
