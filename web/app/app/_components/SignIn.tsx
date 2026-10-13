@@ -170,7 +170,7 @@ function SignInPanel({ onDone }: { onDone: () => void }) {
       )}
 
       {step === "email" && (
-        <form onSubmit={(e) => { e.preventDefault(); void sendCode(); }}>
+        <form noValidate onSubmit={(e) => { e.preventDefault(); void sendCode(); }}>
           <p className="text-base">{t("We'll email you a 6-digit code. There's no password to remember.")}</p>
           <div className="mt-4">
             <Field label={t("Your email address")}>
@@ -183,7 +183,7 @@ function SignInPanel({ onDone }: { onDone: () => void }) {
       )}
 
       {step === "code" && (
-        <form onSubmit={(e) => { e.preventDefault(); void checkCode(); }}>
+        <form noValidate onSubmit={(e) => { e.preventDefault(); void checkCode(); }}>
           <p className="text-base">{t("We've sent a 6-digit code to {email}. It can take a minute to arrive.", { email: email.trim() })}</p>
           <div className="mt-4">
             <Field label={t("6-digit code")}>

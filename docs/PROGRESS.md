@@ -1089,6 +1089,28 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Part A (Apple, Google, Resend, Supabase dashboards) is the founder's, with a paste-ready prompt for Claude in Chrome on the Mac. The new migration is
   applied only with the founder's go-ahead.
 
+- 2026-10-13 — **Sign-in and sync: Part A done, Part B built** (founder: "just do everything for me i give you permission"). **Part A** (done with the
+  founder in their Chrome): Apple (App ID `com.amanmarwaha.MenuMacros` with Sign in with Apple, Services ID `com.amanmarwaha.numbite.web`, Key
+  `X374U6N8FP`; the generated secret expires **11 April 2027**, with a reminder in the founder's Outlook calendar for 29 March 2027 and
+  `tools/auth/apple_client_secret.py` to make the next one without ever printing it), Google (project "Numbite", consent screen published
+  "In production" with non-sensitive scopes, Web and iOS clients), Resend (`numbite.com` verified in Ireland; DKIM, `rsend`/`send` CNAMEs and
+  `_dmarc` added in Vercel DNS; a sending-only key restricted to numbite.com), Supabase (Site URL, redirect URLs `https://numbite.com/auth/callback`
+  and `numbite://auth`, Apple, Google and Email enabled, custom SMTP, Magic Link template "Your Numbite sign-in code is {{ .Token }}…" with the
+  subject "Your Numbite sign-in code"). **Part B** (branch `claude/accounts-sync`, not pushed): everything in docs/ACCOUNTS_SYNC.md "Status";
+  differences from the plan and the founder's steps are listed there. **Nothing is live:** the migration is not applied and the branch is not merged.
+  **Copy added (rule 8, logged here; translated into the 10 languages by AI, not yet checked by native speakers):** the sign-in sheet ("Sign in",
+  "Continue with Apple/Google/email", "Your email address", "Send me a code", "6-digit code", the code and error lines, "Use a different email",
+  "Send a new code", the privacy line), Settings › Account ("Account", "Signed in as", "Sync now", "Sign out", "Delete my account" and its
+  confirmation, "Last synced {time}", the waiting/offline/error lines, "Keep my account"), the welcome screen link "Already have an account? Sign
+  in", the Clear-data sentence "This also signs you out of your account on this device. What is synced stays in your account.", and the Settings
+  data line for signed-in people ("Because you're signed in, your settings, saved meals, shopping list, favourites and today's log are also saved in
+  your account..."). **Legal and store text changed (English only):** privacy page (new section "Signing in and syncing (optional)", cookies,
+  processors incl. Resend, retention; last updated 13 October 2026), terms ("Accounts (optional)"), support page and landing line ("No account needed"),
+  docs/STORE.md (description, App Privacy rows incl. Health, review notes), `PrivacyInfo.xcprivacy` (user ID and Health added, other user content now
+  linked) and CLAUDE.md rule 4 (accounts are optional). **Found on the way (not mine, not changed):** the browser tests `languages.mjs` (Arabic: the
+  recipe page's "Back" link) and `a11y.mjs` (the welcome screen's "Change language" button) report `label-content-name-mismatch` on existing buttons whose
+  spoken label doesn't contain their visible word; the first sync-engine test also caught and fixed untouched defaults being sent to the server.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1099,6 +1121,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
+- [ ] **Sign-in and sync (built, not live): the founder's steps are in docs/ACCOUNTS_SYNC.md "Founder steps to take it live"**: check the Google secret, say "go" for the database migration, merge and deploy `claude/accounts-sync`, add the Sign in with Apple capability in Xcode, test for real on the website and the iPhone, confirm the App Privacy answers
 - [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (numbite.com live and Vercel Pro since 2026-10-12; next a support@numbite.com forwarding address, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
 - [ ] **Decide which supermarkets go into the App Store version** (`web/app-content.json`; all nine until you say; the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S). Food photos: decided 2026-10-12, all in ("yes i want all the food photos there")
 - [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)

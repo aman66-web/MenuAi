@@ -1,4 +1,4 @@
-# Sign-in and sync across devices (planned)
+# Sign-in and sync across devices (built 13 October 2026, on branch `claude/accounts-sync`; not live yet)
 
 Founder, 12 October 2026: "we need to do the apple google and also set up resend i need to set up the log in methods", then, asked what sign-in
 should do: **"Sync across devices"**. This changes CLAUDE.md rule 4 ("no accounts, no personal data off the device"). The rule is rewritten
@@ -95,3 +95,52 @@ into the Supabase dashboard fields: never into chat, the repo, or a file.
 - **Running costs:** last I knew, Supabase's free plan covered about 50,000 monthly sign-in users and Resend's free plan about 3,000 emails a month
   (100 a day). Check both pricing pages when signing up, since plans change.
 - **Apple's .p8 secret** (if Supabase asks for the generated secret) must be renewed every 6 months or Apple sign-in on the website stops.
+
+## Status: Part B is built (13 October 2026), not yet live
+
+Part A is done (Apple, Google, Resend and Supabase set up; see docs/PROGRESS.md). Part B is built and tested on the branch
+`claude/accounts-sync`; nothing is pushed, deployed or applied to the live database yet.
+
+**Built:** migration `supabase/migrations/20261013120000_user_data.sql` (+ `supabase/tests/user_data.sql`); the API routes in docs/BACKEND.md
+("Accounts and sync"); the shared merge rules (`web/lib/mm/syncMerge.ts`) and the browser's sync engine (`web/lib/mm/sync.ts`,
+`syncStores.ts`, wired in `web/app/app/_lib/account.ts`); Settings › Account, the sign-in sheet and the welcome screen's "Already have an
+account? Sign in"; the iPhone side (`MenuMacros/Services/AppleSignInService.swift`, `WebSignInService.swift`, bridge actions `appleSignIn`
+and `webAuth`); translations in the 10 languages; the privacy page, terms, support page, STORE.md, `PrivacyInfo.xcprivacy` and CLAUDE.md rule 4.
+**Tests:** 38 handler tests, 11 sync-server tests, 20 two-phone engine tests (the real server code and merge rules), 19 merge tests (300 random
+cases of "same whichever copy comes first"), `web/e2e/account.mjs` (8 browser checks), Swift: 15 unit tests including the RFC 7636 example.
+
+**Where it differs from the plan above (decided while building):**
+- **Email in the app** uses the same 6-digit-code form inside the app's own pages (the app keeps the session it is given); only Google opens the
+  secure browser sheet, because only Google needs it. Apple on the website goes through Supabase like Google does.
+- **Routes added:** `auth/refresh` (the app renews its session), `auth/session` (who is signed in; renews the website's cookies) and
+  `auth/apple/start` (Apple on the website).
+- **The one-time code** for the iPhone is the session itself, sealed (AES-256-GCM, key derived from `SUPABASE_SECRET_KEY`, so no new environment
+  variable), valid two minutes and only usable with the app's own PKCE verifier. It needs no table.
+- **First sync on a device:** an account's real settings win over a phone that was never set up; settings set up on the phone go up when the
+  account has none; untouched defaults are never sent. Lists always merge (nothing is replaced).
+- **A different person signing in on the same phone** starts from a clean slate (the first person's data is not uploaded to the second's account).
+- **"Clear data on this device" while signed in** also signs out of the account on that device (otherwise the next sync would bring everything back,
+  or treat the clearing as a deletion). The synced data stays in the account.
+- **Today's log** syncs only entries from today and yesterday; older entries stay on the phone.
+- **Rate limits** are in memory per server instance (as for Pip's recipe maker); Supabase adds its own (one email code a minute per address).
+- **Nobody who never signed in sends the server anything**: the app asks "who is signed in?" only on a device that already knows an account, in the
+  iPhone app when it holds a session, or when the browser has just come back from Google or Apple (`?signin=ok`).
+- The iPhone app keeps its session in the web view's local storage (like its other data); moving it to the Keychain is a possible later hardening.
+
+## Founder steps to take it live
+
+1. **Check the Google secret.** Supabase › Authentication › Sign In / Providers › Google must hold the **web client's** secret (it starts with
+   `GOCSPX-`). If it was ever pasted wrong, create a new secret on the "Numbite Web" client in Google Cloud and paste it there. Never into chat.
+2. **Say "go" for the database change.** The migration `20261013120000_user_data.sql` is applied to the live database only with your go-ahead
+   (CLAUDE.md rule 4); then run `supabase/tests/user_data.sql` in Supabase › SQL Editor (it rolls itself back and prints
+   `ALL USER_DATA CHECKS PASSED`).
+3. **Merge and deploy.** Merge `claude/accounts-sync` into `claude/menumacros-kit` (and Production as you do today). Nothing else is needed in
+   Vercel: no new environment variables.
+4. **Xcode, one click-by-click step** (CLAUDE.md: capabilities are yours): open `MenuMacros.xcodeproj` → select the **MenuMacros** target →
+   **Signing & Capabilities** → **+ Capability** → **Sign in with Apple**. Xcode creates the entitlements file by itself. (The App ID already has
+   Sign in with Apple switched on in Apple's portal, from Part A.) Then run `./scripts/build_app_web.sh` and build onto your iPhone.
+5. **Test for real**, on the website and on your iPhone: email code (check the email arrives from noreply@numbite.com), Continue with Google,
+   Sign in with Apple, a saved meal and a shopping-list item appearing on a second device, Sign out, Delete my account, and "Clear data on this
+   device" while signed in. The fake backend in the browser tests cannot prove the real Supabase answers the way the code expects.
+6. **Before submitting to the App Store:** confirm the privacy answers in docs/STORE.md (especially "Health"), and have native speakers look at the
+   new sign-in text in each language (Apple's and Google's own button wording differs by language).

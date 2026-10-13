@@ -113,11 +113,17 @@ export async function leaveForClearing(): Promise<void> {
   userStore.set(null);
 }
 
+/** Read when this file loads, before the settings page tidies "?signin=ok" out of the address. */
+const RETURNING = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("signin") === "ok";
+
 let booted = false;
 /** On every launch: ask who is signed in. Offline keeps what we knew; a "no" means the session ended, so the device goes back to plain local data. */
 export async function bootAccount(): Promise<void> {
   if (booted || typeof window === "undefined") return;
   booted = true;
+  // Someone who never signed in sends the server nothing: ask only if this device already knows an account, the iPhone app holds a session,
+  // or the browser has just come back from Google or Apple sign-in (the callback adds ?signin=ok).
+  if (!userStore.get() && !RETURNING && !(APP_BUILD && tokensStore.get())) return;
   try {
     const user = await accountApi().session();
     if (user) signedIn(user);

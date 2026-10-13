@@ -25,6 +25,7 @@ node browse.mjs                                   # Home browse by type + A-Z ju
 node calories.mjs                                  # chains that publish calories only: badge, filter, "not published", no ordering tools (stubbed chain)
 node map.mjs                                      # Nearby: location, typed postcode/town, filters, list; checks the location never appears in a request
 node groceries-photos.mjs                          # grocery photos: stored copy -> shop's picture -> "no photo", credited to the shop; Open Food Facts never asked
+node account.mjs                                  # sign-in and sync: email code, two phones syncing through a fake backend that uses the real merge rules, offline, sign out, delete, welcome link, axe
 node offline.mjs                                  # stops and restarts the server: real offline (takes ~1.5 min)
 node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THEME=light, WIDTH=360, FULL=1, PRO=1)
 node brand.mjs                                    # re-render the app icon + social card from web/design/ (after a name change too)

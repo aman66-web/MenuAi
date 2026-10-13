@@ -5,7 +5,7 @@ import type { Limit } from "./limiter";
 import { challengeFor, isChallenge, newVerifier } from "./pkce";
 import { HANDOFF_TTL_MS, openHandoff, sealHandoff } from "./seal";
 import {
-  ACCESS_COOKIE, REFRESH_COOKIE, clearFlowCookie, clearSessionCookies, flowCookie, parseCookies, readFlow, safeNext, sessionCookies, FLOW_COOKIE,
+  ACCESS_COOKIE, REFRESH_COOKIE, clearFlowCookie, clearSessionCookies, flowCookie, parseCookies, readFlow, safeNext, sessionCookies, withParam, FLOW_COOKIE,
 } from "./cookies";
 import { timingSafeEqual } from "node:crypto";
 
@@ -147,7 +147,8 @@ export async function handleOAuthCallback(query: URLSearchParams, cookieHeader: 
     if (e instanceof AuthError) return failure(flow.m, "failed", [clear]);
     throw e;
   }
-  if (flow.m === "web") return { status: 302, redirect: safeNext(flow.n), cookies: [clear, ...sessionCookies(session, ctx.secure, ctx.now())] };
+  // "?signin=ok" tells the page to ask who is signed in (a visitor who never signed in sends the server nothing at all)
+  if (flow.m === "web") return { status: 302, redirect: withParam(safeNext(flow.n), "signin", "ok"), cookies: [clear, ...sessionCookies(session, ctx.secure, ctx.now())] };
   if (!isChallenge(flow.c)) return failure("app", "failed", [clear]);
   const handoff = sealHandoff({ session, challenge: flow.c, expires: ctx.now() + HANDOFF_TTL_MS }, ctx.secret);
   return { status: 302, redirect: `${APP_REDIRECT}?code=${handoff}`, cookies: [clear] };

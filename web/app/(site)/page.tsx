@@ -57,7 +57,7 @@ export default function Home() {
             </a>
           )}
         </div>
-        <p className="mt-4 text-sm text-muted">Free. No account. Your targets and saved orders stay on your device.</p>
+        <p className="mt-4 text-sm text-muted">Free. No account needed. Your targets and saved orders stay on your device unless you sign in to sync them.</p>
       </section>
 
       {stats.chains > 0 && (

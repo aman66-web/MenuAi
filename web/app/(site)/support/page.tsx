@@ -40,7 +40,7 @@ export default function Support() {
           )}
           <div>
             <h2 className="font-bold">Your data</h2>
-            <p className="mt-1 text-muted">There is no account. Everything you set up stays on your phone; Settings › Clear data on this device removes it.</p>
+            <p className="mt-1 text-muted">You don&apos;t need an account. Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account). Settings › Account › Delete my account removes the account and what was synced; Settings › Clear data on this device removes what is on the phone.</p>
           </div>
         </div>
       </div>

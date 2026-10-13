@@ -79,3 +79,11 @@ export function safeNext(next: unknown, fallback = "/app/settings#account"): str
   if (typeof next !== "string" || next.length > 200 || !next.startsWith("/") || next.startsWith("//") || next.includes("\\") || /[\u0000-\u001f]/.test(next)) return fallback;
   return next;
 }
+
+/** The same path with one more query parameter (before any #fragment): how the callback tells the page "you just signed in, ask who". */
+export function withParam(path: string, key: string, value: string): string {
+  const hash = path.indexOf("#");
+  const base = hash >= 0 ? path.slice(0, hash) : path;
+  const fragment = hash >= 0 ? path.slice(hash) : "";
+  return `${base}${base.includes("?") ? "&" : "?"}${encodeURIComponent(key)}=${encodeURIComponent(value)}${fragment}`;
+}

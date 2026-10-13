@@ -74,6 +74,36 @@ Send `Content-Type: application/json`. Bodies over 16 KB (UTF-8 bytes) are rejec
 `{ "message": "…", "email": "optional@example.com", "source": "app", "appVersion": "1.0 (12)" }` → 201.
 Message 5–4,000 chars; email optional (needed only if the user wants a reply).
 
+### Accounts and sync (optional; docs/ACCOUNTS_SYNC.md)
+
+Sign-in is Supabase Auth behind our own API: the app and the website never talk to Supabase, and the keys stay on the server. All answer
+`Cache-Control: no-store`. The iPhone app's pages (`app://menumath`) may call all of them (CORS allows `GET, POST, PUT, DELETE` and the
+`Authorization` header, only for that origin) and keep the session they are given, sent as `Authorization: Bearer <access token>`; the website
+uses two http-only cookies (`nb_at` on `/api/v1`, `nb_rt` on `/api/v1/auth`) and, for anything that changes data, the request's `Origin` must be
+this site.
+
+| Route | What it does |
+|---|---|
+| `POST /api/v1/auth/apple` `{ idToken, nonce? }` | Native Sign in with Apple: Apple's identity token from the iPhone's own sheet → `{ session }` |
+| `GET /api/v1/auth/google/start`, `/apple/start` `?mode=web&next=/app/...` or `?mode=app&challenge=<S256>` | Starts Google/Apple in the browser (PKCE cookie `nb_flow`), 302 to Supabase |
+| `GET /auth/callback` (outside `/api`) | Supabase's return address (on its Redirect URLs list). Web: sets the session cookies, 302 to `next?signin=ok`. App: 302 to `numbite://auth?code=<sealed one-time code>` |
+| `POST /api/v1/auth/exchange` `{ code, verifier }` | The app swaps the one-time code (AES-GCM sealed, 2 minutes, bound to its PKCE challenge) for `{ session }` |
+| `POST /api/v1/auth/email/start` `{ email }` | Emails a 6-digit code (Resend via Supabase SMTP); the same answer for every address |
+| `POST /api/v1/auth/email/verify` `{ email, code, mode }` | `mode "web"`: cookies, `{ user }`; `mode "token"` (app only): `{ session }` |
+| `POST /api/v1/auth/refresh` `{ refreshToken }` | The app renews its session |
+| `GET /api/v1/auth/session` | Who is signed in (renews the website's cookies when the access token has run out): `{ user }` or `{ user: null }` |
+| `POST /api/v1/auth/signout` | Ends the session and clears the cookies |
+| `DELETE /api/v1/account` `{ confirm: true }` | Deletes the account; the database cascade removes every `user_data` row in the same step |
+| `GET /api/v1/sync` | Every store the person has synced: `{ stores: { saved: <state>, ... } }` |
+| `PUT /api/v1/sync/<store>` `{ state }` | Merges the device's copy into the stored one (rules in `web/lib/mm/syncMerge.ts`, shared with the browser) and returns the merged state |
+
+A `session` is `{ accessToken, refreshToken, expiresAt, user: { id, email } }`. Stores: `settings` (one value, newest write wins) and
+`favorites`, `saved`, `log`, `shopping`, `savedRecipes`, `myRecipes`, `cupboard`, `compare` (items by id with the time each was last changed,
+plus deletions kept 90 days). Limits: 2,000 items and about 900 KB per store, 16 KB per item; the log syncs only entries from the last two days.
+Rate limits are in memory per server instance (like Pip's recipe limiter): email codes 3 per address and 8 per caller per 10 minutes, code
+guesses 6 per address and 15 per caller, sign-in starts 30, sync 300 per person per 10 minutes. No new environment variables: the sealed code's
+key is derived from `SUPABASE_SECRET_KEY`.
+
 ### Website-only
 - `POST /api/waitlist` `{ "email", "source"?, "website"? }` — answers `{"ok": true}` for any valid email,
   whether or not it was already on the list (so nobody can test which addresses are signed up);

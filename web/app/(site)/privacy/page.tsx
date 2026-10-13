@@ -15,8 +15,9 @@ export default function Privacy() {
       <p className="text-muted">Last updated: {site.privacyLastUpdated}</p>
 
       <p>
-        {site.name} is built to know as little about you as possible. There is no account and no sign-in. This policy
-        covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
+        {site.name} is built to know as little about you as possible. You don&apos;t need an account: everything works without one, and then
+        nothing you set up leaves your device. If you choose to sign in, to keep your data on all your devices, the section &ldquo;Signing in and
+        syncing (optional)&rdquo; below says exactly what we then keep. This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
         is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone.
       </p>
 
@@ -25,14 +26,53 @@ export default function Privacy() {
         <li>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare.</li>
         <li>
           In the iPhone app these are stored only inside the app on your phone; deleting the app deletes them. In the web app they are stored only in this browser
-          on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). We never
-          receive them. Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
+          on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). If you don&apos;t sign in, we never
+          receive them; if you do, the parts listed under &ldquo;Signing in and syncing&rdquo; are also saved in your account. Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
           Settings, removes them. Browsers can also remove site data on their own if you haven&apos;t visited for a
           while (iPhone Safari can do this after about a week); adding the web app to your Home Screen helps prevent it.
         </li>
         <li>
           A message, report or request you&apos;ve written but that hasn&apos;t been sent yet (for example because you
           were offline) waits in the same place until it is sent. Once it&apos;s sent, the web app deletes its local copy.
+        </li>
+      </ul>
+
+      <h2>Signing in and syncing (optional)</h2>
+      <p>
+        Signing in is your choice and nothing in {site.name} needs it. You can sign in with Apple, with Google, or with a 6-digit code we email you
+        (no password). Signing in turns on sync, so your data follows you to your other devices.
+      </p>
+      <ul>
+        <li>
+          <strong>What we keep about you:</strong> your email address and a user ID. With Apple you may use Apple&apos;s &ldquo;Hide My Email&rdquo;
+          address, and we only ever see that address. With Google we ask only for your email address (and the basic profile and openid sign-in
+          details Google always includes) and keep only the email address.
+        </li>
+        <li>
+          <strong>What syncs when you are signed in:</strong> your goal, targets and settings (not your text size or language), your diet and
+          allergy choices, favourite restaurants, saved restaurant meals, the recipes you saved, your shopping list, the store-cupboard items you
+          mark as already having, what you picked to compare, and today&apos;s log (entries from today and yesterday only).
+        </li>
+        <li>
+          <strong>What never syncs:</strong> your location, the dishes you viewed in the last day, the offline menu files, messages waiting to be
+          sent, and anything in the app while you are signed out.
+        </li>
+        <li>
+          <strong>Where it is kept:</strong> in our database at Supabase, in a table that only our service can read or write, and only for the signed-in
+          person. The app and this website never talk to the database directly.
+        </li>
+        <li>
+          <strong>Sign-in cookies:</strong> if you sign in on this website we set cookies that keep you signed in (and a short-lived one while you
+          sign in with Apple or Google). They cannot be read by page scripts and are removed when you sign out. In the iPhone app your sign-in is kept
+          inside the app on your phone.
+        </li>
+        <li>
+          <strong>Signing out</strong> stops syncing on that device; its data stays on the device. <strong>Delete my account</strong> (Settings ›
+          Account) deletes your account and everything synced for it from our database straight away, and cannot be undone; what is on your device
+          stays there until you clear it. You can also email us to ask for this.
+        </li>
+        <li>
+          <strong>Clear data on this device</strong> also signs you out on that device; your synced data stays in your account.
         </li>
       </ul>
 
@@ -88,7 +128,7 @@ export default function Privacy() {
 
       <h2>Cookies, offline storage and usage statistics</h2>
       <p>
-        We don&apos;t use cookies or advertising trackers. The iPhone app carries the menus inside it and, when you&apos;re online,
+        We don&apos;t use advertising or tracking cookies. The only cookies are the sign-in cookies described above, and only if you sign in on the website. The iPhone app carries the menus inside it and, when you&apos;re online,
         downloads newer menus and product lists from this website. The web app saves menus and its own files in your browser&apos;s
         cache so it keeps working with a poor connection. Neither sends usage statistics.
       </p>
@@ -115,6 +155,10 @@ export default function Privacy() {
       <ul>
         <li>Supabase (database and file storage) stores what you send us.</li>
         <li>Vercel hosts this website and the service that receives your messages.</li>
+        <li>
+          If you sign in: Supabase also provides the accounts and keeps your synced data; Resend delivers the sign-in code email to your address;
+          and Apple or Google confirm your identity if you choose them (see their own privacy policies for what they keep).
+        </li>
         {PRO_ENABLED && <li>Apple processes App Store purchases for the iPhone app.</li>}
         <li>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there), or by Open Food Facts for a product no supermarket has a photo of.</li>
         <li>postcodes.io looks up the postcode or town you type on the Near me map, and OpenFreeMap serves the map tiles there.</li>
@@ -126,7 +170,7 @@ export default function Privacy() {
       <p>
         Reports, requests and support messages are kept while they help us maintain accurate menus and support you.
         Waitlist emails are used only to send you one email when what you signed up for is ready (the iPhone app
-        launch{PRO_ENABLED ? ", or Pro in the web app" : ""}), and are deleted after that (or sooner if you ask). You can ask us to delete anything you&apos;ve sent at any time.
+        launch{PRO_ENABLED ? ", or Pro in the web app" : ""}), and are deleted after that (or sooner if you ask). Your account and its synced data are kept until you delete your account. You can ask us to delete anything you&apos;ve sent at any time.
       </p>
 
       <h2>Children</h2>

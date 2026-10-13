@@ -36,7 +36,7 @@ export function AccountSection() {
     if (!reason) return;
     url.searchParams.delete("signin");
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
-    const known = SIGN_IN_MESSAGES[reason];
+    const known = SIGN_IN_MESSAGES[reason]; // "ok" has no message: the account section simply shows who is signed in
     if (!known) return;
     const id = setTimeout(() => setMessage(known), 0);
     return () => clearTimeout(id);

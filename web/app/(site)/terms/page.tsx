@@ -21,8 +21,16 @@ export default function Terms() {
       <h2>The web app</h2>
       <p>
         The {site.name} web app (at /app on this website) is free to use.{PRO_ENABLED ? " Paid features aren't available in it yet." : ""}{" "}
-        Your goal, targets, saved orders and log are kept only in your browser; if you clear your browser&apos;s site
-        data, or the browser removes it, they are deleted and we can&apos;t restore them.
+        Your goal, targets, saved orders and log are kept only in your browser unless you sign in (see below); if you clear your browser&apos;s site
+        data, or the browser removes it, and you aren&apos;t signed in, they are deleted and we can&apos;t restore them.
+      </p>
+
+      <h2>Accounts (optional)</h2>
+      <p>
+        You can use {site.name} without an account. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.
+        Keep your sign-in secure and tell us if you think someone else has used it. You can delete your account at any time in Settings › Account; that
+        deletes the account and everything synced for it. We may close an account that is used to misuse the service. What we keep, and for how long, is
+        in the <a href="/privacy">privacy policy</a>.
       </p>
 
       <h2>Nutrition information</h2>

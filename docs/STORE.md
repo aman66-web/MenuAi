@@ -13,7 +13,7 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 | Subtitle (30) | **UK menus, shops & recipes** (25) |
 | Keywords (100) | `macros,nutrition,restaurant,counter,diet,glp1,grocery,takeaway,supermarket,cooking,meal,food` (92; words already in the name and subtitle are indexed anyway, so they aren't repeated) |
 | Primary / secondary category | Food & Drink / Health & Fitness |
-| Promotional text (170) | Every dish at 238 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account, works offline. (125) |
+| Promotional text (170) | Every dish at 238 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account needed, works offline. (130) |
 | Price | Free (no in-app purchases in this version) |
 | Availability | United Kingdom first (the data is UK only) |
 
@@ -39,8 +39,8 @@ restaurant or shop publishes.
 
 Easy to use. Large text options, a plain layout, and 11 languages.
 
-Private by design. No account, no ads, no tracking. Your settings, saved meals and lists stay on your phone. Your location is used on
-your phone only.
+Private by design. No account needed, no ads, no tracking. Your settings, saved meals and lists stay on your phone unless you choose to
+sign in (with Apple, Google or an email code) to keep them on all your devices. Your location is used on your phone only.
 
 Every feature is free. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
 
@@ -62,11 +62,21 @@ tracking, and there is no analytics in this version.
 | User Content → Customer Support | "Contact us" messages | No |
 | Contact Info → Email Address | Only if the person types one in "Contact us" so we can reply | Yes |
 | Other Data → Other Data Types | A salted one-way hash of the sender's IP address, kept 30 days to stop spam | No |
+| Contact Info → Email Address (again) | **Only if the person signs in** (Apple's relay address, Google or the address they type for an email code) | Yes |
+| Identifiers → User ID | **Only if the person signs in**: the account's ID | Yes |
+| User Content → Other User Content (now linked) | **Only if the person signs in**: what they choose to sync (saved meals and recipes, shopping list, favourites, comparison list) | Yes |
+| Health & Fitness → Health | **Only if the person signs in**: synced goal, targets, diet and allergy choices and today's log entries (see below) | Yes |
 
 - Purpose for all of the above: App Functionality.
 - Location: **not collected** (used on the phone only to sort nearby branches; a typed postcode goes to postcodes.io for the lookup and
   isn't kept by us). Camera: not collected (barcodes are read on the phone).
-- Health and purchases: none in this version.
+- Purchases: none in this version. Apple Health: not used.
+- **Sign-in (optional, docs/ACCOUNTS_SYNC.md):** the four rows marked "only if the person signs in" are why the manifest changed on 13 October
+  2026. "Health" is declared because the synced goal (which can be a GLP-1 goal), calorie and protein targets, allergies and logged meals are
+  health-related information the person typed in; it is the cautious answer, so confirm it in App Store Connect before submitting (Apple's
+  definition of Health data decides whether it is needed). Used for App Functionality only; never for tracking, advertising or analytics.
+- Account deletion is inside the app (Settings › Account › Delete my account), as App Review guideline 5.1.1(v) requires; Sign in with Apple is
+  offered next to Google (guideline 4.8).
 - If anything is added (crash reporting, analytics, Pro, the AI recipe maker), update this table, the privacy manifest and the website
   privacy policy first.
 
@@ -86,7 +96,8 @@ or treatment information: none (the app shows published nutrition only and says 
 
 ## Notes for App Review (draft)
 
-"Numbite shows restaurants' and supermarkets' published nutrition information, works fully offline, and has no account or login. The
+"Numbite shows restaurants' and supermarkets' published nutrition information, works fully offline, and works without an account (signing in, with Apple, Google or an email code, is optional and only
+turns on sync across devices; Settings › Account has Sign out and Delete my account, and the app offers Sign in with Apple as well as Google). The
 app is free with no in-app purchases. Restaurant and shop names and logos are shown small next to the name only to identify whose menu or
 products are listed; the app says it is not affiliated with any of them, and we remove any logo the day its owner asks (we can do this
 without an app update). The barcode scanner (Groceries › Scan a barcode) and Near me (Eat out › Near me) use the camera and location on

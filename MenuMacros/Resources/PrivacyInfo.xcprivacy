@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  Numbite privacy manifest (free launch, docs/APP_BUILD.md and docs/STORE.md "App Privacy"). No tracking, no accounts, no analytics.
-  The only data that leaves the phone is what the person chooses to send through the app: a number report (with an optional photo),
-  a restaurant request, or a support message (with an optional email address so we can reply), plus a salted hash of the sender's IP
-  address kept 30 days to stop spam (docs/BACKEND.md). Location and the camera are used on the phone only and are not collected.
+  Numbite privacy manifest (free launch, docs/APP_BUILD.md and docs/STORE.md "App Privacy"). No tracking, no analytics. An account is
+  optional (docs/ACCOUNTS_SYNC.md): only if the person signs in do their email address, a user ID and what they choose to sync (settings,
+  diet and allergy choices, saved meals and recipes, shopping list, favourites, today's log) go to our server, linked to them, for App
+  Functionality. Otherwise the only data that leaves the phone is what the person chooses to send through the app: a number report (with
+  an optional photo), a restaurant request, or a support message (with an optional email address so we can reply), plus a salted hash of
+  the sender's IP address kept 30 days to stop spam (docs/BACKEND.md). Location and the camera are used on the phone only and are not
+  collected.
   The app calls no required-reason APIs itself (the packed web app's storage is WebKit's own).
 -->
 <plist version="1.0">
@@ -19,7 +22,7 @@
 			<key>NSPrivacyCollectedDataType</key>
 			<string>NSPrivacyCollectedDataTypeOtherUserContent</string>
 			<key>NSPrivacyCollectedDataTypeLinked</key>
-			<false/>
+			<true/>
 			<key>NSPrivacyCollectedDataTypeTracking</key>
 			<false/>
 			<key>NSPrivacyCollectedDataTypePurposes</key>
@@ -68,6 +71,30 @@
 			<string>NSPrivacyCollectedDataTypeOtherDataTypes</string>
 			<key>NSPrivacyCollectedDataTypeLinked</key>
 			<false/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeUserID</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<true/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeHealth</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<true/>
 			<key>NSPrivacyCollectedDataTypeTracking</key>
 			<false/>
 			<key>NSPrivacyCollectedDataTypePurposes</key>

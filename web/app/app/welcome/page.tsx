@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { formatInt } from "@/lib/mm/format";
 import { retailerName } from "@/lib/mm/groceries";
 import { isAllHalal } from "@/lib/mm/halal";
@@ -78,10 +78,12 @@ export default function WelcomePage() {
   const [signInOpen, setSignInOpen] = useState(false);
   const hydrated = useHydrated();
   const onboarded = useSettings().hasCompletedOnboarding;
+  const wasOnboarded = useRef(initial.hasCompletedOnboarding);
 
-  // Signed in from this screen (an account that has already been set up, on a new phone): the settings arrive with the sync, so skip the questions.
+  // Signed in from this screen (an account that has already been set up, on a new phone): the settings arrive with the sync during this
+  // visit, so skip the questions. Someone who was already set up and opened this screen on purpose stays on it.
   useEffect(() => {
-    if (!hydrated || !onboarded || step > 0) return;
+    if (!hydrated || wasOnboarded.current || !onboarded || step > 0) return;
     const target = new URLSearchParams(window.location.search).get("next");
     router.replace(target && /^\/app(?![\w-])/.test(target) && !target.startsWith("//") && !target.startsWith("/app/welcome") ? target : "/app");
   }, [hydrated, onboarded, step, router]);

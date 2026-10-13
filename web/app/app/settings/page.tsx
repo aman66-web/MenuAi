@@ -209,7 +209,7 @@ export default function SettingsPage() {
       )}
 
       <Section title={t("Your data")}>
-        <p className="text-sm text-muted">{t("Your settings, saved orders and log stay on this device. We never receive them.")}</p>
+        <p className="text-sm text-muted">{account ? t("Because you're signed in, your settings, saved meals, shopping list, favourites and today's log are also saved in your account, so they follow you to your other devices. Everything else stays on this device.") : t("Your settings, saved orders and log stay on this device. We never receive them.")}</p>
         {!APP_BUILD && <p className="mt-2 text-sm text-muted">{t("Browsers can clear site data they haven't seen in a while (iPhone Safari can after about a week). Adding {app} to your Home Screen, and opening it now and then, keeps your data safe.", { app: site.name })}</p>}
         <Button variant="secondary" className="mt-3" onClick={() => setClearOpen(true)}>{t("Clear data on this device")}</Button>
       </Section>

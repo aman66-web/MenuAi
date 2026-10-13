@@ -17,7 +17,7 @@ import {
 import { makeLimit } from "../lib/auth/limiter";
 import { challengeFor, isChallenge, newVerifier } from "../lib/auth/pkce";
 import { HANDOFF_TTL_MS, openHandoff, sealHandoff } from "../lib/auth/seal";
-import { ACCESS_COOKIE, FLOW_COOKIE, REFRESH_COOKIE, parseCookies, readFlow, safeNext, serializeCookie } from "../lib/auth/cookies";
+import { ACCESS_COOKIE, FLOW_COOKIE, REFRESH_COOKIE, parseCookies, readFlow, safeNext, serializeCookie, withParam } from "../lib/auth/cookies";
 import { AuthError, type AuthPort, type AuthSession, type AuthUser, type OAuthProvider } from "../lib/auth/types";
 
 const SECRET = "test-secret-key-test-secret-key";
@@ -255,7 +255,7 @@ describe("Google and Apple through the browser", () => {
     t.state.oauthCodes.set("code-from-google", { challenge, user: t.userFor("g@example.com") });
     const r = await handleOAuthCallback(new URLSearchParams({ code: "code-from-google" }), `${FLOW_COOKIE}=${flowCookie}`, t.ctx);
     expect(r.status).toBe(302);
-    expect(r.redirect).toBe("/app/groceries");
+    expect(r.redirect).toBe("/app/groceries?signin=ok");
     expect(cookieValue(r, ACCESS_COOKIE)).toBe("at-1");
     expect(setCookies(r).find((c) => c.startsWith(`${FLOW_COOKIE}=;`))).toContain("Max-Age=0");
   });
@@ -460,5 +460,10 @@ describe("cookies", () => {
     expect(readFlow(Buffer.from(JSON.stringify({ v: "short", m: "web" })).toString("base64url"))).toBeNull();
     expect(readFlow(Buffer.from(JSON.stringify({ v: "v".repeat(43), m: "evil" })).toString("base64url"))).toBeNull();
     expect(readFlow(undefined)).toBeNull();
+  });
+  it("adds a query parameter before the #fragment", () => {
+    expect(withParam("/app/settings#account", "signin", "ok")).toBe("/app/settings?signin=ok#account");
+    expect(withParam("/app/groceries?x=1", "signin", "ok")).toBe("/app/groceries?x=1&signin=ok");
+    expect(withParam("/app", "signin", "ok")).toBe("/app?signin=ok");
   });
 });
