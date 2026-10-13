@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { API_BASE, APP_BUILD } from "@/lib/mm/config";
-import { createAccountApi, sanitizeStoredSession, type AccountApi, type AccountUser, type StoredSession } from "@/lib/mm/account";
+import { cleanUser, createAccountApi, sanitizeStoredSession, type AccountApi, type AccountUser, type StoredSession } from "@/lib/mm/account";
 import { createStore } from "@/lib/mm/persist";
 import { EMPTY_META, SyncEngine, sanitizeMeta, type SyncStatus } from "@/lib/mm/sync";
 import { createSyncAdapters } from "@/lib/mm/syncStores";
@@ -15,7 +15,7 @@ import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, 
 const isUser = (u: unknown): u is AccountUser =>
   typeof u === "object" && u !== null && typeof (u as AccountUser).id === "string" && (typeof (u as AccountUser).email === "string" || (u as AccountUser).email === null);
 
-export const userStore = createStore<AccountUser | null>("mm.v1.account", null, { sanitize: (raw) => (isUser(raw) ? { id: raw.id, email: raw.email } : null) });
+export const userStore = createStore<AccountUser | null>("mm.v1.account", null, { sanitize: (raw) => (isUser(raw) ? cleanUser(raw) : null) });
 const tokensStore = createStore<StoredSession | null>("mm.v1.session", null, { sanitize: sanitizeStoredSession });
 export const syncMetaStore = createStore("mm.v1.syncMeta", EMPTY_META, { sanitize: sanitizeMeta });
 
@@ -96,8 +96,8 @@ async function leave(tellServer: boolean): Promise<void> {
 export const signOut = (): Promise<void> => leave(true);
 
 /** Delete the account and everything synced for it. The data on this device stays, as plain device data. */
-export async function deleteAccount(): Promise<void> {
-  await accountApi().deleteAccount();
+export async function deleteAccount(appleAuthorizationCode?: string): Promise<void> {
+  await accountApi().deleteAccount(appleAuthorizationCode);
   stopLoop?.();
   syncEngine().forget();
   userStore.set(null);

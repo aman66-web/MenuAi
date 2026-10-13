@@ -20,6 +20,15 @@ const PROTEIN_PER_KG: Record<Goal, number> = { lose: 1.4, maintain: 1.2, buildMu
 export const MIN_SUGGESTED_CALORIES = 1200;
 export const UNDER_18_COPY = tk("Ask a doctor or dietitian for targets.");
 export const SUGGESTION_NOTE = tk("Suggested starting points, not medical advice. Adjust any time.");
+/** Shown (not blocking) under a typed calorie target below what suggestions ever start from (App Review 1.4.1: no encouraging of unsafe dieting). */
+export const LOW_CALORIES_NOTE = tk("That's lower than most adults need. If you plan to eat this little, please talk to a doctor or dietitian first.");
+/** Under the GLP-1 goal: the app follows the person's medicine plan, it doesn't give medical advice (App Review 1.4.1). */
+export const GLP1_NOTE = tk("If you take a GLP-1 medicine, follow the advice of your doctor or pharmacist. {app} doesn't give medical advice.");
+/** True for a typed target that is a number but below MIN_SUGGESTED_CALORIES. */
+export const isLowCalories = (value: string | number): boolean => {
+  const n = Number(value);
+  return Number.isFinite(n) && n > 0 && n < MIN_SUGGESTED_CALORIES;
+};
 
 export interface SuggestionInput {
   sex: Sex;

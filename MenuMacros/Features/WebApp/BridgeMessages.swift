@@ -84,6 +84,8 @@ nonisolated struct BridgeReply: Codable, Equatable, Sendable {
     /// Sign in with Apple: the identity token and the raw nonce. Secure browser sheet: the one-time code and the verifier.
     var idToken: String?
     var nonce: String?
+    /// Sign in with Apple's one-time authorization code.
+    var appleCode: String?
     var authCode: String?
     var verifier: String?
     var error: String?

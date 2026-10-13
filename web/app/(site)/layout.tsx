@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { APP_BUILD } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 // Marketing site chrome (landing page, privacy, terms, support). The web app under /app has its own layout.
@@ -7,13 +8,13 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
     <div className="min-h-full flex flex-col">
       <header className="sticky top-0 z-30 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl">
         <div className="mx-auto flex min-h-16 w-full max-w-5xl flex-wrap items-center justify-between gap-x-2 px-5 py-2.5">
-          <Link href="/" className="inline-flex min-h-11 items-center whitespace-nowrap text-lg font-extrabold tracking-tight">
+          <Link href={APP_BUILD ? "/app" : "/"} className="inline-flex min-h-11 items-center whitespace-nowrap text-lg font-extrabold tracking-tight">
             {site.name}
           </Link>
           <nav aria-label="Site" className="flex flex-wrap items-center gap-1 text-sm font-semibold text-muted">
             <Link href="/support" className="inline-flex min-h-11 items-center rounded-full px-3 hover:text-foreground">Support</Link>
             <Link href="/privacy" className="hidden min-h-11 items-center rounded-full px-3 hover:text-foreground sm:inline-flex">Privacy</Link>
-            <Link href="/app" className="btn-sun ml-2 inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-4 font-bold text-on-accent">Open app</Link>
+            {!APP_BUILD && <Link href="/app" className="btn-sun ml-2 inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-4 font-bold text-on-accent">Open app</Link>}
           </nav>
         </div>
       </header>

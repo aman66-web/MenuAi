@@ -6,6 +6,7 @@ import { site } from "../../site.config";
 import { supabaseUserData } from "../store-supabase";
 import type { SyncCtx } from "../sync/handlers";
 import type { AuthCtx, HttpResult } from "./handlers";
+import { appleConfigFromEnv } from "./apple";
 import { makeLimit } from "./limiter";
 import { supabaseAuthPort } from "./port-supabase";
 import type { AuthPort } from "./types";
@@ -30,7 +31,7 @@ export function authContext(request: Request): AuthCtx {
   } catch {
     sameOrigin = false;
   }
-  port ??= supabaseAuthPort({ url: env.SUPABASE_URL, secretKey: env.SUPABASE_SECRET_KEY });
+  port ??= supabaseAuthPort({ url: env.SUPABASE_URL, secretKey: env.SUPABASE_SECRET_KEY, apple: appleConfigFromEnv(env) });
   return {
     port,
     secret: env.SUPABASE_SECRET_KEY,

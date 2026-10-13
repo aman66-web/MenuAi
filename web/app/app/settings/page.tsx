@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
 import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
-import { SUGGESTION_NOTE } from "@/lib/mm/targets";
+import { GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
 import { site } from "@/site.config";
 import { ChevronRightIcon, GlobeIcon } from "../_components/icons";
@@ -131,6 +131,7 @@ export default function SettingsPage() {
       <Section title={t("Goal")}>
         <Segmented label={t("Goal")} value={settings.goal} options={GOAL_OPTIONS.map((o) => ({ ...o, label: t(o.label) }))} onChange={(goal) => updateSettings({ goal })} />
         {settings.goal === "glp1" && <p className="mt-2 text-sm text-muted">{t("Smaller, protein-first orders, capped at the meal size you set below.")}</p>}
+        {settings.goal === "glp1" && <p className="mt-1 text-sm text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
       </Section>
 
       <Section title={t("Daily targets")} id="targets">
@@ -138,6 +139,7 @@ export default function SettingsPage() {
           <Field label={t("Calories")}><input className={inputClass} inputMode="numeric" value={caloriesText} onChange={(e) => { setCalories(e.target.value); setTargetsMessage(null); }} /></Field>
           <Field label={t("Protein (g)")}><input className={inputClass} inputMode="numeric" value={proteinText} placeholder={t("Optional")} onChange={(e) => { setProtein(e.target.value); setTargetsMessage(null); }} /></Field>
         </div>
+        {isLowCalories(caloriesText) && <p role="status" className="mt-2 text-sm font-medium">{t(LOW_CALORIES_NOTE)}</p>}
         {settings.goal === "glp1" && (
           <div className="mt-3">
             <Field label={t("Comfortable meal size (calories)")} hint={t("Best-for-you picks stay within this size. Default 450.")}>

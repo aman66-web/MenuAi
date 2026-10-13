@@ -10,7 +10,7 @@ import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
 import { APP_BUILD } from "@/lib/mm/config";
 import { guessLocale, localeInfo, tk, type Locale } from "@/lib/mm/i18n";
-import { SUGGESTION_NOTE } from "@/lib/mm/targets";
+import { GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
@@ -341,6 +341,8 @@ export default function WelcomePage() {
             <Field label={t("Calories")}><input className={`${inputClass} min-h-14 text-lg`} inputMode="numeric" value={calories} onChange={(e) => setCalories(e.target.value)} /></Field>
             <Field label={t("Protein (g)")}><input className={`${inputClass} min-h-14 text-lg`} inputMode="numeric" value={protein} onChange={(e) => setProtein(e.target.value)} placeholder={t("Optional")} /></Field>
           </div>
+          {isLowCalories(calories) && <p role="status" className="mt-3 text-sm font-medium">{t(LOW_CALORIES_NOTE)}</p>}
+          {goal === "glp1" && <p className="mt-3 text-sm text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
           {goal === "glp1" && (
             <div className="mt-4">
               <label className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base">

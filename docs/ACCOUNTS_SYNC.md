@@ -154,3 +154,12 @@ cases of "same whichever copy comes first"), `web/e2e/account.mjs` (8 browser ch
    device" while signed in. The fake backend in the browser tests cannot prove the real Supabase answers the way the code expects.
 6. **Before submitting to the App Store:** confirm the privacy answers in docs/STORE.md (especially "Health"), and have native speakers look at the
    new sign-in text in each language (Apple's and Google's own button wording differs by language).
+
+## Sign in with Apple and account deletion (App Review 5.1.1(v))
+
+Apple wants to be told when an account that signs in with Apple is deleted. The iPhone app asks Apple's own sheet to confirm, sends the one-time
+authorization code with `DELETE /api/v1/account`, and the server swaps it for Apple's refresh token and revokes it (`web/lib/auth/apple.ts`).
+It runs only when three settings exist in **Vercel › Project menumacros › Settings › Environment Variables** (Production and Preview; then redeploy):
+`APPLE_TEAM_ID` = `S7G6ZHHK59`, `APPLE_KEY_ID` = `X374U6N8FP`, and `APPLE_PRIVATE_KEY` = the full text of the `.p8` file (a secret: paste it only
+there, never into chat). Optional: `APPLE_CLIENT_ID` (default `com.amanmarwaha.MenuMacros`). Without them deleting still works; Apple just isn't told,
+and the person can remove the app under Settings › Apple ID › Sign in with Apple.

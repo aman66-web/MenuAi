@@ -1,5 +1,6 @@
 import "server-only";
 import { createClient, type Session, type SupabaseClient } from "@supabase/supabase-js";
+import { revokeAppleAuthorizationCode, type AppleConfig } from "./apple";
 import { AuthError, type AuthPort, type AuthSession, type AuthUser, type OAuthProvider } from "./types";
 
 // The real AuthPort: Supabase Auth through the server-only secret key (never in the app or the browser). Standard library calls for Apple,
@@ -10,6 +11,8 @@ export interface SupabaseAuthConfig {
   url: string;
   secretKey: string;
   fetch?: typeof fetch;
+  /** The Sign in with Apple key, when it is set up (lib/auth/apple.ts). */
+  apple?: AppleConfig | null;
 }
 
 interface LibError {
@@ -26,7 +29,10 @@ function toAuthError(e: LibError | null | undefined): AuthError {
   return new AuthError("invalid", e?.message ?? "invalid");
 }
 
-const userOf = (u: { id: string; email?: string | null }): AuthUser => ({ id: u.id, email: u.email ?? null });
+const userOf = (u: { id: string; email?: string | null; app_metadata?: { providers?: unknown } }): AuthUser => {
+  const providers = Array.isArray(u.app_metadata?.providers) ? u.app_metadata.providers.filter((p): p is string => typeof p === "string") : undefined;
+  return { id: u.id, email: u.email ?? null, ...(providers ? { providers } : {}) };
+};
 
 function sessionOf(s: Session): AuthSession {
   return {
@@ -117,6 +123,15 @@ export function supabaseAuthPort(config: SupabaseAuthConfig): AuthPort {
     async deleteUser(userId) {
       const { error } = await db().auth.admin.deleteUser(userId);
       if (error) throw toAuthError(error);
+    },
+
+    async revokeApple(authorizationCode) {
+      if (!config.apple) return false;
+      try {
+        return await revokeAppleAuthorizationCode(authorizationCode, config.apple, doFetch);
+      } catch {
+        return false;
+      }
     },
   };
 }

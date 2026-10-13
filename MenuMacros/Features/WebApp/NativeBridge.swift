@@ -54,7 +54,7 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
             return await sharer.share(content) ? BridgeReply(done: true) : .failure("cancelled")
         case .appleSignIn:
             switch await appleSignIn.signIn() {
-            case .token(let idToken, let nonce): return BridgeReply(idToken: idToken, nonce: nonce)
+            case .token(let idToken, let nonce, let authorizationCode): return BridgeReply(idToken: idToken, nonce: nonce, appleCode: authorizationCode)
             case .cancelled: return .failure("cancelled")
             case .unavailable: return .failure("unavailable")
             }

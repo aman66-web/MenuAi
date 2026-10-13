@@ -4,6 +4,8 @@
 export interface AuthUser {
   id: string;
   email: string | null;
+  /** How this person signs in ("apple", "google", "email"): the app asks Apple to confirm before deleting an account that uses Apple. */
+  providers?: string[];
 }
 
 export interface AuthSession {
@@ -54,4 +56,6 @@ export interface AuthPort {
   signOut(accessToken: string): Promise<void>;
   /** Delete the account and, through the database's cascade, every synced row. */
   deleteUser(userId: string): Promise<void>;
+  /** Tell Apple the person's Sign in with Apple is over (App Review 5.1.1(v)). Absent or false when the Apple key isn't set up. Never throws. */
+  revokeApple?(authorizationCode: string): Promise<boolean>;
 }

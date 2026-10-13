@@ -105,10 +105,10 @@ struct BridgeMessageTests {
     @Test @MainActor func signInAnswersGoBackToThePage() async throws {
         let signedIn = NativeBridge(
             scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(),
-            appleSignIn: FakeAppleSignIn(outcome: .token(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce")),
+            appleSignIn: FakeAppleSignIn(outcome: .token(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce", authorizationCode: "c72f5a2b0f4e84e22b8c9d0a1d5d7a1ae.0.rrwv.k3v6J0sdsfDzwEl7ZmYMpw")),
             webSignIn: FakeWebSignIn(outcome: .code(authCode: String(repeating: "A", count: 60), verifier: String(repeating: "v", count: 64)))
         )
-        #expect(await signedIn.handle(.appleSignIn(id: "a")) == BridgeReply(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce"))
+        #expect(await signedIn.handle(.appleSignIn(id: "a")) == BridgeReply(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce", appleCode: "c72f5a2b0f4e84e22b8c9d0a1d5d7a1ae.0.rrwv.k3v6J0sdsfDzwEl7ZmYMpw"))
         #expect(await signedIn.handle(.webAuth(id: "b", provider: "google")) == BridgeReply(authCode: String(repeating: "A", count: 60), verifier: String(repeating: "v", count: 64)))
         let script = try #require(BridgeReply(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce").script(for: "a-1"))
         #expect(script.contains(#""idToken":"aaa.bbb.ccc""#))

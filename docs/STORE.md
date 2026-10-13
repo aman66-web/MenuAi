@@ -11,9 +11,9 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 |---|---|
 | App name (30) | **Numbite: Calories & Protein** (27) |
 | Subtitle (30) | **UK menus, shops & recipes** (25) |
-| Keywords (100) | `macros,nutrition,restaurant,counter,diet,glp1,grocery,takeaway,supermarket,cooking,meal,food` (92; words already in the name and subtitle are indexed anyway, so they aren't repeated) |
+| Keywords (100) | `macros,nutrition,restaurant,counter,diet,grocery,takeaway,supermarket,cooking,meal,food` (87; words already in the name and subtitle are indexed anyway, so they aren't repeated) |
 | Primary / secondary category | Food & Drink / Health & Fitness |
-| Promotional text (170) | Every dish at 238 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account needed, works offline. (130) |
+| Promotional text (170) | Menu items from 238 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account needed, works offline. (131) |
 | Price | Free (no in-app purchases in this version) |
 | Availability | United Kingdom first (the data is UK only) |
 
@@ -22,7 +22,7 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 
 ## Description (draft)
 
-Know the numbers before you eat. Numbite shows the calories, protein, carbs and fat for every dish at 238 UK restaurants, cafés and
+Know the numbers before you eat. Numbite shows the calories, protein, carbs and fat for menu items at 238 UK restaurants, cafés and
 pubs, taken from each chain's own published nutrition information, with the source and the date we checked shown on every menu.
 
 Eat out. Search a restaurant or find the ones near you, see every dish's numbers, and get the best orders for your goal and what you
@@ -82,9 +82,11 @@ tracking, and there is no analytics in this version.
 
 ## Age rating
 
-Answer the questionnaire honestly. Notes: no violence, no user-to-user content, no web browsing (links open Safari). A few pub menus list
-alcoholic drinks by name (for example a cocktail or a cider), so **Alcohol, Tobacco or Drug Use or References: Infrequent/Mild**. Medical
-or treatment information: none (the app shows published nutrition only and says it isn't medical advice).
+Answer the questionnaire honestly. Notes: no violence, no user-to-user content, no web browsing (links open Safari). Apple's definitions
+(App Review 2.3.6): **Health or Wellness Topics: Frequent** (calorie tracking and dieting advice count, and the app is about little else);
+**Medical or Treatment Information: Infrequent** (the GLP-1 goal mentions a medicine class, and every number comes with "not medical advice");
+**Alcohol, Tobacco or Drug Use or References: Infrequent/Mild** (a few pub and restaurant menus list cocktails or ciders by name; alcohol is
+never added to the supermarket lists); everything else None. Expect a rating of about 13+; do not answer lower to look better.
 
 ## URLs for App Store Connect
 
@@ -94,14 +96,21 @@ or treatment information: none (the app shows published nutrition only and says 
 
 (numbite.com was bought on Vercel on 12 October 2026 and is live on Vercel Pro; `menumacros.vercel.app` stays as an alias.)
 
-## Notes for App Review (draft)
+## Notes for App Review (draft; replaced 14 October 2026 after an internal guideline review)
 
-"Numbite shows restaurants' and supermarkets' published nutrition information, works fully offline, and works without an account (signing in, with Apple, Google or an email code, is optional and only
-turns on sync across devices; Settings › Account has Sign out and Delete my account, and the app offers Sign in with Apple as well as Google). The
-app is free with no in-app purchases. Restaurant and shop names and logos are shown small next to the name only to identify whose menu or
-products are listed; the app says it is not affiliated with any of them, and we remove any logo the day its owner asks (we can do this
-without an app update). The barcode scanner (Groceries › Scan a barcode) and Near me (Eat out › Near me) use the camera and location on
-the device only."
+"Numbite works without an account and every feature is free. Signing in is optional and only turns on sync across the person's devices: use
+Sign in with Apple with any Apple ID, or 'Continue with email' (a 6-digit code is sent to the address). Settings > Account has Sign out and
+Delete my account (for an Apple sign-in it asks Apple to confirm and then revokes the Apple token).
+
+Why this is an app and not a website: all menus, products, recipes and photos are packed inside the app, so it works with Airplane Mode on.
+It uses the iPhone itself for Groceries > Scan a barcode (VisionKit, camera, nothing leaves the phone), Eat out > Near me > Use my location (one
+system prompt; a typed postcode works instead), the share sheet for the shopping list, and Sign in with Apple. The only things fetched online
+are newer menus and the optional account and sync.
+
+Restaurant and shop names (and any logos or pictures shown) only identify whose published nutrition information is listed; the app says it
+is not affiliated with any of them, and we remove anything on request, without an app update. Numbers come from each chain's own published
+data with the source and date shown; allergen information says 'check with staff'. The app gives no medical advice (stated in the app and the
+terms), warns when a calorie target is very low, and the GLP-1 goal says to follow a doctor's or pharmacist's advice."
 
 ## Release checklist (free launch)
 

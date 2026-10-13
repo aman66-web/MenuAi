@@ -10,6 +10,14 @@ import type { Store } from "./persist";
 export interface AccountUser {
   id: string;
   email: string | null;
+  /** How the person signs in ("apple", "google", "email"): an account that uses Apple asks Apple to confirm before it is deleted. */
+  providers?: string[];
+}
+
+/** The user as the server sent it, keeping only what we know about (no unknown fields). */
+export function cleanUser(u: { id: string; email: string | null; providers?: unknown }): AccountUser {
+  const providers = Array.isArray(u.providers) ? u.providers.filter((p): p is string => typeof p === "string" && /^[a-z0-9_-]{1,30}$/.test(p)) : undefined;
+  return { id: u.id, email: u.email, ...(providers && providers.length ? { providers } : {}) };
 }
 
 /** The iPhone app's own copy of the session (never used on the website, where the cookies are http-only). */
@@ -119,7 +127,7 @@ export function createAccountApi(deps: AccountDeps) {
     if (session) deps.tokens.set(session);
     const user = isUser(body?.user) ? body.user : isUser((body?.session as { user?: unknown } | undefined)?.user) ? ((body?.session as { user: AccountUser }).user) : null;
     if (!user) throw new AccountError(res.status, "error");
-    return { id: user.id, email: user.email };
+    return cleanUser(user);
   }
 
   return {
@@ -129,7 +137,7 @@ export function createAccountApi(deps: AccountDeps) {
       const res = await authed("auth/session");
       if (!res.ok) throw await failure(res);
       const body = (await res.json().catch(() => null)) as { user?: unknown } | null;
-      return isUser(body?.user) ? { id: body.user.id, email: body.user.email } : null;
+      return isUser(body?.user) ? cleanUser(body.user) : null;
     },
 
     async sendCode(email: string): Promise<void> {
@@ -167,8 +175,9 @@ export function createAccountApi(deps: AccountDeps) {
       deps.tokens.set(null);
     },
 
-    async deleteAccount(): Promise<void> {
-      const res = await authed("account", { method: "DELETE", body: { confirm: true } });
+    /** `appleAuthorizationCode`: from the iPhone's Apple sheet, for an account that signs in with Apple (lets the server tell Apple it is over). */
+    async deleteAccount(appleAuthorizationCode?: string): Promise<void> {
+      const res = await authed("account", { method: "DELETE", body: { confirm: true, ...(appleAuthorizationCode ? { appleAuthorizationCode } : {}) } });
       if (!res.ok) throw await failure(res);
       deps.tokens.set(null);
     },

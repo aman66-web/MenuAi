@@ -58,8 +58,8 @@ export default function Privacy() {
           sent, and anything in the app while you are signed out.
         </li>
         <li>
-          <strong>Where it is kept:</strong> in our database at Supabase, in a table that only our service can read or write, and only for the signed-in
-          person. The app and this website never talk to the database directly.
+          <strong>Where it is kept:</strong> in our database at Supabase (hosted in the United States), in a table that only our service can read or write,
+          and only for the signed-in person. The app and this website never talk to the database directly.
         </li>
         <li>
           <strong>Sign-in cookies:</strong> if you sign in on this website we set cookies that keep you signed in (and a short-lived one while you

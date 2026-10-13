@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { site } from "@/site.config";
 import { AccountError } from "@/lib/mm/account";
+import { hasNative, nativeCall } from "@/lib/mm/native";
 import { tk } from "@/lib/mm/i18n";
 import { deleteAccount, signOut, syncEngine, useAccountUser, useSyncState } from "../_lib/account";
 import { useT } from "../_lib/i18n";
@@ -73,7 +74,11 @@ export function AccountSection() {
   async function remove() {
     setBusy(true);
     try {
-      await deleteAccount();
+      // An account that signs in with Apple: Apple's own sheet confirms, and gives us the one-time code that lets the server tell Apple the
+      // sign-in is over (App Review 5.1.1(v)). If the sheet is closed or unavailable the account is still deleted.
+      let appleCode: string | undefined;
+      if (user?.providers?.includes("apple") && hasNative()) appleCode = (await nativeCall("appleSignIn")).appleCode;
+      await deleteAccount(appleCode);
       setDeleteOpen(false);
       setMessage(t("Your account has been deleted. Your data stays on this device."));
     } catch (e) {

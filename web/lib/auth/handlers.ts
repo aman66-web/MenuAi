@@ -248,6 +248,9 @@ export async function handleDeleteAccount(raw: unknown, headers: Headers, ctx: A
   const who = await authenticate(headers, ctx);
   if (!who) return unauthorized;
   if (!ctx.limit("delete-account", who.user.id, 5, HOUR)) return tooMany;
+  // Apple asks to be told (best effort: deleting the account never waits on, or fails because of, Apple)
+  let appleRevoked: boolean | undefined;
+  if (parsed.data.appleAuthorizationCode && ctx.port.revokeApple) appleRevoked = await ctx.port.revokeApple(parsed.data.appleAuthorizationCode).catch(() => false);
   await ctx.port.deleteUser(who.user.id); // the database removes every synced row with the account (on delete cascade)
-  return json(200, { ok: true }, clearSessionCookies(ctx.secure));
+  return json(200, { ok: true, ...(appleRevoked !== undefined ? { appleRevoked } : {}) }, clearSessionCookies(ctx.secure));
 }

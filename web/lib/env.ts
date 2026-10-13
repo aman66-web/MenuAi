@@ -8,6 +8,11 @@ const schema = z.object({
   SUPABASE_SECRET_KEY: z.string().min(20),
   IP_HASH_SALT: z.string().min(16),
   CRON_SECRET: z.string().min(16).optional(),
+  // Sign in with Apple account deletion (lib/auth/apple.ts): all three together, or revoking Apple tokens is skipped.
+  APPLE_TEAM_ID: z.string().optional(),
+  APPLE_KEY_ID: z.string().optional(),
+  APPLE_PRIVATE_KEY: z.string().optional(),
+  APPLE_CLIENT_ID: z.string().optional(),
 });
 
 let cached: z.infer<typeof schema> | null = null;

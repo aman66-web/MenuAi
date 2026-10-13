@@ -3,7 +3,8 @@
 (git-ignored; Xcode copies a .bundle folder into the app whole), keeping only what the app needs and what web/app-content.json allows
 (docs/APP_BUILD.md).
 
-  * always left out: the fictional sample menus (menus-sample/) and the website's service worker (sw.js);
+  * always left out: the fictional sample menus (menus-sample/) and the website's service worker (sw.js); the website's landing page
+    (index.html) is replaced by a page that only forwards to /app;
   * "menuPhotos": false leaves out menu-images/ (the build also sets NEXT_PUBLIC_MENU_PHOTOS=0, so no item asks for one);
   * "shops": the supermarkets whose full product lists (groceries/all/) and catalogue files (groceries/) are packed in. A shop with a full
     list that isn't named is removed from both manifests and its files are left out, so it disappears from the app's Groceries. Catalogue
@@ -37,6 +38,9 @@ def main(src: Path, dst: Path, content_file: Path) -> int:
         shutil.rmtree(dst)
     out = set(ALWAYS_OUT) | (set() if photos else {"menu-images"})
     shutil.copytree(src, dst, ignore=lambda d, names: [n for n in names if Path(d) == src and n in out])
+
+    # The website's landing page (an app that "is planned", a waitlist) must not ship inside the app (App Review 2.3.10): its address only forwards to the app.
+    (dst / "index.html").write_text('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/app"><title>Numbite</title><script>location.replace("/app")</script>')
 
     full_manifest = dst / "groceries/all/all-manifest.json"
     catalogue_manifest = dst / "groceries/groceries-manifest.json"

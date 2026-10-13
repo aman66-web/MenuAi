@@ -26,4 +26,8 @@ export const exchangeSchema = z.object({
 
 export const refreshSchema = z.object({ refreshToken: z.string().min(10).max(2048) });
 
-export const deleteAccountSchema = z.object({ confirm: z.literal(true) });
+export const deleteAccountSchema = z.object({
+  confirm: z.literal(true),
+  /** From the iPhone's Apple sheet, for an account that signs in with Apple: lets us tell Apple the sign-in is over. */
+  appleAuthorizationCode: z.string().regex(/^[A-Za-z0-9._-]{20,1000}$/).optional(),
+});

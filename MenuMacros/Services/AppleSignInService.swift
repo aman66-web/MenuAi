@@ -3,8 +3,9 @@ import UIKit
 
 /// What Sign in with Apple ended with.
 nonisolated enum AppleSignInOutcome: Equatable, Sendable {
-    /// Apple's identity token (a signed JWT) and the raw nonce whose hash is inside it. Both go to our API, never anywhere else.
-    case token(idToken: String, nonce: String)
+    /// Apple's identity token (a signed JWT), the raw nonce whose hash is inside it, and Apple's one-time authorization code (used when an account
+    /// that signs in with Apple is deleted, so our server can tell Apple it is over: App Review 5.1.1(v)). All go to our API, never anywhere else.
+    case token(idToken: String, nonce: String, authorizationCode: String?)
     case cancelled
     /// Apple's sheet couldn't be shown, or answered without a token.
     case unavailable
@@ -52,7 +53,8 @@ private final class AppleSignInCoordinator: NSObject, ASAuthorizationControllerD
             finish(.unavailable)
             return
         }
-        finish(.token(idToken: token, nonce: nonce))
+        let code = credential.authorizationCode.flatMap { String(data: $0, encoding: .utf8) }
+        finish(.token(idToken: token, nonce: nonce, authorizationCode: code))
     }
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
