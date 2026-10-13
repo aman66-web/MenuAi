@@ -138,9 +138,11 @@ cases of "same whichever copy comes first"), `web/e2e/account.mjs` (8 browser ch
    `ALL USER_DATA CHECKS PASSED`).
 3. **Merge and deploy.** Merge `claude/accounts-sync` into `claude/menumacros-kit` (and Production as you do today). Nothing else is needed in
    Vercel: no new environment variables.
-4. **Xcode, one click-by-click step** (CLAUDE.md: capabilities are yours): open `MenuMacros.xcodeproj` → select the **MenuMacros** target →
-   **Signing & Capabilities** → **+ Capability** → **Sign in with Apple**. Xcode creates the entitlements file by itself. (The App ID already has
-   Sign in with Apple switched on in Apple's portal, from Part A.) Then run `./scripts/build_app_web.sh` and build onto your iPhone.
+4. **Xcode: done by Claude (13-14 October 2026).** The Sign in with Apple capability is `Config/MenuMacros.entitlements`, set as
+   `CODE_SIGN_ENTITLEMENTS` on the app target (kept outside the synced `MenuMacros/` folder so it isn't copied into the app). It builds for the
+   simulator and the entitlement is in the build; signing for a real iPhone is checked when you first run the app on your phone from Xcode (with
+   your Apple ID signed in, Xcode refreshes the provisioning profile by itself; the App ID already has Sign in with Apple from Part A). Then run
+   `./scripts/build_app_web.sh` and build onto your iPhone.
 5. **Test for real**, on the website and on your iPhone: email code (check the email arrives from noreply@numbite.com), Continue with Google,
    Sign in with Apple, a saved meal and a shopping-list item appearing on a second device, Sign out, Delete my account, and "Clear data on this
    device" while signed in. The fake backend in the browser tests cannot prove the real Supabase answers the way the code expects.
