@@ -10,7 +10,7 @@ struct WebAppView: UIViewRepresentable {
     let environment: AppEnvironment
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(bridge: NativeBridge(scanner: environment.scanner, location: environment.location, sharer: environment.sharer))
+        Coordinator(bridge: NativeBridge(scanner: environment.scanner, location: environment.location, sharer: environment.sharer, appleSignIn: environment.appleSignIn, webSignIn: environment.webSignIn))
     }
 
     func makeUIView(context: Context) -> WKWebView {

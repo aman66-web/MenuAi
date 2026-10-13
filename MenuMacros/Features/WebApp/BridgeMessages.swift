@@ -6,10 +6,12 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     case scan(id: String)
     case locate(id: String, onlyIfAllowed: Bool)
     case share(id: String, content: ShareContent)
+    case appleSignIn(id: String)
+    case webAuth(id: String, provider: String)
 
     var id: String {
         switch self {
-        case .scan(let id), .locate(let id, _), .share(let id, _): id
+        case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _): id
         }
     }
 
@@ -26,6 +28,11 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
         case "share":
             guard let content = ShareContent(payload: payload) else { return nil }
             self = .share(id: id, content: content)
+        case "appleSignIn":
+            self = .appleSignIn(id: id)
+        case "webAuth":
+            guard let provider = payload["provider"] as? String, provider == "google" || provider == "apple" else { return nil }
+            self = .webAuth(id: id, provider: provider)
         default:
             return nil
         }
@@ -74,6 +81,11 @@ nonisolated struct BridgeReply: Codable, Equatable, Sendable {
     var lat: Double?
     var lng: Double?
     var done: Bool?
+    /// Sign in with Apple: the identity token and the raw nonce. Secure browser sheet: the one-time code and the verifier.
+    var idToken: String?
+    var nonce: String?
+    var authCode: String?
+    var verifier: String?
     var error: String?
 
     static func failure(_ reason: String) -> BridgeReply { BridgeReply(error: reason) }

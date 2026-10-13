@@ -10,6 +10,8 @@ nonisolated enum AppConfig {
     static let websiteURL = URL(string: "https://numbite.com")!
     static let menuBaseURL = URL(string: "https://numbite.com/menus/")!
     static let apiBaseURL = URL(string: "https://numbite.com/api/v1/")!
+    /// Where sign-in through the secure browser sheet ends (numbite://auth?code=...); also on Supabase's Redirect URLs list (docs/ACCOUNTS_SYNC.md).
+    static let authCallbackScheme = "numbite"
     static let menuSyncInterval: TimeInterval = 6 * 60 * 60
     static let supportEmail = "support@example.com"   // placeholder until a numbite.com mailbox exists
     static let privacyPolicyURL = URL(string: "https://numbite.com/privacy")!

@@ -1,7 +1,7 @@
 import Foundation
 import WebKit
 
-/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location and share sheet, and hands the result back with
+/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet and sign-in sheets, and hands the result back with
 /// window.__menumathReply (web/lib/mm/native.ts). Only the app's own pages (the main frame on app://menumath) are listened to.
 final class NativeBridge: NSObject, WKScriptMessageHandler {
     static let handlerName = "menumath"
@@ -10,11 +10,15 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
     private let scanner: any BarcodeScanning
     private let location: any LocationProviding
     private let sharer: any Sharing
+    private let appleSignIn: any AppleSigningIn
+    private let webSignIn: any WebSigningIn
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
+        self.appleSignIn = appleSignIn
+        self.webSignIn = webSignIn
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -48,6 +52,18 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
             }
         case .share(_, let content):
             return await sharer.share(content) ? BridgeReply(done: true) : .failure("cancelled")
+        case .appleSignIn:
+            switch await appleSignIn.signIn() {
+            case .token(let idToken, let nonce): return BridgeReply(idToken: idToken, nonce: nonce)
+            case .cancelled: return .failure("cancelled")
+            case .unavailable: return .failure("unavailable")
+            }
+        case .webAuth(_, let provider):
+            switch await webSignIn.signIn(provider: provider) {
+            case .code(let authCode, let verifier): return BridgeReply(authCode: authCode, verifier: verifier)
+            case .cancelled: return .failure("cancelled")
+            case .unavailable: return .failure("unavailable")
+            }
         }
     }
 }

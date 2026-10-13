@@ -54,11 +54,20 @@ struct BridgeMessageTests {
     /// A message as WebKit hands it over (an NSDictionary from the page's JavaScript object).
     private func msg(_ body: [String: Any]) -> Any { body }
 
-    @Test func theThreeRequestsTheWebAppSends() {
+    @Test func theRequestsTheWebAppSends() {
         #expect(BridgeRequest(body: msg(["id": "abc-1", "action": "scan", "payload": [String: Any]()])) == .scan(id: "abc-1"))
         #expect(BridgeRequest(body: msg(["id": "abc-2", "action": "locate", "payload": ["onlyIfAllowed": true]])) == .locate(id: "abc-2", onlyIfAllowed: true))
         #expect(BridgeRequest(body: msg(["id": "abc-3", "action": "share", "payload": ["title": "Shopping list", "text": "Milk"]]))
                 == .share(id: "abc-3", content: ShareContent(title: "Shopping list", text: "Milk")))
+    }
+
+    @Test func theSignInRequests() {
+        #expect(BridgeRequest(body: msg(["id": "a-1", "action": "appleSignIn", "payload": [String: Any]()])) == .appleSignIn(id: "a-1"))
+        #expect(BridgeRequest(body: msg(["id": "w-1", "action": "webAuth", "payload": ["provider": "google"]])) == .webAuth(id: "w-1", provider: "google"))
+        // only the providers we offer, and only with a provider named
+        #expect(BridgeRequest(body: msg(["id": "w-2", "action": "webAuth", "payload": ["provider": "facebook"]])) == nil)
+        #expect(BridgeRequest(body: msg(["id": "w-3", "action": "webAuth", "payload": [String: Any]()])) == nil)
+        #expect(BridgeRequest(body: msg(["id": "w-4", "action": "webAuth", "payload": ["provider": "https://evil.example"]])) == nil)
     }
 
     @Test func anythingElseIsIgnored() {
@@ -84,9 +93,61 @@ struct BridgeMessageTests {
     }
 
     @Test @MainActor func theBridgeUsesTheServices() async {
-        let bridge = NativeBridge(scanner: FakeBarcodeScanner(outcome: .code("12345678")), location: FakeLocationService(outcome: .denied), sharer: FakeShareService(completes: false))
+        let bridge = NativeBridge(
+            scanner: FakeBarcodeScanner(outcome: .code("12345678")), location: FakeLocationService(outcome: .denied), sharer: FakeShareService(completes: false),
+            appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn()
+        )
         #expect(await bridge.handle(.scan(id: "a")) == BridgeReply(code: "12345678"))
         #expect(await bridge.handle(.locate(id: "b", onlyIfAllowed: true)) == .failure("denied"))
         #expect(await bridge.handle(.share(id: "c", content: ShareContent(text: "x"))) == .failure("cancelled"))
+    }
+
+    @Test @MainActor func signInAnswersGoBackToThePage() async throws {
+        let signedIn = NativeBridge(
+            scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(),
+            appleSignIn: FakeAppleSignIn(outcome: .token(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce")),
+            webSignIn: FakeWebSignIn(outcome: .code(authCode: String(repeating: "A", count: 60), verifier: String(repeating: "v", count: 64)))
+        )
+        #expect(await signedIn.handle(.appleSignIn(id: "a")) == BridgeReply(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce"))
+        #expect(await signedIn.handle(.webAuth(id: "b", provider: "google")) == BridgeReply(authCode: String(repeating: "A", count: 60), verifier: String(repeating: "v", count: 64)))
+        let script = try #require(BridgeReply(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce").script(for: "a-1"))
+        #expect(script.contains(#""idToken":"aaa.bbb.ccc""#))
+
+        let backedOut = NativeBridge(
+            scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(),
+            appleSignIn: FakeAppleSignIn(outcome: .cancelled), webSignIn: FakeWebSignIn(outcome: .unavailable)
+        )
+        #expect(await backedOut.handle(.appleSignIn(id: "a")) == .failure("cancelled"))
+        #expect(await backedOut.handle(.webAuth(id: "b", provider: "google")) == .failure("unavailable"))
+    }
+}
+
+/// The small secrets sign-in needs, and reading where the secure browser sheet finished (docs/ACCOUNTS_SYNC.md).
+struct SignInTests {
+    @Test func theFingerprintMatchesTheRFC7636Example() {
+        // RFC 7636 appendix B: this verifier must give exactly this challenge (the server uses the same rule, web/lib/auth/pkce.ts)
+        #expect(AuthSecrets.sha256Base64URL("dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk") == "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM")
+        #expect(AuthSecrets.sha256Hex("abc") == "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad")
+    }
+
+    @Test func randomSecretsAreLongUrlSafeAndDifferent() {
+        let a = AuthSecrets.randomURLSafe(byteCount: 48)
+        let b = AuthSecrets.randomURLSafe(byteCount: 48)
+        #expect(a.count == 64) // 48 bytes -> 64 characters, the verifier length the server accepts (43 to 128)
+        #expect(a != b)
+        #expect(a.allSatisfy { $0.isASCII && ($0.isLetter || $0.isNumber || $0 == "-" || $0 == "_") })
+        #expect(AuthSecrets.randomURLSafe(byteCount: 32).count == 43)
+    }
+
+    @Test func theBrowserSheetsAnswerIsReadCarefully() {
+        let verifier = String(repeating: "v", count: 64)
+        let code = String(repeating: "Ab-_9", count: 20)
+        let ok = URL(string: "numbite://auth?code=\(code)")
+        #expect(WebSignInOutcome.parse(callback: ok, error: nil, verifier: verifier) == .code(authCode: code, verifier: verifier))
+        #expect(WebSignInOutcome.parse(callback: URL(string: "numbite://auth?error=cancelled"), error: nil, verifier: verifier) == .cancelled)
+        #expect(WebSignInOutcome.parse(callback: URL(string: "numbite://auth?error=failed"), error: nil, verifier: verifier) == .unavailable)
+        #expect(WebSignInOutcome.parse(callback: URL(string: "numbite://auth?code=short"), error: nil, verifier: verifier) == .unavailable)
+        #expect(WebSignInOutcome.parse(callback: URL(string: "https://evil.example/?code=\(code)"), error: nil, verifier: verifier) == .unavailable)
+        #expect(WebSignInOutcome.parse(callback: nil, error: nil, verifier: verifier) == .unavailable)
     }
 }
