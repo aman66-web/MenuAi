@@ -1,6 +1,7 @@
 // "Every product" lists (founder 2026-10-09, docs/GROCERIES_PLAN.md): what a supermarket's own category pages printed for each product (name, price,
 // unit price, card price, picture), with NO nutrition unless we have read the product's own page. Built by tools/groceries/build_all_products.py from
 // the listing crawls; one compact array per product so a 17,000-product shop stays about 2.5 MB.
+import { isTakenDown } from "./logos";
 import { MIN_DENSITY_PROTEIN, type PhotoSource } from "./groceries";
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
@@ -154,9 +155,9 @@ export function shopPageUrl(f: Pick<ShopFile, "pageBase" | "pageSearch">, p: Pic
  */
 export function shopPhotoSources(f: Pick<ShopFile, "retailer" | "photoBase" | "photoTemplate">, p: Pick<ShopProduct, "photoId" | "otherPhoto">): PhotoSource[] {
   const own = shopPhotoUrl(f, p);
-  if (own) return [{ src: own, from: "retailer", shop: f.retailer }];
-  if (p.otherPhoto) return [p.otherPhoto.from === "off" ? { src: p.otherPhoto.src, from: "off", shop: "" } : { src: p.otherPhoto.src, from: "retailer", shop: p.otherPhoto.from }];
-  return [];
+  const found: PhotoSource[] = own ? [{ src: own, from: "retailer", shop: f.retailer }]
+    : p.otherPhoto ? [p.otherPhoto.from === "off" ? { src: p.otherPhoto.src, from: "off", shop: "" } : { src: p.otherPhoto.src, from: "retailer", shop: p.otherPhoto.from }] : [];
+  return found.filter((s) => !(s.shop && isTakenDown(`shop:${s.shop}`))); // a shop on the taken-down list shows no photos
 }
 
 /** The shop's picture of a product, or undefined when its listing showed none. */

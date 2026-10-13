@@ -66,7 +66,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    (2026-10-11, "Add all logos for grocery stores too"): each supermarket's own official logo file (and its own square icon) may sit next
    to its name in the app's grocery screens, the shopping list, the shop picker and the welcome wall, under exactly the same rules as the
    restaurant logos (from the company's own website or press page, unmodified, `web/public/logos/shops/` + `SOURCES.md`, taken down the
-   day its owner asks). Founder's decision (2026-10-12, free App Store launch, "Keep, with safeguards"): a logo can be taken
+   day its owner asks). Founder's decision (2026-10-12, free App Store launch, "Keep, with safeguards"): a logo (and, since 2026-10-14, that chain's item photos or that shop's product photos) can be taken
    down without an app update by listing its chain id (or `shop:<id>`) in `web/public/logos/hidden.json` and deploying the website; the iPhone
    app's welcome wall shows names only (no logo files); store screenshots never show a logo or a photo (`web/e2e/store-shots.mjs`).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.

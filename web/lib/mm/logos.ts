@@ -436,6 +436,9 @@ export function setHiddenLogos(ids: readonly string[]): void {
   hidden = new Set(ids);
 }
 
+/** True when this chain id (or `shop:<id>`) is on the taken-down list (public/logos/hidden.json): its logo AND its photos are then left out, with no app update. */
+export const isTakenDown = (id: string): boolean => hidden.has(id);
+
 /** A supermarket's logo (by retailer id), if we hold its own file and it hasn't been taken down. */
 export function shopLogoFor(shopId: string | undefined): ChainLogo | undefined {
   return LOGOS_ENABLED && shopId && !hidden.has(`shop:${shopId}`) ? SHOP_LOGOS[shopId] : undefined;

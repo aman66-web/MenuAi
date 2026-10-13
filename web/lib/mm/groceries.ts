@@ -1,3 +1,4 @@
+import { isTakenDown } from "./logos";
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 import type { AllergenKey } from "./types";
@@ -484,7 +485,7 @@ export function photoSources(p: PhotoFields & { retailers?: readonly string[]; b
   const records: Array<[string | undefined, PhotoFields]> = shops.length ? shops.map((r) => [r, p.byRetailer?.[r] ?? p]) : [[prefer ?? undefined, p]];
   records.push(...Object.entries(p.extraPhotos ?? {}));
   const out: PhotoSource[] = [];
-  const add = (s: PhotoSource) => { if (!out.some((o) => o.src === s.src)) out.push(s); };
+  const add = (s: PhotoSource) => { if (!(s.shop && isTakenDown(`shop:${s.shop}`)) && !out.some((o) => o.src === s.src)) out.push(s); }; // a shop on the taken-down list shows no photos
   for (const [shop, r] of records) if (shop && r.photo && STORED_NAME.test(r.photo)) add({ src: `/grocery-images/${shop}/${r.photo}`, from: "stored", shop });
   for (const [shop, r] of records) if (shop && r.retailerImage?.startsWith("https://")) add({ src: r.retailerImage, from: "retailer", shop });
   if (!out.length) for (const [, r] of records) if (r.offImage && OFF_IMAGE.test(r.offImage)) add({ src: r.offImage, from: "off", shop: "" });

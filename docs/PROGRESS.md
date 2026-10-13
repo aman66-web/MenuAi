@@ -1130,6 +1130,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   policy names no company and says nothing of the UK GDPR transfer basis for the US database (the founder to supply the company details); Apple's own
   Sign in with Apple artwork instead of our drawn pill; the session lives in local storage, not the Keychain.
 
+- 2026-10-14 — **Founder's answers after the App Review check:** "keep" the chains' logos, item photos and all nine supermarkets in the app (the accepted
+  risk of rule 2 stands; `web/app-content.json` stays `menuPhotos: true`, `appLogos: true`, all shops); "do number three … four … five … six for me"
+  (the Apple settings in Vercel, a real sign-in test, the support contact and the App Store steps: what Claude may and may not do is in docs/ACCOUNTS_SYNC.md and
+  the chat). The personal address `aman66@hotmail.co.uk` stays the public support contact for now (founder, 14 October). **So that the App Review notes are
+  true:** the taken-down list (`web/public/logos/hidden.json`) now also hides a chain's item photos and a shop's product photos (`isTakenDown`), with no app
+  update; the packed files stay in the app until the next release.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
