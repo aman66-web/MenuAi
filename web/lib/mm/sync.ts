@@ -183,7 +183,8 @@ export interface SyncApi {
   syncPut(store: SyncStoreName, state: SyncState): Promise<SyncState>;
 }
 
-export type SyncStatus = "idle" | "syncing" | "offline" | "error";
+/** "signedOut": the server says this device's session is over (signed out elsewhere, or the account was deleted). */
+export type SyncStatus = "idle" | "syncing" | "offline" | "error" | "signedOut";
 
 export interface SyncEngineDeps {
   adapters: readonly Adapter[];
@@ -246,7 +247,7 @@ export class SyncEngine {
         do {
           this.again = false;
           await this.once();
-        } while (this.again && this.status !== "offline" && this.status !== "error");
+        } while (this.again && this.status === "idle");
       } finally {
         this.running = null;
       }
@@ -311,7 +312,7 @@ export class SyncEngine {
       this.setStatus("idle");
     } catch (e) {
       const status = (e as { status?: number } | null)?.status;
-      this.setStatus(status === 0 ? "offline" : "error");
+      this.setStatus(status === 0 ? "offline" : status === 401 ? "signedOut" : "error");
     }
   }
 }

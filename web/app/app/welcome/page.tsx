@@ -23,10 +23,11 @@ import { RETAILERS } from "@/lib/mm/groceries";
 import { site } from "@/site.config";
 import { Pip, PipSays } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
+import { SignInSheet } from "../_components/SignIn";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Field, inputClass, radioKeyNav } from "../_components/ui";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
-import { useChain, useHydrated, useMenu } from "../_lib/hooks";
+import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
 import { applyTextSize } from "../_lib/textSize";
 import { setLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
@@ -74,7 +75,16 @@ export default function WelcomePage() {
   const [step, setStep] = useState(-1);
   const [intro, setIntro] = useState(0);
   const [picked, setPicked] = useState<Locale | null>(null);
+  const [signInOpen, setSignInOpen] = useState(false);
   const hydrated = useHydrated();
+  const onboarded = useSettings().hasCompletedOnboarding;
+
+  // Signed in from this screen (an account that has already been set up, on a new phone): the settings arrive with the sync, so skip the questions.
+  useEffect(() => {
+    if (!hydrated || !onboarded || step > 0) return;
+    const target = new URLSearchParams(window.location.search).get("next");
+    router.replace(target && /^\/app(?![\w-])/.test(target) && !target.startsWith("//") && !target.startsWith("/app/welcome") ? target : "/app");
+  }, [hydrated, onboarded, step, router]);
   // Pre-selected: the language chosen before, else the browser's own language if we have it (nothing is sent anywhere), else English.
   const guess: Locale = hydrated ? guessLocale(navigator.languages) : "en";
   const language: Locale = picked ?? initial.language ?? guess;
@@ -255,7 +265,9 @@ export default function WelcomePage() {
             {t("Get started")}
             <span aria-hidden className="ms-1 grid h-8 w-8 place-items-center rounded-full bg-black/10"><ArrowRightIcon className="h-4 w-4" /></span>
           </Button>
-          <p className="mt-2 text-xs text-muted">
+          <button type="button" onClick={() => setSignInOpen(true)} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Already have an account? Sign in")}</button>
+          <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
+          <p className="mt-1 text-xs text-muted">
             <a href="/terms" className="underline underline-offset-2">{t("Terms")}</a> · <a href="/privacy" className="underline underline-offset-2">{t("Privacy")}</a> · {t("Not affiliated with any restaurant or shop shown.")}
           </p>
         </div>

@@ -18,6 +18,7 @@ import { localeInfo, tk } from "@/lib/mm/i18n";
 import { setLanguage, useLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { ContactForm } from "../_components/Submit";
+import { AccountSection } from "../_components/AccountSection";
 import { DietPicker } from "../_components/DietPicker";
 import { ShopPicker } from "../_components/ShopPicker";
 import { applyTextSize } from "../_lib/textSize";
@@ -25,6 +26,7 @@ import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Card, Field, inputClass, Segmented, Sheet, Toggle } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
+import { leaveForClearing, useAccountUser } from "../_lib/account";
 
 // SPEC §7.9. Not on the web: Apple Health, Location, StoreKit's manage/restore rows (see docs/WEB_BUILD_PLAN.md).
 
@@ -71,6 +73,7 @@ export default function SettingsPage() {
   const [contactOpen, setContactOpen] = useState(false);
   const [clearOpen, setClearOpen] = useState(false);
   const [suggest, setSuggest] = useState(false);
+  const account = useAccountUser();
 
   // Drafts for the number fields: they commit with "Save targets".
   const [calories, setCalories] = useState<string | null>(null);
@@ -103,6 +106,10 @@ export default function SettingsPage() {
   return (
     <div>
       <h1 className="text-4xl font-extrabold tracking-tight">{t("Settings")}</h1>
+
+      <Section title={t("Account")} id="account">
+        <AccountSection />
+      </Section>
 
       <Section title={t("Language")}>
         <button type="button" onClick={() => setLanguageOpen(true)} className="glass flex min-h-14 w-full items-center gap-3 rounded-3xl px-4 text-start transition hover:bg-soft-strong active:scale-[0.99]">
@@ -228,8 +235,9 @@ export default function SettingsPage() {
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title={t("Clear data on this device")}>
         <p className="text-base">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
+        {account && <p className="mt-2 text-base">{t("This also signs you out of your account on this device. What is synced stays in your account.")}</p>}
         <div className="mt-4 space-y-2 pb-2">
-          <Button full onClick={() => { settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
+          <Button full onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
         </div>
       </Sheet>

@@ -12,6 +12,7 @@ import { refreshHiddenLogos } from "../_lib/hiddenLogos";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
+import { bootAccount } from "../_lib/account";
 import { setLanguage, useT } from "../_lib/i18n";
 import { BasketIcon, ForkIcon, GearIcon, HomeIcon, PotIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
@@ -66,6 +67,11 @@ export function AppShell({ children }: { children: ReactNode }) {
     const next = window.location.pathname + window.location.search;
     router.replace(`/app/welcome?next=${encodeURIComponent(next)}`);
   }, [hydrated, onboarded, pathname, router]);
+
+  // Signed in? (Optional: with no account nothing is sent anywhere.) Asks the server who this device is signed in as and starts syncing.
+  useEffect(() => {
+    if (hydrated) void bootAccount();
+  }, [hydrated]);
 
   // Logos taken down at their owner's request (public/logos/hidden.json), read once per launch.
   useEffect(() => { refreshHiddenLogos(); }, []);

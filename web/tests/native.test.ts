@@ -15,6 +15,19 @@ describe("native bridge", () => {
     expect(cleanNativeResult("nonsense")).toEqual({ error: "unavailable" });
   });
 
+  it("passes on Apple's identity token and the browser sheet's one-time code, and nothing that doesn't look like them", () => {
+    const jwt = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxIn0.c2lnbmF0dXJl";
+    expect(cleanNativeResult({ idToken: jwt, nonce: "abcdefgh12345678" })).toEqual({ idToken: jwt, nonce: "abcdefgh12345678" });
+    expect(cleanNativeResult({ idToken: "not a token" })).toEqual({ error: "unavailable" });
+    expect(cleanNativeResult({ idToken: `${jwt}<script>` })).toEqual({ error: "unavailable" });
+    const code = "A".repeat(120);
+    const verifier = "v".repeat(64);
+    expect(cleanNativeResult({ authCode: code, verifier })).toEqual({ authCode: code, verifier });
+    expect(cleanNativeResult({ authCode: "short" })).toEqual({ error: "unavailable" });
+    expect(cleanNativeResult({ authCode: code, verifier: "bad verifier!" })).toEqual({ authCode: code });
+    expect(cleanNativeResult({ error: "cancelled" })).toEqual({ error: "cancelled" });
+  });
+
   it("on the website there is no bridge: calls answer unavailable straight away", async () => {
     vi.stubGlobal("window", {});
     expect(hasNative()).toBe(false);
