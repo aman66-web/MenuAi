@@ -163,3 +163,17 @@ It runs only when three settings exist in **Vercel › Project menumacros › Se
 `APPLE_TEAM_ID` = `S7G6ZHHK59`, `APPLE_KEY_ID` = `X374U6N8FP`, and `APPLE_PRIVATE_KEY` = the full text of the `.p8` file (a secret: paste it only
 there, never into chat). Optional: `APPLE_CLIENT_ID` (default `com.amanmarwaha.MenuMacros`). Without them deleting still works; Apple just isn't told,
 and the person can remove the app under Settings › Apple ID › Sign in with Apple.
+
+**Done 14 October 2026:** all three settings are in Vercel (Production and Preview; the `.p8` was pasted by the founder) and production was
+redeployed (`main` = e9ae33d3). Account deletion with Apple is not yet tried for real.
+
+## Google's consent screen shows the Supabase address (found 14 October 2026)
+
+On the iPhone the first real Google sign-in reached Google's consent screen, which read "Sign in to rbbalkfkpacazzhsqfzz.supabase.co" instead of
+"Numbite". Google shows the redirect address until the app's **branding is verified**. Done so far: the branding form is complete (name Numbite,
+home page, privacy and terms links, authorized domains `numbite.com` and the Supabase address, no logo by the founder's choice); **Verify
+branding** was pressed and Google answered that the home page `https://numbite.com` was "not registered to you". Fix: `numbite.com` is now a verified
+**Domain property** in Google Search Console (a TXT record `google-site-verification=…` at the root of numbite.com in Vercel DNS: **do not delete it**,
+or the verification is lost). **Next (about 24 hours after 14 October, as Google asks):** Google Cloud › Google Auth Platform › Branding › Verification
+status › View issues › "I have fixed the issues" › Proceed. Until Google approves, sign-in still works, it only shows the Supabase address. A fallback
+that needs no approval is a custom domain for Supabase Auth (a paid Supabase add-on, e.g. `auth.numbite.com`).
