@@ -67,18 +67,21 @@ await step("onboarding: welcome → goal → targets → preferences → shops �
   await page.getByRole("button", { name: "Start" }).click();
   await page.waitForURL(/\/app\/?$/);
 });
-await step("home is today: targets, the two tiles and the sample banner", async () => {
-  await visible(page.getByRole("heading", { level: 1, name: "Today" }));
-  await visible(text("Your daily targets"));
-  await visible(text("2,400 kcal"));
+await step("home is today: this week, calories against the target, the two cards, today's meals and the sample banner", async () => {
+  await visible(page.getByRole("heading", { level: 1, name: "Home" }));
+  await visible(page.getByRole("list", { name: "This week" }));
+  await visible(page.getByRole("progressbar", { name: "Calories used today" }));
+  await visible(text("/ 2,400"));
+  await visible(text("Log your meals to see what's left today."));
   for (const name of [/Shopping list/, /My meals/]) await visible(page.getByRole("link", { name }));
+  for (const name of [/^Breakfast/, /^Lunch/, /^Dinner/]) await visible(page.getByRole("link", { name }));
   for (const name of [/My groceries/, /My saved meals/, /My recipes/, /My diet/]) if (await page.getByRole("link", { name }).count()) throw new Error(`old tile still on Home: ${name}`);
   await visible(text("fictional sample data"));
   await shot("04-home");
 });
 await step("onboarding does not repeat on reload", async () => {
   await page.reload();
-  await visible(page.getByRole("heading", { level: 1, name: "Today" }));
+  await visible(page.getByRole("heading", { level: 1, name: "Home" }));
   if (page.url().includes("welcome")) throw new Error("redirected to welcome again");
 });
 await step("Eat out tab: search, Near me and every restaurant", async () => {
@@ -214,10 +217,11 @@ await step("Save → My meals › Restaurant meals lists it; Log → today's mea
   await visible(text("/ 2,400 kcal"));
   await shot("13-today");
 });
-await step("home shows left today after logging", async () => {
+await step("home shows today's calories after logging", async () => {
   await page.goto(`${BASE}/app`);
-  await visible(text("Left today:"));
-  await visible(text("1,640 kcal"));
+  await visible(page.getByRole("progressbar", { name: "Calories used today" }));
+  await visible(text("32%"));
+  await visible(text("760"));
   await shot("14-home-pro");
 });
 await step("delete a log entry and undo it", async () => {

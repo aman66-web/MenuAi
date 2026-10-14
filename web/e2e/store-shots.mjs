@@ -42,7 +42,7 @@ async function shot(name, path, ready) {
   console.log("saved", name);
 }
 
-await shot("1-home", "/app", () => page.getByText("Left today:", { exact: true }).waitFor());
+await shot("1-home", "/app", () => page.getByRole("progressbar", { name: "Calories used today" }).waitFor());
 await shot("2-eat-out", "/app/eat-out", () => page.getByText(/\d{3} UK restaurants/).waitFor({ timeout: 15000 }));
 await shot("3-restaurant", "/app/chain?id=nandos", () => page.getByRole("heading", { level: 1 }).waitFor({ timeout: 15000 }));
 await shot("4-recipes", "/app/recipes", () => page.locator("a[href*='/app/recipes/view']").first().waitFor({ timeout: 20000 }));

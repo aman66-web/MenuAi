@@ -1137,6 +1137,22 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   true:** the taken-down list (`web/public/logos/hidden.json`) now also hides a chain's item photos and a shop's product photos (`isTakenDown`), with no app
   update; the packed files stay in the app until the next release.
 
+- 2026-10-14 — **New Home layout (founder's reference picture: "I want this exact app layout … for the Home Screen").** Top to bottom: "Home" with a
+  round calendar button (opens Today's meals); this week Monday to Sunday as day circles (today in the brand gradient, earlier days dark when something
+  was logged, outlined when not, later days grey); a Calories card with a three-quarter dial (`_components/Gauge.tsx`) and "eaten / target kcal" beside
+  a card with Protein (eaten / target with a bar), Carbs and Fat; the "Shopping list" and "My meals" cards, each with a dark "Open" button; then
+  **Today's meals**: Breakfast, Lunch and Dinner rows with a flame chip, "eaten / meal figure kcal", round pictures of what was eaten (the chain's own
+  photo of the dish where we have one, otherwise a fork; two at most, then "+n") and a + that opens Eat out. Kept to the spec as it stands, nothing
+  invented: a logged item goes under the meal its time falls in (SPEC §6.3 `mealSlotFor`: before 10:30, until 16:00, after) and each meal's figure is
+  its share of the day (`mealBudget`: 25/35/40%, or the GLP-1 meal size). **The app keeps no carb or fat target**, so those two show grams eaten without
+  a bar (the reference shows targets for all three: adding optional carb and fat targets to Settings needs the founder's yes). Snacks have no row (the
+  spec has three meals). Our green replaces the reference's orange; the tab bar is unchanged. At large text the paired cards stack and the meal
+  pictures step aside. While Pro is on (later), a free user sees the Pro nudge and the + opens the paywall, as before. Removed from Home: "Left today:",
+  "Eaten so far", the free targets card. New copy (rule 8, logged here; translated into the 10 languages by Claude, not yet checked by native speakers):
+  "Open", "This week", "Add food", "{day} (today)", "{day}: food logged", "{day}: nothing logged". Checked: 575 unit tests, tsc, lint, e2e smoke 23,
+  extra 12, a11y 0 violations, large text (no overflow at 100/150/200%), prodmode 9; screenshots in light, dark and extra-large text.
+  The App Store screenshots and the uploaded build still show the old Home: re-run `web/e2e/store-shots.mjs` and make a new build.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

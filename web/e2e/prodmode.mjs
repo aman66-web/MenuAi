@@ -34,9 +34,10 @@ await step("Eat out: real chains only (no sample data)", async () => {
   if (await page.getByText(/Cluck House|Bowl & Co/).count()) throw new Error("a fictional chain is listed");
   await noForbidden("Eat out");
 });
-await step("Home shows what's left today for everyone (logging is open), with no Pro wording", async () => {
+await step("Home shows today's calories for everyone (logging is open), with no Pro wording", async () => {
   await page.goto(BASE + "/app");
-  await vis(page.getByText("Left today:", { exact: true }));
+  await vis(page.getByRole("progressbar", { name: "Calories used today" }));
+  if (await page.getByText("Log your meals to see what's left today.").count()) throw new Error("the Pro nudge shows on Home");
   if (await page.getByRole("button", { name: /See Pro|Try Pro/ }).count()) throw new Error("a Pro button on Home");
   await noForbidden("Home");
 });

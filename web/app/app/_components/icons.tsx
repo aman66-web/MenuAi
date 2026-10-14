@@ -40,6 +40,8 @@ export const GiftIcon = (p: P) => (<svg {...base(p)}><rect x="3.5" y="9" width="
 export const LeafIcon = (p: P) => (<svg {...base(p)}><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15" /><path d="M5 19l7-7" /></svg>);
 export const TextSizeIcon = (p: P) => (<svg {...base(p)}><path d="M3 18l4.5-12L12 18M4.6 14h5.8M14 18l3-8 3 8M15 15.5h4" /></svg>);
 export const BoltIcon = (p: P) => (<svg {...base(p)}><path d="M13 3L5 14h6l-1 7 8-11h-6z" /></svg>);
+export const CalendarIcon = (p: P) => (<svg {...base(p)}><rect x="4" y="5" width="16" height="15" rx="3" /><path d="M4 10h16M9 3v4M15 3v4" /></svg>);
+export const FlameIcon = (p: P) => (<svg {...base(p)}><path d="M12 3c.5 3 4.5 5 4.5 9.5a4.5 4.5 0 01-9 0c0-2 1-3.3 2-4.3.2 1.6 1 2.5 2 2.8C11 8.5 11 5.5 12 3z" /></svg>);
 
 // ---- cuisine glyphs for ChainMark: drawn for this app (simple shapes, no brand artwork) ----
 export const BurgerGlyph = (p: P) => (<svg {...base(p)}><path d="M4 10.5C4 7 7.6 4.5 12 4.5s8 2.5 8 6z" /><path d="M3.5 13.5h17" /><path d="M5 16.5c1.2 1 2.3-1 3.5 0s2.3 1 3.5 0 2.3 1 3.5 0 2.3-1 3.5 0" /><path d="M5 19h14a1 1 0 011 1 1 1 0 01-1 1H5a1 1 0 01-1-1 1 1 0 011-1z" /></svg>);
