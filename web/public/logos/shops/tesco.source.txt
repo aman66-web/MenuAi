@@ -1,5 +1,11 @@
-status: skipped-blocked
+status: installed
+file: tesco.svg
+tile: light
+source_url: https://www.tescoplc.com/media/svnf5ixc/tesco-logo.svg
 page: https://www.tescoplc.com/
-why: Tesco's own sites refuse this environment (HTTP 403 on www.tescoplc.com, www.tesco.com and realfood.tesco.com, robots.txt included for tescoplc.com); careers.tesco.com answers but its only logo file is the 'TESCO Careers' lock-up, not the plain Tesco logo, so it was not installed. Save the logo from the header of https://www.tescoplc.com/ (or https://www.tesco.com/) in your own browser.
-decision: founder, 2026-10-11 ("Add all logos for grocery stores too")
-retrieved: 2026-10-11
+terms_url: not reviewed
+terms_summary: not reviewed: installed under the founder's decision of 2026-10-11 to use the supermarkets' own logos whatever their site terms say
+why: Tesco PLC's own corporate site header (https://www.tescoplc.com/, 'Tesco Logo'); saved as served; robots.txt allows it (it disallows only one application form). On 2026-10-11 this site refused the cloud environment (403); on 2026-10-14 it answered normally.
+decision: founder, 2026-10-11 ("Add all logos for grocery stores too"); 2026-10-14 ("tescos logo is missing")
+retrieved: 2026-10-14
+sha256: 0d965a914d5b3d0fc4cbd2b3111ad872db4bd5bf078e5c9df9a2e632f3ce15a4

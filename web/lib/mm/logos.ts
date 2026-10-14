@@ -419,6 +419,7 @@ export const SHOP_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "morrisons": { src: "/logos/shops/morrisons.svg", square: { src: "/logos/shops/square/morrisons.png" } },
   "ocado": { src: "/logos/shops/ocado.svg" },
   "sainsburys": { src: "/logos/shops/sainsburys.svg", square: { src: "/logos/shops/square/sainsburys.png", full: true } },
+  "tesco": { src: "/logos/shops/tesco.svg" },
   "waitrose": { src: "/logos/shops/waitrose.svg" },
 };
 

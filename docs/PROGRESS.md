@@ -1173,7 +1173,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Support email is a personal address for now: later create a domain address (e.g. support@yourdomain) and change `NEXT_PUBLIC_SUPPORT_EMAIL` in Vercel, then redeploy
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
-- [ ] **Supermarket logos: Tesco and Co-op** blocked us; save each from its own site in your browser (`data/chrome-inbox/QUEUE-LOGOS.md`)
+- [ ] **Supermarket logo: Co-op** blocked us; save it from its own site in your browser (`data/chrome-inbox/QUEUE-LOGOS.md`). Tesco's was installed on 2026-10-14 from tescoplc.com
 - [ ] **Logos (6 of 238 missing, checked 2026-10-12):** Bettys, Fuller's, Kick Ass Burrito (delivery-only, no website of its own), McDonald's, Tesco Café, Wild Bean Café (their sites block us, or the only file is too padded to read; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
 - [x] **Decide: Kick Ass Burrito**: publish (2026-10-11), now live.
 - [x] **Decide: Waterfields**: publish the products whose own figures agree (2026-10-12); live, 15 products
