@@ -37,12 +37,13 @@ function Tile({ item, namesOnly }: { item: WallItem; namesOnly?: boolean }) {
   );
 }
 
-export function LogoWall({ items, label, namesOnly }: { items: readonly WallItem[]; label: string; namesOnly?: boolean }) {
+/** `hero`: the wall as the picture under the welcome headline, fading in at the top as well as out at the bottom. */
+export function LogoWall({ items, label, namesOnly, hero }: { items: readonly WallItem[]; label: string; namesOnly?: boolean; hero?: boolean }) {
   useHiddenLogos();
   const rows: WallItem[][] = Array.from({ length: ROWS }, () => []);
   items.forEach((item, i) => rows[i % ROWS]!.push(item));
   return (
-    <div role="img" aria-label={label} className="logo-wall pointer-events-none relative h-[19rem] overflow-hidden">
+    <div role="img" aria-label={label} className={`logo-wall pointer-events-none relative overflow-hidden ${hero ? "wall-hero h-[clamp(11rem,34dvh,19rem)]" : "h-[19rem]"}`}>
       {/* always laid out left to right, so the loop works the same in Urdu and Arabic */}
       <div aria-hidden dir="ltr" className="absolute inset-x-[-30%] top-[-12%] flex rotate-[-9deg] flex-col gap-3">
         {rows.map((row, r) => (

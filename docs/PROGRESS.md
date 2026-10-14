@@ -1171,6 +1171,35 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   the heart saves and the top heart counts), smoke 23, extra 12, languages 5, a11y 0 violations, large text (no overflow), prodmode 9; screenshots
   in light, dark and extra-large text.
 
+- 2026-10-14 — **Onboarding restyled (founder's reference picture: "make the screens look amazing like this").** Same screens, steps, wording
+  and buttons as before; new look on every screen:
+  - **Top:** the app's icon and name, Back on the left, **Skip** on the right. Skip is new on Pip's three intro screens, where it goes straight to the
+    first question; on the questions it moved up from under Continue. Under that, the progress as **segments** (4 for the welcome part, 6 for the
+    questions, with "Step n of 6").
+  - **Headlines:** very large, with a small green picture pill in them.
+  - **Bottom button:** the big pill with a green » knob, the words and a tick. A tap does it; there's nothing to drag, so it's easy for everyone.
+  - **Welcome:** "Eat out, shop and cook. [Pip · Welcome to Numbite] Know the numbers first." with the moving wall of restaurants and shops as the
+    picture underneath, two floating labels ("{n} UK restaurants", "{n} supermarkets"), and a white Get started pill.
+  - **Pip's intro screens:**
+    - 1: Pip in a big green card with Calories, Protein and Price floating round it.
+    - 2: a preview of Home (this week; a calories dial; protein, carbs and fat), marked **"Example"**. Its figures are made up for the picture,
+      43% of the person's calorie target. It is decorative and hidden from screen readers, never a food's data.
+    - 3: Pip cheering with the burst.
+  - **Questions:** the selected goal or text size is a dark card with a green tick. The targets step has our own plate and fork (the app icon's
+    mark, never a photo of food) beside the headline, coloured bars showing the calories and protein as they change, and two cards with − and +
+    (50 kcal, 5 g; fields still typeable).
+  - **"Your plan":** coloured bars and the plate.
+
+  No food photographs (CLAUDE.md rule 2). The iPhone app's wall still shows names only. New copy (rule 8, logged here; translated into the 10
+  languages by Claude, not yet checked by native speakers): "Welcome to {app}", "Example", "Price", "Decrease", "Increase". No longer used:
+  "{kcal} kcal · {protein} protein a day".
+
+  Checked:
+  - 576 unit tests, tsc, lint;
+  - e2e smoke 23, extra 12, languages 5, account 8, a11y 0 violations, large text (no overflow);
+  - prodmode 9, app-build 8;
+  - every screen in light and dark, and extra-large text on the busiest screens.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

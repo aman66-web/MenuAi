@@ -271,11 +271,22 @@ html[data-i18n-pending] body {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+/* The wall as the welcome screen's picture (below the headline): it fades in at the top as well as out at the bottom. */
+.logo-wall.wall-hero {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 70%, transparent 100%);
+}
 .marquee { animation: marquee 50s linear infinite; will-change: transform; }
 .marquee-reverse { animation-direction: reverse; }
 @media (prefers-reduced-motion: reduce) {
   .marquee { animation: none; }
 }
+
+/* Onboarding (founder 2026-10-14): the little labels float gently over the welcome picture; still for reduced motion. */
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.bob { animation: bob 4.5s ease-in-out infinite; }
+.bob-slow { animation: bob 6s ease-in-out infinite 0.8s; }
+@media (prefers-reduced-motion: reduce) { .bob, .bob-slow { animation: none; } }
 
 /* Long words (Polish, Romanian, Portuguese, Gujarati…) may break inside the app rather than push a screen sideways at large text
    sizes; figures never do. */

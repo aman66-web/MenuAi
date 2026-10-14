@@ -16,6 +16,7 @@ export const StarIcon = ({ filled, ...p }: P & { filled?: boolean }) => (<svg {.
 const flip = (p: P): P => ({ ...p, className: `rtl:-scale-x-100 ${p.className ?? ""}` });
 export const ChevronRightIcon = (p: P) => (<svg {...base(flip(p))}><path d="M9 6l6 6-6 6" /></svg>);
 export const ChevronLeftIcon = (p: P) => (<svg {...base(flip(p))}><path d="M15 6l-6 6 6 6" /></svg>);
+export const ChevronsRightIcon = (p: P) => (<svg {...base(flip(p))}><path d="M5.5 6l6 6-6 6M12.5 6l6 6-6 6" /></svg>);
 export const SearchIcon = (p: P) => (<svg {...base(p)}><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>);
 export const CloseIcon = (p: P) => (<svg {...base(p)}><path d="M6 6l12 12M18 6L6 18" /></svg>);
 export const PlusIcon = (p: P) => (<svg {...base(p)}><path d="M12 5v14M5 12h14" /></svg>);
