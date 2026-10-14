@@ -40,6 +40,19 @@ export const GiftIcon = (p: P) => (<svg {...base(p)}><rect x="3.5" y="9" width="
 export const LeafIcon = (p: P) => (<svg {...base(p)}><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15" /><path d="M5 19l7-7" /></svg>);
 export const TextSizeIcon = (p: P) => (<svg {...base(p)}><path d="M3 18l4.5-12L12 18M4.6 14h5.8M14 18l3-8 3 8M15 15.5h4" /></svg>);
 export const BoltIcon = (p: P) => (<svg {...base(p)}><path d="M13 3L5 14h6l-1 7 8-11h-6z" /></svg>);
+// ---- dish glyphs for our own recipes' cards until their pictures exist: drawn for this app, simple shapes ----
+const BOWL = "M3.5 12h17a8.5 8.5 0 01-17 0z";
+export const NoodleGlyph = (p: P) => (<svg {...base(p)}><path d={BOWL} /><path d="M8 12V8.6c0-1.3 1.8-1.3 1.8 0V12M11.4 12V7.8c0-1.3 1.8-1.3 1.8 0V12" /><path d="M14.5 10.5l6.5-7M16.6 11.2l5.4-5.6" /></svg>);
+export const PastaGlyph = (p: P) => (<svg {...base(p)}><ellipse cx="12" cy="16.5" rx="9" ry="4" /><path d="M12 2.5v10M9.8 2.5v3.2a2.2 2.2 0 004.4 0V2.5" /><path d="M8 14c1.2-1.6 6.8-1.6 8 0M9.5 16c.8-.9 4.2-.9 5 0" /></svg>);
+export const FishGlyph = (p: P) => (<svg {...base(p)}><path d="M2.5 12c3.2-4.3 9.6-6 14.5 0-4.9 6-11.3 4.3-14.5 0z" /><path d="M17 12l4.5-3.5v7z" /><circle cx="7.5" cy="11" r="0.9" fill="currentColor" /></svg>);
+export const EggGlyph = (p: P) => (<svg {...base(p)}><path d="M4.5 13.5C3.6 9.4 6.6 5.2 10.8 5.6c2.4.2 3.4 1.6 5.4 1.5 3-.1 4.8 2.8 3.6 6.1-1.3 3.7-5.2 5.8-9 5.6-3.3-.1-5.6-2-6.3-5.3z" /><circle cx="12" cy="12.3" r="2.8" /></svg>);
+export const SaladGlyph = (p: P) => (<svg {...base(p)}><path d={BOWL} /><path d="M7.5 12c-.9-2.9.9-5.4 4.2-5.4-.1 3-2 5.2-4.2 5.4zM12 12c.1-3.3 2.4-6.1 6.4-5.4-.8 3.2-3.2 5.3-6.4 5.4z" /></svg>);
+export const OatsGlyph = (p: P) => (<svg {...base(p)}><path d={BOWL} /><path d="M12 12l3.2-7.4" /><ellipse cx="16" cy="3.4" rx="1.5" ry="2.3" transform="rotate(23 16 3.4)" /><circle cx="7.5" cy="10" r="1" fill="currentColor" /><circle cx="10" cy="9" r="1" fill="currentColor" /></svg>);
+export const RiceBowlGlyph = (p: P) => (<svg {...base(p)}><path d={BOWL} /><path d="M5.5 12c.3-3.1 3-5 6.5-5s6.2 1.9 6.5 5" /><path d="M9 9.6h.01M12 8.6h.01M15 9.6h.01" strokeWidth={2.4} /></svg>);
+export const TrayGlyph = (p: P) => (<svg {...base(p)}><path d="M3.5 10.5h17v5.5a3 3 0 01-3 3h-11a3 3 0 01-3-3z" /><path d="M1.5 11.5h2M20.5 11.5h2" /><path d="M9 3.5c-1 1.4 1 2.4 0 4M13 3.5c-1 1.4 1 2.4 0 4M17 3.5c-1 1.4 1 2.4 0 4" /></svg>);
+export const HeartIcon =({ filled, ...p }: P & { filled?: boolean }) => (<svg {...base(p)} fill={filled ? "currentColor" : "none"}><path d="M12 20s-7.5-4.6-9.2-9.4C1.6 7.2 3.9 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.1 0 5.4 2.7 4.2 6.1C19.5 15.4 12 20 12 20z" /></svg>);
+export const GridIcon = (p: P) => (<svg {...base(p)}><rect x="4" y="4" width="6.5" height="6.5" rx="2" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="2" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="2" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2" /></svg>);
+export const SproutIcon = (p: P) => (<svg {...base(p)}><path d="M12 21v-9" /><path d="M12 12C12 8 9.5 5.5 5 5.5c0 4.5 2.5 6.5 7 6.5z" /><path d="M12 10c0-3.5 2.2-6 6.5-6 0 4-2.2 6-6.5 6z" /></svg>);
 export const CalendarIcon = (p: P) => (<svg {...base(p)}><rect x="4" y="5" width="16" height="15" rx="3" /><path d="M4 10h16M9 3v4M15 3v4" /></svg>);
 export const FlameIcon = (p: P) => (<svg {...base(p)}><path d="M12 3c.5 3 4.5 5 4.5 9.5a4.5 4.5 0 01-9 0c0-2 1-3.3 2-4.3.2 1.6 1 2.5 2 2.8C11 8.5 11 5.5 12 3z" /></svg>);
 

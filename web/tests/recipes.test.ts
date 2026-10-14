@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { CORE } from "../lib/mm/recipeBook/core";
-import { candidates, drainedSize, fitRecipe, isMeatFree, mealSizes, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
+import { candidates, drainedSize, fitRecipe, isMeatFree, isQuick, isVegan, mealSizes, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
 import { mealTargetFor } from "../lib/mm/mealTarget";
 import { pantryForDiet } from "../lib/mm/pantry";
 import { addToList, itemCode, listAsText, listTotals, sanitizeShoppingList, setQty } from "../lib/mm/groceries";
@@ -247,6 +247,14 @@ describe("recipes for a diet", () => {
     expect(recipeForDiet(byId("black-bean-chilli"), { veganOnly: true })).not.toBeNull();
     expect(isMeatFree(byId("halloumi-wraps"))).toBe(true);
     expect(isMeatFree(byId("tuna-pasta"))).toBe(false);
+  });
+  it("vegan and quick, as the Recipes page's tiles filter them", () => {
+    expect(isVegan(byId("black-bean-chilli"))).toBe(true);
+    expect(isVegan(byId("halloumi-wraps"))).toBe(false); // no meat or fish, but cheese
+    expect(isVegan(byId("chicken-curry"))).toBe(false);
+    expect(RECIPES.filter(isVegan).every(isMeatFree)).toBe(true);
+    expect(isQuick({ minutes: 20 })).toBe(true);
+    expect(isQuick({ minutes: 25 })).toBe(false);
   });
   it("uses halal-named meat for halal, and leaves out meat without one, and shellfish", () => {
     const halal = recipeForDiet(byId("chicken-curry"), { halalOnly: true })!;

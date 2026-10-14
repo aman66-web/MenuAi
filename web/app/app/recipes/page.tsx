@@ -4,34 +4,46 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
+import { mealSlotFor } from "@/lib/mm/budget";
 import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
-import type { T } from "@/lib/mm/i18n";
+import { tk, type T } from "@/lib/mm/i18n";
+import { recipesFromList } from "@/lib/mm/listRecipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
-import { isMeatFree, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
-import { myRecipesStore, savedRecipesStore } from "@/lib/mm/stores";
+import { isMeatFree, isQuick, isVegan, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
+import { recipeShops } from "@/lib/mm/shopProducts";
+import { myRecipesStore, savedRecipesStore, shoppingStore } from "@/lib/mm/stores";
 import { dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BookmarkIcon, ChevronRightIcon, PotIcon, SearchIcon } from "../_components/icons";
+import { ArrowRightIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { useGate } from "../_components/Paywall";
-import { Button, Chip, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
-import { useIsPro, useSettings, useStore } from "../_lib/hooks";
+import { Button, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
+import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
-import { Rich } from "../_lib/Rich";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
-import { recipeShops } from "@/lib/mm/shopProducts";
 import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
-// nutrition its own page prints. Each recipe is fitted to the person's meal (size and protein) and their diet from Settings; Pip can write a
-// new one with AI. Big buttons and plain words throughout, for everyone including older people.
-// Kept plain (founder 2026-10-11): the first question is which meal (big buttons), then search; the meal size the recipes are fitted to is
-// one line with an "Adjust" button that opens the size choices.
+// nutrition its own page prints. Each recipe is fitted to the person's meal (size and protein) and their diet from Settings.
+// Founder 2026-10-14, from a reference picture ("make the recipes page look exactly more like image 1 ... add whatever would make it better";
+// the cards like image 2): Pip and a heart for My meals on top, "What's cooking today?", the search, eight big tiles (the four meals, Quick,
+// No meat or fish, Vegan, More), "Picked for you" (the recipes closest to the person's meal size for the meal of the day, side by side), a
+// nudge to cook from the shopping list, then every recipe as picture cards with calories and protein under the name. Sorting, the meal size
+// and the diet sit under "More"; what recipes are fitted to stays in view above the list.
 
 type Sort = "fit" | "price" | "protein";
+type Toggle = "quick" | "meatFree" | "vegan";
 const PAGE = 24;
+const PICKS = 8;
+
+const TOGGLES: ReadonlyArray<{ value: Toggle; label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
+  { value: "quick", label: tk("Quick"), Icon: TodayIcon },
+  { value: "meatFree", label: tk("No meat or fish"), Icon: LeafIcon },
+  { value: "vegan", label: tk("Vegan"), Icon: SproutIcon },
+];
+const TOGGLE_TEST: Record<Toggle, (r: Recipe) => boolean> = { quick: isQuick, meatFree: isMeatFree, vegan: isVegan };
 
 /** Search words against a recipe's name, blurb and ingredient names ("chicken", "curry", "oats"), in English and in the reader's language. */
 function matchesSearch(r: Recipe, q: string, t: T): boolean {
@@ -46,6 +58,24 @@ function matchesSearch(r: Recipe, q: string, t: T): boolean {
 function sortCards(cards: RecipeCard[], sort: Sort): RecipeCard[] {
   const key = (c: RecipeCard): number => (sort === "fit" ? c.distance : sort === "protein" ? -c.totals.perServing.protein : (c.totals.costPerServing ?? Infinity));
   return [...cards].sort((a, b) => key(a) - key(b) || a.recipe.name.localeCompare(b.recipe.name, "en-GB"));
+}
+
+/** One of the eight big tiles: an icon over a word. Pressed = dark; "More" is the lighter green one, as in the reference. */
+function Tile({ label, Icon, pressed, onClick, more, expanded }: { label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode; pressed?: boolean; onClick: () => void; more?: boolean; expanded?: boolean }) {
+  const look = more
+    ? expanded ? "border-transparent bg-foreground text-background" : "border-transparent bg-[linear-gradient(135deg,#d9f99d,#bbf7d0)] text-[#0b1a12]"
+    : pressed ? "border-transparent bg-foreground text-background shadow-[0_8px_18px_-10px_rgba(0,0,0,0.5)]" : "glass hover:bg-soft-strong";
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      {...(more ? { "aria-expanded": !!expanded, "aria-controls": "recipe-options" } : { "aria-pressed": !!pressed })}
+      className={`flex min-h-[5.5rem] min-w-0 flex-col items-center justify-center gap-1.5 rounded-[1.4rem] border px-1.5 py-2.5 text-center transition active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${look}`}
+    >
+      <Icon className={`h-7 w-7 ${pressed || more ? "" : "text-accent"}`} />
+      <span className="w-full text-sm font-bold leading-tight [hyphens:auto] [overflow-wrap:break-word]">{label}</span>
+    </button>
+  );
 }
 
 function RecipesScreen() {
@@ -64,21 +94,26 @@ function RecipesScreen() {
   const { cards, leftOut } = useRecipeCards(null, products, diet, target);
   const saved = useStore(myRecipesStore);
   const savedCount = useStore(savedRecipesStore).length + saved.length;
+  const shopping = useStore(shoppingStore);
   const dietKey = JSON.stringify(diet);
   const mine = useMemo(() => saved.filter((s) => s.shop === shop).map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, shop, dietKey]);
   const mineCards = useRecipeCards(mine, products, diet, target).cards;
-  const [meatFree, setMeatFree] = useState(false);
   const [meal, setMeal] = useState<MealType | null>(null);
-  const [adjusting, setAdjusting] = useState(false);
+  const [toggles, setToggles] = useState<ReadonlySet<Toggle>>(new Set());
+  const [more, setMore] = useState(false);
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(PAGE);
   const [sort, setSort] = useState<Sort | null>(null);
   const effectiveSort: Sort = sort ?? (target ? "fit" : "protein");
   const shown = useMemo(
-    () => sortCards(cards.filter((c) => (!meatFree || isMeatFree(c.recipe)) && (!meal || c.recipe.meal === meal) && matchesSearch(c.recipe, query, t)), effectiveSort),
-    [cards, meatFree, meal, query, effectiveSort, t],
+    () => sortCards(cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (!meal || c.recipe.meal === meal) && matchesSearch(c.recipe, query, t)), effectiveSort),
+    [cards, toggles, meal, query, effectiveSort, t],
   );
-  const filtering = meatFree || meal !== null || query.trim() !== "";
+  const filtering = toggles.size > 0 || meal !== null || query.trim() !== "";
+  const now = useNow();
+  const slot: MealType = mealSlotFor(now);
+  const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
+  const listRecipes = useMemo(() => (shop && products && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), products, shop).length : 0), [shopping, cards, products, shop]);
   const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? "";
   const makerOn = useRecipeMakerEnabled();
   const words = dietWords(t, diet);
@@ -87,64 +122,73 @@ function RecipesScreen() {
   const router = useRouter();
   const makeHref = `/app/recipes/make${shop ? `?r=${shop}` : ""}`;
 
+  const flip = (x: Toggle) => { setToggles((s) => { const n = new Set(s); if (n.has(x)) n.delete(x); else n.add(x); return n; }); setLimit(PAGE); };
+  const clearAll = () => { setQuery(""); setMeal(null); setToggles(new Set()); setLimit(PAGE); };
+  const href = (c: RecipeCard) => `/app/recipes/view?id=${c.recipe.id}&r=${shop}`;
+
   return (
     <div>
-      <div className="hero-card relative overflow-hidden rounded-[2rem] p-5 pe-24">
-        <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Recipes {em}")} values={{ em: <span className="serif-em sun-text pe-0.5">{t("from your shop")}</span> }} /></h1>
-        <p className="mt-2 text-base leading-snug text-muted">
-          {shopName ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
-        </p>
-        <span className="absolute -bottom-1 end-1"><Pip mood="point" size={84} /></span>
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-3">
+          <span aria-hidden className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full bg-[linear-gradient(135deg,#ecfccb,#a7f3d0)] shadow-[0_8px_18px_-10px_var(--brand-shadow)]">
+            <Pip mood="wave" size={46} className="translate-y-1" />
+          </span>
+          <span className="truncate text-lg font-extrabold tracking-tight">{t("Recipes")}</span>
+        </div>
+        <Link href="/app/meals?tab=recipes" aria-label={savedCount > 0 ? `${t("My meals")} · ${savedCount}` : t("My meals")} className="glass relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
+          <HeartIcon className="h-5 w-5" />
+          {savedCount > 0 && <span aria-hidden className="app-numbers absolute -end-1 -top-1 grid h-6 min-w-6 place-items-center rounded-full bg-foreground px-1.5 text-xs font-extrabold text-background">{savedCount}</span>}
+        </Link>
       </div>
 
-      {/* Which supermarket the ingredients come from (founder 2026-10-10: "filter by what supermarkets they wanna use"). Only shops whose full
-          product list, prices and labels we've read can fill a recipe, so the choice grows as more lists are read. */}
+      <h1 className="mt-5 text-[2.35rem] font-extrabold leading-[1.05] tracking-[-0.03em]">{t("What's cooking today?")}</h1>
+      <p className="mt-2 text-base leading-snug text-muted">
+        {shopName ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}
+      </p>
+
+      {/* Which supermarket the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe. */}
       {recipeShops(manifest).length > 1 && shop && (
         <div className="mt-4">
           <Segmented label={t("Supermarket")} value={shop} options={recipeShops(manifest).map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
         </div>
       )}
 
-      <label className="relative mt-4 block">
+      <label className="relative mt-5 block">
         <span className="sr-only">{t("Search recipes")}</span>
-        <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes, e.g. chicken or curry")} enterKeyHint="search" autoComplete="off" className="glass min-h-14 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
+        <SearchIcon className="pointer-events-none absolute start-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
+        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes, e.g. chicken or curry")} enterKeyHint="search" autoComplete="off" className="glass min-h-14 w-full rounded-full ps-12 pe-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
       </label>
 
-      <h2 className="mt-6 text-xl font-extrabold tracking-tight">{t("Which meal?")}</h2>
-      <div role="group" aria-label={t("Which meal")} className="mt-3 grid grid-cols-2 gap-2">
-        {MEAL_TYPES.map((m) => {
-          const on = meal === m.value;
-          const { Icon, band } = MEAL_LOOK[m.value];
-          return (
-            <button key={m.value} type="button" aria-pressed={on} onClick={() => { setMeal(on ? null : m.value); setLimit(PAGE); }} className={`flex min-h-16 items-center gap-3 rounded-2xl border px-3 text-start text-lg font-bold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-transparent bg-foreground text-background shadow-[0_6px_16px_-8px_rgba(0,0,0,0.45)]" : "border-line bg-soft hover:bg-soft-strong"}`}>
-              <span aria-hidden className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${on ? "bg-background/15" : band}`}><Icon className="h-6 w-6" /></span>
-              <span className="min-w-0">{t(m.label)}</span>
-            </button>
-          );
-        })}
-        <button type="button" aria-pressed={meal === null} onClick={() => { setMeal(null); setLimit(PAGE); }} className={`col-span-2 inline-flex min-h-12 items-center justify-center rounded-2xl border px-3 text-base font-bold transition active:scale-[0.97] ${meal === null ? "border-transparent bg-foreground text-background" : "border-line bg-soft hover:bg-soft-strong"}`}>{t("Any meal")}</button>
-      </div>
-      <div role="group" aria-label={t("Filters")} className="mt-3 flex flex-wrap gap-2">
-        <Chip selected={meatFree} onClick={() => { setMeatFree(!meatFree); setLimit(PAGE); }}>{t("No meat or fish")}</Chip>
+      {/* Eight big tiles: four columns on a phone, fewer when the text is large (the minimum width is in rem). */}
+      <div role="group" aria-label={t("Filters")} className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2">
+        {MEAL_TYPES.map((m) => (
+          <Tile key={m.value} label={t(m.label)} Icon={MEAL_LOOK[m.value].Icon} pressed={meal === m.value} onClick={() => { setMeal(meal === m.value ? null : m.value); setLimit(PAGE); }} />
+        ))}
+        {TOGGLES.map((x) => (
+          <Tile key={x.value} label={t(x.label)} Icon={x.Icon} pressed={toggles.has(x.value)} onClick={() => flip(x.value)} />
+        ))}
+        <Tile label={t("More")} Icon={GridIcon} more expanded={more} onClick={() => setMore((v) => !v)} />
       </div>
 
-      {/* What every recipe is fitted to, and the diet it follows: one card, each line with its own button. */}
-      <div className="glass mt-5 divide-y divide-line rounded-[1.5rem]">
-        <div className="p-3 ps-4">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-            <p role="status" aria-live="polite" className="app-numbers min-w-0 flex-1 text-base font-semibold">{targetSentence(t, target)}</p>
-            <button type="button" aria-expanded={adjusting} aria-controls="meal-size" onClick={() => setAdjusting((v) => !v)} className="inline-flex min-h-12 shrink-0 items-center gap-1.5 rounded-full border border-line bg-soft px-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong">
-              {t("Adjust")}<ChevronRightIcon className={`h-4 w-4 transition-transform ${adjusting ? "-rotate-90" : "rotate-90"}`} />
-            </button>
+      {more && (
+        <div id="recipe-options" className="mt-3 space-y-3">
+          <div className="glass rounded-3xl p-4">
+            <p className="mb-2 text-lg font-extrabold tracking-tight">{t("Sort by")}</p>
+            <Segmented
+              label={t("Sort recipes")}
+              value={effectiveSort}
+              options={[...(target ? [{ value: "fit" as const, label: t("Closest fit") }] : []), { value: "price" as const, label: t("Lowest price") }, { value: "protein" as const, label: t("Most protein") }]}
+              onChange={setSort}
+            />
           </div>
-          {adjusting && <div id="meal-size" className="-ms-2 mt-2"><MealPicker summary={false} /></div>}
+          <MealPicker summary={false} />
+          <div className="glass flex flex-wrap items-center gap-x-3 gap-y-2 rounded-3xl p-4">
+            <p className="min-w-0 flex-1 text-base"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
+            <Link href="/app/settings#diet" className="inline-flex min-h-12 shrink-0 items-center rounded-full border border-line bg-soft px-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong">{t("Change")}</Link>
+          </div>
+          <Button full variant="secondary" className="min-h-12" onClick={() => setMore(false)}>{t("Done")}</Button>
         </div>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 p-3 ps-4">
-          <p className="min-w-0 flex-1 text-base"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
-          <Link href="/app/settings#diet" className="inline-flex min-h-12 shrink-0 items-center rounded-full border border-line bg-soft px-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong">{t("Change")}</Link>
-        </div>
-      </div>
+      )}
 
       {AI_RECIPES_ENABLED && (makerOn || SAMPLES_ENABLED) && (
         <button type="button" onClick={() => gate("recipeMaker", () => router.push(makeHref))} className="hero-card lift group mt-4 flex min-h-[5.5rem] w-full items-center gap-3 rounded-[1.75rem] p-3 ps-2 text-start">
@@ -157,57 +201,77 @@ function RecipesScreen() {
         </button>
       )}
 
-      <Link href="/app/meals?tab=recipes" className="glass lift group mt-3 flex min-h-14 items-center gap-3 rounded-full py-1.5 ps-4 pe-1.5 hover:bg-soft-strong">
-        <BookmarkIcon className="h-5 w-5 shrink-0 text-accent" />
-        <span className="min-w-0 flex-1 text-base font-bold">{t("My meals")}{savedCount > 0 && <span className="app-numbers font-semibold text-muted"> · {savedCount}</span>}</span>
-        <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0"><ArrowRightIcon className="h-5 w-5" /></span>
-      </Link>
+      {!filtering && picks.length > 0 && shop && (
+        <section aria-labelledby="picks-heading" className="mt-7">
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 id="picks-heading" className="text-2xl font-extrabold tracking-tight">{t("Picked for you")}</h2>
+            <span className="rounded-full bg-accent-soft px-3 py-1 text-sm font-bold text-accent">{t(MEAL_TYPES.find((m) => m.value === slot)?.label ?? "Dinner")}</span>
+          </div>
+          <ul className="no-scrollbar -mx-4 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scroll-px-4">
+            {picks.map((c) => (
+              <li key={c.recipe.id} className="w-[80%] max-w-[22rem] shrink-0 snap-start"><RecipeTile card={c} wide href={href(c)} /></li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {!filtering && listRecipes > 0 && (
+        <Link href="/app/groceries/list/recipes" className="glass lift group mt-4 flex min-h-16 items-center gap-3 rounded-[1.5rem] p-3 ps-3">
+          <span aria-hidden className="icon-bubble h-12 w-12 shrink-0 rounded-2xl"><ListIcon className="h-6 w-6" /></span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-base font-extrabold leading-snug">{t("Cook with what's on your list")}</span>
+            <span className="app-numbers block text-sm text-muted">{listRecipes === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: listRecipes })}</span>
+          </span>
+          <ArrowRightIcon className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      )}
 
       {mineCards.length > 0 && shop && (
-        <section aria-labelledby="mine-heading" className="mt-6">
-          <h2 id="mine-heading" className="text-xl font-extrabold tracking-tight">{t("Your recipes")}</h2>
-          <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+        <section aria-labelledby="mine-heading" className="mt-7">
+          <h2 id="mine-heading" className="text-2xl font-extrabold tracking-tight">{t("Your recipes")}</h2>
+          <ul className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3">
             {mineCards.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} badge={t("Made by Pip")} href={`/app/recipes/view?mine=${c.recipe.id}&r=${shop}`} /></li>))}
           </ul>
         </section>
       )}
 
-      <h2 className="mt-8 flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("All recipes")}{cards.length > 0 && <span className="app-numbers font-semibold text-muted"> · {cards.length}</span>}</h2>
-      <p className="mb-1.5 mt-3 text-base font-bold">{t("Sort by")}</p>
-      <div>
-        <Segmented
-          label={t("Sort recipes")}
-          value={effectiveSort}
-          options={[...(target ? [{ value: "fit" as const, label: t("Closest fit") }] : []), { value: "price" as const, label: t("Lowest price") }, { value: "protein" as const, label: t("Most protein") }]}
-          onChange={setSort}
-        />
-      </div>
-
-      {!manifest || (shop && state.status === "loading") ? (
-        <Spinner label={t("Loading recipes")} />
-      ) : !shop ? (
-        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
-      ) : state.status === "error" ? (
-        <div className="mt-5"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
-      ) : shown.length === 0 && filtering && cards.length > 0 ? (
-        <div className="mt-5">
-          <EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes match.")} body={t("Try another word or meal.")} />
-          <div className="mt-3 flex justify-center"><Button variant="secondary" onClick={() => { setQuery(""); setMeal(null); setMeatFree(false); }}>{t("Show all recipes")}</Button></div>
+      <section aria-labelledby="all-heading" className="mt-7">
+        <h2 id="all-heading" className="text-2xl font-extrabold tracking-tight">{t("All recipes")}{cards.length > 0 && <span className="app-numbers font-semibold text-muted"> · {cards.length}</span>}</h2>
+        <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <p className="app-numbers min-w-0 flex-1 text-base leading-snug text-muted">{targetSentence(t, target)}{words.length > 0 && <> {t("Your diet:")} {words.join(" · ")}.</>}</p>
+          <button type="button" aria-expanded={more} aria-controls="recipe-options" onClick={() => { setMore(true); requestAnimationFrame(() => document.getElementById("recipe-options")?.scrollIntoView({ behavior: "smooth", block: "start" })); }} className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-line bg-soft px-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong">{t("Adjust")}</button>
         </div>
-      ) : shown.length === 0 ? (
-        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes here yet.")} body={leftOut ? t("None of our recipes suit your diet at this shop yet.") : t("We haven't read enough of {shop} product pages to fill these recipes yet.", { shop: poss(shopName) })} /></div>
-      ) : (
-        <>
-          <p role="status" className="app-numbers mt-3 px-1 text-base text-muted">{shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length })}</p>
-          <ul className="stagger mt-2 grid gap-3 sm:grid-cols-2">
-            {shown.slice(0, limit).map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} /></li>))}
-          </ul>
-          {shown.length > limit && (
-            <div className="mt-4"><Button full variant="secondary" className="min-h-14 text-base" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>
-          )}
-          {leftOut > 0 && <p className="mt-3 px-1 text-base text-muted">{leftOut === 1 ? t("1 recipe is left out for your diet.") : t("{n} recipes are left out for your diet.", { n: leftOut })}</p>}
-        </>
-      )}
+
+        {!manifest || (shop && state.status === "loading") ? (
+          <Spinner label={t("Loading recipes")} />
+        ) : !shop ? (
+          <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
+        ) : state.status === "error" ? (
+          <div className="mt-4"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
+        ) : shown.length === 0 && filtering && cards.length > 0 ? (
+          <div className="mt-4">
+            <EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes match.")} body={t("Try another word or meal.")} />
+            <div className="mt-3 flex justify-center"><Button variant="secondary" onClick={clearAll}>{t("Show all recipes")}</Button></div>
+          </div>
+        ) : shown.length === 0 ? (
+          <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes here yet.")} body={leftOut ? t("None of our recipes suit your diet at this shop yet.") : t("We haven't read enough of {shop} product pages to fill these recipes yet.", { shop: poss(shopName) })} /></div>
+        ) : (
+          <>
+            {/* the count is said aloud as it changes; on screen it shows only while filtering, next to Clear (the heading already says how many) */}
+            <div className={filtering ? "mt-3 flex min-h-11 flex-wrap items-center justify-between gap-x-3 px-1" : "sr-only"}>
+              <p role="status" className="app-numbers text-base text-muted">{shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length })}</p>
+              {filtering && <button type="button" onClick={clearAll} className="inline-flex min-h-11 items-center rounded-full px-3 font-bold text-accent hover:bg-accent-soft">{t("Clear")}</button>}
+            </div>
+            <ul className={`stagger grid ${filtering ? "mt-1" : "mt-4"} grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3`}>
+              {shown.slice(0, limit).map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={href(c)} /></li>))}
+            </ul>
+            {shown.length > limit && (
+              <div className="mt-4"><Button full variant="secondary" className="min-h-14 text-base" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>
+            )}
+            {leftOut > 0 && <p className="mt-3 px-1 text-base text-muted">{leftOut === 1 ? t("1 recipe is left out for your diet.") : t("{n} recipes are left out for your diet.", { n: leftOut })}</p>}
+          </>
+        )}
+      </section>
 
       {state.status === "ready" && (
         <p className="mt-8 border-t border-line pt-4 text-sm text-muted">

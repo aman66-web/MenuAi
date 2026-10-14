@@ -1153,6 +1153,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   extra 12, a11y 0 violations, large text (no overflow at 100/150/200%), prodmode 9; screenshots in light, dark and extra-large text.
   The App Store screenshots and the uploaded build still show the old Home: re-run `web/e2e/store-shots.mjs` and make a new build.
 
+- 2026-10-14 — **New Recipes page (founder's two reference pictures: "make the recipes page look exactly more like image 1 ... add whatever
+  would make it better"; the cards "how image 2 does the name ... with the protein").** Top: Pip in a round avatar with "Recipes", and a heart
+  button that opens My meals with the number saved; "What's cooking today?"; the shop sentence; the search; eight big tiles (Breakfast, Lunch,
+  Dinner, Snacks, **Quick** = ready in 20 minutes or less as the recipe says, No meat or fish, **Vegan** = the app's own vegan rules,
+  `isVegan`/`isQuick` in `lib/mm/recipes.ts`, tested) and **More**, which opens sorting, the meal size and the diet. **Picked for you**: the eight
+  recipes closest to the person's meal size for the meal of the day (SPEC §6.3 slot by the clock), side by side; hidden while searching or filtering.
+  A card **"Cook with what's on your list"** shows when the shopping list has something a recipe uses. **All recipes** keeps the "fitted to"
+  sentence and the diet in view with an Adjust button. **Cards** (`RecipeTile`, also on My meals): a picture area with a heart to save it to My
+  meals, then the name, then calories and protein as two chips side by side, then the price of a serving and the minutes. Until the AI pictures
+  exist, the picture area is a plate with a simple drawing of the kind of dish, picked from words in the recipe's English name (noodles, pasta,
+  wrap, eggs, salad, porridge, pot, bake, fish, rice bowl; the meal's icon otherwise), on one of six colours chosen by the recipe's id: our own
+  generic drawings (`icons.tsx`), never a picture of food. The bottom tab bar is unchanged. "Trending" from the reference was not used: the app keeps
+  no usage figures, so nothing can honestly be called trending. New copy (rule 8, logged here; translated into the 10 languages by Claude, not yet
+  checked by native speakers): "What's cooking today?", "Picked for you", "Quick", "Cook with what's on your list"; no longer used: "Recipes {em}",
+  "from your shop", "Any meal". Checked: 576 unit tests, tsc, lint, e2e recipes 12 (new: picks, tiles incl. Quick and Vegan, Clear, sort under More,
+  the heart saves and the top heart counts), smoke 23, extra 12, languages 5, a11y 0 violations, large text (no overflow), prodmode 9; screenshots
+  in light, dark and extra-large text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

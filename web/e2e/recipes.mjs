@@ -42,26 +42,39 @@ await step("the tab bar opens Recipes; Home's My meals tile opens one page with 
   await page.waitForURL("**/app/meals?tab=restaurant");
   await page.getByRole("tab", { name: /Restaurant meals/, selected: true }).waitFor();
   await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Recipes" }).click();
-  await page.getByRole("heading", { level: 1, name: "Recipes from your shop" }).waitFor();
+  await page.getByRole("heading", { level: 1, name: "What's cooking today?" }).waitFor();
   await ctx.close();
 });
 
-await step("recipes list: 100 recipes priced at Sainsbury's, 24 at a time, meal chips, search, meat-free filter, sort by price", async () => {
+await step("recipes list: picked for you, 100 recipes priced at Sainsbury's, 24 at a time, meal tiles, search, filters, sort by price under More, save with the heart", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes");
   await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
-  const cards = page.locator("a[href*='/app/recipes/view']");
+  const picks = page.getByRole("region", { name: "Picked for you" }).locator("a[href*='/app/recipes/view']");
+  await picks.first().waitFor();
+  expect((await picks.count()) === 8, `8 picked for you, got ${await picks.count()}`);
+  const cards = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']");
   await cards.first().waitFor();
   await page.getByRole("heading", { name: /All recipes · 100/ }).waitFor();
   await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
   expect((await cards.count()) === 24, `24 shown first, got ${await cards.count()}`);
   await page.getByRole("button", { name: "Show more recipes (76 more)" }).click();
   expect((await cards.count()) === 48, `48 after Show more, got ${await cards.count()}`);
-  await page.getByRole("group", { name: "Which meal" }).getByRole("button", { name: "Snacks" }).click();
+  const tiles = page.getByRole("group", { name: "Filters" });
+  await tiles.getByRole("button", { name: "Snacks" }).click();
   await page.getByRole("status").filter({ hasText: /^11 recipes match$/ }).waitFor();
-  await page.getByRole("group", { name: "Which meal" }).getByRole("button", { name: "Breakfast" }).click();
+  expect((await page.getByRole("region", { name: "Picked for you" }).count()) === 0, "picks hide while filtering");
+  await tiles.getByRole("button", { name: "Breakfast" }).click();
   await page.getByRole("status").filter({ hasText: /^20 recipes match$/ }).waitFor();
-  await page.getByRole("group", { name: "Which meal" }).getByRole("button", { name: "Any meal" }).click();
+  await tiles.getByRole("button", { name: "Quick" }).click();
+  const quick = Number(/^(\d+) recipes? match$/.exec((await page.getByRole("status").filter({ hasText: /match$/ }).innerText()).trim())?.[1]);
+  expect(quick >= 1 && quick < 20, `quick breakfasts, got ${quick}`);
+  await page.getByRole("button", { name: "Clear" }).click();
+  await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
+  await tiles.getByRole("button", { name: "Vegan" }).click();
+  const vegan = Number(/^(\d+) recipes match$/.exec((await page.getByRole("status").filter({ hasText: /match$/ }).innerText()).trim())?.[1]);
+  expect(vegan >= 12 && vegan < 40, `vegan recipes, got ${vegan}`);
+  await tiles.getByRole("button", { name: "Vegan" }).click();
   await page.getByLabel("Search recipes").fill("curry");
   await page.getByRole("link", { name: /Chicken curry/ }).first().waitFor();
   const curries = await cards.count();
@@ -70,17 +83,23 @@ await step("recipes list: 100 recipes priced at Sainsbury's, 24 at a time, meal 
   await page.getByText("No recipes match.").waitFor();
   await page.getByRole("button", { name: "Show all recipes" }).click();
   await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
-  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "No meat or fish" }).click();
+  await tiles.getByRole("button", { name: "No meat or fish" }).click();
   const m = Number(/^(\d+) recipes match$/.exec((await page.getByRole("status").filter({ hasText: /recipes match$/ }).innerText()).trim())?.[1]);
   expect(m >= 30 && m < 100, `30+ meat-free recipes, got ${m}`);
-  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "No meat or fish" }).click();
+  await tiles.getByRole("button", { name: "No meat or fish" }).click();
   await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
+  await tiles.getByRole("button", { name: "More" }).click();
   await page.getByRole("radio", { name: "Lowest price" }).click();
   await page.waitForTimeout(200);
   const prices = [];
   for (let i = 0; i < 3; i++) prices.push(money((await cards.nth(i).innerText()).replace(/\n/g, " ")));
   expect(prices.every((p, i) => i === 0 || prices[i - 1] <= p), `cheapest first, got ${prices}`);
   await page.getByText(/Prices from Sainsbury's website, checked/).waitFor();
+  // the heart on a card saves it to My meals, and the heart at the top counts it
+  const first = cards.first().locator("xpath=..");
+  await first.getByRole("button", { name: "Save to My meals", pressed: false }).click();
+  await first.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
+  await page.getByRole("link", { name: "My meals · 1" }).waitFor();
   await ctx.close();
 });
 
@@ -197,7 +216,7 @@ await step("your meal: sizes fit every recipe, own numbers, and recipes as writt
   const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, goal: "maintain", dailyCalories: 2000 } }));
   await page.goto(BASE + "/app/recipes");
   await page.getByText("Each recipe is fitted to about 600 kcal a serving.").waitFor();
-  const cards = page.locator("a[href*='/app/recipes/view']");
+  const cards = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']");
   await cards.first().waitFor();
   expect((await page.getByRole("radio", { name: /^Small/ }).count()) === 0, "meal sizes shown before Adjust");
   await page.getByRole("button", { name: "Adjust" }).click();
@@ -206,7 +225,7 @@ await step("your meal: sizes fit every recipe, own numbers, and recipes as writt
   await page.getByRole("radio", { name: /^More protein/ }).click();
   await page.getByText("Each recipe is fitted to about 400 kcal and 30 g protein a serving.").waitFor();
   const first = (await cards.first().innerText()).replace(/\n/g, " ");
-  const kcal = Number(/(\d[\d,]*)\s*calories/i.exec(first)?.[1]?.replace(",", ""));
+  const kcal = Number(/(\d[\d,]*)\s*kcal/i.exec(first)?.[1]?.replace(",", ""));
   expect(kcal > 300 && kcal < 520, `closest fit near 400 kcal first, got ${kcal} in ${first.slice(0, 80)}`);
   await page.getByRole("button", { name: "Type my own numbers" }).click();
   await page.getByLabel("Calories a serving").fill("550");

@@ -106,6 +106,15 @@ export function isMeatFree(recipe: Recipe): boolean {
   });
 }
 
+/** Nothing in the recipe comes from an animal, by the app's own diet rules (the same ones as a vegan diet in Settings). */
+export function isVegan(recipe: Recipe): boolean {
+  return recipeForDiet(recipe, { veganOnly: true }) !== null;
+}
+
+/** "Quick" on the Recipes page: ready in this many minutes or less, as the recipe says. */
+export const QUICK_MINUTES = 20;
+export const isQuick = (recipe: Pick<Recipe, "minutes">): boolean => recipe.minutes <= QUICK_MINUTES;
+
 /** The recipe as these preferences need it (halal meat products), or null when one of its ingredients is left out for them. */
 export function recipeForDiet(recipe: Recipe, prefs: DietPrefs): Recipe | null {
   const out: IngredientSpec[] = [];
