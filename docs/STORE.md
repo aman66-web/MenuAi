@@ -47,7 +47,7 @@ Every feature is free. Numbite isn't affiliated with any restaurant or shop, and
 ## Screenshots (6.9" iPhone, 1320 × 2868)
 
 `web/e2e/store-shots.mjs` takes them from the app's own pages with **every logo hidden and every photo left out** (chains show our cuisine
-icons): Today · Eat out · a restaurant · Recipes · a recipe · a supermarket's products. Saved in `web/e2e/shots/store/`. Add captions in
+icons): Today · Eat out · Goal and targets (Settings) · Recipes · a recipe · Diet and allergies (Settings). Screens 3 and 6 were swapped on 14 October 2026 (founder) so that no restaurant or supermarket name shows in them; the Eat out, Recipes and recipe screens still show a chain or shop name in plain text in a few places (McDonald's and KFC tiles, "Sainsbury's"). Saved in `web/e2e/shots/store/`. Add captions in
 App Store Connect's own frames or leave them plain; never add a restaurant or supermarket logo.
 
 ## App Privacy (App Store Connect questionnaire)

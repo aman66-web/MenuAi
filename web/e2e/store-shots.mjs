@@ -31,9 +31,10 @@ await page.route(`${LIVE}/**`, (r) => r.abort());
 await page.route(/\/(menu-images|grocery-images)\//, (r) => r.abort());
 await page.route((url) => url.protocol === "https:" && url.origin !== new URL(LIVE).origin, (r) => r.abort());
 
-async function shot(name, path, ready) {
+async function shot(name, path, ready, after) {
   await page.goto(BASE + path);
   await ready();
+  if (after) await after();
   await page.waitForTimeout(900);
   // any logo or photo that actually drew on screen (requests for them are refused, so none should)
   const logos = await page.evaluate(() => [...document.images].filter((i) => /\/logos\/|menu-images|grocery-images|scene7|tesco|sainsburys|aldi|lidl|iceland|waitrose|morrisons|marksandspencer/.test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length);
@@ -44,10 +45,14 @@ async function shot(name, path, ready) {
 
 await shot("1-home", "/app", () => page.getByText("Left today:", { exact: true }).waitFor());
 await shot("2-eat-out", "/app/eat-out", () => page.getByText(/\d{3} UK restaurants/).waitFor({ timeout: 15000 }));
-await shot("3-restaurant", "/app/chain?id=nandos", () => page.getByRole("heading", { level: 1 }).waitFor({ timeout: 15000 }));
+// 3 and 6 are Settings screens (goal and targets; diet and allergies): founder 2026-10-14, no restaurant or shop name in them
+await shot("3-goal", "/app/settings", () => page.getByText("Daily targets", { exact: false }).first().waitFor({ timeout: 15000 }));
 await shot("4-recipes", "/app/recipes", () => page.locator("a[href*='/app/recipes/view']").first().waitFor({ timeout: 20000 }));
 await shot("5-recipe", "/app/recipes/view?id=chicken-curry&r=sainsburys", () => page.getByText("How to make it").first().waitFor({ timeout: 20000 }));
-await shot("6-groceries", "/app/groceries/shop?r=sainsburys", () => page.locator("a[href*='/app/groceries/shop/item']").first().waitFor({ timeout: 20000 }));
+// scrolled so the "Your supermarkets" list (shop names) sits under the tab bar, out of the picture
+await shot("6-diet", "/app/settings", () => page.getByText("Allergies to avoid", { exact: true }).waitFor({ timeout: 15000 }), async () => {
+  await page.evaluate(() => { const h = [...document.querySelectorAll("h2,h3")].find((e) => /Diet and allergies/.test(e.textContent || "")); if (h) window.scrollTo(0, window.scrollY + h.getBoundingClientRect().top - 245); });
+});
 
 await browser.close();
 console.log(`screenshots in ${OUT} (1320 x 2868)`);

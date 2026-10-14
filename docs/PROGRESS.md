@@ -1141,12 +1141,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   someone else; the founder is Admin). Done in the account: app record "Numbite: Calories & Protein" (bundle `com.amanmarwaha.MenuMacros`, SKU `numbite-ios`, English (U.K.)),
   subtitle, promotional text, description, keywords, Support and Marketing URLs, categories (Food & Drink / Health & Fitness), six screenshots in the 6.9" slot (taken from
   `web/e2e/shots/store/` unchanged, converted to JPEG for the upload; screenshots 3 and 6 show the plain-text names "Nando's" and "Sainsbury's"
-  with our cuisine icon and no logo or photo), Privacy Policy URL, the App Privacy answers exactly as in the table above (not yet Published), age rating 13+ (infrequent
+  with our cuisine icon and no logo or photo; **swapped later the same evening (founder) for Settings screens, goal/targets and diet/allergies, so screens 3 and 6 have no restaurant or shop name; screens 2, 4 and 5 still show a few in plain text**), Privacy Policy URL, the App Privacy answers exactly as in the table above (not yet Published), age rating 13+ (infrequent
   alcohol, infrequent medical information, health topics yes, everything else none/no), price Free, availability United Kingdom only, review notes from this file, sign-in not
   required, release set to manual, build 1 attached. The archive and upload were run from the Mac (`xcodebuild archive` + `-exportArchive` with destination upload, signed
-  "Apple Distribution: CLARIFO DEVELOPERS LTD"). **Still open (founder):** the Account Holder must accept the updated Apple Developer Program License Agreement (deadline 29
-  October 2026; until then new apps cannot be submitted), copyright line, review contact name, phone and email, the Content Rights answer, press Publish on App Privacy, then
-  Add for Review. Google's consent screen shows the Supabase address until Google approves the app's branding (numbite.com ownership verified in Search Console via a DNS TXT record in
+  "Apple Distribution: CLARIFO DEVELOPERS LTD"). Copyright "2026 CLARIFO DEVELOPERS LTD" and the App Review contact (Aman Marwaha, aman66@hotmail.co.uk, +44 7765 887632) were entered at the founder's word.
+  **Still open (founder):** the Account Holder must accept the *latest* Apple Developer Program License Agreement (the 18 August version was accepted on 17 September; Apple still shows a newer one
+  waiting, deadline 29 October 2026; until then new apps cannot be submitted), the Content Rights answer, the "regulated medical device" declaration (App Information), press Publish on App Privacy,
+  then Add for Review. Google's consent screen shows the Supabase address until Google approves the app's branding (numbite.com ownership verified in Search Console via a DNS TXT record in
   Vercel: keep it; re-verify about 24 hours later, see docs/ACCOUNTS_SYNC.md).
 
 ## Known issues
