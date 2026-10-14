@@ -1137,6 +1137,18 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   true:** the taken-down list (`web/public/logos/hidden.json`) now also hides a chain's item photos and a shop's product photos (`isTakenDown`), with no app
   update; the packed files stay in the app until the next release.
 
+- **2026-10-14 (evening): App Store Connect record created and build 1.0 (1) uploaded** (Apple ID 6822767746, team CLARIFO DEVELOPERS LTD / S7G6ZHHK59, Account Holder is
+  someone else; the founder is Admin). Done in the account: app record "Numbite: Calories & Protein" (bundle `com.amanmarwaha.MenuMacros`, SKU `numbite-ios`, English (U.K.)),
+  subtitle, promotional text, description, keywords, Support and Marketing URLs, categories (Food & Drink / Health & Fitness), six screenshots in the 6.9" slot (taken from
+  `web/e2e/shots/store/` unchanged, converted to JPEG for the upload; screenshots 3 and 6 show the plain-text names "Nando's" and "Sainsbury's"
+  with our cuisine icon and no logo or photo), Privacy Policy URL, the App Privacy answers exactly as in the table above (not yet Published), age rating 13+ (infrequent
+  alcohol, infrequent medical information, health topics yes, everything else none/no), price Free, availability United Kingdom only, review notes from this file, sign-in not
+  required, release set to manual, build 1 attached. The archive and upload were run from the Mac (`xcodebuild archive` + `-exportArchive` with destination upload, signed
+  "Apple Distribution: CLARIFO DEVELOPERS LTD"). **Still open (founder):** the Account Holder must accept the updated Apple Developer Program License Agreement (deadline 29
+  October 2026; until then new apps cannot be submitted), copyright line, review contact name, phone and email, the Content Rights answer, press Publish on App Privacy, then
+  Add for Review. Google's consent screen shows the Supabase address until Google approves the app's branding (numbite.com ownership verified in Search Console via a DNS TXT record in
+  Vercel: keep it; re-verify about 24 hours later, see docs/ACCOUNTS_SYNC.md).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
