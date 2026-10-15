@@ -72,7 +72,7 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
               onKeyDown={(e) => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); choose(TABS[(i + 1) % 2]!.value); } }}
               className={`min-h-14 rounded-[1.25rem] px-2 text-base font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "bg-foreground text-background shadow-sm" : "text-muted hover:text-foreground"}`}
             >
-              {t(o.label)}{hydrated && n > 0 && <span className="app-numbers whitespace-nowrap font-semibold opacity-70"> · {n}</span>}
+              {t(o.label)}{hydrated && n > 0 && <span className="app-numbers whitespace-nowrap font-semibold"> · {n}</span>}
             </button>
           );
         })}

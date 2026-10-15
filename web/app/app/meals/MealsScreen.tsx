@@ -56,7 +56,7 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
               onKeyDown={(e) => radioKeyNav(e, i, tabs.length, (n) => choose(tabs[n]!.value))}
               className={`min-h-14 rounded-[1.25rem] px-2 text-base font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "bg-foreground text-background shadow-sm" : "text-muted hover:text-foreground"}`}
             >
-              {o.label}{hydrated && o.count > 0 && <span className="app-numbers whitespace-nowrap font-semibold opacity-70"> · {o.count}</span>}
+              {o.label}{hydrated && o.count > 0 && <span className="app-numbers whitespace-nowrap font-semibold"> · {o.count}</span>}
             </button>
           );
         })}

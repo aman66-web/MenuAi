@@ -44,6 +44,9 @@ export interface UserSettings {
   goal: Goal;
   dailyCalories: number;
   dailyProtein?: number;
+  /** Typed in Settings; when absent, Home works the target out from calories and protein (targets.ts suggestCarbFat). */
+  dailyCarbs?: number;
+  dailyFat?: number;
   hasSetTargets: boolean;
   glp1MealCap: number;
   preferences: Preferences;
@@ -118,10 +121,15 @@ export function sanitizeSettings(raw: unknown): UserSettings {
   if (!isObject(raw)) return DEFAULT_SETTINGS;
   const prefs = isObject(raw.preferences) ? raw.preferences : {};
   const protein = typeof raw.dailyProtein === "number" && Number.isFinite(raw.dailyProtein) && raw.dailyProtein > 0 && raw.dailyProtein <= 1000 ? raw.dailyProtein : undefined;
+  const grams = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v > 0 && v <= 2000 ? v : undefined);
+  const carbs = grams(raw.dailyCarbs);
+  const fat = grams(raw.dailyFat);
   return {
     goal: GOALS.includes(raw.goal as Goal) ? (raw.goal as Goal) : DEFAULT_SETTINGS.goal,
     dailyCalories: num(raw.dailyCalories, DEFAULT_SETTINGS.dailyCalories, 500, 10000),
     ...(protein !== undefined ? { dailyProtein: protein } : {}),
+    ...(carbs !== undefined ? { dailyCarbs: carbs } : {}),
+    ...(fat !== undefined ? { dailyFat: fat } : {}),
     hasSetTargets: bool(raw.hasSetTargets, false),
     glp1MealCap: num(raw.glp1MealCap, DEFAULT_SETTINGS.glp1MealCap, 100, 2000),
     preferences: {

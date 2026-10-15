@@ -4,6 +4,7 @@ import Link from "next/link";
 import { isSameLocalDay, loggedToday, mealBudget, mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatGrams, formatInt } from "@/lib/mm/format";
+import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
 import { itemImageUrl } from "@/lib/mm/images";
 import { logStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
@@ -19,8 +20,11 @@ import { useLanguage, useT } from "./_lib/i18n";
 // Home is today (founder 2026-10-10). Founder 2026-10-14, from a reference picture: "Home" with a calendar button and this week's days
 // on top, then today's calories (a dial) beside protein, carbs and fat, then two cards, "Shopping list" and "My meals", then today's
 // meals as rows (Breakfast, Lunch, Dinner) with what was eaten and a + to add more. The rows use SPEC §6.3 as it stands: a logged item
-// goes under the meal its time falls in (mealSlotFor) and each meal's figure is its share of the day (mealBudget). The app keeps no carb
-// or fat target, so those two show grams eaten without a bar. Logging is Pro (SPEC §7.8): while Pro is on, a free user's + opens the paywall.
+// goes under the meal its time falls in (mealSlotFor) and each meal's figure is its share of the day (mealBudget). Founder 2026-10-15,
+// same picture again ("make the home page look absolutely identical"): its sizes and spacing, past days as dark circles, the dial with a
+// grey centre, and carbs and fat with targets and bars too (worked out from calories and protein unless typed in Settings: targets.ts
+// macroTargets). The picture's bodyweight card is left out (the app doesn't track weight) and Numbite's lime stays (founder's answers).
+// Logging is Pro (SPEC §7.8): while Pro is on, a free user's + opens the paywall.
 
 /** Two cards side by side, stacked when the text is large: the minimum width is in rem, so it grows with the text size. */
 const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3";
@@ -33,17 +37,17 @@ function weekOf(now: Date): Date[] {
   return Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
 }
 
-/** "PROTEIN   56g / 150g" in DM Mono on one line, the bar under it, like the founder's reference picture (2026-10-15). */
+/** "PROTEIN      56g / 150g": the label in small spaced capitals, the figures in DM Mono, a thin bar under them (the founder's picture). */
 function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
   const fraction = target ? Math.min(1, Math.max(0, eaten / target)) : 0;
   return (
     <div>
-      <p className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-0.5 font-mono">
-        <span className="text-[0.8125rem] font-medium uppercase tracking-[0.06em] text-muted">{label}</span>
-        <span className="app-numbers text-base font-medium">{formatGrams(eaten)}{target ? <span className="text-muted"> / {formatGrams(target)}</span> : null}</span>
+      <p className="flex flex-wrap items-baseline justify-between gap-x-1.5 gap-y-0.5">
+        <span className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-muted">{label}</span>
+        <span className="app-numbers whitespace-nowrap font-mono text-[0.78rem]">{formatGrams(eaten)}{target ? <span className="text-muted"> / {formatGrams(target)}</span> : null}</span>
       </p>
       {target ? (
-        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
+        <div className="mt-2.5 h-[5px] overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
           <div className="h-full rounded-full bg-[var(--bar)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${fraction * 100}%` }} />
         </div>
       ) : null}
@@ -93,6 +97,7 @@ export default function HomePage() {
   const profile = { goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap, ...(settings.dailyProtein ? { dailyProtein: settings.dailyProtein } : {}) };
   const eaten = loggedToday(log, now);
   const used = Math.min(1, Math.max(0, eaten.calories / settings.dailyCalories));
+  const targets = macroTargets(settings);
   const htmlLang = localeInfo(language).htmlLang;
   const narrow = new Intl.DateTimeFormat(htmlLang, { weekday: "narrow" });
   const longDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
@@ -112,30 +117,26 @@ export default function HomePage() {
   return (
     <div>
       <div className="flex items-center justify-between gap-3">
-        <h1 className="text-[2.5rem] font-extrabold leading-none tracking-[-0.035em]">{t("Home")}</h1>
-        <Link href="/app/today" aria-label={t("Today's meals")} className="glass inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
+        <h1 className="text-[2.125rem] font-bold leading-none tracking-[-0.03em]">{t("Home")}</h1>
+        <Link href="/app/today" aria-label={t("Today's meals")} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
           <CalendarIcon className="h-5 w-5" />
         </Link>
       </div>
 
-      <ol aria-label={t("This week")} className="mt-5 grid grid-cols-7 gap-1.5 text-center">
+      <ol aria-label={t("This week")} className="mt-6 grid grid-cols-7 gap-1.5 text-center">
         {weekOf(now).map((d) => {
           const today = isSameLocalDay(d, now);
           const future = !today && d > now;
           const logged = loggedDays.has(dayKey(d));
           const name = longDay.format(d);
           const label = today ? t("{day} (today)", { day: name }) : future ? name : logged ? t("{day}: food logged", { day: name }) : t("{day}: nothing logged", { day: name });
-          const look = today
-            ? "bg-sun text-[var(--on-accent)]"
-            : future
-              ? "bg-soft-strong text-muted"
-              : logged
-                ? "bg-foreground text-background"
-                : "border-2 border-line text-foreground";
+          // Like the picture: every day gone by is a dark circle, today is the brand colour, the days ahead are grey (whether food was
+          // logged is still said to screen readers).
+          const look = today ? "bg-sun text-[var(--on-accent)]" : future ? "bg-soft-strong text-muted" : "bg-foreground text-background";
           return (
             <li key={dayKey(d)} className="flex min-w-0 flex-col items-center gap-1.5">
-              <span aria-hidden className="text-xs font-bold uppercase text-muted">{narrow.format(d)}</span>
-              <span aria-hidden className={`app-numbers flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-base font-bold ${look}`}>{d.getDate()}</span>
+              <span aria-hidden className="text-xs font-semibold uppercase text-muted">{narrow.format(d)}</span>
+              <span aria-hidden className={`app-numbers flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.95rem] font-semibold ${look}`}>{d.getDate()}</span>
               <span className="sr-only">{label}</span>
             </li>
           );
@@ -146,21 +147,21 @@ export default function HomePage() {
         <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
       )}
 
-      <div className={`app-numbers mt-5 ${PAIR}`}>
-        <Card className="flex min-w-0 flex-col items-center p-4 text-center">
-          <p className="self-start text-xs font-bold uppercase tracking-[0.12em] text-muted">{t("Calories")}</p>
-          <Gauge id="home" label={t("Calories used today")} fraction={used} size={124}>
-            <span aria-hidden className="text-2xl font-extrabold tracking-tight">{Math.round(used * 100)}%</span>
+      <div className={`app-numbers mt-6 ${PAIR}`}>
+        <Card className="flex min-w-0 flex-col items-center px-4 pb-5 pt-4 text-center">
+          <p className="self-start text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Calories")}</p>
+          <Gauge id="home" label={t("Calories used today")} fraction={used} size={118} stroke={13} disc className="mt-3">
+            <span aria-hidden className="text-[1.4rem] font-bold tracking-tight">{Math.round(used * 100)}%</span>
           </Gauge>
-          <p className="-mt-3 text-xl font-medium leading-tight [overflow-wrap:anywhere]">
-            <span className="font-bold text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
+          <p className="mt-1 text-[1.5rem] font-normal leading-tight [overflow-wrap:anywhere]">
+            <span className="font-medium text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
           </p>
-          <p className="text-base font-medium text-muted">kcal</p>
+          <p className="text-[1.3rem] font-normal leading-tight">kcal</p>
         </Card>
-        <Card className="flex min-w-0 flex-col justify-center gap-5 p-4">
-          <MacroRow label={t("Protein")} eaten={eaten.protein} {...(settings.dailyProtein ? { target: settings.dailyProtein } : {})} />
-          <MacroRow label={t("Carbs")} eaten={eaten.carbs} />
-          <MacroRow label={t("Fat")} eaten={eaten.fat} />
+        <Card className="flex min-w-0 flex-col justify-around gap-6 px-3.5 py-5">
+          <MacroRow label={t("Protein")} eaten={eaten.protein} {...(targets.protein ? { target: targets.protein } : {})} />
+          <MacroRow label={t("Carbs")} eaten={eaten.carbs} target={targets.carbs} />
+          <MacroRow label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
         </Card>
       </div>
 

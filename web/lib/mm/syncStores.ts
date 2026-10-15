@@ -21,7 +21,7 @@ const descending = <T>(entries: ReadonlyArray<{ item: T; t: number }>, when: (x:
   [...entries].sort(byTime(when as (x: never) => string, -1)).map((e) => e.item);
 
 /** The settings that follow the person from device to device. */
-const SYNCED_SETTINGS = ["goal", "dailyCalories", "dailyProtein", "hasSetTargets", "glp1MealCap", "preferences", "hasCompletedOnboarding", "shops", "recipeMeal"] as const;
+const SYNCED_SETTINGS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "hasSetTargets", "glp1MealCap", "preferences", "hasCompletedOnboarding", "shops", "recipeMeal"] as const;
 
 function pickSettings(s: UserSettings): Record<string, unknown> {
   const out: Record<string, unknown> = {};

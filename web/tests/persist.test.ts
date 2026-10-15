@@ -60,6 +60,13 @@ describe("sanitizers", () => {
     expect(s).toMatchObject({ goal: "glp1", dailyCalories: 1500, dailyProtein: 95, hasSetTargets: true });
     expect(s.preferences).toEqual({ vegetarianOnly: false, noPork: true, noBeef: false });
   });
+  it("settings: carb and fat targets are kept when sensible and dropped otherwise", () => {
+    expect(sanitizeSettings({ dailyCalories: 2000, dailyCarbs: 250, dailyFat: 70 })).toMatchObject({ dailyCarbs: 250, dailyFat: 70 });
+    const s = sanitizeSettings({ dailyCalories: 2000, dailyCarbs: -1, dailyFat: "lots" });
+    expect(s.dailyCarbs).toBeUndefined();
+    expect(s.dailyFat).toBeUndefined();
+    expect(sanitizeSettings({ dailyCarbs: 5000 }).dailyCarbs).toBeUndefined();
+  });
   it("default targets are 2,000 kcal with no protein target", () => {
     expect(DEFAULT_SETTINGS.dailyCalories).toBe(2000);
     expect(DEFAULT_SETTINGS.dailyProtein).toBeUndefined();

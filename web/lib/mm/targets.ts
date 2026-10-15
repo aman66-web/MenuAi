@@ -64,3 +64,30 @@ export function suggestTargets(input: SuggestionInput): Suggestion {
   const protein = roundTo(kg * PROTEIN_PER_KG[goal], 5);
   return { kind: "ok", calories, protein };
 }
+
+// Carbs and fat get targets too (founder 2026-10-15, for Home's "CARBS 98g / 305g" rows, like their reference picture): worked out from
+// the calorie and protein targets as suggested starting points, and changeable in Settings. About 30% of the day's calories from fat
+// (9 kcal a gram) and the rest from carbs (4 kcal a gram) after protein (4 kcal a gram; 20% of calories when no protein target is set),
+// rounded to 5 g. They are targets the person can change, never figures about a food.
+export const FAT_SHARE = 0.3;
+const PROTEIN_SHARE_WITHOUT_TARGET = 0.2;
+export const CARB_FAT_NOTE = tk("Carbs and fat are worked out from your calories and protein: about 30% of calories from fat and the rest from carbs. Type your own to change them.");
+export const MAX_MACRO_TARGET = 2000;
+
+export function suggestCarbFat(dailyCalories: number, dailyProtein?: number): { carbs: number; fat: number } {
+  const calories = Number.isFinite(dailyCalories) && dailyCalories > 0 ? dailyCalories : 0;
+  const fat = roundTo((calories * FAT_SHARE) / 9, 5);
+  const proteinKcal = dailyProtein !== undefined && Number.isFinite(dailyProtein) && dailyProtein > 0 ? dailyProtein * 4 : calories * PROTEIN_SHARE_WITHOUT_TARGET;
+  const carbs = Math.max(0, roundTo((calories - fat * 9 - proteinKcal) / 4, 5));
+  return { carbs, fat };
+}
+
+/** The day's targets for each macro: protein as set (none if unset), carbs and fat as typed in Settings or else worked out. */
+export function macroTargets(s: { dailyCalories: number; dailyProtein?: number; dailyCarbs?: number; dailyFat?: number }): { protein?: number; carbs: number; fat: number } {
+  const suggested = suggestCarbFat(s.dailyCalories, s.dailyProtein);
+  return {
+    ...(s.dailyProtein !== undefined ? { protein: s.dailyProtein } : {}),
+    carbs: s.dailyCarbs ?? suggested.carbs,
+    fat: s.dailyFat ?? suggested.fat,
+  };
+}

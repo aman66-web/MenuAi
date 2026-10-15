@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
 import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
-import { GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, SUGGESTION_NOTE } from "@/lib/mm/targets";
+import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
 import { site } from "@/site.config";
 import { ChevronRightIcon, GlobeIcon } from "../_components/icons";
@@ -78,6 +78,8 @@ export default function SettingsPage() {
   // Drafts for the number fields: they commit with "Save targets".
   const [calories, setCalories] = useState<string | null>(null);
   const [protein, setProtein] = useState<string | null>(null);
+  const [carbs, setCarbs] = useState<string | null>(null);
+  const [fat, setFat] = useState<string | null>(null);
   const [mealCap, setMealCap] = useState<string | null>(null);
   const [targetsMessage, setTargetsMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
@@ -85,6 +87,12 @@ export default function SettingsPage() {
 
   const caloriesText = calories ?? String(settings.dailyCalories);
   const proteinText = protein ?? (settings.dailyProtein ? String(settings.dailyProtein) : "");
+  const carbsText = carbs ?? (settings.dailyCarbs ? String(settings.dailyCarbs) : "");
+  const fatText = fat ?? (settings.dailyFat ? String(settings.dailyFat) : "");
+  // Left empty, carbs and fat follow the calories and protein typed above (shown as the placeholder).
+  const draftCalories = Number(caloriesText);
+  const draftProtein = proteinText.trim() === "" ? undefined : Number(proteinText);
+  const suggestedCarbFat = suggestCarbFat(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories, draftProtein !== undefined && Number.isFinite(draftProtein) ? draftProtein : undefined);
   const capText = mealCap ?? String(settings.glp1MealCap);
   const failed = outboxItems.filter((i) => i.status === "failed");
   const pending = outboxItems.filter((i) => i.status === "pending");
@@ -92,13 +100,18 @@ export default function SettingsPage() {
   function saveTargets() {
     const c = Number(caloriesText);
     const p = proteinText.trim() === "" ? undefined : Number(proteinText);
+    const cb = carbsText.trim() === "" ? undefined : Number(carbsText);
+    const ft = fatText.trim() === "" ? undefined : Number(fatText);
     const cap = Number(capText);
     if (!Number.isFinite(c) || c < 500 || c > 10000) return setTargetsMessage({ ok: false, text: tk("Calories should be between 500 and 10,000.") });
     if (p !== undefined && (!Number.isFinite(p) || p <= 0 || p > 1000)) return setTargetsMessage({ ok: false, text: tk("Protein should be above 0 and at most 1,000 g.") });
+    if ([cb, ft].some((g) => g !== undefined && (!Number.isFinite(g) || g <= 0 || g > MAX_MACRO_TARGET))) return setTargetsMessage({ ok: false, text: tk("Carbs and fat should be above 0 and at most 2,000 g.") });
     if (settings.goal === "glp1" && (!Number.isFinite(cap) || cap < 100 || cap > 2000)) return setTargetsMessage({ ok: false, text: tk("Meal size should be between 100 and 2,000 calories.") });
-    updateSettings({ dailyCalories: c, dailyProtein: p, hasSetTargets: true, ...(settings.goal === "glp1" ? { glp1MealCap: cap } : {}) });
+    updateSettings({ dailyCalories: c, dailyProtein: p, dailyCarbs: cb, dailyFat: ft, hasSetTargets: true, ...(settings.goal === "glp1" ? { glp1MealCap: cap } : {}) });
     setCalories(null);
     setProtein(null);
+    setCarbs(null);
+    setFat(null);
     setMealCap(null);
     setTargetsMessage({ ok: true, text: tk("Saved.") });
   }
@@ -138,7 +151,10 @@ export default function SettingsPage() {
         <div className="grid grid-cols-2 gap-3">
           <Field label={t("Calories")}><input className={inputClass} inputMode="numeric" value={caloriesText} onChange={(e) => { setCalories(e.target.value); setTargetsMessage(null); }} /></Field>
           <Field label={t("Protein (g)")}><input className={inputClass} inputMode="numeric" value={proteinText} placeholder={t("Optional")} onChange={(e) => { setProtein(e.target.value); setTargetsMessage(null); }} /></Field>
+          <Field label={t("Carbs (g)")}><input className={inputClass} inputMode="numeric" value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(e) => { setCarbs(e.target.value); setTargetsMessage(null); }} /></Field>
+          <Field label={t("Fat (g)")}><input className={inputClass} inputMode="numeric" value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(e) => { setFat(e.target.value); setTargetsMessage(null); }} /></Field>
         </div>
+        <p className="mt-2 text-sm text-muted">{t(CARB_FAT_NOTE)}</p>
         {isLowCalories(caloriesText) && <p role="status" className="mt-2 text-sm font-medium">{t(LOW_CALORIES_NOTE)}</p>}
         {settings.goal === "glp1" && (
           <div className="mt-3">
