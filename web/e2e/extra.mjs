@@ -4,12 +4,14 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// The welcome screen, then Pip's three short intro screens, to the first question.
+// The welcome screen, then Pip's arrival and walk along the tab bar (Home, Eat out, Groceries, Recipes, Settings), to the first question.
 async function pastIntro(page) {
   await page.getByRole("button", { name: "Get started" }).click();
-  for (const heading of ["Hi, I'm Pip.", "A few quick questions and a short tour, and you're ready.", "Let's go!"]) {
-    await vis(page.getByRole("heading", { name: heading }));
-    await page.getByRole("button", { name: "Continue" }).click();
+  await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await page.getByRole("button", { name: "Show me around" }).click();
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Settings"]) {
+    await vis(page.getByRole("heading", { level: 1, name: tab, exact: true }));
+    await page.getByRole("button", { name: tab === "Settings" ? "Let's go!" : "Continue" }).click();
   }
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
 }
@@ -89,8 +91,10 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await vis(page.getByRole("heading", { name: "Let's go!" }));
-  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
+  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
+  await page.getByRole("button", { name: "Back to the previous step" }).click();
+  await vis(page.getByRole("heading", { level: 1, name: "Recipes", exact: true }));
+  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("button", { name: "Get started" }));
   await ctx.close();
 });

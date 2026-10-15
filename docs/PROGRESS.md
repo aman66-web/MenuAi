@@ -1386,6 +1386,28 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   now read by screen readers (the sticker was hidden from them). Checked at 390 px in English, Extra large text, Arabic (right to left) and Polish: no
   overflow; at Extra large the page scrolls and the wall sits behind the bar as before.
 
+- 2026-10-15 (night) — **Pip leads the onboarding** (founder, on the "A few quick questions and a short tour" screen with the Home preview: "This screen
+  doesn't make sense ... when you press Get started, Pip appears with a cool animation, then Pip walks them through the app ... and makes them excited,
+  like Duolingo"). After Get started:
+  - **Pip arrives** ("Hi, I'm Pip!"): a lime spotlight opens, Pip jumps up from below the edge and lands with a squash, a burst of colour goes off, sparkles
+    twinkle and Pip's bubble pops up ("I'm your guide to the numbers in your food. Let me show you around!"). Button: "Show me around".
+  - **Pip walks along a small copy of the tab bar** (five stops: Home, Eat out, Groceries, Recipes, Settings). Pip hops to the next tab each time, the
+    bubble's tail follows, the heading is the tab's name with the one-line description the app already used, and Pip says an excited line about it. The last
+    button is "Let's go!". Skip on any of these screens goes to the first question.
+  - **The questions** keep their order; Pip now hops in on every screen and the bubble pops again as Pip reacts to answers (goal as before; "Noted! I'll leave
+    those out of your top picks." once something to avoid is picked; "Lovely! I'll show those shops first."; "Perfect, that's easy on the eyes!" after a text size).
+  - **The last screen** is "You're all set!" with Pip's bubble ("At {chain} alone I found ... lunch.", same real count as before), your plan and Start. The
+    "Here's how it works" list moved to the walk at the start, so it is gone from here. The old preview of Home with made-up figures marked "Example" is gone.
+  - Looks, order and animation only; no figures are shown anywhere in it (CLAUDE.md rules 1 and 2). Nothing moves for reduced motion. The progress bar has
+    seven segments for the welcome part and six for the questions. Pip's burst is taken away once it has faded: its pieces used to end up off the screen
+    and left the page able to scroll sideways (found while testing right-to-left).
+  - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "Hi, I'm Pip!",
+    "I'm your guide to the numbers in your food. Let me show you around!", "Show me around", the five lines Pip says on the tabs, "Your targets, diet, shops,
+    language and text size. Change anything, any time.", the three reactions above, "You're all set!", "At {chain} alone I found {dishes} with {protein}g+ protein
+    that fit a {budget} kcal lunch." and "Everything is ready for you.". No longer used: "Hi, I'm Pip.", "A few quick questions and a short tour, and you're
+    ready.", "It only takes a minute.", "First up: what you're aiming for.", "Example", "Here's how it works", "Everything is in the bar at the bottom of the
+    screen:" and the old "You're all set! ..." lines.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

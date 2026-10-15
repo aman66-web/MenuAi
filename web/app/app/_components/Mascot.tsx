@@ -96,12 +96,25 @@ function Arms({ mood }: { mood: PipMood }) {
   );
 }
 
-/** Pip with a speech bubble: the words are ordinary text, read by screen readers. */
-export function PipSays({ mood, children, size = 92 }: { mood?: PipMood; children: React.ReactNode; size?: number }) {
+/**
+ * Pip with a speech bubble: the words are ordinary text, read by screen readers.
+ * `lively` (onboarding, founder 2026-10-15): Pip hops in and the bubble pops up, and again whenever `pulse` changes (a reaction to
+ * an answer). Nothing moves for reduced motion.
+ */
+export function PipSays({ mood, children, size = 92, lively = false, pulse }: { mood?: PipMood; children: React.ReactNode; size?: number; lively?: boolean; pulse?: string | number }) {
+  const bubble = "speech glass relative mb-3 min-w-0 flex-1 rounded-3xl rounded-es-md px-4 py-3 text-[15px] font-medium leading-snug";
+  if (!lively) {
+    return (
+      <div className="flex items-end gap-3">
+        <Pip mood={mood} size={size} />
+        <p className={bubble}>{children}</p>
+      </div>
+    );
+  }
   return (
     <div className="flex items-end gap-3">
-      <Pip mood={mood} size={size} />
-      <p className="speech glass relative mb-3 min-w-0 flex-1 rounded-3xl rounded-es-md px-4 py-3 text-[15px] font-medium leading-snug">{children}</p>
+      <span key={`pip-${pulse ?? ""}`} className="pip-hop-sm inline-flex shrink-0"><Pip mood={mood} size={size} /></span>
+      <p key={`says-${pulse ?? ""}`} className={`${bubble} bubble-pop`}>{children}</p>
     </div>
   );
 }

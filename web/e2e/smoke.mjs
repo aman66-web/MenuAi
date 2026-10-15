@@ -36,15 +36,24 @@ await step("first visit redirects to onboarding", async () => {
   await visible(page.getByRole("button", { name: "Get started" }));
   await shot("00-onboarding-welcome");
   await page.getByRole("button", { name: "Get started" }).click();
-  for (const heading of ["Hi, I'm Pip.", "A few quick questions and a short tour, and you're ready.", "Let's go!"]) {
-    await visible(page.getByRole("heading", { name: heading }));
-    await page.getByRole("button", { name: "Continue" }).click();
+  // Pip jumps in, then walks along a little tab bar and says what each tab is for
+  await visible(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
+  await visible(text("I'm your guide to the numbers in your food."));
+  await page.waitForTimeout(1800); // the arrival animation
+  await shot("00-onboarding-pip");
+  await page.getByRole("button", { name: "Show me around" }).click();
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Settings"]) {
+    await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));
+    if (tab === "Eat out") await visible(text("Every restaurant, café and pub"));
+    await page.waitForTimeout(900); // Pip's hop to this tab
+    if (tab === "Recipes") await shot("00-onboarding-tour");
+    await page.getByRole("button", { name: tab === "Settings" ? "Let's go!" : "Continue" }).click();
   }
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
   await visible(text("Step 1 of 6"));
   await shot("01-onboarding-goal");
 });
-await step("onboarding: welcome → goal → targets → preferences → shops → text size → how it works → Start", async () => {
+await step("onboarding: welcome → goal → targets → preferences → shops → text size → all set → Start", async () => {
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Your daily targets" }));
@@ -56,13 +65,15 @@ await step("onboarding: welcome → goal → targets → preferences → shops �
   await page.getByRole("button", { name: "Skip" }).click();
   await visible(page.getByRole("heading", { name: "Where do you shop?" }));
   await page.getByRole("button", { name: "Sainsbury's", exact: true }).click();
+  await visible(text("Lovely! I'll show those shops first."));
   await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Easy to read" }));
   await page.getByRole("radio", { name: "Large", exact: true }).click();
   await page.getByRole("radio", { name: "Standard", exact: true }).click();
+  await visible(text("Perfect, that's easy on the eyes!"));
   await page.getByRole("button", { name: "Continue" }).click();
-  await visible(page.getByRole("heading", { name: "Here's how it works" }));
-  await visible(text("Every restaurant, café and pub"));
+  await visible(page.getByRole("heading", { name: "You're all set!" }));
+  await visible(text("Your plan"));
   await shot("03-onboarding-how");
   await page.getByRole("button", { name: "Start" }).click();
   await page.waitForURL(/\/app\/?$/);

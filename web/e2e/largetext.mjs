@@ -20,5 +20,26 @@ for (const scale of [1, 1.5, 2]) {
     await page.close();
   }
 }
+// Pip's onboarding, screen by screen: the language screen, Pip's arrival, the five stops of the walk, the six questions and the last screen.
+for (const scale of [1, 1.5, 2]) {
+  const c = await browser.newContext({ viewport: { width: 360, height: 740 }, serviceWorkers: "block" });
+  const page = await c.newPage();
+  await page.goto(BASE + "/app/welcome");
+  await page.addStyleTag({ content: `html { font-size: ${scale * 100}% !important; }` });
+  const check = async (label) => {
+    await page.waitForTimeout(1900); // the arrival animation and its burst
+    const m = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
+    if (m.sw > m.cw + 1) { bad++; console.log(`OVERFLOW x${scale} onboarding "${label}": scrollWidth ${m.sw} > ${m.cw}`); }
+  };
+  const press = (name) => page.getByRole("button", { name, exact: true }).click();
+  await press("Continue"); // language
+  await press("Get started");
+  await check("Pip arrives");
+  await press("Show me around");
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Settings"]) { await check(`walk: ${tab}`); await press(tab === "Settings" ? "Let's go!" : "Continue"); }
+  for (const q of ["goal", "targets", "avoid", "shops", "text size"]) { await check(`question: ${q}`); await press("Continue"); }
+  await check("all set");
+  await c.close();
+}
 console.log(bad === 0 ? "No horizontal overflow at 100%, 150% or 200% text size (360px wide)." : `${bad} overflow problem(s)`);
 await browser.close();

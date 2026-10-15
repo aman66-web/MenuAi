@@ -15,9 +15,8 @@ import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
-import { Gauge } from "../_components/Gauge";
 import {
-  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, ChevronsRightIcon, DotsIcon, FlameIcon, ForkIcon, GiftIcon, GlobeIcon, HomeIcon, LeafIcon,
+  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, FlameIcon, ForkIcon, GearIcon, GiftIcon, GlobeIcon, HomeIcon, LeafIcon,
   MinusIcon, PillIcon, PlusIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
 } from "../_components/icons";
 import { LanguageList } from "../_components/LanguageList";
@@ -25,7 +24,7 @@ import { LogoWall, type WallItem } from "../_components/LogoWall";
 import { logoFor } from "@/lib/mm/logos";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { site } from "@/site.config";
-import { Pip, PipSays } from "../_components/Mascot";
+import { Pip, PipSays, type PipMood } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { SignInSheet } from "../_components/SignIn";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
@@ -33,7 +32,7 @@ import { inputClass, radioKeyNav } from "../_components/ui";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
 import { applyTextSize } from "../_lib/textSize";
-import { setLanguage, useLanguage, useT } from "../_lib/i18n";
+import { setLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
 // SPEC §7.1 and §8, made friendlier at the founder's request (2026-10-10): Pip the mascot says what each step is for, buttons are big,
@@ -43,7 +42,10 @@ import { Rich } from "../_lib/Rich";
 // The look (founder 2026-10-14, from a reference picture: "make the screens look amazing like this"): the app's name and Skip at the top,
 // the progress as segments, a very large headline with a small picture pill in it, one picture or card per screen, and a big plain pill
 // button at the bottom (the words only: founder 2026-10-15, "get rid of those two circles ... it just looks weird"). No food photographs (CLAUDE.md rule 2): the pictures are Pip, the moving wall of the restaurants and
-// shops in the app, our own plate, and a preview of Home marked "Example".
+// shops in the app, and our own plate.
+// Pip leads all of it (founder 2026-10-15, "Pip appears with a cool animation, then walks them through the app ... makes them excited,
+// like Duolingo"): Pip jumps in on the first screen, then hops along a little copy of the tab bar and says what each tab is for (the old
+// "Example" preview of Home, with made-up figures, is gone), and on every question Pip hops in, says a line and reacts to the answer.
 
 const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
   { value: "lose", label: tk("Lose weight"), hint: tk("Orders that fit a lower calorie target"), Icon: TrendDownIcon },
@@ -69,7 +71,18 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
 ];
 
 const STEPS = 6;
-const INTRO_SCREENS = 3;
+// Intro 1 is Pip's arrival, intro 2-6 are the five stops of Pip's walk along the tab bar (TOUR).
+const INTRO_SCREENS = 6;
+
+// Pip's walk through the app, one stop per tab in the order of the tab bar. The name and the sentence under it are the tab's own words
+// (the same as the bar and the app use); the line in Pip's bubble is the excited one. Nothing here shows a figure.
+const TOUR: ReadonlyArray<{ name: string; line: string; says: string; mood: PipMood; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
+  { name: tk("Home"), line: tk("Today's numbers, your shopping list and what you've saved."), says: tk("This is Home. It keeps track of your day, so you can always see what's left!"), mood: "wave", Icon: HomeIcon },
+  { name: tk("Eat out"), line: tk("Every restaurant, café and pub, with the numbers for each dish."), says: tk("Going out to eat? Look the place up first and know the numbers before you order!"), mood: "point", Icon: ForkIcon },
+  { name: tk("Groceries"), line: tk("Supermarket products with their labels and prices."), says: tk("Shopping? I'll show you the calories, protein and price of what's on the shelf!"), mood: "think", Icon: BasketIcon },
+  { name: tk("Recipes"), line: tk("Meals made from your shop's products, with the cost per serving."), says: tk("Cooking at home? These recipes use real products from your shop, with the cost of each serving!"), mood: "point", Icon: PotIcon },
+  { name: tk("Settings"), line: tk("Your targets, diet, shops, language and text size. Change anything, any time."), says: tk("And this is where you can change anything, whenever you like!"), mood: "wave", Icon: GearIcon },
+];
 // Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else; a chain with
 // its own small square icon is shown by that instead).
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
@@ -91,8 +104,8 @@ export default function WelcomePage() {
   const router = useRouter();
   const menu = useMenu();
   const initial = settingsStore.get();
-  // Step -1 is the language screen: the very first thing anyone sees (founder 2026-10-10). Step 0 is the welcome screen, then three short
-  // screens where Pip introduces itself (intro 1-3), then the questions (steps 1-6).
+  // Step -1 is the language screen: the very first thing anyone sees (founder 2026-10-10). Step 0 is the welcome screen, then Pip's arrival
+  // and walk through the app (intro 1-6), then the questions (steps 1-6).
   const [step, setStep] = useState(-1);
   const [intro, setIntro] = useState(0);
   const [picked, setPicked] = useState<Locale | null>(null);
@@ -121,6 +134,7 @@ export default function WelcomePage() {
   const [shops, setShops] = useState<string[]>(initial.shops ?? []);
   const [showSuggest, setShowSuggest] = useState(false);
   const [goalTouched, setGoalTouched] = useState(false);
+  const [sizeTouched, setSizeTouched] = useState(false);
   const pickGoal = (g: Goal) => {
     setGoal(g);
     setGoalTouched(true);
@@ -159,6 +173,7 @@ export default function WelcomePage() {
   };
   const chooseSize = (s: TextSize) => {
     setSize(s);
+    setSizeTouched(true);
     applyTextSize(s); // preview straight away
   };
 
@@ -168,6 +183,8 @@ export default function WelcomePage() {
   const proteinValid = proteinNumber === undefined || (Number.isFinite(proteinNumber) && proteinNumber > 0 && proteinNumber <= 1000);
   const capNumber = Number(mealCap);
   const capValid = Number.isFinite(capNumber) && capNumber >= 100 && capNumber <= 2000;
+  // How many "things to avoid" are chosen (Pip reacts to each change on that step).
+  const avoidCount = [prefs.vegetarianOnly, prefs.veganOnly, prefs.halalOnly, prefs.noPork, prefs.noBeef].filter(Boolean).length + (prefs.avoidAllergens?.length ?? 0);
   const real = useMemo(() => menu.chains.filter((c) => !c.sample), [menu.chains]);
   const hiddenLogos = useHiddenLogos();
   const restaurants = real.length;
@@ -214,33 +231,30 @@ export default function WelcomePage() {
     );
   }
 
-  // Pip introduces itself in three short screens (founder 2026-10-10, after Mental Stint's sign-up): calm and plain, for adults.
+  // Pip arrives (intro 1), then walks along a little tab bar and says what each tab is for (intro 2-6); Skip goes straight to the questions.
   if (step === 0 && intro > 0) {
-    const screens = [
-      { big: t("Hi, I'm Pip."), line: t("I'll show you the calories, protein and price of what you eat, before you order, buy or cook it."), Icon: LeafIcon },
-      { big: t("A few quick questions and a short tour, and you're ready."), line: t("It only takes a minute."), Icon: FlameIcon },
-      { big: t("Let's go!"), line: t("First up: what you're aiming for."), Icon: ChevronsRightIcon },
-    ];
-    const screen = screens[intro - 1]!;
+    const tour = intro - 2; // 0-4 on the walk, -1 on Pip's arrival
+    const stop = TOUR[tour];
     return (
-      <div key={intro} className={SCREEN}>
+      // one screen for the whole walk, so Pip glides from tab to tab instead of the page starting again at each stop
+      <div key={stop ? "tour" : "meet"} className={SCREEN}>
         <TopBar onBack={back} end={<SkipButton onClick={skipIntro} />} segments={INTRO_SCREENS + 1} current={intro} />
-        <div aria-live="polite" className="rise">
-          <h1 className={`mt-7 ${HEADLINE}`}>{screen.big}<HeadPill Icon={screen.Icon} /></h1>
-          <p className="mt-3 text-[1.0625rem] leading-snug text-muted">{screen.line}</p>
-        </div>
-        <div className="relative flex flex-1 items-center justify-center py-5">
-          {intro === 1 && <PipPicture />}
-          {intro === 2 && <TodayPreview calories={caloriesValid ? caloriesNumber : initial.dailyCalories} />}
-          {intro === 3 && (
-            <div className="relative grid place-items-center">
-              <Burst />
-              <div className="pop-in relative"><Pip mood="cheer" size={170} /></div>
+        {stop ? (
+          <>
+            <div aria-live="polite" key={tour} className="rise">
+              <h1 className={`mt-7 ${HEADLINE}`}>{t(stop.name)}<HeadPill Icon={stop.Icon} /></h1>
+              <p className="mt-3 text-[1.0625rem] leading-snug text-muted">{t(stop.line)}</p>
             </div>
-          )}
-        </div>
+            <PipTour stop={tour} />
+          </>
+        ) : (
+          <>
+            <h1 className={`mt-7 ${HEADLINE}`}>{t("Hi, I'm Pip!")}<HeadPill Icon={LeafIcon} /></h1>
+            <PipArrives />
+          </>
+        )}
         <Bottom>
-          <BottomButton onClick={next}>{t("Continue")}</BottomButton>
+          <BottomButton onClick={next}>{!stop ? t("Show me around") : tour === TOUR.length - 1 ? t("Let's go!") : t("Continue")}</BottomButton>
         </Bottom>
       </div>
     );
@@ -311,7 +325,7 @@ export default function WelcomePage() {
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("What's your {goal}?")} values={{ goal: em(t("goal")) }} /></h1>
           <div aria-live="polite" className="mt-4">
-            <PipSays size={64} mood={goalTouched ? (goal === "buildMuscle" ? "cheer" : "wave") : "think"}>
+            <PipSays lively pulse={goalTouched ? goal : "ask"} size={64} mood={goalTouched ? (goal === "buildMuscle" ? "cheer" : "wave") : "think"}>
               {goalTouched ? t(GOAL_REACTION[goal]) : <>{t("First, what are you aiming for? I'll use it to suggest orders for you.")}</>}
             </PipSays>
           </div>
@@ -359,7 +373,7 @@ export default function WelcomePage() {
             <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{caloriesValid ? formatInt(caloriesNumber) : "–"}</span><span className="text-sm font-semibold text-muted">kcal</span></p>
             <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{proteinNumber !== undefined && proteinValid ? `${formatInt(proteinNumber)}g` : "–"}</span><span className="text-sm font-semibold text-muted">{t("protein")}</span></p>
           </div>
-          <div className="mt-4"><PipSays size={56} mood="point">{t("Not sure of your numbers? Tap “Suggest targets for me” and I'll help.")}</PipSays></div>
+          <div className="mt-4"><PipSays lively size={56} mood="point">{t("Not sure of your numbers? Tap “Suggest targets for me” and I'll help.")}</PipSays></div>
           <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5">
             <StepperCard id="target-calories" label={t("Calories")} Icon={FlameIcon} value={calories} onChange={setCalories} step={50} min={500} max={10000} />
             <StepperCard id="target-protein" label={t("Protein (g)")} Icon={BoltIcon} value={protein} onChange={setProtein} step={5} min={5} max={1000} placeholder={t("Optional")} />
@@ -411,7 +425,11 @@ export default function WelcomePage() {
       {step === 3 && (
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Anything you {avoid}?")} values={{ avoid: em(t("avoid")) }} /></h1>
-          <div className="mt-4"><PipSays size={56} mood="wave">{t("Tell me what you don't eat. I'll leave it out of your top picks.")}</PipSays></div>
+          <div aria-live="polite" className="mt-4">
+            <PipSays lively pulse={avoidCount} size={56} mood={avoidCount > 0 ? "cheer" : "wave"}>
+              {avoidCount > 0 ? t("Noted! I'll leave those out of your top picks.") : t("Tell me what you don't eat. I'll leave it out of your top picks.")}
+            </PipSays>
+          </div>
           <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap everything that applies. Change it any time.")}</p>
           <DietPicker value={prefs} onChange={setPrefs} />
           <Bottom>
@@ -423,7 +441,11 @@ export default function WelcomePage() {
       {step === 4 && (
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Where do you {shop}?")} values={{ shop: em(t("shop")) }} /></h1>
-          <div className="mt-4"><PipSays size={56} mood="think">{t("Which supermarkets do you use? I'll show their products and recipes first.")}</PipSays></div>
+          <div aria-live="polite" className="mt-4">
+            <PipSays lively pulse={shops.length} size={56} mood={shops.length > 0 ? "cheer" : "think"}>
+              {shops.length > 0 ? t("Lovely! I'll show those shops first.") : t("Which supermarkets do you use? I'll show their products and recipes first.")}
+            </PipSays>
+          </div>
           <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
           <ShopPicker value={shops} onChange={setShops} />
           <Bottom>
@@ -435,7 +457,11 @@ export default function WelcomePage() {
       {step === 5 && (
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Easy to {read}")} values={{ read: em(t("read")) }} /><HeadPill Icon={TextSizeIcon} /></h1>
-          <div className="mt-4"><PipSays size={56} mood="point">{t("Pick the size that's comfortable to read. You can change it any time in Settings.")}</PipSays></div>
+          <div aria-live="polite" className="mt-4">
+            <PipSays lively pulse={sizeTouched ? size : "ask"} size={56} mood={sizeTouched ? "cheer" : "point"}>
+              {sizeTouched ? t("Perfect, that's easy on the eyes!") : t("Pick the size that's comfortable to read. You can change it any time in Settings.")}
+            </PipSays>
+          </div>
           <div role="radiogroup" aria-label={t("Text size")} className="mt-5 space-y-2.5">
             {SIZES.map((s, i) => {
               const on = size === s.value;
@@ -468,8 +494,9 @@ export default function WelcomePage() {
       {step === 6 && (
         <section className="relative mt-5 flex flex-1 flex-col">
           <Confetti />
-          <div aria-live="polite">
-            <PipSays size={64} mood="cheer">
+          <h1 className={HEADLINE}>{t("You're all set!")}<HeadPill Icon={CheckIcon} /></h1>
+          <div aria-live="polite" className="mt-4">
+            <PipSays lively size={64} mood="cheer">
               {teaserChainId ? (
                 <TeaserText
                   chainId={teaserChainId}
@@ -477,27 +504,11 @@ export default function WelcomePage() {
                   prefs={prefs}
                 />
               ) : (
-                <>{t("You're all set! Here's how it works.")}</>
+                <>{t("Everything is ready for you.")}</>
               )}
             </PipSays>
           </div>
           <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} shops={shops} />
-          <h1 className={`mt-7 ${HEADLINE}`}><Rich text={t("Here's how it {works}")} values={{ works: em(t("works")) }} /></h1>
-          {/* the short tour: the tab bar, tab by tab, with the same icons */}
-          <p className="mt-2 text-[15px] text-muted">{t("Everything is in the bar at the bottom of the screen:")}</p>
-          <ol className="stagger mt-4 space-y-2.5">
-            {[
-              { Icon: HomeIcon, name: t("Home"), text: t("Today's numbers, your shopping list and what you've saved.") },
-              { Icon: ForkIcon, name: t("Eat out"), text: t("Every restaurant, café and pub, with the numbers for each dish.") },
-              { Icon: BasketIcon, name: t("Groceries"), text: t("Supermarket products with their labels and prices.") },
-              { Icon: PotIcon, name: t("Recipes"), text: t("Meals made from your shop's products, with the cost per serving.") },
-            ].map(({ Icon, name, text }) => (
-              <li key={name} className={`glass ${CARD} flex min-h-16 items-center gap-3.5 px-4 py-3 leading-snug`}>
-                <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-soft-strong"><Icon className="h-[22px] w-[22px]" /></span>
-                <span className="min-w-0 flex-1"><span className="block text-[1.0625rem] font-[700] tracking-[-0.01em]">{name}</span><span className="mt-0.5 block text-[15px] leading-snug text-muted">{text}</span></span>
-              </li>
-            ))}
-          </ol>
           <Bottom>
             <BottomButton
               onClick={() => {
@@ -629,81 +640,76 @@ function PlateArt({ className }: { className?: string }) {
   );
 }
 
-/** Pip in a big green card, with the three things the app shows floating round it (decorative). */
-function PipPicture() {
+/**
+ * Pip's arrival, the first screen after Get started: a lime spotlight opens, Pip jumps up from below the edge and lands with a squash, a
+ * burst of colour goes off, sparkles twinkle and the bubble pops up. Everything but the bubble's words is decorative; nothing moves for
+ * reduced motion (the burst and the animations are switched off in the stylesheet).
+ */
+function PipArrives() {
   const t = useT();
-  // the three labels float as white pills, each with its small mark in the one accent green (no orange or blue: one accent, like Home)
-  const chip = "absolute inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_12px_26px_-12px_rgba(0,0,0,0.45)]";
+  const [landed, setLanded] = useState(false);
+  useEffect(() => {
+    // Pip lands at about 0.8 s; the burst is taken away again once it has faded (its pieces end up outside the screen, and would
+    // otherwise leave the page able to scroll sideways)
+    const on = window.setTimeout(() => setLanded(true), 850);
+    const off = window.setTimeout(() => setLanded(false), 2800);
+    return () => { window.clearTimeout(on); window.clearTimeout(off); };
+  }, []);
+  const sparkles = [
+    { pos: "start-1 top-8", size: 18, delay: "0s", colour: "#a3e635" },
+    { pos: "end-0 top-20", size: 22, delay: "0.7s", colour: "#fbbf24" },
+    { pos: "start-4 bottom-28", size: 14, delay: "1.3s", colour: "#34d399" },
+    { pos: "end-6 top-3", size: 12, delay: "0.4s", colour: "#a3e635" },
+  ];
   return (
-    <div aria-hidden className="relative mx-auto aspect-square w-full max-w-[21rem]">
-      <span className={`absolute inset-[9%] ${CARD} ${LIME}`} />
-      <span className="absolute inset-0 flex items-end justify-center pb-[9%]"><Pip mood="wave" size={200} /></span>
-      <span className={`bob ${chip} start-0 top-[12%]`}><FlameIcon className="h-4 w-4 text-accent" />{t("Calories")}</span>
-      <span className={`bob-slow ${chip} end-0 top-[36%]`}><BoltIcon className="h-4 w-4 text-accent" />{t("Protein")}</span>
-      <span className={`bob ${chip} bottom-[18%] start-[1%]`}><span className="text-base font-[800] leading-none text-accent">£</span>{t("Price")}</span>
+    <div className="flex flex-1 flex-col items-center justify-center py-5">
+      <p className="speech-down bubble-pop bubble-pop-late w-full max-w-[21rem] rounded-3xl px-5 py-4 text-center text-[1.0625rem] font-medium leading-snug">
+        {t("I'm your guide to the numbers in your food. Let me show you around!")}
+      </p>
+      {/* the stage is in px, like Pip (the drawing is a fixed size), so larger text sizes never make it wider than the screen */}
+      <div aria-hidden className="relative mt-7 grid h-[240px] w-[240px] place-items-end justify-items-center">
+        <span className={`spot-in absolute inset-2 rounded-full ${LIME}`} />
+        {sparkles.map((s) => (
+          <svg key={s.pos} viewBox="0 0 24 24" width={s.size} height={s.size} focusable="false" className={`twinkle absolute ${s.pos}`} style={{ animationDelay: s.delay, color: s.colour }}>
+            <path fill="currentColor" d="M12 1.5l2.4 8.1 8.1 2.4-8.1 2.4L12 22.5l-2.4-8.1L1.5 12l8.1-2.4z" />
+          </svg>
+        ))}
+        <span className="pip-jump relative pb-3"><Pip mood="wave" size={190} /></span>
+        {landed && <Burst />}
+      </div>
     </div>
   );
 }
 
-/** What Home looks like, marked "Example" (the week, today's calories as a dial, protein, carbs and fat): decorative, so hidden from screen readers. */
-function TodayPreview({ calories }: { calories: number }) {
+/**
+ * Pip's walk through the app: a small copy of the tab bar (decorative), Pip standing on the open tab, hopping to the next one at each stop,
+ * and a bubble over Pip whose tail follows. Only the bubble's words and the headline above are for screen readers.
+ */
+function PipTour({ stop }: { stop: number }) {
   const t = useT();
-  const language = useLanguage();
-  const lang = localeInfo(language).htmlLang;
-  const now = new Date();
-  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
-  const week = Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
-  const eaten = Math.round(calories * 0.43);
-  // The picture is the real Home, smaller: this week's circles (days gone by dark, today lime, the days ahead grey), the calories dial
-  // with "eaten / target kcal" beside protein, carbs and fat as Home's macro rows. The figures are made up for the picture (43% of the day).
-  const macros = [
-    { l: t("Protein"), eaten: "64g", target: "150g", f: 0.43 },
-    { l: t("Carbs"), eaten: "98g", target: "230g", f: 0.43 },
-    { l: t("Fat"), eaten: "31g", target: "70g", f: 0.44 },
-  ];
+  const here = TOUR[stop]!;
+  // Where Pip stands: over the open tab, but never so near the edge that Pip's 108 px box leaves the screen (the bubble's tail follows).
+  const at = `clamp(54px, ${((stop + 0.5) / TOUR.length) * 100}%, calc(100% - 54px))`;
   return (
-    <div aria-hidden className="app-numbers w-full max-w-sm space-y-3">
-      <div className={`glass ${CARD} px-4 pb-4 pt-3.5`}>
-        <div className="flex items-center justify-between gap-2">
-          <p className={CAPS}>{new Intl.DateTimeFormat(lang, { month: "long", year: "numeric" }).format(now)}</p>
-          <span className="rounded-full bg-soft-strong px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.08em] text-muted">{t("Example")}</span>
+    <div className="flex flex-1 flex-col justify-center py-5">
+      <div className="mx-auto w-full max-w-[22rem]">
+        {/* the same height at every stop (room for three lines), so Pip and the bar stay where they are while the words change */}
+        <p className="speech-tour bubble-pop flex min-h-[6.5rem] items-center rounded-3xl px-5 py-4 text-[1.0625rem] font-medium leading-snug" style={{ "--tail": at } as React.CSSProperties}>
+          <span key={stop} className="rise block">{t(here.says)}</span>
+        </p>
+        <div aria-hidden className="relative mt-8 h-[120px]">
+          {/* Pip is 108 px wide (px, not rem: the drawing doesn't grow with the text size): -ms-[54px] puts the middle of Pip on the tab; inset-inline-start follows the reading direction */}
+          <span className="pip-walk absolute bottom-0 -ms-[54px] w-[108px]" style={{ insetInlineStart: at }}>
+            <span key={stop} className="pip-hop block"><Pip mood={here.mood} size={108} /></span>
+          </span>
         </div>
-        <div className="mt-3 grid grid-cols-7 gap-1.5 text-center">
-          {week.map((d) => {
-            const today = d.getDate() === now.getDate();
-            const past = !today && d < now;
-            const look = today ? "bg-sun text-on-accent" : past ? "bg-foreground text-background" : "bg-soft-strong text-foreground";
-            return (
-              <span key={d.getDate()} className="flex min-w-0 flex-col items-center gap-2">
-                <span className="text-[0.6875rem] font-semibold uppercase text-muted">{new Intl.DateTimeFormat(lang, { weekday: "narrow" }).format(d)}</span>
-                <span className={`flex aspect-square w-full max-w-10 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>{d.getDate()}</span>
-              </span>
-            );
-          })}
-        </div>
-      </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.75rem),1fr))] gap-3">
-        <div className={`glass ${CARD} flex min-w-0 flex-col items-center justify-between gap-3 px-3 pb-3 pt-3.5 text-center`}>
-          <p className={`self-start ${CAPS}`}>{t("Calories")}</p>
-          <Gauge id="preview" label={t("Calories")} fraction={0.43} size={78} stroke={15} disc>
-            <span className="text-[1.0625rem] font-[800] tracking-tight">43%</span>
-          </Gauge>
-          <div>
-            <p className="text-[1.0625rem] font-normal leading-tight"><span className="text-accent">{formatInt(eaten)}</span> / {formatInt(calories)}</p>
-            <p className="text-sm font-normal leading-tight">kcal</p>
-          </div>
-        </div>
-        <div className={`glass ${CARD} flex min-w-0 flex-col justify-center gap-4 px-3.5 py-4`}>
-          {macros.map((m) => (
-            <div key={m.l}>
-              <p className="flex flex-wrap items-baseline justify-between gap-x-1.5 text-muted">
-                <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em]">{m.l}</span>
-                <span className="whitespace-nowrap font-mono text-[0.6875rem]">{m.eaten} / {m.target}</span>
-              </p>
-              <div className="mt-2 h-1 overflow-hidden rounded-full bg-[var(--ring-track)]"><div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${m.f * 100}%` }} /></div>
-            </div>
+        <ul aria-hidden className="flex rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]">
+          {TOUR.map(({ Icon, name }, i) => (
+            <li key={name} className="flex min-h-14 min-w-0 flex-1 items-center justify-center">
+              <span className={`inline-flex h-9 w-12 items-center justify-center rounded-full transition-colors duration-500 ${i === stop ? "bg-[#d6efa0] text-[#0b1a12]" : "text-[#c2c9c4]"}`}><Icon className="h-5 w-5" /></span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );
@@ -713,12 +719,12 @@ function TodayPreview({ calories }: { calories: number }) {
 function TeaserText({ chainId, profile, prefs }: { chainId: string; profile: Profile; prefs: Preferences }) {
   const { index } = useChain(chainId);
   const t = useT();
-  if (!index) return <>{t("You're all set! Here's how it works.")}</>;
+  if (!index) return <>{t("Everything is ready for you.")}</>;
   const { count, budget } = lunchTeaser(index.chain, profile, prefs);
-  if (count === 0) return <>{t("You're all set! Here's how it works.")}</>;
+  if (count === 0) return <>{t("Everything is ready for you.")}</>;
   return (
     <Rich
-      text={t("You're all set! At {chain} alone I found {dishes} with {protein}g+ protein that fit a {budget} kcal lunch.", { protein: TEASER_MIN_PROTEIN })}
+      text={t("At {chain} alone I found {dishes} with {protein}g+ protein that fit a {budget} kcal lunch.", { protein: TEASER_MIN_PROTEIN })}
       values={{
         chain: index.chain.name,
         dishes: <strong className="app-numbers">{count === 1 ? t("1 dish") : t("{n} dishes", { n: count })}</strong>,
@@ -754,7 +760,7 @@ function Plan({ goal, calories, protein, prefs, shops }: { goal: Goal; calories:
   );
 }
 
-/** A short, quiet burst from behind Pip's "Let's go!": brand greens and a touch of gold (decorative; nothing for reduced motion). */
+/** A burst of colour when Pip lands: brand greens and a touch of gold (decorative; nothing for reduced motion). */
 function Burst() {
   const colours = ["#a3e635", "#34d399", "#10b981", "#059669", "#fbbf24", "#86efac"];
   return (
@@ -765,7 +771,7 @@ function Burst() {
         return (
           <i
             key={i}
-            style={{ background: colours[i % colours.length], animationDelay: `${(i % 5) * 0.04}s`, "--dx": `${Math.round(Math.cos(angle) * dist * 1.2)}px`, "--dy": `${Math.round(Math.sin(angle) * dist * 0.8 + 40)}px`, "--r": `${(i % 2 ? 1 : -1) * (180 + i * 23)}deg` } as React.CSSProperties}
+            style={{ background: colours[i % colours.length], animationDelay: `${(i % 5) * 0.04}s`, "--dx": `${Math.round(Math.cos(angle) * dist * 0.85)}px`, "--dy": `${Math.round(Math.sin(angle) * dist * 0.8 + 40)}px`, "--r": `${(i % 2 ? 1 : -1) * (180 + i * 23)}deg` } as React.CSSProperties}
           />
         );
       })}
