@@ -140,7 +140,7 @@ describe("the recipes themselves", () => {
         for (const w of spec.match.all) expect(name, `${r.id}/${spec.key}`).toContain(w);
       });
     }
-  });
+  }, 30_000); // reads and decodes the whole Sainsbury's list (15,000 products): seconds, more on a busy machine
 });
 
 describe("shopping list items from a shop's own list", () => {

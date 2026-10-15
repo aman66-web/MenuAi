@@ -148,15 +148,19 @@ export default function HomePage() {
       )}
 
       <div className={`app-numbers mt-6 ${PAIR}`}>
-        <Card className="flex min-w-0 flex-col items-center px-4 pb-5 pt-4 text-center">
-          <p className="self-start text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Calories")}</p>
-          <Gauge id="home" label={t("Calories used today")} fraction={used} size={118} stroke={13} disc className="mt-3">
-            <span aria-hidden className="text-[1.4rem] font-bold tracking-tight">{Math.round(used * 100)}%</span>
+        {/* Measured from the founder's picture of this card ("exactly like image 2"): the small label at the top, a dial about 55% of the
+            card's width with a thick track and a small grey centre, plenty of room around it, the figures in a regular weight below. */}
+        <Card className="flex min-h-[14.5rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-4 pt-4 text-center">
+          <p className="self-start text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-muted">{t("Calories")}</p>
+          <Gauge id="home" label={t("Calories used today")} fraction={used} size={100} stroke={17} disc>
+            <span aria-hidden className="text-[1.45rem] font-[800] tracking-tight">{Math.round(used * 100)}%</span>
           </Gauge>
-          <p className="mt-1 text-[1.5rem] font-normal leading-tight [overflow-wrap:anywhere]">
-            <span className="font-medium text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
-          </p>
-          <p className="text-[1.3rem] font-normal leading-tight">kcal</p>
+          <div>
+            <p className="text-[1.25rem] font-normal leading-tight [overflow-wrap:anywhere]">
+              <span className="text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
+            </p>
+            <p className="mt-0.5 text-[1.125rem] font-normal leading-tight">kcal</p>
+          </div>
         </Card>
         <Card className="flex min-w-0 flex-col justify-around gap-6 px-3.5 py-5">
           <MacroRow label={t("Protein")} eaten={eaten.protein} {...(targets.protein ? { target: targets.protein } : {})} />
