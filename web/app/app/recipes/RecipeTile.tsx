@@ -114,7 +114,7 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
   );
 }
 
-export function RecipeTile({ card, href, badge, wide = false, saveable = true, showMeal = true }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; showMeal?: boolean }) {
+export function RecipeTile({ card, href, badge, wide = false, saveable = true, showMeal = true, onOpen }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; showMeal?: boolean; onOpen?: React.MouseEventHandler<HTMLAnchorElement> }) {
   const t = useT();
   const savedList = useStore(savedRecipesStore);
   const { recipe, totals } = card;
@@ -129,7 +129,7 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true, s
   return (
     // a container, so a card shown one to a row (large text) gets a lower picture instead of a tall block of colour
     <div className="glass lift @container relative flex h-full min-w-0 flex-col overflow-hidden rounded-[1.25rem] border-0">
-      <Link href={href} prefetch={false} className="flex flex-1 flex-col rounded-[1.25rem] focus-visible:outline-offset-[-3px]">
+      <Link href={href} prefetch={false} onClick={onOpen} className="flex flex-1 flex-col rounded-[1.25rem] focus-visible:outline-offset-[-3px]">
         <RecipeArt id={recipe.id} name={recipe.name} meal={recipe.meal} wide={wide} showMeal={showMeal} />
         <span className={`flex flex-1 flex-col ${wide ? "px-4 pb-4 pt-3.5" : "px-3 pb-3.5 pt-3"}`}>
           {badge && <span className="mb-1.5 inline-block self-start rounded-full bg-[var(--fill)] px-2.5 py-1 text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.08em] text-muted">{badge}</span>}

@@ -10,9 +10,10 @@ import { CheckIcon } from "./icons";
 
 // Diet and allergy choices as big, plain buttons (onboarding, Settings and the restaurant page all use this one picker).
 
-const DIETS: ReadonlyArray<{ key: "vegetarianOnly" | "veganOnly" | "halalOnly" | "noPork" | "noBeef"; label: string }> = [
+const DIETS: ReadonlyArray<{ key: "vegetarianOnly" | "veganOnly" | "pescatarianOnly" | "halalOnly" | "noPork" | "noBeef"; label: string }> = [
   { key: "vegetarianOnly", label: tk("Vegetarian") },
   { key: "veganOnly", label: tk("Vegan") },
+  { key: "pescatarianOnly", label: tk("Pescatarian") },
   { key: "halalOnly", label: tk("Halal") },
   { key: "noPork", label: tk("No pork") },
   { key: "noBeef", label: tk("No beef") },
@@ -20,7 +21,7 @@ const DIETS: ReadonlyArray<{ key: "vegetarianOnly" | "veganOnly" | "halalOnly" |
 
 /** The person's diet in a few words ("Vegetarian", "No milk"), from Settings. */
 export function dietWords(t: T, p: Preferences): string[] {
-  return [p.vegetarianOnly && t("Vegetarian"), p.veganOnly && t("Vegan"), p.halalOnly && t("Halal"), p.noPork && t("No pork"), p.noBeef && t("No beef"), ...(p.avoidAllergens ?? []).map((a) => t("No {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter((x): x is string => Boolean(x));
+  return [p.vegetarianOnly && t("Vegetarian"), p.veganOnly && t("Vegan"), p.pescatarianOnly && t("Pescatarian"), p.halalOnly && t("Halal"), p.noPork && t("No pork"), p.noBeef && t("No beef"), ...(p.avoidAllergens ?? []).map((a) => t("No {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter((x): x is string => Boolean(x));
 }
 
 export const ALLERGEN_SHORT: Record<AllergenKey, string> = {

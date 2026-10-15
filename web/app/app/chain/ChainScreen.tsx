@@ -91,7 +91,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const showCategoryChips = grouped && !searching && sections.length > 1;
 
   const changeDiet = (next: Preferences) => {
-    for (const key of ["vegetarianOnly", "veganOnly", "noPork", "noBeef"] as const) if (Boolean(next[key]) !== Boolean(prefs[key]) && next[key]) analytics.track({ name: "menuFiltered", kind: key });
+    for (const key of ["vegetarianOnly", "veganOnly", "pescatarianOnly", "noPork", "noBeef"] as const) if (Boolean(next[key]) !== Boolean(prefs[key]) && next[key]) analytics.track({ name: "menuFiltered", kind: key });
     setPrefs(next);
   };
   const words = dietWords(t, prefs);

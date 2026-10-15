@@ -515,6 +515,7 @@ export const EVERYDAY_KINDS: ReadonlySet<string> = new Set([
 export interface DietPrefs {
   vegetarianOnly?: boolean;
   veganOnly?: boolean;
+  pescatarianOnly?: boolean;
   halalOnly?: boolean;
   noPork?: boolean;
   noBeef?: boolean;
@@ -525,6 +526,7 @@ export interface DietPrefs {
 export function kindExcluded(kind: PantryKind, prefs: DietPrefs): string | null {
   if (prefs.veganOnly && kind.animal) return "vegan";
   if ((prefs.vegetarianOnly || prefs.veganOnly) && (kind.meat || kind.fish)) return "vegetarian";
+  if (prefs.pescatarianOnly && kind.meat) return "pescatarian";
   if (prefs.noPork && kind.meat === "pork") return "no pork";
   if (prefs.noBeef && kind.meat === "beef") return "no beef";
   if (prefs.halalOnly && ((kind.meat && !kind.halal) || kind.contains.includes("crustaceans") || kind.contains.includes("molluscs"))) return "halal";

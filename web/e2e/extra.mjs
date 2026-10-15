@@ -16,6 +16,13 @@ async function pastIntro(page) {
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
 }
 
+// "You're all set!" → "Choose a recipe to start with" → Home (or the shared page): the way out of onboarding without picking a recipe.
+async function finishWithoutRecipe(page) {
+  await page.getByRole("button", { name: "Continue" }).click();
+  await vis(page.getByRole("heading", { name: "Choose a recipe to start with" }));
+  await page.getByRole("button", { name: "Take me to Home" }).click();
+}
+
 await step("a shared link on a first visit goes through onboarding and then lands on the shared page", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
@@ -26,7 +33,7 @@ await step("a shared link on a first visit goes through onboarding and then land
   await pastIntro(page);
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip" }).click();
-  await page.getByRole("button", { name: "Start" }).click();
+  await finishWithoutRecipe(page);
   await page.waitForURL(/\/app\/chain\?id=cluck-house/);
   await vis(page.getByRole("heading", { name: "Cluck House" }));
   await ctx.close();
@@ -71,7 +78,7 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await vis(page.getByRole("button", { name: "Continue" }));
   await page.getByRole("button", { name: "Continue" }).click();
   for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip" }).click();
-  await page.getByRole("button", { name: "Start" }).click();
+  await finishWithoutRecipe(page);
   await page.waitForURL(/\/app$/);
   await page.goto(BASE + "/app/settings");
   await vis(page.getByRole("radiogroup", { name: "Goal" }).getByRole("radio", { name: "Other", checked: true }));

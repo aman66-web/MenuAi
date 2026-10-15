@@ -137,6 +137,7 @@ export function sanitizeSettings(raw: unknown): UserSettings {
       noPork: bool(prefs.noPork, false),
       noBeef: bool(prefs.noBeef, false),
       ...(prefs.veganOnly === true ? { veganOnly: true } : {}),
+      ...(prefs.pescatarianOnly === true ? { pescatarianOnly: true } : {}),
       ...(prefs.halalOnly === true ? { halalOnly: true } : {}),
       ...(Array.isArray(prefs.avoidAllergens) && prefs.avoidAllergens.some((k) => ALLERGEN_KEYS.includes(k as AllergenKey))
         ? { avoidAllergens: ALLERGEN_KEYS.filter((k) => (prefs.avoidAllergens as unknown[]).includes(k)) }

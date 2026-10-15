@@ -248,6 +248,17 @@ describe("recipes for a diet", () => {
     expect(isMeatFree(byId("chickpea-houmous-wraps"))).toBe(true);
     expect(isMeatFree(byId("tuna-pasta"))).toBe(false);
   });
+  it("leaves out meat for pescatarians but keeps fish, eggs and dairy", () => {
+    expect(recipeForDiet(byId("chicken-curry"), { pescatarianOnly: true })).toBeNull();
+    expect(recipeForDiet(byId("tuna-pasta"), { pescatarianOnly: true })).not.toBeNull();
+    expect(recipeForDiet(byId("salmon-coconut-curry"), { pescatarianOnly: true })).not.toBeNull();
+    expect(recipeForDiet(byId("cheesy-egg-wraps"), { pescatarianOnly: true })).not.toBeNull();
+    expect(recipeForDiet(byId("chickpea-curry"), { pescatarianOnly: true })).not.toBeNull();
+    // everything a vegetarian can cook, a pescatarian can too
+    expect(RECIPES.filter((r) => recipeForDiet(r, { vegetarianOnly: true })).every((r) => recipeForDiet(r, { pescatarianOnly: true }))).toBe(true);
+    expect(pantryForDiet({ pescatarianOnly: true }).every((k) => !k.meat)).toBe(true);
+    expect(pantryForDiet({ pescatarianOnly: true }).some((k) => k.fish)).toBe(true);
+  });
   it("vegan and quick, as the Recipes page's tiles filter them", () => {
     expect(isVegan(byId("bean-chilli"))).toBe(true);
     expect(isVegan(byId("easy-macaroni-cheese"))).toBe(false); // no meat or fish, but cheese

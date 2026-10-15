@@ -80,7 +80,7 @@ function MakeScreen() {
   const pro = useIsPro();
   const hydrated = useHydrated();
   const { showPaywall } = useGate();
-  const words = [diet.vegetarianOnly && t("vegetarian"), diet.veganOnly && t("vegan"), diet.halalOnly && t("halal"), diet.noPork && t("no pork"), diet.noBeef && t("no beef"), ...(diet.avoidAllergens ?? []).map((a) => t("no {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter(Boolean);
+  const words = [diet.vegetarianOnly && t("vegetarian"), diet.veganOnly && t("vegan"), diet.pescatarianOnly && t("pescatarian"), diet.halalOnly && t("halal"), diet.noPork && t("no pork"), diet.noBeef && t("no beef"), ...(diet.avoidAllergens ?? []).map((a) => t("no {allergen}", { allergen: t(ALLERGEN_SHORT[a]).toLowerCase() }))].filter(Boolean);
 
   const make = async () => {
     if (!shop || pantry.length < 2) return;

@@ -73,7 +73,7 @@ export function pantryLines(products: readonly ShopProduct[], prefs: DietPrefs):
 }
 
 const DIET_WORDS: Array<[keyof DietPrefs, string]> = [
-  ["vegetarianOnly", "vegetarian (no meat or fish)"], ["veganOnly", "vegan (nothing from an animal)"], ["halalOnly", "halal"],
+  ["vegetarianOnly", "vegetarian (no meat or fish)"], ["veganOnly", "vegan (nothing from an animal)"], ["pescatarianOnly", "pescatarian (no meat; fish and seafood are fine)"], ["halalOnly", "halal"],
   ["noPork", "no pork"], ["noBeef", "no beef"],
 ];
 

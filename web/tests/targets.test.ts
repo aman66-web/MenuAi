@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { macroTargets, suggestCarbFat, suggestTargets, type SuggestionInput } from "../lib/mm/targets";
+import { macroTargets, suggestCarbFat, suggestProtein, suggestTargets, type SuggestionInput } from "../lib/mm/targets";
 
 const base: SuggestionInput = { sex: "male", age: 30, weightLb: 180, heightFt: 5, heightIn: 10, activity: "active", goal: "lose" };
 
@@ -63,6 +63,17 @@ describe("carb and fat targets (founder 2026-10-15: worked out, changeable in Se
   it("targets typed in Settings win; otherwise they follow calories and protein", () => {
     expect(macroTargets({ dailyCalories: 2800, dailyProtein: 180 })).toEqual({ protein: 180, carbs: 305, fat: 95 });
     expect(macroTargets({ dailyCalories: 2800, dailyProtein: 180, dailyCarbs: 300, dailyFat: 70 })).toEqual({ protein: 180, carbs: 300, fat: 70 });
-    expect(macroTargets({ dailyCalories: 2000 })).toEqual({ carbs: 255, fat: 65 });
+    expect(macroTargets({ dailyCalories: 2000 })).toEqual({ protein: 100, carbs: 255, fat: 65 });
+  });
+  it("protein always has a target for Home's bar: typed in Settings, else 20% of calories at 4 kcal a gram, to 5 g", () => {
+    // 2,000 kcal: 400 kcal from protein = 100 g; 2,400 kcal: 120 g; 1,830 kcal: 91.5 g → 90 g
+    expect(suggestProtein(2000)).toBe(100);
+    expect(suggestProtein(2400)).toBe(120);
+    expect(suggestProtein(1830)).toBe(90);
+    expect(suggestProtein(Number.NaN)).toBe(0);
+    expect(macroTargets({ dailyCalories: 2000, dailyProtein: 150 }).protein).toBe(150);
+    // the suggestion agrees with the carbs worked out after it
+    const { protein, carbs, fat } = macroTargets({ dailyCalories: 2000 });
+    expect(Math.abs(protein * 4 + carbs * 4 + fat * 9 - 2000)).toBeLessThanOrEqual(25);
   });
 });

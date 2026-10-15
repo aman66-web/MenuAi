@@ -16,7 +16,7 @@ export const recipeRequestSchema = z.object({
   servings: z.number().int().min(1).max(6),
   target: z.object({ kcal: num(150, 2500), protein: num(1, 300).optional(), carbsMax: num(1, 500).optional(), fatMax: num(1, 300).optional() }).strict(),
   diet: z.object({
-    vegetarianOnly: z.boolean().optional(), veganOnly: z.boolean().optional(), halalOnly: z.boolean().optional(),
+    vegetarianOnly: z.boolean().optional(), veganOnly: z.boolean().optional(), pescatarianOnly: z.boolean().optional(), halalOnly: z.boolean().optional(),
     noPork: z.boolean().optional(), noBeef: z.boolean().optional(), avoidAllergens: z.array(z.enum(ALLERGEN_KEYS)).max(14).optional(),
   }).strict(),
   wish: z.string().max(MAX_WISH),

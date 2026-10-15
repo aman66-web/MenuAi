@@ -78,6 +78,19 @@ describe("search with diet settings", () => {
     expect(fitsDiet(decodeDiet("va1v"), { ...veg, avoidAllergens: ["milk"] })).toBe(false);
     expect(fitsDiet(decodeDiet("va1v"), { ...veg, avoidAllergens: ["peanuts"] })).toBe(true);
   });
+  it("pescatarian: vegetarian-tagged dishes and dishes that name fish or seafood without meat", () => {
+    const pesc = { vegetarianOnly: false, noPork: false, noBeef: false, pescatarianOnly: true };
+    expect(fitsDiet(decodeDiet("v", "Halloumi wrap"), pesc)).toBe(true);
+    expect(fitsDiet(decodeDiet("", "Salmon wrap"), pesc)).toBe(true);
+    expect(fitsDiet(decodeDiet("", "Chicken and prawn wrap"), pesc)).toBe(false);
+    expect(fitsDiet(decodeDiet("", "Chicken wrap"), pesc)).toBe(false);
+    expect(fitsDiet(decodeDiet("p", "Prawn and bacon wrap"), pesc)).toBe(false);
+    const compact = buildSearchIndexFromCompact([{ id: "c", name: "Cafe", cuisine: "Cafe", aliases: [], sample: false,
+      items: [["a", "Chicken wrap", 400], ["b", "Halloumi wrap", 450, "v"], ["c", "Tuna wrap", 420]] }]);
+    const r = search(compact, "wrap", 40, pesc);
+    expect(r.items.map((i) => i.itemId).sort()).toEqual(["b", "c"]);
+    expect(r.hiddenByDiet).toBe(1);
+  });
   it("leaves out dishes that don't fit and counts them; the compact index and full chains agree", () => {
     const compact = buildSearchIndexFromCompact([{ id: "c", name: "Cafe", cuisine: "Cafe", aliases: [], sample: false,
       items: [["a", "Chicken wrap", 400], ["b", "Halloumi wrap", 450, "v"], ["c", "Bacon wrap", 500, "p"]] }]);

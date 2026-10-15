@@ -1396,10 +1396,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     button is "Let's go!". Skip on any of these screens goes to the first question.
   - **The questions** keep their order; Pip now hops in on every screen and the bubble pops again as Pip reacts to answers (goal as before; "Noted! I'll leave
     those out of your top picks." once something to avoid is picked; "Lovely! I'll show those shops first."; "Perfect, that's easy on the eyes!" after a text size).
-  - **The last screen** is "You're all set!" with Pip's bubble ("At {chain} alone I found ... lunch.", same real count as before), your plan and Start. The
-    "Here's how it works" list moved to the walk at the start, so it is gone from here. The old preview of Home with made-up figures marked "Example" is gone.
+  - **"You're all set!"** has Pip's bubble ("At {chain} alone I found ... lunch.", same real count as before), your plan and Continue (it was Start; the choice of a
+    first recipe now follows, see the next entry). The "Here's how it works" list moved to the walk at the start, so it is gone from here. The old preview of Home
+    with made-up figures marked "Example" is gone.
   - Looks, order and animation only; no figures are shown anywhere in it (CLAUDE.md rules 1 and 2). Nothing moves for reduced motion. The progress bar has
-    seven segments for the welcome part and six for the questions. Pip's burst is taken away once it has faded: its pieces used to end up off the screen
+    seven segments for the welcome part and seven for the questions and the last two screens. Pip's burst is taken away once it has faded: its pieces used to end up off the screen
     and left the page able to scroll sideways (found while testing right-to-left).
   - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "Hi, I'm Pip!",
     "I'm your guide to the numbers in your food. Let me show you around!", "Show me around", the five lines Pip says on the tabs, "Your targets, diet, shops,
@@ -1407,6 +1408,32 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     that fit a {budget} kcal lunch." and "Everything is ready for you.". No longer used: "Hi, I'm Pip.", "A few quick questions and a short tour, and you're
     ready.", "It only takes a minute.", "First up: what you're aiming for.", "Example", "Here's how it works", "Everything is in the bar at the bottom of the
     screen:" and the old "You're all set! ..." lines.
+
+- 2026-10-15 (night) — **A first recipe to start with, a protein bar on Home, and Pescatarian** (founder's three asks):
+  - **"Choose a recipe to start with"** is now the last onboarding screen (step 7 of 7, after "You're all set!"). Pip shows **two recipes** side by side, picked the way
+    "Picked for you" picks them: the best fit for the person's meal size, diet and shop for the meal of the day (before 10:30 breakfast, to 16:00 lunch, then dinner; SPEC §6.3),
+    and the best fit for the other main meal, so they are different dishes (`pickTwoRecipes` in `welcome/RecipeChoice.tsx`, snacks never). Tapping one finishes onboarding and
+    opens the real recipe page (per serving: calories, protein, carbs and fat; the shop's products with prices; Swap for substitutes), with **Home underneath** in the history (Home
+    is opened first and the recipe only once Home is showing: asked together, the second navigation swallowed the first and Back returned to the welcome screens). "Take me to Home"
+    (or the shared page the visitor first opened) skips it; if the shop's list can't load, Pip says so and only that button is offered. The shop's full list starts loading
+    during the last questions. Progress shows "Step n of 7"; Skip is on steps 1-5 only. No figure on this screen is anything but what the recipe page itself shows.
+  - **Home and Today always show a protein bar.** The protein row showed only "0g" and no bar when no protein target was typed (it is optional in onboarding), unlike carbs and
+    fat. Now an empty protein target is **20% of the day's calories at 4 kcal a gram, to the nearest 5 g** (`suggestProtein`, `macroTargets` always returns a protein figure): the same
+    share carbs were already worked out after. Settings shows it greyed in the empty Protein box like carbs and fat; typed numbers still win; ranking, Best for you and "protein left" still
+    use only a protein target the person typed (`dailyProtein` is unchanged). Note under the targets reworded to say all three are worked out when empty.
+  - **Pescatarian** (founder: "people are also pescatarian ... do all that"): a new diet tile (Settings, onboarding, restaurant pages), `Preferences.pescatarianOnly`, kept in sync.
+    **Groceries and recipes:** nothing that plainly says meat (fish and seafood are fine; same word rules as the vegetarian filter, `foodDietProblem`); recipes with a meat
+    ingredient are left out (`kindExcluded`). **Restaurant dishes** (menus, search, the order builder's pickers, Best for you): a dish passes when the restaurant marks it vegetarian,
+    or when **its own name names fish or seafood and no meat** (`namedPescatarian`: "Salmon fillet", "Fish and chips", "Prawn linguine"; never "Chicken and prawn", "Surf and turf"; a dish the
+    restaurant tags with pork or beef never passes). Nothing is inferred beyond the name, like the vegan filter, so it hides dishes that are pescatarian but name nothing (a plain
+    "Cheese toastie" the restaurant doesn't tag vegetarian), and the caution line says it can't promise. No pipeline or data change (computed in the app from the name).
+    **Not added: Kosher.** No restaurant data we hold says what is kosher, so a filter would promise what we can't know (Halal works only because chains state it on their own sites).
+    All 14 UK allergens were already in "Allergies to avoid" (Gluten, Milk, Eggs, Peanuts, Tree nuts, Soya, Fish, Crustaceans, Molluscs, Sesame, Mustard, Celery, Lupin, Sulphites);
+    "Gluten-free" and "dairy-free" eaters use Gluten and Milk there.
+  - New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers): "Pescatarian", "pescatarian",
+    "Choose a recipe to start with", "I picked two that fit your day and your shop. Tap one to see what's in it and where to buy it!", "Take me to Home", "Finding two recipes for you…",
+    "I can't show recipes just now. You'll find them any time under Recipes.", and the new note "Left empty, protein, carbs and fat are worked out from your calories: about 20% from
+    protein, 30% from fat and the rest from carbs. Type your own to change them." (replaces the carbs-and-fat note). No longer used: "Start".
 
 ## Known issues
 

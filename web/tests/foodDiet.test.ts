@@ -1,10 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts, type FoodFacts } from "../lib/mm/foodDiet";
+import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts, namedPescatarian, type FoodFacts } from "../lib/mm/foodDiet";
 import { NO_PREFERENCES, type Preferences } from "../lib/mm/types";
 
 const veg: Preferences = { ...NO_PREFERENCES, vegetarianOnly: true };
 const vegan: Preferences = { ...NO_PREFERENCES, veganOnly: true };
 const halal: Preferences = { ...NO_PREFERENCES, halalOnly: true };
+const pesc: Preferences = { ...NO_PREFERENCES, pescatarianOnly: true };
 const noPork: Preferences = { ...NO_PREFERENCES, noPork: true };
 const noBeef: Preferences = { ...NO_PREFERENCES, noBeef: true };
 const p = (name: string, more: Partial<FoodFacts> = {}): FoodFacts => ({ name, ...more });
@@ -133,5 +134,34 @@ describe("other shops' aisle names", () => {
     expect(foodDietProblem({ name: "Something", category: "Alcohol" }, halal)).toBe("alcohol");
     expect(foodDietProblem({ name: "Something", category: "Chilled Food" }, halal)).toBeNull();
     expect(foodDietProblem({ name: "Quorn Vegetarian Pieces", category: "Meat & Poultry" }, veg)).toBeNull();
+  });
+});
+
+describe("pescatarian (founder 2026-10-15: people are also pescatarian)", () => {
+  it("leaves out meat and keeps fish, seafood, dairy and eggs", () => {
+    expect(foodDietProblem(p("British Chicken Breast Fillets"), pesc)).toBe("meat");
+    expect(foodDietProblem(p("Sliced Ham"), pesc)).toBe("meat");
+    expect(foodDietProblem(p("Extra Lean Mince", { category: "meat" }), pesc)).toBe("meat");
+    expect(foodDietProblem(p("Chilli con carne"), pesc)).toBe("meat");
+    expect(foodDietProblem(p("Fruit Gums made with pork gelatine"), pesc)).toBe("meat");
+    expect(foodDietProblem(p("Tuna Chunks in Spring Water"), pesc)).toBeNull();
+    expect(foodDietProblem(p("Large Black Tiger Prawns"), pesc)).toBeNull();
+    expect(foodDietProblem(p("Fillets", { category: "fish" }), pesc)).toBeNull();
+    expect(foodDietProblem(p("Mature Cheddar"), pesc)).toBeNull();
+    expect(foodDietProblem(p("Free Range Eggs"), pesc)).toBeNull();
+    expect(foodDietProblem(p("Quorn Chicken Style Pieces"), pesc)).toBeNull(); // meat-free version
+  });
+  it("is a setting foodDietProblem acts on, with its own word in the caution line", () => {
+    expect(anyFoodDiet(pesc)).toBe(true);
+    expect(foodDietCaution(pesc)).toContain("pescatarian");
+  });
+  it("a restaurant dish counts when its own name names fish or seafood and no meat", () => {
+    for (const n of ["Salmon fillet", "Fish and chips", "Prawn linguine", "Tuna melt", "King prawn curry", "Battered cod", "Calamari", "Smoked mackerel pate"]) expect(namedPescatarian(n), n).toBe(true);
+    for (const n of ["Chicken and prawn pad thai", "Surf and turf", "Cheeseburger", "Margherita pizza", "Caesar salad", "Bacon and egg roll", "Prawn crackers with pork belly"]) expect(namedPescatarian(n), n).toBe(false);
+    expect(namedPescatarian("Oyster mushroom risotto")).toBe(false); // a mushroom, not seafood
+    expect(namedPescatarian("Sticky toffee pudding (Seafood Restaurant)")).toBe(false); // the restaurant's name, not the dish
+    expect(namedPescatarian("Hot & spicy king prawn (Bún tôm Huế)")).toBe(true);
+    expect(namedPescatarian("Salad (add chicken)")).toBe(false);
+    for (const n of ["Pan Fried Stonebass", "Fishcakes", "Toro sashimi", "Hot shellfish", "Salmone alla Griglia"]) expect(namedPescatarian(n), n).toBe(true);
   });
 });

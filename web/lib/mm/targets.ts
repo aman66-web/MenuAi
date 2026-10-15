@@ -71,8 +71,16 @@ export function suggestTargets(input: SuggestionInput): Suggestion {
 // rounded to 5 g. They are targets the person can change, never figures about a food.
 export const FAT_SHARE = 0.3;
 const PROTEIN_SHARE_WITHOUT_TARGET = 0.2;
-export const CARB_FAT_NOTE = tk("Carbs and fat are worked out from your calories and protein: about 30% of calories from fat and the rest from carbs. Type your own to change them.");
+// Protein gets a suggested target too (founder 2026-10-15, on Home's protein row with no bar: "there should be a bar like for carbs and fats"):
+// left empty it is 20% of the day's calories at 4 kcal a gram, rounded to 5 g, the same share carbs are worked out after.
+export const CARB_FAT_NOTE = tk("Left empty, protein, carbs and fat are worked out from your calories: about 20% from protein, 30% from fat and the rest from carbs. Type your own to change them.");
 export const MAX_MACRO_TARGET = 2000;
+
+/** The protein target used when none is typed in Settings: 20% of the day's calories, 4 kcal a gram, to the nearest 5 g (0 for nonsense). */
+export function suggestProtein(dailyCalories: number): number {
+  const calories = Number.isFinite(dailyCalories) && dailyCalories > 0 ? dailyCalories : 0;
+  return roundTo((calories * PROTEIN_SHARE_WITHOUT_TARGET) / 4, 5);
+}
 
 export function suggestCarbFat(dailyCalories: number, dailyProtein?: number): { carbs: number; fat: number } {
   const calories = Number.isFinite(dailyCalories) && dailyCalories > 0 ? dailyCalories : 0;
@@ -82,11 +90,11 @@ export function suggestCarbFat(dailyCalories: number, dailyProtein?: number): { 
   return { carbs, fat };
 }
 
-/** The day's targets for each macro: protein as set (none if unset), carbs and fat as typed in Settings or else worked out. */
-export function macroTargets(s: { dailyCalories: number; dailyProtein?: number; dailyCarbs?: number; dailyFat?: number }): { protein?: number; carbs: number; fat: number } {
+/** The day's targets for each macro: protein, carbs and fat as typed in Settings or else worked out (protein from the calories alone). */
+export function macroTargets(s: { dailyCalories: number; dailyProtein?: number; dailyCarbs?: number; dailyFat?: number }): { protein: number; carbs: number; fat: number } {
   const suggested = suggestCarbFat(s.dailyCalories, s.dailyProtein);
   return {
-    ...(s.dailyProtein !== undefined ? { protein: s.dailyProtein } : {}),
+    protein: s.dailyProtein ?? suggestProtein(s.dailyCalories),
     carbs: s.dailyCarbs ?? suggested.carbs,
     fat: s.dailyFat ?? suggested.fat,
   };

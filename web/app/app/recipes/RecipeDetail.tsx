@@ -170,7 +170,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   };
 
   const prefs = settings.preferences;
-  const dietNote = (prefs.avoidAllergens?.length ?? 0) > 0 || prefs.halalOnly || prefs.veganOnly || prefs.vegetarianOnly;
+  const dietNote = (prefs.avoidAllergens?.length ?? 0) > 0 || prefs.halalOnly || prefs.veganOnly || prefs.vegetarianOnly || prefs.pescatarianOnly;
   const addAll = () => {
     const ready = picks.filter((p): p is IngredientPick => !!p && !hasIt(p.spec));
     shoppingStore.update((list) => ready.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn }, new Date(), p.packs), list));

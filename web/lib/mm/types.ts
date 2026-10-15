@@ -164,6 +164,12 @@ export interface Preferences {
   noBeef: boolean;
   /** Only dishes whose own name or menu section says vegan or plant-based (lib/mm/menu-view.ts isNamedVegan). */
   veganOnly?: boolean;
+  /**
+   * No meat; fish and seafood are fine (founder 2026-10-15: "people are also pescatarian"). Restaurant dishes pass when the restaurant marks them
+   * vegetarian or the dish's own name names fish or seafood and no meat (lib/mm/foodDiet.ts namedPescatarian); products and recipes pass when
+   * nothing plainly says meat.
+   */
+  pescatarianOnly?: boolean;
   /** Only restaurants that say on their own website that all their UK food is halal (lib/mm/halal.ts). Chain-level. */
   halalOnly?: boolean;
   /** Hide dishes whose guide lists one of these as "contains" or "may contain", and dishes with no allergen information. */

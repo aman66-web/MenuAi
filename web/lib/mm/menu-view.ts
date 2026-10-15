@@ -1,4 +1,5 @@
 import { NEW_ITEM_DAYS } from "./config";
+import { namedPescatarian } from "./foodDiet";
 import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
@@ -56,18 +57,28 @@ export function freeOfAllergens(item: Pick<MenuItem, "allergens">, avoid: readon
 export function passesDiet(item: MenuItem, prefs: Preferences): boolean {
   if (!passesPreferences(item.tags, prefs)) return false;
   if (prefs.veganOnly && !isNamedVegan(item)) return false;
+  if (prefs.pescatarianOnly && !isPescatarianDish(item)) return false;
   return freeOfAllergens(item, prefs.avoidAllergens);
 }
 
+/**
+ * Pescatarian: the restaurant marks the dish vegetarian, or the dish's own name names fish or seafood and no meat (and the restaurant
+ * hasn't tagged it as containing pork or beef). Nothing else is guessed, like the vegetarian and vegan filters.
+ */
+export function isPescatarianDish(item: Pick<MenuItem, "name" | "tags">): boolean {
+  if (item.tags.includes("vegetarian")) return true;
+  return !item.tags.includes("contains_pork") && !item.tags.includes("contains_beef") && namedPescatarian(item.name);
+}
+
 export const anyDietFilter = (p: Preferences): boolean =>
-  p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.avoidAllergens?.length);
+  p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.avoidAllergens?.length);
 
 /**
  * The chain as Best for you should see it with the extra filters (vegan, allergens) applied: dishes that fail are removed,
  * and so are ready-made combinations built on them (or with no single base dish to check). The ranking itself is unchanged.
  */
 export function chainForDiet(chain: Chain, prefs: Preferences): Chain {
-  const extra = Boolean(prefs.veganOnly) || Boolean(prefs.avoidAllergens?.length);
+  const extra = Boolean(prefs.veganOnly) || Boolean(prefs.pescatarianOnly) || Boolean(prefs.avoidAllergens?.length);
   if (!extra) return chain;
   const items = chain.items.filter((i) => passesDiet(i, prefs));
   const kept = new Set(items.map((i) => i.id));
@@ -118,7 +129,7 @@ export const SECTION_PREVIEW_ITEMS = 6;
  * they can't promise anything (matters for halal and vegetarian users). Null when no filter is on.
  */
 export function filterCaution(prefs: Preferences, t: T = englishT): string | null {
-  const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
+  const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.pescatarianOnly && t("pescatarian"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
   const allergy = prefs.avoidAllergens?.length
     ? t("Allergy filters use each restaurant's own allergen guide and hide dishes it doesn't cover. If you have an allergy, always check with the restaurant.")
     : null;

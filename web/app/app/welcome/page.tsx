@@ -26,11 +26,14 @@ import { RETAILERS } from "@/lib/mm/groceries";
 import { site } from "@/site.config";
 import { Pip, PipSays, type PipMood } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
+import { RecipeChoice } from "./RecipeChoice";
 import { SignInSheet } from "../_components/SignIn";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { inputClass, radioKeyNav } from "../_components/ui";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
+import { recipeShop } from "../_lib/recipes";
+import { loadShopFile, loadShopManifest } from "../_lib/shopProducts";
 import { applyTextSize } from "../_lib/textSize";
 import { setLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
@@ -70,7 +73,8 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
   { value: "xlarge", label: tk("Extra large") },
 ];
 
-const STEPS = 6;
+// Five questions, then "You're all set!" (6) and the choice of a first recipe (7).
+const STEPS = 7;
 // Intro 1 is Pip's arrival, intro 2-6 are the five stops of Pip's walk along the tab bar (TOUR).
 const INTRO_SCREENS = 6;
 
@@ -144,6 +148,11 @@ export default function WelcomePage() {
   useEffect(() => {
     if (!picked && !settingsStore.get().language && guess !== "en") void setLanguage(guess);
   }, [picked, guess]);
+  // Warm up the first recipe screen: by the last questions, start loading the full list of the shop its recipes come from (it is a few hundred KB).
+  useEffect(() => {
+    if (step < 5) return;
+    void loadShopManifest().then((m) => { const id = recipeShop(m, null, settingsStore.get().shops); return id ? loadShopFile(id) : undefined; }).catch(() => undefined);
+  }, [step]);
   const chooseLanguage = (l: Locale) => {
     setPicked(l);
     void setLanguage(l); // the screen switches to it straight away
@@ -159,6 +168,26 @@ export default function WelcomePage() {
     if (step === 0 && intro > 0) setIntro((i) => i - 1);
     else setStep((s) => Math.max(-1, s - 1));
     window.scrollTo({ top: 0 });
+  };
+  // The end of onboarding: to the page the visitor first opened (a shared link) if it's inside the app, else Home; or, when a first recipe was
+  // chosen, Home underneath and the recipe on top of it (so the recipe page's own Back button lands on Home, never on the welcome screens).
+  const finish = (recipeHref?: string) => {
+    updateSettings({ hasCompletedOnboarding: true });
+    analytics.track({ name: "onboardingCompleted", goal: settingsStore.get().goal });
+    if (recipeHref) {
+      // Replace this page with Home first and open the recipe only once Home is showing: asked in the same moment, the second navigation
+      // swallows the first and the recipe's Back would return to these welcome screens.
+      router.replace("/app");
+      const started = Date.now();
+      const open = () => {
+        if (/^\/app\/?$/.test(window.location.pathname) || Date.now() - started > 1500) router.push(recipeHref);
+        else window.setTimeout(open, 30);
+      };
+      window.setTimeout(open, 30);
+      return;
+    }
+    const target = new URLSearchParams(window.location.search).get("next");
+    router.replace(target && /^\/app(?![\w-])/.test(target) && !target.startsWith("//") && !target.startsWith("/app/welcome") ? target : "/app");
   };
   const skip = () => {
     analytics.track({ name: "onboardingSkipped", step });
@@ -184,7 +213,7 @@ export default function WelcomePage() {
   const capNumber = Number(mealCap);
   const capValid = Number.isFinite(capNumber) && capNumber >= 100 && capNumber <= 2000;
   // How many "things to avoid" are chosen (Pip reacts to each change on that step).
-  const avoidCount = [prefs.vegetarianOnly, prefs.veganOnly, prefs.halalOnly, prefs.noPork, prefs.noBeef].filter(Boolean).length + (prefs.avoidAllergens?.length ?? 0);
+  const avoidCount = [prefs.vegetarianOnly, prefs.veganOnly, prefs.pescatarianOnly, prefs.halalOnly, prefs.noPork, prefs.noBeef].filter(Boolean).length + (prefs.avoidAllergens?.length ?? 0);
   const real = useMemo(() => menu.chains.filter((c) => !c.sample), [menu.chains]);
   const hiddenLogos = useHiddenLogos();
   const restaurants = real.length;
@@ -319,7 +348,7 @@ export default function WelcomePage() {
 
   return (
     <div className={SCREEN}>
-      <TopBar onBack={back} end={step < STEPS ? <SkipButton onClick={onSkip} /> : undefined} segments={STEPS} current={step - 1} status={t("Step {step} of {total}", { step, total: STEPS })} />
+      <TopBar onBack={back} end={step <= 5 ? <SkipButton onClick={onSkip} /> : undefined} segments={STEPS} current={step - 1} status={t("Step {step} of {total}", { step, total: STEPS })} />
 
       {step === 1 && (
         <section className="mt-5 flex flex-1 flex-col">
@@ -510,17 +539,17 @@ export default function WelcomePage() {
           </div>
           <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} shops={shops} />
           <Bottom>
-            <BottomButton
-              onClick={() => {
-                updateSettings({ hasCompletedOnboarding: true });
-                analytics.track({ name: "onboardingCompleted", goal: settingsStore.get().goal });
-                // Back to the page the visitor first opened (a shared link), if it's inside the app.
-                const target = new URLSearchParams(window.location.search).get("next");
-                router.replace(target && /^\/app(?![\w-])/.test(target) && !target.startsWith("//") && !target.startsWith("/app/welcome") ? target : "/app");
-              }}
-            >
-              {t("Start")}
-            </BottomButton>
+            <BottomButton onClick={next}>{t("Continue")}</BottomButton>
+          </Bottom>
+        </section>
+      )}
+
+      {step === 7 && (
+        <section className="mt-5 flex flex-1 flex-col">
+          <h1 className={HEADLINE}>{t("Choose a recipe to start with")}<HeadPill Icon={PotIcon} /></h1>
+          <RecipeChoice onPick={(href) => finish(href)} />
+          <Bottom>
+            <BottomButton onClick={() => finish()}>{t("Take me to Home")}</BottomButton>
           </Bottom>
         </section>
       )}
@@ -737,7 +766,7 @@ function TeaserText({ chainId, profile, prefs }: { chainId: string; profile: Pro
 /** What the user chose, in one card with our plate beside it, so the end of onboarding feels like "your plan". */
 function Plan({ goal, calories, protein, prefs, shops }: { goal: Goal; calories: number; protein: number | undefined; prefs: Preferences; shops: readonly string[] }) {
   const t = useT();
-  const diets = [prefs.vegetarianOnly && t("Vegetarian"), prefs.veganOnly && t("Vegan"), prefs.halalOnly && t("Halal"), prefs.noPork && t("No pork"), prefs.noBeef && t("No beef")].filter((d): d is string => Boolean(d));
+  const diets = [prefs.vegetarianOnly && t("Vegetarian"), prefs.veganOnly && t("Vegan"), prefs.pescatarianOnly && t("Pescatarian"), prefs.halalOnly && t("Halal"), prefs.noPork && t("No pork"), prefs.noBeef && t("No beef")].filter((d): d is string => Boolean(d));
   const avoid = (prefs.avoidAllergens ?? []).map((k) => t(ALLERGEN_SHORT[k]));
   const goalLabel = GOALS.find((g) => g.value === goal)?.label;
   return (

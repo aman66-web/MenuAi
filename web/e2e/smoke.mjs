@@ -50,7 +50,7 @@ await step("first visit redirects to onboarding", async () => {
     await page.getByRole("button", { name: tab === "Settings" ? "Let's go!" : "Continue" }).click();
   }
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
-  await visible(text("Step 1 of 6"));
+  await visible(text("Step 1 of 7"));
   await shot("01-onboarding-goal");
 });
 await step("onboarding: welcome → goal → targets → preferences → shops → text size → all set → Start", async () => {
@@ -75,7 +75,21 @@ await step("onboarding: welcome → goal → targets → preferences → shops �
   await visible(page.getByRole("heading", { name: "You're all set!" }));
   await visible(text("Your plan"));
   await shot("03-onboarding-how");
-  await page.getByRole("button", { name: "Start" }).click();
+  // the last screen: two recipes picked for this person; one opens the real recipe page, and its Back lands on Home
+  await page.getByRole("button", { name: "Continue" }).click();
+  await visible(page.getByRole("heading", { name: "Choose a recipe to start with" }));
+  const picks = page.locator('a[href^="/app/recipes/view?id="]');
+  await picks.first().waitFor({ state: "visible", timeout: 30000 });
+  if ((await picks.count()) !== 2) throw new Error(`expected two recipes to choose from, got ${await picks.count()}`);
+  await page.waitForTimeout(600);
+  await shot("03-onboarding-recipes");
+  await picks.first().click();
+  await page.waitForURL(/\/app\/recipes\/view\?id=/);
+  await visible(text("Per serving"));
+  await visible(page.getByRole("tab", { name: "Ingredients" }));
+  await visible(page.getByRole("button", { name: /^Swap / }).first());
+  await shot("03-onboarding-recipe-opened");
+  await page.goBack(); // the phone's own Back: Home is under the recipe, never the welcome screens
   await page.waitForURL(/\/app\/?$/);
 });
 await step("home is today: this week, calories against the target, the two cards, today's meals and the sample banner", async () => {

@@ -42,7 +42,8 @@ const MEAT_DISH = wordRe(`con carne | bolognese | bolognaise | carbonara | blt |
 const MEAT_EXCEPT = /\b(?:vegetable|veg)\s+suet\b|\bbeef\s+tomato(?:es)?\b|\blamb'?s\s+lettuce\b|\b(?:cauliflower|celeriac|halloumi|mushroom|aubergine|squash|cabbage|tofu)\s+steaks?\b|\bchicken\s+eggs?\b|\b(?:hot\s?dog|ham)?burger\s+(?:rolls?|buns?)\b|\bhot\s?dog\s+(?:rolls?|buns?)\b|\bwhite\s+rabbit\b|\blasagn[ea]\s+sheets?\b|\bprepared\s+lasagn[ea]s?\b|\b(?:tuna|salmon|swordfish|cod|fish|halibut|marlin)\s+steaks?\b/i;
 const FISH = wordRe(`fish | salmon | tuna | cod | haddock | pollock | pollack | hake | plaice | lemon sole | dover sole | sea ?bass | bream | mackerel | sardine | pilchard |
   anchovy | anchovies | herring | kipper | trout | monkfish | swordfish | prawn | shrimp | crab | lobster | langoustine | scampi | calamari | squid | octopus |
-  mussel | clam | oyster | scallop | seafood | caviar | roe | crayfish | whitebait | surimi | worcestershire | bonito | cockle | whelk | anchoveta`, NOT_AFTER_VEG);
+  mussel | clam | oyster | scallop | seafood | shellfish | sashimi | fish ?cake | caviar | roe | crayfish | whitebait | surimi | worcestershire | bonito | cockle | whelk | anchoveta |
+  stone ?bass | salmone | gamberi | gamberetti | tonno | branzino | merluzzo | vongole | cozze | frutti di mare`, NOT_AFTER_VEG);
 const FISH_EXCEPT = /\boyster\s+mushrooms?\b|\bswedish fish\b|\bcod\s+liver\s+oil\b(?=.*\bcapsule)|\bfish[\s-]?free\b/i;
 const PORK = wordRe(`pork | bacon | ham | gammon | prosciutto | pancetta | chorizo | salami | n'?duja | lardon | pigs? in blankets | porchetta | black pudding | lard | pepperoni |
   sausage | gelatine | gelatin | serrano ham | parma ham`, "(?<!\\b(?:turkey|chicken|beef|lamb|venison|halal|vegan|vegetarian|veggie|plant[\\s-]based|meat[\\s-]free|bovine|fish|no)[\\s-])");
@@ -109,6 +110,17 @@ export function foodSignals(f: FoodFacts): FoodSignals {
   };
 }
 
+/**
+ * A restaurant dish for a pescatarian: its own name names fish or seafood and no meat ("Salmon fillet", "Fish and chips", "Prawn linguine"; never
+ * "Chicken and prawn" or "Surf and turf"). Only the name is read, so menus, search and Best for you all give the same answer. Nothing is inferred
+ * beyond the words: a dish that doesn't name fish passes only when the restaurant itself marks it vegetarian (menu-view.ts passesDiet).
+ */
+export function namedPescatarian(name: string): boolean {
+  // fish is looked for outside brackets ("Sticky toffee pudding (Seafood Restaurant)"); meat anywhere, so "Salad (add chicken)" never passes
+  const main = name.replace(/\([^)]*\)/g, " ");
+  return foodSignals({ name: main }).fish && !foodSignals({ name }).meat;
+}
+
 /** The first reason the person's diet settings leave this product out, or null when nothing plainly says it doesn't suit. */
 export function foodDietProblem(f: FoodFacts, prefs: Preferences): DietProblem | null {
   const avoid = prefs.avoidAllergens ?? [];
@@ -117,12 +129,13 @@ export function foodDietProblem(f: FoodFacts, prefs: Preferences): DietProblem |
     const a = f.allergens;
     if (avoid.some((k) => a.contains.includes(k) || a.mayContain.includes(k))) return "allergen";
   }
-  if (!prefs.vegetarianOnly && !prefs.veganOnly && !prefs.noPork && !prefs.noBeef && !prefs.halalOnly) return null;
+  if (!prefs.vegetarianOnly && !prefs.veganOnly && !prefs.pescatarianOnly && !prefs.noPork && !prefs.noBeef && !prefs.halalOnly) return null;
   const s = foodSignals(f);
   if (prefs.vegetarianOnly || prefs.veganOnly) {
     if (s.meat) return "meat";
     if (s.fish) return "fish";
   }
+  if (prefs.pescatarianOnly && s.meat) return "meat"; // fish and seafood are fine
   if (prefs.veganOnly && s.animal) return "animal";
   if ((prefs.noPork || prefs.halalOnly) && s.pork) return "pork";
   if (prefs.noBeef && s.beef) return "beef";
@@ -135,11 +148,11 @@ export function foodDietProblem(f: FoodFacts, prefs: Preferences): DietProblem |
 
 /** Any setting foodDietProblem acts on. */
 export const anyFoodDiet = (p: Preferences): boolean =>
-  p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.halalOnly) || Boolean(p.avoidAllergens?.length);
+  p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.halalOnly) || Boolean(p.avoidAllergens?.length);
 
 /** The calm line under a grocery list while the diet filter is on (null when no diet word applies). */
 export function foodDietCaution(prefs: Preferences, t: T = englishT): string | null {
-  const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.halalOnly && t("halal"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
+  const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.pescatarianOnly && t("pescatarian"), prefs.halalOnly && t("halal"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
   if (promises.length === 0) return null;
   const what = promises.reduce((a, b) => t("{a} or {b}", { a, b }));
   return t("We go by each product's name, type and label, so this can't promise a product is {what}. Always check the pack.", { what });

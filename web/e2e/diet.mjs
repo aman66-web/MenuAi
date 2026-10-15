@@ -53,6 +53,30 @@ await step("Groceries: vegetarian leaves out the chicken and the tuna, says so, 
   await ctx.close();
 });
 
+await step("Groceries: pescatarian leaves out the chicken, keeps the tuna and the yogurt, and says so", async () => {
+  const { ctx, page } = await newPage({ pescatarianOnly: true });
+  await page.goto(BASE + "/app/groceries/search");
+  await page.getByText("2 products", { exact: true }).waitFor();
+  expect(await page.getByText("Greek Style Yogurt").isVisible(), "yogurt shown");
+  expect(await page.getByText("Tuna Chunks", { exact: false }).first().isVisible(), "tuna shown");
+  expect((await page.getByText("Chicken Breast Fillets").count()) === 0, "no chicken");
+  await page.getByText(/can't promise a product is pescatarian/).waitFor();
+  await ctx.close();
+});
+
+await step("Settings: the diet picker has Pescatarian, and it stays on", async () => {
+  const { ctx, page } = await newPage({});
+  await page.goto(BASE + "/app/settings");
+  const tile = page.getByRole("button", { name: "Pescatarian", exact: true });
+  await tile.waitFor();
+  expect((await tile.getAttribute("aria-pressed")) === "false", "starts off");
+  await tile.click();
+  expect((await tile.getAttribute("aria-pressed")) === "true", "turns on");
+  await page.reload();
+  expect((await page.getByRole("button", { name: "Pescatarian", exact: true }).getAttribute("aria-pressed")) === "true", "still on after a reload");
+  await ctx.close();
+});
+
 await step("Groceries: no diet set, no chip and everything listed", async () => {
   const { ctx, page } = await newPage({});
   await page.goto(BASE + "/app/groceries/search");

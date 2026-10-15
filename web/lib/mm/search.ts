@@ -1,3 +1,4 @@
+import { namedPescatarian } from "./foodDiet";
 import { passesPreferences } from "./ranking";
 import { ALLERGEN_KEYS, type AllergenKey, type Chain, type MenuItem, type Preferences, type Tag } from "./types";
 
@@ -47,12 +48,14 @@ export interface DietFacts {
   namedVegan: boolean;
   /** The guide's contains-or-may-contain allergens; null = no allergen information. */
   allergens: AllergenKey[] | null;
+  /** The dish's own name names fish or seafood and no meat (foodDiet.ts namedPescatarian); worked out from the name, not stored in the search file. */
+  namedFish?: boolean;
 }
 
 const VEGAN_WORDS = /\bvegan\b|plant[\s-]?based/i; // the same words as isNamedVegan (menu-view.ts) and the pipeline's search_diet
 
 /** Decode the search file's diet letters: v/p/b = tags, n = named vegan, a<base 36> = allergen bit mask (bit i = ALLERGEN_KEYS[i]). */
-export function decodeDiet(raw: string | undefined): DietFacts {
+export function decodeDiet(raw: string | undefined, name?: string): DietFacts {
   const s = raw ?? "";
   const at = s.indexOf("a");
   const letters = at === -1 ? s : s.slice(0, at);
@@ -65,7 +68,7 @@ export function decodeDiet(raw: string | undefined): DietFacts {
     const mask = parseInt(s.slice(at + 1), 36);
     allergens = Number.isFinite(mask) ? ALLERGEN_KEYS.filter((_, i) => (mask >> i) & 1) : null;
   }
-  return { tags, namedVegan: letters.includes("n"), allergens };
+  return { tags, namedVegan: letters.includes("n"), allergens, ...(name !== undefined ? { namedFish: namedPescatarian(name) } : {}) };
 }
 
 /** The same facts read from a full menu item (for indexes built from whole chains). */
@@ -75,6 +78,7 @@ export function dietFactsOf(item: Pick<MenuItem, "tags" | "name" | "category" | 
     tags: [...item.tags],
     namedVegan: VEGAN_WORDS.test(item.name) || VEGAN_WORDS.test(item.category ?? ""),
     allergens: a ? ALLERGEN_KEYS.filter((k) => a.contains.includes(k) || a.mayContain.includes(k)) : null,
+    namedFish: namedPescatarian(item.name),
   };
 }
 
@@ -82,6 +86,7 @@ export function dietFactsOf(item: Pick<MenuItem, "tags" | "name" | "category" | 
 export function fitsDiet(d: DietFacts, prefs: Preferences): boolean {
   if (!passesPreferences(d.tags, prefs)) return false;
   if (prefs.veganOnly && !d.namedVegan) return false;
+  if (prefs.pescatarianOnly && !(d.tags.includes("vegetarian") || (d.namedFish === true && !d.tags.includes("contains_pork") && !d.tags.includes("contains_beef")))) return false;
   const avoid = prefs.avoidAllergens ?? [];
   if (avoid.length === 0) return true;
   return d.allergens !== null && !avoid.some((k) => d.allergens!.includes(k));
@@ -148,7 +153,7 @@ export function buildSearchIndexFromCompact(chains: readonly CompactSearchChain[
       norms: [chain.name, ...chain.aliases].map(normalizeForSearch).filter(Boolean),
     });
     for (const [itemId, name, calories, diet] of chain.items) {
-      index.items.push({ chainId: chain.id, chainName: chain.name, itemId, name, calories, sample: chain.sample, norm: normalizeForSearch(name), diet: decodeDiet(diet) });
+      index.items.push({ chainId: chain.id, chainName: chain.name, itemId, name, calories, sample: chain.sample, norm: normalizeForSearch(name), diet: decodeDiet(diet, name) });
     }
   }
   return index;

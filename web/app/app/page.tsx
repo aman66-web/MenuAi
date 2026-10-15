@@ -169,7 +169,7 @@ export default function HomePage() {
           </div>
         </Card>
         <Card className="flex min-w-0 flex-col justify-center gap-[2.1rem] px-4 py-6">
-          <MacroRow label={t("Protein")} eaten={eaten.protein} {...(targets.protein ? { target: targets.protein } : {})} />
+          <MacroRow label={t("Protein")} eaten={eaten.protein} target={targets.protein} />
           <MacroRow label={t("Carbs")} eaten={eaten.carbs} target={targets.carbs} />
           <MacroRow label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
         </Card>

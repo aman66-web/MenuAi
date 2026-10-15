@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { anyDietFilter, chainForDiet, filterCaution, filterItems, freeOfAllergens, isNamedVegan, passesDiet } from "../lib/mm/menu-view";
+import { anyDietFilter, chainForDiet, filterCaution, filterItems, freeOfAllergens, isNamedVegan, isPescatarianDish, passesDiet } from "../lib/mm/menu-view";
 import { sanitizeSettings } from "../lib/mm/user-data";
 import { NO_PREFERENCES, type MenuItem } from "../lib/mm/types";
 import { cluck } from "./fixtures";
@@ -17,6 +17,34 @@ describe("vegan (as the restaurant names it)", () => {
   it("veganOnly keeps only named vegan dishes", () => {
     const items = [dish({ id: "a", name: "Vegan Bowl" }), dish({ id: "b", name: "Chicken Bowl" })];
     expect(filterItems(items, { ...NO_PREFERENCES, veganOnly: true }).map((i) => i.id)).toEqual(["a"]);
+  });
+});
+
+describe("pescatarian (as the restaurant marks or names the dish)", () => {
+  const pesc = { ...NO_PREFERENCES, pescatarianOnly: true };
+  it("keeps dishes tagged vegetarian and dishes whose own name names fish or seafood without meat", () => {
+    expect(isPescatarianDish({ name: "Margherita", tags: ["vegetarian"] })).toBe(true);
+    expect(isPescatarianDish({ name: "Salmon fillet", tags: [] })).toBe(true);
+    expect(isPescatarianDish({ name: "Fish and chips", tags: [] })).toBe(true);
+  });
+  it("leaves out meat, and dishes that don't say what they are, and fish dishes the restaurant tags with pork or beef", () => {
+    expect(isPescatarianDish({ name: "Chicken and prawn pasta", tags: [] })).toBe(false);
+    expect(isPescatarianDish({ name: "Surf and turf", tags: ["contains_beef"] })).toBe(false);
+    expect(isPescatarianDish({ name: "Cheeseburger", tags: [] })).toBe(false);
+    expect(isPescatarianDish({ name: "Prawn and chorizo stew", tags: [] })).toBe(false);
+    expect(isPescatarianDish({ name: "Seafood paella", tags: ["contains_pork"] })).toBe(false);
+  });
+  it("is a filter like the others: it hides dishes, shows the caution line and counts for Best for you", () => {
+    const items = [dish({ id: "a", name: "Salmon bowl", tags: [] }), dish({ id: "b", name: "Chicken bowl", tags: [] }), dish({ id: "c", name: "Veg bowl", tags: ["vegetarian"] })];
+    expect(filterItems(items, pesc).map((i) => i.id)).toEqual(["a", "c"]);
+    expect(anyDietFilter(pesc)).toBe(true);
+    expect(filterCaution(pesc)).toContain("pescatarian");
+    const chain = { ...cluck().chain, items, combinations: [] };
+    expect(chainForDiet(chain, pesc).items.map((i) => i.id)).toEqual(["a", "c"]);
+  });
+  it("is kept when settings are saved and synced", () => {
+    expect(sanitizeSettings({ preferences: { pescatarianOnly: true } }).preferences.pescatarianOnly).toBe(true);
+    expect(sanitizeSettings({ preferences: {} }).preferences.pescatarianOnly).toBeUndefined();
   });
 });
 

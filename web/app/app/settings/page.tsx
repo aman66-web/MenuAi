@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
 import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
-import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, SUGGESTION_NOTE } from "@/lib/mm/targets";
+import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon, GlobeIcon } from "../_components/icons";
@@ -144,7 +144,7 @@ export default function SettingsPage() {
   const proteinText = protein ?? (settings.dailyProtein ? String(settings.dailyProtein) : "");
   const carbsText = carbs ?? (settings.dailyCarbs ? String(settings.dailyCarbs) : "");
   const fatText = fat ?? (settings.dailyFat ? String(settings.dailyFat) : "");
-  // Left empty, carbs and fat follow the calories and protein typed above (shown as the placeholder).
+  // Left empty, protein follows the calories and carbs and fat follow the calories and protein typed above (shown as the placeholder).
   const draftCalories = Number(caloriesText);
   const draftProtein = proteinText.trim() === "" ? undefined : Number(proteinText);
   const suggestedCarbFat = suggestCarbFat(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories, draftProtein !== undefined && Number.isFinite(draftProtein) ? draftProtein : undefined);
@@ -209,7 +209,7 @@ export default function SettingsPage() {
           {/* Two tiles side by side, stacked when the text is large (the minimum width is in rem, so it grows with the text). */}
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,6.5rem),1fr))] gap-2.5">
             <TargetTile label={t("Calories")} value={caloriesText} onChange={(v) => { setCalories(v); setTargetsMessage(null); }} />
-            <TargetTile label={t("Protein (g)")} value={proteinText} placeholder={t("Optional")} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
+            <TargetTile label={t("Protein (g)")} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
             <TargetTile label={t("Carbs (g)")} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); }} />
             <TargetTile label={t("Fat (g)")} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); }} />
             {settings.goal === "glp1" && (

@@ -39,6 +39,9 @@ for (const scale of [1, 1.5, 2]) {
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Settings"]) { await check(`walk: ${tab}`); await press(tab === "Settings" ? "Let's go!" : "Continue"); }
   for (const q of ["goal", "targets", "avoid", "shops", "text size"]) { await check(`question: ${q}`); await press("Continue"); }
   await check("all set");
+  await press("Continue");
+  await page.locator('a[href^="/app/recipes/view?id="]').first().waitFor({ timeout: 30000 });
+  await check("choose a recipe");
   await c.close();
 }
 console.log(bad === 0 ? "No horizontal overflow at 100%, 150% or 200% text size (360px wide)." : `${bad} overflow problem(s)`);

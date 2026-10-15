@@ -123,7 +123,7 @@ export default function TodayPage() {
           </p>
         </div>
         <div className="mt-6 space-y-5 border-t border-line pt-5">
-          <MacroRow label={t("Protein")} eaten={totals.protein} {...(targets.protein ? { target: targets.protein } : {})} />
+          <MacroRow label={t("Protein")} eaten={totals.protein} target={targets.protein} />
           <MacroRow label={t("Carbs")} eaten={totals.carbs} target={targets.carbs} />
           <MacroRow label={t("Fat")} eaten={totals.fat} target={targets.fat} />
         </div>
