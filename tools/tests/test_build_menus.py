@@ -245,7 +245,7 @@ class PipelineTests(unittest.TestCase):
         write_chain(self.src, components=BASIC_COMPONENTS, items=BASIC_ITEMS)
         dest = self.tmp / "bundle"
         self.build("--bundle-into", str(dest))
-        self.assertEqual(sorted(p.name for p in dest.iterdir()), ["chain-test-chain.json", "menus-manifest.json", "menus-search.json"])
+        self.assertEqual(sorted(p.name for p in dest.iterdir()), ["chain-test-chain.json", "menus-manifest.json", "menus-numbers.json", "menus-search.json"])
 
     def test_no_samples_flag_skips_sample_chains(self):
         write_chain(self.src, components=BASIC_COMPONENTS, items=BASIC_ITEMS)
@@ -438,6 +438,24 @@ class NoteAndHoldbackTests(unittest.TestCase):
         (chain,) = search["chains"]
         self.assertEqual((chain["id"], chain["sample"]), ("uk-chain", True))
         self.assertEqual(chain["items"], [["burger", "Burger", 463]])  # the held-back item is not searchable either
+
+    def test_numbers_file_lines_up_with_the_search_file_and_matches_the_manifest(self):
+        self.write(holdback="odd,Guide prints 367 g of carbohydrate\n")
+        self.assertEqual(self.build(), 0)
+        manifest = json.loads((self.out / "menus-manifest.json").read_text())
+        self.assertEqual(manifest["numbers"]["file"], "menus-numbers.json")
+        self.assertEqual(bm.file_sha256(self.out / "menus-numbers.json"), manifest["numbers"]["sha256"])
+        search = json.loads((self.out / "menus-search.json").read_text())
+        numbers = json.loads((self.out / "menus-numbers.json").read_text())
+        self.assertEqual([c["id"] for c in numbers["chains"]], [c["id"] for c in search["chains"]])
+        for s, n in zip(search["chains"], numbers["chains"]):
+            # one value per searchable item, in the same order, and the calories are the very ones the search file carries
+            self.assertEqual(n["k"], [item[2] for item in s["items"]])
+            for col in ("p", "c", "f"):
+                self.assertEqual(len(n[col]), len(s["items"]))
+        (chain,) = numbers["chains"]
+        self.assertEqual(chain["k"], [463])
+        self.assertTrue(all(isinstance(chain[col][0], (int, float)) for col in ("p", "c", "f")))  # the held-back item's numbers are not in it either
 
 
 class ImagesTests(unittest.TestCase):

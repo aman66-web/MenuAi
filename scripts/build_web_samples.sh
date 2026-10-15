@@ -26,6 +26,12 @@ search["chains"] = [c for c in search["chains"] if c["sample"]]
 search_bytes = (json.dumps(search, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
 (dst / manifest["search"]["file"]).write_bytes(search_bytes)
 manifest["search"]["sha256"] = hashlib.sha256(search_bytes).hexdigest()
+# the sample numbers file: the same columns, limited to the sample chains
+numbers = json.loads((src / manifest["numbers"]["file"]).read_text())
+numbers["chains"] = [c for c in numbers["chains"] if c["id"] in {x["id"] for x in manifest["chains"]}]
+numbers_bytes = (json.dumps(numbers, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
+(dst / manifest["numbers"]["file"]).write_bytes(numbers_bytes)
+manifest["numbers"]["sha256"] = hashlib.sha256(numbers_bytes).hexdigest()
 (dst / "menus-manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
 print(f"✓ {len(manifest['chains'])} sample chains → web/public/menus-sample (dataVersion {manifest['dataVersion']})")
 PY

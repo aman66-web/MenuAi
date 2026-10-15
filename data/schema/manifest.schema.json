@@ -42,6 +42,24 @@
         }
       }
     },
+    "numbers": {
+      "type": "object",
+      "required": [
+        "file",
+        "sha256"
+      ],
+      "additionalProperties": false,
+      "description": "The numbers file (per chain, columns of calories, protein, carbs and fat in the order of the search file's items), so the app can find restaurants by calories, protein, carbs and fat without downloading every menu. Optional so older manifests stay valid.",
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
     "chains": {
       "type": "array",
       "items": {

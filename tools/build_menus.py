@@ -60,6 +60,7 @@ NUTRIENT_COLUMNS = {  # CSV column -> JSON key
 # Columns a CSV may leave out entirely (older files); when present they are read like any other nutrient column.
 OPTIONAL_COLUMNS = {"salt_g", "energy_kj", "weight_g", "mono_fat_g", "poly_fat_g", "trans_fat_g", "caffeine_mg", "nutrition_level"}
 SEARCH_FILE = "menus-search.json"
+NUMBERS_FILE = "menus-numbers.json"
 # Item photos (docs/DATA.md "images.csv"): the chain's own photo, resized and stored here by tools/uk_extract/images_common.py.
 DEFAULT_IMAGES_DIR = ROOT / "web" / "public" / "menu-images"
 IMAGES_DIR = DEFAULT_IMAGES_DIR
@@ -833,6 +834,19 @@ def search_document(out: Path, manifest_chains: list) -> dict:
     return {"schemaVersion": SCHEMA_VERSION, "chains": chains}
 
 
+def numbers_document(out: Path, manifest_chains: list) -> dict:
+    """The numbers of every item for "find a restaurant by my numbers" (founder 2026-10-15): per chain, columns of calories (k), protein (p),
+    carbohydrate (c) and fat (f), in exactly the order of that chain's items in the search file, so the app can pair them without any ids
+    (a calories-only chain has null for p, c and f). Built from the chain files just written, like the search file, so it can never disagree
+    with them; the app checks every k against the search file's calories before it trusts a chain's columns."""
+    chains = []
+    for c in manifest_chains:
+        doc = json.loads((out / c["file"]).read_text())
+        col = lambda key: [i["nutrients"].get(key) for i in doc["items"]]  # noqa: E731
+        chains.append({"id": doc["id"], "k": col("calories"), "p": col("protein"), "c": col("carbs"), "f": col("fat")})
+    return {"schemaVersion": SCHEMA_VERSION, "chains": chains}
+
+
 def content_hash(doc: dict) -> str:
     return hashlib.sha256(json.dumps(doc, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
@@ -916,8 +930,10 @@ def main(argv=None) -> int:
     manifest_chains.sort(key=lambda c: c["id"])
 
     (out / SEARCH_FILE).write_text(json.dumps(search_document(out, manifest_chains), ensure_ascii=False, separators=(",", ":")) + "\n")
+    (out / NUMBERS_FILE).write_text(json.dumps(numbers_document(out, manifest_chains), ensure_ascii=False, separators=(",", ":")) + "\n")
     manifest = {"schemaVersion": SCHEMA_VERSION, "dataVersion": data_version, "generatedAt": now, "chains": manifest_chains,
-                "search": {"file": SEARCH_FILE, "sha256": file_sha256(out / SEARCH_FILE)}}
+                "search": {"file": SEARCH_FILE, "sha256": file_sha256(out / SEARCH_FILE)},
+                "numbers": {"file": NUMBERS_FILE, "sha256": file_sha256(out / NUMBERS_FILE)}}
     (out / "menus-manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False) + "\n")
 
     keep = {c["file"] for c in manifest_chains}
@@ -931,7 +947,7 @@ def main(argv=None) -> int:
         dest.mkdir(parents=True, exist_ok=True)
         for f in dest.glob("*.json"):
             f.unlink()
-        for f in [out / "menus-manifest.json", out / SEARCH_FILE] + [out / c["file"] for c in manifest_chains]:
+        for f in [out / "menus-manifest.json", out / SEARCH_FILE, out / NUMBERS_FILE] + [out / c["file"] for c in manifest_chains]:
             shutil.copy2(f, dest / f.name)
 
     if not args.quiet:
