@@ -17,6 +17,12 @@ export interface IngredientMatch {
   kcal?: [number, number];
   minProtein?: number;
   maxFat?: number;
+  /** For food bought and used as whole pieces (wraps, stock cubes): each piece must weigh this many grams, worked out from the pack's own name
+   *  ("Mission 6 x Original Tortilla Wraps 367g" is 61 g a wrap, "x12 71g" is 6 g a cube), so "about 2 wraps" are the wraps the recipe means.
+   *  A pack whose name doesn't give both the count and the weight is left out. */
+  pieceWeight?: [number, number];
+  /** Among the products within 50p of the cheapest, those whose name has one of these words come first (spaghetti for "Spaghetti or linguine"). */
+  prefer?: string[];
 }
 
 export type IngredientRole = "protein" | "carb" | "other";
@@ -44,14 +50,24 @@ export interface PantryKind {
   halal?: { label: string; match: IngredientMatch };
   /** Other kinds that can stand in, in order (for a shop that doesn't sell this one, or the person's choice); factor scales the amount (dried noodles weigh less than ready ones). */
   subs?: Array<{ key: string; factor?: number }>;
-  /** One piece in grams, to say "about 4 eggs" (a cooking guide only: the numbers always use grams). */
+  /** One piece in grams, to say "about 4 eggs" (a cooking guide only: the numbers always use grams). Fitting and serving changes round such a kind
+   *  to whole pieces, unless it is `cut`. */
   pieceGrams?: number;
   pieceName?: [string, string];
+  /** Bought whole but used in parts (a cucumber, an onion): a fitted or scaled amount is rounded to 5 g, so a quarter of a cucumber stays a quarter. */
+  cut?: boolean;
+  /** Served whole to each person (wraps): a fitted or scaled amount is rounded to a whole number of pieces for every serving, so 3 people never
+   *  get 5 wraps between them. */
+  perServing?: boolean;
+  /** How far fitting a recipe may move it, as a factor of the written amount (default: half to double, like every protein and carb ingredient). */
+  fit?: [number, number];
   /** A store-cupboard item (seasoning, oil, dried herbs): the recipe page says "You may have this already" and lets the person leave it off the basket. */
   cupboard?: boolean;
   /** A pinch of something whose label we haven't read (ground cinnamon): still listed and priced, and named as not counted in the nutrition (never filled in). */
   labelOptional?: boolean;
 }
+
+const PULSE_FIT: [number, number] = [0.5, 1.5];
 
 const PROCESSED = ["sliced", "cooked", "roast", "bites", "goujon", "cured", "hunters", "just cook", "sizzlers", "kyiv", "kiev", "italian", "cajun", "steaks", "battered", "tempura", "buttermilk", "firecracker", "chunks", "escalope", "burger", "sauce", "with", "marinated", "coated", "breaded", "smoked", "chargrill", "tikka", "piri", "fajita", "slices", "pieces", "strips", "skewer", "wrapped", "stuffed", "southern", "katsu", "bbq", "spiced", "lemon", "garlic", "herb", "glaze", "seasoned", "meatballs"];
 
@@ -121,7 +137,7 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "cheddar", label: "Mature cheddar", unit: "g", role: "other", animal: true, contains: ["milk"],
-    match: { all: ["mature", "cheddar"], none: ["crackers", "sauce", "bake", "pie", "sandwich", "pasta", "snack", "bites", "sticks", "mini", "cubes", "lunchbox", "mozzarella", "spread", "lighter", "reduced", "onion", "chutney", "pickle", "jalapeno", "chilli", "cranberr", "tomato"], kcal: [380, 450] },
+    match: { all: ["mature", "cheddar"], none: ["crackers", "sauce", "bake", "pie", "sandwich", "pasta", "snack", "bites", "sticks", "mini", "cubes", "lunchbox", "mozzarella", "spread", "lighter", "reduced", "onion", "chutney", "pickle", "jalapeno", "chilli", "cranberr", "tomato", "sliced", "slices", "sausage", "rolls"], kcal: [380, 450] },
   },
   {
     key: "feta", label: "Feta", unit: "g", role: "other", animal: true, contains: ["milk"],
@@ -141,7 +157,7 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "ham", label: "Cooked ham slices", unit: "g", role: "protein", meat: "pork", animal: true, contains: [],
-    match: { all: ["ham"], any: ["cooked ham", "honey roast ham", "wiltshire", "thick cut", "slices", "sliced"], none: ["hamper", "hamburger", "sandwich", "pizza", "pasta", "parma", "serrano", "prosciutto", "hock", "joint", "salad", "chicken"], kcal: [80, 160], minProtein: 14 },
+    match: { all: ["ham"], any: ["cooked ham", "honey roast ham", "wiltshire", "thick cut", "slices", "sliced"], none: ["hamper", "hamburger", "sandwich", "pizza", "pasta", "parma", "serrano", "prosciutto", "hock", "joint", "salad", "chicken", "wafer"], kcal: [80, 160], minProtein: 14 },
   },
   {
     key: "smoked-salmon", label: "Smoked salmon", unit: "g", role: "protein", fish: true, animal: true, contains: ["fish"],
@@ -165,7 +181,7 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "mozzarella", label: "Mozzarella", unit: "g", role: "other", animal: true, contains: ["milk"],
-    match: { all: ["mozzarella"], none: ["pizza", "sticks", "pearls with", "tomato", "basil", "bites", "breaded", "arancini", "with", "garlic", "cheddar", "grated"], kcal: [180, 320] },
+    match: { all: ["mozzarella"], none: ["pizza", "sticks", "pearls with", "tomato", "basil", "bites", "breaded", "arancini", "with", "garlic", "cheddar", "grated", "gnocchi", "filled", "pasta", "girasoli", "salami", "sourdough", "ciabatta", "rocket"], kcal: [180, 320] },
   },
   {
     key: "parmesan", label: "Italian hard cheese (Parmigiano Reggiano or Grana Padano)", unit: "g", role: "other", animal: true, contains: ["milk"],
@@ -195,35 +211,36 @@ const KINDS: PantryKind[] = [
     key: "red-lentils", label: "Red lentils (dried)", unit: "g", role: "protein", note: "dried", contains: [],
     match: { all: ["red", "lentils"], none: ["soup", "dhal", "pasta", "in water", "cooked", "spicy", "pouch", "mix"], kcal: [300, 380] },
   },
-  // ---- beans and pulses (tinned, drained)
+  // ---- beans and pulses (tinned, drained): fitting moves them at most one and a half times the written amount, because more beans than that
+  // crowd out the sauce, soup or dressing they sit in (the method's tin of tomatoes and its water stay as written)
   {
-    key: "chickpeas", label: "Chickpeas in water", unit: "g", role: "protein", drained: true, contains: [],
+    key: "chickpeas", label: "Chickpeas in water", unit: "g", role: "protein", drained: true, fit: PULSE_FIT, contains: [],
     match: { all: ["chickpeas"], none: ["falafel", "houmous", "hummus", "curry", "smoked", "paprika", "spicy", "roasted", "crunchy", "snack", "flour", "bulgur", "rice", "tagine", "dhal", "soup", "salad", "couscous", "lentil", "tuna", "pizza"], kcal: [90, 180] },
   },
   {
-    key: "kidney-beans", label: "Red kidney beans in water", unit: "g", role: "protein", drained: true, contains: [],
+    key: "kidney-beans", label: "Red kidney beans in water", unit: "g", role: "protein", drained: true, fit: PULSE_FIT, contains: [],
     match: { all: ["kidney", "beans"], none: ["chilli", "sauce", "mixed", "spicy", "lentils", "tuna", "salad"], kcal: [70, 140] },
   },
   {
-    key: "black-beans", label: "Black beans in water", unit: "g", role: "protein", drained: true, contains: [],
+    key: "black-beans", label: "Black beans in water", unit: "g", role: "protein", drained: true, fit: PULSE_FIT, contains: [],
     match: { all: ["black", "beans"], none: ["chilli", "sauce", "mexican", "eye", "spicy", "rice"], kcal: [70, 140] },
   },
   {
-    key: "butter-beans", label: "Butter beans in water", unit: "g", role: "protein", drained: true, contains: [],
+    key: "butter-beans", label: "Butter beans in water", unit: "g", role: "protein", drained: true, fit: PULSE_FIT, contains: [],
     match: { all: ["butter", "beans"], none: ["sauce", "salad", "spicy", "tomato"], kcal: [70, 140] },
   },
   {
-    key: "green-lentils", label: "Green lentils in water", unit: "g", role: "protein", drained: true, contains: [],
+    key: "green-lentils", label: "Green lentils in water", unit: "g", role: "protein", drained: true, fit: PULSE_FIT, contains: [],
     match: { all: ["lentils"], any: ["green", "in water"], none: ["red", "puy", "soup", "dhal", "spicy", "cajun", "tomatoey", "salad", "pasta"], kcal: [60, 130] },
   },
   // ---- carbs (dry or as sold)
   {
     key: "rice", label: "Rice", unit: "g", role: "carb", note: "uncooked", contains: [],
-    match: { all: ["rice"], any: ["basmati", "jasmine", "long grain", "fragrant", "hom mali", "easy cook"], none: ["microwave", "pouch", "ready", "pilau", "with", "flavour", "express", "steam", "golden", "egg fried", "mushroom", "lemon", "coconut", "wild", "noodles", "flour", "cakes", "pots", "heat", "mix", "boil in"], kcal: [320, 400] },
+    match: { all: ["rice"], any: ["basmati", "jasmine", "long grain", "fragrant", "hom mali", "easy cook"], none: ["microwave", "pouch", "ready", "pilau", "with", "flavour", "express", "steam", "golden", "egg fried", "mushroom", "lemon", "coconut", "wild", "noodles", "flour", "cakes", "pots", "heat", "mix", "boil in", "4 x", "x4", "2 x", "x2"], kcal: [320, 400] },
   },
   {
     key: "pasta-long", label: "Spaghetti or linguine", unit: "g", role: "carb", note: "uncooked", contains: ["gluten"],
-    match: { all: [], any: ["spaghetti", "linguine", "tagliatelle"], none: ["hoops", "rings", "sauce", "bolognese", "carbonara", "meatballs", "sausages", "fresh", "squash", "recipe mix"], kcal: [300, 400] },
+    match: { all: [], any: ["spaghetti", "linguine", "tagliatelle"], none: ["hoops", "rings", "sauce", "bolognese", "carbonara", "meatballs", "sausages", "fresh", "squash", "recipe mix"], kcal: [300, 400], prefer: ["spaghetti"] },
   },
   {
     key: "pasta-shapes", label: "Pasta shapes (penne, fusilli)", unit: "g", role: "carb", note: "uncooked", contains: ["gluten"],
@@ -234,8 +251,10 @@ const KINDS: PantryKind[] = [
     match: { all: ["noodles"], any: ["udon", "medium", "thick", "thin", "straight to wok", "ready to wok"], none: ["pot", "chicken", "beef", "prawn", "soup", "instant", "cup", "sauce", "flavour", "rice noodles", "egg", "glass", "soba", "ramen", "curry", "spicy"], kcal: [90, 200] },
   },
   {
-    key: "wraps", label: "Tortilla wraps", unit: "g", role: "carb", contains: ["gluten"], pieceName: ["wrap", "wraps"],
-    match: { all: ["wraps"], any: ["tortilla", "wholewheat", "plain", "white", "soft"], none: ["chicken", "salad", "falafel", "lettuce", "egg", "gluten free"], kcal: [240, 350] },
+    key: "wraps", label: "Tortilla wraps", unit: "g", role: "carb", contains: ["gluten"], pieceGrams: 60, pieceName: ["wrap", "wraps"], perServing: true, fit: [1, 2],
+    // the book's amounts are large wraps of about 60 g (one each): small taco and mini wraps, and packs that don't say how many they hold, are left out.
+    // Fitting never goes below the written number, so a smaller meal never leaves someone without a wrap; a recipe with two each says [0.5, 2] itself.
+    match: { all: ["wraps"], any: ["tortilla", "wholewheat", "plain", "white", "soft"], none: ["chicken", "salad", "falafel", "lettuce", "egg", "gluten free"], kcal: [240, 350], pieceWeight: [50, 70], prefer: ["original", "plain"] },
   },
   {
     key: "oats", label: "Porridge oats", unit: "g", role: "carb", contains: ["gluten"],
@@ -266,8 +285,8 @@ const KINDS: PantryKind[] = [
     match: { all: ["granola"], none: ["bar", "bars", "bites", "pot", "yogurt", "chocolate", "honey", "nut butter", "clusters with", "strawberry", "tropical", "berry", "fruit", "coconut", "apple", "cinnamon", "maple", "pecan", "raspberry", "cherry", "banana", "special k"], kcal: [380, 480] },
   },
   {
-    key: "wheat-biscuits", label: "Wholewheat breakfast biscuits", unit: "g", role: "carb", contains: ["gluten"],
-    match: { all: [], any: ["weetabix", "wheat biscuits", "wholewheat biscuits"], none: ["chocolate", "banana", "golden syrup", "minis", "protein", "drink", "crispy", "bites", "on the go"], kcal: [320, 380] },
+    key: "wheat-biscuits", label: "Wholewheat breakfast biscuits", unit: "g", role: "carb", contains: ["gluten"], pieceGrams: 19, pieceName: ["biscuit", "biscuits"],
+    match: { all: [], any: ["weetabix", "wheat biscuits", "wholewheat biscuits"], none: ["chocolate", "choco", "crunch", "bran", "banana", "golden syrup", "minis", "protein", "drink", "crispy", "bites", "on the go"], kcal: [320, 380] },
   },
   {
     key: "lasagne-sheets", label: "Dried lasagne sheets", unit: "g", role: "carb", note: "dried", contains: ["gluten"],
@@ -287,21 +306,23 @@ const KINDS: PantryKind[] = [
   { key: "peas", label: "Frozen peas or petits pois", unit: "g", role: "other", contains: [], match: { all: [], any: ["garden peas", "petits pois"], none: ["mushy", "wasabi", "sugar snap", "split", "carrots", "sweetcorn", "chick", "dried", "pea shoots", "and", "soup", "in water", "creme"], kcal: [40, 90] } },
   { key: "sweetcorn", label: "Sweetcorn (frozen or tinned, drained)", unit: "g", role: "other", contains: [], match: { all: ["sweetcorn"], none: ["cobs", "mini", "creamed", "tuna", "chicken", "ham", "pepper", "relish", "soup", "fritters", "salsa", "baby", "with", "peas"], kcal: [50, 130] } },
   { key: "berries", label: "Mixed berries", unit: "g", role: "other", contains: [], match: { all: [], any: ["mixed berries", "frozen berries", "berry mix"], none: ["yogurt", "yoghurt", "soya", "smoothie", "pie", "crumble", "cereal", "granola", "special k", "jam", "drink", "juice", "sauce", "porridge", "bar"], kcal: [25, 70] } },
-  { key: "raisins", label: "Raisins or sultanas", unit: "g", role: "other", contains: [], match: { all: [], any: ["raisins", "sultanas"], none: ["chocolate", "yogurt", "coated", "bread", "bagel", "scone", "loaf", "cereal", "muesli", "granola", "bran", "snack pack", "mini boxes", "nuts", "mix", "cookies"], kcal: [250, 340] } },
+  { key: "raisins", label: "Raisins or sultanas", unit: "g", role: "other", contains: [], match: { all: [], any: ["raisins", "sultanas"], none: ["chocolate", "yogurt", "coated", "bread", "bagel", "scone", "loaf", "cereal", "muesli", "granola", "bran", "snack", "mini boxes", "12 x", "12x", "nuts", "mix", "cookies", "cranberr", "panettone", "pain aux", "cake"], kcal: [250, 340] } },
   { key: "chopped-tomato-puree", label: "Tomato purée", unit: "g", role: "other", contains: [], match: { all: ["tomato", "puree"], none: ["garlic", "sun dried", "herb", "chilli", "basil"], kcal: [50, 130] } },
   // ---- sauces, oils and store-cupboard
   { key: "olive-oil", label: "Olive oil", unit: "ml", role: "other", contains: [], match: { all: ["olive", "oil"], none: ["spray", "spread", "mackerel", "sardines", "tuna", "anchov", "sun dried", "olives", "dressing", "garlic", "chilli", "infused", "lemon", "truffle", "basil"], kcal: [800, 900] } },
   { key: "pesto", label: "Green pesto", unit: "g", role: "other", animal: true, contains: ["milk", "nuts"], match: { all: ["pesto"], any: ["green", "basil", "genovese"], none: ["red", "sun dried", "vegan", "free from", "pasta", "chicken", "rosso", "chilli", "tomato", "breadsticks"], kcal: [300, 600] } },
   { key: "light-mayo", label: "Light mayonnaise", unit: "g", role: "other", animal: true, contains: ["eggs"], match: { all: ["mayonnaise"], any: ["light", "lighter", "reduced fat"], none: ["garlic", "chilli", "vegan", "sriracha", "lemon", "chipotle", "truffle", "egg free"], kcal: [200, 400] } },
-  { key: "sweet-chilli", label: "Sweet chilli sauce", unit: "g", role: "other", contains: [], match: { all: ["sweet", "chilli", "sauce"], none: ["crisps", "chicken", "noodle", "prawn", "houmous", "dip pot", "mayo", "rice"], kcal: [150, 280] } },
-  { key: "bbq-sauce", label: "Barbecue sauce", unit: "g", role: "other", contains: [], match: { all: [], any: ["bbq sauce", "barbecue sauce"], none: ["crisps", "chicken", "pork", "ribs", "pulled", "beans", "marinade", "wings", "pizza", "dip pot"], kcal: [100, 220] } },
+  { key: "sweet-chilli", label: "Sweet chilli sauce", unit: "g", role: "other", contains: [], match: { all: ["sweet", "chilli", "sauce"], none: ["crisps", "chicken", "noodle", "prawn", "houmous", "dip pot", "mayo", "rice", "stir fry", "garlic"], kcal: [150, 280] } },
+  { key: "bbq-sauce", label: "Barbecue sauce", unit: "g", role: "other", contains: [], match: { all: [], any: ["bbq sauce", "barbecue sauce"], none: ["crisps", "chicken", "pork", "ribs", "pulled", "beans", "marinade", "wings", "pizza", "dip pot", "with", "mac", "sausage", "duck"], kcal: [100, 220] } },
   { key: "salsa", label: "Tomato salsa", unit: "g", role: "other", contains: [], match: { all: ["salsa"], none: ["verde", "crisps", "chips", "nachos", "dip pot", "mango", "pineapple", "chipotle", "cheese"], kcal: [20, 80] } },
   { key: "teriyaki", label: "Teriyaki sauce", unit: "ml", role: "other", contains: ["soya", "gluten"], match: { all: ["teriyaki"], any: ["sauce"], none: ["chicken", "salmon", "noodles", "marinade with", "crisps", "pot", "rice"], kcal: [80, 250] } },
   { key: "honey", label: "Clear honey", unit: "g", role: "other", animal: true, contains: [], match: { all: ["honey"], any: ["clear", "squeezy", "pure"], none: ["mustard", "roast", "ham", "nut", "cereal", "granola", "yogurt", "lemon", "set", "manuka", "comb", "chicken", "glaze"], kcal: [280, 340] } },
-  { key: "stock-cube", label: "Vegetable stock cube or pot", unit: "g", role: "other", contains: ["celery"], match: { all: ["vegetable"], any: ["stock cubes", "stock pot", "stock pots", "bouillon"], none: ["chicken", "beef", "fish", "lamb", "gravy"], kcal: [100, 400] } },
+  // A stock cube, counted by the cube: a cube's own label is for the dry cube, and cubes of about 6 g (12 in a 71 g pack) are the ones whose label is
+  // printed that way (10 g cubes print the made-up stock). Pots are left out: a method crumbles or dissolves "the stock cube".
+  { key: "stock-cube", label: "Vegetable stock cube", unit: "g", role: "other", contains: ["celery"], pieceGrams: 6, pieceName: ["stock cube", "stock cubes"], match: { all: ["vegetable"], any: ["stock cube"], none: ["chicken", "beef", "fish", "lamb", "gravy", "pot", "pots", "reduced"], kcal: [100, 400], pieceWeight: [5, 7] } },
   { key: "fajita-seasoning", label: "Fajita seasoning", unit: "g", role: "other", contains: [], match: { all: ["fajita"], any: ["seasoning", "spice mix"], none: ["kit", "chicken", "wraps", "strips", "sauce", "cooking", "meal"] } },
   { key: "oat-drink", label: "Oat drink", unit: "ml", role: "other", contains: ["gluten"], match: { all: ["oat"], any: ["drink", "milk"], none: ["chocolate", "barista", "coffee", "protein", "vanilla", "chilled latte", "mini", "kids", "bar", "biscuit", "cookie", "porridge"], kcal: [30, 70] } },
-  { key: "almonds", label: "Whole almonds", unit: "g", role: "other", contains: ["nuts"], match: { all: ["almonds"], none: ["chocolate", "yogurt", "coated", "flaked", "ground", "salted", "smoked", "roasted salted", "milk", "drink", "butter", "mix", "honey", "biscuits", "cake", "croissant", "marzipan", "fruit"], kcal: [550, 680] } },
+  { key: "almonds", label: "Whole almonds", unit: "g", role: "other", contains: ["nuts"], match: { all: ["almonds"], none: ["chocolate", "yogurt", "coated", "flaked", "ground", "salted", "smoked", "roasted salted", "milk", "drink", "butter", "mix", "honey", "biscuits", "cake", "croissant", "marzipan", "fruit", "cocoa", "dusted", "flaxseed", "milled"], kcal: [550, 680] } },
   { key: "mixed-seeds", label: "Mixed seeds", unit: "g", role: "other", contains: ["sesame"], match: { all: ["seeds"], any: ["mixed seeds", "seed mix", "omega seed"], none: ["bread", "loaf", "bagel", "crackers", "bar", "granola", "cereal", "oil", "bird"], kcal: [450, 650] } },
   { key: "soy", label: "Soy sauce", unit: "ml", role: "other", contains: ["soya", "gluten"], match: { all: ["soy", "sauce"], none: ["sweet", "noodle", "chicken", "dark", "mushroom", "teriyaki", "garlic", "chilli", "vinegar", "pack"], kcal: [20, 120] } },
   { key: "peanut-butter", label: "Peanut butter", unit: "g", role: "other", contains: ["peanuts"], match: { all: ["peanut", "butter"], none: ["cups", "chocolate", "cookies", "bar", "biscuit", "bites", "powder", "jelly", "protein", "honey", "spread with"], kcal: [550, 700] } },
@@ -336,16 +357,16 @@ const KINDS: PantryKind[] = [
   { key: "lemon-juice", label: "Lemon juice", unit: "ml", role: "other", cupboard: true, contains: [], match: { all: ["lemon", "juice"], none: ["sliced", "apple", "pomegranate", "raspberry", "lime", "cordial", "squash", "smoothie", "ginger", "drink"], kcal: [10, 50] } },
   { key: "lime-juice", label: "Lime juice", unit: "ml", role: "other", cupboard: true, contains: [], match: { all: ["lime", "juice"], none: ["guava", "innocent", "cordial", "squash", "smoothie", "coconut", "drink"], kcal: [10, 50] } },
   // ---- fresh vegetables, herbs and fruit (raw labels only; whole items sold one at a time count as whole items: "1 pepper", at the shop's own price each)
-  { key: "onion", label: "Onion", unit: "g", role: "other", contains: [], pieceGrams: 150, pieceName: ["onion", "onions"], match: { all: ["onions"], none: ["red", "spring", "sweet", "rings", "crisps", "bhaji", "gravy", "sauce", "pickled", "chutney", "cheese", "sausage", "soup", "fried", "caramelised", "crispy", "salt", "pudding", "pie", "balsamic", "borettane", "silverskin", "twists", "slices", "chips", "organic"], kcal: [25, 50] } },
-  { key: "red-onion", label: "Red onion", unit: "g", role: "other", contains: [], pieceGrams: 150, pieceName: ["red onion", "red onions"], match: { all: ["red", "onions"], none: ["chutney", "marmalade", "relish", "crisps", "chips", "cheese", "sausage", "pickled", "bhaji", "confit", "caramelised", "sauce", "stuffing", "tortillas", "organic"], kcal: [25, 50] } },
+  { key: "onion", label: "Onion", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 150, pieceName: ["onion", "onions"], match: { all: ["onions"], none: ["red", "spring", "sweet", "rings", "crisps", "bhaji", "gravy", "sauce", "pickled", "chutney", "cheese", "sausage", "soup", "fried", "caramelised", "crispy", "salt", "pudding", "pie", "balsamic", "borettane", "silverskin", "twists", "slices", "chips", "organic"], kcal: [25, 50] } },
+  { key: "red-onion", label: "Red onion", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 150, pieceName: ["red onion", "red onions"], match: { all: ["red", "onions"], none: ["chutney", "marmalade", "relish", "crisps", "chips", "cheese", "sausage", "pickled", "bhaji", "confit", "caramelised", "sauce", "stuffing", "tortillas", "organic"], kcal: [25, 50] } },
   { key: "spring-onions", label: "Spring onions", unit: "g", role: "other", contains: [], match: { all: ["spring", "onion"], none: ["crisps", "rolls", "scone", "sauce", "cheese", "dip", "organic", "bites"], kcal: [15, 40] } },
-  { key: "carrots", label: "Carrots", unit: "g", role: "other", contains: [], pieceGrams: 100, pieceName: ["carrot", "carrots"], match: { all: ["carrots"], none: ["in water", "sliced", "baby", "mini", "prepared", "batons", "cake", "juice", "glazed", "chips", "peas", "swede", "parsnip", "organic", "grated"], kcal: [25, 45] } },
-  { key: "peppers", label: "Peppers", unit: "g", role: "other", contains: [], pieceGrams: 160, pieceName: ["pepper", "peppers"], match: { all: [], any: ["red pepper", "yellow pepper", "orange pepper", "green pepper", "mixed peppers"], none: ["pointed", "sliced", "roasted", "stuffed", "flakes", "sauce", "crisps", "jar", "chargrilled", "houmous"], kcal: [15, 35] } },
+  { key: "carrots", label: "Carrots", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 100, pieceName: ["carrot", "carrots"], match: { all: ["carrots"], none: ["in water", "sliced", "baby", "mini", "prepared", "batons", "cake", "juice", "glazed", "chips", "peas", "swede", "parsnip", "organic", "grated"], kcal: [25, 45] } },
+  { key: "peppers", label: "Peppers", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 160, pieceName: ["pepper", "peppers"], match: { all: [], any: ["red pepper", "yellow pepper", "orange pepper", "green pepper", "mixed peppers"], none: ["pointed", "sliced", "roasted", "stuffed", "flakes", "sauce", "crisps", "jar", "chargrilled", "houmous"], kcal: [15, 35] } },
   { key: "fresh-chilli", label: "Fresh chillies", unit: "g", role: "other", contains: [], match: { all: [], any: ["mixed chillies", "finger chillies", "red chillies", "green chillies"], none: ["scotch", "crushed", "dried", "flakes", "sauce", "jar", "pickled", "chopped", "drained", "poppadoms"], kcal: [15, 45] } },
   { key: "spinach", label: "Spinach", unit: "g", role: "other", contains: [], match: { all: ["spinach"], none: ["watercress", "rocket", "ricotta", "organic", "chopped", "frozen", "pouch", "baby food", "strawberry"], kcal: [12, 30] } },
   { key: "cherry-tomatoes", label: "Cherry tomatoes", unit: "g", role: "other", contains: [], match: { all: ["cherry", "tomatoes"], none: ["juice", "peeled", "tinned", "in rich", "pomodorini", "datterini", "dried", "roasted"], kcal: [12, 35] } },
   { key: "tomatoes", label: "Tomatoes", unit: "g", role: "other", contains: [], match: { all: ["tomatoes"], any: ["baby plum tomatoes", "tomatoes loose", "vine tomatoes", "large tomatoes", "salad tomatoes", "round tomatoes"], none: ["peeled", "in juice", "tinned", "dried", "roasted", "organic", "italian plum"], kcal: [12, 30] } },
-  { key: "cucumber", label: "Cucumber", unit: "g", role: "other", contains: [], pieceGrams: 300, pieceName: ["cucumber", "cucumbers"], match: { all: ["cucumber"], none: ["sweet", "sour", "smoothie", "pickle", "gherkin", "organic", "baby", "kiwi", "large"], kcal: [8, 20] } },
+  { key: "cucumber", label: "Cucumber", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 300, pieceName: ["cucumber", "cucumbers"], match: { all: ["cucumber"], none: ["sweet", "sour", "smoothie", "pickle", "gherkin", "organic", "baby", "kiwi", "large"], kcal: [8, 20] } },
   { key: "lettuce", label: "Lettuce", unit: "g", role: "other", contains: [], match: { all: [], any: ["iceberg lettuce", "shredded iceberg", "little gem", "romaine", "cos lettuce"], none: ["sandwich", "wrap", "chicken", "prawn", "kit", "organic"], kcal: [8, 25] } },
   { key: "salad-leaves", label: "Salad leaves", unit: "g", role: "other", contains: [], match: { all: [], any: ["baby leaf salad", "mixed salad", "salad leaves", "wild rocket", "watercress", "lambs lettuce", "herb salad", "crispy salad", "sweet salad"], none: ["sandwich", "wrap", "chicken", "prawn", "kit", "organic", "pasta", "tuna", "cheese", "egg", "coleslaw", "potato", "dressing"], kcal: [8, 30] } },
   { key: "green-beans", label: "Green beans", unit: "g", role: "other", contains: [], match: { all: ["green", "beans"], none: ["tinned", "in water", "sliced", "salad", "soup", "broccoli", "mangetout", "whole green beans 900g"], kcal: [20, 40] } },
@@ -357,8 +378,8 @@ const KINDS: PantryKind[] = [
   { key: "fresh-coriander", label: "Chopped coriander (fresh or frozen)", unit: "g", role: "other", contains: [], match: { all: ["coriander"], any: ["chopped coriander", "fresh coriander", "coriander bunch"], none: ["living", "seed", "ground", "leaf 9g"], kcal: [15, 60] } },
   { key: "fresh-parsley", label: "Fresh parsley", unit: "g", role: "other", contains: [], match: { all: ["parsley"], none: ["living", "noodle", "soup", "sauce"], kcal: [30, 60] } },
   { key: "fresh-basil", label: "Fresh basil", unit: "g", role: "other", contains: [], match: { all: ["basil"], none: ["living", "passata", "tomatoes", "tomato", "pesto", "seed", "tuna", "beans", "oil", "sauce", "pasta", "dolmio"], kcal: [20, 50] } },
-  { key: "banana", label: "Bananas", unit: "g", role: "other", contains: [], pieceGrams: 120, pieceName: ["banana", "bananas"], match: { all: ["bananas"], none: ["shrimps", "chips", "dried", "bread", "cake", "milk", "smoothie", "baby", "eclairs", "foam", "flavour", "organic"], kcal: [70, 100] } },
-  { key: "apple", label: "Apples", unit: "g", role: "other", contains: [], pieceGrams: 150, pieceName: ["apple", "apples"], match: { all: [], any: ["apple single", "single apple", "apples single", "royal gala apples", "braeburn apples", "british apples", "granny smith apples"], none: ["mini", "juice", "pie", "sauce", "grape", "pineapple", "strawberry", "porridge", "organic"], kcal: [40, 70] } },
+  { key: "banana", label: "Bananas", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 120, pieceName: ["banana", "bananas"], match: { all: ["bananas"], none: ["shrimps", "chips", "dried", "bread", "cake", "milk", "smoothie", "baby", "eclairs", "foam", "flavour", "organic"], kcal: [70, 100] } },
+  { key: "apple", label: "Apples", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 150, pieceName: ["apple", "apples"], match: { all: [], any: ["apple single", "single apple", "apples single", "royal gala apples", "braeburn apples", "british apples", "granny smith apples"], none: ["mini", "juice", "pie", "sauce", "grape", "pineapple", "strawberry", "porridge", "organic"], kcal: [40, 70] } },
 ];
 
 // What can stand in for what, best first: the same kind of food in the same form, used at the same weight unless a factor is given

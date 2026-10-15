@@ -5,33 +5,34 @@ import { ing, type Recipe } from "../recipes";
 export const BREAKFAST: readonly Recipe[] = [
   {
     id: "berry-yogurt-porridge", meal: "breakfast", tags: ["Porridge"], name: "Berry porridge with yogurt", blurb: "Creamy oats topped with cool yogurt and berries.", servings: 1, minutes: 8,
-    ingredients: [ing("oats", 50), ing("milk", 200), ing("greek-yogurt", 100, { role: "protein" }), ing("berries", 80), ing("cinnamon", 1)],
-    method: ["Heat the oats and milk in a pan, stirring, for 4 to 5 minutes until thick and creamy.", "Spoon into a bowl and top with the yogurt and berries."],
+    ingredients: [ing("oats", 50), ing("milk", 200, { follows: "oats" }), ing("greek-yogurt", 100, { role: "protein" }), ing("berries", 80), ing("cinnamon", 1)],
+    method: ["Heat the oats, milk and cinnamon in a pan, stirring, for 4 to 5 minutes until thick and creamy.", "Spoon into a bowl and top with the yogurt and berries."],
   },
   {
     id: "peanut-banana-porridge", meal: "breakfast", tags: ["Porridge", "Vegan"], name: "Peanut butter and banana porridge", blurb: "Oats cooked in oat drink with a swirl of peanut butter and sliced banana.", servings: 2, minutes: 10,
-    ingredients: [ing("oats", 100), ing("oat-drink", 400), ing("peanut-butter", 30), ing("banana", 120, { note: "about 1 banana" }), ing("cinnamon", 1)],
-    method: ["Heat the oats and oat drink in a pan, stirring, for 4 to 5 minutes until thick and creamy.", "Divide between two bowls.", "Swirl the peanut butter through and top with the sliced banana."],
+    ingredients: [ing("oats", 100), ing("oat-drink", 400, { follows: "oats" }), ing("peanut-butter", 30), ing("banana", 120, { note: "about 1 banana" }), ing("cinnamon", 1)],
+    method: ["Heat the oats, oat drink and cinnamon in a pan, stirring, for 4 to 5 minutes until thick and creamy.", "Share between bowls.", "Swirl the peanut butter through and top with the sliced banana."],
   },
   {
     id: "smoked-salmon-eggs", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Smoked salmon and scrambled eggs", blurb: "Soft scrambled eggs with ribbons of smoked salmon.", servings: 2, minutes: 10,
-    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("smoked-salmon", 100), ing("black-pepper", 1), ing("oil-spray", 1)],
+    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("smoked-salmon", 100), ing("black-pepper", 1)],
     method: ["Beat the eggs in a jug with a little black pepper.", "Pour into a non-stick pan over a low heat and stir slowly for 3 to 4 minutes, until the eggs are just set.", "Take off the heat, fold in the smoked salmon torn into strips and serve straight away."],
   },
   {
     id: "spanish-omelette", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Spanish-style omelette with potatoes and peas", blurb: "A thick, golden omelette to cut into wedges.", servings: 3, minutes: 25,
-    ingredients: [ing("eggs", 360, { note: "about 6 eggs" }), ing("new-potatoes", 300), ing("peas", 120), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("salt", 1), ing("black-pepper", 1)],
-    method: ["Drain the potatoes and cut them into thick slices.", "Heat the oil in a non-stick frying pan and fry the potatoes and onion for 5 minutes until golden.", "Stir in the peas, then pour in the beaten eggs.", "Cook over a low heat for 8 to 10 minutes, until the edges are set.", "Put the pan under a hot grill for 2 to 3 minutes, until the top is set and golden, then cut into wedges."],
+    // the potatoes follow the eggs so the omelette keeps its proportions, and one frying pan holds at most half as many eggs again
+    ingredients: [ing("eggs", 360, { note: "about 6 eggs", fit: [0.5, 1.5] }), ing("new-potatoes", 300, { follows: "eggs" }), ing("peas", 120), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("salt", 1), ing("black-pepper", 1)],
+    method: ["Drain the potatoes and cut them into thick slices.", "Heat the oil in a non-stick frying pan and fry the potatoes and onion for 5 minutes until golden.", "Beat the eggs with the salt and pepper.", "Stir in the peas, then pour in the beaten eggs.", "Cook over a low heat for 8 to 10 minutes, until the edges are set.", "Cover the pan with a lid or a large plate and cook for 5 to 8 minutes more, until set all the way through, then cut into wedges."],
   },
   {
     id: "breakfast-burrito", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Bean breakfast burritos", blurb: "Scrambled eggs, beans, cheese and salsa rolled up in a warm wrap.", servings: 2, minutes: 15,
     ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("kidney-beans", 240), ing("wraps", 120), ing("cheddar", 40), ing("salsa", 60), ing("cumin", 1), ing("spinach", 30)],
-    method: ["Warm the drained beans in a small pan with the cumin, then lightly crush them with a fork.", "Beat the eggs and scramble them gently in a non-stick pan until set.", "Warm the wraps, then fill each with beans, egg, grated cheese and salsa.", "Fold in the sides, roll up and cut in half."],
+    method: ["Warm the drained beans in a small pan with the cumin, then lightly crush them with a fork.", "Beat the eggs and scramble them gently in a non-stick pan until set.", "Warm the wraps, then fill each with spinach, beans, egg, grated cheese and salsa.", "Fold in the sides, roll up and cut in half."],
   },
   {
     id: "bacon-egg-wraps", meal: "breakfast", tags: ["Eggs", "Quick"], name: "Bacon and egg breakfast wraps", blurb: "Grilled bacon and scrambled egg in a warm wrap.", servings: 2, minutes: 15,
     ingredients: [ing("bacon", 120), ing("eggs", 240, { note: "about 4 eggs" }), ing("wraps", 120), ing("tomatoes", 80), ing("spinach", 30), ing("black-pepper", 1)],
-    method: ["Grill the bacon for 4 to 5 minutes on each side, until cooked through.", "Beat the eggs and scramble them gently in a non-stick pan until set.", "Warm the wraps and fill with the bacon, eggs and tomato slices, then roll up."],
+    method: ["Grill the bacon for 4 to 5 minutes on each side, until cooked through.", "Beat the eggs with a little black pepper, then scramble them gently in a non-stick pan until set.", "Warm the wraps and fill with the spinach, bacon, eggs and sliced tomatoes, then roll up."],
   },
   {
     id: "greek-yogurt-granola", meal: "breakfast", tags: ["Quick"], name: "Greek yogurt granola bowl", blurb: "Thick yogurt with crunchy granola, berries and a drizzle of honey.", servings: 1, minutes: 5,
@@ -40,52 +41,52 @@ export const BREAKFAST: readonly Recipe[] = [
   },
   {
     id: "cottage-cheese-berries", meal: "breakfast", tags: ["Quick"], name: "Cottage cheese, berries, honey and almonds", blurb: "A no-cook bowl with sweet berries and crunchy almonds.", servings: 1, minutes: 5,
-    ingredients: [ing("cottage-cheese", 200), ing("berries", 100), ing("honey", 10), ing("almonds", 15), ing("cinnamon", 1)],
-    method: ["Spoon the cottage cheese into a bowl.", "Top with the berries, drizzle with the honey and scatter over the chopped almonds."],
+    ingredients: [ing("cottage-cheese", 200), ing("berries", 100), ing("honey", 10), ing("almonds", 15)],
+    method: ["Roughly chop the almonds.", "Spoon the cottage cheese into a bowl.", "Top with the berries, drizzle with the honey and scatter over the chopped almonds."],
   },
   {
     id: "wheat-biscuits-berries", meal: "breakfast", tags: ["Quick"], name: "Wholewheat biscuits with milk and berries", blurb: "A classic bowl of cereal with fruit on top.", servings: 1, minutes: 3,
-    ingredients: [ing("wheat-biscuits", 40), ing("milk", 200), ing("berries", 80), ing("banana", 120, { note: "about 1 banana" })],
+    ingredients: [ing("wheat-biscuits", 38), ing("milk", 200, { follows: "wheat-biscuits" }), ing("berries", 80)],
     method: ["Put the biscuits in a bowl and pour over the milk.", "Top with the berries and eat straight away, or leave for a minute to soften."],
   },
   {
     id: "shakshuka", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Shakshuka", blurb: "Eggs baked in a spiced tomato and pepper sauce.", servings: 2, minutes: 25,
-    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("chopped-tomatoes", 400), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("garlic", 5, { note: "about 1 clove" }), ing("cumin", 2), ing("paprika", 2), ing("vegetable-oil", 5)],
-    method: ["Soften the onion, pepper and garlic in a wide pan with a little oil for 5 minutes.", "Stir in the cumin, paprika and tomatoes and simmer for 10 minutes until thick.", "Make four hollows in the sauce and crack an egg into each.", "Cover and cook gently for 6 to 8 minutes, until the whites are set."],
+    ingredients: [ing("eggs", 240, { role: "other", note: "about 4 eggs" }), ing("chopped-tomatoes", 400), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("garlic", 5, { note: "about 1 clove" }), ing("cumin", 2), ing("paprika", 2), ing("vegetable-oil", 5)],
+    method: ["Soften the onion, pepper and garlic in a wide pan with a little oil for 5 minutes.", "Stir in the cumin, paprika and tomatoes and simmer for 10 minutes until thick.", "Make a hollow in the sauce for each egg and crack the eggs in.", "Cover and cook gently for 6 to 8 minutes, until the whites are set."],
   },
   {
     id: "beans-poached-eggs", meal: "breakfast", tags: ["Eggs", "Quick"], name: "Baked beans with poached eggs", blurb: "Warm beans topped with soft poached eggs.", servings: 2, minutes: 12,
-    ingredients: [ing("baked-beans", 415), ing("eggs", 240, { note: "about 4 eggs" }), ing("black-pepper", 1), ing("spinach", 30)],
-    method: ["Heat the beans in a small pan, stirring now and then, until piping hot.", "Bring a pan of water to a gentle simmer, crack in the eggs one at a time and poach for 3 to 4 minutes, until the whites are set.", "Spoon the beans into two bowls and lift the eggs on top with a slotted spoon."],
+    ingredients: [ing("baked-beans", 400, { role: "carb" }), ing("eggs", 240, { note: "about 4 eggs" }), ing("black-pepper", 1), ing("spinach", 30)],
+    method: ["Heat the beans in a small pan, stirring now and then, until piping hot.", "Stir in the spinach until it wilts, and season with black pepper.", "Bring a pan of water to a gentle simmer, crack in the eggs one at a time and poach for 3 to 4 minutes, until the whites are set.", "Spoon the beans into bowls and lift the eggs on top with a slotted spoon."],
   },
   {
     id: "ham-cheese-omelette", meal: "breakfast", tags: ["Eggs", "Quick"], name: "Ham and cheese omelette", blurb: "A folded omelette with ham and melting cheddar.", servings: 1, minutes: 10,
     ingredients: [ing("eggs", 180, { note: "about 3 eggs" }), ing("ham", 50), ing("cheddar", 25), ing("black-pepper", 1), ing("oil-spray", 1)],
-    method: ["Beat the eggs with a little black pepper.", "Pour into a hot non-stick pan and cook for 2 to 3 minutes, pulling the edges into the middle, until almost set.", "Scatter the torn ham and grated cheese over one half.", "Fold the omelette over and cook for another minute, until set and the cheese has melted."],
+    method: ["Beat the eggs with a little black pepper.", "Pour into a hot non-stick pan with a little oil spray and cook for 2 to 3 minutes, pulling the edges into the middle, until almost set.", "Scatter the torn ham and grated cheese over one half.", "Fold the omelette over and cook for another minute, until set and the cheese has melted."],
   },
   {
     id: "mushroom-bean-breakfast-wraps", meal: "breakfast", tags: ["Vegan", "Brunch"], name: "Mushroom and bean breakfast wraps", blurb: "Garlic mushrooms, spinach and baked beans in a warm wrap.", servings: 2, minutes: 15,
-    ingredients: [ing("baked-beans", 415), ing("mushrooms", 250), ing("wraps", 120), ing("spinach", 60), ing("garlic", 5, { note: "about 1 clove" }), ing("black-pepper", 1), ing("vegetable-oil", 5)],
+    ingredients: [ing("baked-beans", 400), ing("mushrooms", 250), ing("wraps", 120), ing("spinach", 60), ing("garlic", 5, { note: "about 1 clove" }), ing("black-pepper", 1), ing("vegetable-oil", 5)],
     method: ["Slice the mushrooms and fry them in a non-stick pan with a little oil and the garlic for 5 minutes, until golden.", "Stir in the spinach until it wilts, and season with black pepper.", "Meanwhile heat the beans in a small pan until piping hot.", "Warm the wraps, fill them with the beans, mushrooms and spinach, and roll up."],
   },
   {
     id: "oat-pancakes", meal: "breakfast", tags: ["Brunch"], name: "Oat pancakes with yogurt and berries", blurb: "Fluffy pancakes made from blended oats, eggs and milk.", servings: 2, minutes: 20,
-    ingredients: [ing("oats", 100), ing("eggs", 120, { note: "about 2 eggs" }), ing("milk", 100), ing("greek-yogurt", 150), ing("berries", 120), ing("cinnamon", 1), ing("oil-spray", 1)],
-    method: ["Blend the oats, eggs and milk until smooth, then leave for 5 minutes to thicken.", "Heat a non-stick frying pan with a little oil spray and add small ladles of batter.", "Cook for about 2 minutes until bubbles appear and the underside is golden.", "Flip and cook for 1 to 2 minutes more, until golden and cooked through.", "Serve topped with the yogurt and berries."],
+    ingredients: [ing("oats", 100), ing("eggs", 120, { note: "about 2 eggs", follows: "oats" }), ing("milk", 100, { follows: "oats" }), ing("greek-yogurt", 150, { role: "protein" }), ing("berries", 120), ing("cinnamon", 1), ing("oil-spray", 1)],
+    method: ["Blend the oats, eggs, milk and cinnamon until smooth, then leave for 5 minutes to thicken.", "Heat a non-stick frying pan with a little oil spray and add small ladles of batter.", "Cook for about 2 minutes until bubbles appear and the underside is golden.", "Flip and cook for 1 to 2 minutes more, until golden and cooked through.", "Serve topped with the yogurt and berries."],
   },
   {
     id: "huevos-rancheros", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Huevos rancheros", blurb: "Fried eggs on warm wraps with crushed beans and salsa.", servings: 2, minutes: 20,
     ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("kidney-beans", 240), ing("salsa", 100), ing("wraps", 120), ing("cumin", 1), ing("oil-spray", 1)],
-    method: ["Warm the drained beans in a small pan with the cumin and a splash of water, then crush them with a fork.", "Fry the eggs in a non-stick pan with a little oil spray until the whites are set.", "Warm the wraps and lay one flat on each plate.", "Spread with the beans, top with the eggs and spoon over the salsa."],
+    method: ["Warm the drained beans in a small pan with the cumin and a splash of water, then crush them with a fork.", "Fry the eggs in a non-stick pan with a little oil spray until the whites are set.", "Warm the wraps and lay them flat on the plates.", "Spread with the beans, top with the eggs and spoon over the salsa."],
   },
   {
     id: "bircher-muesli", meal: "breakfast", tags: ["Make ahead", "Vegan"], name: "Apple Bircher muesli", blurb: "Oats soaked overnight in oat drink with grated apple and almonds.", servings: 2, minutes: 10,
-    ingredients: [ing("oats", 100), ing("oat-drink", 250), ing("almonds", 20), ing("raisins", 20), ing("apple", 150, { note: "about 1 apple" }), ing("lemon-juice", 10), ing("cinnamon", 1)],
-    method: ["Grate the apple and stir it into the oats, oat drink, raisins and a squeeze of lemon in a bowl.", "Cover and leave in the fridge overnight.", "In the morning, stir well, add a splash more oat drink if it is too thick, and top with the chopped almonds."],
+    ingredients: [ing("oats", 100), ing("oat-drink", 250, { follows: "oats" }), ing("almonds", 20), ing("raisins", 20), ing("apple", 150, { note: "about 1 apple" }), ing("lemon-juice", 10), ing("cinnamon", 1)],
+    method: ["Grate the apple and stir it into the oats, oat drink, raisins, cinnamon and a squeeze of lemon in a bowl.", "Cover and leave in the fridge overnight.", "Roughly chop the almonds.", "In the morning, stir well, add a splash more oat drink if it is too thick, and top with the chopped almonds."],
   },
   {
     id: "smoked-salmon-kedgeree", meal: "breakfast", tags: ["Brunch"], name: "Smoked salmon kedgeree", blurb: "Curried rice with smoked salmon, peas and boiled eggs.", servings: 2, minutes: 30,
-    ingredients: [ing("rice", 150), ing("smoked-salmon", 150), ing("eggs", 120, { note: "about 2 eggs" }), ing("peas", 100), ing("onion", 150, { note: "about 1 onion" }), ing("curry-powder", 3), ing("lemon-juice", 10), ing("vegetable-oil", 5)],
+    ingredients: [ing("rice", 150), ing("smoked-salmon", 200), ing("eggs", 120, { note: "about 2 eggs" }), ing("peas", 100), ing("onion", 150, { note: "about 1 onion" }), ing("curry-powder", 3), ing("lemon-juice", 10), ing("vegetable-oil", 5)],
     method: ["Cook the rice as the pack says, adding the peas for the last 3 minutes, then drain.", "Boil the eggs for 8 to 9 minutes, until the yolks are set, then cool, peel and cut into quarters.", "Soften the onion in a large pan with a little oil, then stir in the curry powder.", "Add the rice and peas and stir over the heat until piping hot, then fold in the smoked salmon torn into strips.", "Serve topped with the eggs and a squeeze of lemon."],
   },
   {

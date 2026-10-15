@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { cleanText } from "../lib/mm/aiRecipe";
 import { EVERYDAY_KINDS, PANTRY } from "../lib/mm/pantry";
 import { RECIPES } from "../lib/mm/recipeBook";
-import { fitRecipe, isMeatFree, recipeForDiet, recipeTotals, resolveRecipe, MEAL_TYPES } from "../lib/mm/recipes";
+import { fitRecipe, ing, isMeatFree, recipeForDiet, recipeTotals, resolveRecipe, MEAL_TYPES } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 
 // The rules every recipe in the book follows (lib/mm/recipeBook/index.ts), checked against the real Sainsbury's list.
@@ -41,6 +41,50 @@ export function missingFoods(r: { method: string[]; ingredients: Array<{ pantry?
   return out;
 }
 
+// And the other way round (founder 2026-10-15): everything bought is used, so nobody pays for an ingredient no step uses. A pantry kind ->
+// the ways a step names it: its label's own words, plus "season" for salt and pepper, "oil" for any oil (and "spray" for the oil spray),
+// "spices" for a ground spice and "herbs" for dried herbs. Every everyday kind needs an entry (a recipe may only use those).
+const SPICES = /\bspices?\b/i;
+const SEASON = /(?<!fajita )\bseason(?:ing|ed)?\b/i;
+const or = (...res: RegExp[]) => new RegExp(res.map((re) => re.source).join("|"), "i");
+const USED_AS: Record<string, RegExp> = {
+  // protein and dairy
+  chicken: /\bchicken\b/i, "chicken-thigh": /\bchicken\b/i, "beef-mince": /\bmince\b|\bbeef\b/i, salmon: /(?<!smoked )\bsalmon\b|\bfish\b/i,
+  "smoked-salmon": /\bsmoked salmon\b/i, tuna: /\btuna\b/i, eggs: /\beggs?\b(?! noodles)/i, cheddar: /\bcheddar\b|(?<!soft |cottage )\bcheese\b(?! sauce)/i,
+  mozzarella: /\bmozzarella\b|(?<!soft |cottage )\bcheese\b(?! sauce)/i, milk: /(?<!coconut )\bmilk\b/i, bacon: /\bbacon\b/i, ham: /\bham\b/i,
+  "greek-yogurt": /\byogh?urt\b/i, "natural-yogurt": /\byogh?urt\b/i, "soft-cheese": /\bsoft cheese\b/i, "cottage-cheese": /\bcottage cheese\b/i,
+  "oat-drink": /\boat drink\b/i,
+  // carbs
+  rice: /\brice\b(?! noodles)/i, "pasta-long": /\bpasta\b|\bspaghetti\b|\blinguine\b/i, "pasta-shapes": /\bpasta\b|\bpenne\b|\bfusilli\b/i, noodles: /\bnoodles\b/i,
+  "egg-noodles": /\bnoodles\b/i, wraps: /\bwraps?\b|\btortillas?\b/i, oats: /\boats\b/i, naan: /\bnaans?\b/i, "new-potatoes": /\bpotato(?:es)?\b/i,
+  "wheat-biscuits": /\bbiscuits?\b/i, granola: /\bgranola\b/i,
+  // tins and frozen
+  "baked-beans": /\bbeans\b/i, chickpeas: /\bchickpeas\b/i, "kidney-beans": /\bbeans\b/i, "chopped-tomatoes": /(?<!cherry |sliced )\btomato(?:es)?\b(?! pur)/i,
+  passata: /\bpassata\b/i, sweetcorn: /\bsweetcorn\b/i, peas: /\bpeas\b/i, "coconut-milk": /\bcoconut milk\b/i,
+  // sauces, pastes and spreads
+  "curry-paste": /\bcurry paste\b/i, "chopped-tomato-puree": /\btomato pur[ée]e\b/i, pesto: /\bpesto\b/i, "light-mayo": /\bmayo(?:nnaise)?\b/i,
+  "sweet-chilli": /\bsweet chilli\b/i, "bbq-sauce": /\bbarbecue\b|\bbbq\b/i, salsa: /\bsalsa\b/i, soy: /\bsoy\b/i, honey: /\bhoney\b/i,
+  "peanut-butter": /\bpeanut butter\b/i, houmous: /\bhoumous\b/i, "stock-cube": /\bstock\b/i, mustard: /\bmustard\b/i, "fajita-seasoning": /\bfajita seasoning\b/i,
+  // oils, seasonings and spices
+  "olive-oil": /\boil\b/i, "vegetable-oil": /\boil\b/i, "oil-spray": /\boil\b|\bspray\b/i, salt: or(/\bsalt\b/, SEASON),
+  "black-pepper": or(/\bblack pepper\b|\bsalt and pepper\b|\bsalt, pepper\b|\bpepper and salt\b/, SEASON), "mixed-herbs": /\bherbs\b/i,
+  "chilli-powder": or(/\bchilli powder\b/, SPICES), paprika: or(/\bpaprika\b/, SPICES), "curry-powder": or(/\bcurry powder\b/, SPICES),
+  cinnamon: or(/\bcinnamon\b/, SPICES), oregano: or(/\boregano\b/, /\bherbs\b/), cumin: or(/\bcumin\b/, SPICES), turmeric: or(/\bturmeric\b/, SPICES),
+  // fresh vegetables and fruit
+  onion: /(?<!spring |red )\bonions?\b/i, "red-onion": /(?<!spring )\bonions?\b/i, garlic: /\bgarlic\b/i, "lemon-juice": /\blemon\b/i, carrots: /\bcarrots?\b/i,
+  peppers: /(?<!black |white |salt and |salt, |cayenne )\bpeppers?\b(?! and salt)/i, tomatoes: /(?<!cherry |chopped )\btomato(?:es)?\b(?! pur)/i,
+  "cherry-tomatoes": /\bcherry tomato(?:es)?\b|\btomatoes\b/i, cucumber: /\bcucumbers?\b/i, lettuce: /\blettuce\b/i, "salad-leaves": /\bleaves\b/i,
+  spinach: /\bspinach\b/i, mushrooms: /\bmushrooms?\b/i, broccoli: /\bbroccoli\b/i, "spring-onions": /\bspring onions?\b/i, "stir-fry-veg": /\bvegetables\b/i,
+  banana: /\bbananas?\b/i, apple: /\bapples?\b/i, berries: /\bberries\b/i, raisins: /\braisins\b|\bsultanas\b/i, almonds: /\balmonds\b/i,
+};
+export function unusedIngredients(r: { method: string[]; ingredients: Array<{ key: string; pantry?: string }> }): string[] {
+  return r.ingredients.flatMap((i) => {
+    const said = USED_AS[i.pantry ?? ""];
+    if (!said) return [`${i.key} (no words for it in USED_AS)`];
+    return r.method.some((step) => said.test(step)) ? [] : [i.key];
+  });
+}
+
 describe("the recipe book", () => {
   it("has unique ids and names", () => {
     expect(new Set(RECIPES.map((r) => r.id)).size).toBe(RECIPES.length);
@@ -53,6 +97,15 @@ describe("the recipe book", () => {
     expect([...EVERYDAY_KINDS].filter((k) => !PANTRY.has(k)), "everyday kinds that aren't in the pantry").toEqual([]);
     const other = RECIPES.flatMap((r) => r.ingredients.filter((i) => !EVERYDAY_KINDS.has(i.pantry ?? "")).map((i) => `${r.id}: ${i.pantry ?? i.key}`));
     expect(other).toEqual([]);
+  });
+
+  // founder 2026-10-15: a shopper never pays for an ingredient no step uses (the check itself is tested here, so it can't go quiet).
+  it("knows how a step names every everyday kind, and catches an ingredient no step uses", () => {
+    expect([...EVERYDAY_KINDS].filter((k) => !USED_AS[k]), "everyday kinds with no words in USED_AS").toEqual([]);
+    const dish = (method: string[]) => ({ method, ingredients: [ing("rice", 150), ing("salt", 1), ing("black-pepper", 1), ing("onion", 150), ing("spring-onions", 30)] });
+    expect(unusedIngredients(dish(["Cook the rice.", "Stir in the spring onions and season to taste."]))).toEqual(["onion"]);
+    expect(unusedIngredients(dish(["Cook the rice with the onion.", "Add the spring onions, salt and pepper."]))).toEqual([]);
+    expect(unusedIngredients(dish(["Cook the rice with the onion and spring onions.", "Add a pinch of salt."]))).toEqual(["black-pepper"]);
   });
 
   for (const r of RECIPES) {
@@ -70,6 +123,7 @@ describe("the recipe book", () => {
       for (const step of r.method) expect(cleanText(step, 300), `step "${step}"`).not.toBeNull();
       expect(r.extras ?? [], "nothing left uncounted").toEqual([]);
       expect(missingFoods(r), "every food the method names is an ingredient").toEqual([]);
+      expect(unusedIngredients(r), "every ingredient bought is used in a step").toEqual([]);
       expect(new Set(r.ingredients.map((i) => i.key)).size, "an ingredient twice").toBe(r.ingredients.length);
       for (const i of r.ingredients) {
         expect(i.pantry && PANTRY.has(i.pantry), `pantry kind ${i.key}`).toBe(true);

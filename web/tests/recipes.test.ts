@@ -203,7 +203,7 @@ describe("fitting a recipe to someone's numbers", () => {
     const shop = [
       product("e", "Free Range Medium Eggs 6 pack 360g", 1.8, 5, "per kg", nut(140, 12.5, 0.5, 9.5)),
       product("ch", "Mature Cheddar 400g", 3, 7.5, "per kg", nut(416, 25, 0.1, 35)),
-      product("w", "Soft Tortilla Wraps 8 pack 496g", 1.2, 2.4, "per kg", nut(300, 8, 50, 6)),
+      product("w", "Soft Tortilla Wraps x8 496g", 1.2, 2.4, "per kg", nut(300, 8, 50, 6)),
       product("m", "Semi Skimmed Milk 1 Pint", 0.85, 1.5, "per litre", { ...nut(50, 3.6, 4.8, 1.8), per: "ml" } as ShopNutrition),
     ];
     const f = fitRecipe(eggs, shop, {}, { kcal: 600, protein: 45 })!;
@@ -298,6 +298,24 @@ describe("recipes for a diet", () => {
     const eggs = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "eggs"))!;
     const egg = scaleServings(eggs, eggs.servings + 1).ingredients.find((i) => i.pantry === "eggs")!;
     expect(egg.note).toMatch(/^about \d+ eggs?$/);
+  });
+  it("wraps come out as the same whole number for every person, fitted or scaled", () => {
+    const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
+    const withWraps = RECIPES.filter((r) => r.ingredients.some((i) => i.pantry === "wraps"));
+    expect(withWraps.length).toBeGreaterThan(5);
+    const wrapsOf = (r: Recipe) => r.ingredients.find((i) => i.pantry === "wraps")!.amount / 60;
+    for (const r of withWraps) {
+      for (const kcal of [250, 400, 600, 800, 1000]) {
+        const f = fitRecipe(r, products, {}, { kcal });
+        if (!f) continue;
+        const n = wrapsOf(f.recipe);
+        expect(Number.isInteger(n) && n >= f.recipe.servings && n % f.recipe.servings === 0, `${r.id} at ${kcal} kcal: ${n} wraps for ${f.recipe.servings}`).toBe(true);
+      }
+      for (const people of [1, 3, 5]) {
+        const n = wrapsOf(scaleServings(r, people));
+        expect(n % people === 0 && n >= people, `${r.id} for ${people}: ${n} wraps`).toBe(true);
+      }
+    }
   });
   it("every main recipe fits a 600 kcal, 45 g protein meal at Sainsbury's within reach", () => {
     const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));

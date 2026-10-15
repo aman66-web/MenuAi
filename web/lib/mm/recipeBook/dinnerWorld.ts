@@ -75,19 +75,21 @@ export const DINNER_WORLD: readonly Recipe[] = [
     ],
   },
   {
-    id: "spiced-chicken-naan", meal: "dinner", tags: ["Indian"], name: "Spiced yogurt chicken with naan", blurb: "Chicken marinated in curry paste and yogurt, grilled and served with warm naan and salad.", servings: 3, minutes: 35,
-    ingredients: [ing("chicken", 450), ing("curry-paste", 45), ing("greek-yogurt", 150), ing("naan", 330), ing("lemon-juice", 15), ing("lettuce", 90), ing("cucumber", 120), ing("tomatoes", 120)],
+    id: "spiced-chicken-naan", meal: "dinner", tags: ["Indian"], name: "Spiced yogurt chicken with naan", blurb: "Chicken marinated in curry paste and yogurt, roasted with peppers and onion, served with warm naan.", servings: 3, minutes: 40,
+    ingredients: [ing("chicken", 450), ing("curry-paste", 45), ing("greek-yogurt", 150), ing("naan", 330), ing("lemon-juice", 15), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 8)],
     method: [
+      "Heat the oven to 200°C (180°C fan).",
       "Mix the curry paste with the yogurt and a squeeze of lemon, then stir in the chicken, cut into chunks.",
       "Leave for 10 minutes, or longer in the fridge if you have time.",
-      "Spread the chicken on a lined baking tray and cook under a hot grill for 12 to 15 minutes, turning once, until golden and cooked through with no pink left.",
+      "Cut the peppers into chunks and the onion into wedges, and toss them with the oil in a large roasting tin.",
+      "Add the chicken in one layer and roast for 20 to 25 minutes, turning once, until golden and cooked through with no pink left.",
       "Warm the naan breads in the oven or a dry pan.",
-      "Serve the chicken with the naan, lettuce, sliced cucumber and tomatoes.",
+      "Serve the chicken and vegetables with the naan.",
     ],
   },
   {
     id: "chicken-fajitas", meal: "dinner", tags: ["Mexican", "Quick"], name: "Chicken fajitas with salsa", blurb: "Spiced chicken and peppers in warm wraps with salsa and yogurt.", servings: 2, minutes: 25,
-    ingredients: [ing("chicken", 300), ing("fajita-seasoning", 15), ing("wraps", 240), ing("salsa", 100), ing("greek-yogurt", 100), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 5)],
+    ingredients: [ing("chicken", 300), ing("fajita-seasoning", 15), ing("wraps", 240, { fit: [0.5, 2] }), ing("salsa", 100), ing("greek-yogurt", 100), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 5)],
     method: [
       "Slice the chicken, peppers and onion into strips and toss with the fajita seasoning.",
       "Cook in a hot pan with a little oil for 8 to 10 minutes, until the chicken is cooked through with no pink left.",
@@ -103,26 +105,27 @@ export const DINNER_WORLD: readonly Recipe[] = [
       "Brown the mince in a large pan, breaking it up, until no pink is left.",
       "Stir in the fajita seasoning and a splash of water and cook for 2 minutes.",
       "Warm the kidney beans and sweetcorn in a small pan or the microwave until piping hot.",
-      "Share the rice between bowls and top with the beef, beans, sweetcorn and salsa.",
+      "Share the rice between bowls and top with the shredded lettuce, beef, beans, sweetcorn and salsa.",
     ],
   },
   {
     id: "chicken-shawarma-wraps", meal: "dinner", tags: ["Middle Eastern"], name: "Chicken shawarma-style wraps", blurb: "Warmly spiced chicken thighs in wraps with garlic yogurt and salad.", servings: 3, minutes: 35,
-    ingredients: [ing("chicken-thigh", 450), ing("natural-yogurt", 150), ing("wraps", 360), ing("cumin", 2), ing("paprika", 2), ing("garlic", 10, { note: "about 2 cloves" }), ing("lemon-juice", 15), ing("lettuce", 90), ing("tomatoes", 120), ing("cucumber", 120), ing("salt", 1), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 450), ing("natural-yogurt", 150), ing("wraps", 360, { fit: [0.5, 2] }), ing("cumin", 2), ing("paprika", 2), ing("garlic", 10, { note: "about 2 cloves" }), ing("lemon-juice", 15), ing("lettuce", 90), ing("tomatoes", 120), ing("cucumber", 120), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Mix half the yogurt with the cumin, paprika, a crushed garlic clove and the lemon juice, then stir in the chicken thighs.",
       "Leave for 10 minutes, or longer in the fridge if you have time.",
       "Cook the chicken under a hot grill or in a pan for 12 to 15 minutes, turning, until golden and cooked through with no pink left.",
-      "Mix the rest of the yogurt with a pinch of salt and a little crushed garlic.",
-      "Slice the chicken and fill the warmed wraps with it, the salad and the garlic yogurt.",
+      "Mix the rest of the yogurt with a pinch of salt, the black pepper and a little crushed garlic.",
+      "Warm the wraps, then fill them with the sliced chicken, the lettuce, sliced tomatoes and cucumber, and the garlic yogurt.",
     ],
   },
   {
     id: "chickpea-potato-curry", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Spiced chickpea and potato curry", blurb: "Chickpeas and new potatoes in a coconut and tomato curry sauce.", servings: 4, minutes: 35,
-    ingredients: [ing("chickpeas", 480), ing("new-potatoes", 400), ing("chopped-tomatoes", 400), ing("coconut-milk", 200), ing("curry-paste", 60), ing("rice", 200), ing("onion", 150, { note: "about 1 onion" }), ing("spinach", 120), ing("garlic", 10, { note: "about 2 cloves" }), ing("vegetable-oil", 8)],
+    // the potatoes cook in the curry sauce: fitting moves them at most half as much again (the chickpeas are held the same way by the pantry)
+    ingredients: [ing("chickpeas", 480), ing("new-potatoes", 340, { fit: [0.5, 1.5] }), ing("chopped-tomatoes", 400), ing("coconut-milk", 400), ing("curry-paste", 60), ing("rice", 200), ing("onion", 150, { note: "about 1 onion" }), ing("spinach", 120), ing("garlic", 10, { note: "about 2 cloves" }), ing("vegetable-oil", 8)],
     method: [
       "Cook the rice as the pack says.",
-      "Fry the onion in a large pan with a little oil for 5 minutes, then stir in the curry paste for a minute.",
+      "Fry the onion in a large pan with a little oil for 5 minutes, then stir in the curry paste and garlic for a minute.",
       "Halve the potatoes and add them with the chickpeas, tomatoes and coconut milk.",
       "Simmer for 15 minutes, stirring now and then, until the sauce has thickened. Stir in the spinach until it wilts.",
       "Serve with the rice.",
@@ -154,13 +157,14 @@ export const DINNER_WORLD: readonly Recipe[] = [
     method: [
       "Cook the rice as the pack says.",
       "Toast the almonds in a dry non-stick pan for 3 to 4 minutes, until golden, then lift out and roughly chop.",
-      "Heat the oil in the same pan and stir-fry the sliced vegetables and garlic for 4 to 5 minutes.",
-      "Add the soy sauce and sweet chilli sauce, toss until hot and scatter over the almonds. Serve with the rice.",
+      "Heat the oil in the same pan and stir-fry the sliced pepper and carrot, the broccoli and the garlic for 4 to 5 minutes.",
+      "Add the soy sauce and sweet chilli sauce, toss until hot and scatter over the almonds and spring onions. Serve with the rice.",
     ],
   },
   {
     id: "mexican-chicken-rice", meal: "dinner", tags: ["Mexican", "One pot"], name: "Mexican chicken and bean rice", blurb: "Spiced chicken, rice and kidney beans cooked together in one pan.", servings: 4, minutes: 40,
-    ingredients: [ing("chicken", 500), ing("fajita-seasoning", 20), ing("rice", 240), ing("kidney-beans", 240, { role: "other" }), ing("salsa", 200), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("vegetable-oil", 8)],
+    // the rice cooks in the method's own 600 ml of water and the salsa, so fitting leaves it as written
+    ingredients: [ing("chicken", 500), ing("fajita-seasoning", 20), ing("rice", 240, { role: "other" }), ing("kidney-beans", 240, { role: "other" }), ing("salsa", 200), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("vegetable-oil", 8)],
     method: [
       "Cut the chicken into chunks and brown it with the onion and pepper in a large pan with a little oil for 5 minutes.",
       "Stir in the fajita seasoning and the rice.",
@@ -171,7 +175,7 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "bean-pepper-fajitas", meal: "dinner", tags: ["Mexican", "Quick"], name: "Bean and pepper fajitas", blurb: "Peppers and spiced kidney beans in warm wraps with salsa.", servings: 3, minutes: 20,
-    ingredients: [ing("kidney-beans", 480), ing("fajita-seasoning", 15), ing("wraps", 360), ing("salsa", 150), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 8)],
+    ingredients: [ing("kidney-beans", 480), ing("fajita-seasoning", 15), ing("wraps", 360, { fit: [0.5, 2] }), ing("salsa", 150), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 8)],
     method: [
       "Slice the peppers and onion.",
       "Fry the peppers and onion in a little oil with the fajita seasoning for 6 to 8 minutes, until soft. Add the drained kidney beans and warm through.",
@@ -180,11 +184,11 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "moroccan-chickpea-stew", meal: "dinner", tags: ["Middle Eastern", "One pot"], name: "Moroccan-style chickpea stew with rice", blurb: "Chickpeas simmered with tomatoes, warm spices and sweet raisins.", servings: 4, minutes: 35,
-    ingredients: [ing("chickpeas", 480), ing("chopped-tomatoes", 400), ing("raisins", 40), ing("stock-cube", 10), ing("rice", 240), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("cumin", 2), ing("cinnamon", 1), ing("paprika", 2), ing("lemon-juice", 15), ing("vegetable-oil", 8)],
+    ingredients: [ing("chickpeas", 480), ing("chopped-tomatoes", 400), ing("raisins", 40), ing("stock-cube", 6), ing("rice", 240), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("cumin", 2), ing("cinnamon", 1), ing("paprika", 2), ing("lemon-juice", 15), ing("vegetable-oil", 8)],
     method: [
       "Cook the rice as the pack says.",
       "Fry the onion and carrot in a large pan with a little oil for 5 minutes, then stir in the cumin, cinnamon and paprika for a minute.",
-      "Add the chickpeas, tomatoes, raisins, the stock cube or pot and 300 ml of water.",
+      "Add the chickpeas, tomatoes, raisins, the crumbled stock cube and 300 ml of water.",
       "Simmer for 20 minutes, stirring now and then, until the sauce has thickened.",
       "Serve with the rice and a squeeze of lemon.",
     ],

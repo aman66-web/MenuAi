@@ -9,8 +9,9 @@ export type { IngredientMatch } from "./pantry";
 // the price, the price per kg or litre, and the nutrition its product page prints per 100 g or ml. Nothing is estimated: an ingredient is
 // matched only to products whose label numbers are for the food as sold, in the recipe's unit, and inside a plausible range for that form
 // (dry pasta is not cooked pasta), and totals are plain arithmetic on those labels for the amounts in the recipe. Fitting a recipe to
-// someone's calories and protein changes only the amounts (protein and carb ingredients, rounded to 5 g); the numbers are then worked out
-// again from the labels. Blurbs describe the dish, never make a nutrition or health claim (CLAUDE.md rule 3). Pure and unit-tested.
+// someone's calories and protein changes only the amounts (protein and carb ingredients, and what is made in proportion to them, such as the
+// milk for porridge oats; rounded to 5 g or to whole pieces); the numbers are then worked out again from the labels. Blurbs describe the dish,
+// never make a nutrition or health claim (CLAUDE.md rule 3). Pure and unit-tested.
 
 export interface IngredientSpec {
   key: string;
@@ -24,6 +25,11 @@ export interface IngredientSpec {
   match: IngredientMatch;
   /** What it does when the recipe is fitted to someone's numbers (default "other": stays as written). */
   role?: IngredientRole;
+  /** When the recipe is fitted, this ingredient moves by the same factor as the one with this key, whatever its own role: the milk for porridge
+   *  follows the oats, the egg that binds fishcakes follows the potato, so the dish keeps its proportions. */
+  follows?: string;
+  /** How far fitting may move it, as a factor of the written amount (default: half to double). [1, 1] keeps it as written. */
+  fit?: [number, number];
   /** The pantry kind it comes from (diet checks and halal products use it). */
   pantry?: string;
   /** Kinds that can stand in for it, best first (factor scales the amount). */
@@ -79,18 +85,38 @@ export interface IngOpts {
   label?: string;
   /** Replaces the kind's usual substitutes (keys, or [key, factor]); [] for none. */
   subs?: Array<string | [string, number]>;
+  /** Moves with this other ingredient when the recipe is fitted (see IngredientSpec.follows). */
+  follows?: string;
+  /** How far fitting may move it (replaces the kind's own limit). */
+  fit?: [number, number];
+  /** Words a product's name should have, for this recipe (replaces the kind's own preference: linguine for a linguine recipe). */
+  prefer?: string[];
 }
 
 export function specFromKind(k: PantryKind, amount: number, opts: IngOpts = {}): IngredientSpec {
   const subs = opts.subs ? opts.subs.map((x) => (typeof x === "string" ? { key: x } : { key: x[0], factor: x[1] })) : k.subs;
+  const fit = opts.fit ?? k.fit;
+  // a kind used by the piece says how many when the recipe doesn't ("about 2 wraps", "about 1 stock cube")
+  const note = opts.note ?? (k.drained ? "drained" : k.note) ?? countNote(k, amount);
   return {
-    key: k.key, pantry: k.key, label: opts.label ?? k.label, amount, unit: k.unit, match: k.match, role: opts.role ?? k.role,
+    key: k.key, pantry: k.key, label: opts.label ?? k.label, amount, unit: k.unit, match: opts.prefer ? { ...k.match, prefer: opts.prefer } : k.match, role: opts.role ?? k.role,
+    ...(opts.follows ? { follows: opts.follows } : {}),
+    ...(fit ? { fit } : {}),
     ...(subs?.length ? { subs } : {}),
     ...(k.drained ? { drained: true } : {}),
     ...(k.cupboard ? { cupboard: true } : {}),
     ...(k.labelOptional ? { labelOptional: true } : {}),
-    ...(opts.note ?? (k.drained ? "drained" : k.note) ? { note: opts.note ?? (k.drained ? "drained" : k.note) } : {}),
+    ...(note ? { note } : {}),
   };
+}
+
+/** "about 2 eggs" for an amount of a kind used by the piece; undefined when it has no pieces, or for produce used in parts when the amount isn't
+ *  close to a whole number of them (half a cucumber is not "about 1 cucumber"). */
+function countNote(k: PantryKind, amount: number): string | undefined {
+  if (!k.pieceGrams || !k.pieceName) return undefined;
+  const n = Math.round(amount / k.pieceGrams);
+  if (n < 1 || (k.cut && Math.abs(amount - n * k.pieceGrams) > k.pieceGrams / 4)) return undefined;
+  return `about ${n} ${n === 1 ? k.pieceName[0] : k.pieceName[1]}`;
 }
 
 const GLOBAL_NONE = ["meal", "sandwich", "kit", "gift", "hamper", "soup", "chowder", "broth"];
@@ -111,9 +137,12 @@ export function isVegan(recipe: Recipe): boolean {
   return recipeForDiet(recipe, { veganOnly: true }) !== null;
 }
 
-/** "Quick" on the Recipes page: ready in this many minutes or less, as the recipe says. */
+/** "Quick" on the Recipes page: ready in this many minutes or less, as the recipe says, and not left to soak, chill or freeze for a while
+ *  first (a recipe's minutes are the time spent making it, so overnight oats take 5). */
 export const QUICK_MINUTES = 20;
-export const isQuick = (recipe: Pick<Recipe, "minutes">): boolean => recipe.minutes <= QUICK_MINUTES;
+const WAITS = /\b(?:overnight|chill for|freeze for)\b/i;
+export const isQuick = (recipe: Pick<Recipe, "minutes"> & { method?: readonly string[] }): boolean =>
+  recipe.minutes <= QUICK_MINUTES && !(recipe.method ?? []).some((step) => WAITS.test(step));
 
 /** The recipe as these preferences need it (halal meat products), or null when one of its ingredients is left out for them. */
 export function recipeForDiet(recipe: Recipe, prefs: DietPrefs): Recipe | null {
@@ -139,7 +168,9 @@ export function subSpec(spec: IngredientSpec, sub: { key: string; factor?: numbe
   if (!kind) return null;
   const k = halal ? kindForDiet(kind, { halalOnly: true }) : kind;
   const amount = Math.max(5, Math.round((spec.amount * (sub.factor ?? 1)) / 5) * 5);
-  return { ...specFromKind(k, amount, { role: spec.role }), key: spec.key, subFor: spec.subFor ?? spec.label };
+  // it takes the ingredient's place in the dish, so it moves the way the ingredient did when the recipe is fitted
+  const place = { role: spec.role, ...(spec.follows ? { follows: spec.follows } : {}), ...(spec.fit ? { fit: spec.fit } : {}) };
+  return { ...specFromKind(k, amount, place), key: spec.key, subFor: spec.subFor ?? spec.label };
 }
 
 /** The recipe with the person's choices of substitute (ingredient key → substitute kind key) put in. */
@@ -224,6 +255,25 @@ export function itemCount(name: string): number {
   return n >= 1 && n <= 48 ? n : 1;
 }
 
+/** How many a pack sold by the item holds: as its name says, else the shelf price over the shop's own price each ("Weetabix 12 Original
+ *  Cereal Pack": £2 at 17p each is 12). */
+function itemsInPack(product: Pick<PricedProduct, "name" | "price" | "unitPrice">): number {
+  const named = itemCount(product.name);
+  if (named > 1 || !product.unitPrice) return named;
+  const n = Math.round(product.price / product.unitPrice);
+  return n >= 1 && n <= 96 ? n : 1;
+}
+
+/** The weight of one piece of a pack of pieces, from its name: "4x20g" or "6 x Wraps 367g" or "Cubes x12 71g"; null when the name doesn't give both. */
+export function pieceWeight(name: string): number | null {
+  const n = name.toLowerCase();
+  const each = /(\d+)\s*[x×]\s*(\d+(?:\.\d+)?)\s*(kg|g)\b/.exec(n);
+  if (each) return Number(each[2]) * (each[3] === "kg" ? 1000 : 1);
+  const count = itemCount(name);
+  const size = packSize(name, "g");
+  return count > 1 && size ? Math.round((size / count) * 10) / 10 : null;
+}
+
 export function pickFor(spec: IngredientSpec, product: PricedProduct): IngredientPick {
   const size = spec.drained ? drainedSize(product) : packSize(product.name, spec.unit);
   const perKgOrLitre = product.unitPrice !== null && (spec.unit === "g" ? product.unit === "per kg" : product.unit === "per litre");
@@ -236,7 +286,7 @@ export function pickFor(spec: IngredientSpec, product: PricedProduct): Ingredien
   const kind = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
   if (!size && product.unit === "each" && product.unitPrice !== null && kind?.pieceGrams && spec.unit === "g") {
     const pieces = Math.max(1, Math.ceil(spec.amount / kind.pieceGrams - 1e-9));
-    const packs = Math.max(1, Math.ceil(pieces / itemCount(product.name)));
+    const packs = Math.max(1, Math.ceil(pieces / itemsInPack(product)));
     return { spec, product, packs, pieces, basketCost: packs * product.price, usedCost: pieces * product.unitPrice };
   }
   // no weight in the name but a price per kg or litre: the shelf price is for (price ÷ price per kg) of it ("Small Whole Cucumber": 70p at £3.89/kg)
@@ -275,6 +325,10 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
     if (n && m.kcal && (n.kcal < m.kcal[0] || n.kcal > m.kcal[1])) continue;
     if (n && m.minProtein !== undefined && n.protein < m.minProtein) continue;
     if (n && m.maxFat !== undefined && n.fat > m.maxFat) continue;
+    if (m.pieceWeight) {
+      const w = pieceWeight(p.name);
+      if (w === null || w < m.pieceWeight[0] || w > m.pieceWeight[1]) continue;
+    }
     list.push(p);
   }
   byRule.set(rule, list);
@@ -284,16 +338,19 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
 export function candidates(products: readonly ShopProduct[], spec: IngredientSpec, meatFree = false): IngredientPick[] {
   const out = matching(products, spec, meatFree).map((p) => pickFor(spec, p));
   // Products whose cost for the amount used can be worked out come first (a serving's price needs it), then labels we've read. Among those within
-  // 50p of the cheapest basket, the label that prints the most figures wins (so the full nutrition table isn't left blank for a few pence); then the
-  // cheapest basket.
+  // 50p of the cheapest basket, a product named the way the kind prefers comes first (spaghetti for spaghetti), then the label that prints the most
+  // figures (so the full nutrition table isn't left blank for a few pence); then the cheapest basket.
   const ok = out.filter((c) => c.usedCost !== null && c.product.nutrition);
   const cheapest = ok.length ? Math.min(...ok.map((c) => c.basketCost)) : Infinity;
+  const inBand = (c: IngredientPick) => !!c.product.nutrition && c.usedCost !== null && c.basketCost <= cheapest + 0.5;
+  const prefer = spec.match.prefer;
+  const unpreferred = (c: IngredientPick) => Number(!!prefer && inBand(c) && !prefer.some((w) => has(hay(c.product), w)));
   const gaps = (c: IngredientPick) => {
     const n = c.product.nutrition;
-    if (!n || c.usedCost === null || c.basketCost > cheapest + 0.5) return 100;
+    if (!n || !inBand(c)) return 0;
     return 10 * [n.saturates, n.sugars, n.salt].filter((v) => v === null).length + Number(n.fibre === null);
   };
-  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
+  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
@@ -407,19 +464,53 @@ export interface FittedRecipe {
 /** Scales between half and double the written amount, in steps of 5%. */
 const SCALES = Array.from({ length: 31 }, (_, i) => Math.round((0.5 + i * 0.05) * 100) / 100);
 const round5 = (v: number) => Math.max(5, Math.round(v / 5) * 5);
+/** A note that counts pieces ("about 2 eggs", "about half a red onion"): it is worked out again when the amount changes. */
+const COUNT_NOTE = /^about /;
 
-function pieceNote(spec: IngredientSpec, amount: number): string | undefined {
+/**
+ * A new amount for an ingredient (fitted or for more or fewer people) and its note: a kind used by the piece goes to whole pieces (eggs, wraps,
+ * stock cubes; never fewer than one), and one served whole to each person (wraps) to the same whole number for every one of `servings`; produce
+ * used in parts (a cucumber, an onion) and everything else to the nearest 5 g, or with `small`, an amount under 20 to the nearest 1 (a pinch of
+ * spice). A count note ("about 2 eggs") is said again for the new amount, or dropped when the new amount isn't close to a whole number of pieces.
+ */
+function newAmount(spec: IngredientSpec, raw: number, small: boolean, servings: number): { amount: number; note?: string } {
   const k = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
-  if (!k?.pieceGrams || !k.pieceName) return spec.note;
-  const n = Math.max(1, Math.round(amount / k.pieceGrams));
-  return `about ${n} ${n === 1 ? k.pieceName[0] : k.pieceName[1]}`;
+  const pieces = (g: number) => (k?.perServing ? Math.max(1, Math.round(raw / g / servings)) * servings : Math.max(1, Math.round(raw / g)));
+  const amount = k?.pieceGrams && !k.cut ? pieces(k.pieceGrams) * k.pieceGrams : small && raw < 20 ? Math.max(1, Math.round(raw)) : round5(raw);
+  const count = k ? countNote(k, amount) : undefined;
+  const note = count ?? (spec.note && COUNT_NOTE.test(spec.note) ? undefined : spec.note);
+  return { amount, ...(note ? { note } : {}) };
+}
+
+/** An ingredient with a new amount and the note that goes with it, in a recipe for `servings` people. */
+function withAmount(spec: IngredientSpec, raw: number, small: boolean, servings: number): IngredientSpec {
+  const { amount, note } = newAmount(spec, raw, small, servings);
+  const out: IngredientSpec = { ...spec, amount };
+  if (note) out.note = note;
+  else delete out.note;
+  return out;
+}
+
+/** How each ingredient moves when the recipe is fitted, for a protein factor a and a carb factor b: by its role's factor, or by the factor of the
+ *  ingredient it follows; then held inside its own limits. */
+function fitFactors(ingredients: readonly IngredientSpec[]): Array<(a: number, b: number) => number> {
+  const byKey = new Map(ingredients.map((s) => [s.key, s]));
+  const make = (spec: IngredientSpec, depth: number): ((a: number, b: number) => number) => {
+    const followed = spec.follows && depth < 5 ? byKey.get(spec.follows) : undefined;
+    const base = followed && followed !== spec ? make(followed, depth + 1) : (a: number, b: number) => (spec.role === "protein" ? a : spec.role === "carb" ? b : 1);
+    const [lo, hi] = spec.fit ?? [0, Infinity];
+    return (a, b) => Math.min(hi, Math.max(lo, base(a, b)));
+  };
+  return ingredients.map((s) => make(s, 0));
 }
 
 /**
  * The amounts that bring one serving closest to the target, worked out from the products' own labels: the protein ingredients move
- * together by one factor and the carb ingredients by another (each between half and double), sauces and the rest stay as written.
- * Calories and protein are aimed at; carbs and fat count only when they go over the limit. Amounts are rounded to 5 g (eggs to whole
- * eggs) and every number is then worked out again from the labels for those rounded amounts. Null when the recipe isn't complete here.
+ * together by one factor and the carb ingredients by another (each between half and double), and an ingredient that follows another (the
+ * milk for porridge oats) moves with it; each stays inside its own limits (tinned pulses at most one and a half times), and sauces and the
+ * rest stay as written. Calories and protein are aimed at; carbs and fat count only when they go over the limit. Amounts are rounded to 5 g
+ * (eggs and wraps to whole ones) and every number is then worked out again from the labels for those rounded amounts. Null when the recipe
+ * isn't complete here.
  */
 export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>>, target: MealTarget): FittedRecipe | null {
   const base = resolveRecipe(recipe, products, chosen);
@@ -429,21 +520,23 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
   const pinned: Record<string, string> = { ...chosen };
   for (const p of picks) pinned[p.spec.key] = p.product.id;
   const s = recipe.servings;
-  const per = picks.map((p) => {
+  // the picks' specs (a substitute in an ingredient's place) say how each one moves
+  const factors = fitFactors(picks.map((p) => p.spec));
+  const per = picks.map((p, i) => {
     const n = p.product.nutrition ?? { kcal: 0, protein: 0, carbs: 0, fat: 0 }; // a label we haven't read adds nothing (and is named as not counted)
     const g = p.spec.amount / 100 / s;
-    return { role: p.spec.role ?? "other", kcal: n.kcal * g, protein: n.protein * g, carbs: n.carbs * g, fat: n.fat * g };
+    return { f: factors[i]!, kcal: n.kcal * g, protein: n.protein * g, carbs: n.carbs * g, fat: n.fat * g };
   });
-  const hasP = per.some((x) => x.role === "protein");
-  const hasC = per.some((x) => x.role === "carb");
+  // which of the two factors can move anything (an ingredient held at [1, 1] can't)
+  const hasP = per.some((x) => x.f(0.5, 1) !== 1 || x.f(2, 1) !== 1);
+  const hasC = per.some((x) => x.f(1, 0.5) !== 1 || x.f(1, 2) !== 1);
   if (!hasP && !hasC) return { recipe, resolved: base, totals: recipeTotals(base)!, changed: false };
-  const factor = (role: IngredientRole, a: number, b: number) => (role === "protein" ? a : role === "carb" ? b : 1);
   let best = { a: 1, b: 1, score: Infinity };
   for (const a of hasP ? SCALES : [1]) {
     for (const b of hasC ? SCALES : [1]) {
       const t = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
       for (const x of per) {
-        const f = factor(x.role, a, b);
+        const f = x.f(a, b);
         t.kcal += x.kcal * f; t.protein += x.protein * f; t.carbs += x.carbs * f; t.fat += x.fat * f;
       }
       let score = (t.kcal / target.kcal - 1) ** 2;
@@ -454,13 +547,10 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
       if (score < best.score - 1e-12) best = { a, b, score };
     }
   }
-  const ingredients = recipe.ingredients.map((spec) => {
-    const f = factor(spec.role ?? "other", best.a, best.b);
-    if (f === 1) return spec;
-    const k = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
-    const amount = k?.pieceGrams ? Math.max(1, Math.round((spec.amount * f) / k.pieceGrams)) * k.pieceGrams : round5(spec.amount * f);
-    const note = pieceNote(spec, amount);
-    return { ...spec, amount, ...(note ? { note } : {}) };
+  // the picks line up with the recipe's ingredients, so each written amount moves by the factor its pick was fitted with
+  const ingredients = recipe.ingredients.map((spec, i) => {
+    const f = factors[i]!(best.a, best.b);
+    return f === 1 ? spec : withAmount(spec, spec.amount * f, false, s);
   });
   const fitted: Recipe = { ...recipe, ingredients };
   const resolved = resolveRecipe(fitted, products, pinned);
@@ -471,21 +561,15 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
 
 /**
  * The recipe for a different number of people (the − / + on a recipe page): every amount times servings ÷ the recipe's own, rounded the way
- * fitting rounds them (pieces to whole pieces, grams and millilitres to 5, small amounts such as a pinch of spice to the nearest 1, never
- * below 1). A serving's figures stay as they were, give or take the rounding; the packs to buy follow the new amounts. 1 to 12 people.
+ * fitting rounds them (eggs, wraps and stock cubes to whole ones, wraps to the same number for each person, grams and millilitres to 5, so part of a cucumber stays a part; small amounts
+ * such as a pinch of spice to the nearest 1, never below 1). A serving's figures stay as they were, give or take the rounding; the packs to
+ * buy follow the new amounts. 1 to 12 people.
  */
 export function scaleServings(recipe: Recipe, servings: number): Recipe {
   const n = Math.max(1, Math.min(12, Math.round(servings)));
   if (n === recipe.servings) return recipe;
   const f = n / recipe.servings;
-  const ingredients = recipe.ingredients.map((spec) => {
-    const k = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
-    const raw = spec.amount * f;
-    const amount = k?.pieceGrams ? Math.max(1, Math.round(raw / k.pieceGrams)) * k.pieceGrams : raw < 20 ? Math.max(1, Math.round(raw)) : round5(raw);
-    const note = pieceNote(spec, amount);
-    return { ...spec, amount, ...(note ? { note } : {}) };
-  });
-  return { ...recipe, servings: n, ingredients };
+  return { ...recipe, servings: n, ingredients: recipe.ingredients.map((spec) => withAmount(spec, spec.amount * f, true, n)) };
 }
 
 /** How far a serving is from the target (0 = spot on): used to put the closest recipes first. */
