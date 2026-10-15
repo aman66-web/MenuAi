@@ -1291,7 +1291,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Layout:** a smaller bold "Home" with a grey round calendar button; every day gone by a dark circle (whether food was logged is still said to
     screen readers), today lime, days ahead grey; the calories card measured from the picture (a dial about 55% of the card's width with a thick track,
     280° of arc, a small grey centre with a white ring between, a heavy "43%", a small bold label, regular-weight "1,030 / 2,800" and "kcal"); the macro
-    card as three rows, "PROTEIN 73g / 180g" (label in small capitals, figures in DM Mono) each with a thin bar. Kept on purpose: Shopping list / My meals
+    card as three rows measured from the founder's picture of it ("exactly like the design in image 2"): "PROTEIN 73g / 180g" on one line, label in
+    small capitals and figures in DM Mono, both the same grey, a thin bar well below each, the rows centred in the card. Kept on purpose: Shopping list / My meals
     with "Open" (for the picture's Workouts / Meals), and Today's meals below the fold. The picture's bodyweight card is left out (the app doesn't track weight).
   - **Carb and fat targets (rule 8: founder's decision):** worked out from the calorie and protein targets, about 30% of calories from fat (9 kcal/g) and
     the rest from carbs (4 kcal/g) after protein (20% of calories when no protein target is set), rounded to 5 g (`lib/mm/targets.ts` suggestCarbFat /
