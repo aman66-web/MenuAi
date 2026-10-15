@@ -1352,6 +1352,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     at most 1.5x; wraps always come out as the same whole number for every person (`perServing` on the kind; fitted and scaled; tested).
   - Dishes that had become copies were made distinct; amounts changed so whole tins and packs are used where that is natural.
   - About 100 new or changed sentences, translated into the 10 languages by AI, each checked by a second translator.
+  - Checked (both entries): 600 unit tests, tsc, lint; e2e smoke 23, a11y 0 violations, large text (no overflow at 100/150/200%), recipes 13,
+    extra 12, browse 9, calories 4, diet 5, groceries 6, groceries-all 7, groceries-compare 8, groceries-photos 4, compare 3, account 8, share,
+    languages 5, offline 13, map 6 of 7 (the known headless geolocation limit), prodmode 9, app-build 8; tab names measured in all 11 languages at
+    360 and 390 px, standard and extra-large text; screenshots of every main screen at normal and extra-large text.
+  - The App Store screenshots and the uploaded iPhone build still show the old look: re-run `web/e2e/store-shots.mjs` and make a new build.
 
 ## Known issues
 
