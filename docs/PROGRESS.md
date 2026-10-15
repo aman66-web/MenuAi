@@ -1455,6 +1455,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   "Restaurants that publish calories only are left out when you ask for protein, carbs or fat.", "Restaurants that don't publish an allergen guide are left out while you have allergies chosen.",
   "up to {n} kcal", "{n} g+ protein", "up to {n} g carbs", "up to {n} g fat".
 
+- 2026-10-15 (night) — **A Done button for the keyboard** (founder, on Compare's "Add a product" box with the keyboard up and a circle drawn at the end of
+  the box: "There needs to be like a done box here"). Every search box in the app filters as you type, so nothing needs submitting: a person only needs to put
+  the keyboard away to see the results under it.
+  - **In the box:** a small black "Done" pill at the end of the field (the right; the left in Arabic and Urdu), shown only while the box is in use. Tapping it
+    puts the keyboard away and keeps the words and the results. Where the box has a clear (×) button, that sits just before Done. The field's text makes room for
+    it while it is in use, so typed words never run under it. The keyboard's own Return key now reads **Done** too and does the same (on Search it still keeps the
+    search in "Recent searches" first, and keeps its "search" label).
+  - **Where:** Compare (both "Add a product" and "Add a dish"), Recipes, Groceries "Search every shop", a shop's full list, My favourite restaurants,
+    a restaurant's menu search and the main Search. Eat out's postcode box keeps its own Search button.
+  - **Number boxes:** an iPhone's number pad has no Return key at all, so under the four boxes of Eat out's "Your numbers" a full-width **Done** shows while one
+    is in use. (Other number boxes, in Settings, the targets steps and "Type my own numbers", have their own buttons under them and are unchanged.)
+  - **How:** `_components/SearchDone.tsx` (`SearchDone`, `DoneBar`, `DONE_KEY`); the box's wrapper carries `group/search` and the button shows with CSS
+    `:focus-within`, so it can still be reached with Tab. A tap keeps the focus in the field until the click lands (the button would otherwise disappear under
+    the finger first). Labels moved off wrapping `<label>`s onto the inputs (`aria-label`) so the button's word isn't read as part of the field's name.
+  - Looks and behaviour only. **No new copy:** "Done" was already in the app and translated in the 10 languages. Checked: `e2e/done.mjs` 13 steps (every box: Done
+    shows, sits inside the box, tap and Return both let go of the field, words stay; results stay under Compare's box; the clear button sits beside Done and still
+    clears; the number boxes; Tab then Enter; Arabic; Extra large text, no sideways scroll; axe 0), tsc, lint; screenshots on a 390 px phone with touch.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

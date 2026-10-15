@@ -8,6 +8,7 @@ import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/li
 import type { GroceryProduct } from "@/lib/mm/groceries";
 import { SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
+import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
@@ -102,11 +103,11 @@ export function ShopListScreen({ shop }: { shop: string }) {
         {nutritionCount > 0 ? t("{count} of them show calories and protein.", { count: nutritionCount.toLocaleString("en-GB") }) : t("Calories and protein aren't shown for these yet.")}
       </p>
 
-      <label className="relative mt-5 block">
-        <span className="sr-only">{t("Search {shop} products", { shop: file.name })}</span>
+      <div className="group/search relative mt-5">
         <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search {shop} products", { shop: file.name })} enterKeyHint="search" autoComplete="off" className={`${PILL_INPUT} ps-11 pe-4`} />
-      </label>
+        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search {shop} products", { shop: file.name })} aria-label={t("Search {shop} products", { shop: file.name })} {...DONE_KEY} autoComplete="off" className={`${PILL_INPUT} ps-11 pe-4 ${DONE_ROOM}`} />
+        <SearchDone />
+      </div>
 
       <div role="group" aria-label={t("Filters")} className="mt-3.5 flex flex-wrap gap-2 empty:hidden">
         {unsuited && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}

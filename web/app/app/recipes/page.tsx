@@ -16,6 +16,7 @@ import { myRecipesStore, savedRecipesStore, shoppingStore } from "@/lib/mm/store
 import { dietWords } from "../_components/DietPicker";
 import { ArrowRightIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
+import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { useGate } from "../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
@@ -160,12 +161,12 @@ function RecipesScreen() {
         </div>
       )}
 
-      <label className="relative mt-4 block">
-        <span className="sr-only">{t("Search recipes")}</span>
+      <div className="group/search relative mt-4">
         <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
         {/* 16 px text: smaller text makes iPhone Safari zoom into the field */}
-        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes, e.g. chicken or curry")} enterKeyHint="search" autoComplete="off" className="glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent" />
-      </label>
+        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes, e.g. chicken or curry")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent`} />
+        <SearchDone />
+      </div>
 
       {/* Eight big tiles: four columns on a phone, fewer when the text is large (the minimum width is in rem). */}
       <div role="group" aria-label={t("Filters")} className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2.5">

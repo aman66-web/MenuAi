@@ -8,6 +8,7 @@ import { ChainMark } from "../../_components/ChainMark";
 import { ChainRow, chainGroupClass } from "../../_components/ChainRow";
 import { ChevronLeftIcon, SearchIcon, StarIcon } from "../../_components/icons";
 import { Pip } from "../../_components/Mascot";
+import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { EmptyState, Spinner } from "../../_components/ui";
 import { useHydrated, useMenu, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
@@ -57,11 +58,11 @@ export default function FavouriteRestaurantsPage() {
           )}
 
           <h2 className="mt-8 text-xl font-[800] tracking-[-0.01em]">{t("Add a restaurant")}</h2>
-          <label className="relative mt-3.5 block">
-            <span className="sr-only">{t("Search restaurants")}</span>
+          <div className="group/search relative mt-3.5">
             <SearchIcon className="pointer-events-none absolute start-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-foreground" />
-            <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("Type a restaurant's name")} enterKeyHint="search" autoComplete="off" className="glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 text-base placeholder:text-muted" />
-          </label>
+            <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("Type a restaurant's name")} aria-label={t("Search restaurants")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted`} />
+            <SearchDone />
+          </div>
           <ul className={`mt-3.5 ${chainGroupClass}`}>
             {others.slice(0, deferred.trim() ? 60 : 40).map((c) => {
               const on = ids.has(c.id);

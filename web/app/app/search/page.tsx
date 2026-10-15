@@ -9,6 +9,7 @@ import { anyDietFilter, filterCaution } from "@/lib/mm/menu-view";
 import { addRecentSearch, highlightRange, MIN_QUERY_LENGTH, normalizeForSearch, search } from "@/lib/mm/search";
 import { ChainMark } from "../_components/ChainMark";
 import { chainGroupClass } from "../_components/ChainRow";
+import { blurOnEnter, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, SampleBadge } from "../_components/ui";
@@ -46,25 +47,30 @@ export default function SearchPage() {
     <div>
       <h1 className="sr-only">{t("Search")}</h1>
       <Link href="/app/eat-out" aria-label={t("Back")} className="group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95"><span className="inline-flex min-h-9 items-center gap-1 rounded-full bg-soft-strong py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
-      <div className="relative mt-3">
+      <div className="group/search relative mt-3">
         <SearchIcon className="pointer-events-none absolute start-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-foreground" />
         <input
           type="search"
           autoFocus
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && remember()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") remember(); // the keyboard's own key says "search" here: it keeps the search in Recent searches, then puts the keyboard away
+            blurOnEnter(e);
+          }}
           placeholder={t("Search restaurants and items")}
           aria-label={t("Search restaurants and items")}
           enterKeyHint="search"
           autoComplete="off"
-          className="glass min-h-[3.25rem] w-full rounded-full ps-12 pe-14 text-base placeholder:text-muted [&::-webkit-search-cancel-button]:hidden"
+          className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-14 ${query ? DONE_ROOM_WITH_CLEAR : DONE_ROOM} text-base placeholder:text-muted [&::-webkit-search-cancel-button]:hidden`}
         />
-        {query && (
-          <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="group absolute end-1 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CloseIcon className="h-4 w-4" /></span>
-          </button>
-        )}
+        <SearchDone>
+          {query && (
+            <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="group inline-flex h-11 w-11 items-center justify-center rounded-full">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CloseIcon className="h-4 w-4" /></span>
+            </button>
+          )}
+        </SearchDone>
       </div>
 
       {!active && (

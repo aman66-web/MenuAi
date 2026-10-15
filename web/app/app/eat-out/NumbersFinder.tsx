@@ -14,6 +14,7 @@ import { ChainMark } from "../_components/ChainMark";
 import { ChevronRightIcon } from "../_components/icons";
 import { Button, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
 import { chainGroupClass } from "../_components/ChainRow";
+import { DoneBar } from "../_components/SearchDone";
 import { SearchIcon } from "../_components/icons";
 import { menuClient } from "../_lib/menu";
 import { useNumbers, useSettings } from "../_lib/hooks";
@@ -122,8 +123,12 @@ export function NumbersPanel({ state }: { state: NumbersFinderState }) {
     <div className="glass mt-3.5 rounded-[1.25rem] p-4">
       <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Your numbers")}</p>
       <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Type any of these to see the restaurants with dishes that fit. Leave the rest empty.")}</p>
-      <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2.5">
-        {FIELDS.map((f) => (<NumberBox key={f.key} label={t(f.label)} value={state.fields[f.key]} onChange={(v) => state.setField(f.key, v)} />))}
+      {/* An iPhone's number pad has no Return key, so while a box is in use a Done under the boxes puts the keyboard away and shows the list. */}
+      <div className="group/nums mt-3">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2.5">
+          {FIELDS.map((f) => (<NumberBox key={f.key} label={t(f.label)} value={state.fields[f.key]} onChange={(v) => state.setField(f.key, v)} />))}
+        </div>
+        <DoneBar className="mt-3" />
       </div>
       {state.useMine && (
         <button type="button" onClick={state.useMine} className="mt-3 inline-flex min-h-11 items-center rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">

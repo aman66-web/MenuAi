@@ -14,6 +14,7 @@ import { recentFor } from "@/lib/mm/recent";
 import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
 import { DietPicker, dietWords } from "../_components/DietPicker";
+import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
 import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
 import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
@@ -254,7 +255,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       {/* Sticky: search this menu, and jump between its sections. Flat grey like the page with a hairline under it (no blur or shade), so a
           card sliding beneath reads as passing under a toolbar, not as cut off. */}
       <div className="sticky top-0 z-10 -mx-5 bg-background px-5 pb-3 pt-[max(0.5rem,env(safe-area-inset-top))] shadow-[0_1px_0_var(--line)]">
-        <div className="relative">
+        <div className="group/search relative">
           <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
             type="search"
@@ -265,14 +266,16 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             }}
             placeholder={t("Search the {chain} menu", { chain: chain.name })}
             aria-label={t("Search the {chain} menu", { chain: chain.name })}
-            enterKeyHint="search"
-            className="glass min-h-12 w-full rounded-full ps-11 pe-12 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden"
+            {...DONE_KEY}
+            className={`glass min-h-12 w-full rounded-full ps-11 pe-12 ${searching ? DONE_ROOM_WITH_CLEAR : DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden`}
           />
-          {searching && (
-            <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="absolute end-0.5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:text-foreground">
-              <CloseIcon className="h-5 w-5" />
-            </button>
-          )}
+          <SearchDone>
+            {searching && (
+              <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:text-foreground">
+                <CloseIcon className="h-5 w-5" />
+              </button>
+            )}
+          </SearchDone>
         </div>
         {showCategoryChips && <CategoryChips categories={sections.map((s) => s.category)} active={activeCategory} onJump={jumpToCategory} />}
       </div>

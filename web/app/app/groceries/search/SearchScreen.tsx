@@ -7,6 +7,7 @@ import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
 import { ScanIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
+import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useGroceryCatalogue, useGroceryManifest } from "../../_lib/groceries";
 import { useSettings, useStore } from "../../_lib/hooks";
@@ -72,11 +73,11 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Find a product at every supermarket that sells it, with its calories, protein and allergens.")}</p>
 
       <div className="mt-5 flex gap-2.5">
-        <label className="relative min-w-0 flex-1">
-          <span className="sr-only">{t("Search products or type a barcode")}</span>
+        <div className="group/search relative min-w-0 flex-1">
           <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search groceries")} enterKeyHint="search" autoComplete="off" className={`${PILL_INPUT} ps-11 pe-4`} />
-        </label>
+          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search groceries")} aria-label={t("Search products or type a barcode")} {...DONE_KEY} autoComplete="off" className={`${PILL_INPUT} ps-11 pe-4 ${DONE_ROOM}`} />
+          <SearchDone />
+        </div>
         <button type="button" onClick={() => setScanning(true)} aria-label={t("Scan a barcode")} className="glass inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
           <ScanIcon className="h-5 w-5" />
         </button>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useDeferredValue, useMemo, useState } from "react";
+import { useDeferredValue, useId, useMemo, useState } from "react";
 import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
 import { formatPrice, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
 import { itemImageUrl } from "@/lib/mm/images";
@@ -10,6 +10,7 @@ import { search } from "@/lib/mm/search";
 import { compareStore } from "@/lib/mm/stores";
 import { ChevronLeftIcon, CompareIcon, PlusIcon, SearchIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
+import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { EmptyState, Spinner } from "../_components/ui";
 import { compareDish, compareFoodFromListed } from "../_lib/compare";
 import { useGroceryCatalogue } from "../_lib/groceries";
@@ -251,14 +252,16 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
 }
 
 function SearchBox({ value, onChange, label, placeholder }: { value: string; onChange: (v: string) => void; label: string; placeholder: string }) {
+  const id = useId();
   return (
-    <label className="relative mt-7 block">
-      <span className="mb-3 block text-xl font-[800] tracking-[-0.01em]">{label}</span>
-      <span className="relative block">
+    <div className="mt-7">
+      <label htmlFor={id} className="mb-3 block text-xl font-[800] tracking-[-0.01em]">{label}</label>
+      <div className="group/search relative">
         <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input type="search" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} enterKeyHint="search" autoComplete="off" className="glass min-h-13 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none" />
-      </span>
-    </label>
+        <input id={id} type="search" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} {...DONE_KEY} autoComplete="off" className={`glass min-h-13 w-full rounded-full ps-11 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none`} />
+        <SearchDone />
+      </div>
+    </div>
   );
 }
 
