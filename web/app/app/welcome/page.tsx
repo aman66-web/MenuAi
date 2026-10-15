@@ -41,8 +41,8 @@ import { Rich } from "../_lib/Rich";
 // that step only (defaults stay); the last step has only Start. Step 3 asks about foods to leave out (the web app has no location step);
 // step 4 asks which supermarkets they use (founder 2026-10-10: the app is for eating out, shopping and cooking).
 // The look (founder 2026-10-14, from a reference picture: "make the screens look amazing like this"): the app's name and Skip at the top,
-// the progress as segments, a very large headline with a small picture pill in it, one picture or card per screen, and a big pill button
-// at the bottom with a » knob and a tick. No food photographs (CLAUDE.md rule 2): the pictures are Pip, the moving wall of the restaurants and
+// the progress as segments, a very large headline with a small picture pill in it, one picture or card per screen, and a big plain pill
+// button at the bottom (the words only: founder 2026-10-15, "get rid of those two circles ... it just looks weird"). No food photographs (CLAUDE.md rule 2): the pictures are Pip, the moving wall of the restaurants and
 // shops in the app, our own plate, and a preview of Home marked "Example".
 
 const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
@@ -208,7 +208,7 @@ export default function WelcomePage() {
         </div>
         <p className="mt-5 text-sm text-muted">{t("You can change it any time in Settings.")}</p>
         <Bottom>
-          <SlideButton onClick={() => { updateSettings({ language }); void setLanguage(language); next(); }}>{t("Continue")}</SlideButton>
+          <BottomButton onClick={() => { updateSettings({ language }); void setLanguage(language); next(); }}>{t("Continue")}</BottomButton>
         </Bottom>
       </div>
     );
@@ -240,7 +240,7 @@ export default function WelcomePage() {
           )}
         </div>
         <Bottom>
-          <SlideButton onClick={next}>{t("Continue")}</SlideButton>
+          <BottomButton onClick={next}>{t("Continue")}</BottomButton>
         </Bottom>
       </div>
     );
@@ -259,13 +259,13 @@ export default function WelcomePage() {
           segments={INTRO_SCREENS + 1}
           current={0}
         />
-        <h1 className="mt-7 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em]">
-          {t("Eat out, shop and cook.")}{" "}
-          <span aria-hidden className="mx-0.5 inline-flex -rotate-6 items-center gap-1.5 rounded-full bg-white py-1 pe-3 ps-1 align-middle text-[0.95rem] font-semibold tracking-normal text-muted shadow-[0_8px_18px_-12px_rgba(0,0,0,0.4)]">
-            <span className={`grid h-8 w-8 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={30} className="translate-y-0.5" /></span>
-            {t("Welcome to {app}", { app: site.name })}
-          </span>{" "}
-          {t("Know the numbers first.")}
+        {/* the greeting comes first, then the line that sums the app up, then the picture (founder, 2026-10-15) */}
+        <p className="mt-6 flex items-center gap-3 text-[1.125rem] font-semibold leading-snug">
+          <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
+          <span className="min-w-0">{t("Welcome to {app}", { app: site.name })}</span>
+        </p>
+        <h1 className="mt-4 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em]">
+          {t("Eat out, shop and cook.")} {t("Know the numbers first.")}
         </h1>
         <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-semibold text-muted">
           {[
@@ -287,7 +287,7 @@ export default function WelcomePage() {
           )}
         </div>
         <Bottom>
-          <SlideButton light onClick={next}>{t("Get started")}</SlideButton>
+          <BottomButton light onClick={next}>{t("Get started")}</BottomButton>
           <button type="button" onClick={() => setSignInOpen(true)} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Already have an account? Sign in")}</button>
           <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
           {/* the two links keep a 44 px tap area (padding pulled back with negative margins, so the line stays the same height) */}
@@ -342,7 +342,7 @@ export default function WelcomePage() {
             })}
           </div>
           <Bottom>
-            <SlideButton onClick={() => { updateSettings({ goal }); next(); }}>{t("Continue")}</SlideButton>
+            <BottomButton onClick={() => { updateSettings({ goal }); next(); }}>{t("Continue")}</BottomButton>
           </Bottom>
         </section>
       )}
@@ -390,7 +390,7 @@ export default function WelcomePage() {
             <p role="alert" className="mt-3 text-sm font-medium text-accent">{t("Calories should be 500–10,000, protein above 0, and the meal size 100–2,000.")}</p>
           )}
           <Bottom>
-            <SlideButton
+            <BottomButton
               disabled={!caloriesValid || !proteinValid || (goal === "glp1" && !capValid)}
               onClick={() => {
                 updateSettings({
@@ -403,7 +403,7 @@ export default function WelcomePage() {
               }}
             >
               {t("Continue")}
-            </SlideButton>
+            </BottomButton>
           </Bottom>
         </section>
       )}
@@ -415,7 +415,7 @@ export default function WelcomePage() {
           <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap everything that applies. Change it any time.")}</p>
           <DietPicker value={prefs} onChange={setPrefs} />
           <Bottom>
-            <SlideButton onClick={() => { updateSettings({ preferences: prefs }); next(); }}>{t("Continue")}</SlideButton>
+            <BottomButton onClick={() => { updateSettings({ preferences: prefs }); next(); }}>{t("Continue")}</BottomButton>
           </Bottom>
         </section>
       )}
@@ -427,7 +427,7 @@ export default function WelcomePage() {
           <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
           <ShopPicker value={shops} onChange={setShops} />
           <Bottom>
-            <SlideButton onClick={() => { updateSettings({ shops: shops.length ? shops : undefined }); next(); }}>{t("Continue")}</SlideButton>
+            <BottomButton onClick={() => { updateSettings({ shops: shops.length ? shops : undefined }); next(); }}>{t("Continue")}</BottomButton>
           </Bottom>
         </section>
       )}
@@ -460,7 +460,7 @@ export default function WelcomePage() {
             })}
           </div>
           <Bottom>
-            <SlideButton onClick={() => { updateSettings({ textSize: size }); next(); }}>{t("Continue")}</SlideButton>
+            <BottomButton onClick={() => { updateSettings({ textSize: size }); next(); }}>{t("Continue")}</BottomButton>
           </Bottom>
         </section>
       )}
@@ -499,7 +499,7 @@ export default function WelcomePage() {
             ))}
           </ol>
           <Bottom>
-            <SlideButton
+            <BottomButton
               onClick={() => {
                 updateSettings({ hasCompletedOnboarding: true });
                 analytics.track({ name: "onboardingCompleted", goal: settingsStore.get().goal });
@@ -509,7 +509,7 @@ export default function WelcomePage() {
               }}
             >
               {t("Start")}
-            </SlideButton>
+            </BottomButton>
           </Bottom>
         </section>
       )}
@@ -566,18 +566,16 @@ function Bottom({ children }: { children: React.ReactNode }) {
   return <div className="sticky bottom-0 z-10 -mx-5 mt-auto w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">{children}</div>;
 }
 
-/** The big pill button: a green knob with », the words, and a tick. A tap does it (nothing to drag, so it's easy for everyone). */
-function SlideButton({ children, onClick, disabled, light }: { children: React.ReactNode; onClick: () => void; disabled?: boolean; light?: boolean }) {
+/** The big pill at the bottom of a screen: a plain black pill with the words (white over the logo wall). Nothing else inside it: no circles or icons. */
+function BottomButton({ children, onClick, disabled, light }: { children: React.ReactNode; onClick: () => void; disabled?: boolean; light?: boolean }) {
   return (
     <button
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className={`group flex min-h-[4.25rem] w-full items-center rounded-full p-1.5 text-[1.0625rem] font-bold shadow-[0_14px_30px_-16px_rgba(0,0,0,0.5)] transition active:scale-[0.99] disabled:opacity-45 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-foreground" : "bg-foreground text-background"}`}
+      className={`flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.98] disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-foreground shadow-[0_14px_30px_-16px_rgba(0,0,0,0.5)] hover:bg-soft-strong disabled:text-muted" : "bg-foreground text-background hover:not-disabled:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] disabled:bg-soft-strong disabled:text-muted"}`}
     >
-      <span aria-hidden className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-on-accent transition-transform duration-300 group-active:translate-x-3 rtl:group-active:-translate-x-3 ${LIME}`}><ChevronsRightIcon className="h-6 w-6" strokeWidth={2.2} /></span>
-      <span className="min-w-0 flex-1 px-2 text-center">{children}</span>
-      <span aria-hidden className={`grid h-14 w-14 shrink-0 place-items-center rounded-full ${light ? "bg-soft-strong text-foreground" : "bg-background text-foreground"}`}><CheckIcon className="h-6 w-6" strokeWidth={2.4} /></span>
+      <span className="min-w-0 text-balance">{children}</span>
     </button>
   );
 }

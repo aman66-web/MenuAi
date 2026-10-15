@@ -26,7 +26,7 @@ import { MEAL_LOOK, RecipeHeroArt } from "./RecipeTile";
 // middle, "− Serves 4 +", then Ingredients and Method as two tabs and "Add all to my shopping list" kept in reach.
 // Restyled 2026-10-15 to match Home: the serving's numbers as Home's pair of cards (the calories big beside protein, carbs and fat as
 // spaced-capital rows), white cards with 20 px corners everywhere, grey circles for − and +, one card for the method, and
-// the main action a black pill with a small lime knob.
+// the main action a black pill with its words (and a plain plus, no circle).
 
 const amountText = (s: IngredientSpec) => `${formatInt(s.amount)} ${s.unit}`;
 
@@ -418,7 +418,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
           // very end it sits under the footer.
           <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
             <Button full className="min-h-[3.25rem]" onClick={addAll}>
-              <span aria-hidden className="bg-sun grid h-8 w-8 shrink-0 place-items-center rounded-full text-on-accent"><PlusIcon className="h-[18px] w-[18px]" /></span>
+              <PlusIcon aria-hidden className="h-5 w-5 shrink-0" />
               {t("Add all to my shopping list")}
             </Button>
             <p role="status" aria-live="polite" className="px-2 text-center text-[0.875rem] font-semibold text-accent">

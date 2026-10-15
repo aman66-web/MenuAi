@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { CheckIcon, ChevronsRightIcon } from "@/app/app/_components/icons";
+import { CheckIcon } from "@/app/app/_components/icons";
 
 type State = "idle" | "sending" | "done" | "error";
 
@@ -66,11 +66,10 @@ export function WaitlistForm({ tone = "light" }: { tone?: "light" | "dark" }) {
         <button
           type="submit"
           disabled={state === "sending"}
-          // The knob is an icon and the paddings frame it, so they are px-sized: at 200% text the words still get the room to wrap whole.
-          className={`group inline-flex min-h-14 min-w-0 grow items-center gap-[12px] rounded-full p-[6px] pe-[24px] text-base font-semibold transition active:scale-[0.98] disabled:opacity-60 ${dark ? "bg-white text-foreground focus-visible:outline-[var(--sun)]" : "bg-foreground text-background hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]"}`}
+          // A plain pill with the words only; the side padding is in px so that at 200% text the words still get the room to wrap whole.
+          className={`inline-flex min-h-14 min-w-0 grow items-center justify-center rounded-full px-[24px] py-3 text-center text-base font-semibold transition active:scale-[0.98] disabled:opacity-60 ${dark ? "bg-white text-foreground focus-visible:outline-[var(--sun)]" : "bg-foreground text-background hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]"}`}
         >
-          <span aria-hidden className="grid h-[44px] w-[44px] shrink-0 place-items-center rounded-full bg-sun text-on-accent transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5"><ChevronsRightIcon className="h-5 w-5" strokeWidth={2.2} /></span>
-          <span className="min-w-0 flex-1 text-center">{state === "sending" ? "Joining…" : "Get early access"}</span>
+          <span className="min-w-0 text-balance">{state === "sending" ? "Joining…" : "Get early access"}</span>
         </button>
       </div>
       <p className={`mt-3 text-sm font-medium leading-relaxed ${state === "error" ? (dark ? "font-semibold text-white" : "font-semibold text-foreground") : dark ? "text-[#c9d1cc]" : "text-muted"}`} aria-live="polite">

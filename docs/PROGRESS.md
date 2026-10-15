@@ -1365,6 +1365,27 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   `hidden.json`), added by `tools/logos/assemble_logos.py`; plain white tile (looked at on Eat out, the chain page and Search, normal and extra-large text).
   **233 of 238 chains now show a logo**; still none: Bettys, Fuller's, Kick Ass Burrito, Tesco Café, Wild Bean Café. The iPhone app shows it after its next build.
 
+- 2026-10-15 (evening) — **Plain black buttons: no circles inside them** (founder, on the language screen: "It says continue, then on the left side the play
+  button, and on the right side the tick button. It just looks quite weird ... get rid of those two circles ... for all the screens too"; answer: every
+  black button). Looks only: no wording, behaviour, roles or names changed, so no translations.
+  - The onboarding's bottom pill (`BottomButton`, was `SlideButton`; the language, Get started, Pip's three screens, every question and Start) is now a plain
+    56 px pill with the words centred: black, or white over the logo wall; disabled is the quiet grey pill, as everywhere.
+  - The same lime icon circles are gone from the other black buttons: shop product "Add to my list" (`MainButton`, no icon prop any more), the floating "Best for
+    you" pill (a plain arrow now), the recipe's "Add all to my shopping list" (a plain plus), and the website's "Open the web app", "Get early access" and the
+    support form's "Send".
+  - Kept on purpose: status marks that are not buttons (the tick in "You're on the list", "Thanks!" and report-sent, selection ticks, the shopping-list ticks),
+    the map's "Near {place}" pin circle and Pip's headline pill.
+  - Found on the way (not mine, not changed): in the dev server, a non-English language logs "Hydration failed" and "Encountered a script tag" for
+    `/app/welcome` (same with and without these changes; English is clean).
+
+- 2026-10-15 (evening) — **Welcome screen in the right order** (founder: "welcome to Numbite, then a line that sums up the app ... then the collage of all
+  the logos ... and the bottom has a Get started"). Top to bottom: Pip (waving, lime avatar) with "Welcome to Numbite" as plain visible text, then the one
+  headline "Eat out, shop and cook. Know the numbers first.", the three promises, the moving wall of logos with its two labels, and the Get started bar.
+  The greeting used to be a tilted white sticker in the middle of the headline. Looks and order only: the same three lines of copy as before, so no new
+  words and no translations (the founder's own wording is the "catchy line"; a different tagline would be new copy: say if you want one). The greeting is
+  now read by screen readers (the sticker was hidden from them). Checked at 390 px in English, Extra large text, Arabic (right to left) and Polish: no
+  overflow; at Extra large the page scrolls and the wall sits behind the bar as before.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

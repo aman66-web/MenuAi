@@ -32,7 +32,7 @@ import { Rich } from "../_lib/Rich";
 // Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. White cards with 20 px corners on the
 // grey page, small spaced capitals for labels, a black pill for the selected meal, the favourite star in a small grey circle like Home's
 // calendar button; each menu section is one white card with its dishes divided by fine lines (not a card per dish), the search bar is
-// flat grey like the page, and "Back to Best for you" is a black pill with a lime knob.
+// flat grey like the page, and "Back to Best for you" is a black pill with a plain arrow (no circle).
 
 /** "Show all 12 in Burgers": the last row of a section's card, in the accent green. */
 const MORE_ROW = "flex min-h-12 w-full items-center justify-center gap-1.5 px-4 py-3 text-center text-[0.9375rem] font-semibold text-accent transition hover:bg-[var(--fill)] active:bg-[var(--fill)]";
@@ -338,9 +338,9 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <button
           type="button"
           onClick={() => bestRef.current?.scrollIntoView({ behavior: smoothScroll(), block: "start" })}
-          className="sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.5rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2.5 whitespace-nowrap rounded-full bg-foreground py-1 ps-1.5 pe-5 text-[0.9375rem] font-bold text-background shadow-[0_12px_28px_-12px_rgba(17,24,20,0.5)] transition active:scale-95"
+          className="sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.5rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-foreground px-5 py-1 text-[0.9375rem] font-bold text-background shadow-[0_12px_28px_-12px_rgba(17,24,20,0.5)] transition active:scale-95"
         >
-          <span aria-hidden className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]"><ArrowUpIcon className="h-4 w-4" /></span> {t("Best for you")}
+          <ArrowUpIcon aria-hidden className="h-4 w-4 shrink-0" /> {t("Best for you")}
         </button>
       )}
 

@@ -5,7 +5,7 @@ import { catalogueStats } from "@/lib/mm/catalogue";
 import type { Manifest } from "@/lib/mm/types";
 import { PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
-import { BasketIcon, CheckIcon, ChevronsRightIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_components/icons";
+import { BasketIcon, CheckIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_components/icons";
 import { WaitlistForm } from "@/app/components/WaitlistForm";
 
 // Read once at build time from the published data, so the headline numbers are never typed in by hand.
@@ -41,15 +41,15 @@ const faqs = [
 ];
 
 // The website's look (founder 2026-10-15: "the rest of the app should match that elegance too"): a white page, flat light grey cards
-// with 20 px corners and nothing inside them but white, the app's black pill for the main action (with the onboarding's lime knob), the
+// with 20 px corners and nothing inside them but white, the app's black pill for the main action (the words only), the
 // one accent green for small highlights, and the Playfair italic kickers the website keeps. No gradients, glows or coloured shadows.
 const card = "rounded-[1.25rem] bg-[var(--fill)]";
 // Side gutters in px, like the app's: at 200% text the words get the room rather than the margins.
 const section = "mx-auto max-w-5xl px-[20px] py-10 sm:py-14";
 const heading = "mt-2 max-w-2xl text-3xl font-[650] leading-[1.08] tracking-[-0.02em] sm:text-4xl";
-// The knob is an icon and the paddings frame it, so they are px-sized: at 200% text the words still get the room to wrap whole.
-const knobButton =
-  "group inline-flex min-h-14 w-full items-center gap-[12px] rounded-full bg-foreground p-[6px] pe-[24px] text-base font-semibold text-background transition hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] active:scale-[0.98] sm:w-auto";
+// A plain black pill: the words only (founder 2026-10-15). Side padding is in px so that at 200% text the words still get the room to wrap whole.
+const mainButton =
+  "inline-flex min-h-14 w-full items-center justify-center rounded-full bg-foreground px-[24px] py-3 text-center text-base font-semibold text-background transition hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] active:scale-[0.98] sm:w-auto";
 // Proof cards: the label comes first in the code (a dl needs it, screen readers read it first) and is placed under the figure. Each
 // figure is sized to the section (cqi, capped) so its longest word always fits whole in a stacked card; side by side the cards share two
 // rows (subgrid), so the figures end on one line and the labels start on one line, however the figures wrap. (The card itself can't be
@@ -58,7 +58,6 @@ const proofCard = `${card} grid content-start gap-3 p-[22px] sm:p-6 @2xl:row-spa
 const proofLabel = "row-start-2 self-start text-pretty text-[0.9375rem] font-medium leading-snug text-muted";
 const proofFigure = "row-start-1 self-end leading-[1.04]";
 const proofNumber = "app-numbers text-[length:min(2.75rem,22cqi)] font-medium tracking-[-0.02em]";
-const knob = "grid h-[44px] w-[44px] shrink-0 place-items-center rounded-full bg-sun text-on-accent transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5";
 
 // Decorative, so it grows only a little with the text (22 px, at most 30 px at 200%) and the words keep the room. It sits in a box
 // one line tall, so it stays centred on the first line.
@@ -84,9 +83,8 @@ export default function Home() {
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-muted sm:text-xl">{site.description}</p>
             <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link href="/app" className={knobButton}>
-                <span aria-hidden className={knob}><ChevronsRightIcon className="h-5 w-5" strokeWidth={2.2} /></span>
-                <span className="min-w-0 flex-1 text-center">Open the web app</span>
+              <Link href="/app" className={mainButton}>
+                <span className="min-w-0 text-balance">Open the web app</span>
               </Link>
               {site.appStoreUrl && (
                 <a href={site.appStoreUrl} className="inline-flex min-h-14 items-center justify-center rounded-full bg-[var(--fill)] px-7 text-base font-semibold transition hover:bg-soft-strong active:scale-[0.98]">
@@ -197,7 +195,7 @@ export default function Home() {
 
       {!site.appStoreUrl && (
         <section className={section}>
-          {/* The one dark moment on the page: the same black as the app's main buttons, with the lime kept for the kicker and the knob. */}
+          {/* The one dark moment on the page: the same black as the app's main buttons, with the lime kept for the kicker. */}
           <div className="rounded-[1.25rem] bg-foreground p-[28px] text-background sm:p-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
             <div>
               <p className="kicker" style={{ color: "var(--sun)" }}>iPhone app</p>

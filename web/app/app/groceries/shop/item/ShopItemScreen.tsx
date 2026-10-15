@@ -7,7 +7,7 @@ import { shoppingStore } from "@/lib/mm/stores";
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem } from "@/lib/mm/foodDiet";
 import { nutritionBasis, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
-import { BasketIcon, ExternalIcon, InfoIcon } from "../../../_components/icons";
+import { ExternalIcon, InfoIcon } from "../../../_components/icons";
 import { ErrorBox, Spinner } from "../../../_components/ui";
 import { loadRetailer } from "../../../_lib/groceries";
 import { usePossessive, useT } from "../../../_lib/i18n";
@@ -93,7 +93,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       </div>
 
       <div className="mt-4 grid gap-3">
-        <MainButton icon={<BasketIcon />} onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price ?? undefined, checkedOn: file.checkedOn })); setAdded(t("Added to your {shop} list.", { shop: file.name })); }}>
+        <MainButton onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price ?? undefined, checkedOn: file.checkedOn })); setAdded(t("Added to your {shop} list.", { shop: file.name })); }}>
           {t("Add to my list")}
         </MainButton>
         {/* in its own block, so the compare button's own (empty) status line isn't a row of this grid with a gap above it */}

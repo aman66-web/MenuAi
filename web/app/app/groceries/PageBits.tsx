@@ -72,14 +72,10 @@ export function SelectField({ label, className, ...rest }: SelectHTMLAttributes<
   );
 }
 
-/**
- * The one main action on a screen: Home's black pill ("Open"), with a small lime round icon at its start like the onboarding's "Get
- * started" knob. The icon is decorative; the button's name is its words.
- */
-export function MainButton({ icon, children, className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { icon: ReactNode }) {
+/** The one main action on a screen: Home's black pill ("Open"), the words only (no icon circle: founder 2026-10-15). */
+export function MainButton({ children, className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <Button full className={`relative min-h-[3.25rem] px-14 text-base ${className ?? ""}`} {...rest}>
-      <span aria-hidden className="absolute start-1.5 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-sun text-on-accent [&>svg]:h-5 [&>svg]:w-5">{icon}</span>
+    <Button full className={`min-h-[3.25rem] text-base ${className ?? ""}`} {...rest}>
       {children}
     </Button>
   );
