@@ -63,7 +63,7 @@ function sortCards(cards: RecipeCard[], sort: Sort): RecipeCard[] {
 /** One of the eight big tiles: an icon over a word. Pressed = dark; "More" is the lighter green one, as in the reference. */
 function Tile({ label, Icon, pressed, onClick, more, expanded }: { label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode; pressed?: boolean; onClick: () => void; more?: boolean; expanded?: boolean }) {
   const look = more
-    ? expanded ? "border-transparent bg-foreground text-background" : "border-transparent bg-[linear-gradient(135deg,#d9f99d,#bbf7d0)] text-[#0b1a12]"
+    ? expanded ? "border-transparent bg-foreground text-background" : "border-transparent bg-[var(--sun)] text-[#0b1a12]"
     : pressed ? "border-transparent bg-foreground text-background shadow-[0_8px_18px_-10px_rgba(0,0,0,0.5)]" : "glass hover:bg-soft-strong";
   return (
     <button
@@ -130,7 +130,7 @@ function RecipesScreen() {
     <div>
       <div className="flex items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3">
-          <span aria-hidden className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full bg-[linear-gradient(135deg,#ecfccb,#a7f3d0)] shadow-[0_8px_18px_-10px_var(--brand-shadow)]">
+          <span aria-hidden className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]">
             <Pip mood="wave" size={46} className="translate-y-1" />
           </span>
           <span className="truncate text-lg font-extrabold tracking-tight">{t("Recipes")}</span>
@@ -156,7 +156,7 @@ function RecipesScreen() {
       <label className="relative mt-5 block">
         <span className="sr-only">{t("Search recipes")}</span>
         <SearchIcon className="pointer-events-none absolute start-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes, e.g. chicken or curry")} enterKeyHint="search" autoComplete="off" className="glass min-h-14 w-full rounded-full ps-12 pe-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
+        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes, e.g. chicken or curry")} enterKeyHint="search" autoComplete="off" className="glass min-h-14 w-full rounded-full ps-12 pe-4 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent" />
       </label>
 
       {/* Eight big tiles: four columns on a phone, fewer when the text is large (the minimum width is in rem). */}

@@ -24,7 +24,8 @@ export const MEAL_LOOK: Record<MealType, { Icon: (p: React.SVGProps<SVGSVGElemen
 
 type Glyph = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 // Until a recipe has its picture, its card shows a plate with a simple drawing of the kind of dish (from the words in its English name; the meal's
-// own icon when none fits) on one of six colours chosen by the recipe's id, so a list of a hundred doesn't look like one card repeated.
+// own icon when none fits) on one of six soft pastel colours chosen by the recipe's id, so a list of a hundred doesn't look like one card
+// repeated (calmer than the first bright set, after the founder's reference pictures of 2026-10-15).
 const DISH: ReadonlyArray<[RegExp, Glyph]> = [
   [/noodle|pad thai|stir-fry/i, NoodleGlyph],
   [/pasta|spaghetti|linguine|macaroni|gnocchi|bolognese|carbonara|meatball/i, PastaGlyph],
@@ -38,12 +39,12 @@ const DISH: ReadonlyArray<[RegExp, Glyph]> = [
   [/rice|bowl/i, RiceBowlGlyph],
 ];
 const ART = [
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#fef3c7,#fcd34d_55%,#f59e0b)]",
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#ffe4e6,#fda4af_55%,#fb7185)]",
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#ecfccb,#bef264_55%,#84cc16)]",
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#d1fae5,#6ee7b7_55%,#10b981)]",
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#cffafe,#67e8f9_55%,#06b6d4)]",
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#ffedd5,#fdba74_55%,#f97316)]",
+  "bg-[radial-gradient(120%_90%_at_20%_10%,#fffaf0,#fcecc8)]", // cream
+  "bg-[radial-gradient(120%_90%_at_20%_10%,#fff6f5,#fadcd8)]", // blush
+  "bg-[radial-gradient(120%_90%_at_20%_10%,#fafdf2,#e3f2c6)]", // pale lime
+  "bg-[radial-gradient(120%_90%_at_20%_10%,#f3fbf7,#d3eedf)]", // pale mint
+  "bg-[radial-gradient(120%_90%_at_20%_10%,#f4f9fc,#d6e9f2)]", // pale sky
+  "bg-[radial-gradient(120%_90%_at_20%_10%,#fffaf4,#fbe1c8)]", // soft peach
 ];
 const artOf = (id: string) => ART[[...id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % ART.length]!;
 
@@ -127,8 +128,8 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true }:
           {badge && <span className="mb-1 inline-block self-start rounded-full bg-accent-soft px-2.5 py-0.5 text-sm font-bold text-accent">{badge}</span>}
           <span className={`line-clamp-2 font-extrabold leading-snug tracking-tight [overflow-wrap:anywhere] ${wide ? "text-xl" : "text-base"}`}>{rt(recipe.name)}</span>
           <span className={`app-numbers mt-2 flex flex-wrap ${wide ? "gap-1.5 text-sm [&>span]:px-2" : "gap-1 text-xs [&>span]:px-[0.3rem]"}`}>
-            <span className="inline-flex items-baseline gap-[0.2rem] rounded-lg bg-soft-strong py-1"><span className="text-[1.1em] font-extrabold">{formatInt(totals.perServing.kcal)}</span><span className="font-bold text-muted">kcal</span></span>
-            <span className="inline-flex items-baseline gap-[0.2rem] rounded-lg bg-accent-soft py-1"><span className="text-[1.1em] font-extrabold text-accent">{Math.round(totals.perServing.protein)}g</span><span className="font-bold text-muted">{t("protein")}</span></span>
+            <span className="inline-flex items-baseline gap-[0.2rem] rounded-lg bg-[var(--fill)] py-1"><span className="text-[1.1em] font-bold">{formatInt(totals.perServing.kcal)}</span><span className="font-medium text-muted">kcal</span></span>
+            <span className="inline-flex items-baseline gap-[0.2rem] rounded-lg bg-[var(--fill)] py-1"><span className="text-[1.1em] font-bold">{Math.round(totals.perServing.protein)}g</span><span className="font-medium text-muted">{t("protein")}</span></span>
           </span>
           <span className="app-numbers mt-auto flex flex-wrap gap-x-2 pt-2 text-sm text-muted">
             {price && <span><span className="font-bold text-foreground">{price}</span> {t("a serving")}</span>}

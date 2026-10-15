@@ -162,7 +162,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       </div>
       {recent.length > 0 && (
         <section aria-labelledby="recent-heading" className="mt-5">
-          <h2 id="recent-heading" className="mb-2 flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Recently viewed")}</h2>
+          <h2 id="recent-heading" className="mb-2 flex items-center gap-2.5 text-xl font-extrabold tracking-tight">{t("Recently viewed")}</h2>
           <ItemList items={recent} chainId={chain.id} now={now} />
         </section>
       )}
@@ -171,7 +171,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       <section aria-labelledby="best-heading" ref={bestRef} className="glass mt-5 rounded-[1.75rem] p-4">
         {!caloriesOnly && (
           <>
-            <h2 id="best-heading" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Best for you")}</h2>
+            <h2 id="best-heading" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight">{t("Best for you")}</h2>
             <p className="mb-1.5 mt-3 text-base font-bold">{t("Which meal?")}</p>
             <div className="flex flex-wrap gap-1 rounded-[1.5rem] bg-soft p-1" role="group" aria-label={t("Meal")}>
               {MEALS.map((m) => (
@@ -203,7 +203,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       </Sheet>
 
       <div className="mb-2 mt-8 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        <h2 id="full-menu" className="flex items-center gap-2.5 whitespace-nowrap text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("Full menu")}</h2>
+        <h2 id="full-menu" className="flex items-center gap-2.5 whitespace-nowrap text-xl font-extrabold tracking-tight">{t("Full menu")}</h2>
         <label className="flex items-center gap-2 text-base">
           <span className="sr-only">{t("Sort by")}</span>
           <select
@@ -234,7 +234,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             placeholder={t("Search the {chain} menu", { chain: chain.name })}
             aria-label={t("Search the {chain} menu", { chain: chain.name })}
             enterKeyHint="search"
-            className="glass min-h-12 w-full rounded-full ps-11 pe-12 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden"
+            className="glass min-h-12 w-full rounded-full ps-11 pe-12 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:hidden"
           />
           {searching && (
             <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="absolute end-0.5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:text-foreground">

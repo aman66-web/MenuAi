@@ -1240,6 +1240,36 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     app-build 8; screenshots of every main screen, the welcome screen and the website, normal and extra-large text.
   - The App Store screenshots and the uploaded iPhone build still show the old look: re-run `web/e2e/store-shots.mjs` and make a new build.
 
+- 2026-10-15 (night) — **A cleaner look from the founder's seven reference pictures** ("make the app look the cleanest you can. These are all images
+  I love": a fitness Home, a recipe page, two recipe grids, a "What's cooking today?" screen and an onboarding). Looks only: no wording, data,
+  ranking or behaviour changed, so no new translations. All of it is in `globals.css`'s `.app-surface` scope (the website is unchanged):
+  - **Page and cards:** the pictures' cool light grey (#f4f5f6, was #f2f2f2); white cards with no outline, no blur and a soft neutral shadow (the
+    green-tinted shadows and the hero card's green tint and corner light are gone). Anything that sits on a white card (a figure tile, a nested
+    list, a small round icon) is a light grey fill instead of an outlined box. The card styles moved into Tailwind's components layer, so a
+    selected or hover colour set on the same element now always wins.
+  - **Flat colours, no gradients or glows:** where the brand gradient was (main buttons, selected marks, today's circle, round icons, Pip's
+    avatar, the Recipes "More" tile) the app uses one flat pastel lime (#d6efa0, dark text on it: 11.9:1); accent words in headings are the flat
+    accent green; the calories dial, rings and progress bars are one deeper lime (`--bar` #8cc63f; their figures are always written beside them).
+  - **Tab bar:** a dark floating bar (#1d2320) like the pictures, the open tab's icon in a lime circle and its word in lime; the words stay under
+    the icons (inactive 9.5:1, active 12.7:1).
+  - **Chips** are outlined, with the selected one filled dark, as in the pictures; **calories and protein badges** on recipe cards and grocery rows
+    are grey with a bold number and a grey unit (protein was a green pill); section headings lost their green marker bar; search boxes show one
+    focus ring (not a ring plus a green border).
+  - **Recipe cards** without their picture yet show the plate on six soft pastel colours (cream, blush, pale lime, mint, sky, peach) instead of the
+    bright ones.
+  - **Headings in one plain ink**, as in every picture: an accent word ("Eat **out**", "Restaurants **near** you") no longer turns green; big figures
+    keep the green, like the pictures' "0 / 2,800 kcal". Eat out's three cards end in the same round arrow (it steps aside at the
+    larger text sizes so the words have room, like Home's meal pictures); Today's meals shows no stray "·" when an entry has no restaurant name.
+  - **Large text:** at Extra large, "Groceries" broke as "Groce / ries" beside the My list button; the button now moves under the title instead. A
+    shop's filter chips wrap onto a second line instead of running off the side.
+  - **Found on the way:** `npm run build:app` (the iPhone copy) also writes its working files into `.next`, so running it while a test server serves
+    `.next` breaks that server (every later browser test times out). `web/e2e/README.md` now documents `app-build.mjs` and says to run it last.
+  - Contrast re-checked on the new surfaces: accent 5.9:1 on the grey, 5.8:1 on the grey fill, 5.3:1 on the green tint; grey text 5.6:1 on the grey,
+    5.5:1 on the fill.
+  - Checked so far: 577 unit tests, tsc, lint; e2e smoke 23 (a phone in dark mode still gets the grey page, now #f4f5f6), a11y 0 violations; the
+    other suites are running (this line is updated when they finish).
+  - The App Store screenshots and the uploaded iPhone build still show the old look: re-run `web/e2e/store-shots.mjs` and make a new build.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

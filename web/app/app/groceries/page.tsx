@@ -31,7 +31,8 @@ export default function GroceriesPage() {
 
   return (
     <div>
-      <div className="flex items-start justify-between gap-3">
+      {/* wraps, so at large text "My list" moves under the title instead of breaking the word "Groceries" */}
+      <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
         <h1 className="text-[2.2rem] font-extrabold leading-[1.05] tracking-tight">{t("Groceries")}</h1>
         <Link href="/app/groceries/list" className="glass relative mt-1 inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full px-4 text-sm font-bold transition active:scale-95 hover:bg-soft-strong">
           <BasketIcon className="h-5 w-5" />{t("My list")}

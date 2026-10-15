@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /**
- * A progress ring in the sunset gradient. It is one neutral colour for every state (never red or green: we don't
+ * A progress ring in one flat colour (--bar, the app's lime). It is one neutral colour for every state (never red or green: we don't
  * judge food or days), and the number it shows is only "how much of the target is used". The ring is the
  * progressbar for assistive tech; the SVG itself is decorative.
  */
@@ -9,7 +9,7 @@ export function Ring({ fraction, label, size = 104, stroke = 9, children, id }: 
   const f = Math.min(1, Math.max(0, Number.isFinite(fraction) ? fraction : 0));
   const r = 50 - stroke / 2;
   const c = 2 * Math.PI * r;
-  const gradient = `ring-grad-${id}`;
+  void id; // kept so callers stay the same; the ring no longer needs its own gradient id
   return (
     <div
       role="progressbar"
@@ -21,20 +21,13 @@ export function Ring({ fraction, label, size = 104, stroke = 9, children, id }: 
       style={{ width: size, height: size }}
     >
       <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90" aria-hidden focusable="false">
-        <defs>
-          <linearGradient id={gradient} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#a3e635" />
-            <stop offset="0.55" stopColor="#34d399" />
-            <stop offset="1" stopColor="#059669" />
-          </linearGradient>
-        </defs>
         <circle cx="50" cy="50" r={r} fill="none" stroke="var(--ring-track)" strokeWidth={stroke} />
         <circle
           cx="50"
           cy="50"
           r={r}
           fill="none"
-          stroke={`url(#${gradient})`}
+          stroke="var(--bar)"
           strokeWidth={stroke}
           strokeLinecap="round"
           strokeDasharray={`${f * c} ${c}`}

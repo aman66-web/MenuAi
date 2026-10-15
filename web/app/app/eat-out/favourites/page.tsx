@@ -53,7 +53,7 @@ export default function FavouriteRestaurantsPage() {
           <label className="relative mt-3 block">
             <span className="sr-only">{t("Search restaurants")}</span>
             <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-            <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("Type a restaurant's name")} enterKeyHint="search" autoComplete="off" className="glass min-h-14 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
+            <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("Type a restaurant's name")} enterKeyHint="search" autoComplete="off" className="glass min-h-14 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent" />
           </label>
           <ul className="mt-3 space-y-2">
             {others.slice(0, deferred.trim() ? 60 : 40).map((c) => {

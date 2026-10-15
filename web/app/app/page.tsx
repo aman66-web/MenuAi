@@ -44,7 +44,7 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
       </p>
       {target ? (
         <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
-          <div className="bg-sun h-full rounded-full transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${fraction * 100}%` }} />
+          <div className="h-full rounded-full bg-[var(--bar)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${fraction * 100}%` }} />
         </div>
       ) : null}
     </div>

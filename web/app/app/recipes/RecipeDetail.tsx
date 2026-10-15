@@ -186,7 +186,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
           <div className="@container mt-5">
             <p className="text-center text-sm font-bold text-muted">{t("Per serving")}</p>
             <div role="group" aria-label={nutrientAriaLabel(t("{name}, per serving", { name: rt(recipe.name) }), { calories: totals.perServing.kcal, protein: totals.perServing.protein, carbs: totals.perServing.carbs, fat: totals.perServing.fat }, t)} className="app-numbers mt-2 grid grid-cols-2 gap-2 @[19rem]:grid-cols-4">
-              <Chip value={formatInt(totals.perServing.kcal)} label="kcal" tone="bg-accent-soft ring-1 ring-inset ring-[color-mix(in_srgb,var(--accent)_25%,transparent)]" lead />
+              <Chip value={formatInt(totals.perServing.kcal)} label="kcal" tone="bg-accent-soft" lead />
               <Chip value={`${Math.round(totals.perServing.protein)} g`} label={t("protein")} tone="bg-[color-mix(in_srgb,var(--protein)_11%,transparent)]" dot="bg-protein" />
               <Chip value={`${Math.round(totals.perServing.carbs)} g`} label={t("carbs")} tone="bg-[color-mix(in_srgb,var(--carbs)_11%,transparent)]" dot="bg-carbs" />
               <Chip value={`${Math.round(totals.perServing.fat)} g`} label={t("fat")} tone="bg-[color-mix(in_srgb,var(--fat)_11%,transparent)]" dot="bg-fat" />

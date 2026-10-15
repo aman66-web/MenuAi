@@ -43,7 +43,7 @@ export default function TodayPage() {
           <div aria-hidden className="mb-5 flex items-center gap-4">
             <Ring id="today-preview" label="" fraction={0.68} size={92} stroke={10} />
             <div className="flex-1 space-y-3">
-              <div className="h-2.5 w-4/5 rounded-full bg-[var(--ring-track)]"><div className="bg-sun h-full w-3/5 rounded-full" /></div>
+              <div className="h-2.5 w-4/5 rounded-full bg-[var(--ring-track)]"><div className="h-full w-3/5 rounded-full bg-[var(--bar)]" /></div>
               <div className="h-2.5 w-3/5 rounded-full bg-[var(--ring-track)]"><div className="h-full w-2/5 rounded-full bg-protein" /></div>
               <div className="h-2.5 w-2/3 rounded-full bg-[var(--ring-track)]"><div className="h-full w-1/2 rounded-full bg-carbs" /></div>
             </div>
@@ -83,7 +83,7 @@ export default function TodayPage() {
               <div>
                 <p className="text-sm"><Rich text={t("{eaten} / {target} protein", { target: formatGrams(settings.dailyProtein) })} values={{ eaten: <span className="text-xl font-extrabold text-accent">{formatGrams(totals.protein)}</span> }} /></p>
                 <div className="mt-2 h-2 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={t("Protein")} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(proteinFraction * 100)}>
-                  <div className="bg-sun h-full rounded-full" style={{ width: `${proteinFraction * 100}%` }} />
+                  <div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${proteinFraction * 100}%` }} />
                 </div>
               </div>
             ) : (
@@ -101,7 +101,7 @@ export default function TodayPage() {
           {todays.map((e) => (
             <li key={e.id} className="flex items-start justify-between gap-2 px-5 py-4">
               <div className="min-w-0">
-                <p className="text-sm text-muted">{timeFormat.format(new Date(e.loggedAt))} · {e.chainName}</p>
+                <p className="text-sm text-muted">{timeFormat.format(new Date(e.loggedAt))}{e.chainName ? ` · ${e.chainName}` : ""}</p>
                 <p className="font-bold leading-snug tracking-tight">{e.name}</p>
                 <p className="app-numbers text-sm text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein ?? 0) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein ?? 0) })}</p>
               </div>

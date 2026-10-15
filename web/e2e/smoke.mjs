@@ -262,7 +262,7 @@ await step("no dark mode: a phone in dark mode still gets the light grey app", a
   await page.goto(`${BASE}/app/chain?id=bowl-and-co`);
   await visible(page.getByRole("heading", { name: "Bowl & Co." }));
   const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-  if (bg !== "rgb(242, 242, 242)") throw new Error(`page background in dark mode is ${bg}, not the app's grey`);
+  if (bg !== "rgb(244, 245, 246)") throw new Error(`page background in dark mode is ${bg}, not the app's grey`);
   await shot("16-chain-phone-in-dark-mode");
   await page.emulateMedia({ colorScheme: "light" });
 });

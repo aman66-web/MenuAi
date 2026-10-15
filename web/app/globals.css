@@ -40,20 +40,33 @@
   --protein: #059669;
   --carbs: #0284c7;
   --fat: #9333ea;
+  --bar: #34d399;
+  --fill: #f3f6f4;
   color-scheme: light;
 }
 
-/* The app's own surface (founder 2026-10-15, from their reference picture: "The background of the app should be light grey like the
-   colour here"): a flat light grey with the white cards on it, no green glow behind the page. Every /app screen renders inside
-   AppShell's .app-surface, so :has() sets these at the root and the page, sticky bars, fades and sheets all follow. The accent is a
-   shade darker here so green text keeps AA on the grey; --soft-strong is a shade darker so chips and tracks still show on it. The
-   heaviest headings are the reference's bold (700) rather than 800: one variable that Tailwind's font-extrabold reads. */
+/* The app's own surface (founder 2026-10-15, from their reference pictures: "The background of the app should be light grey like the
+   colour here", then "make the app look the cleanest you can"): the pictures' cool light grey with white cards on it, no glow behind
+   the page, flat pastel lime where the brand gradient was (buttons, selected marks, today), a deeper lime for bars and the calories
+   dial, soft neutral shadows and no coloured glows. Every /app screen renders inside AppShell's .app-surface, so :has() sets these at
+   the root and the page, sticky bars, fades and sheets all follow. The accent is a shade darker here so green text keeps AA on the grey
+   (5.9:1); --soft-strong is a shade darker so chips and tracks show on it; --fill is the light grey of a tile or button that sits on a
+   white card. The heaviest headings are the pictures' bold (700) rather than 800: one variable that Tailwind's font-extrabold reads. */
 :root:has(.app-surface) {
-  --background: #f2f2f2;
+  --background: #f4f5f6;
   --soft-strong: #e9ecea;
+  --fill: #f1f3f2;
+  --line: rgba(17, 24, 20, 0.08);
+  --tile: #ffffff;
   --accent: #046c4f;
+  --sun: #d6efa0;
+  --sun-text: linear-gradient(var(--accent), var(--accent));
+  --bar: #8cc63f;
   --mesh: none;
   --glow: none;
+  --brand-shadow: transparent;
+  --card-shadow: 0 1px 2px rgba(17, 24, 20, 0.04), 0 10px 24px -20px rgba(17, 24, 20, 0.18);
+  --shadow-lift: 0 2px 4px rgba(17, 24, 20, 0.05), 0 16px 32px -22px rgba(17, 24, 20, 0.28);
   --font-weight-extrabold: 700;
 }
 
@@ -104,13 +117,11 @@ p { text-wrap: pretty; }
    accent word in a heading is the heading's own sans, set apart by colour only. */
 .app-surface .kicker { font-family: var(--font-sans); font-style: normal; font-size: 0.8125rem; font-weight: 700; line-height: 1.35; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .app-surface .serif-em { font-family: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; }
-.sun-text { background: var(--sun-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.bg-sun { background: var(--sun); }
-.btn-sun { background: var(--sun); }
+/* Headings in one plain ink, like every one of the founder's reference pictures ("make the app look the cleanest you can", 2026-10-15):
+   an accent word in a heading no longer turns green (it is unlayered, so it beats .sun-text in the components layer). Big figures keep
+   the accent green, like the pictures' "0 / 2,800 kcal". */
+.app-surface .serif-em { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: inherit; }
 
-/* Surfaces */
-.glass { background: var(--soft); border: 1px solid var(--line); box-shadow: var(--card-shadow); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
-.glow-shadow { box-shadow: 0 10px 26px -10px var(--brand-shadow); }
 
 .prose-legal h2 { font-size: 1.15rem; font-weight: 700; margin: 2rem 0 0.5rem; letter-spacing: -0.01em; }
 .prose-legal p, .prose-legal li { color: var(--foreground); line-height: 1.7; margin: 0.5rem 0; }
@@ -136,20 +147,53 @@ p { text-wrap: pretty; }
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
 
-/* The one hero surface on a screen: a card lit by the same green glow as the page. */
-.hero-card {
-  position: relative;
-  background:
-    linear-gradient(150deg, rgba(134, 239, 172, 0.2), rgba(163, 230, 53, 0.06) 55%, transparent),
-    var(--soft);
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
-  box-shadow: var(--card-shadow);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-}
 
-/* A quieter surface for lists nested inside a card (no second blur, no second shadow). */
-.inset-card { background: var(--soft-strong); border: 1px solid var(--line); }
+/* Surfaces, in the components layer so a utility on the same element (a selected state, a hover colour, bg-white) wins over them. */
+@layer components {
+  .sun-text { background: var(--sun-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bg-sun { background: var(--sun); }
+  .btn-sun { background: var(--sun); }
+  .glass { background: var(--soft); border: 1px solid var(--line); box-shadow: var(--card-shadow); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .glow-shadow { box-shadow: 0 10px 26px -10px var(--brand-shadow); }
+
+  /* The one hero surface on a screen: a card lit by the same green glow as the page; it catches the light in one corner. */
+  .hero-card {
+    position: relative;
+    isolation: isolate;
+    background:
+      linear-gradient(150deg, rgba(134, 239, 172, 0.2), rgba(163, 230, 53, 0.06) 55%, transparent),
+      var(--soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
+    box-shadow: var(--card-shadow);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+  .hero-card::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: radial-gradient(80% 60% at 0% 0%, rgba(255, 255, 255, 0.5), transparent 60%); }
+
+  /* A quieter surface for lists nested inside a card (no second blur, no second shadow). */
+  .inset-card { background: var(--soft-strong); border: 1px solid var(--line); }
+
+  /* The brand gradient as a round icon badge (quick actions, empty states, list markers). */
+  .icon-bubble { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: var(--sun); color: var(--on-accent); box-shadow: 0 8px 18px -8px var(--brand-shadow), 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
+  .icon-bubble-soft { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: var(--accent-soft); color: var(--accent); }
+
+  /* A quiet tile inside a hero card (macro tiles, target figures). */
+  .tile { background: var(--tile); border: 1px solid var(--line); }
+
+  /* The app, cleaned up after the founder's reference pictures (2026-10-15: "make the app look the cleanest you can"): white cards with
+     no outline on the light grey page, flat colours instead of gradients and glows, and anything that sits on a white card (a tile, a
+     button, a chip) gets a light grey fill instead of an outline so it still shows. */
+  .app-surface .glass,
+  .app-surface .hero-card,
+  .app-surface .tile { border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .app-surface .hero-card { background: var(--soft); }
+  .app-surface .hero-card::after { display: none; }
+  .app-surface :is(.glass, .hero-card, .inset-card) :is(.glass, .tile) { background: var(--fill); box-shadow: none; }
+  .app-surface .inset-card { background: var(--fill); border-color: transparent; }
+  .app-surface .icon-bubble { box-shadow: none; }
+  .app-surface .icon-bubble-soft { background: var(--fill); color: var(--foreground); }
+  .app-surface :is(.glass, .hero-card, .inset-card) .icon-bubble-soft { background: var(--soft-strong); }
+}
 
 /* Horizontal chip rows scroll by touch; the scrollbar would only add noise. */
 .no-scrollbar { scrollbar-width: none; }
@@ -165,16 +209,6 @@ p { text-wrap: pretty; }
 @media (hover: hover) { .lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); } }
 .lift:active { transform: scale(0.985); }
 
-/* The brand gradient as a round icon badge (quick actions, empty states, list markers). */
-.icon-bubble { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: var(--sun); color: var(--on-accent); box-shadow: 0 8px 18px -8px var(--brand-shadow), 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
-.icon-bubble-soft { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: var(--accent-soft); color: var(--accent); }
-
-/* A quiet tile inside a hero card (macro tiles, target figures). */
-.tile { background: var(--tile); border: 1px solid var(--line); }
-
-/* Hero cards catch the light in one corner. */
-.hero-card { isolation: isolate; }
-.hero-card::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: radial-gradient(80% 60% at 0% 0%, rgba(255, 255, 255, 0.5), transparent 60%); }
 
 /* One hue per macro (labels only). */
 .dot { display: inline-block; height: 0.55rem; width: 0.55rem; border-radius: 9999px; flex-shrink: 0; }

@@ -91,7 +91,7 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
           )}
           <dl className="mt-4 grid grid-cols-3 gap-2">
             {macros.map(([label, value, lead, hue]) => (
-              <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft ring-1 ring-inset ring-[color-mix(in_srgb,var(--accent)_25%,transparent)]" : "tile"}`}>
+              <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft" : "tile"}`}>
                 <dt className="flex items-center gap-1.5 text-sm font-bold text-muted"><span aria-hidden className={`dot ${hue}`} />{label}</dt>
                 <dd className={value === undefined ? "text-base font-semibold italic text-muted" : `text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
               </div>

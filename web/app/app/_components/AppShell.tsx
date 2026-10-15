@@ -112,9 +112,11 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div key={pathname} className={animate ? "rise" : undefined}>{children}</div>
         </main>
         {!fullScreen && (
+          // A dark floating bar like the founder's reference pictures (2026-10-15), the open tab in the app's lime. Its words stay under the
+          // icons so everyone can read where each tab goes. Colours are fixed: the bar is the same on every screen.
           <nav
             aria-label={t("Main")}
-            className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[1.75rem] border border-line bg-[var(--nav-bg)] p-1.5 shadow-[0_1px_0_rgba(255,255,255,0.5)_inset,0_20px_44px_-18px_rgba(0,0,0,0.5)] backdrop-blur-2xl backdrop-saturate-150"
+            className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[2rem] bg-[#1d2320] p-1.5 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]"
           >
             <ul className="flex">
               {TABS.map(({ href, label, Icon, match }) => {
@@ -124,11 +126,11 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <Link
                       href={href}
                       aria-current={active ? "page" : undefined}
-                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-center text-[13px] font-bold leading-[1.1] transition-colors ${active ? "text-accent" : "text-muted hover:text-foreground"}`}
+                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[13px] font-semibold leading-[1.1] transition-colors focus-visible:outline-[#d6efa0] ${active ? "text-[#d6efa0]" : "text-[#c2c9c4] hover:text-white"}`}
                     >
                       <span
                         aria-hidden
-                        className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-all duration-300 ${active ? "bg-sun text-on-accent shadow-[0_6px_16px_-6px_var(--brand-shadow)]" : "group-hover:bg-soft-strong"}`}
+                        className={`inline-flex h-8 w-12 items-center justify-center rounded-full transition-all duration-300 ${active ? "bg-[#d6efa0] text-[#0b1a12]" : "group-hover:bg-white/10"}`}
                       >
                         <Icon className="h-5 w-5" />
                       </span>

@@ -36,4 +36,9 @@ build without `NEXT_PUBLIC_SHOW_SAMPLE_DATA` and `NEXT_PUBLIC_PRO`, start on por
 It checks that only real chains show, that every feature works with no paywall, that no screen or legal page mentions Pro, subscriptions,
 purchases or the AI recipe maker, and the honest empty state (with an empty manifest).
 
+`app-build.mjs` is for the **iPhone app's copy** (the static export packed inside the app), served the way the app serves it:
+`npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/app-build.mjs`.
+**`npm run build:app` also writes its working files into `.next`**, so it breaks a `npm start` server that is running from `.next`: run it
+last, never while another suite is running, and build the test copy again before starting the test server.
+
 Screenshots land in `e2e/shots/` (git-ignored).

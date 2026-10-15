@@ -101,10 +101,10 @@ export function ShopListScreen({ shop }: { shop: string }) {
       <label className="relative mt-4 block">
         <span className="sr-only">{t("Search {shop} products", { shop: file.name })}</span>
         <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search {shop} products", { shop: file.name })} enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent" />
+        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search {shop} products", { shop: file.name })} enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent" />
       </label>
 
-      <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5">
+      <div role="group" aria-label={t("Filters")} className="mt-3 flex flex-wrap gap-2">
         {unsuited && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
         {nutritionCount > 0 && <Chip selected={nutrition} onClick={() => { setNutrition((v) => !v); reset(); }}>{t("Has nutrition")}</Chip>}
         {hasCard && <Chip selected={card} onClick={() => { setCard((v) => !v); reset(); }}>{t("Has a card price")}</Chip>}

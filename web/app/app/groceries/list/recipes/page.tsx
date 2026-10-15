@@ -33,7 +33,7 @@ function MatchCard({ m, file }: { m: ListRecipe; file: ShopFile }) {
         </span>
         <ChevronRightIcon className="mt-1 h-5 w-5 shrink-0 text-muted" />
       </Link>
-      <div aria-hidden className="mt-3 h-2 overflow-hidden rounded-full bg-[var(--ring-track)]"><div className="bg-sun h-full rounded-full" style={{ width: `${(m.have.length / total) * 100}%` }} /></div>
+      <div aria-hidden className="mt-3 h-2 overflow-hidden rounded-full bg-[var(--ring-track)]"><div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${(m.have.length / total) * 100}%` }} /></div>
       <p className="sr-only">{t("On your list:")} {m.have.map(label).join(", ")}</p>
       <ul aria-hidden className="mt-3 flex flex-wrap gap-1.5">
         {m.have.map((i) => (<li key={i} className="inline-flex items-center gap-1 rounded-full bg-accent-soft px-3 py-1 text-sm font-semibold text-accent"><CheckIcon className="h-4 w-4" strokeWidth={3} />{label(i)}</li>))}

@@ -54,7 +54,6 @@ export function SectionTitle({ children, action }: { children: ReactNode; action
   return (
     <div className="mb-3 mt-10 flex items-baseline justify-between gap-3">
       <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight">
-        <span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />
         {children}
       </h2>
       {action}
@@ -111,10 +110,10 @@ export function Chip({ selected, children, onClick, className, segment, ...rest 
       className={cx(
         "inline-flex min-h-11 max-w-full shrink-0 items-center rounded-full border px-4 text-start text-base font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
         selected
-          ? "border-transparent bg-foreground text-background shadow-[0_6px_16px_-8px_rgba(0,0,0,0.45)]"
+          ? "border-transparent bg-foreground text-background"
           : segment
             ? "border-transparent text-muted hover:text-foreground"
-            : "border-line bg-soft text-foreground hover:bg-soft-strong",
+            : "border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] bg-transparent text-foreground hover:bg-soft-strong",
         className,
       )}
       {...rest}
@@ -182,7 +181,7 @@ export function Field({ label, hint, children }: { label: string; hint?: string;
 }
 
 export const inputClass =
-  "min-h-12 w-full rounded-2xl border border-line bg-soft px-4 text-base placeholder:text-muted focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent";
+  "min-h-12 w-full rounded-2xl border border-line bg-soft px-4 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent";
 
 // ---- bottom sheet on the native <dialog> element: focus trap, Escape and backdrop come for free ----
 

@@ -69,29 +69,30 @@ export default function EatOutPage() {
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">{t("Search restaurants and items")}</span>
         <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
-      <Link href="/app/map" className="hero-card lift group mt-3 flex min-h-[5.5rem] items-center gap-4 rounded-[1.75rem] p-4">
+      {/* The three cards end in the same round arrow; at the larger text sizes it steps aside so the words have room (the whole card is the link). */}
+      <Link href="/app/map" className="hero-card lift group @container mt-3 flex min-h-[5.5rem] items-center gap-4 rounded-[1.75rem] p-4">
         <span aria-hidden className="icon-bubble h-14 w-14 shrink-0 rounded-2xl"><PinIcon className="h-7 w-7" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("Near me")}</span>
           <span className="block text-base text-muted">{t("See the places to eat around you on a map.")}</span>
         </span>
-        <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
+        <span aria-hidden className="icon-bubble-soft hidden h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5 @[17rem]:inline-flex"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
-      <Link href="/app/eat-out/favourites" className="glass lift group mt-3 flex min-h-[4.75rem] items-center gap-4 rounded-[1.75rem] p-4 hover:bg-soft-strong">
+      <Link href="/app/eat-out/favourites" className="glass lift group @container mt-3 flex min-h-[4.75rem] items-center gap-4 rounded-[1.75rem] p-4 hover:bg-soft-strong">
         <span aria-hidden className="icon-bubble-soft h-12 w-12 shrink-0 rounded-2xl"><StarIcon filled={favoriteChains.length > 0} className="h-6 w-6" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("My favourite restaurants")}</span>
           <span className="block text-base text-muted">{favoriteChains.length === 0 ? t("Keep the places you go to here") : favoriteChains.length === 1 ? t("1 restaurant") : t("{n} restaurants", { n: favoriteChains.length })}</span>
         </span>
-        <ChevronRightIcon className="h-6 w-6 shrink-0 text-muted" />
+        <span aria-hidden className="icon-bubble-soft hidden h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5 @[17rem]:inline-flex"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
-      <Link href="/app/compare?tab=dish" className="glass lift group mt-3 flex min-h-[4.75rem] items-center gap-4 rounded-[1.75rem] p-4 hover:bg-soft-strong">
+      <Link href="/app/compare?tab=dish" className="glass lift group @container mt-3 flex min-h-[4.75rem] items-center gap-4 rounded-[1.75rem] p-4 hover:bg-soft-strong">
         <span aria-hidden className="icon-bubble-soft h-12 w-12 shrink-0 rounded-2xl"><CompareIcon className="h-6 w-6" /></span>
         <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
           <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("Compare dishes")}</span>
           <span className="block text-base text-muted">{t("Put dishes side by side, even from different restaurants")}</span>
         </span>
-        <ChevronRightIcon className="h-6 w-6 shrink-0 text-muted" />
+        <span aria-hidden className="icon-bubble-soft hidden h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5 @[17rem]:inline-flex"><ArrowRightIcon className="h-5 w-5" /></span>
       </Link>
 
       {SAMPLES_ENABLED && menu.chains.some((c) => c.sample) && (
@@ -115,7 +116,7 @@ export default function EatOutPage() {
       ) : (
         <>
           <div className="mb-1 mt-8 flex flex-wrap items-baseline justify-between gap-x-3">
-            <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight"><span aria-hidden className="bg-sun h-5 w-1.5 shrink-0 rounded-full" />{t("All restaurants")}</h2>
+            <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight">{t("All restaurants")}</h2>
             {realCount > 0 && <p className="app-numbers text-sm text-muted">{t("{n} UK restaurants", { n: realCount })}</p>}
           </div>
           {types.length > 1 && (
