@@ -1473,6 +1473,20 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     shows, sits inside the box, tap and Return both let go of the field, words stay; results stay under Compare's box; the clear button sits beside Done and still
     clears; the number boxes; Tab then Enter; Arabic; Extra large text, no sideways scroll; axe 0), tsc, lint; screenshots on a 390 px phone with touch.
 
+- 2026-10-15 (night) — **Compare is one side-by-side table** (founder, on the per-nutrient blocks: "I think like a side by side table works better instead").
+  The comparison under "Side by side" is now a single table instead of a block per nutrient with a row and a bar per item:
+  - **Columns** are the items you chose (its number, name and shop or restaurant at the top); **rows** are the nutrients: calories, protein, carbohydrate, of
+    which sugars, fat, of which saturates, fibre, salt, then for groceries the price per kg or litre and "Protein for £1", only the rows at least one item has.
+    The "of which" rows are indented under theirs.
+  - **Cells:** the figure in DM Mono with its unit smaller; **Highest** and **Lowest** in small capitals under it, words only and no colour or tint, so neither
+    reads as better (rule 3); a figure the label doesn't print says "not on the label" ("not published" for a dish). The bars are gone.
+  - **On a phone:** two items fit with no sideways scroll. With more, the item columns scroll sideways while the nutrient names stay in view (sticky), and the next
+    column peeking in shows there is more. The scrolling area can be reached with the keyboard; right to left (Arabic, Urdu) mirrors it.
+  - It is a real table (column and row headers) for screen readers. No new copy: every word was already in the app and translated.
+  - Checked: `e2e/compare.mjs` 4 steps (a column per item, a row per nutrient, "of which" order, Highest and Lowest once each, 53 g of protein for £1,
+    two items fit and three scroll with the names staying put, dishes, axe 0 in light and dark), the large-text test (no overflow at 100, 150 and 200%),
+    tsc, lint; screenshots with 2, 3 and 6 items, dishes, Extra large text and Arabic.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

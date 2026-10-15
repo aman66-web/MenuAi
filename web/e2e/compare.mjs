@@ -1,6 +1,7 @@
 // Compare (founder 2026-10-11: "compare various versions of products like beans to see the nutrient difference"): add products from the search and a dish
-// from its own page, see them side by side with Highest and Lowest marked, take one off, and the list stays after a reload. Grocery files are stubbed; dishes
-// come from the build's own sample menus (NEXT_PUBLIC_SHOW_SAMPLE_DATA=1).
+// from its own page, see them in one side-by-side table (a column per item, a row per nutrient; founder 2026-10-15: "a side by side table works better")
+// with Highest and Lowest marked, take one off, and the list stays after a reload. Grocery files are stubbed; dishes come from the build's own sample
+// menus (NEXT_PUBLIC_SHOW_SAMPLE_DATA=1).
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
@@ -40,10 +41,20 @@ await step("groceries: search, add three beans, see them side by side with Highe
   expect(await page.getByRole("button", { name: /^Added Corale/ }).isDisabled(), "an added product can't be added twice");
   await page.getByRole("heading", { name: "Side by side" }).waitFor();
   await page.getByText("Per 100 g, as each label prints it.").waitFor();
-  const kcal = page.locator("div.glass", { has: page.getByRole("heading", { level: 3, name: "Calories" }) });
-  expect((await kcal.innerText()).includes("65 kcal") && (await kcal.getByText("Lowest").count()) === 1 && (await kcal.getByText("Highest").count()) === 1, "calories marked once each");
-  const pound = page.locator("div.glass", { has: page.getByRole("heading", { level: 3, name: "Protein for £1" }) });
-  expect((await pound.innerText()).includes("53g"), `Corale: 4.9 g x 10 / £0.92 per kg = 53 g for £1, got ${await pound.innerText()}`);
+  const table = page.getByRole("table");
+  const rowOf = (name) => table.locator("tr", { has: page.getByRole("rowheader", { name, exact: true }) });
+  // a column per item (with the numbers 1 to 3) and a row per nutrient
+  expect((await table.getByRole("columnheader").count()) === 4, "a corner cell and one column per item");
+  const heads = await table.getByRole("columnheader").allInnerTexts();
+  expect(["Heinz Baked Beanz", "Corale Baked Beans", "Heinz Baked Beanz Reduced Sugar"].every((n) => heads.some((h) => h.includes(n))), "every item heads a column: " + heads.join(" | "));
+  const kcal = rowOf("Calories");
+  expect((await kcal.innerText()).replace(/\s+/g, " ").includes("65 kcal") && (await kcal.getByText("Lowest").count()) === 1 && (await kcal.getByText("Highest").count()) === 1, "calories marked once each: " + (await kcal.innerText()));
+  expect((await kcal.getByRole("cell").count()) === 3, "three figures in the calories row");
+  const pound = rowOf("Protein for £1");
+  expect(/53\s?g/.test(await pound.innerText()), `Corale: 4.9 g x 10 / £0.92 per kg = 53 g for £1, got ${await pound.innerText()}`);
+  // "of which" rows sit under their nutrient, in order
+  const names = await table.getByRole("rowheader").allInnerTexts();
+  expect(names.indexOf("of which sugars") === names.indexOf("Carbohydrate") + 1, "sugars under carbohydrate: " + names.join(", "));
   expect((await page.getByText(/\b(good|bad|healthy)\b/i).count()) === 0, "never good, bad or healthy");
   await page.getByRole("button", { name: "Remove Heinz Baked Beanz Reduced Sugar" }).click();
   await page.reload();
@@ -51,6 +62,32 @@ await step("groceries: search, add three beans, see them side by side with Highe
   expect((await page.getByRole("button", { name: /^Remove / }).count()) === 2, "two left after a reload");
   await page.getByRole("button", { name: "Remove Corale Baked Beans" }).click();
   await page.getByText("Add at least one more to see them side by side.").waitFor();
+  await ctx.close();
+});
+
+await step("the table fits two items on a phone with no sideways scroll, scrolls with three while the nutrient names stay in view, and the page itself never scrolls sideways", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/compare?tab=food");
+  await page.getByLabel("Add a product").fill("baked");
+  await page.getByRole("button", { name: /^Add Heinz Baked Beanz$/ }).click();
+  await page.getByRole("button", { name: /^Add Corale Baked Beans$/ }).click();
+  const region = page.getByRole("group", { name: "Per 100 g, as each label prints it." });
+  await region.waitFor();
+  const dims = () => region.evaluate((r) => [r.clientWidth, r.scrollWidth]);
+  const [cw, sw] = await dims();
+  expect(sw <= cw + 1, `two items fit: ${cw} / ${sw}`);
+  await page.getByRole("button", { name: /^Add Heinz Baked Beanz Reduced Sugar$/ }).click();
+  const [cw3, sw3] = await dims();
+  expect(sw3 > cw3, `three items scroll sideways: ${cw3} / ${sw3}`);
+  expect((await region.getAttribute("tabindex")) === "0", "the scrolling region can be reached with the keyboard");
+  // the nutrient names are sticky: scrolled to the end, the Calories label is still where it was
+  const label = page.getByRole("rowheader", { name: "Calories", exact: true });
+  const before = (await label.boundingBox()).x;
+  await region.evaluate((r) => { r.scrollLeft = r.scrollWidth; });
+  await page.waitForTimeout(200);
+  const after = (await label.boundingBox()).x;
+  expect(Math.abs(after - before) < 1, `the nutrient names stay put while columns scroll: ${before} -> ${after}`);
+  expect((await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)) <= 0, "the page never scrolls sideways");
   await ctx.close();
 });
 
@@ -66,8 +103,8 @@ await step("dishes: Compare on a dish's page, then another from the search; per 
   await page.getByRole("button", { name: /^Add Grilled chicken sandwich$/ }).click();
   await page.getByRole("heading", { name: "Side by side" }).waitFor();
   await page.getByText("Per serving, as each restaurant publishes it.").waitFor();
-  const kcal = page.locator("div.glass", { has: page.getByRole("heading", { level: 3, name: "Calories" }) });
-  expect((await kcal.innerText()).includes("440 kcal") && (await kcal.innerText()).includes("380 kcal"), "both dishes' calories");
+  const kcal = page.getByRole("table").locator("tr", { has: page.getByRole("rowheader", { name: "Calories", exact: true }) });
+  expect((await kcal.innerText()).replace(/\s+/g, " ").includes("440 kcal") && (await kcal.innerText()).replace(/\s+/g, " ").includes("380 kcal"), "both dishes' calories");
   await page.getByRole("tab", { name: /Groceries/ }).click();
   await page.getByText("Nothing to compare yet").waitFor();
   await ctx.close();

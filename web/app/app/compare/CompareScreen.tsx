@@ -20,10 +20,10 @@ import { menuClient } from "../_lib/menu";
 import { PhotoTile } from "../groceries/ProductPhoto";
 
 // Compare (founder 2026-10-11: "compare various versions of products like beans to see the nutrient difference ... stuff like this too"): groceries per
-// 100 g or ml, restaurant dishes per serving, never mixed. Each nutrient is one block with a bar per item, so it reads on a phone with up to six items;
-// "Highest" and "Lowest" are the only marks (CLAUDE.md rule 3: never good or bad).
-// Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): Home's compact title, white 20 px cards, each nutrient block
-// headed by a small spaced-capital label with the figures in DM Mono and thin lime bars, like Home's macro rows.
+// 100 g or ml, restaurant dishes per serving, never mixed. "Highest" and "Lowest" are the only marks (CLAUDE.md rule 3: never good or bad).
+// Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): Home's compact title and white 20 px cards, figures in DM Mono.
+// Layout (founder 2026-10-15, on the nutrient-by-nutrient blocks: "I think like a side by side table works better instead"): one table, a column per
+// item and a row per nutrient, the nutrient names kept in view (sticky) while the columns scroll sideways when there are more than fit.
 
 const TABS: ReadonlyArray<{ value: CompareKind; label: string }> = [
   { value: "food", label: "Groceries" },
@@ -37,11 +37,11 @@ const listClass = "glass divide-y divide-line overflow-hidden rounded-[1.25rem]"
 const rowClass = "@container flex min-h-20 items-center gap-3 px-3 py-3";
 const thumbClass = "hidden shrink-0 @[20rem]:block";
 
-function figure(row: CompareRow, v: number): string {
-  if (row.unit === "kcal") return `${Math.round(v).toLocaleString("en-GB")} kcal`;
-  if (row.unit === "£") return formatPrice(v);
-  const g = v >= 10 ? Math.round(v) : Math.round(v * 10) / 10;
-  return `${g}g`;
+/** A figure as its number and its unit, so the table can set the unit smaller ("91" "kcal", "4.9" "g", "£1.35" with none). */
+function figureParts(row: CompareRow, v: number): { n: string; unit: string } {
+  if (row.unit === "kcal") return { n: Math.round(v).toLocaleString("en-GB"), unit: "kcal" };
+  if (row.unit === "£") return { n: formatPrice(v), unit: "" };
+  return { n: String(v >= 10 ? Math.round(v) : Math.round(v * 10) / 10), unit: "g" };
 }
 
 export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
@@ -174,73 +174,60 @@ const Num = ({ n, small }: { n: number; small?: boolean }) => (
   <span aria-hidden className={`app-numbers grid shrink-0 place-items-center rounded-full bg-foreground font-[800] text-background ${small ? "h-6 w-6 text-[0.75rem]" : "h-7 w-7 text-[0.8125rem]"}`}>{n}</span>
 );
 
-/** A nutrient and the "of which" rows under it (sugars under carbohydrate, saturates under fat) go in one card. */
-function groupRows(rows: readonly CompareRow[]): CompareRow[][] {
-  const groups: CompareRow[][] = [];
-  for (const row of rows) {
-    const last = groups.at(-1);
-    if (row.sub && last) last.push(row);
-    else groups.push([row]);
-  }
-  return groups;
-}
-
 /**
- * One nutrient: a small spaced-capital label, then a row per item, like Home's macro rows: the item's number and full name, the figure in
- * DM Mono at the end with the "Highest" or "Lowest" mark in small grey capitals under it, and a thin bar under the row. Every bar in a
- * block spans the same width, so their lengths compare honestly.
+ * The comparison table: a column per item (its number, name and shop or restaurant) and a row per nutrient, the "of which" rows (sugars, saturates)
+ * indented under theirs. The figure is in DM Mono with its unit smaller; the highest and lowest of a row say so in small capitals under the figure
+ * (words only: neither is "better"). The nutrient names stay in view while the item columns scroll sideways, which they do once more than two fit
+ * on the screen.
  */
-function NutrientBlock({ row, items }: { row: CompareRow; items: readonly CompareItem[] }) {
-  const t = useT();
-  const max = Math.max(0, ...row.values.map((v) => v ?? 0));
-  return (
-    <div>
-      <h3 className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t(row.label)}</h3>
-      <ul className="mt-3.5 space-y-4">
-        {row.values.map((v, i) => {
-          const item = items[i]!;
-          const tag = row.highest.includes(i) ? t("Highest") : row.lowest.includes(i) ? t("Lowest") : null;
-          return (
-            <li key={item.key}>
-              <div className="flex items-start gap-2.5">
-                <Num n={i + 1} small />
-                <span className="min-w-0 flex-1 pt-0.5 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{item.kind === "dish" ? `${item.name} · ${item.from}` : item.name}</span>
-                {/* the figure, and the mark (if any) always right under it, so every row in a block lines up the same way */}
-                <span className="flex shrink-0 flex-col items-end gap-1 pt-[0.2rem] text-end">
-                  <span className="app-numbers font-mono text-[0.8125rem] font-normal leading-snug">{v === null ? <span className="font-sans text-muted">{item.kind === "dish" ? t("not published") : t("not on the label")}</span> : figure(row, v)}</span>
-                  {tag && <span className="whitespace-nowrap text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.12em] text-muted">{tag}</span>}
-                </span>
-              </div>
-              <span className="ms-[2.125rem] mt-2 block h-1 overflow-hidden rounded-full bg-[var(--ring-track)]">
-                {v !== null && max > 0 && <span className="block h-full rounded-full bg-[var(--bar)]" style={{ width: `${Math.max(2, (v / max) * 100)}%` }} />}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
 function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: CompareKind }) {
   const t = useT();
-  const groups = useMemo(() => groupRows(compareRows(items)), [items]);
+  const rows = useMemo(() => compareRows(items), [items]);
   const basis = kind === "dish" ? t("Per serving, as each restaurant publishes it.") : items.every((i) => i.basis === "ml") ? t("Per 100 ml, as each label prints it.") : t("Per 100 g, as each label prints it.");
   return (
     <section aria-labelledby="side-heading" className="mt-8">
       <h2 id="side-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Side by side")}</h2>
       <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{basis}</p>
       {kind === "food" && mixedBasis(items) && <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("Some of these labels are per 100 ml or for the cooked food, so compare those with care.")}</p>}
-      <div className="mt-3.5 space-y-3.5">
-        {groups.map((group) => (
-          <div key={group[0]!.id} className="glass rounded-[1.25rem] p-4">
-            {group.map((row, gi) => (
-              <div key={row.id} className={gi > 0 ? "mt-5 border-t border-line pt-4" : ""}>
-                <NutrientBlock row={row} items={items} />
-              </div>
-            ))}
-          </div>
-        ))}
+      <div className="glass mt-3.5 overflow-hidden rounded-[1.25rem]">
+        {/* focusable so the keyboard can scroll it sideways */}
+        <div role="group" aria-label={basis} tabIndex={0} className="overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent">
+          <table aria-labelledby="side-heading" className="w-full min-w-full border-separate border-spacing-0 text-start">
+            <thead>
+              <tr>
+                <th scope="col" className={`${labelCell} border-b-0 pb-3 pt-4`}><span className="sr-only">{t("Side by side")}</span></th>
+                {items.map((item, i) => (
+                  <th key={item.key} scope="col" className="min-w-[6.5rem] px-2.5 pb-3 pt-4 text-start align-top font-normal">
+                    <Num n={i + 1} small />
+                    <span className="mt-2 block text-[0.8125rem] font-bold leading-snug [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden [overflow-wrap:anywhere]">{item.name}</span>
+                    <span className="mt-0.5 block text-[0.75rem] leading-snug text-muted [overflow-wrap:anywhere]">{item.from}</span>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row.id}>
+                  <th scope="row" className={`${labelCell} border-t border-line ${row.sub ? "ps-5 font-medium text-muted" : "font-semibold"}`}>{t(row.label)}</th>
+                  {row.values.map((v, i) => {
+                    const tag = row.highest.includes(i) ? t("Highest") : row.lowest.includes(i) ? t("Lowest") : null;
+                    const f = v === null ? null : figureParts(row, v);
+                    return (
+                      <td key={items[i]!.key} className="border-t border-line px-2.5 py-3 align-top">
+                        {f ? (
+                          <span className="app-numbers font-mono text-base leading-none">{f.n}{f.unit && <span className="font-sans text-[0.75rem] text-muted"> {f.unit}</span>}</span>
+                        ) : (
+                          <span className="block text-[0.75rem] leading-snug text-muted">{items[i]!.kind === "dish" ? t("not published") : t("not on the label")}</span>
+                        )}
+                        {tag && <span className="mt-1.5 block text-[0.6875rem] font-semibold uppercase leading-tight tracking-[0.1em] text-muted">{tag}</span>}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       <p className="mt-5 text-[0.9375rem] leading-snug text-muted">
         {kind === "food"
@@ -250,6 +237,9 @@ function SideBySide({ items, kind }: { items: readonly CompareItem[]; kind: Comp
     </section>
   );
 }
+
+/** The nutrient names column: stays at the start while the item columns scroll under it. */
+const labelCell = "sticky start-0 z-10 w-[7.25rem] min-w-[7.25rem] max-w-[7.25rem] border-e border-line bg-white px-2.5 py-3 text-start align-top text-[0.8125rem] leading-snug [overflow-wrap:break-word]";
 
 function SearchBox({ value, onChange, label, placeholder }: { value: string; onChange: (v: string) => void; label: string; placeholder: string }) {
   const id = useId();
