@@ -8,11 +8,12 @@ import { nextToBuy } from "@/lib/mm/listRecipes";
 import { shoppingStore } from "@/lib/mm/stores";
 import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Button, EmptyIcon, EmptyState } from "../../_components/ui";
+import { Button, EmptyIcon, EmptyState, LinkButton } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useListPhotos } from "../../_lib/listPhotos";
 import { addMissing, useListRecipes } from "../../_lib/listRecipes";
+import { useShopManifest } from "../../_lib/shopProducts";
 import { Rich } from "../../_lib/Rich";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { BackLink, CARD, LABEL, PILL_INPUT, TITLE } from "../PageBits";
@@ -35,6 +36,9 @@ export default function ShoppingListPage() {
   const [suggestNote, setSuggestNote] = useState<string | null>(null);
   const { state, matches } = useListRecipes(list);
   const photosOf = useListPhotos(list);
+  const lists = useShopManifest();
+  /** Where "Add more from {shop}" goes: that shop's own list of products, or (a shop with no list) the page that asks which shop. */
+  const shopHref = (retailer: string) => (lists && !lists.retailers.some((r) => r.id === retailer) ? "/app/groceries" : `/app/groceries/shop?r=${encodeURIComponent(retailer)}`);
   const groups = new Map<string, ShoppingItem[]>();
   for (const i of list) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
   const ticked = list.filter((i) => i.done).length;
@@ -143,6 +147,15 @@ export default function ShoppingListPage() {
                       </li>
                     );
                   })}
+                  {/* as the last row of each shop's card, like "New reminder" at the foot of a list: more from the same shop (founder 2026-10-15) */}
+                  {retailer !== CUSTOM_RETAILER && (
+                    <li className="relative before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)]">
+                      <Link href={shopHref(retailer)} className="flex min-h-14 items-center gap-1.5 px-2 pe-3 transition hover:bg-[var(--fill)] active:bg-soft-strong">
+                        <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center"><span className="bg-sun inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full text-on-accent"><PlusIcon className="h-[15px] w-[15px]" strokeWidth={3} /></span></span>
+                        <span className="min-w-0 flex-1 py-2 text-base font-semibold leading-snug [overflow-wrap:anywhere]">{t("Add more from {shop}", { shop: groupName(retailer, t) })}</span>
+                      </Link>
+                    </li>
+                  )}
                 </ul>
                 {retailer !== CUSTOM_RETAILER && totals.priced > 0 && (
                   <p className="app-numbers mt-3 px-1 text-sm leading-relaxed text-muted">
@@ -161,7 +174,9 @@ export default function ShoppingListPage() {
               </section>
             );
           })}
-          <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5">
+          {/* and a way to another shop: the page that asks "Which shop?" */}
+          <LinkButton href="/app/groceries" variant="secondary" full className="mt-8 min-h-12"><BasketIcon className="h-5 w-5" />{[...groups.keys()].some((r) => r !== CUSTOM_RETAILER) ? t("Add from another shop") : t("Add products from a shop")}</LinkButton>
+          <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5">
             <Button className="min-h-12" onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
             <Button variant="secondary" className="min-h-12" onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
             {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { shoppingStore.update(withoutDone); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}

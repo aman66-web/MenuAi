@@ -1573,6 +1573,16 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     a picture from elsewhere never loaded, a taken-down shop on a device that knows the list and one that learns it later, the layout at 360 px, Extra large text and Arabic, ticking
     and quantity, axe 0), tsc, lint; screenshots at 390 px, 360 px and Extra large text.
 
+- 2026-10-15 (night) — **Shopping list: add more from the same shop, or from another** (founder, on a list holding one Asda product: "After they've added from a shop there is no
+  way to add a product from the same shop or choose a different shop"). The list only had a typing box; the way back to the shops was the Groceries tab.
+  - **"Add more from {shop}"** is the last row of each shop's card (a lime round + like a tick's place, like "New reminder" at the foot of a list). It opens that shop's own list of
+    products; a shop with no list of its own (Co-op today) goes to the page that asks "Which shop?" instead of an empty page. Typed-in items ("Any shop") have no such row.
+  - **"Add from another shop"** sits under the shops' cards (a white pill with the basket): it opens "Which shop?". When the list holds only typed-in items it reads
+    "Add products from a shop". An empty list is unchanged ("Browse groceries", "See recipes").
+  - Behaviour only (the shop rows are links, not items: ticks, quantities and "Remove ticked" count only items). **New copy (rule 8, logged here; translations follow):** "Add more from {shop}",
+    "Add from another shop", "Add products from a shop". Checked: `e2e/listadd.mjs` (7 steps: the row's place, target and address, adding a second product from the shop's own list and coming back,
+    two shops, typed-only, Co-op, an empty list, 360 px / Extra large text / Arabic, axe 0), `e2e/recipes.mjs` 14 (its list count now counts ticks, not rows), tsc, lint.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

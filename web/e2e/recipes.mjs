@@ -140,7 +140,7 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   await page.getByRole("link", { name: "See list" }).click();
   await page.getByRole("heading", { level: 1, name: "Shopping list" }).waitFor();
   const section = page.getByRole("region", { name: "Sainsbury's" });
-  expect((await section.locator("li").count()) === 6, "6 items on the list (not the cumin)");
+  expect((await section.getByRole("checkbox").count()) === 6, "6 items on the list (not the cumin)"); // the card's last row is "Add more from Sainsbury's", not an item
   await section.getByText(second).waitFor();
   await section.getByText(/for the items with a price, at Sainsbury's prices checked/).waitFor();
   await page.getByRole("heading", { name: "How to make it" }).count(); // not on this page; just making sure nothing threw
