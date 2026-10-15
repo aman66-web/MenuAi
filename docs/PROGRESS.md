@@ -1435,6 +1435,26 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     "I can't show recipes just now. You'll find them any time under Recipes.", and the new note "Left empty, protein, carbs and fat are worked out from your calories: about 20% from
     protein, 30% from fat and the rest from carbs. Type your own to change them." (replaces the carbs-and-fat note). No longer used: "Start".
 
+- 2026-10-15 (night) — **Find a restaurant by your numbers and allergies** (founder: "another way where you can input the macros like calories, protein and fat to filter the
+  restaurants, also a way to filter by allergies"). Eat out › "More ways to find a restaurant" now has **Your numbers**: four boxes (calories up to, protein at least, carbs up
+  to, fat up to; any can be left empty; "Use my meal numbers" fills them from the person's meal size) and **Allergies to avoid** (all 14); the list below becomes the restaurants
+  that have **at least one dish fitting every number and the person's diet and allergy settings** ("27 restaurants have dishes that fit", most dishes first, each row with how many
+  dishes fit and the highest-protein one as an example). It respects the type, Halal and Full-nutrition choices; Clear empties it. Tapping a restaurant opens its page with the same
+  numbers and allergies applied to that visit ("Your numbers: up to 500 kcal · 35 g+ protein · Show all dishes"). **How:** the pipeline now also writes **`menus-numbers.json`**
+  (calories, protein, carbs and fat of every item, columns in the search file's item order; docs/DATA.md "Numbers file"; schema, manifest, publish scripts and sample build updated;
+  639 KB, loaded only when someone types a number, verified against the manifest's SHA-256 and paired with the search file only if the item counts and every calorie figure agree).
+  The menu data was republished with `./scripts/publish_menus.sh --web-only`: only the manifest (new dataVersion and `numbers` entry) changed; every chain file and the search file are
+  byte-identical. Logic in `lib/mm/numbers.ts` (tests: `tests/numbers.test.ts`, including the real published files for all 238 chains). **Rules kept:** nothing is estimated (a dish with
+  no published figure for something you asked about doesn't count; calories-only chains are left out when protein, carbs or fat are asked for, and the page says so); a restaurant with no
+  allergen guide is left out while allergies are chosen, and says so; add-ons ("Add 8oz sirloin") are never counted; counts include sides and drinks, as the line under the list says;
+  the allergy caution line is the existing one. Not done: the iPhone app's native M1 menu bundle (`MenuMacros/Resources/Menus`) was not republished (the packed web app uses `web/public`).
+  New copy (rule 8, logged here; translations follow): "Your numbers", "Your numbers:", "Calories, up to", "Protein, at least (g)", "Carbs, up to (g)", "Fat, up to (g)",
+  "Type any of these to see the restaurants with dishes that fit. Leave the rest empty.", "Use my meal numbers", "Clear", "Finding restaurants…", "Couldn't load the numbers just now.",
+  "Restaurants that fit", "1 restaurant has dishes that fit", "{n} restaurants have dishes that fit", "1 dish fits", "{n} dishes fit", "No restaurant has a dish that fits all of that",
+  "Try a higher calorie limit, a lower protein or fewer allergies.", "Show more restaurants", "These count every item on a menu, sides and drinks included, as each restaurant publishes it.",
+  "Restaurants that publish calories only are left out when you ask for protein, carbs or fat.", "Restaurants that don't publish an allergen guide are left out while you have allergies chosen.",
+  "up to {n} kcal", "{n} g+ protein", "up to {n} g carbs", "up to {n} g fat".
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -1,5 +1,6 @@
 import { indexChain, type ChainIndex } from "./chain-index";
 import { tk } from "./i18n";
+import { buildNumbersIndex, type CompactNumbersChain, type NumbersIndex } from "./numbers";
 import { buildSearchIndex, buildSearchIndexFromCompact, type CompactSearchChain, type SearchIndex } from "./search";
 import type { Chain, Manifest, ManifestChain } from "./types";
 
@@ -26,6 +27,12 @@ export interface MenuState {
   searchIndex: SearchIndex;
   /** True once the compact search file has been loaded: search then covers every chain without loading their menus. */
   searchReady: boolean;
+  /**
+   * The numbers file, paired with the compact search index (lib/mm/numbers.ts), once somebody asks for it ("Find a restaurant by my numbers").
+   * "unavailable" = this source has none, it couldn't be fetched or verified, or search fell back to loading whole menus.
+   */
+  numbers: NumbersIndex | null;
+  numbersStatus: "idle" | "loading" | "ready" | "unavailable";
   error?: string;
 }
 
@@ -49,13 +56,15 @@ const EMPTY_SEARCH = buildSearchIndex([]);
 const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name, "en-US");
 
 export class MenuClient {
-  private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false };
+  private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false, numbers: null, numbersStatus: "idle" };
   private listeners = new Set<() => void>();
   private manifestPromise: Promise<void> | null = null;
   private chainPromises = new Map<string, Promise<ChainIndex>>();
   private allPromise: Promise<void> | null = null;
   private searchPromise: Promise<void> | null = null;
   private searchEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
+  private numbersEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
+  private numbersPromise: Promise<void> | null = null;
 
   constructor(private opts: MenuClientOptions) {}
 
@@ -100,12 +109,14 @@ export class MenuClient {
     const results = await Promise.all(this.opts.sources.map(async (s) => [s, await this.fetchManifest(s)] as const));
     const merged = new Map<string, CatalogChain>();
     const searchEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
+    const numbersEntries: Array<{ baseUrl: string; file: string; sha256: string }> = [];
     let dataVersion: number | null = null;
     let unreachable = false;
     for (const [source, manifest] of results) {
       if (manifest === "unreachable") unreachable = true;
       if (typeof manifest === "string") continue;
       if (manifest.search) searchEntries.push({ baseUrl: source.baseUrl, ...manifest.search });
+      if (manifest.numbers) numbersEntries.push({ baseUrl: source.baseUrl, ...manifest.numbers });
       let contributed = false;
       for (const c of manifest.chains) {
         if (c.sample && !this.opts.includeSamples) continue; // samples never show unless explicitly enabled
@@ -133,6 +144,14 @@ export class MenuClient {
         this.compactIndex = null;
       }
       this.searchEntries = searchEntries;
+    }
+    // ...and the numbers paired with it
+    if (JSON.stringify(numbersEntries) !== JSON.stringify(this.numbersEntries)) {
+      if (this.numbersEntries.length > 0) {
+        this.numbersPromise = null;
+        this.set({ numbers: null, numbersStatus: "idle" });
+      }
+      this.numbersEntries = numbersEntries;
     }
     this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, error: undefined, searchReady: this.compactIndex !== null, ...(this.compactIndex ? { searchIndex: this.compactIndex } : {}) });
   }
@@ -231,6 +250,59 @@ export class MenuClient {
     this.set({ searchIndex: this.compactIndex, searchReady: true });
   }
 
+  /**
+   * Load the numbers file (calories, protein, carbs and fat of every item) and pair it with the compact search index, for "Find a restaurant by
+   * my numbers". Needs the compact search index (the numbers are listed in its order); without one, or when the file can't be fetched or
+   * verified, the state says "unavailable" and the caller says so: nothing is estimated and nothing else depends on it.
+   */
+  ensureNumbers(): Promise<void> {
+    this.numbersPromise ??= this.loadNumbers();
+    return this.numbersPromise;
+  }
+
+  private async loadNumbers(): Promise<void> {
+    this.set({ numbersStatus: "loading" });
+    await this.ensureSearch();
+    const compact = this.compactIndex;
+    if (!compact || this.numbersEntries.length === 0) {
+      this.numbersPromise = null; // a later visit may find the search file
+      this.set({ numbersStatus: "unavailable" });
+      return;
+    }
+    const catalog = new Map(this.state.chains.map((c) => [c.id, c]));
+    const taken = new Set<string>();
+    const chains: CompactNumbersChain[] = [];
+    const loaded = new Set<string>();
+    for (const entry of this.numbersEntries) {
+      try {
+        const res = await this.opts.fetch(entry.baseUrl + entry.file);
+        if (!res.ok) throw new MenuLoadError("numbers unavailable");
+        const bytes = await res.arrayBuffer();
+        const digest = this.opts.sha256 === undefined ? await safeDigest(bytes) : this.opts.sha256 ? await this.opts.sha256(bytes) : null;
+        if (digest !== null && digest !== entry.sha256) throw new MenuLoadError("numbers file does not match the manifest");
+        const doc = JSON.parse(new TextDecoder().decode(bytes)) as { schemaVersion: number; chains: CompactNumbersChain[] };
+        if (doc.schemaVersion !== SUPPORTED_SCHEMA_VERSION) throw new MenuLoadError("numbers file needs a newer version of the app");
+        for (const c of doc.chains) {
+          const listed = catalog.get(c.id);
+          if (!listed || listed.baseUrl !== entry.baseUrl || taken.has(c.id)) continue;
+          taken.add(c.id);
+          chains.push(c);
+        }
+        loaded.add(entry.baseUrl);
+      } catch {
+        // this source's numbers are missing: checked below
+      }
+    }
+    // every source that lists chains must have given its numbers: a list built from some of them would quietly leave restaurants out
+    const complete = [...new Set(this.state.chains.map((c) => c.baseUrl))].every((b) => loaded.has(b));
+    if (!complete || chains.length === 0) {
+      this.numbersPromise = null;
+      this.set({ numbersStatus: "unavailable" });
+      return;
+    }
+    this.set({ numbers: buildNumbersIndex(chains, compact), numbersStatus: "ready" });
+  }
+
   /** Background-load every chain so item search covers the whole menu set. Failures are ignored (works offline). */
   loadAll(): Promise<void> {
     this.allPromise ??= (async () => {
@@ -251,9 +323,10 @@ export class MenuClient {
     this.manifestPromise = null;
     this.allPromise = null;
     this.searchPromise = null;
+    this.numbersPromise = null;
     this.compactIndex = null;
     this.chainPromises.clear();
-    this.set({ indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false });
+    this.set({ indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false, numbers: null, numbersStatus: "idle" });
   }
 }
 

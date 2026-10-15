@@ -60,6 +60,18 @@ export function useChain(id: string): { status: ChainStatus; index?: ChainIndex;
   return { status: "loading", retry };
 }
 
+/**
+ * The numbers of every dish (calories, protein, carbs, fat) paired with the search index, for finding restaurants by numbers. Loaded only when
+ * `enabled` (somebody typed a number), so Eat out stays light for everyone else.
+ */
+export function useNumbers(enabled: boolean) {
+  const state = useMenu();
+  useEffect(() => {
+    if (enabled) void menuClient.ensureNumbers();
+  }, [enabled]);
+  return { searchIndex: state.searchIndex, searchReady: state.searchReady, numbers: state.numbers, status: state.numbersStatus };
+}
+
 /** Search index over every chain: one small compact file (or, as a fallback, each menu loaded in the background). */
 export function useSearchIndex() {
   const state = useMenu();

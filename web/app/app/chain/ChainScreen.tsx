@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { formatDate } from "@/lib/mm/format";
 import { anyDietFilter, filterCaution, filterItems, groupByCategory, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
+import { allergensFromParams, fitsLimits, hasLimits, limitsFromParams, limitWords, type NumberLimits } from "@/lib/mm/numbers";
 import { itemHref } from "@/lib/mm/routes";
 import { settingsStore, favoritesStore, recentStore, toggleFavorite } from "@/lib/mm/stores";
 import { recentFor } from "@/lib/mm/recent";
-import type { Meal, MenuItem, Preferences } from "@/lib/mm/types";
+import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
 import { DietPicker, dietWords } from "../_components/DietPicker";
 import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
@@ -66,7 +68,15 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const isFavorite = favorites.some((f) => f.chainId === chain.id);
 
   const [meal, setMeal] = useState<Meal>(() => mealSlotFor(new Date()));
-  const [prefs, setPrefs] = useState<Preferences>(() => settingsStore.get().preferences);
+  // Opened from Eat out's "find a restaurant by my numbers": the numbers and allergies typed there arrive in the link and apply to this visit only.
+  const link = useSearchParams();
+  const [limits, setLimits] = useState<NumberLimits>(() => limitsFromParams(link));
+  const [prefs, setPrefs] = useState<Preferences>(() => {
+    const saved = settingsStore.get().preferences;
+    const fromLink = allergensFromParams(link);
+    if (fromLink.length === 0) return saved;
+    return { ...saved, avoidAllergens: ALLERGEN_KEYS.filter((k) => (saved.avoidAllergens ?? []).includes(k) || fromLink.includes(k)) };
+  });
   const [sort, setSort] = useState<SortKind>("menu");
   const [query, setQuery] = useState("");
   const [halalOpen, setHalalOpen] = useState(false);
@@ -80,13 +90,14 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 
   const searching = query.trim().length > 0;
   const filtered = useMemo(() => filterItems(chain.items, prefs), [chain.items, prefs]);
-  const visible = useMemo(() => sortItems(searchItems(filtered, query), sort), [filtered, query, sort]);
+  const fitting = useMemo(() => (hasLimits(limits) ? filtered.filter((i) => fitsLimits(i, limits)) : filtered), [filtered, limits]);
+  const visible = useMemo(() => sortItems(searchItems(fitting, query), sort), [fitting, query, sort]);
   const grouped = sort === "menu";
   const sections = useMemo(() => (grouped ? groupByCategory(chain, visible) : [{ category: "", items: visible }]), [chain, visible, grouped]);
   const large = chain.items.length > LARGE_MENU_ITEMS;
   const caloriesOnly = chain.nutritionLevel === "calories";
-  const clearFilters = () => setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false, ...(prefs.halalOnly ? { halalOnly: true } : {}) });
-  const anyFilter = anyDietFilter(prefs);
+  const clearFilters = () => { setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false, ...(prefs.halalOnly ? { halalOnly: true } : {}) }); setLimits({}); };
+  const anyFilter = anyDietFilter(prefs) || hasLimits(limits);
   const caution = filterCaution(prefs, t);
   const showCategoryChips = grouped && !searching && sections.length > 1;
 
@@ -197,6 +208,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           <p className="min-w-0 flex-1 basis-40 text-[0.9375rem] leading-snug"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
           <Button variant="secondary" aria-haspopup="dialog" onClick={() => setDietOpen(true)}>{t("Change")}</Button>
         </div>
+        {hasLimits(limits) && (
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <p className="min-w-0 flex-1 basis-40 text-[0.9375rem] leading-snug"><span className="font-bold">{t("Your numbers:")}</span> {limitWords(limits, t).join(" · ")}</p>
+            <Button variant="secondary" onClick={() => setLimits({})}>{t("Show all dishes")}</Button>
+          </div>
+        )}
         {caution && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{caution}</p>}
         {prefs.halalOnly && !halal && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
         {avoiding > 0 && !hasAllergenData && (

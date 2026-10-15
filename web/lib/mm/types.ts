@@ -150,6 +150,8 @@ export interface Manifest {
   chains: ManifestChain[];
   /** The compact search index (docs/DATA.md); absent in older manifests. */
   search?: { file: string; sha256: string };
+  /** The numbers file (calories, protein, carbs and fat of every item, in the search file's order) for finding restaurants by numbers; absent in older manifests. */
+  numbers?: { file: string; sha256: string };
 }
 
 // ---- user-facing settings types (SPEC §5, §6)

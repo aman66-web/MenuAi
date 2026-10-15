@@ -185,6 +185,31 @@ describe("MenuClient", () => {
       expect(c.getSnapshot().searchReady).toBe(false);
       expect(c.getSnapshot().indexes.size).toBe(2);
     });
+    it("loads the numbers file once, verified, and pairs it with the search index", async () => {
+      const { fetchFn, hits } = cdn();
+      const c = client(fetchFn);
+      expect(c.getSnapshot().numbersStatus).toBe("idle");
+      await c.ensureNumbers();
+      await c.ensureNumbers();
+      const s = c.getSnapshot();
+      expect(s.numbersStatus).toBe("ready");
+      expect([...s.numbers!.keys()].sort()).toEqual(["bowl-and-co", "cluck-house"]);
+      expect(hits.filter((h) => h.endsWith("menus-numbers.json"))).toHaveLength(1);
+      expect(hits.filter((h) => /chain-.*\.json$/.test(h))).toHaveLength(0);
+    });
+    it("says the numbers are unavailable when the file is missing, doesn't match the manifest, or search fell back to whole menus", async () => {
+      const missing = client(cdn({ "/menus-sample/menus-numbers.json": null }).fetchFn);
+      await missing.ensureNumbers();
+      expect(missing.getSnapshot().numbersStatus).toBe("unavailable");
+      expect(missing.getSnapshot().numbers).toBeNull();
+      const real = readFileSync(samples + "menus-numbers.json", "utf8");
+      const tampered = client(cdn({ "/menus-sample/menus-numbers.json": real.replace("[", "[0,") }).fetchFn);
+      await tampered.ensureNumbers();
+      expect(tampered.getSnapshot().numbersStatus).toBe("unavailable");
+      const noSearch = client(cdn({ "/menus-sample/menus-search.json": null }).fetchFn);
+      await noSearch.ensureNumbers();
+      expect(noSearch.getSnapshot().numbersStatus).toBe("unavailable");
+    });
     it("ignores sample chains in the search file unless samples are enabled", async () => {
       const c = client(cdn().fetchFn, false);
       await c.ensureSearch();

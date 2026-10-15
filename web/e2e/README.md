@@ -23,6 +23,7 @@ node largetext.mjs                                # no horizontal overflow at 10
 node share.mjs                                    # share card downloads as a 1080×1350 PNG
 node browse.mjs                                   # Home browse by type + A-Z jump, long-menu search/section chips, filter caution, recent searches
 node calories.mjs                                  # chains that publish calories only: badge, filter, "not published", no ordering tools (stubbed chain)
+node numbers.mjs                                   # Eat out: find a restaurant by calories, protein, carbs, fat and allergies; the restaurant opens with them applied; numbers file missing; axe, 200% text
 node map.mjs                                      # Nearby: location, typed postcode/town, filters, list; checks the location never appears in a request
 node groceries-photos.mjs                          # grocery photos: stored copy -> shop's picture -> "no photo", credited to the shop; Open Food Facts never asked
 node account.mjs                                  # sign-in and sync: email code, two phones syncing through a fake backend that uses the real merge rules, offline, sign out, delete, welcome link, axe

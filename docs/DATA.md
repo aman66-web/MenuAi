@@ -266,6 +266,13 @@ vegetarian tag, `p` = contains_pork, `b` = contains_beef, `n` = the name or menu
 item's contains-or-may-contain allergens as a base-36 bit mask (bit i = the i-th allergen in the order of the allergen list above),
 present only when the item has allergen information. It lets search apply the diet settings without downloading every menu.
 
+Numbers file (`menus-numbers.json`, listed in the manifest as `numbers` with its own `sha256`; added 2026-10-15 for "find a restaurant by my
+numbers"): `{ "schemaVersion": 1, "chains": [ { "id", "k": [calories], "p": [protein], "c": [carbohydrate], "f": [fat] } ] }`. Each column has one
+value per item of that chain **in exactly the order of the chain's items in the search file** (a calories-only chain has `null` for `p`, `c` and `f`).
+It is built from the chain files just written, like the search file, and the app pairs it with the search file by position only after checking that
+the item count and every `k` agree with the search file's calories (a numbers file that doesn't belong to the search file is never used). The app
+loads it only when someone types a number on Eat out; without it (older manifests, a failed download) that screen says so.
+
 Manifest:
 
 ```json

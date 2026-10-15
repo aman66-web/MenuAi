@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261012085056,
- "generatedAt": "2026-10-12T08:50:56Z",
+ "dataVersion": 20261015183156,
+ "generatedAt": "2026-10-15T18:31:56Z",
  "chains": [
   {
    "id": "abokado",
@@ -2743,5 +2743,9 @@
  "search": {
   "file": "menus-search.json",
   "sha256": "6b919c5793ed10095b665461f26cc61030ce9512f11e9575649dd76c999a1f0e"
+ },
+ "numbers": {
+  "file": "menus-numbers.json",
+  "sha256": "1be9944a5a46abfec647b2d83175ab83a71378d8b23450f48d880b9588c20786"
  }
 }
