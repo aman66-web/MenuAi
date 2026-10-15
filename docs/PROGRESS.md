@@ -1553,6 +1553,26 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     "Try a higher calorie limit, a lower protein or fewer allergies." is shown whatever was typed; restaurants whose numbers didn't line up are skipped without a note; the first recipe tap in
     onboarding drops a shared link's destination; the finder's example dish with no protein limit is the lowest-calorie item.
 
+- 2026-10-15 (night) — **Pictures on the Shopping list** (founder, on a Tesco item "Abra Ca Debora Sweet Pancakes" with no picture: "The image should be next to it too").
+  - **The row:** the round tick, then the product's picture (56 px, the same picture the shop's list and product page show), then the name and price, with the quantity
+    (− 1 +) underneath at the end. The quantity moved under the text so a long name keeps its width beside the picture (at 390 px the old one-line row would have left a
+    name about 100 px). The picture opens the product too (the name beside it is the link a screen reader and the keyboard use). A typed-in item ("Milk") and a product whose
+    shop shows no picture get a quiet basket tile, so the rows line up.
+  - **New items keep their picture** (`ShoppingItem.photo`, one place a picture can come from: our stored copy of a shop's photo, the shop's own picture on its own image
+    server, or the Open Food Facts front photo of that barcode): every way of adding a product stores it (a shop's full list, a product page, a recipe's "Add all", "You might
+    also need"), so the list shows it at once and reads no list of products. Adding the same product again gives an older item the picture it lacks.
+  - **Items added before** (the founder's current list) have none, so the list **looks it up** in the shop's own list by the shop's product id, or in the barcode catalogue
+    by the barcode (`app/app/_lib/listPhotos.ts`). Only the shops that have such an item are loaded (kept for the session, and by the service worker for offline), nothing
+    is written back to the list, and when every item carries its picture nothing is read.
+  - **Checked every time it is read back** (`validPhoto`, `lib/mm/groceries.ts`): it comes from this phone's storage and from the sync server, so only the three kinds above
+    pass, on https, with no other host, port, login in the address or look-alike host (`PHOTO_HOSTS`, the same list the shops' lists use; a test runs every picture of all nine
+    shops' lists and the barcode catalogue through it, so no shop silently loses pictures). A bad picture is dropped, the item stays, nothing is loaded from there.
+  - **Taken-down shops** (`public/logos/hidden.json`) show none of their pictures here either, also when the list reaches the device after the page has opened.
+  - Looks and behaviour only. **No new copy.** Checked: `tests/listPhotos.test.ts` (10: accepted and refused pictures, the sanitiser, adding again, taken-down shops, every published picture),
+    `e2e/listphotos.mjs` (11 steps: a lookup for an older item and nothing written back, a kept picture and no list read, a typed item, adding from a shop's list, a product page and a recipe,
+    a picture from elsewhere never loaded, a taken-down shop on a device that knows the list and one that learns it later, the layout at 360 px, Extra large text and Arabic, ticking
+    and quantity, axe 0), tsc, lint; screenshots at 390 px, 360 px and Extra large text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

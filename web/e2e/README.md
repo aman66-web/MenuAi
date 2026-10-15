@@ -25,6 +25,8 @@ node browse.mjs                                   # Home browse by type + A-Z ju
 node calories.mjs                                  # chains that publish calories only: badge, filter, "not published", no ordering tools (stubbed chain)
 node numbers.mjs                                   # Eat out: find a restaurant by calories, protein, carbs, fat and allergies; the restaurant opens with them applied; numbers file missing; axe, 200% text
 node done.mjs                                      # a Done button for the keyboard: in every search box while it is in use, inside Eat out's number boxes; tap, Return key, Tab, clear button beside it, RTL, 200% text, axe
+node addfood.mjs                                   # Home's + on a meal opens the Add food sheet: type numbers, a recipe, a restaurant meal or saved meal, a supermarket product by weight (scan too); the entry stays in the meal tapped, Undo, calories-only restaurants left out, RTL, 200% text, axe (needs the test build: a free person gets the paywall)
+node listphotos.mjs                                # Shopping list: each product's picture beside it (kept when added, looked up for older items), checked on the way in, taken-down shops, 360 px / 200% text / RTL, axe
 node map.mjs                                      # Nearby: location, typed postcode/town, filters, list; checks the location never appears in a request
 node groceries-photos.mjs                          # grocery photos: stored copy -> shop's picture -> "no photo", credited to the shop; Open Food Facts never asked
 node account.mjs                                  # sign-in and sync: email code, two phones syncing through a fake backend that uses the real merge rules, offline, sign out, delete, welcome link, axe
