@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { cleanText } from "../lib/mm/aiRecipe";
-import { PANTRY } from "../lib/mm/pantry";
+import { EVERYDAY_KINDS, PANTRY } from "../lib/mm/pantry";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { fitRecipe, isMeatFree, recipeForDiet, recipeTotals, resolveRecipe, MEAL_TYPES } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -45,6 +45,14 @@ describe("the recipe book", () => {
   it("has unique ids and names", () => {
     expect(new Set(RECIPES.map((r) => r.id)).size).toBe(RECIPES.length);
     expect(new Set(RECIPES.map((r) => r.name.toLowerCase())).size).toBe(RECIPES.length);
+  });
+
+  // founder 2026-10-15: every ingredient can be picked up at a small shop (a Tesco Express, a Sainsbury's Local), not only a big one.
+  // Substitutes may be any pantry kind: they are only offered as alternatives.
+  it("uses only everyday ingredients that nearly every small shop sells", () => {
+    expect([...EVERYDAY_KINDS].filter((k) => !PANTRY.has(k)), "everyday kinds that aren't in the pantry").toEqual([]);
+    const other = RECIPES.flatMap((r) => r.ingredients.filter((i) => !EVERYDAY_KINDS.has(i.pantry ?? "")).map((i) => `${r.id}: ${i.pantry ?? i.key}`));
+    expect(other).toEqual([]);
   });
 
   for (const r of RECIPES) {

@@ -14,7 +14,7 @@ import { SNACKS } from "./snacks";
 //   "high-protein", "low-calorie"...), and no step gives a nutrition figure or a price;
 // - say how to tell food is cooked: chicken, pork and mince until piping hot with no pink left, fish until it flakes easily, eggs until set;
 // - amounts are for the whole recipe, as weighed before cooking (dry pasta and rice, drained tins); servings 1 to 6;
-// - fresh vegetables, herbs, spices, garlic, onions, lemon and a little oil go in "extras" (not counted: the shop's pages don't give their
-//   numbers yet); everything counted is a pantry kind.
+// - every ingredient is a pantry kind, down to the pinch of salt (listed, priced and counted), and an everyday one (EVERYDAY_KINDS in
+//   lib/mm/pantry.ts): something nearly every small convenience shop sells, so a Tesco Express or a Sainsbury's Local has it too.
 
 export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...DINNER_WORLD, ...DINNER_HOME, ...SNACKS];
