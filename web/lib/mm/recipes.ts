@@ -469,6 +469,25 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
   return { recipe: fitted, resolved, totals, changed: ingredients.some((x, i) => x.amount !== recipe.ingredients[i]!.amount) };
 }
 
+/**
+ * The recipe for a different number of people (the − / + on a recipe page): every amount times servings ÷ the recipe's own, rounded the way
+ * fitting rounds them (pieces to whole pieces, grams and millilitres to 5, small amounts such as a pinch of spice to the nearest 1, never
+ * below 1). A serving's figures stay as they were, give or take the rounding; the packs to buy follow the new amounts. 1 to 12 people.
+ */
+export function scaleServings(recipe: Recipe, servings: number): Recipe {
+  const n = Math.max(1, Math.min(12, Math.round(servings)));
+  if (n === recipe.servings) return recipe;
+  const f = n / recipe.servings;
+  const ingredients = recipe.ingredients.map((spec) => {
+    const k = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
+    const raw = spec.amount * f;
+    const amount = k?.pieceGrams ? Math.max(1, Math.round(raw / k.pieceGrams)) * k.pieceGrams : raw < 20 ? Math.max(1, Math.round(raw)) : round5(raw);
+    const note = pieceNote(spec, amount);
+    return { ...spec, amount, ...(note ? { note } : {}) };
+  });
+  return { ...recipe, servings: n, ingredients };
+}
+
 /** How far a serving is from the target (0 = spot on): used to put the closest recipes first. */
 export function fitDistance(t: RecipeTotals["perServing"], target: MealTarget): number {
   let d = Math.abs(t.kcal / target.kcal - 1);

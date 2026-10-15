@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { CORE } from "../lib/mm/recipeBook/core";
-import { candidates, drainedSize, fitRecipe, isMeatFree, isQuick, isVegan, mealSizes, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
+import { candidates, drainedSize, fitRecipe, isMeatFree, isQuick, isVegan, mealSizes, scaleServings, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
 import { mealTargetFor } from "../lib/mm/mealTarget";
 import { pantryForDiet } from "../lib/mm/pantry";
 import { addToList, itemCode, listAsText, listTotals, sanitizeShoppingList, setQty } from "../lib/mm/groceries";
@@ -278,6 +278,23 @@ describe("recipes for a diet", () => {
       expect(r.complete, id).toBe(true);
       expect(r.picks[0]!.product.name.toLowerCase(), id).toContain("halal");
     }
+  });
+  it("scales a recipe to more or fewer people: amounts follow, a serving stays the same, eggs stay whole", () => {
+    const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
+    const curry = byId("chicken-curry");
+    const two = scaleServings(curry, curry.servings / 2);
+    expect(two.servings).toBe(curry.servings / 2);
+    expect(two.ingredients[0]!.amount).toBe(Math.round(curry.ingredients[0]!.amount / 2 / 5) * 5);
+    expect(two.ingredients.every((i) => i.amount >= 1)).toBe(true);
+    const before = recipeTotals(resolveRecipe(curry, products))!;
+    const after = recipeTotals(resolveRecipe(two, products))!;
+    expect(Math.abs(after.perServing.kcal / before.perServing.kcal - 1)).toBeLessThan(0.08);
+    expect(scaleServings(curry, curry.servings)).toBe(curry);
+    expect(scaleServings(curry, 40).servings).toBe(12);
+    expect(scaleServings(curry, 0).servings).toBe(1);
+    const eggs = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "eggs"))!;
+    const egg = scaleServings(eggs, eggs.servings + 1).ingredients.find((i) => i.pantry === "eggs")!;
+    expect(egg.note).toMatch(/^about \d+ eggs?$/);
   });
   it("every main recipe fits a 600 kcal, 45 g protein meal at Sainsbury's within reach", () => {
     const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));

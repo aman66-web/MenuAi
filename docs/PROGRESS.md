@@ -1200,6 +1200,25 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - prodmode 9, app-build 8;
   - every screen in light and dark, and extra-large text on the busiest screens.
 
+- 2026-10-14 — **New recipe page (founder's reference picture of a "Chicken Curry" page: "make the recipe pages look amazing like this").**
+  Top to bottom:
+  - **Picture:** runs to the edges and under the status bar, with white **Back** and **Save** (a heart with its word; it saves to My meals as
+    before) on it. It is the recipe's AI illustration once there is one (captioned as before), until then the card's plate and dish drawing, larger.
+  - **Sheet:** white, rounded, over the foot of the picture; "Recipe · {shop}", the name and the blurb in the middle.
+  - **Serves:** "− Serves 4 +" (1 to 12 people) next to the minutes. More or fewer people changes every amount, the packs and the price to buy it all;
+    a serving's numbers stay the same (`scaleServings` in `lib/mm/recipes.ts`: whole eggs, peppers and cloves stay whole; tested).
+  - **Per serving:** calories, protein, carbs and fat as four soft chips with the bar under them. The full label (saturates, sugars, fibre, salt, kJ) opens
+    under **More detail**, as on a dish's page.
+  - **Two tabs** as in the reference, **Ingredients** (the prices, then What to buy: each row has the photo, the amount on the right, the product, its
+    price and Swap beside it, and "I have this" for store-cupboard items) and **Method** (numbered steps).
+  - **"Add all to my shopping list"** stays at the foot of the screen above the tab bar, the page fading out behind it.
+
+  The reference's "Rating" chip was not used: we hold no ratings. New copy (rule 8, logged here; translated into the 10 languages by Claude, not yet
+  checked by native speakers): "Method", "Fewer servings", "More servings". Checked: 577 unit tests, tsc, lint; e2e recipes 13 (new: Back and Save on
+  the picture, serving 1 to 4 people, the tabs incl. arrow keys, the add bar kept in view; full label under More detail), a11y 0 violations, large text
+  (no overflow at 200%), languages 5 (Arabic axe), smoke 23, extra 12, offline 13, browse 9, calories 4, diet 5, groceries 6, groceries-all 7,
+  compare 3, prodmode 9, app-build 8; screenshots in light, dark and extra-large text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

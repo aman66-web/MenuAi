@@ -140,11 +140,11 @@ function MakeScreen() {
     const recipe = phase.recipe;
     return (
       <div>
-        {back}
         <RecipeDetail
           recipe={recipe}
           file={state.file}
           products={state.products}
+          backHref={`/app/recipes${shop ? `?r=${shop}` : ""}`}
           actions={
             <>
               {savedId ? (

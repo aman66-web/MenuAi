@@ -23,6 +23,7 @@ let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
 const money = (t) => Number(/£(\d+\.\d\d)/.exec(t)?.[1] ?? NaN);
+const lines = (text) => text.split("\n").map((l) => l.trim());
 
 await step("the tab bar opens Recipes; Home's My meals tile opens one page with two tabs; the old addresses forward to it", async () => {
   const { ctx, page } = await newPage();
@@ -201,6 +202,48 @@ await step("a substitute: use Quorn or tofu instead of chicken, and back again",
   await ctx.close();
 });
 
+await step("a recipe page: Back and Save on the picture, cook for more or fewer people, Ingredients and Method tabs", async () => {
+  const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, recipeMeal: { size: "written", moreProtein: false } } }));
+  await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
+  await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).waitFor();
+  await page.getByRole("link", { name: "Back to recipes" }).waitFor();
+  await page.getByRole("button", { name: "Save to My meals", pressed: false }).click();
+  await page.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
+  const chicken = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
+  expect(lines(await chicken.innerText()).includes("300 g"), "300 g chicken for 2");
+  await page.getByText("Serves 2", { exact: true }).waitFor();
+  expect(await page.getByRole("button", { name: "Fewer servings" }).isEnabled(), "can go down to 1");
+  const kcal = async () => Number(/^([\d,]+)/.exec(await page.getByRole("group", { name: /per serving/ }).innerText())?.[1]?.replace(",", ""));
+  const before = await kcal();
+  await page.getByRole("button", { name: "More servings" }).click();
+  await page.getByRole("button", { name: "More servings" }).click();
+  await page.getByText("Serves 4", { exact: true }).waitFor();
+  const four = lines(await chicken.innerText());
+  expect(four.includes("600 g"), `600 g chicken for 4, got ${four.join(" | ")}`);
+  const after = await kcal();
+  expect(Math.abs(after - before) / before < 0.08, `a serving stays about the same (${before} -> ${after} kcal)`);
+  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Fewer servings" }).click();
+  await page.getByText("Serves 1", { exact: true }).waitFor();
+  expect(!(await page.getByRole("button", { name: "Fewer servings" }).isEnabled()), "not below 1");
+  // two tabs, like the reference: the method is one tap away and the ingredients come back as they were
+  await page.getByRole("tab", { name: "Ingredients", selected: true }).waitFor();
+  await page.getByRole("tab", { name: "Method" }).click();
+  await page.getByRole("heading", { name: "How to make it" }).waitFor();
+  await page.getByText("Cook the rice as the pack says.").waitFor();
+  expect((await page.getByRole("heading", { name: "What to buy" }).count()) === 0, "ingredients hidden on the Method tab");
+  await page.getByRole("tab", { name: "Method", selected: true }).press("ArrowLeft");
+  await page.getByRole("tab", { name: "Ingredients", selected: true }).waitFor();
+  await page.getByRole("heading", { name: "What to buy" }).waitFor();
+  expect(lines(await chicken.innerText()).includes("150 g"), "still 1 serving: 150 g chicken");
+  // the button to add everything stays in reach while the list scrolls
+  await page.mouse.wheel(0, 600);
+  await page.waitForTimeout(300);
+  const add = page.getByRole("button", { name: "Add all to my shopping list" });
+  const box = await add.boundingBox();
+  expect(box && box.y + box.height <= 844 && box.y > 500, `Add all is kept in view near the bottom, at ${box && Math.round(box.y)}`);
+  await ctx.close();
+});
+
 await step("a shop product can be added to the list from its own page", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/groceries/shop/item?r=sainsburys&id=sainsburys-red-kidney-beans-in-water-400g-240g");
@@ -240,9 +283,13 @@ await step("your meal: sizes fit every recipe, own numbers, and recipes as writt
   await ctx.close();
 });
 
-await step("a fitted recipe shows the full label and can be seen as written", async () => {
+await step("a fitted recipe shows the full label (under More detail) and can be seen as written", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
+  const more = page.getByRole("button", { name: /^More detail/, expanded: false });
+  await more.waitFor();
+  expect((await page.getByRole("heading", { name: "Full nutrition per serving" }).count()) === 0, "the full label waits for More detail");
+  await more.click();
   await page.getByRole("heading", { name: "Full nutrition per serving" }).waitFor();
   for (const row of ["Energy", "Fat", "of which saturates", "Carbohydrate", "of which sugars", "Fibre", "Protein", "Salt"]) await page.getByRole("term").filter({ hasText: new RegExp(`^${row}$`) }).first().waitFor();
   await page.getByText(/The amounts below are changed to fit\./).waitFor();
@@ -251,7 +298,7 @@ await step("a fitted recipe shows the full label and can be seen as written", as
   await page.getByRole("button", { name: "Show it as written" }).click();
   await page.getByText("Showing the recipe as written.").waitFor();
   const written = await chicken.innerText();
-  expect(written.startsWith("300 g"), `as written: 300 g chicken, got ${written.slice(0, 30)}`);
+  expect(lines(written).includes("300 g"), `as written: 300 g chicken, got ${written.slice(0, 60)}`);
   expect(fitted !== written, "fitting changed the chicken amount");
   await ctx.close();
 });
@@ -294,14 +341,21 @@ await step("Pip's recipe maker is off: no card even when the server says it's on
 for (const scheme of ["light", "dark"]) {
   await step(`axe: recipes list and a recipe (${scheme})`, async () => {
     const { ctx, page } = await newPage(scheme, proSettings);
-    for (const path of ["/app/recipes", "/app/recipes/view?id=chickpea-curry&r=sainsburys"]) {
-      await page.goto(BASE + path);
-      await page.locator(path.includes("view") ? "text=How to make it" : "a[href*='/app/recipes/view']").first().waitFor();
+    const axe = async (where) => {
       await page.waitForTimeout(600);
       await page.addScriptTag({ path: AXE });
       const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));
-      expect(v.length === 0, `${path}: ${v.join(", ")}`);
-    }
+      expect(v.length === 0, `${where}: ${v.join(", ")}`);
+    };
+    await page.goto(BASE + "/app/recipes");
+    await page.locator("a[href*='/app/recipes/view']").first().waitFor();
+    await axe("/app/recipes");
+    await page.goto(BASE + "/app/recipes/view?id=chickpea-curry&r=sainsburys");
+    await page.getByRole("heading", { name: "What to buy" }).waitFor();
+    await page.getByRole("button", { name: /^More detail/ }).click();
+    await axe("a recipe, Ingredients and its full label");
+    await page.getByRole("tab", { name: "Method" }).click();
+    await axe("a recipe, Method");
     await ctx.close();
   });
 }

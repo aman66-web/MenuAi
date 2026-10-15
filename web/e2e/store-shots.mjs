@@ -46,7 +46,7 @@ await shot("1-home", "/app", () => page.getByRole("progressbar", { name: "Calori
 await shot("2-eat-out", "/app/eat-out", () => page.getByText(/\d{3} UK restaurants/).waitFor({ timeout: 15000 }));
 await shot("3-restaurant", "/app/chain?id=nandos", () => page.getByRole("heading", { level: 1 }).waitFor({ timeout: 15000 }));
 await shot("4-recipes", "/app/recipes", () => page.locator("a[href*='/app/recipes/view']").first().waitFor({ timeout: 20000 }));
-await shot("5-recipe", "/app/recipes/view?id=chicken-curry&r=sainsburys", () => page.getByText("How to make it").first().waitFor({ timeout: 20000 }));
+await shot("5-recipe", "/app/recipes/view?id=chicken-curry&r=sainsburys", () => page.getByRole("heading", { name: "What to buy" }).waitFor({ timeout: 20000 }));
 await shot("6-groceries", "/app/groceries/shop?r=sainsburys", () => page.locator("a[href*='/app/groceries/shop/item']").first().waitFor({ timeout: 20000 }));
 
 await browser.close();

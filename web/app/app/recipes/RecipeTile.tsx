@@ -75,6 +75,41 @@ function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: M
   );
 }
 
+/**
+ * The top of a recipe's own page (founder 2026-10-14, from a reference picture: the food big at the top, the page's sheet over its foot):
+ * the recipe's AI illustration with its caption, or the same plate and drawing as its card, larger. Never a photo of a product.
+ */
+export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: string; label: string; meal: MealType | undefined }) {
+  const t = useT();
+  const image = RECIPE_IMAGES[id];
+  const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
+  const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
+  const mealLabel = MEAL_TYPES.find((m) => m.value === meal)?.label;
+  return (
+    <div className={`relative h-[clamp(16rem,42dvh,24rem)] overflow-hidden ${image ? "bg-soft-strong" : artOf(id)}`}>
+      {image ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
+          <img src={image} alt={t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
+          <p className="absolute bottom-12 start-4 me-4 rounded-2xl bg-black/65 px-3 py-1.5 text-sm font-semibold text-white">{t("Illustration made with AI, not a photo of the products below.")}</p>
+        </>
+      ) : (
+        <span aria-hidden className="absolute inset-0">
+          <span className="absolute -start-12 top-6 h-44 w-44 rounded-full bg-white/30 blur-2xl" />
+          <span className="absolute -end-14 bottom-8 h-52 w-52 rounded-full bg-white/20 blur-2xl" />
+          {/* sized by the picture's height, not the text size, so large text never pushes the plate into the buttons */}
+          <span className="absolute left-1/2 top-[53%] grid aspect-square h-[50%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#0b1a12] shadow-[0_28px_50px_-22px_rgba(0,0,0,0.6),inset_0_0_0_12px_rgba(255,255,255,0.7),inset_0_0_0_13px_rgba(11,26,18,0.06)]">
+            <Dish className="h-[55%] w-[55%]" strokeWidth={1.4} />
+          </span>
+        </span>
+      )}
+      {!image && mealLabel && (
+        <span className="absolute bottom-12 start-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-[#0b1a12]"><look.Icon className="h-4 w-4" />{t(mealLabel)}</span>
+      )}
+    </div>
+  );
+}
+
 export function RecipeTile({ card, href, badge, wide = false, saveable = true }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean }) {
   const t = useT();
   const savedList = useStore(savedRecipesStore);

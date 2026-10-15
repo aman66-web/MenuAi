@@ -35,21 +35,21 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
     return base ? recipeForDiet(base, diet) ?? base : null;
   }, [id, savedOne, dietKey]);
 
-  const back = (<Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} aria-label={t("Back to recipes")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  const backHref = `/app/recipes${shop ? `?r=${shop}` : ""}`;
+  const back = (<Link href={backHref} aria-label={t("Back to recipes")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
   if (mine && !hydrated) return (<div>{back}<Spinner label={t("Loading recipe")} /></div>);
   if (!recipe) return (<div>{back}<div className="mt-4"><ErrorBox message={mine ? t("That recipe isn't saved on this device, or no longer suits your diet.") : t("That recipe isn't in the list.")} /></div></div>);
   if (!manifest || (shop && state.status === "loading")) return (<div>{back}<Spinner label={t("Loading recipe")} /></div>);
   if (!shop || state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this recipe. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
   if (state.status !== "ready") return (<div>{back}<Spinner label={t("Loading recipe")} /></div>);
   return (
-    <div>
-      {back}
-      <RecipeDetail
-        recipe={recipe}
-        file={state.file}
-        products={state.products}
-        actions={savedOne ? <Button full variant="ghost" onClick={() => { myRecipesStore.update((l) => l.filter((s) => s.id !== savedOne.id)); router.push(`/app/recipes?r=${shop}`); }}><TrashIcon className="h-5 w-5" />{t("Remove from my recipes")}</Button> : undefined}
-      />
-    </div>
+    <RecipeDetail
+      key={recipe.id}
+      recipe={recipe}
+      file={state.file}
+      products={state.products}
+      backHref={backHref}
+      actions={savedOne ? <Button full variant="ghost" onClick={() => { myRecipesStore.update((l) => l.filter((s) => s.id !== savedOne.id)); router.push(`/app/recipes?r=${shop}`); }}><TrashIcon className="h-5 w-5" />{t("Remove from my recipes")}</Button> : undefined}
+    />
   );
 }
