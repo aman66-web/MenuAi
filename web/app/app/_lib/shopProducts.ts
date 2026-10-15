@@ -50,13 +50,13 @@ export function loadShopFile(id: string): Promise<{ file: ShopFile; products: Sh
 }
 
 /** Which shops have a full list (null until known). */
-export function useShopManifest(): ShopManifest | null {
+export function useShopManifest(retry = 0): ShopManifest | null {
   const [m, setM] = useState<ShopManifest | null>(null);
   useEffect(() => {
     let cancelled = false;
     void loadShopManifest().then((x) => { if (!cancelled) setM(x); });
     return () => { cancelled = true; };
-  }, []);
+  }, [retry]);
   return m;
 }
 

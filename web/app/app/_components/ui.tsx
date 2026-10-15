@@ -352,10 +352,10 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
           className="sheet-panel sheet-in max-h-[92dvh] scroll-pt-24 overflow-y-auto overscroll-contain rounded-t-[1.75rem] bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-20px_rgba(17,24,20,0.35)]"
         >
           {/* The grab handle and the title stay at the top while a long sheet scrolls, so Close is always in reach. */}
-          <div className="sticky top-0 z-10 -mx-5 bg-white px-5 pb-4 pt-2.5">
+          <div className="sticky top-0 z-20 -mx-5 bg-white px-5 pb-4 pt-2.5">
             <div aria-hidden className="mx-auto mb-4 h-1.5 w-10 rounded-full bg-soft-strong" />
             <div className="flex items-center justify-between gap-3">
-              <h2 className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em]">{title}</h2>
+              <h2 tabIndex={-1} className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em] outline-none">{title}</h2>
               <button type="button" onClick={onClose} aria-label={t("Close")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CloseIcon className="h-[1.125rem] w-[1.125rem]" /></span>
               </button>

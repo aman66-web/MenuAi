@@ -42,12 +42,32 @@ export function loggedToday(entries: ReadonlyArray<{ loggedAt: string; nutrients
   for (const e of entries) {
     if (!isSameLocalDay(new Date(e.loggedAt), now)) continue;
     total.calories += e.nutrients.calories;
-    // Logging is offered only for items that publish protein, carbs and fat; the fallback just satisfies the types.
+    // An entry typed in with calories only has no protein, carbs or fat: it adds nothing to those sums, and loggedGaps says that it happened.
     total.protein += e.nutrients.protein ?? 0;
     total.carbs += e.nutrients.carbs ?? 0;
     total.fat += e.nutrients.fat ?? 0;
   }
   return total;
+}
+
+/** How many of today's entries have no protein, carbs or fat (typed in with calories only): those sums leave them out, never count them as 0. */
+export interface LoggedGaps {
+  protein: number;
+  carbs: number;
+  fat: number;
+  /** True when any of the three is missing from any entry. */
+  any: boolean;
+}
+
+export function loggedGaps(entries: ReadonlyArray<{ loggedAt: string; nutrients: Nutrients }>, now: Date): LoggedGaps {
+  const gaps = { protein: 0, carbs: 0, fat: 0 };
+  for (const e of entries) {
+    if (!isSameLocalDay(new Date(e.loggedAt), now)) continue;
+    if (e.nutrients.protein === undefined) gaps.protein++;
+    if (e.nutrients.carbs === undefined) gaps.carbs++;
+    if (e.nutrients.fat === undefined) gaps.fat++;
+  }
+  return { ...gaps, any: gaps.protein + gaps.carbs + gaps.fat > 0 };
 }
 
 export interface Remaining {

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { orderAllergens } from "@/lib/mm/allergens";
-import { loggedToday, remainingToday } from "@/lib/mm/budget";
+import { loggedGaps, loggedToday, remainingToday } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { formatCalories, lowerFirst } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
@@ -161,7 +161,10 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   const defaultName = orderName(ix, lines);
   const name = customName ?? defaultName;
   const profile = { goal: settings.goal, dailyCalories: settings.dailyCalories, ...(settings.dailyProtein ? { dailyProtein: settings.dailyProtein } : {}) };
-  const after = total ? afterThisText(afterThis(remainingToday(profile, loggedToday(log, now)), total)) : "";
+  // "Protein left today" is left out when a meal was typed in without its protein: that meal's protein is unknown, not 0.
+  const left = remainingToday(profile, loggedToday(log, now));
+  const remaining = loggedGaps(log, now).protein > 0 ? { calories: left.calories } : left;
+  const after = total ? afterThisText(afterThis(remaining, total)) : "";
 
   function change(kind: "add" | "remove" | "double" | "swap" | "modifier", result: Result<OrderLine>, lineIndex: number) {
     if (!result.ok) return setNotice(result.error);

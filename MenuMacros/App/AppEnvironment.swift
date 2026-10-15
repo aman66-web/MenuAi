@@ -9,6 +9,8 @@ final class AppEnvironment {
     let sharer: any Sharing
     let appleSignIn: any AppleSigningIn
     let webSignIn: any WebSigningIn
+    /// Links the app is opened with (a shared shopping list): MenuMacrosApp hands them in, the web view shows them.
+    let links = LinkInbox()
 
     init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn) {
         self.scanner = scanner

@@ -109,11 +109,13 @@ await step("an entry stays in the meal whose + was tapped, whatever the time, on
     await dlg(page).getByRole("button", { name: `Add to ${meal}`, exact: true }).tap();
     await page.getByText(`Added “${name}” to ${meal}.`).waitFor();
   }
+  await page.getByText("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.").waitFor(); // never "0g" as if it were known
   for (const [meal, cals] of [["Breakfast", "111"], ["Lunch", "222"], ["Dinner", "333"]]) {
     const text = await mealRow(page, meal).innerText();
     expect(new RegExp(`^${meal}\\s+${cals}\\s*/`).test(text.trim()), `${meal} row: ${text}`);
   }
   await page.goto(BASE + "/app/today");
+  await page.getByText("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.").waitFor({ timeout: 30000 });
   for (const [meal, name] of [["Breakfast", "Bfast thing"], ["Lunch", "Lunch thing"], ["Dinner", "Dinner thing"]]) {
     const section = page.locator("section", { has: page.getByRole("heading", { name: meal, exact: true }) });
     await section.waitFor({ timeout: 30000 });
@@ -141,6 +143,33 @@ await step("closing the sheet adds nothing, and it opens at the four choices aga
   await openMeal(page, "Lunch");
   await page.getByRole("button", { name: /Choose a recipe/ }).waitFor({ timeout: 3000 });
   await page.keyboard.press("Escape");
+  await ctx.close();
+});
+
+await step("a restaurant meal picked on a slow connection is not added once the sheet is closed, and doesn't close the sheet opened since", async () => {
+  const { ctx, page, errors } = await open();
+  let slow = false;
+  await page.route(/\/menus\/[^/]+\.json(\?.*)?$/, async (route) => {
+    if (slow && !/manifest|search|numbers/.test(route.request().url())) await new Promise((r) => setTimeout(r, 4000));
+    return route.continue();
+  });
+  await home(page);
+  await openMeal(page, "Breakfast");
+  await choose(page, "Choose a restaurant meal");
+  await page.getByLabel("Search restaurants and items").fill("chicken");
+  const first = dlg(page).getByRole("button", { name: /^Add / }).first();
+  await first.waitFor({ timeout: 120000 });
+  slow = true;
+  await first.tap();
+  expect((await first.getAttribute("aria-busy")) === "true", "the tapped Add shows it is working");
+  await dlg(page).getByRole("button", { name: "Close" }).tap(); // gives up
+  await plus(page, "Dinner").tap();
+  await sheetTitle(page, "Add to Dinner").waitFor();
+  await page.waitForTimeout(5500); // the menu arrives
+  expect((await log(page)).length === 0, "a dish that was given up on was logged: " + JSON.stringify((await log(page)).map((e) => e.name)));
+  expect(await sheetTitle(page, "Add to Dinner").isVisible(), "the Dinner sheet was closed by the old add");
+  expect((await page.getByRole("status").count()) === 0, "a toast for something the person gave up on");
+  expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });
 
@@ -268,8 +297,8 @@ await step("a supermarket product: found by name, how much, the label's figures 
   await amount.fill("abc");
   expect(await add.isDisabled(), "Add is on for words");
   await amount.fill("200");
-  await page.getByText(/From the label, for 200 g: .* kcal/).waitFor();
-  const said = kcal(await page.getByText(/From the label, for 200 g/).innerText());
+  await page.getByText(/From (the label|Open Food Facts contributors \(community data\)), for 200 g: .* kcal/).waitFor();
+  const said = kcal(await page.getByText(/From (the label|Open Food Facts contributors \(community data\)), for 200 g/).innerText());
   expect(said === Math.round(per100 * 2) || Math.abs(said - per100 * 2) <= 2, `label said ${said} for 200 g, per 100 g is ${per100}`);
   await add.tap();
   await page.getByText(/^Added “.* \(200 g\)” to Breakfast\.$/).waitFor();

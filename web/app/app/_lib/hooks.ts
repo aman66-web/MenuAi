@@ -82,12 +82,22 @@ export function useSearchIndex() {
   return { searchIndex: state.searchIndex, loadedCount: state.searchReady ? totalCount : state.indexes.size, totalCount };
 }
 
-/** Re-renders every minute (meal slot, "New" tags and "today" can change while the app is open). */
+/** Re-renders every minute, and when the app comes back to the front (meal slot, "New" tags and "today" can change while the app is open or asleep). */
 export function useNow(intervalMs = 60_000): Date {
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
-    const t = setInterval(() => setNow(new Date()), intervalMs);
-    return () => clearInterval(t);
+    const tick = () => setNow(new Date());
+    const t = setInterval(tick, intervalMs);
+    const back = () => {
+      if (document.visibilityState === "visible") tick();
+    };
+    document.addEventListener("visibilitychange", back);
+    window.addEventListener("focus", back);
+    return () => {
+      clearInterval(t);
+      document.removeEventListener("visibilitychange", back);
+      window.removeEventListener("focus", back);
+    };
   }, [intervalMs]);
   return now;
 }

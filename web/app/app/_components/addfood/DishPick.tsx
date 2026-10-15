@@ -1,13 +1,13 @@
 "use client";
 
-import { useDeferredValue, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { hasMacros } from "@/lib/mm/nutrients";
 import { search, type ItemHit } from "@/lib/mm/search";
 import { savedStore } from "@/lib/mm/stores";
 import { ForkIcon } from "../icons";
-import { Spinner } from "../ui";
+import { ErrorBox, Spinner } from "../ui";
 import { useMenu, useSearchIndex, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { menuClient } from "../../_lib/menu";
@@ -31,6 +31,14 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
   const saved = useStore(savedStore);
   const [busy, setBusy] = useState<string | null>(null);
   const [failed, setFailed] = useState<string | null>(null);
+  // A menu can be slow to arrive: a dish picked and then given up on (Back, Close, another meal's sheet) must not be added when it finally does.
+  const here = useRef(true);
+  useEffect(() => {
+    here.current = true;
+    return () => {
+      here.current = false;
+    };
+  }, []);
 
   // Restaurants that publish calories only are left out of the results (they have no dish this can add).
   const caloriesOnly = useMemo(() => new Set(menu.chains.filter((c) => c.nutritionLevel === "calories").map((c) => c.id)), [menu.chains]);
@@ -44,14 +52,15 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
     setFailed(null);
     try {
       const ix = await menuClient.loadChain(h.chainId);
+      if (!here.current) return;
       const item = ix.items.get(h.itemId);
       if (!item) setFailed(t("Couldn't load this menu."));
       else if (!hasMacros(item.nutrients)) setFailed(t(CALORIES_ONLY));
       else onAdd({ chainId: ix.chain.id, chainName: ix.chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
     } catch {
-      setFailed(t("Couldn't load this menu."));
+      if (here.current) setFailed(t("Couldn't load this menu."));
     } finally {
-      setBusy(null);
+      if (here.current) setBusy(null);
     }
   };
 
@@ -59,7 +68,8 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
 
   return (
     <div className="space-y-4 pb-2 pt-4">
-      <SheetSearch value={query} onChange={setQuery} label={t("Search restaurants and items")} placeholder={t("Type a dish or restaurant, e.g. chicken burger")} />
+      <SheetSearch value={query} onChange={(v) => { setQuery(v); setFailed(null); }} label={t("Search restaurants and items")} placeholder={t("Type a dish or restaurant, e.g. chicken burger")} />
+      {failed && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug">{failed}</p>}
 
       {shownSaved.length > 0 && (
         <section aria-labelledby="addfood-saved">
@@ -79,7 +89,9 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
       )}
 
       {deferred.length >= 2 &&
-        (!searchIndex ? (
+        (menu.status === "error" && !menu.searchReady ? (
+          <ErrorBox message={t("Couldn't reach the menus. Check your connection and try again.")} onRetry={() => void menuClient.ensureManifest(true).then(() => menuClient.ensureSearch())} />
+        ) : !searchIndex ? (
           <Spinner label={t("Loading restaurants")} />
         ) : hits.length === 0 ? (
           <p className="text-[0.9375rem] text-muted">{t("No dishes match.")}</p>
@@ -91,13 +103,12 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
                 lead={lead}
                 title={h.name}
                 line={`${h.chainName} · ${formatCalories(h.calories)}`}
-                action={<AddPill name={h.name} disabled={busy !== null} onClick={() => void addHit(h)} />}
+                action={<AddPill name={h.name} disabled={busy !== null} busy={busy === `${h.chainId}:${h.itemId}`} onClick={() => void addHit(h)} />}
               />
             ))}
           </ul>
         ))}
 
-      {failed && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug">{failed}</p>}
       <p className="text-[0.9375rem] leading-snug text-muted">{t("Restaurants that publish calories only aren't listed here. You can type their calories in instead.")}</p>
     </div>
   );

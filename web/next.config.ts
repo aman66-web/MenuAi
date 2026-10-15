@@ -55,6 +55,11 @@ const websiteConfig: NextConfig = {
         ],
       },
       {
+        // Tells iPhones which links open in the app (a shared shopping list: numbite.com/l). Apple reads it as JSON; it has no file extension.
+        source: "/.well-known/apple-app-site-association",
+        headers: [{ key: "Content-Type", value: "application/json" }, { key: "Cache-Control", value: "public, max-age=3600" }],
+      },
+      {
         // The service worker must always be re-checked so a new version reaches people promptly.
         source: "/sw.js",
         headers: [

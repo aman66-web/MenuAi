@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ADD_TO } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
 import { tk } from "@/lib/mm/i18n";
@@ -32,6 +32,17 @@ const TITLE: Record<Exclude<View, "menu">, string> = {
 export function AddFoodSheet({ meal, onClose, onAdded }: { meal: Meal | null; onClose: () => void; onAdded: (entry: LogEntry, meal: Meal) => void }) {
   const t = useT();
   const [view, setView] = useState<View>("menu");
+
+  // When the view changes the title changes with it: focus goes to the title (so a screen reader says where it is and a keyboard starts from the top),
+  // never to a search box, which would put the keyboard over the list.
+  const opened = useRef(false);
+  useEffect(() => {
+    if (!opened.current) {
+      opened.current = true;
+      return;
+    }
+    document.querySelector<HTMLElement>("dialog[open] h2")?.focus({ preventScroll: true });
+  }, [view]);
 
   const close = () => {
     setView("menu");

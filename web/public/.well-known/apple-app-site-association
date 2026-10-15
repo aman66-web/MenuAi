@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["S7G6ZHHK59.com.amanmarwaha.MenuMacros"],
+        "components": [
+          { "/": "/l", "comment": "A shopping list a friend shared (https://numbite.com/l#<list>): opens in the app when it is installed" }
+        ]
+      }
+    ]
+  }
+}

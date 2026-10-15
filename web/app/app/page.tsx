@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
-import { entryMeal, isSameLocalDay, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
+import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
@@ -113,6 +113,7 @@ export default function HomePage() {
 
   const profile = { goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap, ...(settings.dailyProtein ? { dailyProtein: settings.dailyProtein } : {}) };
   const eaten = loggedToday(log, now);
+  const gaps = loggedGaps(log, now);
   const used = Math.min(1, Math.max(0, eaten.calories / settings.dailyCalories));
   const targets = macroTargets(settings);
   const htmlLang = localeInfo(language).htmlLang;
@@ -186,6 +187,7 @@ export default function HomePage() {
           <MacroRow label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
         </Card>
       </div>
+      {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.")}</p>}
 
       {!pro && (
         <Card className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 p-4">
@@ -243,7 +245,8 @@ export default function HomePage() {
       <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
 
       {added && (
-        <div role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+        // At the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo.
+        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
           <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(ADDED_TO[added.meal], { name: added.entry.name })}</span>
           <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
         </div>

@@ -365,6 +365,8 @@ export interface ShoppingItem {
 export const MAX_SHOPPING_ITEMS = 200;
 export const MAX_QTY = 20;
 const SHOP_ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
+/** Whether this is a shop's own product id, as the lists write them (also what a shared list may carry). */
+export const isShopId = (v: unknown): v is string => typeof v === "string" && SHOP_ID.test(v);
 
 /** The "retailer" of items the person typed in themselves (any shop). */
 export const CUSTOM_RETAILER = "own";

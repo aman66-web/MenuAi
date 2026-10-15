@@ -61,6 +61,12 @@ website shows from the shops' own servers still load from those servers when onl
    - a link to a chain's own allergen page opens Safari; "Email instead" opens Mail.
 5. On the founder's iPhone (Xcode › Run): Groceries › Scan a barcode opens the iPhone's scanner and finds a product; Share list opens the
    share sheet; an order's Share card shares the picture.
+6. Shared lists (15 October 2026, written without a compiler): build and run `MenuMacrosTests/SharedListLinkTests.swift` (fix compile errors in
+   `SharedListLink.swift`, `MenuMacrosApp.swift`, `RootView.swift`, `WebAppView.swift`, `AppEnvironment.swift`); then in the simulator, with a list shared
+   from the web app, `xcrun simctl openurl booted "numbite://l#<code>"` (add the URL Type first, see "Shared shopping lists" below) must open the shared
+   list inside the app, both when the app is running and when it was closed (cold start), and a first-time launch must go through the questions and land on
+   the list. `https://numbite.com/l#…` links need the Associated Domains capability and are tested on a real iPhone (a simulator can open them with
+   `xcrun simctl openurl booted "https://numbite.com/l#<code>"` only after the app is installed with the capability).
 
 ## Steps for the founder (things only you can do)
 
@@ -85,6 +91,31 @@ website shows from the shops' own servers still load from those servers when onl
    Connect › TestFlight, install it on your iPhone and try: first launch with Wi-Fi and data off, a restaurant, an item, Groceries, a
    recipe, Scan a barcode, Near me, Share list.
 7. **Submit for Review** with "Manually release this version".
+
+## Shared shopping lists: opening a link in the app (founder steps, 15 October 2026)
+
+Shopping list › Share sends a message with the list and a link, `https://numbite.com/l#<list>` (the list is inside the link after the "#", which no
+server ever sees: nothing is stored, no account needed). A friend who opens it sees the website page `/l`: how many things, from which shops, and
+"Get Numbite on the App Store" / "I have Numbite: open the list" / "Or read the list in your browser". The Swift that opens the list inside the app is
+written (`MenuMacros/Features/WebApp/SharedListLink.swift`, `MenuMacros/App/MenuMacrosApp.swift`, tests in `MenuMacrosTests/SharedListLinkTests.swift`) but
+**not compiled here: the Mac session builds it**. Three things only you can do:
+
+1. **Associated Domains** (so a tap on the https link opens the app when it is installed): Xcode › project MenuMacros › target MenuMacros ›
+   Signing & Capabilities › + Capability › **Associated Domains** › + › `applinks:numbite.com`. The site already serves the matching file at
+   https://numbite.com/.well-known/apple-app-site-association (team S7G6ZHHK59, `com.amanmarwaha.MenuMacros`, path `/l`); after the website deploy,
+   check it opens in a browser and shows that JSON (Apple fetches it itself; changes can take a while to reach phones).
+2. **URL scheme** (so the page's "I have Numbite: open the list" button works): target MenuMacros › Info › URL Types › + › Identifier
+   `com.amanmarwaha.MenuMacros.link`, URL Schemes `numbite`, Role Viewer. (Sign-in with Google already returns on `numbite://auth`, which the sign-in
+   sheet handles on its own; the app only opens `numbite://l…` links and ignores every other address.)
+3. **The App Store address**: once the app has an App Store page, set `NEXT_PUBLIC_APP_STORE_URL` (Vercel › Project menumacros › Settings › Environment
+   Variables, Production, e.g. `https://apps.apple.com/gb/app/numbite/id<number>`) and redeploy. Until then the page says the iPhone app is coming
+   soon and offers "View the list" (the list opens in the browser version, which works today). The same variable shows the App Store button on the
+   home page.
+
+Check on a real iPhone with the app installed: send yourself a shared list in Messages and tap the link (it should open the app on the list; on a
+phone that has never opened Numbite it goes through the questions first and then lands on the list). **What can't be done without a third-party service:**
+a friend who doesn't have the app yet goes to the App Store and, after installing, has to tap the link in the message again (or open Numbite › Shopping list ›
+"Got a list from a friend?" and paste it): iOS gives an app no way to know which link led to its install. The page says so under "After you've installed it".
 
 ## What comes after approval (updates)
 

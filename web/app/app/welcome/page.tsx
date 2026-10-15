@@ -26,6 +26,7 @@ import { RETAILERS } from "@/lib/mm/groceries";
 import { site } from "@/site.config";
 import { Pip, PipSays, type PipMood } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
+import { SHARED_APP_PATH } from "@/lib/mm/shareList";
 import { RecipeChoice } from "./RecipeChoice";
 import { SignInSheet } from "../_components/SignIn";
 import { TargetSuggestForm } from "../_components/TargetSuggestForm";
@@ -160,6 +161,8 @@ export default function WelcomePage() {
 
   const next = () => {
     if (step === 0 && intro < INTRO_SCREENS) setIntro((i) => i + 1);
+    // Someone who came to read a shopping list a friend sent goes straight to it after "You're all set!" (no recipe to choose first)
+    else if (step === 6 && (new URLSearchParams(window.location.search).get("next") ?? "").startsWith(SHARED_APP_PATH)) finish();
     else setStep((s) => s + 1);
     window.scrollTo({ top: 0 });
   };

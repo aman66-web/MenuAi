@@ -42,11 +42,11 @@ export const PICK_LIST = "glass divide-y divide-line overflow-hidden rounded-[1.
 const PILL = "relative inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background transition active:scale-95 disabled:bg-soft-strong disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 /** The black "Add" pill at the end of a row. Its spoken name carries what it adds ("Add Chicken wrap"). */
-export function AddPill({ name, onClick, disabled }: { name: string; onClick: () => void; disabled?: boolean }) {
+export function AddPill({ name, onClick, disabled, busy }: { name: string; onClick: () => void; disabled?: boolean; busy?: boolean }) {
   const t = useT();
   return (
-    <button type="button" onClick={onClick} disabled={disabled} className={PILL}>
-      <PlusIcon aria-hidden className="h-4 w-4" />
+    <button type="button" onClick={onClick} disabled={disabled} aria-busy={busy || undefined} className={PILL}>
+      {busy ? <span aria-hidden className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" /> : <PlusIcon aria-hidden className="h-4 w-4" />}
       {t("Add")}
       <span className="sr-only"> {name}</span>
     </button>

@@ -8,6 +8,8 @@ import WebKit
 struct WebAppView: UIViewRepresentable {
     let files: WebAppFiles?
     let environment: AppEnvironment
+    /// A link the app was opened with (a shared shopping list): shown instead of the start page, or as soon as it arrives.
+    var link: LinkInbox.Request?
 
     func makeCoordinator() -> Coordinator {
         Coordinator(bridge: NativeBridge(scanner: environment.scanner, location: environment.location, sharer: environment.sharer, appleSignIn: environment.appleSignIn, webSignIn: environment.webSignIn))
@@ -35,11 +37,16 @@ struct WebAppView: UIViewRepresentable {
         webView.isInspectable = true // Safari › Develop on a Mac
         #endif
         context.coordinator.bridge.webView = webView
-        webView.load(URLRequest(url: WebAppFiles.startURL))
+        context.coordinator.lastLinkID = link?.id
+        webView.load(URLRequest(url: link?.url ?? WebAppFiles.startURL))
         return webView
     }
 
-    func updateUIView(_ webView: WKWebView, context: Context) {}
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        guard LinkInbox.shouldLoad(link, lastHandled: context.coordinator.lastLinkID, showing: webView.url), let link else { return }
+        context.coordinator.lastLinkID = link.id
+        webView.load(URLRequest(url: link.url))
+    }
 
     static func dismantleUIView(_ webView: WKWebView, coordinator: Coordinator) {
         webView.configuration.userContentController.removeScriptMessageHandler(forName: NativeBridge.handlerName)
@@ -47,6 +54,8 @@ struct WebAppView: UIViewRepresentable {
 
     final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         let bridge: NativeBridge
+        /// The last link request this web view dealt with, so one is never loaded twice.
+        var lastLinkID: UUID?
 
         init(bridge: NativeBridge) {
             self.bridge = bridge

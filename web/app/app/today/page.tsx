@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { entryMeal, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
+import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
@@ -85,6 +85,7 @@ export default function TodayPage() {
   }
 
   const totals = loggedToday(log, now);
+  const gaps = loggedGaps(log, now);
   const calFraction = Math.min(1, totals.calories / settings.dailyCalories);
   const targets = macroTargets(settings);
 
@@ -127,6 +128,7 @@ export default function TodayPage() {
           <MacroRow label={t("Carbs")} eaten={totals.carbs} target={targets.carbs} />
           <MacroRow label={t("Fat")} eaten={totals.fat} target={targets.fat} />
         </div>
+        {gaps.any && <p className="mt-4 text-sm leading-snug text-muted">{t("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.")}</p>}
       </Card>
 
       {todays.length === 0 ? (

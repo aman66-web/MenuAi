@@ -12,7 +12,7 @@ struct RootView: View {
 
     var body: some View {
         if files != nil {
-            WebAppView(files: files, environment: environment)
+            WebAppView(files: files, environment: environment, link: environment.links.request)
                 .ignoresSafeArea()
         } else {
             // Only seen in a build made without running scripts/build_app_web.sh first.

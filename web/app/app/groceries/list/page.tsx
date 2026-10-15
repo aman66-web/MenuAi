@@ -1,14 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, listAsText, listTotals, setQty, toggleDone, withoutDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { nextToBuy } from "@/lib/mm/listRecipes";
+import { decodePayload, encodeEntries, payloadFrom, SHARE_PROBLEM, SHARED_APP_PATH, shareUrl, toEntries } from "@/lib/mm/shareList";
 import { shoppingStore } from "@/lib/mm/stores";
+import { site } from "@/site.config";
 import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Button, EmptyIcon, EmptyState, LinkButton } from "../../_components/ui";
+import { Button, EmptyIcon, EmptyState, LinkButton, Sheet } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useListPhotos } from "../../_lib/listPhotos";
@@ -29,6 +32,7 @@ import { ListThumb } from "../ProductPhoto";
 export default function ShoppingListPage() {
   const t = useT();
   const poss = usePossessive();
+  const router = useRouter();
   const hydrated = useHydrated();
   const list = useStore(shoppingStore);
   const [note, setNote] = useState<string | null>(null);
@@ -44,18 +48,47 @@ export default function ShoppingListPage() {
   const ticked = list.filter((i) => i.done).length;
   const suggestion = matches ? nextToBuy(matches) : null;
 
+  /**
+   * What is sent (founder 2026-10-15: a friend gets a link that opens the list, and says to get the app): a line saying whose list, the items as plain words
+   * (so it reads in any message), then the link. The link holds the list itself after the "#", so nothing is stored anywhere (lib/mm/shareList.ts).
+   */
+  const message = (): { text: string; cut: { n: number; total: number } | null } => {
+    const items = listAsText(list, t);
+    const enc = encodeEntries(toEntries(list));
+    const link = enc ? shareUrl(site.url, enc.payload) : null;
+    const text = [t("My shopping list on {app}", { app: site.name }), "", items, ...(link ? ["", t("Open it in {app} to see the products and prices:", { app: site.name }), link] : [])].join("\n");
+    return { text, cut: enc && enc.included < enc.total ? { n: enc.included, total: enc.total } : null };
+  };
+  const tellIfCut = (cut: { n: number; total: number } | null) => setNote(cut ? t("The link holds the first {n} of your {total} items. The list in the message has them all.", { n: cut.n, total: cut.total }) : null);
   const share = async () => {
-    const text = listAsText(list, t);
+    const { text, cut } = message();
     if (hasNative()) {
       const r = await nativeCall("share", { title: t("Shopping list"), text }); // the iPhone's own share sheet
+      if (r.done) tellIfCut(cut);
       if (r.done || r.error === "cancelled") return;
     }
     try {
-      if (navigator.share) await navigator.share({ title: t("Shopping list"), text });
-      else { await navigator.clipboard.writeText(text); setNote(t("Copied.")); }
+      if (navigator.share) { await navigator.share({ title: t("Shopping list"), text }); tellIfCut(cut); }
+      else { await navigator.clipboard.writeText(text); setNote(cut ? t("The link holds the first {n} of your {total} items. The list in the message has them all.", { n: cut.n, total: cut.total }) : t("Copied.")); }
     } catch { /* cancelled */ }
   };
-  const copy = async () => { try { await navigator.clipboard.writeText(listAsText(list, t)); setNote(t("Copied.")); } catch { setNote(t("Couldn't copy.")); } };
+  const copy = async () => {
+    const { text, cut } = message();
+    try { await navigator.clipboard.writeText(text); setNote(cut ? t("The link holds the first {n} of your {total} items. The list in the message has them all.", { n: cut.n, total: cut.total }) : t("Copied.")); } catch { setNote(t("Couldn't copy.")); }
+  };
+  // "Got a list from a friend?": the link (or just its code) pasted in, for someone who has installed the app after being sent one
+  const [opening, setOpening] = useState(false);
+  const [pasted, setPasted] = useState("");
+  const [pastedProblem, setPastedProblem] = useState<string | null>(null);
+  const openPasted = (e: React.FormEvent) => {
+    e.preventDefault();
+    const payload = payloadFrom(pasted);
+    const decoded = payload ? decodePayload(payload) : null;
+    if (!payload || !decoded?.ok) { setPastedProblem(t(SHARE_PROBLEM[decoded && !decoded.ok ? decoded.reason : "unreadable"], { app: site.name })); return; }
+    setOpening(false);
+    setPasted("");
+    router.push(`${SHARED_APP_PATH}#${payload}`);
+  };
   const addTyped = (e: React.FormEvent) => {
     e.preventDefault();
     const item = customItem(typed);
@@ -83,6 +116,7 @@ export default function ShoppingListPage() {
         <Button type="submit" className="min-h-[3.25rem] flex-[1_0_auto] px-5 disabled:bg-soft-strong disabled:text-muted disabled:opacity-100!" disabled={!typed.trim()}><PlusIcon className="h-5 w-5" />{t("Add")}</Button>
       </form>
       <p role="status" aria-live="polite" className="mt-2 min-h-5 ps-1 text-sm font-medium text-accent">{note}</p>
+      <button type="button" onClick={() => { setPastedProblem(null); setOpening(true); }} className="-ms-1 inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-semibold text-accent underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] underline-offset-[3px] transition active:scale-[0.97]">{t("Got a list from a friend? Open it")}</button>
 
       {!hydrated ? null : list.length === 0 ? (
         <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><Link href="/app/groceries" className="inline-flex min-h-11 items-center rounded-full bg-foreground px-5 text-[15px] font-bold text-background transition active:scale-[0.97]">{t("Browse groceries")}</Link><Link href="/app/recipes" className="glass inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold transition active:scale-[0.97] hover:bg-soft-strong">{t("See recipes")}</Link></div>} /></div>
@@ -182,6 +216,7 @@ export default function ShoppingListPage() {
             {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { shoppingStore.update(withoutDone); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
             <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { shoppingStore.set([]); setNote(null); }}>{t("Clear")}</Button>
           </div>
+          <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
           {suggestion && state?.status === "ready" && (
             <section aria-labelledby="suggest-heading" className={`${CARD} mt-8 p-5`}>
               <h2 id="suggest-heading" className={LABEL}>{t("You might also need")}</h2>
@@ -203,6 +238,18 @@ export default function ShoppingListPage() {
 
         </>
       )}
+
+      <Sheet open={opening} onClose={() => setOpening(false)} title={t("Open a shared list")}>
+        <form onSubmit={openPasted} className="space-y-4 pb-2 pt-1">
+          <p className="text-[0.9375rem] leading-snug text-muted">{t("Paste the link your friend sent, and the list opens.")}</p>
+          <label className="block">
+            <span className="mb-2 block text-[0.9375rem] font-semibold leading-snug">{t("The link or code")}</span>
+            <input value={pasted} onChange={(e) => { setPasted(e.target.value); setPastedProblem(null); }} placeholder={t("Paste it here")} enterKeyHint="go" autoComplete="off" autoCapitalize="none" spellCheck={false} aria-invalid={pastedProblem ? true : undefined} className={PILL_INPUT} />
+          </label>
+          {pastedProblem && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug">{pastedProblem}</p>}
+          <Button type="submit" full className="min-h-12 text-base" disabled={!pasted.trim()}>{t("Open the list")}</Button>
+        </form>
+      </Sheet>
     </div>
   );
 }

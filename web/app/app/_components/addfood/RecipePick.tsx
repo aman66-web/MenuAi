@@ -35,9 +35,9 @@ function matches(card: RecipeCard, query: string, t: (s: string) => string): boo
 export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntry) => void }) {
   const t = useT();
   const settings = useSettings();
-  const manifest = useShopManifest();
-  const shop = recipeShop(manifest, null, settings.shops);
   const [retry, setRetry] = useState(0);
+  const manifest = useShopManifest(retry);
+  const shop = recipeShop(manifest, null, settings.shops);
   const state = useShopProducts(shop, retry);
   const products = state.status === "ready" ? state.products : null;
   const { cards } = useRecipeCards(null, products, settings.preferences, mealTargetFor(settings));

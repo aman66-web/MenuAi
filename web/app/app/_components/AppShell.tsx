@@ -64,7 +64,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   // First visit (SPEC §7.1): onboarding comes first, wherever the link pointed. It returns there when done.
   useEffect(() => {
     if (!hydrated || onboarded || pathname.startsWith("/app/welcome") || pathname.startsWith("/app/offline")) return;
-    const next = window.location.pathname + window.location.search;
+    const next = window.location.pathname + window.location.search + window.location.hash; // the part after "#" too: a shared shopping list is in it
     router.replace(`/app/welcome?next=${encodeURIComponent(next)}`);
   }, [hydrated, onboarded, pathname, router]);
 

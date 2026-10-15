@@ -136,6 +136,13 @@ export default function Privacy() {
           next place, and show no picture if none loads.
           Your shopping list stays on your device. If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
         </p>
+        <p className={para}>
+          If you share your shopping list, the app makes a link and hands it to whatever you choose to send it with (Messages, WhatsApp, email). The list is inside the link,
+          after the &ldquo;#&rdquo;: the products (each shop&apos;s own product number, or the barcode) and how many, plus the words of anything you typed in. It holds no name, no
+          account and no prices. That part of a link is not sent to any server, so we never receive or store your list; anyone who has the link can open it, so share it
+          with people you trust. When someone opens the link, their own phone reads the list from the link and looks up the products in the shops&apos; lists
+          on our site and in the app.
+        </p>
       </Section>
 
       <Section title={AI_RECIPES_ENABLED ? <>Recipes and Pip&apos;s recipe maker</> : "Recipes"}>

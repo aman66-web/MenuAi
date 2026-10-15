@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   amountNutrients, MAX_AMOUNT, MAX_NAME_LENGTH, MAX_SERVINGS, MAX_TYPED_GRAMS, MAX_TYPED_KCAL, MIN_SERVINGS, parseAmount, parseNumber, recipeNutrients, stepServings, typedEntry,
 } from "../lib/mm/addFood";
-import { entryMeal, loggedToday } from "../lib/mm/budget";
+import { entryMeal, loggedGaps, loggedToday } from "../lib/mm/budget";
 import { sanitizeLog } from "../lib/mm/user-data";
 
 // The Add food sheet's rules: typed numbers are the person's own (an empty box is no figure, never 0), a product is its label x the amount over 100,
@@ -132,6 +132,18 @@ describe("a logged entry without protein, carbs or fat", () => {
     const list = sanitizeLog([{ ...base, nutrients: { calories: 200 } }, { ...base, id: "b", nutrients: { calories: 100, protein: 5, carbs: 10, fat: 2 } }]);
     expect(list).toHaveLength(2);
     expect(loggedToday(list, new Date(2026, 9, 15, 12, 0))).toEqual({ calories: 300, protein: 5, carbs: 10, fat: 2 });
+  });
+  it("is counted in loggedGaps (today's entries only), never as 0 grams", () => {
+    const today = new Date(2026, 9, 15, 12, 0);
+    const list = sanitizeLog([
+      { ...base, nutrients: { calories: 200 } },
+      { ...base, id: "b", nutrients: { calories: 100, protein: 5 } },
+      { ...base, id: "c", nutrients: { calories: 50, protein: 0, carbs: 0, fat: 0 } }, // typed zeros are figures
+      { ...base, id: "d", loggedAt: new Date(2026, 9, 14, 12, 0).toISOString(), nutrients: { calories: 9 } }, // yesterday
+    ]);
+    expect(loggedGaps(list, today)).toEqual({ protein: 1, carbs: 2, fat: 2, any: true });
+    expect(loggedGaps([], today)).toEqual({ protein: 0, carbs: 0, fat: 0, any: false });
+    expect(loggedGaps(sanitizeLog([{ ...base, nutrients: { calories: 1, protein: 1, carbs: 1, fat: 1 } }]), today).any).toBe(false);
   });
   it("still refuses calories that are not a number, or a protein that is not", () => {
     expect(sanitizeLog([{ ...base, nutrients: { calories: "200" } }])).toEqual([]);

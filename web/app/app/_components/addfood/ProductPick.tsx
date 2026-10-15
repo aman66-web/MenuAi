@@ -3,11 +3,11 @@
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { ADD_TO, amountNutrients, MAX_AMOUNT, MIN_AMOUNT, parseAmount } from "@/lib/mm/addFood";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
-import { photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
-import type { Meal } from "@/lib/mm/types";
+import { forRetailer, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
+import type { Meal, Nutrients } from "@/lib/mm/types";
 import { NumberDone } from "../SearchDone";
 import { ScanIcon } from "../icons";
-import { Button, inputClass, Spinner } from "../ui";
+import { Button, ErrorBox, inputClass, Spinner } from "../ui";
 import { useGroceryCatalogue } from "../../_lib/groceries";
 import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
@@ -24,7 +24,8 @@ const RESULTS = 8;
 export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry: NewEntry) => void; onBack: () => void }) {
   const t = useT();
   const prefer = useSettings().shops?.[0] ?? null;
-  const catalogue = useGroceryCatalogue(null);
+  const [retry, setRetry] = useState(0);
+  const catalogue = useGroceryCatalogue(null, retry);
   const [query, setQuery] = useState("");
   const deferred = useDeferredValue(query).trim();
   const [scanning, setScanning] = useState(false);
@@ -43,7 +44,7 @@ export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry
       {catalogue.status === "loading" && deferred.length >= 2 ? (
         <Spinner label={t("Loading products")} />
       ) : catalogue.status === "error" ? (
-        <p className="text-[0.9375rem] text-muted">{t("Couldn't load the products. Check your connection.")}</p>
+        <ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
       ) : deferred.length >= 2 && results.length === 0 ? (
         <p className="text-[0.9375rem] text-muted">{t("No products match.")}</p>
       ) : results.length > 0 ? (
@@ -53,7 +54,7 @@ export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry
               key={p.gtin}
               lead={<PhotoTile sources={photoSources(p, prefer)} />}
               title={p.name}
-              line={t("{kcal} kcal · {protein}g protein per 100 {unit}", { kcal: Math.round(p.kcal), protein: p.protein, unit: p.per })}
+              line={t("{kcal} kcal · {protein}g protein per 100 {unit}", { kcal: Math.round(forRetailer(p, prefer).kcal), protein: forRetailer(p, prefer).protein, unit: p.per })}
               action={<ChoosePill name={p.name} onClick={() => setPicked(p)} />}
             />
           ))}
@@ -63,10 +64,15 @@ export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry
   );
 }
 
+const figures = (amount: string, n: Nutrients) => ({ amount, kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0), carbs: formatGrams(n.carbs ?? 0), fat: formatGrams(n.fat ?? 0) });
+
 /** The second step: how much of it, and what that comes to. */
-function HowMuch({ product: p, meal, prefer, onBack, onAdd }: { product: ListedProduct; meal: Meal; prefer: string | null; onBack: () => void; onAdd: (entry: NewEntry) => void }) {
+function HowMuch({ product, meal, prefer, onBack, onAdd }: { product: ListedProduct; meal: Meal; prefer: string | null; onBack: () => void; onAdd: (entry: NewEntry) => void }) {
   const t = useT();
   const id = useId();
+  // The figures are the preferred shop's own record where it has one (read from its product page), else the community record for the barcode.
+  const p = forRetailer(product, prefer);
+  const fromShop = p.source === "retailer";
   const [text, setText] = useState("100");
   const amount = parseAmount(text);
   const n = amount === null ? null : amountNutrients(p, amount);
@@ -91,7 +97,7 @@ function HowMuch({ product: p, meal, prefer, onBack, onAdd }: { product: ListedP
       </div>
 
       <div className="group/nums relative">
-        <label htmlFor={id} className="mb-2 flex min-h-8 items-center text-[0.9375rem] font-semibold leading-snug">{unit === "ml" ? t("How much did you have? (ml)") : t("How much did you have? (g)")}</label>
+        <label htmlFor={id} className="mb-2 flex min-h-8 items-center pe-20 text-[0.9375rem] font-semibold leading-snug">{unit === "ml" ? t("How much did you have? (ml)") : t("How much did you have? (g)")}</label>
         <NumberDone />
         <input
           id={id}
@@ -108,7 +114,9 @@ function HowMuch({ product: p, meal, prefer, onBack, onAdd }: { product: ListedP
 
       <p id={`${id}-note`} role="status" className="app-numbers min-h-12 text-[0.9375rem] leading-snug text-muted">
         {n
-          ? t("From the label, for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat.", { amount: shown, kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0), carbs: formatGrams(n.carbs ?? 0), fat: formatGrams(n.fat ?? 0) })
+          ? fromShop
+            ? t("From the label, for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat.", figures(shown, n))
+            : t("From Open Food Facts contributors (community data), for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat. Check the pack.", figures(shown, n))
           : t("Type an amount from {min} to {max}.", { min: MIN_AMOUNT, max: MAX_AMOUNT.toLocaleString("en-GB") })}
       </p>
 

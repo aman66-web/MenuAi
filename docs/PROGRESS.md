@@ -1573,6 +1573,44 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     a picture from elsewhere never loaded, a taken-down shop on a device that knows the list and one that learns it later, the layout at 360 px, Extra large text and Arabic, ticking
     and quantity, axe 0), tsc, lint; screenshots at 390 px, 360 px and Extra large text.
 
+- 2026-10-15 (night) — **Home's + opens an "Add food" sheet** (founder, on the + beside Breakfast: "a kind of menu vibe sheet should launch where you can either type in macros, choose a
+  recipe perhaps, choose a meal from a restaurant or whatever"). The + on Breakfast, Lunch or Dinner (it used to open Eat out) opens a bottom sheet with four big choices; whatever is picked
+  goes into **the meal whose + was tapped**, at the time of the tap, with an Undo for 8 seconds (at the top of the screen, clear of the rows).
+  - **Type in your numbers:** calories (needed), protein, carbs, fat (each optional, **an empty box is no figure, never 0**), an optional name ("My own numbers" when left empty). A box that is wrong
+    is named ("Check the protein: use a number from 0 to 1,000 g."); numbers typed in another numeral system and a thousands comma are read as numbers (`lib/mm/addFood.ts`, `parseNumber`, tested).
+  - **Choose a recipe:** one of our recipes, a serving or more (half to six), with exactly the figures its card and page show per serving (fitted to the person's meal size, from the shop's own
+    labels); the recipes for that meal first; diet and allergy settings apply as everywhere.
+  - **Choose a restaurant meal:** search the menus (or the person's saved meals above the search); a dish is added as the restaurant publishes it, one serving. A restaurant that publishes calories
+    only is not offered (the log counts protein, carbs and fat; the way to log such a dish is to type its calories). A dish picked on a slow connection is **not** added if the sheet was closed
+    meanwhile (found by the review below; `e2e/addfood.mjs`).
+  - **Choose a supermarket product:** found by name or barcode (typed, or the camera), then how much was had in grams or millilitres; the line shown before Add is the label per 100 g or ml times the
+    amount over 100 (plain arithmetic, `amountNutrients`). **Where the numbers come from is said:** "From the label" only when the preferred shop's own product page was read; otherwise
+    "From Open Food Facts contributors (community data) … Check the pack." (almost the whole catalogue; the review found the old wording overstated it).
+  - **Decisions (rule 8, all logged here):** (1) an entry **stays in the meal whose + was tapped**, whatever the time (SPEC §6.3 says the meal comes from the time; that still applies to everything
+    logged from a dish or an order); stored as `LogEntry.meal`, kept by sync, dropped by the sanitiser if it isn't one of the three. (2) A typed entry may have **calories only**: the log
+    sanitiser now accepts entries with protein, carbs and fat absent (they're never 0). **Home, Today and the builder say so instead of showing "0g":** Home and Today add "Some meals you added have no
+    protein, carbs or fat entered, so those figures only count the rest." under the figures, and the order builder leaves out "protein left today" while a meal's protein is unknown (`loggedGaps`, tested).
+    An older iPhone build's sanitiser would hide such entries until the app is updated. (3) Pro: while Pro is off at the free launch nothing is gated; when Pro returns the + shows the paywall for a free
+    person (tested with the Pro-on build). (4) The sheet is not an AI feature and sends nothing anywhere: the picks come from the menus and lists already on the phone; a typed entry stays on it (and in
+    sync if the person signed in).
+  - **Independent review (30 agents, 27 findings, 14 confirmed) and what was done:** fixed: a restaurant dish chosen on a slow connection was logged after the sheet closed and closed a newer sheet
+    (now cancelled, and the tapped Add shows a spinner); a left-blank macro shown as 0g (above); the product note's provenance (above); the sheet's Done pill and search icon painting over its sticky header
+    (header above them); the Undo bar covering the + below it; focus dropped when a view changes (focus now goes to the sheet's title, which a screen reader reads); the recipe list's Try again doing
+    nothing after the shop list failed to load; failure messages sitting under the list and never cleared (now under the search, cleared when typing); menu or product load failures reading "No dishes match." or
+    plain text with no retry (an error with Try again); a label that Done could cover at large text; Home showing yesterday's totals for up to a minute after the phone wakes (the clock now also updates when the
+    app comes back to the front). **Not changed (low, noted):** a recipe or product entry keeps the translated name it was logged under (so a person who changes language sees old entries in the old language);
+    a "mixed" restaurant's calories-only dish still shows Add and then explains why it can't be added.
+  - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "Add to Breakfast", "Add to Lunch", "Add to Dinner",
+    "Added “{name}” to Breakfast." (and Lunch, Dinner), "Type in your numbers", "Calories, protein, carbs and fat", "Choose a recipe", "A serving of one of our recipes", "Choose a restaurant meal",
+    "Search the menus, or pick a saved meal", "Choose a supermarket product", "Search, or scan its barcode", "Numbers", "Calories (kcal)", "Name (optional)", "e.g. Toast and jam", "My own numbers",
+    "Calories are needed. Protein, carbs and fat can stay empty.", "Check the calories: use a number from 0 to 5,000." (and protein, carbs, fat: "… from 0 to 1,000 g."), "Servings", "{name} ({n} servings)",
+    "Your saved meals", "Choose", "How much did you have? (g)" and "(ml)", "Type an amount from {min} to {max}.", "From the label, for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat.",
+    "From Open Food Facts contributors (community data), for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat. Check the pack.", "This dish publishes calories only, so it can't be added here. You can
+    type its calories in instead.", "Restaurants that publish calories only aren't listed here. You can type their calories in instead.", "Some meals you added have no protein, carbs or fat entered, so those
+    figures only count the rest."
+  - Checked: `tests/addFood.test.ts` (typed numbers, amounts, servings, the meal an entry sits under, the log sanitiser, `loggedGaps`), `e2e/addfood.mjs` (15 steps incl. a slow connection, Pro gate on the Pro-on build,
+    products' provenance, Back paths, scanner fallback, 360 px / Extra large text / Arabic, axe 0), tsc, lint.
+
 - 2026-10-15 (night) — **Shopping list: add more from the same shop, or from another** (founder, on a list holding one Asda product: "After they've added from a shop there is no
   way to add a product from the same shop or choose a different shop"). The list only had a typing box; the way back to the shops was the Groceries tab.
   - **"Add more from {shop}"** is the last row of each shop's card (a lime round + like a tick's place, like "New reminder" at the foot of a list). It opens that shop's own list of
@@ -1582,6 +1620,48 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - Behaviour only (the shop rows are links, not items: ticks, quantities and "Remove ticked" count only items). **New copy (rule 8, logged here; translations follow):** "Add more from {shop}",
     "Add from another shop", "Add products from a shop". Checked: `e2e/listadd.mjs` (7 steps: the row's place, target and address, adding a second product from the shop's own list and coming back,
     two shops, typed-only, Co-op, an empty list, 360 px / Extra large text / Arabic, axe 0), `e2e/recipes.mjs` 14 (its list count now counts ticks, not rows), tsc, lint.
+
+- 2026-10-15 (night) — **Share a shopping list as a link** (founder: "when the person presses share then sends to someone they know they get a link saying to download the app to view
+  their shopping list, then their friend downloads the app and can view the shopping list. So that shopping lists can be easily shared"). Shopping list › Share (and Copy) now sends the
+  list as words **and a link**, and the person who gets it can open the list in Numbite.
+  - **The link holds the list; no server does.** `https://numbite.com/l#<list>`: everything after the "#" is never sent to a server (not by the browser, not by a messaging app's link
+    preview), so nothing is stored anywhere, **no account, no database table, no migration** (rule 4 untouched; the privacy page says so). What travels is references only, never
+    prices or numbers: for each shop the products' ids (the shop's own product id or the barcode) and how many, plus the words of typed-in items (`lib/mm/shareList.ts`, 16 unit tests).
+    The reader's app looks the products up in the shops' own lists, so they see today's name, picture and price, not the sender's. Ticked items (already in the basket) are left out.
+    A version digit, a 6-character check and a length limit (100 items, 6,000 characters) mean a link a messaging app cut short, a newer format or random text is **said to be so**
+    ("This link looks cut short…") and never half-read; an over-long list is trimmed to what fits, and the message says "The link holds the first {n} of your {total} items. The list in
+    the message has them all." Every shop, code, word and quantity in a link is checked when it is read (a link can come from anyone): typed words are shown as words, never run.
+  - **What the friend sees.** The link opens a website page (`/l`, English like the other site pages, not for search engines): "A friend shared a shopping list", how many things and
+    from which shops (the products' names stay in the link), and what to do. **Today** (no App Store page yet) it says the iPhone app is coming soon and offers "View the list", which opens
+    the list in the browser version of the app. **Once `NEXT_PUBLIC_APP_STORE_URL` is set** it shows "Get Numbite on the App Store", "I have Numbite: open the list" (`numbite://l#…`),
+    "Or read the list in your browser" and a card "After you've installed it" (tap the link again, or paste it in the app) with a Copy button.
+  - **In the app** (`/app/groceries/list/shared`): the products as the Shopping list shows them (picture, name, price as the shop shows it, quantity) under each shop, typed items under
+    "Any shop", then "Add all to my shopping list" (merges with what is there: the same product adds up; each product keeps its picture) and "Open my shopping list". Products a shop's list no
+    longer has are counted and said so; a link of nothing else says that. A first-time visitor is taken through the questions first and **lands on the list** (the "#" survives
+    onboarding; the "choose a recipe to start with" step is skipped for a shared link). Shopping list › **"Got a list from a friend? Open it"** takes the whole message, the link or just
+    the code pasted in, so the list can still be opened by someone who installed the app after the link arrived.
+  - **The iPhone app** (`MenuMacros/Features/WebApp/SharedListLink.swift`, `MenuMacrosApp.swift` `.onOpenURL` + `.onContinueUserActivity`, `LinkInbox`, `WebAppView`): a tap on
+    `https://numbite.com/l#…` or `numbite://l#…` opens that page inside the app, running or from cold. Only those two shapes are opened (the sign-in callback and every other address
+    are ignored; the code may hold only the characters a list uses). Swift Testing tests are in `MenuMacrosTests/SharedListLinkTests.swift`. **Written without a compiler: the Mac session
+    builds it.** The site serves `/.well-known/apple-app-site-association` (team S7G6ZHHK59, `com.amanmarwaha.MenuMacros`, path `/l`; `next.config.ts` gives it the JSON content type).
+  - **Founder steps (docs/APP_BUILD.md "Shared shopping lists"):** add the **Associated Domains** capability (`applinks:numbite.com`) and a **URL Type** `numbite` in Xcode (capabilities
+    and Info settings are yours; I did not touch the entitlements file or add an Info.plist), set `NEXT_PUBLIC_APP_STORE_URL` in Vercel when the App Store page exists, and try it on a real iPhone.
+  - **Limits, said plainly:** (1) a friend who does not have the app yet goes to the App Store and, after installing, has to **tap the link in the message again** (or paste it): iOS gives an
+    app no way to know which link led to its install without a third-party service (rule 6: none added). (2) Until Associated Domains is on, a tap on the https link opens the web page, which
+    has the "open in the app" button. (3) Anyone who has the link can read the list, like any link: the share note says so. (4) Product prices are what each shop's list showed when the
+    reader's app last read it, never the sender's.
+  - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "My shopping list on {app}", "Open it in {app}
+    to see the products and prices:", "The link holds the first {n} of your {total} items. The list in the message has them all.", "Sharing sends a link that holds your list, so anyone who has
+    it can see it.", "Got a list from a friend? Open it", "Open a shared list", "Paste the link your friend sent, and the list opens.", "The link or code", "Paste it here", "Open the list", the four
+    problem sentences ("There is nothing to show in this link…", "This link was made by a newer version of {app}…", "This link looks cut short…", "This doesn't look like a shopping list link…"),
+    "Shared shopping list", "Opening the list", "Couldn't open this list. Check your connection.", "A friend shared this shopping list with you. Add it to yours to tick things off as you shop.",
+    "None of the products in this list could be found in the shops' lists any more.", the two "… couldn't be found in the shops' lists any more." lines, "Added to your shopping list.", "Open my shopping
+    list", "Prices are what each shop showed on its website, and they change: check in store." English only (website page, privacy page paragraph, docs).
+  - **Found and fixed while testing:** a link that does not start with a version digit (for example "abc") was reported as made by a newer app; it is now "doesn't look like a shopping list link";
+    the landing page did not notice a changed "#" in the same tab (it now follows `hashchange`, like the in-app page).
+  - Checked: `tests/shareList.test.ts` 16, `e2e/sharelist.mjs` 11 steps (share text and link, ticked items left out, Copy and a long list cut with a note, the landing page in both modes — before and after the App
+    Store address is set — bad, cut and empty links, a first-time visitor through the questions onto the list, pictures/prices/quantities and "Add all" merging, products no longer in a list, html as words, the
+    paste sheet, 360 px / Extra large text / Arabic with no sideways scroll, axe 0), tsc, lint; screenshots of the landing page.
 
 ## Known issues
 
@@ -1594,6 +1674,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
 - [x] ~~Before launch: switch off `ALL_FREE_FOR_TESTING`~~ replaced 2026-10-12: the free launch ships with Pro off (`PRO_ENABLED`); turn Pro on in a later update with payments
 - [ ] **Sign-in and sync (live; real tests still to do): the founder's remaining steps are in docs/ACCOUNTS_SYNC.md "Founder steps" 1, 5 and 6**: check the Google secret, test a real sign-in on the website and the iPhone (the Sign in with Apple capability is already added: `Config/MenuMacros.entitlements`), confirm the App Privacy answers
+- [ ] **Shared shopping lists need two Xcode settings and one Vercel variable** (docs/APP_BUILD.md "Shared shopping lists": Associated Domains `applinks:numbite.com`, URL Type `numbite`, `NEXT_PUBLIC_APP_STORE_URL` once the App Store page exists), then try a shared list on a real iPhone
 - [ ] **Free App Store launch: follow docs/APP_BUILD.md "Steps for the founder"** (numbite.com live and Vercel Pro since 2026-10-12; next a support@numbite.com forwarding address, read the legal pages, UK trade mark search for "Numbite", App Store Connect record, privacy and age rating, archive, TestFlight, submit) and run the Mac session's checks first
 - [ ] **Decide which supermarkets go into the App Store version** (`web/app-content.json`; all nine until you say; the six whose terms restrict copying: Tesco, Waitrose, Morrisons, Iceland, Aldi, M&S). Food photos: decided 2026-10-12, all in ("yes i want all the food photos there")
 - [ ] **Approve the App Store copy** in docs/STORE.md (name, subtitle, keywords, description, review notes: drafts)
