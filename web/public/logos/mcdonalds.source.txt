@@ -1,11 +1,11 @@
-status: skipped-unavailable
-file: none
-kind: none
-tile: none
-source_url: https://www.mcdonalds.com/robots.txt answered HTTP 403 ("Access Denied", an Akamai edge error page)
+status: installed
+file: mcdonalds.webp
+kind: header
+tile: light
+source_url: the golden arches logo file served in the header of https://www.mcdonalds.com/gb/en-gb.html (saved by the founder from their own browser; the address of the file itself was not recorded)
 page_url: https://www.mcdonalds.com/gb/en-gb.html
-terms_url: not reviewed
-terms_summary: not read: the site refuses this environment, so neither its robots.txt nor its terms could be read (checked 2026-10-10).
-why: The only request made (robots.txt) was refused with 403 by the site's edge protection; robots.txt could not be checked, so nothing else was requested and nothing was worked round. To add it, the founder can save the header logo from the chain's own website in their own browser and send it.
-decision: stopped on the 403 per the Phase 3 rule; no logo installed
-retrieved: 2026-10-10
+terms_url: not reviewed (the site refuses this environment with a 403, so neither its robots.txt nor its terms could be read from here)
+terms_summary: not read, see above. Installed on the founder's decision and accepted risk (CLAUDE.md rule 2), to be taken down the day McDonald's asks (web/public/logos/hidden.json hides it without an app update).
+why: The chain's site (www.mcdonalds.com), its corporate site and www.mcdonalds.co.uk all answer 403 "Access Denied" to this environment (checked 2026-10-15), and blocks are never worked round, so the founder saved the logo file from the page in their own browser and sent it. Saved byte for byte (WebP, 500 x 438, transparent, cut to the artwork, one colour #FFCC00 on the plain tile); never redrawn, recoloured or cropped.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); 2026-10-12 ("cant you do all those logos for me pls"); 2026-10-15 (saw the burger icon and sent the file)
+retrieved: 2026-10-15

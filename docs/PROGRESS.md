@@ -1358,6 +1358,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     360 and 390 px, standard and extra-large text; screenshots of every main screen at normal and extra-large text.
   - The App Store screenshots and the uploaded iPhone build still show the old look: re-run `web/e2e/store-shots.mjs` and make a new build.
 
+- 2026-10-15 (evening) — **McDonald's logo** (founder: "McDonalds is missing the logo"). Its website, its corporate site and mcdonalds.co.uk all answer 403
+  (Akamai) to the cloud environment, which we never work round, so the founder saved the golden arches from mcdonalds.com/gb in their own browser and sent
+  the file (WebP, 500 x 438, transparent, one colour, cut to the artwork). Saved byte for byte as `web/public/logos/mcdonalds.webp`, record in
+  `mcdonalds.source.txt` (the site's robots.txt and terms could not be read from here; installed on the founder's accepted risk, rule 2; takedown through
+  `hidden.json`), added by `tools/logos/assemble_logos.py`; plain white tile (looked at on Eat out, the chain page and Search, normal and extra-large text).
+  **233 of 238 chains now show a logo**; still none: Bettys, Fuller's, Kick Ass Burrito, Tesco Café, Wild Bean Café. The iPhone app shows it after its next build.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -1395,7 +1402,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] Read /privacy and /terms again: they now also describe the web app (browser storage, offline cache, Pro waitlist)
 - [ ] **UK data:** download the official UK nutrition guide for McDonald's, Domino's, Papa Johns and Costa (and Pizza Hut's delivery guide) from your own connection and send me the files; see docs/UK_DATA_STATUS.md
 - [ ] **Supermarket logo: Co-op** blocked us; save it from its own site in your browser (`data/chrome-inbox/QUEUE-LOGOS.md`). Tesco's was installed on 2026-10-14 from tescoplc.com
-- [ ] **Logos (6 of 238 missing, checked 2026-10-12):** Bettys, Fuller's, Kick Ass Burrito (delivery-only, no website of its own), McDonald's, Tesco Café, Wild Bean Café (their sites block us, or the only file is too padded to read; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
+- [ ] **Logos (5 of 238 missing, checked 2026-10-15; McDonald's added 15 October):** Bettys, Fuller's, Kick Ass Burrito (delivery-only, no website of its own), Tesco Café, Wild Bean Café (their sites block us, or the only file is too padded to read; list in `data/chrome-inbox/QUEUE-LOGOS.md`). To add one, save the logo from the chain's own website in your browser (right-click the header logo → Save Image) and send it to me
 - [x] **Decide: Kick Ass Burrito**: publish (2026-10-11), now live.
 - [x] **Decide: Waterfields**: publish the products whose own figures agree (2026-10-12); live, 15 products
 - [ ] **Decide: YO! To Go** (the Yo! Sushi counters inside Tesco) is listed as its own chain because its menu and outlets differ; say if it should be folded into Yo! Sushi

@@ -1,4 +1,4 @@
-# Chrome queue: LOGOS (restaurants still without a logo file; 2026-10-12: 6 of 238 have none)
+# Chrome queue: LOGOS (restaurants still without a logo file; 2026-10-15: 5 of 238 have none)
 
 Our cloud session can't reach these logo files (bot checks, or the image host's robots.txt refuses automated tools). In your
 browser: open the page, find the restaurant's OWN logo (header logo, or its brand/press page), and save the file exactly as the site
@@ -20,7 +20,7 @@ Claude adds them to the app with tools/logos/assemble_logos.py.
 - [ ] tesco-cafe | Tesco Cafe |  | The chain's own site refused an automated visit (https://www.tesco.com/ and https://www.tescoplc.com/robots.txt both answered 403 "Access Denied" from the Akamai edge); blocks are never worked around. Save the Tesco Cafe
 - [ ] wild-bean-cafe | Wild Bean Cafe | (2026-10-12: bp's card image was fetched but left out: the mark is a third of the file, unreadable on our tile, and can't be cropped; a tighter file from bp is still wanted) | https://assets.bp.com/robots.txt (403) | Open https://www.bp.com/about-us/who-we-are/our-brands and, in the "wildbean cafe" card ("A brand on the move across four continents"), save the card image (alt "wbc logo", file wbc-logo-566x378.png) as wild-bean-cafe.pn
 - [x] dominos | Domino's | https://www.dominos.co.uk/robots.txt (403, geo-block page to the cloud environment) | Open https://www.dominos.co.uk/ and save the Domino's logo at the top left of the header (right-click > Save Image As, or copy the inline <svg>) as dominos.svg/.png.
-- [ ] mcdonalds | McDonald's | https://www.mcdonalds.com/robots.txt (403, Akamai Access Denied) | Open https://www.mcdonalds.com/gb/en-gb.html and save the golden arches logo at the top left of the header as mcdonalds.svg/.png (the site's own file, unchanged).
+- [x] mcdonalds | McDonald's | (2026-10-15: the founder saved the golden arches from mcdonalds.com/gb in their own browser and sent it; installed as web/public/logos/mcdonalds.webp) | https://www.mcdonalds.com/robots.txt (403, Akamai Access Denied) | Open https://www.mcdonalds.com/gb/en-gb.html and save the golden arches logo at the top left of the header as mcdonalds.svg/.png (the site's own file, unchanged).
 - [x] costa | Costa Coffee | https://www.costa.co.uk/robots.txt (timeouts / HTTP/2 errors from the cloud environment) | Open https://www.costa.co.uk/ and save the Costa logo at the top of the header as costa.svg/.png.
 - [ ] fullers | Fuller's | https://www.fullers.co.uk/ (403, Cloudflare challenge to the cloud environment) | Open https://www.fullers.co.uk/ and save the Fuller's logo from the header (right-click > Save Image As, or copy the inline <svg>) as fullers.svg/.png.
 - [x] atis | Atis | https://atis-life.s3.eu-west-1.amazonaws.com/robots.txt (403) | Open https://atis.life/ and save the header logo (an SVG on atis-life.s3.eu-west-1.amazonaws.com, settings/01K0YGQJ5DM415Z58ZHSKNS4X6.svg) as atis.svg; tile: light.

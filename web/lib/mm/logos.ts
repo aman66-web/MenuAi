@@ -157,6 +157,7 @@ export const CHAIN_LOGOS: Readonly<Record<string, ChainLogo>> = {
   "loungers": { src: "/logos/loungers.svg", tile: "dark" },
   "malmaison": { src: "/logos/malmaison.svg", tile: "dark" },
   "maroush": { src: "/logos/maroush.webp" },
+  "mcdonalds": { src: "/logos/mcdonalds.webp" },
   "mcmullens": { src: "/logos/mcmullens.svg", tile: "dark" },
   "megans": { src: "/logos/megans.svg" },
   "mildreds": { src: "/logos/mildreds.png" },
