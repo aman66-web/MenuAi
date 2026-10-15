@@ -1285,6 +1285,38 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     in the recipe pictures (six flat pastel colours now). Shadows are neutral grey. The accent green is the app's #046c4f on the website too
     (6.4:1 on white). Pip keeps the shading in his own drawing. No wording changed.
 
+- 2026-10-15 (midday) — **Home like the founder's picture, with carb and fat targets** (founder, on the Home reference picture: "Make the home page
+  look absolutely identical to this", then on its calories card: "exactly like image 2"; answers: leave the bodyweight card out, work out carb and fat
+  targets, keep our lime, keep the dark bottom bar).
+  - **Layout:** a smaller bold "Home" with a grey round calendar button; every day gone by a dark circle (whether food was logged is still said to
+    screen readers), today lime, days ahead grey; the calories card measured from the picture (a dial about 55% of the card's width with a thick track,
+    280° of arc, a small grey centre with a white ring between, a heavy "43%", a small bold label, regular-weight "1,030 / 2,800" and "kcal"); the macro
+    card as three rows, "PROTEIN 73g / 180g" (label in small capitals, figures in DM Mono) each with a thin bar. Kept on purpose: Shopping list / My meals
+    with "Open" (for the picture's Workouts / Meals), and Today's meals below the fold. The picture's bodyweight card is left out (the app doesn't track weight).
+  - **Carb and fat targets (rule 8: founder's decision):** worked out from the calorie and protein targets, about 30% of calories from fat (9 kcal/g) and
+    the rest from carbs (4 kcal/g) after protein (20% of calories when no protein target is set), rounded to 5 g (`lib/mm/targets.ts` suggestCarbFat /
+    macroTargets, tested). Settings › Daily targets gains "Carbs (g)" and "Fat (g)": empty follows the suggestion (shown greyed), a typed number is kept
+    (`dailyCarbs` / `dailyFat` in settings, synced like the other targets). They are targets the person can change, never figures about a food.
+  - New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator): "Carbs (g)", "Fat (g)", the note "Carbs
+    and fat are worked out from your calories and protein: about 30% of calories from fat and the rest from carbs. Type your own to change them." and
+    "Carbs and fat should be above 0 and at most 2,000 g."
+  - Also fixed: two tab counts at 70% opacity (My meals, Compare) were below AA once the lighter weights stopped counting as bold text.
+
+- 2026-10-15 (midday) — **Recipes use only everyday ingredients** (founder: "the customer may get annoyed if they go to like a Tesco local or
+  Sainsburys local which doesn't sell a specific product for their recipe ... All ingredients can be picked up from almost 100% of stores").
+  - `EVERYDAY_KINDS` in `lib/mm/pantry.ts`: 84 pantry kinds judged to be sold in nearly every small UK shop (Tesco Express, Sainsbury's Local, Co-op,
+    One Stop). It's a judgement: no supermarket publishes its small-shop range. A test fails any recipe-book ingredient outside it (substitutes may be
+    anything; the switched-off AI maker is unchanged). New kind `coconut-milk` (regular tins; small shops rarely stock the light ones).
+  - Out of every recipe: tofu, Quorn, halloumi, feta, paneer, parmesan, skyr, prawns, cod and white fish, smoked mackerel, steak, turkey and lamb mince,
+    lentils, black and butter beans, gnocchi, lasagne sheets, rice noodles, edamame, mangetout, beansprouts, green beans, Thai paste, teriyaki,
+    horseradish, fresh herbs, chillies and ginger, lime juice, smoked paprika and the rarer dried herbs and seeds.
+  - 33 recipes keep their name with a simple swap (e.g. parmesan → cheddar, black → kidney beans, garnish herbs dropped); 21 become the same dish with the
+    missing item swapped and a new name (e.g. "Bean chilli", "Beef keema with peas", "Egg and pea curry"); 22 are new dishes (e.g. "Salmon and coconut
+    curry", "Tuna fishcakes", "Chicken chow mein", "Salmon fish pie"). Still 100 recipes and the same meal mix; vegan 20 → 24, no meat or fish 50 → 52,
+    suits halal 80 → 90. Recipes saved under an old id drop out of My meals (not launched yet).
+  - Halal still uses halal-named meat, which small shops rarely sell. The 211 new or changed sentences were translated into the 10 languages by AI, each
+    checked by a second translator.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
