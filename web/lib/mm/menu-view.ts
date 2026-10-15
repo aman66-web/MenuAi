@@ -4,7 +4,7 @@ import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
 import { normalizeForSearch } from "./search";
-import type { Chain, MenuItem, Preferences } from "./types";
+import { ALLERGEN_KEYS, type AllergenKey, type Chain, type MenuItem, type Preferences } from "./types";
 
 // SPEC §7.4: sort, filter and tags on the chain page.
 
@@ -137,4 +137,13 @@ export function filterCaution(prefs: Preferences, t: T = englishT): string | nul
   const what = promises.reduce((a, b) => t("{a} or {b}", { a, b }));
   const diet = t("We only know what each restaurant publishes, so this can't promise a dish is {what}.", { what });
   return allergy ? `${diet} ${allergy}` : diet;
+}
+
+/** The preferences with one allergen added or taken off, kept in the app's order (none left = the field is dropped, as if it was never set). */
+export function toggleAllergen(prefs: Preferences, key: AllergenKey): Preferences {
+  const avoid = prefs.avoidAllergens ?? [];
+  const next = avoid.includes(key) ? avoid.filter((a) => a !== key) : [...avoid, key];
+  const sorted = ALLERGEN_KEYS.filter((a) => next.includes(a));
+  const { avoidAllergens: _drop, ...rest } = prefs; // eslint-disable-line @typescript-eslint/no-unused-vars
+  return sorted.length ? { ...rest, avoidAllergens: sorted } : rest;
 }

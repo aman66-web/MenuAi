@@ -1,7 +1,7 @@
 // A "Done" for the keyboard (founder 2026-10-15, on Compare's "Add a product" box with the keyboard up: "There needs to be like a done box here").
 // Every search box that filters as you type shows a Done button inside it while it is in use; tapping it (or the keyboard's Return key) puts the
-// keyboard away and keeps the words and the results. The number boxes of Eat out's "Your numbers" have no Return key on an iPhone, so they get a
-// Done under them. Touch is on, like an iPhone.
+// keyboard away and keeps the words and the results. The number boxes of Eat out's "Your numbers" have no Return key on an iPhone, so the
+// group gets a Done at the card's corner. Touch is on, like an iPhone.
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
@@ -93,7 +93,7 @@ await step("Search: the clear button and Done sit side by side, and the clear bu
   await ctx.close();
 });
 
-await step("Eat out › Your numbers: a Done under the boxes (the number pad has no Return key) puts the keyboard away and keeps the number", async () => {
+await step("Eat out › Your numbers: a Done at the card\'s corner while a box is in use (the number pad has no Return key) puts the keyboard away and keeps the number, and nothing moves when the box lets go", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + "/app/eat-out");
   await page.getByRole("button", { name: "Find by numbers or allergies" }).tap();
@@ -105,14 +105,22 @@ await step("Eat out › Your numbers: a Done under the boxes (the number pad has
   await cal.fill("500");
   await bar.waitFor({ state: "visible", timeout: 5000 });
   const b = await bar.boundingBox();
-  const protein = await page.getByLabel("Protein, at least (g)").boundingBox();
-  expect(b.y > protein.y + protein.height - 2, "Done is under the boxes");
-  expect(b.height >= 44, "Done is a full-size tap target: " + b.height);
+  const card = await page.getByText("Your numbers", { exact: true }).first().boundingBox();
+  const boxTop = (await cal.boundingBox()).y;
+  expect(b.y < boxTop && Math.abs(b.y + b.height / 2 - (card.y + card.height / 2)) < 16, "Done sits in the card's top corner, level with the heading, above the boxes");
+  expect(b.height >= 30, "Done is a proper size: " + Math.round(b.height));
   await page.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2);
   await page.waitForTimeout(300);
   expect((await focused(page)) === "BODY", "focus left the box");
   expect(!(await bar.isVisible().catch(() => false)), "Done is gone again");
   expect((await cal.inputValue()) === "500", "the number stays");
+  // nothing moves when a box lets go, so the very next tap (an allergy tile) lands first time
+  await cal.tap();
+  const milk = page.getByRole("button", { name: "Milk", exact: true });
+  const before = (await milk.boundingBox()).y;
+  await milk.tap();
+  expect((await milk.getAttribute("aria-pressed")) === "true", "the first tap on the next thing registers");
+  expect(Math.abs((await milk.boundingBox()).y - before) < 1, "the page didn't shift under the finger");
   await ctx.close();
 });
 

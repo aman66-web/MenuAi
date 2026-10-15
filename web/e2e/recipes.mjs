@@ -317,6 +317,44 @@ await step("halal: chicken recipes use halal-named chicken, others are left out 
   await ctx.close();
 });
 
+await step("allergies: Recipes > More has the 14 allergens; choosing Milk leaves out recipes with milk, says so, shows in the diet line and in Settings; unchoosing brings them back", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/recipes");
+  await page.getByRole("heading", { level: 1, name: "What's cooking today?" }).waitFor();
+  const total = async () => Number(/·\s*(\d+)/.exec(await page.locator("#all-heading").textContent())?.[1] ?? "0");
+  await page.locator("#all-heading").getByText(/·\s*\d+/).waitFor({ timeout: 60000 });
+  const before = await total();
+  expect(before >= 90, "all recipes at first: " + before);
+  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "More" }).click();
+  const group = page.getByRole("group", { name: "Allergies to avoid" });
+  await group.waitFor();
+  expect((await group.getByRole("button").count()) === 14, "the 14 allergens");
+  expect((await page.getByText(/allergen labels, so check each pack/).count()) === 0, "no caution until one is chosen");
+  const milk = group.getByRole("button", { name: "Milk", exact: true });
+  expect((await milk.getAttribute("aria-pressed")) === "false", "Milk starts off");
+  await milk.click();
+  expect((await milk.getAttribute("aria-pressed")) === "true", "Milk is on");
+  await page.getByText(/recipes? (is|are) left out for your diet/).waitFor();
+  const after = await total();
+  expect(after < before && after > 0, `recipes with milk leave the list: ${before} -> ${after}`);
+  await page.getByText("No milk").first().waitFor();
+  await page.getByText(/We haven't read these products' allergen labels, so check each pack before you buy/).waitFor();
+  // the same setting as Settings' own picker
+  await page.goto(BASE + "/app/settings");
+  const settingsMilk = page.getByRole("group", { name: "Allergies to avoid" }).getByRole("button", { name: "Milk", exact: true });
+  await settingsMilk.waitFor();
+  expect((await settingsMilk.getAttribute("aria-pressed")) === "true", "Settings shows Milk chosen");
+  // and back: choosing it off here brings every recipe back
+  await page.goto(BASE + "/app/recipes");
+  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "More" }).click();
+  const milk2 = page.getByRole("group", { name: "Allergies to avoid" }).getByRole("button", { name: "Milk", exact: true });
+  expect((await milk2.getAttribute("aria-pressed")) === "true", "still on after a visit elsewhere");
+  await milk2.click();
+  await page.waitForFunction((n) => Number(/·\s*(\d+)/.exec(document.querySelector("#all-heading")?.textContent ?? "")?.[1]) === n, before, { timeout: 15000 });
+  expect((await page.getByText(/allergen labels, so check each pack/).count()) === 0, "the caution goes with the last allergy");
+  await ctx.close();
+});
+
 // Pip's AI recipe maker is switched off for the free launch (AI_RECIPES_ENABLED in lib/mm/config.ts, founder 2026-10-12). Its own
 // steps (Pro gate, big buttons, what is sent, saving) come back here when it is switched on again (see git history of this file).
 await step("Pip's recipe maker is off: no card even when the server says it's on, its address opens the recipes, and its API answers 404", async () => {

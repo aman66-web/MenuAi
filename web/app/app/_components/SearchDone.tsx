@@ -7,7 +7,7 @@ import { useT } from "../_lib/i18n";
 // here"). Every search box in the app filters as you type, so there is nothing to submit: the person only needs to put the keyboard away to see the
 // results underneath it. The button sits inside the box, where the founder's circle was, and shows while the box is in use (its wrapper carries
 // `group/search`); the keyboard's own Return key says "Done" too and does the same. The number boxes of Eat out's "Your numbers" have no Return key at
-// all on an iPhone, so they get a full-width Done under them (`DoneBar`).
+// all on an iPhone, so the group gets a Done at the card's corner (`NumberDone`).
 
 /** Hide the keyboard: whatever has the focus (the field, or the Done button when it was reached with Tab) lets go of it. */
 export function dismissKeyboard() {
@@ -52,15 +52,20 @@ export function SearchDone({ children }: { children?: ReactNode }) {
   );
 }
 
-/** A full-width Done under a group of number boxes (an iPhone's number pad has no Return key). Put the boxes and this in a `group/nums` wrapper. */
-export function DoneBar({ className = "" }: { className?: string }) {
+/**
+ * A Done for a group of number boxes (an iPhone's number pad has no Return key): at the card's top corner, shown (not added) while any box in the
+ * group is in use. It is `invisible` rather than absent and sits outside the flow, so showing and hiding it never moves anything: a Done that
+ * appeared under the boxes pushed the next thing down the moment a box lost the focus, and a tap on it (an allergy tile, say) landed in the wrong place.
+ * Put it in the group's `relative group/nums` wrapper, beside the boxes and outside every `<label>`.
+ */
+export function NumberDone() {
   const t = useT();
   return (
     <button
       type="button"
       onMouseDown={keepFocus}
       onClick={dismissKeyboard}
-      className={`hidden min-h-12 w-full items-center justify-center rounded-full bg-foreground px-5 text-base font-bold text-background transition active:scale-[0.97] group-focus-within/nums:flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${className}`}
+      className="invisible absolute -top-2 end-0 z-10 inline-flex h-8 items-center rounded-full bg-foreground px-3.5 text-[0.875rem] font-bold text-background transition before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] active:scale-95 group-focus-within/nums:visible focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       {t("Done")}
     </button>

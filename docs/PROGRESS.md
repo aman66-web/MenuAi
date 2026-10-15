@@ -1464,9 +1464,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     search in "Recent searches" first, and keeps its "search" label).
   - **Where:** Compare (both "Add a product" and "Add a dish"), Recipes, Groceries "Search every shop", a shop's full list, My favourite restaurants,
     a restaurant's menu search and the main Search. Eat out's postcode box keeps its own Search button.
-  - **Number boxes:** an iPhone's number pad has no Return key at all, so under the four boxes of Eat out's "Your numbers" a full-width **Done** shows while one
-    is in use. (Other number boxes, in Settings, the targets steps and "Type my own numbers", have their own buttons under them and are unchanged.)
-  - **How:** `_components/SearchDone.tsx` (`SearchDone`, `DoneBar`, `DONE_KEY`); the box's wrapper carries `group/search` and the button shows with CSS
+  - **Number boxes:** an iPhone's number pad has no Return key at all, so on Eat out's "Your numbers" card a **Done** shows at the card's top corner, level with the
+    heading, while one of the four boxes is in use. It is hidden, not removed, and sits outside the flow, so showing it moves nothing. (A first version put it
+    under the boxes and pushed the allergy tiles down the moment a box lost the focus, so the next tap missed: the finder's own test caught it.) Other
+    number boxes (Settings, the targets steps, "Type my own numbers") have their own buttons under them and are unchanged.
+  - **How:** `_components/SearchDone.tsx` (`SearchDone`, `NumberDone`, `DONE_KEY`); the box's wrapper carries `group/search` and the button shows with CSS
     `:focus-within`, so it can still be reached with Tab. A tap keeps the focus in the field until the click lands (the button would otherwise disappear under
     the finger first). Labels moved off wrapping `<label>`s onto the inputs (`aria-label`) so the button's word isn't read as part of the field's name.
   - Looks and behaviour only. **No new copy:** "Done" was already in the app and translated in the 10 languages. Checked: `e2e/done.mjs` 13 steps (every box: Done
@@ -1486,6 +1488,19 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - Checked: `e2e/compare.mjs` 4 steps (a column per item, a row per nutrient, "of which" order, Highest and Lowest once each, 53 g of protein for £1,
     two items fit and three scroll with the names staying put, dishes, axe 0 in light and dark), the large-text test (no overflow at 100, 150 and 200%),
     tsc, lint; screenshots with 2, 3 and 6 items, dishes, Extra large text and Arabic.
+
+- 2026-10-15 (night) — **Allergies to avoid on the Recipes page** (founder, on Recipes › More: "Needs to also be a way to filter by allergens too"). Recipes already left
+  out recipes for the allergies chosen in Settings, but the choice sat behind "Your diet: … Change". Now Recipes › More has an **Allergies to avoid** card between "Your
+  meal" and "Your diet": the 14 allergens as tiles, tap to leave out every recipe that contains one. It is the **same setting** as Settings' and the restaurant page's
+  (one list for the whole app, kept in the app's order, synced like the rest), so a choice made here also applies to the restaurant lists and groceries, and Settings
+  shows it chosen; the "Your diet:" lines and "N recipes are left out for your diet" update at once. Once one is chosen, the card shows the existing sentence that
+  recipes are left out by their ingredients and the products' allergen labels haven't been read, so check each pack (the same sentence the recipe page has).
+  - **Code:** `AllergenTiles` (the 14 tiles) and `toggleAllergen` (`lib/mm/menu-view.ts`, unit-tested) were pulled out of the diet picker and are shared by it, Eat out's
+    finder and this card.
+  - **No new copy:** "Allergies to avoid", the tile names and the caution sentence all exist and are translated.
+  - Checked: `e2e/recipes.mjs` 14 (new: the 14 tiles under More, Milk leaves recipes out and shows in the diet line, in Settings and after a visit elsewhere, unchoosing brings
+    them back, the caution goes with the last allergy), `e2e/numbers.mjs` 7, 629 unit tests (4 new), axe 0 with the card open, no sideways overflow at Extra large text,
+    right to left (Arabic) checked on screenshots.
 
 ## Known issues
 

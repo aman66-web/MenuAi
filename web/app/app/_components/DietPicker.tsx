@@ -1,10 +1,10 @@
 "use client";
 
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { filterCaution } from "@/lib/mm/menu-view";
+import { filterCaution, toggleAllergen } from "@/lib/mm/menu-view";
 import { HALAL_CAUTION } from "@/lib/mm/halal";
 import { tk, type T } from "@/lib/mm/i18n";
-import { ALLERGEN_KEYS, type AllergenKey, type Preferences } from "@/lib/mm/types";
+import type { AllergenKey, Preferences } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 import { CheckIcon } from "./icons";
 
@@ -68,15 +68,29 @@ export function PickTile({ on, tall, className, children, ...rest }: ButtonHTMLA
 const GRID = "grid grid-cols-[repeat(auto-fit,minmax(8.5rem,1fr))] gap-2";
 const LABEL = "text-[0.9375rem] font-semibold leading-snug";
 
+/**
+ * The 14 allergens as tiles, each on or off ("Allergies to avoid"). The caller owns what "on" means: Settings' choice, or a screen's own
+ * filter. Pass the label the group is known by; the tiles are plain grey inside a white card, like every other choice.
+ */
+export function AllergenTiles({ chosen, onToggle, label, className = "" }: { chosen: readonly AllergenKey[]; onToggle: (k: AllergenKey) => void; label: string; className?: string }) {
+  const t = useT();
+  return (
+    <div role="group" aria-label={label} className={`${GRID} ${className}`}>
+      {ALLERGEN_ORDER.map((k) => {
+        const on = chosen.includes(k);
+        return (
+          <PickTile key={k} on={on} aria-pressed={on} onClick={() => onToggle(k)} className={LABEL}>
+            {t(ALLERGEN_SHORT[k])}
+          </PickTile>
+        );
+      })}
+    </div>
+  );
+}
+
 export function DietPicker({ value, onChange, halal = true, allergies = true }: { value: Preferences; onChange: (p: Preferences) => void; halal?: boolean; allergies?: boolean }) {
   const t = useT();
   const avoid = value.avoidAllergens ?? [];
-  const toggleAllergen = (k: AllergenKey) => {
-    const next = avoid.includes(k) ? avoid.filter((a) => a !== k) : [...avoid, k];
-    const sorted = ALLERGEN_KEYS.filter((a) => next.includes(a));
-    const { avoidAllergens: _drop, ...rest } = value; // eslint-disable-line @typescript-eslint/no-unused-vars
-    onChange(sorted.length ? { ...rest, avoidAllergens: sorted } : rest);
-  };
   const caution = filterCaution(value, t);
   return (
     <div>
@@ -97,16 +111,7 @@ export function DietPicker({ value, onChange, halal = true, allergies = true }: 
           <>
             <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />
             <p className="mb-3 px-1 text-[0.6875rem] font-semibold uppercase leading-snug tracking-[0.12em] text-muted">{t("Allergies to avoid")}</p>
-            <div role="group" aria-label={t("Allergies to avoid")} className={GRID}>
-              {ALLERGEN_ORDER.map((k) => {
-                const on = avoid.includes(k);
-                return (
-                  <PickTile key={k} on={on} aria-pressed={on} onClick={() => toggleAllergen(k)} className={LABEL}>
-                    {t(ALLERGEN_SHORT[k])}
-                  </PickTile>
-                );
-              })}
-            </div>
+            <AllergenTiles chosen={avoid} label={t("Allergies to avoid")} onToggle={(k) => onChange(toggleAllergen(value, k))} />
           </>
         )}
       </div>

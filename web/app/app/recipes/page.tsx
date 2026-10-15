@@ -10,10 +10,11 @@ import { formatDate } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { recipesFromList } from "@/lib/mm/listRecipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
+import { toggleAllergen } from "@/lib/mm/menu-view";
 import { isMeatFree, isQuick, isVegan, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
-import { myRecipesStore, savedRecipesStore, shoppingStore } from "@/lib/mm/stores";
-import { dietWords } from "../_components/DietPicker";
+import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { AllergenTiles, dietWords } from "../_components/DietPicker";
 import { ArrowRightIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
@@ -191,6 +192,18 @@ function RecipesScreen() {
             />
           </div>
           <MealPicker summary={false} />
+          {/* The same choice as Settings' "Allergies to avoid" (one setting for the whole app), here so it can be changed while looking at recipes. */}
+          <div className="glass rounded-[1.25rem] p-4">
+            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Allergies to avoid")}</p>
+            <AllergenTiles chosen={diet.avoidAllergens ?? []} label={t("Allergies to avoid")} onToggle={(k) => { updateSettings({ preferences: toggleAllergen(diet, k) }); setLimit(PAGE); }} />
+            {(diet.avoidAllergens?.length ?? 0) > 0 && (
+              <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">
+                {diet.halalOnly
+                  ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.")
+                  : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}
+              </p>
+            )}
+          </div>
           <div className="glass flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[1.25rem] p-4">
             <p className="min-w-0 flex-1 text-[0.9375rem] leading-snug"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
             <Link href="/app/settings#diet" className={`${PILL} bg-[var(--fill)]`}>{t("Change")}</Link>

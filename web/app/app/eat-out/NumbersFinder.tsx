@@ -9,12 +9,12 @@ import type { CatalogChain } from "@/lib/mm/menu-client";
 import { findRestaurants, hasLimits, hasMacroLimits, limitsToParams, type FinderHit, type NumberLimits } from "@/lib/mm/numbers";
 import { chainHref } from "@/lib/mm/routes";
 import { ALLERGEN_KEYS, type AllergenKey, type Preferences } from "@/lib/mm/types";
-import { ALLERGEN_ORDER, ALLERGEN_SHORT, dietWords, PickTile } from "../_components/DietPicker";
+import { AllergenTiles, dietWords } from "../_components/DietPicker";
 import { ChainMark } from "../_components/ChainMark";
 import { ChevronRightIcon } from "../_components/icons";
 import { Button, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
 import { chainGroupClass } from "../_components/ChainRow";
-import { DoneBar } from "../_components/SearchDone";
+import { NumberDone } from "../_components/SearchDone";
 import { SearchIcon } from "../_components/icons";
 import { menuClient } from "../_lib/menu";
 import { useNumbers, useSettings } from "../_lib/hooks";
@@ -121,14 +121,14 @@ export function NumbersPanel({ state }: { state: NumbersFinderState }) {
   const words = dietWords(t, settings.preferences);
   return (
     <div className="glass mt-3.5 rounded-[1.25rem] p-4">
-      <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Your numbers")}</p>
-      <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Type any of these to see the restaurants with dishes that fit. Leave the rest empty.")}</p>
-      {/* An iPhone's number pad has no Return key, so while a box is in use a Done under the boxes puts the keyboard away and shows the list. */}
-      <div className="group/nums mt-3">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2.5">
+      {/* The number pad has no Return key, so while a box is in use a Done shows at the top corner of the card, where it takes no room and moves nothing. */}
+      <div className="group/nums relative">
+        <p className="pe-20 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Your numbers")}</p>
+        <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Type any of these to see the restaurants with dishes that fit. Leave the rest empty.")}</p>
+        <NumberDone />
+        <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2.5">
           {FIELDS.map((f) => (<NumberBox key={f.key} label={t(f.label)} value={state.fields[f.key]} onChange={(v) => state.setField(f.key, v)} />))}
         </div>
-        <DoneBar className="mt-3" />
       </div>
       {state.useMine && (
         <button type="button" onClick={state.useMine} className="mt-3 inline-flex min-h-11 items-center rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
@@ -137,16 +137,7 @@ export function NumbersPanel({ state }: { state: NumbersFinderState }) {
       )}
       <div aria-hidden className="mx-1 mb-4 mt-5 h-px bg-line" />
       <p className="mb-3 px-1 text-[0.6875rem] font-semibold uppercase leading-snug tracking-[0.12em] text-muted">{t("Allergies to avoid")}</p>
-      <div role="group" aria-label={t("Allergies to avoid")} className="grid grid-cols-[repeat(auto-fit,minmax(8.5rem,1fr))] gap-2">
-        {ALLERGEN_ORDER.map((k) => {
-          const on = state.picked.includes(k);
-          return (
-            <PickTile key={k} on={on} aria-pressed={on} onClick={() => state.toggleAllergen(k)} className="text-[0.9375rem] font-semibold leading-snug">
-              {t(ALLERGEN_SHORT[k])}
-            </PickTile>
-          );
-        })}
-      </div>
+      <AllergenTiles chosen={state.picked} label={t("Allergies to avoid")} onToggle={state.toggleAllergen} />
       {words.length > 0 && (
         <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 px-1 text-[0.9375rem] leading-snug">
           <span><span className="font-bold">{t("Your diet:")}</span> {words.join(" · ")}</span>
