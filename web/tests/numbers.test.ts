@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { buildNumbersIndex, findRestaurants, fitsLimits, hasLimits, hasMacroLimits, limitsFromParams, limitsToParams, limitWords, type CompactNumbersChain } from "../lib/mm/numbers";
+import { buildNumbersIndex, findRestaurants, fitsLimits, hasLimits, hasMacroLimits, limitsFromParams, limitsToParams, limitWords, toAsciiDigits, type CompactNumbersChain } from "../lib/mm/numbers";
 import { buildSearchIndexFromCompact, type CompactSearchChain } from "../lib/mm/search";
 import { ALLERGEN_KEYS, NO_PREFERENCES } from "../lib/mm/types";
 import { englishT } from "../lib/mm/i18n";
@@ -99,6 +99,19 @@ describe("the numbers in a link", () => {
   });
 });
 
+describe("digits in other numeral systems", () => {
+  it("become plain 0-9, so a number pad or keyboard set to Arabic, Urdu, Bengali, Punjabi or Gujarati still works", () => {
+    for (const typed of ["٦٠٠", "۶۰۰", "৬০০", "੬੦੦", "૬૦૦", "600"]) expect(toAsciiDigits(typed), typed).toBe("600");
+    expect(toAsciiDigits("٠١٢٣٤٥٦٧٨٩")).toBe("0123456789");
+    expect(toAsciiDigits("৯৮৭")).toBe("987");
+    expect(toAsciiDigits("1٢3")).toBe("123"); // mixed
+  });
+  it("leave letters and signs alone (the box drops them afterwards)", () => {
+    expect(toAsciiDigits("a-5 g")).toBe("a-5 g");
+    expect(toAsciiDigits("")).toBe("");
+  });
+});
+
 describe("the published numbers file (real data)", () => {
   const dir = new URL("../public/menus/", import.meta.url);
   const search = JSON.parse(readFileSync(new URL("menus-search.json", dir), "utf8")) as { chains: CompactSearchChain[] };
@@ -107,9 +120,18 @@ describe("the published numbers file (real data)", () => {
   it("lines up with the search file for every chain", () => {
     expect(buildNumbersIndex(file.chains, real).size).toBe(search.chains.length);
   });
+  it("holds, for every chain, exactly the calories, protein, carbs and fat of its published file, item for item", () => {
+    for (const nc of file.chains) {
+      const chain = JSON.parse(readFileSync(new URL(`chain-${nc.id}.json`, dir), "utf8")) as { items: Array<{ nutrients: { calories: number; protein?: number; carbs?: number; fat?: number } }> };
+      expect(nc.k, `${nc.id} calories`).toEqual(chain.items.map((i) => i.nutrients.calories));
+      expect(nc.p, `${nc.id} protein`).toEqual(chain.items.map((i) => i.nutrients.protein ?? null));
+      expect(nc.c, `${nc.id} carbs`).toEqual(chain.items.map((i) => i.nutrients.carbs ?? null));
+      expect(nc.f, `${nc.id} fat`).toEqual(chain.items.map((i) => i.nutrients.fat ?? null));
+    }
+  });
   it("finds restaurants, and every example it names really fits", () => {
     const idx = buildNumbersIndex(file.chains, real);
-    const limits = { maxCalories: 500, minProtein: 35, maxFat: 20 };
+    const limits = { maxCalories: 500, minProtein: 35, maxCarbs: 60, maxFat: 20 };
     const r = findRestaurants(real, idx, limits, NO_PREFERENCES);
     expect(r.hits.length).toBeGreaterThan(20);
     for (const h of r.hits.slice(0, 15)) {

@@ -84,7 +84,7 @@ const TOUR: ReadonlyArray<{ name: string; line: string; says: string; mood: PipM
   { name: tk("Home"), line: tk("Today's numbers, your shopping list and what you've saved."), says: tk("This is Home. It keeps track of your day, so you can always see what's left!"), mood: "wave", Icon: HomeIcon },
   { name: tk("Eat out"), line: tk("Every restaurant, café and pub, with the numbers for each dish."), says: tk("Going out to eat? Look the place up first and know the numbers before you order!"), mood: "point", Icon: ForkIcon },
   { name: tk("Groceries"), line: tk("Supermarket products with their labels and prices."), says: tk("Shopping? I'll show you the calories, protein and price of what's on the shelf!"), mood: "think", Icon: BasketIcon },
-  { name: tk("Recipes"), line: tk("Meals made from your shop's products, with the cost per serving."), says: tk("Cooking at home? These recipes use real products from your shop, with the cost of each serving!"), mood: "point", Icon: PotIcon },
+  { name: tk("Recipes"), line: tk("Meals made from your shop's products, with the cost per serving."), says: tk("Cooking at home? These recipes use real products, with the cost of each serving!"), mood: "point", Icon: PotIcon },
   { name: tk("Settings"), line: tk("Your targets, diet, shops, language and text size. Change anything, any time."), says: tk("And this is where you can change anything, whenever you like!"), mood: "wave", Icon: GearIcon },
 ];
 // Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else; a chain with

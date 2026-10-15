@@ -1502,6 +1502,57 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     them back, the caution goes with the last allergy), `e2e/numbers.mjs` 7, 629 unit tests (4 new), axe 0 with the card open, no sideways overflow at Extra large text,
     right to left (Arabic) checked on screenshots.
 
+- 2026-10-15 (night) — **Scan a barcode opens a full-screen camera that reads the code** (founder, on Groceries › "Scan a barcode": "can it launch like a camera where you can
+  scan it then"). Before, the scanner only worked in browsers that have a built-in barcode reader (Chrome on Android); iPhone Safari, the Xcode preview shell and any web view
+  have none, so they showed a box to type the number. Now:
+  - **Tap Scan →** a full-screen camera: the live picture, a box to hold the barcode in (everything outside it dimmed; the box turns lime and the phone buzzes where it can the
+    moment a code is read), a hint "Point the camera at the barcode", a close button and a white **Type the number instead** button. The product opens as soon as the code is read.
+    Closing, or reading a code, switches the camera off.
+  - **The page reads the code itself** (`web/lib/mm/barcode.ts`, **no library**, CLAUDE.md rule 6): EAN-13, UPC-A (as 13 digits starting 0) and EAN-8, the codes on supermarket
+    products. It looks along lines across and down the picture (and tilted a little either way), turns each into dark and light stripe widths and matches them to the standard
+    digit patterns; the check digit has to agree, and the same code has to be read twice (on two lines or two pictures) before it is believed. Where the browser has its own
+    BarcodeDetector (Chrome on Android) that is used instead. A picture is looked at on the phone and dropped: nothing is sent anywhere (the privacy page already says so).
+  - **Tested against a reference reader.** The test pictures are drawn by `python-barcode` and checked with `zxing-cpp` (separate tools, used only to make and judge test pictures:
+    `tools/barcode/make_fixtures.py`, not dependencies of the app): `tests/barcode.test.ts` reads 44 of 44 pictures that hold a code (clean, small, large, turned 8 and 20 degrees,
+    upside down, sideways, soft, grainy, washed out, unevenly lit, on a dark pack) and reads nothing from 4 pictures with no code (blank, noise, random bars, text-like marks). On
+    300 further hard pictures at 1280 x 720 it read 259 of the 262 the reference reader reads, plus 22 it missed, **and never returned a wrong code**; about 14 ms a picture.
+    `e2e/scan.mjs` (8 steps) plays a video of a barcode through Chromium's fake camera: the camera opens full screen, reads the code and opens the product, switches the camera
+    off, Type the number instead / Scan again / Close, a refused camera and a browser with no camera API land on the typing sheet with the note, the Search every shop scan button
+    opens the same camera, a picture with no code never opens anything, axe 0.
+  - **Found by the tests:** the typing sheet's own "close" event (when the camera takes over again) used to close the whole scanner; fixed.
+  - **iPhone app:** unchanged, it still uses the iPhone's own scanner. **The Xcode preview shell** needed `allowsInlineMediaPlayback` and a camera usage description to show the camera
+    in the page: both added (`ios/PreviewSources/WebView.swift`, its copy in the project, and `INFOPLIST_KEY_NSCameraUsageDescription` in the project's two build configurations),
+    **not compiled here: rebuild and run it once from Xcode** (docs/XCODE_PREVIEW_SHELL.md). Real iPhone cameras can't be tried from this computer: the reader is tested on pictures and on
+    Chromium's fake camera, not on an iPhone's lens, so test it once on the phone (hold the barcode level, 15-25 cm away, good light).
+  - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "Point the camera at the barcode",
+    "Type the number instead". "Scan again" now also appears on the typing sheet in a browser (it goes back to the camera).
+
+- 2026-10-15 (night) — **Fixes from the independent review of the onboarding, diet, protein bar and finder work** (four reviewers, each finding checked by a second agent; 16 confirmed).
+  - **Eat out finder:** (1) a one-line summary directly under the number boxes says what was found ("17 restaurants have dishes that fit", "No restaurant has a dish that fits all of that",
+    "Couldn't load the numbers just now.") and is a link to the list; **Done** (corner of the card) also scrolls to the list; the list could be a screen or more below the boxes, so typing a
+    number looked as if nothing happened. The summary is one live line that stays in place, so a screen reader hears every change (the old heading and empty state each appeared fresh).
+    (2) **Coming back from a restaurant** now finds the panel open with the numbers and allergies as they were (kept for this tab only, `mm.finder` in sessionStorage; closing the row, or
+    Settings › Clear everything, forgets them). (3) The allergy caution now sits under the count, where "dishes that fit" could be read as "safe to eat". (4) Numbers typed in Arabic,
+    Urdu, Bengali, Punjabi or Gujarati digits are read as numbers (they were silently deleted). (5) "Change" is a 44 px target; the allergy tiles no longer run past the card on a 320 px
+    phone at 200% text; the two chevrons point the right way in Arabic and Urdu.
+  - **A restaurant opened from a result:** Best for you now picks only from the dishes that fit the numbers (the ranking itself is untouched, its pool is narrower), so it no longer
+    contradicts the "Your numbers" line above it.
+  - **Pescatarian:** "Surf & Turf" is no longer pescatarian (the steak is in the name: `turf` is a meat word, with tests); reading the search file is fast again for everyone
+    (the pescatarian answer is worked out only for someone who chose it, and only once); Pescatarian and Vegetarian/Vegan are now alternatives in the diet picker (turning one on
+    turns the other off: with both on the stricter vegetarian rule won and the tile did nothing).
+  - **Pip's recipe lines** no longer promise "your shop": the first-recipe screen names the shop the recipes really come from (only a shop whose labels we have read can fill a recipe,
+    today Sainsbury's), and the tour's Recipes line says "real products" (one reworded string, translated). The shop-first lines on the shops step and Groceries stop are unchanged.
+  - **Focus under the tab bar:** the page leaves 7rem clear at the bottom when it scrolls to what has the keyboard focus (WCAG 2.4.11), on every app screen.
+  - **Tests added:** the carbs (and calories, protein, fat) columns of `menus-numbers.json` equal each chain file's own figures, item for item (real data); digits in other numeral
+    systems; diet toggles; allergen toggles; the lazy pescatarian answer; `e2e/numbers.mjs` 12 steps (summary and Done scroll, caution placement, back-and-restore, other digits, Best for you
+    within the numbers); the fat-limit step now insists the list gets shorter.
+  - **Docs:** STORE.md draft names Pescatarian and the finder; BACKEND.md lists `pescatarianOnly`; PROGRESS's finder entry above is corrected here: the finder is its own row, "Find by numbers or allergies"
+    (listed in that entry's new copy), not inside "More ways to find a restaurant".
+  - **Left as they were (low, noted):** the progress bar restarts at 1 of 7 after the tour; protein shows as "Optional" in onboarding while Home shows a worked-out 100 g; the tour bubble grows
+    at the largest text sizes; the sticky Continue bar can cover the mock tab bar on short phones at large text; "Wegetariańskie"/"Pescetariańskie" wrap inside their tiles on a 360 px phone;
+    "Try a higher calorie limit, a lower protein or fewer allergies." is shown whatever was typed; restaurants whose numbers didn't line up are skipped without a note; the first recipe tap in
+    onboarding drops a shared link's destination; the finder's example dish with no protein limit is the lowest-calorie item.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

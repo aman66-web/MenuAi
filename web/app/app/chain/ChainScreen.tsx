@@ -7,6 +7,7 @@ import { analytics } from "@/lib/mm/analytics";
 import { mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { formatDate } from "@/lib/mm/format";
 import { anyDietFilter, filterCaution, filterItems, groupByCategory, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
+import { indexChain } from "@/lib/mm/chain-index";
 import { allergensFromParams, fitsLimits, hasLimits, limitsFromParams, limitWords, type NumberLimits } from "@/lib/mm/numbers";
 import { itemHref } from "@/lib/mm/routes";
 import { settingsStore, favoritesStore, recentStore, toggleFavorite } from "@/lib/mm/stores";
@@ -92,6 +93,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const searching = query.trim().length > 0;
   const filtered = useMemo(() => filterItems(chain.items, prefs), [chain.items, prefs]);
   const fitting = useMemo(() => (hasLimits(limits) ? filtered.filter((i) => fitsLimits(i, limits)) : filtered), [filtered, limits]);
+  // Best for you picks from the dishes that fit the numbers typed on Eat out too (the ranking itself is untouched: its pool is just narrower),
+  // so the picks never contradict the "Your numbers" line above them.
+  const bestIndex = useMemo(
+    () => (hasLimits(limits) ? indexChain({ ...chain, items: chain.items.filter((i) => fitsLimits(i, limits)), combinations: chain.combinations.filter((c) => fitsLimits(c, limits)) }) : index),
+    [index, chain, limits],
+  );
   const visible = useMemo(() => sortItems(searchItems(fitting, query), sort), [fitting, query, sort]);
   const grouped = sort === "menu";
   const sections = useMemo(() => (grouped ? groupByCategory(chain, visible) : [{ category: "", items: visible }]), [chain, visible, grouped]);
@@ -226,7 +233,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             </div>
           </div>
         )}
-        {!caloriesOnly && <div className="mt-5"><BestForYou bare index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} /></div>}
+        {!caloriesOnly && <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={prefs} onClearFilters={clearFilters} /></div>}
       </section>
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />

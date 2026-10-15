@@ -91,6 +91,15 @@ describe("search with diet settings", () => {
     expect(r.items.map((i) => i.itemId).sort()).toEqual(["b", "c"]);
     expect(r.hiddenByDiet).toBe(1);
   });
+  it("works the pescatarian answer out only when somebody asks, and only once (building the index must stay cheap for everyone else)", () => {
+    const facts = decodeDiet("", "Salmon wrap");
+    expect(facts.namedFish).toBeUndefined(); // not worked out when the file is read
+    expect(facts.name).toBe("Salmon wrap");
+    expect(fitsDiet(facts, { vegetarianOnly: false, noPork: false, noBeef: false })).toBe(true); // an ordinary search doesn't need it either
+    expect(facts.namedFish).toBeUndefined();
+    expect(fitsDiet(facts, { vegetarianOnly: false, noPork: false, noBeef: false, pescatarianOnly: true })).toBe(true);
+    expect(facts.namedFish).toBe(true); // kept for the next dish list
+  });
   it("leaves out dishes that don't fit and counts them; the compact index and full chains agree", () => {
     const compact = buildSearchIndexFromCompact([{ id: "c", name: "Cafe", cuisine: "Cafe", aliases: [], sample: false,
       items: [["a", "Chicken wrap", 400], ["b", "Halloumi wrap", 450, "v"], ["c", "Bacon wrap", 500, "p"]] }]);

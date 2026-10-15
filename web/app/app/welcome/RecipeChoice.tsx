@@ -48,6 +48,8 @@ export function RecipeChoice({ onPick }: { onPick: (href: string) => void }) {
   const [opened, setOpened] = useState(false);
   // still working out which shop and which recipes: the manifest, then the shop's list
   const loading = manifest === null || (shop !== null && state.status === "loading");
+  // only a shop whose products and labels we have read can fill a recipe, so this may not be the shop the person picked: say which it is
+  const shopName = manifest?.retailers.find((r) => r.id === shop)?.name;
 
   if (loading) {
     return (
@@ -68,7 +70,7 @@ export function RecipeChoice({ onPick }: { onPick: (href: string) => void }) {
   return (
     <>
       <div aria-live="polite" className="mt-4">
-        <PipSays lively size={64} mood="cheer">{t("I picked two that fit your day and your shop. Tap one to see what's in it and where to buy it!")}</PipSays>
+        <PipSays lively size={64} mood="cheer">{shopName ? t("Every ingredient is a real product at {shop}, with its price and the nutrition of each serving.", { shop: shopName }) : t("Every ingredient is a real product at your supermarket, with its price and the nutrition of each serving.")}</PipSays>
       </div>
       <ul className="stagger mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-3">
         {picks.map((c) => {

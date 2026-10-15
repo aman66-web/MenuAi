@@ -112,7 +112,7 @@ key is derived from `SUPABASE_SECRET_KEY`.
 - `GET /api/health` → `{"ok": true, "time": "<ISO date>"}` (uptime checks; doesn't touch the database).
 - `GET /api/v1/recipe` → `{"enabled": true|false}` (whether `ANTHROPIC_API_KEY` is set).
 - `POST /api/v1/recipe` — Pip's recipe maker (web app; the iPhone app can use it later). Body: `{ shop, meal, servings (1-6), target
-  {kcal, protein?, carbsMax?, fatMax?}, diet {vegetarianOnly?, veganOnly?, halalOnly?, noPork?, noBeef?, avoidAllergens?}, wish (≤100 chars),
+  {kcal, protein?, carbsMax?, fatMax?}, diet {vegetarianOnly?, veganOnly?, pescatarianOnly?, halalOnly?, noPork?, noBeef?, avoidAllergens?}, wish (≤100 chars),
   pantry [{key, label, unit, product, kcal, protein, carbs, fat, drained?}] }` (the browser builds the pantry from the shop's published list;
   the server keeps only pantry kinds the diet allows). → 200 `{ recipe: {name, blurb, servings, minutes, ingredients [{key, amount, role}],
   method[], extras[]} }`; the app works out every number from the product labels. 400 bad body, 403 not from our own pages (Origin), 422 not

@@ -56,15 +56,16 @@ export function SearchDone({ children }: { children?: ReactNode }) {
  * A Done for a group of number boxes (an iPhone's number pad has no Return key): at the card's top corner, shown (not added) while any box in the
  * group is in use. It is `invisible` rather than absent and sits outside the flow, so showing and hiding it never moves anything: a Done that
  * appeared under the boxes pushed the next thing down the moment a box lost the focus, and a tap on it (an allergy tile, say) landed in the wrong place.
- * Put it in the group's `relative group/nums` wrapper, beside the boxes and outside every `<label>`.
+ * Put it in the group's `relative group/nums` wrapper, beside the boxes and outside every `<label>`. `onDone` runs after the keyboard has gone
+ * (Eat out scrolls to the list of results, which can be a screen further down).
  */
-export function NumberDone() {
+export function NumberDone({ onDone }: { onDone?: () => void }) {
   const t = useT();
   return (
     <button
       type="button"
       onMouseDown={keepFocus}
-      onClick={dismissKeyboard}
+      onClick={() => { dismissKeyboard(); onDone?.(); }}
       className="invisible absolute -top-2 end-0 z-10 inline-flex h-8 items-center rounded-full bg-foreground px-3.5 text-[0.875rem] font-bold text-background transition before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] active:scale-95 group-focus-within/nums:visible focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       {t("Done")}

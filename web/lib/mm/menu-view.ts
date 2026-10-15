@@ -147,3 +147,19 @@ export function toggleAllergen(prefs: Preferences, key: AllergenKey): Preference
   const { avoidAllergens: _drop, ...rest } = prefs; // eslint-disable-line @typescript-eslint/no-unused-vars
   return sorted.length ? { ...rest, avoidAllergens: sorted } : rest;
 }
+
+export type DietKey = "vegetarianOnly" | "veganOnly" | "pescatarianOnly" | "halalOnly" | "noPork" | "noBeef";
+
+/**
+ * One diet choice turned on or off. Pescatarian and Vegetarian/Vegan are alternatives (the vegetarian rule is stricter and wins, so having both on
+ * would only look as if fish dishes were allowed): turning one on turns the other off. Vegan and Vegetarian can stay on together.
+ */
+export function toggleDiet(prefs: Preferences, key: DietKey): Preferences {
+  const next: Preferences = { ...prefs, [key]: !prefs[key] };
+  if (next[key] && key === "pescatarianOnly") {
+    next.vegetarianOnly = false;
+    next.veganOnly = false;
+  }
+  if (next[key] && (key === "vegetarianOnly" || key === "veganOnly")) next.pescatarianOnly = false;
+  return next;
+}

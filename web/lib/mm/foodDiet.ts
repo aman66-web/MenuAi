@@ -32,7 +32,7 @@ const VEG_TYPE = /\b(?:meat analogues?|meat substitutes?|vegetarian|vegan|plant 
 const VEGAN_NAMED = /\b(?:vegan|plant[\s-]?based|dairy[\s-]?free|milk[\s-]?free|egg[\s-]?free)\b/i;
 
 const NOT_AFTER_VEG = "(?<!\\b(?:vegan|vegetarian|veggie|plant[\\s-]based|meat[\\s-]free|meatless|mock|faux|no)[\\s-])";
-const MEAT = wordRe(`chicken | beef | pork | ham | bacon | gammon | lamb | mutton | turkey | duck | goose | venison | veal | rabbit | pheasant | partridge | chorizo |
+const MEAT = wordRe(`chicken | beef | pork | ham | bacon | gammon | lamb | mutton | turkey | duck | goose | venison | veal | rabbit | pheasant | partridge | chorizo | turf |
   pepperoni | salami | prosciutto | pancetta | n'?duja | lardon | sausage | steak | brisket | meatball | meat | hot dog | frankfurter | bratwurst | black pudding |
   haggis | corned | pastrami | bresaola | biltong | jerky | gelatine | gelatin | lard | suet | animal rennet | chicken liver | oxtail | poultry | pate de foie | foie gras`, NOT_AFTER_VEG);
 // Dishes that are meat by their own name ("Chilli con carne", "Spaghetti carbonara"), unless the word before says otherwise ("Lentil bolognese").

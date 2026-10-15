@@ -62,7 +62,7 @@ export function useChain(id: string): { status: ChainStatus; index?: ChainIndex;
 
 /**
  * The numbers of every dish (calories, protein, carbs, fat) paired with the search index, for finding restaurants by numbers. Loaded only when
- * `enabled` (somebody typed a number), so Eat out stays light for everyone else.
+ * `enabled` (the finder is open and something is typed or picked, even only an allergy: the same file answers both), so Eat out stays light for everyone else.
  */
 export function useNumbers(enabled: boolean) {
   const state = useMenu();

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { filterCaution, toggleAllergen } from "@/lib/mm/menu-view";
+import { filterCaution, toggleAllergen, toggleDiet, type DietKey } from "@/lib/mm/menu-view";
 import { HALAL_CAUTION } from "@/lib/mm/halal";
 import { tk, type T } from "@/lib/mm/i18n";
 import type { AllergenKey, Preferences } from "@/lib/mm/types";
@@ -10,7 +10,7 @@ import { CheckIcon } from "./icons";
 
 // Diet and allergy choices as big, plain buttons (onboarding, Settings and the restaurant page all use this one picker).
 
-const DIETS: ReadonlyArray<{ key: "vegetarianOnly" | "veganOnly" | "pescatarianOnly" | "halalOnly" | "noPork" | "noBeef"; label: string }> = [
+const DIETS: ReadonlyArray<{ key: DietKey; label: string }> = [
   { key: "vegetarianOnly", label: tk("Vegetarian") },
   { key: "veganOnly", label: tk("Vegan") },
   { key: "pescatarianOnly", label: tk("Pescatarian") },
@@ -65,7 +65,7 @@ export function PickTile({ on, tall, className, children, ...rest }: ButtonHTMLA
 // Two tiles a row; one a row once the text is large enough that two would squeeze a word in half (the minimum is in rem, so it
 // grows with the text size). The card's padding, the gaps and the tile's own padding are kept just tight enough that the longest
 // single word of any language ("Wegetariańskie", about 103 px) still fits on one line in a tile on a 390 px phone.
-const GRID = "grid grid-cols-[repeat(auto-fit,minmax(8.5rem,1fr))] gap-2";
+const GRID = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-2";
 const LABEL = "text-[0.9375rem] font-semibold leading-snug";
 
 /**
@@ -101,7 +101,7 @@ export function DietPicker({ value, onChange, halal = true, allergies = true }: 
           {DIETS.filter((d) => halal || d.key !== "halalOnly").map((d) => {
             const on = Boolean(value[d.key]);
             return (
-              <PickTile key={d.key} on={on} aria-pressed={on} onClick={() => onChange({ ...value, [d.key]: !value[d.key] })} className={LABEL}>
+              <PickTile key={d.key} on={on} aria-pressed={on} onClick={() => onChange(toggleDiet(value, d.key))} className={LABEL}>
                 {t(d.label)}
               </PickTile>
             );

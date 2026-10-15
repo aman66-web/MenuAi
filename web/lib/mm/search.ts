@@ -48,7 +48,10 @@ export interface DietFacts {
   namedVegan: boolean;
   /** The guide's contains-or-may-contain allergens; null = no allergen information. */
   allergens: AllergenKey[] | null;
-  /** The dish's own name names fish or seafood and no meat (foodDiet.ts namedPescatarian); worked out from the name, not stored in the search file. */
+  /** The dish's name, kept so that a pescatarian filter can read it (not stored in the search file). */
+  name?: string;
+  /** The dish's own name names fish or seafood and no meat (foodDiet.ts namedPescatarian). Worked out on first use, and only when somebody has the
+   *  pescatarian filter on: working it out for every dish when the search file is read made building the index several times slower for everyone. */
   namedFish?: boolean;
 }
 
@@ -68,7 +71,7 @@ export function decodeDiet(raw: string | undefined, name?: string): DietFacts {
     const mask = parseInt(s.slice(at + 1), 36);
     allergens = Number.isFinite(mask) ? ALLERGEN_KEYS.filter((_, i) => (mask >> i) & 1) : null;
   }
-  return { tags, namedVegan: letters.includes("n"), allergens, ...(name !== undefined ? { namedFish: namedPescatarian(name) } : {}) };
+  return { tags, namedVegan: letters.includes("n"), allergens, ...(name !== undefined ? { name } : {}) };
 }
 
 /** The same facts read from a full menu item (for indexes built from whole chains). */
@@ -78,7 +81,7 @@ export function dietFactsOf(item: Pick<MenuItem, "tags" | "name" | "category" | 
     tags: [...item.tags],
     namedVegan: VEGAN_WORDS.test(item.name) || VEGAN_WORDS.test(item.category ?? ""),
     allergens: a ? ALLERGEN_KEYS.filter((k) => a.contains.includes(k) || a.mayContain.includes(k)) : null,
-    namedFish: namedPescatarian(item.name),
+    name: item.name,
   };
 }
 
@@ -86,7 +89,10 @@ export function dietFactsOf(item: Pick<MenuItem, "tags" | "name" | "category" | 
 export function fitsDiet(d: DietFacts, prefs: Preferences): boolean {
   if (!passesPreferences(d.tags, prefs)) return false;
   if (prefs.veganOnly && !d.namedVegan) return false;
-  if (prefs.pescatarianOnly && !(d.tags.includes("vegetarian") || (d.namedFish === true && !d.tags.includes("contains_pork") && !d.tags.includes("contains_beef")))) return false;
+  if (prefs.pescatarianOnly) {
+    d.namedFish ??= d.name !== undefined && namedPescatarian(d.name);
+    if (!(d.tags.includes("vegetarian") || (d.namedFish && !d.tags.includes("contains_pork") && !d.tags.includes("contains_beef")))) return false;
+  }
   const avoid = prefs.avoidAllergens ?? [];
   if (avoid.length === 0) return true;
   return d.allergens !== null && !avoid.some((k) => d.allergens!.includes(k));

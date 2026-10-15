@@ -157,7 +157,7 @@ describe("pescatarian (founder 2026-10-15: people are also pescatarian)", () => 
   });
   it("a restaurant dish counts when its own name names fish or seafood and no meat", () => {
     for (const n of ["Salmon fillet", "Fish and chips", "Prawn linguine", "Tuna melt", "King prawn curry", "Battered cod", "Calamari", "Smoked mackerel pate"]) expect(namedPescatarian(n), n).toBe(true);
-    for (const n of ["Chicken and prawn pad thai", "Surf and turf", "Cheeseburger", "Margherita pizza", "Caesar salad", "Bacon and egg roll", "Prawn crackers with pork belly"]) expect(namedPescatarian(n), n).toBe(false);
+    for (const n of ["Lobster Surf & Turf", "Surf & Turf - Lemon, Garlic & Chilli Prawns", "Turf & Surf prawns", "Chicken and prawn pad thai", "Surf and turf", "Cheeseburger", "Margherita pizza", "Caesar salad", "Bacon and egg roll", "Prawn crackers with pork belly"]) expect(namedPescatarian(n), n).toBe(false);
     expect(namedPescatarian("Oyster mushroom risotto")).toBe(false); // a mushroom, not seafood
     expect(namedPescatarian("Sticky toffee pudding (Seafood Restaurant)")).toBe(false); // the restaurant's name, not the dish
     expect(namedPescatarian("Hot & spicy king prawn (Bún tôm Huế)")).toBe(true);

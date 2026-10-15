@@ -58,6 +58,9 @@
   --font-weight-semibold: 550;
 }
 .app-surface { font-weight: 500; }
+/* The floating tab bar covers the bottom of the screen; tabbing to something under it scrolls it clear (WCAG 2.4.11 Focus Not Obscured). The bar's top
+   edge is about 80 px up; 7rem grows with the text size. */
+:root:has(.app-surface) { scroll-padding-bottom: 7rem; }
 
 @theme inline {
   --color-background: var(--background);

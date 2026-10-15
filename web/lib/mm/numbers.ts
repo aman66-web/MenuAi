@@ -177,3 +177,20 @@ const LIMIT_WORDS = {
 export function limitWords(l: NumberLimits, t: T): string[] {
   return (Object.keys(LIMIT_WORDS) as Array<keyof NumberLimits>).filter((k) => l[k] !== undefined).map((k) => t(LIMIT_WORDS[k], { n: l[k]! }));
 }
+
+/** The zero of each numeral system the app's languages use besides 0-9: Arabic-Indic, Urdu (Extended Arabic-Indic), Bengali, Gurmukhi, Gujarati. */
+const ZEROS = [0x660, 0x6f0, 0x9e6, 0xa66, 0xae6];
+
+/**
+ * Digits typed in another numeral system (a keyboard or number pad set to Arabic, Urdu, Bengali, Punjabi or Gujarati) as the plain 0-9 the
+ * app reads, so a number typed in those isn't thrown away. Anything else is left as it is.
+ */
+export function toAsciiDigits(s: string): string {
+  let out = "";
+  for (const ch of s) {
+    const cp = ch.codePointAt(0)!;
+    const zero = ZEROS.find((z) => cp >= z && cp <= z + 9);
+    out += zero === undefined ? ch : String(cp - zero);
+  }
+  return out;
+}

@@ -17,7 +17,7 @@ import { scrollToElement } from "../_lib/scroll";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
-import { FinderResults, NumbersPanel, useNumbersFinder } from "./NumbersFinder";
+import { FinderResults, NumbersPanel, useFinderResults, useNumbersFinder } from "./NumbersFinder";
 
 // The Eat out tab (founder 2026-10-10: "find restaurants near you and also see all the restaurants we have and also search"): search, the
 // restaurants near you (the map), then every restaurant, café, pub and takeaway we have (SPEC §7.2's chain list: Popular, Favourites, A to Z).
@@ -56,14 +56,13 @@ export default function EatOutPage() {
   const [moreOpen, setMoreOpen] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
   useEffect(() => { if (type) setMoreOpen(true); }, [type]); // eslint-disable-line react-hooks/set-state-in-effect -- a type restored for this tab shows its choices
   const finder = useNumbersFinder();
-  const [finderOpen, setFinderOpen] = useState(false);
   const toggleMore = () => {
     if (moreOpen) { setType(null); setFullOnly(false); setHalalOnly(false); }
     setMoreOpen(!moreOpen);
   };
   const toggleFinder = () => {
-    if (finderOpen) finder.reset();
-    setFinderOpen(!finderOpen);
+    if (finder.open) finder.reset();
+    finder.setOpen(!finder.open);
   };
 
   const shownChains = useMemo(
@@ -78,6 +77,7 @@ export default function EatOutPage() {
   const realCount = shownChains.filter((c) => !c.sample).length;
   // the restaurants the type, halal and full-nutrition choices leave in: the numbers finder searches only these
   const finderAllowed = useMemo(() => new Set((activeType ? typeChains : shownChains).map((c) => c.id)), [activeType, typeChains, shownChains]);
+  const found = useFinderResults(finder, finderAllowed);
   const hasCaloriesOnly = menu.chains.some((c) => c.nutritionLevel === "calories");
   const favoriteChains = useMemo(() => {
     const ids = new Set(favorites.map((f) => f.chainId));
@@ -136,7 +136,7 @@ export default function EatOutPage() {
             <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3.5 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
               <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${moreOpen ? "bg-foreground text-background" : "bg-soft-strong text-foreground"}`}><GridIcon className="h-[18px] w-[18px]" /></span>
               <span className="min-w-0 flex-1">{t("More ways to find a restaurant")}</span>
-              <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
+              <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform rtl:scale-x-100! ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
             </button>
           )}
           {types.length > 1 && moreOpen && (
@@ -153,16 +153,16 @@ export default function EatOutPage() {
           )}
 
           {/* a second way in, of its own: type calories, protein, carbs or fat and pick allergies, and only the restaurants with dishes that fit are listed */}
-          <button type="button" aria-expanded={finderOpen} aria-controls="find-by-numbers" onClick={toggleFinder} className="glass mt-3 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${finderOpen ? "bg-foreground text-background" : "bg-soft-strong text-foreground"}`}><ScaleIcon className="h-5 w-5" /></span>
+          <button type="button" aria-expanded={finder.open} aria-controls="find-by-numbers" onClick={toggleFinder} className="glass mt-3 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${finder.open ? "bg-foreground text-background" : "bg-soft-strong text-foreground"}`}><ScaleIcon className="h-5 w-5" /></span>
             <span className="min-w-0 flex-1">{t("Find by numbers or allergies")}</span>
-            <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform ${finderOpen ? "-rotate-90" : "rotate-90"}`} />
+            <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform rtl:scale-x-100! ${finder.open ? "-rotate-90" : "rotate-90"}`} />
           </button>
-          {finderOpen && <div id="find-by-numbers"><NumbersPanel state={finder} /></div>}
+          {finder.open && <div id="find-by-numbers"><NumbersPanel state={finder} found={found} /></div>}
 
           {halalOnly && <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{t("Restaurants whose own website says all their food is halal.")} {t(HALAL_CAUTION)}</p>}
-          {finder.active && finderOpen ? (
-            <FinderResults state={finder} chains={menu.chains} allowed={finderAllowed} />
+          {finder.active && finder.open ? (
+            <FinderResults state={finder} chains={menu.chains} found={found} />
           ) : activeType ? (
             <section aria-label={t(activeType.label)} className="mt-4">
               <div className={chainGroupClass}>{typeChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>

@@ -30,6 +30,7 @@ describe("pescatarian (as the restaurant marks or names the dish)", () => {
   it("leaves out meat, and dishes that don't say what they are, and fish dishes the restaurant tags with pork or beef", () => {
     expect(isPescatarianDish({ name: "Chicken and prawn pasta", tags: [] })).toBe(false);
     expect(isPescatarianDish({ name: "Surf and turf", tags: ["contains_beef"] })).toBe(false);
+    expect(isPescatarianDish({ name: "Lobster Surf & Turf", tags: [] })).toBe(false); // the steak is in the name, tagged or not
     expect(isPescatarianDish({ name: "Cheeseburger", tags: [] })).toBe(false);
     expect(isPescatarianDish({ name: "Prawn and chorizo stew", tags: [] })).toBe(false);
     expect(isPescatarianDish({ name: "Seafood paella", tags: ["contains_pork"] })).toBe(false);

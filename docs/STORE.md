@@ -34,8 +34,8 @@ published. Scan a barcode, compare products side by side, and keep a shopping li
 Cook. 100 recipes made from real supermarket products, with the calories, protein and cost of each serving, fitted to your meal size.
 
 Made for your goal. Losing weight, maintaining, building muscle, or smaller, protein-first meals on a GLP-1 medication: set it once and
-every suggestion follows it. Diet filters for vegetarian, vegan, halal, no pork, no beef and the 14 allergens, always going by what each
-restaurant or shop publishes.
+every suggestion follows it. Diet filters for vegetarian, vegan, pescatarian, halal, no pork, no beef and the 14 allergens, and a way to find
+restaurants by the calories, protein, carbs and fat you want, always going by what each restaurant or shop publishes.
 
 Easy to use. Large text options, a plain layout, and 11 languages.
 
