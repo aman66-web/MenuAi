@@ -27,7 +27,7 @@ import { useLanguage, useT } from "./_lib/i18n";
 // Logging is Pro (SPEC §7.8): while Pro is on, a free user's + opens the paywall.
 
 /** Two cards side by side, stacked when the text is large: the minimum width is in rem, so it grows with the text size. */
-const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3";
+const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5";
 
 const dayKey = (d: Date) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 
@@ -43,8 +43,8 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
   return (
     <div>
       <p className="flex flex-wrap items-baseline justify-between gap-x-1.5 gap-y-0.5">
-        <span className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-muted">{label}</span>
-        <span className="app-numbers whitespace-nowrap font-mono text-[0.78rem]">{formatGrams(eaten)}{target ? <span className="text-muted"> / {formatGrams(target)}</span> : null}</span>
+        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{label}</span>
+        <span className="app-numbers whitespace-nowrap font-mono text-[0.75rem] font-normal">{formatGrams(eaten)}{target ? <span className="text-muted"> / {formatGrams(target)}</span> : null}</span>
       </p>
       {target ? (
         <div className="mt-2.5 h-[5px] overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
@@ -58,12 +58,12 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
 function ThingCard({ href, title, line }: { href: string; title: string; line: string }) {
   const t = useT();
   return (
-    <Link href={href} className="glass lift flex min-h-[10.5rem] min-w-0 flex-col justify-between gap-4 rounded-[1.75rem] p-4 [overflow-wrap:anywhere]">
+    <Link href={href} className="glass lift flex min-w-0 flex-col justify-between gap-4 rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
       <span>
-        <span className="block text-xl font-extrabold leading-snug tracking-tight">{title}</span>
-        <span className="mt-1 block text-base leading-snug text-muted">{line}</span>
+        <span className="block text-xl font-[800] leading-snug tracking-[-0.01em]">{title}</span>
+        <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{line}</span>
       </span>
-      <span aria-hidden className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-foreground px-4 text-base font-bold text-background">{t("Open")}</span>
+      <span aria-hidden className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background">{t("Open")}</span>
     </Link>
   );
 }
@@ -117,13 +117,14 @@ export default function HomePage() {
   return (
     <div>
       <div className="flex items-center justify-between gap-3">
-        <h1 className="text-[2.125rem] font-bold leading-none tracking-[-0.03em]">{t("Home")}</h1>
-        <Link href="/app/today" aria-label={t("Today's meals")} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
-          <CalendarIcon className="h-5 w-5" />
+        <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Home")}</h1>
+        {/* a small grey circle like the picture's, inside a full 44 px tap area */}
+        <Link href="/app/today" aria-label={t("Today's meals")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CalendarIcon className="h-[18px] w-[18px]" /></span>
         </Link>
       </div>
 
-      <ol aria-label={t("This week")} className="mt-6 grid grid-cols-7 gap-1.5 text-center">
+      <ol aria-label={t("This week")} className="mt-4 grid grid-cols-7 gap-2 text-center">
         {weekOf(now).map((d) => {
           const today = isSameLocalDay(d, now);
           const future = !today && d > now;
@@ -132,11 +133,11 @@ export default function HomePage() {
           const label = today ? t("{day} (today)", { day: name }) : future ? name : logged ? t("{day}: food logged", { day: name }) : t("{day}: nothing logged", { day: name });
           // Like the picture: every day gone by is a dark circle, today is the brand colour, the days ahead are grey (whether food was
           // logged is still said to screen readers).
-          const look = today ? "bg-sun text-[var(--on-accent)]" : future ? "bg-soft-strong text-muted" : "bg-foreground text-background";
+          const look = today ? "bg-sun text-[var(--on-accent)]" : future ? "bg-soft-strong text-foreground" : "bg-foreground text-background";
           return (
-            <li key={dayKey(d)} className="flex min-w-0 flex-col items-center gap-1.5">
-              <span aria-hidden className="text-xs font-semibold uppercase text-muted">{narrow.format(d)}</span>
-              <span aria-hidden className={`app-numbers flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.95rem] font-semibold ${look}`}>{d.getDate()}</span>
+            <li key={dayKey(d)} className="flex min-w-0 flex-col items-center gap-2.5">
+              <span aria-hidden className="text-[0.6875rem] font-semibold uppercase text-muted">{narrow.format(d)}</span>
+              <span aria-hidden className={`app-numbers flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>{d.getDate()}</span>
               <span className="sr-only">{label}</span>
             </li>
           );
@@ -150,7 +151,7 @@ export default function HomePage() {
       <div className={`app-numbers mt-6 ${PAIR}`}>
         {/* Measured from the founder's picture of this card ("exactly like image 2"): the small label at the top, a dial about 55% of the
             card's width with a thick track and a small grey centre, plenty of room around it, the figures in a regular weight below. */}
-        <Card className="flex min-h-[14.5rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-4 pt-4 text-center">
+        <Card className="flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 rounded-[1.25rem]! px-4 pb-3.5 pt-4 text-center">
           <p className="self-start text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-muted">{t("Calories")}</p>
           <Gauge id="home" label={t("Calories used today")} fraction={used} size={100} stroke={17} disc>
             <span aria-hidden className="text-[1.45rem] font-[800] tracking-tight">{Math.round(used * 100)}%</span>
@@ -159,10 +160,10 @@ export default function HomePage() {
             <p className="text-[1.25rem] font-normal leading-tight [overflow-wrap:anywhere]">
               <span className="text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
             </p>
-            <p className="mt-0.5 text-[1.125rem] font-normal leading-tight">kcal</p>
+            <p className="mt-0.5 text-[1.0625rem] font-normal leading-tight">kcal</p>
           </div>
         </Card>
-        <Card className="flex min-w-0 flex-col justify-around gap-6 px-3.5 py-5">
+        <Card className="flex min-w-0 flex-col justify-center gap-7 rounded-[1.25rem]! px-4 py-5">
           <MacroRow label={t("Protein")} eaten={eaten.protein} {...(targets.protein ? { target: targets.protein } : {})} />
           <MacroRow label={t("Carbs")} eaten={eaten.carbs} target={targets.carbs} />
           <MacroRow label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
@@ -186,7 +187,7 @@ export default function HomePage() {
       )}
 
       <h2 className="sr-only">{t("Your things")}</h2>
-      <div className={`mt-3 ${PAIR}`}>
+      <div className={`mt-3.5 ${PAIR}`}>
         <ThingCard href="/app/groceries/list" title={t("Shopping list")} line={groceriesLine} />
         <ThingCard href="/app/meals" title={t("My meals")} line={t("Your favourite meals")} />
       </div>

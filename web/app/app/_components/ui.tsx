@@ -11,7 +11,9 @@ const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean)
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
 const variants: Record<Variant, string> = {
-  primary: "btn-sun glow-shadow text-on-accent font-bold active:scale-[0.97] hover:brightness-105",
+  // The main action is a black pill, like Home's "Open" (founder 2026-10-15: "the rest of the app should match that elegance"); the lime is kept
+  // for what is selected or highlighted.
+  primary: "bg-foreground text-background font-bold active:scale-[0.97] hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]",
   secondary: "glass text-foreground font-semibold active:scale-[0.97] hover:bg-soft-strong",
   ghost: "text-accent font-semibold hover:bg-accent-soft",
   danger: "glass text-foreground font-semibold active:scale-[0.97] hover:bg-soft-strong",
@@ -34,7 +36,7 @@ export function LinkButton({ href, variant = "primary", full, className, childre
 // ---- small pieces ----
 
 export function Card({ children, className, hero }: { children: ReactNode; className?: string; hero?: boolean }) {
-  return <div className={cx("rounded-3xl", hero ? "hero-card" : "glass", className)}>{children}</div>;
+  return <div className={cx("rounded-[1.25rem]", hero ? "hero-card" : "glass", className)}>{children}</div>;
 }
 
 export function Badge({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "accent" }) {
@@ -53,7 +55,7 @@ export function SampleBadge() {
 export function SectionTitle({ children, action }: { children: ReactNode; action?: ReactNode }) {
   return (
     <div className="mb-3 mt-10 flex items-baseline justify-between gap-3">
-      <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight">
+      <h2 className="flex items-center gap-2.5 text-xl font-[800] tracking-[-0.01em]">
         {children}
       </h2>
       {action}
