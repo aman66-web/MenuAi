@@ -263,6 +263,8 @@ for (const scheme of ["light", "dark"]) {
   await step(`accessibility (${scheme}): the account section and every step of the sign-in sheet have no axe violations`, async () => {
     const { ctx, page } = await newPhone({ scheme });
     const scan = async (what) => {
+      // wait for the sheet's slide and any fade to end (never the endless ones), so axe judges the colours people see
+      await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))));
       await page.addScriptTag({ path: AXE });
       const result = await page.evaluate(async () => await axe.run(document, { resultTypes: ["violations"] }));
       expect(result.violations.length === 0, `${what}: ${result.violations.map((v) => `${v.id} (${v.nodes.length})`).join(", ")}`);

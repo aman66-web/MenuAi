@@ -1318,6 +1318,41 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - Halal still uses halal-named meat, which small shops rarely sell. The 211 new or changed sentences were translated into the 10 languages by AI, each
     checked by a second translator.
 
+- 2026-10-15 (afternoon) — **Every screen as calm as the new Home** (founder: "the home screen now looks beautiful ... the rest of the app should match
+  that elegance too", "the whole app should be elegant and visually pleasing ... make the app look the best it possibly can"). Looks only: no wording,
+  data, ranking or behaviour changed (the set of translation keys is the same apart from two Today lines retired below).
+  - **How:** 13 groups of screens, each restyled by a designer agent to Home's language, then compared with Home and the founder's pictures by an
+    independent reviewer, then fixed: Eat out / favourites / Search / Near me; a restaurant, a dish, the order builder; Recipes, a recipe, My meals;
+    Groceries and every shop screen; Settings, Today, Compare; onboarding; the diet, shop, language and suggested-targets pickers; the report, contact
+    and request forms; the share card, Compare button and dish photos; the offline page; numbite.com's home page; privacy, terms and support; and the
+    shared buttons, sheets, inputs and segmented controls.
+  - **The language:** flat light grey page, white 20 px cards with a soft neutral shadow and no outline, compact heavy page titles, section headings
+    without decoration, small spaced-capital labels, figures in a regular weight with a smaller unit, nutrition rows like Home's (label in small
+    capitals, figures in DM Mono, thin bars), the main action a black pill, lime only for what is selected or today.
+  - **Notable changes:** disabled buttons are a quiet grey pill with readable words (never faded); the busy spinner sits inside its button; keyboard
+    focus rings are no longer cut off inside grouped cards; empty states have icons; Today shows Home's protein, carbs and fat rows with the new targets
+    (retiring "{eaten} / {target} protein" and "{carbs} carbs · {fat} fat"); the share card keeps its translated words; sheet form labels in sentence
+    case like Settings; the stacked "Which meal?" choices at large text are dark like other lists; a long Polish button word no longer splits.
+  - **Tab names** are sized by measuring their longest word in its own font (13 px; 11 px only when that keeps it whole; letters a touch closer before
+    hyphenating), and the bar's insets no longer grow with the text size, so every language fits on a 390 px iPhone at every text size; on the
+    narrowest phones Spanish and Portuguese "Supermercado" is hyphenated.
+  - `<html suppressHydrationWarning>`: the text-size and language script changes `<html>`'s attributes before the first paint on purpose.
+  - The accessibility tests (a11y, account) now wait for fades and slides to end before judging colours: the two "contrast" flags were text caught
+    halfway through its fade-in (3.9:1 for a moment, 5.5:1 when shown).
+
+- 2026-10-15 (afternoon) — **Recipes: everything bought is used, the right products, sensible amounts.** An independent review of the rewritten book
+  confirmed 72 problems; all fixed, then guarded.
+  - **Bought but never used:** onions, garlic, spinach, lettuce, spring onions, cinnamon, salt and pepper, oil spray and others that recipes bought and
+    their methods never mentioned are now used where a cook would use them (or removed where the dish is better without). A new test fails any recipe
+    whose method doesn't name everything it buys (with the words methods use: "season" for salt and pepper, "spray" for oil spray...).
+  - **Picks:** block cheddar for grating (not slices), a real sweet chilli sauce (not a stir-fry sauce), plain sultanas, crumbly stock cubes (not stock
+    pots; "about 2 stock cubes" where a soup needs two), a single basmati bag, 60 g wraps, plain wheat biscuits counted by the biscuit, spaghetti or
+    linguine as the recipe says.
+  - **Fitting to a meal size:** milk and oat drink follow the oats (and similar pairs), so porridge and pancakes keep their consistency; tinned pulses move
+    at most 1.5x; wraps always come out as the same whole number for every person (`perServing` on the kind; fitted and scaled; tested).
+  - Dishes that had become copies were made distinct; amounts changed so whole tins and packs are used where that is natural.
+  - About 100 new or changed sentences, translated into the 10 languages by AI, each checked by a second translator.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

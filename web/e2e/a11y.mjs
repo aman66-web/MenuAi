@@ -68,6 +68,8 @@ for (const scheme of ["light", "dark"]) {
     await page.waitForLoadState("networkidle");
     await page.waitForTimeout(600);
     await prep(page);
+    // wait for fades and slides to end (never the endless ones, such as the welcome logo wall), so axe judges the colours people see
+    await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))));
     await page.addScriptTag({ path: AXE });
     const result = await page.evaluate(async () => await axe.run(document, { resultTypes: ["violations"] }));
     const v = result.violations;
