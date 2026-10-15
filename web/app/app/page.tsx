@@ -58,15 +58,17 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
   );
 }
 
+/** "Shopping list / Your shopping list / Open", measured from the founder's picture's Workouts and Meals cards (2026-10-15, "exactly like
+ * image 2"): a heavy title, a one-line 14 px subtitle right under it, then the black pill, about 140 px tall in all. */
 function ThingCard({ href, title, line }: { href: string; title: string; line: string }) {
   const t = useT();
   return (
-    <Link href={href} className="glass lift flex min-w-0 flex-col justify-between gap-4 rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
-      <span>
-        <span className="block text-xl font-[800] leading-snug tracking-[-0.01em]">{title}</span>
-        <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{line}</span>
+    <Link href={href} className="glass lift flex min-w-0 flex-col rounded-[1.25rem] p-4 [overflow-wrap:anywhere]">
+      <span className="pb-3.5">
+        <span className="block text-xl font-[800] leading-tight tracking-[-0.01em]">{title}</span>
+        <span className="mt-1 block text-sm leading-snug text-muted">{line}</span>
       </span>
-      <span aria-hidden className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background">{t("Open")}</span>
+      <span aria-hidden className="mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-full bg-foreground px-4 text-[0.9375rem] font-bold text-background">{t("Open")}</span>
     </Link>
   );
 }
