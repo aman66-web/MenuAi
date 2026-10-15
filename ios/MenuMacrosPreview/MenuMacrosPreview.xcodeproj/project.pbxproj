@@ -263,6 +263,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Menu Math";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scans a product's barcode to show its calories and protein (the picture stays on this iPhone).";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows restaurants near you on the map. Your location stays on this phone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -292,6 +293,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Menu Math";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scans a product's barcode to show its calories and protein (the picture stays on this iPhone).";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows restaurants near you on the map. Your location stays on this phone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

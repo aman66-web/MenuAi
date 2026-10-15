@@ -1,0 +1,434 @@
+[
+ {
+  "file": "clean-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean13-5010477348630.pgm.gz",
+  "expect": "5010477348630",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean13-4006381333931.pgm.gz",
+  "expect": "4006381333931",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean13-5018374115324.pgm.gz",
+  "expect": "5018374115324",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean13-9780201379624.pgm.gz",
+  "expect": "9780201379624",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean13-5057753912345.pgm.gz",
+  "expect": "5057753912345",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean13-5000169107225.pgm.gz",
+  "expect": "5000169107225",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean8-96385074.pgm.gz",
+  "expect": "96385074",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean8-40170725.pgm.gz",
+  "expect": "40170725",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-ean8-73513537.pgm.gz",
+  "expect": "73513537",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-upca-036000291452.pgm.gz",
+  "expect": "0036000291452",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "clean-upca-012345678905.pgm.gz",
+  "expect": "0012345678905",
+  "note": "clean, 3 px modules",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "small-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "modules about 2 px wide",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "small-ean13-5010477348630.pgm.gz",
+  "expect": "5010477348630",
+  "note": "modules about 2 px wide",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "large-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "modules about 6.6 px wide, runs near the picture's edges",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "large-ean8-96385074.pgm.gz",
+  "expect": "96385074",
+  "note": "modules about 6.6 px wide, runs near the picture's edges",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "turn8-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "turned 8 degrees",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "turn8-upca-036000291452.pgm.gz",
+  "expect": "0036000291452",
+  "note": "turned 8 degrees",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "turn-8-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "turned 8 degrees the other way",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "turn-8-ean13-5057753912345.pgm.gz",
+  "expect": "5057753912345",
+  "note": "turned 8 degrees the other way",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "turn20-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "turned 20 degrees",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "turn20-ean13-5010477348630.pgm.gz",
+  "expect": "5010477348630",
+  "note": "turned 20 degrees",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "upside-down-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "upside down",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "upside-down-ean8-96385074.pgm.gz",
+  "expect": "96385074",
+  "note": "upside down",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "sideways90-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "turned a quarter, so it is read down the picture",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "sideways90-upca-036000291452.pgm.gz",
+  "expect": "0036000291452",
+  "note": "turned a quarter, so it is read down the picture",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "sideways270-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "turned three quarters",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "sideways270-ean13-5057753912345.pgm.gz",
+  "expect": "5057753912345",
+  "note": "turned three quarters",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "blur-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "out of focus a little",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "blur-ean13-5010477348630.pgm.gz",
+  "expect": "5010477348630",
+  "note": "out of focus a little",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "blur-small-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "small and soft",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "blur-small-ean8-96385074.pgm.gz",
+  "expect": "96385074",
+  "note": "small and soft",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "noise-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "grainy, as in dim light",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "noise-upca-036000291452.pgm.gz",
+  "expect": "0036000291452",
+  "note": "grainy, as in dim light",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "noise-turn-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "grainy, soft and turned",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "noise-turn-ean13-5057753912345.pgm.gz",
+  "expect": "5057753912345",
+  "note": "grainy, soft and turned",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "low-contrast-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "washed out",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "low-contrast-ean13-5010477348630.pgm.gz",
+  "expect": "5010477348630",
+  "note": "washed out",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "shaded-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "lit from one side",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "shaded-ean8-96385074.pgm.gz",
+  "expect": "96385074",
+  "note": "lit from one side",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "dark-pack-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "on a dark background",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "dark-pack-upca-036000291452.pgm.gz",
+  "expect": "0036000291452",
+  "note": "on a dark background",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "off-centre-ean13-5000157024671.pgm.gz",
+  "expect": "5000157024671",
+  "note": "off to one side",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "off-centre-ean13-5057753912345.pgm.gz",
+  "expect": "5057753912345",
+  "note": "off to one side",
+  "width": 640,
+  "height": 360,
+  "reference_reads": true,
+  "must_decode": true
+ },
+ {
+  "file": "none-blank.pgm.gz",
+  "expect": null,
+  "note": "empty",
+  "width": 640,
+  "height": 360,
+  "reference_reads": false,
+  "must_decode": false
+ },
+ {
+  "file": "none-noise.pgm.gz",
+  "expect": null,
+  "note": "pure noise",
+  "width": 640,
+  "height": 360,
+  "reference_reads": false,
+  "must_decode": false
+ },
+ {
+  "file": "none-random-bars.pgm.gz",
+  "expect": null,
+  "note": "bars of random widths",
+  "width": 640,
+  "height": 360,
+  "reference_reads": false,
+  "must_decode": false
+ },
+ {
+  "file": "none-text.pgm.gz",
+  "expect": null,
+  "note": "a page of text-like marks",
+  "width": 640,
+  "height": 360,
+  "reference_reads": false,
+  "must_decode": false
+ }
+]

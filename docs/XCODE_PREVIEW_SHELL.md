@@ -87,3 +87,16 @@ four files are written without a compiler (Swift 6, iOS 17): build them and fix 
 Check on a simulator: the page fills the screen under the notch/Dynamic Island and above the home bar (the web app
 handles safe areas itself via `viewport-fit=cover`), pull-to-refresh works, an external link opens Safari, and the
 Nearby tab asks for location. Log the outcome in `docs/PROGRESS.md`.
+
+---
+
+## Scanning a barcode in the preview shell (added 2026-10-15)
+
+Groceries › **Scan a barcode** now opens a full-screen camera in the web app itself and reads the barcode on the phone (no scanner from the shell is needed).
+For that the shell needs two things, both already changed in the project files, so **rebuild and run it once from Xcode** (the website update alone is not enough):
+
+- `INFOPLIST_KEY_NSCameraUsageDescription` in the project's build settings (the sentence iOS shows when the camera is first asked for), and
+- `allowsInlineMediaPlayback = true` on the web view (`WebView.swift`), so the camera picture plays in the page instead of full screen.
+
+The first time, iOS asks "Allow … to use the camera?". Say Allow. If you said Don't Allow before, switch it on in iPhone Settings › Menu Math (the app's name here).
+
