@@ -33,14 +33,17 @@ function weekOf(now: Date): Date[] {
   return Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
 }
 
+/** "PROTEIN   56g / 150g" in DM Mono on one line, the bar under it, like the founder's reference picture (2026-10-15). */
 function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
   const fraction = target ? Math.min(1, Math.max(0, eaten / target)) : 0;
   return (
     <div>
-      <span className="block text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</span>
-      <span className="app-numbers mt-0.5 block text-lg font-extrabold leading-tight">{formatGrams(eaten)}{target ? <span className="font-semibold text-muted"> / {formatGrams(target)}</span> : null}</span>
+      <p className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-0.5 font-mono">
+        <span className="text-[0.8125rem] font-medium uppercase tracking-[0.06em] text-muted">{label}</span>
+        <span className="app-numbers text-base font-medium">{formatGrams(eaten)}{target ? <span className="text-muted"> / {formatGrams(target)}</span> : null}</span>
+      </p>
       {target ? (
-        <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
           <div className="bg-sun h-full rounded-full transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${fraction * 100}%` }} />
         </div>
       ) : null}
@@ -149,12 +152,12 @@ export default function HomePage() {
           <Gauge id="home" label={t("Calories used today")} fraction={used} size={124}>
             <span aria-hidden className="text-2xl font-extrabold tracking-tight">{Math.round(used * 100)}%</span>
           </Gauge>
-          <p className="-mt-3 text-xl font-extrabold leading-tight [overflow-wrap:anywhere]">
-            <span className="text-accent">{formatInt(eaten.calories)}</span> <span className="font-semibold text-muted">/ {formatInt(settings.dailyCalories)}</span>
+          <p className="-mt-3 text-xl font-medium leading-tight [overflow-wrap:anywhere]">
+            <span className="font-bold text-accent">{formatInt(eaten.calories)}</span> <span>/ {formatInt(settings.dailyCalories)}</span>
           </p>
-          <p className="text-base font-semibold text-muted">kcal</p>
+          <p className="text-base font-medium text-muted">kcal</p>
         </Card>
-        <Card className="flex min-w-0 flex-col justify-center gap-4 p-4">
+        <Card className="flex min-w-0 flex-col justify-center gap-5 p-4">
           <MacroRow label={t("Protein")} eaten={eaten.protein} {...(settings.dailyProtein ? { target: settings.dailyProtein } : {})} />
           <MacroRow label={t("Carbs")} eaten={eaten.carbs} />
           <MacroRow label={t("Fat")} eaten={eaten.fat} />

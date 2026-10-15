@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#04100a" },
-  ],
+  themeColor: "#f2f2f2", // the app's light grey (globals.css .app-surface); there is no dark mode
 };
 
 // First visit (SPEC §7.1): send people to onboarding before the app's JavaScript has even loaded, so they see the welcome

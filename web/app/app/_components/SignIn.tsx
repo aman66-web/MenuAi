@@ -152,7 +152,7 @@ function SignInPanel({ onDone }: { onDone: () => void }) {
           <div className="mt-4 space-y-2.5">
             {canUseProviders && (
               <>
-                <ProviderButton href={native ? undefined : providerHref("apple")} disabled={busy} onClick={() => void withProvider("apple")} className="bg-black text-white dark:bg-white dark:text-black">
+                <ProviderButton href={native ? undefined : providerHref("apple")} disabled={busy} onClick={() => void withProvider("apple")} className="bg-black text-white">
                   <AppleLogo />
                   {t("Continue with Apple")}
                 </ProviderButton>

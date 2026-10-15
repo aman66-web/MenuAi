@@ -1219,6 +1219,27 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (no overflow at 200%), languages 5 (Arabic axe), smoke 23, extra 12, offline 13, browse 9, calories 4, diet 5, groceries 6, groceries-all 7,
   compare 3, prodmode 9, app-build 8; screenshots in light, dark and extra-large text.
 
+- 2026-10-15 — **Light grey app, the reference picture's text, and no dark mode** (founder, on the Home reference picture: "The background of the
+  app should be light grey like the colour here", "Also match the text from the image above too", "The app doesn't need a dark mode anymore").
+  - **Grey:** every /app screen sits on a flat light grey (#f2f2f2) with the white cards on it, and no green glow behind the page
+    (`:root:has(.app-surface)` in `globals.css`; AppShell carries `.app-surface`). The website keeps its white page and glow. In the app the
+    accent is a shade darker (#046c4f, so green text keeps WCAG AA on the grey: 5.8:1, and 5.2:1 on the green tint) and chip/track grey
+    (`--soft-strong`) a shade darker so they still show. Browser bar and installed-app colour are the same grey.
+  - **Text:** DM Sans replaces Plus Jakarta Sans everywhere (with its latin-ext face, so Polish and Romanian letters match), DM Mono for figures in
+    data rows: Home's "PROTEIN 73g / 150g" rows and the onboarding's Home preview. Both SIL OFL, bundled in `web/app/fonts/` with their licences;
+    nothing is fetched from Google by visitors. The greys are neutral (`--muted` #5f6361: 6.1:1 on white, 5.5:1 on the grey). In the app the
+    small italic accents are gone: a kicker is now a small uppercase label (e.g. "RECIPE · SAINSBURY'S", like the picture's "BODYWEIGHT") and an
+    accent word in a heading keeps its colour in the heading's own font; the heaviest headings are bold (700) like the picture's. The website keeps
+    its Playfair accents. No wording changed.
+  - **No dark mode:** the dark colours, the map's dark style and the Apple button's dark variant are gone; `color-scheme: light`. The iPhone app
+    gets `UIUserInterfaceStyle = Light` (project build settings, Debug and Release), so a phone in dark mode still shows dark status-bar text on
+    our light page: **the Mac session builds it**. CLAUDE.md's conventions and the verify skill now say light only.
+  - Checked: 577 unit tests, tsc, lint; e2e smoke 23 (its dark-mode step now checks a phone in dark mode still gets the grey page), a11y 0
+    violations, large text (no overflow at 200%), recipes 13, languages 5, extra 12, offline 13, groceries-all 7, compare 3, browse 9, calories 4,
+    diet 5, groceries 6, groceries-compare 8, groceries-photos 4, account 8, share, map 6 of 7 (the known headless geolocation limit), prodmode 9,
+    app-build 8; screenshots of every main screen, the welcome screen and the website, normal and extra-large text.
+  - The App Store screenshots and the uploaded iPhone build still show the old look: re-run `web/e2e/store-shots.mjs` and make a new build.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

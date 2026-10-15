@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { cuisineGroupId, cuisineGroups } from "@/lib/mm/cuisine";
 import { DEFAULT_RADIUS_MILES, directionsUrl, formatMiles, geocode, groupByChain, MAX_MAP_BRANCHES, MILES_RADII, nearbyBranches, type Area, type BranchesDoc, type LatLng } from "@/lib/mm/geo";
 import { chainHref } from "@/lib/mm/routes";
@@ -47,22 +47,9 @@ function readSavedArea(): Origin {
   return null;
 }
 
-function useDark(): boolean {
-  return useSyncExternalStore(
-    (cb) => {
-      const q = window.matchMedia("(prefers-color-scheme: dark)");
-      q.addEventListener("change", cb);
-      return () => q.removeEventListener("change", cb);
-    },
-    () => window.matchMedia("(prefers-color-scheme: dark)").matches,
-    () => false,
-  );
-}
-
 export default function NearbyPage() {
   const t = useT();
   const menu = useMenu();
-  const dark = useDark();
   const [origin, setOrigin] = useState<Origin>(null);
   const [locating, setLocating] = useState<Locating>({ state: "idle" });
   const [radius, setRadius] = useState<number>(DEFAULT_RADIUS_MILES);
@@ -242,7 +229,7 @@ export default function NearbyPage() {
             {mapFailed ? (
               <div className="grid h-full place-items-center px-6 text-center text-sm text-muted">{t("The map couldn't load (it needs a connection). The list below still works.")}</div>
             ) : (
-              <MapView center={origin} radiusMiles={radius} pins={pins} selectedId={selectedId} onSelect={setSelectedId} dark={dark} onFailed={() => setMapFailed(true)} />
+              <MapView center={origin} radiusMiles={radius} pins={pins} selectedId={selectedId} onSelect={setSelectedId} onFailed={() => setMapFailed(true)} />
             )}
           </div>
           <p className="mt-1 px-1 text-[11px] text-muted">{t("Map © OpenFreeMap, data © OpenStreetMap contributors. Branch positions © OpenStreetMap contributors.")}</p>

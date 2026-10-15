@@ -674,7 +674,7 @@ function TodayPreview({ calories }: { calories: number }) {
           {[{ v: "64g", l: t("Protein"), c: "#059669" }, { v: "98g", l: t("Carbs"), c: "#0284c7" }, { v: "31g", l: t("Fat"), c: "#9333ea" }].map((m) => (
             <p key={m.l} className="flex items-center gap-2.5">
               <span className="h-6 w-1.5 shrink-0 rounded-full" style={{ background: m.c }} />
-              <span className="min-w-0"><span className="block text-lg font-extrabold leading-none">{m.v}</span><span className="block text-xs font-semibold opacity-70">{m.l}</span></span>
+              <span className="min-w-0 font-mono"><span className="block text-lg font-medium leading-none">{m.v}</span><span className="mt-0.5 block text-xs font-medium uppercase tracking-[0.06em] opacity-70">{m.l}</span></span>
             </p>
           ))}
         </div>

@@ -3,12 +3,33 @@ import localFont from "next/font/local"; // font files live in app/fonts: nothin
 import { site } from "@/site.config";
 import "./globals.css";
 
-// Plus Jakarta Sans (UI, variable weight) and Playfair Display italic (small editorial accents). Both SIL OFL.
+// DM Sans (UI, variable weight) and DM Mono (figures in data rows), like the founder's reference picture (2026-10-15), and Playfair
+// Display italic (the website's small editorial accents). All SIL OFL (licences next to the files). DM Sans's latin-ext face comes next
+// in the font stack, so Polish and Romanian letters (ł, ś, ă, ț) are drawn in the same font; the browser fetches it only when a page
+// needs one of them. No size-adjusted fallback face for these two: it would sit between them and draw those letters in Arial instead.
 const sans = localFont({
-  src: "./fonts/PlusJakartaSans-latin.woff2",
+  src: "./fonts/DMSans-latin.woff2",
   variable: "--font-sans-loaded",
-  weight: "200 800",
+  weight: "100 1000",
   display: "swap",
+  adjustFontFallback: false,
+});
+const sansExt = localFont({
+  src: "./fonts/DMSans-latin-ext.woff2",
+  variable: "--font-sans-ext",
+  weight: "100 1000",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: false,
+});
+const mono = localFont({
+  src: [
+    { path: "./fonts/DMMono-400-latin.woff2", weight: "400" },
+    { path: "./fonts/DMMono-500-latin.woff2", weight: "500" },
+  ],
+  variable: "--font-mono-loaded",
+  display: "swap",
+  preload: false,
 });
 const serif = localFont({
   src: "./fonts/PlayfairDisplay-Italic-latin.woff2",
@@ -28,7 +49,7 @@ export const metadata: Metadata = {
 // Page chrome lives in the route-group layouts: app/(site) for the marketing site, app/app for the web app.
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} h-full antialiased`}>
+    <html lang="en" className={`${sans.variable} ${sansExt.variable} ${mono.variable} ${serif.variable} h-full antialiased`}>
       <body className="min-h-full">{children}</body>
     </html>
   );

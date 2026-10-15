@@ -14,8 +14,8 @@ Verify the app. Flow to check (optional): $flow
    and `xcrun simctl launch booted <bundle id>`.
 3. Walk through the flow (default: onboarding with Skip → Home → open a sample chain → sort by
    protein → open an item → tap "Best for you" as a free user → paywall appears → close it).
-4. Check each changed screen in light and dark mode (`xcrun simctl ui booted appearance dark`,
-   reset with `light`) and at a large Dynamic Type size
+4. Check each changed screen (the app is light only since 2026-10-15; with the simulator in dark mode,
+   `xcrun simctl ui booted appearance dark`, it must still look light, then reset with `light`) and at a large Dynamic Type size
    (`xcrun simctl ui booted content_size accessibility-extra-extra-extra-large`, reset with `large`).
 5. Report: tests passed/failed, what you checked, anything that looked wrong, with screenshots
    saved via `xcrun simctl io booted screenshot <path>` when useful.

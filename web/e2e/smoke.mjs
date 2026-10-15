@@ -257,11 +257,13 @@ await step("GLP-1 Best for you stays within the comfortable meal size", async ()
   await visible(page.getByRole("heading", { name: "Cluck House" }));
   await visible(text("up to 450 kcal"));
 });
-await step("dark mode renders", async () => {
+await step("no dark mode: a phone in dark mode still gets the light grey app", async () => {
   await page.emulateMedia({ colorScheme: "dark" });
   await page.goto(`${BASE}/app/chain?id=bowl-and-co`);
   await visible(page.getByRole("heading", { name: "Bowl & Co." }));
-  await shot("16-chain-dark");
+  const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  if (bg !== "rgb(242, 242, 242)") throw new Error(`page background in dark mode is ${bg}, not the app's grey`);
+  await shot("16-chain-phone-in-dark-mode");
   await page.emulateMedia({ colorScheme: "light" });
 });
 

@@ -93,7 +93,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
 - Every view has a `#Preview` using the sample chains and fake services.
 - No force unwraps outside `AppConfig` constants; no `print` (use `Logger`); no `DispatchQueue` unless an API demands it.
 - Text uses system text styles (Dynamic Type); numbers `.monospacedDigit()`; 44 pt minimum tap targets;
-  VoiceOver labels on nutrient rows; works in Dark Mode.
+  VoiceOver labels on nutrient rows; light appearance only (founder 2026-10-15: "The app doesn't need a dark mode anymore").
 - Keep files small and named after their main type. Folder layout: `docs/SPEC.md` §5.
 - Xcode uses synchronized folders: create files on disk in the right folder and they join the target.
 - `project.pbxproj`: only minimal, surgical build-setting edits (e.g. `INFOPLIST_KEY_*` privacy
@@ -105,7 +105,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
 - One milestone per session: `/milestone M<n>`. Plan first, then implement in small steps.
 - Write tests first for anything in `Domain/` or `MenuData/`.
 - After each step: `./scripts/test.sh --unit`. Before saying a milestone is done: `./scripts/test.sh`,
-  run the app in the simulator, check the screens you changed (light + dark, large text), and use `/verify`.
+  run the app in the simulator, check the screens you changed (light appearance, large text), and use `/verify`.
 - Ask the `spec-reviewer` agent to compare your work with the spec at the end of each milestone.
 - End every milestone by updating `docs/PROGRESS.md` and proposing a commit message. Don't push.
 - Things only the founder can do (signing, App Store Connect, capabilities that need an Apple account,

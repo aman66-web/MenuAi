@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
 /*
-  Design language ("fresh", founder's choice 2026-10-06: green gradient and white): a clean white base lit from above by a
-  soft green glow, glass cards, a green-gradient pill for the one main action on a screen, Plus Jakarta Sans for everything
-  and a little Playfair italic for editorial accents. Dark mode is a deep green-black with the same gradient. The class and
-  variable names (--sun, .btn-sun, .sun-text) are from the first palette and mean "the brand gradient". Colours here are
-  OUR palette only: no restaurant brand colours, and nothing on food is ever coloured good/bad (CLAUDE.md rules 2 and 3).
-  Contrast (WCAG AA, checked): --muted 6.3:1 and --accent 5.5:1 on white; --on-accent 5.9:1 on the darkest gradient stop;
-  dark mode --accent 12.7:1, --muted 8.5:1.
+  Design language ("fresh", founder's choice 2026-10-06: green gradient and white): glass cards, a green-gradient pill for the one main
+  action on a screen, DM Sans for everything (founder 2026-10-15, matching their reference picture's text: bold geometric titles, small
+  uppercase labels, DM Mono for figures in data rows) and a little Playfair italic for the website's editorial accents. The app sits on a
+  flat light grey with white cards (founder 2026-10-15, same picture); the website keeps a white page lit by a soft green glow. There is
+  no dark mode (founder 2026-10-15: "The app doesn't need a dark mode anymore"). The class and variable names (--sun, .btn-sun,
+  .sun-text) are from the first palette and mean "the brand gradient". Colours here are OUR palette only: no restaurant brand colours,
+  and nothing on food is ever coloured good/bad (CLAUDE.md rules 2 and 3).
+  Contrast (WCAG AA, checked): --muted 6.1:1 on white and 5.5:1 on the app's grey; --accent 5.5:1 on white, and the app's darker
+  accent 5.8:1 on its grey and 5.2:1 on --accent-soft over it; --on-accent 5.9:1 on the darkest gradient stop.
 */
 :root {
   --background: #ffffff;
   --foreground: #0b1a12;
-  --muted: #55645b;
+  --muted: #5f6361;
   --line: rgba(11, 26, 18, 0.1);
   --soft: #ffffff;
   --soft-strong: #eef6f1;
@@ -38,37 +40,21 @@
   --protein: #059669;
   --carbs: #0284c7;
   --fat: #9333ea;
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #04100a;
-    --foreground: #f1f7f3;
-    --muted: rgba(241, 247, 243, 0.66);
-    --line: rgba(255, 255, 255, 0.1);
-    --soft: rgba(255, 255, 255, 0.05);
-    --soft-strong: rgba(255, 255, 255, 0.09);
-    --accent: #6ee7b7;
-    --accent-soft: rgba(110, 231, 183, 0.12);
-    --on-accent: #052e16;
-    --sun-text: linear-gradient(100deg, #ffffff 0%, #d9f99d 40%, #86efac 66%, #34d399 100%);
-    --glow: radial-gradient(75% 60% at 50% 0%, rgba(16, 185, 129, 0.3), rgba(132, 204, 22, 0.1) 48%, transparent 78%);
-    --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 18px 40px -24px rgba(0, 0, 0, 0.9);
-    --nav-bg: rgba(8, 20, 14, 0.8);
-    --ring-track: rgba(255, 255, 255, 0.1);
-    --brand-shadow: rgba(16, 185, 129, 0.45);
-    --mesh:
-      radial-gradient(60% 40% at 6% -6%, rgba(16, 185, 129, 0.38), transparent 70%),
-      radial-gradient(50% 34% at 98% 0%, rgba(132, 204, 22, 0.20), transparent 70%),
-      radial-gradient(70% 45% at 50% 34%, rgba(20, 184, 166, 0.10), transparent 75%);
-    --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 10px 24px -14px rgba(0, 0, 0, 0.8), 0 28px 48px -30px rgba(0, 0, 0, 0.9);
-    --tile: rgba(255, 255, 255, 0.06);
-    --bubble: #0f2219;
-    --protein: #6ee7b7;
-    --carbs: #7dd3fc;
-    --fat: #d8b4fe;
-  }
+/* The app's own surface (founder 2026-10-15, from their reference picture: "The background of the app should be light grey like the
+   colour here"): a flat light grey with the white cards on it, no green glow behind the page. Every /app screen renders inside
+   AppShell's .app-surface, so :has() sets these at the root and the page, sticky bars, fades and sheets all follow. The accent is a
+   shade darker here so green text keeps AA on the grey; --soft-strong is a shade darker so chips and tracks still show on it. The
+   heaviest headings are the reference's bold (700) rather than 800: one variable that Tailwind's font-extrabold reads. */
+:root:has(.app-surface) {
+  --background: #f2f2f2;
+  --soft-strong: #e9ecea;
+  --accent: #046c4f;
+  --mesh: none;
+  --glow: none;
+  --font-weight-extrabold: 700;
 }
 
 @theme inline {
@@ -81,7 +67,8 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
-  --font-sans: var(--font-sans-loaded), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-sans-loaded), var(--font-sans-ext), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-mono-loaded), ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-serif: var(--font-serif-loaded), Georgia, "Times New Roman", serif;
 }
 
@@ -91,7 +78,7 @@ body {
   position: relative;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans-loaded), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans-loaded), var(--font-sans-ext), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
 }
@@ -113,6 +100,10 @@ p { text-wrap: pretty; }
 /* Editorial accents */
 .serif-em { font-family: var(--font-serif); font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
 .kicker { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; line-height: 1.3; color: var(--accent); }
+/* In the app the accents follow the reference picture's text: a kicker is a small uppercase label (like its "BODYWEIGHT"), and an
+   accent word in a heading is the heading's own sans, set apart by colour only. */
+.app-surface .kicker { font-family: var(--font-sans); font-style: normal; font-size: 0.8125rem; font-weight: 700; line-height: 1.35; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.app-surface .serif-em { font-family: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; }
 .sun-text { background: var(--sun-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .bg-sun { background: var(--sun); }
 .btn-sun { background: var(--sun); }
@@ -199,10 +190,6 @@ p { text-wrap: pretty; }
   .rise .stagger > *:nth-child(4) { animation-delay: 120ms; }
   .rise .stagger > *:nth-child(5) { animation-delay: 160ms; }
   .rise .stagger > *:nth-child(n + 6) { animation-delay: 200ms; }
-}
-@media (prefers-color-scheme: dark) {
-  .hero-card::after { background: radial-gradient(80% 60% at 0% 0%, rgba(255, 255, 255, 0.07), transparent 60%); }
-  .icon-bubble { box-shadow: 0 8px 20px -8px var(--brand-shadow); }
 }
 
 /* Pip the mascot: a gentle float, a wave, a blink, a happy bounce. Nothing moves for reduced motion. */

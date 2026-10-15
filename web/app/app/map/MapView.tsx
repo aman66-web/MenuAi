@@ -26,7 +26,7 @@ export interface MapPin {
   chainId: string;
 }
 
-const STYLE = { light: "https://tiles.openfreemap.org/styles/positron", dark: "https://tiles.openfreemap.org/styles/dark" } as const;
+const STYLE = "https://tiles.openfreemap.org/styles/positron"; // light only: the app has no dark mode (founder 2026-10-15)
 
 function boundsFor(c: LatLng, miles: number): [[number, number], [number, number]] {
   const dLat = miles / 69;
@@ -125,13 +125,12 @@ async function drawLogoTile(src: string, darkTile: boolean, full = false): Promi
 // Pins shrink as the map zooms out (a town's worth of branches at once) and are full size from street level.
 const BY_ZOOM = (far: number, mid: number, near: number): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], 9, far, 12, mid, 14, near];
 
-export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark, onFailed }: {
+export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFailed }: {
   center: LatLng;
   radiusMiles: number;
   pins: readonly MapPin[];
   selectedId: string | null;
   onSelect: (id: string | null) => void;
-  dark: boolean;
   onFailed: () => void;
 }) {
   const t = useT();
@@ -176,7 +175,7 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
     features: list.map((p) => ({ type: "Feature" as const, geometry: { type: "Point" as const, coordinates: [p.lng, p.lat] }, properties: { id: p.id, chainId: p.chainId } })),
   });
 
-  // Create the map (again when the light/dark theme changes).
+  // Create the map (again when the language changes).
   useEffect(() => {
     let cancelled = false;
     let map: MapLibreMap | null = null;
@@ -190,7 +189,7 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
         const L = latest.current;
         map = new ml.Map({
           container: box.current,
-          style: dark ? STYLE.dark : STYLE.light,
+          style: STYLE,
           bounds: boundsFor(L.center, L.radiusMiles),
           fitBoundsOptions: { padding: 24, maxZoom: 16 },
           attributionControl: { compact: true },
@@ -207,12 +206,12 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
         });
         map.on("load", () => {
           if (!map) return;
-          const accent = dark ? "#6ee7b7" : "#047857";
-          const ink = dark ? "#04100a" : "#ffffff";
+          const accent = "#046c4f"; // the app's accent (globals.css .app-surface)
+          const ink = "#ffffff";
           map.addSource("branches", { type: "geojson", data: collection(latest.current.pins) });
           map.addSource("you", { type: "geojson", data: { type: "FeatureCollection", features: [{ type: "Feature", geometry: { type: "Point", coordinates: [L.center.lng, L.center.lat] }, properties: {} }] } });
           map.addLayer({ id: "pins", type: "circle", source: "branches", paint: { "circle-color": accent, "circle-stroke-color": ink, "circle-stroke-width": BY_ZOOM(1.5, 2, 2), "circle-radius": BY_ZOOM(5, 7, 8) } });
-          map.addLayer({ id: "selected", type: "circle", source: "branches", filter: ["==", ["get", "id"], latest.current.selectedId ?? ""], paint: { "circle-color": dark ? "#ffffff" : "#0b1a12", "circle-stroke-color": accent, "circle-stroke-width": 4, "circle-radius": BY_ZOOM(8, 10, 11) } });
+          map.addLayer({ id: "selected", type: "circle", source: "branches", filter: ["==", ["get", "id"], latest.current.selectedId ?? ""], paint: { "circle-color": "#0b1a12", "circle-stroke-color": accent, "circle-stroke-width": 4, "circle-radius": BY_ZOOM(8, 10, 11) } });
           map.addLayer({ id: "selected-logo", type: "circle", source: "branches", filter: ["==", ["get", "id"], ""], paint: { "circle-color": accent, "circle-radius": BY_ZOOM(13, 17, 21) } });
           map.addLayer({ id: "pin-logos", type: "symbol", source: "branches", filter: ["==", ["get", "chainId"], ""], layout: { "icon-image": ["concat", "logo-", ["get", "chainId"]], "icon-size": BY_ZOOM(0.6, 0.8, 1), "icon-allow-overlap": true, "icon-ignore-placement": true } });
           map.addLayer({ id: "you-halo", type: "circle", source: "you", paint: { "circle-color": "#3b82f6", "circle-opacity": 0.2, "circle-radius": 18 } });
@@ -241,7 +240,7 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, dark,
       map?.remove();
       mapRef.current = null;
     };
-  }, [dark, t, applyLogoState, loadLogos]); // both are stable (refs only), so this still builds the map once per theme (and language)
+  }, [t, applyLogoState, loadLogos]); // both are stable (refs only), so this still builds the map once (and again per language)
 
   // New pins (filters or radius changed).
   useEffect(() => {

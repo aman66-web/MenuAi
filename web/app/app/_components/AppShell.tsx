@@ -102,7 +102,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <PaywallProvider>
-      <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
+      <div className="app-surface relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
         {!online && (
           <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-sm text-muted">
             {t("You're offline. Menus you've opened still work.")}
