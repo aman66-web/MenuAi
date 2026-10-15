@@ -1,7 +1,7 @@
-import type { AllergenKey, Nutrients, Goal, Preferences } from "./types";
+import type { AllergenKey, Nutrients, Goal, Meal, Preferences } from "./types";
 import { isLocale, type Locale } from "./i18n";
 import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
-import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP } from "./budget";
+import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, MEALS } from "./budget";
 import type { OrderLine } from "./order";
 
 // User data lives only in this browser (localStorage). Nutrient snapshots let history survive menu changes.
@@ -17,7 +17,8 @@ export interface SavedOrder {
   dataVersionAtSave: number;
 }
 
-export type LogSource = "item" | "combination" | "custom" | "savedOrder";
+/** Where a logged entry came from. "custom" = numbers the person typed, "recipe" = a serving of one of our recipes, "product" = a supermarket product by weight. */
+export type LogSource = "item" | "combination" | "custom" | "savedOrder" | "recipe" | "product";
 
 export interface LogEntry {
   id: string;
@@ -27,6 +28,8 @@ export interface LogEntry {
   name: string;
   nutrients: Nutrients;
   source: LogSource;
+  /** The meal row it was added to (Home's + on Breakfast, Lunch or Dinner). Absent = the meal its time falls in (budget.ts entryMeal, SPEC §6.3). */
+  meal?: Meal;
 }
 
 export interface Favorite {
@@ -170,13 +173,24 @@ export function sanitizeSavedOrders(raw: unknown): SavedOrder[] {
   );
 }
 
+/** A logged entry needs calories; protein, carbs and fat are there when the source printed them (typed numbers can leave them out), and are never filled in. */
+const looksLikeLoggedNutrients = (n: unknown): n is Nutrients =>
+  isObject(n) && typeof n.calories === "number" && Number.isFinite(n.calories) &&
+  ["protein", "carbs", "fat"].every((k) => n[k] === undefined || (typeof n[k] === "number" && Number.isFinite(n[k] as number)));
+
 export function sanitizeLog(raw: unknown): LogEntry[] {
   if (!Array.isArray(raw)) return [];
-  return raw.filter(
-    (e): e is LogEntry =>
-      isObject(e) && typeof e.id === "string" && typeof e.loggedAt === "string" && !Number.isNaN(Date.parse(e.loggedAt)) &&
-      typeof e.name === "string" && looksLikeNutrients(e.nutrients),
-  );
+  return raw
+    .filter(
+      (e): e is LogEntry =>
+        isObject(e) && typeof e.id === "string" && typeof e.loggedAt === "string" && !Number.isNaN(Date.parse(e.loggedAt)) &&
+        typeof e.name === "string" && looksLikeLoggedNutrients(e.nutrients),
+    )
+    .map((e) => {
+      if (e.meal === undefined || MEALS.includes(e.meal)) return e;
+      const { meal: _unknown, ...rest } = e; // eslint-disable-line @typescript-eslint/no-unused-vars -- a meal row this app doesn't know: the entry falls back to its time
+      return rest;
+    });
 }
 
 export function sanitizeFavorites(raw: unknown): Favorite[] {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { loggedToday, isSameLocalDay, MEALS, MEAL_LABEL, mealSlotFor } from "@/lib/mm/budget";
+import { entryMeal, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
@@ -26,7 +26,7 @@ const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "
 // Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): one summary card in Home's voice (Home's calories dial,
 // the figures in a regular weight with the eaten one in the accent, then Home's protein, carbs and fat rows with their targets and thin
 // bars, so the same day reads the same on both screens), then what was eaten under Breakfast, Lunch and Dinner (SPEC §6.3 mealSlotFor,
-// as on Home), each entry with the chain's own photo of the dish where we have one.
+// or the row an entry was added to from Home's +, as on Home: budget.ts entryMeal), each entry with the chain's own photo of the dish where we have one.
 
 /** Home's macro row (app/app/page.tsx): "PROTEIN   144g / 150g" in small spaced capitals and DM Mono, the same grey, and a thin bar below. */
 function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
@@ -101,7 +101,7 @@ export default function TodayPage() {
     for (const item of ix.items.values()) if (item.name === e.name) return itemImageUrl(item.image);
     return undefined;
   };
-  const byMeal = (meal: Meal) => todays.filter((e) => mealSlotFor(new Date(e.loggedAt)) === meal);
+  const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal);
 
   return (
     <div>
@@ -151,7 +151,12 @@ export default function TodayPage() {
                       <div className="min-w-0 flex-1">
                         <p className="text-base font-bold leading-snug [overflow-wrap:anywhere]">{e.name}</p>
                         <p className="mt-0.5 text-[0.875rem] leading-snug text-muted">{timeFormat.format(new Date(e.loggedAt))}{e.chainName ? ` · ${e.chainName}` : ""}</p>
-                        <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein ?? 0) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein ?? 0) })}</p>
+                        {/* typed numbers may leave protein out: then only the calories are shown, never a 0 */}
+                        {e.nutrients.protein === undefined ? (
+                          <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted">{formatCalories(e.nutrients.calories)}</p>
+                        ) : (
+                          <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein) })}</p>
+                        )}
                       </div>
                       <button type="button" aria-label={t("Delete {name}", { name: e.name })} onClick={() => remove(e)} className="group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
                         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><TrashIcon className="h-[18px] w-[18px]" /></span>

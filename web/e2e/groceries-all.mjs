@@ -184,6 +184,7 @@ await step("Lidl's everyday range (founder 2026-10-11): a product Lidl prints no
     await page.getByText("Lidl shows prices on its website only for its weekly offers. Check this product's price in store.").waitFor();
     expect((await page.getByText(/£/).count()) === 0, "no price shown anywhere on the page");
     expect((await page.getByRole("link", { name: /Open it on Lidl's website/ }).getAttribute("href")) === "https://www.lidl.co.uk/p/spinach/p10003405", "Lidl's own page");
+    await page.waitForTimeout(800); // let the page fade end before colours are judged (text caught halfway through its fade-in reads as low contrast)
     await page.addScriptTag({ path: AXE });
     const result = await page.evaluate(async () => await axe.run(document, { resultTypes: ["violations"] }));
     expect(result.violations.length === 0, `${scheme}: ${result.violations.map((v) => `${v.id} (${v.nodes[0]?.target})`).join(", ")}`);

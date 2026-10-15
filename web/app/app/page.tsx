@@ -1,15 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { isSameLocalDay, loggedToday, mealBudget, mealSlotFor, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
+import { useEffect, useState } from "react";
+import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
+import { entryMeal, isSameLocalDay, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
 import { itemImageUrl } from "@/lib/mm/images";
-import { logStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
+import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
 import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { CalendarIcon, FlameIcon, ForkIcon, PlusIcon } from "./_components/icons";
@@ -19,8 +22,9 @@ import { useLanguage, useT } from "./_lib/i18n";
 
 // Home is today (founder 2026-10-10). Founder 2026-10-14, from a reference picture: "Home" with a calendar button and this week's days
 // on top, then today's calories (a dial) beside protein, carbs and fat, then two cards, "Shopping list" and "My meals", then today's
-// meals as rows (Breakfast, Lunch, Dinner) with what was eaten and a + to add more. The rows use SPEC §6.3 as it stands: a logged item
-// goes under the meal its time falls in (mealSlotFor) and each meal's figure is its share of the day (mealBudget). Founder 2026-10-15,
+// meals as rows (Breakfast, Lunch, Dinner) with what was eaten and a + to add more. The rows use SPEC §6.3: a logged item goes under the
+// meal its time falls in (mealSlotFor), unless it was added from a row's + (founder 2026-10-15: the Add food sheet), when it stays in that row
+// (budget.ts entryMeal); each meal's figure is its share of the day (mealBudget). Founder 2026-10-15,
 // same picture again ("make the home page look absolutely identical"): its sizes and spacing, past days as dark circles, the dial with a
 // grey centre, and carbs and fat with targets and bars too (worked out from calories and protein unless typed in Settings: targets.ts
 // macroTargets). The picture's bodyweight card is left out (the app doesn't track weight) and Numbite's lime stays (founder's answers).
@@ -90,10 +94,18 @@ export default function HomePage() {
   const settings = useSettings();
   const pro = useIsPro();
   const menu = useMenu();
-  const { showPaywall } = useGate();
+  const { gate, showPaywall } = useGate();
   const log = useStore(logStore);
   const shopping = useStore(shoppingStore);
   const now = useNow();
+  // The + on a meal opens the Add food sheet for that meal; what it adds is offered back with an Undo for a few seconds.
+  const [addTo, setAddTo] = useState<Meal | null>(null);
+  const [added, setAdded] = useState<{ entry: LogEntry; meal: Meal } | null>(null);
+  useEffect(() => {
+    if (!added) return;
+    const timer = setTimeout(() => setAdded(null), 8000);
+    return () => clearTimeout(timer);
+  }, [added]);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now));
   const indexes = useChainIndexes(todays.filter((e) => e.source === "item").map((e) => e.chainId));
 
@@ -117,7 +129,7 @@ export default function HomePage() {
     for (const item of ix.items.values()) if (item.name === e.name) return itemImageUrl(item.image);
     return undefined;
   };
-  const byMeal = (meal: Meal) => todays.filter((e) => mealSlotFor(new Date(e.loggedAt)) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
+  const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
 
   return (
     <div>
@@ -220,19 +232,22 @@ export default function HomePage() {
                   {entries.length > 2 && <span className="app-numbers inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-background bg-soft-strong text-sm font-extrabold">+{entries.length - 2}</span>}
                 </span>
               )}
-              {pro ? (
-                <Link href="/app/eat-out" aria-label={t("Add food")} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
-                  <PlusIcon className="h-6 w-6" />
-                </Link>
-              ) : (
-                <button type="button" onClick={() => showPaywall("log")} aria-label={t("Add food")} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95">
-                  <PlusIcon className="h-6 w-6" />
-                </button>
-              )}
+              <button type="button" onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
+                <PlusIcon className="h-6 w-6" />
+              </button>
             </li>
           );
         })}
       </ul>
+
+      <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
+
+      {added && (
+        <div role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+          <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(ADDED_TO[added.meal], { name: added.entry.name })}</span>
+          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
+        </div>
+      )}
     </div>
   );
 }

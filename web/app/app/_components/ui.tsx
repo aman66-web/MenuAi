@@ -337,7 +337,10 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
     <dialog
       ref={ref}
       aria-label={title}
-      onClose={onClose}
+      // A dialog inside this one (the camera, a second sheet) reports its own close up through React's tree: only this dialog's own counts.
+      onClose={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
       onClick={(e) => {
         if (e.target === ref.current) onClose();
       }}

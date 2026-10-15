@@ -18,6 +18,11 @@ export function mealSlotFor(date: Date): Meal {
   return "dinner";
 }
 
+/** The meal an entry sits under: the row it was added to (Home's + on a meal), else the meal its time falls in. */
+export function entryMeal(e: { loggedAt: string; meal?: Meal }): Meal {
+  return e.meal ?? mealSlotFor(new Date(e.loggedAt));
+}
+
 export interface Totals {
   calories: number;
   protein: number;
