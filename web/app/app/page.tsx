@@ -37,17 +37,20 @@ function weekOf(now: Date): Date[] {
   return Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
 }
 
-/** "PROTEIN      56g / 150g": the label in small spaced capitals, the figures in DM Mono, a thin bar under them (the founder's picture). */
+/**
+ * "PROTEIN      56g / 150g" and a thin bar well below it, measured from the founder's picture of this card (2026-10-15, "exactly like the
+ * design in image 2"): the label in small spaced capitals and the figures in DM Mono, both the same grey, on one line; the bar spans the row.
+ */
 function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
   const fraction = target ? Math.min(1, Math.max(0, eaten / target)) : 0;
   return (
     <div>
-      <p className="flex flex-wrap items-baseline justify-between gap-x-1.5 gap-y-0.5">
-        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{label}</span>
-        <span className="app-numbers whitespace-nowrap font-mono text-[0.75rem] font-normal">{formatGrams(eaten)}{target ? <span className="text-muted"> / {formatGrams(target)}</span> : null}</span>
+      <p className="flex flex-wrap items-baseline justify-between gap-x-1.5 gap-y-0.5 text-muted">
+        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em]">{label}</span>
+        <span className="app-numbers whitespace-nowrap font-mono text-[0.6875rem] font-normal">{formatGrams(eaten)}{target ? ` / ${formatGrams(target)}` : null}</span>
       </p>
       {target ? (
-        <div className="mt-2.5 h-[5px] overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
+        <div className="mt-[1.1rem] h-1 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
           <div className="h-full rounded-full bg-[var(--bar)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${fraction * 100}%` }} />
         </div>
       ) : null}
@@ -151,7 +154,7 @@ export default function HomePage() {
       <div className={`app-numbers mt-6 ${PAIR}`}>
         {/* Measured from the founder's picture of this card ("exactly like image 2"): the small label at the top, a dial about 55% of the
             card's width with a thick track and a small grey centre, plenty of room around it, the figures in a regular weight below. */}
-        <Card className="flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 rounded-[1.25rem]! px-4 pb-3.5 pt-4 text-center">
+        <Card className="flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-3.5 pt-4 text-center">
           <p className="self-start text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-muted">{t("Calories")}</p>
           <Gauge id="home" label={t("Calories used today")} fraction={used} size={100} stroke={17} disc>
             <span aria-hidden className="text-[1.45rem] font-[800] tracking-tight">{Math.round(used * 100)}%</span>
@@ -163,7 +166,7 @@ export default function HomePage() {
             <p className="mt-0.5 text-[1.0625rem] font-normal leading-tight">kcal</p>
           </div>
         </Card>
-        <Card className="flex min-w-0 flex-col justify-center gap-7 rounded-[1.25rem]! px-4 py-5">
+        <Card className="flex min-w-0 flex-col justify-center gap-[2.1rem] px-4 py-6">
           <MacroRow label={t("Protein")} eaten={eaten.protein} {...(targets.protein ? { target: targets.protein } : {})} />
           <MacroRow label={t("Carbs")} eaten={eaten.carbs} target={targets.carbs} />
           <MacroRow label={t("Fat")} eaten={eaten.fat} target={targets.fat} />
