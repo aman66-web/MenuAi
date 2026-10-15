@@ -75,8 +75,17 @@ const INTRO_SCREENS = 3;
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
 
 const SCREEN = "flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col";
-const HEADLINE = "text-[2.55rem] font-bold leading-[1.04] tracking-[-0.035em]";
+// The big headline, in one plain ink like Home's title and every one of the founder's reference pictures (2026-10-15: no accent words in
+// headings); a touch heavier than before so it sits with Home's heavy "Home".
+const HEADLINE = "text-[2.5rem] font-[700] leading-[1.05] tracking-[-0.03em]";
 const LIME = "bg-[var(--sun)]"; // the brand's flat lime: no gradients (founder 2026-10-15)
+// Home's small spaced-capitals label inside a card ("CALORIES").
+const CAPS = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
+// Cards, tiles and list rows share Home's 20 px corners.
+const CARD = "rounded-[1.25rem]";
+// A round grey button like Home's calendar button: a 36 px circle inside a 44 px tap area.
+const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
 
 export default function WelcomePage() {
   const router = useRouter();
@@ -190,15 +199,14 @@ export default function WelcomePage() {
     return (
       <div className={SCREEN}>
         <TopBar />
-        <h1 className={`mt-8 ${HEADLINE}`}>{t("Choose your language")}<HeadPill Icon={GlobeIcon} /></h1>
-        <div className="mt-5 rounded-[1.6rem] bg-accent-soft p-4">
-          <p className="text-[15px] leading-snug">{t("This is the language the app speaks to you in: its buttons, menus, help and recipes.")}</p>
-          <p className="mt-2 text-[15px] font-semibold leading-snug text-accent">{t("Restaurant, dish and product names stay as each restaurant and shop writes them, in English.")}</p>
-        </div>
-        <div className="mt-5">
+        <h1 className={`mt-7 ${HEADLINE}`}>{t("Choose your language")}<HeadPill Icon={GlobeIcon} /></h1>
+        {/* plain text under the headline (no box inside the page): the second line carries the weight */}
+        <p className="mt-4 text-[15px] leading-snug text-muted">{t("This is the language the app speaks to you in: its buttons, menus, help and recipes.")}</p>
+        <p className="mt-2 text-[15px] font-semibold leading-snug">{t("Restaurant, dish and product names stay as each restaurant and shop writes them, in English.")}</p>
+        <div className="mt-6">
           <LanguageList value={language} onChange={chooseLanguage} label={t("Choose your language")} />
         </div>
-        <p className="mt-4 px-1 text-sm text-muted">{t("You can change it any time in Settings.")}</p>
+        <p className="mt-5 text-sm text-muted">{t("You can change it any time in Settings.")}</p>
         <Bottom>
           <SlideButton onClick={() => { updateSettings({ language }); void setLanguage(language); next(); }}>{t("Continue")}</SlideButton>
         </Bottom>
@@ -219,9 +227,9 @@ export default function WelcomePage() {
         <TopBar onBack={back} end={<SkipButton onClick={skipIntro} />} segments={INTRO_SCREENS + 1} current={intro} />
         <div aria-live="polite" className="rise">
           <h1 className={`mt-7 ${HEADLINE}`}>{screen.big}<HeadPill Icon={screen.Icon} /></h1>
-          <p className="mt-3 text-lg leading-snug text-muted">{screen.line}</p>
+          <p className="mt-3 text-[1.0625rem] leading-snug text-muted">{screen.line}</p>
         </div>
-        <div className="relative flex flex-1 items-center justify-center py-6">
+        <div className="relative flex flex-1 items-center justify-center py-5">
           {intro === 1 && <PipPicture />}
           {intro === 2 && <TodayPreview calories={caloriesValid ? caloriesNumber : initial.dailyCalories} />}
           {intro === 3 && (
@@ -244,22 +252,22 @@ export default function WelcomePage() {
       <div className={SCREEN}>
         <TopBar
           end={
-            <button type="button" onClick={back} aria-label={t("Change language")} className="glass inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold transition active:scale-95 hover:bg-soft-strong">
-              <GlobeIcon className="h-4 w-4 text-accent" /><span lang={name.htmlLang}>{name.name}</span>
+            <button type="button" onClick={back} aria-label={t("Change language")} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-soft-strong px-3.5 text-sm font-semibold transition active:scale-95 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+              <GlobeIcon className="h-4 w-4" /><span lang={name.htmlLang}>{name.name}</span>
             </button>
           }
           segments={INTRO_SCREENS + 1}
           current={0}
         />
-        <h1 className="mt-7 text-[2.75rem] font-bold leading-[1.02] tracking-[-0.04em]">
+        <h1 className="mt-7 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em]">
           {t("Eat out, shop and cook.")}{" "}
-          <span aria-hidden className="mx-0.5 inline-flex -rotate-6 items-center gap-1.5 rounded-full bg-soft-strong py-1 pe-3 ps-1 align-middle text-[0.95rem] font-semibold tracking-normal text-muted shadow-[0_8px_18px_-12px_rgba(0,0,0,0.45)]">
+          <span aria-hidden className="mx-0.5 inline-flex -rotate-6 items-center gap-1.5 rounded-full bg-white py-1 pe-3 ps-1 align-middle text-[0.95rem] font-semibold tracking-normal text-muted shadow-[0_8px_18px_-12px_rgba(0,0,0,0.4)]">
             <span className={`grid h-8 w-8 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={30} className="translate-y-0.5" /></span>
             {t("Welcome to {app}", { app: site.name })}
           </span>{" "}
-          <span className="sun-text">{t("Know the numbers first.")}</span>
+          {t("Know the numbers first.")}
         </h1>
-        <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold text-muted">
+        <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-semibold text-muted">
           {[
             { Icon: ShieldIcon, text: t("No account needed") },
             { Icon: CheckIcon, text: t("Stays on your phone") },
@@ -273,8 +281,8 @@ export default function WelcomePage() {
           <LogoWall hero items={wallItems} namesOnly={APP_BUILD} label={APP_BUILD ? t("Names of restaurants and shops in the app") : t("Logos of restaurants and shops in the app")} />
           {restaurants > 0 && (
             <>
-              <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-1.5 text-sm font-bold text-[#0b1a12] shadow-[0_10px_24px_-10px_rgba(0,0,0,0.5)]">{t("{n} UK restaurants", { n: restaurants })}</span>
-              <span className="bob-slow app-numbers absolute end-6 top-[48%] rounded-full bg-white px-3.5 py-1.5 text-sm font-bold text-[#0b1a12] shadow-[0_10px_24px_-10px_rgba(0,0,0,0.5)]">{t("{n} supermarkets", { n: RETAILERS.length })}</span>
+              <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} UK restaurants", { n: restaurants })}</span>
+              <span className="bob-slow app-numbers absolute end-6 top-[48%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: RETAILERS.length })}</span>
             </>
           )}
         </div>
@@ -282,8 +290,9 @@ export default function WelcomePage() {
           <SlideButton light onClick={next}>{t("Get started")}</SlideButton>
           <button type="button" onClick={() => setSignInOpen(true)} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Already have an account? Sign in")}</button>
           <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
-          <p className="mt-1 text-center text-xs text-muted">
-            <a href="/terms" className="underline underline-offset-2">{t("Terms")}</a> · <a href="/privacy" className="underline underline-offset-2">{t("Privacy")}</a> · {t("Not affiliated with any restaurant or shop shown.")}
+          {/* the two links keep a 44 px tap area (padding pulled back with negative margins, so the line stays the same height) */}
+          <p className="mt-4 text-center text-xs text-muted">
+            <a href="/terms" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Terms")}</a> · <a href="/privacy" className="-mx-1.5 -my-3.5 inline-block px-1.5 py-3.5 underline underline-offset-2">{t("Privacy")}</a> · {t("Not affiliated with any restaurant or shop shown.")}
           </p>
         </Bottom>
       </div>
@@ -291,7 +300,8 @@ export default function WelcomePage() {
   }
 
   const onSkip = step === 5 ? () => { chooseSize(initial.textSize ?? "standard"); skip(); } : skip;
-  const em = (word: string) => <span className="text-accent">{word}</span>;
+  // The headline's key word, in the same ink as the rest (headings in one colour, like Home).
+  const em = (word: string) => <>{word}</>;
 
   return (
     <div className={SCREEN}>
@@ -317,14 +327,14 @@ export default function WelcomePage() {
                   tabIndex={on ? 0 : -1}
                   onClick={() => pickGoal(g.value)}
                   onKeyDown={(e) => radioKeyNav(e, i, GOALS.length, (n) => pickGoal(GOALS[n]!.value))}
-                  className={`flex min-h-[4.5rem] w-full items-center gap-4 rounded-[1.6rem] border px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-transparent bg-foreground text-background shadow-[0_14px_28px_-16px_rgba(0,0,0,0.6)]" : "glass hover:bg-soft-strong"}`}
+                  className={`${CARD} flex min-h-[4.5rem] w-full items-center gap-3.5 px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}
                 >
-                  <span aria-hidden className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${on ? `${LIME} text-[#0b1a12]` : "bg-soft-strong"}`}><g.Icon className="h-5 w-5" /></span>
+                  <span aria-hidden className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${on ? "bg-white/10 text-background" : "bg-soft-strong"}`}><g.Icon className="h-5 w-5" /></span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-lg font-bold leading-tight">{t(g.label)}</span>
-                    <span className={`block text-sm ${on ? "opacity-75" : "text-muted"}`}>{t(g.hint)}</span>
+                    <span className="block text-[1.0625rem] font-[700] leading-tight tracking-[-0.01em]">{t(g.label)}</span>
+                    <span className={`mt-0.5 block text-sm leading-snug ${on ? "text-background/80" : "text-muted"}`}>{t(g.hint)}</span>
                   </span>
-                  <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${on ? `${LIME} border-transparent text-[#0b1a12]` : "border-line"}`}>
+                  <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${on ? `${LIME} text-on-accent` : "border border-line"}`}>
                     {on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
                   </span>
                 </button>
@@ -344,37 +354,38 @@ export default function WelcomePage() {
             <PlateArt className="absolute -end-10 top-0 h-44 w-44" />
           </div>
           <h1 className={`${HEADLINE} pe-24`}><Rich text={t("Your daily {targets}")} values={{ targets: em(t("targets")) }} /></h1>
-          {/* the plan as it stands, like the reference's coloured bars: it follows the numbers below as they change */}
+          {/* the plan as it stands, like the reference's coloured bars (the app's two greens): it follows the numbers below as they change */}
           <div aria-hidden className="app-numbers mt-5 space-y-2.5 pe-24">
-            <p className="flex items-center gap-3"><span className="h-8 w-2 rounded-full bg-[#a3e635]" /><span className="text-[1.6rem] font-bold leading-none">{caloriesValid ? formatInt(caloriesNumber) : "–"}</span><span className="text-sm font-semibold text-muted">kcal</span></p>
-            <p className="flex items-center gap-3"><span className="h-8 w-2 rounded-full bg-accent" /><span className="text-[1.6rem] font-bold leading-none">{proteinNumber !== undefined && proteinValid ? `${formatInt(proteinNumber)}g` : "–"}</span><span className="text-sm font-semibold text-muted">{t("protein")}</span></p>
+            <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{caloriesValid ? formatInt(caloriesNumber) : "–"}</span><span className="text-sm font-semibold text-muted">kcal</span></p>
+            <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{proteinNumber !== undefined && proteinValid ? `${formatInt(proteinNumber)}g` : "–"}</span><span className="text-sm font-semibold text-muted">{t("protein")}</span></p>
           </div>
-          <PipSays size={56} mood="point">{t("Not sure of your numbers? Tap “Suggest targets for me” and I'll help.")}</PipSays>
-          <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3">
+          <div className="mt-4"><PipSays size={56} mood="point">{t("Not sure of your numbers? Tap “Suggest targets for me” and I'll help.")}</PipSays></div>
+          <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5">
             <StepperCard id="target-calories" label={t("Calories")} Icon={FlameIcon} value={calories} onChange={setCalories} step={50} min={500} max={10000} />
             <StepperCard id="target-protein" label={t("Protein (g)")} Icon={BoltIcon} value={protein} onChange={setProtein} step={5} min={5} max={1000} placeholder={t("Optional")} />
           </div>
           {isLowCalories(calories) && <p role="status" className="mt-3 text-sm font-medium">{t(LOW_CALORIES_NOTE)}</p>}
           {goal === "glp1" && <p className="mt-3 text-sm text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
           {goal === "glp1" && (
-            <div className="mt-4">
-              <label className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base">
-                <span>{t("Comfortable meal size:")}</span>
-                <input className={`${inputClass} w-24`} inputMode="numeric" aria-label={t("Comfortable meal size in calories")} value={mealCap} onChange={(e) => setMealCap(e.target.value)} />
-                <span>{t("calories")}</span>
+            <div className={`glass ${CARD} mt-3.5 p-4`}>
+              {/* the words on one line, the figure and its unit on the next (the shared input is full width, so it is capped here) */}
+              <label className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[15px] font-semibold">
+                <span className="basis-full">{t("Comfortable meal size:")}</span>
+                <input className={`${inputClass} app-numbers max-w-[6.5rem] bg-soft-strong text-center text-[1.25rem] font-medium`} inputMode="numeric" aria-label={t("Comfortable meal size in calories")} value={mealCap} onChange={(e) => setMealCap(e.target.value)} />
+                <span className="text-muted">{t("calories")}</span>
               </label>
-              <p className="mt-1 text-xs text-muted">{t("Orders are capped at this size. The default is 450.")}</p>
+              <p className="mt-2 text-sm text-muted">{t("Orders are capped at this size. The default is 450.")}</p>
             </div>
           )}
-          <button type="button" className="mt-4 min-h-12 text-start text-base font-semibold text-accent underline underline-offset-4" onClick={() => setShowSuggest((v) => !v)} aria-expanded={showSuggest}>
+          <button type="button" className="mt-3 min-h-12 text-start text-[15px] font-semibold text-accent underline-offset-4 hover:underline" onClick={() => setShowSuggest((v) => !v)} aria-expanded={showSuggest}>
             {t("Not sure? Suggest targets for me")}
           </button>
           {showSuggest && (
-            <div className="mt-2">
+            <div className="mt-1">
               <TargetSuggestForm goal={goal} onApply={(c, p) => { setCalories(String(c)); setProtein(String(p)); setShowSuggest(false); }} />
             </div>
           )}
-          <p className="mt-4 text-xs text-muted">{t(SUGGESTION_NOTE)}</p>
+          <p className="mt-3 text-xs text-muted">{t(SUGGESTION_NOTE)}</p>
           {(!caloriesValid || !proteinValid || (goal === "glp1" && !capValid)) && (
             <p role="alert" className="mt-3 text-sm font-medium text-accent">{t("Calories should be 500–10,000, protein above 0, and the meal size 100–2,000.")}</p>
           )}
@@ -401,7 +412,7 @@ export default function WelcomePage() {
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Anything you {avoid}?")} values={{ avoid: em(t("avoid")) }} /></h1>
           <div className="mt-4"><PipSays size={56} mood="wave">{t("Tell me what you don't eat. I'll leave it out of your top picks.")}</PipSays></div>
-          <p className="mb-4 mt-4 text-muted">{t("Tap everything that applies. Change it any time.")}</p>
+          <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap everything that applies. Change it any time.")}</p>
           <DietPicker value={prefs} onChange={setPrefs} />
           <Bottom>
             <SlideButton onClick={() => { updateSettings({ preferences: prefs }); next(); }}>{t("Continue")}</SlideButton>
@@ -413,7 +424,7 @@ export default function WelcomePage() {
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Where do you {shop}?")} values={{ shop: em(t("shop")) }} /></h1>
           <div className="mt-4"><PipSays size={56} mood="think">{t("Which supermarkets do you use? I'll show their products and recipes first.")}</PipSays></div>
-          <p className="mb-4 mt-4 text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
+          <p className="mb-4 mt-4 text-[15px] text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
           <ShopPicker value={shops} onChange={setShops} />
           <Bottom>
             <SlideButton onClick={() => { updateSettings({ shops: shops.length ? shops : undefined }); next(); }}>{t("Continue")}</SlideButton>
@@ -437,11 +448,11 @@ export default function WelcomePage() {
                   tabIndex={on ? 0 : -1}
                   onClick={() => chooseSize(s.value)}
                   onKeyDown={(e) => radioKeyNav(e, i, SIZES.length, (n) => chooseSize(SIZES[n]!.value))}
-                  className={`flex min-h-[4.5rem] w-full items-center gap-4 rounded-[1.6rem] border px-5 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-transparent bg-foreground text-background shadow-[0_14px_28px_-16px_rgba(0,0,0,0.6)]" : "glass hover:bg-soft-strong"}`}
+                  className={`${CARD} flex min-h-[4.5rem] w-full items-center gap-3.5 px-4 py-3 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}
                 >
-                  <span aria-hidden className="w-14 shrink-0 font-extrabold leading-none" style={{ fontSize: `${(TEXT_SCALE[s.value] / 100) * 1.6}rem` }}>Aa</span>
-                  <span className="flex-1 text-lg font-bold">{t(s.label)}</span>
-                  <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${on ? `${LIME} border-transparent text-[#0b1a12]` : "border-line"}`}>
+                  <span aria-hidden className={`inline-flex h-11 w-14 shrink-0 items-center justify-center rounded-full font-[700] leading-none ${on ? "bg-white/10 text-background" : "bg-soft-strong"}`} style={{ fontSize: `${(TEXT_SCALE[s.value] / 100) * 1.15}rem` }}>Aa</span>
+                  <span className="flex-1 text-[1.0625rem] font-[700] tracking-[-0.01em]">{t(s.label)}</span>
+                  <span aria-hidden className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${on ? `${LIME} text-on-accent` : "border border-line"}`}>
                     {on && <CheckIcon className="h-4 w-4" strokeWidth={3} />}
                   </span>
                 </button>
@@ -471,9 +482,9 @@ export default function WelcomePage() {
             </PipSays>
           </div>
           <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} shops={shops} />
-          <h1 className={`mt-6 ${HEADLINE}`}><Rich text={t("Here's how it {works}")} values={{ works: em(t("works")) }} /></h1>
+          <h1 className={`mt-7 ${HEADLINE}`}><Rich text={t("Here's how it {works}")} values={{ works: em(t("works")) }} /></h1>
           {/* the short tour: the tab bar, tab by tab, with the same icons */}
-          <p className="mt-2 text-muted">{t("Everything is in the bar at the bottom of the screen:")}</p>
+          <p className="mt-2 text-[15px] text-muted">{t("Everything is in the bar at the bottom of the screen:")}</p>
           <ol className="stagger mt-4 space-y-2.5">
             {[
               { Icon: HomeIcon, name: t("Home"), text: t("Today's numbers, your shopping list and what you've saved.") },
@@ -481,9 +492,9 @@ export default function WelcomePage() {
               { Icon: BasketIcon, name: t("Groceries"), text: t("Supermarket products with their labels and prices.") },
               { Icon: PotIcon, name: t("Recipes"), text: t("Meals made from your shop's products, with the cost per serving.") },
             ].map(({ Icon, name, text }) => (
-              <li key={name} className="glass flex min-h-16 items-center gap-4 rounded-[1.6rem] px-4 py-3 leading-snug">
-                <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-foreground text-background"><Icon className="h-6 w-6" /></span>
-                <span className="min-w-0 flex-1"><span className="block text-lg font-bold">{name}</span><span className="block text-[15px] text-muted">{text}</span></span>
+              <li key={name} className={`glass ${CARD} flex min-h-16 items-center gap-3.5 px-4 py-3 leading-snug`}>
+                <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-soft-strong"><Icon className="h-[22px] w-[22px]" /></span>
+                <span className="min-w-0 flex-1"><span className="block text-[1.0625rem] font-[700] tracking-[-0.01em]">{name}</span><span className="mt-0.5 block text-[15px] leading-snug text-muted">{text}</span></span>
               </li>
             ))}
           </ol>
@@ -513,37 +524,38 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
     <div>
       <div className="flex min-h-11 items-center gap-2.5">
         {onBack && (
-          <button type="button" onClick={onBack} aria-label={t("Back to the previous step")} className="glass -ms-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            <ChevronLeftIcon />
+          // a small grey circle like Home's calendar button, inside a full 44 px tap area
+          <button type="button" onClick={onBack} aria-label={t("Back to the previous step")} className={`${ROUND} -ms-1`}>
+            <span className={ROUND_IN}><ChevronLeftIcon className="h-5 w-5" /></span>
           </button>
         )}
         <span className="inline-flex min-w-0 items-center gap-2">
           {/* eslint-disable-next-line @next/next/no-img-element -- our own app icon, a static file */}
           <img src="/icons/icon-192.png" alt="" width={28} height={28} className="h-7 w-7 shrink-0 rounded-lg" />
-          <span className="truncate text-lg font-extrabold tracking-tight">{site.name}</span>
+          <span className="truncate text-lg font-[800] tracking-[-0.02em]">{site.name}</span>
         </span>
         <span className="flex-1" />
         {end}
       </div>
       {segments ? (
         <div aria-hidden className="mt-4 flex gap-1.5">
-          {Array.from({ length: segments }, (_, i) => (<span key={i} className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ${i <= current ? "bg-foreground" : "bg-[var(--ring-track)]"}`} />))}
+          {Array.from({ length: segments }, (_, i) => (<span key={i} className={`h-1 flex-1 rounded-full transition-colors duration-500 ${i <= current ? "bg-foreground" : "bg-[var(--ring-track)]"}`} />))}
         </div>
       ) : null}
-      {status && <p className="mt-2 text-sm font-semibold text-muted" aria-live="polite">{status}</p>}
+      {status && <p className={`mt-2.5 ${CAPS}`} aria-live="polite">{status}</p>}
     </div>
   );
 }
 
 function SkipButton({ onClick }: { onClick: () => void }) {
   const t = useT();
-  return <button type="button" onClick={onClick} className="inline-flex min-h-11 items-center rounded-full px-3 text-base font-semibold text-muted transition hover:bg-soft-strong hover:text-foreground">{t("Skip")}</button>;
+  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 items-center rounded-full px-3 text-[15px] font-semibold text-muted transition hover:bg-soft-strong hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{t("Skip")}</button>;
 }
 
 /** A small round picture inside a headline (decorative). */
 function HeadPill({ Icon }: { Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }) {
   return (
-    <span aria-hidden className={`ms-2 inline-flex h-[0.86em] w-[1.5em] translate-y-[-0.06em] items-center justify-center rounded-full align-middle text-[#0b1a12] ${LIME}`}>
+    <span aria-hidden className={`ms-2 inline-flex h-[0.86em] w-[1.5em] translate-y-[-0.06em] items-center justify-center rounded-full align-middle text-on-accent ${LIME}`}>
       <Icon className="h-[0.5em] w-[0.5em]" strokeWidth={2.4} />
     </span>
   );
@@ -561,11 +573,11 @@ function SlideButton({ children, onClick, disabled, light }: { children: React.R
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className={`group flex min-h-[4.25rem] w-full items-center rounded-full p-1.5 text-lg font-bold shadow-[0_16px_32px_-16px_rgba(0,0,0,0.55)] transition active:scale-[0.99] disabled:opacity-45 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-[#0b1a12] ring-1 ring-black/5" : "bg-foreground text-background"}`}
+      className={`group flex min-h-[4.25rem] w-full items-center rounded-full p-1.5 text-[1.0625rem] font-bold shadow-[0_14px_30px_-16px_rgba(0,0,0,0.5)] transition active:scale-[0.99] disabled:opacity-45 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-foreground" : "bg-foreground text-background"}`}
     >
-      <span aria-hidden className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-[#0b1a12] transition-transform duration-300 group-active:translate-x-3 rtl:group-active:-translate-x-3 ${LIME}`}><ChevronsRightIcon className="h-6 w-6" strokeWidth={2.2} /></span>
+      <span aria-hidden className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-on-accent transition-transform duration-300 group-active:translate-x-3 rtl:group-active:-translate-x-3 ${LIME}`}><ChevronsRightIcon className="h-6 w-6" strokeWidth={2.2} /></span>
       <span className="min-w-0 flex-1 px-2 text-center">{children}</span>
-      <span aria-hidden className={`grid h-14 w-14 shrink-0 place-items-center rounded-full ${light ? "bg-[#eef6f1] text-[#0b1a12]" : "bg-background text-foreground"}`}><CheckIcon className="h-6 w-6" strokeWidth={2.4} /></span>
+      <span aria-hidden className={`grid h-14 w-14 shrink-0 place-items-center rounded-full ${light ? "bg-soft-strong text-foreground" : "bg-background text-foreground"}`}><CheckIcon className="h-6 w-6" strokeWidth={2.4} /></span>
     </button>
   );
 }
@@ -578,16 +590,18 @@ function StepperCard({ id, label, Icon, value, onChange, step, min, max, placeho
     const start = value.trim() === "" || !Number.isFinite(n) ? (d > 0 ? min - step : min + step) : Math.round(n / step) * step;
     onChange(String(Math.min(max, Math.max(min, start + d))));
   };
-  const round = "grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line bg-soft transition active:scale-90 hover:bg-soft-strong";
+  // Like Home's calories card: a small spaced-capitals label, the figure big in a regular weight, and the two round grey buttons under it
+  // (side by side with the figure they left no room for "Optional" on a 390 px phone).
+  const round = "grid h-11 w-11 shrink-0 place-items-center rounded-full bg-soft-strong transition active:scale-90 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   return (
-    <div className="glass min-w-0 rounded-[1.6rem] p-3">
-      <div className="flex items-start justify-between gap-2 ps-0.5">
-        <label htmlFor={id} id={`${id}-label`} className="text-base font-bold leading-tight">{label}</label>
-        <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-soft-strong"><Icon className="h-5 w-5" /></span>
+    <div className={`glass ${CARD} min-w-0 p-4`}>
+      <div className="flex items-center justify-between gap-2">
+        <label htmlFor={id} id={`${id}-label`} className={CAPS}>{label}</label>
+        <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-soft-strong"><Icon className="h-4 w-4" /></span>
       </div>
-      <div className="mt-3 flex items-center gap-1">
+      <input id={id} inputMode="numeric" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className="app-numbers mt-3 min-h-11 w-full min-w-0 rounded-xl bg-transparent px-0 py-1 text-center text-[1.75rem] font-medium leading-none tracking-[-0.01em] placeholder:text-base placeholder:font-medium placeholder:tracking-normal placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
+      <div className="mt-3 flex items-center justify-center gap-3">
         <button type="button" aria-label={t("Decrease")} aria-describedby={`${id}-label`} onClick={() => bump(-step)} className={round}><MinusIcon className="h-5 w-5" /></button>
-        <input id={id} inputMode="numeric" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className="app-numbers w-full min-w-0 flex-1 rounded-xl bg-transparent px-0 py-2 text-center text-lg font-bold placeholder:text-sm placeholder:font-semibold placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent" />
         <button type="button" aria-label={t("Increase")} aria-describedby={`${id}-label`} onClick={() => bump(step)} className={round}><PlusIcon className="h-5 w-5" /></button>
       </div>
     </div>
@@ -620,14 +634,15 @@ function PlateArt({ className }: { className?: string }) {
 /** Pip in a big green card, with the three things the app shows floating round it (decorative). */
 function PipPicture() {
   const t = useT();
-  const chip = "absolute inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-sm font-bold text-[#0b1a12] shadow-[0_12px_26px_-12px_rgba(0,0,0,0.5)]";
+  // the three labels float as white pills, each with its small mark in the one accent green (no orange or blue: one accent, like Home)
+  const chip = "absolute inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_12px_26px_-12px_rgba(0,0,0,0.45)]";
   return (
     <div aria-hidden className="relative mx-auto aspect-square w-full max-w-[21rem]">
-      <span className={`absolute inset-[9%] rounded-[2.75rem] ${LIME} shadow-[0_24px_48px_-28px_rgba(17,24,20,0.35)]`} />
+      <span className={`absolute inset-[9%] ${CARD} ${LIME}`} />
       <span className="absolute inset-0 flex items-end justify-center pb-[9%]"><Pip mood="wave" size={200} /></span>
-      <span className={`bob ${chip} start-0 top-[12%]`}><FlameIcon className="h-4 w-4 text-[#ea580c]" />{t("Calories")}</span>
+      <span className={`bob ${chip} start-0 top-[12%]`}><FlameIcon className="h-4 w-4 text-accent" />{t("Calories")}</span>
       <span className={`bob-slow ${chip} end-0 top-[36%]`}><BoltIcon className="h-4 w-4 text-accent" />{t("Protein")}</span>
-      <span className={`bob ${chip} bottom-[18%] start-[1%]`}><span className="text-base font-extrabold leading-none text-[#0e7490]">£</span>{t("Price")}</span>
+      <span className={`bob ${chip} bottom-[18%] start-[1%]`}><span className="text-base font-[800] leading-none text-accent">£</span>{t("Price")}</span>
     </div>
   );
 }
@@ -641,35 +656,54 @@ function TodayPreview({ calories }: { calories: number }) {
   const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
   const week = Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
   const eaten = Math.round(calories * 0.43);
+  // The picture is the real Home, smaller: this week's circles (days gone by dark, today lime, the days ahead grey), the calories dial
+  // with "eaten / target kcal" beside protein, carbs and fat as Home's macro rows. The figures are made up for the picture (43% of the day).
+  const macros = [
+    { l: t("Protein"), eaten: "64g", target: "150g", f: 0.43 },
+    { l: t("Carbs"), eaten: "98g", target: "230g", f: 0.43 },
+    { l: t("Fat"), eaten: "31g", target: "70g", f: 0.44 },
+  ];
   return (
-    <div aria-hidden className="w-full max-w-sm space-y-3">
-      <div className="glass rounded-[1.75rem] p-4">
+    <div aria-hidden className="app-numbers w-full max-w-sm space-y-3">
+      <div className={`glass ${CARD} px-4 pb-4 pt-3.5`}>
         <div className="flex items-center justify-between gap-2">
-          <p className="text-lg font-bold">{new Intl.DateTimeFormat(lang, { month: "long", year: "numeric" }).format(now)}</p>
-          <span className="rounded-full bg-soft-strong px-2.5 py-1 text-xs font-bold text-muted">{t("Example")}</span>
+          <p className={CAPS}>{new Intl.DateTimeFormat(lang, { month: "long", year: "numeric" }).format(now)}</p>
+          <span className="rounded-full bg-soft-strong px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.08em] text-muted">{t("Example")}</span>
         </div>
-        <div className="app-numbers mt-3 grid grid-cols-7 gap-1 text-center">
+        <div className="mt-3 grid grid-cols-7 gap-1.5 text-center">
           {week.map((d) => {
             const today = d.getDate() === now.getDate();
+            const past = !today && d < now;
+            const look = today ? "bg-sun text-on-accent" : past ? "bg-foreground text-background" : "bg-soft-strong text-foreground";
             return (
-              <span key={d.getDate()} className={`flex flex-col items-center gap-1 rounded-full py-2 ${today ? "bg-foreground text-background" : ""}`}>
-                <span className={`text-xs font-semibold ${today ? "opacity-75" : "text-muted"}`}>{new Intl.DateTimeFormat(lang, { weekday: "narrow" }).format(d)}</span>
-                <span className="text-base font-bold">{d.getDate()}</span>
+              <span key={d.getDate()} className="flex min-w-0 flex-col items-center gap-2">
+                <span className="text-[0.6875rem] font-semibold uppercase text-muted">{new Intl.DateTimeFormat(lang, { weekday: "narrow" }).format(d)}</span>
+                <span className={`flex aspect-square w-full max-w-10 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>{d.getDate()}</span>
               </span>
             );
           })}
         </div>
       </div>
-      <div className={`flex items-center gap-4 rounded-[1.75rem] p-4 text-[#0b1a12] [--ring-track:rgba(11,26,18,0.1)] ${LIME}`}>
-        <Gauge id="preview" label={t("Calories")} fraction={0.43} size={124}>
-          <span className="app-numbers flex flex-col items-center leading-none"><span className="text-2xl font-extrabold">{formatInt(eaten)}</span><span className="mt-1 text-sm font-semibold opacity-70">43%</span></span>
-        </Gauge>
-        <div className="app-numbers min-w-0 flex-1 space-y-2.5">
-          {[{ v: "64g", l: t("Protein"), c: "#059669" }, { v: "98g", l: t("Carbs"), c: "#0284c7" }, { v: "31g", l: t("Fat"), c: "#9333ea" }].map((m) => (
-            <p key={m.l} className="flex items-center gap-2.5">
-              <span className="h-6 w-1.5 shrink-0 rounded-full" style={{ background: m.c }} />
-              <span className="min-w-0 font-mono"><span className="block text-lg font-medium leading-none">{m.v}</span><span className="mt-0.5 block text-xs font-medium uppercase tracking-[0.06em] opacity-70">{m.l}</span></span>
-            </p>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.75rem),1fr))] gap-3">
+        <div className={`glass ${CARD} flex min-w-0 flex-col items-center justify-between gap-3 px-3 pb-3 pt-3.5 text-center`}>
+          <p className={`self-start ${CAPS}`}>{t("Calories")}</p>
+          <Gauge id="preview" label={t("Calories")} fraction={0.43} size={78} stroke={15} disc>
+            <span className="text-[1.0625rem] font-[800] tracking-tight">43%</span>
+          </Gauge>
+          <div>
+            <p className="text-[1.0625rem] font-normal leading-tight"><span className="text-accent">{formatInt(eaten)}</span> / {formatInt(calories)}</p>
+            <p className="text-sm font-normal leading-tight">kcal</p>
+          </div>
+        </div>
+        <div className={`glass ${CARD} flex min-w-0 flex-col justify-center gap-4 px-3.5 py-4`}>
+          {macros.map((m) => (
+            <div key={m.l}>
+              <p className="flex flex-wrap items-baseline justify-between gap-x-1.5 text-muted">
+                <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em]">{m.l}</span>
+                <span className="whitespace-nowrap font-mono text-[0.6875rem]">{m.eaten} / {m.target}</span>
+              </p>
+              <div className="mt-2 h-1 overflow-hidden rounded-full bg-[var(--ring-track)]"><div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${m.f * 100}%` }} /></div>
+            </div>
           ))}
         </div>
       </div>
@@ -703,21 +737,21 @@ function Plan({ goal, calories, protein, prefs, shops }: { goal: Goal; calories:
   const avoid = (prefs.avoidAllergens ?? []).map((k) => t(ALLERGEN_SHORT[k]));
   const goalLabel = GOALS.find((g) => g.value === goal)?.label;
   return (
-    <div className="glass relative mt-4 overflow-hidden rounded-[1.75rem] p-5">
-      <PlateArt className="pointer-events-none absolute -end-10 -top-8 h-36 w-36" />
-      <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{t("Your plan")}</p>
-      <p className="mt-1 pe-20 text-xl font-bold">{goalLabel ? t(goalLabel) : null}</p>
+    <div className={`glass ${CARD} relative mt-4 overflow-hidden p-4`}>
+      <PlateArt className="pointer-events-none absolute -end-9 -top-7 h-32 w-32" />
+      <p className={CAPS}>{t("Your plan")}</p>
+      <p className="mt-1 pe-20 text-xl font-[800] tracking-[-0.01em]">{goalLabel ? t(goalLabel) : null}</p>
       <div className="app-numbers mt-3 space-y-2">
-        <p className="flex items-center gap-3"><span aria-hidden className="h-7 w-1.5 shrink-0 rounded-full bg-[#a3e635]" /><span className="text-base"><Rich text={t("{kcal} kcal a day")} values={{ kcal: <span className="text-2xl font-bold">{formatInt(calories)}</span> }} /></span></p>
-        {protein ? <p className="flex items-center gap-3"><span aria-hidden className="h-7 w-1.5 shrink-0 rounded-full bg-accent" /><span className="text-base"><Rich text={t("{eaten} protein")} values={{ eaten: <span className="text-2xl font-bold text-accent">{formatInt(protein)}g</span> }} /></span></p> : null}
+        <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[15px] text-muted"><Rich text={t("{kcal} kcal a day")} values={{ kcal: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-foreground">{formatInt(calories)}</span> }} /></span></p>
+        {protein ? <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[15px] text-muted"><Rich text={t("{eaten} protein")} values={{ eaten: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-accent">{formatInt(protein)}g</span> }} /></span></p> : null}
       </div>
       {(diets.length > 0 || avoid.length > 0) && (
         <p className="mt-3 flex flex-wrap gap-1.5">
-          {diets.map((d) => (<span key={d} className="tile rounded-full px-2.5 py-0.5 text-sm font-semibold">{d}</span>))}
-          {avoid.length > 0 && <span className="tile rounded-full px-2.5 py-0.5 text-sm font-semibold">{t("No {allergens}", { allergens: avoid.join(", ").toLowerCase() })}</span>}
+          {diets.map((d) => (<span key={d} className="rounded-full bg-soft-strong px-2.5 py-1 text-sm font-semibold">{d}</span>))}
+          {avoid.length > 0 && <span className="rounded-full bg-soft-strong px-2.5 py-1 text-sm font-semibold">{t("No {allergens}", { allergens: avoid.join(", ").toLowerCase() })}</span>}
         </p>
       )}
-      {shops.length > 0 && <p className="mt-2 text-sm text-muted"><Rich text={t("Shops at {shops}")} values={{ shops: <span className="font-semibold text-foreground">{shops.map(retailerName).join(", ")}</span> }} /></p>}
+      {shops.length > 0 && <p className="mt-2.5 text-sm text-muted"><Rich text={t("Shops at {shops}")} values={{ shops: <span className="font-semibold text-foreground">{shops.map(retailerName).join(", ")}</span> }} /></p>}
     </div>
   );
 }
@@ -741,9 +775,9 @@ function Burst() {
   );
 }
 
-/** A little burst of colour on the last step (decorative; hidden for reduced motion). */
+/** A little burst of colour on the last step: the same brand greens and touch of gold as Pip's burst (decorative; hidden for reduced motion). */
 function Confetti() {
-  const colours = ["#a3e635", "#34d399", "#10b981", "#38bdf8", "#c084fc", "#fbbf24"];
+  const colours = ["#a3e635", "#34d399", "#10b981", "#059669", "#fbbf24", "#86efac"];
   return (
     <div aria-hidden className="confetti -mx-5">
       {Array.from({ length: 18 }, (_, i) => (

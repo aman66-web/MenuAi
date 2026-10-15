@@ -13,7 +13,7 @@ import { RestaurantMeals } from "./RestaurantMeals";
 
 // "My meals" (founder 2026-10-11: one tile on Home instead of "My recipes" and "My saved meals"; "two tabs ... your recipes ... and your
 // favourite restaurant meals ... very dead simple page"). The tab is kept in the address (?tab=restaurant), so coming back from a meal
-// opens the same tab.
+// opens the same tab. Styled like Home (2026-10-15): the compact heavy title and the two tabs in one white pill, the open one dark.
 
 export type MealsTab = "recipes" | "restaurant";
 
@@ -37,10 +37,10 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
 
   return (
     <div>
-      <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-      <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight">{t("My meals")}</h1>
+      <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+      <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("My meals")}</h1>
 
-      <div role="tablist" aria-label={t("My meals")} className="glass mt-5 grid grid-cols-2 gap-1 rounded-3xl p-1">
+      <div role="tablist" aria-label={t("My meals")} className="glass mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full p-1">
         {tabs.map((o, i) => {
           const on = o.value === tab;
           return (
@@ -54,7 +54,7 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
               tabIndex={on ? 0 : -1}
               onClick={() => choose(o.value)}
               onKeyDown={(e) => radioKeyNav(e, i, tabs.length, (n) => choose(tabs[n]!.value))}
-              className={`min-h-14 rounded-[1.25rem] px-2 text-base font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "bg-foreground text-background shadow-sm" : "text-muted hover:text-foreground"}`}
+              className={`min-h-12 min-w-0 rounded-full px-2 text-[0.9375rem] font-bold leading-tight hyphens-auto [overflow-wrap:anywhere] transition-colors focus-visible:outline-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "text-muted hover:text-foreground"}`}
             >
               {o.label}{hydrated && o.count > 0 && <span className="app-numbers whitespace-nowrap font-semibold"> · {o.count}</span>}
             </button>

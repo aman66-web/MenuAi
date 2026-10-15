@@ -274,5 +274,19 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFai
     if (pin) map.easeTo({ center: [pin.lng, pin.lat], zoom: Math.max(map.getZoom(), 15), duration: reduced() ? 0 : 400 });
   }, [selectedId, applyLogoState]);
 
-  return <div ref={box} role="region" aria-label={t("Map of nearby restaurants. The list below has the same restaurants.")} data-nearby-map className="h-full w-full" />;
+  return (
+    <>
+      {/* MapLibre's own zoom buttons, dressed like the app (founder 2026-10-15): a soft white card with 20 px corners and no outline, each
+          button a full 44 px tap target (they were 29 px). Scoped to this map, so nothing else on the page is touched. */}
+      <style>{`
+        [data-nearby-map] .maplibregl-ctrl-top-right { top: 12px; right: 12px; }
+        [data-nearby-map] .maplibregl-ctrl-group { border-radius: 1rem; background: #fff; box-shadow: 0 1px 2px rgba(17, 24, 20, 0.06), 0 10px 24px -16px rgba(17, 24, 20, 0.3); overflow: hidden; }
+        [data-nearby-map] .maplibregl-ctrl-group:not(:empty) { box-shadow: 0 1px 2px rgba(17, 24, 20, 0.06), 0 10px 24px -16px rgba(17, 24, 20, 0.3); }
+        [data-nearby-map] .maplibregl-ctrl-group button { width: 44px; height: 44px; }
+        [data-nearby-map] .maplibregl-ctrl-group button + button { border-top: 1px solid rgba(17, 24, 20, 0.08); }
+        [data-nearby-map] .maplibregl-ctrl-group button:focus-visible { outline: 2px solid #046c4f; outline-offset: -3px; border-radius: 0.75rem; }
+      `}</style>
+      <div ref={box} role="region" aria-label={t("Map of nearby restaurants. The list below has the same restaurants.")} data-nearby-map className="h-full w-full" />
+    </>
+  );
 }

@@ -42,8 +42,8 @@ function BigRadio<T extends string | number>({ label, options, value, onChange, 
         const on = o === value;
         return (
           <button key={String(o)} type="button" role="radio" aria-checked={on} tabIndex={on ? 0 : -1} onClick={() => onChange(o)} onKeyDown={(e) => radioKeyNav(e, i, options.length, (n) => onChange(options[n]!))}
-            className={`relative flex min-h-14 items-center justify-center rounded-2xl border px-2 text-base font-extrabold transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-transparent bg-foreground text-background" : "border-line bg-soft hover:bg-soft-strong"}`}>
-            {on && <span aria-hidden className="bg-sun absolute -end-1.5 -top-1.5 grid h-6 w-6 place-items-center rounded-full text-on-accent shadow"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>}
+            className={`relative flex min-h-14 items-center justify-center rounded-[1.25rem] px-2 text-base font-bold transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong"}`}>
+            {on && <span aria-hidden className="bg-sun absolute -end-1.5 -top-1.5 grid h-6 w-6 place-items-center rounded-full text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} /></span>}
             {render(o)}
           </button>
         );
@@ -101,7 +101,7 @@ function MakeScreen() {
     }
   };
 
-  const back = (<Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} aria-label={t("Back to recipes")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  const back = (<Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} aria-label={t("Back to recipes")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
 
   if (!hydrated) return <Spinner />;
 
@@ -109,7 +109,7 @@ function MakeScreen() {
     return (
       <div>
         {back}
-        <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
+        <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
         <div className="mt-4">
           <PipSays mood="wave" size={84}>{t("Making a new recipe just for you is part of {app} Pro. All our ready-made recipes stay free.", { app: site.name })}</PipSays>
         </div>
@@ -148,7 +148,7 @@ function MakeScreen() {
           actions={
             <>
               {savedId ? (
-                <p role="status" className="glass rounded-3xl p-4 text-center font-semibold">{t("Saved to Your recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link></p>
+                <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">{t("Saved to Your recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link></p>
               ) : (
                 <Button full className="min-h-14 text-base" onClick={() => { myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30)); setSavedId(recipe.id); }}>{t("Save this recipe")}</Button>
               )}
@@ -163,28 +163,28 @@ function MakeScreen() {
   return (
     <div>
       {back}
-      <h1 className="mt-5 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
+      <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Ask {pip}")} values={{ pip: <span className="serif-em sun-text pe-0.5">Pip</span> }} /></h1>
       <div className="mt-4">
         <PipSays mood="wave" size={84}>{ownShopName ? t("What shall I make? Tap a few buttons and I'll write a recipe from {shop} products.", { shop: poss(ownShopName) }) : t("What shall I make? Tap a few buttons and I'll write a recipe from your shop's products.")}</PipSays>
       </div>
 
       {phase.kind === "error" && <div className="mt-4"><ErrorBox message={t(phase.message)} onRetry={make} /></div>}
       {makerOn === false && (
-        <p className="glass mt-4 rounded-3xl p-4 font-semibold">{t("Pip's recipe maker isn't switched on yet. Our own recipes are ready to use.")}</p>
+        <p className="glass mt-4 rounded-[1.25rem] p-4 font-semibold">{t("Pip's recipe maker isn't switched on yet. Our own recipes are ready to use.")}</p>
       )}
 
       <section aria-labelledby="meal-q" className="mt-5">
-        <h2 id="meal-q" className="mb-2 text-base font-extrabold">{t("Which meal?")}</h2>
+        <h2 id="meal-q" className="mb-2.5 text-[1.0625rem] font-bold tracking-[-0.01em]">{t("Which meal?")}</h2>
         <BigRadio label={t("Which meal")} options={MEAL_OPTIONS.map((m) => m.value)} value={meal} onChange={setMeal} render={(v) => t(MEAL_OPTIONS.find((m) => m.value === v)!.label)} />
       </section>
       <section aria-labelledby="people-q" className="mt-5">
-        <h2 id="people-q" className="mb-2 text-base font-extrabold">{t("How many people?")}</h2>
+        <h2 id="people-q" className="mb-2.5 text-[1.0625rem] font-bold tracking-[-0.01em]">{t("How many people?")}</h2>
         <BigRadio label={t("How many people")} options={PEOPLE} value={people as (typeof PEOPLE)[number]} onChange={setPeople} render={(v) => String(v)} />
       </section>
       <div className="mt-5"><MealPicker /></div>
 
       <section aria-labelledby="wish-q" className="mt-5">
-        <h2 id="wish-q" className="text-base font-extrabold">{t("Anything you'd like?")} <span className="font-medium text-muted">{t("(you can skip this)")}</span></h2>
+        <h2 id="wish-q" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{t("Anything you'd like?")} <span className="font-medium text-muted">{t("(you can skip this)")}</span></h2>
         <div className="mt-2 flex flex-wrap gap-2">
           {IDEAS.map((key) => {
             // the idea in the reader's language: it fills the box as shown (Pip understands it either way)
@@ -208,7 +208,7 @@ function MakeScreen() {
       ) : (
         <div className="mt-4">
           <Button full className="min-h-14 text-lg" disabled={pantry.length < 2 || makerOn === false} onClick={make}>{t("Make my recipe")}</Button>
-          <p className="mt-3 text-xs text-muted">
+          <p className="mt-3 text-[0.8125rem] leading-snug text-muted">
             {t("Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your choices on this page (meal, people, meal size, diet and anything you typed) and the list of {shop} products it may use. Nothing about you, and nothing is kept. The numbers you see are worked out from the products' own labels.", { shop: shopName })}
           </p>
         </div>

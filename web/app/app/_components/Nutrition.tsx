@@ -1,7 +1,15 @@
+import { Fragment } from "react";
 import { hasMacros } from "@/lib/mm/nutrients";
 import { formatCalories, formatFineGrams, formatGrams, formatInt, formatOptionalGrams, formatSalt, formatSodium, nutrientAriaLabel, nutrientsSpoken } from "@/lib/mm/format";
 import type { Nutrients } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
+
+// The figures follow Home's language (founder 2026-10-15, "the rest of the app should match that elegance"): a big number in a medium
+// weight with its unit small beside it, small spaced capitals for labels, DM Mono for the figures in a row, and neutral grey fills
+// instead of tinted ones. One hue per macro stays as a small dot (labels only, never good/bad: CLAUDE.md rule 3).
+
+/** A small label inside a card, in spaced capitals, as on Home's macro rows. */
+export const SMALL_LABEL = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
 
 /** Big calories + protein, then carbs and fat (SPEC §15: same order everywhere). */
 export function MacroSummary({ nutrients: n, label, compact }: { nutrients: Nutrients; label?: string; compact?: boolean }) {
@@ -10,33 +18,33 @@ export function MacroSummary({ nutrients: n, label, compact }: { nutrients: Nutr
   const nutrients = { ...n, protein: n.protein ?? 0, carbs: n.carbs ?? 0, fat: n.fat ?? 0 };
   if (compact) {
     return (
-      <div className="app-numbers flex flex-wrap items-end justify-between gap-x-4 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel(t("Totals"), nutrients, t)}>
-        <div className="flex flex-wrap items-end gap-x-4 gap-y-1">
-          <div><span className="sun-text text-3xl font-extrabold leading-none">{formatInt(nutrients.calories)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">kcal</span></div>
-          <div><span className="text-3xl font-extrabold leading-none text-accent">{formatGrams(nutrients.protein)}</span> <span className="text-xs font-medium uppercase tracking-wide text-muted">{t("protein")}</span></div>
+      <div className="app-numbers flex flex-wrap items-end justify-between gap-x-5 gap-y-2" role="group" aria-label={label ?? nutrientAriaLabel(t("Totals"), nutrients, t)}>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
+          <div className="flex items-baseline gap-1.5"><span className="text-[2rem] font-medium leading-none tracking-[-0.03em]">{formatInt(nutrients.calories)}</span> <span className={SMALL_LABEL}>kcal</span></div>
+          <div className="flex items-baseline gap-1.5"><span className="text-[2rem] font-medium leading-none tracking-[-0.03em]">{formatGrams(nutrients.protein)}</span> <span className={SMALL_LABEL}>{t("protein")}</span></div>
         </div>
-        <div className="text-sm text-muted sm:text-end">
-          <div><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> {t("carbs")}</div>
-          <div><span className="font-semibold text-foreground">{formatGrams(nutrients.fat)}</span> {t("fat")}</div>
+        <div className="flex gap-4 leading-5">
+          <div className="flex items-baseline gap-1.5"><span className="font-mono text-[0.8125rem] text-foreground">{formatGrams(nutrients.carbs)}</span> <span className={SMALL_LABEL}>{t("carbs")}</span></div>
+          <div className="flex items-baseline gap-1.5"><span className="font-mono text-[0.8125rem] text-foreground">{formatGrams(nutrients.fat)}</span> <span className={SMALL_LABEL}>{t("fat")}</span></div>
         </div>
       </div>
     );
   }
   return (
     <div className="app-numbers" role="group" aria-label={label ?? nutrientAriaLabel(t("Totals"), nutrients, t)}>
-      <div className="flex items-end gap-6">
+      <div className="flex flex-wrap items-end gap-x-7 gap-y-3">
         <div>
-          <div className="sun-text text-5xl font-extrabold leading-none tracking-tighter">{formatInt(nutrients.calories)}</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">{t("calories")}</div>
+          <div className="text-[2.5rem] font-medium leading-none tracking-[-0.03em]">{formatInt(nutrients.calories)}</div>
+          <div className={`mt-1.5 ${SMALL_LABEL}`}>{t("calories")}</div>
         </div>
         <div>
-          <div className="text-5xl font-extrabold leading-none tracking-tighter text-accent">{formatGrams(nutrients.protein)}</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">{t("protein")}</div>
+          <div className="text-[2.5rem] font-medium leading-none tracking-[-0.03em]">{formatGrams(nutrients.protein)}</div>
+          <div className={`mt-1.5 ${SMALL_LABEL}`}>{t("protein")}</div>
         </div>
       </div>
-      <div className="mt-3 flex gap-5 text-sm text-muted">
-        <span><span className="font-semibold text-foreground">{formatGrams(nutrients.carbs)}</span> {t("carbs")}</span>
-        <span><span className="font-semibold text-foreground">{formatGrams(nutrients.fat)}</span> {t("fat")}</span>
+      <div className="mt-3 flex gap-4">
+        <span className="flex items-baseline gap-1.5"><span className="font-mono text-[0.8125rem] text-foreground">{formatGrams(nutrients.carbs)}</span> <span className={SMALL_LABEL}>{t("carbs")}</span></span>
+        <span className="flex items-baseline gap-1.5"><span className="font-mono text-[0.8125rem] text-foreground">{formatGrams(nutrients.fat)}</span> <span className={SMALL_LABEL}>{t("fat")}</span></span>
       </div>
     </div>
   );
@@ -47,20 +55,41 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
   const t = useT();
   if (!hasMacros(nutrients)) {
     // a calories-only chain: protein, carbs and fat are not published, and the chain page says so
-    return <span className="app-numbers block text-base font-semibold text-foreground">{formatCalories(nutrients.calories)}</span>;
+    return <span className="app-numbers mt-0.5 block text-[0.9375rem] font-semibold leading-snug text-foreground">{formatCalories(nutrients.calories)}</span>;
   }
-  // calories and protein first and darker (what most people look for), carbs and fat after them
+  // Calories and protein first and darker (what most people look for), carbs and fat after them. Each figure keeps its unit on its
+  // line ("19g fat" never splits), and a line breaks after a "·", never before one.
+  const figures: Array<[string, boolean]> = [
+    [formatCalories(nutrients.calories), true],
+    [`${formatGrams(nutrients.protein!)} ${t("protein")}`, true],
+    [`${formatGrams(nutrients.carbs!)} ${t("carbs")}`, false],
+    [`${formatGrams(nutrients.fat!)} ${t("fat")}`, false],
+  ];
   return (
-    <span className="app-numbers block text-base text-muted">
-      <span aria-hidden><span className="font-semibold text-foreground">{formatCalories(nutrients.calories)} · {formatGrams(nutrients.protein!)} {t("protein")}</span> · {formatGrams(nutrients.carbs!)} {t("carbs")} · {formatGrams(nutrients.fat!)} {t("fat")}</span>
+    <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug text-muted">
+      <span aria-hidden>
+        {figures.map(([text, lead], i) => (
+          <Fragment key={i}>
+            <span className="whitespace-nowrap">
+              <span className={lead ? "font-semibold text-foreground" : undefined}>{text}</span>
+              {i < figures.length - 1 && " ·"}
+            </span>
+            {i < figures.length - 1 && " "}
+          </Fragment>
+        ))}
+      </span>
       <span className="sr-only">, {nutrientsSpoken(nutrients, t)}</span>
     </span>
   );
 }
 
 /**
- * Item detail hero (SPEC §7.5): the item itself (passed as children: chain, name, serving) on the one lit card, then big
- * calories, then protein, carbs and fat. The numbers are one group so a screen reader hears them as one line.
+ * Item detail hero (SPEC §7.5): the item itself (passed as children: chain, name, serving) on the one card, then big calories,
+ * then protein, carbs and fat as three quiet grey tiles, each with its small colour dot (one row each when the card is narrow:
+ * large text, small phones). The numbers are one group so a screen reader hears them as one line.
+ * Look (founder 2026-10-15, Home's language): the dish's photo runs to the card's edges at the top, the calories are one big figure in a
+ * medium weight with "kcal" small beside it like Home's "1,030 / 2,800 kcal", and the tiles carry no tints. The earlier three-colour bar
+ * of the grams is gone: the tiles already give each figure, and the page stays calm.
  */
 export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutrients; name: string; children?: React.ReactNode; media?: React.ReactNode }) {
   const t = useT();
@@ -69,31 +98,23 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
     [t("Carbs"), nutrients.carbs, false, "bg-carbs"],
     [t("Fat"), nutrients.fat, false, "bg-fat"],
   ];
-  // A bar of the three published weights side by side (grams as printed, nothing converted or estimated). Decorative: the
-  // numbers themselves are in the tiles below and in the group's spoken label.
-  const grams = hasMacros(nutrients) ? [nutrients.protein!, nutrients.carbs!, nutrients.fat!] : null;
-  const total = grams ? grams[0] + grams[1] + grams[2] : 0;
   return (
-    <div className="hero-card overflow-hidden rounded-[2rem]">
-      {media}
-      <div className="p-6">
+    <div className="hero-card overflow-hidden rounded-[1.25rem]">
+      {/* the photo's caption lines up with the card's text below it */}
+      {media && <div className="[&_figcaption]:px-4 [&_figcaption]:pt-2.5">{media}</div>}
+      <div className="p-4">
         {children}
-        <div role="group" aria-label={nutrientAriaLabel(name, nutrients, t)} className={`app-numbers ${children ? "mt-6" : ""}`}>
-          <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
-            <span className="sun-text text-[min(5rem,22vw)] font-extrabold leading-[0.85] tracking-[-0.05em]">{formatInt(nutrients.calories)}</span>
-            <span className="pb-1 text-lg font-bold text-muted">kcal</span>
-            {nutrients.energyKj !== undefined && <span className="pb-1 text-base font-semibold text-muted">· {formatInt(nutrients.energyKj)} kJ</span>}
+        <div role="group" aria-label={nutrientAriaLabel(name, nutrients, t)} className={`app-numbers @container ${children ? "mt-6" : ""}`}>
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <span className="text-[3.5rem] font-medium leading-[0.9] tracking-[-0.04em]">{formatInt(nutrients.calories)}</span>
+            <span className="text-[1.0625rem] font-medium text-muted">kcal</span>
+            {nutrients.energyKj !== undefined && <span className="font-mono text-[0.8125rem] text-muted">· {formatInt(nutrients.energyKj)} kJ</span>}
           </div>
-          {grams && total > 0 && (
-            <div aria-hidden className="mt-5 flex h-2.5 gap-0.5 overflow-hidden rounded-full bg-[var(--ring-track)]">
-              {grams.map((g, i) => (g > 0 ? <span key={i} className={`${macros[i]![3]} h-full first:rounded-l-full last:rounded-r-full`} style={{ width: `${(g / total) * 100}%` }} /> : null))}
-            </div>
-          )}
-          <dl className="mt-4 grid grid-cols-3 gap-2">
+          <dl className="mt-5 grid grid-cols-3 gap-2 @max-[17.5rem]:grid-cols-1">
             {macros.map(([label, value, lead, hue]) => (
-              <div key={label} className={`flex flex-col-reverse gap-0.5 rounded-2xl px-3 py-3 ${lead ? "bg-accent-soft" : "tile"}`}>
-                <dt className="flex items-center gap-1.5 text-sm font-bold text-muted"><span aria-hidden className={`dot ${hue}`} />{label}</dt>
-                <dd className={value === undefined ? "text-base font-semibold italic text-muted" : `text-2xl font-extrabold tracking-tight ${lead ? "text-accent" : ""}`}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
+              <div key={label} className="tile flex min-w-0 flex-col gap-2.5 rounded-2xl px-3.5 pb-3.5 pt-3 @max-[17.5rem]:flex-row @max-[17.5rem]:items-center @max-[17.5rem]:justify-between @max-[17.5rem]:px-4 @max-[17.5rem]:py-3">
+                <dt className={`flex items-center gap-1.5 ${SMALL_LABEL} tracking-[0.1em]`}><span aria-hidden className={`dot ${hue}`} />{label}</dt>
+                <dd className={value === undefined ? "text-[0.9375rem] italic leading-snug text-muted" : `text-[1.625rem] font-medium leading-none tracking-[-0.02em] ${lead ? "text-accent" : ""}`}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
               </div>
             ))}
           </dl>
@@ -108,7 +129,7 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
  * Salt and sodium are different published figures (UK vs US guides) and are never converted: show whichever
  * the chain publishes, both if both, and a single "Salt: not published" row if neither.
  */
-export function NutrientTable({ nutrients }: { nutrients: Nutrients }) {
+export function NutrientTable({ nutrients, bare = false }: { nutrients: Nutrients; bare?: boolean }) {
   const t = useT();
   const saltOrSodium: Array<[string, string, boolean]> = [];
   if (nutrients.salt !== undefined) saltOrSodium.push([t("Salt"), formatSalt(nutrients.salt, t), true]);
@@ -131,11 +152,12 @@ export function NutrientTable({ nutrients }: { nutrients: Nutrients }) {
   ];
   // An unpublished figure reads NOT_PUBLISHED ("not published", lib/mm/format.ts), translated where it's shown.
   return (
-    <dl className="app-numbers glass divide-y divide-line overflow-hidden rounded-[1.75rem]">
+    // `bare`: the rows only, for a card that already holds them (the item page's "More detail").
+    <dl className={`app-numbers divide-y divide-line ${bare ? "" : "glass overflow-hidden rounded-[1.25rem] px-4"}`}>
       {rows.map(([label, value, published]) => (
-        <div key={label} className="flex min-h-12 items-center justify-between gap-4 px-5 py-2.5">
-          <dt className="text-base">{label}</dt>
-          <dd className={published ? "text-base font-semibold" : "text-sm italic text-muted"}>{published ? value : t(value)}</dd>
+        <div key={label} className="flex min-h-12 flex-wrap items-center justify-between gap-x-4 gap-y-1 py-3">
+          <dt className={SMALL_LABEL}>{label}</dt>
+          <dd className={published ? "font-mono text-[0.875rem]" : "text-[0.875rem] italic text-muted"}>{published ? value : t(value)}</dd>
         </div>
       ))}
     </dl>

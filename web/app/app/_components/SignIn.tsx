@@ -46,6 +46,9 @@ function ProviderButton({ href, disabled, onClick, className, children }: { href
   );
 }
 
+/** What went wrong, under the field or the buttons: plain semi-bold text. A grey box under grey fields would read as one more field. */
+const errorClass = "mt-2.5 text-[0.9375rem] font-semibold leading-snug";
+
 export function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
   const t = useT();
   return (
@@ -145,11 +148,11 @@ function SignInPanel({ onDone }: { onDone: () => void }) {
   }
 
   return (
-    <div className="pb-2">
+    <div className="pb-2 pt-1">
       {step === "choose" && (
         <>
-          <p className="text-base">{t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
-          <div className="mt-4 space-y-2.5">
+          <p className="text-base leading-snug">{t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
+          <div className="mt-5 space-y-2.5">
             {canUseProviders && (
               <>
                 <ProviderButton href={native ? undefined : providerHref("apple")} disabled={busy} onClick={() => void withProvider("apple")} className="bg-black text-white">
@@ -166,40 +169,42 @@ function SignInPanel({ onDone }: { onDone: () => void }) {
               {t("Continue with email")}
             </Button>
           </div>
+          {error && <p role="alert" className={errorClass}>{error}</p>}
         </>
       )}
 
       {step === "email" && (
         <form noValidate onSubmit={(e) => { e.preventDefault(); void sendCode(); }}>
-          <p className="text-base">{t("We'll email you a 6-digit code. There's no password to remember.")}</p>
-          <div className="mt-4">
+          <p className="text-base leading-snug">{t("We'll email you a 6-digit code. There's no password to remember.")}</p>
+          <div className="mt-5">
             <Field label={t("Your email address")}>
               <input type="email" inputMode="email" autoComplete="email" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoFocus className={inputClass} value={email} onChange={(e) => setEmail(e.target.value)} />
             </Field>
           </div>
-          <Button full className="mt-4 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Sending…")} /> : t("Send me a code")}</Button>
-          <Button full variant="ghost" className="mt-1" onClick={() => { setError(null); setStep("choose"); }}>{t("Back")}</Button>
+          {error && <p role="alert" className={errorClass}>{error}</p>}
+          <Button full className="mt-5 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Sending…")} /> : t("Send me a code")}</Button>
+          <Button full variant="ghost" className="mt-1.5" onClick={() => { setError(null); setStep("choose"); }}>{t("Back")}</Button>
         </form>
       )}
 
       {step === "code" && (
         <form noValidate onSubmit={(e) => { e.preventDefault(); void checkCode(); }}>
-          <p className="text-base">{t("We've sent a 6-digit code to {email}. It can take a minute to arrive.", { email: email.trim() })}</p>
-          <div className="mt-4">
+          <p className="text-base leading-snug [overflow-wrap:anywhere]">{t("We've sent a 6-digit code to {email}. It can take a minute to arrive.", { email: email.trim() })}</p>
+          <div className="mt-5">
             <Field label={t("6-digit code")}>
-              <input type="text" inputMode="numeric" pattern="[0-9]*" autoComplete="one-time-code" maxLength={6} autoFocus className={`${inputClass} text-center text-2xl tracking-[0.4em] tabular-nums`} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))} />
+              <input type="text" inputMode="numeric" pattern="[0-9]*" autoComplete="one-time-code" maxLength={6} autoFocus className={`${inputClass} min-h-14 text-center text-[1.75rem] font-semibold tracking-[0.4em] tabular-nums`} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))} />
             </Field>
           </div>
-          <Button full className="mt-4 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Checking…")} /> : t("Sign in")}</Button>
-          <div className="mt-1 flex flex-wrap justify-center gap-x-2">
+          {error && <p role="alert" className={errorClass}>{error}</p>}
+          <Button full className="mt-5 min-h-12 text-base" disabled={busy} type="submit">{busy ? <Spinner label={t("Checking…")} /> : t("Sign in")}</Button>
+          <div className="mt-1.5 flex flex-wrap justify-center gap-x-2">
             <Button variant="ghost" disabled={busy} onClick={() => { setError(null); setStep("email"); }}>{t("Use a different email")}</Button>
             <Button variant="ghost" disabled={busy} onClick={() => void sendCode()}>{t("Send a new code")}</Button>
           </div>
         </form>
       )}
 
-      {error && <p role="alert" className="mt-3 rounded-2xl border border-line bg-soft p-3 text-sm">{error}</p>}
-      <p className="mt-4 text-xs text-muted">{t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+      <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
     </div>
   );
 }

@@ -16,16 +16,19 @@ export function usePhotoSource(sources: readonly PhotoSource[]): { current: Phot
   return { current: sources[n], fail: () => setFailed({ key, n: n + 1 }) };
 }
 
-/** The large picture on the product page with its credit; nothing at all when no supermarket's picture loads. */
+/**
+ * The large picture at the top of a product's card, with its credit under it and a fine line below that; nothing at all when no supermarket's
+ * picture loads. It sits inside the card's padding (p-5) and reaches its edges, so the photo, the name and the price read as one card.
+ */
 export function ProductPhotoFigure({ sources }: { sources: readonly PhotoSource[] }) {
   const t = useT();
   const { current, fail } = usePhotoSource(sources);
   if (!current) return null;
   return (
-    <figure className="glass mt-5 overflow-hidden rounded-3xl bg-white">
+    <figure className="-mx-5 -mt-5 mb-5 border-b border-line bg-white px-5 pb-3 pt-5">
       {/* eslint-disable-next-line @next/next/no-img-element -- our stored copy of the supermarket's own photo, or the supermarket's own picture; decorative */}
-      <img key={current.src} src={current.src} alt="" width={400} height={400} decoding="async" referrerPolicy="no-referrer" onError={fail} className="mx-auto h-auto max-h-80 w-full object-contain" />
-      <figcaption className="bg-background px-4 py-2 text-xs text-muted">{photoCaption(current, t)}</figcaption>
+      <img key={current.src} src={current.src} alt="" width={400} height={400} decoding="async" referrerPolicy="no-referrer" onError={fail} className="mx-auto h-auto max-h-52 w-full object-contain" />
+      <figcaption className="mt-3 text-center text-xs text-muted">{photoCaption(current, t)}</figcaption>
     </figure>
   );
 }
@@ -35,14 +38,14 @@ export function PhotoTile({ sources }: { sources: readonly PhotoSource[] }) {
   const t = useT();
   const { current, fail } = usePhotoSource(sources);
   return (
-    <span className={`grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl border border-line ${current ? "bg-white" : "bg-soft"}`}>
+    <span className={`grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-[0.875rem] ${current ? "bg-white" : "bg-[var(--fill)]"}`}>
       {current ? (
         // eslint-disable-next-line @next/next/no-img-element -- the supermarket's own product picture, decorative
         <img key={current.src} src={current.src} alt="" width={64} height={64} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={fail} className="h-full w-full object-contain" />
       ) : (
         <span aria-hidden className="flex flex-col items-center gap-0.5 text-muted">
-          <BasketIcon className="h-5 w-5 opacity-60" />
-          <span className="text-[11px] leading-none">{t("no photo")}</span>
+          <BasketIcon className="h-5 w-5" />
+          <span className="text-[0.6875rem] font-medium leading-none">{t("no photo")}</span>
         </span>
       )}
     </span>

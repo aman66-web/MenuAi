@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { favoritesStore, settingsStore } from "@/lib/mm/stores";
 import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
 import { chainsInGroup, cuisineGroups } from "@/lib/mm/cuisine";
 import { groupByInitial, splitChains } from "@/lib/mm/popular";
-import { ChainCard, ChainRow } from "../_components/ChainRow";
-import { ArrowRightIcon, ChevronRightIcon, CompareIcon, PinIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { ChainCard, ChainRow, chainGroupClass } from "../_components/ChainRow";
+import { ChevronRightIcon, CompareIcon, ForkIcon, GridIcon, PinIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
-import { Button, Chip, EmptyState, ErrorBox, SectionTitle, Spinner } from "../_components/ui";
+import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
 import { scrollToElement } from "../_lib/scroll";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
@@ -22,6 +22,24 @@ import { Rich } from "../_lib/Rich";
 // restaurants near you (the map), then every restaurant, café, pub and takeaway we have (SPEC §7.2's chain list: Popular, Favourites, A to Z).
 // Kept plain for older users (founder 2026-10-11): the type, "Full nutrition only" and "Halal" choices sit behind one "More ways to find a
 // restaurant" button instead of a sideways row of chips; closing it goes back to every restaurant.
+// Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. A compact heavy title, one white search
+// pill, the three shortcuts as rows of one card (Near me's icon in the brand lime, the one highlighted thing), "More ways" as a row of
+// its own with a round grid icon, Popular as 20 px tiles, the A to Z jump as Home's grey day circles, and restaurants in grouped cards
+// under small spaced letter labels that line up with the names. Every word, role and name is as before.
+
+/** One of the three shortcuts at the top, a row of the same card: a round icon, the title and its line, a quiet chevron. */
+function Shortcut({ href, icon, title, line, highlight }: { href: string; icon: ReactNode; title: string; line: string; highlight?: boolean }) {
+  return (
+    <Link href={href} className="group flex min-h-[4.75rem] items-center gap-3.5 px-4 py-3 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
+      <span aria-hidden className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${highlight ? "bg-sun text-[var(--on-accent)]" : "bg-soft-strong text-foreground"} [&>svg]:h-5 [&>svg]:w-5`}>{icon}</span>
+      <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+        <span className="block text-base font-bold leading-snug">{title}</span>
+        <span className="mt-0.5 block text-sm leading-snug text-muted">{line}</span>
+      </span>
+      <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
+    </Link>
+  );
+}
 
 export default function EatOutPage() {
   const t = useT();
@@ -61,42 +79,27 @@ export default function EatOutPage() {
 
   return (
     <div>
-      <h1 className="text-[2.75rem] font-extrabold leading-[1.0] tracking-[-0.035em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em sun-text pe-0.5">{t("out")}</span> }} /></h1>
-      <p className="mt-2 text-base text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
+      <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} /></h1>
+      <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
 
-      <Link href="/app/search" className="glass lift group mt-5 flex min-h-[3.75rem] items-center gap-3 rounded-full ps-5 pe-2 text-muted hover:bg-soft-strong">
-        <SearchIcon className="h-5 w-5 shrink-0 text-accent" />
-        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">{t("Search restaurants and items")}</span>
-        <span aria-hidden className="icon-bubble h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
+      <Link href="/app/search" className="glass mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] px-5 text-muted transition hover:bg-soft-strong active:scale-[0.99]">
+        <SearchIcon className="h-5 w-5 shrink-0 text-foreground" />
+        <span className="min-w-0 flex-1 py-3 text-base leading-snug [overflow-wrap:anywhere]">{t("Search restaurants and items")}</span>
       </Link>
-      {/* The three cards end in the same round arrow; at the larger text sizes it steps aside so the words have room (the whole card is the link). */}
-      <Link href="/app/map" className="hero-card lift group @container mt-3 flex min-h-[5.5rem] items-center gap-4 rounded-[1.75rem] p-4">
-        <span aria-hidden className="icon-bubble h-14 w-14 shrink-0 rounded-2xl"><PinIcon className="h-7 w-7" /></span>
-        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("Near me")}</span>
-          <span className="block text-base text-muted">{t("See the places to eat around you on a map.")}</span>
-        </span>
-        <span aria-hidden className="icon-bubble-soft hidden h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5 @[17rem]:inline-flex"><ArrowRightIcon className="h-5 w-5" /></span>
-      </Link>
-      <Link href="/app/eat-out/favourites" className="glass lift group @container mt-3 flex min-h-[4.75rem] items-center gap-4 rounded-[1.75rem] p-4 hover:bg-soft-strong">
-        <span aria-hidden className="icon-bubble-soft h-12 w-12 shrink-0 rounded-2xl"><StarIcon filled={favoriteChains.length > 0} className="h-6 w-6" /></span>
-        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("My favourite restaurants")}</span>
-          <span className="block text-base text-muted">{favoriteChains.length === 0 ? t("Keep the places you go to here") : favoriteChains.length === 1 ? t("1 restaurant") : t("{n} restaurants", { n: favoriteChains.length })}</span>
-        </span>
-        <span aria-hidden className="icon-bubble-soft hidden h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5 @[17rem]:inline-flex"><ArrowRightIcon className="h-5 w-5" /></span>
-      </Link>
-      <Link href="/app/compare?tab=dish" className="glass lift group @container mt-3 flex min-h-[4.75rem] items-center gap-4 rounded-[1.75rem] p-4 hover:bg-soft-strong">
-        <span aria-hidden className="icon-bubble-soft h-12 w-12 shrink-0 rounded-2xl"><CompareIcon className="h-6 w-6" /></span>
-        <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-          <span className="block text-lg font-extrabold leading-snug tracking-tight">{t("Compare dishes")}</span>
-          <span className="block text-base text-muted">{t("Put dishes side by side, even from different restaurants")}</span>
-        </span>
-        <span aria-hidden className="icon-bubble-soft hidden h-11 w-11 shrink-0 transition-transform group-hover:translate-x-0.5 @[17rem]:inline-flex"><ArrowRightIcon className="h-5 w-5" /></span>
-      </Link>
+
+      <div className={`mt-3.5 ${chainGroupClass}`}>
+        <Shortcut href="/app/map" highlight icon={<PinIcon />} title={t("Near me")} line={t("See the places to eat around you on a map.")} />
+        <Shortcut
+          href="/app/eat-out/favourites"
+          icon={<StarIcon filled={favoriteChains.length > 0} />}
+          title={t("My favourite restaurants")}
+          line={favoriteChains.length === 0 ? t("Keep the places you go to here") : favoriteChains.length === 1 ? t("1 restaurant") : t("{n} restaurants", { n: favoriteChains.length })}
+        />
+        <Shortcut href="/app/compare?tab=dish" icon={<CompareIcon />} title={t("Compare dishes")} line={t("Put dishes side by side, even from different restaurants")} />
+      </div>
 
       {SAMPLES_ENABLED && menu.chains.some((c) => c.sample) && (
-        <p className="glass mt-4 rounded-2xl px-4 py-2.5 text-xs text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
+        <p className="glass mt-3.5 rounded-[1.25rem] px-4 py-3 text-[0.8125rem] leading-snug text-muted">{t("Showing fictional sample data for testing. Numbers are not real.")}</p>
       )}
 
       {menu.status === "loading" || menu.status === "idle" ? (
@@ -108,6 +111,7 @@ export default function EatOutPage() {
       ) : menu.chains.length === 0 ? (
         <div className="mt-6">
           <EmptyState
+            icon={<EmptyIcon><ForkIcon /></EmptyIcon>}
             title={t("Menus are coming soon")}
             body={t("We're adding restaurants from their official nutrition guides. Tell us which ones you want first.")}
             action={<Button onClick={() => setRequesting(true)}>{t("Request a chain")}</Button>}
@@ -115,55 +119,56 @@ export default function EatOutPage() {
         </div>
       ) : (
         <>
-          <div className="mb-1 mt-8 flex flex-wrap items-baseline justify-between gap-x-3">
-            <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight">{t("All restaurants")}</h2>
+          <div className="mt-8 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+            <h2 className="text-xl font-[800] tracking-[-0.01em]">{t("All restaurants")}</h2>
             {realCount > 0 && <p className="app-numbers text-sm text-muted">{t("{n} UK restaurants", { n: realCount })}</p>}
           </div>
           {types.length > 1 && (
-            <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3 flex min-h-14 w-full items-center gap-3 rounded-2xl px-4 text-start text-base font-bold transition active:scale-[0.99] hover:bg-soft-strong">
+            <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3.5 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
+              <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${moreOpen ? "bg-foreground text-background" : "bg-soft-strong text-foreground"}`}><GridIcon className="h-[18px] w-[18px]" /></span>
               <span className="min-w-0 flex-1">{t("More ways to find a restaurant")}</span>
-              <ChevronRightIcon className={`h-5 w-5 shrink-0 text-muted transition-transform ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
+              <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
             </button>
           )}
           {types.length > 1 && moreOpen && (
-            <div id="more-ways" role="group" aria-label={t("Browse by type")} className="mt-3 flex flex-wrap gap-2">
+            <div id="more-ways" role="group" aria-label={t("Browse by type")} className="mt-3.5 flex flex-wrap gap-2">
               <Chip selected={!activeType} onClick={() => setType(null)}>{t("All")}</Chip>
               {hasCaloriesOnly && <Chip selected={fullOnly} onClick={() => setFullOnly((v) => !v)}>{t("Full nutrition only")}</Chip>}
               {(anyHalal || halalOnly) && <Chip selected={halalOnly} onClick={() => setHalalOnly((v) => !v)}>{t("Halal")}</Chip>}
               {types.map((g) => (
                 <Chip key={g.id} selected={activeType?.id === g.id} onClick={() => setType(activeType?.id === g.id ? null : g.id)}>
-                  {t(g.label)} <span className="app-numbers ms-1.5 font-medium opacity-70">{g.count}</span>
+                  {t(g.label)} <span className={`app-numbers ms-1.5 font-normal ${activeType?.id === g.id ? "" : "text-muted"}`}>{g.count}</span>
                 </Chip>
               ))}
             </div>
           )}
 
-          {halalOnly && <p className="mt-2 text-base text-muted">{t("Restaurants whose own website says all their food is halal.")} {t(HALAL_CAUTION)}</p>}
+          {halalOnly && <p className="mt-3.5 px-1 text-[0.9375rem] leading-snug text-muted">{t("Restaurants whose own website says all their food is halal.")} {t(HALAL_CAUTION)}</p>}
           {activeType ? (
             <section aria-label={t(activeType.label)} className="mt-4">
-              <div className="space-y-2.5">{typeChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
+              <div className={chainGroupClass}>{typeChains.map((c) => (<ChainRow key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
             </section>
           ) : (
           <>
-          <SectionTitle>{t("Popular")}</SectionTitle>
-          <div className="stagger grid grid-cols-2 gap-3">{popular.map((c) => (<ChainCard key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
+          <h2 className="mt-8 text-xl font-[800] tracking-[-0.01em]">{t("Popular")}</h2>
+          <div className="stagger mt-3.5 grid grid-cols-2 gap-3.5">{popular.map((c) => (<ChainCard key={c.id} chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
 
           {rest.length > 0 && (
             <>
-              <SectionTitle>{t("More restaurants")}</SectionTitle>
+              <h2 className="mt-8 text-xl font-[800] tracking-[-0.01em]">{t("More restaurants")}</h2>
               {restGroups.length > 4 && (
-                <nav aria-label={t("Jump to letter")} className="no-scrollbar -mx-5 -mt-1 mb-1 flex gap-1 overflow-x-auto px-5">
+                <nav aria-label={t("Jump to letter")} className="no-scrollbar -mx-5 mt-2.5 flex overflow-x-auto px-4">
                   {restGroups.map((g) => (
-                    <a key={g.letter} href={`#az-${g.letter}`} onClick={(e) => jumpTo(e, `az-${g.letter}`)} aria-label={t("Restaurants starting with {letter}", { letter: g.letter })} className="inline-flex h-11 min-w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-muted transition-colors hover:bg-soft-strong hover:text-foreground">
-                      {g.letter}
+                    <a key={g.letter} href={`#az-${g.letter}`} onClick={(e) => jumpTo(e, `az-${g.letter}`)} aria-label={t("Restaurants starting with {letter}", { letter: g.letter })} className="group inline-flex h-11 min-w-11 shrink-0 items-center justify-center rounded-full focus-visible:outline-offset-[-2px]!">
+                      <span aria-hidden className="inline-flex h-9 min-w-9 items-center justify-center rounded-full bg-soft-strong px-1 text-[0.8125rem] font-semibold transition-colors group-hover:bg-foreground group-hover:text-background">{g.letter}</span>
                     </a>
                   ))}
                 </nav>
               )}
               {restGroups.map((g) => (
-                <section key={g.letter} id={`az-${g.letter}`} aria-label={t("Restaurants starting with {letter}", { letter: g.letter })} className="mb-4 scroll-mt-4">
-                  <h3 className="mb-1.5 mt-3 text-lg font-extrabold">{g.letter}</h3>
-                  <div className="space-y-2">{g.chains.map((c) => (<ChainRow key={c.id} compact chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
+                <section key={g.letter} id={`az-${g.letter}`} aria-label={t("Restaurants starting with {letter}", { letter: g.letter })} className="mt-6 scroll-mt-4">
+                  <h3 className="kicker mb-2 ps-4">{g.letter}</h3>
+                  <div className={chainGroupClass}>{g.chains.map((c) => (<ChainRow key={c.id} compact chain={c} onOpen={() => analytics.track({ name: "chainOpened", chainId: c.id, source: "popular" })} />))}</div>
                 </section>
               ))}
             </>

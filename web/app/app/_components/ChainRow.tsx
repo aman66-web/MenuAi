@@ -8,50 +8,61 @@ import { SampleBadge } from "./ui";
 
 type ChainSummary = Pick<CatalogChain, "id" | "name" | "sample" | "itemCount" | "cuisine" | "nutritionLevel">;
 
+// Restaurants in lists (founder 2026-10-15, "the rest of the app should match that elegance"): rows sit together in one white card with
+// hairlines between them (`chainGroupClass`), like a settings list, instead of a stack of separate cards; the name is plain text next
+// to the chain's tile (CLAUDE.md rule 2) with a quiet chevron at the end. Tiles in a grid (Popular) keep their own 20 px card.
+
+/** The white card that holds a run of `ChainRow`s (put it on a `div` or a `ul`). */
+export const chainGroupClass = "glass divide-y divide-line overflow-hidden rounded-[1.25rem]";
+
 /** "calories only" as a small pill: the chain publishes calories but not protein, carbs and fat. */
 function CaloriesOnly() {
   const t = useT();
-  return <span className="ms-1.5 inline-flex items-center rounded-full bg-soft-strong px-2 py-px text-[11px] font-semibold text-muted">{t("calories only")}</span>;
+  return <span className="inline-flex items-center rounded-full bg-soft-strong px-2 py-px text-[0.6875rem] font-semibold text-muted">{t("calories only")}</span>;
 }
 
-/** A chain in a list: the chain's tile (official logo or our cuisine glyph, see ChainMark) and the name in plain text (CLAUDE.md rule 2). */
-export function ChainRow({ chain, onOpen, compact }: { chain: ChainSummary; onOpen?: () => void; compact?: boolean }) {
+/** "Burgers · 151 items", then the small pills; a pill that needs a new line starts at the line's edge (no stray indent). */
+function Meta({ chain, className }: { chain: ChainSummary; className: string }) {
   const t = useT();
+  return (
+    <span className={`app-numbers mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 leading-snug text-muted [overflow-wrap:anywhere] ${className}`}>
+      <span>{chain.cuisine ? `${t(chain.cuisine)} · ` : ""}{t("{n} items", { n: chain.itemCount })}</span>
+      {chain.nutritionLevel === "calories" && <CaloriesOnly />}
+      {chain.sample && <SampleBadge />}
+    </span>
+  );
+}
+
+/** A chain as a row of a `chainGroupClass` card: the chain's tile (official logo or our cuisine glyph, see ChainMark) and the name in plain text. */
+export function ChainRow({ chain, onOpen, compact }: { chain: ChainSummary; onOpen?: () => void; compact?: boolean }) {
   return (
     <Link
       href={chainHref(chain.id)}
       onClick={onOpen}
-      className={`glass lift group flex items-center rounded-3xl hover:bg-soft-strong ${compact ? "min-h-14 gap-3 px-3 py-2" : "min-h-[4.5rem] gap-4 px-4 py-3"}`}
+      className={`group flex items-center gap-3.5 px-4 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]! ${compact ? "min-h-[4.25rem] py-2.5" : "min-h-[4.75rem] py-3"}`}
     >
-      <ChainMark chainId={chain.id} cuisine={chain.cuisine} size={compact ? "sm" : "md"} />
+      <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="md" />
       <span className="min-w-0 flex-1">
-        <span className={`block truncate font-bold tracking-tight ${compact ? "text-[15px]" : "text-base"}`}>{chain.name}</span>
-        <span className="app-numbers block text-sm text-muted [overflow-wrap:anywhere]">
-          {chain.cuisine ? `${t(chain.cuisine)} · ` : ""}{t("{n} items", { n: chain.itemCount })}{chain.nutritionLevel === "calories" && <CaloriesOnly />}{chain.sample && <> <SampleBadge /></>}
-        </span>
+        <span className="block text-base font-bold leading-snug [overflow-wrap:anywhere]">{chain.name}</span>
+        <Meta chain={chain} className="text-sm" />
       </span>
-      <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-soft-strong text-muted transition group-hover:translate-x-0.5 group-hover:text-accent">
-        <ChevronRightIcon className="h-4 w-4" />
-      </span>
+      <ChevronRightIcon aria-hidden className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
     </Link>
   );
 }
 
-/** A chain as a tile in a two-column grid (Popular, Favourites on Home): bigger mark, name, cuisine and item count. */
+/** A chain as a tile in a two-column grid (Popular; favourite restaurants on My meals): bigger mark, name, cuisine and item count. */
 export function ChainCard({ chain, onOpen }: { chain: ChainSummary; onOpen?: () => void }) {
-  const t = useT();
   return (
     <Link
       href={chainHref(chain.id)}
       onClick={onOpen}
-      className="glass lift group relative flex min-h-[9.5rem] min-w-0 flex-col overflow-hidden rounded-[1.75rem] p-4 hover:bg-soft-strong"
+      className="glass lift group relative flex min-h-[9.5rem] min-w-0 flex-col overflow-hidden rounded-[1.25rem] p-4 hover:bg-soft-strong"
     >
       <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="lg" />
-      <span className="mt-auto block pt-3">
-        <span className="block font-extrabold leading-tight tracking-tight [overflow-wrap:anywhere]">{chain.name}</span>
-        <span className="app-numbers mt-0.5 block text-[13px] leading-snug text-muted [overflow-wrap:anywhere]">
-          {chain.cuisine ? `${t(chain.cuisine)} · ` : ""}{t("{n} items", { n: chain.itemCount })}{chain.nutritionLevel === "calories" && <CaloriesOnly />}{chain.sample && <> <SampleBadge /></>}
-        </span>
+      <span className="mt-auto block pt-3.5">
+        <span className="block text-base font-bold leading-snug [overflow-wrap:anywhere]">{chain.name}</span>
+        <Meta chain={chain} className="text-[0.8125rem]" />
       </span>
     </Link>
   );

@@ -16,7 +16,7 @@ import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
 import { RecipeTile } from "../recipes/RecipeTile";
 
 // "My meals" › Recipes: recipes from our book the person saved, newest first, and the ones Pip made for them.
-// Filled at the person's shop and fitted to their meal and diet, like every recipe list.
+// Filled at the person's shop and fitted to their meal and diet, like every recipe list; the same two-column grid of cards as Recipes.
 export function MyRecipes() {
   const t = useT();
   const settings = useSettings();
@@ -43,13 +43,13 @@ export function MyRecipes() {
   return (
     <div>
       {(bookCards.cards.length > 0 || pipCards.length > 0) && (
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <ul className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3">
           {pipCards.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} badge={t("Made by Pip")} href={`/app/recipes/view?mine=${c.recipe.id}&r=${shop}`} /></li>))}
           {bookCards.cards.map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}`} /></li>))}
         </ul>
       )}
       {book.length > bookCards.cards.length && (
-        <p className="mt-3 px-1 text-base text-muted">{bookCards.leftOut > 0 ? t("Some saved recipes don't suit your diet now, so they're not shown.") : t("Some saved recipes can't be filled at this supermarket right now.")}</p>
+        <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{bookCards.leftOut > 0 ? t("Some saved recipes don't suit your diet now, so they're not shown.") : t("Some saved recipes can't be filled at this supermarket right now.")}</p>
       )}
     </div>
   );

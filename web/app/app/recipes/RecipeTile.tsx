@@ -14,6 +14,8 @@ import type { RecipeCard } from "../_lib/recipes";
 // One recipe in a list (Recipes, My meals). Founder 2026-10-14, from two reference pictures: a picture on top with a heart to save it, then the
 // name and, under it, calories and protein as two small chips; then the price of a serving at the shop and how long it takes. The picture is
 // the recipe's AI illustration once there is one (captioned, CLAUDE.md rule 2); until then a plate with a drawing of the kind of dish (below).
+// Restyled 2026-10-15 to Home's language: a white card with 20 px corners and no outline, the name in the same weight as Home's meal rows,
+// grey figure chips with a bold number and a grey unit, and a quiet white heart opposite the meal's label.
 
 export const MEAL_LOOK: Record<MealType, { Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = {
   breakfast: { Icon: SunriseIcon },
@@ -48,29 +50,36 @@ const ART = [
 ];
 const artOf = (id: string) => ART[[...id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % ART.length]!;
 
-/** The picture area: the recipe's AI illustration, or a plate with a drawing of the kind of dish. */
-function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: MealType | undefined; wide: boolean }) {
+// A small label on a picture (the meal, or "AI illustration"): spaced capitals like the small labels in Home's cards, never below 11 px.
+// It sits in the picture's top row opposite the heart, centred on the heart's circle, and stops short of it (a long translation wraps
+// onto a second line instead of running under the heart: the 12 px corners keep one line a pill and two lines a soft box).
+const PICTURE_LABEL = "absolute start-3 top-4 max-w-[calc(100%-4rem)] rounded-xl px-2.5 py-1 text-[0.6875rem] font-semibold uppercase leading-[1.1] tracking-[0.08em]";
+
+/** The picture area: the recipe's AI illustration, or a plate with a drawing of the kind of dish. The meal's label is left out of the wide
+ *  cards ("Picked for you": the section already names the meal) and wherever the list is already one meal (`showMeal={false}`). */
+function RecipeArt({ id, name, meal, wide, showMeal }: { id: string; name: string; meal: MealType | undefined; wide: boolean; showMeal: boolean }) {
   const t = useT();
   const image = RECIPE_IMAGES[id];
   const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
-  const mealLabel = MEAL_TYPES.find((m) => m.value === meal)?.label;
+  const mealLabel = showMeal && !wide ? MEAL_TYPES.find((m) => m.value === meal)?.label : undefined;
   return (
-    <span className={`relative block overflow-hidden ${wide ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+    <span className={`relative block overflow-hidden ${wide ? "aspect-[16/10]" : "aspect-[4/3] @[14rem]:aspect-[2/1]"}`}>
       {image ? (
         // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it
         <img src={image} alt="" loading="lazy" decoding="async" width={800} height={600} className="h-full w-full object-cover" />
       ) : (
-        <span aria-hidden className={`flex h-full w-full items-center justify-center ${artOf(id)}`}>
-          <span className={`grid place-items-center rounded-full bg-white/85 text-[#0b1a12] shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45),inset_0_0_0_6px_rgba(255,255,255,0.6)] ${wide ? "h-28 w-28" : "h-[4.25rem] w-[4.25rem]"}`}>
-            <Dish className={wide ? "h-16 w-16" : "h-10 w-10"} strokeWidth={1.6} />
+        // with a label in the top row, the plate is centred in the space under it, so the two never meet
+        <span aria-hidden className={`flex h-full w-full items-center justify-center ${mealLabel ? "pt-8" : ""} ${artOf(id)}`}>
+          <span className={`grid place-items-center rounded-full bg-white/85 text-[#0b1a12] shadow-[0_8px_20px_-12px_rgba(0,0,0,0.35),inset_0_0_0_5px_rgba(255,255,255,0.65)] ${wide ? "h-24 w-24" : "h-14 w-14"}`}>
+            <Dish className={wide ? "h-12 w-12" : "h-8 w-8"} strokeWidth={1.6} />
           </span>
         </span>
       )}
       {image ? (
-        <span className="absolute bottom-2 start-2 rounded-full bg-black/60 px-2.5 py-0.5 text-xs font-semibold text-white">{t("AI illustration")}</span>
+        <span className={`${PICTURE_LABEL} bg-black/60 text-white`}>{t("AI illustration")}</span>
       ) : mealLabel ? (
-        <span aria-hidden className="absolute bottom-2 start-2 rounded-full bg-white/85 px-2.5 py-0.5 text-xs font-bold text-[#0b1a12]">{t(mealLabel)}</span>
+        <span aria-hidden className={`${PICTURE_LABEL} bg-white/85 text-[#0b1a12]`}>{t(mealLabel)}</span>
       ) : null}
     </span>
   );
@@ -85,31 +94,27 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
   const image = RECIPE_IMAGES[id];
   const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
-  const mealLabel = MEAL_TYPES.find((m) => m.value === meal)?.label;
   return (
-    <div className={`relative h-[clamp(16rem,42dvh,24rem)] overflow-hidden ${image ? "bg-soft-strong" : artOf(id)}`}>
+    <div className={`relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden ${image ? "bg-soft-strong" : artOf(id)}`}>
       {image ? (
         <>
           {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
           <img src={image} alt={t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
-          <p className="absolute bottom-12 start-4 me-4 rounded-2xl bg-black/65 px-3 py-1.5 text-sm font-semibold text-white">{t("Illustration made with AI, not a photo of the products below.")}</p>
+          <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Illustration made with AI, not a photo of the products below.")}</p>
         </>
       ) : (
         <span aria-hidden className="absolute inset-0">
           {/* sized by the picture's height, not the text size, so large text never pushes the plate into the buttons */}
-          <span className="absolute left-1/2 top-[53%] grid aspect-square h-[50%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#0b1a12] shadow-[0_28px_50px_-22px_rgba(0,0,0,0.6),inset_0_0_0_12px_rgba(255,255,255,0.7),inset_0_0_0_13px_rgba(11,26,18,0.06)]">
+          <span className="absolute left-1/2 top-[53%] grid aspect-square h-[50%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#0b1a12] shadow-[0_24px_44px_-26px_rgba(0,0,0,0.45),inset_0_0_0_10px_rgba(255,255,255,0.7)]">
             <Dish className="h-[55%] w-[55%]" strokeWidth={1.4} />
           </span>
         </span>
-      )}
-      {!image && mealLabel && (
-        <span className="absolute bottom-12 start-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-[#0b1a12]"><look.Icon className="h-4 w-4" />{t(mealLabel)}</span>
       )}
     </div>
   );
 }
 
-export function RecipeTile({ card, href, badge, wide = false, saveable = true }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean }) {
+export function RecipeTile({ card, href, badge, wide = false, saveable = true, showMeal = true }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; showMeal?: boolean }) {
   const t = useT();
   const savedList = useStore(savedRecipesStore);
   const { recipe, totals } = card;
@@ -118,32 +123,37 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true }:
   const saved = savedList.some((s) => s.id === recipe.id);
   const canSave = saveable && !recipe.ai; // Pip's recipes are already kept on this phone
   const price = totals.costPerServing !== null ? formatPrice(totals.costPerServing) : null;
+  // a grey chip with a medium figure and a grey unit, like the reference's "407 CAL · 32g PROTEIN"; tight enough that both sit on one line
+  // in a two-column grid on a phone (they wrap only when a language's word is long)
+  const chip = "inline-flex items-baseline gap-[0.25em] whitespace-nowrap rounded-md bg-[var(--fill)] px-1.5 py-[0.1875rem]";
   return (
-    <div className="glass lift relative flex h-full min-w-0 flex-col overflow-hidden rounded-[1.6rem]">
-      <Link href={href} prefetch={false} className="flex flex-1 flex-col focus-visible:outline-offset-[-3px]">
-        <RecipeArt id={recipe.id} name={recipe.name} meal={recipe.meal} wide={wide} />
-        <span className={`flex flex-1 flex-col ${wide ? "p-4" : "px-2.5 pb-3 pt-2.5"}`}>
-          {badge && <span className="mb-1 inline-block self-start rounded-full bg-accent-soft px-2.5 py-0.5 text-sm font-bold text-accent">{badge}</span>}
-          <span className={`line-clamp-2 font-extrabold leading-snug tracking-tight [overflow-wrap:anywhere] ${wide ? "text-xl" : "text-base"}`}>{rt(recipe.name)}</span>
-          <span className={`app-numbers mt-2 flex flex-wrap ${wide ? "gap-1.5 text-sm [&>span]:px-2" : "gap-1 text-xs [&>span]:px-[0.3rem]"}`}>
-            <span className="inline-flex items-baseline gap-[0.2rem] rounded-lg bg-[var(--fill)] py-1"><span className="text-[1.1em] font-bold">{formatInt(totals.perServing.kcal)}</span><span className="font-medium text-muted">kcal</span></span>
-            <span className="inline-flex items-baseline gap-[0.2rem] rounded-lg bg-[var(--fill)] py-1"><span className="text-[1.1em] font-bold">{Math.round(totals.perServing.protein)}g</span><span className="font-medium text-muted">{t("protein")}</span></span>
+    // a container, so a card shown one to a row (large text) gets a lower picture instead of a tall block of colour
+    <div className="glass lift @container relative flex h-full min-w-0 flex-col overflow-hidden rounded-[1.25rem] border-0">
+      <Link href={href} prefetch={false} className="flex flex-1 flex-col rounded-[1.25rem] focus-visible:outline-offset-[-3px]">
+        <RecipeArt id={recipe.id} name={recipe.name} meal={recipe.meal} wide={wide} showMeal={showMeal} />
+        <span className={`flex flex-1 flex-col ${wide ? "px-4 pb-4 pt-3.5" : "px-3 pb-3.5 pt-3"}`}>
+          {badge && <span className="mb-1.5 inline-block self-start rounded-full bg-[var(--fill)] px-2.5 py-1 text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.08em] text-muted">{badge}</span>}
+          <span className={`line-clamp-2 leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] ${wide ? "text-lg font-extrabold" : "text-[0.9375rem] font-extrabold"}`}>{rt(recipe.name)}</span>
+          <span className={`app-numbers mt-2 flex flex-wrap gap-1 ${wide ? "text-[0.8125rem]" : "text-xs"}`}>
+            <span className={chip}><span className="font-semibold">{formatInt(totals.perServing.kcal)}</span><span className="text-muted">kcal</span></span>
+            <span className={chip}><span className="font-semibold">{Math.round(totals.perServing.protein)}g</span><span className="text-muted">{t("protein")}</span></span>
           </span>
-          <span className="app-numbers mt-auto flex flex-wrap gap-x-2 pt-2 text-sm text-muted">
-            {price && <span><span className="font-bold text-foreground">{price}</span> {t("a serving")}</span>}
+          <span className="app-numbers mt-auto flex flex-wrap items-baseline gap-x-1.5 pt-2.5 text-[0.8125rem] text-muted">
+            {price && <><span><span className="font-semibold text-foreground">{price}</span> {t("a serving")}</span><span aria-hidden>·</span></>}
             <span>{t("{n} min", { n: recipe.minutes })}</span>
           </span>
         </span>
       </Link>
       {canSave && (
+        // a 36 px white circle in the picture's corner, inside a full 44 px tap area, clear of the plate in the middle
         <button
           type="button"
           aria-pressed={saved}
           aria-label={saved ? t("Saved to My meals") : t("Save to My meals")}
           onClick={() => toggleSavedRecipe(recipe.id)}
-          className={`absolute end-2.5 top-2.5 grid h-11 w-11 place-items-center rounded-full bg-white/90 shadow-[0_6px_16px_-8px_rgba(0,0,0,0.5)] transition active:scale-90 ${saved ? "text-[#e11d48]" : "text-[#0b1a12]"}`}
+          className={`group absolute end-1 top-1 grid h-11 w-11 place-items-center rounded-full transition active:scale-90 ${saved ? "text-[#e11d48]" : "text-[#0b1a12]"}`}
         >
-          <HeartIcon filled={saved} className="h-5 w-5" />
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-white shadow-[0_2px_8px_-4px_rgba(17,24,20,0.3)] transition-colors group-hover:bg-[#f4f5f6]"><HeartIcon filled={saved} className="h-[18px] w-[18px]" /></span>
         </button>
       )}
     </div>

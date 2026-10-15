@@ -24,6 +24,16 @@ import { useT } from "../_lib/i18n";
 
 // SPEC §7.5: name, serving, big calories, then protein/carbs/fat, then the optional nutrients ("not published").
 // Kept plain for older users (founder 2026-10-11): calories and protein are the big numbers; the other nutrients open under "More detail".
+// Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. One white card for the dish (its
+// photo, name and numbers), the allergens, "More detail" opening inside its own card, the chain's note, then the actions: Customise as
+// the one black pill, Log, Save and Share as white pills side by side, and Compare under them.
+
+/**
+ * Log, Save and Share: three to a row; at large text Log and Save side by side and Share under them, full width (ShareButton's button
+ * sits in a `display: contents` wrapper, so it is the grid item).
+ */
+const ACTIONS = "grid grid-cols-2 gap-2.5 [&>div:last-child>button]:col-span-2 @min-[22rem]:grid-cols-3 @min-[22rem]:[&>div:last-child>button]:col-span-1";
+
 export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: string }) {
   const t = useT();
   const router = useRouter();
@@ -52,41 +62,50 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   return (
     <div>
       {back}
-      <div className="mt-5">
+      <div className="mt-4">
         <ItemHero nutrients={item.nutrients} name={item.name} media={<ItemPhotoHero image={item.image} chainName={chain.name} />}>
-          <Link href={chainHref(chain.id)} className="kicker inline-flex min-h-11 items-center hover:underline">{chain.name}</Link>
-          <h1 className="text-[1.9rem] font-extrabold leading-[1.1] tracking-tight">{item.name}</h1>
-          <div className="mt-2 flex flex-wrap items-center gap-2 text-base text-muted">
-            {item.serving && <span>{item.serving}</span>}
-            {item.category && <Badge>{item.category}</Badge>}
-            {item.limitedTime && <Badge>{t("Limited time")}</Badge>}
-            {chain.sample && <Badge>{t("Sample data")}</Badge>}
-          </div>
+          <Link href={chainHref(chain.id)} className="kicker -my-2 inline-flex min-h-11 items-center hover:text-foreground">{chain.name}</Link>
+          <h1 className="mt-1.5 text-[2rem] font-[800] leading-[1.05] tracking-[-0.02em] [overflow-wrap:anywhere]">{item.name}</h1>
+          {(item.serving || item.category || item.limitedTime || chain.sample) && (
+            <div className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-2 text-[0.9375rem] text-muted">
+              {item.serving && <span>{item.serving}</span>}
+              {item.category && <Badge>{item.category}</Badge>}
+              {item.limitedTime && <Badge>{t("Limited time")}</Badge>}
+              {chain.sample && <Badge>{t("Sample data")}</Badge>}
+            </div>
+          )}
         </ItemHero>
       </div>
-      <div className="mt-3"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
-      <div className="mt-3">
-        <button type="button" aria-expanded={detail} aria-controls="more-detail" onClick={() => setDetail((d) => !d)} className="glass flex min-h-16 w-full items-center gap-3 rounded-[1.75rem] px-5 py-3 text-start transition active:scale-[0.99] hover:bg-soft-strong">
+
+      <div className="mt-3.5"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
+
+      {/* "More detail" opens inside its own card: one box, not two. */}
+      <div className="glass mt-3.5 overflow-hidden rounded-[1.25rem]">
+        <button type="button" aria-expanded={detail} aria-controls="more-detail" onClick={() => setDetail((d) => !d)} className="flex min-h-16 w-full items-center gap-3 px-4 py-3.5 text-start transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
           <span className="min-w-0 flex-1">
-            <span className="block text-base font-bold">{t("More detail")}</span>
-            <span className="block text-base text-muted">{t("Saturated fat, salt, sugar and fibre")}</span>
+            <span className="block text-lg font-[800] leading-snug tracking-[-0.01em]">{t("More detail")}</span>
+            <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Saturated fat, salt, sugar and fibre")}</span>
           </span>
-          <ChevronRightIcon className={`h-5 w-5 shrink-0 text-muted transition-transform ${detail ? "-rotate-90" : "rotate-90"}`} />
+          <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-soft-strong">
+            <ChevronRightIcon className={`h-[18px] w-[18px] transition-transform ${detail ? "-rotate-90" : "rotate-90"}`} />
+          </span>
         </button>
-        {detail && <div id="more-detail" className="mt-2"><NutrientTable nutrients={item.nutrients} /></div>}
+        {detail && <div id="more-detail" className="border-t border-line px-4"><NutrientTable bare nutrients={item.nutrients} /></div>}
       </div>
+
       {chain.note && (
-        <p className="mt-3 flex gap-2.5 px-1 text-base text-muted">
-          <InfoIcon className="mt-1 h-4 w-4 shrink-0 text-accent" />
+        <p className="mt-5 flex gap-2.5 px-1 text-[0.9375rem] leading-snug text-muted">
+          <InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
           <span>{chain.note}</span>
         </p>
       )}
 
+      {/* The actions: one black pill for the main one, the rest as white pills. */}
       {hasMacros(item.nutrients) ? (
-        <>
-      <div className="mt-6 grid grid-cols-2 gap-3">
+        <div className="@container mt-6">
           <Button
             full
+            className="min-h-12 text-base"
             onClick={() =>
               gate("orderBuilder", () => {
                 analytics.track({ name: "builderOpened", origin: "item" });
@@ -96,48 +115,52 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           >
             {t("Customise")}
           </Button>
-          <Button
-            variant="secondary"
-            full
-            onClick={() =>
-              gate("log", () => {
-                addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
-                analytics.track({ name: "mealLogged" });
-                countProAction();
-                setMessage(tk("Logged to Today."));
-              })
-            }
-          >
-            {t("Log")}
-          </Button>
-          <Button
-            variant="secondary"
-            full
-            onClick={() =>
-              gate("saveLimit", () => {
-                const total = orderNutrients(index, lines) ?? item.nutrients;
-                addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
-                analytics.track({ name: "orderSaved" });
-                countProAction();
-                setMessage(tk("Saved."));
-              })
-            }
-          >
-            {t("Save")}
-          </Button>
-          <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
+          <div className={`mt-2.5 ${ACTIONS}`}>
+            <Button
+              variant="secondary"
+              full
+              onClick={() =>
+                gate("log", () => {
+                  addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
+                  analytics.track({ name: "mealLogged" });
+                  countProAction();
+                  setMessage(tk("Logged to Today."));
+                })
+              }
+            >
+              {t("Log")}
+            </Button>
+            <Button
+              variant="secondary"
+              full
+              onClick={() =>
+                gate("saveLimit", () => {
+                  const total = orderNutrients(index, lines) ?? item.nutrients;
+                  addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
+                  analytics.track({ name: "orderSaved" });
+                  countProAction();
+                  setMessage(tk("Saved."));
+                })
+              }
+            >
+              {t("Save")}
+            </Button>
+            <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
+          </div>
+          {/* Empty (and no height) until something is logged or saved; it stays in the page so a screen reader hears it. */}
+          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-accent empty:mt-0">{message && t(message)}</p>
+          <div className="mt-2.5"><CompareButton full item={compareDish(chain, item)} /></div>
         </div>
-        <p role="status" aria-live="polite" className="mt-3 min-h-5 text-center text-sm font-medium text-accent">{message && t(message)}</p>
-        </>
       ) : (
-        <p className="mt-6 text-base text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
+        <>
+          <p className="mt-6 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so ordering, saving, logging and sharing aren't available for this item (they need protein, carbs and fat).", { chain: chain.name })}</p>
+          <div className="mt-3"><CompareButton full item={compareDish(chain, item)} /></div>
+        </>
       )}
 
-      <div className="mt-2"><CompareButton full item={compareDish(chain, item)} /></div>
-
-      <p className="mt-4 text-sm text-muted">
+      <p className="mt-6 px-1 text-sm leading-snug text-muted">
         {t("Not affiliated with {chain}.", { chain: chain.name })}{" "}
-        <button type="button" className="min-h-11 font-medium text-accent underline" onClick={() => setReporting(true)}>{t("Report a number")}</button>
+        <button type="button" className="min-h-11 font-semibold text-accent underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] underline-offset-[3px]" onClick={() => setReporting(true)}>{t("Report a number")}</button>
       </p>
 
       <ReportSheet

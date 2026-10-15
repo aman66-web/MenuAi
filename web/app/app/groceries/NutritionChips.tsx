@@ -9,9 +9,9 @@ const grams = (v: number) => `${v >= 10 ? Math.round(v) : Math.round(v * 10) / 1
 export function NutritionChips({ kcal, protein, basis }: { kcal: number; protein: number; basis: string }) {
   const t = useT();
   return (
-    <span className="app-numbers mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm">
-      <span className="rounded-lg bg-[var(--fill)] px-2 py-0.5"><span className="font-bold">{Math.round(kcal)}</span> <span className="font-medium text-muted">kcal</span></span>
-      <span className="rounded-lg bg-[var(--fill)] px-2 py-0.5"><span className="font-bold">{grams(protein)}</span> <span className="font-medium text-muted">{t("protein")}</span></span>
+    <span className="app-numbers mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[0.8125rem] leading-5">
+      <span className="rounded-lg bg-[var(--fill)] px-1.5 py-0.5"><span className="font-bold">{Math.round(kcal)}</span> <span className="text-muted">kcal</span></span>
+      <span className="rounded-lg bg-[var(--fill)] px-1.5 py-0.5"><span className="font-bold">{grams(protein)}</span> <span className="text-muted">{t("protein")}</span></span>
       <span className="text-muted">{basis}</span>
     </span>
   );

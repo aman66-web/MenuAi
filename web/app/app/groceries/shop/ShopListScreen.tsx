@@ -6,18 +6,21 @@ import { SHOP_SORTS, searchShopProducts, type ShopNutrition, type ShopProduct, t
 import { formatDate } from "@/lib/mm/format";
 import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { GroceryProduct } from "@/lib/mm/groceries";
-import { ChevronLeftIcon, SearchIcon } from "../../_components/icons";
+import { SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
-import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner, inputClass } from "../../_components/ui";
+import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
 import { useShopProducts } from "../../_lib/shopProducts";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
+import { BackLink, FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
 import { ShopProductRow } from "./ShopProductRow";
 
 // A supermarket's own list (founder 2026-10-09, docs/GROCERIES_PLAN.md; since 2026-10-11 the main Groceries list, opened from "Which shop?"): name, price,
 // price per kg or litre, card price and the shop's own picture, exactly as its category pages print them. The numbers come from the product's own page where
 // we've read it, else from the catalogue's community record for the same barcode (matched exactly, never guessed); the product's page says which.
+// Looks follow Home (founder 2026-10-15): the shop's logo beside a compact title, a white pill search box, outlined chips, the aisle and the sort as
+// white fields with their label in small capitals inside, white rows with 20 px corners.
 const PAGE = 60;
 const NONE: ShopProduct[] = [];
 const NO_CATALOGUE = new Map<string, GroceryProduct>();
@@ -78,7 +81,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
   const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
   const pricedCount = useMemo(() => products.reduce((n, p) => n + (p.price !== null ? 1 : 0), 0), [products]);
   const reset = () => setShown(PAGE);
-  const back = (<Link href="/app/groceries" aria-label={t("Back to groceries")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
 
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading the full list")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this list. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
@@ -87,72 +90,65 @@ export function ShopListScreen({ shop }: { shop: string }) {
   return (
     <div>
       {back}
-      <div className="mt-4 flex items-center gap-3">
-        <ShopMark shopId={file.retailer} size="lg" />
-        <h1 className="text-[2rem] font-extrabold leading-[1.05] tracking-tight [overflow-wrap:anywhere]">{file.name}</h1>
+      {/* wraps, so at large text a long name moves under the logo instead of splitting mid-word ("Sains / bury's") */}
+      <div className="mt-5 flex flex-wrap items-center gap-x-3.5 gap-y-2">
+        <ShopMark shopId={file.retailer} size="md" />
+        <h1 className={`${TITLE} max-w-full [overflow-wrap:break-word]`}>{file.name}</h1>
       </div>
-      <p className="app-numbers mt-2 text-base text-muted">
+      <p className="app-numbers mt-3.5 text-[0.9375rem] leading-relaxed text-muted">
         {pricedCount === products.length
           ? t("{n} products, with the prices {shop} showed on {date}.", { n: products.length.toLocaleString("en-GB"), shop: file.name, date: formatDate(file.checkedOn, t) })
           : `${t("{n} products from {shopPossessive} website, checked {date}.", { n: products.length.toLocaleString("en-GB"), shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} ${t("{count} show a price. {shop} shows the others' prices only in store.", { count: pricedCount.toLocaleString("en-GB"), shop: file.name })}`}{" "}
         {nutritionCount > 0 ? t("{count} of them show calories and protein.", { count: nutritionCount.toLocaleString("en-GB") }) : t("Calories and protein aren't shown for these yet.")}
       </p>
 
-      <label className="relative mt-4 block">
+      <label className="relative mt-5 block">
         <span className="sr-only">{t("Search {shop} products", { shop: file.name })}</span>
         <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search {shop} products", { shop: file.name })} enterKeyHint="search" autoComplete="off" className="glass min-h-12 w-full rounded-full ps-11 pe-4 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent" />
+        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search {shop} products", { shop: file.name })} enterKeyHint="search" autoComplete="off" className={`${PILL_INPUT} ps-11 pe-4`} />
       </label>
 
-      <div role="group" aria-label={t("Filters")} className="mt-3 flex flex-wrap gap-2">
+      <div role="group" aria-label={t("Filters")} className="mt-3.5 flex flex-wrap gap-2 empty:hidden">
         {unsuited && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
         {nutritionCount > 0 && <Chip selected={nutrition} onClick={() => { setNutrition((v) => !v); reset(); }}>{t("Has nutrition")}</Chip>}
         {hasCard && <Chip selected={card} onClick={() => { setCard((v) => !v); reset(); }}>{t("Has a card price")}</Chip>}
       </div>
-      <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-2">
-        <label className="block text-base">
-          <span className="block font-semibold">{t("Aisle")}</span>
-          <select className={`${inputClass} mt-1 min-h-12 text-base`} value={category ?? ""} onChange={(e) => { setCategory(e.target.value || null); reset(); }}>
-            <option value="">{t("Every aisle")}</option>
-            {file.categories.map((c) => (<option key={c} value={c}>{c}</option>))}
-          </select>
-        </label>
-        <label className="block text-base">
-          <span className="block font-semibold">{t("Sort")}</span>
-          <select className={`${inputClass} mt-1 min-h-12 text-base`} value={sort} onChange={(e) => { setSort(e.target.value as ShopSort); reset(); }}>
-            {SHOP_SORTS.filter((o) => nutritionCount > 0 || (o.value !== "density" && o.value !== "protein")).map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
-          </select>
-        </label>
+      <div className="mt-3.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-3">
+        <SelectField label={t("Aisle")} value={category ?? ""} onChange={(e) => { setCategory(e.target.value || null); reset(); }}>
+          <option value="">{t("Every aisle")}</option>
+          {file.categories.map((c) => (<option key={c} value={c}>{c}</option>))}
+        </SelectField>
+        <SelectField label={t("Sort")} value={sort} onChange={(e) => { setSort(e.target.value as ShopSort); reset(); }}>
+          {SHOP_SORTS.filter((o) => nutritionCount > 0 || (o.value !== "density" && o.value !== "protein")).map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
+        </SelectField>
       </div>
 
-      {(sort === "density" || sort === "protein") && <p className="mt-2 text-xs text-muted">{t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
-      {diet && foodDietCaution(prefs, t) && <p className="mt-3 text-xs text-muted">{foodDietCaution(prefs, t)}</p>}
-      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <p className="mt-2 text-xs text-muted">{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p>}
-      <p role="status" aria-live="polite" className="app-numbers mt-3 text-sm text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
+      {(sort === "density" || sort === "protein") && <p className={`mt-3 ${NOTE}`}>{t("Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.")}</p>}
+      {diet && foodDietCaution(prefs, t) && <p className={`mt-3 ${NOTE}`}>{foodDietCaution(prefs, t)}</p>}
+      {diet && (prefs.avoidAllergens?.length ?? 0) > 0 && <p className={`mt-2 ${NOTE}`}>{t("We haven't read allergens for these products, so your allergy settings can't hide any here. Always check the pack.")}</p>}
+      <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
       {results.length === 0 ? (
         <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or a different type.")} /></div>
       ) : (
-        <ul className="mt-3 space-y-2.5">
+        <ul className="mt-2.5 space-y-3">
           {results.slice(0, shown).map((p) => (<li key={p.id}><ShopProductRow file={file} product={p} /></li>))}
         </ul>
       )}
       {results.length > shown && (
-        <button type="button" onClick={() => setShown((n) => n + PAGE)} className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-line text-sm font-semibold text-accent transition hover:bg-accent-soft">
-          {t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}
-        </button>
+        <MoreButton onClick={() => setShown((n) => n + PAGE)}>{t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}</MoreButton>
       )}
 
       {catalogue.size > 0 && (
-        <Link href={`/app/groceries/search?r=${file.retailer}`} className="glass mt-4 inline-flex min-h-14 w-full items-center justify-center rounded-full px-5 text-center text-base font-bold transition active:scale-[0.98] hover:bg-soft-strong">
+        <Link href={`/app/groceries/search?r=${file.retailer}`} className="glass mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition active:scale-[0.98] hover:bg-soft-strong">
           {t("More {shop} products with their numbers", { shop: file.name })}
         </Link>
       )}
 
-      <p className="mt-8 border-t border-line pt-4 text-sm text-muted">
+      <FootNote>
         {t("From {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} {t("Prices and offers vary by store and by loyalty card.")}{" "}
         {catalogue.size > 0 && t("Where we haven't read a product's own page, its numbers come from Open Food Facts contributors (community data) for the same barcode.")}{" "}
         {t("Not affiliated with {shop}.", { shop: file.name })}
-      </p>
+      </FootNote>
     </div>
   );
 }

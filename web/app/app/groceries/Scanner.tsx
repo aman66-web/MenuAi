@@ -5,8 +5,9 @@ import { barcodeQuery } from "@/lib/mm/groceries";
 import { tk } from "@/lib/mm/i18n";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { site } from "@/site.config";
-import { Button, inputClass, Sheet } from "../_components/ui";
+import { Button, Sheet } from "../_components/ui";
 import { useT } from "../_lib/i18n";
+import { PILL_INPUT } from "./PageBits";
 
 // Barcode scanning happens on the device: the camera feed is read here and never sent anywhere. In the iPhone app the iPhone's own scanner
 // does it (lib/mm/native.ts); in a browser, BarcodeDetector. Where neither can, or the camera is refused, the number can be typed instead.
@@ -77,12 +78,12 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
 
   return (
     <Sheet open={open} onClose={onClose} title={t("Scan a barcode")}>
-      <div className="space-y-3 pb-2">
-        {!note && !native && <video ref={video} playsInline muted aria-label={t("Camera view: point it at the barcode")} className="aspect-[4/3] w-full rounded-3xl bg-black object-cover" />}
-        {note && <p role="status" className="text-sm text-muted">{t(note, { app: site.name })}</p>}
+      <div className="space-y-3.5 pb-2 pt-1">
+        {!note && !native && <video ref={video} playsInline muted aria-label={t("Camera view: point it at the barcode")} className="aspect-[4/3] w-full rounded-[1.25rem] bg-black object-cover" />}
+        {note && <p role="status" className="text-[0.9375rem] leading-snug text-muted">{t(note, { app: site.name })}</p>}
         {native && note && <Button full onClick={() => setScanRound((n) => n + 1)}>{t("Scan again")}</Button>}
         <form
-          className="flex gap-2"
+          className="flex gap-2.5"
           onSubmit={(e) => {
             e.preventDefault();
             const c = barcodeQuery(typed);
@@ -90,11 +91,11 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
             else setNote(tk("A barcode is 8 to 14 digits."));
           }}
         >
-          <label className="flex-1">
+          <label className="min-w-0 flex-1">
             <span className="sr-only">{t("Barcode number")}</span>
-            <input value={typed} onChange={(e) => setTyped(e.target.value)} inputMode="numeric" placeholder={t("Barcode number")} autoComplete="off" className={inputClass} />
+            <input value={typed} onChange={(e) => setTyped(e.target.value)} inputMode="numeric" placeholder={t("Barcode number")} autoComplete="off" className={`${PILL_INPUT} app-numbers`} />
           </label>
-          <Button type="submit" variant="secondary">{t("Find")}</Button>
+          <Button type="submit" className="min-h-12">{t("Find")}</Button>
         </form>
       </div>
     </Sheet>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { chainHref } from "@/lib/mm/routes";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { orderAllergens } from "@/lib/mm/allergens";
 import { loggedToday, remainingToday } from "@/lib/mm/budget";
@@ -23,13 +23,24 @@ import type { MenuComponent } from "@/lib/mm/types";
 import { AllergenSection } from "../_components/Allergens";
 import { useGate } from "../_components/Paywall";
 import { ChevronLeftIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
-import { MacroSummary } from "../_components/Nutrition";
+import { MacroSummary, SMALL_LABEL } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
 import { Button, Card, Chip, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
 import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
 // SPEC §6.5 and §7.6: customise any order with live totals (Pro).
+// Look (founder 2026-10-15, Home's language): a compact heavy title, white cards with 20 px corners, each ingredient group as a quiet
+// grey list on the card with its label in small spaced capitals and the portion and calories in DM Mono, "Double" a white pill lit in
+// the brand lime when it's on, and the totals as a floating white card that stays in reach above the tab bar.
+
+const TITLE = "text-[1.75rem] font-[800] leading-none tracking-[-0.02em]";
+/** The quiet list on a card: ingredient rows, modifiers, the picker's choices. */
+const INSET_LIST = "inset-card divide-y divide-line overflow-hidden rounded-2xl";
+/** A sheet's list of choices: one light grey block with fine lines between the rows (no shadow: it sits on the white sheet). */
+const SHEET_LIST = "divide-y divide-line overflow-hidden rounded-2xl bg-[var(--fill)]";
+/** A round 44 px icon button in a row. */
+const ICON_BUTTON = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted transition hover:bg-soft-strong hover:text-foreground disabled:opacity-40";
 
 type Start = { kind: "item" | "pick" | "saved"; lines: OrderLine[]; savedName?: string; savedId?: string; source: LogSource } | { kind: "error"; message: string } | { kind: "unavailable"; saved: SavedOrder };
 
@@ -72,11 +83,11 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
     return (
       <div>
         {back}
-        <h1 className="text-4xl font-extrabold tracking-tight">{t("Order builder")}</h1>
-        <Card className="mt-6 flex flex-col items-center gap-3 p-6 text-center">
-          <LockIcon className="h-8 w-8 text-muted" />
-          <p className="font-semibold">{t("Customise any order with live totals")}</p>
-          <p className="text-sm text-muted">{t("The order builder is part of Pro.")}</p>
+        <h1 className={`mt-5 ${TITLE}`}>{t("Order builder")}</h1>
+        <Card className="mt-5 flex flex-col items-center gap-3 p-6 text-center">
+          <span aria-hidden className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--fill)]"><LockIcon className="h-6 w-6 text-muted" /></span>
+          <p className="text-base font-semibold">{t("Customise any order with live totals")}</p>
+          <p className="text-[0.9375rem] text-muted">{t("The order builder is part of Pro.")}</p>
           <Button onClick={() => showPaywall("orderBuilder")}>{t("See Pro")}</Button>
         </Card>
       </div>
@@ -88,8 +99,8 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
     return (
       <div>
         {back}
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{t("Order builder")}</h1>
-        <p className="mt-2 text-sm text-muted">{t("{chain} publishes calories only, so there are no protein, carbs or fat totals to build an order from.", { chain: index.chain.name })}</p>
+        <h1 className={`mt-5 ${TITLE}`}>{t("Order builder")}</h1>
+        <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so there are no protein, carbs or fat totals to build an order from.", { chain: index.chain.name })}</p>
       </div>
     );
   }
@@ -99,10 +110,10 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
     return (
       <div>
         {back}
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tight">{start.saved.name}</h1>
-        <p className="mt-2 text-sm font-medium">{t("No longer on the menu")}</p>
-        <p className="mt-1 text-sm text-muted">{t("Something in this order was removed from the menu, so it can't be edited. Your saved numbers are kept.")}</p>
-        <div className="mt-4"><MacroSummary nutrients={start.saved.nutrients} /></div>
+        <h1 className={`mt-5 ${TITLE} [overflow-wrap:anywhere]`}>{start.saved.name}</h1>
+        <p className="mt-3 text-[0.9375rem] font-semibold">{t("No longer on the menu")}</p>
+        <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Something in this order was removed from the menu, so it can't be edited. Your saved numbers are kept.")}</p>
+        <Card className="mt-4 p-4"><MacroSummary nutrients={start.saved.nutrients} /></Card>
       </div>
     );
   }
@@ -171,15 +182,15 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
         <button type="button" onClick={() => router.back()} aria-label={t("Back")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></button>
       </div>
       <p className="kicker mt-5">{chain.name}</p>
-      <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight">{t("Build your order")}</h1>
+      <h1 className={`mt-1.5 ${TITLE}`}>{t("Build your order")}</h1>
 
-      <div className="mt-4 space-y-4">
+      <div className="mt-5 space-y-3.5">
         {lines.map((line, i) => (
           <Card key={i} className="p-4">
             <div className="flex items-start justify-between gap-2">
-              <h2 className="text-lg font-bold leading-snug tracking-tight">{lineName(ix, line)}</h2>
+              <h2 className="text-lg font-[800] leading-snug tracking-[-0.01em]">{lineName(ix, line)}</h2>
               {lines.length > 1 && (
-                <button type="button" aria-label={t("Remove {name} from the order", { name: ix.items.get(line.itemId)?.name ?? t("item") })} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className="-me-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted hover:bg-soft-strong">
+                <button type="button" aria-label={t("Remove {name} from the order", { name: ix.items.get(line.itemId)?.name ?? t("item") })} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className={`-me-2 -mt-1.5 ${ICON_BUTTON}`}>
                   <TrashIcon className="h-5 w-5" />
                 </button>
               )}
@@ -205,27 +216,33 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
         ))}
       </div>
 
-      <Button variant="secondary" full className="mt-4" onClick={() => setPicker({ type: "item" })}>
+      <Button variant="secondary" full className="mt-3.5" onClick={() => setPicker({ type: "item" })}>
         <PlusIcon className="h-5 w-5" /> {t("Add item")}
       </Button>
 
-      <p role="alert" className="mt-3 min-h-5 text-sm font-medium text-accent">{notice}</p>
+      {/* Empty (and no height) until there's something to say; it stays in the page so a screen reader hears it. */}
+      <p role="alert" className="mt-3 px-1 text-sm font-semibold text-accent empty:mt-0">{notice}</p>
 
-      <div className="mt-2"><AllergenSection chain={ix.chain} allergens={allergens?.allergens} changesNotCovered={allergens?.changesNotCovered} title={t("Allergens in this order")} /></div>
+      <div className="mt-5"><AllergenSection chain={ix.chain} allergens={allergens?.allergens} changesNotCovered={allergens?.changesNotCovered} title={t("Allergens in this order")} /></div>
 
-      <div className="mt-2">
+      <div className="glass mt-3.5 rounded-[1.25rem] p-4">
         <Field label={t("Order name")}>
           <input className={inputClass} value={name} maxLength={120} onChange={(e) => setCustomName(e.target.value)} />
         </Field>
       </div>
 
       {/* Sticky summary (SPEC §7.6): totals and actions stay in reach while the lines scroll. Pinned only while it takes under 40% of the screen, so large text or zoom never leaves no room for the order itself. */}
-      <div ref={summaryRef} className={`z-10 -mx-5 mt-4 rounded-t-3xl border-t border-line bg-background/92 px-5 pb-3 pt-4 shadow-[0_-12px_30px_-18px_rgba(0,0,0,0.5)] backdrop-blur-xl ${pinned ? "sticky bottom-[calc(5.25rem+env(safe-area-inset-bottom))]" : ""}`}>
+      {/* `glass`: a white card that floats above the tab bar like the bar itself, and the secondary buttons on it take the grey fill
+          (globals.css) so they keep their edges. While it floats, a hairline and a soft shadow above and below give it an edge, so the
+          white cards scrolling under it read as passing beneath a card, not as cut off. */}
+      <div ref={summaryRef} className={`glass @container z-10 mt-5 rounded-[1.25rem] p-4 ${pinned ? "sticky bottom-[calc(5.5rem+env(safe-area-inset-bottom))] ring-1 ring-[var(--line)] shadow-[0_-12px_28px_-18px_rgba(17,24,20,0.30),0_16px_40px_-16px_rgba(17,24,20,0.35)]" : ""}`}>
         {total && valid.ok ? (
           <>
             <div aria-live="polite"><MacroSummary compact nutrients={total} label={t("Order total: {kcal}, {protein} grams protein", { kcal: formatCalories(total.calories), protein: Math.round(total.protein ?? 0) })} /></div>
-            <p className="app-numbers mt-1 text-sm text-muted">{after}</p>
-            <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(5.5rem,1fr))] gap-2">
+            <p className="app-numbers mt-2.5 text-[0.9375rem] leading-snug text-muted">{after}</p>
+            {/* Three pills across (a little less padding than usual so "Share" keeps its icon and word on one line); at large text Save and
+                Log side by side and Share under them, full width. (ShareButton's button sits in a `display: contents` wrapper.) */}
+            <div className="mt-3.5 grid grid-cols-2 gap-2 [&_button]:px-3 [&>div:last-child>button]:col-span-2 @min-[21rem]:grid-cols-3 @min-[21rem]:[&>div:last-child>button]:col-span-1">
               <Button
                 full
                 onClick={() => {
@@ -265,7 +282,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
             </div>
           </>
         ) : (
-          <p className="text-sm text-muted">{valid.ok ? t("Something in this order is no longer on the menu.") : valid.error}</p>
+          <p className="text-[0.9375rem] leading-snug text-muted">{valid.ok ? t("Something in this order is no longer on the menu.") : valid.error}</p>
         )}
       </div>
 
@@ -292,25 +309,30 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
   const rows = sortedComponents(ix, line);
   const groups = [...new Set(rows.map((r) => r.comp.group))];
   return (
-    <div className="mt-3">
+    <div className="mt-3.5">
       {groups.map((group) => (
-        <section key={group} aria-label={t(GROUP_LABEL[group])} className="mt-3 first:mt-0">
-          <h3 className="mb-1.5 text-xs font-bold uppercase tracking-[0.14em] text-muted">{t(GROUP_LABEL[group])}</h3>
-          <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
+        <section key={group} aria-label={t(GROUP_LABEL[group])} className="mt-4 first:mt-0">
+          <h3 className={`mb-2 ${SMALL_LABEL}`}>{t(GROUP_LABEL[group])}</h3>
+          <ul className={INSET_LIST}>
             {rows.filter((r) => r.comp.group === group).map(({ ref, comp }) => (
-              <li key={comp.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-2">
-                <div className="min-w-0 flex-1 basis-32">
-                  <div className="font-medium">{ref.qty === 2 ? t("Double {name}", { name: lowerFirst(comp.name) }) : comp.name}</div>
-                  <div className="app-numbers text-sm text-muted">{[comp.portion && (ref.qty === 2 ? `2 × ${comp.portion}` : comp.portion), formatCalories(comp.nutrients.calories * ref.qty)].filter(Boolean).join(" · ")}</div>
+              <li key={comp.id} className="flex min-h-[3.75rem] flex-wrap items-center gap-x-2 gap-y-1 py-1.5 ps-3.5 pe-1">
+                <div className="min-w-0 flex-1 basis-[5.5rem] py-1">
+                  <div className="text-base font-semibold leading-snug">{ref.qty === 2 ? t("Double {name}", { name: lowerFirst(comp.name) }) : comp.name}</div>
+                  {/* the portion and the calories each stay on one line; the line breaks between them, after the "·" */}
+                  <div className="app-numbers mt-0.5 font-mono text-[0.75rem] leading-snug text-muted">
+                    {[comp.portion && (ref.qty === 2 ? `2 × ${comp.portion}` : comp.portion), formatCalories(comp.nutrients.calories * ref.qty)].filter(Boolean).map((part, k, all) => (
+                      <Fragment key={k}><span className="whitespace-nowrap">{part}{k < all.length - 1 && " ·"}</span>{k < all.length - 1 && " "}</Fragment>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap items-center">
+                <div className="ms-auto flex shrink-0 items-center">
                   {comp.allowDouble && (
-                    <button type="button" aria-pressed={ref.qty === 2} aria-label={t("Double {name}", { name: lowerFirst(comp.name) })} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`min-h-11 rounded-full px-3.5 text-sm font-bold ${ref.qty === 2 ? "bg-accent-soft text-accent" : "text-muted hover:bg-soft-strong"}`}>{t("Double")}</button>
+                    <button type="button" aria-pressed={ref.qty === 2} aria-label={t("Double {name}", { name: lowerFirst(comp.name) })} onClick={() => onDouble(comp.id, ref.qty !== 2)} className={`me-0.5 min-h-9 rounded-full px-3.5 text-sm font-bold transition ${ref.qty === 2 ? "bg-sun text-on-accent" : "bg-white text-foreground hover:bg-soft-strong"} relative before:absolute before:inset-x-0 before:-inset-y-1 before:content-['']`}>{t("Double")}</button>
                   )}
                   {swapOptions(ix, line, comp.id).length > 0 && (
-                    <button type="button" aria-label={t("Swap {name}", { name: comp.name })} onClick={() => onSwap(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong"><SwapIcon className="h-5 w-5" /></button>
+                    <button type="button" aria-label={t("Swap {name}", { name: comp.name })} onClick={() => onSwap(comp.id)} className={ICON_BUTTON}><SwapIcon className="h-5 w-5" /></button>
                   )}
-                  <button type="button" aria-label={t("Remove {name}", { name: comp.name })} disabled={line.components.length === 1} onClick={() => onRemove(comp.id)} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:bg-soft-strong disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
+                  <button type="button" aria-label={t("Remove {name}", { name: comp.name })} disabled={line.components.length === 1} onClick={() => onRemove(comp.id)} className={ICON_BUTTON}><MinusIcon className="h-5 w-5" /></button>
                 </div>
               </li>
             ))}
@@ -318,7 +340,7 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
         </section>
       ))}
       {addableComponents(ix, line).size > 0 && (
-        <Button variant="ghost" className="mt-3" onClick={onAdd}><PlusIcon className="h-5 w-5" /> {t("Add ingredient")}</Button>
+        <Button variant="ghost" className="mt-2 -ms-3" onClick={onAdd}><PlusIcon className="h-5 w-5" /> {t("Add ingredient")}</Button>
       )}
     </div>
   );
@@ -330,25 +352,25 @@ function ItemLineEditor({ ix, line, onQty, onToggle }: { ix: ChainIndex; line: I
   if (!item) return null;
   const total = lineNutrients(ix, line);
   return (
-    <div className="mt-3">
+    <div className="mt-3.5">
       <div className="flex items-center justify-between gap-3">
-        <span className="app-numbers text-sm text-muted">{total ? formatCalories(total.calories) : ""}</span>
+        <span className="app-numbers font-mono text-[0.8125rem] text-muted">{total ? formatCalories(total.calories) : ""}</span>
         <div className="flex items-center gap-1" role="group" aria-label={t("Quantity")}>
-          <button type="button" aria-label={t("Decrease quantity")} disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("Decrease quantity")} disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
           <span className="app-numbers w-8 text-center text-lg font-semibold" aria-live="polite">{line.qty}</span>
-          <button type="button" aria-label={t("Increase quantity")} onClick={() => onQty(line.qty + 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full"><PlusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("Increase quantity")} onClick={() => onQty(line.qty + 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95"><PlusIcon className="h-5 w-5" /></button>
         </div>
       </div>
       {item.modifiers.length > 0 && (
-        <ul className="mt-3 inset-card divide-y divide-line overflow-hidden rounded-2xl">
+        <ul className={`mt-3.5 ${INSET_LIST}`}>
           {item.modifiers.map((m) => {
             const on = line.modifierIds.includes(m.id);
             return (
               <li key={m.id}>
-                <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 px-3 py-2">
+                <label className="flex min-h-12 cursor-pointer items-center justify-between gap-3 px-3.5 py-2">
                   <span>
-                    <span className="block font-medium">{m.label}</span>
-                    <span className="app-numbers block text-sm text-muted">{m.kind === "remove" ? "−" : "+"}{formatCalories(m.nutrients.calories)}</span>
+                    <span className="block text-base font-semibold leading-snug">{m.label}</span>
+                    <span className="app-numbers mt-0.5 block font-mono text-[0.75rem] text-muted">{m.kind === "remove" ? "−" : "+"}{formatCalories(m.nutrients.calories)}</span>
                   </span>
                   <input type="checkbox" checked={on} onChange={() => onToggle(m.id)} className="h-5 w-5 accent-[var(--accent)]" />
                 </label>
@@ -381,19 +403,21 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
     const list = swapOptions(ix, line, picker.componentId).filter(fitComponent);
     optionGroups.push({ title: t("Swap {name} for", { name: ix.components.get(picker.componentId)?.name ?? "" }), items: list });
   }
+  // The choices are white rows on the sheet, each a full-width button with the portion under the name and the calories at the end.
+  const choice = "app-numbers flex min-h-14 w-full items-center justify-between gap-3 px-4 py-3 text-start transition hover:bg-soft-strong active:bg-soft-strong";
   return (
     <>
       <Sheet open={picker?.type === "add" || picker?.type === "swap"} onClose={onClose} title={picker?.type === "swap" ? t("Swap ingredient") : t("Add ingredient")}>
         {dietChip}
         {optionGroups.filter((g) => g.items.length > 0).map((g) => (
-          <section key={g.title} className="mb-3">
-            <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{g.title}</h3>
-            <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
+          <section key={g.title} className="mb-5">
+            <h3 className={`mb-2 ${SMALL_LABEL}`}>{g.title}</h3>
+            <ul className={SHEET_LIST}>
               {g.items.map((c) => (
                 <li key={c.id}>
-                  <button type="button" onClick={() => onPickComponent(c.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-start hover:bg-soft-strong">
-                    <span><span className="block font-medium">{c.name}</span>{c.portion && <span className="block text-sm text-muted">{c.portion}</span>}</span>
-                    <span className="text-sm text-muted">{formatCalories(c.nutrients.calories)}</span>
+                  <button type="button" onClick={() => onPickComponent(c.id)} className={choice}>
+                    <span className="min-w-0"><span className="block text-base font-semibold leading-snug">{c.name}</span>{c.portion && <span className="mt-0.5 block font-mono text-[0.75rem] text-muted">{c.portion}</span>}</span>
+                    <span className="shrink-0 font-mono text-[0.8125rem] text-muted">{formatCalories(c.nutrients.calories)}</span>
                   </button>
                 </li>
               ))}
@@ -406,14 +430,14 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
         {ix.chain.categories.map((cat) => {
           const items = ix.chain.items.filter((i) => i.category === cat && (!diet || passesDiet(i, prefs)));
           return items.length === 0 ? null : (
-            <section key={cat} className="mb-3">
-              <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">{cat}</h3>
-              <ul className="inset-card divide-y divide-line overflow-hidden rounded-2xl">
+            <section key={cat} className="mb-5">
+              <h3 className={`mb-2 ${SMALL_LABEL}`}>{cat}</h3>
+              <ul className={SHEET_LIST}>
                 {items.map((i) => (
                   <li key={i.id}>
-                    <button type="button" onClick={() => onPickItem(i.id)} className="app-numbers flex min-h-12 w-full items-center justify-between gap-3 px-3 py-2 text-start hover:bg-soft-strong">
-                      <span className="font-medium">{i.name}</span>
-                      <span className="text-sm text-muted">{formatCalories(i.nutrients.calories)}</span>
+                    <button type="button" onClick={() => onPickItem(i.id)} className={choice}>
+                      <span className="min-w-0 text-base font-semibold leading-snug">{i.name}</span>
+                      <span className="shrink-0 font-mono text-[0.8125rem] text-muted">{formatCalories(i.nutrients.calories)}</span>
                     </button>
                   </li>
                 ))}

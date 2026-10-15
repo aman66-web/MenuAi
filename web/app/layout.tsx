@@ -48,9 +48,15 @@ export const metadata: Metadata = {
 };
 
 // Page chrome lives in the route-group layouts: app/(site) for the marketing site, app/app for the web app.
+// suppressHydrationWarning: the app's inline script sets <html>'s lang, dir and text size (font-size) before the first paint, on
+// purpose, so those attributes differ from the server's copy. It applies to <html>'s own attributes only, not to the page inside.
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${sansExt.variable} ${mono.variable} ${serif.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sans.variable} ${sansExt.variable} ${mono.variable} ${serif.variable} h-full antialiased`}
+    >
       <body className="min-h-full">{children}</body>
     </html>
   );

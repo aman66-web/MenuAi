@@ -1,12 +1,16 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { CheckIcon, ChevronsRightIcon } from "@/app/app/_components/icons";
 
 type State = "idle" | "sending" | "done" | "error";
 
-export function WaitlistForm() {
+// `tone` is the card the form sits on: "light" (a white or light grey card) or "dark" (the landing page's black card). The words,
+// fields and states are the same in both; only the colours change so everything keeps its contrast.
+export function WaitlistForm({ tone = "light" }: { tone?: "light" | "dark" }) {
   const [state, setState] = useState<State>("idle");
   const [message, setMessage] = useState("");
+  const dark = tone === "dark";
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -37,15 +41,16 @@ export function WaitlistForm() {
 
   if (state === "done") {
     return (
-      <p role="status" className="rounded-3xl bg-accent-soft px-5 py-4 font-semibold">
-        You&apos;re on the list. We&apos;ll email you once, on launch day.
+      <p role="status" className="flex items-center gap-3 rounded-[1.25rem] bg-white px-4 py-3.5 text-base font-semibold text-foreground">
+        <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sun text-on-accent"><CheckIcon className="h-5 w-5" strokeWidth={2.4} /></span>
+        <span>You&apos;re on the list. We&apos;ll email you once, on launch day.</span>
       </p>
     );
   }
 
   return (
     <form onSubmit={submit} className="w-full max-w-md">
-      <div className="flex flex-col sm:flex-row gap-2">
+      <div className="flex flex-wrap gap-2">
         <label htmlFor="email" className="sr-only">Email address</label>
         <input
           id="email"
@@ -54,19 +59,21 @@ export function WaitlistForm() {
           required
           autoComplete="email"
           placeholder="you@example.com"
-          className="min-h-12 flex-1 rounded-full border border-line bg-background px-5 text-base outline-none placeholder:text-muted focus:border-accent"
+          className={`min-h-14 min-w-0 flex-1 basis-[14rem] rounded-full bg-white px-[20px] text-base text-foreground outline-none placeholder:text-muted focus:ring-2 ${dark ? "focus:ring-[var(--sun)]" : "border border-line focus:border-accent focus:ring-accent"}`}
         />
         {/* Honeypot: hidden from people, tempting to bots. */}
         <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <button
           type="submit"
           disabled={state === "sending"}
-          className="btn-sun glow-shadow min-h-12 rounded-full px-6 font-bold text-on-accent transition active:scale-[0.97] disabled:opacity-60"
+          // The knob is an icon and the paddings frame it, so they are px-sized: at 200% text the words still get the room to wrap whole.
+          className={`group inline-flex min-h-14 min-w-0 grow items-center gap-[12px] rounded-full p-[6px] pe-[24px] text-base font-semibold transition active:scale-[0.98] disabled:opacity-60 ${dark ? "bg-white text-foreground focus-visible:outline-[var(--sun)]" : "bg-foreground text-background hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]"}`}
         >
-          {state === "sending" ? "Joining…" : "Get early access"}
+          <span aria-hidden className="grid h-[44px] w-[44px] shrink-0 place-items-center rounded-full bg-sun text-on-accent transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5"><ChevronsRightIcon className="h-5 w-5" strokeWidth={2.2} /></span>
+          <span className="min-w-0 flex-1 text-center">{state === "sending" ? "Joining…" : "Get early access"}</span>
         </button>
       </div>
-      <p className="mt-2 text-sm text-muted" aria-live="polite">
+      <p className={`mt-3 text-sm font-medium leading-relaxed ${state === "error" ? (dark ? "font-semibold text-white" : "font-semibold text-foreground") : dark ? "text-[#c9d1cc]" : "text-muted"}`} aria-live="polite">
         {state === "error" ? message : "One email when we launch. No spam, unsubscribe any time."}
       </p>
     </form>

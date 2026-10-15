@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import {
   chainRequestPayload, REPORT_FIELDS, REPORT_THANKS, reportPayload, REQUEST_THANKS, SUPPORT_THANKS, supportPayload, type ReportField,
@@ -10,16 +10,63 @@ import { outbox } from "@/lib/mm/stores";
 import type { MenuItem, Nutrients } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
-import { Button, Field, inputClass, Sheet } from "./ui";
+import { CheckIcon, ChevronRightIcon } from "./icons";
+import { Button, inputClass, Sheet } from "./ui";
 
 // SPEC §12: every submission is saved in the outbox first, so the confirmation shows at once and sending is invisible.
+
+// ---- form pieces in Home's language (founder 2026-10-15: "the rest of the app should match that elegance") ----
+// On the white sheet each field is a soft grey box (the shared inputClass: the light fill anything on a white surface gets, so it is
+// plainly a place to type) under a sentence-case label (like ui.tsx Field), with its hint beneath. The main action is the black pill; a sent form
+// shows a lime tick. Words and roles are unchanged.
+
+const labelClass = "mb-2 block text-[0.9375rem] font-semibold leading-snug";
+const fieldClass = `block ${inputClass}`;
+const hintClass = "mt-2 block text-[0.9375rem] leading-snug text-muted";
+const submitClass = "min-h-13";
+
+/** The fields of a form, evenly spaced. */
+function Group({ children }: { children: ReactNode }) {
+  return <div className="space-y-4">{children}</div>;
+}
+
+/** One field: the label above it, both inside the same <label> so a tap on the label focuses the field. */
+function Row({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
+  return (
+    <label className="block">
+      <span className={labelClass}>{label}</span>
+      {children}
+      {hint && <span className={hintClass}>{hint}</span>}
+    </label>
+  );
+}
+
+/** A select drawn like the other fields, with our own chevron so it looks the same in every browser. */
+function SelectField({ children, ...rest }: React.SelectHTMLAttributes<HTMLSelectElement>) {
+  return (
+    <span className="relative block">
+      <select className={`${fieldClass} appearance-none pe-11`} {...rest}>{children}</select>
+      <ChevronRightIcon aria-hidden className="pointer-events-none absolute end-4 top-1/2 h-5 w-5 -translate-y-1/2 rotate-90 rtl:-rotate-90 text-muted" />
+    </span>
+  );
+}
+
+/** The lime tick above a confirmation. */
+function Tick() {
+  return (
+    <span aria-hidden className="bg-sun mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full text-on-accent">
+      <CheckIcon className="h-6 w-6" strokeWidth={2.5} />
+    </span>
+  );
+}
 
 function Done({ message, onClose }: { message: string; onClose: () => void }) {
   const t = useT();
   return (
-    <div className="py-6 text-center">
-      <p role="status" className="text-lg font-semibold">{message}</p>
-      <Button className="mt-5" full onClick={onClose}>{t("Done")}</Button>
+    <div className="pb-2 pt-4 text-center">
+      <Tick />
+      <p role="status" className="mx-auto max-w-[20rem] text-xl font-[800] leading-snug tracking-[-0.01em]">{message}</p>
+      <Button className={`mt-6 ${submitClass}`} full onClick={onClose}>{t("Done")}</Button>
     </div>
   );
 }
@@ -44,7 +91,7 @@ function RequestForm({ onClose, initialName }: { onClose: () => void; initialNam
   if (sent) return <Done message={t(REQUEST_THANKS)} onClose={onClose} />;
   return (
     <form
-      className="space-y-4 pb-2"
+      className="space-y-5 pb-2"
       onSubmit={async (e) => {
         e.preventDefault();
         if (!valid || busy) return;
@@ -54,10 +101,12 @@ function RequestForm({ onClose, initialName }: { onClose: () => void; initialNam
         setSent(true);
       }}
     >
-      <Field label={t("Which restaurant?")} hint={t("The most-requested chains get added first.")}>
-        <input className={inputClass} value={name} onChange={(e) => setName(e.target.value)} maxLength={80} autoFocus autoComplete="off" />
-      </Field>
-      <Button type="submit" full disabled={!valid || busy}>{t("Send request")}</Button>
+      <Group>
+        <Row label={t("Which restaurant?")} hint={t("The most-requested chains get added first.")}>
+          <input className={fieldClass} value={name} onChange={(e) => setName(e.target.value)} maxLength={80} autoFocus autoComplete="off" />
+        </Row>
+      </Group>
+      <Button type="submit" full className={submitClass} disabled={!valid || busy}>{t("Send request")}</Button>
     </form>
   );
 }
@@ -103,7 +152,7 @@ function ReportForm({ target, onClose }: { target: ReportTarget; onClose: () => 
 
   return (
     <form
-      className="space-y-4 pb-2"
+      className="space-y-5 pb-2"
       onSubmit={async (e) => {
         e.preventDefault();
         if (busy) return;
@@ -136,33 +185,51 @@ function ReportForm({ target, onClose }: { target: ReportTarget; onClose: () => 
         setSent(true);
       }}
     >
-      <p className="text-sm text-muted">{t("Something look wrong at {chain}? Tell us what the menu board or the chain's guide says.", { chain: target.chainName })}</p>
-      {!target.item && (
-        <Field label={t("Item")}>
-          <select className={inputClass} value={itemId} onChange={(e) => setItemId(e.target.value)} required>
-            <option value="">{t("Choose an item…")}</option>
-            {target.items.map((i) => (<option key={i.id} value={i.id}>{i.name}</option>))}
-          </select>
-        </Field>
-      )}
-      {target.item && <p className="text-base font-semibold">{target.item.name}</p>}
-      <Field label={t("Which number?")}>
-        <select className={inputClass} value={field} onChange={(e) => setField(e.target.value as ReportField)}>
-          {REPORT_FIELDS.map((f) => (<option key={f.value} value={f.value}>{t(f.label)}</option>))}
-        </select>
-      </Field>
-      {shown !== undefined && <p className="app-numbers text-sm text-muted"><Rich text={t("We show: {value}")} values={{ value: <span className="font-semibold text-foreground">{shown}</span> }} /></p>}
-      <Field label={t("Correct value")}>
-        <input className={inputClass} inputMode="decimal" value={value} onChange={(e) => setValue(e.target.value)} placeholder={t("e.g. 640")} />
-      </Field>
-      <Field label={t("Note (optional)")}>
-        <textarea className={`${inputClass} py-2`} rows={3} maxLength={1000} value={note} onChange={(e) => setNote(e.target.value)} />
-      </Field>
-      <Field label={t("Photo of the menu board (optional)")}>
-        <input type="file" accept="image/*" onChange={(e) => setPhoto(e.target.files?.[0] ?? null)} className="block w-full text-sm" />
-      </Field>
-      {error && <p role="alert" className="text-sm font-medium text-accent">{error}</p>}
-      <Button type="submit" full disabled={busy}>{t("Send report")}</Button>
+      <p className="text-[0.9375rem] leading-snug text-muted">{t("Something look wrong at {chain}? Tell us what the menu board or the chain's guide says.", { chain: target.chainName })}</p>
+      <Group>
+        {target.item ? (
+          <div>
+            <span className={labelClass}>{t("Item")}</span>
+            <p className="text-lg font-bold leading-snug tracking-[-0.01em]">{target.item.name}</p>
+          </div>
+        ) : (
+          <Row label={t("Item")}>
+            <SelectField value={itemId} onChange={(e) => setItemId(e.target.value)} required>
+              <option value="">{t("Choose an item…")}</option>
+              {target.items.map((i) => (<option key={i.id} value={i.id}>{i.name}</option>))}
+            </SelectField>
+          </Row>
+        )}
+        {/* "We show" sits outside the <label>, so the select's name stays "Which number?" whatever the figure. */}
+        <div>
+          <Row label={t("Which number?")}>
+            <SelectField value={field} onChange={(e) => setField(e.target.value as ReportField)}>
+              {REPORT_FIELDS.map((f) => (<option key={f.value} value={f.value}>{t(f.label)}</option>))}
+            </SelectField>
+          </Row>
+          {shown !== undefined && (
+            <p className={`app-numbers ${hintClass}`}>
+              <Rich text={t("We show: {value}")} values={{ value: <span className="font-mono font-semibold text-foreground">{shown}</span> }} />
+            </p>
+          )}
+        </div>
+        <Row label={t("Correct value")}>
+          <input className={`${fieldClass} app-numbers`} inputMode="decimal" value={value} onChange={(e) => setValue(e.target.value)} placeholder={t("e.g. 640")} />
+        </Row>
+        <Row label={t("Note (optional)")}>
+          <textarea className={`${fieldClass} resize-none py-3 leading-snug`} rows={3} maxLength={1000} value={note} onChange={(e) => setNote(e.target.value)} />
+        </Row>
+        <Row label={t("Photo of the menu board (optional)")}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setPhoto(e.target.files?.[0] ?? null)}
+            className="block min-h-11 w-full rounded-full text-[0.9375rem] text-muted file:me-3 file:min-h-11 file:cursor-pointer file:rounded-full file:border-0 file:bg-soft-strong file:px-5 file:py-2.5 file:text-[0.9375rem] file:font-semibold file:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          />
+        </Row>
+      </Group>
+      {error && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug text-accent">{error}</p>}
+      <Button type="submit" full className={submitClass} disabled={busy}>{t("Send report")}</Button>
     </form>
   );
 }
@@ -176,10 +243,17 @@ export function ContactForm({ onSent }: { onSent?: () => void }) {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const valid = message.trim().length >= 5 && message.trim().length <= 4000;
-  if (sent) return <p role="status" className="py-3 text-base font-semibold">{t(SUPPORT_THANKS)}</p>;
+  if (sent) {
+    return (
+      <div className="rounded-[1.25rem] bg-soft px-5 py-7 text-center">
+        <Tick />
+        <p role="status" className="mx-auto max-w-[20rem] text-xl font-[800] leading-snug tracking-[-0.01em]">{t(SUPPORT_THANKS)}</p>
+      </div>
+    );
+  }
   return (
     <form
-      className="space-y-4"
+      className="space-y-5"
       onSubmit={async (e) => {
         e.preventDefault();
         if (!valid || busy) return;
@@ -189,13 +263,15 @@ export function ContactForm({ onSent }: { onSent?: () => void }) {
         onSent?.();
       }}
     >
-      <Field label={t("Message")} hint={t("5 to 4,000 characters.")}>
-        <textarea className={`${inputClass} py-2`} rows={5} maxLength={4000} value={message} onChange={(e) => setMessage(e.target.value)} />
-      </Field>
-      <Field label={t("Email (optional)")} hint={t("Only so we can reply.")}>
-        <input className={inputClass} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </Field>
-      <Button type="submit" full disabled={!valid || busy}>{t("Send message")}</Button>
+      <Group>
+        <Row label={t("Message")} hint={t("5 to 4,000 characters.")}>
+          <textarea className={`${fieldClass} resize-none py-3 leading-snug`} rows={5} maxLength={4000} value={message} onChange={(e) => setMessage(e.target.value)} />
+        </Row>
+        <Row label={t("Email (optional)")} hint={t("Only so we can reply.")}>
+          <input className={fieldClass} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </Row>
+      </Group>
+      <Button type="submit" full className={submitClass} disabled={!valid || busy}>{t("Send message")}</Button>
     </form>
   );
 }

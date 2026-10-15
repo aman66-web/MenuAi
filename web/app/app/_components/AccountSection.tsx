@@ -21,6 +21,9 @@ const SIGN_IN_MESSAGES: Record<string, string> = {
   busy: tk("Too many tries. Please wait a few minutes and try again."),
 };
 
+/** A quiet note inside the card (what just happened): the grey fill, no outline. */
+const noteClass = "mt-3.5 rounded-[0.875rem] bg-soft-strong px-3.5 py-3 text-[0.9375rem] leading-snug";
+
 export function AccountSection() {
   const t = useT();
   const user = useAccountUser();
@@ -46,9 +49,9 @@ export function AccountSection() {
   if (!user) {
     return (
       <Card className="p-4">
-        <p className="text-base">{t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
-        {message && <p role="status" className="mt-3 rounded-2xl border border-line bg-soft p-3 text-sm">{t(message)}</p>}
-        <Button full className="mt-3 min-h-12 text-base" onClick={() => { setMessage(null); setSignInOpen(true); }}>{t("Sign in")}</Button>
+        <p className="text-[0.9375rem] leading-snug">{t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
+        {message && <p role="status" className={noteClass}>{t(message)}</p>}
+        <Button full className="mt-4 min-h-12 text-base" onClick={() => { setMessage(null); setSignInOpen(true); }}>{t("Sign in")}</Button>
         <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
       </Card>
     );
@@ -89,21 +92,29 @@ export function AccountSection() {
     }
   }
 
+  // A round mark with the first letter of the address: decorative, like a contact's initial.
+  const initial = (user.email ?? "").trim().charAt(0).toUpperCase();
+
   return (
     <Card className="p-4">
-      <p className="text-sm text-muted">{t("Signed in as")}</p>
-      <p className="break-all text-lg font-bold">{user.email ?? t("your account")}</p>
-      <p className="mt-2 text-sm text-muted" role="status">{statusLine}</p>
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="flex items-center gap-3.5">
+        <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-soft-strong text-[1.0625rem] font-[800]">{initial || "·"}</span>
+        <div className="min-w-0 flex-1">
+          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{t("Signed in as")}</p>
+          <p className="mt-0.5 break-all text-[1.0625rem] font-bold leading-snug">{user.email ?? t("your account")}</p>
+        </div>
+      </div>
+      <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted" role="status">{statusLine}</p>
+      <div className="mt-3.5 flex flex-wrap gap-2.5">
         <Button variant="secondary" disabled={busy || status === "syncing"} onClick={() => void syncEngine().syncNow()}>{t("Sync now")}</Button>
         <Button variant="secondary" disabled={busy} onClick={() => void out()}>{t("Sign out")}</Button>
       </div>
-      {message && <p role="status" className="mt-3 rounded-2xl border border-line bg-soft p-3 text-sm">{message}</p>}
-      <button type="button" className="mt-4 min-h-11 text-sm font-semibold text-muted underline" onClick={() => setDeleteOpen(true)}>{t("Delete my account")}</button>
+      {message && <p role="status" className={noteClass}>{message}</p>}
+      <button type="button" className="mt-3 min-h-11 text-[0.9375rem] font-semibold text-muted underline underline-offset-4 hover:text-foreground" onClick={() => setDeleteOpen(true)}>{t("Delete my account")}</button>
 
       <Sheet open={deleteOpen} onClose={() => setDeleteOpen(false)} title={t("Delete my account")}>
-        <p className="text-base">{t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}</p>
-        <div className="mt-4 space-y-2 pb-2">
+        <p className="pt-1 text-base leading-snug">{t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}</p>
+        <div className="mt-5 space-y-2 pb-2">
           <Button full variant="danger" className="min-h-12 text-base" disabled={busy} onClick={() => void remove()}>{t("Delete my account")}</Button>
           <Button full variant="ghost" onClick={() => setDeleteOpen(false)}>{t("Keep my account")}</Button>
         </div>

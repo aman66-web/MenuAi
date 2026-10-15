@@ -14,11 +14,11 @@ import { BestForYou } from "../_components/BestForYou";
 import { DietPicker, dietWords } from "../_components/DietPicker";
 import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
-import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, InfoIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
-import { MacroLine } from "../_components/Nutrition";
+import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { ReportSheet } from "../_components/Submit";
-import { Badge, Button, Chip, EmptyState, ErrorBox, inputClass, SampleBadge, Sheet, Spinner } from "../_components/ui";
+import { Badge, Button, Chip, EmptyState, ErrorBox, SampleBadge, Sheet, Spinner } from "../_components/ui";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
 import { useT } from "../_lib/i18n";
@@ -29,6 +29,15 @@ import { Rich } from "../_lib/Rich";
 // the same big-button picker as Settings, instead of a row of chips.
 // Real menus run to 650 rows, so the full menu has a sticky search + category bar, long menus open with each section
 // trimmed (tap to show the rest), off-screen rows skip layout (.cv-row), and a small button brings Best for you back.
+// Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. White cards with 20 px corners on the
+// grey page, small spaced capitals for labels, a black pill for the selected meal, the favourite star in a small grey circle like Home's
+// calendar button; each menu section is one white card with its dishes divided by fine lines (not a card per dish), the search bar is
+// flat grey like the page, and "Back to Best for you" is a black pill with a lime knob.
+
+/** "Show all 12 in Burgers": the last row of a section's card, in the accent green. */
+const MORE_ROW = "flex min-h-12 w-full items-center justify-center gap-1.5 px-4 py-3 text-center text-[0.9375rem] font-semibold text-accent transition hover:bg-[var(--fill)] active:bg-[var(--fill)]";
+/** A link in running text: underlined, but quietly. */
+const QUIET_LINK = "underline decoration-[color-mix(in_srgb,currentColor_35%,transparent)] underline-offset-[3px] hover:decoration-current";
 
 export function ChainScreen({ chainId }: { chainId: string }) {
   const t = useT();
@@ -103,111 +112,115 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+        {/* a small grey circle like Home's calendar button, inside a full 44 px tap area */}
         <button
           type="button"
           onClick={() => toggleFavorite(chain.id)}
           aria-pressed={isFavorite}
           aria-label={isFavorite ? t("Remove {chain} from favourites", { chain: chain.name }) : t("Add {chain} to favourites", { chain: chain.name })}
-          className={`glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong ${isFavorite ? "text-accent" : "text-muted"}`}
+          className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
         >
-          <StarIcon filled={isFavorite} />
+          <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] ${isFavorite ? "text-accent" : "text-foreground"}`}>
+            <StarIcon filled={isFavorite} />
+          </span>
         </button>
       </div>
 
-      <div className="hero-card mt-4 overflow-hidden rounded-[2rem] p-5">
+      <div className="hero-card mt-4 rounded-[1.25rem] p-4">
         <div className="flex items-center gap-4">
           <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="xl" />
           <div className="min-w-0">
-            <h1 className="text-[2rem] font-extrabold leading-[1.05] tracking-[-0.03em]">{chain.name}</h1>
-            <p className="kicker mt-0.5 flex flex-wrap items-center gap-x-2">{chain.cuisine ? t(chain.cuisine) : null} {chain.sample && <SampleBadge />}</p>
+            <h1 className="text-[2rem] font-[800] leading-[1.05] tracking-[-0.02em] [overflow-wrap:anywhere]">{chain.name}</h1>
+            {(chain.cuisine || chain.sample) && <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">{chain.cuisine ? <span className={SMALL_LABEL}>{t(chain.cuisine)}</span> : null} {chain.sample && <SampleBadge />}</p>}
           </div>
         </div>
         {/* The data's limits come first: users must see them before trusting a number. */}
-        <div className="mt-4 flex gap-3 border-t border-line pt-4 text-base">
-          <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-          <div className="min-w-0 space-y-1.5">
-            {chain.note && <p>{chain.note}</p>}
-            {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks, order builder or logging for this restaurant.", { chain: chain.name })}</p>}
-            {halal && (
-              <div>
-                <p className="flex flex-wrap items-center gap-x-2">
-                  <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span>
-                  <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 font-semibold text-accent underline underline-offset-2">
-                    {t("What {chain} says", { chain: chain.name })}
-                    <ChevronRightIcon className={`h-4 w-4 transition-transform ${halalOpen ? "-rotate-90" : "rotate-90"}`} />
-                  </button>
+        <div className="mt-4 space-y-3 border-t border-line pt-4 text-[0.9375rem] leading-snug">
+          {chain.note && <p>{chain.note}</p>}
+          {caloriesOnly && <p className="font-semibold">{t("{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks, order builder or logging for this restaurant.", { chain: chain.name })}</p>}
+          {halal && (
+            <div>
+              <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span>
+                <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 rounded-full bg-[var(--fill)] ps-4 pe-3 font-semibold text-accent transition hover:bg-soft-strong active:scale-[0.98]">
+                  {t("What {chain} says", { chain: chain.name })}
+                  <ChevronRightIcon className={`h-4 w-4 transition-transform ${halalOpen ? "-rotate-90" : "rotate-90"}`} />
+                </button>
+              </p>
+              {halalOpen && (
+                <p id="halal-quote" className="mt-2 rounded-2xl bg-[var(--fill)] px-4 py-3">
+                  &ldquo;{halal.statement}&rdquo;{" "}
+                  <a href={halal.url} target="_blank" rel="noopener noreferrer" className={`text-muted ${QUIET_LINK}`}>{t("{chain}'s website", { chain: chain.name })}</a>
                 </p>
-                {halalOpen && (
-                  <p id="halal-quote" className="mt-1 rounded-2xl bg-soft px-3 py-2">
-                    &ldquo;{halal.statement}&rdquo;{" "}
-                    <a href={halal.url} target="_blank" rel="noopener noreferrer" className="text-muted underline underline-offset-2">{t("{chain}'s website", { chain: chain.name })}</a>
-                  </p>
-                )}
-              </div>
-            )}
-            <p className="app-numbers text-muted">
-              <Rich
-                text={t("{items} from {source}, checked {date}.")}
-                values={{
-                  items: <span className="font-semibold text-foreground">{t("{n} items", { n: chain.items.length })}</span>,
-                  source: <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{chain.source.title}</a>,
-                  date: formatDate(chain.source.checkedOn, t),
-                }}
-              />
-            </p>
-          </div>
+              )}
+            </div>
+          )}
+          <p className="app-numbers text-sm leading-snug text-muted">
+            <Rich
+              text={t("{items} from {source}, checked {date}.")}
+              values={{
+                items: <span className="font-semibold text-foreground">{t("{n} items", { n: chain.items.length })}</span>,
+                source: <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className={QUIET_LINK}>{chain.source.title}</a>,
+                date: formatDate(chain.source.checkedOn, t),
+              }}
+            />
+          </p>
         </div>
       </div>
       {recent.length > 0 && (
-        <section aria-labelledby="recent-heading" className="mt-5">
-          <h2 id="recent-heading" className="mb-2 flex items-center gap-2.5 text-xl font-extrabold tracking-tight">{t("Recently viewed")}</h2>
+        <section aria-labelledby="recent-heading" className="mt-7">
+          <h2 id="recent-heading" className="mb-3 text-xl font-[800] tracking-[-0.01em]">{t("Recently viewed")}</h2>
           <ItemList items={recent} chainId={chain.id} now={now} />
         </section>
       )}
 
       {/* One card: what Best for you is picked for (the meal and the person's diet), then the picks. The diet also narrows the full menu below. */}
-      <section aria-labelledby="best-heading" ref={bestRef} className="glass mt-5 rounded-[1.75rem] p-4">
+      <section aria-labelledby="best-heading" ref={bestRef} className={`glass rounded-[1.25rem] p-4 ${recent.length > 0 ? "mt-7" : "mt-3.5"}`}>
         {!caloriesOnly && (
           <>
-            <h2 id="best-heading" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight">{t("Best for you")}</h2>
-            <p className="mb-1.5 mt-3 text-base font-bold">{t("Which meal?")}</p>
-            <div className="flex flex-wrap gap-1 rounded-[1.5rem] bg-soft p-1" role="group" aria-label={t("Meal")}>
-              {MEALS.map((m) => (
-                <Chip key={m} segment className="flex-auto justify-center whitespace-nowrap px-3" selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
-              ))}
+            <h2 id="best-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Best for you")}</h2>
+            <p className={`mb-2 mt-4 ${SMALL_LABEL}`}>{t("Which meal?")}</p>
+            {/* Three across when they fit; one under another at large text, so no meal ever breaks onto two lines (stacked, the
+                unselected meals are dark text like the shared segmented control's list, so they read as choices). */}
+            <div className="@container">
+              <div className="grid grid-cols-1 gap-1 rounded-[1.625rem] bg-[var(--fill)] p-1 @min-[18.5rem]:grid-cols-3" role="group" aria-label={t("Meal")}>
+                {MEALS.map((m) => (
+                  <Chip key={m} segment className={`w-full justify-center px-2 text-center [overflow-wrap:normal] ${meal === m ? "" : "@max-[18.5rem]:text-foreground"}`} selected={meal === m} onClick={() => setMeal(m)}>{t(MEAL_LABEL[m])}</Chip>
+                ))}
+              </div>
             </div>
           </>
         )}
-        <div className={`flex flex-wrap items-center gap-x-3 gap-y-2 ${caloriesOnly ? "" : "mt-3 border-t border-line pt-3"}`}>
-          <p className="min-w-0 flex-1 text-base"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
+        <div className={`flex flex-wrap items-center gap-x-3 gap-y-2 ${caloriesOnly ? "" : "mt-3"}`}>
+          <p className="min-w-0 flex-1 basis-40 text-[0.9375rem] leading-snug"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
           <Button variant="secondary" aria-haspopup="dialog" onClick={() => setDietOpen(true)}>{t("Change")}</Button>
         </div>
-        {caution && <p className="mt-2 text-base text-muted">{caution}</p>}
-        {prefs.halalOnly && !halal && <p className="mt-2 text-base text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
+        {caution && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{caution}</p>}
+        {prefs.halalOnly && !halal && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
         {avoiding > 0 && !hasAllergenData && (
-          <div role="note" className="mt-3 rounded-2xl bg-soft p-3 text-base">
+          <div role="note" className="mt-3 rounded-2xl bg-[var(--fill)] p-3.5 text-[0.9375rem] leading-snug">
             <p className="font-semibold">{t("{chain} hasn't published allergen details we can read, so its dishes can't be checked for allergies.", { chain: chain.name })}</p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
-              {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className="min-h-11 py-3 font-medium text-accent underline">{t("See its own allergen information")}</a>}
+              {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`min-h-11 py-3 font-semibold text-accent ${QUIET_LINK}`}>{t("See its own allergen information")}</a>}
               <Button variant="secondary" onClick={() => setPrefs({ ...prefs, avoidAllergens: [] })}>{t("Show all dishes")}</Button>
             </div>
           </div>
         )}
-        {!caloriesOnly && <div className="mt-4"><BestForYou bare index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} /></div>}
+        {!caloriesOnly && <div className="mt-5"><BestForYou bare index={index} meal={meal} preferences={prefs} onClearFilters={clearFilters} /></div>}
       </section>
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />
-        <div className="mt-4"><Button full onClick={() => setDietOpen(false)}>{t("Done")}</Button></div>
+        <div className="mt-5"><Button full onClick={() => setDietOpen(false)}>{t("Done")}</Button></div>
       </Sheet>
 
-      <div className="mb-2 mt-8 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        <h2 id="full-menu" className="flex items-center gap-2.5 whitespace-nowrap text-xl font-extrabold tracking-tight">{t("Full menu")}</h2>
-        <label className="flex items-center gap-2 text-base">
+      <div className="mb-3 mt-9 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <h2 id="full-menu" className="whitespace-nowrap text-xl font-[800] tracking-[-0.01em]">{t("Full menu")}</h2>
+        <label className="relative flex max-w-full items-center text-base">
           <span className="sr-only">{t("Sort by")}</span>
           <select
-            className={`${inputClass} min-h-12 w-auto py-0 text-base`}
+            className="min-h-11 max-w-full appearance-none truncate rounded-full bg-white ps-4 pe-10 text-[0.9375rem] font-semibold shadow-[var(--card-shadow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             value={sort}
             onChange={(e) => {
               setSort(e.target.value as SortKind);
@@ -217,11 +230,13 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           >
             {SORT_OPTIONS.filter((o) => !caloriesOnly || o.value === "menu" || o.value === "calories").map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
           </select>
+          <ChevronRightIcon aria-hidden className="pointer-events-none absolute end-4 h-4 w-4 rotate-90 text-muted" />
         </label>
       </div>
 
-      {/* Sticky: search this menu, and jump between its sections. */}
-      <div className="sticky top-0 z-10 -mx-5 border-b border-line bg-[color-mix(in_srgb,var(--background)_86%,transparent)] px-5 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] backdrop-blur-xl">
+      {/* Sticky: search this menu, and jump between its sections. Flat grey like the page with a hairline under it (no blur or shade), so a
+          card sliding beneath reads as passing under a toolbar, not as cut off. */}
+      <div className="sticky top-0 z-10 -mx-5 bg-background px-5 pb-3 pt-[max(0.5rem,env(safe-area-inset-top))] shadow-[0_1px_0_var(--line)]">
         <div className="relative">
           <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
@@ -245,57 +260,69 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         {showCategoryChips && <CategoryChips categories={sections.map((s) => s.category)} active={activeCategory} onJump={jumpToCategory} />}
       </div>
 
-      <p role="status" aria-live="polite" className="app-numbers mt-3 min-h-5 text-sm text-muted">
+      {/* Empty (and no height) until there's something to say; it stays in the page so a screen reader hears it change. */}
+      <p role="status" aria-live="polite" className="app-numbers mt-1 px-1 text-sm text-muted empty:mt-0">
         {searching ? (visible.length === 1 ? t("1 item matches") : t("{n} items match", { n: visible.length })) : anyFilter ? t("{n} of {total} items", { n: visible.length, total: chain.items.length }) : ""}
       </p>
 
-      {visible.length === 0 ? (
-        <EmptyState
-          title={searching ? t("Nothing on this menu matches “{query}”.", { query: query.trim() }) : t("Nothing here matches your filters.")}
-          action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>{t("Clear search")}</Button> : anyFilter ? <Button variant="secondary" onClick={clearFilters}>{t("Clear filters")}</Button> : undefined}
-        />
-      ) : grouped ? (
-        sections.map((s) => {
-          const open = !large || searching || expanded.has(s.category);
-          const shown = open ? s.items : s.items.slice(0, SECTION_PREVIEW_ITEMS);
-          const allExtras = s.items.every((i) => !i.rankable);
-          return (
-            <section key={s.category} id={sectionId(s.category)} data-category={s.category} aria-label={s.category} className="scroll-mt-36">
-              <div className="mb-2 mt-6 flex items-baseline justify-between gap-3">
-                <h3 className="text-lg font-extrabold tracking-tight">{s.category}</h3>
-                <span className="app-numbers rounded-full bg-soft-strong px-2.5 py-0.5 text-sm font-semibold text-muted">{s.items.length}</span>
-              </div>
-              {allExtras && <p className="-mt-1 mb-2 text-sm text-muted">{t("Not suggested in Best for you.")}</p>}
-              <ItemList items={shown} chainId={chain.id} now={now} />
-              {shown.length < s.items.length && (
-                <button
-                  type="button"
-                  onClick={() => setExpanded((e) => new Set(e).add(s.category))}
-                  className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-dashed border-line px-3 text-base font-semibold text-accent transition hover:bg-accent-soft"
-                >
-                  {t("Show all {n} in {section}", { n: s.items.length, section: s.category })}
+      <div className="mt-3">
+        {visible.length === 0 ? (
+          <EmptyState
+            title={searching ? t("Nothing on this menu matches “{query}”.", { query: query.trim() }) : t("Nothing here matches your filters.")}
+            action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>{t("Clear search")}</Button> : anyFilter ? <Button variant="secondary" onClick={clearFilters}>{t("Clear filters")}</Button> : undefined}
+          />
+        ) : grouped ? (
+          <div className="space-y-8">
+            {sections.map((s) => {
+              const open = !large || searching || expanded.has(s.category);
+              const shown = open ? s.items : s.items.slice(0, SECTION_PREVIEW_ITEMS);
+              const allExtras = s.items.every((i) => !i.rankable);
+              return (
+                <section key={s.category} id={sectionId(s.category)} data-category={s.category} aria-label={s.category} className="scroll-mt-36">
+                  <div className="mb-3 flex items-baseline justify-between gap-3">
+                    <h3 className="text-lg font-[800] leading-snug tracking-[-0.01em]">{s.category}</h3>
+                    <span className="app-numbers font-mono text-[0.8125rem] text-muted">{s.items.length}</span>
+                  </div>
+                  {allExtras && <p className="-mt-1.5 mb-3 text-sm text-muted">{t("Not suggested in Best for you.")}</p>}
+                  <ItemList
+                    items={shown}
+                    chainId={chain.id}
+                    now={now}
+                    footer={shown.length < s.items.length && (
+                      <button type="button" onClick={() => setExpanded((e) => new Set(e).add(s.category))} className={MORE_ROW}>
+                        {t("Show all {n} in {section}", { n: s.items.length, section: s.category })}
+                        <ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 rotate-90" />
+                      </button>
+                    )}
+                  />
+                </section>
+              );
+            })}
+          </div>
+        ) : (
+          <section aria-label={t("All items")}>
+            <ItemList
+              items={visible.slice(0, flatLimit)}
+              chainId={chain.id}
+              now={now}
+              footer={visible.length > flatLimit && (
+                <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className={MORE_ROW}>
+                  {t("Show {n} more", { n: Math.min(FLAT_PAGE, visible.length - flatLimit) })}
+                  <ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 rotate-90" />
                 </button>
               )}
-            </section>
-          );
-        })
-      ) : (
-        <section aria-label={t("All items")}>
-          <ItemList items={visible.slice(0, flatLimit)} chainId={chain.id} now={now} />
-          {visible.length > flatLimit && (
-            <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-dashed border-line px-3 text-base font-semibold text-accent transition hover:bg-accent-soft">
-              {t("Show {n} more", { n: Math.min(FLAT_PAGE, visible.length - flatLimit) })}
-            </button>
-          )}
-        </section>
-      )}
+            />
+          </section>
+        )}
+      </div>
 
-      <footer className="mt-10 space-y-2 border-t border-line pt-5 text-sm text-muted">
+      {/* pb-16: the last line (and "Report a number"'s tap area) clears the floating "Best for you" pill above the tab bar. */}
+      <footer className="mt-10 space-y-1.5 px-1 pb-16 text-sm leading-snug text-muted">
         <p>
           <Rich
             text={t("Source: {source}, checked {date}")}
             values={{
-              source: <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className="underline">{chain.source.title}</a>,
+              source: <a href={chain.source.url} target="_blank" rel="noopener noreferrer" className={QUIET_LINK}>{chain.source.title}</a>,
               date: formatDate(chain.source.checkedOn, t),
             }}
           />
@@ -303,7 +330,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <p>{t("Not affiliated with {chain}.", { chain: chain.name })}</p>
         <p>
           {t("Something look wrong?")}{" "}
-          <button type="button" className="min-h-11 font-medium text-accent underline" onClick={() => setReporting("any")}>{t("Report a number")}</button>
+          <button type="button" className={`min-h-11 font-semibold text-accent ${QUIET_LINK}`} onClick={() => setReporting("any")}>{t("Report a number")}</button>
         </p>
       </footer>
 
@@ -311,9 +338,9 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <button
           type="button"
           onClick={() => bestRef.current?.scrollIntoView({ behavior: smoothScroll(), block: "start" })}
-          className="glass sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.25rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 rounded-full bg-[var(--nav-bg)] px-5 text-sm font-bold text-accent shadow-[0_12px_30px_-12px_rgba(0,0,0,0.6)] backdrop-blur-xl transition active:scale-95"
+          className="sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.5rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2.5 whitespace-nowrap rounded-full bg-foreground py-1 ps-1.5 pe-5 text-[0.9375rem] font-bold text-background shadow-[0_12px_28px_-12px_rgba(17,24,20,0.5)] transition active:scale-95"
         >
-          <ArrowUpIcon className="h-4 w-4" /> {t("Best for you")}
+          <span aria-hidden className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sun text-[var(--on-accent)]"><ArrowUpIcon className="h-4 w-4" /></span> {t("Best for you")}
         </button>
       )}
 
@@ -330,40 +357,44 @@ const FLAT_PAGE = 60;
 const sectionId = (category: string) => `cat-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 const smoothScroll = (): ScrollBehavior => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
 
-function ItemList({ items, chainId, now }: { items: readonly MenuItem[]; chainId: string; now: Date }) {
+/**
+ * A section's dishes as one white card, the rows divided by fine lines that start where the text does (fewer boxes than a card per
+ * dish). An optional footer row ("Show all …") closes the card.
+ */
+function ItemList({ items, chainId, now, footer }: { items: readonly MenuItem[]; chainId: string; now: Date; footer?: React.ReactNode }) {
   const t = useT();
   return (
-    <ul className="space-y-2">
-      {items.map((item) => {
-        const isNew = isNewItem(item, now);
-        return (
-          <li key={item.id} className="cv-row">
-            <Link
-              href={itemHref(chainId, item.id)}
-              prefetch={false}
-              onClick={() => analytics.track({ name: "itemOpened", chainId })}
-              className={`group flex items-center justify-between gap-3 rounded-[1.35rem] px-3.5 transition active:scale-[0.99] hover:bg-soft-strong ${item.rankable ? "glass min-h-16 py-3" : "min-h-14 border border-line py-2.5"}`}
-            >
-              <span className="flex min-w-0 items-center gap-3">
+    <div className="glass overflow-hidden rounded-[1.25rem]">
+      <ul>
+        {items.map((item) => {
+          const isNew = isNewItem(item, now);
+          return (
+            <li key={item.id} className="cv-row relative before:pointer-events-none before:absolute before:inset-x-4 before:top-0 before:h-px before:bg-line first:before:hidden">
+              {/* A dish Best for you never suggests (an extra, a sauce) is a quieter row: a lighter name. */}
+              <Link
+                href={itemHref(chainId, item.id)}
+                prefetch={false}
+                onClick={() => analytics.track({ name: "itemOpened", chainId })}
+                className={`group flex items-center gap-3.5 px-4 transition hover:bg-[var(--fill)] active:bg-[var(--fill)] ${item.rankable ? "min-h-[4.75rem] py-3" : "min-h-16 py-2.5"}`}
+              >
                 <ItemThumb image={item.image} />
-                <span className="min-w-0">
+                <span className="min-w-0 flex-1">
                   <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <span className={`text-base tracking-tight ${item.rankable ? "font-bold" : "font-semibold"}`}>{item.name}</span>
+                    <span className={`text-base leading-snug tracking-[-0.005em] ${item.rankable ? "font-bold" : "font-medium"}`}>{item.name}</span>
                     {isNew && <Badge tone="accent">{t("New")}</Badge>}
                     {item.limitedTime && <Badge>{t("Limited time")}</Badge>}
                   </span>
                   {item.serving && !item.rankable && <span className="sr-only">, {item.serving}</span>}
                   <MacroLine nutrients={item.nutrients} />
                 </span>
-              </span>
-              <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-soft-strong text-muted transition group-hover:text-accent">
-                <ChevronRightIcon className="h-4 w-4" />
-              </span>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+                <ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-muted transition group-hover:text-foreground rtl:rotate-180" />
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      {footer ? <div className="border-t border-line">{footer}</div> : null}
+    </div>
   );
 }
 
@@ -379,7 +410,7 @@ function CategoryChips({ categories, active, onJump }: { categories: string[]; a
     r.scrollTo({ left, behavior: smoothScroll() });
   }, [active]);
   return (
-    <div ref={row} role="group" aria-label={t("Menu sections")} className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
+    <div ref={row} role="group" aria-label={t("Menu sections")} className="no-scrollbar -mx-5 mt-2.5 flex gap-2 overflow-x-auto px-5">
       {categories.map((c) => (
         <Chip key={c} data-chip={c} selected={active === c} onClick={() => onJump(c)}>{c}</Chip>
       ))}

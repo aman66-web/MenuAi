@@ -9,6 +9,10 @@ import { BakeryGlyph, BasketIcon, BurgerGlyph, ChickenGlyph, CoffeeGlyph, ForkIc
 // lib/mm/logos.ts) its square icon is shown (edge to edge when it fills its square), else its logo file contained on a plain tile:
 // always UNMODIFIED, only to identify the restaurant. Otherwise it is one of our own cuisine glyphs. The name is always plain text next
 // to it, so the tile is decorative (aria-hidden).
+//
+// Look (founder 2026-10-15, "the rest of the app should match that elegance"): flat tiles with soft corners (20 px at the larger
+// sizes, like the photos), a hairline round a logo so a white logo file still reads as a tile on a white card, no drop shadow; a
+// glyph sits on the same light grey as Home's round buttons, in the page's own ink.
 
 const GLYPHS: Array<[RegExp, (className: string) => ReactNode]> = [
   [/burger/i, (c) => <BurgerGlyph className={c} />],
@@ -26,9 +30,9 @@ function glyphFor(cuisine: string | undefined, className: string): ReactNode {
 }
 
 type Size = "xs" | "sm" | "md" | "lg" | "xl";
-const BOX: Record<Size, string> = { xs: "h-7 w-7 rounded-lg", sm: "h-9 w-9 rounded-xl", md: "h-12 w-12 rounded-2xl", lg: "h-16 w-16 rounded-3xl", xl: "h-20 w-20 rounded-[1.6rem]" };
+const BOX: Record<Size, string> = { xs: "h-7 w-7 rounded-lg", sm: "h-9 w-9 rounded-xl", md: "h-12 w-12 rounded-[0.875rem]", lg: "h-16 w-16 rounded-[1.25rem]", xl: "h-20 w-20 rounded-[1.25rem]" };
 const GLYPH: Record<Size, string> = { xs: "h-4 w-4", sm: "h-5 w-5", md: "h-6 w-6", lg: "h-8 w-8", xl: "h-10 w-10" };
-const PAD: Record<Size, string> = { xs: "p-0.5", sm: "p-1", md: "p-1.5", lg: "p-1.5", xl: "p-2.5" };
+const PAD: Record<Size, string> = { xs: "p-0.5", sm: "p-1", md: "p-1.5", lg: "p-2", xl: "p-2.5" };
 
 /** The official file on its square tile (shared by restaurants and supermarkets); `fallback` when there is no file or it fails to load. */
 function LogoTile({ logo, size, fallback }: { logo: ChainLogo | undefined; size: Size; fallback: ReactNode }) {
@@ -40,7 +44,7 @@ function LogoTile({ logo, size, fallback }: { logo: ChainLogo | undefined; size:
   const dark = failed === 0 ? art?.tile === "dark" : logo?.tile === "dark";
   if (!src) return <>{fallback}</>;
   return (
-    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line shadow-[0_6px_14px_-8px_rgba(0,0,0,0.35)] ${full ? "" : `${PAD[size]} ${dark ? "bg-[#111]" : "bg-white"}`} ${BOX[size]}`}>
+    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-line ${full ? "" : `${PAD[size]} ${dark ? "bg-[#111]" : "bg-white"}`} ${BOX[size]}`}>
       {/* eslint-disable-next-line @next/next/no-img-element -- the official file, used as published: no resizing pipeline, no recolouring */}
       <img src={src} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" onError={() => setFailed((f) => (f === 0 && art?.fallback ? 1 : 2))} />
     </span>
@@ -49,10 +53,7 @@ function LogoTile({ logo, size, fallback }: { logo: ChainLogo | undefined; size:
 
 function GlyphTile({ size, children }: { size: Size; children: ReactNode }) {
   return (
-    <span
-      aria-hidden
-      className={`inline-flex shrink-0 items-center justify-center border border-line bg-soft text-accent ${BOX[size]}`}
-    >
+    <span aria-hidden className={`inline-flex shrink-0 items-center justify-center bg-soft-strong text-foreground ${BOX[size]}`}>
       {children}
     </span>
   );
