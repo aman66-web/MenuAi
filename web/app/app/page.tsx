@@ -159,7 +159,7 @@ export default function HomePage() {
         <Card className="flex min-h-[14.25rem] min-w-0 flex-col items-center justify-between gap-5 px-4 pb-3.5 pt-4 text-center">
           <p className="self-start text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-muted">{t("Calories")}</p>
           <Gauge id="home" label={t("Calories used today")} fraction={used} size={100} stroke={17} disc>
-            <span aria-hidden className="text-[1.45rem] font-[800] tracking-tight">{Math.round(used * 100)}%</span>
+            <span aria-hidden className="text-[23px] font-[800] leading-none tracking-tight">{Math.round(used * 100)}%</span>
           </Gauge>
           <div>
             <p className="text-[1.25rem] font-normal leading-tight [overflow-wrap:anywhere]">
