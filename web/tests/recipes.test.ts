@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { CORE } from "../lib/mm/recipeBook/core";
-import { candidates, drainedSize, fitRecipe, isMeatFree, isQuick, isVegan, mealSizes, scaleServings, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
+import { candidates, drainedSize, fitRecipe, ing, isMeatFree, isQuick, isVegan, mealSizes, scaleServings, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientSpec, type Recipe } from "../lib/mm/recipes";
 import { mealTargetFor } from "../lib/mm/mealTarget";
 import { pantryForDiet } from "../lib/mm/pantry";
 import { addToList, itemCode, listAsText, listTotals, sanitizeShoppingList, setQty } from "../lib/mm/groceries";
@@ -241,16 +241,16 @@ describe("recipes for a diet", () => {
   const byId = (id: string) => RECIPES.find((r) => r.id === id)!;
   it("leaves out recipes with meat or fish for vegetarians, and anything from an animal for vegans", () => {
     expect(recipeForDiet(byId("chicken-curry"), { vegetarianOnly: true })).toBeNull();
-    expect(recipeForDiet(byId("prawn-curry"), { vegetarianOnly: true })).toBeNull();
+    expect(recipeForDiet(byId("salmon-coconut-curry"), { vegetarianOnly: true })).toBeNull();
     expect(recipeForDiet(byId("chickpea-curry"), { vegetarianOnly: true })).not.toBeNull();
     expect(recipeForDiet(byId("cheesy-egg-wraps"), { veganOnly: true })).toBeNull();
-    expect(recipeForDiet(byId("black-bean-chilli"), { veganOnly: true })).not.toBeNull();
-    expect(isMeatFree(byId("halloumi-wraps"))).toBe(true);
+    expect(recipeForDiet(byId("bean-chilli"), { veganOnly: true })).not.toBeNull();
+    expect(isMeatFree(byId("chickpea-houmous-wraps"))).toBe(true);
     expect(isMeatFree(byId("tuna-pasta"))).toBe(false);
   });
   it("vegan and quick, as the Recipes page's tiles filter them", () => {
-    expect(isVegan(byId("black-bean-chilli"))).toBe(true);
-    expect(isVegan(byId("halloumi-wraps"))).toBe(false); // no meat or fish, but cheese
+    expect(isVegan(byId("bean-chilli"))).toBe(true);
+    expect(isVegan(byId("easy-macaroni-cheese"))).toBe(false); // no meat or fish, but cheese
     expect(isVegan(byId("chicken-curry"))).toBe(false);
     expect(RECIPES.filter(isVegan).every(isMeatFree)).toBe(true);
     expect(isQuick({ minutes: 20 })).toBe(true);
@@ -260,13 +260,16 @@ describe("recipes for a diet", () => {
     const halal = recipeForDiet(byId("chicken-curry"), { halalOnly: true })!;
     expect(halal.ingredients[0]!.match.all).toContain("halal");
     expect(halal.ingredients[0]!.label).toBe("Halal chicken breast fillets");
-    expect(recipeForDiet(byId("turkey-bolognese"), { halalOnly: true })).toBeNull();
-    expect(recipeForDiet(byId("prawn-curry"), { halalOnly: true })).toBeNull();
+    expect(recipeForDiet(byId("ham-cheese-omelette"), { halalOnly: true })).toBeNull();
+    expect(recipeForDiet(byId("chicken-shawarma-wraps"), { halalOnly: true })).toBeNull(); // chicken thighs: no halal-named product kind
+    // the book has no shellfish now (every ingredient is an everyday one), so a recipe with prawns is made up here
+    const curry = byId("chicken-curry");
+    expect(recipeForDiet({ ...curry, ingredients: [ing("prawns", 300), ...curry.ingredients.slice(1)] }, { halalOnly: true })).toBeNull();
     expect(recipeForDiet(byId("tuna-pasta"), { halalOnly: true })).not.toBeNull();
   });
   it("leaves out recipes with an ingredient that plainly contains an allergen to avoid, or beef", () => {
     expect(recipeForDiet(byId("tuna-pasta"), { avoidAllergens: ["milk"] })).toBeNull();
-    expect(recipeForDiet(byId("tofu-satay"), { avoidAllergens: ["peanuts"] })).toBeNull();
+    expect(recipeForDiet(byId("satay-egg-noodles"), { avoidAllergens: ["peanuts"] })).toBeNull();
     expect(recipeForDiet(byId("chicken-rice-bowl"), { avoidAllergens: ["gluten"] })).toBeNull(); // soy sauce
     expect(recipeForDiet(byId("beef-chilli"), { noBeef: true })).toBeNull();
     expect(pantryForDiet({ veganOnly: true }).every((k) => !k.animal)).toBe(true);

@@ -23,9 +23,9 @@ export const CORE: readonly Recipe[] = [
     method: ["Brown the mince in a large pan until no pink is left.", "Add the tomatoes, beans and chilli powder or spices to taste; simmer for 25 minutes.", "Cook the rice as the pack says and serve."],
   },
   {
-    id: "turkey-bolognese", meal: "dinner", name: "Turkey bolognese", blurb: "Spaghetti bolognese made with turkey mince.", servings: 4, minutes: 35,
-    ingredients: [ing("turkey-mince", 500), ing("passata", 500), ing("pasta-long", 300), ing("cheddar", 40), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 2), ing("onion", 150, { note: "about 1 onion" })],
-    method: ["Brown the turkey mince in a large pan until no pink is left.", "Add the passata and simmer for 15 minutes.", "Cook the spaghetti as the pack says, then serve with the sauce and the cheese grated on top."],
+    id: "chicken-mushroom-pasta", meal: "dinner", name: "Creamy chicken and mushroom pasta", blurb: "Chicken and mushrooms in a creamy garlic sauce.", servings: 4, minutes: 30,
+    ingredients: [ing("chicken", 480), ing("pasta-shapes", 300), ing("mushrooms", 250), ing("soft-cheese", 200), ing("stock-cube", 10), ing("garlic", 10, { note: "about 2 cloves" }), ing("spinach", 90), ing("oil-spray", 2), ing("black-pepper", 1)],
+    method: ["Cook the pasta as the pack says. Keep a mugful of the cooking water before you drain it.", "Cut the chicken into bite-sized pieces and cook in a hot non-stick pan with a little oil spray for 6 to 8 minutes, until cooked through with no pink inside.", "Add the sliced mushrooms and the garlic and cook for 4 to 5 minutes, until the mushrooms are soft.", "Stir in the soft cheese, the crumbled stock cube and a splash of the cooking water until smooth, then add the spinach and let it wilt.", "Toss with the pasta, season with black pepper and serve."],
   },
   {
     id: "salmon-noodles", meal: "dinner", name: "Salmon and soy noodles", blurb: "Ready in 20 minutes.", servings: 2, minutes: 20,
@@ -38,14 +38,14 @@ export const CORE: readonly Recipe[] = [
     method: ["Cook the pasta as the pack says.", "Warm the passata in a pan and stir in the drained tuna.", "Mix with the pasta and top with grated cheese."],
   },
   {
-    id: "prawn-curry", meal: "dinner", name: "Thai prawn curry", blurb: "A coconut curry with rice, made with light coconut milk.", servings: 3, minutes: 25,
-    ingredients: [ing("prawns", 300), ing("coconut-light", 400), ing("thai-curry-paste", 50), ing("rice", 150), ing("peas", 150)],
-    method: ["Cook the rice as the pack says.", "Fry the curry paste for a minute, then add the coconut milk and simmer for 5 minutes.", "Add the prawns and cook until piping hot (raw prawns: until pink all the way through)."],
+    id: "salmon-coconut-curry", meal: "dinner", name: "Coconut salmon curry with rice", blurb: "Salmon and peas in a coconut curry sauce.", servings: 3, minutes: 25,
+    ingredients: [ing("salmon", 300), ing("coconut-milk", 400), ing("curry-paste", 50), ing("rice", 150), ing("peas", 150)],
+    method: ["Cook the rice as the pack says.", "Fry the curry paste for a minute, then add the coconut milk and simmer for 5 minutes.", "Cut the salmon into large chunks, add it with the peas and simmer gently for 6 to 8 minutes, until the fish flakes easily."],
   },
   {
-    id: "tofu-satay", meal: "dinner", name: "Tofu satay noodles", blurb: "Peanut sauce, crispy tofu, no meat.", servings: 2, minutes: 25,
-    ingredients: [ing("tofu", 300), ing("noodles", 300), ing("peanut-butter", 40), ing("soy", 30), ing("lime-juice", 15), ing("fresh-chilli", 5), ing("stir-fry-veg", 300)],
-    method: ["Press and cube the tofu, then fry in a non-stick pan until golden.", "Whisk the peanut butter and soy sauce with a splash of hot water.", "Stir-fry the vegetables in the same pan for 3 to 4 minutes.", "Toss the noodles and vegetables in the sauce, add the lime juice and chilli, and top with the tofu."],
+    id: "satay-egg-noodles", meal: "dinner", name: "Satay noodles with egg", blurb: "Peanut sauce, vegetables and strips of omelette, no meat.", servings: 2, minutes: 20,
+    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("noodles", 300), ing("peanut-butter", 40), ing("soy", 30), ing("lemon-juice", 15), ing("chilli-powder", 1), ing("stir-fry-veg", 300), ing("oil-spray", 1)],
+    method: ["Beat the eggs and cook them in a non-stick pan with a little oil spray for 2 to 3 minutes, like a thin omelette, until set. Roll it up, slice into strips and lift out.", "Whisk the peanut butter and soy sauce with a splash of hot water.", "Stir-fry the vegetables in the same pan for 3 to 4 minutes.", "Toss the noodles and vegetables in the sauce, add the lemon juice and chilli powder, and top with the egg."],
   },
   {
     id: "overnight-oats", meal: "breakfast", name: "Overnight oats with yogurt", blurb: "Make it the night before, grab it in the morning.", servings: 2, minutes: 5,
@@ -59,7 +59,7 @@ export const CORE: readonly Recipe[] = [
   },
   {
     id: "chickpea-curry", meal: "dinner", name: "Chickpea and tomato curry", blurb: "A meat-free curry that keeps well.", servings: 3, minutes: 30,
-    ingredients: [ing("chickpeas", 240), ing("chopped-tomatoes", 400), ing("curry-paste", 60), ing("coconut-light", 200), ing("rice", 150), ing("onion", 150, { note: "about 1 onion" }), ing("spinach", 90)],
+    ingredients: [ing("chickpeas", 240), ing("chopped-tomatoes", 400), ing("curry-paste", 60), ing("coconut-milk", 200), ing("rice", 150), ing("onion", 150, { note: "about 1 onion" }), ing("spinach", 90)],
     method: ["Cook the rice as the pack says.", "Fry the curry paste for a minute, add the tomatoes, chickpeas and coconut milk.", "Simmer for 15 minutes and serve."],
   },
   {
@@ -68,28 +68,28 @@ export const CORE: readonly Recipe[] = [
     method: ["Slice the chicken and cook in a hot pan for 6 to 8 minutes, until cooked through with no pink inside.", "Mix the yogurt with a squeeze of lemon and seasoning.", "Fill the wraps with chicken, yogurt and grated cheese."],
   },
   {
-    id: "black-bean-chilli", meal: "dinner", name: "Black bean chilli", blurb: "A plant-based chilli with two kinds of beans.", servings: 4, minutes: 35,
-    ingredients: [ing("black-beans", 470), ing("kidney-beans", 240), ing("chopped-tomatoes", 800), ing("rice", 300), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("cumin", 2), ing("chilli-powder", 2)],
-    method: ["Warm the tomatoes in a large pan with chilli powder or spices to taste.", "Add the drained beans and simmer for 20 minutes.", "Cook the rice as the pack says and serve."],
+    id: "bean-chilli", meal: "dinner", name: "Bean chilli", blurb: "A plant-based chilli with kidney beans and chickpeas.", servings: 4, minutes: 35,
+    ingredients: [ing("kidney-beans", 480), ing("chickpeas", 240), ing("chopped-tomatoes", 800), ing("rice", 300), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("cumin", 2), ing("chilli-powder", 2)],
+    method: ["Warm the tomatoes in a large pan with chilli powder or spices to taste.", "Add the drained beans and chickpeas and simmer for 20 minutes.", "Cook the rice as the pack says and serve."],
   },
   {
-    id: "cod-butter-beans", meal: "dinner", name: "Cod with butter beans and tomatoes", blurb: "One pan, simple and quick.", servings: 2, minutes: 25,
-    ingredients: [ing("cod", 250), ing("butter-beans", 235), ing("chopped-tomatoes", 400), ing("garlic", 5, { note: "about 1 clove" }), ing("paprika", 1), ing("fresh-parsley", 10)],
-    method: ["Simmer the tomatoes and drained beans in a wide pan for 10 minutes.", "Sit the cod on top, cover and cook for 8 to 10 minutes, until it flakes easily and is white all the way through."],
+    id: "tuna-fishcakes", meal: "dinner", name: "Tuna fishcakes with peas", blurb: "Golden fishcakes made from tinned tuna and potatoes.", servings: 2, minutes: 30,
+    ingredients: [ing("tuna", 200), ing("new-potatoes", 360), ing("eggs", 60, { role: "other", note: "1 egg" }), ing("spring-onions", 30), ing("peas", 160), ing("lemon-juice", 10), ing("oil-spray", 2), ing("black-pepper", 1)],
+    method: ["Drain the potatoes and mash them well, then mix in the drained tuna, the chopped spring onions, the beaten egg and a little black pepper.", "Shape into 6 flat cakes and chill for 10 minutes if you have time.", "Cook in a non-stick pan with a little oil spray over a medium heat for 4 to 5 minutes on each side, until golden and piping hot all the way through.", "Cook the peas in boiling water for 3 minutes, drain and serve with the fishcakes and a squeeze of lemon."],
   },
   {
-    id: "halloumi-wraps", meal: "lunch", name: "Halloumi and chickpea wraps", blurb: "Golden halloumi with warm chickpeas.", servings: 2, minutes: 15,
-    ingredients: [ing("halloumi", 150), ing("chickpeas", 240), ing("wraps", 120), ing("houmous", 60), ing("lettuce", 60), ing("tomatoes", 80), ing("lemon-juice", 10)],
-    method: ["Slice the halloumi and fry in a dry non-stick pan until golden on both sides.", "Warm the drained chickpeas in the same pan.", "Spread the wraps with houmous and fill with the halloumi and chickpeas."],
+    id: "chickpea-houmous-wraps", meal: "lunch", name: "Chickpea and houmous wraps", blurb: "Warm spiced chickpeas with houmous and salad.", servings: 2, minutes: 10,
+    ingredients: [ing("chickpeas", 240), ing("wraps", 120), ing("houmous", 60), ing("lettuce", 60), ing("tomatoes", 80), ing("lemon-juice", 10), ing("cumin", 1), ing("paprika", 1)],
+    method: ["Warm the drained chickpeas in a non-stick pan with the cumin and paprika for 3 to 4 minutes, then add a squeeze of lemon.", "Spread the wraps with houmous and fill with the chickpeas, lettuce and sliced tomatoes."],
   },
   {
-    id: "lentil-pasta", meal: "dinner", name: "Lentil and tomato pasta", blurb: "A meat-free ragu from the store cupboard.", servings: 3, minutes: 25,
-    ingredients: [ing("green-lentils", 265), ing("passata", 500), ing("pasta-shapes", 225), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 2), ing("onion", 150, { note: "about 1 onion" })],
-    method: ["Cook the pasta as the pack says.", "Simmer the passata and drained lentils for 10 minutes.", "Stir the sauce through the pasta."],
+    id: "mushroom-bean-pasta", meal: "dinner", name: "Mushroom and bean pasta", blurb: "A meat-free ragu with mushrooms and kidney beans.", servings: 3, minutes: 25,
+    ingredients: [ing("kidney-beans", 240), ing("mushrooms", 250), ing("passata", 500), ing("pasta-shapes", 225), ing("olive-oil", 10), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 2), ing("onion", 150, { note: "about 1 onion" })],
+    method: ["Cook the pasta as the pack says.", "Fry the chopped onion and sliced mushrooms in the oil for 5 minutes, until soft.", "Add the passata, the drained beans, the garlic and the dried herbs and simmer for 10 minutes.", "Stir the sauce through the pasta."],
   },
   {
-    id: "chicken-bean-rice", meal: "dinner", name: "Chicken thigh, bean and tomato rice", blurb: "A one-pot rice with chicken and black beans.", servings: 3, minutes: 40,
-    ingredients: [ing("chicken-thigh", 400), ing("black-beans", 235, { role: "other" }), ing("chopped-tomatoes", 400), ing("rice", 200), ing("smoked-paprika", 3), ing("onion", 150, { note: "about 1 onion" })],
+    id: "chicken-bean-rice", meal: "dinner", name: "Chicken thigh, bean and tomato rice", blurb: "A one-pot rice with chicken and kidney beans.", servings: 3, minutes: 40,
+    ingredients: [ing("chicken-thigh", 400), ing("kidney-beans", 240, { role: "other" }), ing("chopped-tomatoes", 400), ing("rice", 200), ing("paprika", 3), ing("onion", 150, { note: "about 1 onion" })],
     method: ["Brown the chicken pieces in a large pan.", "Add the rice, tomatoes, drained beans and 400 ml of water; bring to the boil.", "Cover and simmer for 20 minutes, until the rice is tender and the chicken is cooked through."],
   },
 ];

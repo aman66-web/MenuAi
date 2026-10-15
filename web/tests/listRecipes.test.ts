@@ -86,8 +86,8 @@ describe("recipes from the shopping list", () => {
     expect(recipesFromList(other, RECIPES, products, "sainsburys").some((m) => m.recipe.id === curry.id)).toBe(true);
   });
 
-  it("only the ingredient itself counts, once: kidney beans don't make the black beans too, chicken doesn't make a beef recipe", () => {
-    const chilli = RECIPES.find((r) => r.id === "black-bean-chilli")!;
+  it("only the ingredient itself counts, once: kidney beans don't make the chickpeas too, chicken doesn't make a beef recipe", () => {
+    const chilli = RECIPES.find((r) => r.id === "bean-chilli")!;
     const beans = chilli.ingredients.findIndex((i) => i.pantry === "kidney-beans");
     expect(beans).toBeGreaterThanOrEqual(0);
     const list = addToList([], customItem("red kidney beans")!);

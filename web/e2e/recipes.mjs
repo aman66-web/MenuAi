@@ -309,7 +309,7 @@ await step("halal: chicken recipes use halal-named chicken, others are left out 
   await page.getByText(/Your diet:/).waitFor();
   await page.getByText("Halal", { exact: false }).first().waitFor();
   await page.getByText(/recipes? (is|are) left out for your diet/).waitFor();
-  expect((await page.getByRole("link", { name: /Turkey bolognese/ }).count()) === 0, "turkey left out for halal");
+  expect((await page.getByRole("link", { name: /Ham and cheese omelette/ }).count()) === 0, "ham left out for halal");
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
   await page.getByText(/Halal chicken breast fillets/).waitFor();
   await page.getByRole("link", { name: /Halal/ }).first().waitFor();

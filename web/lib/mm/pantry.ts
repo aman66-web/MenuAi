@@ -278,6 +278,8 @@ const KINDS: PantryKind[] = [
   { key: "passata", label: "Passata", unit: "g", role: "other", contains: [], match: { all: ["passata"], none: ["garlic", "basil", "herb", "onion", "chilli", "pepper"], kcal: [15, 45] } },
   { key: "mixed-veg", label: "Mixed vegetables in water (tin)", unit: "g", role: "other", drained: true, contains: [], match: { all: ["mixed", "vegetables"], any: ["in water"], none: ["casserole", "pickled", "chargrilled", "gravy"], kcal: [25, 90] } },
   { key: "coconut-light", label: "Light coconut milk", unit: "ml", role: "other", contains: [], match: { all: ["coconut", "milk"], any: ["light", "reduced"], none: ["drink", "yogurt", "powder"], kcal: [30, 110] } },
+  // Regular tinned coconut milk: small shops sell it where they don't sell the light one. The kcal range keeps out the light tins and the drinks.
+  { key: "coconut-milk", label: "Coconut milk", unit: "ml", role: "other", contains: [], match: { all: ["coconut", "milk"], none: ["light", "lighter", "reduced", "drink", "yogurt", "powder", "chocolate", "smoothie", "sauce", "baby"], kcal: [120, 230] } },
   { key: "curry-paste", label: "Curry paste", unit: "g", role: "other", contains: ["mustard"], match: { all: ["curry", "paste"], any: ["tikka", "madras", "balti", "jalfrezi", "rogan josh", "tandoori"], none: ["sauce", "marinade", "thai", "korma"] } },
   // Thai pastes are usually made with shrimp paste or fish sauce: treated as fish so a vegetarian recipe never uses one.
   { key: "thai-curry-paste", label: "Thai curry paste", unit: "g", role: "other", fish: true, animal: true, contains: ["fish", "crustaceans"], match: { all: ["thai", "curry", "paste"], none: ["sauce", "massaman", "peanut"] } },
@@ -418,6 +420,7 @@ const SUBS: Record<string, Array<string | [string, number]>> = {
   "sweetcorn": ["peas", "mixed-veg"],
   "peas": ["sweetcorn", "edamame"],
   "mixed-veg": ["sweetcorn", "peas"],
+  "coconut-milk": ["coconut-light"],
   "almonds": ["mixed-seeds"],
   "mixed-seeds": ["almonds"],
   "honey": [],
@@ -463,6 +466,30 @@ for (const k of KINDS) {
 
 export const PANTRY: ReadonlyMap<string, PantryKind> = new Map(KINDS.map((k) => [k.key, k]));
 export const PANTRY_KEYS: readonly string[] = KINDS.map((k) => k.key);
+
+// The everyday kinds (founder 2026-10-15: "All ingredients can be picked up from almost 100% of stores so that way the customer doesn't
+// get annoyed when they go to a Tesco local and not a massive Tesco"): staples that essentially every small convenience shop sells (Tesco
+// Express, Sainsbury's Local, Co-op, One Stop). Every ingredient in our recipe book is one of these (tests/recipeBook.test.ts checks it).
+// The other kinds stay in the pantry for substitutes, which are only offered as alternatives, and for Pip's recipe maker. This is our
+// judgement, not a shop's list: no supermarket publishes the range of its small shops.
+export const EVERYDAY_KINDS: ReadonlySet<string> = new Set([
+  // protein and dairy
+  "chicken", "chicken-thigh", "beef-mince", "salmon", "smoked-salmon", "tuna", "eggs", "cheddar", "mozzarella", "milk", "bacon", "ham",
+  "greek-yogurt", "natural-yogurt", "soft-cheese", "cottage-cheese", "oat-drink",
+  // carbs
+  "rice", "pasta-long", "pasta-shapes", "noodles", "egg-noodles", "wraps", "oats", "naan", "new-potatoes", "wheat-biscuits", "granola",
+  // tins and frozen
+  "baked-beans", "chickpeas", "kidney-beans", "chopped-tomatoes", "passata", "sweetcorn", "peas", "coconut-milk",
+  // sauces, pastes and spreads
+  "curry-paste", "chopped-tomato-puree", "pesto", "light-mayo", "sweet-chilli", "bbq-sauce", "salsa", "soy", "honey", "peanut-butter", "houmous",
+  "stock-cube", "mustard", "fajita-seasoning",
+  // oils, seasonings and spices
+  "olive-oil", "vegetable-oil", "oil-spray", "salt", "black-pepper", "mixed-herbs", "chilli-powder", "paprika", "curry-powder", "cinnamon", "oregano",
+  "cumin", "turmeric",
+  // fresh vegetables and fruit
+  "onion", "red-onion", "garlic", "lemon-juice", "carrots", "peppers", "tomatoes", "cherry-tomatoes", "cucumber", "lettuce", "salad-leaves", "spinach",
+  "mushrooms", "broccoli", "spring-onions", "stir-fry-veg", "banana", "apple", "berries", "raisins", "almonds",
+]);
 
 export interface DietPrefs {
   vegetarianOnly?: boolean;
