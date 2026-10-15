@@ -11,10 +11,12 @@ import { ShopMark } from "../../_components/ChainMark";
 import { Button, EmptyIcon, EmptyState } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
+import { useListPhotos } from "../../_lib/listPhotos";
 import { addMissing, useListRecipes } from "../../_lib/listRecipes";
 import { Rich } from "../../_lib/Rich";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { BackLink, CARD, LABEL, PILL_INPUT, TITLE } from "../PageBits";
+import { ListThumb } from "../ProductPhoto";
 
 // "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
 // recipes; tick things off as they go in the basket. At the top: the recipes this list can make, and what one of them still needs. Share or
@@ -32,6 +34,7 @@ export default function ShoppingListPage() {
   const [typed, setTyped] = useState("");
   const [suggestNote, setSuggestNote] = useState<string | null>(null);
   const { state, matches } = useListRecipes(list);
+  const photosOf = useListPhotos(list);
   const groups = new Map<string, ShoppingItem[]>();
   for (const i of list) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
   const ticked = list.filter((i) => i.done).length;
@@ -111,23 +114,31 @@ export default function ShoppingListPage() {
                         {detail && <span className="app-numbers mt-0.5 block truncate text-sm text-muted">{detail}</span>}
                       </>
                     );
+                    const thumb = <ListThumb sources={photosOf(i)} />;
                     return (
-                      <li key={code + i.retailer} className="relative flex min-h-16 flex-wrap items-center gap-x-1.5 gap-y-1 px-2 py-1.5 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)] first:before:hidden">
+                      <li key={code + i.retailer} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-[var(--line)] first:before:hidden">
                         <button
                           type="button"
                           role="checkbox"
                           aria-checked={!!i.done}
                           aria-label={i.done ? t("{name}: in the basket", { name: i.name }) : t("{name}: still to get", { name: i.name })}
                           onClick={() => shoppingStore.update((l) => toggleDone(l, code, i.retailer))}
-                          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
+                          className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
                         >
                           <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "bg-sun border-transparent text-on-accent" : "border-[color-mix(in_srgb,var(--foreground)_28%,transparent)]"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
                         </button>
-                        {href ? <Link href={href} className="min-w-[7rem] flex-1 py-1">{body}</Link> : <div className="min-w-[7rem] flex-1 py-1">{body}</div>}
-                        <div className="ms-auto flex items-center">
-                          <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
-                          <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
-                          <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
+                        {/* the picture sits beside the name; what's left of the row under it is the quantity (a long name no longer squeezes against − and +) */}
+                        <div className="flex min-w-0 flex-1 items-start gap-3 py-1">
+                          {/* the picture opens the product too; the name beside it is the link a screen reader and the keyboard use */}
+                          {href ? <Link href={href} tabIndex={-1} aria-hidden className="shrink-0">{thumb}</Link> : thumb}
+                          <div className="min-w-0 flex-1">
+                            {href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
+                            <div className="mt-1 flex items-center justify-end">
+                              <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
+                              <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
+                              <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
+                            </div>
+                          </div>
                         </div>
                       </li>
                     );

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { addToList, formatPrice } from "@/lib/mm/groceries";
+import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem } from "@/lib/mm/foodDiet";
@@ -93,7 +93,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       </div>
 
       <div className="mt-4 grid gap-3">
-        <MainButton onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price ?? undefined, checkedOn: file.checkedOn })); setAdded(t("Added to your {shop} list.", { shop: file.name })); }}>
+        <MainButton onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: product.gtin, shopId: product.id, retailer: file.retailer, name: product.name, brand: "", size: "", price: product.price ?? undefined, checkedOn: file.checkedOn, ...withPhoto(photos) })); setAdded(t("Added to your {shop} list.", { shop: file.name })); }}>
           {t("Add to my list")}
         </MainButton>
         {/* in its own block, so the compare button's own (empty) status line isn't a row of this grid with a gap above it */}

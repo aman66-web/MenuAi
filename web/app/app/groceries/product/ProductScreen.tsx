@@ -6,7 +6,7 @@ import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts
 import { formatDate } from "@/lib/mm/format";
 import { foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { Allergens } from "@/lib/mm/types";
-import { addToList } from "@/lib/mm/groceries";
+import { addToList, withPhoto } from "@/lib/mm/groceries";
 import { CompareButton } from "../../_components/CompareButton";
 import { compareFoodFromListed } from "../../_lib/compare";
 import { shoppingStore } from "@/lib/mm/stores";
@@ -277,7 +277,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2.5">
           {/* the shop you came from first, across the card's width; the others in equal cells two to a row under it (one a row at large text) */}
           {[...p.retailers].sort((x, y) => Number(y === selected) - Number(x === selected)).map((r) => (
-            <Button key={r} variant={r === selected ? "primary" : "secondary"} className={r === selected ? "col-span-full" : "px-3! text-balance"} onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size })); setAdded(t("Added to your list for {shop}.", { shop: retailerName(r) })); }}>
+            <Button key={r} variant={r === selected ? "primary" : "secondary"} className={r === selected ? "col-span-full" : "px-3! text-balance"} onClick={() => { shoppingStore.update((l) => addToList(l, { gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })); setAdded(t("Added to your list for {shop}.", { shop: retailerName(r) })); }}>
               {r === selected && <PlusIcon className="h-[18px] w-[18px]" />}{t("Add · {shop}", { shop: retailerName(r) })}
             </Button>
           ))}

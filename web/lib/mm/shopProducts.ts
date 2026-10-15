@@ -2,7 +2,7 @@
 // unit price, card price, picture), with NO nutrition unless we have read the product's own page. Built by tools/groceries/build_all_products.py from
 // the listing crawls; one compact array per product so a 17,000-product shop stays about 2.5 MB.
 import { isTakenDown } from "./logos";
-import { MIN_DENSITY_PROTEIN, type PhotoSource } from "./groceries";
+import { MIN_DENSITY_PROTEIN, PHOTO_HOSTS, type PhotoSource } from "./groceries";
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 
@@ -115,8 +115,7 @@ function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition 
 }
 
 // Where a borrowed photo may come from: the supermarkets' own image servers and Open Food Facts' (https only, checked again here).
-const OTHER_PHOTO_HOSTS = ["assets.sainsburys-groceries.co.uk", "asdagroceries.scene7.com", "dm.emea.cms.aldi.cx", "imgproxy-retcat.assets.schwarz", "digitalcontent.api.tesco.com",
-  "ecom-su-static-prod.wtrecom.com", "groceries.morrisons.com", "assets.iceland.co.uk", "assets.digitalcontent.marksandspencer.app", "images.openfoodfacts.org"];
+const OTHER_PHOTO_HOSTS: readonly string[] = PHOTO_HOSTS;
 const OTHER_FROM = /^(?:off|[a-z][a-z-]{1,30})$/;
 
 function decodeOtherPhoto(x: unknown): ShopProduct["otherPhoto"] {

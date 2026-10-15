@@ -358,6 +358,8 @@ export interface ShoppingItem {
   custom?: true;
   /** Ticked off: already in the basket. */
   done?: true;
+  /** The product's picture as it was when it was added (founder 2026-10-15: "the image should be next to it too"): one place a picture can come from, checked again whenever it is read back. */
+  photo?: PhotoSource;
 }
 
 export const MAX_SHOPPING_ITEMS = 200;
@@ -401,7 +403,8 @@ export function addToList(list: readonly ShoppingItem[], item: Omit<ShoppingItem
   const code = itemCode(item);
   const add = Math.max(1, Math.floor(qty));
   const i = list.findIndex((x) => itemCode(x) === code && x.retailer === item.retailer);
-  if (i >= 0) return list.map((x, j) => (j === i ? { ...untick(x), qty: Math.min(MAX_QTY, x.qty + add) } : x));
+  // adding it again raises the quantity, and gives an item added before pictures were kept the picture it was missing
+  if (i >= 0) return list.map((x, j) => (j === i ? { ...untick(x), qty: Math.min(MAX_QTY, x.qty + add), ...(!x.photo && item.photo ? { photo: item.photo } : {}) } : x));
   if (list.length >= MAX_SHOPPING_ITEMS) return [...list];
   return [...list, { ...item, qty: Math.min(MAX_QTY, add), addedAt: now.toISOString() }];
 }
@@ -429,6 +432,7 @@ export function sanitizeShoppingList(raw: unknown): ShoppingItem[] {
         addedAt: typeof x.addedAt === "string" ? x.addedAt : new Date(0).toISOString(),
         ...(typeof x.price === "number" && Number.isFinite(x.price) && x.price > 0 && x.price < 1000 ? { price: Math.round(x.price * 100) / 100 } : {}),
         ...(typeof x.checkedOn === "string" && /^\d{4}-\d{2}-\d{2}$/.test(x.checkedOn) ? { checkedOn: x.checkedOn } : {}),
+        ...(!custom && validPhoto(x.photo) ? { photo: validPhoto(x.photo)! } : {}),
       });
     }
   }
@@ -491,6 +495,51 @@ export function photoSources(p: PhotoFields & { retailers?: readonly string[]; b
   if (!out.length) for (const [, r] of records) if (r.offImage && OFF_IMAGE.test(r.offImage)) add({ src: r.offImage, from: "off", shop: "" });
   return out;
 }
+
+/** The places a product picture may be loaded from: the supermarkets' own image servers (the ones in tools/groceries/build_groceries.py IMAGE_HOSTS) and Open Food Facts' (https only). */
+export const PHOTO_HOSTS = [
+  "assets.sainsburys-groceries.co.uk", "asdagroceries.scene7.com", "dm.emea.cms.aldi.cx", "imgproxy-retcat.assets.schwarz", "digitalcontent.api.tesco.com",
+  "ecom-su-static-prod.wtrecom.com", "groceries.morrisons.com", "assets.iceland.co.uk", "assets.digitalcontent.marksandspencer.app", "images.openfoodfacts.org",
+] as const;
+const OFF_HOST = "images.openfoodfacts.org";
+const STORED_PATH = /^\/grocery-images\/([a-z][a-z0-9-]{1,30})\/[0-9a-f]{12}\.webp$/;
+const SHOP_NAME = /^[a-z][a-z0-9-]{1,30}$/;
+
+/**
+ * A picture kept with a shopping list item, or null when it isn't one we would ever show. It is read back from this phone's storage and from the sync
+ * server, so it is checked every time, like the lists' own pictures: our stored copy of a shop's photo, a supermarket's own picture on one of its own image
+ * servers, or the Open Food Facts front photo of that barcode; nothing else (no other host, no address that can run anything).
+ */
+export function validPhoto(x: unknown): PhotoSource | null {
+  if (!x || typeof x !== "object") return null;
+  const { src, from, shop } = x as Record<string, unknown>;
+  if (typeof src !== "string" || typeof shop !== "string" || src.length > 500 || !/^[\x21-\x7e]+$/.test(src)) return null;
+  if (from === "stored") {
+    const m = STORED_PATH.exec(src);
+    return m && m[1] === shop ? { src, from, shop } : null;
+  }
+  if (from !== "retailer" && from !== "off") return null;
+  if ((from === "off") !== (shop === "") || (from === "retailer" && !SHOP_NAME.test(shop))) return null;
+  if (from === "off") return OFF_IMAGE.test(src) ? { src, from, shop } : null;
+  try {
+    const u = new URL(src);
+    return u.protocol === "https:" && !u.username && !u.password && !u.port && u.hostname !== OFF_HOST && (PHOTO_HOSTS as readonly string[]).includes(u.hostname) ? { src, from, shop } : null;
+  } catch {
+    return null;
+  }
+}
+
+/** The first of these pictures that is fit to keep with a list item, else undefined. */
+export const bestPhoto = (sources: readonly PhotoSource[]): PhotoSource | undefined => sources.map(validPhoto).find((p): p is PhotoSource => p !== null);
+
+/** `{ photo }` for the first of these pictures that is fit to keep with a list item, else nothing: spread it into the item being added. */
+export const withPhoto = (sources: readonly PhotoSource[]): { photo?: PhotoSource } => {
+  const photo = bestPhoto(sources);
+  return photo ? { photo } : {};
+};
+
+/** The picture kept with a list item, unless its shop is on the taken-down list (public/logos/hidden.json), which shows none of that shop's pictures. */
+export const itemPhotoSources = (i: Pick<ShoppingItem, "photo">): PhotoSource[] => (i.photo && !(i.photo.shop && isTakenDown(`shop:${i.photo.shop}`)) ? [i.photo] : []);
 
 /** The credit shown under a picture. */
 export function photoCaption(s: PhotoSource, t: T = englishT): string {

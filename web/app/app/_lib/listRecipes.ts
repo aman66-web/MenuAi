@@ -1,12 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
-import { addToList, type ShoppingItem } from "@/lib/mm/groceries";
+import { addToList, withPhoto, type ShoppingItem } from "@/lib/mm/groceries";
 import { recipesFromList, type ListRecipe } from "@/lib/mm/listRecipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeForDiet, type IngredientPick, type Recipe } from "@/lib/mm/recipes";
 import type { DietPrefs } from "@/lib/mm/pantry";
-import type { ShopFile } from "@/lib/mm/shopProducts";
+import { shopPhotoSources, type ShopFile } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { useSettings } from "./hooks";
 import { recipeShop } from "./recipes";
@@ -33,6 +33,6 @@ export function useListRecipes(list: readonly ShoppingItem[]): { shop: string | 
 /** Put the products a recipe still needs on the list (the recipe's own pick at the shop, enough packs for its amount). Returns how many. */
 export function addMissing(m: ListRecipe, file: ShopFile): number {
   const picks = m.missing.map((i) => m.resolved.picks[i]).filter((p): p is IngredientPick => !!p);
-  shoppingStore.update((list) => picks.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn }, new Date(), p.packs), list));
+  shoppingStore.update((list) => picks.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn, ...withPhoto(shopPhotoSources(file, p.product)) }, new Date(), p.packs), list));
   return picks.length;
 }

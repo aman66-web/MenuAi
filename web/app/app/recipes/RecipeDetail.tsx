@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { addToList, formatPrice } from "@/lib/mm/groceries";
+import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { MEAL_TYPES, candidates, fitRecipe, isMeatFree, recipeTotals, resolveRecipe, scaleServings, subSpec, withSubstitutes, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
@@ -173,7 +173,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   const dietNote = (prefs.avoidAllergens?.length ?? 0) > 0 || prefs.halalOnly || prefs.veganOnly || prefs.vegetarianOnly || prefs.pescatarianOnly;
   const addAll = () => {
     const ready = picks.filter((p): p is IngredientPick => !!p && !hasIt(p.spec));
-    shoppingStore.update((list) => ready.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn }, new Date(), p.packs), list));
+    shoppingStore.update((list) => ready.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn, ...withPhoto(shopPhotoSources(file, p.product)) }, new Date(), p.packs), list));
     setAdded(ready.length === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n: ready.length, shop: file.name }));
   };
   const notOnLabel = t(NOT_ON_LABEL);

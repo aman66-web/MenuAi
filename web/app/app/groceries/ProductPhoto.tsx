@@ -51,3 +51,21 @@ export function PhotoTile({ sources }: { sources: readonly PhotoSource[] }) {
     </span>
   );
 }
+
+/**
+ * The picture beside an item on the shopping list (founder 2026-10-15, "the image should be next to it too"): the first supermarket picture that loads, else a quiet
+ * basket tile (typed-in items have none, and neither do products whose shop shows no picture). Decorative either way: the item's name is plain text beside it.
+ */
+export function ListThumb({ sources }: { sources: readonly PhotoSource[] }) {
+  const { current, fail } = usePhotoSource(sources);
+  return (
+    <span aria-hidden className={`grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-[0.875rem] ring-1 ring-inset ring-[var(--line)] ${current ? "bg-white" : "bg-[var(--fill)] text-muted"}`}>
+      {current ? (
+        // eslint-disable-next-line @next/next/no-img-element -- the supermarket's own product picture (or our stored copy of it), decorative
+        <img key={current.src} src={current.src} alt="" width={56} height={56} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={fail} className="h-full w-full object-contain" />
+      ) : (
+        <BasketIcon className="h-5 w-5" />
+      )}
+    </span>
+  );
+}
