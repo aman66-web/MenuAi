@@ -46,7 +46,6 @@ export function ChainCard({ chain, onOpen }: { chain: ChainSummary; onOpen?: () 
       onClick={onOpen}
       className="glass lift group relative flex min-h-[9.5rem] min-w-0 flex-col overflow-hidden rounded-[1.75rem] p-4 hover:bg-soft-strong"
     >
-      <span aria-hidden className="pointer-events-none absolute -end-8 -top-10 h-28 w-28 rounded-full opacity-40 blur-2xl [background:var(--sun)]" />
       <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="lg" />
       <span className="mt-auto block pt-3">
         <span className="block font-extrabold leading-tight tracking-tight [overflow-wrap:anywhere]">{chain.name}</span>

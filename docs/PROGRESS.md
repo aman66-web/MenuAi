@@ -1266,9 +1266,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     `.next` breaks that server (every later browser test times out). `web/e2e/README.md` now documents `app-build.mjs` and says to run it last.
   - Contrast re-checked on the new surfaces: accent 5.9:1 on the grey, 5.8:1 on the grey fill, 5.3:1 on the green tint; grey text 5.6:1 on the grey,
     5.5:1 on the fill.
-  - Checked so far: 577 unit tests, tsc, lint; e2e smoke 23 (a phone in dark mode still gets the grey page, now #f4f5f6), a11y 0 violations; the
-    other suites are running (this line is updated when they finish).
+  - Checked: 577 unit tests (one failed once on the first, cold run after a container restart and passed on four reruns), tsc, lint; e2e
+    smoke 23 (a phone in dark mode still gets the grey page, now #f4f5f6), a11y 0 violations, large text (no overflow at 200%), recipes 13,
+    languages 5, extra 12, browse 9, calories 4, diet 5, groceries 6, groceries-all 7, groceries-compare 8, groceries-photos 4, compare 3,
+    account 8, share, map 6 of 7 (the known headless geolocation limit).
   - The App Store screenshots and the uploaded iPhone build still show the old look: re-run `web/e2e/store-shots.mjs` and make a new build.
+
+- 2026-10-15 (morning) — **The reference pictures' font, and no green gradient anywhere** (founder: "You need to change the font of the writing to
+  match the font of the other ones I sent", "Could you please get rid of the slight green gradient on each page").
+  - **Font: Urbanist** (SIL OFL, latin and latin-ext faces bundled in `web/app/fonts/` with its licence; DM Sans removed). Rendered side by side
+    with the "What's cooking today?" picture, its letters match (single-storey "a", round "g", straight "y" and "k"); the recipe-list pictures use
+    the iPhone's own font, a different face. Weights follow the picture: headings semi-bold (`font-extrabold` 650, `font-bold` 600,
+    `font-semibold` 550 in the app) and running text at 500, a little heavier than the picture's 400, so it stays easy to read on the grey. DM Mono
+    stays for the figures in data rows (the Home picture). The website uses Urbanist too.
+  - **No gradients:** the website's green glow behind the page and its gradient buttons and hero cards are gone, so the whole product is flat
+    (the app's grey page, the website's white page). Also gone: a blurred lime glow in the corner of every restaurant tile, the green tint on the
+    tile of a restaurant or shop with no logo file, the lime gradients, glows and green-tinted shadows of the welcome screens, and the soft lights
+    in the recipe pictures (six flat pastel colours now). Shadows are neutral grey. The accent green is the app's #046c4f on the website too
+    (6.4:1 on white). Pip keeps the shading in his own drawing. No wording changed.
 
 ## Known issues
 

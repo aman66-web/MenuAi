@@ -51,8 +51,7 @@ function GlyphTile({ size, children }: { size: Size; children: ReactNode }) {
   return (
     <span
       aria-hidden
-      className={`inline-flex shrink-0 items-center justify-center border border-line text-accent shadow-[0_6px_14px_-8px_var(--brand-shadow)] ${BOX[size]}`}
-      style={{ background: "linear-gradient(150deg, rgba(134, 239, 172, 0.35), rgba(163, 230, 53, 0.08) 60%, transparent), var(--soft)" }}
+      className={`inline-flex shrink-0 items-center justify-center border border-line bg-soft text-accent ${BOX[size]}`}
     >
       {children}
     </span>

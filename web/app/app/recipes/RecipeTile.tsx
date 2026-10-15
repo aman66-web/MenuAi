@@ -24,8 +24,8 @@ export const MEAL_LOOK: Record<MealType, { Icon: (p: React.SVGProps<SVGSVGElemen
 
 type Glyph = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 // Until a recipe has its picture, its card shows a plate with a simple drawing of the kind of dish (from the words in its English name; the meal's
-// own icon when none fits) on one of six soft pastel colours chosen by the recipe's id, so a list of a hundred doesn't look like one card
-// repeated (calmer than the first bright set, after the founder's reference pictures of 2026-10-15).
+// own icon when none fits) on one of six flat pastel colours chosen by the recipe's id, so a list of a hundred doesn't look like one card
+// repeated (flat, no gradients: founder 2026-10-15).
 const DISH: ReadonlyArray<[RegExp, Glyph]> = [
   [/noodle|pad thai|stir-fry/i, NoodleGlyph],
   [/pasta|spaghetti|linguine|macaroni|gnocchi|bolognese|carbonara|meatball/i, PastaGlyph],
@@ -39,12 +39,12 @@ const DISH: ReadonlyArray<[RegExp, Glyph]> = [
   [/rice|bowl/i, RiceBowlGlyph],
 ];
 const ART = [
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#fffaf0,#fcecc8)]", // cream
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#fff6f5,#fadcd8)]", // blush
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#fafdf2,#e3f2c6)]", // pale lime
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#f3fbf7,#d3eedf)]", // pale mint
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#f4f9fc,#d6e9f2)]", // pale sky
-  "bg-[radial-gradient(120%_90%_at_20%_10%,#fffaf4,#fbe1c8)]", // soft peach
+  "bg-[#fcecc8]", // cream
+  "bg-[#fadcd8]", // blush
+  "bg-[#e8f1d4]", // pale lime
+  "bg-[#d9efe3]", // pale mint
+  "bg-[#dbeaf3]", // pale sky
+  "bg-[#fbe1c8]", // soft peach
 ];
 const artOf = (id: string) => ART[[...id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % ART.length]!;
 
@@ -96,8 +96,6 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
         </>
       ) : (
         <span aria-hidden className="absolute inset-0">
-          <span className="absolute -start-12 top-6 h-44 w-44 rounded-full bg-white/30 blur-2xl" />
-          <span className="absolute -end-14 bottom-8 h-52 w-52 rounded-full bg-white/20 blur-2xl" />
           {/* sized by the picture's height, not the text size, so large text never pushes the plate into the buttons */}
           <span className="absolute left-1/2 top-[53%] grid aspect-square h-[50%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#0b1a12] shadow-[0_28px_50px_-22px_rgba(0,0,0,0.6),inset_0_0_0_12px_rgba(255,255,255,0.7),inset_0_0_0_13px_rgba(11,26,18,0.06)]">
             <Dish className="h-[55%] w-[55%]" strokeWidth={1.4} />

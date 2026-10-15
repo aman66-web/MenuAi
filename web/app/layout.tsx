@@ -3,21 +3,22 @@ import localFont from "next/font/local"; // font files live in app/fonts: nothin
 import { site } from "@/site.config";
 import "./globals.css";
 
-// DM Sans (UI, variable weight) and DM Mono (figures in data rows), like the founder's reference picture (2026-10-15), and Playfair
-// Display italic (the website's small editorial accents). All SIL OFL (licences next to the files). DM Sans's latin-ext face comes next
-// in the font stack, so Polish and Romanian letters (ł, ś, ă, ț) are drawn in the same font; the browser fetches it only when a page
-// needs one of them. No size-adjusted fallback face for these two: it would sit between them and draw those letters in Arial instead.
+// Urbanist (all text, variable weight: the round geometric font of the founder's reference pictures, 2026-10-15: "change the font of
+// the writing to match the font of the other ones I sent"), DM Mono (figures in data rows, like the Home picture) and Playfair Display
+// italic (the website's small editorial accents). All SIL OFL (licences next to the files). Urbanist's latin-ext face comes next in the
+// font stack, so Polish and Romanian letters (ł, ś, ă, ț) are drawn in the same font; the browser fetches it only when a page needs one
+// of them. No size-adjusted fallback face for these two: it would sit between them and draw those letters in Arial instead.
 const sans = localFont({
-  src: "./fonts/DMSans-latin.woff2",
+  src: "./fonts/Urbanist-latin.woff2",
   variable: "--font-sans-loaded",
-  weight: "100 1000",
+  weight: "100 900",
   display: "swap",
   adjustFontFallback: false,
 });
 const sansExt = localFont({
-  src: "./fonts/DMSans-latin-ext.woff2",
+  src: "./fonts/Urbanist-latin-ext.woff2",
   variable: "--font-sans-ext",
-  weight: "100 1000",
+  weight: "100 900",
   display: "swap",
   preload: false,
   adjustFontFallback: false,

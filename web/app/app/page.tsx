@@ -126,7 +126,7 @@ export default function HomePage() {
           const name = longDay.format(d);
           const label = today ? t("{day} (today)", { day: name }) : future ? name : logged ? t("{day}: food logged", { day: name }) : t("{day}: nothing logged", { day: name });
           const look = today
-            ? "bg-sun text-[var(--on-accent)] shadow-[0_8px_18px_-8px_var(--brand-shadow)]"
+            ? "bg-sun text-[var(--on-accent)]"
             : future
               ? "bg-soft-strong text-muted"
               : logged

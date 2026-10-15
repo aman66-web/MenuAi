@@ -76,7 +76,7 @@ const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pub
 
 const SCREEN = "flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col";
 const HEADLINE = "text-[2.55rem] font-bold leading-[1.04] tracking-[-0.035em]";
-const LIME = "bg-[linear-gradient(135deg,#ecfccb,#bef264)]";
+const LIME = "bg-[var(--sun)]"; // the brand's flat lime: no gradients (founder 2026-10-15)
 
 export default function WelcomePage() {
   const router = useRouter();
@@ -227,7 +227,6 @@ export default function WelcomePage() {
           {intro === 3 && (
             <div className="relative grid place-items-center">
               <Burst />
-              <span aria-hidden className={`absolute h-56 w-56 rounded-full ${LIME} opacity-80 blur-2xl`} />
               <div className="pop-in relative"><Pip mood="cheer" size={170} /></div>
             </div>
           )}
@@ -600,15 +599,10 @@ function PlateArt({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 220 220" aria-hidden focusable="false" className={className}>
       <defs>
-        <radialGradient id="plate-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stopColor="#bef264" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#bef264" stopOpacity="0" />
-        </radialGradient>
         <filter id="plate-shadow" x="-30%" y="-30%" width="160%" height="160%">
-          <feDropShadow dx="0" dy="10" stdDeviation="10" floodColor="#064e3b" floodOpacity="0.28" />
+          <feDropShadow dx="0" dy="10" stdDeviation="10" floodColor="#111814" floodOpacity="0.2" />
         </filter>
       </defs>
-      <circle cx="110" cy="110" r="108" fill="url(#plate-glow)" />
       <g filter="url(#plate-shadow)">
         <circle cx="110" cy="110" r="84" fill="#ffffff" />
         <circle cx="110" cy="110" r="64" fill="none" stroke="#ecfccb" strokeWidth="5" />
@@ -629,7 +623,7 @@ function PipPicture() {
   const chip = "absolute inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-sm font-bold text-[#0b1a12] shadow-[0_12px_26px_-12px_rgba(0,0,0,0.5)]";
   return (
     <div aria-hidden className="relative mx-auto aspect-square w-full max-w-[21rem]">
-      <span className={`absolute inset-[9%] rounded-[2.75rem] ${LIME} shadow-[0_30px_60px_-30px_rgba(6,78,59,0.6)]`} />
+      <span className={`absolute inset-[9%] rounded-[2.75rem] ${LIME} shadow-[0_24px_48px_-28px_rgba(17,24,20,0.35)]`} />
       <span className="absolute inset-0 flex items-end justify-center pb-[9%]"><Pip mood="wave" size={200} /></span>
       <span className={`bob ${chip} start-0 top-[12%]`}><FlameIcon className="h-4 w-4 text-[#ea580c]" />{t("Calories")}</span>
       <span className={`bob-slow ${chip} end-0 top-[36%]`}><BoltIcon className="h-4 w-4 text-accent" />{t("Protein")}</span>

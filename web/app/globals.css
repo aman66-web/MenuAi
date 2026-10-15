@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 /*
-  Design language ("fresh", founder's choice 2026-10-06: green gradient and white): glass cards, a green-gradient pill for the one main
-  action on a screen, DM Sans for everything (founder 2026-10-15, matching their reference picture's text: bold geometric titles, small
-  uppercase labels, DM Mono for figures in data rows) and a little Playfair italic for the website's editorial accents. The app sits on a
-  flat light grey with white cards (founder 2026-10-15, same picture); the website keeps a white page lit by a soft green glow. There is
-  no dark mode (founder 2026-10-15: "The app doesn't need a dark mode anymore"). The class and variable names (--sun, .btn-sun,
-  .sun-text) are from the first palette and mean "the brand gradient". Colours here are OUR palette only: no restaurant brand colours,
-  and nothing on food is ever coloured good/bad (CLAUDE.md rules 2 and 3).
-  Contrast (WCAG AA, checked): --muted 6.1:1 on white and 5.5:1 on the app's grey; --accent 5.5:1 on white, and the app's darker
-  accent 5.8:1 on its grey and 5.2:1 on --accent-soft over it; --on-accent 5.9:1 on the darkest gradient stop.
+  Design language: flat and clean (founder 2026-10-15, from their reference pictures: "make the app look the cleanest you can", then
+  "get rid of the slight green gradient on each page"). White cards on a light grey page in the app (a white page on the website), one
+  flat pastel lime for the main action and selected marks, and no gradients, glows or coloured shadows anywhere. Text is Urbanist (the
+  reference pictures' round geometric font), with DM Mono for figures in data rows and a little Playfair italic for the website's
+  editorial accents. There is no dark mode (founder 2026-10-15: "The app doesn't need a dark mode anymore"). The class and variable
+  names (--sun, .btn-sun, .sun-text) are from the first palette and mean "the brand colour". Colours here are OUR palette only: no
+  restaurant brand colours, and nothing on food is ever coloured good/bad (CLAUDE.md rules 2 and 3).
+  Contrast (WCAG AA, checked): --muted 6.1:1 on white and 5.6:1 on the app's grey; --accent 6.4:1 on white, 5.9:1 on the app's grey and
+  5.3:1 on --accent-soft over it; dark text on the lime 11.9:1.
 */
 :root {
   --background: #ffffff;
@@ -18,23 +18,17 @@
   --line: rgba(11, 26, 18, 0.1);
   --soft: #ffffff;
   --soft-strong: #eef6f1;
-  --accent: #047857;
+  --accent: #046c4f;
   --accent-soft: rgba(16, 185, 129, 0.12);
   --on-accent: #052e16;
-  --sun: linear-gradient(95deg, #d9f99d, #86efac 38%, #34d399 70%, #10b981);
-  --sun-text: linear-gradient(100deg, #047857, #059669 55%, #0f766e);
-  --glow: radial-gradient(70% 55% at 50% 0%, rgba(52, 211, 153, 0.2), rgba(163, 230, 53, 0.07) 50%, transparent 78%);
-  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 12px 30px -18px rgba(6, 78, 59, 0.28);
+  --sun: #d6efa0;
+  --sun-text: linear-gradient(var(--accent), var(--accent));
+  --card-shadow: 0 1px 2px rgba(17, 24, 20, 0.04), 0 10px 24px -20px rgba(17, 24, 20, 0.18);
   --nav-bg: rgba(255, 255, 255, 0.86);
   --ring-track: rgba(11, 26, 18, 0.08);
-  --brand-shadow: rgba(16, 185, 129, 0.55);
-  /* Depth and colour added in the 2026-10-10 refresh ("make it look amazing"): a mesh of soft lights behind the page,
-     layered shadows, and one hue per macro. The macro hues are only labels (never good/bad, CLAUDE.md rule 3). */
-  --mesh:
-    radial-gradient(55% 38% at 8% -4%, rgba(52, 211, 153, 0.34), transparent 70%),
-    radial-gradient(50% 34% at 96% 2%, rgba(190, 242, 100, 0.32), transparent 70%),
-    radial-gradient(70% 40% at 50% 30%, rgba(45, 212, 191, 0.10), transparent 75%);
-  --shadow-lift: 0 1px 1px rgba(6, 78, 59, 0.04), 0 6px 16px -8px rgba(6, 78, 59, 0.18), 0 22px 40px -28px rgba(6, 78, 59, 0.32);
+  --brand-shadow: transparent;
+  /* One hue per macro (labels only, never good/bad: CLAUDE.md rule 3). */
+  --shadow-lift: 0 2px 4px rgba(17, 24, 20, 0.05), 0 16px 32px -22px rgba(17, 24, 20, 0.28);
   --tile: rgba(255, 255, 255, 0.72);
   --bubble: #ffffff;
   --protein: #059669;
@@ -46,29 +40,24 @@
 }
 
 /* The app's own surface (founder 2026-10-15, from their reference pictures: "The background of the app should be light grey like the
-   colour here", then "make the app look the cleanest you can"): the pictures' cool light grey with white cards on it, no glow behind
-   the page, flat pastel lime where the brand gradient was (buttons, selected marks, today), a deeper lime for bars and the calories
-   dial, soft neutral shadows and no coloured glows. Every /app screen renders inside AppShell's .app-surface, so :has() sets these at
-   the root and the page, sticky bars, fades and sheets all follow. The accent is a shade darker here so green text keeps AA on the grey
-   (5.9:1); --soft-strong is a shade darker so chips and tracks show on it; --fill is the light grey of a tile or button that sits on a
-   white card. The heaviest headings are the pictures' bold (700) rather than 800: one variable that Tailwind's font-extrabold reads. */
+   colour here", then "make the app look the cleanest you can"): the pictures' cool light grey with white cards on it and a deeper lime
+   for bars and the calories dial. Every /app screen renders inside AppShell's .app-surface, so :has() sets these at the root and the
+   page, sticky bars, fades and sheets all follow. --soft-strong is a shade darker so chips and tracks show on the grey; --fill is the
+   light grey of a tile or button that sits on a white card. Weights follow the pictures' Urbanist: headings semi-bold rather than heavy
+   (the variables Tailwind's font-extrabold, font-bold and font-semibold read), and running text at 500 rather than 400 so it stays easy
+   to read on the grey. */
 :root:has(.app-surface) {
   --background: #f4f5f6;
   --soft-strong: #e9ecea;
   --fill: #f1f3f2;
   --line: rgba(17, 24, 20, 0.08);
   --tile: #ffffff;
-  --accent: #046c4f;
-  --sun: #d6efa0;
-  --sun-text: linear-gradient(var(--accent), var(--accent));
   --bar: #8cc63f;
-  --mesh: none;
-  --glow: none;
-  --brand-shadow: transparent;
-  --card-shadow: 0 1px 2px rgba(17, 24, 20, 0.04), 0 10px 24px -20px rgba(17, 24, 20, 0.18);
-  --shadow-lift: 0 2px 4px rgba(17, 24, 20, 0.05), 0 16px 32px -22px rgba(17, 24, 20, 0.28);
-  --font-weight-extrabold: 700;
+  --font-weight-extrabold: 650;
+  --font-weight-bold: 600;
+  --font-weight-semibold: 550;
 }
+.app-surface { font-weight: 500; }
 
 @theme inline {
   --color-background: var(--background);
@@ -94,16 +83,6 @@ body {
   font-family: var(--font-sans-loaded), var(--font-sans-ext), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
-}
-
-/* The light the page opens in. Behind the whole screen so there is no seam under the content. */
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 900px;
-  pointer-events: none;
-  background: var(--mesh), var(--glow);
 }
 
 h1, h2, h3 { text-wrap: balance; overflow-wrap: anywhere; } /* a long name at 200% text breaks rather than pushing the page sideways */
@@ -156,25 +135,14 @@ p { text-wrap: pretty; }
   .glass { background: var(--soft); border: 1px solid var(--line); box-shadow: var(--card-shadow); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
   .glow-shadow { box-shadow: 0 10px 26px -10px var(--brand-shadow); }
 
-  /* The one hero surface on a screen: a card lit by the same green glow as the page; it catches the light in one corner. */
-  .hero-card {
-    position: relative;
-    isolation: isolate;
-    background:
-      linear-gradient(150deg, rgba(134, 239, 172, 0.2), rgba(163, 230, 53, 0.06) 55%, transparent),
-      var(--soft);
-    border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
-    box-shadow: var(--card-shadow);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
-  .hero-card::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: radial-gradient(80% 60% at 0% 0%, rgba(255, 255, 255, 0.5), transparent 60%); }
+  /* The one main card on a screen: a plain white card (it used to carry a green tint; founder 2026-10-15: no gradients). */
+  .hero-card { position: relative; background: var(--soft); border: 1px solid var(--line); box-shadow: var(--card-shadow); }
 
   /* A quieter surface for lists nested inside a card (no second blur, no second shadow). */
   .inset-card { background: var(--soft-strong); border: 1px solid var(--line); }
 
-  /* The brand gradient as a round icon badge (quick actions, empty states, list markers). */
-  .icon-bubble { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: var(--sun); color: var(--on-accent); box-shadow: 0 8px 18px -8px var(--brand-shadow), 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
+  /* The brand colour as a round icon badge (quick actions, empty states, list markers). */
+  .icon-bubble { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: var(--sun); color: var(--on-accent); }
   .icon-bubble-soft { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: var(--accent-soft); color: var(--accent); }
 
   /* A quiet tile inside a hero card (macro tiles, target figures). */
@@ -186,11 +154,8 @@ p { text-wrap: pretty; }
   .app-surface .glass,
   .app-surface .hero-card,
   .app-surface .tile { border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
-  .app-surface .hero-card { background: var(--soft); }
-  .app-surface .hero-card::after { display: none; }
   .app-surface :is(.glass, .hero-card, .inset-card) :is(.glass, .tile) { background: var(--fill); box-shadow: none; }
   .app-surface .inset-card { background: var(--fill); border-color: transparent; }
-  .app-surface .icon-bubble { box-shadow: none; }
   .app-surface .icon-bubble-soft { background: var(--fill); color: var(--foreground); }
   .app-surface :is(.glass, .hero-card, .inset-card) .icon-bubble-soft { background: var(--soft-strong); }
 }
