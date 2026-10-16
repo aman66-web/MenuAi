@@ -59,6 +59,8 @@ export const SproutIcon = (p: P) => (<svg {...base(p)}><path d="M12 21v-9" /><pa
 // A drop of water (our own simple drawing).
 export const DropIcon = (p: P) => (<svg {...base(p)}><path d="M12 3.5c3.2 4 6 6.8 6 10.5a6 6 0 01-12 0c0-3.7 2.8-6.5 6-10.5z" /><path d="M9.2 14.2a2.8 2.8 0 002.4 2.6" /></svg>);
 export const FlameIcon = (p: P) => (<svg {...base(p)}><path d="M12 3c.5 3 4.5 5 4.5 9.5a4.5 4.5 0 01-9 0c0-2 1-3.3 2-4.3.2 1.6 1 2.5 2 2.8C11 8.5 11 5.5 12 3z" /></svg>);
+// A bell (our own simple drawing): Home's Reminders.
+export const BellIcon = (p: P) => (<svg {...base(p)}><path d="M12 3.2v1.6" /><path d="M6 17v-5.6a6 6 0 0112 0V17l1.8 2H4.2z" /><path d="M10 21.2a2.2 2.2 0 004 0" /></svg>);
 
 // ---- cuisine glyphs for ChainMark: drawn for this app (simple shapes, no brand artwork) ----
 export const BurgerGlyph = (p: P) => (<svg {...base(p)}><path d="M4 10.5C4 7 7.6 4.5 12 4.5s8 2.5 8 6z" /><path d="M3.5 13.5h17" /><path d="M5 16.5c1.2 1 2.3-1 3.5 0s2.3 1 3.5 0 2.3 1 3.5 0 2.3-1 3.5 0" /><path d="M5 19h14a1 1 0 011 1 1 1 0 01-1 1H5a1 1 0 01-1-1 1 1 0 011-1z" /></svg>);
@@ -77,10 +79,10 @@ export const DirectionsIcon = (p: P) => (<svg {...base(p)}><path d="M12 3l9 9-9 
 export const BasketIcon = (p: P) => (<svg {...base(p)}><path d="M3.5 9.5h17l-1.6 9a1.6 1.6 0 01-1.6 1.3H6.7a1.6 1.6 0 01-1.6-1.3z" /><path d="M8 9.5L11 4M16 9.5L13 4" /><path d="M9.5 13v3.5M14.5 13v3.5" /></svg>);
 export const ScanIcon = (p: P) => (<svg {...base(p)}><path d="M4 8V5.5A1.5 1.5 0 015.5 4H8M16 4h2.5A1.5 1.5 0 0120 5.5V8M20 16v2.5a1.5 1.5 0 01-1.5 1.5H16M8 20H5.5A1.5 1.5 0 014 18.5V16" /><path d="M8 8v8M11 8v8M14 8v8M17 8v8" /></svg>);
 export const PotIcon = (p: P) => (<svg {...base(p)}><path d="M4 10h16v5a5 5 0 01-5 5H9a5 5 0 01-5-5z" /><path d="M2 10h2M20 10h2M9 6.5c0-1 .8-1.5.8-2.5M12 6.5c0-1 .8-1.5.8-2.5M15 6.5c0-1 .8-1.5.8-2.5" /></svg>);
-
-// Meal icons for Recipes' "Which meal?" (founder 2026-10-11: make Recipes look better and easier to understand): our own simple line drawings.
 // Community's tab: two people, a head and shoulders each (the nearer one larger), in the same stroke as the others.
 export const PeopleIcon = (p: P) => (<svg {...base(p)}><circle cx="9.5" cy="8" r="3.3" /><path d="M3 20.5c0-3.7 2.9-6.2 6.5-6.2s6.5 2.5 6.5 6.2" /><path d="M15.6 4.9a3.1 3.1 0 010 6M18.4 14.6c1.7.7 2.8 2.5 2.8 5.2" /></svg>);
+
+// Meal icons for Recipes' "Which meal?" (founder 2026-10-11: make Recipes look better and easier to understand): our own simple line drawings.
 export const SunriseIcon = (p: P) => (<svg {...base(p)}><path d="M4 18h16M7 14a5 5 0 0 1 10 0M12 4v3M5.6 7.6l1.8 1.8M18.4 7.6l-1.8 1.8M3 21h18" /></svg>);
 export const SandwichIcon = (p: P) => (<svg {...base(p)}><path d="M3 10l9-6 9 6zM4 13h16M5 16.5c2 1 3-1 5 0s3 1 5 0 3-1 4 0M4 20h16" /></svg>);
 export const MoonIcon = (p: P) => (<svg {...base(p)}><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></svg>);

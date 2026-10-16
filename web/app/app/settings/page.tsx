@@ -7,7 +7,7 @@ import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
-import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore } from "@/lib/mm/stores";
+import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
@@ -248,6 +248,12 @@ export default function SettingsPage() {
         </Card>
       </Section>
 
+      <Section title={t("Reminders")}>
+        <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
+          <LinkRow href="/app/reminders">{t("Manage reminders")}</LinkRow>
+        </div>
+      </Section>
+
       <Section title={t("Diet and allergies")} id="diet">
         <DietPicker value={settings.preferences} onChange={(preferences) => updateSettings({ preferences })} />
       </Section>
@@ -328,10 +334,10 @@ export default function SettingsPage() {
       </Sheet>
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title={t("Clear data on this device")}>
-        <p className="pt-1 text-base leading-snug">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, water you added, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, water you added, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
+        <p className="pt-1 text-base leading-snug">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
         {account && <p className="mt-2.5 text-base leading-snug">{t("This also signs you out of your account on this device. What is synced stays in your account.")}</p>}
         <div className="mt-5 space-y-2 pb-2">
-          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); waterStore.reset(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
+          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); waterStore.reset(); clearReminders(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); sessionStorage.removeItem("mm.sharedAdded"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
         </div>
       </Sheet>

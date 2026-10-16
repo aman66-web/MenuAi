@@ -11,7 +11,7 @@ not a website in a frame (Apple rejects those under guideline 4.2): the app's pa
 | The web app's app build | `web/` with `APP_BUILD=1` (`npm run build:app`) | A static export of the same code as the website: Pro and Pip's AI recipe maker off, no sample data, no service worker |
 | Packing | `scripts/build_app_web.sh` → `scripts/pack_app_web.py` | Copies the export into `MenuMacros/Resources/WebApp.bundle/` (git-ignored, about 155 MB) with only what web/app-content.json allows |
 | The app | `MenuMacros/` (`MenuMacros.xcodeproj`, bundle `com.amanmarwaha.MenuMacros`) | A full-screen web view that loads the pages from inside the app on `app://menumath/…` (Features/WebApp/) |
-| iPhone features | `MenuMacros/Services/`, `Features/WebApp/NativeBridge.swift`, `web/lib/mm/native.ts` | The iPhone's own barcode scanner (VisionKit), location (Core Location, one prompt) and share sheet. On the website and in any web view without the bridge (the Xcode preview shell, Safari) the page opens its own full-screen camera and reads the barcode itself (`web/lib/mm/barcode.ts`, `Groceries/Scanner.tsx`); the web view needs `allowsInlineMediaPlayback` and a camera usage description |
+| iPhone features | `MenuMacros/Services/`, `Features/WebApp/NativeBridge.swift`, `web/lib/mm/native.ts` | The iPhone's own barcode scanner (VisionKit), location (Core Location, one prompt), share sheet and reminder notifications (local, scheduled by the phone: "Reminders (local notifications)" below). On the website and in any web view without the bridge (the Xcode preview shell, Safari) the page opens its own full-screen camera and reads the barcode itself (`web/lib/mm/barcode.ts`, `Groceries/Scanner.tsx`); the web view needs `allowsInlineMediaPlayback` and a camera usage description |
 | Live data | the website | When online the app reads newer menus and the taken-down logos list from the live site, and sends reports, restaurant requests and messages to its API (CORS allows only `app://menumath`, `web/lib/cors.ts`). Offline it uses what's packed inside |
 
 What's **inside** the app: every page, the menus of all restaurants, the logos, the Near me branch list, the supermarket lists and
@@ -116,6 +116,87 @@ Check on a real iPhone with the app installed: send yourself a shared list in Me
 phone that has never opened Numbite it goes through the questions first and then lands on the list). **What can't be done without a third-party service:**
 a friend who doesn't have the app yet goes to the App Store and, after installing, has to tap the link in the message again (or open Numbite › Shopping list ›
 "Got a list from a friend?" and paste it): iOS gives an app no way to know which link led to its install. The page says so under "After you've installed it".
+
+## Reminders (local notifications)
+
+Home has a **Reminders** section (16 October 2026; web side: `web/lib/mm/reminders.ts`, `web/app/app/_lib/reminderSync.ts`). The person makes their own
+reminders (a name they type, an optional note, a repeat and one time) and, inside this app, **the iPhone itself rings them** as local notifications.
+Nothing leaves the phone: no server, no push, no account, nothing synced (CLAUDE.md rule 4). On the website there is no bridge, so the screens say
+reminders ring in the iPhone app. Numbite suggests no medicine, dose, day or time, and the notification says only what the person typed.
+
+**Nothing to switch on in Xcode or at Apple:** local notifications need no capability, entitlement, Info.plist key or usage string (iOS shows its own
+fixed "Allow notifications?" prompt). Do not add any. The new Swift files join the target by themselves (synchronized folders); `project.pbxproj` is
+not touched.
+
+### How it works
+
+| Part | Where | What it does |
+|---|---|---|
+| The plan | `web/lib/mm/reminders.ts` `planNotifications` | Works out WHAT rings and WHEN: `{ id, title, body, hour, minute, weekdays?, fireAt? }` per reminder (weekdays in iOS numbers, 1 = Sunday; `fireAt` = the next dates of an "every few days" reminder). At most 60 notifications in all; disabled reminders are not in it |
+| The bridge | `web/lib/mm/native.ts` `native.*`, `Features/WebApp/BridgeMessages.swift`, `NativeBridge.swift` | Four messages: `notifications.requestPermission` (reply `{permission}`), `notifications.status` (`{permission}`, never asks), `notifications.syncReminders` with `{ items }` (reply `{done:true}`), `notifications.openSettings` (`{done:true}`). `permission` is `granted`, `denied` or `notDetermined` (the page treats the last as "nothing to report") |
+| Checking | `Services/ReminderPlanItem.swift` | The web view's JSON is never trusted: every field is checked (hour 0-23, minute 0-59, weekdays 1-7, id letters/digits/`-`/`_`, date text exactly `YYYY-MM-DDTHH:MM`), a bad entry is ignored, a weekday or date that is wrong refuses its whole reminder, text is cut to 100 (name) and 200 (note) characters, at most 50 entries and 20 dates each, and an `items` that is not a list is ignored altogether (a garbled message never cancels the reminders; an empty list does, on purpose) |
+| Scheduling | `Services/UserNotificationScheduler.swift` | Turns the checked plan into at most 60 notifications (a reminder that doesn't fit is left out whole) and applies it |
+| Showing | `Services/ReminderNotificationDelegate.swift` | Installed once in `MenuMacrosApp.init()`; without it a reminder that comes due while the app is open shows nothing |
+| Fakes | `Services/FakeNotificationScheduler.swift` | `FakeNotificationScheduler` (previews, bridge tests) and `FakeNotificationCenter` (an in-memory notification centre with the system rules that matter, for the scheduler tests) |
+
+### The iOS rules that shape it
+
+- **Permission** is asked once, when the person saves their first reminder (never at launch). After a "no" iOS never asks again, so the page shows its
+  line with an "Open Settings" button (`UIApplication.openNotificationSettingsURLString`). Authorized, provisional and ephemeral all count as granted.
+  Reminders are scheduled whatever the answer: one made while notifications are off rings if the person switches them on later.
+- **Replace everything**: every notification Numbite schedules has an identifier starting `mm.reminder.` (`mm.reminder.<id>.daily`, `.wd<1-7>`, `.at<date>`).
+  A plan is applied by adding everything first (an identifier already pending is replaced) and then removing the `mm.reminder.` identifiers that are no
+  longer wanted, so there is never a moment with nothing scheduled and the same plan sent twice changes nothing. Notifications already on the lock
+  screen for a reminder that no longer exists are removed too (this is how "Clear data" and Delete also clear the lock screen). Plans are applied one at a
+  time. The web side sends the whole plan when reminders change, when the app starts and when it comes back to the front.
+- **64 pending per app**: the plan stays under 60. Every day = 1, certain days = 1 per weekday, every few days = 1 per date.
+- **Repeating** (every day, certain days) uses `UNCalendarNotificationTrigger(repeats: true)` with hour/minute (and weekday); these survive the app being
+  closed or force-quit and the phone restarting, and follow the phone's clock and time zone. **Every few days** can't repeat on iOS, so it is a run of
+  one-off dates (up to 20, fewer when many reminders share the 60) that the app writes again each time it opens or comes to the front. A person who doesn't
+  open Numbite for longer than the last date gets no more rings from that reminder until they do. The add sheet says so under "First day" ("Numbite sets
+  these reminders up each time you open it. If you don't open Numbite for a while, this one can stop ringing."), and a reminder the phone has no room for
+  at all (more than 60 notifications in all) is marked "Won't ring" on Home and on /app/reminders. When room is freed by leaving whole reminders out, the
+  dates cut from the every-few-days runs are given back (shortest run first).
+- One-off dates are written on the phone's clock (Gregorian "YYYY-MM-DD", whatever calendar the phone shows) and turned into the phone's own calendar and
+  time zone for the trigger; dates already past are dropped (a past one-off can't be scheduled). The zone and calendar are `autoupdatingCurrent` (never the
+  `current` snapshot), so a time-zone change while the app is still running is followed; the page also sends the plan again whenever the app comes to the front.
+- **Lock-screen text**: the title is the name and the body is the note (or the neutral line). `ReminderPlanItem.clean` turns only real control characters
+  (category Cc) and line/paragraph separators into spaces; the invisible joiners and direction marks (category Cf: U+200C, U+200D, U+200E, U+200F) are kept,
+  because Persian, Urdu and Indic words and emoji need them (the web side keeps them too).
+- **Ordinary notifications**: a Focus, Do Not Disturb or Scheduled Summary the person set up can hold or silence them, and their lock-screen preview
+  setting decides whether the name shows. "Time Sensitive" delivery would need a capability that only you can add; it is not used.
+- No badge, no actions, no categories: tapping a reminder just opens the app. Sound is the default sound.
+- Logging (`Logger`, subsystem = the bundle ID, category `reminders`) writes counts only, never a name or note.
+
+### What the Mac session must check
+
+1. **It compiles** (written without a compiler). Fix any Swift 6 concurrency or API errors in place, keeping the behaviour, and say what changed. The new
+   files: `NotificationScheduling.swift`, `ReminderPlanItem.swift`, `UserNotificationScheduler.swift`, `ReminderNotificationDelegate.swift`,
+   `FakeNotificationScheduler.swift`; edited: `BridgeMessages.swift`, `NativeBridge.swift`, `AppEnvironment.swift`, `WebAppView.swift`, `MenuMacrosApp.swift`,
+   `MenuMacrosTests/WebAppTests.swift` (the `notifications:` argument). Places most likely to need a touch: the `nonisolated` markings on the data types and
+   on the delegate (the module's default isolation is the main actor), the `@Sendable` completion handlers in `SystemNotificationCenter`, and the
+   delegate's `willPresent`.
+2. **Tests**: `MenuMacrosTests/ReminderNotificationTests.swift` (decoding and refusing bad JSON, caps, the notifications a plan makes, replace-by-prefix
+   against the in-memory centre, the permission prompt shown once, the bridge messages) and the existing `WebAppTests.swift`. In the Xcode console
+   filter by category `reminders` to see "Reminders scheduled: n of m, k old removed" after each plan.
+3. **On a real iPhone** (notification sound and the lock screen can't be checked in the simulator):
+   - Add a reminder one minute ahead with the app **in the background**: it rings at that minute with the name as the title and the note (or the neutral
+     "Tap to open Numbite" line) as the text; tapping it opens the app.
+   - Add one a minute ahead and **stay in the app**: a banner with sound appears (the delegate), and it is in Notification Center afterwards.
+   - **Deny** the permission (the first prompt, or later in Settings › Numbite › Notifications): Home and Reminders show "Notifications are off for Numbite..."
+     with **Open Settings**, which opens Numbite's notification settings; after switching them on and coming back the line goes away.
+   - Pause and delete a reminder: it stops ringing. **Settings › Clear data on this device** cancels every reminder and clears their rings from the lock screen.
+   - Every day, certain days and every few days (start today, a minute ahead): each rings when it should; two reminders at the same minute both ring.
+   - **Restart the phone** with a daily reminder a few minutes ahead and don't open Numbite: it still rings after the restart (repeating triggers persist).
+   - Change the time zone (Settings › General › Date & Time, off "Set Automatically"): a daily 08:00 follows the phone's clock. Do it once **with the app
+     left running** in the background (no relaunch), bring it to the front, and check an every-few-days reminder is still at its local time.
+   - Give a reminder a Persian or Urdu name with a zero-width joiner (e.g. می‌خواهم) and a family emoji: the lock screen shows them unchanged.
+4. Note the answers in docs/PROGRESS.md.
+
+### Founder steps
+
+None in Xcode, App Store Connect or the Apple Developer site for this feature. Try it on your iPhone once the Mac session has built it (list above).
+The App Privacy answers don't change (reminders never leave the phone); the age-rating and review-note lines for reminders are in docs/STORE.md.
 
 ## What comes after approval (updates)
 

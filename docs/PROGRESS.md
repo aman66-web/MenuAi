@@ -1821,6 +1821,30 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     with their fixed fallback and spoken name, reload, My meals' tabs, modified clicks, double taps, Arabic and Extra large text, axe), `e2e/back-restaurants.mjs` 13, community 10, mapfs 19, sharelist 11, done 13, listadd 7, tsc, eslint.
     **Not run:** the privacy and terms Back bar inside the packed iPhone app (it needs the app build: `app-build.mjs` at the final check) and any real iPhone.
 
+- 2026-10-16 — **Reminders on Home** (founder, on Home: "There should also be a section here for reminders, some people are GLP-1 and some people need to know when to have their medication, the app will send reminders to them when to have etc").
+  - **On Home**, under Water: the person's reminders with a round tick and **Done today** for those due today, **Next: {date}** for the others, **Paused** and **Won't ring** tags, and an **Add a reminder** card. The sheet takes a **Name** (up to 40
+    characters), an optional **Note** (120), a **Time** (the phone's own time picker; none is suggested) and **How often**: every day, certain days of the week, or every few days from a first day. Edit, Pause or Resume, and Delete (a question that ignores
+    a double tap for 0.8 s, then an 8 s Undo). **Settings > Reminders > Manage reminders** (`/app/reminders`) lists them with the same actions. At most 12.
+  - **In the iPhone app they ring** as local notifications scheduled on the phone (no push server, no device token, nothing on any server): the web side works out a plan (`lib/mm/reminders.ts` `planNotifications`, at most 60 notifications; iOS keeps 64) and hands it
+    to the phone (`NativeBridge`; `Services/NotificationScheduling.swift`, `UserNotificationScheduler.swift`, `ReminderNotificationDelegate.swift`). The phone's permission question is asked the first time a reminder is saved; reminders are scheduled whatever the
+    permission, so one made while notifications are off rings if they are switched on later, and a line says when they are off. Daily and weekly ones are repeating notifications left to iOS; "every few days" ones are real dates (up to 20) sent again each time the app opens,
+    which the sheet says plainly ("If you don't open {app} for a while, this one can stop ringing"). A reminder that does not fit under the cap shows **Won't ring**. Times are wall-clock; across clock changes the plan never holds a time that does not exist.
+    A reminder that comes due while the app is open is shown as a banner too. **On the website nothing rings**: the screens say so and show what is due today.
+  - **Rules (CLAUDE.md rules 3 and 4 extended):** the name and note are the person's own words and show on the lock screen (said under both boxes and on the privacy page: keep anything private out of them); the feature has no medicine names and gives no
+    medication guidance, never calls a reminder missed or late, and its caution says it may not appear if notifications are off or silenced, so don't rely on it alone, and to follow the advice of a doctor or pharmacist about any medication. Ticking Done is only the person's own
+    mark and does not stop today's ring (said under the list). **Reminders are stored only on the phone** (`mm.v1.reminders`), are never synced, sent, shared or counted (a test fails if they ever enter the sync stores, the settings that sync, the share link, the outbox
+    or analytics), are removed by Settings > Clear data (which cancels their notifications), and a different person signing in on the same phone starts with none. Privacy page, terms, support-facing text, docs/ACCOUNTS_SYNC.md, docs/APP_BUILD.md and docs/STORE.md
+    (App Privacy, age-rating answers, App Review notes) updated.
+  - **For the founder to decide or read:** the foreground banner also stays in Notification Center (`.list`; say if not); syncing reminders to an account later is a product decision (needs a migration, the privacy text and Health answers first); Apple's current wording of
+    guidelines 1.4.1 and 4.5.4 and the age-rating question were quoted from memory in STORE.md ("as we read it"): read the live text before submitting.
+  - **Not done:** cancelling today's ring when a reminder is ticked Done (the honest line is shown instead); a list of which reminders won't ring (each row carries the tag).
+  - **Not verified, and cannot be here:** the Swift (no compiler in this environment: the Mac session builds and runs `ReminderNotificationTests`), the system permission prompt, how iOS treats repeating notifications on the nights the clocks change, VoiceOver, and that a notification really rings on an
+    iPhone; the website's native time box shows 12 hours in Chromium. Founder or Mac session: add a reminder two minutes ahead, lock the phone and wait.
+  - **New copy (rule 8, logged here; 51 strings translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "Reminders", "Add a reminder", "No reminders yet", "Manage reminders", the sheet's labels, repeat names, errors and the two lock-screen and
+    do-not-rely-on-it sentences, "Done today", "Next: {date}", "Won't ring", "Paused", "Tap to open {app}", the notifications-off line, the website line, and the two Clear data sentences now ending "reminders you set".
+  - **Checked:** 150 unit tests (`reminders.test.ts` 83 incl. a 1,500-round fuzz of the sanitiser and a day-by-day oracle; `reminders.dst.test.ts` 61 across 11 time zones incl. the clock-change nights, mutation-checked with four injected bugs; `nativeNotifications.test.ts`), `e2e/reminders.mjs` 26 steps
+    (add, edit, pause, delete with Undo and the double-tap guard, Done, the three repeats, the plan handed to a faked phone, notifications off, the website, nothing sent anywhere, 360 px / Extra large / Arabic, axe 0), tsc, eslint.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -70,14 +70,15 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    down without an app update by listing its chain id (or `shop:<id>`) in `web/public/logos/hidden.json` and deploying the website; the iPhone
    app's welcome wall shows names only (no logo files); store screenshots never show a logo or a photo (`web/e2e/store-shots.mjs`).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
+   Reminder names and times are the person's own: the app gives no medication guidance and never calls a reminder missed or late.
 4. **Privacy:** accounts are **optional** (founder 2026-10-12, "Sync across devices"; docs/ACCOUNTS_SYNC.md). With no account nothing leaves
    the device (except what the user chooses to send through the API: reports, chain requests, support messages). If the person signs in (Apple,
    Google or an email code) we keep their email address, a user ID and only the stores they sync (`user_data`: settings, diet and allergies, saved
-   meals and recipes, shopping list, favourites, comparison list, today's log); never recently viewed dishes, location or the offline cache. Sign-in
+   meals and recipes, shopping list, favourites, comparison list, today's log); never recently viewed dishes, reminders (medication or otherwise), location or the offline cache. Sign-in
    is never required for a feature, Sign in with Apple is always offered next to Google, and "Delete my account" stays inside the app. **Never put a
    Supabase key in the app or the browser**; the app and the website only call the Vercel API (`AppConfig.apiBaseURL`), which holds the server-only
    key. Never run `supabase db push` or change production data without the founder's go-ahead; schema changes are new migration files. Location is
-   used on device only, Health is write-only and never used for anything else.
+   used on device only, reminders ring as local notifications (no push server), Health is write-only and never used for anything else.
 5. **Sample chains are fictional** (`sample: true`): visible in DEBUG only, never in Release.
 6. **No new third-party dependencies** without asking the founder (TelemetryDeck in M9 and MapLibre GL for the web Nearby map, approved 2026-10-06, are pre-approved).
 7. Use the exact user-facing copy from `docs/SPEC.md` §8, §9, §12 when it's given.

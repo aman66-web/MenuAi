@@ -12,5 +12,5 @@ export const site = {
   // Set once the app is live (App Store Connect › App Information › Apple ID).
   appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL ?? "",
   appleStandardEula: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
-  privacyLastUpdated: "15 October 2026",
+  privacyLastUpdated: "16 October 2026",
 } as const;

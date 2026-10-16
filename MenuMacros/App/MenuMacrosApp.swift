@@ -4,6 +4,11 @@ import SwiftUI
 struct MenuMacrosApp: App {
     @State private var environment = AppEnvironment.live()
 
+    init() {
+        // A reminder that comes due while the app is open is shown too (Services/ReminderNotificationDelegate.swift). Once, as the app starts.
+        ReminderNotificationDelegate.install()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()

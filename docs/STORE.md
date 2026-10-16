@@ -71,6 +71,12 @@ tracking, and there is no analytics in this version.
 - Location: **not collected** (used on the phone only to sort nearby branches; a typed postcode goes to postcodes.io for the lookup and
   isn't kept by us). Camera: not collected (barcodes are read on the phone).
 - Purchases: none in this version. Apple Health: not used.
+- **Reminders (Home › Reminders, added 16 October 2026): nothing collected, so no new row and no change to `PrivacyInfo.xcprivacy`.** A person's
+  reminders (the name and optional note they type, the days, the time and which day they last ticked it done) can be about medication, but they are
+  kept only on the phone: never sent to us or anyone else, never synced even when signed in (docs/ACCOUNTS_SYNC.md), not in analytics (there is none)
+  and not used for tracking. They ring as **local** notifications scheduled by iOS on the phone: no Push Notifications capability, no device token and
+  no server involved, so there is nothing to declare under "Identifiers" or "Health". Keep it that way: if reminders ever sync or a push server is
+  added, this table, the privacy manifest and the website privacy policy change first (and "Health" then covers reminders too).
 - **Sign-in (optional, docs/ACCOUNTS_SYNC.md):** the four rows marked "only if the person signs in" are why the manifest changed on 13 October
   2026. "Health" is declared because the synced goal (which can be a GLP-1 goal), calorie and protein targets, allergies and logged meals are
   health-related information the person typed in; it is the cautious answer, so confirm it in App Store Connect before submitting (Apple's
@@ -91,6 +97,26 @@ never added to the supermarket lists); everything else None. Expect a rating of 
 have none (the founder's rule of 11 October) but a few real alcohol products remain in Iceland's list (an alcoholic cherryade, vodka mixes, a
 Pinot Grigio, cream liqueurs): a data-cleaning job in `tools/groceries/build_groceries.py` (`is_alcohol`), not done.
 
+**Reminders and the "Medical or Treatment Information" question (added 16 October 2026; founder to confirm before submitting).** Home now has a
+Reminders section where a person can set a reminder for anything, including medication (the founder's reason: people on a GLP-1 medicine need to
+know when to take theirs). What the Reminders feature itself holds: no drug or brand names anywhere in Reminders, no doses, no advice on when to take anything or whether with
+food, no check that a dose was taken, no "missed" or "late" labels, no streaks or scores. The person types every name and note, and it stays on
+their phone. So the app still **provides** no medical or treatment information; it is a clock the person sets. Even so, a reviewer (or a parent
+reading the rating) can fairly see a feature meant for medication reminders as related to treatment. **Recommended answers: keep Medical or
+Treatment Information at Infrequent** (the same answer as for the GLP-1 goal line, and in the same spirit as the note above: do not answer None to look
+better) and keep Health or Wellness Topics at Frequent. Expect the rating to stay about 13+; check the rating App Store Connect shows after answering,
+and if the questionnaire's own wording for the medical question covers apps that help someone follow a treatment plan, choose the higher answer.
+- **App Review Guideline 1.4.1** (as we read the guidelines of 8 June 2026: medical apps that could be used for diagnosing or treating get
+  greater scrutiny, and apps should remind people to check with a doctor before making medical decisions; read the current wording before
+  submitting). Numbite measures and calculates nothing medical, so it is not that kind of app, but it follows the expectation anyway: the add-a-reminder
+  sheet and the Reminders page both say "Numbite rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so
+  don't rely on it alone. Follow the advice of your doctor or pharmacist about any medication." (new wording of 16 October, after the review found the first
+  one read as a promise; the website's add sheet also says reminders ring only in the iPhone app), and the terms say it is not a medical device and that the
+  person is responsible for their medication.
+- **Guideline 4.5.4 (notifications)**, as we read it: the permission is asked only when the person saves their first reminder (never at launch), the
+  app works fully without it, nothing is sent except what the person set up (no promotions, ever), and the lock-screen text is only what they typed
+  (the add sheet says "The name and the note you type show on your lock screen." under both boxes; they control previews in the iPhone's Settings).
+
 ## URLs for App Store Connect
 
 - Privacy Policy URL: `https://numbite.com/privacy`
@@ -107,13 +133,21 @@ Delete my account (for an Apple sign-in it asks Apple to confirm and then revoke
 
 Why this is an app and not a website: all menus, products, recipes and photos are packed inside the app, so it works with Airplane Mode on.
 It uses the iPhone itself for Groceries > Scan a barcode (VisionKit, camera, nothing leaves the phone), Eat out > Near me > Use my location (one
-system prompt; a typed postcode works instead), the share sheet for the shopping list, and Sign in with Apple. The only things fetched online
+system prompt; a typed postcode works instead), the share sheet for the shopping list, local notifications for the reminders the person sets on Home, and Sign in with Apple. The only things fetched online
 are newer menus and the optional account and sync.
 
 Restaurant and shop names (and any logos or pictures shown) only identify whose published nutrition information is listed; the app says it
 is not affiliated with any of them, and we remove anything on request, without an app update. Numbers come from each chain's own published
 data with the source and date shown; allergen information says 'check with staff'. The app gives no medical advice (stated in the app and the
-terms), warns when a calorie target is very low, and the GLP-1 goal says to follow a doctor's or pharmacist's advice."
+terms), warns when a calorie target is very low, and the GLP-1 goal says to follow a doctor's or pharmacist's advice.
+
+Reminders (Home > Reminders, the + button): the person types their own reminder (any name, an optional short note, the days and the time) and the
+iPhone shows it as a local notification at that time. To try it, add a reminder a minute ahead and allow notifications when asked (the permission is
+asked only when the first reminder is saved, never at launch). Every word is the person's own: the Reminders feature contains no medicine names, suggests no
+medicine, dose or time, never says a reminder was missed or late, and has no streaks or scores. Both the add sheet and the Reminders page say
+'Numbite rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone. Follow the advice of your doctor or pharmacist about any medication.' (guideline 1.4.1) and the
+terms say it is not a medical device. Reminders stay on the phone: they are not sent to us, not synced even when signed in, and the app uses no push
+server or remote notifications."
 
 ## Release checklist (free launch)
 
@@ -127,5 +161,5 @@ terms), warns when a calorie target is very low, and the GLP-1 goal says to foll
 - [ ] Mac session: build, unit and UI tests, simulator check in airplane mode (docs/APP_BUILD.md "Checks before TestFlight")
 - [ ] App Store Connect: app record "Numbite: Calories & Protein", bundle `com.amanmarwaha.MenuMacros`, price Free, UK availability
 - [ ] App Privacy form and age rating from the sections above; screenshots from `web/e2e/store-shots.mjs`
-- [ ] Archive and upload from Xcode; TestFlight on your own iPhone (scanner, Near me, share, offline)
+- [ ] Archive and upload from Xcode; TestFlight on your own iPhone (scanner, Near me, share, offline, a reminder set a minute ahead)
 - [ ] Submit; release manually

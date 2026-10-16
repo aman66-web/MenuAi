@@ -52,7 +52,7 @@ export default function Privacy() {
 
       <Section title="What stays on your phone or in your browser">
         <Rows>
-          <li className={row}>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, the water you add on Home, and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare.</li>
+          <li className={row}>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, the water you add on Home, your reminders (see &ldquo;Reminders&rdquo; below), and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare.</li>
           <li className={row}>
             In the iPhone app these are stored only inside the app on your phone; deleting the app deletes them. In the web app they are stored only in this browser
             on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). If you don&apos;t sign in, we never
@@ -84,7 +84,7 @@ export default function Privacy() {
             mark as already having, what you picked to compare, and today&apos;s log (entries from today and yesterday only).
           </li>
           <li className={row}>
-            <strong>What never syncs:</strong> your location, the water you add on Home (only your daily water goal syncs, with your other targets), the dishes you viewed in the last day, the offline menu files, messages waiting to be
+            <strong>What never syncs:</strong> your location, the water you add on Home (only your daily water goal syncs, with your other targets), your reminders, the dishes you viewed in the last day, the offline menu files, messages waiting to be
             sent, and anything in the app while you are signed out.
           </li>
           <li className={row}>
@@ -158,6 +158,34 @@ export default function Privacy() {
           person asking too often.
         </p>
         )}
+      </Section>
+
+      <Section title="Reminders">
+        <p className={para}>
+          Reminders on Home are for anything you choose to be reminded of, including medication. You type the name, pick the days and the time, and can add a
+          short note. {site.name} doesn&apos;t suggest a medicine, a dose or a time, and doesn&apos;t give medical advice.
+        </p>
+        <Rows>
+          <li className={row}>
+            <strong>Where they are kept:</strong> only on your device, inside the iPhone app on your phone, or in this browser if you use the web app. We never
+            receive a reminder, its name, its note or its time, and they are not part of what syncs to your account, even when you are signed in.
+          </li>
+          <li className={row}>
+            <strong>How they ring:</strong> in the iPhone app each reminder is scheduled on your phone itself, using the iPhone&apos;s own notifications. No server
+            sends them. {site.name} asks for permission to send notifications only when you save your first reminder, and you can switch it off at any time in
+            your iPhone&apos;s Settings. The web app lists your reminders and lets you tick them off, but it can&apos;t ring: for that you need the iPhone app.
+          </li>
+          <li className={row}>
+            <strong>What shows on your lock screen:</strong> the name you typed, and your note if you added one. Anyone who can see your phone&apos;s lock screen
+            may be able to read it, so keep anything private out of the name and the note. You can change what shows in your iPhone&apos;s Settings › Notifications ›{" "}
+            {site.name}.
+          </li>
+          <li className={row}>
+            <strong>Removing them:</strong> you can pause or delete a reminder at any time. &ldquo;Clear data on this device&rdquo; in Settings removes all of
+            them and cancels their notifications, and deleting the iPhone app removes them too. Deleting your account doesn&apos;t change them, because
+            they were never in it.
+          </li>
+        </Rows>
       </Section>
 
       <Section title="Purchases">

@@ -3,7 +3,7 @@ import UIKit
 import WebKit
 
 /// The whole app: the web app packed inside it (WebAppFiles), shown in a web view that loads its pages from the app itself, so it works
-/// with no connection. The iPhone does the barcode scanning, location and share sheet (NativeBridge). Links to other websites open in
+/// with no connection. The iPhone does the barcode scanning, location, share sheet and reminder notifications (NativeBridge). Links to other websites open in
 /// Safari, mail links in Mail.
 struct WebAppView: UIViewRepresentable {
     let files: WebAppFiles?
@@ -12,7 +12,7 @@ struct WebAppView: UIViewRepresentable {
     var link: LinkInbox.Request?
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(bridge: NativeBridge(scanner: environment.scanner, location: environment.location, sharer: environment.sharer, appleSignIn: environment.appleSignIn, webSignIn: environment.webSignIn))
+        Coordinator(bridge: NativeBridge(scanner: environment.scanner, location: environment.location, sharer: environment.sharer, appleSignIn: environment.appleSignIn, webSignIn: environment.webSignIn, notifications: environment.notifications))
     }
 
     func makeUIView(context: Context) -> WKWebView {

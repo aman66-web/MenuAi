@@ -16,6 +16,12 @@ when the feature ships, and the privacy page and App Store answers change with i
   syncs with the other settings, the drinks stay on the device). Water drinks are not a synced store because `public.user_data` accepts only the store names its
   CHECK constraint lists (`supabase/migrations/20261013120000_user_data.sql`); to sync them, add a new migration widening that constraint, apply it with the
   founder's go-ahead **before** deploying the code that adds `water` to `SYNC_STORES` (`web/tests/water.test.ts` fails if a synced store isn't on the database's list).
+  **Reminders never sync either** (Home's Reminders section, 16 October 2026): their names, notes, times and repeat choices are the person's own words and can be
+  about medication, so they are health-adjacent personal data that stays on the device (`mm.v1.reminders`), is not in the database's list of stores, and is
+  never sent to any API, the share link, the outbox or analytics. They ring as local notifications scheduled on the phone, so no push server, device token or
+  server-side schedule exists. This is deliberate, not a gap: `web/tests/reminders.test.ts` fails if reminders ever appear in `SYNC_STORES`, the sync code or
+  the settings that sync. Syncing them later is a product decision for the founder, and needs a new migration, an updated privacy policy and App Privacy
+  answers (Health) first. Signing out or deleting the account leaves them on the phone; "Clear data on this device" removes them and cancels their notifications.
 - **Settings › Account:** who you're signed in as, "Sign out" (data stays on this phone), and **"Delete my account"**. Apple requires deletion
   inside the app (guideline 5.1.1(v)); it deletes the account and every synced row at once.
 

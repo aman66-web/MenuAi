@@ -14,6 +14,7 @@ import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
 import { bootAccount } from "../_lib/account";
+import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
 import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
@@ -79,6 +80,10 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   // Logos taken down at their owner's request (public/logos/hidden.json), read once per launch.
   useEffect(() => { refreshHiddenLogos(); }, []);
+
+  // Reminders (Home's Reminders section): in the iPhone app the plan of what to ring is handed to the phone when the reminders change, when the app starts
+  // and when it comes back to the front; on the website this only notes that there is nothing to ring with (_lib/reminderSync.ts).
+  useReminderSync();
 
   // Every history entry the app makes carries how deep it is, so a Back button can take the browser's own Back when the page was reached from another
   // page of the app (and its fixed page only when there is nothing earlier): lib/mm/navDepth.ts, _lib/backNav.ts.

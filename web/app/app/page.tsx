@@ -18,6 +18,7 @@ import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
 import { DayPicker } from "./_components/DayPicker";
 import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
+import { RemindersSection } from "./_components/RemindersSection";
 import { WaterCard } from "./_components/WaterCard";
 import { CalendarIcon, FlameIcon, ForkIcon, GearIcon, PlusIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
@@ -272,6 +273,8 @@ export default function HomePage() {
       </ul>
 
       <WaterCard now={now} guard={(go) => gate("log", go)} />
+
+      <RemindersSection now={now} />
 
       <DayPicker open={picking} onClose={() => setPicking(false)} log={log} now={now} onPick={(d) => { setPicking(false); router.push(dayHref(d, now)); }} />
 

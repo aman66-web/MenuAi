@@ -1,8 +1,9 @@
 import Foundation
+import OSLog
 import WebKit
 
-/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet and sign-in sheets, and hands the result back with
-/// window.__menumathReply (web/lib/mm/native.ts). Only the app's own pages (the main frame on app://menumath) are listened to.
+/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet, sign-in sheets and reminder notifications, and hands
+/// the result back with window.__menumathReply (web/lib/mm/native.ts). Only the app's own pages (the main frame on app://menumath) are listened to.
 final class NativeBridge: NSObject, WKScriptMessageHandler {
     static let handlerName = "menumath"
 
@@ -12,13 +13,15 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
     private let sharer: any Sharing
     private let appleSignIn: any AppleSigningIn
     private let webSignIn: any WebSigningIn
+    private let notifications: any NotificationScheduling
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
         self.appleSignIn = appleSignIn
         self.webSignIn = webSignIn
+        self.notifications = notifications
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -64,6 +67,17 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
             case .cancelled: return .failure("cancelled")
             case .unavailable: return .failure("unavailable")
             }
+        case .notificationPermission:
+            return BridgeReply(permission: await notifications.requestPermission().rawValue)
+        case .notificationStatus:
+            return BridgeReply(permission: await notifications.status().rawValue)
+        case .syncReminders(_, let plan):
+            if plan.ignored > 0 { Logger.reminders.warning("The page sent \(plan.ignored) reminder entries that were not valid; they were ignored") }
+            await notifications.replaceReminders(plan.items)
+            return BridgeReply(done: true)
+        case .openNotificationSettings:
+            notifications.openSettings()
+            return BridgeReply(done: true)
         }
     }
 }

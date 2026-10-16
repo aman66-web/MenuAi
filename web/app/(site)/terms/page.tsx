@@ -68,6 +68,14 @@ export default function Terms() {
         </p>
       </Section>
 
+      <Section title="Reminders">
+        <p className={para}>
+          Reminders are a convenience. {site.name} rings at the times you choose, but a reminder may not appear if notifications are switched off or silenced
+          on your phone, so don&apos;t rely on it alone. {site.name} isn&apos;t a medical device. It doesn&apos;t suggest what to take or when, and it
+          doesn&apos;t check that you have taken anything. You are responsible for your medication: follow the advice of your doctor or pharmacist.
+        </p>
+      </Section>
+
       <Section title="Restaurants and shops">
         <p className={para}>
           {site.name} is not affiliated with, endorsed by or sponsored by any restaurant or supermarket. Their names and

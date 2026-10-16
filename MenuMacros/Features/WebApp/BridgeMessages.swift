@@ -8,10 +8,16 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     case share(id: String, content: ShareContent)
     case appleSignIn(id: String)
     case webAuth(id: String, provider: String)
+    /// Reminders (web/lib/mm/native.ts `native`): ask for permission to show notifications, read it, hand over the whole plan, open iPhone Settings.
+    case notificationPermission(id: String)
+    case notificationStatus(id: String)
+    case syncReminders(id: String, plan: ReminderPlanItem.Parsed)
+    case openNotificationSettings(id: String)
 
     var id: String {
         switch self {
-        case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _): id
+        case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _),
+             .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id): id
         }
     }
 
@@ -33,6 +39,16 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
         case "webAuth":
             guard let provider = payload["provider"] as? String, provider == "google" || provider == "apple" else { return nil }
             self = .webAuth(id: id, provider: provider)
+        case "notifications.requestPermission":
+            self = .notificationPermission(id: id)
+        case "notifications.status":
+            self = .notificationStatus(id: id)
+        case "notifications.syncReminders":
+            // Not a list at all: ignored, so a garbled message can never cancel the reminders. An empty list is a real plan (no reminders).
+            guard let plan = ReminderPlanItem.parsePlan(payload["items"]) else { return nil }
+            self = .syncReminders(id: id, plan: plan)
+        case "notifications.openSettings":
+            self = .openNotificationSettings(id: id)
         default:
             return nil
         }
@@ -88,6 +104,8 @@ nonisolated struct BridgeReply: Codable, Equatable, Sendable {
     var appleCode: String?
     var authCode: String?
     var verifier: String?
+    /// Notifications: "granted", "denied" or "notDetermined" (NotificationPermission.rawValue).
+    var permission: String?
     var error: String?
 
     static func failure(_ reason: String) -> BridgeReply { BridgeReply(error: reason) }
