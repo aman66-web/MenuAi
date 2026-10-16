@@ -10,14 +10,15 @@ import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
 import { APP_BUILD } from "@/lib/mm/config";
 import { guessLocale, localeInfo, tk, type Locale } from "@/lib/mm/i18n";
-import { GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, SUGGESTION_NOTE } from "@/lib/mm/targets";
+import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
+import { macroTargets } from "@/lib/mm/targets";
 import { settingsStore, updateSettings } from "@/lib/mm/stores";
 import type { Goal, Preferences, Profile } from "@/lib/mm/types";
-import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
+import { TEXT_SCALE, type TextSize, type UserSettings } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
 import {
-  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, FlameIcon, ForkIcon, GiftIcon, GlobeIcon, HomeIcon, LeafIcon,
-  MinusIcon, PeopleIcon, PillIcon, PlusIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
+  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, GlobeIcon, HomeIcon, LeafIcon,
+  PeopleIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
 } from "../_components/icons";
 import { LanguageList } from "../_components/LanguageList";
 import { LogoWall, type WallItem } from "../_components/LogoWall";
@@ -27,10 +28,13 @@ import { site } from "@/site.config";
 import { Pip, PipSays, type PipMood } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
 import { SHARED_APP_PATH } from "@/lib/mm/shareList";
+import { ActivityStep, AboutYouStep, YourSizeStep } from "./BodySteps";
+import { CAPS, CARD, HEADLINE, PlateArt } from "./parts";
 import { RecipeChoice } from "./RecipeChoice";
+import { TargetsStep } from "./TargetsStep";
+import { useTargetFields } from "./useTargetFields";
 import { SignInSheet } from "../_components/SignIn";
-import { TargetSuggestForm } from "../_components/TargetSuggestForm";
-import { inputClass, radioKeyNav } from "../_components/ui";
+import { radioKeyNav } from "../_components/ui";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
 import { recipeShop } from "../_lib/recipes";
@@ -40,9 +44,13 @@ import { setLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
 // SPEC §7.1 and §8, made friendlier at the founder's request (2026-10-10): Pip the mascot says what each step is for, buttons are big,
-// one question per screen, and a text-size step so everyone can read it. The SPEC's step headings are kept. Skip on steps 1–5 skips
-// that step only (defaults stay); the last step has only Start. Step 3 asks about foods to leave out (the web app has no location step);
-// step 4 asks which supermarkets they use (founder 2026-10-10: the app is for eating out, shopping and cooking).
+// one question per screen, and a text-size step so everyone can read it. The SPEC's step headings are kept. Skip skips that step only
+// (defaults stay), except on the three questions about the person, where it skips all three. Step 2 asks about foods to leave out (the web app has
+// no location step); step 7 asks which supermarkets they use (founder 2026-10-10: the app is for eating out, shopping and cooking).
+// The numbers come last (founder 2026-10-16: "come to this screen later ... arrive on this screen with pre typed information which they can change"):
+// goal (1), foods to avoid (2), about you (3), your size (4), how active (5), then "Your daily targets" (6) arrive filled in from all of that
+// (lib/mm/onboardingPlan.ts, targets.ts), and every number can still be changed. What was typed about the person lives in this page's state only and
+// is gone when onboarding ends (CLAUDE.md rule 4).
 // The look (founder 2026-10-14, from a reference picture: "make the screens look amazing like this"): the app's name and Skip at the top,
 // the progress as segments, a very large headline with a small picture pill in it, one picture or card per screen, and a big plain pill
 // button at the bottom (the words only: founder 2026-10-15, "get rid of those two circles ... it just looks weird"). No food photographs (CLAUDE.md rule 2): the pictures are Pip, the moving wall of the restaurants and
@@ -74,8 +82,10 @@ const SIZES: ReadonlyArray<{ value: TextSize; label: string }> = [
   { value: "xlarge", label: tk("Extra large") },
 ];
 
-// Five questions, then "You're all set!" (6) and the choice of a first recipe (7).
-const STEPS = 7;
+// Eight questions, then "You're all set!" (9) and the choice of a first recipe (10).
+const STEPS = 10;
+// The questions in order. The three about the person (3-5) are skipped together.
+const AVOID = 2, ABOUT = 3, SIZE = 4, ACTIVE = 5, TARGETS = 6, SHOPS = 7, TEXT_SIZE = 8, ALL_SET = 9, RECIPE = 10;
 // Intro 1 is Pip's arrival, intro 2-6 are the five stops of Pip's walk along the tab bar (TOUR).
 const INTRO_SCREENS = 6;
 
@@ -93,14 +103,7 @@ const TOUR: ReadonlyArray<{ name: string; line: string; says: string; mood: PipM
 const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pubsmiths", "popeyes", "park-holidays-uk", "toby-carvery", "the-breakfast-club", "butcombe-inns", "parsons-bakery", "buzz-bingo", "greene-king", "giggling-squid", "joseph-holt", "castle-carvery"]);
 
 const SCREEN = "flex min-h-[calc(100dvh_-_max(1.25rem,env(safe-area-inset-top))_-_2rem)] flex-col";
-// The big headline, in one plain ink like Home's title and every one of the founder's reference pictures (2026-10-15: no accent words in
-// headings); a touch heavier than before so it sits with Home's heavy "Home".
-const HEADLINE = "text-[2.5rem] font-[700] leading-[1.05] tracking-[-0.03em]";
 const LIME = "bg-[var(--sun)]"; // the brand's flat lime: no gradients (founder 2026-10-15)
-// Home's small spaced-capitals label inside a card ("CALORIES").
-const CAPS = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
-// Cards, tiles and list rows share Home's 20 px corners.
-const CARD = "rounded-[1.25rem]";
 // A round grey button like Home's calendar button: a 36 px circle inside a 44 px tap area.
 const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
@@ -120,13 +123,15 @@ export default function WelcomePage() {
   const menu = useMenu();
   const initial = settingsStore.get();
   // Step -1 is the language screen: the very first thing anyone sees (founder 2026-10-10). Step 0 is the welcome screen, then Pip's arrival
-  // and walk through the app (intro 1-6), then the questions (steps 1-6).
+  // and walk through the app (intro 1-6), then the eight questions (steps 1-8), "You're all set!" (9) and the first recipe (10).
   const [step, setStep] = useState(-1);
   const [intro, setIntro] = useState(0);
   const [picked, setPicked] = useState<Locale | null>(null);
   const [signInOpen, setSignInOpen] = useState(false);
   const hydrated = useHydrated();
-  const onboarded = useSettings().hasCompletedOnboarding;
+  // what has been saved so far: "You're all set!" shows this, so it is always what Home will show
+  const settings = useSettings();
+  const onboarded = settings.hasCompletedOnboarding;
   const wasOnboarded = useRef(initial.hasCompletedOnboarding);
 
   // Signed in from this screen (an account that has already been set up, on a new phone): the settings arrive with the sync during this
@@ -140,13 +145,17 @@ export default function WelcomePage() {
   const language: Locale = picked ?? initial.language ?? guess;
   const t = useT();
   const [goal, setGoal] = useState<Goal>(initial.goal);
-  const [calories, setCalories] = useState(String(initial.dailyCalories));
-  const [protein, setProtein] = useState(initial.dailyProtein ? String(initial.dailyProtein) : "");
-  const [mealCap, setMealCap] = useState(String(initial.glp1MealCap));
+  const target = useTargetFields(initial);
   const [prefs, setPrefs] = useState(initial.preferences);
   const [size, setSize] = useState<TextSize>(initial.textSize ?? "standard");
   const [shops, setShops] = useState<string[]>(initial.shops ?? []);
-  const [showSuggest, setShowSuggest] = useState(false);
+  // The answers about the person (steps 3-5): React state only, never saved or sent; dropped with this page when onboarding ends.
+  const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
+  // Skip on any of the three: the targets screen has nothing filled in; and the step to go Back to when the questions were left by a jump (skip, or under 18)
+  const [bodySkipped, setBodySkipped] = useState(false);
+  const [jumpedFrom, setJumpedFrom] = useState<number | null>(null);
+  const answers = useMemo(() => planFromAnswers({ goal, prefs, body }), [goal, prefs, body]);
+  const changeBody = (patch: Partial<BodyAnswers>) => setBody((b) => ({ ...b, ...patch }));
   const [goalTouched, setGoalTouched] = useState(false);
   const [sizeTouched, setSizeTouched] = useState(false);
   const pickGoal = (g: Goal) => {
@@ -160,7 +169,7 @@ export default function WelcomePage() {
   }, [picked, guess]);
   // Warm up the first recipe screen: by the last questions, start loading the full list of the shop its recipes come from (it is a few hundred KB).
   useEffect(() => {
-    if (step < 5) return;
+    if (step < TEXT_SIZE) return;
     void loadShopManifest().then((m) => { const id = recipeShop(m, null, settingsStore.get().shops); return id ? loadShopFile(id) : undefined; }).catch(() => undefined);
   }, [step]);
   const chooseLanguage = (l: Locale) => {
@@ -171,15 +180,46 @@ export default function WelcomePage() {
   const next = () => {
     if (step === 0 && intro < INTRO_SCREENS) setIntro((i) => i + 1);
     // Someone who came to read a shopping list a friend sent goes straight to it after "You're all set!" (no recipe to choose first)
-    else if (step === 6 && (new URLSearchParams(window.location.search).get("next") ?? "").startsWith(SHARED_APP_PATH)) finish();
+    else if (step === ALL_SET && (new URLSearchParams(window.location.search).get("next") ?? "").startsWith(SHARED_APP_PATH)) finish();
     else setStep((s) => s + 1);
     window.scrollTo({ top: 0 });
   };
-  // Back to the screen before (step 1 goes back to Pip's last intro screen); what was chosen is kept.
+  // Back to the screen before (step 1 goes back to Pip's last intro screen); what was chosen is kept. The targets screen reached by a jump (skip, or an
+  // age under 18) goes back to the screen the person jumped from.
   const back = () => {
     if (step === 0 && intro > 0) setIntro((i) => i - 1);
-    else setStep((s) => Math.max(-1, s - 1));
+    else if (step === TARGETS && jumpedFrom !== null) {
+      setStep(jumpedFrom);
+      setJumpedFrom(null);
+    } else setStep((s) => Math.max(-1, s - 1));
     window.scrollTo({ top: 0 });
+  };
+  // On to "Your daily targets" with the plan for what was answered (null = nothing to fill in).
+  const toTargets = (plan: typeof answers.plan | null, from: number | null) => {
+    target.applyPlan(plan);
+    setJumpedFrom(from);
+    setStep(TARGETS);
+    window.scrollTo({ top: 0 });
+  };
+  // Continue on the three questions about the person. An age under 18 goes straight to the targets (no numbers are worked out for it, and nobody under 18
+  // is asked for their height and weight).
+  const continueAbout = () => {
+    setBodySkipped(false);
+    if (answers.plan.kind === "under18") return toTargets(answers.plan, ABOUT);
+    next();
+  };
+  const continueSize = () => { setBodySkipped(false); next(); };
+  const continueActive = () => {
+    setBodySkipped(false);
+    toTargets(answers.plan, null);
+  };
+  // Skip on any of the three questions skips all three: what was typed is thrown away and the targets screen starts empty. Back from there goes to the first of
+  // the three (About you), not to the one skipped from, because all three are empty now and must be answered in order.
+  const skipBody = () => {
+    analytics.track({ name: "onboardingSkipped", step });
+    setBody(EMPTY_BODY);
+    setBodySkipped(true);
+    toTargets(null, ABOUT);
   };
   // The end of onboarding: to the page the visitor first opened (a shared link) if it's inside the app, else Home; or, when a first recipe was
   // chosen, Home underneath and the recipe on top of it (so the recipe page's own Back button lands on Home, never on the welcome screens).
@@ -217,12 +257,8 @@ export default function WelcomePage() {
     applyTextSize(s); // preview straight away
   };
 
-  const caloriesNumber = Number(calories);
-  const caloriesValid = Number.isFinite(caloriesNumber) && caloriesNumber >= 500 && caloriesNumber <= 10000;
-  const proteinNumber = protein.trim() === "" ? undefined : Number(protein);
-  const proteinValid = proteinNumber === undefined || (Number.isFinite(proteinNumber) && proteinNumber > 0 && proteinNumber <= 1000);
-  const capNumber = Number(mealCap);
-  const capValid = Number.isFinite(capNumber) && capNumber >= 100 && capNumber <= 2000;
+  const targetReading = readTargetFields(target.fields, goal === "glp1");
+  const problems = bodyProblems(body);
   // How many "things to avoid" are chosen (Pip reacts to each change on that step).
   const avoidCount = [prefs.vegetarianOnly, prefs.veganOnly, prefs.pescatarianOnly, prefs.halalOnly, prefs.noPork, prefs.noBeef].filter(Boolean).length + (prefs.avoidAllergens?.length ?? 0);
   const real = useMemo(() => menu.chains.filter((c) => !c.sample), [menu.chains]);
@@ -353,13 +389,38 @@ export default function WelcomePage() {
     );
   }
 
-  const onSkip = step === 5 ? () => { chooseSize(initial.textSize ?? "standard"); skip(); } : skip;
+  // Continue on "Your daily targets": all four numbers as they stand (typed or filled in) are saved. A protein, carbs or fat box left empty stays unset, so
+  // Home works it out (macroTargets reads what is typed first, so the numbers here and on Home are the same).
+  const saveTargets = () => {
+    const r = targetReading;
+    if (r.problems.length > 0 || r.calories === undefined) return;
+    updateSettings({
+      dailyCalories: r.calories,
+      hasSetTargets: true,
+      dailyProtein: r.protein,
+      dailyCarbs: r.carbs,
+      dailyFat: r.fat,
+      ...(goal === "glp1" && r.mealCap !== undefined ? { glp1MealCap: r.mealCap } : {}),
+    });
+    next();
+  };
+  // Skip never saves, and never keeps what it was not asked to: a goal or a diet tapped and then skipped goes back to what is saved (the numbers on the targets
+  // screen are worked out from the same choices, so they must be the saved ones); the targets screen's Skip changes nothing, so Back finds it as it was left.
+  const onSkip = step >= ABOUT && step <= ACTIVE
+    ? skipBody
+    : step === 1
+      ? () => { setGoal(settingsStore.get().goal); setGoalTouched(false); skip(); }
+      : step === AVOID
+        ? () => { setPrefs(settingsStore.get().preferences); skip(); }
+        : step === TEXT_SIZE
+          ? () => { chooseSize(initial.textSize ?? "standard"); skip(); }
+          : skip;
   // The headline's key word, in the same ink as the rest (headings in one colour, like Home).
   const em = (word: string) => <>{word}</>;
 
   return (
     <div className={SCREEN}>
-      <TopBar onBack={back} end={step <= 5 ? <SkipButton onClick={onSkip} /> : undefined} segments={STEPS} current={step - 1} status={t("Step {step} of {total}", { step, total: STEPS })} />
+      <TopBar onBack={back} end={step <= TEXT_SIZE ? <SkipButton onClick={onSkip} /> : undefined} segments={STEPS} current={step - 1} status={t("Step {step} of {total}", { step, total: STEPS })} />
 
       {step === 1 && (
         <section className="mt-5 flex flex-1 flex-col">
@@ -401,68 +462,7 @@ export default function WelcomePage() {
         </section>
       )}
 
-      {step === 2 && (
-        <section className="relative mt-5 flex flex-1 flex-col">
-          {/* the plate runs off the edge of the screen, like the reference's photo; its box is clipped so the page never scrolls sideways */}
-          <div aria-hidden className="pointer-events-none absolute -end-5 -top-5 h-44 w-36 overflow-hidden">
-            <PlateArt className="absolute -end-10 top-0 h-44 w-44" />
-          </div>
-          <h1 className={`${HEADLINE} pe-24`}><Rich text={t("Your daily {targets}")} values={{ targets: em(t("targets")) }} /></h1>
-          {/* the plan as it stands, like the reference's coloured bars (the app's two greens): it follows the numbers below as they change */}
-          <div aria-hidden className="app-numbers mt-5 space-y-2.5 pe-24">
-            <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{caloriesValid ? formatInt(caloriesNumber) : "–"}</span><span className="text-sm font-semibold text-muted">kcal</span></p>
-            <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{proteinNumber !== undefined && proteinValid ? `${formatInt(proteinNumber)}g` : "–"}</span><span className="text-sm font-semibold text-muted">{t("protein")}</span></p>
-          </div>
-          <div className="mt-4"><PipSays lively size={56} mood="point">{t("Not sure of your numbers? Tap “Suggest targets for me” and I'll help.")}</PipSays></div>
-          <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5">
-            <StepperCard id="target-calories" label={t("Calories")} Icon={FlameIcon} value={calories} onChange={setCalories} step={50} min={500} max={10000} />
-            <StepperCard id="target-protein" label={t("Protein (g)")} Icon={BoltIcon} value={protein} onChange={setProtein} step={5} min={5} max={1000} placeholder={t("Optional")} />
-          </div>
-          {isLowCalories(calories) && <p role="status" className="mt-3 text-sm font-medium">{t(LOW_CALORIES_NOTE)}</p>}
-          {goal === "glp1" && <p className="mt-3 text-sm text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
-          {goal === "glp1" && (
-            <div className={`glass ${CARD} mt-3.5 p-4`}>
-              {/* the words on one line, the figure and its unit on the next (the shared input is full width, so it is capped here) */}
-              <label className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[15px] font-semibold">
-                <span className="basis-full">{t("Comfortable meal size:")}</span>
-                <input className={`${inputClass} app-numbers max-w-[6.5rem] bg-soft-strong text-center text-[1.25rem] font-medium`} inputMode="numeric" aria-label={t("Comfortable meal size in calories")} value={mealCap} onChange={(e) => setMealCap(e.target.value)} />
-                <span className="text-muted">{t("calories")}</span>
-              </label>
-              <p className="mt-2 text-sm text-muted">{t("Orders are capped at this size. The default is 450.")}</p>
-            </div>
-          )}
-          <button type="button" className="mt-3 min-h-12 text-start text-[15px] font-semibold text-accent underline-offset-4 hover:underline" onClick={() => setShowSuggest((v) => !v)} aria-expanded={showSuggest}>
-            {t("Not sure? Suggest targets for me")}
-          </button>
-          {showSuggest && (
-            <div className="mt-1">
-              <TargetSuggestForm goal={goal} onApply={(c, p) => { setCalories(String(c)); setProtein(String(p)); setShowSuggest(false); }} />
-            </div>
-          )}
-          <p className="mt-3 text-xs text-muted">{t(SUGGESTION_NOTE)}</p>
-          {(!caloriesValid || !proteinValid || (goal === "glp1" && !capValid)) && (
-            <p role="alert" className="mt-3 text-sm font-medium text-accent">{t("Calories should be 500–10,000, protein above 0, and the meal size 100–2,000.")}</p>
-          )}
-          <Bottom>
-            <BottomButton
-              disabled={!caloriesValid || !proteinValid || (goal === "glp1" && !capValid)}
-              onClick={() => {
-                updateSettings({
-                  dailyCalories: caloriesNumber,
-                  hasSetTargets: true,
-                  ...(proteinNumber !== undefined ? { dailyProtein: proteinNumber } : { dailyProtein: undefined }),
-                  ...(goal === "glp1" ? { glp1MealCap: capNumber } : {}),
-                });
-                next();
-              }}
-            >
-              {t("Continue")}
-            </BottomButton>
-          </Bottom>
-        </section>
-      )}
-
-      {step === 3 && (
+      {step === AVOID && (
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Anything you {avoid}?")} values={{ avoid: em(t("avoid")) }} /></h1>
           <div aria-live="polite" className="mt-4">
@@ -478,7 +478,53 @@ export default function WelcomePage() {
         </section>
       )}
 
-      {step === 4 && (
+      {step === ABOUT && (
+        <section className="mt-5 flex flex-1 flex-col">
+          <AboutYouStep body={body} change={changeBody} />
+          <Bottom>
+            <BottomButton disabled={problems.includes("age")} onClick={continueAbout}>{t("Continue")}</BottomButton>
+          </Bottom>
+        </section>
+      )}
+
+      {step === SIZE && (
+        <section className="mt-5 flex flex-1 flex-col">
+          <YourSizeStep body={body} change={changeBody} />
+          <Bottom>
+            <BottomButton disabled={problems.some((p) => p !== "age")} onClick={continueSize}>{t("Continue")}</BottomButton>
+          </Bottom>
+        </section>
+      )}
+
+      {step === ACTIVE && (
+        <section className="mt-5 flex flex-1 flex-col">
+          <ActivityStep body={body} change={changeBody} />
+          <Bottom>
+            <BottomButton onClick={continueActive}>{t("Continue")}</BottomButton>
+          </Bottom>
+        </section>
+      )}
+
+      {step === TARGETS && (
+        <>
+          <TargetsStep
+            goal={goal}
+            prefs={prefs}
+            answers={bodySkipped ? null : answers}
+            skipped={bodySkipped || answers.plan.kind === "invalid"}
+            fields={target.fields}
+            setField={target.setField}
+            reading={targetReading}
+            suggestedNotes={target.suggestedNotes}
+            applySuggestion={target.apply}
+          />
+          <Bottom>
+            <BottomButton disabled={targetReading.problems.length > 0} onClick={saveTargets}>{t("Continue")}</BottomButton>
+          </Bottom>
+        </>
+      )}
+
+      {step === SHOPS && (
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Where do you {shop}?")} values={{ shop: em(t("shop")) }} /></h1>
           <div aria-live="polite" className="mt-4">
@@ -494,7 +540,7 @@ export default function WelcomePage() {
         </section>
       )}
 
-      {step === 5 && (
+      {step === TEXT_SIZE && (
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}><Rich text={t("Easy to {read}")} values={{ read: em(t("read")) }} /><HeadPill Icon={TextSizeIcon} /></h1>
           <div aria-live="polite" className="mt-4">
@@ -531,7 +577,7 @@ export default function WelcomePage() {
         </section>
       )}
 
-      {step === 6 && (
+      {step === ALL_SET && (
         <section className="relative mt-5 flex flex-1 flex-col">
           <Confetti />
           <h1 className={HEADLINE}>{t("You're all set!")}<HeadPill Icon={CheckIcon} /></h1>
@@ -540,22 +586,22 @@ export default function WelcomePage() {
               {teaserChainId ? (
                 <TeaserText
                   chainId={teaserChainId}
-                  profile={{ goal, dailyCalories: caloriesValid ? caloriesNumber : initial.dailyCalories, glp1MealCap: capValid ? capNumber : initial.glp1MealCap }}
-                  prefs={prefs}
+                  profile={{ goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap }}
+                  prefs={settings.preferences}
                 />
               ) : (
                 <>{t("Everything is ready for you.")}</>
               )}
             </PipSays>
           </div>
-          <Plan goal={goal} calories={caloriesValid ? caloriesNumber : initial.dailyCalories} protein={proteinValid ? proteinNumber : initial.dailyProtein} prefs={prefs} shops={shops} />
+          <Plan goal={settings.goal} settings={settings} prefs={settings.preferences} shops={settings.shops ?? []} />
           <Bottom>
             <BottomButton onClick={next}>{t("Continue")}</BottomButton>
           </Bottom>
         </section>
       )}
 
-      {step === 7 && (
+      {step === RECIPE && (
         <section className="mt-5 flex flex-1 flex-col">
           <h1 className={HEADLINE}>{t("Choose a recipe to start with")}<HeadPill Icon={PotIcon} /></h1>
           <RecipeChoice onPick={(href) => finish(href)} />
@@ -600,7 +646,7 @@ function TopBar({ onBack, end, segments, current = 0, status }: { onBack?: () =>
 
 function SkipButton({ onClick }: { onClick: () => void }) {
   const t = useT();
-  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 items-center rounded-full px-3 text-[15px] font-semibold text-muted transition hover:bg-soft-strong hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{t("Skip")}</button>;
+  return <button type="button" onClick={onClick} className="-me-1 inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-[15px] font-semibold text-muted transition hover:bg-soft-strong hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{t("Skip")}</button>;
 }
 
 /** A small round picture inside a headline (decorative). */
@@ -617,66 +663,34 @@ function Bottom({ children }: { children: React.ReactNode }) {
   return <div className="sticky bottom-0 z-10 -mx-5 mt-auto w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">{children}</div>;
 }
 
-/** The big pill at the bottom of a screen: a plain black pill with the words (white over the logo wall). Nothing else inside it: no circles or icons. */
+/** How long after a screen appears a finger's tap on its button is ignored (see BottomButton). */
+const SETTLE_MS = 600;
+
+/**
+ * The big pill at the bottom of a screen: a plain black pill with the words (white over the logo wall). Nothing else inside it: no circles or icons.
+ * Every screen's button sits in the same place, so a quick second tap of a double tap would land on the next screen's button and skip that screen unseen
+ * (the activity, the targets, the foods to avoid...). A tap or pen press on a button in its first 0.6 s on screen is therefore ignored. A mouse click, the
+ * keyboard and a screen reader's activation are never held back (nobody double-clicks past a screen with those, and a screen reader takes longer anyway).
+ */
 function BottomButton({ children, onClick, disabled, light }: { children: React.ReactNode; onClick: () => void; disabled?: boolean; light?: boolean }) {
+  const shownAt = useRef(0);
+  const pointer = useRef("");
+  useEffect(() => { shownAt.current = performance.now(); }, []);
   return (
     <button
       type="button"
-      onClick={onClick}
+      onPointerDown={(e) => { pointer.current = e.pointerType; }}
+      onClick={() => {
+        const finger = pointer.current === "touch" || pointer.current === "pen";
+        pointer.current = "";
+        if (finger && performance.now() - shownAt.current < SETTLE_MS) return;
+        onClick();
+      }}
       disabled={disabled}
       className={`flex min-h-14 w-full items-center justify-center rounded-full px-6 py-3 text-center text-[1.0625rem] font-bold leading-snug transition active:scale-[0.98] disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${light ? "bg-white text-foreground shadow-[0_14px_30px_-16px_rgba(0,0,0,0.5)] hover:bg-soft-strong disabled:text-muted" : "bg-foreground text-background hover:not-disabled:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] disabled:bg-soft-strong disabled:text-muted"}`}
     >
       <span className="min-w-0 text-balance">{children}</span>
     </button>
-  );
-}
-
-/** A number with − and + either side, for the daily targets. The words on the buttons don't name the number, so the label stays the card's. */
-function StepperCard({ id, label, Icon, value, onChange, step, min, max, placeholder }: { id: string; label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode; value: string; onChange: (v: string) => void; step: number; min: number; max: number; placeholder?: string }) {
-  const t = useT();
-  const n = Number(value);
-  const bump = (d: number) => {
-    const start = value.trim() === "" || !Number.isFinite(n) ? (d > 0 ? min - step : min + step) : Math.round(n / step) * step;
-    onChange(String(Math.min(max, Math.max(min, start + d))));
-  };
-  // Like Home's calories card: a small spaced-capitals label, the figure big in a regular weight, and the two round grey buttons under it
-  // (side by side with the figure they left no room for "Optional" on a 390 px phone).
-  const round = "grid h-11 w-11 shrink-0 place-items-center rounded-full bg-soft-strong transition active:scale-90 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
-  return (
-    <div className={`glass ${CARD} min-w-0 p-4`}>
-      <div className="flex items-center justify-between gap-2">
-        <label htmlFor={id} id={`${id}-label`} className={CAPS}>{label}</label>
-        <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-soft-strong"><Icon className="h-4 w-4" /></span>
-      </div>
-      <input id={id} inputMode="numeric" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className="app-numbers mt-3 min-h-11 w-full min-w-0 rounded-xl bg-transparent px-0 py-1 text-center text-[1.75rem] font-medium leading-none tracking-[-0.01em] placeholder:text-base placeholder:font-medium placeholder:tracking-normal placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
-      <div className="mt-3 flex items-center justify-center gap-3">
-        <button type="button" aria-label={t("Decrease")} aria-describedby={`${id}-label`} onClick={() => bump(-step)} className={round}><MinusIcon className="h-5 w-5" /></button>
-        <button type="button" aria-label={t("Increase")} aria-describedby={`${id}-label`} onClick={() => bump(step)} className={round}><PlusIcon className="h-5 w-5" /></button>
-      </div>
-    </div>
-  );
-}
-
-/** Our own plate and fork (the app icon's mark), as the picture beside a headline: never a photo of food. */
-function PlateArt({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 220 220" aria-hidden focusable="false" className={className}>
-      <defs>
-        <filter id="plate-shadow" x="-30%" y="-30%" width="160%" height="160%">
-          <feDropShadow dx="0" dy="10" stdDeviation="10" floodColor="#111814" floodOpacity="0.2" />
-        </filter>
-      </defs>
-      <g filter="url(#plate-shadow)">
-        <circle cx="110" cy="110" r="84" fill="#ffffff" />
-        <circle cx="110" cy="110" r="64" fill="none" stroke="#ecfccb" strokeWidth="5" />
-        <g fill="#15803d" transform="translate(110 110) scale(0.5) translate(-256 -266)">
-          <rect x="213" y="156" width="18" height="90" rx="9" />
-          <rect x="247" y="156" width="18" height="90" rx="9" />
-          <rect x="281" y="156" width="18" height="90" rx="9" />
-          <path d="M213 226 H299 V244 C299 264 286 276 271 280 V360 C271 369 264 376 256 376 C248 376 241 369 241 360 V280 C226 276 213 264 213 244 Z" />
-        </g>
-      </g>
-    </svg>
   );
 }
 
@@ -775,8 +789,11 @@ function TeaserText({ chainId, profile, prefs }: { chainId: string; profile: Pro
 }
 
 /** What the user chose, in one card with our plate beside it, so the end of onboarding feels like "your plan". */
-function Plan({ goal, calories, protein, prefs, shops }: { goal: Goal; calories: number; protein: number | undefined; prefs: Preferences; shops: readonly string[] }) {
+function Plan({ goal, settings, prefs, shops }: { goal: Goal; settings: UserSettings; prefs: Preferences; shops: readonly string[] }) {
   const t = useT();
+  // the four daily targets as Home shows them (typed ones first, the rest worked out from the calories)
+  const calories = settings.dailyCalories;
+  const macros = macroTargets(settings);
   const diets = [prefs.vegetarianOnly && t("Vegetarian"), prefs.veganOnly && t("Vegan"), prefs.pescatarianOnly && t("Pescatarian"), prefs.halalOnly && t("Halal"), prefs.noPork && t("No pork"), prefs.noBeef && t("No beef")].filter((d): d is string => Boolean(d));
   const avoid = (prefs.avoidAllergens ?? []).map((k) => t(ALLERGEN_SHORT[k]));
   const goalLabel = GOALS.find((g) => g.value === goal)?.label;
@@ -787,7 +804,9 @@ function Plan({ goal, calories, protein, prefs, shops }: { goal: Goal; calories:
       <p className="mt-1 pe-20 text-xl font-[800] tracking-[-0.01em]">{goalLabel ? t(goalLabel) : null}</p>
       <div className="app-numbers mt-3 space-y-2">
         <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[15px] text-muted"><Rich text={t("{kcal} kcal a day")} values={{ kcal: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-foreground">{formatInt(calories)}</span> }} /></span></p>
-        {protein ? <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[15px] text-muted"><Rich text={t("{eaten} protein")} values={{ eaten: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-accent">{formatInt(protein)}g</span> }} /></span></p> : null}
+        <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[15px] text-muted"><Rich text={t("{eaten} protein")} values={{ eaten: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-accent">{formatInt(macros.protein)}g</span> }} /></span></p>
+        <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[15px] text-muted"><Rich text={t("{carbs} carbs")} values={{ carbs: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-foreground">{formatInt(macros.carbs)}g</span> }} /></span></p>
+        <p className="flex items-baseline gap-3"><span aria-hidden className="h-6 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[15px] text-muted"><Rich text={t("{fat} fat")} values={{ fat: <span className="text-[1.5rem] font-medium leading-none tracking-[-0.01em] text-foreground">{formatInt(macros.fat)}g</span> }} /></span></p>
       </div>
       {(diets.length > 0 || avoid.length > 0) && (
         <p className="mt-3 flex flex-wrap gap-1.5">

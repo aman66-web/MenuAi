@@ -24,7 +24,7 @@ import { AccountSection } from "../_components/AccountSection";
 import { DietPicker } from "../_components/DietPicker";
 import { ShopPicker } from "../_components/ShopPicker";
 import { applyTextSize } from "../_lib/textSize";
-import { TargetSuggestForm } from "../_components/TargetSuggestForm";
+import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Card, radioKeyNav, Segmented, Sheet, Toggle } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
@@ -230,7 +230,7 @@ export default function SettingsPage() {
           {isLowCalories(caloriesText) && <p role="status" className={messageClass}>{t(LOW_CALORIES_NOTE)}</p>}
           <div className="mt-4 flex flex-wrap items-center gap-2.5">
             <Button onClick={saveTargets}>{t("Save targets")}</Button>
-            {/* A quiet disclosure, not a second pill: the form it opens ends with its own "Suggest targets" button. */}
+            {/* A quiet disclosure, not a second pill: the form it opens ends with its own "Suggest targets" button, then "Use these" fills the four boxes above. */}
             <button type="button" aria-expanded={suggest} onClick={() => setSuggest((v) => !v)} className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-[0.9375rem] font-semibold text-accent transition hover:bg-soft-strong active:scale-95">
               {t("Suggest targets")}
               <ChevronRightIcon aria-hidden className={`h-4 w-4 transition-transform ${suggest ? "rotate-90 rtl:-rotate-90" : ""}`} />
@@ -241,7 +241,7 @@ export default function SettingsPage() {
             : <p role="alert" className={messageClass}>{t(targetsMessage.text)}</p>)}
           {suggest && (
             <div className="mt-4">
-              <TargetSuggestForm goal={settings.goal} onApply={(c, p) => { setCalories(String(c)); setProtein(String(p)); setSuggest(false); setTargetsMessage(null); }} />
+              <TargetSuggestForm goal={settings.goal} preferences={settings.preferences} onApply={(s) => { setCalories(s.calories); setProtein(s.protein); setCarbs(s.carbs); setFat(s.fat); setSuggest(false); setTargetsMessage(null); focusTargetBox("#targets input"); }} />
             </div>
           )}
           <p className="mt-3.5 text-[0.8125rem] leading-snug text-muted">{t(SUGGESTION_NOTE)}</p>

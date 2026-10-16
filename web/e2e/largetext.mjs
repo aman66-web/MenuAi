@@ -20,7 +20,7 @@ for (const scale of [1, 1.5, 2]) {
     await page.close();
   }
 }
-// Pip's onboarding, screen by screen: the language screen, Pip's arrival, the five stops of the walk, the six questions and the last screen.
+// Pip's onboarding, screen by screen: the language screen, Pip's arrival, the five stops of the walk, the eight questions and the last screen.
 for (const scale of [1, 1.5, 2]) {
   const c = await browser.newContext({ viewport: { width: 360, height: 740 }, serviceWorkers: "block" });
   const page = await c.newPage();
@@ -37,7 +37,14 @@ for (const scale of [1, 1.5, 2]) {
   await check("Pip arrives");
   await press("Show me around");
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) { await check(`walk: ${tab}`); await press(tab === "Community" ? "Let's go!" : "Continue"); }
-  for (const q of ["goal", "targets", "avoid", "shops", "text size"]) { await check(`question: ${q}`); await press("Continue"); }
+  for (const q of ["goal", "avoid"]) { await check(`question: ${q}`); await press("Continue"); }
+  await check("question: about you");
+  await page.getByLabel("Age", { exact: true }).fill("34");
+  await press("Continue");
+  await check("question: your size");
+  await page.getByLabel("Stone").fill("11"); await page.getByLabel("Pounds").fill("4"); await page.getByLabel("Feet").fill("5"); await page.getByLabel("Inches").fill("10");
+  await press("Continue");
+  for (const q of ["how active", "targets", "shops", "text size"]) { await check(`question: ${q}`); await press("Continue"); }
   await check("all set");
   await press("Continue");
   await page.locator('a[href^="/app/recipes/view?id="]').first().waitFor({ timeout: 30000 });

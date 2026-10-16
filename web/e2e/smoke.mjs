@@ -52,19 +52,33 @@ await step("first visit redirects to onboarding", async () => {
     await page.getByRole("button", { name: tab === "Community" ? "Let's go!" : "Continue" }).click();
   }
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
-  await visible(text("Step 1 of 7"));
+  await visible(text("Step 1 of 10"));
   await shot("01-onboarding-goal");
 });
 await step("onboarding: welcome → goal → targets → preferences → shops → text size → all set → Start", async () => {
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
+  await visible(page.getByRole("heading", { name: "Anything you avoid?" }));
+  await page.getByRole("button", { name: "Skip" }).click();
+  // the three questions about the person, then the targets arrive filled in from them
+  await visible(page.getByRole("heading", { name: "About you" }));
+  await page.getByRole("radio", { name: "Male", exact: true }).click();
+  await page.getByLabel("Age", { exact: true }).fill("34");
+  await page.getByRole("button", { name: "Continue" }).click();
+  await visible(page.getByRole("heading", { name: "Your size" }));
+  await page.getByLabel("Stone").fill("12");
+  await page.getByLabel("Pounds").fill("4");
+  await page.getByLabel("Feet").fill("5");
+  await page.getByLabel("Inches").fill("11");
+  await page.getByRole("button", { name: "Continue" }).click();
+  await visible(page.getByRole("heading", { name: "How active are you?" }));
+  await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("heading", { name: "Your daily targets" }));
+  if (!(await page.locator("#target-calories").inputValue())) throw new Error("the calories were not filled in from the answers");
   await page.getByLabel("Calories").fill("2400");
   await page.getByLabel("Protein (g)").fill("150");
   await shot("02-onboarding-targets");
   await page.getByRole("button", { name: "Continue" }).click();
-  await visible(page.getByRole("heading", { name: "Anything you avoid?" }));
-  await page.getByRole("button", { name: "Skip" }).click();
   await visible(page.getByRole("heading", { name: "Where do you shop?" }));
   await page.getByRole("button", { name: "Sainsbury's", exact: true }).click();
   await visible(text("Lovely! I'll show those shops first."));

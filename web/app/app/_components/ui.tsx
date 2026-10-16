@@ -165,7 +165,9 @@ export function Chip({ selected, children, onClick, className, segment, ...rest 
 
 /** Arrow-key navigation for a radio group (WAI-ARIA): moves the selection and focus to the neighbouring option. */
 export function radioKeyNav(e: React.KeyboardEvent<HTMLElement>, index: number, count: number, select: (i: number) => void) {
-  const delta = ({ ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 } as Record<string, number>)[e.key];
+  // In a right-to-left language (Arabic, Urdu) the next option is to the left, so the arrows go the way the options are laid out.
+  const rtl = getComputedStyle(e.currentTarget).direction === "rtl";
+  const delta = ({ ArrowRight: rtl ? -1 : 1, ArrowDown: 1, ArrowLeft: rtl ? 1 : -1, ArrowUp: -1 } as Record<string, number>)[e.key];
   if (!delta) return;
   e.preventDefault();
   const next = (index + delta + count) % count;

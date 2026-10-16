@@ -60,7 +60,7 @@ await step("Home's title is today's short date, month first, still named Home fo
   expect((await h1.textContent()).includes("Home"), "the heading lost its name 'Home' for screen readers");
   expect((await page.getByRole("heading", { name: "Home", level: 1 }).count()) === 1, "no heading named Home");
   const cal = page.getByRole("button", { name: "Choose a day", exact: true });
-  const gear = page.locator('a[aria-label="Settings"]'); // the tab bar's Settings link has no aria-label
+  const gear = page.locator('a[aria-label="Settings"]'); // the gear on Home is the only Settings link; the tab bar no longer has one
   const [c, g, t] = [await cal.boundingBox(), await gear.boundingBox(), await h1.boundingBox()];
   expect(c.width >= 44 && c.height >= 44, `the calendar button is ${c.width} x ${c.height}`);
   expect(c.x > t.x + t.width - 1, "the calendar button isn't to the right of the date");

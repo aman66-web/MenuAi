@@ -32,7 +32,8 @@ await step("a shared link on a first visit goes through onboarding and then land
   await page.getByRole("button", { name: "Continue" }).click();
   await pastIntro(page);
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
-  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip" }).click();
+  // goal, foods to avoid, the three questions about the person (one Skip for all three), the targets, shops and text size
+  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Skip" }).click();
   await finishWithoutRecipe(page);
   await page.waitForURL(/\/app\/chain\?id=cluck-house/);
   await vis(page.getByRole("heading", { name: "Cluck House" }));
@@ -62,6 +63,8 @@ await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … ca
   await pastIntro(page);
   await page.getByRole("radio", { name: "I'm on a GLP-1 medication" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("button", { name: "Skip" }).click(); // foods to avoid
+  await page.getByRole("button", { name: "Skip" }).click(); // the questions about the person
   await vis(page.getByText("Comfortable meal size:"));
   if ((await page.getByLabel("Comfortable meal size in calories").inputValue()) !== "450") throw new Error("default 450 expected");
   await ctx.close();
@@ -77,7 +80,7 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await vis(page.getByText("No problem. I'll show you the numbers and keep your orders around your target."));
   await vis(page.getByRole("button", { name: "Continue" }));
   await page.getByRole("button", { name: "Continue" }).click();
-  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip" }).click();
+  for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip" }).click();
   await finishWithoutRecipe(page);
   await page.waitForURL(/\/app$/);
   await page.goto(BASE + "/app/settings");
@@ -93,7 +96,7 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await pastIntro(page);
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await vis(page.getByRole("heading", { name: "Your daily targets" }));
+  await vis(page.getByRole("heading", { name: "Anything you avoid?" }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));

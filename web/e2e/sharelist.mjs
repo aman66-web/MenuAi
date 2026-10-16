@@ -159,10 +159,12 @@ await step("a first-time visitor opening the link goes through onboarding and th
   }
   await page.getByRole("radio", { name: "Maintain weight" }).click().catch(() => page.getByRole("radio").first().click());
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { name: "Your daily targets" }).waitFor();
-  await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { name: "Anything you avoid?" }).waitFor();
   await page.getByRole("button", { name: "Skip" }).click();
+  await page.getByRole("heading", { name: "About you" }).waitFor();
+  await page.getByRole("button", { name: "Skip" }).click(); // skips the three questions about the person
+  await page.getByRole("heading", { name: "Your daily targets" }).waitFor();
+  await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { name: "Where do you shop?" }).waitFor();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { name: "Easy to read" }).waitFor();

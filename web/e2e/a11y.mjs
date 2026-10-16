@@ -20,6 +20,41 @@ async function nearby(p, blockTiles) {
   await p.getByRole("heading", { name: /(restaurants?|No restaurants here)$/ }).waitFor();
 }
 
+// Onboarding, up to the screen asked for (the welcome screens and Pip's walk first). Used by the questions about the person and the targets.
+const next = (p) => p.getByRole("button", { name: "Continue" }).click();
+async function toGoal(p) {
+  await next(p);
+  await p.getByRole("button", { name: "Get started" }).click();
+  await p.getByRole("button", { name: "Show me around" }).click();
+  for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await next(p); }
+  await p.getByRole("button", { name: "Let's go!" }).click();
+  await p.getByRole("heading", { name: "What's your goal?" }).waitFor();
+}
+async function toAbout(p) {
+  await toGoal(p);
+  await next(p);
+  await p.getByRole("heading", { name: "Anything you avoid?" }).waitFor();
+  await next(p);
+  await p.getByRole("heading", { name: "About you" }).waitFor();
+}
+async function toSize(p) {
+  await toAbout(p);
+  await p.getByLabel("Age", { exact: true }).fill("34");
+  await next(p);
+  await p.getByRole("heading", { name: "Your size" }).waitFor();
+}
+async function toActive(p) {
+  await toSize(p);
+  await p.getByLabel("Stone").fill("11"); await p.getByLabel("Pounds").fill("4"); await p.getByLabel("Feet").fill("5"); await p.getByLabel("Inches").fill("10");
+  await next(p);
+  await p.getByRole("heading", { name: "How active are you?" }).waitFor();
+}
+async function toTargets(p) {
+  await toActive(p);
+  await next(p);
+  await p.getByRole("heading", { name: "Your daily targets" }).waitFor();
+}
+
 const pages = [
   ["language", "/app/welcome", false, async () => {}],
   ["welcome", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("button", { name: "Get started" }).waitFor(); }],
@@ -46,8 +81,8 @@ const pages = [
   ["food blogs", "/app/community/blog", true, async (p) => { await p.getByRole("group", { name: "Topics" }).getByRole("button").nth(1).click(); await p.waitForTimeout(300); }],
   ["article", "/app/community/blog/view?id=where-our-numbers-come-from", true, async (p) => { await p.locator("article h1").waitFor(); }],
   ["offline", "/app/offline", true, async () => {}],
-  ["welcome shops", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("button", { name: "Let's go!" }).click(); await p.getByRole("heading", { name: "What's your goal?" }).waitFor(); for (let i = 0; i < 3; i++) await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("heading", { name: "Where do you shop?" }).waitFor(); await p.getByRole("button", { name: "Sainsbury's", exact: true }).click(); await p.getByText("Lovely! I'll show those shops first.").waitFor(); }],
-  ["welcome: choose a recipe", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("button", { name: "Let's go!" }).click(); await p.getByRole("heading", { name: "What's your goal?" }).waitFor(); for (let i = 0; i < 5; i++) await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("heading", { name: "You're all set!" }).waitFor(); await p.getByRole("button", { name: "Continue" }).click(); await p.locator('a[href^="/app/recipes/view?id="]').first().waitFor({ timeout: 30000 }); await p.waitForTimeout(800); }],
+  ["welcome shops", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("button", { name: "Let's go!" }).click(); await p.getByRole("heading", { name: "What's your goal?" }).waitFor(); for (let i = 0; i < 4; i++) await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("heading", { name: "Where do you shop?" }).waitFor(); await p.getByRole("button", { name: "Sainsbury's", exact: true }).click(); await p.getByText("Lovely! I'll show those shops first.").waitFor(); }],
+  ["welcome: choose a recipe", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Continue" }).click(); await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 4; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("button", { name: "Let's go!" }).click(); await p.getByRole("heading", { name: "What's your goal?" }).waitFor(); for (let i = 0; i < 6; i++) await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("heading", { name: "You're all set!" }).waitFor(); await p.getByRole("button", { name: "Continue" }).click(); await p.locator('a[href^="/app/recipes/view?id="]').first().waitFor({ timeout: 30000 }); await p.waitForTimeout(800); }],
   ["recipe swap", "/app/recipes/view?id=tuna-pasta&r=sainsburys", false, async (p) => { await p.getByRole("button", { name: /^Swap Tuna/ }).click(); await p.waitForTimeout(500); }],
   ["shopping list", "/app/groceries/list", false, async (p) => { await p.goto(p.url().replace("/list", "/shop/item?r=sainsburys&id=sainsburys-red-kidney-beans-in-water-400g-240g")); await p.getByRole("button", { name: "Add to my list" }).click(); await p.goto(p.url().split("/app/")[0] + "/app/groceries/list"); await p.waitForTimeout(500); }],
   ["list recipes", "/app/groceries/list/recipes", false, async (p) => { await p.evaluate(() => localStorage.setItem("mm.v1.shopping", JSON.stringify({ v: 1, data: [{ gtin: "", retailer: "own", name: "Chicken", brand: "", size: "", qty: 1, addedAt: "2026-10-10T10:00:00.000Z", custom: true }] }))); await p.reload(); await p.getByText(/recipes? uses? something on your list/).first().waitFor(); }],
@@ -60,6 +95,11 @@ const pages = [
   ["allergens", "/app/item?chain=farmer-j&item=smashed-avo-preserved-lemon-toast", false, async () => {}],
   ["nearby (list)", "/app/map", false, async (p) => { await nearby(p, true); }],
   ["nearby (map)", "/app/map", false, async (p) => { await nearby(p, false); await p.waitForTimeout(4000); }],
+  ["welcome: about you", "/app/welcome", false, async (p) => { await toAbout(p); await p.getByLabel("Age", { exact: true }).fill("150"); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
+  ["welcome: your size", "/app/welcome", false, async (p) => { await toSize(p); await p.getByLabel("Stone").fill("11.5"); await p.getByLabel("Feet").fill("5.10"); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
+  ["welcome: how active", "/app/welcome", false, async (p) => { await toActive(p); await p.waitForTimeout(500); }],
+  ["welcome: your daily targets", "/app/welcome", false, async (p) => { await toTargets(p); await p.getByLabel("Protein (g)").focus(); await p.waitForTimeout(700); }],
+  ["welcome: targets, suggest form", "/app/welcome", false, async (p) => { await toGoal(p); await next(p); await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("button", { name: "Not sure? Suggest targets for me" }).click(); await p.locator("form").getByRole("button", { name: "Suggest targets", exact: true }).click(); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
   ["site", "/", false, async () => {}],
 ];
 
