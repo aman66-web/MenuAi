@@ -4,14 +4,14 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// The welcome screen, then Pip's arrival and walk along the tab bar (Home, Eat out, Groceries, Recipes, Settings), to the first question.
+// The welcome screen, then Pip's arrival and walk along the tab bar (Home, Eat out, Groceries, Recipes, Community), to the first question.
 async function pastIntro(page) {
   await page.getByRole("button", { name: "Get started" }).click();
   await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
   await page.getByRole("button", { name: "Show me around" }).click();
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Settings"]) {
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
     await vis(page.getByRole("heading", { level: 1, name: tab, exact: true }));
-    await page.getByRole("button", { name: tab === "Settings" ? "Let's go!" : "Continue" }).click();
+    await page.getByRole("button", { name: tab === "Community" ? "Let's go!" : "Continue" }).click();
   }
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
 }
@@ -98,7 +98,7 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   await vis(page.getByRole("radio", { name: "Build muscle", checked: true }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
+  await vis(page.getByRole("heading", { level: 1, name: "Community", exact: true }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("heading", { level: 1, name: "Recipes", exact: true }));
   for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
@@ -220,13 +220,16 @@ await step("Home's round button at the top right is Settings (a gear), not the c
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app");
-  const header = page.locator("h1", { hasText: "Home" }).locator("xpath=..");
+  // Home's header is the date and the calendar button on the left and the gear on the right: the h1's grandparent holds all three. The tab bar has no Settings
+  // tab any more (it is the Community tab now), so the gear is the only Settings link in the page.
+  const header = page.locator("h1", { hasText: "Home" }).locator("xpath=../..");
   const gear = header.getByRole("link", { name: "Settings", exact: true });
   await vis(gear);
   if ((await gear.getAttribute("href")) !== "/app/settings") throw new Error("the button goes to " + (await gear.getAttribute("href")));
   const box = await gear.boundingBox();
   if (box.width < 44 || box.height < 44) throw new Error(`tap area ${box.width} x ${box.height}`);
   if ((await gear.locator("svg").count()) !== 1) throw new Error("no icon");
+  if ((await page.getByRole("link", { name: "Settings", exact: true }).count()) !== 1) throw new Error("Settings should be reachable only through the gear, not a tab");
   if (await header.getByRole("link", { name: "Today's meals" }).count()) throw new Error("the calendar link is still in the header");
   const row = page.getByRole("link", { name: /Breakfast/ }).first();
   if ((await row.getAttribute("href")) !== "/app/today") throw new Error("a meal row no longer opens Today's meals: " + (await row.getAttribute("href")));

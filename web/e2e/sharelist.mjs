@@ -152,10 +152,10 @@ await step("a first-time visitor opening the link goes through onboarding and th
   await page.getByRole("button", { name: "Continue" }).click(); // language
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("button", { name: "Show me around" }).click({ timeout: 30000 });
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Settings"]) {
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
     await page.getByRole("heading", { level: 1, name: tab, exact: true }).waitFor();
     await page.waitForTimeout(800);
-    await page.getByRole("button", { name: tab === "Settings" ? "Let's go!" : "Continue" }).click();
+    await page.getByRole("button", { name: tab === "Community" ? "Let's go!" : "Continue" }).click();
   }
   await page.getByRole("radio", { name: "Maintain weight" }).click().catch(() => page.getByRole("radio").first().click());
   await page.getByRole("button", { name: "Continue" }).click();

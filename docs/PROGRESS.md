@@ -1785,6 +1785,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - New copy (rule 8, logged here; translated into the 10 languages by AI, not yet checked by native speakers): the two sentences above. Checked: 196 Python tests (27 new for the crawler, more for the builder and the diet words), 49+ unit tests, e2e groceries-all 8 (new: an M&S
     unpriced product and its range link), groceries 6, groceries-compare 8, diet 7, tsc, eslint.
 
+- 2026-10-16 — **Community tab, step 1: food articles** (founder, on Settings with the bottom-right tab circled: "The settings at the bottom right is now a community. Where you can find food blogs, and more
+  and also add a friend and more"; answers: sign-in only for Community, our own short articles, friend code and invite link, shopping lists land in a Community inbox). Plan: `/root/.claude/plans/prancy-snacking-blanket.md`.
+  - **The fifth tab is Community** (own two-heads icon). Settings is not lost: it is Home's gear (built earlier today), and Home's tab stays lit on `/app/settings`.
+  - **Community hub** (`/app/community`): "Food blogs" with the three newest titles and "See all". No account is needed to read. Friends and Shared with you are **not built yet** (they need a sign-in
+    and a new database table, applied only with your go-ahead): nothing on screen promises them.
+  - **Food blogs** (`/app/community/blog` list with search and topic chips; `/app/community/blog/view?id=` reads an article from the address like `/app/chain?id=`, so every article works offline). Eight short
+    articles written for you to approve (rule 8), author line "Numbite": reading a menu's calorie figures, eating out when you count protein, a shopping list that works, comparing side by side, what "calories only" means,
+    where our numbers come from, allergy labels (check the pack), cooking from your shop. **Rules kept:** no nutrition figures that are not in our data (rule 1), no "healthy / good / bad" or medical wording (rule 3; a test
+    fails any article using a banned word), no pictures (rule 2), GLP-1 only as smaller, protein-first orders. Articles are English only, like restaurant notes; the app's own words around them are translated.
+  - **Tour:** the last stop is now Community ("Short articles to read, all in one place!"); the Home stop's line says the gear opens Settings. Offline cache is `mm-v6` and precaches the hub and the blog shells.
+  - **New copy (rule 8, logged here; translated into the 10 languages by Claude, not yet checked by native speakers):** "Community", "Food blogs", "See all", "{n} min read", "Search articles", the hub and article-page
+    lines (15 strings). No longer used: three tour lines about the old Settings stop.
+  - **Checked:** `tests/blog.test.ts`, `tests/articleSearch.test.ts`, the i18n test; `e2e/community.mjs` 10 of 10 (hub, list, search, chips, an article, Back, 360 px, Extra large text, Arabic, axe 0), smoke, extra, sharelist,
+    a11y and largetext updated for the tab (they opened Settings through the tab) and passing; the five tab names fit in all 11 languages at 360 and 390 px. **Written but not run yet:** the new steps in `offline.mjs`
+    and `app-build.mjs` (run at the final check, `app-build` last).
+  - **Not built (needs your yes before the database changes):** friends by code and invite link, sending a shopping list to a friend and the inbox (steps 2 and 3 of the plan). No migration is written yet and the live
+    database is unchanged.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

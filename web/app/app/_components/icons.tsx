@@ -79,6 +79,8 @@ export const ScanIcon = (p: P) => (<svg {...base(p)}><path d="M4 8V5.5A1.5 1.5 0
 export const PotIcon = (p: P) => (<svg {...base(p)}><path d="M4 10h16v5a5 5 0 01-5 5H9a5 5 0 01-5-5z" /><path d="M2 10h2M20 10h2M9 6.5c0-1 .8-1.5.8-2.5M12 6.5c0-1 .8-1.5.8-2.5M15 6.5c0-1 .8-1.5.8-2.5" /></svg>);
 
 // Meal icons for Recipes' "Which meal?" (founder 2026-10-11: make Recipes look better and easier to understand): our own simple line drawings.
+// Community's tab: two people, a head and shoulders each (the nearer one larger), in the same stroke as the others.
+export const PeopleIcon = (p: P) => (<svg {...base(p)}><circle cx="9.5" cy="8" r="3.3" /><path d="M3 20.5c0-3.7 2.9-6.2 6.5-6.2s6.5 2.5 6.5 6.2" /><path d="M15.6 4.9a3.1 3.1 0 010 6M18.4 14.6c1.7.7 2.8 2.5 2.8 5.2" /></svg>);
 export const SunriseIcon = (p: P) => (<svg {...base(p)}><path d="M4 18h16M7 14a5 5 0 0 1 10 0M12 4v3M5.6 7.6l1.8 1.8M18.4 7.6l-1.8 1.8M3 21h18" /></svg>);
 export const SandwichIcon = (p: P) => (<svg {...base(p)}><path d="M3 10l9-6 9 6zM4 13h16M5 16.5c2 1 3-1 5 0s3 1 5 0 3-1 4 0M4 20h16" /></svg>);
 export const MoonIcon = (p: P) => (<svg {...base(p)}><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></svg>);

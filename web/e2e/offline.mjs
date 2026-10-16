@@ -92,6 +92,19 @@ await step("OFFLINE: Eat out, My meals, today's meals, the shopping list and Set
     await vis(page.getByRole("heading", { name, exact: true }));
   }
 });
+await step("OFFLINE: Community opens, an article opens from it, and an article that was never opened (only an ?id=) opens from the same cached page; so does the list", async () => {
+  await page.goto(BASE + "/app/community");
+  await vis(page.getByRole("heading", { level: 1, name: "Community", exact: true }));
+  await vis(page.getByRole("heading", { level: 2, name: "Food blogs", exact: true }));
+  await page.locator('section[aria-labelledby="community-blogs"] a[href*="/app/community/blog/view"]').first().click();
+  await vis(page.locator("article h1"));
+  if (!(await page.locator("article h1").innerText()).trim()) throw new Error("the article has no title");
+  await page.goto(BASE + "/app/community/blog/view?id=reading-menu-figures");
+  await vis(page.getByRole("heading", { level: 1, name: "How to read the figures on a menu", exact: true }));
+  await page.goto(BASE + "/app/community/blog");
+  await vis(page.getByRole("heading", { level: 1, name: "Food blogs", exact: true }));
+  if ((await page.locator('a[href*="/app/community/blog/view"]').count()) < 3) throw new Error("the list is empty offline");
+});
 await step("OFFLINE: a past day of Today's meals opens from the same cached page (the date is only a query)", async () => {
   await page.goto(BASE + "/app/today?d=2019-01-01");
   await vis(page.getByRole("heading", { level: 1 }));

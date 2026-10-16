@@ -90,6 +90,23 @@ await step("no signal: groceries, recipes and settings work; Settings has no bro
   await ctx.close();
 });
 
+await step("no signal: Community, the food blogs and every article open from the files packed in the app, with no Pro, AI or subscription wording in any of them", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/community");
+  await page.getByRole("heading", { level: 1, name: "Community", exact: true }).waitFor({ timeout: 20000 });
+  await noForbidden(page, "Community");
+  await page.getByRole("link", { name: /See all/ }).click();
+  await page.getByRole("heading", { level: 1, name: "Food blogs", exact: true }).waitFor({ timeout: 20000 });
+  const hrefs = await page.locator("a[href*='/app/community/blog/view']").evaluateAll((els) => els.map((a) => a.getAttribute("href")));
+  expect(hrefs.length >= 3, `only ${hrefs.length} articles listed`);
+  for (const href of hrefs) {
+    await page.goto(BASE + href);
+    await page.locator("article h1").waitFor({ timeout: 20000 });
+    await noForbidden(page, href);
+  }
+  await ctx.close();
+});
+
 await step("a logo taken down on the live website disappears from the app (cuisine icon instead)", async () => {
   const { ctx, page } = await newPage({ liveHidden: ["kfc"] });
   await page.goto(BASE + "/app/eat-out/favourites");

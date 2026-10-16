@@ -8,23 +8,25 @@ import { tk } from "@/lib/mm/i18n";
 import { chooseWarmChains } from "@/lib/mm/popular";
 import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
+import { installBackDepth } from "../_lib/backNav";
 import { refreshHiddenLogos } from "../_lib/hiddenLogos";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
 import { bootAccount } from "../_lib/account";
 import { setLanguage, useT } from "../_lib/i18n";
-import { BasketIcon, ForkIcon, GearIcon, HomeIcon, PotIcon } from "./icons";
+import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
 import { PaywallProvider } from "./Paywall";
 
 // Five tabs, one job each (founder 2026-10-10): Home is today (your numbers and your own lists), then the three things the app does —
-// eat out, shop, cook — then Settings. Pages inside a tab keep that tab lit.
+// eat out, shop, cook — then Community (founder 2026-10-16: "The settings at the bottom right is now a community"). Settings has no tab of its
+// own any more: it is the gear at the top of Home, so Home's tab stays lit on the Settings pages. Pages inside a tab keep that tab lit.
 const TABS = [
-  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/today") || p.startsWith("/app/saved") || p.startsWith("/app/meals") || p.startsWith("/app/groceries/list") || p.startsWith("/app/recipes/saved") },
+  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/today") || p.startsWith("/app/saved") || p.startsWith("/app/meals") || p.startsWith("/app/groceries/list") || p.startsWith("/app/recipes/saved") || p.startsWith("/app/settings") || p.startsWith("/app/reminders") },
   { href: "/app/eat-out", label: tk("Eat out"), Icon: ForkIcon, match: (p: string) => p.startsWith("/app/eat-out") || p.startsWith("/app/map") || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
   { href: "/app/groceries", label: tk("Groceries"), Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") && !p.startsWith("/app/groceries/list") },
   { href: "/app/recipes", label: tk("Recipes"), Icon: PotIcon, match: (p: string) => p.startsWith("/app/recipes") && !p.startsWith("/app/recipes/saved") },
-  { href: "/app/settings", label: tk("Settings"), Icon: GearIcon, match: (p: string) => p.startsWith("/app/settings") },
+  { href: "/app/community", label: tk("Community"), Icon: PeopleIcon, match: (p: string) => p.startsWith("/app/community") },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -77,6 +79,10 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   // Logos taken down at their owner's request (public/logos/hidden.json), read once per launch.
   useEffect(() => { refreshHiddenLogos(); }, []);
+
+  // Every history entry the app makes carries how deep it is, so a Back button can take the browser's own Back when the page was reached from another
+  // page of the app (and its fixed page only when there is nothing earlier): lib/mm/navDepth.ts, _lib/backNav.ts.
+  useEffect(() => { installBackDepth(); }, []);
 
   // Offline support (public/sw.js). Production website only: development never serves stale files, and the iPhone app carries its files.
   useEffect(() => {

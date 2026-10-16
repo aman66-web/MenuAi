@@ -16,8 +16,8 @@ import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
 import {
-  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, FlameIcon, ForkIcon, GearIcon, GiftIcon, GlobeIcon, HomeIcon, LeafIcon,
-  MinusIcon, PillIcon, PlusIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
+  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, FlameIcon, ForkIcon, GiftIcon, GlobeIcon, HomeIcon, LeafIcon,
+  MinusIcon, PeopleIcon, PillIcon, PlusIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
 } from "../_components/icons";
 import { LanguageList } from "../_components/LanguageList";
 import { LogoWall, type WallItem } from "../_components/LogoWall";
@@ -82,11 +82,11 @@ const INTRO_SCREENS = 6;
 // Pip's walk through the app, one stop per tab in the order of the tab bar. The name and the sentence under it are the tab's own words
 // (the same as the bar and the app use); the line in Pip's bubble is the excited one. Nothing here shows a figure.
 const TOUR: ReadonlyArray<{ name: string; line: string; says: string; mood: PipMood; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
-  { name: tk("Home"), line: tk("Today's numbers, your shopping list and what you've saved."), says: tk("This is Home. It keeps track of your day, so you can always see what's left!"), mood: "wave", Icon: HomeIcon },
+  { name: tk("Home"), line: tk("Today's numbers, your shopping list and what you've saved. The gear at the top opens Settings."), says: tk("This is Home. It keeps track of your day, so you can always see what's left!"), mood: "wave", Icon: HomeIcon },
   { name: tk("Eat out"), line: tk("Every restaurant, café and pub, with the numbers for each dish."), says: tk("Going out to eat? Look the place up first and know the numbers before you order!"), mood: "point", Icon: ForkIcon },
   { name: tk("Groceries"), line: tk("Supermarket products with their labels and prices."), says: tk("Shopping? I'll show you the calories, protein and price of what's on the shelf!"), mood: "think", Icon: BasketIcon },
   { name: tk("Recipes"), line: tk("Meals made from your shop's products, with the cost per serving."), says: tk("Cooking at home? These recipes use real products, with the cost of each serving!"), mood: "point", Icon: PotIcon },
-  { name: tk("Settings"), line: tk("Your targets, diet, shops, language and text size. Change anything, any time."), says: tk("And this is where you can change anything, whenever you like!"), mood: "wave", Icon: GearIcon },
+  { name: tk("Community"), line: tk("Short articles on eating out, shopping and cooking."), says: tk("Short articles to read, all in one place!"), mood: "wave", Icon: PeopleIcon },
 ];
 // Logo files over about 60 KB: kept off the welcome wall so the first screen loads quickly (they still show everywhere else; a chain with
 // its own small square icon is shown by that instead).

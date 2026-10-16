@@ -42,12 +42,14 @@ await step("first visit redirects to onboarding", async () => {
   await page.waitForTimeout(1800); // the arrival animation
   await shot("00-onboarding-pip");
   await page.getByRole("button", { name: "Show me around" }).click();
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Settings"]) {
+  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
     await visible(page.getByRole("heading", { level: 1, name: tab, exact: true }));
+    if (tab === "Home") await visible(text("The gear at the top opens Settings."));
     if (tab === "Eat out") await visible(text("Every restaurant, café and pub"));
+    if (tab === "Community") await visible(text("Short articles on eating out, shopping and cooking."));
     await page.waitForTimeout(900); // Pip's hop to this tab
     if (tab === "Recipes") await shot("00-onboarding-tour");
-    await page.getByRole("button", { name: tab === "Settings" ? "Let's go!" : "Continue" }).click();
+    await page.getByRole("button", { name: tab === "Community" ? "Let's go!" : "Continue" }).click();
   }
   await visible(page.getByRole("heading", { name: "What's your goal?" }));
   await visible(text("Step 1 of 7"));
