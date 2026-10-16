@@ -86,3 +86,6 @@ export const AppleIcon = (p: P) => (<svg {...base(p)}><path d="M12 7c-1.6-1.5-6-
 export const CopyIcon = (p: P) => (<svg {...base(p)}><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M5.5 15.5V6.5a2 2 0 012-2h9" /></svg>);
 /** Two bars of different heights with a divider: "compare side by side". */
 export const CompareIcon = (p: P) => (<svg {...base(p)}><path d="M12 3v18" /><rect x="4" y="9" width="5" height="10" rx="1.2" /><rect x="15" y="5" width="5" height="14" rx="1.2" /></svg>);
+/** Four corner brackets pointing out: "full screen" (the Nearby map's button). Shrink is the same corners pointing in: "leave full screen". */
+export const ExpandIcon = (p: P) => (<svg {...base(p)}><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>);
+export const ShrinkIcon = (p: P) => (<svg {...base(p)}><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" /></svg>);

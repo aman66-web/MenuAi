@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cuisineGroupId, cuisineGroups } from "@/lib/mm/cuisine";
 import { DEFAULT_RADIUS_MILES, directionsUrl, formatMiles, geocode, groupByChain, MAX_MAP_BRANCHES, MILES_RADII, nearbyBranches, type Area, type BranchesDoc, type LatLng } from "@/lib/mm/geo";
 import { chainHref } from "@/lib/mm/routes";
@@ -18,7 +18,11 @@ import { useMenu } from "../_lib/hooks";
 import { loadBranches } from "../_lib/branches";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
+import { ACTIONS, ACTION_SOFT } from "./actions";
+import { MapFrame } from "./MapFrame";
 import type { MapPin } from "./MapView";
+import { SelectedCard } from "./SelectedCard";
+import { useInertOutside, useMapFullscreen } from "./useMapFullscreen";
 
 // Restaurants near the user, on a map and as a list, with filters (founder's request 2026-10-06). The phone works out the
 // nearest branches itself: the location, or the typed area, never leaves this browser except that a typed postcode or town is
@@ -30,6 +34,8 @@ import type { MapPin } from "./MapView";
 // distance, and its actions as even grey tiles with an icon over the word, like the tab bar. Only the selected restaurant's card (the one
 // focused thing on the screen) has a black "Menu" tile; in the list every tile is grey, so a long list isn't a column of black blocks.
 // Every word, role and name is as before.
+// Full screen (founder 2026-10-16): a button at the map's bottom right makes the same map fill the screen (MapFrame, useMapFullscreen); the
+// selected restaurant's card then shows inside it.
 
 function MapLoading() {
   const t = useT();
@@ -57,12 +63,6 @@ function readSavedArea(): Origin {
 /** Back: a 36 px grey pill inside a 44 px tap area, like Home's round buttons. */
 const BACK = "group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95";
 const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full bg-soft-strong py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
-/** A restaurant's actions: even tiles with the icon over the word (the minimum width is in rem, so at large text a tile drops to the next
-    row and widens to fill it). */
-const ACTIONS = "flex flex-wrap gap-2";
-const ACTION = "flex min-h-[3.75rem] min-w-0 grow basis-[6.25rem] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-2 text-center text-[0.875rem] font-semibold leading-tight transition active:scale-[0.97] [&>svg]:h-5 [&>svg]:w-5 [&>svg]:shrink-0";
-const ACTION_MAIN = `${ACTION} bg-foreground text-background hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]`;
-const ACTION_SOFT = `${ACTION} bg-soft-strong text-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]`;
 /** A secondary action inside a white card: the same grey as Home's round buttons (the shared secondary Button fades to the card fill here). */
 const pill = "inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-soft-strong px-5 text-[0.9375rem] font-semibold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50";
 // -my/py: a scroller clips vertically too, so the chips get room for their focus ring (2 px wide, 3 px out).
@@ -85,6 +85,11 @@ export default function NearbyPage() {
   const [mapFailed, setMapFailed] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
+  const pageRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const fs = useMapFullscreen(frameRef, buttonRef);
+  useInertOutside(pageRef, frameRef, fs.full); // behind the full screen map nothing can be reached by Tab, a screen reader or a tap
 
   useEffect(() => { loadBranches().then(setDoc, () => setDocError(true)); }, []);
   const retryBranches = () => {
@@ -186,7 +191,7 @@ export default function NearbyPage() {
   const toggleType = (id: string) => setTypes((prev) => { const n = new Set(prev); if (n.has(id)) n.delete(id); else n.add(id); return n; });
 
   return (
-    <div>
+    <div ref={pageRef}>
       <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className={BACK}><span className={BACK_PILL}><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Restaurants {near} you")} values={{ near: <span className="serif-em">{t("near")}</span> }} /></h1>
 
@@ -253,30 +258,23 @@ export default function NearbyPage() {
             {halalOnly && <p className="text-sm leading-snug text-muted">{t("Restaurants whose own website says all their food is halal.")} {t(HALAL_CAUTION)}</p>}
           </div>
 
-          <div className="glass relative mt-5 h-[46dvh] min-h-72 overflow-hidden rounded-[1.25rem] bg-soft-strong">
+          <MapFrame
+            full={fs.full}
+            frameRef={frameRef}
+            buttonRef={buttonRef}
+            onToggle={fs.toggle}
+            failed={mapFailed}
+            card={selected && selectedChain ? <SelectedCard variant="full" branch={selected} chain={selectedChain} replaceHistory={fs.ownEntry} /> : null}
+          >
             {mapFailed ? (
               <div className="grid h-full place-items-center px-6 text-center text-sm text-muted">{t("The map couldn't load (it needs a connection). The list below still works.")}</div>
             ) : (
-              <MapView center={origin} radiusMiles={radius} pins={pins} selectedId={selectedId} onSelect={setSelectedId} onFailed={() => setMapFailed(true)} />
+              <MapView full={fs.full} center={origin} radiusMiles={radius} pins={pins} selectedId={selectedId} onSelect={setSelectedId} onFailed={() => { setMapFailed(true); fs.leave(); }} />
             )}
-          </div>
+          </MapFrame>
           <p className="mt-2 px-1 text-[0.75rem] leading-snug text-muted">{t("Map © OpenFreeMap, data © OpenStreetMap contributors. Branch positions © OpenStreetMap contributors.")}</p>
 
-          {selected && selectedChain && (
-            <div className="glass sheet-in mt-3.5 rounded-[1.25rem] p-4" role="status" aria-live="polite">
-              <div className="flex items-center gap-3.5">
-                <ChainMark chainId={selectedChain.id} cuisine={selectedChain.cuisine} size="md" />
-                <div className="min-w-0 flex-1">
-                  <p className="text-base font-bold leading-snug [overflow-wrap:anywhere]">{selectedChain.name}</p>
-                  <p className="app-numbers mt-0.5 text-sm leading-snug text-muted">{t("{distance} away", { distance: formatMiles(selected.miles, t) })}</p>
-                </div>
-              </div>
-              <div className={`mt-3.5 ${ACTIONS}`}>
-                <Link href={chainHref(selectedChain.id)} className={ACTION_MAIN}><ForkIcon /><span>{t("Menu")}</span></Link>
-                <a href={directionsUrl(selected)} target="_blank" rel="noopener noreferrer" className={ACTION_SOFT}><DirectionsIcon /><span>{t("Directions")}<span className="sr-only"> {t("(opens in a new tab)")}</span></span></a>
-              </div>
-            </div>
-          )}
+          {!fs.full && selected && selectedChain && <SelectedCard variant="page" branch={selected} chain={selectedChain} />}
 
           <h2 className="app-numbers mt-8 text-xl font-[800] tracking-[-0.01em]">
             {rows.length === 0

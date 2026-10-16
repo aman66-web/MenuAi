@@ -1754,6 +1754,20 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   languages by AI, in each language's own existing word for favourites, not yet checked by native speakers): "Added to your favourites", "Removed from your favourites". Checked: `e2e/favnote.mjs` 4 (the words, the
   fade, the status line, position, two quick taps, 360 px / Extra large / Arabic, axe 0), tsc, eslint; screenshots at 390 px and Extra large text.
 
+- 2026-10-16 — **Near me map in full screen** (founder, on the Near me map: "There should also be a full screen mode on the bottom right where they can view in full screen ... they can move how they do in
+  Google maps using their finger to move and their fingers to pinch and zoom in and out"). Chosen after three independent designs were scored and the winner trimmed:
+  - **The button:** a 44 px button at the map's bottom right ("Full screen"; "Exit full screen" while full). MapLibre's credits moved to the bottom left and wrap so they never run under it; the credits' little "i" has a 44 px tap area.
+  - **Entering:** the same persistent frame turns into `position: fixed` edge to edge (the one MapLibre instance, canvas, pins, logos, selection, camera and "you" dot are untouched; no second map, no reload, no tiles asked for again).
+    The page behind is locked (no scrolling, the tab bar hidden, the other page sections inert), and the controls respect the notch and home bar on all four sides.
+  - **Moving like Google Maps:** in full screen one finger drags, two pinch, double-tap and two-finger tap zoom, the + and - buttons and the mouse wheel zoom; rotation is off in both modes. In the page the map still takes two fingers so the page scrolls.
+  - **Leaving:** the same button, Escape, or the phone's Back gesture (one same-address history entry per visit, so Back closes full screen instead of leaving Near me; switch `PUSH_FULLSCREEN_ENTRY` in `lib/mm/mapFullscreen.ts` to false to
+    drop it and Back then leaves the page as before). Scroll position, camera and the selected restaurant are kept; focus returns to the button.
+  - **The card:** a tapped pin's restaurant card shows inside the full-screen map, clear of the button and credits (the map lifts the pin above it); its Menu link opens the restaurant and Back returns to Near me.
+  - New copy (rule 8, logged here; translated into the 10 languages by AI, second-checked): "Full screen", "Exit full screen". Checked: 32 unit tests (the history state machine and the gesture timing), `e2e/mapfs.mjs` 19 steps (button and credits
+    at 390 and 320 px, entering, touch and mouse gestures, the card, leaving three ways, Menu and Back, double tap, the map's own hint timer, notch and landscape, 200% text and Arabic, axe, privacy and network), `e2e/map.mjs` 6 of 7 (the known
+    headless-browser location step), tsc, eslint. **Not tried on a real iPhone: this environment has no WebKit.** Founder or Mac session: on the phone, open Eat out › Near me, tap the button, drag with one finger, pinch, double-tap, swipe back, and check
+    the tab bar returns; if Back misbehaves, flip `PUSH_FULLSCREEN_ENTRY` to false (the tripwire above).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

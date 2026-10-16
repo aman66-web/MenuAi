@@ -40,6 +40,7 @@ await step("with location already allowed: nearby chains listed nearest first, w
   expect(names.join(",") === "KFC,Greggs", `rows: ${names.join(",")}`);
   await page.getByText(/^0 mi away|<0.1 mi away/).first().waitFor();
   await page.getByText("The map couldn't load").waitFor(); // tiles blocked: the list still works
+  expect((await page.getByRole("button", { name: "Full screen", exact: true }).count()) === 0, "no Full screen button when the map failed");
   // privacy: the pretend position never leaves the browser
   const leaks = requests.filter((r) => /51\.50\d*|-0\.12\d*/.test(decodeURIComponent(r.url) + r.body) && !r.url.includes("/_next/") && !r.url.includes("/branches/"));
   expect(leaks.length === 0, `coordinates in a request: ${leaks.map((l) => l.url).join(", ")}`);

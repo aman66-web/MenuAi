@@ -1,12 +1,13 @@
 "use client";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import type { ExpressionSpecification, FilterSpecification, GeoJSONSource, Map as MapLibreMap } from "maplibre-gl";
 import type { LatLng } from "@/lib/mm/geo";
 import type { T } from "@/lib/mm/i18n";
 import { fitContain } from "@/lib/mm/logoFit";
 import { logoFor, tileArt } from "@/lib/mm/logos";
+import { applyGestureMode } from "@/lib/mm/mapGestures";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useT } from "../_lib/i18n";
 
@@ -18,6 +19,10 @@ import { useT } from "../_lib/i18n";
 // Logos: where a chain has an official logo file (lib/mm/logos.ts), its pin shows that file unmodified on the plain tile the
 // file names, scaled to fit and never cropped or stretched; chains without one keep the green dot. Logos are drawn to small
 // canvas images and handed to the map as icons, so they cost no more than the dots did.
+//
+// Full screen (founder 2026-10-16): the page owns the state (MapFrame, useMapFullscreen) and tells this map through `full`. The map is
+// never rebuilt for it: only the gestures change (cooperative in the page, so one finger scrolls the page and two move the map; off in
+// full screen, so one finger moves the map and two pinch, like Google Maps) and the canvas is resized to the frame.
 
 export interface MapPin {
   id: string;
@@ -35,6 +40,15 @@ function boundsFor(c: LatLng, miles: number): [[number, number], [number, number
 }
 
 const reduced = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** Test hooks (nothing leaves the device): the camera as it is on screen, written at construction, on load and after every move. */
+function publish(m: MapLibreMap, el: HTMLElement) {
+  const c = m.getCenter();
+  el.dataset.zoom = m.getZoom().toFixed(3);
+  el.dataset.lng = c.lng.toFixed(5);
+  el.dataset.lat = c.lat.toFixed(5);
+  el.dataset.bearing = m.getBearing().toFixed(1);
+}
 
 /** MapLibre's own words (zoom buttons, the two-finger hint, the credits button), in the app's language. */
 function mapLocale(t: T): Record<string, string> {
@@ -125,7 +139,9 @@ async function drawLogoTile(src: string, darkTile: boolean, full = false): Promi
 // Pins shrink as the map zooms out (a town's worth of branches at once) and are full size from street level.
 const BY_ZOOM = (far: number, mid: number, near: number): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], 9, far, 12, mid, 14, near];
 
-export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFailed }: {
+export function MapView({ full, center, radiusMiles, pins, selectedId, onSelect, onFailed }: {
+  /** Full screen: one finger moves the map and two pinch. Otherwise one finger scrolls the page and two move the map. */
+  full: boolean;
   center: LatLng;
   radiusMiles: number;
   pins: readonly MapPin[];
@@ -138,8 +154,10 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFai
   const mapRef = useRef<MapLibreMap | null>(null);
   const ready = useRef(false);
   // Latest props, read by map event handlers that were created once.
-  const latest = useRef({ center, radiusMiles, pins, selectedId, onSelect, onFailed });
-  useEffect(() => { latest.current = { center, radiusMiles, pins, selectedId, onSelect, onFailed }; });
+  const latest = useRef({ full, center, radiusMiles, pins, selectedId, onSelect, onFailed });
+  useEffect(() => { latest.current = { full, center, radiusMiles, pins, selectedId, onSelect, onFailed }; });
+  const lastBlocked = useRef(Number.NEGATIVE_INFINITY); // performance.now() of the last gesture the page-mode rules blocked
+  const cameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null); // survives a rebuild (a language change) so the person keeps their place
   // Chains whose logo icon is loaded in the CURRENT map (a theme change builds a new map, so these are reset with it).
   const logoIds = useRef<Set<string>>(new Set());
   const logoTried = useRef<Set<string>>(new Set());
@@ -182,25 +200,33 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFai
     ready.current = false;
     logoIds.current = new Set();
     logoTried.current = new Set();
+    const el = box.current;
     (async () => {
       try {
         const ml = (await import("maplibre-gl")).default;
-        if (cancelled || !box.current) return;
+        if (cancelled || !el) return;
         const L = latest.current;
+        const cam = cameraRef.current;
+        cameraRef.current = null;
         map = new ml.Map({
-          container: box.current,
+          container: el,
           style: STYLE,
-          bounds: boundsFor(L.center, L.radiusMiles),
-          fitBoundsOptions: { padding: 24, maxZoom: 16 },
-          attributionControl: { compact: true },
+          ...(cam ? { center: cam.center, zoom: cam.zoom } : { bounds: boundsFor(L.center, L.radiusMiles), fitBoundsOptions: { padding: 24, maxZoom: 16 } }),
+          attributionControl: false, // added again below, at the bottom left: the bottom right is the full screen button's
           locale: mapLocale(t),
-          cooperativeGestures: true, // the map sits inside a scrolling page: one finger scrolls the page, two move the map
+          cooperativeGestures: !L.full, // in the page the map sits inside a scrolling page: one finger scrolls the page, two move the map. A rebuild while full starts in full mode.
           dragRotate: false,
           pitchWithRotate: false,
           touchPitch: false,
         });
         mapRef.current = map;
+        map.touchZoomRotate.disableRotation(); // pinch zoom and two-finger pan stay; a twist no longer turns a map that has no compass to turn it back
+        map.keyboard.disableRotation();
+        map.addControl(new ml.AttributionControl({ compact: true }), "bottom-left");
         map.addControl(new ml.NavigationControl({ showCompass: false }), "top-right");
+        map.on("cooperativegestureprevented", () => { lastBlocked.current = performance.now(); });
+        publish(map, el); // `bounds` is fitted synchronously in the constructor and fires no event to late listeners
+        for (const ev of ["move", "moveend"] as const) map.on(ev, () => { if (map) publish(map, el); }); // during a gesture or its inertia too, so a test can tell when the map has stopped
         map.on("error", (e) => {
           if (!ready.current && /style|fetch|Failed|load/i.test(String(e.error?.message ?? ""))) latest.current.onFailed();
         });
@@ -229,6 +255,8 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFai
           ready.current = true;
           applyLogoState(map);
           void loadLogos(map, latest.current.pins);
+          el.dataset.ready = "true";
+          publish(map, el);
         });
       } catch {
         if (!cancelled) latest.current.onFailed(); // no WebGL, or the library couldn't load
@@ -236,11 +264,26 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFai
     })();
     return () => {
       cancelled = true;
+      if (map && ready.current) {
+        const c = map.getCenter();
+        cameraRef.current = { center: [c.lng, c.lat], zoom: map.getZoom() };
+      }
+      delete el?.dataset.ready;
       ready.current = false;
       map?.remove();
       mapRef.current = null;
     };
   }, [t, applyLogoState, loadLogos]); // both are stable (refs only), so this still builds the map once (and again per language)
+
+  useLayoutEffect(() => { // gestures and size follow the mode before the next paint
+    latest.current.full = full; // a map built after this commit but before the refresh effect above has run still starts in the right mode
+    const map = mapRef.current;
+    if (!map) return; // not built yet: it is built in the right mode from latest.current.full
+    const cancel = applyGestureMode(map, full, () => lastBlocked.current);
+    map.resize(); // MapLibre's own ResizeObserver would catch up ~50 ms later; this removes the blank or stretched frame
+    map.redraw();
+    return cancel;
+  }, [full]);
 
   // New pins (filters or radius changed).
   useEffect(() => {
@@ -271,7 +314,12 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFai
     if (!map || !ready.current) return;
     applyLogoState(map);
     const pin = selectedId ? latest.current.pins.find((p) => p.id === selectedId) : undefined;
-    if (pin) map.easeTo({ center: [pin.lng, pin.lat], zoom: Math.max(map.getZoom(), 15), duration: reduced() ? 0 : 400 });
+    if (pin) {
+      // in full screen the restaurant's card covers the foot of the map: lift the pin clear of it (SelectedCard publishes its height before this runs)
+      const frame = box.current?.closest<HTMLElement>("[data-nearby-fs]");
+      const lift = latest.current.full ? parseFloat(frame?.style.getPropertyValue("--fs-lift") ?? "") || 0 : 0;
+      map.easeTo({ center: [pin.lng, pin.lat], zoom: Math.max(map.getZoom(), 15), offset: [0, lift ? -Math.round(lift / 2) : 0], duration: reduced() ? 0 : 400 });
+    }
   }, [selectedId, applyLogoState]);
 
   return (
@@ -285,8 +333,23 @@ export function MapView({ center, radiusMiles, pins, selectedId, onSelect, onFai
         [data-nearby-map] .maplibregl-ctrl-group button { width: 44px; height: 44px; }
         [data-nearby-map] .maplibregl-ctrl-group button + button { border-top: 1px solid rgba(17, 24, 20, 0.08); }
         [data-nearby-map] .maplibregl-ctrl-group button:focus-visible { outline: 2px solid #046c4f; outline-offset: -3px; border-radius: 0.75rem; }
+        [data-nearby-map] .maplibregl-ctrl-bottom-left { left: 12px; bottom: 12px; max-width: calc(100% - 86px); } /* the credits wrap when open and keep 8 px clear of the 44 px full screen button at the right */
+        /* MapLibre gives the credits' "i" button both right:0 and left:0 at the bottom left. Over-constrained, a right-to-left page (Arabic, Urdu) drops
+           left, so the button jumped to the far end and covered the end of the open credits: pin it to the physical left, where the open box keeps its 28 px of room. */
+        [data-nearby-map] .maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib-button { right: auto; left: 0; }
+        /* The "i" stays 24 px to look at, but its tap area is 44 x 44 (CLAUDE.md): in full screen it is the only credit that is shown. The area grows up, down and
+           to the left, never to the right, where the open credits' first link begins. */
+        [data-nearby-map] .maplibregl-ctrl-attrib-button::before { content: ""; position: absolute; top: -10px; bottom: -10px; left: -20px; right: 0; }
+        [data-nearby-fs="full"] [data-nearby-map] .maplibregl-ctrl-top-right { top: max(12px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right)); }
+        [data-nearby-fs="full"] [data-nearby-map] .maplibregl-ctrl-bottom-left {
+          left: max(12px, env(safe-area-inset-left));
+          bottom: calc(max(12px, env(safe-area-inset-bottom)) + var(--fs-lift, 0px));
+          max-width: calc(100% - max(12px, env(safe-area-inset-left)) - max(12px, env(safe-area-inset-right)) - 62px);
+        }
       `}</style>
-      <div ref={box} role="region" aria-label={t("Map of nearby restaurants. The list below has the same restaurants.")} data-nearby-map className="h-full w-full" />
+      {/* The class string is static on purpose: MapLibre adds its own classes to this element. In full screen it is the dialog's map, so the
+          region role (whose label mentions the list that is hidden then) goes. Physical left/right in the CSS above: MapLibre's corners do not mirror. */}
+      <div ref={box} role={full ? undefined : "region"} aria-label={full ? undefined : t("Map of nearby restaurants. The list below has the same restaurants.")} data-nearby-map className="isolate h-full w-full" />
     </>
   );
 }
