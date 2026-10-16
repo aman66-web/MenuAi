@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
@@ -13,10 +15,11 @@ import { deleteLogEntry, logStore, shoppingStore, updateSettings } from "@/lib/m
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
+import { DayPicker } from "./_components/DayPicker";
 import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { WaterCard } from "./_components/WaterCard";
-import { FlameIcon, ForkIcon, GearIcon, PlusIcon } from "./_components/icons";
+import { CalendarIcon, FlameIcon, ForkIcon, GearIcon, PlusIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
@@ -101,6 +104,8 @@ export default function HomePage() {
   const shopping = useStore(shoppingStore);
   const now = useNow();
   // The + on a meal opens the Add food sheet for that meal; what it adds is offered back with an Undo for a few seconds.
+  const router = useRouter();
+  const [picking, setPicking] = useState(false);
   const [addTo, setAddTo] = useState<Meal | null>(null);
   const [added, setAdded] = useState<{ entry: LogEntry; meal: Meal } | null>(null);
   useEffect(() => {
@@ -137,7 +142,14 @@ export default function HomePage() {
   return (
     <div>
       <div className="flex items-center justify-between gap-3">
-        <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Home")}</h1>
+        <div className="flex min-w-0 items-center gap-1.5">
+          {/* Today's date in short form, month first in English ("Oct 16": founder 2026-10-16). The page keeps its name "Home" for screen readers. */}
+          <h1 className="min-w-0 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><span className="sr-only">{t("Home")}, </span>{shortDate(now, htmlLang)}</h1>
+          {/* the calendar button at the date's side (founder 2026-10-16): pick any day to see its macros and meals */}
+          <button type="button" onClick={() => setPicking(true)} aria-label={t("Choose a day")} className="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CalendarIcon className="h-[18px] w-[18px]" /></span>
+          </button>
+        </div>
         {/* a small grey circle like the picture's, inside a full 44 px tap area; a gear to Settings (founder 2026-10-16). Today's meals opens from the meal rows below. */}
         <Link href="/app/settings" aria-label={t("Settings")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon className="h-[18px] w-[18px]" /></span>
@@ -154,11 +166,26 @@ export default function HomePage() {
           // Like the picture: every day gone by is a dark circle, today is the brand colour, the days ahead are grey (whether food was
           // logged is still said to screen readers).
           const look = today ? "bg-sun text-[var(--on-accent)]" : future ? "bg-soft-strong text-foreground" : "bg-foreground text-background";
-          return (
-            <li key={dayKey(d)} className="flex min-w-0 flex-col items-center gap-2.5">
+          const inner = (
+            <>
               <span aria-hidden className="text-[0.6875rem] font-semibold uppercase text-muted">{narrow.format(d)}</span>
               <span aria-hidden className={`app-numbers flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>{d.getDate()}</span>
-              <span className="sr-only">{label}</span>
+            </>
+          );
+          return (
+            <li key={dayKey(d)} className="min-w-0">
+              {future ? (
+                <span className="flex flex-col items-center gap-2.5">
+                  {inner}
+                  <span className="sr-only">{label}</span>
+                </span>
+              ) : (
+                // every day up to today opens that day's page (founder 2026-10-16: "when they click the number at the top it shows what they got on that day");
+                // the link reaches into the gap on each side so a narrow phone still gets a full-size tap target
+                <Link href={dayHref(d, now)} aria-label={label} aria-current={today ? "date" : undefined} className="-mx-1 flex flex-col items-center gap-2.5 rounded-2xl px-1 py-0.5 transition active:scale-95">
+                  {inner}
+                </Link>
+              )}
             </li>
           );
         })}
@@ -245,6 +272,8 @@ export default function HomePage() {
       </ul>
 
       <WaterCard now={now} guard={(go) => gate("log", go)} />
+
+      <DayPicker open={picking} onClose={() => setPicking(false)} log={log} now={now} onPick={(d) => { setPicking(false); router.push(dayHref(d, now)); }} />
 
       <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
 

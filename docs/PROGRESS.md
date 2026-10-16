@@ -1721,6 +1721,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   **No new copy** ("carbs" and "fat" already existed and are translated). Checked: `e2e/recipes.mjs` 14 (new: all 24 first cards show kcal, protein, carbs and fat), eslint; screenshots at 390 px, 360 px,
   Extra large text and Arabic.
 
+- 2026-10-16 — **Home shows the date, a calendar, and any day's macros and meals** (founder: "Instead of home have the date for example Nov 15, the month in short form ... have this logo on
+  the right of it. When the person clicks on that they can find any day and click on it and see their macros and what they ate on that day"; earlier: "when they click the number at the top it shows what
+  they got on that day").
+  - **Header:** Home's title is today's short date, month first in English (**"Oct 16"**; other languages use their own short form through the browser's date formatting), still named "Home" for screen readers
+    ("Home, Oct 16"). The round **calendar button** sits beside it (named "Choose a day"); the Settings gear stays at the far right.
+  - **Calendar sheet** (`_components/DayPicker.tsx`, pure helpers in `lib/mm/day.ts`, 14 unit tests): a month at a time, Monday first like the week strip, back twelve months and forward only to this month; today is the
+    lime circle, a small dot marks every day with something logged, the days ahead are greyed and can't be tapped. Each day is a button named like the week strip's ("Friday 16 October (today)", "...: food logged").
+  - **The week strip's circles** are now links too: every day up to today opens that day (the link reaches into the gap so a narrow phone still gets a full-size tap target); the days ahead stay inert.
+  - **The day page is the Today page made date-aware** (`/app/today?d=YYYY-MM-DD`, a static shell like `/app/chain?id=`; a missing, bad or future date is today; any earlier real date is allowed): that day's calories dial and
+    protein, carbs and fat rows, then Breakfast / Lunch / Dinner with every entry (name, time, figures, the chain's photo), **Previous day / Next day** (Next day is greyed on today; they stack at large text) and a **Today**
+    shortcut. An empty day shows Pip with "Nothing was logged on this day.". Delete with Undo works on any day. Totals are measured against the person's **current** targets (the app keeps no target history), said under the
+    card on a past day. The service worker serves the day page offline from the same cached shell (`/app/today` joined its query shells). No adding food to a past day in this version (Home's + is for today).
+  - **History limit to know:** a day's meals are whatever is on this phone (the log is kept locally with no cut-off), but **sync only carries the last 2 days** (`SYNC_WINDOW_MS.log`), so a second device or a reinstall has only recent
+    days. Widening that window (say to 90 days) is a one-line code change (about 300 bytes an entry against the 1 MB per-store cap, no migration); not done unasked.
+  - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "Choose a day", "Previous month", "Next month", "Previous day", "Next day", "Today",
+    "Nothing was logged on this day.", "These totals use your current targets.". Checked: `e2e/days.mjs` 9 (header, calendar, picking a day, the week circles, flipping days, bad dates, delete and Undo on a past day, empty log, 360 px /
+    Extra large / Arabic, axe 0 with the sheet open), 818 unit tests, tsc, eslint; screenshots at 390 px, Extra large text and Arabic.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

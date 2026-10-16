@@ -92,6 +92,11 @@ await step("OFFLINE: Eat out, My meals, today's meals, the shopping list and Set
     await vis(page.getByRole("heading", { name, exact: true }));
   }
 });
+await step("OFFLINE: a past day of Today's meals opens from the same cached page (the date is only a query)", async () => {
+  await page.goto(BASE + "/app/today?d=2019-01-01");
+  await vis(page.getByRole("heading", { level: 1 }));
+  if (/offline/i.test(await page.getByRole("heading", { level: 1 }).innerText())) throw new Error("the offline page was shown for a day of Today's meals");
+});
 await step("OFFLINE: an address that was never part of the app shows the friendly offline page", async () => {
   await page.goto(BASE + "/app/never-heard-of-it");
   await vis(page.getByRole("heading", { name: "You're offline" }));

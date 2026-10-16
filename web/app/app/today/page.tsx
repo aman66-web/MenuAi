@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { dayHref, dayParam, parseDayParam, stepDay } from "@/lib/mm/day";
+import { localeInfo } from "@/lib/mm/i18n";
 import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
@@ -11,13 +14,13 @@ import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { useGate } from "../_components/Paywall";
 import Link from "next/link";
-import { ChevronLeftIcon, ForkIcon, TrashIcon } from "../_components/icons";
+import { ChevronLeftIcon, ChevronRightIcon, ForkIcon, TrashIcon } from "../_components/icons";
 import { Gauge } from "../_components/Gauge";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
 import { Button, Card, EmptyState } from "../_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
-import { useT } from "../_lib/i18n";
+import { useLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
 const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" });
@@ -27,6 +30,9 @@ const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "
 // the figures in a regular weight with the eaten one in the accent, then Home's protein, carbs and fat rows with their targets and thin
 // bars, so the same day reads the same on both screens), then what was eaten under Breakfast, Lunch and Dinner (SPEC §6.3 mealSlotFor,
 // or the row an entry was added to from Home's +, as on Home: budget.ts entryMeal), each entry with the chain's own photo of the dish where we have one.
+// Any day (founder 2026-10-16: "they can find any day and click on it and see their macros and what they ate on that day"): the page is a static shell that reads
+// ?d=YYYY-MM-DD (like /app/chain?id=), reached from Home's calendar and week circles; a missing, bad or future date is today. A past day shows that day's figures and
+// meals measured against the person's current targets (the app keeps no target history), with Previous day / Next day and a Today shortcut.
 
 /** Home's macro row (app/app/page.tsx): "PROTEIN   144g / 150g" in small spaced capitals and DM Mono, the same grey, and a thin bar below. */
 function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
@@ -46,17 +52,28 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
   );
 }
 export default function TodayPage() {
+  return (
+    <Suspense fallback={null}>
+      <TodayScreen />
+    </Suspense>
+  );
+}
+
+function TodayScreen() {
   const hydrated = useHydrated();
   const t = useT();
+  const htmlLang = localeInfo(useLanguage()).htmlLang;
   const pro = useIsPro();
   const { showPaywall } = useGate();
   const settings = useSettings();
   const log = useStore(logStore);
   const now = useNow();
+  const day = parseDayParam(useSearchParams().get("d"), now);
+  const isToday = dayParam(day) === dayParam(now);
   const [undo, setUndo] = useState<LogEntry | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
-  const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now)).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
+  const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), day)).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
   const indexes = useChainIndexes(pro ? todays.filter((e) => e.source === "item").map((e) => e.chainId) : []);
 
   if (!hydrated) return null;
@@ -84,8 +101,8 @@ export default function TodayPage() {
     );
   }
 
-  const totals = loggedToday(log, now);
-  const gaps = loggedGaps(log, now);
+  const totals = loggedToday(log, day);
+  const gaps = loggedGaps(log, day);
   const calFraction = Math.min(1, totals.calories / settings.dailyCalories);
   const targets = macroTargets(settings);
 
@@ -107,7 +124,11 @@ export default function TodayPage() {
   return (
     <div>
       <BackHome />
-      <h1 className="mt-5 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Today's meals")}</h1>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
+        <h1 className="min-w-0 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{isToday ? t("Today's meals") : new Intl.DateTimeFormat(htmlLang, { weekday: "short", day: "numeric", month: "short" }).format(day)}</h1>
+        {!isToday && <Link href="/app/today" replace className={`${DAY_PILL} px-4`}>{t("Today")}</Link>}
+      </div>
+      <DayNav day={day} now={now} />
 
       {/* One summary card in Home's voice: the calories dial with today's figure beside it (the eaten figure in the accent, the target
           below it), then protein, carbs and fat as Home's rows with their targets. Below the dial's width the figure moves under it
@@ -129,10 +150,17 @@ export default function TodayPage() {
           <MacroRow label={t("Fat")} eaten={totals.fat} target={targets.fat} />
         </div>
         {gaps.any && <p className="mt-4 text-sm leading-snug text-muted">{t("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.")}</p>}
+        {!isToday && <p className="mt-4 text-sm leading-snug text-muted">{t("These totals use your current targets.")}</p>}
       </Card>
 
       {todays.length === 0 ? (
-        <div className="mt-5"><EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing logged yet today")} body={t("Open an item or build an order, then tap Log.")} /></div>
+        <div className="mt-5">
+          {isToday ? (
+            <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing logged yet today")} body={t("Open an item or build an order, then tap Log.")} />
+          ) : (
+            <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing was logged on this day.")} />
+          )}
+        </div>
       ) : (
         <div className="mt-5 space-y-3.5">
           {MEALS.map((meal) => {
@@ -189,6 +217,24 @@ function EatenThumb({ src }: { src: string | undefined }) {
     <img src={src} alt="" width={44} height={44} loading="lazy" decoding="async" className="h-11 w-11 shrink-0 rounded-full bg-white object-cover" />
   ) : (
     <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong text-foreground"><ForkIcon className="h-5 w-5" /></span>
+  );
+}
+
+const DAY_PILL = "glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full text-base font-bold transition active:scale-95 hover:bg-soft-strong";
+
+/** Previous day and Next day side by side (stacked when the text is large: the minimum width is in rem); Next day is greyed on today. */
+function DayNav({ day, now }: { day: Date; now: Date }) {
+  const t = useT();
+  const isToday = dayParam(day) === dayParam(now);
+  return (
+    <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2">
+      <Link href={dayHref(stepDay(day, -1, now), now)} replace className={`${DAY_PILL} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Previous day")}</span></Link>
+      {isToday ? (
+        <span aria-disabled="true" className="inline-flex min-h-11 items-center justify-center gap-1 whitespace-nowrap rounded-full pe-2.5 ps-4 text-base font-bold text-muted"><span>{t("Next day")}</span><ChevronRightIcon className="h-5 w-5" /></span>
+      ) : (
+        <Link href={dayHref(stepDay(day, 1, now), now)} replace className={`${DAY_PILL} pe-2.5 ps-4`}><span>{t("Next day")}</span><ChevronRightIcon className="h-5 w-5" /></Link>
+      )}
+    </div>
   );
 }
 
