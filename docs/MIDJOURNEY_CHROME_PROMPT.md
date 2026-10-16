@@ -1,3 +1,5 @@
+BUILT FROM the recipe book at commit dfa71bd: 108 recipes (20 breakfast, 21 lunch, 56 dinner, 11 snacks). If your copy of the app lists a different number of recipes, or still has dishes such as the halloumi or lentil ones (replaced on 15 October 2026), your copy of the app is older than this file: update it first.
+
 # Midjourney pictures for every Numbite recipe: paste this whole file into Claude in Chrome
 
 HOW TO USE: open Midjourney (midjourney.com/imagine) in Chrome and log in, open Claude in Chrome, and paste EVERYTHING below the line as one message.
