@@ -13,6 +13,7 @@ import { ItemThumb } from "../_components/ItemPhoto";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { EmptyState, Spinner } from "../_components/ui";
 import { compareDish, compareFoodFromListed } from "../_lib/compare";
+import { backName, useBack } from "../_lib/backNav";
 import { useGroceryCatalogue } from "../_lib/groceries";
 import { useHydrated, useSearchIndex, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
@@ -58,11 +59,12 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
     setPicked(v);
     router.replace(`/app/compare?tab=${v}`, { scroll: false });
   };
-  const back = tab === "dish" ? "/app/eat-out" : "/app/groceries";
+  // the page before (a product, a dish, Groceries, Eat out...) when there is one in the app, else the list the open tab compares from
+  const back = useBack(tab === "dish" ? "/app/eat-out" : "/app/groceries");
 
   return (
     <div>
-      <Link href={back} aria-label={tab === "dish" ? t("Back to restaurants") : t("Back to groceries")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), tab === "dish" ? t("Back to restaurants") : t("Back to groceries"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       <h1 className="mt-5 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Compare")}</h1>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Pick a few products or dishes and see their numbers side by side.")}</p>
 

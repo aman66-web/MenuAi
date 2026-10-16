@@ -19,6 +19,7 @@ import { Gauge } from "../_components/Gauge";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
 import { Button, Card, EmptyState } from "../_components/ui";
+import { backName, useBack } from "../_lib/backNav";
 import { useChainIndexes, useHydrated, useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
@@ -240,5 +241,6 @@ function DayNav({ day, now }: { day: Date; now: Date }) {
 
 function BackHome() {
   const t = useT();
-  return <Link href="/app" aria-label={t("Back to home")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>;
+  const back = useBack("/app"); // the page before (Home, a meal row, the order builder...) when there is one in the app, else Home
+  return <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to home"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>;
 }

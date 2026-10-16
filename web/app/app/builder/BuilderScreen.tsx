@@ -26,6 +26,7 @@ import { ChevronLeftIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } f
 import { MacroSummary, SMALL_LABEL } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
 import { Button, Card, Chip, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
+import { backName, travelBack, useBack } from "../_lib/backNav";
 import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
@@ -34,6 +35,8 @@ import { useT } from "../_lib/i18n";
 // grey list on the card with its label in small spaced capitals and the portion and calories in DM Mono, "Double" a white pill lit in
 // the brand lime when it's on, and the totals as a floating white card that stays in reach above the tab bar.
 
+/** Where Save takes the person: My meals, on the restaurant meals tab. */
+const MEALS_RESTAURANT = "/app/meals?tab=restaurant";
 const TITLE = "text-[1.75rem] font-[800] leading-none tracking-[-0.02em]";
 /** The quiet list on a card: ingredient rows, modifiers, the picker's choices. */
 const INSET_LIST = "inset-card divide-y divide-line overflow-hidden rounded-2xl";
@@ -75,8 +78,10 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   const { status, index, error, retry } = useChain(props.chainId);
   const saved = useStore(savedStore);
 
+  // the page before (the dish, a saved meal, Today...) when there is one in the app, else the restaurant's menu (Eat out when the link names no restaurant)
+  const nav = useBack(props.chainId ? chainHref(props.chainId) : "/app/eat-out");
   const back = (
-    <Link href={props.chainId ? chainHref(props.chainId) : "/app/eat-out"} aria-label={t("Back")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), props.chainId ? t("Back to menu") : t("Back to restaurants"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
   );
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label={t("Loading")} /></div>);
   if (!pro) {
@@ -129,6 +134,9 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   const log = useStore(logStore);
   const now = useNow();
   const { chain } = ix;
+  // Was a button that always took the browser's Back, which leaves the app (or does nothing) when the builder was opened by address; now the same
+  // as the Back above: the page before when there is one in the app, else the restaurant's menu.
+  const back = useBack(chainHref(chain.id));
 
   const [lines, setLines] = useState<OrderLine[]>(start.lines);
   const [customName, setCustomName] = useState<string | null>(start.savedName ?? null);
@@ -182,7 +190,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   return (
     <div>
       <div className="flex items-center justify-between">
-        <button type="button" onClick={() => router.back()} aria-label={t("Back")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></button>
+        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to menu"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       </div>
       <p className="kicker mt-5">{chain.name}</p>
       <h1 className={`mt-1.5 ${TITLE}`}>{t("Build your order")}</h1>
@@ -253,7 +261,9 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                   if (start.savedId) {
                     // Editing a saved order: update it in place (no duplicate, and it never counts against the free limit).
                     updateSavedOrder(start.savedId, { name: entry.name, lines, nutrients: total, dataVersionAtSave: entry.dataVersionAtSave });
-                    router.push("/app/meals?tab=restaurant");
+                    // My meals is the page just below (it is the only page that opens a saved order): go back to it. Pushing it again would leave the finished
+                    // builder in the history, with Home three Backs away. Opened by address, there is nothing below: it takes the builder's place.
+                    if (!travelBack(router, MEALS_RESTAURANT)) router.replace(MEALS_RESTAURANT);
                     return;
                   }
                   gate("saveLimit", () => {
@@ -261,7 +271,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                     analytics.track({ name: "orderSaved" });
                     countProAction();
                     setNotice(null);
-                    router.push("/app/meals?tab=restaurant");
+                    router.replace(MEALS_RESTAURANT); // replace: the finished builder must not stay below My meals, where Back would return to it with Save live again
                   });
                 }}
               >
@@ -275,7 +285,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                     addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource() });
                     analytics.track({ name: "mealLogged" });
                     countProAction();
-                    router.push("/app/today");
+                    router.replace("/app/today"); // replace: Back from Today must not return to the finished builder, where one more Log would log the meal twice
                   })
                 }
               >

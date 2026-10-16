@@ -14,6 +14,7 @@ import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
 import { ChevronLeftIcon, DirectionsIcon, ForkIcon, LocateIcon, PinIcon } from "../_components/icons";
 import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
+import { backName, useBack } from "../_lib/backNav";
 import { useMenu } from "../_lib/hooks";
 import { loadBranches } from "../_lib/branches";
 import { useT } from "../_lib/i18n";
@@ -70,6 +71,7 @@ const chipRow = "no-scrollbar -mx-5 -my-1.5 flex gap-2 overflow-x-auto px-5 py-1
 
 export default function NearbyPage() {
   const t = useT();
+  const back = useBack("/app/eat-out"); // the page before (Eat out, a restaurant...) when there is one in the app, else Eat out
   const menu = useMenu();
   const [origin, setOrigin] = useState<Origin>(null);
   const [locating, setLocating] = useState<Locating>({ state: "idle" });
@@ -192,7 +194,7 @@ export default function NearbyPage() {
 
   return (
     <div ref={pageRef}>
-      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className={BACK}><span className={BACK_PILL}><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className={BACK}><span className={BACK_PILL}><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]"><Rich text={t("Restaurants {near} you")} values={{ near: <span className="serif-em">{t("near")}</span> }} /></h1>
 
       {origin && !editing ? (

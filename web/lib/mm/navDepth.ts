@@ -29,3 +29,33 @@ export function stateFor(kind: "push" | "replace", data: unknown, current: unkno
 
 /** True when the current entry was reached from another page of the app, so the browser's Back stays inside the app. */
 export const canGoBack = (state: unknown): boolean => depthOf(state) > 0;
+
+/**
+ * The spoken name of a Back control. After an in-app arrival it is the plain visible word (the destination may be anywhere); otherwise it names the fixed page
+ * it goes to ("Back to home"). In a language where that phrase does not contain the visible word (Spanish "Volver al inicio" under "Atrás"), the word comes first
+ * ("Atrás: Volver al inicio"), so a Voice Control user who says what they see ("tap Atrás") can reach it (WCAG 2.5.3, Label in Name). English is unchanged.
+ */
+export function backName(plain: string, fallbackLabel: string, cameFromApp: boolean): string {
+  if (cameFromApp) return plain;
+  return fallbackLabel.toLowerCase().includes(plain.toLowerCase()) ? fallbackLabel : `${plain}: ${fallbackLabel}`;
+}
+
+// The words in a search box travel with the history entry too (a person who opens a result and comes Back finds the search as they left it, not an empty box).
+// Like the depth they live in history.state, so they follow Back and Forward exactly, survive a reload and need no storage of their own.
+
+/** The key a search box's words are stored under inside history.state. */
+export const QUERY_KEY = "mmQuery";
+const MAX_QUERY = 200;
+
+/** The words saved in a history entry's state: "" when there are none (no state, someone else's state, not text). */
+export function queryOf(state: unknown): string {
+  if (typeof state !== "object" || state === null) return "";
+  const q = (state as Record<string, unknown>)[QUERY_KEY];
+  return typeof q === "string" ? q.slice(0, MAX_QUERY) : "";
+}
+
+/** The state of the current entry with `query` saved in it (removed when empty); everything else in the state, the depth and Next.js's own keys included, is kept. */
+export function withQuery(state: unknown, query: string): Record<string, unknown> {
+  const { [QUERY_KEY]: _old, ...rest } = (typeof state === "object" && state !== null ? state : {}) as Record<string, unknown>; // eslint-disable-line @typescript-eslint/no-unused-vars
+  return query ? { ...rest, [QUERY_KEY]: query.slice(0, MAX_QUERY) } : rest;
+}

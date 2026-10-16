@@ -8,6 +8,7 @@ import { site } from "@/site.config";
 import { ShopMark } from "../../../_components/ChainMark";
 import { BasketIcon, CheckIcon } from "../../../_components/icons";
 import { Button, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
+import { useBack } from "../../../_lib/backNav";
 import { useHiddenLogos } from "../../../_lib/hiddenLogos";
 import { useT } from "../../../_lib/i18n";
 import { useSharedList } from "../../../_lib/sharedList";
@@ -30,6 +31,16 @@ function useHash(): string | null | undefined {
   return hash;
 }
 
+/** The list that was added is kept for this tab (on this device only): Back from "Open my shopping list" returns to this page, and it must not offer "Add all" again, which would double every quantity. */
+const ADDED_KEY = "mm.sharedAdded";
+const readAdded = (): string | null => {
+  if (typeof window === "undefined") return null;
+  try { return sessionStorage.getItem(ADDED_KEY); } catch { return null; }
+};
+const writeAdded = (code: string) => {
+  try { sessionStorage.setItem(ADDED_KEY, code); } catch { /* storage blocked: the page just forgets */ }
+};
+
 export default function SharedListPage() {
   const t = useT();
   const hash = useHash();
@@ -39,9 +50,10 @@ export default function SharedListPage() {
   const state = useSharedList(entries, retry);
   useHiddenLogos(); // a shop taken down at its owner's request (public/logos/hidden.json) shows none of its pictures, also when that list arrives after the page opens
   // "Added" belongs to the list that was added: a different link opened in this same page (the "#" changes) starts as not added.
-  const [addedFor, setAddedFor] = useState<string | null>(null);
+  const [addedFor, setAddedFor] = useState<string | null>(readAdded);
   const added = hash != null && addedFor === hash;
 
+  const listNav = useBack("/app/groceries/list"); // for the "Back to shopping list" button below: the page before when there is one in the app, else the list in this page's place
   const back = <BackLink href="/app/groceries/list" label={t("Back to shopping list")} />;
   const heading = <h1 className={`mt-5 ${TITLE}`}>{t("Shared shopping list")}</h1>;
 
@@ -52,7 +64,7 @@ export default function SharedListPage() {
         {back}
         {heading}
         <div className="mt-4"><ErrorBox message={t(SHARE_PROBLEM[decoded.reason], { app: site.name })} /></div>
-        <LinkButton href="/app/groceries/list" variant="secondary" full className="mt-4 min-h-12">{t("Back to shopping list")}</LinkButton>
+        <LinkButton href={listNav.href} onClick={listNav.onClick} replace variant="secondary" full className="mt-4 min-h-12">{t("Back to shopping list")}</LinkButton>
       </div>
     );
   }
@@ -65,6 +77,7 @@ export default function SharedListPage() {
   const addAll = () => {
     shoppingStore.update((list) => items.reduce((l, { qty, addedAt: _addedAt, ...item }) => addToList(l, item, new Date(), qty), list)); // eslint-disable-line @typescript-eslint/no-unused-vars
     setAddedFor(hash ?? null);
+    if (hash) writeAdded(hash);
   };
 
   return (

@@ -8,6 +8,7 @@ import { shoppingStore } from "@/lib/mm/stores";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
 import { PipSays } from "../../../_components/Mascot";
 import { Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
+import { useBack } from "../../../_lib/backNav";
 import { useHydrated, useStore } from "../../../_lib/hooks";
 import { useT } from "../../../_lib/i18n";
 import { addMissing, useListRecipes } from "../../../_lib/listRecipes";
@@ -65,6 +66,7 @@ export default function ListRecipesPage() {
   const list = useStore(shoppingStore);
   const { state, matches } = useListRecipes(list);
   const [limit, setLimit] = useState(PAGE);
+  const listNav = useBack("/app/groceries/list"); // for the empty-state button: the page before when there is one in the app, else the list in this page's place
 
   return (
     <div>
@@ -73,7 +75,7 @@ export default function ListRecipesPage() {
       <div className="mt-5"><PipSays mood="point" size={72}>{t("These recipes use something on your list. Each one shows what you still need to buy.")}</PipSays></div>
 
       {!hydrated ? null : list.length === 0 ? (
-        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("Your list is empty.")} body={t("Add a few things you have or plan to buy, and I'll find recipes that use them.")} action={<LinkButton href="/app/groceries/list" variant="secondary">{t("Back to my groceries")}</LinkButton>} /></div>
+        <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("Your list is empty.")} body={t("Add a few things you have or plan to buy, and I'll find recipes that use them.")} action={<LinkButton href={listNav.href} onClick={listNav.onClick} replace variant="secondary">{t("Back to my groceries")}</LinkButton>} /></div>
       ) : state === null ? (
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
       ) : state.status === "error" ? (

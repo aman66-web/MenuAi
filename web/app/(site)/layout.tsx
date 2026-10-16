@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { APP_BUILD } from "@/lib/mm/config";
 import { site } from "@/site.config";
+import { SiteBack } from "./SiteBack";
 
 // Marketing site chrome (landing page, privacy, terms, support). The web app under /app has its own layout.
 // Look (founder 2026-10-15): the app's own icon beside the name, quiet links, and the app's black pill for "Open app".
@@ -8,12 +9,10 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
   return (
     <div className="min-h-full flex flex-col">
       {APP_BUILD ? (
-        // Inside the iPhone app these pages (privacy, terms, support) are reached from Settings: a plain Back bar, not the website's header.
+        // Inside the iPhone app these pages (privacy, terms, support) are reached from Settings or the welcome screen: a plain Back bar (it returns to the page that opened them), not the website's header.
         <header className="sticky top-0 z-30 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl pt-[env(safe-area-inset-top)]">
           <div className="mx-auto flex min-h-14 w-full max-w-3xl items-center px-3">
-            <Link href="/app/settings" className="inline-flex min-h-11 items-center gap-1 rounded-full px-3 text-base font-bold text-accent">
-              <span aria-hidden>←</span> Back
-            </Link>
+            <SiteBack />
           </div>
         </header>
       ) : (

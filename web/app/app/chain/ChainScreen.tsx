@@ -23,6 +23,7 @@ import { ItemThumb } from "../_components/ItemPhoto";
 import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, Chip, EmptyState, ErrorBox, SampleBadge, Sheet, Spinner } from "../_components/ui";
+import { backName, useBack } from "../_lib/backNav";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
 import { useT } from "../_lib/i18n";
@@ -38,6 +39,8 @@ import { Rich } from "../_lib/Rich";
 // calendar button; each menu section is one white card with its dishes divided by fine lines (not a card per dish), the search bar is
 // flat grey like the page, and "Back to Best for you" is a black pill with a plain arrow (no circle).
 
+/** Where Back goes when there is no earlier page of the app (a restaurant opened by address or from a shared link, a fresh launch). */
+const EAT_OUT = "/app/eat-out";
 /** "Show all 12 in Burgers": the last row of a section's card, in the accent green. */
 const MORE_ROW = "flex min-h-12 w-full items-center justify-center gap-1.5 px-4 py-3 text-center text-[0.9375rem] font-semibold text-accent transition hover:bg-[var(--fill)] active:bg-[var(--fill)]";
 /** A link in running text: underlined, but quietly. */
@@ -53,9 +56,10 @@ export function ChainScreen({ chainId }: { chainId: string }) {
 
 function Shell({ children }: { children: React.ReactNode }) {
   const t = useT();
+  const back = useBack(EAT_OUT); // the page before (Eat out, Search, Home, the map, a dish...) when there is one in the app, else Eat out
   return (
     <div>
-      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       {children}
     </div>
   );
@@ -63,6 +67,7 @@ function Shell({ children }: { children: React.ReactNode }) {
 
 function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["index"]> }) {
   const t = useT();
+  const back = useBack(EAT_OUT);
   const { chain } = index;
   const menu = useMenu();
   const now = useNow();
@@ -145,7 +150,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   return (
     <div>
       <div className="flex items-center justify-between gap-3">
-        <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
         {/* a small grey circle like Home's calendar button, inside a full 44 px tap area, with what the tap did written beside it */}
         <div className="flex min-w-0 items-center gap-1.5">
           <p aria-hidden className={`min-w-0 text-end text-[0.8125rem] font-semibold leading-snug text-accent transition-opacity duration-300 motion-reduce:transition-none ${favNote?.shown ? "opacity-100" : "opacity-0"}`}>{favText}</p>

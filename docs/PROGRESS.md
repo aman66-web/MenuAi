@@ -1803,6 +1803,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Not built (needs your yes before the database changes):** friends by code and invite link, sending a shopping list to a friend and the inbox (steps 2 and 3 of the plan). No migration is written yet and the live
     database is unchanged.
 
+- 2026-10-16 — **Back goes to the page you came from, across the app** (founder: "If you press the top right heart on recipes and then go back it goes to the homepage not the page before").
+  - **The cause:** every Back button was a fixed link to one page (My meals' Back went to Home whichever way you arrived). Now each Back button takes the browser's own Back when the page was reached from another
+    page of the app, and goes to its old fixed page only when there is nothing earlier (a page opened by address, a shared link, a fresh launch).
+  - **How:** each history entry the app makes carries its depth in `history.state` (`installBackDepth()` wraps `pushState` and `replaceState` once, called in AppShell; `lib/mm/navDepth.ts`, tested), and `useBack(fallback)`
+    (`app/app/_lib/backNav.ts`) returns the link's address, its click handler and whether the page came from the app. Modified clicks (new tab) are left alone. Only one Back travels at a time (a second tap before the first lands
+    would go back twice), and if the browser does not move (the oldest entry it keeps) the person goes to the fixed page instead of being left on a dead button.
+  - **Spoken name:** plain "Back" when it goes through history, the old words ("Back to home") when it goes to the fixed page, and a name that always contains the visible word (`backName`), so voice control and screen readers agree.
+  - **Where:** My meals (the founder's case), Recipes and a recipe, Today and every day page, restaurant, dish and order builder, Search and "Search every shop" (the typed words come back with Back, kept in `history.state`), Eat out's favourites,
+    Near me, Compare, every grocery screen (one shared `BackLink`), the shopping list and shared lists, Community's list and articles, the numbers page, and the privacy, terms and support pages inside the iPhone app (`SiteBack`).
+    Stepping through days on Today and switching tabs on Compare replace the entry, so one Back still leaves them. The builder's Save and Log replace themselves, so Back from Today does not return to a finished builder where one more Log would log the meal twice.
+    The shared-list page remembers (this tab only) that a list was added, so Back from "Open my shopping list" cannot add it twice.
+  - **Left as fixed links on purpose:** buttons whose words name another page ("Back to the recipes" in the not-Pro state, "Back to shopping list" on a shared-list error) still go there, but now through history when the page was reached in the app.
+    "Back to my groceries" on the empty cook-with-list page keeps its words (renaming it is copy, rule 8).
+  - **No new copy.** Not done: restoring a page's filters, sorts and "show more" limits after Back (that is the "tabs remember where you were" job, still open); the Search screens do restore their typed words.
+  - **Checked:** 18 unit tests (`navDepth`), `e2e/back.mjs` 44 steps (the founder's case, Home's tiles, meal rows, week circles and calendar, Today's arrows, Eat out to a dish, Search, Groceries, the shopping list, recipes, 15 pages opened by address
+    with their fixed fallback and spoken name, reload, My meals' tabs, modified clicks, double taps, Arabic and Extra large text, axe), `e2e/back-restaurants.mjs` 13, community 10, mapfs 19, sharelist 11, done 13, listadd 7, tsc, eslint.
+    **Not run:** the privacy and terms Back bar inside the packed iPhone app (it needs the app build: `app-build.mjs` at the final check) and any real iPhone.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

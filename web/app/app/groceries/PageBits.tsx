@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode, SelectHTMLAttributes } from "react";
 import { BasketIcon, ChevronLeftIcon } from "../_components/icons";
 import { Button } from "../_components/ui";
+import { backName, useBack } from "../_lib/backNav";
 import { useT } from "../_lib/i18n";
 
 // The groceries screens' shared pieces, in Home's design language (founder 2026-10-15: "the home screen now looks beautiful ... the rest of
@@ -28,11 +29,16 @@ export const ROUND = "inline-flex h-9 w-9 shrink-0 items-center justify-center r
 /** The darker grey a round grey action takes when hovered. */
 const HOVER = "group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
 
-/** "Back", as a small grey pill inside a 44 px tap area (the word stays: founder 2026-10-11, every back button says Back). */
+/**
+ * "Back", as a small grey pill inside a 44 px tap area (the word stays: founder 2026-10-11, every back button says Back). It goes to the page the person
+ * came from (the browser's own Back, `useBack`); `href` is the fixed page it goes to when there is no earlier page of the app (a page opened by address,
+ * a shared link, a fresh launch), and `label` names that page for screen readers, so it is spoken only then (otherwise it is plain "Back").
+ */
 export function BackLink({ href, label }: { href: string; label: string }) {
   const t = useT();
+  const back = useBack(href);
   return (
-    <Link href={href} aria-label={label} className="group -ms-1 inline-flex min-h-11 shrink-0 items-center transition active:scale-95">
+    <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), label, back.cameFromApp)} className="group -ms-1 inline-flex min-h-11 shrink-0 items-center transition active:scale-95">
       <span className={`inline-flex h-9 items-center gap-0.5 whitespace-nowrap rounded-full bg-soft-strong ps-2 pe-3.5 text-[0.9375rem] font-semibold transition-colors ${HOVER}`}>
         <ChevronLeftIcon className="h-[18px] w-[18px]" /><span>{t("Back")}</span>
       </span>

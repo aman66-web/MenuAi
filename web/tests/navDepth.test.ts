@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canGoBack, depthOf, DEPTH_KEY, stateFor } from "../lib/mm/navDepth";
+import { backName, canGoBack, depthOf, DEPTH_KEY, QUERY_KEY, queryOf, stateFor, withQuery } from "../lib/mm/navDepth";
 
 // "Back goes to the page before": every history entry carries its depth in history.state.
 
@@ -60,5 +60,51 @@ describe("a walk through the app", () => {
   it("a page replaced at the very start (onboarding's redirect) is still the first entry", () => {
     const first = stateFor("replace", { __NA: true }, null); //                  /app -> /app/welcome by replace
     expect(canGoBack(first)).toBe(false);
+  });
+});
+
+describe("backName (the spoken name of a Back control)", () => {
+  it("is the plain word after an in-app arrival, whatever the fixed page is", () => {
+    expect(backName("Back", "Back to home", true)).toBe("Back");
+    expect(backName("Atrás", "Volver al inicio", true)).toBe("Atrás");
+  });
+  it("names the fixed page otherwise, unchanged when that phrase already holds the visible word", () => {
+    expect(backName("Back", "Back to home", false)).toBe("Back to home");
+    expect(backName("Voltar", "Voltar ao início", false)).toBe("Voltar ao início");
+    expect(backName("BACK", "back to menu", false)).toBe("back to menu");
+  });
+  it("puts the visible word first when the phrase lacks it (Label in Name)", () => {
+    expect(backName("Atrás", "Volver al inicio", false)).toBe("Atrás: Volver al inicio");
+    expect(backName("رجوع", "العودة إلى الرئيسية", false)).toBe("رجوع: العودة إلى الرئيسية");
+  });
+});
+
+describe("the words of a search box in a history entry", () => {
+  it("reads nothing from no state, someone else's state or a value that is not text", () => {
+    for (const s of [null, undefined, "x", 3, {}, { __NA: true }, { [QUERY_KEY]: 5 }, { [QUERY_KEY]: null }]) expect(queryOf(s), JSON.stringify(s)).toBe("");
+  });
+  it("saves the words and keeps the depth and Next.js's own keys", () => {
+    const state = { __NA: true, [DEPTH_KEY]: 2, tree: [1] };
+    const out = withQuery(state, "chicken bowl");
+    expect(out).toEqual({ __NA: true, [DEPTH_KEY]: 2, tree: [1], [QUERY_KEY]: "chicken bowl" });
+    expect(queryOf(out)).toBe("chicken bowl");
+    expect(state).toEqual({ __NA: true, [DEPTH_KEY]: 2, tree: [1] }); // the caller's object is untouched
+  });
+  it("replaces earlier words, and removes them when the box is emptied", () => {
+    const first = withQuery({ [DEPTH_KEY]: 1 }, "beans");
+    expect(queryOf(withQuery(first, "baked beans"))).toBe("baked beans");
+    const cleared = withQuery(first, "");
+    expect(QUERY_KEY in cleared).toBe(false);
+    expect(cleared[DEPTH_KEY]).toBe(1);
+  });
+  it("starts an empty state from nothing, and never stores more than a search could need", () => {
+    expect(withQuery(null, "tea")).toEqual({ [QUERY_KEY]: "tea" });
+    expect(queryOf(withQuery({}, "x".repeat(5000))).length).toBe(200);
+  });
+  it("survives a replace through stateFor (the depth is kept, the words ride along)", () => {
+    const entry = withQuery({ [DEPTH_KEY]: 1, __NA: true }, "salad");
+    const replaced = stateFor("replace", entry, entry) as Record<string, unknown>;
+    expect(depthOf(replaced)).toBe(1);
+    expect(queryOf(replaced)).toBe("salad");
   });
 });

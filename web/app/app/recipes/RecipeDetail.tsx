@@ -13,6 +13,7 @@ import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggle
 import { site } from "@/site.config";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
 import { Button, Sheet, radioKeyNav } from "../_components/ui";
+import { backName, useBack } from "../_lib/backNav";
 import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
@@ -109,6 +110,8 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
 export function RecipeDetail({ recipe, file, products, backHref, actions }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode }) {
   const t = useT();
   const poss = usePossessive();
+  // Back goes to the page before when this one was reached from another page of the app; `backHref` (the recipes, at the right shop) is the fallback
+  const back = useBack(backHref);
   // our recipe book's words are translated; what Pip wrote with AI is shown as it wrote it. Ingredient labels and notes come from our pantry either way.
   const rt = (s: string) => (recipe.ai ? s : t(s));
   const settings = useSettings();
@@ -214,7 +217,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
       <div className="relative -mx-5" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
         <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
         <div className="absolute inset-x-0 top-0 flex flex-wrap items-start justify-between gap-2 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
-          <Link href={backHref} aria-label={t("Back to recipes")} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+          <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to recipes"), back.cameFromApp)} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
           {!recipe.ai && <SaveRecipeButton id={recipe.id} />}
         </div>
       </div>

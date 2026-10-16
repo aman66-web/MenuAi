@@ -9,6 +9,7 @@ import { ScanIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { useEntryQuery } from "../../_lib/backNav";
 import { useGroceryCatalogue, useGroceryManifest } from "../../_lib/groceries";
 import { useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
@@ -29,7 +30,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   // undefined until the person picks: then the first of their supermarkets (Settings) that has products here, else All
   const [picked, setPicked] = useState<string | null | undefined>(initialShop ?? undefined);
   const [category, setCategory] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useEntryQuery(); // kept in the history entry, so Back from a product finds the search as it was left
   const [sort, setSort] = useState<GrocerySort>("density");
   const [shown, setShown] = useState(PAGE);
   const [retry, setRetry] = useState(0);

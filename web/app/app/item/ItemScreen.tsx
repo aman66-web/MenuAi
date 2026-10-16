@@ -19,6 +19,7 @@ import { CompareButton } from "../_components/CompareButton";
 import { compareDish } from "../_lib/compare";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, ErrorBox, Spinner } from "../_components/ui";
+import { backName, useBack } from "../_lib/backNav";
 import { useChain, useMenu } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
@@ -46,8 +47,9 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const found = status === "ready" && !!index?.items.get(itemId);
   useEffect(() => { if (found) noteItemViewed(chainId, itemId); }, [found, chainId, itemId]); // "Recently viewed" on the restaurant's page for a day
 
+  const nav = useBack(chainHref(chainId)); // the page before (the menu, Search, Today, a recipe...) when there is one in the app, else the restaurant's menu
   const back = (
-    <Link href={chainHref(chainId)} aria-label={t("Back to menu")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to menu"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
   );
   if (status === "loading") return (<div>{back}<Spinner label={t("Loading item")} /></div>);
   if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></div>);

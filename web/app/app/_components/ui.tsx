@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useRef, type ButtonHTMLAttributes, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, type ButtonHTMLAttributes, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { useT } from "../_lib/i18n";
 import { CloseIcon } from "./icons";
 
@@ -35,9 +35,10 @@ export function Button({ variant = "primary", full, className, ...rest }: Button
   return <button type="button" className={cx(buttonBase, variants[variant], full && "w-full", className)} {...rest} />;
 }
 
-export function LinkButton({ href, variant = "primary", full, className, children }: { href: string; variant?: Variant; full?: boolean; className?: string; children: ReactNode }) {
+/** `onClick` runs first (a Back button takes the browser's own Back there); `replace` swaps the current history entry for the page instead of adding one (a "Back to ..." button on a page that was opened by address, so the page it leaves is not left behind to be Backed into). */
+export function LinkButton({ href, variant = "primary", full, className, children, onClick, replace }: { href: string; variant?: Variant; full?: boolean; className?: string; children: ReactNode; onClick?: (e: MouseEvent<HTMLElement>) => void; replace?: boolean }) {
   return (
-    <Link href={href} className={cx(buttonBase, variants[variant], full && "w-full", className)}>
+    <Link href={href} onClick={onClick} replace={replace} className={cx(buttonBase, variants[variant], full && "w-full", className)}>
       {children}
     </Link>
   );

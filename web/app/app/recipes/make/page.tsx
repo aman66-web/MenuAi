@@ -16,6 +16,7 @@ import { CheckIcon, ChevronLeftIcon } from "../../_components/icons";
 import { PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { Button, ErrorBox, inputClass, radioKeyNav, Spinner } from "../../_components/ui";
+import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { Rich } from "../../_lib/Rich";
@@ -101,7 +102,9 @@ function MakeScreen() {
     }
   };
 
-  const back = (<Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} aria-label={t("Back to recipes")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  const recipesHref = `/app/recipes${shop ? `?r=${shop}` : ""}`;
+  const nav = useBack(recipesHref); // the page before when this one was reached from another page of the app, else the recipes at this shop
+  const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
 
   if (!hydrated) return <Spinner />;
 
@@ -115,7 +118,7 @@ function MakeScreen() {
         </div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("recipeMaker")}>{t("See Pro")}</Button>
-          <Link href={`/app/recipes${shop ? `?r=${shop}` : ""}`} className="glass flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
+          <Link href={nav.href} onClick={nav.onClick} replace className="glass flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
         </div>
       </div>
     );
@@ -144,7 +147,7 @@ function MakeScreen() {
           recipe={recipe}
           file={state.file}
           products={state.products}
-          backHref={`/app/recipes${shop ? `?r=${shop}` : ""}`}
+          backHref={recipesHref}
           actions={
             <>
               {savedId ? (

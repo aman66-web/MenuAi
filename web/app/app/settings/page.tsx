@@ -14,6 +14,7 @@ import type { Goal } from "@/lib/mm/types";
 import { DEFAULT_WATER_GOAL_ML, MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "@/lib/mm/water";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon, GlobeIcon } from "../_components/icons";
+import { BackLink } from "../groceries/PageBits";
 import { LanguageList } from "../_components/LanguageList";
 import { localeInfo, tk } from "@/lib/mm/i18n";
 import { setLanguage, useLanguage, useT } from "../_lib/i18n";
@@ -179,7 +180,9 @@ export default function SettingsPage() {
 
   return (
     <div>
-      <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Settings")}</h1>
+      {/* Settings is the gear on Home, not a tab: Back returns to the page before (Home by default) */}
+      <BackLink href="/app" label={t("Back to home")} />
+      <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Settings")}</h1>
 
       <Section title={t("Account")} id="account">
         <AccountSection />

@@ -10,6 +10,7 @@ import { ChevronLeftIcon, SearchIcon, StarIcon } from "../../_components/icons";
 import { Pip } from "../../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { EmptyState, Spinner } from "../../_components/ui";
+import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useMenu, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 
@@ -26,6 +27,7 @@ const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full bg-soft-s
 
 export default function FavouriteRestaurantsPage() {
   const t = useT();
+  const back = useBack("/app/eat-out"); // the page before (Eat out, a restaurant's page...) when there is one in the app, else Eat out
   const hydrated = useHydrated();
   const menu = useMenu();
   const favorites = useStore(favoritesStore);
@@ -42,7 +44,7 @@ export default function FavouriteRestaurantsPage() {
 
   return (
     <div>
-      <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className={BACK}><span className={BACK_PILL}><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className={BACK}><span className={BACK_PILL}><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">{t("My favourite restaurants")}</h1>
 
       {!hydrated || menu.status === "loading" || menu.status === "idle" ? (
