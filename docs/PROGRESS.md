@@ -1845,6 +1845,27 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Checked:** 150 unit tests (`reminders.test.ts` 83 incl. a 1,500-round fuzz of the sanitiser and a day-by-day oracle; `reminders.dst.test.ts` 61 across 11 time zones incl. the clock-change nights, mutation-checked with four injected bugs; `nativeNotifications.test.ts`), `e2e/reminders.mjs` 26 steps
     (add, edit, pause, delete with Undo and the double-tap guard, Done, the three repeats, the plan handed to a faked phone, notifications off, the website, nothing sent anywhere, 360 px / Extra large / Arabic, axe 0), tsc, eslint.
 
+- 2026-10-16 — **A serving stays the same serving at any number of people** (founder, on three screenshots of Chicken chow mein at Serves 4, 3 and 2 showing 451, 456 and 451 kcal: "The maths doesn't work when you increase the servings. This seems to be a big issue make sure you fix this
+  and that every recipe also should work too"; then, on the Full nutrition panel: "Same in addition for the full nutrition").
+  - **The causes (found by reproducing the founder's numbers, then 97 of 100 recipes showed a different serving at some Serves value, worst 201 kcal):** (1) the shop's default product was picked again for every amount, so a different pack and label won at different
+    Serves values (the chow mein noodles flipped between two products at 1, 5, 9, 11 and 12); (2) the amounts are rounded (5 g steps, whole eggs, wraps and cloves) and the numbers were added up from the rounded amounts; (3) fitting to the meal size ran on the already scaled and
+    rounded recipe, which is exactly 451 / 456 / 451; (4) the whole-item price rule (a pepper, a cucumber) is not proportional to the people; (5) substitutes and the Swap sheet's "a serving" prices were rounded twice.
+  - **The fix** (`lib/mm/recipes.ts`, `RecipeDetail.tsx`): the recipe page's whole pipeline is one function, `recipeView` (substitutes, then fit, then scale). Scaling always starts from the recipe as written (`scaledFrom`, so rounding never builds up) and a serving's numbers
+    (calories, protein, carbs, fat **and the whole Full nutrition panel: kJ, saturates, sugars, fibre, salt**) and its price come from the recipe as written with the same products; only the amounts and the shopping (packs, "to buy it all", the shopping list) follow the people.
+    Result: chow mein fitted to 450 kcal and 35 g protein shows 451 kcal, 35 g, 46.3 g carbs, 12.5 g fat and £2.09 at every Serves from 1 to 12 (it was 451 / 456 / 451 and £2.06-2.75); the same recipe as written shows 611 kcal and £2.74 at every Serves (it was 535 to 614).
+    Older saved and shared recipes need no migration.
+  - **Also fixed on the way:** the quesadilla wedges (half a wrap a person) no longer double their wraps at other Serves values; fixed water in method steps now follows the people ("800 ml" for 2 becomes "4,800 ml" for 12; 11 recipes; all 10 languages checked); the Swap list no longer offers a product whose
+    pack size or price can't be worked out.
+  - **Honest limits, logged as decisions (rule 8):** (1) a serving's figures are for the recipe's proportions, while the amounts shown round to whole eggs, wraps and stock cubes and 5 g, so at some Serves values (mostly 1, or odd numbers for wraps) they can differ a little from the amounts listed: a new grey line says so,
+    only when the difference passes 3% of calories (about 4% of recipe × Serves × meal-size combinations; never at the recipe's own number of servings). (2) The product is pinned to the one picked for the written servings, so at large Serves the basket can be a little above the cheapest
+    identical-label pack (about 2.7% more on average at Serves 12; Swap still lets a person pick a cheaper pack). (3) Packs cover the amount **shown** (a 65 g row with a 65 g pack says buy 1). (4) Whole items sold one at a time (a cucumber, a pepper) are priced a serving from the written recipe, so
+    "to buy it all" can be below the number of people times "a serving" for those (up to about £3 at Serves 12). **Not changed:** three method steps carry a fixed count tied to the written servings ("about 16 small balls", "12 small balls", "two small pots": a copy change), the Swap sheet's
+    substitute preview shows the as-written amount, and loose produce shows the shop's per-kg price beside the amount.
+  - **New copy (rule 8, logged here; translated into the 10 languages by AI, second-checked, not yet by native speakers):** "Eggs, wraps and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown."
+  - **Checked:** `tests/recipeServings.test.ts` (118 tests: every one of the 100 recipes × Serves 1 to 12 × as written, fitted to 400/600/800 kcal with and without a protein aim, each ingredient's first substitute, halal, "I have this": calories, protein, carbs, fat, every Full nutrition row, the price a serving,
+    the products, whole amounts and packs; sabotage-checked: with the old behaviour back it fails 110 of 111), the older recipe tests (288 in all), `e2e/recipes.mjs` 15 (new: the numbers and the price a serving are identical at Serves 1, 2, 3, 4, 5 and 12 for chow mein, an egg recipe and a wrap recipe, as written and fitted, including the open
+    More detail rows), tsc, eslint.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

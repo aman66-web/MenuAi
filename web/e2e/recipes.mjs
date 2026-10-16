@@ -210,7 +210,7 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, recipeMeal: { size: "written", moreProtein: false } } }));
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
   await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).waitFor();
-  await page.getByRole("link", { name: "Back to recipes" }).waitFor();
+  await page.getByRole("link", { name: /^Back( to recipes)?$/ }).waitFor(); // "Back to recipes" when opened by address (as here), plain "Back" when reached from another page of the app
   await page.getByRole("button", { name: "Save to My meals", pressed: false }).click();
   await page.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
   const chicken = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
@@ -225,7 +225,7 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   const four = lines(await chicken.innerText());
   expect(four.includes("600 g"), `600 g chicken for 4, got ${four.join(" | ")}`);
   const after = await kcal();
-  expect(Math.abs(after - before) / before < 0.08, `a serving stays about the same (${before} -> ${after} kcal)`);
+  expect(after === before, `a serving stays exactly the same (${before} -> ${after} kcal)`);
   for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Fewer servings" }).click();
   await page.getByText("Serves 1", { exact: true }).waitFor();
   expect(!(await page.getByRole("button", { name: "Fewer servings" }).isEnabled()), "not below 1");
@@ -246,6 +246,68 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   const box = await add.boundingBox();
   expect(box && box.y + box.height <= 844 && box.y > 500, `Add all is kept in view near the bottom, at ${box && Math.round(box.y)}`);
   await ctx.close();
+});
+
+// founder 2026-10-16: "the maths doesn't work when you increase the servings" (chicken chow mein showed 451, 456, 451 kcal at Serves 4, 3, 2).
+// A serving is the same serving whoever it is cooked for: the numbers, the full label and the price a serving are the same text at every Serves
+// value; the amounts, the packs and "to buy it all" follow the people.
+await step("a serving's numbers and price are the same at Serves 1, 2, 3, 4, 5 and 12: chow mein (as written and fitted), eggs, wraps", async () => {
+  const written = { recipeMeal: { size: "written", moreProtein: false } };
+  const fitted = { recipeMeal: { size: "normal", moreProtein: true } };
+  const cases = [
+    ["chicken-chow-mein", "Chicken chow mein", written, "as written"],
+    ["chicken-chow-mein", "Chicken chow mein", fitted, "fitted to the meal"],
+    ["smoked-salmon-eggs", null, written, "eggs, as written"],
+    ["smoked-salmon-eggs", null, fitted, "eggs, fitted"],
+    ["breakfast-burrito", null, written, "wraps, as written"],
+    ["breakfast-burrito", null, fitted, "wraps, fitted"],
+  ];
+  for (const [id, title, extra, label] of cases) {
+    const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, ...extra } }));
+    await page.goto(BASE + `/app/recipes/view?id=${id}&r=sainsburys`);
+    await page.getByRole("heading", { level: 1, name: title ?? /.+/ }).waitFor();
+    await page.getByRole("group", { name: /per serving/ }).waitFor();
+    const written0 = await page.getByText(/^Serves \d+$/).innerText();
+    const start = Number(/\d+/.exec(written0)[0]);
+    await page.getByRole("button", { name: /^More detail/ }).click(); // the full label stays open while the servings change
+    const serves = async (n) => {
+      for (let guard = 0; guard < 14; guard++) {
+        const now = Number(/\d+/.exec(await page.getByText(/^Serves \d+$/).innerText())[0]);
+        if (now === n) return;
+        await page.getByRole("button", { name: now < n ? "More servings" : "Fewer servings" }).click();
+        await page.getByText(`Serves ${now < n ? now + 1 : now - 1}`, { exact: true }).waitFor();
+      }
+      throw new Error(`could not reach Serves ${n}`);
+    };
+    const read = async () => ({
+      per: await page.getByRole("group", { name: /per serving/ }).innerText(),
+      label: await page.locator("#recipe-label").innerText(),
+      price: await page.locator("#recipe-panel-ingredients").getByText("a serving", { exact: true }).locator("xpath=following-sibling::p[1]").innerText(),
+      basket: await page.locator("#recipe-panel-ingredients").getByText("to buy it all", { exact: true }).locator("xpath=following-sibling::p[1]").innerText(),
+      first: await page.locator("#recipe-panel-ingredients ul li").first().innerText(),
+    });
+    await serves(start);
+    const ref = await read();
+    expect(/^[\d,]+/.test(ref.per) && /£\d/.test(ref.price), `${label}: numbers and a price at Serves ${start}: ${JSON.stringify(ref.per)} ${ref.price}`);
+    let firstGrams = [];
+    for (const n of [1, 2, 3, 4, 5, 12]) {
+      await serves(n);
+      const got = await read();
+      expect(got.per === ref.per, `${label}: Serves ${n} shows ${JSON.stringify(got.per)}, not ${JSON.stringify(ref.per)}`);
+      expect(got.label === ref.label, `${label}: Serves ${n} full label differs: ${JSON.stringify(got.label)} vs ${JSON.stringify(ref.label)}`);
+      expect(got.price === ref.price, `${label}: Serves ${n} price a serving ${got.price}, not ${ref.price}`);
+      firstGrams.push(Number(/(\d[\d,]*) (?:g|ml)\b/.exec(got.first)?.[1]?.replace(",", "") ?? NaN));
+    }
+    // what changes is the shopping: the first ingredient's amount grows with the people, and the basket never shrinks as they grow
+    expect(firstGrams.every((g) => g > 0), `${label}: amounts shown ${firstGrams}`);
+    expect(firstGrams[5] > firstGrams[0], `${label}: 12 people need more than 1 (${firstGrams[5]} vs ${firstGrams[0]})`);
+    await serves(1);
+    const one = money((await read()).basket);
+    await serves(12);
+    const twelve = money((await read()).basket);
+    expect(twelve > one, `${label}: the basket for 12 (£${twelve}) is more than for 1 (£${one})`);
+    await ctx.close();
+  }
 });
 
 await step("a shop product can be added to the list from its own page", async () => {

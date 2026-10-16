@@ -310,21 +310,26 @@ describe("recipes for a diet", () => {
     const egg = scaleServings(eggs, eggs.servings + 1).ingredients.find((i) => i.pantry === "eggs")!;
     expect(egg.note).toMatch(/^about \d+ eggs?$/);
   });
-  it("wraps come out as the same whole number for every person, fitted or scaled", () => {
+  it("wraps come out as the same whole number for every person, fitted or scaled, where the recipe gives each person whole wraps", () => {
     const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
     const withWraps = RECIPES.filter((r) => r.ingredients.some((i) => i.pantry === "wraps"));
     expect(withWraps.length).toBeGreaterThan(5);
     const wrapsOf = (r: Recipe) => r.ingredients.find((i) => i.pantry === "wraps")!.amount / 60;
+    // the quesadilla wedges are written with half a wrap each: they count wraps overall (see tests/recipeServings.test.ts)
+    const wholeEach = (r: Recipe) => { const each = wrapsOf(r) / r.servings; return each >= 1 && Number.isInteger(each); };
+    expect(withWraps.filter((r) => !wholeEach(r)).map((r) => r.id)).toEqual(["cheese-bean-quesadilla-wedges"]);
     for (const r of withWraps) {
       for (const kcal of [250, 400, 600, 800, 1000]) {
         const f = fitRecipe(r, products, {}, { kcal });
         if (!f) continue;
         const n = wrapsOf(f.recipe);
-        expect(Number.isInteger(n) && n >= f.recipe.servings && n % f.recipe.servings === 0, `${r.id} at ${kcal} kcal: ${n} wraps for ${f.recipe.servings}`).toBe(true);
+        if (wholeEach(r)) expect(Number.isInteger(n) && n >= f.recipe.servings && n % f.recipe.servings === 0, `${r.id} at ${kcal} kcal: ${n} wraps for ${f.recipe.servings}`).toBe(true);
+        else expect(Number.isInteger(n) && n >= 1, `${r.id} at ${kcal} kcal: ${n} wraps for ${f.recipe.servings}`).toBe(true);
       }
       for (const people of [1, 3, 5]) {
         const n = wrapsOf(scaleServings(r, people));
-        expect(n % people === 0 && n >= people, `${r.id} for ${people}: ${n} wraps`).toBe(true);
+        if (wholeEach(r)) expect(n % people === 0 && n >= people, `${r.id} for ${people}: ${n} wraps`).toBe(true);
+        else expect(Number.isInteger(n) && n >= 1, `${r.id} for ${people}: ${n} wraps`).toBe(true);
       }
     }
   });

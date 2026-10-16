@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
-import { MEAL_TYPES, candidates, fitRecipe, isMeatFree, recipeTotals, resolveRecipe, scaleServings, subSpec, withSubstitutes, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
+import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleMethodMl, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
@@ -129,16 +129,10 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   const haveList = useStore(cupboardStore);
   const have = useMemo(() => new Set(haveList), [haveList]);
   const meatFree = isMeatFree(recipe);
-  // cooking for more or fewer people scales every amount with them (eggs, peppers and cloves stay whole), so a serving stays the same
+  // cooking for more or fewer people scales every amount with them (eggs, peppers and cloves stay whole), but a serving stays the same: its numbers
+  // and price come from the recipe as written, with the substitutes and the fit to the meal chosen for it (recipeView, lib/mm/recipes.ts)
   const scaled = useMemo(() => scaleServings(recipe, servings), [recipe, servings]);
-  const withSubs = useMemo(() => withSubstitutes(scaled, subs), [scaled, subs]);
-
-  const view = useMemo(() => {
-    const fitted = target && !asWritten ? fitRecipe(withSubs, products, chosen, target) : null;
-    if (fitted) return { recipe: fitted.recipe, resolved: fitted.resolved, totals: fitted.totals, fitted: fitted.changed };
-    const resolved = resolveRecipe(withSubs, products, chosen);
-    return { recipe: withSubs, resolved, totals: recipeTotals(resolved), fitted: false };
-  }, [withSubs, products, chosen, target, asWritten]);
+  const view = useMemo(() => recipeView(recipe, products, { servings, subs, chosen, target: asWritten ? null : target }), [recipe, servings, subs, products, chosen, target, asWritten]);
   // the basket leaves out the cupboard items the person has ticked; a serving's price and numbers never do
   const totals = useMemo(() => (view.totals ? recipeTotals(view.resolved, have) : null), [view, have]);
   const picks = view.resolved.picks;
@@ -146,18 +140,30 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   const swapIndex = view.recipe.ingredients.findIndex((i) => i.key === swapping);
   // what the row shows: the pick's own spec when the shop lacked the ingredient and a substitute stands in
   const swapSpec = swapIndex >= 0 ? (picks[swapIndex]?.spec ?? view.recipe.ingredients[swapIndex]!) : null;
-  const options = useMemo(() => (swapSpec ? candidates(products, swapSpec, meatFree) : []), [swapSpec, products, meatFree]);
+  // a product whose pack size or price can't be worked out would be bought as one pack for any number of people and give no price a serving, so it isn't
+  // offered (the one already in the recipe stays in the list)
+  const currentId = picks[swapIndex]?.product.id;
+  const options = useMemo(() => (swapSpec ? candidates(products, swapSpec, meatFree).filter((c) => c.usedCost !== null || c.product.id === currentId) : []), [swapSpec, products, meatFree, currentId]);
+  // what a serving costs with each option: the amount the recipe as written uses (the same for any number of people) over the servings it makes
+  const basis = view.resolved.basis ?? view.resolved;
+  const basisSpec = swapIndex >= 0 ? basis.picks[swapIndex]?.spec : undefined;
+  const servingCost = (o: IngredientPick): number | null => {
+    const used = basisSpec ? pickFor(basisSpec, o.product).usedCost : o.usedCost;
+    return used === null ? null : used / basis.recipe.servings;
+  };
   // the other things the recipe can use instead (the ingredient as written first, when something else is in its place), only those this shop sells
   const insteadOptions = useMemo(() => {
     if (!swapSpec) return [];
     const written = scaled.ingredients.find((x) => x.key === swapSpec.key);
-    if (!written) return [];
+    const original = (scaled.scaledFrom ?? scaled).ingredients.find((x) => x.key === swapSpec.key);
+    if (!written || !original) return [];
     const out: Array<{ subKey: string | null; spec: IngredientSpec }> = [];
     if (swapSpec.subFor) out.push({ subKey: null, spec: written });
     for (const sub of written.subs ?? []) {
       if (sub.key === swapSpec.pantry) continue;
-      const s2 = subSpec(written, sub, scaled.halal);
-      if (s2) out.push({ subKey: sub.key, spec: s2 });
+      // chosen for the recipe as written, then scaled: the amount shown is the one the recipe will have if it is picked
+      const s2 = subSpec(original, sub, scaled.halal);
+      if (s2) out.push({ subKey: sub.key, spec: scaled.scaledFrom ? scaleSpec(s2, scaled.servings, scaled.scaledFrom.servings) : s2 });
     }
     return out.filter((o) => candidates(products, o.spec, meatFree).length > 0);
   }, [swapSpec, scaled, products, meatFree]);
@@ -262,6 +268,9 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
             </div>
             {totals.notCounted.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("We haven't read the label for {name} yet, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("We haven't read the labels for {names} yet, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+            )}
+            {roundedAmountsMatter(view.resolved, totals) && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Eggs, wraps and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown.")}</p>
             )}
             <div className="mt-3">
               <button type="button" aria-expanded={detail} aria-controls="recipe-label" onClick={() => setDetail((d) => !d)} className={`${CARD} flex min-h-14 w-full items-center gap-3 px-4 py-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
@@ -400,7 +409,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
             {recipe.method.map((step, i) => (
               <li key={i} className="flex gap-3.5 py-4">
                 <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-soft-strong text-[0.875rem] font-bold">{i + 1}</span>
-                <span className="pt-1 text-base leading-snug">{rt(step)}</span>
+                <span className="pt-1 text-base leading-snug">{scaleMethodMl(rt(step), view.recipe.servings, recipe.scaledFrom?.servings ?? recipe.servings)}</span>
               </li>
             ))}
           </ol>
@@ -464,7 +473,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
                       <PickPhoto file={file} product={o.product} />
                       <span className="min-w-0 flex-1">
                         <span className="block text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{o.product.name}</span>
-                        <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{formatPrice(o.basketCost)}{o.packs > 1 ? ` ${t("for {n}", { n: o.packs })}` : ""}{o.usedCost !== null ? ` · ${t("{price} a serving", { price: formatPrice(o.usedCost / view.recipe.servings) })}` : ""}</span>
+                        <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{formatPrice(o.basketCost)}{o.packs > 1 ? ` ${t("for {n}", { n: o.packs })}` : ""}{servingCost(o) !== null ? ` · ${t("{price} a serving", { price: formatPrice(servingCost(o)!) })}` : ""}</span>
                         {o.product.nutrition && <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{Math.round(o.product.nutrition.kcal)} kcal · {t("{n} g protein per 100 {unit}", { n: o.product.nutrition.protein, unit: o.product.nutrition.per })}</span>}
                       </span>
                       {selected && <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-foreground text-background"><CheckIcon className="h-4 w-4" /></span>}

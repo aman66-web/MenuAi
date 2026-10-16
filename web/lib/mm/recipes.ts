@@ -1,3 +1,4 @@
+import { formatInt } from "./format";
 import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind } from "./pantry";
 import { normalizeForSearch } from "./search";
 import { hasPrice, type PricedProduct, type ShopProduct } from "./shopProducts";
@@ -10,7 +11,10 @@ export type { IngredientMatch } from "./pantry";
 // matched only to products whose label numbers are for the food as sold, in the recipe's unit, and inside a plausible range for that form
 // (dry pasta is not cooked pasta), and totals are plain arithmetic on those labels for the amounts in the recipe. Fitting a recipe to
 // someone's calories and protein changes only the amounts (protein and carb ingredients, and what is made in proportion to them, such as the
-// milk for porridge oats; rounded to 5 g or to whole pieces); the numbers are then worked out again from the labels. Blurbs describe the dish,
+// milk for porridge oats; rounded to 5 g or to whole pieces); the numbers are then worked out again from the labels. Cooking for more or fewer
+// people (scaleServings) changes only the amounts to measure and buy, rounded for the kitchen: a serving is the recipe-as-written's serving, so
+// its numbers and price never move with the people (founder 2026-10-16). Substitutes and fitting are therefore always chosen for the recipe as
+// written and scaled afterwards, with the same products (recipeView is the whole pipeline; `scaledFrom` and `ResolvedRecipe.basis` carry it). Blurbs describe the dish,
 // never make a nutrition or health claim (CLAUDE.md rule 3). Pure and unit-tested.
 
 export interface IngredientSpec {
@@ -62,6 +66,10 @@ export interface Recipe {
   tags?: string[];
   /** Set by recipeForDiet for halal: substitutes use halal-named meat too. */
   halal?: boolean;
+  /** Set by scaleServings (never saved): this recipe cooked for a different number of people is the recipe in `scaledFrom` with every amount
+   *  scaled. A serving of it is the same serving as the original's, so its figures and its price a serving are always worked out from the
+   *  original (resolveRecipe, recipeTotals); the amounts here only say what to measure and buy for more or fewer people. */
+  scaledFrom?: Recipe;
 }
 
 export type MealType = "breakfast" | "lunch" | "dinner" | "snack";
@@ -146,6 +154,7 @@ export const isQuick = (recipe: Pick<Recipe, "minutes"> & { method?: readonly st
 
 /** The recipe as these preferences need it (halal meat products), or null when one of its ingredients is left out for them. */
 export function recipeForDiet(recipe: Recipe, prefs: DietPrefs): Recipe | null {
+  if (recipe.scaledFrom) { const base = recipeForDiet(recipe.scaledFrom, prefs); return base && scaleServings(base, recipe.servings); }
   const out: IngredientSpec[] = [];
   for (const i of recipe.ingredients) {
     const k = i.pantry ? PANTRY.get(i.pantry) : undefined;
@@ -176,6 +185,8 @@ export function subSpec(spec: IngredientSpec, sub: { key: string; factor?: numbe
 /** The recipe with the person's choices of substitute (ingredient key → substitute kind key) put in. */
 export function withSubstitutes(recipe: Recipe, choices: Readonly<Record<string, string>>): Recipe {
   if (!Object.keys(choices).length) return recipe;
+  // a substitute is chosen for the recipe as written (its amount rounded once, at the written servings), then cooked for more or fewer people
+  if (recipe.scaledFrom) return scaleServings(withSubstitutes(recipe.scaledFrom, choices), recipe.servings);
   return {
     ...recipe,
     ingredients: recipe.ingredients.map((spec) => {
@@ -374,10 +385,28 @@ export interface ResolvedRecipe {
   picks: Array<IngredientPick | null>;
   /** Every ingredient found at this shop. */
   complete: boolean;
+  /** Set when the recipe is cooked for a different number of people than it was written for: the same recipe resolved at its own servings, with the
+   *  very same products. A serving's figures and price come from it (recipeTotals), so they can't change with the number of people; the picks above
+   *  hold the amounts, packs and basket for the people shown. */
+  basis?: ResolvedRecipe;
 }
 
-/** The cheapest match for each ingredient, or a chosen product where the user swapped one (by product id). */
+/** The recipe's resolution for another number of people: the same products, the amounts scaled (rounded as scaleServings rounds them), the packs
+ *  and the basket worked out again for those amounts. What the amounts used cost scales with the people, so a serving costs the same. */
+function scaleResolved(base: ResolvedRecipe, scaled: Recipe): ResolvedRecipe {
+  const from = base.recipe.servings;
+  const picks = base.picks.map((p): IngredientPick | null => {
+    if (!p) return null;
+    const q = pickFor(scaleSpec(p.spec, scaled.servings, from), p.product);
+    return { ...q, usedCost: p.usedCost === null ? null : (p.usedCost * scaled.servings) / from };
+  });
+  return { recipe: scaled, picks, complete: base.complete, basis: base };
+}
+
+/** The cheapest match for each ingredient, or a chosen product where the user swapped one (by product id). A recipe cooked for more or fewer people
+ *  (scaleServings) gets the products the recipe as written gets, so its numbers and its price a serving never move with the people. */
 export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>> = {}): ResolvedRecipe {
+  if (recipe.scaledFrom) return scaleResolved(resolveRecipe(recipe.scaledFrom, products, chosen), recipe);
   const meatFree = isMeatFree(recipe);
   const picks = recipe.ingredients.map((spec) => {
     let list = candidates(products, spec, meatFree);
@@ -405,7 +434,9 @@ export interface RecipeTotals {
 }
 
 /** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
- *  person says they already have (cupboard items): left out of the basket, never out of a serving's price or numbers. */
+ *  person says they already have (cupboard items): left out of the basket, never out of a serving's price or numbers. For a recipe cooked for more
+ *  or fewer people the serving is the recipe-as-written's serving (`basis`), worked out by this very arithmetic on its own amounts; only the basket
+ *  is for the amounts shown. */
 export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): RecipeTotals | null {
   if (!r.complete) return null;
   const notCounted: string[] = [];
@@ -414,10 +445,12 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
   let used = 0;
   let usedKnown = true;
   let basket = 0;
-  for (const p of r.picks as IngredientPick[]) {
+  const kept = (p: IngredientPick) => !(p.spec.cupboard && p.spec.pantry && have.has(p.spec.pantry));
+  if (r.basis) for (const p of r.picks as IngredientPick[]) if (kept(p)) basket += p.basketCost;
+  for (const p of (r.basis ?? r).picks as IngredientPick[]) {
     if (p.usedCost === null) usedKnown = false;
     else used += p.usedCost;
-    if (!(p.spec.cupboard && p.spec.pantry && have.has(p.spec.pantry))) basket += p.basketCost;
+    if (!r.basis && kept(p)) basket += p.basketCost;
     const n = p.product.nutrition;
     if (!n) { notCounted.push(p.spec.label); continue; }
     const f = p.spec.amount / 100;
@@ -430,7 +463,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
       more[k] = v === null || more[k] === null ? null : more[k]! + v * f;
     }
   }
-  const s = r.recipe.servings;
+  const s = (r.basis ?? r).recipe.servings;
   const round1 = (v: number) => Math.round(v * 10) / 10;
   const per = (v: number | null, digits: number) => (v === null ? null : Math.round((v / s) * 10 ** digits) / 10 ** digits);
   return {
@@ -469,22 +502,26 @@ const COUNT_NOTE = /^about /;
 
 /**
  * A new amount for an ingredient (fitted or for more or fewer people) and its note: a kind used by the piece goes to whole pieces (eggs, wraps,
- * stock cubes; never fewer than one), and one served whole to each person (wraps) to the same whole number for every one of `servings`; produce
+ * stock cubes; never fewer than one), and one served whole to each person (wraps) to the same whole number for every one of `servings` when the
+ * recipe as written (`fromServings` people) already gives each person a whole number of them (a recipe that shares them, half a wrap each, or
+ * counts 1.83 a person is rounded as a whole count instead, so its amounts keep their proportions); produce
  * used in parts (a cucumber, an onion) and everything else to the nearest 5 g, or with `small`, an amount under 20 to the nearest 1 (a pinch of
  * spice). A count note ("about 2 eggs") is said again for the new amount, or dropped when the new amount isn't close to a whole number of pieces.
  */
-function newAmount(spec: IngredientSpec, raw: number, small: boolean, servings: number): { amount: number; note?: string } {
+function newAmount(spec: IngredientSpec, raw: number, small: boolean, servings: number, fromServings: number = servings): { amount: number; note?: string } {
   const k = spec.pantry ? PANTRY.get(spec.pantry) : undefined;
-  const pieces = (g: number) => (k?.perServing ? Math.max(1, Math.round(raw / g / servings)) * servings : Math.max(1, Math.round(raw / g)));
+  const writtenEach = k?.pieceGrams ? spec.amount / k.pieceGrams / fromServings : 0;
+  const wholeEach = !!k?.perServing && writtenEach >= 1 - 1e-9 && Math.abs(writtenEach - Math.round(writtenEach)) < 1e-9;
+  const pieces = (g: number) => (wholeEach ? Math.max(1, Math.round(raw / g / servings)) * servings : Math.max(1, Math.round(raw / g)));
   const amount = k?.pieceGrams && !k.cut ? pieces(k.pieceGrams) * k.pieceGrams : small && raw < 20 ? Math.max(1, Math.round(raw)) : round5(raw);
   const count = k ? countNote(k, amount) : undefined;
   const note = count ?? (spec.note && COUNT_NOTE.test(spec.note) ? undefined : spec.note);
   return { amount, ...(note ? { note } : {}) };
 }
 
-/** An ingredient with a new amount and the note that goes with it, in a recipe for `servings` people. */
-function withAmount(spec: IngredientSpec, raw: number, small: boolean, servings: number): IngredientSpec {
-  const { amount, note } = newAmount(spec, raw, small, servings);
+/** An ingredient with a new amount and the note that goes with it, in a recipe for `servings` people (written for `fromServings`). */
+function withAmount(spec: IngredientSpec, raw: number, small: boolean, servings: number, fromServings: number = servings): IngredientSpec {
+  const { amount, note } = newAmount(spec, raw, small, servings, fromServings);
   const out: IngredientSpec = { ...spec, amount };
   if (note) out.note = note;
   else delete out.note;
@@ -513,6 +550,15 @@ function fitFactors(ingredients: readonly IngredientSpec[]): Array<(a: number, b
  * isn't complete here.
  */
 export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>>, target: MealTarget): FittedRecipe | null {
+  if (recipe.scaledFrom) {
+    // a serving is fitted once, for the recipe as written (the same products, the same factors, amounts rounded once); more or fewer people then
+    // multiply the fitted amounts. Fitting the scaled amounts instead would round them again and could pick other factors for every number of people.
+    const f = fitRecipe(recipe.scaledFrom, products, chosen, target);
+    if (!f) return null;
+    const scaled = scaleServings(f.recipe, recipe.servings);
+    const resolved = scaled.scaledFrom ? scaleResolved(f.resolved, scaled) : f.resolved;
+    return { recipe: scaled, resolved, totals: recipeTotals(resolved)!, changed: f.changed };
+  }
   const base = resolveRecipe(recipe, products, chosen);
   if (!base.complete) return null;
   const picks = base.picks as IngredientPick[];
@@ -559,17 +605,87 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
   return { recipe: fitted, resolved, totals, changed: ingredients.some((x, i) => x.amount !== recipe.ingredients[i]!.amount) };
 }
 
+/** One ingredient for a different number of people: its amount times servings ÷ the recipe's own, rounded the way fitting rounds them (see newAmount). */
+export function scaleSpec(spec: IngredientSpec, servings: number, fromServings: number): IngredientSpec {
+  return withAmount(spec, spec.amount * (servings / fromServings), true, servings, fromServings);
+}
+
 /**
  * The recipe for a different number of people (the − / + on a recipe page): every amount times servings ÷ the recipe's own, rounded the way
- * fitting rounds them (eggs, wraps and stock cubes to whole ones, wraps to the same number for each person, grams and millilitres to 5, so part of a cucumber stays a part; small amounts
- * such as a pinch of spice to the nearest 1, never below 1). A serving's figures stay as they were, give or take the rounding; the packs to
- * buy follow the new amounts. 1 to 12 people.
+ * fitting rounds them (eggs, wraps and stock cubes to whole ones, wraps to the same number for each person when the recipe gives each person whole wraps, grams and millilitres to 5, so part of a cucumber stays a part; small amounts
+ * such as a pinch of spice to the nearest 1, never below 1). The amounts are for measuring and buying; a serving is still the recipe's own serving,
+ * so its figures and price don't change (`scaledFrom`: resolveRecipe and recipeTotals work them out from the recipe as written). Scaling a scaled
+ * recipe scales the original again, so rounding never builds up. 1 to 12 people.
  */
 export function scaleServings(recipe: Recipe, servings: number): Recipe {
+  const base = recipe.scaledFrom ?? recipe;
   const n = Math.max(1, Math.min(12, Math.round(servings)));
-  if (n === recipe.servings) return recipe;
-  const f = n / recipe.servings;
-  return { ...recipe, servings: n, ingredients: recipe.ingredients.map((spec) => withAmount(spec, spec.amount * f, true, n)) };
+  if (n === base.servings) return base;
+  return { ...base, servings: n, scaledFrom: base, ingredients: base.ingredients.map((spec) => scaleSpec(spec, n, base.servings)) };
+}
+
+/** A method step for another number of people: the water or stock it names in millilitres ("the stock cube in 300 ml of boiling water") goes with
+ *  the people like the amounts above it (rounded to 25 ml, or 50 ml from 250 ml), or a soup would be 800 ml of water for two people and for twelve.
+ *  Nothing else in a step changes (times, temperatures and counts stay as written). */
+export function scaleMethodMl(step: string, servings: number, written: number): string {
+  if (servings === written || written <= 0) return step;
+  return step.replace(/\b(\d+(?:\.\d+)?) ml\b/g, (_all, ml: string) => {
+    const raw = (Number(ml) * servings) / written;
+    const unit = raw < 250 ? 25 : 50;
+    return `${formatInt(Math.max(unit, Math.round(raw / unit) * unit))} ml`;
+  });
+}
+
+/** Whether, for this many people, adding up the labels for the amounts shown (whole eggs, wraps and stock cubes, 5 g steps, a pinch never under 1 g)
+ *  comes out noticeably different from the serving's figures, which are always the recipe-as-written's serving: 3% of the calories, 3% and 1 g of the
+ *  protein, carbs or fat, or 0.3 g of the salt. The page then says the amounts are rounded. Never true at the recipe's own servings. */
+export function roundedAmountsMatter(r: ResolvedRecipe, totals: RecipeTotals): boolean {
+  if (!r.basis || !r.complete) return false;
+  const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0, salt: 0 };
+  let saltKnown = true;
+  for (const p of r.picks as IngredientPick[]) {
+    const n = p.product.nutrition;
+    if (!n) continue; // a label we haven't read is named as not counted, in the serving and here
+    const f = p.spec.amount / 100;
+    sum.kcal += n.kcal * f;
+    sum.protein += n.protein * f;
+    sum.carbs += n.carbs * f;
+    sum.fat += n.fat * f;
+    if (n.salt === null) saltKnown = false;
+    else sum.salt += n.salt * f;
+  }
+  const s = r.recipe.servings;
+  const head = totals.perServing;
+  const off = (shown: number, headline: number, least: number) => Math.abs(shown / s - headline) >= Math.max(least, 0.03 * headline);
+  return (
+    off(sum.kcal, head.kcal, 2) || off(sum.protein, head.protein, 1) || off(sum.carbs, head.carbs, 1) || off(sum.fat, head.fat, 1) ||
+    (saltKnown && totals.label.salt !== null && Math.abs(sum.salt / s - totals.label.salt) >= 0.3)
+  );
+}
+
+export interface RecipeView {
+  /** The recipe as shown: substitutes put in, fitted to the target when there is one, the amounts for `servings` people. */
+  recipe: Recipe;
+  resolved: ResolvedRecipe;
+  /** Null when the shop doesn't sell every ingredient. */
+  totals: RecipeTotals | null;
+  /** The target changed some amounts. */
+  fitted: boolean;
+}
+
+/** A recipe page's whole pipeline in one place: the person's substitutes, then the fit to their meal (null target = as written), both for the recipe
+ *  as written, then the amounts for `servings` people. A serving's numbers and price are the same for every number of people. */
+export function recipeView(
+  recipe: Recipe,
+  products: readonly ShopProduct[],
+  opts: { servings: number; subs?: Readonly<Record<string, string>>; chosen?: Readonly<Record<string, string>>; target?: MealTarget | null },
+): RecipeView {
+  const withSubs = withSubstitutes(scaleServings(recipe, opts.servings), opts.subs ?? {});
+  const chosen = opts.chosen ?? {};
+  const fitted = opts.target ? fitRecipe(withSubs, products, chosen, opts.target) : null;
+  if (fitted) return { recipe: fitted.recipe, resolved: fitted.resolved, totals: fitted.totals, fitted: fitted.changed };
+  const resolved = resolveRecipe(withSubs, products, chosen);
+  return { recipe: withSubs, resolved, totals: recipeTotals(resolved), fitted: false };
 }
 
 /** How far a serving is from the target (0 = spot on): used to put the closest recipes first. */
