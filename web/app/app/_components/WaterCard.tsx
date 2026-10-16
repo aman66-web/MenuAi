@@ -49,7 +49,7 @@ export function WaterCard({ now, guard }: { now: Date; guard: (go: () => void) =
             type="button"
             onClick={undoWaterEntry}
             aria-label={t("Undo the last water you added")}
-            className={`-ms-3.5 mt-1 inline-flex min-h-11 items-center rounded-full px-3.5 text-[0.9375rem] font-bold text-accent transition hover:bg-accent-soft active:scale-95 ${canUndo ? "" : "invisible"}`}
+            className={`-ms-3.5 mt-1 inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-3.5 text-[0.9375rem] font-bold text-accent transition hover:bg-accent-soft active:scale-95 ${canUndo ? "" : "invisible"}`}
           >
             {t("Undo")}
           </button>
