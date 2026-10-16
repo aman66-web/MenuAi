@@ -32,13 +32,15 @@ export function WaterCard({ now, guard }: { now: Date; guard: (go: () => void) =
   return (
     <section aria-labelledby="home-water">
       <h2 id="home-water" className="mt-7 text-xl font-extrabold tracking-tight">{t("Water")}</h2>
-      <div className="glass mt-3 flex min-h-[7.5rem] items-center gap-4 rounded-[1.75rem] p-4">
-        <WaterBottle level={waterFraction(ml, goal)} className="h-24 w-12 shrink-0" />
+      <div className="@container glass mt-3 flex min-h-[7.5rem] items-center gap-4 rounded-[1.75rem] p-4">
+        {/* The small bottle steps aside when the card is narrow (large text), like Home's meal pictures, so the figure keeps its room. */}
+        <WaterBottle level={waterFraction(ml, goal)} className="hidden h-24 w-12 shrink-0 @[18rem]:block" />
         <div className="min-w-0 flex-1">
           <p role="status" className="app-numbers text-lg font-bold">
-            {/* One unbreakable piece, and left to right in every language so "1,250 / 2,000 ml" reads in that order in Arabic and Urdu too. */}
-            <span aria-hidden dir="ltr" className="inline-block whitespace-nowrap">
-              {formatInt(ml)} / {formatInt(goal)} <span className="text-sm font-semibold text-muted">ml</span>
+            {/* Left to right in every language so "1,250 / 2,000 ml" reads in that order in Arabic and Urdu too; at the largest text it breaks
+                after the slash, never inside a number. */}
+            <span aria-hidden dir="ltr">
+              <span className="whitespace-nowrap">{formatInt(ml)} /</span> <span className="whitespace-nowrap">{formatInt(goal)}</span> <span className="text-sm font-semibold text-muted">ml</span>
             </span>
             <span className="sr-only">{t("{ml} of {goal} ml of water today", { ml: formatInt(ml), goal: formatInt(goal) })}</span>
           </p>
