@@ -997,3 +997,180 @@ class AlcoholAndPhotoTests(unittest.TestCase):
         self.assertEqual(s["s4"][11], "")                                            # the page slot stays empty
         self.assertEqual(len(s["s5"]), 11)                                           # has its own photo
         self.assertEqual(counts["sainsburys"], {"barcode": 1, "name": 1, "off": 1, "none": 1})
+
+
+class MsFoodRangeTests(unittest.TestCase):
+    """M&S's everyday food range (tools/groceries/mns_food_listing.py, founder 2026-10-16: "M&S definetly has more products add the rest of them please"):
+    M&S's aisle pages list no price for these, so they are listed as "Price in store", like Lidl's everyday range, and open their own page."""
+
+    HEAD = "product_id,name,price_gbp,unit_price_gbp,unit,member_price_gbp,member_scheme,category_path,page_url,image_url,checked_on"
+    IMG = "https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/"
+    HASH = "5202e37a68b76b677fcb077d8e419d0b"
+    PAGE = "https://www.marksandspencer.com/food/"
+
+    def setUp(self):
+        bap.NAME_SKIP.clear()
+
+    def tearDown(self):
+        bap.NAME_SKIP.clear()
+
+    def write(self, path: Path, rows: list[list[str]]) -> Path:
+        """A listing csv as the tools write it (the picture address has commas in it, so it is quoted)."""
+        import csv
+        with open(path, "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f, lineterminator="\n")
+            w.writerow(self.HEAD.split(","))
+            w.writerows(rows)
+        return path
+
+    def files(self, d: str):
+        row = lambda pid, name, price, cat, page, img, day: [pid, name, price, "", "", "", "", cat, page, img, day]
+        listing = self.write(Path(d) / "marks-and-spencer.csv", [
+            row("ckp60095316", "M&S Rainbow Cake (Serves 12)", "35.00", "Food to order > Cakes", "", self.IMG + "SD_FD_F09A_00346825_NC_X_EC_0", "2026-10-08"),
+            row("fdp60064368", "M&S Baby Rainbow Carrots 200 g", "2.00", "Food to order > Veg", "", self.IMG + "SD_FD_F09A_11111111_NC_X_EC_0", "2026-10-08")])
+        more = self.write(Path(d) / "marks-and-spencer-food.csv", [
+            row("fdp60064368", "Baby Rainbow Carrots 200 g", "", "Fruit & Vegetables", self.PAGE + "baby-rainbow-carrots/p/fdp60064368", f"{self.IMG}{self.HASH}.jpg", "2026-10-16"),
+            row("fdp60000002", "Plant Kitchen No Chicken Nuggets 200 g", "", "Meat Alternatives", self.PAGE + "plant-kitchen-no-chicken-nuggets/p/fdp60000002", f"{self.IMG}{'a' * 32}.jpg", "2026-10-16"),
+            row("fdp60000003", "Odd Page 100 g", "", "Dairy", "https://evil.example.com/food/odd/p/fdp60000003", f"{self.IMG}{'b' * 32}.jpg", "2026-10-16"),
+            row("fdp60000004", "Odd Picture 100 g", "", "Dairy", self.PAGE + "odd-picture/p/fdp60000004", f"https://evil.example.com/x/{'c' * 32}.jpg", "2026-10-16"),
+            row("fdp60000005", "Wrong Product Page 100 g", "", "Dairy", self.PAGE + "wrong/p/fdp60099999", f"{self.IMG}{'d' * 32}.jpg", "2026-10-16"),
+            row("flp60000006", "Flower Market Roses with Chocolates 1 kg", "", "Food Cupboard", self.PAGE + "roses/p/flp60000006", f"{self.IMG}{'e' * 32}.jpg", "2026-10-16")])
+        return listing, more
+
+    def build(self, shop="marks-and-spencer", exclude=None):
+        with tempfile.TemporaryDirectory() as d:
+            listing, more = self.files(d)
+            problems: list = []
+            doc = bap.build_shop(shop, problems, path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more, exclude=exclude if exclude is not None else set())
+        return doc
+
+    def test_the_range_is_listed_without_a_price_and_opens_its_own_page(self):
+        doc = self.build()
+        rows = {r[0]: r for r in doc["products"]}
+        self.assertEqual(sorted(rows), ["ckp60095316", "fdp60000002", "fdp60000003", "fdp60000004", "fdp60000005", "fdp60064368"])   # a flower gift is not a grocery
+        nuggets = rows["fdp60000002"]
+        self.assertEqual((nuggets[2], nuggets[3], nuggets[5], nuggets[6]), (None, None, None, None))      # nothing estimated: no price, no unit price, no card price
+        self.assertEqual((nuggets[8], nuggets[9], doc["categories"][nuggets[7]]), ("a" * 32 + ".jpg", "", "Meat Alternatives"))
+        self.assertEqual(nuggets[11], "plant-kitchen-no-chicken-nuggets/p/fdp60000002")
+        self.assertEqual(doc["pageRoot"], self.PAGE)
+        self.assertEqual(doc["priceNote"], "stores")
+        self.assertTrue(doc["pageSearch"])
+        # the priced row of the same id wins: its price, its picture and its search link (no page element)
+        carrots = rows["fdp60064368"]
+        self.assertEqual((carrots[1], carrots[2], carrots[8], len(carrots)), ("M&S Baby Rainbow Carrots 200 g", 2.0, "SD_FD_F09A_11111111_NC_X_EC_0", 11))
+        self.assertEqual(rows["ckp60095316"][2], 35.0)
+        # a page address that is not under M&S's /food/, or not that product's own, is not used; the row keeps the search link
+        self.assertEqual(len(rows["fdp60000003"]), 11)
+        self.assertEqual(len(rows["fdp60000005"]), 11)
+        # a picture that is not on M&S's own image host is not shown
+        self.assertEqual(rows["fdp60000004"][8], "")
+        self.assertEqual(rows["fdp60000004"][11] if len(rows["fdp60000004"]) > 11 else "", "odd-picture/p/fdp60000004")
+
+    def test_only_lidl_and_mands_may_list_a_product_without_a_price(self):
+        self.assertEqual(bap.PRICE_IN_STORE, {"lidl", "marks-and-spencer"})
+        self.assertEqual(bap.PUBLISH, ("sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "waitrose", "iceland", "marks-and-spencer"))
+        self.assertEqual(bap.MORE_ROWS["marks-and-spencer"].name, "marks-and-spencer-food.csv")
+        # the same unpriced rows given to any other shop are not listed (the exception is for these two shops only, and only for their own range file)
+        for shop in ("asda", "tesco", "morrisons", "waitrose", "iceland", "sainsburys", "aldi"):
+            with tempfile.TemporaryDirectory() as d:
+                listing, more = self.files(d)
+                other = bap.build_shop(shop, [], path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more, exclude=set())
+            self.assertEqual([r for r in other["products"] if r[2] is None], [], shop)
+        # Lidl's file does not carry M&S's two optional fields, so it is unchanged by this
+        self.assertNotIn("pageRoot", bap.SHOPS["lidl"])
+        self.assertNotIn("priceNote", bap.SHOPS["lidl"])
+
+    def test_picture_ids_the_old_names_and_the_new_hash_dot_jpg(self):
+        photo = bap.SHOPS["marks-and-spencer"]["photo"]
+        for pid in ("SD_FD_F09A_00346825_NC_X_EC_0", f"{self.HASH}.jpg"):
+            self.assertEqual(photo.search(self.IMG + pid).group(1), pid)
+        for bad in (self.IMG + "../x.jpg", self.IMG + "a/b.jpg", self.IMG + "abc.jpg", f"https://evil.example.com/image/upload/w_400,q_auto,f_jpg/{self.HASH}.jpg",
+                    f"http://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/{self.HASH}.jpg", self.IMG + self.HASH + ".jpg?x=1", self.IMG + self.HASH + ".png"):
+            self.assertIsNone(photo.search(bad), bad)
+        self.assertEqual(bap.own_photo_url("marks-and-spencer", f"{self.HASH}.jpg"), self.IMG + self.HASH + ".jpg")
+
+    def test_no_alcohol_no_flowers_and_a_picture_on_the_exclusion_list_is_not_shown(self):
+        names = ["Artelium English Sparkling Wine 75 cl", "Alcohol Free Winter Ale 500 ml", "Wine Vinegar 250 ml", "Prosecco Rosé Brut 75 cl", "Gin and Diet Tonic 1000 ml",
+                 "Scotch Beef Mince 5% Fat 500 g", "Ginger Beer 500 ml", "40 Coffee Filter Papers 40 pieces", "Wine Gums 225 g"]
+        rows = [[f"fdp6100000{i}", n, "", "", "", "", "", "Food Cupboard", f"{self.PAGE}x-{i}/p/fdp6100000{i}", f"{self.IMG}{str(i) * 32}.jpg", "2026-10-16"] for i, n in enumerate(names)]
+        with tempfile.TemporaryDirectory() as d:
+            listing, more = self.write(Path(d) / "m.csv", []), self.write(Path(d) / "more.csv", rows)
+            doc = bap.build_shop("marks-and-spencer", [], path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more, exclude={("marks-and-spencer", "fdp61000006")})
+        kept = [p[1] for p in doc["products"]]
+        self.assertEqual(kept, ["Alcohol Free Winter Ale 500 ml", "Wine Vinegar 250 ml", "Scotch Beef Mince 5% Fat 500 g", "Ginger Beer 500 ml", "Wine Gums 225 g"])
+        by_name = {p[1]: p for p in doc["products"]}
+        self.assertEqual(by_name["Wine Gums 225 g"][8], "8" * 32 + ".jpg")
+        self.assertEqual(by_name["Ginger Beer 500 ml"][8], "")  # fdp61000006 is on the exclusion list: no picture, the row stays
+
+    def test_the_same_name_at_another_shop_is_not_the_same_product_for_the_range(self):
+        """No barcode and no photo by name for these rows, in either direction; the priced rows and every other shop keep the name matching."""
+        from unittest import mock
+        code = "5000157024671"
+        with tempfile.TemporaryDirectory() as d, mock.patch.object(bg, "name_barcodes", return_value={"baby rainbow carrots 200g": code, "heinz baked beans 415g": code}):
+            listing, more = self.files(d)
+            ms = bap.build_shop("marks-and-spencer", [], path=listing, gtins={}, nutrition={}, pages={}, photos={}, more=more, exclude=set())
+            mor = self.write(Path(d) / "morrisons.csv", [["1", "Baby Rainbow Carrots 200g", "1.00", "", "", "", "", "fruit-veg/veg", "", "", "2026-10-08"]])
+            morrisons = bap.build_shop("morrisons", [], path=mor, gtins={}, nutrition={}, pages={}, photos={})
+            beans = self.write(Path(d) / "ms-beans.csv", [["ckp1", "Heinz Baked Beans 415g", "1.00", "", "", "", "", "Food to order > Tins", "", self.IMG + "SD_FD_F09A_22222222_NC_X_EC_0", "2026-10-08"]])
+            priced = bap.build_shop("marks-and-spencer", [], path=beans, gtins={}, nutrition={}, pages={}, photos={}, more=None, exclude=set())
+        self.assertEqual({r[0]: r[9] for r in ms["products"] if r[0] == "fdp60000002"}, {"fdp60000002": ""})
+        self.assertEqual(morrisons["products"][0][9], code)                          # another shop's row of that name still gets the barcode
+        self.assertEqual(priced["products"][0][9], code)                             # and so does a priced M&S row: unchanged
+        self.assertEqual({("marks-and-spencer", r[0]) for r in ms["products"] if r[0].startswith("fdp") and r[0] != "fdp60064368"}, bap.NAME_SKIP | set())
+        self.assertNotIn(("marks-and-spencer", "ckp60095316"), bap.NAME_SKIP)
+        self.assertNotIn(("marks-and-spencer", "fdp60064368"), bap.NAME_SKIP)        # the priced row won that id
+
+    def test_range_rows_neither_lend_nor_borrow_a_photo_by_name(self):
+        row = lambda pid, name, photo="", gtin="": [pid, name, None if pid.startswith("fdp") else 1.0, None, "", None, None, 0, photo, gtin, None]
+        bap.NAME_SKIP.update({("marks-and-spencer", "fdp1"), ("marks-and-spencer", "fdp2")})
+        docs = {
+            "marks-and-spencer": {"products": [row("fdp1", "Cheese and Onion Crisps 150 g", "1" * 32 + ".jpg"), row("fdp2", "Heinz Baked Beans 415g"), row("ckp3", "Hovis Soft White Bread 800g")]},
+            "tesco": {"products": [row("t1", "Cheese and Onion Crisps 150g"), row("t2", "Heinz Baked Beans 415g", "ghs/abc"), row("t3", "Hovis Soft White Bread 800g", "ghs/def")]},
+        }
+        counts = bap.fill_photos(docs)
+        t, m = {r[0]: r for r in docs["tesco"]["products"]}, {r[0]: r for r in docs["marks-and-spencer"]["products"]}
+        self.assertEqual(len(t["t1"]), 11)                                           # M&S's "Cheese and Onion Crisps" lends nothing to Tesco's
+        self.assertEqual(len(m["fdp2"]), 11)                                         # and Tesco's beans lend nothing to the M&S range row
+        self.assertEqual(m["ckp3"][12][0], "tesco")                                  # a priced M&S row borrows by name as before
+        self.assertEqual((counts["tesco"]["none"], counts["marks-and-spencer"]["name"], counts["marks-and-spencer"]["none"]), (1, 1, 1))
+
+    def test_only_rewrites_one_shop_and_its_manifest_entry(self):
+        import contextlib
+        import io
+        from unittest import mock
+        shops = ("lidl", "marks-and-spencer", "asda")
+        doc = lambda shop, n: {"v": 1, "retailer": shop, "name": shop, "checkedOn": "2026-10-16", "pageBase": "https://x/", "photoBase": "https://x/", "categories": [], "schemes": [],
+                               "nutritionCheckedOn": "", "products": [[f"p{i}", f"Item {i} 100g", 1.0, None, "", None, None, 0, "", "", None] for i in range(n)]}
+        with tempfile.TemporaryDirectory() as d:
+            out = Path(d)
+            with mock.patch.object(bap, "OUT", out), mock.patch.object(bap, "PUBLISH", shops), mock.patch.object(bap, "build_shop", lambda shop, problems: doc(shop, 3)), \
+                    mock.patch.object(bap, "catalogue_photos", return_value={}), mock.patch.object(bap, "read_off_images", return_value={}), \
+                    mock.patch.object(bap, "write_wanted_off", return_value=0) as wanted, contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(bap.main([]), 0)
+                self.assertEqual(wanted.call_count, 1)
+                first = json.loads((out / "all-manifest.json").read_text())
+                self.assertEqual([r["id"] for r in first["retailers"]], list(shops))
+                lidl_bytes, asda_bytes = (out / "lidl.json").read_bytes(), (out / "asda.json").read_bytes()
+                before_text = (out / "all-manifest.json").read_text()
+                # now every shop's inputs have CHANGED (M&S 3 -> 5 rows, the others 3 -> 7): only M&S's file and entry may change. If --only ever rewrote the other
+                # shops or the whole manifest, their bytes and entries would differ from the first run and these assertions would fail.
+                with mock.patch.object(bap, "build_shop", lambda shop, problems: doc(shop, 5 if shop == "marks-and-spencer" else 7)):
+                    self.assertEqual(bap.main(["--only", "marks-and-spencer"]), 0)
+                self.assertEqual(wanted.call_count, 1)                                # the wanted-barcodes list is not rewritten by --only
+                second = json.loads((out / "all-manifest.json").read_text())
+                self.assertEqual([r["id"] for r in second["retailers"]], list(shops))   # same order
+                self.assertEqual(second["retailers"][0], first["retailers"][0])
+                self.assertEqual(second["retailers"][2], first["retailers"][2])
+                self.assertEqual((first["retailers"][1]["count"], second["retailers"][1]["count"]), (3, 5))
+                self.assertNotEqual(first["retailers"][1]["sha256"], second["retailers"][1]["sha256"])      # M&S's entry is the one that changed
+                self.assertEqual((second["retailers"][0]["count"], second["retailers"][2]["count"]), (3, 3))   # the others still describe the files on disk (3 rows), not the new inputs (7)
+                self.assertEqual(len(json.loads((out / "lidl.json").read_text())["products"]), 3)
+                self.assertEqual((out / "lidl.json").read_bytes(), lidl_bytes)
+                self.assertEqual((out / "asda.json").read_bytes(), asda_bytes)
+                self.assertEqual(len(json.loads((out / "marks-and-spencer.json").read_text())["products"]), 5)
+                self.assertNotEqual((out / "all-manifest.json").read_text(), before_text)
+                # a shop that is not published, and a missing manifest, are refused
+                with self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
+                    bap.main(["--only", "co-op"])
+                (out / "all-manifest.json").unlink()
+                self.assertEqual(bap.main(["--only", "lidl"]), 1)

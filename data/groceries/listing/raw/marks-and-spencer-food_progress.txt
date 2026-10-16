@@ -1,0 +1,31 @@
+M&S Foodhall crawl (tools/groceries/mns_food_listing.py): the "M&S Food Catalogue" aisles at https://www.marksandspencer.com/food/l/<aisle>
+status: finished (all the aisles asked for)
+run started 2026-10-16T09:13:11Z, updated 2026-10-16T09:13:12Z; page requests in this run: 0 (cap 100)
+method: robots.txt read first (RFC 9309 matcher, every URL checked); 1 request a second, one at a time; the aisle pages' __NEXT_DATA__ only; no product page, no price,
+        barcode or nutrition is read; only id, title, pack size, brand, product path and picture are kept (raw/marks-and-spencer-food.jsonl); pages are not stored.
+
+  Meat Alternatives (meat/meat-alternatives): 1 of 1 pages, 3 products, page 1 printed 3  DONE
+  Fruit & Vegetables (fruit-and-vegetables): 7 of 7 pages, 608 products, page 1 printed 608  DONE
+  Meat (meat): 5 of 5 pages, 414 products, page 1 printed 414  DONE
+  Poultry (poultry): 2 of 2 pages, 122 products, page 1 printed 122  DONE
+  Cured & Ready to Eat Meats (cured-and-ready-to-eat-meats): 2 of 2 pages, 125 products, page 1 printed 125  DONE
+  Fish & Seafood (fish-and-seafood): 2 of 2 pages, 167 products, page 1 printed 167  DONE
+  Dairy (dairy): 5 of 5 pages, 441 products, page 1 printed 441  DONE
+  Eggs (eggs): 1 of 1 pages, 36 products, page 1 printed 36  DONE
+  Deli (deli): 3 of 3 pages, 283 products, page 1 printed 283  DONE
+  Food on the Move (food-on-the-move): 4 of 4 pages, 345 products, page 1 printed 345  DONE
+  Chilled Desserts (chilled-desserts): 2 of 2 pages, 131 products, page 1 printed 131  DONE
+  Ready to Cook (ready-to-cook): 8 of 8 pages, 701 products, page 1 printed 701  DONE
+  Food Cupboard (food-cupboard): 19 of 19 pages, 1794 products, page 1 printed 1794  DONE
+  Bakery & Cakes (bakery-and-cakes): 5 of 5 pages, 414 products, page 1 printed 414  DONE
+  Frozen Food (frozen-food): 4 of 4 pages, 325 products, page 1 printed 325  DONE
+  Hot Drinks (drinks/hot-drinks): 2 of 2 pages, 130 products, page 1 printed 130  DONE
+  Soft Drinks (drinks/soft-drinks): 3 of 3 pages, 212 products, page 1 printed 212  DONE
+  Kids' Food & Snacks (kids-toddler-and-baby-products/kids-food-and-snacks): 1 of 1 pages, 25 products, page 1 printed 25  DONE
+  Picky Bits (picky-bits): 3 of 3 pages, 266 products, page 1 printed 266  DONE
+  Halloween Food (halloween-food): 1 of 1 pages, 36 products, page 1 printed 36  DONE
+
+aisles complete: 20 of 20
+
+Not crawled, on purpose: Drinks as a whole, Alcoholic Drinks, Wine and every gift list (no alcohol); Household, Pet Supplies, Baby Changing, Christmas Groceries In Store
+(Festive Household), New In, Home of Health, Remarksable Value, Food brands, Home of Dine In (non-food, or overlaps of the aisles above); product pages (links only).

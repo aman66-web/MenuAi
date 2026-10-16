@@ -137,6 +137,97 @@ describe("other shops' aisle names", () => {
   });
 });
 
+describe("M&S's own aisle names (its everyday food range, founder 2026-10-16)", () => {
+  it("'Meat Alternatives' is meat-free, 'Meat' and 'Poultry' are meat, 'Fish & Seafood' is fish", () => {
+    expect(foodDietProblem({ name: "Plant Kitchen Chicken Style Pieces 200 g", category: "Meat Alternatives" }, veg)).toBeNull();
+    expect(foodDietProblem({ name: "Plant Kitchen Smoky Veggie Sausages 300 g", category: "Meat Alternatives" }, vegan)).toBeNull();
+    expect(foodDietProblem({ name: "Beef Mince 500 g", category: "Meat" }, veg)).toBe("meat");
+    expect(foodDietProblem({ name: "Free Range Whole Bird 1.6 kg", category: "Poultry" }, veg)).toBe("meat");      // the name names no meat; the aisle does
+    expect(foodDietProblem({ name: "Free Range Whole Bird 1.6 kg", category: "Poultry" }, pesc)).toBe("meat");
+    expect(foodDietProblem({ name: "Free Range Whole Bird 1.6 kg", category: "Poultry" }, halal)).toBe("notHalal");
+    expect(foodDietProblem({ name: "Fillets 240 g", category: "Fish & Seafood" }, veg)).toBe("fish");
+    expect(foodDietProblem({ name: "Fillets 240 g", category: "Fish & Seafood" }, pesc)).toBeNull();
+    expect(foodDietProblem({ name: "Free Range Eggs 6", category: "Eggs" }, veg)).toBeNull();
+    // "Cured & Ready to Eat Meats": 25 of its 125 products name no meat ("Mortadella", "Roast Drumsticks", "Ox Tongue", "Jamon de Bellota")
+    for (const name of ["Italian Mortadella 107 g", "Sticky BBQ Drumsticks 380 g", "M&S Collection British Traditional Ox Tongue (4 Slices) 95 g"]) {
+      expect(foodDietProblem({ name, category: "Cured & Ready to Eat Meats" }, veg), name).toBe("meat");
+      expect(foodDietProblem({ name, category: "Cured & Ready to Eat Meats" }, pesc), name).toBe("meat");
+      expect(foodDietProblem({ name, category: "Cured & Ready to Eat Meats" }, halal), name).toBe("notHalal");
+    }
+    expect(foodDietProblem({ name: "Cured Meat Free Slices 90 g", category: "Cured & Ready to Eat Meats" }, veg)).toBeNull();   // a meat-free version stays
+    expect(foodDietProblem({ name: "Pigs in Blankets 211 g", category: "Food on the Move" }, veg)).toBe("meat");
+    expect(foodDietProblem({ name: "Pigs in Blankets 211 g", category: "Food on the Move" }, noPork)).toBe("pork");
+    // the catalogue's own kebab-case type still counts as meat-free
+    expect(foodDietProblem({ name: "Mince", category: "meat-alternatives" }, veg)).toBeNull();
+    expect(foodDietProblem({ name: "Mince", category: "Meat-Alternatives" }, veg)).toBeNull();
+    // and an aisle that merely starts with the word is not taken for it
+    expect(foodDietProblem({ name: "Mincemeat 411 g", category: "Meat alternatives and more" }, veg)).toBe("meat");
+  });
+});
+
+describe("M&S's everyday range: its own meat-free lines, and dishes its aisle or a missing word would misjudge (review 2026-10-16)", () => {
+  // names and aisles exactly as the published M&S list has them
+  const plantKitchen: Array<[string, string]> = [
+    ["Plant Kitchen No Beef Steak Pie 200 g", "Ready to Cook"],
+    ["Plant Kitchen No Pork Sausage Roll 95 g", "Food on the Move"],
+    ["Plant Kitchen 2 No Pork Sausage Rolls 120 g", "Deli"],
+    ["Plant Kitchen No Chicken and Chorizo Sandwich 188 g", "Food on the Move"],
+    ["Plant Kitchen Mushroom Spaghetti Bolognese 400 g", "Ready to Cook"],
+    ["Plant Kitchen Melt in the Middle No Fishcakes 290 g", "Fish & Seafood"],
+    ["Plant Kitchen Grated Mature Style Cheddar 200 g", "Dairy"],
+    ["Plant Kitchen Cheese Flavour Twists 125 g", "Dairy"],
+  ];
+  it("Plant Kitchen is M&S's vegan range: nothing in it is hidden by a meat, fish or dairy word in its name or by its aisle", () => {
+    for (const [name, category] of plantKitchen) {
+      for (const [label, prefs] of [["vegetarian", veg], ["vegan", vegan], ["pescatarian", pesc], ["halal", halal], ["no pork", noPork], ["no beef", noBeef]] as const) {
+        expect(foodDietProblem({ name, category }, prefs), `${name} / ${label}`).toBeNull();
+      }
+    }
+  });
+  it("a title that STARTS with 'No <meat or fish>' is the meat-free version, but a product that merely says what it leaves out is still meat", () => {
+    expect(foodDietProblem(p("No Chicken Nuggets 200 g"), veg)).toBeNull();
+    expect(foodDietProblem(p("No Fish Fingers 240 g"), veg)).toBeNull();
+    expect(foodDietProblem(p("Halal Chicken Sausages (No Pork) 300 g"), veg)).toBe("meat");
+    expect(foodDietProblem(p("Beef Sausages No Pork 340 g"), veg)).toBe("meat");
+    expect(foodDietProblem(p("Beef Burger No Bun 227 g"), veg)).toBe("meat");
+  });
+  it("halloumi kebabs, sage and onion stuffing and a vegetable haggis are not meat because of the Meat aisle they sit in", () => {
+    for (const name of ["Chilli Halloumi Kebabs 225 g", "Herby Halloumi Kebabs 225 g", "Sage and Onion Stuffing 225 g", "Spiced Vegetable and Lentil Haggis 454 g", "Veg Haggis 340 g"]) {
+      expect(foodDietProblem({ name, category: "Meat" }, veg), name).toBeNull();
+      expect(foodDietProblem({ name, category: "Meat" }, halal), name).toBeNull();
+    }
+    // a meat word in the name still counts, and so does a real meat product in that aisle
+    for (const name of ["British Outdoor Bred Pork, Sage and Onion Stuffing 340 g", "Scottish Haggis 454 g", "Chicken and Halloumi Kebabs 300 g", "Beef Mince 500 g", "Free Range Whole Bird 1.6 kg"]) {
+      expect(foodDietProblem({ name, category: "Meat" }, veg), name).toBe("meat");
+    }
+  });
+  it("a vegan is not shown cheeses, crème fraîche or milkshakes whose names carry none of the usual dairy words", () => {
+    for (const name of ["Parmigiano Reggiano 175 g", "Italian Burrata 260 g", "Comté 2 Year Vintage AOP 200 g", "Comte 200 g", "Aged Goat's Gouda 180 g", "Swiss Le Gruyere 200 g", "Mature Blue Stilton 150 g", "Roquefort Révélation 100 g",
+      "Bleu D'Auvergne PDO 145 g", "Pave D'Affinois 150 g", "Blacksticks Blue 150 g", "Red Leicester 300 g", "Edam Slices 250 g", "Creamy Lancashire 150 g", "Cheshire 300 g", "Creme Fraiche 200 ml",
+      "British Crème Fraîche 300 ml", "Belgian Chocolate Milkshake 750 ml", "Cheeseboard Bites 450 g", "British Four Cheeseboard Bake 150 g", "Iced Coffee Latte 750 ml", "Pecorino Romano PDO 175 g"]) {
+      expect(foodDietProblem({ name, category: "Dairy" }, vegan), name).toBe("animal");
+      expect(foodDietProblem({ name, category: "Dairy" }, veg), name).toBeNull();      // dairy is fine for a vegetarian
+    }
+    // what is plant-based or just shares a word stays
+    for (const name of ["Plant Kitchen Whole Oat Drink 1 l", "Only 3 Ingredients Oat Drink 1 l", "Plant Kitchen Salted Caramel Oatshake 750 ml", "Oat Milkshake 330 ml", "Vegan Gouda Style Slices 150 g", "Filo Pastry 270 g",
+      "Ready Rolled Puff Pastry 320 g", "Pizza Dough 400 g", "Membrillo Quince Paste 120 g", "Reduced Fat Olive Oil Spread 500 g", "Edamame Beans 200 g", "Real Lancashire Eccles Cakes 4 pack", "Lancashire Tea 80 Tea Bags 250 g",
+      "Cheeseboard Chutney 290 g", "Oat Iced Latte 250 ml", "Plant Kitchen Chilled Cold Brew Oat Latte 750 ml"]) {
+      expect(foodDietProblem({ name, category: "Dairy" }, vegan), name).toBeNull();
+    }
+  });
+  it("dishes that are meat by their own name are left out for a vegetarian, their meat-free versions are not", () => {
+    for (const name of ["Mighty Meaty Pizza 440 g", "Taste Buds Mighty Meaty Pasta 225 g", "Classic Hawaiian Pizza 463 g", "Cumberland Pie 400 g", "All Day Breakfast Sandwich 234 g", "The Club Sandwich 234 g",
+      "The BBB Sandwich 244 g", "Dinky and Mighty Shareable Cumberland Snack Eggs 300 g", "Chicago Town Deep Dish Mega Meaty Pizzas 2 X 157G"]) {
+      expect(foodDietProblem(p(name), veg), name).toBe("meat");
+      expect(foodDietProblem(p(name), pesc), name).toBe("meat");
+    }
+    for (const name of ["Vegetarian All Day Breakfast 400 g", "Meat Free Hawaiian Pizza 360 g", "Veggie Cumberland Pie 400 g", "Quorn Cumberland Sausages 336 g", "Plant Pioneers Cumberland Shroomdogs 300 g",
+      "Sushi Rice 500 g", "Hawaiian Oat Granola 400 g", "Walkers Meaty Variety Crisps 6 x 25 g", "Vegetarian Club Sandwich 220 g"]) {
+      expect(foodDietProblem(p(name), veg), name).toBeNull();
+    }
+  });
+});
+
 describe("pescatarian (founder 2026-10-15: people are also pescatarian)", () => {
   it("leaves out meat and keeps fish, seafood, dairy and eggs", () => {
     expect(foodDietProblem(p("British Chicken Breast Fillets"), pesc)).toBe("meat");

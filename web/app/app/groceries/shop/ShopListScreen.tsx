@@ -99,7 +99,9 @@ export function ShopListScreen({ shop }: { shop: string }) {
       <p className="app-numbers mt-3.5 text-[0.9375rem] leading-relaxed text-muted">
         {pricedCount === products.length
           ? t("{n} products, with the prices {shop} showed on {date}.", { n: products.length.toLocaleString("en-GB"), shop: file.name, date: formatDate(file.checkedOn, t) })
-          : `${t("{n} products from {shopPossessive} website, checked {date}.", { n: products.length.toLocaleString("en-GB"), shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} ${t("{count} show a price. {shop} shows the others' prices only in store.", { count: pricedCount.toLocaleString("en-GB"), shop: file.name })}`}{" "}
+          : `${t("{n} products from {shopPossessive} website, checked {date}.", { n: products.length.toLocaleString("en-GB"), shopPossessive: poss(file.name), date: formatDate(file.checkedOn, t) })} ${file.priceNote === "stores"
+            ? t("{count} show a price. {shop} lists no price for the others.", { count: pricedCount.toLocaleString("en-GB"), shop: file.name })
+            : t("{count} show a price. {shop} shows the others' prices only in store.", { count: pricedCount.toLocaleString("en-GB"), shop: file.name })}`}{" "}
         {nutritionCount > 0 ? t("{count} of them show calories and protein.", { count: nutritionCount.toLocaleString("en-GB") }) : t("Calories and protein aren't shown for these yet.")}
       </p>
 

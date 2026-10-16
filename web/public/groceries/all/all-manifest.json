@@ -85,11 +85,11 @@
    "id": "marks-and-spencer",
    "name": "M&S",
    "file": "marks-and-spencer.json",
-   "count": 194,
+   "count": 6141,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
    "priced": 194,
-   "sha256": "9bb4e8cc5a6720d715fba71ebcd686b64cb68ff8cbf7ce94694d04fa01fc9063"
+   "sha256": "2ec8cdb3881f4b1a8b22994da4b15a3a88a8c135ed459182322b1b4ff74e5267"
   }
  ]
 }

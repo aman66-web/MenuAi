@@ -1,0 +1,211 @@
+# M&S Foodhall catalogue category tree, established 2026-10-16 by the catalogue scout (47 polite requests: 1 per second, one at a time, each URL checked against robots.txt with tools/uk_extract/robots_rfc.py first).
+# Format: path | url | item count the page prints ("N items found") | pages at 96 per page (the page prints "Page n of N"). Counts include every descendant aisle of that aisle.
+# Entry point: https://www.marksandspencer.com/food ("M&S Food Catalogue"), linked from the Food & wine hub https://www.marksandspencer.com/c/food-and-wine. The old notes' /food/l/ alone is not a page (308 then 404); each aisle is /food/l/<slug>.
+# Pages are server-rendered Next.js (buildId food-catalogue-2792846a): the page's <script id="__NEXT_DATA__"> JSON holds props.pageProps.viewModel.productSearch.productLists.ranged (96 tiles) and .pagination {totalItems,totalPages}.
+# Paging: ?page=N (robots allows; /*pgNumber, /*prefn1, /*prefv1, /*srule= are disallowed and never used). Last page = pagination.totalPages; asking for a page past the end answers 308 back to page 1, so never request past totalPages.
+# Tile fields: id, seoUrl (/food/<slug>/p/fdp<id>), title, imageUrl (<32 hex>.jpg on assets.digitalcontent.marksandspencer.app), weight (always printed, e.g. "280 g"), labels, brand. price, unitPrice and stockLevelIndicator are null on all 2,011 tiles read.
+# Aisles overlap (a product can sit in more than one aisle; dedupe by id). Sub-aisle pages hold a SUBSET of their parent (eggs: 3 sub-aisles list 34 distinct products, the aisle lists 36), so complete lists come from the top-level aisle pages.
+# CRAWL = INCLUDE rows. EXCLUDE rows are alcohol or non-food by aisle name (the shop's own aisle is the reliable test; titles alone are not: "Daylesford Organic Rose Kombucha 75 cl" looks like wine to is_alcohol but sits in Soft Drinks).
+
+## Top-level aisles (22 on the /food page)
+Fruit & Vegetables | https://www.marksandspencer.com/food/l/fruit-and-vegetables | 608 | 7 | INCLUDE
+Meat | https://www.marksandspencer.com/food/l/meat | 414 | 5 | INCLUDE
+Poultry | https://www.marksandspencer.com/food/l/poultry | 122 | 2 | INCLUDE
+Cured & Ready to Eat Meats (old slug /food/l/ready-to-eat-meats answers 308 to this) | https://www.marksandspencer.com/food/l/cured-and-ready-to-eat-meats | 125 | 2 | INCLUDE
+Fish & Seafood | https://www.marksandspencer.com/food/l/fish-and-seafood | 167 | 2 | INCLUDE
+Dairy | https://www.marksandspencer.com/food/l/dairy | 441 | 5 | INCLUDE
+Eggs | https://www.marksandspencer.com/food/l/eggs | 36 | 1 | INCLUDE
+Deli | https://www.marksandspencer.com/food/l/deli | 283 | 3 | INCLUDE
+Food on the Move | https://www.marksandspencer.com/food/l/food-on-the-move | 345 | 4 | INCLUDE
+Chilled Desserts | https://www.marksandspencer.com/food/l/chilled-desserts | 131 | 2 | INCLUDE
+Ready to Cook | https://www.marksandspencer.com/food/l/ready-to-cook | 701 | 8 | INCLUDE
+Food Cupboard | https://www.marksandspencer.com/food/l/food-cupboard | 1794 | 19 | INCLUDE
+Bakery & Cakes | https://www.marksandspencer.com/food/l/bakery-and-cakes | 414 | 5 | INCLUDE
+Frozen Food | https://www.marksandspencer.com/food/l/frozen-food | 325 | 4 | INCLUDE
+
+## Drinks: crawl the two non-alcoholic sub-aisles, never the alcoholic one
+Drinks (top; includes alcohol, so NOT crawled as a whole) | https://www.marksandspencer.com/food/l/drinks | 944 | 10 | EXCLUDE as a unit
+Drinks > Hot Drinks | https://www.marksandspencer.com/food/l/drinks/hot-drinks | 130 | 2 | INCLUDE (one non-food line seen: "40 Coffee Filter Papers")
+Drinks > Soft Drinks | https://www.marksandspencer.com/food/l/drinks/soft-drinks | 212 | 3 | INCLUDE
+Drinks > Alcoholic Drinks | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks | 623 | 7 | EXCLUDE (alcohol; page 1 also lists "Alcohol Free ..." and "0.5% Low Alcohol ..." lines, which are lost with it)
+Wine (link from /food to the same sub-aisle) | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks/wine | ~402 per the 2026-10-08 notes, not fetched | ~5 | EXCLUDE (alcohol)
+Note: hot 130 + soft 212 + alcoholic 623 = 965 but Drinks prints 944, so about 21 products sit in two of them.
+
+## Kids, toddler & baby
+Kids, Toddler & Baby Products (top) | https://www.marksandspencer.com/food/l/kids-toddler-and-baby-products | 26 | 1 | EXCLUDE as a unit (the other sub-aisle, Baby Changing Products, is non-food)
+Kids, Toddler & Baby Products > Kids' Food & Snacks | https://www.marksandspencer.com/food/l/kids-toddler-and-baby-products/kids-food-and-snacks | 25 | 1 | INCLUDE
+
+## Not food (skip)
+Household (bin bags, cleaning, kitchen roll, party & decorations, tissues, toilet roll, toiletries, food storage) | https://www.marksandspencer.com/food/l/household | 227 | 3 | EXCLUDE (non-food by aisle; not_food() hit 22 of its first 96 titles)
+Pet Supplies (cat treats, dog treats) | https://www.marksandspencer.com/food/l/pet-supplies | 23 | 1 | EXCLUDE (pet food, not for people, by aisle)
+
+## Cross-cutting collections (mostly subsets of the aisles above; crawl only to cross-check the union, dedupe by id)
+Picky Bits | https://www.marksandspencer.com/food/l/picky-bits | 266 | 3 | OPTIONAL cross-check
+Halloween Food | https://www.marksandspencer.com/food/l/halloween-food | 36 | 1 | OPTIONAL cross-check
+Christmas Groceries In Store | https://www.marksandspencer.com/food/l/christmas-groceries-in-store | 454 | 5 | OPTIONAL cross-check (contains the non-food sub-aisle "Festive Household")
+New In Foodhall | https://www.marksandspencer.com/food/l/new-in | not fetched | ? | OPTIONAL cross-check
+Home of Health | https://www.marksandspencer.com/food/l/home-of-health | not fetched | ? | OPTIONAL cross-check
+Remarksable Value | https://www.marksandspencer.com/food/l/ways-to-save/remarksable-value | not fetched | ? | OPTIONAL cross-check
+Home of Dine In | https://www.marksandspencer.com/food/c/ready-to-cook/mands-dine-in | not fetched | ? | OPTIONAL cross-check (a /food/c/ page)
+Food brands (Colin the Caterpillar, Count on Us, Gastropub, M&S Collection, Our Best Ever, Percy Pig, Plant Kitchen) | https://www.marksandspencer.com/food/l/food-brands/<slug> | not fetched | ? | OPTIONAL cross-check
+
+## Second level (sub-aisles) read from each aisle page's subCategories.links. Counts NOT fetched (one request each) except where stated. Third and fourth levels exist: product pages show Food Cupboard > Nuts & Seeds > Mixed Nuts; Ready to Cook > Ready Meals > Asian Ready Meals > Chinese Ready Meals; Fruit & Vegetables > Fresh Vegetables > Root Vegetables > Carrots; Drinks > Alcoholic Drinks > Wine > Rose Wine.
+# path | url | count | pages
+Fruit & Vegetables > Fresh Fruit | https://www.marksandspencer.com/food/l/fruit-and-vegetables/fresh-fruit | ? (not fetched) | ?
+Fruit & Vegetables > Fresh Herbs | https://www.marksandspencer.com/food/l/fruit-and-vegetables/fresh-herbs | ? (not fetched) | ?
+Fruit & Vegetables > Fresh Vegetables | https://www.marksandspencer.com/food/l/fruit-and-vegetables/fresh-vegetables | ? (not fetched) | ?
+Fruit & Vegetables > Salads | https://www.marksandspencer.com/food/l/fruit-and-vegetables/salads | ? (not fetched) | ?
+Meat > 3 for £12 Grill Deal | https://www.marksandspencer.com/food/l/meat/3-for-12-grill-deal | ? (not fetched) | ? | SKIP (a promotion; products also sit in other sub-aisles)
+Meat > Barbecue Meat | https://www.marksandspencer.com/food/l/meat/barbecue-meat | ? (not fetched) | ?
+Meat > Beef | https://www.marksandspencer.com/food/l/meat/beef | ? (not fetched) | ?
+Meat > Black Pudding & Haggis | https://www.marksandspencer.com/food/l/meat/black-pudding-and-haggis | ? (not fetched) | ?
+Meat > Lamb | https://www.marksandspencer.com/food/l/meat/lamb | ? (not fetched) | ?
+Meat > Meat Alternatives | https://www.marksandspencer.com/food/l/meat/meat-alternatives | ? (not fetched) | ?
+Meat > Mince | https://www.marksandspencer.com/food/l/meat/mince | ? (not fetched) | ?
+Meat > Pork | https://www.marksandspencer.com/food/l/meat/pork | ? (not fetched) | ?
+Meat > Sausages | https://www.marksandspencer.com/food/l/meat/sausages | ? (not fetched) | ?
+Meat > Slow Cooked Meat | https://www.marksandspencer.com/food/l/meat/slow-cooked-meat | ? (not fetched) | ?
+Meat > Venison & Wild Game | https://www.marksandspencer.com/food/l/meat/venison-and-wild-game | ? (not fetched) | ?
+Poultry > Chicken | https://www.marksandspencer.com/food/l/poultry/chicken | ? (not fetched) | ?
+Poultry > Duck | https://www.marksandspencer.com/food/l/poultry/duck | ? (not fetched) | ?
+Poultry > Turkey | https://www.marksandspencer.com/food/l/poultry/turkey | ? (not fetched) | ?
+Cured & Ready to Eat Meats > Cooked Meats | https://www.marksandspencer.com/food/l/cured-and-ready-to-eat-meats/cooked-meats | ? (not fetched) | ?
+Cured & Ready to Eat Meats > Cured Meats | https://www.marksandspencer.com/food/l/cured-and-ready-to-eat-meats/cured-meats | ? (not fetched) | ?
+Cured & Ready to Eat Meats > Ready to Eat Chicken | https://www.marksandspencer.com/food/l/cured-and-ready-to-eat-meats/ready-to-eat-chicken | ? (not fetched) | ?
+Fish & Seafood > Battered Fish | https://www.marksandspencer.com/food/l/fish-and-seafood/battered-fish | ? (not fetched) | ?
+Fish & Seafood > Breaded Fish | https://www.marksandspencer.com/food/l/fish-and-seafood/breaded-fish | ? (not fetched) | ?
+Fish & Seafood > Fishcakes | https://www.marksandspencer.com/food/l/fish-and-seafood/fishcakes | ? (not fetched) | ?
+Fish & Seafood > Oily Fish | https://www.marksandspencer.com/food/l/fish-and-seafood/oily-fish | ? (not fetched) | ?
+Fish & Seafood > Prawns | https://www.marksandspencer.com/food/l/fish-and-seafood/prawns | ? (not fetched) | ?
+Fish & Seafood > Salmon | https://www.marksandspencer.com/food/l/fish-and-seafood/salmon | ? (not fetched) | ?
+Fish & Seafood > Scallops & Mussels | https://www.marksandspencer.com/food/l/fish-and-seafood/scallops-and-mussels | ? (not fetched) | ?
+Fish & Seafood > Sea Bass & Sea Bream | https://www.marksandspencer.com/food/l/fish-and-seafood/sea-bass-and-sea-bream | ? (not fetched) | ?
+Fish & Seafood > Smoked Fish | https://www.marksandspencer.com/food/l/fish-and-seafood/smoked-fish | ? (not fetched) | ?
+Fish & Seafood > Smoked Salmon | https://www.marksandspencer.com/food/l/fish-and-seafood/smoked-salmon | ? (not fetched) | ?
+Fish & Seafood > Tuna & Trout | https://www.marksandspencer.com/food/l/fish-and-seafood/tuna-and-trout | ? (not fetched) | ?
+Fish & Seafood > White Fish | https://www.marksandspencer.com/food/l/fish-and-seafood/white-fish | ? (not fetched) | ?
+Dairy > Butter | https://www.marksandspencer.com/food/l/dairy/butter | ? (not fetched) | ?
+Dairy > Cheese | https://www.marksandspencer.com/food/l/dairy/cheese | ? (not fetched) | ?
+Dairy > Cream | https://www.marksandspencer.com/food/l/dairy/cream | ? (not fetched) | ?
+Dairy > Milk | https://www.marksandspencer.com/food/l/dairy/milk | ? (not fetched) | ?
+Dairy > Milk Alternatives | https://www.marksandspencer.com/food/l/dairy/milk-alternatives | ? (not fetched) | ?
+Dairy > Yogurt | https://www.marksandspencer.com/food/l/dairy/yogurt | ? (not fetched) | ?
+Eggs > Free Range Eggs | https://www.marksandspencer.com/food/l/eggs/free-range-eggs | 18 | 1
+Eggs > Organic Eggs | https://www.marksandspencer.com/food/l/eggs/organic-eggs | 12 | 1
+Eggs > Speciality Eggs | https://www.marksandspencer.com/food/l/eggs/speciality-eggs | 6 | 1
+Deli > Dips | https://www.marksandspencer.com/food/l/deli/dips | ? (not fetched) | ?
+Deli > Fish & Seafood Antipasti | https://www.marksandspencer.com/food/l/deli/fish-and-seafood-antipasti | ? (not fetched) | ?
+Deli > Fresh Olives | https://www.marksandspencer.com/food/l/deli/fresh-olives | ? (not fetched) | ?
+Deli > Meat Antipasti | https://www.marksandspencer.com/food/l/deli/meat-antipasti | ? (not fetched) | ?
+Deli > Pate | https://www.marksandspencer.com/food/l/deli/pate | ? (not fetched) | ?
+Deli > Sandwich Fillings | https://www.marksandspencer.com/food/l/deli/sandwich-fillings | ? (not fetched) | ?
+Deli > Savoury Pastries | https://www.marksandspencer.com/food/l/deli/savoury-pastries | ? (not fetched) | ?
+Deli > Scotch Eggs | https://www.marksandspencer.com/food/l/deli/scotch-eggs | ? (not fetched) | ?
+Deli > Vegetarian Antipasti | https://www.marksandspencer.com/food/l/deli/vegetarian-antipasti | ? (not fetched) | ?
+Food on the Move > Chilled Drinks | https://www.marksandspencer.com/food/l/food-on-the-move/chilled-drinks | ? (not fetched) | ?
+Food on the Move > Ready to Eat Pasta & Salads | https://www.marksandspencer.com/food/l/food-on-the-move/ready-to-eat-pasta-and-salads | ? (not fetched) | ?
+Food on the Move > Sandwiches & Rolls | https://www.marksandspencer.com/food/l/food-on-the-move/sandwiches-and-rolls | ? (not fetched) | ?
+Food on the Move > Snacks to Go | https://www.marksandspencer.com/food/l/food-on-the-move/snacks-to-go | ? (not fetched) | ?
+Food on the Move > Sushi | https://www.marksandspencer.com/food/l/food-on-the-move/sushi | ? (not fetched) | ?
+Food on the Move > Wraps | https://www.marksandspencer.com/food/l/food-on-the-move/wraps | ? (not fetched) | ?
+Chilled Desserts > Chilled Cakes | https://www.marksandspencer.com/food/l/chilled-desserts/chilled-cakes | ? (not fetched) | ?
+Chilled Desserts > Chilled Cheesecakes | https://www.marksandspencer.com/food/l/chilled-desserts/chilled-cheesecakes | ? (not fetched) | ?
+Chilled Desserts > Chilled Pies & Tarts | https://www.marksandspencer.com/food/l/chilled-desserts/chilled-pies-and-tarts | ? (not fetched) | ?
+Chilled Desserts > Chilled Trifles | https://www.marksandspencer.com/food/l/chilled-desserts/chilled-trifles | ? (not fetched) | ?
+Chilled Desserts > Crumbles | https://www.marksandspencer.com/food/l/chilled-desserts/crumbles | ? (not fetched) | ?
+Chilled Desserts > Custard & Cream Desserts | https://www.marksandspencer.com/food/l/chilled-desserts/custard-and-cream-desserts | ? (not fetched) | ?
+Chilled Desserts > Dessert Pots | https://www.marksandspencer.com/food/l/chilled-desserts/dessert-pots | ? (not fetched) | ?
+Chilled Desserts > Jelly Fruit Pots | https://www.marksandspencer.com/food/l/chilled-desserts/jelly-fruit-pots | ? (not fetched) | ?
+Chilled Desserts > Meringues | https://www.marksandspencer.com/food/l/chilled-desserts/meringues | ? (not fetched) | ?
+Chilled Desserts > Sponge Puddings | https://www.marksandspencer.com/food/l/chilled-desserts/sponge-puddings | ? (not fetched) | ?
+Ready to Cook > Flatbreads & Doughballs | https://www.marksandspencer.com/food/l/ready-to-cook/flatbreads-and-doughballs | ? (not fetched) | ?
+Ready to Cook > Fresh Pasta | https://www.marksandspencer.com/food/l/ready-to-cook/fresh-pasta | ? (not fetched) | ?
+Ready to Cook > Fresh Sauces | https://www.marksandspencer.com/food/l/ready-to-cook/fresh-sauces | ? (not fetched) | ?
+Ready to Cook > Fresh Soups | https://www.marksandspencer.com/food/l/ready-to-cook/fresh-soups | ? (not fetched) | ?
+Ready to Cook > Garlic Bread & Slices | https://www.marksandspencer.com/food/l/ready-to-cook/garlic-bread-and-slices | ? (not fetched) | ?
+Ready to Cook > M&S Dine In | https://www.marksandspencer.com/food/c/ready-to-cook/mands-dine-in | ? (not fetched) | ? | (a /food/c/ page)
+Ready to Cook > Pies | https://www.marksandspencer.com/food/l/ready-to-cook/pies | ? (not fetched) | ?
+Ready to Cook > Pizzas | https://www.marksandspencer.com/food/l/ready-to-cook/pizzas | ? (not fetched) | ?
+Ready to Cook > Prepared Vegetables & Sides | https://www.marksandspencer.com/food/l/ready-to-cook/prepared-vegetables-and-sides | ? (not fetched) | ?
+Ready to Cook > Ready Meals | https://www.marksandspencer.com/food/l/ready-to-cook/ready-meals | ? (not fetched) | ?
+Food Cupboard > Baking Ingredients | https://www.marksandspencer.com/food/l/food-cupboard/baking-ingredients | ? (not fetched) | ?
+Food Cupboard > Biscuits | https://www.marksandspencer.com/food/l/food-cupboard/biscuits | ? (not fetched) | ?
+Food Cupboard > Breakfast Cereal | https://www.marksandspencer.com/food/l/food-cupboard/breakfast-cereal | ? (not fetched) | ?
+Food Cupboard > Cans, Tins & Packets | https://www.marksandspencer.com/food/l/food-cupboard/cans-tins-and-packets | ? (not fetched) | ?
+Food Cupboard > Chocolate | https://www.marksandspencer.com/food/l/food-cupboard/chocolate | ? (not fetched) | ?
+Food Cupboard > Condiments | https://www.marksandspencer.com/food/l/food-cupboard/condiments | ? (not fetched) | ?
+Food Cupboard > Cooking Ingredients | https://www.marksandspencer.com/food/l/food-cupboard/cooking-ingredients | ? (not fetched) | ?
+Food Cupboard > Cooking Sauces | https://www.marksandspencer.com/food/l/food-cupboard/cooking-sauces | ? (not fetched) | ?
+Food Cupboard > Crisps | https://www.marksandspencer.com/food/l/food-cupboard/crisps | ? (not fetched) | ?
+Food Cupboard > Ice Cream Cones, Sauces & Toppings | https://www.marksandspencer.com/food/l/food-cupboard/ice-cream-cones-sauces-and-toppings | ? (not fetched) | ?
+Food Cupboard > Meal Kits | https://www.marksandspencer.com/food/l/food-cupboard/meal-kits | ? (not fetched) | ?
+Food Cupboard > Noodles | https://www.marksandspencer.com/food/l/food-cupboard/noodles | ? (not fetched) | ?
+Food Cupboard > Nuts & Seeds | https://www.marksandspencer.com/food/l/food-cupboard/nuts-and-seeds | ? (not fetched) | ?
+Food Cupboard > Pasta | https://www.marksandspencer.com/food/l/food-cupboard/pasta | ? (not fetched) | ?
+Food Cupboard > Rice | https://www.marksandspencer.com/food/l/food-cupboard/rice | ? (not fetched) | ?
+Food Cupboard > Savoury Nibbles | https://www.marksandspencer.com/food/l/food-cupboard/savoury-nibbles | ? (not fetched) | ?
+Food Cupboard > Snacks | https://www.marksandspencer.com/food/l/food-cupboard/snacks | ? (not fetched) | ?
+Food Cupboard > Spreads | https://www.marksandspencer.com/food/l/food-cupboard/spreads | ? (not fetched) | ?
+Food Cupboard > Sweets | https://www.marksandspencer.com/food/l/food-cupboard/sweets | ? (not fetched) | ?
+Bakery & Cakes > Bread | https://www.marksandspencer.com/food/l/bakery-and-cakes/bread | ? (not fetched) | ?
+Bakery & Cakes > Cakes, Buns & Doughnuts | https://www.marksandspencer.com/food/l/bakery-and-cakes/cakes-buns-and-doughnuts | ? (not fetched) | ?
+Bakery & Cakes > In-Store Bakery | https://www.marksandspencer.com/food/l/bakery-and-cakes/instore-bakery | ? (not fetched) | ?
+Frozen Food > Frozen Chips | https://www.marksandspencer.com/food/l/frozen-food/frozen-chips | ? (not fetched) | ?
+Frozen Food > Frozen Croissants & Pastries | https://www.marksandspencer.com/food/l/frozen-food/frozen-croissants-and-pastries | ? (not fetched) | ?
+Frozen Food > Frozen Desserts | https://www.marksandspencer.com/food/l/frozen-food/frozen-desserts | ? (not fetched) | ?
+Frozen Food > Frozen Fish | https://www.marksandspencer.com/food/l/frozen-food/frozen-fish | ? (not fetched) | ?
+Frozen Food > Frozen Fruit | https://www.marksandspencer.com/food/l/frozen-food/frozen-fruit | ? (not fetched) | ?
+Frozen Food > Frozen Herbs | https://www.marksandspencer.com/food/l/frozen-food/frozen-herbs | ? (not fetched) | ?
+Frozen Food > Frozen Meat | https://www.marksandspencer.com/food/l/frozen-food/frozen-meat | ? (not fetched) | ?
+Frozen Food > Frozen Party Food | https://www.marksandspencer.com/food/l/frozen-food/frozen-party-food | ? (not fetched) | ?
+Frozen Food > Frozen Pastry | https://www.marksandspencer.com/food/l/frozen-food/frozen-pastry | ? (not fetched) | ?
+Frozen Food > Frozen Pizzas & Garlic Bread | https://www.marksandspencer.com/food/l/frozen-food/frozen-pizzas-and-garlic-bread | ? (not fetched) | ?
+Frozen Food > Frozen Potatoes | https://www.marksandspencer.com/food/l/frozen-food/frozen-potatoes | ? (not fetched) | ?
+Frozen Food > Frozen Prawns | https://www.marksandspencer.com/food/l/frozen-food/frozen-prawns | ? (not fetched) | ?
+Frozen Food > Frozen Ready Meals | https://www.marksandspencer.com/food/l/frozen-food/frozen-ready-meals | ? (not fetched) | ?
+Frozen Food > Frozen Rice | https://www.marksandspencer.com/food/l/frozen-food/frozen-rice | ? (not fetched) | ?
+Frozen Food > Frozen Sauces | https://www.marksandspencer.com/food/l/frozen-food/frozen-sauces | ? (not fetched) | ?
+Frozen Food > Frozen Seafood | https://www.marksandspencer.com/food/l/frozen-food/frozen-seafood | ? (not fetched) | ?
+Frozen Food > Frozen Vegetables | https://www.marksandspencer.com/food/l/frozen-food/frozen-vegetables | ? (not fetched) | ?
+Frozen Food > Ice Cream | https://www.marksandspencer.com/food/l/frozen-food/ice-cream | ? (not fetched) | ?
+Drinks > Hot Drinks > Coffee | https://www.marksandspencer.com/food/l/drinks/hot-drinks/coffee | ? (not fetched) | ?
+Drinks > Hot Drinks > Hot Chocolate | https://www.marksandspencer.com/food/l/drinks/hot-drinks/hot-chocolate | ? (not fetched) | ?
+Drinks > Hot Drinks > Tea | https://www.marksandspencer.com/food/l/drinks/hot-drinks/tea | ? (not fetched) | ?
+Drinks > Soft Drinks > Cordials | https://www.marksandspencer.com/food/l/drinks/soft-drinks/cordials | ? (not fetched) | ?
+Drinks > Soft Drinks > Fizzy Drinks | https://www.marksandspencer.com/food/l/drinks/soft-drinks/fizzy-drinks | ? (not fetched) | ?
+Drinks > Soft Drinks > Health Shots | https://www.marksandspencer.com/food/l/drinks/soft-drinks/health-shots | ? (not fetched) | ?
+Drinks > Soft Drinks > Iced Coffee | https://www.marksandspencer.com/food/l/drinks/soft-drinks/iced-coffee | ? (not fetched) | ?
+Drinks > Soft Drinks > Juice | https://www.marksandspencer.com/food/l/drinks/soft-drinks/juice | ? (not fetched) | ?
+Drinks > Soft Drinks > Kids' Drinks | https://www.marksandspencer.com/food/l/drinks/soft-drinks/kids-drinks | ? (not fetched) | ?
+Drinks > Soft Drinks > Presse | https://www.marksandspencer.com/food/l/drinks/soft-drinks/presse | ? (not fetched) | ?
+Drinks > Soft Drinks > Smoothies | https://www.marksandspencer.com/food/l/drinks/soft-drinks/smoothies | ? (not fetched) | ?
+Drinks > Soft Drinks > Squash | https://www.marksandspencer.com/food/l/drinks/soft-drinks/squash | ? (not fetched) | ?
+Drinks > Soft Drinks > Water | https://www.marksandspencer.com/food/l/drinks/soft-drinks/water | ? (not fetched) | ?
+Drinks > Alcoholic Drinks > Beer | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks/beer | ? (not fetched) | ? | EXCLUDE (alcohol)
+Drinks > Alcoholic Drinks > Cider | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks/cider | ? (not fetched) | ? | EXCLUDE (alcohol)
+Drinks > Alcoholic Drinks > Cocktail Mixers & Syrups | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks/cocktail-mixers-and-syrups | ? (not fetched) | ? | EXCLUDE (alcohol)
+Drinks > Alcoholic Drinks > Ready Made Cocktails & Drinks | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks/ready-made-cocktails-and-drinks | ? (not fetched) | ? | EXCLUDE (alcohol)
+Drinks > Alcoholic Drinks > Spirits | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks/spirits | ? (not fetched) | ? | EXCLUDE (alcohol)
+Drinks > Alcoholic Drinks > Wine | https://www.marksandspencer.com/food/l/drinks/alcoholic-drinks/wine | ? (not fetched) | ? | EXCLUDE (alcohol)
+Halloween Food > Halloween Snacks | https://www.marksandspencer.com/food/l/halloween-food/halloween-snacks | ? (not fetched) | ?
+Halloween Food > Halloween Sweets | https://www.marksandspencer.com/food/l/halloween-food/halloween-sweets | ? (not fetched) | ?
+Christmas Groceries In Store > Advent Calendars | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/advent-calendars | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Baking & Baking Kits | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-baking-and-baking-kits | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Biscuits | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-biscuits | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Cakes, Puddings & Mince Pies | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-cakes-puddings-and-mince-pies | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Chocolate & Sweets | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-chocolate-and-sweets | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Crisps, Nuts & Savoury Snacks | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-crisps-nuts-and-savoury-snacks | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Picky Bits | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-picky-bits | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Sharing Tins & Boxes | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-sharing-tins-and-boxes | ? (not fetched) | ?
+Christmas Groceries In Store > Christmas Store Cupboard | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/christmas-store-cupboard | ? (not fetched) | ?
+Christmas Groceries In Store > Festive Drinks | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/festive-drinks | ? (not fetched) | ?
+Christmas Groceries In Store > Festive Food on the Move | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/festive-food-on-the-move | ? (not fetched) | ?
+Christmas Groceries In Store > Festive Frozen Food | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/festive-frozen-food | ? (not fetched) | ?
+Christmas Groceries In Store > Festive Household | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/festive-household | ? (not fetched) | ? | EXCLUDE (non-food)
+Christmas Groceries In Store > Festive Shopping List | https://www.marksandspencer.com/food/l/christmas-groceries-in-store/festive-shopping-list | ? (not fetched) | ?
+# Fetched leaves (counts printed): Eggs > Free Range Eggs 18, Eggs > Organic Eggs 12, Eggs > Speciality Eggs 6 (each 1 page, no children).
+
+## Totals (by the pages' own counts, 2026-10-16)
+# 14 core food aisles: 5906 tiles listed, about 2% duplicates between them (29 of 1,446 on the first pages) => about 5,800 distinct. Plus Hot Drinks 130 + Soft Drinks 212 (about 321-342 distinct) and Kids' Food & Snacks 25.
+# Estimated distinct food products to list: about 6,100 (range 5,900-6,300). With alcohol (623) and the two non-food aisles (250) the whole /food catalogue is about 7,000; the 2026-10-08 note's 6,725 was a sum of 14 aisles that included all of Drinks (942) and left out Eggs.
+# Listing requests for a full crawl of the INCLUDE rows: 69 (14 core aisles) + 2 (hot) + 3 (soft) + 1 (kids' food) = 75; about 80 with the optional Picky Bits, Halloween and Christmas cross-checks. At 1 request per second that is about 2 minutes of waiting plus 1-4 s of response time each; each page is about 90 KB on the wire (800 KB decoded).

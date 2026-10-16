@@ -20,6 +20,11 @@ export interface ShopFile {
   /** The shop's product page is pageBase + id (or + the row's page path; or, with pageSearch, + the product's name: the shop's own search for it). */
   pageBase: string;
   pageSearch?: boolean;
+  /** Where a row's page path is read from when the shop's product pages are not under pageBase (M&S: pageBase is its search, its range's pages are under
+   *  https://www.marksandspencer.com/food/). Absent = pageBase. */
+  pageRoot?: string;
+  /** Why a row has no price ("Price in store"): "offers" (Lidl: the website prices only its weekly offers; the default) or "stores" (M&S: its aisle pages list no price for these products; the site asks for a store, and what it shows after one is chosen has not been seen, so the app only says the lists have none). */
+  priceNote?: "offers" | "stores";
   /** The shop's picture of a product is photoBase + photoId + "/image.jpg" (Sainsbury's), or photoTemplate with photoId in place of "{photo}". */
   photoBase: string;
   photoTemplate?: string;
@@ -33,7 +38,7 @@ export interface ShopFile {
 export interface ShopManifest {
   v: 1;
   /** `nutrition`: how many products have numbers read from their own page (recipes need them; absent = none). */
-  /** `priced`: how many show a price (absent = all of them; fewer only for Lidl, whose everyday range has no price online). */
+  /** `priced`: how many show a price (absent = all of them; fewer only for Lidl and M&S, whose everyday ranges are listed with no price). */
   retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number; priced?: number }>;
 }
 
@@ -59,7 +64,8 @@ export interface ShopNutrition {
 export interface ShopProduct {
   id: string;
   name: string;
-  /** null only where the shop's own page prints no price (Lidl's everyday range: Lidl prices online only its weekly offers). The app says "Price in store". */
+  /** null only where the shop's own page prints no price (Lidl's everyday range: Lidl prices online only its weekly offers; M&S's everyday food range: its aisle
+   *  pages list no price for it). The app says "Price in store". */
   price: number | null;
   unitPrice: number | null;
   /** "per kg", "per litre", "each". */
@@ -84,7 +90,9 @@ export const hasPrice = (p: ShopProduct): p is PricedProduct => p.price !== null
 
 export function isShopFile(x: unknown): x is ShopFile {
   const f = x as ShopFile;
-  return !!f && f.v === 1 && typeof f.retailer === "string" && typeof f.pageBase === "string" && f.pageBase.startsWith("https://") && Array.isArray(f.categories) && Array.isArray(f.schemes) && Array.isArray(f.products);
+  return !!f && f.v === 1 && typeof f.retailer === "string" && typeof f.pageBase === "string" && f.pageBase.startsWith("https://") && Array.isArray(f.categories) && Array.isArray(f.schemes) && Array.isArray(f.products)
+    && (f.pageRoot === undefined || (typeof f.pageRoot === "string" && f.pageRoot.startsWith("https://")))
+    && (f.priceNote === undefined || f.priceNote === "offers" || f.priceNote === "stores");
 }
 
 export function isShopManifest(x: unknown): x is ShopManifest {
@@ -141,9 +149,10 @@ export function decodeShopProducts(f: ShopFile): ShopProduct[] {
   return out;
 }
 
-/** The shop's own page for a product (https only): its page path, else the shop's own search for its name (pageSearch), else pageBase + id. */
-export function shopPageUrl(f: Pick<ShopFile, "pageBase" | "pageSearch">, p: Pick<ShopProduct, "id" | "name"> & { page?: string }): string {
-  if (p.page) return `${f.pageBase}${p.page}`;
+/** The shop's own page for a product (https only): its page path (under pageRoot where the shop has one, else pageBase), else the shop's own search for its name
+ *  (pageSearch), else pageBase + id. */
+export function shopPageUrl(f: Pick<ShopFile, "pageBase" | "pageSearch" | "pageRoot">, p: Pick<ShopProduct, "id" | "name"> & { page?: string }): string {
+  if (p.page) return `${f.pageRoot ?? f.pageBase}${p.page}`;
   if (f.pageSearch) return `${f.pageBase}${encodeURIComponent(p.name)}`;
   return `${f.pageBase}${p.id}`;
 }
@@ -212,7 +221,7 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
   const letter = (p: ShopProduct) => (/^\p{L}/u.test(p.name) ? 0 : 1);
   const name = (a: ShopProduct, b: ShopProduct) => letter(a) - letter(b) || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" });
   const by = f.sort ?? "name";
-  // products whose price is only in store (Lidl's everyday range) go last either way
+  // products whose price is only in store (Lidl's and M&S's everyday ranges) go last either way
   if (by === "price") list.sort((a, b) => (a.price ?? Number.POSITIVE_INFINITY) - (b.price ?? Number.POSITIVE_INFINITY) || name(a, b));
   else if (by === "priceDesc") list.sort((a, b) => (b.price ?? Number.NEGATIVE_INFINITY) - (a.price ?? Number.NEGATIVE_INFINITY) || name(a, b));
   else if (by === "unit") list.sort((a, b) => (a.unitPrice ?? Number.POSITIVE_INFINITY) - (b.unitPrice ?? Number.POSITIVE_INFINITY) || name(a, b));

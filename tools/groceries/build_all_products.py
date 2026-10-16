@@ -2,6 +2,7 @@
 """Build the "every product" files for the web app from the store listing crawls (docs/GROCERIES_PLAN.md, founder 2026-10-09).
 
     python3 tools/groceries/build_all_products.py          # writes web/public/groceries/all/<shop>.json + all-manifest.json
+    python3 tools/groceries/build_all_products.py --only marks-and-spencer   # rewrites just that shop's file and its entry in all-manifest.json
 
 Input: data/groceries/listing/<shop>.csv (tools/groceries/ingest_listing.py): one row per product as the shop's own category pages printed it
 (name, price, unit price, card price, categories, photo address). These products have NO barcode and NO nutrition unless the shop's page was read
@@ -14,13 +15,17 @@ says it isn't food or drink (candles, sparklers, flower bouquets, M&S flower gif
 Output per shop (compact, one array per product so 17,000 products stay about 3 MB before compression):
   {"v":1,"retailer","name","checkedOn","pageBase","photoBase","categories":[top-level names],"schemes":[card names],
    "nutritionCheckedOn","products":[[id, name, price|null, unitPrice|null, unit, memberPrice|null, schemeIndex|null, categoryIndex, photoId|"", gtin|"", nutrition|null]]}
-`price` is null only for a Lidl product whose own page prints no price (PRICE_IN_STORE: Lidl prices online only its weekly offers; the app says "Price in store").
+`price` is null only for a Lidl product whose own page prints no price (PRICE_IN_STORE: Lidl prices online only its weekly offers) and for M&S's everyday food
+range (tools/groceries/mns_food_listing.py: M&S's aisle pages list no price for it); the app says "Price in store".
 `nutrition` is [kcal, protein, carbs, fat, saturates|null, sugars|null, fibre|null, salt|null, kJ|null, "g"|"ml", state] per 100 g/ml, state "" or the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), copied from the product's own page by
 tools/groceries/t2_sainsburys.py (data/groceries/nutrition/<shop>.csv); a "<0.5" row counts as 0 (docs/DATA.md); null when that page has not been read.
 `id` is the shop's own product id (Sainsbury's: its page slug, so the page is pageBase + id). `photoId` is the shop's own picture id: for Sainsbury's the number
 in photoBase + id + "/image.jpg"; a shop with "photoTemplate" has it put in place of "{photo}". Shops whose page address isn't pageBase + id carry it as a 12th
 element (the path after pageBase, from the shop's own sitemap: tools/groceries/shop_pages.py); "pageSearch": true means pageBase + the product's name is the
-shop's own search for it (Asda: its site refuses this environment, so no page addresses).
+shop's own search for it (Asda: its site refuses this environment, so no page addresses). A shop whose product pages sit under a different root than its search
+(M&S: pageBase is its search, its range's pages are https://www.marksandspencer.com/food/<name>/p/fdp<digits>) says so with "pageRoot": a row's page path is then
+read against pageRoot, and shopPageUrl puts pageRoot in front of it. "priceNote": "stores" tells the app to explain "Price in store" as the shop listing no price
+for the product, where the default ("offers") is Lidl's "only for its weekly offers".
 `gtin` is set only where the shop's own product page was read and showed a barcode (data/groceries/discovery/<shop>-barcodes.csv), so the app can link to the full page.
 A product the shop's own listing showed no picture for may carry a 13th element, [source, photo address] (founder 2026-10-11: "every item should have a photo";
 "use the EAN number ... find an image of it ... if you can't find it on the supermarket's website"): the same product's photo from another supermarket's own
@@ -30,6 +35,7 @@ No alcoholic drinks (founder 2026-10-11, build_groceries.is_alcohol) and no adve
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -112,10 +118,13 @@ SHOPS = {
     "iceland": {"name": "Iceland", "pageBase": "https://www.iceland.co.uk/p/x/", "pagePath": "{id}.html", "photoBase": "https://assets.iceland.co.uk/i/",
                 "photoTemplate": "https://assets.iceland.co.uk/i/{photo}?w=400&h=400",
                 "photo": re.compile(r"^https://assets\.iceland\.co\.uk/i/(iceland/[A-Za-z0-9_\-.%]{3,220})$")},
+    # M&S: the 194 food-to-order, gift and Christmas products carry a price and open M&S's search; its everyday food range (mns_food_listing.py, product ids
+    # fdp<digits>) has no price in its aisle lists and opens each product's own page under pageRoot. A picture id is the old "SD_FD_..." name or "<32 hex>.jpg".
     "marks-and-spencer": {"name": "M&S", "pageBase": "https://www.marksandspencer.com/search?searchTerm=", "pageSearch": True,
+                          "pageRoot": "https://www.marksandspencer.com/food/", "priceNote": "stores",
                           "photoBase": "https://assets.digitalcontent.marksandspencer.app/image/upload/",
                           "photoTemplate": "https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/{photo}",
-                          "photo": re.compile(r"^https://assets\.digitalcontent\.marksandspencer\.app/image/upload/w_400,q_auto,f_jpg/([A-Za-z0-9_]{6,80})$")},
+                          "photo": re.compile(r"^https://assets\.digitalcontent\.marksandspencer\.app/image/upload/w_400,q_auto,f_jpg/([A-Za-z0-9_]{6,80}(?:\.jpg)?)$")},
 }
 NAMES = {k: v["name"] for k, v in SHOPS.items()}
 PAGE_BASE = {k: v["pageBase"] for k, v in SHOPS.items()}
@@ -271,10 +280,17 @@ def asda_barcode(photo_id: str) -> bool:
 
 
 # Lidl prints a price on its website only for its weekly offers and special buys; its everyday range has a page with no price (founder 2026-10-11:
-# "Add all, say 'Price in store'"). Rows from MORE_ROWS (tools/groceries/lidl_range.py, Lidl's own product pages) may therefore have no price: the app
-# says "Price in store". Every other shop, and Lidl's own category-page rows, keep "no price printed -> not listed".
-PRICE_IN_STORE = {"lidl"}
-MORE_ROWS = {"lidl": ROOT / "data" / "groceries" / "listing" / "lidl-range.csv"}
+# "Add all, say 'Price in store'"). M&S's aisle pages list no price for its everyday food range (founder 2026-10-16: "M&S definetly has
+# more products add the rest of them please"). Rows from MORE_ROWS (tools/groceries/lidl_range.py, Lidl's own product pages; tools/groceries/mns_food_listing.py,
+# M&S's own aisle pages) may therefore have no price: the app says "Price in store". Every other shop, and these shops' own category-page rows, keep
+# "no price printed -> not listed".
+PRICE_IN_STORE = {"lidl", "marks-and-spencer"}
+MORE_ROWS = {"lidl": ROOT / "data" / "groceries" / "listing" / "lidl-range.csv",
+             "marks-and-spencer": ROOT / "data" / "groceries" / "listing" / "marks-and-spencer-food.csv"}
+# M&S's everyday-range titles are mostly its own label ("Baby Rainbow Carrots 200 g", no "M&S" in the name), so a name shared with another shop's product is no
+# proof that it is the same product: such rows take no barcode and lend or borrow no photo by name. (shop, product id) of every such row built.
+NO_NAME_MATCH = {"marks-and-spencer"}
+NAME_SKIP: set[tuple[str, str]] = set()
 
 
 def listing_rows(path: Path, more: Path | None = None):
@@ -321,7 +337,8 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
             continue  # no price printed (out of stock or a placeholder): not listed
         if from_more and pid not in pages:
             url = (r.get("page_url") or "").strip()
-            rest = url[len(SHOPS[shop]["pageBase"]):] if url.startswith(SHOPS[shop]["pageBase"]) else ""
+            root = SHOPS[shop].get("pageRoot") or SHOPS[shop]["pageBase"]   # M&S: its product pages are not under its search address
+            rest = url[len(root):] if url.startswith(root) else ""
             if PAGE_PATH.fullmatch(rest) and ".." not in rest and rest.endswith("/" + pid):
                 pages[pid] = rest
         member = num(r.get("member_price_gbp"))
@@ -350,7 +367,9 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
         gtin = gt.get(pid.lower(), "")
         if not gtin and shop == "asda" and photo and asda_barcode(photo.group(1)):
             gtin = photo.group(1)  # Asda names its product pictures by barcode: the app links it to the full product page where the catalogue has it
-        if not gtin:
+        if from_more and shop in NO_NAME_MATCH:
+            NAME_SKIP.add((shop, pid))    # M&S's everyday range: no barcode, and no photo, from another shop's product that merely has the same name
+        elif not gtin:
             gtin = barcode_by_name(name)  # founder 2026-10-11: the same branded name and pack size as a barcoded product at another shop
         row = [pid, name, price, unit_price if unit_price and unit_price > 0 else None, (r.get("unit") or "").strip(),
                member, schemes.index(scheme) if member is not None else None, cats.index(cat), photo.group(1) if photo else "", gtin,
@@ -364,7 +383,7 @@ def build_shop(shop: str, problems: list, path: Path | None = None, gtins: dict 
     days.discard("")
     cfg = SHOPS[shop]
     head = {"v": 1, "retailer": shop, "name": cfg["name"], "checkedOn": min(days) if days else "", "pageBase": cfg["pageBase"], "photoBase": cfg["photoBase"]}
-    head.update({k: cfg[k] for k in ("photoTemplate", "pageSearch") if k in cfg})
+    head.update({k: cfg[k] for k in ("photoTemplate", "pageSearch", "pageRoot", "priceNote") if k in cfg})
     return {**head, "categories": cats, "schemes": schemes, "nutritionCheckedOn": min(d for d in nut_days if d) if any(nut_days) else "", "products": products}
 
 
@@ -423,7 +442,7 @@ def fill_photos(docs: dict[str, dict], extra_by_code: dict[str, tuple[str, str]]
             if r[9]:
                 by_code.setdefault(norm_code(r[9]), (shop, url))
             key = name_key(r[1])
-            if key:
+            if key and (shop, r[0]) not in NAME_SKIP:   # a row whose name proves nothing (M&S's everyday range) lends no photo by name
                 by_name.setdefault(key, (shop, url))
                 by_name.setdefault(word_set(key), (shop, url))
     for code, hit in (extra_by_code or {}).items():
@@ -439,7 +458,7 @@ def fill_photos(docs: dict[str, dict], extra_by_code: dict[str, tuple[str, str]]
             hit = by_code.get(code) if code else None
             hit = hit if hit and hit[0] != shop else None
             how = "barcode"
-            if not hit:
+            if not hit and (shop, r[0]) not in NAME_SKIP:   # ... and borrows none by name either
                 key = name_key(r[1])
                 hit = (by_name.get(key) or by_name.get(word_set(key))) if key else None
                 hit = hit if hit and hit[0] != shop else None
@@ -465,25 +484,51 @@ def write_wanted_off(docs: dict[str, dict], path: Path | None = None) -> int:
     return len(codes)
 
 
-def main() -> int:
-    OUT.mkdir(parents=True, exist_ok=True)
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--only", choices=PUBLISH, help="write only this shop's file and replace only its entry in all-manifest.json (every shop is still built, so the photos "
+                    "borrowed across shops stay identical); the other shops' files and the barcodes-wanted list are left alone")
+    a = ap.parse_args(argv)
+    manifest_path = OUT / "all-manifest.json"
     manifest = {"v": 1, "retailers": []}
+    if a.only:
+        try:
+            manifest = json.loads(manifest_path.read_text())
+        except (OSError, ValueError):
+            print(f"--only needs the existing {manifest_path}; run without --only first")
+            return 1
+    OUT.mkdir(parents=True, exist_ok=True)
     problems: list = []
+    NAME_SKIP.clear()
     docs = {shop: doc for shop in PUBLISH if (doc := build_shop(shop, problems))}
+    if a.only and a.only not in docs:
+        print(f"{a.only}: no listing to build from")
+        return 1
     filled = fill_photos(docs, catalogue_photos(), read_off_images())
-    print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
+    if not a.only:
+        print(f"rows still without any photo whose barcode Open Food Facts may have: {write_wanted_off(docs)} (data/groceries/wanted-images/off.csv)")
     for shop, doc in docs.items():
+        if a.only and shop != a.only:
+            continue
         c = filled[shop]
         print(f"{shop}: photos from elsewhere for rows the shop showed none: {c['barcode']} by barcode, {c['name']} by name and size, {c['off']} Open Food Facts, {c['none']} still none")
         text = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
         (OUT / f"{shop}.json").write_text(text)
         with_nutrition = sum(1 for p in doc["products"] if p[10])
         priced = sum(1 for p in doc["products"] if p[2] is not None)
-        manifest["retailers"].append({"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
-                                      "nutrition": with_nutrition, "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()})
+        entry = {"id": shop, "name": doc["name"], "file": f"{shop}.json", "count": len(doc["products"]), "checkedOn": doc["checkedOn"],
+                 "nutrition": with_nutrition, "priced": priced, "sha256": hashlib.sha256(text.encode()).hexdigest()}
+        if a.only:  # replace this shop's entry where it stands (or add it at the end), leave every other entry as it is
+            at = next((i for i, r in enumerate(manifest["retailers"]) if r.get("id") == shop), None)
+            if at is None:
+                manifest["retailers"].append(entry)
+            else:
+                manifest["retailers"][at] = entry
+        else:
+            manifest["retailers"].append(entry)
         print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
               f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition, {len(doc['categories'])} categories")
-    (OUT / "all-manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
+    manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
     for p in problems[:20]:
         print("problem:", p)
     if len(problems) > 20:

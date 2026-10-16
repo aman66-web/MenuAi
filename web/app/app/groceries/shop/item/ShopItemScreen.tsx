@@ -80,7 +80,11 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         ) : (
           <>
             <p className="mt-6 text-[1.75rem] font-[800] leading-tight tracking-[-0.02em]">{t("Price in store")}</p>
-            <p className="mt-2 text-[0.9375rem] leading-snug">{t("{shop} shows prices on its website only for its weekly offers. Check this product's price in store.", { shop: file.name })}</p>
+            {/* the reason is the shop's: Lidl prices only its weekly offers online; M&S's aisle pages list no price for these products (its site asks for a store; what it shows once
+                one is chosen was not seen, so the words say only that the lists have none) */}
+            <p className="mt-2 text-[0.9375rem] leading-snug">{file.priceNote === "stores"
+              ? t("{shop} doesn't list a price for this product, and prices can differ between its stores. Check this product's price in store.", { shop: file.name })
+              : t("{shop} shows prices on its website only for its weekly offers. Check this product's price in store.", { shop: file.name })}</p>
           </>
         )}
         {product.member && (

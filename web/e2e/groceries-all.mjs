@@ -192,6 +192,49 @@ await step("Lidl's everyday range (founder 2026-10-11): a product Lidl prints no
   }
 });
 
+await step("M&S's everyday food range (founder 2026-10-16): its aisle lists show no price, so \"Price in store\" with M&S's own reason, its own product page and picture; a priced row keeps its price and its search link", async () => {
+  const hash = "5202e37a68b76b677fcb077d8e419d0b";
+  const ms = { v: 1, retailer: "marks-and-spencer", name: "M&S", checkedOn: "2026-10-08", pageBase: "https://www.marksandspencer.com/search?searchTerm=", pageSearch: true,
+    pageRoot: "https://www.marksandspencer.com/food/", priceNote: "stores", photoBase: "https://assets.digitalcontent.marksandspencer.app/image/upload/",
+    photoTemplate: "https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/{photo}", categories: ["Food to order", "Fruit & Vegetables"], schemes: [],
+    products: [
+      ["ckp60095316", "M&S Rainbow Cake (Serves 12)", 35, null, "", null, null, 0, "SD_FD_F09A_00346825_NC_X_EC_0", ""],
+      ["fdp60064368", "Baby Rainbow Carrots 200 g", null, null, "", null, null, 1, `${hash}.jpg`, "", null, "baby-rainbow-carrots/p/fdp60064368"],
+    ] };
+  const two = { v: 1, retailers: [allManifest.retailers[0], { id: "marks-and-spencer", name: "M&S", file: "marks-and-spencer.json", count: 2, priced: 1, checkedOn: "2026-10-08", sha256: "" }] };
+  const { ctx, page } = await newPage();
+  const askedMs = [];
+  await page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(two) }));
+  await page.route("**/groceries/all/marks-and-spencer.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(ms) }));
+  await page.route("**/assets.digitalcontent.marksandspencer.app/**", (r) => { askedMs.push(r.request().url()); return r.fulfill({ contentType: "image/png", body: PNG }); });
+  await page.goto(BASE + "/app/groceries/shop?r=marks-and-spencer");
+  await page.getByRole("heading", { level: 1, name: "M&S" }).waitFor();
+  await page.getByText(/2 products from M&S's website, checked .*1 show a price\. M&S lists no price for the others\./).waitFor();
+  expect((await page.getByText(/shows the others' prices only in store/).count()) === 0, "Lidl's list sentence is not shown for M&S");
+  expect(await page.getByRole("link", { name: /Baby Rainbow Carrots.*Price in store/ }).isVisible(), "the row says Price in store");
+  expect(await page.getByRole("link", { name: /Rainbow Cake.*£35\.00/ }).isVisible(), "a priced row keeps its printed price");
+  // the unpriced product: M&S's own reason (not Lidl's weekly offers), no price anywhere, its own page and its own picture
+  await page.getByRole("link", { name: /Baby Rainbow Carrots/ }).click();
+  await page.getByRole("heading", { level: 1, name: "Baby Rainbow Carrots 200 g" }).waitFor();
+  await page.getByText("M&S doesn't list a price for this product, and prices can differ between its stores. Check this product's price in store.").waitFor();
+  expect((await page.getByText(/weekly offers/).count()) === 0, "Lidl's reason is not shown for M&S");
+  expect((await page.getByText(/£/).count()) === 0, "no price shown anywhere on the page");
+  await page.getByText("Photo from the M&S website").waitFor();
+  expect(askedMs.some((u) => u.endsWith(`/w_400,q_auto,f_jpg/${hash}.jpg`)), `picture from M&S's own image host, got ${askedMs}`);
+  expect((await page.getByRole("link", { name: /Open it on M&S's website/ }).getAttribute("href")) === "https://www.marksandspencer.com/food/baby-rainbow-carrots/p/fdp60064368", "the product's own page under /food/");
+  await page.waitForTimeout(800); // let the page fade end before colours are judged
+  await page.addScriptTag({ path: AXE });
+  const result = await page.evaluate(async () => await axe.run(document, { resultTypes: ["violations"] }));
+  expect(result.violations.length === 0, `axe: ${result.violations.map((v) => `${v.id} (${v.nodes[0]?.target})`).join(", ")}`);
+  // the priced product keeps its price, no "Price in store" reason, and still opens M&S's search for its name
+  await page.goto(BASE + "/app/groceries/shop/item?r=marks-and-spencer&id=ckp60095316");
+  await page.getByRole("heading", { level: 1, name: "M&S Rainbow Cake (Serves 12)" }).waitFor();
+  await page.getByText("£35.00").first().waitFor();
+  expect((await page.getByText(/Price in store/).count()) === 0, "a priced product does not say Price in store");
+  expect((await page.getByRole("link", { name: /Open it on M&S's website/ }).getAttribute("href"))?.startsWith("https://www.marksandspencer.com/search?searchTerm=M%26S%20Rainbow%20Cake"), "the priced row opens M&S's search");
+  await ctx.close();
+});
+
 await step("accessibility: the full list and a product with nutrition have no axe violations in light and dark", async () => {
   for (const scheme of ["light", "dark"]) {
     for (const path of ["/app/groceries/shop?r=sainsburys", "/app/groceries/shop/item?r=sainsburys&id=sainsburys-multiseed-loaf-800g"]) {

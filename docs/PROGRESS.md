@@ -1768,6 +1768,23 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     headless-browser location step), tsc, eslint. **Not tried on a real iPhone: this environment has no WebKit.** Founder or Mac session: on the phone, open Eat out › Near me, tap the button, drag with one finger, pinch, double-tap, swipe back, and check
     the tab bar returns; if Back misbehaves, flip `PUSH_FULLSCREEN_ENTRY` to false (the tripwire above).
 
+- 2026-10-16 — **The rest of M&S's food range** (founder: "M&S definitely has more products, add the rest of them please"). "Every M&S product" went from **194 to 6,141 products**: the 194 priced rows read earlier plus
+  **5,947 everyday-range rows (the Foodhall aisles) shown as "Price in store"**, because M&S's aisle pages list no price for them (its site asks for a store; which store was not seen, so the words say only that the lists have none).
+  Read from M&S's own category pages with the same polite rules as the other shops (robots.txt read first and honoured, one request a second, stop on a block or a challenge page, never worked round): all 20 food aisles
+  were read in full, each "collected X of X" against the total its own page printed (`data/groceries/listing/marks-and-spencer-food-coverage.csv`, summary and per-aisle counts in `raw/marks-and-spencer-food_summary.txt`). The first run stopped by itself on
+  Bakery & Cakes page 3 because 3 of 96 tiles printed no pack size (our own format check, not a block); empty pack sizes are now allowed (the 1% stop stays for id, address, picture and title), the crawl was resumed (17 more aisle pages, 0 tiles
+  skipped) and finished. Not crawled on purpose: drinks as a whole, alcohol, wine and gift lists (no alcohol; 3 alcoholic cocktails filed under Ready to Cook were excluded by hand and the builder drops them too), household, pet, baby, "New in", and product pages
+  (links only). Photos load from M&S's own image host (36 looked at on a contact sheet: all show the product named). The terms caveat for M&S (it bans crawling and commercial use; docs/IMAGE_TERMS.md) stands under the founder's accepted risk of 2026-10-11.
+  - **In the app:** the range rows open their own M&S page, the older 194 open M&S's search; the product page says "{shop} doesn't list a price for this product, and prices can differ between its stores. Check this product's price in store."; the list line
+    reads "{n} products ... {count} show a price. {shop} lists no price for the others."; price sorts put unpriced rows last; recipes never use a product without a price. Lidl keeps its own wording (it prices only weekly offers online).
+  - **Diet filter (CLAUDE.md rule 3: names only, never promises):** "Poultry" and "Cured & Ready to Eat Meats" count as meat and "Meat Alternatives" as meat-free; "Pigs in Blankets" counts as meat; "Plant Kitchen" items and titles starting "No <meat or fish>" are meat-free versions
+    (so 10 vegetarian items in the Meat aisle are no longer hidden); a small exception list (halloumi kebabs, sage and onion stuffing, vegetable haggis) keeps those visible; a meat word in the name still wins.
+  - **Fixed on the way:** the brand written twice in 14 names, a 6g protein row that lost its pack size, `build_all_products.py --only SHOP` rebuilds one shop without touching the others (tested).
+  - **Known gaps:** the builder drops "Daylesford Rose Kombucha" through its alcohol-name rule (M&S files it as a soft drink); "Mini Roulade 125 g" isn't caught by the vegan filter (its name says nothing); the header still reads "checked 8 October" because it
+    takes the oldest row's date as for every shop (the new rows were read on 16 October).
+  - New copy (rule 8, logged here; translated into the 10 languages by AI, not yet checked by native speakers): the two sentences above. Checked: 196 Python tests (27 new for the crawler, more for the builder and the diet words), 49+ unit tests, e2e groceries-all 8 (new: an M&S
+    unpriced product and its range link), groceries 6, groceries-compare 8, diet 7, tsc, eslint.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

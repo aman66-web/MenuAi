@@ -140,6 +140,35 @@ describe("other shops' lists: photo templates, page paths, search links", () => 
     expect(shopPhotoUrl(mor, bananas!)).toBe("https://groceries.morrisons.com/images-v3/4b85987b-1398-4173-a0c1-3546047c9d74/b41f9f6e-707e-4e0a-8296-8981b52f8d62/300x300.jpg");
     expect(shopPageUrl(mor, bananas!)).toBe("https://groceries.morrisons.com/search?entry=Fyffes%20Bananas%205%20Pack");
   });
+  it("M&S: the everyday range has no price, a '<hash>.jpg' picture and its own page under /food/; its priced rows keep the search link", () => {
+    const hash = "5202e37a68b76b677fcb077d8e419d0b";
+    const ms: ShopFile = { ...base, retailer: "marks-and-spencer", name: "M&S", categories: ["Food to order", "Fruit & Vegetables"],
+      pageBase: "https://www.marksandspencer.com/search?searchTerm=", pageSearch: true, pageRoot: "https://www.marksandspencer.com/food/", priceNote: "stores",
+      photoBase: "https://assets.digitalcontent.marksandspencer.app/image/upload/", photoTemplate: "https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/{photo}",
+      products: [["fdp60064368", "Baby Rainbow Carrots 200 g", null, 2, "per kg", 1.5, 0, 1, `${hash}.jpg`, "", null, "baby-rainbow-carrots/p/fdp60064368"],
+        ["ckp60095316", "M&S Rainbow Cake (Serves 12)", 35, null, "", null, null, 0, "SD_FD_F09A_00346825_NC_X_EC_0", ""],
+        ["fdp60000009", "Odd Page 100 g", null, null, "", null, null, 1, "", "", null, "../../evil"]] };
+    expect(isShopFile(ms)).toBe(true);
+    const [carrots, cake, odd] = decodeShopProducts(ms);
+    expect(carrots).toMatchObject({ price: null, unitPrice: null, member: null, photoId: `${hash}.jpg`, page: "baby-rainbow-carrots/p/fdp60064368", category: "Fruit & Vegetables" });
+    expect(shopPhotoUrl(ms, carrots!)).toBe(`https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/${hash}.jpg`);
+    expect(shopPhotoUrl(ms, cake!)).toBe("https://assets.digitalcontent.marksandspencer.app/image/upload/w_400,q_auto,f_jpg/SD_FD_F09A_00346825_NC_X_EC_0");
+    expect(shopPageUrl(ms, carrots!)).toBe("https://www.marksandspencer.com/food/baby-rainbow-carrots/p/fdp60064368");
+    expect(shopPageUrl(ms, cake!)).toBe("https://www.marksandspencer.com/search?searchTerm=M%26S%20Rainbow%20Cake%20(Serves%2012)");
+    expect(odd!.page).toBe("");                                                         // an unsafe page path is dropped, never joined to the root
+    expect(shopPageUrl(ms, odd!)).toBe("https://www.marksandspencer.com/search?searchTerm=Odd%20Page%20100%20g");
+    expect(searchShopProducts([carrots!, cake!], { sort: "price" }).map((p) => p.id)).toEqual(["ckp60095316", "fdp60064368"]);        // unpriced last
+    expect(searchShopProducts([carrots!, cake!], { sort: "priceDesc" }).map((p) => p.id)).toEqual(["ckp60095316", "fdp60064368"]);
+    // a shop without pageRoot (every other shop) reads page paths against pageBase, as before
+    expect(shopPageUrl({ pageBase: "https://www.aldi.co.uk/product/" }, { id: "1", name: "x", page: "x-1" })).toBe("https://www.aldi.co.uk/product/x-1");
+  });
+  it("pageRoot and priceNote are checked: https only, and only the two known price notes", () => {
+    expect(isShopFile({ ...file, pageRoot: "https://www.marksandspencer.com/food/", priceNote: "stores" })).toBe(true);
+    expect(isShopFile({ ...file, priceNote: "offers" })).toBe(true);
+    expect(isShopFile({ ...file, pageRoot: "http://www.marksandspencer.com/food/" })).toBe(false);
+    expect(isShopFile({ ...file, pageRoot: 7 })).toBe(false);
+    expect(isShopFile({ ...file, priceNote: "x" })).toBe(false);
+  });
   it("a template that isn't https or has no {photo} gives no picture", () => {
     const f = { photoBase: "https://x/", photoTemplate: "http://x/{photo}" };
     expect(shopPhotoUrl(f, { photoId: "abc" })).toBeUndefined();

@@ -1,0 +1,21 @@
+unit,label,url,status,pages_loaded,pages_printed,tiles_seen,tiles_collected,distinct_ids,new_ids_after_dedupe,printed_total,collected_of_printed,skipped_tiles,priced_tiles,unranged,warnings,checked_on
+meat/meat-alternatives,Meat Alternatives,https://www.marksandspencer.com/food/l/meat/meat-alternatives,complete,1,1,3,3,3,3,3,collected 3 of 3,0,0,0,,2026-10-16
+fruit-and-vegetables,Fruit & Vegetables,https://www.marksandspencer.com/food/l/fruit-and-vegetables,complete,7,7,608,608,608,608,608,collected 608 of 608,0,0,0,,2026-10-16
+meat,Meat,https://www.marksandspencer.com/food/l/meat,complete,5,5,414,414,414,411,414,collected 414 of 414,0,0,0,,2026-10-16
+poultry,Poultry,https://www.marksandspencer.com/food/l/poultry,complete,2,2,122,122,122,107,122,collected 122 of 122,0,0,0,,2026-10-16
+cured-and-ready-to-eat-meats,Cured & Ready to Eat Meats,https://www.marksandspencer.com/food/l/cured-and-ready-to-eat-meats,complete,2,2,125,125,125,125,125,collected 125 of 125,0,0,0,,2026-10-16
+fish-and-seafood,Fish & Seafood,https://www.marksandspencer.com/food/l/fish-and-seafood,complete,2,2,167,167,167,167,167,collected 167 of 167,0,0,0,,2026-10-16
+dairy,Dairy,https://www.marksandspencer.com/food/l/dairy,complete,5,5,441,441,441,439,441,collected 441 of 441,0,0,0,,2026-10-16
+eggs,Eggs,https://www.marksandspencer.com/food/l/eggs,complete,1,1,36,36,36,36,36,collected 36 of 36,0,0,0,,2026-10-16
+deli,Deli,https://www.marksandspencer.com/food/l/deli,complete,3,3,283,283,283,210,283,collected 283 of 283,0,0,0,,2026-10-16
+food-on-the-move,Food on the Move,https://www.marksandspencer.com/food/l/food-on-the-move,complete,4,4,345,345,345,305,345,collected 345 of 345,0,0,0,,2026-10-16
+chilled-desserts,Chilled Desserts,https://www.marksandspencer.com/food/l/chilled-desserts,complete,2,2,131,131,131,131,131,collected 131 of 131,0,0,0,,2026-10-16
+ready-to-cook,Ready to Cook,https://www.marksandspencer.com/food/l/ready-to-cook,complete,8,8,701,701,701,621,701,collected 701 of 701,0,0,0,,2026-10-16
+food-cupboard,Food Cupboard,https://www.marksandspencer.com/food/l/food-cupboard,complete,19,19,1794,1794,1794,1772,1794,collected 1794 of 1794,0,0,0,,2026-10-16
+bakery-and-cakes,Bakery & Cakes,https://www.marksandspencer.com/food/l/bakery-and-cakes,complete,5,5,414,414,414,406,414,collected 414 of 414,0,0,0,,2026-10-16
+frozen-food,Frozen Food,https://www.marksandspencer.com/food/l/frozen-food,complete,4,4,325,325,325,321,325,collected 325 of 325,0,0,0,,2026-10-16
+drinks/hot-drinks,Hot Drinks,https://www.marksandspencer.com/food/l/drinks/hot-drinks,complete,2,2,130,130,130,129,130,collected 130 of 130,0,0,0,,2026-10-16
+drinks/soft-drinks,Soft Drinks,https://www.marksandspencer.com/food/l/drinks/soft-drinks,complete,3,3,212,212,212,159,212,collected 212 of 212,0,0,0,,2026-10-16
+kids-toddler-and-baby-products/kids-food-and-snacks,Kids' Food & Snacks,https://www.marksandspencer.com/food/l/kids-toddler-and-baby-products/kids-food-and-snacks,complete,1,1,25,25,25,1,25,collected 25 of 25,0,0,0,,2026-10-16
+picky-bits,Picky Bits,https://www.marksandspencer.com/food/l/picky-bits,complete,3,3,266,266,266,4,266,collected 266 of 266,0,0,0,,2026-10-16
+halloween-food,Halloween Food,https://www.marksandspencer.com/food/l/halloween-food,complete,1,1,36,36,36,0,36,collected 36 of 36,0,0,0,,2026-10-16

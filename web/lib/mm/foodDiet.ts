@@ -26,20 +26,27 @@ const words = (list: string) => list.trim().split(/\s*\|\s*/).join("|");
 /** Whole words, singular or plural ("ham" finds "Ham" and "hams", never "Hamburger"). */
 const wordRe = (list: string, guard = "") => new RegExp(`${guard}\\b(?:${words(list)})(?:s|es)?\\b`, "i");
 
-// The product says it is a meat-free version: its meat or fish words describe the style, not the contents ("Quorn Chicken Pieces").
-const VEG_NAMED = /\b(?:vegan|vegetarian|veggie|plant[\s-]?based|meat[\s-]?free|meatless|no[\s-]meat|meat[\s-]alternatives?|quorn|tofu|seitan|tempeh|this isn'?t|beyond meat|moving mountains|linda mccartney'?s?|richmond meat free|plant chef|plant pioneers|v-?bites)\b/i;
+// The product says it is a meat-free version: its meat or fish words describe the style, not the contents ("Quorn Chicken Pieces"). "Plant Kitchen" is M&S's
+// own vegan range ("Plant Kitchen No Beef Steak Pie", "No Fishcakes"); a title that STARTS with "No <meat or fish>" is the meat-free version of that dish
+// (anchored at the start: a halal "Chicken Sausages (No Pork)" says what it leaves out, and is still chicken).
+const VEG_NAMED = /\b(?:vegan|vegetarian|veggie|plant[\s-]?based|meat[\s-]?free|meatless|no[\s-]meat|meat[\s-]alternatives?|quorn|tofu|seitan|tempeh|this isn'?t|beyond meat|moving mountains|linda mccartney'?s?|richmond meat free|plant chef|plant pioneers|plant kitchen|v-?bites)\b|(?:^|;\s*)no[\s-](?:beef|pork|chicken|duck|lamb|turkey|bacon|ham|sausages?|steak|mince|fish|tuna|salmon|prawns?|seafood)\b/i;
 const VEG_TYPE = /\b(?:meat analogues?|meat substitutes?|vegetarian|vegan|plant based|meat free)\b/i;
-const VEGAN_NAMED = /\b(?:vegan|plant[\s-]?based|dairy[\s-]?free|milk[\s-]?free|egg[\s-]?free)\b/i;
+const VEGAN_NAMED = /\b(?:vegan|plant[\s-]?based|dairy[\s-]?free|milk[\s-]?free|egg[\s-]?free|plant kitchen)\b/i;
 
 const NOT_AFTER_VEG = "(?<!\\b(?:vegan|vegetarian|veggie|plant[\\s-]based|meat[\\s-]free|meatless|mock|faux|no)[\\s-])";
 const MEAT = wordRe(`chicken | beef | pork | ham | bacon | gammon | lamb | mutton | turkey | duck | goose | venison | veal | rabbit | pheasant | partridge | chorizo | turf |
-  pepperoni | salami | prosciutto | pancetta | n'?duja | lardon | sausage | steak | brisket | meatball | meat | hot dog | frankfurter | bratwurst | black pudding |
+  pepperoni | salami | prosciutto | pancetta | n'?duja | lardon | sausage | steak | brisket | meatball | meat | hot dog | frankfurter | bratwurst | black pudding | pigs? in blankets? |
   haggis | corned | pastrami | bresaola | biltong | jerky | gelatine | gelatin | lard | suet | animal rennet | chicken liver | oxtail | poultry | pate de foie | foie gras`, NOT_AFTER_VEG);
 // Dishes that are meat by their own name ("Chilli con carne", "Spaghetti carbonara"), unless the word before says otherwise ("Lentil bolognese").
 const MEAT_DISH = wordRe(`con carne | bolognese | bolognaise | carbonara | blt | scotch egg | scotch broth | cottage pie | shepherd'?s pie | moussaka | lasagne | lasagna |
-  salsiccia | luncheon meat | spag bol | hamburger | meat feast | toad in the hole | quiche lorraine | lorraine quiche`,
+  salsiccia | luncheon meat | spag bol | hamburger | meat feast | toad in the hole | quiche lorraine | lorraine quiche |
+  cumberland pie | hawaiian pizza | mighty meaty pizza | mega meaty pizza | mighty meaty pasta | all day breakfast | club sandwich | bbb sandwich |
+  cumberland snack eggs | cumberland picnic eggs`,
   "(?<!\\b(?:vegan|vegetarian|veggie|veg|vegetable|vegetables|plant[\\s-]based|meat[\\s-]free|meatless|mock|faux|no|non|lentil|lentils|bean|mushroom|quorn|cheese|spinach|ricotta|squash|aubergine|tomato|pumpkin|courgette|halloumi|cauliflower|chickpea|root)[\\s-])");
-const MEAT_EXCEPT = /\b(?:vegetable|veg)\s+suet\b|\bbeef\s+tomato(?:es)?\b|\blamb'?s\s+lettuce\b|\b(?:cauliflower|celeriac|halloumi|mushroom|aubergine|squash|cabbage|tofu)\s+steaks?\b|\bchicken\s+eggs?\b|\b(?:hot\s?dog|ham)?burger\s+(?:rolls?|buns?)\b|\bhot\s?dog\s+(?:rolls?|buns?)\b|\bwhite\s+rabbit\b|\blasagn[ea]\s+sheets?\b|\bprepared\s+lasagn[ea]s?\b|\b(?:tuna|salmon|swordfish|cod|fish|halibut|marlin)\s+steaks?\b/i;
+const MEAT_EXCEPT = /\b(?:vegetable|veg)\s+suet\b|\bbeef\s+tomato(?:es)?\b|\blamb'?s\s+lettuce\b|\b(?:cauliflower|celeriac|halloumi|mushroom|aubergine|squash|cabbage|tofu)\s+steaks?\b|\bchicken\s+eggs?\b|\b(?:hot\s?dog|ham)?burger\s+(?:rolls?|buns?)\b|\bhot\s?dog\s+(?:rolls?|buns?)\b|\bwhite\s+rabbit\b|\blasagn[ea]\s+sheets?\b|\bprepared\s+lasagn[ea]s?\b|\b(?:tuna|salmon|swordfish|cod|fish|halibut|marlin)\s+steaks?\b|\b(?:vegetable|veg)\b(?:\s+and\s+\w+)?\s+haggis\b/i;
+// A few products that M&S files under its "Meat" aisle although they are not meat; they are never taken for meat by the aisle alone. A meat word in the name
+// still counts ("Pork, Sage and Onion Stuffing" has pork in it), so only the words that name no meat are listed.
+const NOT_MEAT_IN_THE_MEAT_AISLE = /\bhalloumi\s+kebabs?\b|\bsage\s+(?:and|&)\s+onion\s+stuffing\b|\b(?:vegetable|veg)\b(?:\s+and\s+\w+)?\s+haggis\b/i;
 const FISH = wordRe(`fish | salmon | tuna | cod | haddock | pollock | pollack | hake | plaice | lemon sole | dover sole | sea ?bass | bream | mackerel | sardine | pilchard |
   anchovy | anchovies | herring | kipper | trout | monkfish | swordfish | prawn | shrimp | crab | lobster | langoustine | scampi | calamari | squid | octopus |
   mussel | clam | oyster | scallop | seafood | shellfish | sashimi | fish ?cake | caviar | roe | crayfish | whitebait | surimi | worcestershire | bonito | cockle | whelk | anchoveta |
@@ -52,9 +59,14 @@ const BEEF = wordRe(`beef | brisket | veal | wagyu | sirloin | rib-?eye | rump |
 const BEEF_EXCEPT = /\bbeef\s+tomato|\bvegetable\s+suet\b/i;
 // For a vegan: plainly from an animal (milk, eggs, honey...), unless it names the plant version ("oat milk", "peanut butter", "butter beans").
 const ANIMAL = wordRe(`milk | cheese | cream | butter | buttermilk | yogh?urt | honey | egg | mayonnaise | mayo | ghee | whey | paneer | mozzarella | cheddar | parmesan |
-  halloumi | feta | brie | camembert | ricotta | mascarpone | custard | meringue | lactose | casein | kefir | royal jelly | beeswax | carmine | cochineal | shellac`,
+  halloumi | feta | brie | camembert | ricotta | mascarpone | custard | meringue | lactose | casein | kefir | royal jelly | beeswax | carmine | cochineal | shellac |
+  cheeseboard | milkshake | cr[eè]me fra[iî]che | gouda | edam | emmental | gruy[eè]re | jarlsberg | comte | comt(?=é) | parmigiano | reggiano | grana padano | pecorino |
+  stilton | red leicester | double gloucester | cheshire | crumbly lancashire | creamy lancashire | tasty lancashire | lancashire crumbly | lancashire creamy | lancashire tasty | wensleydale | caerphilly | manchego | taleggio | gorgonzola | cambozola | roquefort | burrata |
+  bocconcini | stracciatella | epoisses | poisses | chaource | bleu | raclette | reblochon | fontina | provolone | mimolette | havarti | beauvale | montagnolo |
+  delice de bourgogne | fleur des alpes | fior delle alpi | doux de montagne | pie d'angloys | affinois | yorkshire blue | shropshire blue | blacksticks blue |
+  iced coffee latte | iced latte`,
   "(?<!\\b(?:oat|oats|soya|soy|almond|coconut|rice|cashew|hazelnut|pea|plant|nut|peanut|cocoa|shea|vegan|dairy[\\s-]free|free[\\s-]from)[\\s-])");
-const ANIMAL_EXCEPT = /\bbutter\s?beans?\b|\bcream\s+crackers?\b|\bcream\s+of\s+tartar\b|\bcoconut\s+(?:milk|cream)\b|\begg\s?plant\b|\bmilk\s+thistle\b|\bwater\s+kefir\b/i;
+const ANIMAL_EXCEPT = /\bbutter\s?beans?\b|\bcream\s+crackers?\b|\bcream\s+of\s+tartar\b|\bcoconut\s+(?:milk|cream)\b|\begg\s?plant\b|\bmilk\s+thistle\b|\bwater\s+kefir\b|\bcheese\s?board\s+(?:chutneys?|relish|biscuits?|crackers?|grapes?|oatcakes?)\b/i;
 const ALCOHOL = wordRe(`beer | lager | ale | stout | porter | cider | perry | wine | prosecco | champagne | cava | vodka | gin | rum | whisky | whiskey | brandy | cognac |
   tequila | liqueur | sherry | vermouth | mead | alcohol | alcoholic beverage | spirit`, "(?<!\\b(?:ginger|root|non|low)[\\s-])");
 const ALCOHOL_EXCEPT = /\b(?:wine|cider|malt|rice|sherry|balsamic|spirit)\s+vinegars?\b|\bcider\s+vinaigrettes?\b|\bwine\s+gums?\b|\bspirit\s+of\b/i;
@@ -66,7 +78,9 @@ const FISH_CATEGORIES = new Set(["fish"]);
 // A shop's own aisle names: Sainsbury's "Meat & fish", Asda "Meat, Poultry & Fish", Lidl "Meat & Poultry" / "Fish & Seafood",
 // "Beer, wine & spirits" / Lidl "Wine, Beer & Spirits" / Aldi "Alcohol".
 const MEAT_OR_FISH_CATEGORIES = /^meat\b.*\bfish\b/i;
-const MEAT_ONLY_CATEGORIES = /^meat\b/i;
+const MEAT_ONLY_CATEGORIES = /^(?:meat|poultry|cured\b.*\bmeats?)\b/i;   // M&S's aisles are plain "Meat" and "Poultry", and "Cured & Ready to Eat Meats" (25 of its 125 products name no meat: "Mortadella", "Drumsticks")
+// M&S's "Meat Alternatives" aisle (the catalogue's kebab-case type "meat-alternatives" is matched below too): meat-free, never hidden from a vegetarian by the "^meat" rule.
+const MEAT_ALTERNATIVES_CATEGORY = /^meat[\s-]alternatives?$/i;
 const FISH_ONLY_CATEGORIES = /^fish\b/i;
 const ALCOHOL_CATEGORIES = /^(?=.*\b(?:beer|wine|spirits)\b.*\b(?:beer|wine|spirits)\b)|^alcohol/i;
 
@@ -88,13 +102,14 @@ export interface FoodSignals {
 export function foodSignals(f: FoodFacts): FoodSignals {
   const type = f.type?.replace(/-/g, " ");
   const label = [f.name, f.brand];
-  const vegNamed = has(VEG_NAMED, null, ...label) || has(VEG_TYPE, null, type) || f.category === "meat-alternatives";
+  const vegNamed = has(VEG_NAMED, null, ...label) || has(VEG_TYPE, null, type) || MEAT_ALTERNATIVES_CATEGORY.test(f.category ?? "");
   const veganNamed = has(VEGAN_NAMED, null, ...label);
   const contains = f.allergens?.contains ?? [];
   // A meat-free product's name and type describe the style ("Quorn Chicken Style Pieces", type "meat-analogues"), so only its ingredients count.
   const texts = vegNamed ? [f.ingredients] : [...label, type, f.ingredients];
   const meatFishCategory = !vegNamed && !!f.category && MEAT_OR_FISH_CATEGORIES.test(f.category);
-  const meatCategory = !vegNamed && !!f.category && !meatFishCategory && MEAT_ONLY_CATEGORIES.test(f.category);
+  const notMeat = has(NOT_MEAT_IN_THE_MEAT_AISLE, null, ...label);
+  const meatCategory = !vegNamed && !notMeat && !!f.category && !meatFishCategory && MEAT_ONLY_CATEGORIES.test(f.category);
   const fishCategory = !vegNamed && !!f.category && FISH_ONLY_CATEGORIES.test(f.category);
   const fish = (!vegNamed && !!f.category && FISH_CATEGORIES.has(f.category)) || fishCategory || contains.some((a) => a === "fish" || a === "crustaceans" || a === "molluscs") || has(FISH, FISH_EXCEPT, ...texts);
   const meat = (!vegNamed && !!f.category && MEAT_CATEGORIES.has(f.category)) || meatCategory || has(MEAT, MEAT_EXCEPT, ...texts) || has(MEAT_DISH, MEAT_EXCEPT, ...texts) || (meatFishCategory && !fish);

@@ -1,0 +1,216 @@
+M&S Foodhall list: 5949 products (tools/groceries/mns_food_listing.py write, 2026-10-16)
+
+Rows per aisle (first aisle to list a product gives it its category):
+      3  Meat Alternatives
+    608  Fruit & Vegetables
+    411  Meat
+    107  Poultry
+    125  Cured & Ready to Eat Meats
+    167  Fish & Seafood
+    439  Dairy
+     36  Eggs
+    210  Deli
+    305  Food on the Move
+    131  Chilled Desserts
+    618  Ready to Cook
+   1772  Food Cupboard
+    406  Bakery & Cakes
+    321  Frozen Food
+    129  Hot Drinks
+    159  Soft Drinks
+      1  Kids' Food & Snacks
+      1  Picky Bits
+      0  Halloween Food
+
+Per aisle, collected against the total the page printed:
+  Meat Alternatives: collected 3 of 3 (1 pages, 3 tiles seen, 3 new after the earlier aisles)
+  Fruit & Vegetables: collected 608 of 608 (7 pages, 608 tiles seen, 608 new after the earlier aisles)
+  Meat: collected 414 of 414 (5 pages, 414 tiles seen, 411 new after the earlier aisles)
+  Poultry: collected 122 of 122 (2 pages, 122 tiles seen, 107 new after the earlier aisles)
+  Cured & Ready to Eat Meats: collected 125 of 125 (2 pages, 125 tiles seen, 125 new after the earlier aisles)
+  Fish & Seafood: collected 167 of 167 (2 pages, 167 tiles seen, 167 new after the earlier aisles)
+  Dairy: collected 441 of 441 (5 pages, 441 tiles seen, 439 new after the earlier aisles)
+  Eggs: collected 36 of 36 (1 pages, 36 tiles seen, 36 new after the earlier aisles)
+  Deli: collected 283 of 283 (3 pages, 283 tiles seen, 210 new after the earlier aisles)
+  Food on the Move: collected 345 of 345 (4 pages, 345 tiles seen, 305 new after the earlier aisles)
+  Chilled Desserts: collected 131 of 131 (2 pages, 131 tiles seen, 131 new after the earlier aisles)
+  Ready to Cook: collected 701 of 701 (8 pages, 701 tiles seen, 621 new after the earlier aisles)
+  Food Cupboard: collected 1794 of 1794 (19 pages, 1794 tiles seen, 1772 new after the earlier aisles)
+  Bakery & Cakes: collected 414 of 414 (5 pages, 414 tiles seen, 406 new after the earlier aisles)
+  Frozen Food: collected 325 of 325 (4 pages, 325 tiles seen, 321 new after the earlier aisles)
+  Hot Drinks: collected 130 of 130 (2 pages, 130 tiles seen, 129 new after the earlier aisles)
+  Soft Drinks: collected 212 of 212 (3 pages, 212 tiles seen, 159 new after the earlier aisles)
+  Kids' Food & Snacks: collected 25 of 25 (1 pages, 25 tiles seen, 1 new after the earlier aisles)
+  Picky Bits: collected 266 of 266 (3 pages, 266 tiles seen, 4 new after the earlier aisles)
+  Halloween Food: collected 36 of 36 (1 pages, 36 tiles seen, 0 new after the earlier aisles)
+
+ids that are also in marks-and-spencer.csv (the priced row wins in the builder): 0
+name duplicates of a priced row dropped: 0
+dropped by marks-and-spencer-food-exclude.csv: 6
+tiles skipped (id / path / picture / title not as expected): 0
+tiles that carried a price field (never copied): 0
+unranged products (counted, never read): 0
+
+names the builder will drop (is_alcohol or not_food): 2
+    40 Coffee Filter Papers 66 g
+    Daylesford Organic Rose Kombucha 75 cl
+
+names with a loose alcohol word that STAY (eyeball these): 122
+    Scotch Bonnet Chillies 50 g
+    Scotch 10% Fat Lamb Mince 250 g
+    Scotch Aberdeen Angus Diced Beef 400 g
+    Scotch Beef Topside Joint 1.98 kg
+    Scotch High Welfare Beef Braising Steaks 400 g
+    Scotch High Welfare Beef Short Ribs 700 g
+    Scotch Lamb Cutlets 350 g
+    Scotch Lamb Mince 20% Fat 400 g
+    Scotch Thin Cut Sirloin Steaks 360 g
+    M&S Collection Scotch Aberdeen Angus Beef Roasting Joint 1 kg
+    Scotch Beef Topside Joint 1.54 kg
+    Scotch Beef Mince 5% Fat 1 kg
+    Scotch Diced Lamb 300 g
+    Scotch Lamb Loin Fillet 200 g
+    Scotch Lamb Mince 20% Fat 400 g
+    Scotch Beef Mince 3% Fat 250 g
+    Scotch Beef Mince 5% Fat 750 g
+    Scotch Lamb Butterflied Leg Joint 0.7 kg
+    Scotch Lamb Cutlets 0.35 kg
+    Scotch Lamb Half Leg Joint 1.2 kg
+    Scotch Lamb Leg Shanks 850 g
+    Scotch Lamb Leg Steaks 300 g
+    Scotch Lamb Loin Chops 360 g
+    Scotch Lamb Neck Fillet 0.25 kg
+    Scotch Lamb Rump Steak 300 g
+    Scotch Lamb Whole Leg Joint 2 kg
+    Scotch Rack of Lamb 450 g
+    M&S Collection Scotch Sirloin of Beef Joint 1.4 kg
+    Scotch Beef Mince 12% Fat 750 g
+    Scotch Beef Topside Joint 600 g
+    Scotch Beef Topside Joint 1.1 kg
+    Scotch Beef Meatballs 300 g
+    Scotch Beef Mini Meatballs 240 g
+    Scotch Aberdeen Angus Mince 12% Fat 500 g
+    Scotch Aberdeen Angus Mince 5% Fat 500 g
+    Scotch Aberdeen Angus Ribeye Steak 190 g
+    Scotch Beef Mince 12% Fat 500 g
+    Scotch Beef Mince 20% Fat 500 g
+    Scotch Beef Mince 5% Fat 500 g
+    Scotch Beef Ribeye Steak 225 g
+    Scotch Beef Rump Steak 225 g
+    Scotch Beef Sirloin Steak 227 g
+    Scotch Beef South American-Style Rump Steak 180 g
+    Scotch Beef Thick Cut Ribeye Steak 380 g
+    Scotch Diced Beef 500 g
+    Scotch Lamb's Liver 350 g
+    M&S Collection British Prime Venison Loin Steak with Red Wine Sauce 220 g
+    Scotch Steak Link Sausages 300 g
+    M&S Collection Outdoor Bred British Pork with Apple and Cider Glaze 100 g
+    Mediterranean Butterflied Sea Bass 391 g
+    Mediterranean Sea Bass Fillets 215 g
+    Roast in the Bag Butterflied Sea Bass 365 g
+    Mediterranean Skin On and Boneless Sea Bass Fillets 360 g
+    Mediterranean Two Whole Sea Bass 520 g
+    Mediterranean Sea Bass Fillets 180 g
+    Lemon, Garlic and Herb Mediterranean Sea Bass Fillets 222 g
+    2 Beer Battered Cod Filets 380 g
+    Crispy Beer Battered Haddock Fillets 380 g
+    Pulled Beef and Stout Yorkshire Puddings 168 g
+    Cumberland Scotch Egg 120 g
+    2 Pork Scotch Eggs 227 g
+    Ginger Beer 500 ml
+    Luxury Sherry Trifle 150 g
+    Gastropub Tender and Hearty British Pork in Somerset Cider 560 g
+    Count on Us Chicken in Mushroom and Red Wine Sauce 400 g
+    M&S Collection Beef Shin and Chianti Tortelloni 250 g
+    Gastropub Beer Battered Scottish Haddock 640 g
+    Chicken in Red Wine Sauce 400 g
+    Gastropub Steak and Old Peculiar Ale Pie 250 g
+    Gastropub Runny Scotch Eggs 254 g
+    Classic Steak and Ale Puff Pastry Pie 200 g
+    Daylesford for M&S Organic Apple Cider Vinegar 375 ml
+    Chocolate Liqueurs Selection 155 g
+    The Marksologist Margarita Salt 45 g
+    M&S Collection Apricots in Amaretto 580 g
+    M&S Collection British Strawberry and Champagne Preserve 235 g
+    M&S Collection Scottish Malt Whisky Marmalade 235 g
+    Brandy Soaked Mixed Fruit 500 g
+    M&S Collection Brandy and Clementine Mincemeat 510 g
+    M&S Collection Cranberry and Port Sauce 215 g
+    Belgian Marc de Champagne Chocolate Hearts 118 g
+    Scotch Broth 400 g
+    Outrageously Chocolatey Blond Chocolate Coated Bourbon Creams 191 g
+    Oxtail Soup with Red Wine 400 g
+    Beef in Red Wine Gravy 400 g
+    M&S Collection Italian Tomato and Vodka Pasta Sauce 280 g
+    Giant Bourbon Biscuits 240 g
+    Daylesford Organic Plum and Port Chutney 220 g
+    Sherry Vinegar Vinagre de Jerez 250 ml
+    Outrageously Chocolatey Milk Chocolate Coated Bourbon Creams 191 g
+    Raspberry Flavoured Red Wine Vinegar 250 ml
+    M&S Collection Marc De Champagne Truffles 125 g
+    Brandy Snaps 100 g
+    M&S Collection Blood Orange and Orange Liqueur Marmalade 235 g
+    Wine Gums 225 g
+    Reduced Sugar Wine Gums 175 g
+    Extra Cream Bourbon Creams 165 g
+    White Wine, Garlic and Herb Flavour Pots 96 g
+    M&S Collection British Ale and Caramelised Onion Chutney 230 g
+    Organic Raw Apple Cider Vinegar 250 ml
+    Red Wine Flavour Pots 96 g
+    Apple Cider Vinegar 500 ml
+    Shaoxing Rice Wine 150 ml
+    Red Wine Vinegar 500 ml
+    White Wine Vinegar 500 ml
+    Irish Cream Liqueurs 125 g
+    Cherry Liqueurs 250 g
+    Bramley Apple and Cider Sauce 200 g
+    Balloon Iced Madeira Cake 920 g
+    Iced All Butter Classic Madeira Cake 310 g
+    All Butter Cherry Madeira Cake 300 g
+    All Butter Madeira Cake 280 g
+    6 Scotch Pancakes 190 g
+    4 Sea Bass Fillets with Roasted Garlic and Lemon Butter 420 g
+    Beer Battered Haddock 355 g
+    Beer Battered Cod 360 g
+    Beer Battered Cod Bites 380 g
+    Beer Battered Onion Rings 350 g
+    Diet Ginger Beer 1 l
+    Pressed Merlot Grape Juice 1 l
+    Light Ginger Ale 500 ml
+    Fiery Ginger Beer 750 ml
+
+names with a leftover '<', ';' or '&amp;': 0
+
+names over 100 characters: 1
+    M&S Collection Italian Cotto Ham with Sauteed Portobello Mushrooms and Italian Mascarpone Pizza 497 g
+
+picture ids shared by 2 or more products (look at these): 0
+
+brands as the tiles print them (top 40):
+   4608  (none)
+    583  M&S Collection
+    132  Organic
+    111  Made Without
+     77  Plant Kitchen
+     65  High Protein
+     50  Daylesford
+     47  Gastropub
+     35  ONLY … INGREDIENTS
+     33  Count on Us
+     31  Slow Cooked
+     28  Our Best Ever
+     28  Colin the Caterpillar
+     26  Taste Buds
+     22  Percy Pig
+     19  Good Gut
+     17  Nutrient Dense
+     15  Taste of Asia
+     10  Brain Food
+      4  G Spot
+      4  The Marksologist
+      3  Sandro Desii
+      2  PLAYin CHOC
+      2  YAY! Mushrooms
+      1  The Rolling Cheese Co
+      1  Fromagerie Jacquin
+      1  Made Without Wheat

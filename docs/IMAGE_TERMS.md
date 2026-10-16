@@ -51,9 +51,42 @@ the clause quoted below (Co-op has no list: it blocks even from a UK VPN; Ocado'
 - **iceland** (terms 3.2): "you must not otherwise copy, reproduce, transmit, publish, display, distribute, commercially exploit, use or create derivative works of
   any material data and content on our website without our prior written [permission]". No clause on bots. Photos load from assets.iceland.co.uk (no robots.txt);
   links open the product's own page (/p/x/<id>.html).
-- **marks-and-spencer**: "You may not, without our prior written consent, copy, reproduce, crawl, frame, republish, download ... the web pages or materials on the
-  Website ..." and "You may not use the content of the Website for any commercial purposes whatsoever." Only 291 groceries (M&S sells food online only as
-  food-to-order, gifts and Christmas food; its flower gifts are left out). Photos load from assets.digitalcontent.marksandspencer.app; links open M&S's own search.
+- **marks-and-spencer**: "You may not, without our prior written consent, copy, reproduce, crawl, frame, republish, download, print, post, distribute, re-post,
+  broadcast, record, transmit, edit, communicate to the public, link to, deep-link into, or distribute in any way the web pages or materials on the Website or the
+  computer codes or elements comprising the Website other than solely for your own personal or internal business use." and "You may not use the content of the
+  Website for any commercial purposes whatsoever." (Website Terms, Part B, "Your use of this website"; read 2026-10-08 and again 2026-10-16.) The founder's accepted risk
+  covers this: 2026-10-11 (all nine shops), 2026-10-14 ("keep") and **2026-10-16 ("M&S definetly has more products add the rest of them please")**.
+  *Priced lists (2026-10-11):* the 194 food-to-order, gift and Christmas products that carry a price (the 11 flower-and-treat gifts are left out); their links open M&S's own search.
+  *Everyday food range, "M&S Food Catalogue" / Foodhall (2026-10-16):* **5,947 more products** (5,949 read and written, 2 dropped by the builder's rules: a pack of coffee filter
+  papers and a rosé-flavoured kombucha), each with its name, its pack size where M&S prints one (not for things sold by the piece, such as a pain aux raisins), M&S's own picture and
+  a link to **its own page on marksandspencer.com** (the page names "deep-link into" above; it is part of the accepted risk), shown as **"Price in store"**. M&S's aisle pages list no
+  price for these products (every price field of every aisle tile is empty) and its product pages ask the visitor to "Select your store"; what the site shows once a store is chosen
+  was not looked at, so the app says only that M&S lists no price. None is shown or estimated, and no barcode, nutrition or allergen is read. Source: each aisle's own page,
+  https://www.marksandspencer.com/food/l/<aisle> and ?page=N (96 products a page; robots.txt allows both: it disallows /*pgNumber, /*prefn1, /*prefv1, /*srule=, /*productId=,
+  /*quickView=, search paths, colon paths and offers, none of which was used), read by `tools/groceries/mns_food_listing.py` at one request a second, one at a time, the page's
+  embedded JSON only (no page copies kept), with a stop on any 401/403/429/5xx, challenge page or page that fails its checks.
+  **Complete: all 20 aisles read in full, each "collected X of X" of the total its page printed** (`data/groceries/listing/marks-and-spencer-food-coverage.csv`): Meat Alternatives,
+  Fruit & Vegetables, Meat, Poultry, Cured & Ready to Eat Meats, Fish & Seafood, Dairy, Eggs, Deli, Food on the Move, Chilled Desserts, Ready to Cook, Food Cupboard, Bakery & Cakes,
+  Frozen Food, Hot Drinks, Soft Drinks, Kids' Food & Snacks, Picky Bits and Halloween Food. (A first run, in the morning, stopped by its own page check on Bakery & Cakes page 3: three
+  tiles with no pack size were taken for a change of format. That was a fault in the check, not a refusal by M&S; the check was corrected and the run resumed the same day.)
+  *Requests made (aisle pages):* 64 in the first run (63 read, 1 stopped on) and 17 in the resumed run = 81 page requests for 80 pages, plus one robots.txt read per run.
+  *Not crawled* (no product kept from them; no alcohol, groceries only): Drinks as a whole, Alcoholic Drinks, Wine, Household, Pet Supplies, Baby Changing, Christmas Groceries In Store,
+  New In, Home of Health, Remarksable Value, Food brands, Home of Dine In and the gift lists. *Scouting before the crawler was written* (`data/groceries/listing/raw/marks-and-spencer-food_categories.txt`,
+  "47 polite requests" by the scout's own header, one a second, robots.txt checked): the first page of the 14 food aisles, Drinks, Hot Drinks, Soft Drinks, Alcoholic Drinks, Kids and
+  Kids' Food & Snacks, Household, Pet Supplies, Picky Bits, Halloween Food and Christmas Groceries In Store was read once each, only for the total each prints and to judge whether the aisle
+  belongs (nothing from the alcohol, household, pet or Christmas pages was kept; Wine and Baby Changing were not fetched). The crawler itself fetches no sitemap and no product page. Outside
+  the crawler, the planning step read robots.txt and the sitemap index once each, and a handful of single reads (product pages, an aisle page and M&S's own page script, each
+  robots.txt-checked, at most one a second) were made while the work was reviewed; that is where the "Select your store" wording was seen again (the 2026-10-08 notes quote it too).
+  These reads are not counted above.
+  3 alcoholic drinks that sat in the Ready to Cook aisle and 3 cocktails in Picky Bits are left out by hand (`data/groceries/listing/marks-and-spencer-food-exclude.csv`).
+  Photos load from assets.digitalcontent.marksandspencer.app at 400 px (resized there, never cropped; its robots.txt has no rules), not stored. Random sets were looked at on contact sheets:
+  108 from the first 5,123 rows and 36 from the 824 added after the crawl was finished (Bakery & Cakes, Frozen Food, Hot Drinks, Soft Drinks, Kids' Food & Snacks, Picky Bits); every one showed
+  the product named (3 of the 36 are wide, thin pictures of a box of coffee pods, which are the product but small in a square tile).
+  **Links:** the 5,947 rows of the everyday range open the product's own page; the 194 priced rows still open M&S's search.
+  **Take-down:** add `shop:marks-and-spencer` to `web/public/logos/hidden.json` and deploy: M&S's logo and every M&S picture disappear without an app update (the crawler also
+  refuses to run while it is listed). That does **not** hide the product names, prices or links: to take the whole list down the day M&S asks, remove `marks-and-spencer` from
+  `PUBLISH` in `tools/groceries/build_all_products.py`, delete `web/public/groceries/all/marks-and-spencer.json` and its entry in `all-manifest.json`, and deploy; the iPhone app
+  keeps its packed copy until its next release.
 
 Same use as the restaurant photos (the shop's own photo of the exact product, resized only; founder's go-ahead 2026-10-08). Nothing here is legal advice.
 - **tesco** https://www.tesco.com/shop/en-GB/zone/general-terms-and-conditions: "The content of the Site is protected by copyright, trade marks, database and other intellectual property rights. You may retrieve and display the content of the Site on a computer screen, store such content in electronic form on disk (but not any server or other storage device connected to a network) or print one copy of such content for your own personal, non-commercial use ... You may not otherwise reproduce, modify, copy or distribute or use fo[r commercial purposes]" and "Prohibited automated access: you must not use any automated system, software, or process (including bots, crawlers, scrapers, or AI tools) to access, extract, or collect data from this Site for any purpose without our prior written consent." **This also covers the price collection, not only photos.** robots.txt (read in the browser): no rule against product pages or images. Image host digitalcontent.api.tesco.com answers 403 to scripts for /robots.txt (and in a browser): the shared helper treats that as "do not fetch", so Tesco photos are NOT downloaded (the host does serve the photo itself, HTTP 200 with `access-control-allow-origin: *`); the founder decides.
