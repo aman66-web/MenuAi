@@ -59,6 +59,10 @@ await step("recipes list: picked for you, 100 recipes priced at Sainsbury's, 24 
   await page.getByRole("heading", { name: /All recipes · 100/ }).waitFor();
   await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
   expect((await cards.count()) === 24, `24 shown first, got ${await cards.count()}`);
+  // every card shows calories, protein, carbs and fat as four chips (founder 2026-10-16: "Add the fats and carbs to each of the recipes also")
+  const cardText = await cards.evaluateAll((els) => els.map((el) => el.textContent ?? ""));
+  const noFour = cardText.filter((s) => !(/\d\s*kcal/.test(s) && /\d+g\s*protein/.test(s) && /\d+g\s*carbs/.test(s) && /\d+g\s*fat/.test(s)));
+  expect(noFour.length === 0, `${noFour.length} of 24 cards lack kcal, protein, carbs or fat: ${noFour[0] ?? ""}`);
   await page.getByRole("button", { name: "Show more recipes (76 more)" }).click();
   expect((await cards.count()) === 48, `48 after Show more, got ${await cards.count()}`);
   const tiles = page.getByRole("group", { name: "Filters" });

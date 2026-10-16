@@ -123,8 +123,8 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true, s
   const saved = savedList.some((s) => s.id === recipe.id);
   const canSave = saveable && !recipe.ai; // Pip's recipes are already kept on this phone
   const price = totals.costPerServing !== null ? formatPrice(totals.costPerServing) : null;
-  // a grey chip with a medium figure and a grey unit, like the reference's "407 CAL · 32g PROTEIN"; tight enough that both sit on one line
-  // in a two-column grid on a phone (they wrap only when a language's word is long)
+  // a grey chip with a medium figure and a grey unit, like the reference's "407 CAL · 32g PROTEIN"; calories and protein come first, then carbs and
+  // fat (founder 2026-10-16: "Add the fats and carbs to each of the recipes also"). They wrap onto a second line in a two-column grid on a phone.
   const chip = "inline-flex items-baseline gap-[0.25em] whitespace-nowrap rounded-md bg-[var(--fill)] px-1.5 py-[0.1875rem]";
   return (
     // a container, so a card shown one to a row (large text) gets a lower picture instead of a tall block of colour
@@ -137,6 +137,8 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true, s
           <span className={`app-numbers mt-2 flex flex-wrap gap-1 ${wide ? "text-[0.8125rem]" : "text-xs"}`}>
             <span className={chip}><span className="font-semibold">{formatInt(totals.perServing.kcal)}</span><span className="text-muted">kcal</span></span>
             <span className={chip}><span className="font-semibold">{Math.round(totals.perServing.protein)}g</span><span className="text-muted">{t("protein")}</span></span>
+            <span className={chip}><span className="font-semibold">{Math.round(totals.perServing.carbs)}g</span><span className="text-muted">{t("carbs")}</span></span>
+            <span className={chip}><span className="font-semibold">{Math.round(totals.perServing.fat)}g</span><span className="text-muted">{t("fat")}</span></span>
           </span>
           <span className="app-numbers mt-auto flex flex-wrap items-baseline gap-x-1.5 pt-2.5 text-[0.8125rem] text-muted">
             {price && <><span><span className="font-semibold text-foreground">{price}</span> {t("a serving")}</span><span aria-hidden>·</span></>}

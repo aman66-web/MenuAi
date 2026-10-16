@@ -1715,6 +1715,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     back; a device that takes the account's settings now lets go of those too (`OPTIONAL_SYNCED_KEYS` in `lib/mm/syncStores.ts`, test in `tests/syncEngine.test.ts`).
   - **Add food test:** its "no toast" check now looks for an "Added …" status only (Home now has a water status line too).
 
+- 2026-10-16 — **Recipe cards show carbs and fat too** (founder, on a "Picked for you" card: "Add the fats and carbs to each of the recipes also"). Every recipe tile (Recipes, "Picked for
+  you", My meals, onboarding's first-recipe choice) now has four grey chips: calories and protein first, then carbs and fat, each the per-serving figure the recipe page shows (summed from the
+  shop's own labels, rounded to whole grams). They wrap onto a second line on a phone's two-column grid (and one a line in Arabic); no sideways overflow at 360/390 px, Extra large text or Arabic.
+  **No new copy** ("carbs" and "fat" already existed and are translated). Checked: `e2e/recipes.mjs` 14 (new: all 24 first cards show kcal, protein, carbs and fat), eslint; screenshots at 390 px, 360 px,
+  Extra large text and Arabic.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
