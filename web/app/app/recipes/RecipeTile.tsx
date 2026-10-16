@@ -4,7 +4,7 @@ import Link from "next/link";
 import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
 import { formatPrice } from "@/lib/mm/groceries";
 import { formatInt } from "@/lib/mm/format";
-import { MEAL_TYPES, type MealType } from "@/lib/mm/recipes";
+import type { MealType } from "@/lib/mm/recipes";
 import { savedRecipesStore, toggleSavedRecipe } from "@/lib/mm/stores";
 import { AppleIcon, EggGlyph, FishGlyph, HeartIcon, MoonIcon, NoodleGlyph, OatsGlyph, PastaGlyph, PotIcon, RiceBowlGlyph, SaladGlyph, SandwichIcon, SunriseIcon, TacoGlyph, TrayGlyph } from "../_components/icons";
 import { useStore } from "../_lib/hooks";
@@ -50,37 +50,32 @@ const ART = [
 ];
 const artOf = (id: string) => ART[[...id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % ART.length]!;
 
-// A small label on a picture (the meal, or "AI illustration"): spaced capitals like the small labels in Home's cards, never below 11 px.
-// It sits in the picture's top row opposite the heart, centred on the heart's circle, and stops short of it (a long translation wraps
-// onto a second line instead of running under the heart: the 12 px corners keep one line a pill and two lines a soft box).
-const PICTURE_LABEL = "absolute start-3 top-4 max-w-[calc(100%-4rem)] rounded-xl px-2.5 py-1 text-[0.6875rem] font-semibold uppercase leading-[1.1] tracking-[0.08em]";
+// The calories sit in the picture's top-left corner (founder 2026-10-16: "Instead have calories where the red is here", where the meal's label used to
+// be): a white pill, centred on the heart's circle opposite it. The caption of an AI illustration (CLAUDE.md rule 2) is a small label at the picture's
+// bottom-left, spaced capitals like the small labels in Home's cards, never below 11 px.
+const KCAL_PILL = "absolute start-3 top-[11px] inline-flex items-baseline gap-[0.25em] whitespace-nowrap rounded-full bg-white/90 px-3 py-1 text-[0.9375rem] font-bold leading-[1.3] text-[#0b1a12]";
+const PICTURE_LABEL = "absolute start-3 bottom-3 max-w-[calc(100%-1.5rem)] rounded-xl px-2.5 py-1 text-[0.6875rem] font-semibold uppercase leading-[1.1] tracking-[0.08em]";
 
-/** The picture area: the recipe's AI illustration, or a plate with a drawing of the kind of dish. The meal's label is left out of the wide
- *  cards ("Picked for you": the section already names the meal) and wherever the list is already one meal (`showMeal={false}`). */
-function RecipeArt({ id, name, meal, wide, showMeal }: { id: string; name: string; meal: MealType | undefined; wide: boolean; showMeal: boolean }) {
+/** The picture area: the recipe's AI illustration, or a plate with a drawing of the kind of dish (the calories pill is drawn over it by RecipeTile). */
+function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: MealType | undefined; wide: boolean }) {
   const t = useT();
   const image = RECIPE_IMAGES[id];
   const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
-  const mealLabel = showMeal && !wide ? MEAL_TYPES.find((m) => m.value === meal)?.label : undefined;
   return (
     <span className={`relative block overflow-hidden ${wide ? "aspect-[16/10]" : "aspect-[4/3] @[14rem]:aspect-[2/1]"}`}>
       {image ? (
         // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it
         <img src={image} alt="" loading="lazy" decoding="async" width={800} height={600} className="h-full w-full object-cover" />
       ) : (
-        // with a label in the top row, the plate is centred in the space under it, so the two never meet
-        <span aria-hidden className={`flex h-full w-full items-center justify-center ${mealLabel ? "pt-8" : ""} ${artOf(id)}`}>
+        // the calories pill sits in the top row, so the plate is centred in the space under it and the two never meet
+        <span aria-hidden className={`flex h-full w-full items-center justify-center pt-7 ${artOf(id)}`}>
           <span className={`grid place-items-center rounded-full bg-white/85 text-[#0b1a12] shadow-[0_8px_20px_-12px_rgba(0,0,0,0.35),inset_0_0_0_5px_rgba(255,255,255,0.65)] ${wide ? "h-24 w-24" : "h-14 w-14"}`}>
             <Dish className={wide ? "h-12 w-12" : "h-8 w-8"} strokeWidth={1.6} />
           </span>
         </span>
       )}
-      {image ? (
-        <span className={`${PICTURE_LABEL} bg-black/60 text-white`}>{t("AI illustration")}</span>
-      ) : mealLabel ? (
-        <span aria-hidden className={`${PICTURE_LABEL} bg-white/85 text-[#0b1a12]`}>{t(mealLabel)}</span>
-      ) : null}
+      {image && <span className={`${PICTURE_LABEL} bg-black/60 text-white`}>{t("AI illustration")}</span>}
     </span>
   );
 }
@@ -114,7 +109,7 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
   );
 }
 
-export function RecipeTile({ card, href, badge, wide = false, saveable = true, showMeal = true, onOpen }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; showMeal?: boolean; onOpen?: React.MouseEventHandler<HTMLAnchorElement> }) {
+export function RecipeTile({ card, href, badge, wide = false, saveable = true, onOpen }: { card: RecipeCard; href: string; badge?: string; wide?: boolean; saveable?: boolean; onOpen?: React.MouseEventHandler<HTMLAnchorElement> }) {
   const t = useT();
   const savedList = useStore(savedRecipesStore);
   const { recipe, totals } = card;
@@ -123,19 +118,21 @@ export function RecipeTile({ card, href, badge, wide = false, saveable = true, s
   const saved = savedList.some((s) => s.id === recipe.id);
   const canSave = saveable && !recipe.ai; // Pip's recipes are already kept on this phone
   const price = totals.costPerServing !== null ? formatPrice(totals.costPerServing) : null;
-  // a grey chip with a medium figure and a grey unit, like the reference's "407 CAL · 32g PROTEIN"; calories and protein come first, then carbs and
-  // fat (founder 2026-10-16: "Add the fats and carbs to each of the recipes also"). They wrap onto a second line in a two-column grid on a phone.
+  // a grey chip with a medium figure and a grey unit, like the reference's "407 CAL · 32g PROTEIN": protein, carbs and fat under the name (founder
+  // 2026-10-16: "Add the fats and carbs to each of the recipes also", then "calories where the red is ... below the title the protein, fats and carbs");
+  // the calories are the pill in the picture's corner. They wrap onto a second line in a two-column grid on a phone.
   const chip = "inline-flex items-baseline gap-[0.25em] whitespace-nowrap rounded-md bg-[var(--fill)] px-1.5 py-[0.1875rem]";
   return (
     // a container, so a card shown one to a row (large text) gets a lower picture instead of a tall block of colour
     <div className="glass lift @container relative flex h-full min-w-0 flex-col overflow-hidden rounded-[1.25rem] border-0">
       <Link href={href} prefetch={false} onClick={onOpen} className="flex flex-1 flex-col rounded-[1.25rem] focus-visible:outline-offset-[-3px]">
-        <RecipeArt id={recipe.id} name={recipe.name} meal={recipe.meal} wide={wide} showMeal={showMeal} />
+        <RecipeArt id={recipe.id} name={recipe.name} meal={recipe.meal} wide={wide} />
         <span className={`flex flex-1 flex-col ${wide ? "px-4 pb-4 pt-3.5" : "px-3 pb-3.5 pt-3"}`}>
           {badge && <span className="mb-1.5 inline-block self-start rounded-full bg-[var(--fill)] px-2.5 py-1 text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.08em] text-muted">{badge}</span>}
           <span className={`line-clamp-2 leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] ${wide ? "text-lg font-extrabold" : "text-[0.9375rem] font-extrabold"}`}>{rt(recipe.name)}</span>
+          {/* after the name in the markup, so a screen reader hears "name, calories, protein ...", but drawn over the picture's top-left corner (the card is the positioned parent) */}
+          <span className={`app-numbers ${KCAL_PILL}`}>{formatInt(totals.perServing.kcal)}<span className="text-[0.75rem] font-semibold opacity-70">kcal</span></span>
           <span className={`app-numbers mt-2 flex flex-wrap gap-1 ${wide ? "text-[0.8125rem]" : "text-xs"}`}>
-            <span className={chip}><span className="font-semibold">{formatInt(totals.perServing.kcal)}</span><span className="text-muted">kcal</span></span>
             <span className={chip}><span className="font-semibold">{Math.round(totals.perServing.protein)}g</span><span className="text-muted">{t("protein")}</span></span>
             <span className={chip}><span className="font-semibold">{Math.round(totals.perServing.carbs)}g</span><span className="text-muted">{t("carbs")}</span></span>
             <span className={chip}><span className="font-semibold">{Math.round(totals.perServing.fat)}g</span><span className="text-muted">{t("fat")}</span></span>

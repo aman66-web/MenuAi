@@ -285,7 +285,7 @@ function RecipesScreen() {
               {filtering && <button type="button" onClick={clearAll} className="inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-bold text-accent hover:bg-accent-soft">{t("Clear")}</button>}
             </div>
             <ul className={`stagger grid ${filtering ? "mt-1" : "mt-4"} grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3`}>
-              {shown.slice(0, limit).map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={href(c)} showMeal={!meal} /></li>))}
+              {shown.slice(0, limit).map((c) => (<li key={c.recipe.id} className="min-w-0"><RecipeTile card={c} href={href(c)} /></li>))}
             </ul>
             {shown.length > limit && (
               <div className="mt-4"><Button full variant="secondary" className="min-h-12" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>

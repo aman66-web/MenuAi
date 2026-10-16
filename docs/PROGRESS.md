@@ -1739,6 +1739,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     "Nothing was logged on this day.", "These totals use your current targets.". Checked: `e2e/days.mjs` 9 (header, calendar, picking a day, the week circles, flipping days, bad dates, delete and Undo on a past day, empty log, 360 px /
     Extra large / Arabic, axe 0 with the sheet open), 818 unit tests, tsc, eslint; screenshots at 390 px, Extra large text and Arabic.
 
+- 2026-10-16 — **Recipe cards: calories in the picture's corner, protein, carbs and fat under the name** (founder, on a card with "DINNER" circled: "Instead have calories where the red is here. Then below the
+  title the protein fats and carbs. That should be enough space for everything now"). Every recipe card (Recipes, "Picked for you", My meals, onboarding's first-recipe choice) now shows the calories as a white pill
+  in the picture's top-left corner (where the meal's label was; opposite the heart, mirrored in Arabic and Urdu) and **protein, carbs and fat** as three grey chips under the name (the app's usual order, as on Home).
+  The meal's label ("DINNER") is gone from cards (the meal is still on the recipe page, in the meal tiles and in "Picked for you"'s heading); the "AI illustration" caption moved to the picture's bottom-left.
+  In the markup the calories pill follows the name, so a screen reader hears "name, calories, protein ..." even though it is drawn over the picture. Where three chips don't fit on one line (a two-column phone grid) fat wraps
+  to a second line; at Extra large text and in Arabic the chips stack, no sideways overflow at 360/390 px. **No new copy.** Checked: `e2e/recipes.mjs` 14 (incl. axe), tsc, eslint; screenshots at 390 px, 360 px, Extra large and Arabic.
+  **Why the founder's phone still showed calories and protein only:** the carbs-and-fat chips were already live on numbite.com; the installed iPhone app carries its own packed copy of the website and shows screen changes only after it is rebuilt on the Mac (docs/APP_BUILD.md).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
