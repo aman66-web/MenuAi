@@ -29,7 +29,9 @@ type Glyph = (p: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 // own icon when none fits) on one of six flat pastel colours chosen by the recipe's id, so a list of a hundred doesn't look like one card
 // repeated (flat, no gradients: founder 2026-10-15).
 const DISH: ReadonlyArray<[RegExp, Glyph]> = [
-  [/noodle|pad thai|stir-fry/i, NoodleGlyph],
+  [/noodle|chow mein|pad thai|stir-fry/i, NoodleGlyph],
+  [/kebab|skewer/i, TrayGlyph], // before "yogurt" and "salad": a kebab with a yogurt dressing is not a bowl of oats
+  [/chicken and rice bowl/i, RiceBowlGlyph], // likewise ("with yogurt")
   [/pasta|spaghetti|linguine|macaroni|gnocchi|bolognese|carbonara|meatball/i, PastaGlyph],
   [/wrap|burrito|fajita|quesadilla|roll-up/i, TacoGlyph],
   [/egg|omelette|shakshuka|huevos|scramble/i, EggGlyph],

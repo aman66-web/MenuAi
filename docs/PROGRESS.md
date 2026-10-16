@@ -1914,6 +1914,54 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Checked:** 28 unit tests for `onboardingPlan` (incl. six unit switches in a row), the targets and body-unit suites, `e2e/onboarding-body.mjs` 24 steps (the order, the two example people, unit switches, Skip and Back in every direction, under 18, invalid answers, every note, the privacy search, Settings' form giving the same numbers, 360 px / Extra large / Arabic with no overflow and 44 px targets, axe 0), smoke 23, extra 13,
     sharelist 11, account 8, languages 5, a11y 0 violations, large text. **Not run:** the packed iPhone app (`app-build.mjs`), a production build, a real iPhone keyboard (the number pad has no Return key: the Done pill is the way to put it away).
 
+- 2026-10-16 — **Recipes: Cuisine and Occasion filters, eight new recipes, and Midjourney prompts for every picture** (founder: filters for cuisines such as
+  Chinese and Indian and for occasions such as a picnic, party food, a lunchbox, a summer barbecue and Bonfire Night, with "no label on the cards"; then
+  "use Midjourney to make images for them ... a prompt for every recipe ... from a bird's-eye view").
+  - **Where:** Recipes, two plain drop-downs directly under the tile grid and above More: **Cuisine** (first option "Any cuisine") and **Occasion**
+    (first option "Any occasion"). Native pickers, one choice each, options listed alphabetically with the number of recipes in them ("Chinese · 9"). They
+    combine with each other (AND) and with the meal tiles, search, and the person's diet and allergies; an option that would show nothing is greyed (the
+    chosen one never is). The choice lives in the address (`?cuisine=chinese&occasion=picnic`, written with `router.replace`, so no history entries and Back
+    from a recipe returns to the same list); "Clear" and "Show all recipes" reset both; "Picked for you" and "Cook with what's on your list" step aside while
+    one is chosen (as they do for a search). The recipe search also finds recipes by these words ("chinese", "bbq", "picnic", "packed lunch", "party",
+    "buffet", "guy fawkes"...). **Nothing is printed on any card.** A screen reader hears one live line with the count ("9 recipes match" / "No recipes
+    match.").
+  - **Which recipes:** kept in two flat tables (`lib/mm/recipeBook/niches.ts`: `CUISINE_LINES`, `OCCASION_LINES`; the recipes' old cuisine tags are
+    untouched and a test ties them together). A recipe is filed only where its name or ingredients plainly make it that kind of food (judgement calls to
+    confirm are below). A cuisine or occasion with fewer than 3 recipes in the book hides itself. Counts on 16 October: British 9, Chinese 9, Indian 9, Italian
+    13, Mexican 11, Middle Eastern 8; Bonfire Night 6, Lunchbox 14, Party food 8, Picnic 14, Summer barbecue 8. **Bonfire Night is offered only 15 October
+    to 10 November** (by the date on the phone, decided once when the page opens), so it is not on the list at the January 2027 launch. No Christmas yet
+    (below). Thai, Japanese, Greek and the other cuisines with fewer than 3 recipes are not offered.
+  - **Eight new recipes** (everyday ingredients only; the book is now **108**): Egg chow mein with vegetables, Egg and tomato stir-fry with rice,
+    Chinese-style chicken curry with rice and peas, Chicken and mushroom noodle soup, Spiced chicken and rice bowl with yogurt, Chickpea and spinach stew with
+    eggs, Chicken and pepper kebabs with yogurt dressing, Barbecue chicken thigh skewers with corn salad. Every figure is worked out by the app from
+    Sainsbury's labels as for the other recipes (no number was typed by hand). Both skewer recipes say what to do without skewers. 55 recipes have no meat or
+    fish, 24 are vegan, 96 suit halal. Our own wording (rule 8): "Chinese-style" because the curry is a British takeaway dish; no "authentic" claim anywhere.
+    The old "Chicken chow mein" card now shows the noodle drawing instead of the meal icon.
+  - **Review (five lenses, 15 findings, 0 blocker or major) and what was done:** removed five loose tags (Chicken, rice and soy bowl and Tuna and bean
+    salad were not specific to a cuisine; "BBQ chicken and pepper wraps" are pan-cooked), added the cold salads that sit beside a barbecue and the meat-free
+    cottage pie so a vegetarian still sees every occasion; the search word "asian" was dropped (it would have answered with a list that looked complete and
+    was not); the stew now uses whole tins and eggs; noodles that must be ready-to-wok no longer offer dried rice noodles as a swap; the season is decided
+    once per visit; a test fails any cuisine or occasion with no meat-free recipe.
+  - **Midjourney prompts:** `docs/RECIPE_IMAGE_PROMPTS.md` (rewritten from the book by `WRITE_PROMPTS=1 npx vitest run tests/recipeImages.test.ts`, run in `web/`) has
+    one prompt per recipe (108), every one a bird's-eye view straight down, light oak table, natural window light, with one shared style and the parameters
+    `--ar 4:3 --v 7 --style raw` and a `--no` list (text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam). How each dish looks from above
+    is in `web/lib/mm/recipeBook/looks.ts` (a test checks every recipe has one, 22 to 55 words, no brand or writing words). The file begins with a hand-over for
+    Claude in Chrome (or a person): paste each prompt exactly, pick the best of four against a seven-point checklist, save as `<recipe id>.png`, keep one look with
+    `--sref` from the first picture, stop on any CAPTCHA, login or warning. **Read first:** Midjourney's Community Guidelines say it has no API and that
+    **automating interactions with it is prohibited and can get an account blocked**; letting Claude in Chrome click through the site is such automation, so the
+    founder decides. The safe way is a person pasting the prompts. Then `python3 tools/recipes/import_recipe_images.py` makes the 800 x 600 WebP copies
+    (it now ignores the new cuisine and occasion tables; 108 recipes).
+  - **For the founder (rule 8):** (1) confirm or drop the tagging judgement calls, one line each in `niches.ts`: chilli, burritos, fajitas, quesadillas and huevos are all
+    filed Mexican although chilli con carne and burritos are Tex-Mex; "Coconut salmon curry" is Indian (curry paste) rather than Thai; "Spanish-style omelette" is a
+    Picnic although it is served warm; "Peanut butter oat bites" is Lunchbox and "Paprika roasted almonds" is Party food (both contain nuts, which some schools and
+    parties exclude; the app promises nothing about allergies); (2) Summer barbecue is offered all year: say if it should get a season (April to September);
+    (3) **Christmas** is not in the list: festive ingredients (cranberry sauce, chestnuts, sprouts) are outside the "everyday ingredients only" rule of 15 October; say if
+    November and December may break it (adding it later is one `OCCASIONS` entry plus recipes); (4) docs/STORE.md still says "100 recipes" (the draft is yours to approve);
+    (5) the website's recipe count and the 8 new pictures. **Not verified:** the packed iPhone export (`router.replace` on the static export is the same pattern My meals' tabs use),
+    a real iPhone's native picker, VoiceOver on the live line. New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not
+    yet by native speakers): "Cuisine", "Occasion", "Any cuisine", "Any occasion", "Try another cuisine, occasion, word or meal.", "Bonfire Night", "Lunchbox", "Party food",
+    "Picnic", "Summer barbecue", the 8 recipe names, blurbs and steps.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

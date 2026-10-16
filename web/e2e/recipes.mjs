@@ -1,4 +1,4 @@
-// Recipes from your shop: list (100 recipes: meal chips, search, paging), filters, sort, a recipe with swap, substitutes and "add all to my
+// Recipes from your shop: list (108 recipes: meal chips, search, paging), filters, sort, cuisine and occasion, a recipe with swap, substitutes and "add all to my
 // list", the list's price total, Home's four tiles, Pip's recipe maker switched off (free launch), axe.
 // Uses the real published Sainsbury's list (public/groceries/all/sainsburys.json); the shop's pictures are answered locally.
 // Run against a production build: BASE=http://localhost:3101 node e2e/recipes.mjs
@@ -47,7 +47,7 @@ await step("the tab bar opens Recipes; Home's My meals tile opens one page with 
   await ctx.close();
 });
 
-await step("recipes list: picked for you, 100 recipes priced at Sainsbury's, 24 at a time, meal tiles, search, filters, sort by price under More, save with the heart", async () => {
+await step("recipes list: picked for you, 108 recipes priced at Sainsbury's, 24 at a time, meal tiles, search, filters, sort by price under More, save with the heart", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes");
   await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
@@ -56,14 +56,14 @@ await step("recipes list: picked for you, 100 recipes priced at Sainsbury's, 24 
   expect((await picks.count()) === 8, `8 picked for you, got ${await picks.count()}`);
   const cards = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']");
   await cards.first().waitFor();
-  await page.getByRole("heading", { name: /All recipes · 100/ }).waitFor();
-  await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
+  await page.getByRole("heading", { name: /All recipes · 108/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: /^108 recipes$/ }).waitFor();
   expect((await cards.count()) === 24, `24 shown first, got ${await cards.count()}`);
   // every card shows calories, protein, carbs and fat as four chips (founder 2026-10-16: "Add the fats and carbs to each of the recipes also")
   const cardText = await cards.evaluateAll((els) => els.map((el) => el.textContent ?? ""));
   const noFour = cardText.filter((s) => !(/\d\s*kcal/.test(s) && /\d+g\s*protein/.test(s) && /\d+g\s*carbs/.test(s) && /\d+g\s*fat/.test(s)));
   expect(noFour.length === 0, `${noFour.length} of 24 cards lack kcal, protein, carbs or fat: ${noFour[0] ?? ""}`);
-  await page.getByRole("button", { name: "Show more recipes (76 more)" }).click();
+  await page.getByRole("button", { name: "Show more recipes (84 more)" }).click();
   expect((await cards.count()) === 48, `48 after Show more, got ${await cards.count()}`);
   const tiles = page.getByRole("group", { name: "Filters" });
   await tiles.getByRole("button", { name: "Snacks" }).click();
@@ -75,7 +75,7 @@ await step("recipes list: picked for you, 100 recipes priced at Sainsbury's, 24 
   const quick = Number(/^(\d+) recipes? match$/.exec((await page.getByRole("status").filter({ hasText: /match$/ }).innerText()).trim())?.[1]);
   expect(quick >= 1 && quick < 20, `quick breakfasts, got ${quick}`);
   await page.getByRole("button", { name: "Clear" }).click();
-  await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: /^108 recipes$/ }).waitFor();
   await tiles.getByRole("button", { name: "Vegan" }).click();
   const vegan = Number(/^(\d+) recipes match$/.exec((await page.getByRole("status").filter({ hasText: /match$/ }).innerText()).trim())?.[1]);
   expect(vegan >= 12 && vegan < 40, `vegan recipes, got ${vegan}`);
@@ -85,14 +85,14 @@ await step("recipes list: picked for you, 100 recipes priced at Sainsbury's, 24 
   const curries = await cards.count();
   expect(curries >= 5 && curries < 15, `a handful of curries, got ${curries}`);
   await page.getByLabel("Search recipes").fill("zzzz");
-  await page.getByText("No recipes match.").waitFor();
+  await page.getByText("No recipes match.").last().waitFor();
   await page.getByRole("button", { name: "Show all recipes" }).click();
-  await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: /^108 recipes$/ }).waitFor();
   await tiles.getByRole("button", { name: "No meat or fish" }).click();
   const m = Number(/^(\d+) recipes match$/.exec((await page.getByRole("status").filter({ hasText: /recipes match$/ }).innerText()).trim())?.[1]);
   expect(m >= 30 && m < 100, `30+ meat-free recipes, got ${m}`);
   await tiles.getByRole("button", { name: "No meat or fish" }).click();
-  await page.getByRole("status").filter({ hasText: /^100 recipes$/ }).waitFor();
+  await page.getByRole("status").filter({ hasText: /^108 recipes$/ }).waitFor();
   await tiles.getByRole("button", { name: "More" }).click();
   await page.getByRole("radio", { name: "Lowest price" }).click();
   await page.waitForTimeout(200);
@@ -442,6 +442,141 @@ await step("Pip's recipe maker is off: no card even when the server says it's on
   await ctx.close();
 });
 
+// founder 2026-10-16: "a way to customise by niche, for example for Christmas, or like Chinese cuisine or Indian": a Cuisine and an Occasion field under the
+// meal tiles. Every choice says how many recipes it would show; one that would show none is greyed out; the choice lives in the address; Clear resets it.
+await step("cuisine and occasion: two fields with counts, one tap to choose, AND with the tiles and the diet, kept in the address and by Back, bad addresses ignored, Clear", async () => {
+  const { ctx, page } = await newPage();
+  const status = () => page.getByRole("status").filter({ hasText: /recipes? match$/ });
+  const matchCount = async () => Number(/^(\d+) recipes? match$/.exec((await status().innerText()).trim())?.[1]);
+  const options = (name) => page.getByRole("combobox", { name }).locator("option");
+  const optionTexts = async (name) => (await options(name).allInnerTexts()).map((x) => x.trim());
+  const countOf = async (name, word) => Number(new RegExp(`^${word} · (\\d+)$`).exec((await optionTexts(name)).find((x) => x.startsWith(word)) ?? "")?.[1]);
+  const noSideways = async (where) => expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `${where}: no sideways scroll`);
+  await page.goto(BASE + "/app/recipes");
+  await page.getByRole("heading", { name: /All recipes · 108/ }).waitFor();
+  const cuisine = page.getByRole("combobox", { name: "Cuisine" });
+  const occasion = page.getByRole("combobox", { name: "Occasion" });
+  await cuisine.waitFor();
+  await occasion.waitFor();
+  // the fields sit under the meal tiles, above "Picked for you", and are full width
+  const boxes = await Promise.all([page.getByRole("group", { name: "Filters" }).boundingBox(), cuisine.locator("xpath=..").boundingBox(), occasion.locator("xpath=..").boundingBox(), page.getByRole("region", { name: "Picked for you" }).boundingBox()]);
+  expect(boxes.every(Boolean) && boxes[0].y + boxes[0].height <= boxes[1].y && boxes[1].y + boxes[1].height <= boxes[2].y && boxes[2].y + boxes[2].height <= boxes[3].y, `order: tiles, Cuisine, Occasion, Picked for you ${JSON.stringify(boxes.map((b) => b && Math.round(b.y)))}`);
+  expect(boxes[1].width > 300 && boxes[2].width > 300, "full-width fields");
+  await noSideways("fields");
+  const cuisines = await optionTexts("Cuisine");
+  expect(cuisines[0] === "Any cuisine", `first option Any cuisine, got ${cuisines[0]}`);
+  for (const w of ["British", "Chinese", "Indian", "Italian", "Mexican", "Middle Eastern"]) expect(cuisines.some((x) => new RegExp(`^${w} · \\d+$`).test(x)), `${w} with a count: ${cuisines.join(" | ")}`);
+  expect(cuisines.length === 7, `six cuisines and Any: ${cuisines.join(" | ")}`);
+  expect(cuisines.every((x) => !/Thai|Japanese|Greek|American|Christmas/.test(x)), "only the cuisines on offer");
+  const occasions = await optionTexts("Occasion");
+  expect(occasions[0] === "Any occasion", `first option Any occasion, got ${occasions[0]}`);
+  for (const w of ["Lunchbox", "Party food", "Picnic", "Summer barbecue"]) expect(occasions.some((x) => new RegExp(`^${w} · \\d+$`).test(x)), `${w} with a count: ${occasions.join(" | ")}`);
+  expect(occasions.every((x) => !/Christmas|Easter|Pancake|Sunday|Date night/.test(x)), "no Christmas, Easter, Pancake Day...");
+  // Bonfire Night is offered from 15 October to 10 November only
+  const nowD = new Date();
+  const bonfire = (nowD.getMonth() === 9 && nowD.getDate() >= 15) || (nowD.getMonth() === 10 && nowD.getDate() <= 10);
+  expect(occasions.some((x) => x.startsWith("Bonfire Night")) === bonfire, `Bonfire Night ${bonfire ? "is" : "is not"} offered today: ${occasions.join(" | ")}`);
+  const chinese = await countOf("Cuisine", "Chinese");
+  expect(chinese >= 8, `Chinese has plenty: ${chinese}`);
+  const historyBefore = await page.evaluate(() => history.length);
+  // choose Chinese: the count line says the same number, the picks go, the address says so, and no history entry is added
+  await cuisine.selectOption("chinese");
+  await status().waitFor();
+  expect((await matchCount()) === chinese, `${chinese} Chinese recipes, the count line says ${await matchCount()}`);
+  expect((await page.getByRole("region", { name: "Picked for you" }).count()) === 0, "picks hide while a cuisine is chosen");
+  await page.waitForURL((u) => u.searchParams.get("cuisine") === "chinese" && u.searchParams.get("r") === null);
+  expect((await page.evaluate(() => history.length)) === historyBefore, "choosing adds no history entry");
+  expect((await page.getByRole("link", { name: /Egg chow mein with vegetables/ }).count()) === 1, "a new Chinese recipe is in the list");
+  await noSideways("a cuisine chosen");
+  expect((await cuisine.evaluate((el) => el.options[el.selectedIndex].text.trim())) === `Chinese · ${chinese}`, "the field shows the choice and its count");
+  // the tiles narrow it further, and the counts follow: Dinner, then Snacks (no Chinese snack)
+  const tiles = page.getByRole("group", { name: "Filters" });
+  await tiles.getByRole("button", { name: "Dinner" }).click();
+  const dinner = await matchCount();
+  expect(dinner >= 4 && dinner < chinese, `Chinese dinners ${dinner} of ${chinese}`);
+  expect((await countOf("Cuisine", "Chinese")) === dinner, "the Chinese option follows the Dinner tile");
+  expect((await countOf("Cuisine", "Indian")) !== dinner, "other cuisines count the Dinner tile too");
+  await tiles.getByRole("button", { name: "Snacks" }).click();
+  await page.getByText("No recipes match.").last().waitFor();
+  await page.getByText("Try another cuisine, occasion, word or meal.").waitFor();
+  expect(!(await options("Cuisine").filter({ hasText: /^Chinese/ }).evaluate((el) => el.disabled)), "the chosen cuisine stays enabled so it can be undone");
+  expect(await options("Cuisine").filter({ hasText: /^Chinese/ }).evaluate((el) => el.selected), "and chosen");
+  expect(await options("Cuisine").filter({ hasText: /^Indian/ }).evaluate((el) => el.disabled), "a cuisine with no snack is greyed out");
+  expect((await options("Cuisine").filter({ hasText: /^Indian · 0$/ }).count()) === 1, "and says 0");
+  expect(await options("Occasion").filter({ hasText: /^Picnic · 0$/ }).evaluate((el) => el.disabled), "no Chinese recipe suits a picnic: greyed out");
+  await page.getByRole("button", { name: "Show all recipes" }).click();
+  await page.getByRole("status").filter({ hasText: /^108 recipes$/ }).waitFor();
+  await page.waitForURL((u) => u.search === "");
+  expect((await cuisine.inputValue()) === "", "Show all recipes clears the cuisine and the address");
+  // a bad address is read as no choice: an unknown name, a cuisine with too few recipes, an occasion that does not exist
+  for (const q of ["?cuisine=klingon&occasion=nope", "?cuisine=japanese", "?cuisine=thai&occasion=christmas", "?cuisine=chinese,indian"]) {
+    await page.goto(BASE + "/app/recipes" + q);
+    await page.getByRole("heading", { name: /All recipes · 108/ }).waitFor();
+    await page.getByRole("status").filter({ hasText: /^108 recipes$/ }).waitFor();
+    expect((await page.getByRole("combobox", { name: "Cuisine" }).inputValue()) === "" && (await page.getByRole("combobox", { name: "Occasion" }).inputValue()) === "", `${q}: no choice`);
+  }
+  // a link and a reload keep the choice; Back from a recipe comes back to the same choice
+  await page.goto(BASE + "/app/recipes?cuisine=indian");
+  await page.getByRole("heading", { name: /All recipes · 108/ }).waitFor();
+  await status().waitFor();
+  const indian = await matchCount();
+  expect(indian >= 8 && (await cuisine.inputValue()) === "indian", `?cuisine=indian: ${indian} Indian recipes chosen`);
+  expect((await countOf("Cuisine", "Indian")) === indian, "the option and the count line agree");
+  await page.reload();
+  await status().waitFor();
+  expect((await matchCount()) === indian && (await cuisine.inputValue()) === "indian", "kept after a reload");
+  const first = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']").first();
+  await first.click();
+  await page.waitForURL((u) => u.pathname.startsWith("/app/recipes/view"));
+  await page.getByRole("button", { name: /^Save to My meals/ }).waitFor();
+  await page.goBack();
+  await status().waitFor();
+  expect((await cuisine.inputValue()) === "indian" && (await matchCount()) === indian, "Back from a recipe finds Indian still chosen");
+  // the diet applies: for a vegan the Indian option counts fewer, and says what choosing it shows
+  await ctx.close();
+  const vegan = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, preferences: { ...baseSettings.preferences, veganOnly: true } } }));
+  await vegan.page.goto(BASE + "/app/recipes");
+  await vegan.page.getByRole("heading", { name: /All recipes · \d+/ }).waitFor();
+  const veganIndian = Number(new RegExp("^Indian · (\\d+)$").exec((await vegan.page.getByRole("combobox", { name: "Cuisine" }).locator("option").allInnerTexts()).map((x) => x.trim()).find((x) => x.startsWith("Indian")) ?? "")?.[1]);
+  expect(veganIndian >= 1 && veganIndian < indian, `vegan: fewer Indian recipes (${veganIndian} of ${indian})`);
+  await vegan.page.getByRole("combobox", { name: "Cuisine" }).selectOption("indian");
+  await vegan.page.getByRole("status").filter({ hasText: /recipes? match$/ }).waitFor();
+  expect(Number(/^(\d+)/.exec(await vegan.page.getByRole("status").filter({ hasText: /recipes? match$/ }).innerText())?.[1]) === veganIndian, "the vegan count line equals the option");
+  await vegan.ctx.close();
+  // an occasion, with the cuisine: AND, and Clear resets both
+  const b = await newPage();
+  const bp = b.page;
+  const bStatus = () => bp.getByRole("status").filter({ hasText: /recipes? match$/ });
+  await bp.goto(BASE + "/app/recipes");
+  await bp.getByRole("heading", { name: /All recipes · 108/ }).waitFor();
+  const occ = (await bp.getByRole("combobox", { name: "Occasion" }).locator("option").allInnerTexts()).map((x) => x.trim());
+  const picnic = Number(/^Picnic · (\d+)$/.exec(occ.find((x) => x.startsWith("Picnic")) ?? "")?.[1]);
+  expect(picnic >= 8, `Picnic has plenty: ${picnic}`);
+  await bp.getByRole("combobox", { name: "Occasion" }).selectOption("picnic");
+  await bStatus().waitFor();
+  expect(Number(/^(\d+)/.exec(await bStatus().innerText())?.[1]) === picnic, "the Picnic count line equals the option");
+  await bp.waitForURL((u) => u.searchParams.get("occasion") === "picnic");
+  // Picnic recipes of one cuisine: the option text of that cuisine now counts only the picnic ones, and choosing it gives exactly that
+  const me = Number(/^Middle Eastern · (\d+)$/.exec((await bp.getByRole("combobox", { name: "Cuisine" }).locator("option").allInnerTexts()).map((x) => x.trim()).find((x) => x.startsWith("Middle Eastern")) ?? "")?.[1]);
+  expect(me >= 1 && me < picnic, `Middle Eastern picnics ${me} of ${picnic}`);
+  await bp.getByRole("combobox", { name: "Cuisine" }).selectOption("middle-eastern");
+  await bp.waitForURL((u) => u.searchParams.get("occasion") === "picnic" && u.searchParams.get("cuisine") === "middle-eastern");
+  expect(Number(/^(\d+)/.exec(await bStatus().innerText())?.[1]) === me, "both together: the Middle Eastern picnics");
+  await bp.getByRole("link", { name: /Houmous with vegetable sticks/ }).waitFor();
+  await bp.getByRole("button", { name: "Clear" }).click();
+  await bp.getByRole("status").filter({ hasText: /^108 recipes$/ }).waitFor();
+  expect((await bp.getByRole("combobox", { name: "Cuisine" }).inputValue()) === "" && (await bp.getByRole("combobox", { name: "Occasion" }).inputValue()) === "", "Clear resets both fields");
+  // the search finds a recipe by its cuisine or occasion word
+  await bp.getByLabel("Search recipes").fill("chinese");
+  await bStatus().waitFor();
+  expect(Number(/^(\d+)/.exec(await bStatus().innerText())?.[1]) >= chinese, "searching 'chinese' finds at least the Chinese recipes");
+  await bp.getByLabel("Search recipes").fill("bbq");
+  await bStatus().waitFor();
+  expect(Number(/^(\d+)/.exec(await bStatus().innerText())?.[1]) >= 4, "searching 'bbq' finds the barbecue recipes");
+  await bp.getByRole("link", { name: /Chicken and pepper kebabs/ }).waitFor();
+  await b.ctx.close();
+});
+
 for (const scheme of ["light", "dark"]) {
   await step(`axe: recipes list and a recipe (${scheme})`, async () => {
     const { ctx, page } = await newPage(scheme, proSettings);
@@ -454,6 +589,12 @@ for (const scheme of ["light", "dark"]) {
     await page.goto(BASE + "/app/recipes");
     await page.locator("a[href*='/app/recipes/view']").first().waitFor();
     await axe("/app/recipes");
+    await page.goto(BASE + "/app/recipes?cuisine=middle-eastern&occasion=lunchbox");
+    await page.getByRole("status").filter({ hasText: /recipes? match$/ }).waitFor();
+    await axe("/app/recipes with a cuisine and an occasion chosen");
+    await page.goto(BASE + "/app/recipes?cuisine=indian&occasion=picnic");
+    await page.getByText("No recipes match.").last().waitFor();
+    await axe("/app/recipes with nothing matching");
     await page.goto(BASE + "/app/recipes/view?id=chickpea-curry&r=sainsburys");
     await page.getByRole("heading", { name: "What to buy" }).waitFor();
     await page.getByRole("button", { name: /^More detail/ }).click();

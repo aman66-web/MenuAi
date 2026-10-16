@@ -11,6 +11,8 @@ import { tk, type T } from "@/lib/mm/i18n";
 import { recipesFromList } from "@/lib/mm/listRecipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { toggleAllergen } from "@/lib/mm/menu-view";
+import { RECIPES } from "@/lib/mm/recipeBook";
+import { cuisineOptions, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, type CuisineOption, type OccasionOption } from "@/lib/mm/recipeNiche";
 import { isMeatFree, isQuick, isVegan, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
@@ -25,7 +27,9 @@ import { usePossessive, useT } from "../_lib/i18n";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
 import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
+import { NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
+import { useNicheFilter } from "./useNicheFilter";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
 // nutrition its own page prints. Each recipe is fitted to the person's meal (size and protein) and their diet from Settings.
@@ -37,11 +41,18 @@ import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 // Restyled 2026-10-15 to match Home ("the rest of the app should match that elegance too"): the headline compact and heavy on one line, a
 // small grey circle for My meals, white tiles with 20 px corners (the chosen one dark, "More" the one lime tile), plain section headings,
 // white cards and pills, and the meal of the day as a small spaced-capitals label.
+// Founder 2026-10-16: "a way to customise by niche, for example for Christmas, or like Chinese cuisine or Indian": a Cuisine and an Occasion field
+// under the tiles (NicheFields; the choice lives in the address, useNicheFilter; the catalogue is lib/mm/recipeBook/niches.ts). They narrow the list like
+// the tiles and the search do (both together, and the diet), hide "Picked for you" like a search does, and the search finds a recipe by their words too.
+// Nothing about a niche is printed on a recipe card.
 
 type Sort = "fit" | "price" | "protein";
 type Toggle = "quick" | "meatFree" | "vegan";
 const PAGE = 24;
 const PICKS = 8;
+// The cuisines on offer are decided by the whole book (not by a person's diet or shop), so a choice never comes and goes; the occasions by the book and today's date.
+const RECIPE_IDS = RECIPES.map((r) => r.id);
+const CUISINE_OPTIONS = cuisineOptions(RECIPE_IDS);
 
 const TOGGLES: ReadonlyArray<{ value: Toggle; label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
   { value: "quick", label: tk("Quick"), Icon: TodayIcon },
@@ -53,13 +64,14 @@ const TOGGLE_TEST: Record<Toggle, (r: Recipe) => boolean> = { quick: isQuick, me
 const HEADING = "text-xl font-[800] tracking-[-0.01em]";
 const PILL = "inline-flex min-h-11 shrink-0 items-center rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong";
 
-/** Search words against a recipe's name, blurb and ingredient names ("chicken", "curry", "oats"), in English and in the reader's language. */
-function matchesSearch(r: Recipe, q: string, t: T): boolean {
+/** Search words against a recipe's name, blurb and ingredient names ("chicken", "curry", "oats"), in English and in the reader's language, and the words of its
+ *  cuisine and occasions that are on offer ("chinese", "picnic", "bbq"). */
+function matchesSearch(r: Recipe, q: string, t: T, offered: { cuisines: readonly CuisineOption[]; occasions: readonly OccasionOption[] }): boolean {
   const words = q.toLowerCase().split(/\s+/).filter(Boolean);
   if (!words.length) return true;
   const labels = r.ingredients.map((i) => i.label);
   const own = r.ai ? labels.map((x) => t(x)) : [r.name, r.blurb, ...labels].map((x) => t(x));
-  const hay = [r.name, r.blurb, ...labels, ...own].join(" ").toLowerCase();
+  const hay = [r.name, r.blurb, ...labels, ...own, ...nicheSearchWords(r.id, t, offered)].join(" ").toLowerCase();
   return words.every((w) => hay.includes(w));
 }
 
@@ -113,12 +125,22 @@ function RecipesScreen() {
   const [limit, setLimit] = useState(PAGE);
   const [sort, setSort] = useState<Sort | null>(null);
   const effectiveSort: Sort = sort ?? (target ? "fit" : "protein");
-  const shown = useMemo(
-    () => sortCards(cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (!meal || c.recipe.meal === meal) && matchesSearch(c.recipe, query, t)), effectiveSort),
-    [cards, toggles, meal, query, effectiveSort, t],
-  );
-  const filtering = toggles.size > 0 || meal !== null || query.trim() !== "";
   const now = useNow();
+  // The occasions on offer are decided by the date this visit began, not by the clock as it ticks: a season that ends (or starts) while the page is open
+  // must not change the list under someone's finger (a chosen Bonfire Night would jump to "Any occasion" at midnight). Opening the screen again picks up the date.
+  const [visitDate] = useState(() => new Date());
+  const occasionOpts = useMemo(() => occasionOptions(RECIPE_IDS, visitDate), [visitDate]);
+  const niche = useNicheFilter(CUISINE_OPTIONS, occasionOpts);
+  const offered = useMemo(() => ({ cuisines: CUISINE_OPTIONS, occasions: occasionOpts }), [occasionOpts]);
+  // everything but the niche, then the niche: the counts beside each cuisine and occasion are worked out from the first list
+  const base = useMemo(
+    () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (!meal || c.recipe.meal === meal) && matchesSearch(c.recipe, query, t, offered)),
+    [cards, toggles, meal, query, t, offered],
+  );
+  const shown = useMemo(() => sortCards(base.filter((c) => matchesNiche(c.recipe.id, niche.cuisine, niche.occasion)), effectiveSort), [base, niche.cuisine, niche.occasion, effectiveSort]);
+  const nicheNumbers = useMemo(() => (cards.length ? nicheCounts(base.map((c) => c.recipe.id), niche.cuisine, niche.occasion) : null), [cards.length, base, niche.cuisine, niche.occasion]);
+  const nicheOn = niche.cuisine !== null || niche.occasion !== null;
+  const filtering = toggles.size > 0 || meal !== null || query.trim() !== "" || nicheOn;
   const slot: MealType = mealSlotFor(now);
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
   const listRecipes = useMemo(() => (shop && products && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), products, shop).length : 0), [shopping, cards, products, shop]);
@@ -131,7 +153,11 @@ function RecipesScreen() {
   const makeHref = `/app/recipes/make${shop ? `?r=${shop}` : ""}`;
 
   const flip = (x: Toggle) => { setToggles((s) => { const n = new Set(s); if (n.has(x)) n.delete(x); else n.add(x); return n; }); setLimit(PAGE); };
-  const clearAll = () => { setQuery(""); setMeal(null); setToggles(new Set()); setLimit(PAGE); };
+  // What a screen reader is told as the list changes: how many recipes there are, or that none match. One live region stays mounted for every state, so the
+  // words are read when an empty list fills and when a list empties (a region that appears together with its text is often not read).
+  const countLine = shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length });
+  const liveLine = shown.length > 0 ? countLine : filtering && cards.length > 0 ? t("No recipes match.") : "";
+  const clearAll = () => { setQuery(""); setMeal(null); setToggles(new Set()); niche.clear(); setLimit(PAGE); };
   const href = (c: RecipeCard) => `/app/recipes/view?id=${c.recipe.id}&r=${shop}`;
 
   return (
@@ -179,6 +205,17 @@ function RecipesScreen() {
         ))}
         <Tile label={t("More")} Icon={GridIcon} more expanded={more} onClick={() => setMore((v) => !v)} />
       </div>
+
+      {/* Cuisine and Occasion: two plain fields, each the phone's own list, with how many recipes every choice would show. */}
+      <NicheFields
+        cuisines={CUISINE_OPTIONS}
+        occasions={occasionOpts}
+        counts={nicheNumbers}
+        cuisine={niche.cuisine}
+        occasion={niche.occasion}
+        onCuisine={(id) => { niche.setCuisine(id); setLimit(PAGE); }}
+        onOccasion={(id) => { niche.setOccasion(id); setLimit(PAGE); }}
+      />
 
       {more && (
         <div id="recipe-options" className="mt-3 space-y-3">
@@ -264,6 +301,8 @@ function RecipesScreen() {
           <button type="button" aria-expanded={more} aria-controls="recipe-options" onClick={() => { setMore(true); requestAnimationFrame(() => document.getElementById("recipe-options")?.scrollIntoView({ behavior: "smooth", block: "start" })); }} className={`glass ${PILL}`}>{t("Adjust")}</button>
         </div>
 
+        <p role="status" className="sr-only">{liveLine}</p>
+
         {!manifest || (shop && state.status === "loading") ? (
           <Spinner label={t("Loading recipes")} />
         ) : !shop ? (
@@ -272,16 +311,16 @@ function RecipesScreen() {
           <div className="mt-4"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
         ) : shown.length === 0 && filtering && cards.length > 0 ? (
           <div className="mt-4">
-            <EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes match.")} body={t("Try another word or meal.")} />
+            <EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes match.")} body={nicheOn ? t("Try another cuisine, occasion, word or meal.") : t("Try another word or meal.")} />
             <div className="mt-3 flex justify-center"><Button variant="secondary" onClick={clearAll}>{t("Show all recipes")}</Button></div>
           </div>
         ) : shown.length === 0 ? (
           <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes here yet.")} body={leftOut ? t("None of our recipes suit your diet at this shop yet.") : t("We haven't read enough of {shop} product pages to fill these recipes yet.", { shop: poss(shopName) })} /></div>
         ) : (
           <>
-            {/* the count is said aloud as it changes; on screen it shows only while filtering, next to Clear (the heading already says how many) */}
+            {/* on screen the count shows only while filtering, next to Clear (the heading already says how many); it is said aloud by the one live region above */}
             <div className={filtering ? "mt-3 flex min-h-11 flex-wrap items-center justify-between gap-x-3 px-1" : "sr-only"}>
-              <p role="status" className="app-numbers text-[0.9375rem] text-muted">{shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length })}</p>
+              <p aria-hidden className="app-numbers text-[0.9375rem] text-muted">{countLine}</p>
               {filtering && <button type="button" onClick={clearAll} className="inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-bold text-accent hover:bg-accent-soft">{t("Clear")}</button>}
             </div>
             <ul className={`stagger grid ${filtering ? "mt-1" : "mt-4"} grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3`}>

@@ -197,4 +197,25 @@ export const DINNER_HOME: readonly Recipe[] = [
       "Season and serve in bowls.",
     ],
   },
+  {
+    id: "chicken-pepper-kebabs", meal: "dinner", tags: ["Barbecue"], name: "Chicken and pepper kebabs with yogurt dressing", blurb: "Chicken, pepper and red onion skewers with a lemony yogurt dressing, served in warm wraps.", servings: 3, minutes: 40,
+    ingredients: [ing("chicken", 450), ing("peppers", 320), ing("red-onion", 150), ing("natural-yogurt", 120), ing("oregano", 2), ing("lemon-juice", 20), ing("garlic", 5), ing("olive-oil", 10), ing("wraps", 180)],
+    method: [
+      "Mix the oregano, half the lemon juice, the garlic and the olive oil in a bowl. Cut the chicken into large chunks and stir them in. Leave for 10 minutes, or longer in the fridge if you have time.",
+      "Cut the peppers and the red onion into large chunks and thread them onto skewers with the chicken. If you use wooden skewers, soak them in water for 30 minutes first. No skewers? Spread the chicken, peppers and onion on a lined baking tray instead.",
+      "Cook on a hot barbecue, under a hot grill or in an oven at 200°C (180°C fan) for 15 to 20 minutes, turning now and then, until golden and cooked through with no pink left.",
+      "Mix the yogurt with the rest of the lemon juice. Warm the wraps and serve the kebabs in them with the dressing.",
+    ],
+  },
+  {
+    id: "bbq-chicken-thigh-skewers", meal: "dinner", tags: ["Barbecue"], name: "Barbecue chicken thigh skewers with corn salad", blurb: "Sticky barbecue chicken skewers with a fresh sweetcorn, tomato and cucumber salad.", servings: 3, minutes: 40,
+    ingredients: [ing("chicken-thigh", 450), ing("bbq-sauce", 90), ing("sweetcorn", 200), ing("cherry-tomatoes", 160), ing("cucumber", 150), ing("spring-onions", 30), ing("lemon-juice", 15)],
+    method: [
+      "Cut the chicken thighs into large chunks, stir them with the barbecue sauce and leave for 10 minutes, or longer in the fridge if you have time.",
+      "Thread the chicken onto skewers. If you use wooden skewers, soak them in water for 30 minutes first. No skewers? Spread the chicken on a lined baking tray instead.",
+      "Cook on a hot barbecue, under a hot grill or in an oven at 200°C (180°C fan) for 15 to 20 minutes, turning now and then, until golden and cooked through with no pink left.",
+      "Mix the sweetcorn (drained, or defrosted if frozen) with the halved cherry tomatoes, the diced cucumber, the sliced spring onions and the lemon juice.",
+      "Serve the skewers with the corn salad.",
+    ],
+  },
 ];

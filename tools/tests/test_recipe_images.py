@@ -22,7 +22,14 @@ class RecipeImageTests(unittest.TestCase):
     def test_ids_come_from_the_recipe_book(self):
         ids = iri.recipe_ids()
         self.assertIn("chicken-rice-bowl", ids)
+        self.assertIn("egg-chow-mein", ids)
         self.assertGreater(len(ids), 10)
+
+    def test_cuisines_and_occasions_are_not_recipes(self):
+        # recipeBook/niches.ts has `id: "italian"`, `id: "picnic"` and so on: they name cuisines and occasions, never recipes
+        ids = iri.recipe_ids()
+        for not_a_recipe in ("british", "chinese", "indian", "italian", "mexican", "middle-eastern", "picnic", "party-food", "lunchbox", "summer-barbecue", "bonfire-night"):
+            self.assertNotIn(not_a_recipe, ids)
 
     def test_import_crops_resizes_and_lists(self):
         from PIL import Image

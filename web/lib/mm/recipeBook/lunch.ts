@@ -180,4 +180,15 @@ export const LUNCH: readonly Recipe[] = [
       "Scatter over the roughly chopped almonds. Keep in the fridge and eat within a day.",
     ],
   },
+  {
+    id: "chicken-mushroom-noodle-soup", meal: "lunch", tags: ["Soup"], name: "Chicken and mushroom noodle soup", blurb: "Chicken, mushrooms and noodles in a savoury stock.", servings: 2, minutes: 25,
+    // the chicken cooks in the method's own 800 ml of stock: at most half as much again when fitted
+    ingredients: [ing("chicken", 250, { fit: [0.5, 1.5] }), ing("mushrooms", 200), ing("noodles", 200, { subs: [] }), ing("stock-cube", 12), ing("soy", 20), ing("spring-onions", 30), ing("garlic", 5)],
+    method: [
+      "Dissolve the stock cubes in 800 ml of boiling water in a large pan.",
+      "Slice the chicken into thin strips and add it to the pan with the sliced mushrooms and the garlic. Simmer for 10 minutes, until the chicken is cooked through with no pink left.",
+      "Add the noodles and the soy sauce and simmer for 2 to 3 minutes, until the noodles are piping hot.",
+      "Ladle into bowls and top with sliced spring onions.",
+    ],
+  },
 ];

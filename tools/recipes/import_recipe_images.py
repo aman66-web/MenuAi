@@ -36,9 +36,15 @@ HEADER = """// Written by tools/recipes/import_recipe_images.py: do not edit by 
 """
 
 
+# files in the book's folder that are not lists of recipes (niches.ts has `id: "british"` for a cuisine, for instance)
+NOT_RECIPE_LISTS = {"index", "niches", "looks"}
+
+
 def recipe_ids(book: Path = BOOK) -> set[str]:
     ids: set[str] = set()
     for f in sorted(book.glob("*.ts")):
+        if f.stem in NOT_RECIPE_LISTS:
+            continue
         ids.update(re.findall(r'\bid:\s*"([a-z0-9-]{3,60})"', f.read_text(encoding="utf-8")))
     return ids
 

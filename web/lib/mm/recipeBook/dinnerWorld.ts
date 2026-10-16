@@ -193,4 +193,56 @@ export const DINNER_WORLD: readonly Recipe[] = [
       "Serve with the rice and a squeeze of lemon.",
     ],
   },
+  {
+    id: "egg-chow-mein", meal: "dinner", tags: ["Quick"], name: "Egg chow mein with vegetables", blurb: "Noodles tossed with scrambled egg, crunchy vegetables and soy sauce.", servings: 2, minutes: 20,
+    ingredients: [ing("eggs", 240), ing("noodles", 300, { subs: [] }), ing("stir-fry-veg", 300), ing("soy", 30), ing("spring-onions", 30), ing("garlic", 5), ing("vegetable-oil", 8)],
+    method: [
+      "Beat the eggs. Heat half the oil in a wok or large frying pan, pour in the eggs and stir for 1 to 2 minutes, until set, then lift out and break into pieces.",
+      "Heat the rest of the oil and stir-fry the vegetables and the garlic for 3 to 4 minutes.",
+      "Add the noodles and the soy sauce and toss for 2 minutes, until piping hot.",
+      "Stir the egg back in and serve topped with sliced spring onions.",
+    ],
+  },
+  {
+    id: "egg-tomato-stir-fry", meal: "dinner", tags: ["Quick"], name: "Egg and tomato stir-fry with rice", blurb: "Soft scrambled egg and juicy tomatoes with a touch of honey and soy, served on rice.", servings: 2, minutes: 20,
+    ingredients: [ing("eggs", 240), ing("tomatoes", 400), ing("rice", 150), ing("soy", 15), ing("spring-onions", 30), ing("honey", 10), ing("vegetable-oil", 10)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Beat the eggs with half the soy sauce. Heat half the oil in a wok or large frying pan, add the eggs and stir gently for 1 to 2 minutes, until just set, then lift out.",
+      "Cut the tomatoes into wedges. Add the rest of the oil to the pan and cook them for 5 to 6 minutes, until they break down into a sauce. Stir in the honey and the rest of the soy sauce.",
+      "Fold the eggs back in gently and serve on the rice, topped with sliced spring onions.",
+    ],
+  },
+  {
+    id: "chinese-style-chicken-curry", meal: "dinner", tags: ["Batch cook"], name: "Chinese-style chicken curry with rice and peas", blurb: "A golden takeaway-style curry with chicken, onion and peas, served with rice.", servings: 3, minutes: 35,
+    ingredients: [ing("chicken", 360), ing("curry-powder", 10), ing("onion", 150), ing("peas", 150), ing("stock-cube", 6), ing("garlic", 5), ing("rice", 210), ing("vegetable-oil", 8)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Fry the chopped onion in a large pan with the oil for 5 minutes, until soft. Stir in the curry powder and the garlic for a minute.",
+      "Cut the chicken into bite-sized pieces, add it to the pan and stir for 3 to 4 minutes.",
+      "Crumble in the stock cube, pour in 300 ml of boiling water and simmer for 10 minutes, until the chicken is cooked through with no pink left and the sauce has reduced a little.",
+      "Add the peas and cook for 3 minutes more, then serve with the rice.",
+    ],
+  },
+  {
+    id: "spiced-chicken-rice-bowl", meal: "dinner", tags: ["Bowl"], name: "Spiced chicken and rice bowl with yogurt", blurb: "Spiced chicken thighs on rice with cucumber, tomato and a cool lemon yogurt.", servings: 2, minutes: 30,
+    ingredients: [ing("chicken-thigh", 300), ing("rice", 150), ing("cumin", 3), ing("paprika", 3), ing("natural-yogurt", 120), ing("cucumber", 150), ing("tomatoes", 160), ing("lemon-juice", 15), ing("olive-oil", 8)],
+    method: [
+      "Cook the rice as the pack says.",
+      "Cut the chicken into chunks and toss it in the olive oil with the cumin and paprika.",
+      "Cook in a hot non-stick pan for 10 to 12 minutes, turning now and then, until golden and cooked through with no pink left.",
+      "Mix the yogurt with the lemon juice, and dice the cucumber and tomatoes.",
+      "Share the rice between bowls and top with the chicken, the cucumber and tomatoes and a spoonful of the lemon yogurt.",
+    ],
+  },
+  {
+    id: "chickpea-spinach-egg-stew", meal: "dinner", tags: ["One pan"], name: "Chickpea and spinach stew with eggs", blurb: "Chickpeas and spinach simmered in tomatoes, with eggs cooked gently on top.", servings: 2, minutes: 30,
+    ingredients: [ing("chickpeas", 240), ing("spinach", 150), ing("chopped-tomatoes", 400), ing("eggs", 240, { role: "other" }), ing("onion", 150), ing("cumin", 3), ing("garlic", 5), ing("olive-oil", 8)],
+    method: [
+      "Warm the olive oil in a wide, deep pan and soften the chopped onion for 5 minutes.",
+      "Stir in the garlic and cumin for a minute, then add the tomatoes and the drained chickpeas and simmer for 10 minutes.",
+      "Stir in the spinach until it wilts.",
+      "Make a small hollow in the stew for each egg and crack the eggs in. Cover and cook gently for 5 to 6 minutes, until the whites are set.",
+    ],
+  },
 ];
