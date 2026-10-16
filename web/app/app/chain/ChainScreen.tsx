@@ -68,6 +68,19 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const now = useNow();
   const favorites = useStore(favoritesStore);
   const isFavorite = favorites.some((f) => f.chainId === chain.id);
+  // A few words beside the star say what the tap did (founder 2026-10-16: "small text in the top right saying that the restaurant is added to their favourites"):
+  // shown for a moment, then faded out; a screen reader hears it through the status line, the visible copy is hidden from it so it is not read twice.
+  const [favNote, setFavNote] = useState<{ kind: "added" | "removed"; shown: boolean } | null>(null);
+  const favTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (favTimer.current) clearTimeout(favTimer.current); }, []);
+  const tapStar = () => {
+    const adding = !isFavorite;
+    toggleFavorite(chain.id);
+    setFavNote({ kind: adding ? "added" : "removed", shown: true });
+    if (favTimer.current) clearTimeout(favTimer.current);
+    favTimer.current = setTimeout(() => setFavNote((n) => (n ? { ...n, shown: false } : n)), 2600);
+  };
+  const favText = favNote ? (favNote.kind === "added" ? t("Added to your favourites") : t("Removed from your favourites")) : "";
 
   const [meal, setMeal] = useState<Meal>(() => mealSlotFor(new Date()));
   // Opened from Eat out's "find a restaurant by my numbers": the numbers and allergies typed there arrive in the link and apply to this visit only.
@@ -133,18 +146,22 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
     <div>
       <div className="flex items-center justify-between gap-3">
         <Link href="/app/eat-out" aria-label={t("Back to restaurants")} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-        {/* a small grey circle like Home's calendar button, inside a full 44 px tap area */}
-        <button
-          type="button"
-          onClick={() => toggleFavorite(chain.id)}
-          aria-pressed={isFavorite}
-          aria-label={isFavorite ? t("Remove {chain} from favourites", { chain: chain.name }) : t("Add {chain} to favourites", { chain: chain.name })}
-          className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
-        >
-          <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] ${isFavorite ? "text-accent" : "text-foreground"}`}>
-            <StarIcon filled={isFavorite} />
-          </span>
-        </button>
+        {/* a small grey circle like Home's calendar button, inside a full 44 px tap area, with what the tap did written beside it */}
+        <div className="flex min-w-0 items-center gap-1.5">
+          <p aria-hidden className={`min-w-0 text-end text-[0.8125rem] font-semibold leading-snug text-accent transition-opacity duration-300 motion-reduce:transition-none ${favNote?.shown ? "opacity-100" : "opacity-0"}`}>{favText}</p>
+          <span role="status" className="sr-only">{favNote?.shown ? favText : ""}</span>
+          <button
+            type="button"
+            onClick={tapStar}
+            aria-pressed={isFavorite}
+            aria-label={isFavorite ? t("Remove {chain} from favourites", { chain: chain.name }) : t("Add {chain} to favourites", { chain: chain.name })}
+            className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
+          >
+            <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] ${isFavorite ? "text-accent" : "text-foreground"}`}>
+              <StarIcon filled={isFavorite} />
+            </span>
+          </button>
+        </div>
       </div>
 
       <div className="hero-card mt-4 rounded-[1.25rem] p-4">

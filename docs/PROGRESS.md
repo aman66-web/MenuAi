@@ -1747,6 +1747,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   to a second line; at Extra large text and in Arabic the chips stack, no sideways overflow at 360/390 px. **No new copy.** Checked: `e2e/recipes.mjs` 14 (incl. axe), tsc, eslint; screenshots at 390 px, 360 px, Extra large and Arabic.
   **Why the founder's phone still showed calories and protein only:** the carbs-and-fat chips were already live on numbite.com; the installed iPhone app carries its own packed copy of the website and shows screen changes only after it is rebuilt on the Mac (docs/APP_BUILD.md).
 
+- 2026-10-16 — **The star on a restaurant's page says what it did** (founder, on the star circled at the top right: "When the user presses the star ... it should say small text in the top right saying
+  that the restaurant is added to their favourites"). Tapping the star now writes **"Added to your favourites"** (or **"Removed from your favourites"**) in small accent-green text beside the star, in the page's top row; it stays
+  about three seconds and fades (no movement at reduced motion, and it never moves the page); a screen reader hears it through a status line (the visible copy is hidden from it so it is not read twice). It sits to the
+  left of the star in English and to the right in Arabic and Urdu, wraps to two lines at Extra large text and never touches Back. Two quick taps show the latest words. New copy (rule 8, logged here; translated into the 10
+  languages by AI, in each language's own existing word for favourites, not yet checked by native speakers): "Added to your favourites", "Removed from your favourites". Checked: `e2e/favnote.mjs` 4 (the words, the
+  fade, the status line, position, two quick taps, 360 px / Extra large / Arabic, axe 0), tsc, eslint; screenshots at 390 px and Extra large text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
