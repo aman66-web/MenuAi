@@ -1,4 +1,5 @@
 import Foundation
+import Observation
 
 /// A shopping list a friend shared (founder 2026-10-15). The link is https://numbite.com/l#<list> (it opens here through a Universal Link once
 /// the app is installed) or numbite://l#<list> (the "I have Numbite" button on that web page). The list itself is the part after "#": the

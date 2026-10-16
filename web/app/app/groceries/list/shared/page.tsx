@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { addToList, CUSTOM_RETAILER, formatPrice, groupName, itemCode, type ShoppingItem } from "@/lib/mm/groceries";
+import { addToList, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemPhotoSources, type ShoppingItem } from "@/lib/mm/groceries";
 import { decodePayload, SHARE_PROBLEM } from "@/lib/mm/shareList";
 import { shoppingStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { ShopMark } from "../../../_components/ChainMark";
 import { BasketIcon, CheckIcon } from "../../../_components/icons";
 import { Button, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
+import { useHiddenLogos } from "../../../_lib/hiddenLogos";
 import { useT } from "../../../_lib/i18n";
 import { useSharedList } from "../../../_lib/sharedList";
 import { BackLink, CARD, TITLE } from "../../PageBits";
@@ -36,7 +37,10 @@ export default function SharedListPage() {
   const entries = decoded?.ok ? decoded.entries : null;
   const [retry, setRetry] = useState(0);
   const state = useSharedList(entries, retry);
-  const [added, setAdded] = useState(false);
+  useHiddenLogos(); // a shop taken down at its owner's request (public/logos/hidden.json) shows none of its pictures, also when that list arrives after the page opens
+  // "Added" belongs to the list that was added: a different link opened in this same page (the "#" changes) starts as not added.
+  const [addedFor, setAddedFor] = useState<string | null>(null);
+  const added = hash != null && addedFor === hash;
 
   const back = <BackLink href="/app/groceries/list" label={t("Back to shopping list")} />;
   const heading = <h1 className={`mt-5 ${TITLE}`}>{t("Shared shopping list")}</h1>;
@@ -60,7 +64,7 @@ export default function SharedListPage() {
   for (const i of items) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
   const addAll = () => {
     shoppingStore.update((list) => items.reduce((l, { qty, addedAt: _addedAt, ...item }) => addToList(l, item, new Date(), qty), list)); // eslint-disable-line @typescript-eslint/no-unused-vars
-    setAdded(true);
+    setAddedFor(hash ?? null);
   };
 
   return (
@@ -81,7 +85,7 @@ export default function SharedListPage() {
                   const detail = [i.brand, i.size, i.price !== undefined ? formatPrice(i.price) : ""].filter(Boolean).join(" · ");
                   return (
                     <li key={itemCode(i) + i.retailer} className="flex min-h-[4.5rem] items-center gap-3 px-3 py-2.5">
-                      <ListThumb sources={i.photo ? [i.photo] : []} />
+                      <ListThumb sources={itemPhotoSources(i)} />
                       <span className="min-w-0 flex-1">
                         <span className="block text-base font-semibold leading-snug [overflow-wrap:anywhere]">{i.name}</span>
                         {detail && <span className="app-numbers mt-0.5 block text-sm text-muted [overflow-wrap:anywhere]">{detail}</span>}

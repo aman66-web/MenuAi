@@ -7,10 +7,11 @@ import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
-import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
+import { DEFAULT_WATER_GOAL_ML, MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "@/lib/mm/water";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon, GlobeIcon } from "../_components/icons";
 import { LanguageList } from "../_components/LanguageList";
@@ -135,6 +136,7 @@ export default function SettingsPage() {
   const [protein, setProtein] = useState<string | null>(null);
   const [carbs, setCarbs] = useState<string | null>(null);
   const [fat, setFat] = useState<string | null>(null);
+  const [water, setWater] = useState<string | null>(null);
   const [mealCap, setMealCap] = useState<string | null>(null);
   const [targetsMessage, setTargetsMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
@@ -144,6 +146,7 @@ export default function SettingsPage() {
   const proteinText = protein ?? (settings.dailyProtein ? String(settings.dailyProtein) : "");
   const carbsText = carbs ?? (settings.dailyCarbs ? String(settings.dailyCarbs) : "");
   const fatText = fat ?? (settings.dailyFat ? String(settings.dailyFat) : "");
+  const waterText = water ?? (settings.dailyWater ? String(settings.dailyWater) : "");
   // Left empty, protein follows the calories and carbs and fat follow the calories and protein typed above (shown as the placeholder).
   const draftCalories = Number(caloriesText);
   const draftProtein = proteinText.trim() === "" ? undefined : Number(proteinText);
@@ -157,16 +160,19 @@ export default function SettingsPage() {
     const p = proteinText.trim() === "" ? undefined : Number(proteinText);
     const cb = carbsText.trim() === "" ? undefined : Number(carbsText);
     const ft = fatText.trim() === "" ? undefined : Number(fatText);
+    const wt = waterText.trim() === "" ? undefined : Number(waterText);
     const cap = Number(capText);
     if (!Number.isFinite(c) || c < 500 || c > 10000) return setTargetsMessage({ ok: false, text: tk("Calories should be between 500 and 10,000.") });
     if (p !== undefined && (!Number.isFinite(p) || p <= 0 || p > 1000)) return setTargetsMessage({ ok: false, text: tk("Protein should be above 0 and at most 1,000 g.") });
     if ([cb, ft].some((g) => g !== undefined && (!Number.isFinite(g) || g <= 0 || g > MAX_MACRO_TARGET))) return setTargetsMessage({ ok: false, text: tk("Carbs and fat should be above 0 and at most 2,000 g.") });
+    if (wt !== undefined && (!Number.isFinite(wt) || wt < MIN_WATER_GOAL_ML || wt > MAX_WATER_GOAL_ML)) return setTargetsMessage({ ok: false, text: tk("Water should be between 250 and 6,000 ml.") });
     if (settings.goal === "glp1" && (!Number.isFinite(cap) || cap < 100 || cap > 2000)) return setTargetsMessage({ ok: false, text: tk("Meal size should be between 100 and 2,000 calories.") });
-    updateSettings({ dailyCalories: c, dailyProtein: p, dailyCarbs: cb, dailyFat: ft, hasSetTargets: true, ...(settings.goal === "glp1" ? { glp1MealCap: cap } : {}) });
+    updateSettings({ dailyCalories: c, dailyProtein: p, dailyCarbs: cb, dailyFat: ft, dailyWater: wt === undefined ? undefined : Math.round(wt), hasSetTargets: true, ...(settings.goal === "glp1" ? { glp1MealCap: cap } : {}) });
     setCalories(null);
     setProtein(null);
     setCarbs(null);
     setFat(null);
+    setWater(null);
     setMealCap(null);
     setTargetsMessage({ ok: true, text: tk("Saved.") });
   }
@@ -212,6 +218,7 @@ export default function SettingsPage() {
             <TargetTile label={t("Protein (g)")} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
             <TargetTile label={t("Carbs (g)")} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); }} />
             <TargetTile label={t("Fat (g)")} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); }} />
+            <TargetTile wide label={t("Water (ml)")} hint={t("Your goal for the day on Home. Left empty it is 2,000 ml.")} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); }} />
             {settings.goal === "glp1" && (
               <TargetTile wide label={t("Comfortable meal size (calories)")} hint={t("Best-for-you picks stay within this size. Default 450.")} value={capText} onChange={(v) => { setMealCap(v); setTargetsMessage(null); }} />
             )}
@@ -318,10 +325,10 @@ export default function SettingsPage() {
       </Sheet>
 
       <Sheet open={clearOpen} onClose={() => setClearOpen(false)} title={t("Clear data on this device")}>
-        <p className="pt-1 text-base leading-snug">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
+        <p className="pt-1 text-base leading-snug">{APP_BUILD ? t("This removes your goal, targets, saved orders, log, water you added, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this phone. It can't be undone.") : t("This removes your goal, targets, saved orders, log, water you added, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.")}</p>
         {account && <p className="mt-2.5 text-base leading-snug">{t("This also signs you out of your account on this device. What is synced stays in your account.")}</p>}
         <div className="mt-5 space-y-2 pb-2">
-          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
+          <Button full className="min-h-12 text-base" onClick={async () => { await leaveForClearing(); settingsStore.set(DEFAULT_SETTINGS); savedStore.reset(); logStore.reset(); waterStore.reset(); favoritesStore.reset(); shoppingStore.reset(); myRecipesStore.reset(); savedRecipesStore.reset(); cupboardStore.reset(); recentStore.reset(); compareStore.reset(); outbox().clear(); try { localStorage.removeItem("mm.v1.recentSearches"); sessionStorage.removeItem("mm.browseType"); sessionStorage.removeItem("mm.finder"); localStorage.removeItem("mm.v1.mapArea"); } catch { /* storage blocked */ } setClearOpen(false); }}>{t("Clear everything")}</Button>
           <Button full variant="ghost" onClick={() => setClearOpen(false)}>{t("Cancel")}</Button>
         </div>
       </Sheet>

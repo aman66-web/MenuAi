@@ -15,12 +15,13 @@ import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
 import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
-import { CalendarIcon, FlameIcon, ForkIcon, PlusIcon } from "./_components/icons";
+import { WaterCard } from "./_components/WaterCard";
+import { FlameIcon, ForkIcon, GearIcon, PlusIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
 import { useChainIndexes, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "./_lib/hooks";
 import { useLanguage, useT } from "./_lib/i18n";
 
-// Home is today (founder 2026-10-10). Founder 2026-10-14, from a reference picture: "Home" with a calendar button and this week's days
+// Home is today (founder 2026-10-10). Founder 2026-10-14, from a reference picture: "Home" with a round button (a calendar, now a gear to Settings: founder 2026-10-16) and this week's days
 // on top, then today's calories (a dial) beside protein, carbs and fat, then two cards, "Shopping list" and "My meals", then today's
 // meals as rows (Breakfast, Lunch, Dinner) with what was eaten and a + to add more. The rows use SPEC §6.3: a logged item goes under the
 // meal its time falls in (mealSlotFor), unless it was added from a row's + (founder 2026-10-15: the Add food sheet), when it stays in that row
@@ -28,6 +29,7 @@ import { useLanguage, useT } from "./_lib/i18n";
 // same picture again ("make the home page look absolutely identical"): its sizes and spacing, past days as dark circles, the dial with a
 // grey centre, and carbs and fat with targets and bars too (worked out from calories and protein unless typed in Settings: targets.ts
 // macroTargets). The picture's bodyweight card is left out (the app doesn't track weight) and Numbite's lime stays (founder's answers).
+// Under the meals, "Water" (founder 2026-10-15): today's millilitres against the person's own goal, a small bottle and a + that opens "Add water" (WaterCard).
 // Logging is Pro (SPEC §7.8): while Pro is on, a free user's + opens the paywall.
 
 /** Two cards side by side, stacked when the text is large: the minimum width is in rem, so it grows with the text size. */
@@ -136,9 +138,9 @@ export default function HomePage() {
     <div>
       <div className="flex items-center justify-between gap-3">
         <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Home")}</h1>
-        {/* a small grey circle like the picture's, inside a full 44 px tap area */}
-        <Link href="/app/today" aria-label={t("Today's meals")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CalendarIcon className="h-[18px] w-[18px]" /></span>
+        {/* a small grey circle like the picture's, inside a full 44 px tap area; a gear to Settings (founder 2026-10-16). Today's meals opens from the meal rows below. */}
+        <Link href="/app/settings" aria-label={t("Settings")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><GearIcon className="h-[18px] w-[18px]" /></span>
         </Link>
       </div>
 
@@ -241,6 +243,8 @@ export default function HomePage() {
           );
         })}
       </ul>
+
+      <WaterCard now={now} guard={(go) => gate("log", go)} />
 
       <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
 

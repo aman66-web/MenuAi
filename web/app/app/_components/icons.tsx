@@ -54,7 +54,8 @@ export const TrayGlyph = (p: P) => (<svg {...base(p)}><path d="M3.5 10.5h17v5.5a
 export const HeartIcon =({ filled, ...p }: P & { filled?: boolean }) => (<svg {...base(p)} fill={filled ? "currentColor" : "none"}><path d="M12 20s-7.5-4.6-9.2-9.4C1.6 7.2 3.9 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.1 0 5.4 2.7 4.2 6.1C19.5 15.4 12 20 12 20z" /></svg>);
 export const GridIcon = (p: P) => (<svg {...base(p)}><rect x="4" y="4" width="6.5" height="6.5" rx="2" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="2" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="2" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2" /></svg>);
 export const SproutIcon = (p: P) => (<svg {...base(p)}><path d="M12 21v-9" /><path d="M12 12C12 8 9.5 5.5 5 5.5c0 4.5 2.5 6.5 7 6.5z" /><path d="M12 10c0-3.5 2.2-6 6.5-6 0 4-2.2 6-6.5 6z" /></svg>);
-export const CalendarIcon = (p: P) => (<svg {...base(p)}><rect x="4" y="5" width="16" height="15" rx="3" /><path d="M4 10h16M9 3v4M15 3v4" /></svg>);
+// A drop of water (our own simple drawing).
+export const DropIcon = (p: P) => (<svg {...base(p)}><path d="M12 3.5c3.2 4 6 6.8 6 10.5a6 6 0 01-12 0c0-3.7 2.8-6.5 6-10.5z" /><path d="M9.2 14.2a2.8 2.8 0 002.4 2.6" /></svg>);
 export const FlameIcon = (p: P) => (<svg {...base(p)}><path d="M12 3c.5 3 4.5 5 4.5 9.5a4.5 4.5 0 01-9 0c0-2 1-3.3 2-4.3.2 1.6 1 2.5 2 2.8C11 8.5 11 5.5 12 3z" /></svg>);
 
 // ---- cuisine glyphs for ChainMark: drawn for this app (simple shapes, no brand artwork) ----

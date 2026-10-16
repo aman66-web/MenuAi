@@ -141,10 +141,14 @@ await step("the page says plainly when a link is cut short, not a list, or empty
 await step("a first-time visitor opening the link goes through onboarding and then lands on the list (the # survives, and no recipe is asked for first)", async () => {
   const code = shared.text.match(LINK)[1];
   const { ctx, page } = await open(null, { onboarded: false });
+  const requested = [];
+  page.on("request", (r) => { try { const u = new URL(r.url()); requested.push(u.pathname + u.search); } catch { /* data: and blob: */ } });
   await page.goto(BASE + "/app/groceries/list/shared#" + code);
   await page.waitForURL(/\/app\/welcome\?next=/, { timeout: 60000 });
-  const next = new URL(page.url()).searchParams.get("next");
-  expect(next === `/app/groceries/list/shared#${code}`, "the way back: " + next);
+  const here = new URL(page.url());
+  // The list's code is carried after the welcome page's own "#", never in its query (a query reaches the server, a fragment does not).
+  expect(here.searchParams.get("next") === "/app/groceries/list/shared", "the way back: " + here.searchParams.get("next"));
+  expect(here.hash === "#" + code, "the code should stay in the fragment: " + here.href.slice(-60));
   await page.getByRole("button", { name: "Continue" }).click(); // language
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("button", { name: "Show me around" }).click({ timeout: 30000 });
@@ -169,6 +173,7 @@ await step("a first-time visitor opening the link goes through onboarding and th
   expect(new URL(page.url()).hash === "#" + code, "the list is still in the address: " + page.url().slice(-30));
   await page.getByRole("heading", { level: 1, name: "Shared shopping list" }).waitFor();
   await page.getByText("Abra Ca Debora Sweet Pancakes").waitFor({ timeout: 60000 });
+  expect(!requested.some((u) => u.includes(code) || u.includes(encodeURIComponent(code))), "the list code reached a request: " + requested.filter((u) => u.includes(code.slice(0, 12))).slice(0, 2).join(" | "));
   await ctx.close();
 });
 

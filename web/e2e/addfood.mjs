@@ -168,7 +168,7 @@ await step("a restaurant meal picked on a slow connection is not added once the 
   await page.waitForTimeout(5500); // the menu arrives
   expect((await log(page)).length === 0, "a dish that was given up on was logged: " + JSON.stringify((await log(page)).map((e) => e.name)));
   expect(await sheetTitle(page, "Add to Dinner").isVisible(), "the Dinner sheet was closed by the old add");
-  expect((await page.getByRole("status").count()) === 0, "a toast for something the person gave up on");
+  expect((await page.getByRole("status").filter({ hasText: /^Added / }).count()) === 0, "a toast for something the person gave up on"); // Home has other status lines (the water figure)
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });

@@ -1647,8 +1647,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Founder steps (docs/APP_BUILD.md "Shared shopping lists"):** add the **Associated Domains** capability (`applinks:numbite.com`) and a **URL Type** `numbite` in Xcode (capabilities
     and Info settings are yours; I did not touch the entitlements file or add an Info.plist), set `NEXT_PUBLIC_APP_STORE_URL` in Vercel when the App Store page exists, and try it on a real iPhone.
   - **Limits, said plainly:** (1) a friend who does not have the app yet goes to the App Store and, after installing, has to **tap the link in the message again** (or paste it): iOS gives an
-    app no way to know which link led to its install without a third-party service (rule 6: none added). (2) Until Associated Domains is on, a tap on the https link opens the web page, which
-    has the "open in the app" button. (3) Anyone who has the link can read the list, like any link: the share note says so. (4) Product prices are what each shop's list showed when the
+    app no way to know which link led to its install without a third-party service (rule 6: none added). (2) Until Associated Domains is on, a tap on the https link opens the web page; its "I have Numbite: open the list" button
+    (`numbite://l#…`) only exists once `NEXT_PUBLIC_APP_STORE_URL` is set, so until then that page offers "View the list" in the browser version. (3) Anyone who has the link can read the list, like any link: the share note says so. (4) Product prices are what each shop's list showed when the
     reader's app last read it, never the sender's.
   - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "My shopping list on {app}", "Open it in {app}
     to see the products and prices:", "The link holds the first {n} of your {total} items. The list in the message has them all.", "Sharing sends a link that holds your list, so anyone who has
@@ -1662,6 +1662,58 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - Checked: `tests/shareList.test.ts` 16, `e2e/sharelist.mjs` 11 steps (share text and link, ticked items left out, Copy and a long list cut with a note, the landing page in both modes — before and after the App
     Store address is set — bad, cut and empty links, a first-time visitor through the questions onto the list, pictures/prices/quantities and "Add all" merging, products no longer in a list, html as words, the
     paste sheet, 360 px / Extra large text / Arabic with no sideways scroll, axe 0), tsc, lint; screenshots of the landing page.
+
+- 2026-10-15 (night) — **Water on Home** (founder, on Home under Dinner: "There should be a water intake section below dinners with its own heading"; then 2026-10-16: "It should have like a
+  water bottle which you can move up and type the amount of water you've had extra when the plus is pressed").
+  - **What it is:** under **Today's meals**, a heading **Water** and one card in the look of a meal row: a small **water bottle** (our own drawing, `WaterBottle.tsx`, no photo and no brand) filled to
+    today's level against the goal, today's millilitres against the goal ("750 / 2,000 ml"), an **Undo** (the last drink added today only; it keeps its place and is only hidden when there is nothing
+    to undo, so the card never changes height) and a round **+**. Today starts again at midnight (Home's clock now ticks at midnight and when the app comes back to the front). Over the goal the
+    figure says the real amount and the bottle stops at full. A screen reader hears "750 of 2,000 ml of water today" when it changes.
+  - **The + opens "Add water"** (`AddWaterSheet.tsx`, a bottom sheet like Add food): a bigger bottle whose water you **drag up or down** with a finger or the mouse (or move with the arrow keys:
+    50 ml a step, Page Up and Page Down 250 ml, Home and End for empty and full; it is a slider for screen readers), an **Amount (ml)** box you can type in, the two quick buttons **Glass 250 ml** and
+    **Bottle 500 ml** (they fill the box in), and a black **Add {n} ml** button. The bottle and the box stay in step; the bottle is full at one litre and a typed amount up to 5,000 ml shows a full bottle.
+    What is added is **on top of** what is already drunk today. An empty, 0, over-5,000 or non-number amount can't be added and says "Type an amount from 1 to 5,000." Numbers typed in other numeral
+    systems or with a comma are read as everywhere else. The sheet starts afresh (250) each time it opens; Escape or Close adds nothing. The inline Glass and Bottle buttons on Home are gone.
+  - **Decisions (rule 8, for you to change if you like):** (1) the **starting goal is 2,000 ml** (eight glasses): a number to start from, not a recommendation, and nothing in the app says anyone should
+    drink it (rule 3); the person types their own in **Settings › Daily targets › Water (ml)** (250 to 6,000; empty = 2,000), and it syncs with the other settings (clearing it on one device now clears it on
+    the others: see the review fixes below). (2) **The drinks stay on the device and are not synced.** The table behind sync (`public.user_data`) accepts only the store names its CHECK constraint lists, so
+    syncing water needs a new migration (applied with your go-ahead before the code that uses it ships); until then nothing about water leaves the phone (the privacy page and ACCOUNTS_SYNC.md say so;
+    `tests/water.test.ts` fails if a synced store isn't on the database's list). A different person signing in on the same phone starts with the water empty too. (3) Logging stays Pro: while Pro is on, a
+    free person's + shows the paywall, like the meal rows' +; at the free launch it's open to everyone. (4) The bottle's full mark is one litre (a drag moves in 50 ml steps; typing allows any amount to 5,000).
+    (5) Not on Today yet.
+  - **Code:** `lib/mm/water.ts` (entries, today's total, goal, add/undo, tidying; 2 weeks kept, 600 entries at most; the bottle maths `mlToLevel`, `levelToMl`, `stepMl`, `parseWaterAmount`), `waterStore`
+    (`mm.v1.water`, `addWaterEntry`, `undoWaterEntry` in `lib/mm/stores.ts`), `app/app/_components/WaterCard.tsx`, `AddWaterSheet.tsx`, `WaterBottle.tsx`, `DropIcon`, `dailyWater` in the settings (checked when
+    read back), "Clear data on this device" also removes it (and its sentence says "water you added"), `SyncEngine` takes `localStores` (reset for a different person).
+  - **New copy (rule 8, logged here; translated into the 10 languages by AI, each checked by a second translator, not yet by native speakers):** "Water", "Glass", "Bottle", "{ml} of {goal} ml of water
+    today", "Undo the last water you added", "Water (ml)", "Your goal for the day on Home. Left empty it is 2,000 ml.", "Water should be between 250 and 6,000 ml."; the two "Clear data" sentences now
+    read "... saved orders, log, water you added, favourites ..."; for the sheet: "Add water", "Drag the water up, or type how much you had.", "Amount (ml)", "Add {n} ml", "Water to add", "{n} ml". "Type an
+    amount from {min} to {max}." already existed (Add food). No longer used: "Add" as the word before a Glass or Bottle button.
+  - Checked: `tests/water.test.ts` (23: entries read back, today across midnight, undo, pruning, the goal, the setting, not synced, the bottle's level, snapping, steps and typed amounts),
+    `tests/syncEngine.test.ts` (a different person's water is cleared, never uploaded), `e2e/water.mjs` (13 steps: under Dinner with its own h2, a small bottle and a round +, the + opens Add water, adding
+    is on top and the card doesn't jump, dragging with the mouse and a tap, above the top and below the bottom, the keyboard, typing moves the bottle, the amount checks, the shortcuts, Escape and Close add
+    nothing, Undo, yesterday not counted, over the goal, the Settings goal and its checks, Clear data, no request mentions water, the paywall on the Pro-on build, 360 px / Extra large text / Arabic with
+    the sheet open, axe 0 on Home, the sheet and Settings), tsc, lint; screenshots at 390 px, Extra large text and Arabic.
+
+- 2026-10-16 — **Home's round button at the top right is Settings** (founder, on the Home screenshot with the calendar button circled: "Change this icon to a settings icon instead please. You can access the
+  current settings from there"). The round grey button next to "Home" was a calendar that opened Today's meals; it is now our gear icon (the tab bar's) and opens **Settings** (`/app/settings`), same 44 px tap
+  area and small grey circle, named "Settings" for screen readers. Today's meals is still one tap away from each Breakfast, Lunch and Dinner row's title. `CalendarIcon` is gone (nothing else used it).
+  **No new copy** ("Settings" already existed and is translated). Checked: `e2e/extra.mjs` (new last step: the header link is named Settings, goes to `/app/settings`, is 44 px or more, opens the Settings
+  heading, and there is no header link to Today's meals).
+
+- 2026-10-16 — **Fixes from the independent review of the share link, Add food and water work** (two reviewers, each finding checked; all confirmed ones fixed):
+  - **Share link, privacy:** a first-time visitor who opened a shared link was sent to `/app/welcome?next=…` with the list's code **inside the query**, which reaches the server. The code now stays in the
+    fragment: the query holds only the page (`?next=/app/groceries/list/shared`) and the code rides after the welcome page's own `#` (`app/app/layout.tsx` inline script, `AppShell.tsx`,
+    `welcome/page.tsx` `afterOnboarding`). `e2e/sharelist.mjs` now fails if the code appears in any request's path or query. (After a round trip through Apple or Google sign-in from the welcome
+    screen the code is not carried back: the friend taps the link again.)
+  - **Share link, smaller:** a shops' lists that couldn't be fetched now show "Couldn't open this list. Check your connection." with Try again, not "no longer in the shops' lists"; "Added to your
+    shopping list." belongs to the list that was added (a different link opened in the same page starts as not added); pasting a whole message takes the **link**'s code (the last link), and without
+    a link the last `#code`, so a hashtag in an item's name can't be taken for it (tests); typed items keep the joiners Persian, Urdu and Indic words need (U+200C, U+200D; the zero-width space still goes);
+    a shop taken down in `hidden.json` shows none of its pictures on the shared page either.
+  - **Swift (not compiled here, the Mac session builds it):** `SharedListLink.swift` imports `Observation` (it uses `@Observable`); `WebAppView.updateUIView` marks a link request as handled before it
+    decides whether to load it, so a link the page was already showing can't load later after the person has moved on.
+  - **Water, settings sync:** a target the person empties (water goal, protein, carbs, fat, the shops or the recipe fit) is left out of what a device sends, so another device kept its old copy and sent it
+    back; a device that takes the account's settings now lets go of those too (`OPTIONAL_SYNCED_KEYS` in `lib/mm/syncStores.ts`, test in `tests/syncEngine.test.ts`).
+  - **Add food test:** its "no toast" check now looks for an "Added …" status only (Home now has a water status line too).
 
 ## Known issues
 

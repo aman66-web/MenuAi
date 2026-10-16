@@ -6,6 +6,7 @@ import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
+import { addWater, lastWaterToday, removeWater, sanitizeWater, type WaterEntry } from "./water";
 import {
   DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, sanitizeSavedOrders, sanitizeSettings,
   type Favorite, type LogEntry, type RecipeSave, type SavedOrder, type UserSettings,
@@ -18,6 +19,8 @@ export const settingsStore = createStore<UserSettings>("mm.v1.settings", DEFAULT
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });
+/** Water drunk (lib/mm/water.ts). On this device only: not one of the synced stores. */
+export const waterStore = createStore<WaterEntry[]>("mm.v1.water", [], { sanitize: sanitizeWater });
 export const outboxStore = createStore<OutboxItem[]>("mm.v1.outbox", [], { sanitize: sanitizeOutbox });
 /** Groceries the user wants to buy (barcode, retailer, name, quantity). On this device only. */
 export const shoppingStore = createStore<ShoppingItem[]>("mm.v1.shopping", [], { sanitize: sanitizeShoppingList });
@@ -120,6 +123,20 @@ export function restoreLogEntry(entry: LogEntry) {
 
 export function deleteLogEntry(id: string) {
   logStore.update((list) => list.filter((e) => e.id !== id));
+}
+
+/** A drink of water, now. */
+export function addWaterEntry(ml: number): void {
+  waterStore.update((list) => addWater(list, ml, new Date(), newId()));
+  requestPersistentStorage();
+}
+
+/** Take back the drink added last today (Home's Undo). */
+export function undoWaterEntry(): void {
+  waterStore.update((list) => {
+    const last = lastWaterToday(list, new Date());
+    return last ? removeWater(list, last.id) : list;
+  });
 }
 
 /** Counts a successful save/log/share (drives the review-prompt style nudges later). */

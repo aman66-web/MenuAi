@@ -10,6 +10,7 @@ import { DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeRecipeSaves, 
 import { CUSTOM_RETAILER, sanitizeShoppingList, type ShoppingItem } from "../lib/mm/groceries";
 import { sanitizeSavedRecipes } from "../lib/mm/aiRecipe";
 import { sanitizeCompare } from "../lib/mm/compare";
+import { sanitizeWater, type WaterEntry } from "../lib/mm/water";
 
 // Two (or three) pretend phones syncing through the real server code (lib/sync/handlers.ts) and the real merge rules.
 
@@ -67,6 +68,8 @@ function device(server: UserDataStore, clk: Clock, userId = "user-1") {
     compare: createStore("compare", [], { sanitize: sanitizeCompare, storage }),
   };
   const meta: Store<SyncMeta> = createStore("meta", EMPTY_META, { sanitize: sanitizeMeta, storage });
+  // water stays on the device (not a synced store), but belongs to whoever is using the phone
+  const water = createStore<WaterEntry[]>("water", [], { sanitize: sanitizeWater, storage });
   const ctx = { data: server, limit: makeLimit(() => clk.now), now: () => clk.now };
   const calls: string[] = [];
   const hooks: { beforePut?: (name: SyncStoreName) => void; offline?: boolean } = {};
@@ -91,8 +94,8 @@ function device(server: UserDataStore, clk: Clock, userId = "user-1") {
       return r.body?.state as SyncState;
     },
   };
-  const engine = new SyncEngine({ adapters: createSyncAdapters(stores), meta, api, now: () => clk.now });
-  return { stores, meta, engine, calls, hooks };
+  const engine = new SyncEngine({ adapters: createSyncAdapters(stores), meta, api, now: () => clk.now, localStores: [water] });
+  return { stores, meta, engine, calls, hooks, water };
 }
 
 const order = (id: string, createdAt: string, name = id): SavedOrder => ({
@@ -383,6 +386,31 @@ describe("settings", () => {
     await b.engine.syncNow();
     expect(b.stores.settings.get()).toMatchObject({ dailyCalories: 2100, textSize: "xlarge", language: "es", paywallDismissCount: 0 });
   });
+
+  it("a target cleared on one device is cleared on the other too, not brought back by its old copy", async () => {
+    const { store } = serverStore();
+    const clk = clock();
+    const a = device(store, clk);
+    const b = device(store, clk);
+    a.stores.settings.set(real({ dailyProtein: 150, dailyCarbs: 250, dailyFat: 70, dailyWater: 1750, shops: ["tesco"] }));
+    a.engine.prepareFor("user-1");
+    await a.engine.syncNow();
+    b.engine.prepareFor("user-1");
+    await b.engine.syncNow();
+    expect(b.stores.settings.get()).toMatchObject({ dailyProtein: 150, dailyCarbs: 250, dailyFat: 70, dailyWater: 1750, shops: ["tesco"] });
+    clk.tick();
+    // the person empties the water goal, the carbs and the shops on A: those keys are left out of what A sends
+    const { dailyWater: _w, dailyCarbs: _c, shops: _s, ...rest } = a.stores.settings.get(); // eslint-disable-line @typescript-eslint/no-unused-vars
+    a.stores.settings.set(rest as UserSettings);
+    await a.engine.syncNow();
+    clk.tick();
+    await b.engine.syncNow();
+    const after = b.stores.settings.get();
+    expect(after.dailyWater).toBeUndefined();
+    expect(after.dailyCarbs).toBeUndefined();
+    expect(after.shops).toBeUndefined();
+    expect(after).toMatchObject({ dailyProtein: 150, dailyFat: 70 }); // what is still set stays
+  });
 });
 
 describe("today's log", () => {
@@ -416,13 +444,16 @@ describe("a different person on the same phone", () => {
     const clk = clock();
     const phone = device(store, clk, "user-1");
     phone.stores.saved.set([order("mine", "2026-10-12T10:00:00.000Z")]);
+    phone.water.set([{ id: "w1", loggedAt: "2026-10-13T09:00:00.000Z", ml: 250 }]);
     phone.engine.prepareFor("user-1");
     await phone.engine.syncNow();
+    expect(rows.has("user-1|water")).toBe(false); // water is never uploaded
 
     // user-2 signs in on the same phone
     const sameStores = phone;
     sameStores.engine.prepareFor("user-2");
     expect(sameStores.stores.saved.get()).toEqual([]);
+    expect(sameStores.water.get()).toEqual([]); // the first person's water isn't the second person's
     expect(sameStores.meta.get().userId).toBe("user-2");
     expect(rows.has("user-2|saved")).toBe(false);
   });
@@ -432,10 +463,12 @@ describe("a different person on the same phone", () => {
     const clk = clock();
     const phone = device(store, clk);
     phone.stores.saved.set([order("mine", "2026-10-12T10:00:00.000Z")]);
+    phone.water.set([{ id: "w1", loggedAt: "2026-10-13T09:00:00.000Z", ml: 250 }]);
     phone.engine.prepareFor("user-1");
     await phone.engine.syncNow();
     phone.engine.prepareFor("user-1");
     expect(phone.stores.saved.get().map((o) => o.id)).toEqual(["mine"]);
+    expect(phone.water.get().map((e) => e.id)).toEqual(["w1"]);
   });
 
   it("forgetting the account leaves the data on the phone as plain device data", async () => {

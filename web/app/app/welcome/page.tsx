@@ -105,6 +105,16 @@ const CARD = "rounded-[1.25rem]";
 const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
 
+/**
+ * Where onboarding ends: the page the visitor first opened if it is inside the app (`?next=`), else Home. A shared shopping list's code travels in
+ * the "#" of this page's own address (never in the query, which a server would see) and goes back onto the end of that page.
+ */
+function afterOnboarding(): string {
+  const target = new URLSearchParams(window.location.search).get("next");
+  if (!target || !/^\/app(?![\w-])/.test(target) || target.startsWith("//") || target.startsWith("/app/welcome")) return "/app";
+  return target.includes("#") ? target : target + window.location.hash;
+}
+
 export default function WelcomePage() {
   const router = useRouter();
   const menu = useMenu();
@@ -123,8 +133,7 @@ export default function WelcomePage() {
   // visit, so skip the questions. Someone who was already set up and opened this screen on purpose stays on it.
   useEffect(() => {
     if (!hydrated || wasOnboarded.current || !onboarded || step > 0) return;
-    const target = new URLSearchParams(window.location.search).get("next");
-    router.replace(target && /^\/app(?![\w-])/.test(target) && !target.startsWith("//") && !target.startsWith("/app/welcome") ? target : "/app");
+    router.replace(afterOnboarding());
   }, [hydrated, onboarded, step, router]);
   // Pre-selected: the language chosen before, else the browser's own language if we have it (nothing is sent anywhere), else English.
   const guess: Locale = hydrated ? guessLocale(navigator.languages) : "en";
@@ -189,8 +198,7 @@ export default function WelcomePage() {
       window.setTimeout(open, 30);
       return;
     }
-    const target = new URLSearchParams(window.location.search).get("next");
-    router.replace(target && /^\/app(?![\w-])/.test(target) && !target.startsWith("//") && !target.startsWith("/app/welcome") ? target : "/app");
+    router.replace(afterOnboarding());
   };
   const skip = () => {
     analytics.track({ name: "onboardingSkipped", step });

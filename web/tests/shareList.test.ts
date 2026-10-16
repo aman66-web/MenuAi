@@ -156,6 +156,12 @@ describe("addresses", () => {
       `Here you go (https://numbite.com/l#${payload}).`, `look: https://numbite.com/l#${payload}.`, payload,
     ]) expect(payloadFrom(pasted), pasted).toBe(payload);
     for (const pasted of ["", "hello", "https://numbite.com/l", "https://numbite.com/l#", "https://numbite.com/l#abc", "a b c d e f g h"]) expect(payloadFrom(pasted), pasted).toBeNull();
+    // a hashtag in a message is never taken for the link: the link wins wherever it is, and without one the last code does
+    const code = "1abcdefgh234";
+    expect(payloadFrom(`My list: #pancakes2 x2\nOpen it: https://numbite.com/l#${code}`)).toBe(code);
+    expect(payloadFrom(`https://numbite.com/l#${code} thanks #lovelylist`)).toBe(code);
+    expect(payloadFrom(`numbite://l#${code}.`)).toBe(code);
+    expect(payloadFrom(`#firstcode1 and then #secondcode2`)).toBe("secondcode2");
   });
 
   it("lists the shops a list has items from, once each, in order, without typed items", () => {
@@ -175,5 +181,9 @@ describe("cleanTyped", () => {
     expect(cleanTyped("---")).toBeNull();
     expect(cleanTyped(42)).toBeNull();
     expect(cleanTyped("a‮b")).toBe("a b");
+    // the joiners that Persian, Urdu and Indic words need are kept; the zero-width space is not
+    expect(cleanTyped("نمی\u200cدانم")).toBe("نمی\u200cدانم");
+    expect(cleanTyped("क्\u200dष")).toBe("क्\u200dष");
+    expect(cleanTyped("a\u200bb")).toBe("a b");
   });
 });

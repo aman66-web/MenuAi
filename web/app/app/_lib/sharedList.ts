@@ -5,7 +5,7 @@ import { customItem, photoSources, withPhoto, type ShoppingItem } from "@/lib/mm
 import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import type { SharedEntry } from "@/lib/mm/shareList";
 import { loadRetailer } from "./groceries";
-import { loadShopFile } from "./shopProducts";
+import { loadShopFile, loadShopManifest } from "./shopProducts";
 
 // A shared shopping list read back (founder 2026-10-15). The link carries only references (lib/mm/shareList.ts); the names, pictures and prices come from
 // the shop's own list here, the same one the product pages use, so the person sees today's. An entry whose product is no longer in the list is counted, not guessed.
@@ -34,7 +34,13 @@ export async function resolveEntries(entries: readonly SharedEntry[]): Promise<{
   const catalogues = new Map<string, Promise<Catalogue | null>>();
   const shopList = (retailer: string) => {
     let p = shopLists.get(retailer);
-    if (!p) shopLists.set(retailer, (p = loadShopFile(retailer).then(({ file, products }) => ({ file, byId: new Map(products.map((x) => [x.id, x])) })).catch(noList)));
+    // loadShopManifest answers "no shops" when the manifest can't be fetched (right for the Groceries screen); here that must be an error to try again,
+    // not "none of these products exist any more".
+    const load = () => loadShopManifest().then((m) => {
+      if (m.retailers.length === 0) throw new Error("the shops' lists could not be loaded");
+      return loadShopFile(retailer);
+    });
+    if (!p) shopLists.set(retailer, (p = load().then(({ file, products }) => ({ file, byId: new Map(products.map((x) => [x.id, x])) })).catch(noList)));
     return p;
   };
   const catalogue = (retailer: string) => {

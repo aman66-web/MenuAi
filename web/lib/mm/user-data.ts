@@ -3,6 +3,7 @@ import { isLocale, type Locale } from "./i18n";
 import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, MEALS } from "./budget";
 import type { OrderLine } from "./order";
+import { MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "./water";
 
 // User data lives only in this browser (localStorage). Nutrient snapshots let history survive menu changes.
 
@@ -50,6 +51,8 @@ export interface UserSettings {
   /** Typed in Settings; when absent, Home works the target out from calories and protein (targets.ts suggestCarbFat). */
   dailyCarbs?: number;
   dailyFat?: number;
+  /** The water goal in millilitres, typed in Settings; when absent Home uses the starting goal (water.ts DEFAULT_WATER_GOAL_ML). */
+  dailyWater?: number;
   hasSetTargets: boolean;
   glp1MealCap: number;
   preferences: Preferences;
@@ -127,12 +130,14 @@ export function sanitizeSettings(raw: unknown): UserSettings {
   const grams = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v > 0 && v <= 2000 ? v : undefined);
   const carbs = grams(raw.dailyCarbs);
   const fat = grams(raw.dailyFat);
+  const water = typeof raw.dailyWater === "number" && Number.isFinite(raw.dailyWater) && raw.dailyWater >= MIN_WATER_GOAL_ML && raw.dailyWater <= MAX_WATER_GOAL_ML ? Math.round(raw.dailyWater) : undefined;
   return {
     goal: GOALS.includes(raw.goal as Goal) ? (raw.goal as Goal) : DEFAULT_SETTINGS.goal,
     dailyCalories: num(raw.dailyCalories, DEFAULT_SETTINGS.dailyCalories, 500, 10000),
     ...(protein !== undefined ? { dailyProtein: protein } : {}),
     ...(carbs !== undefined ? { dailyCarbs: carbs } : {}),
     ...(fat !== undefined ? { dailyFat: fat } : {}),
+    ...(water !== undefined ? { dailyWater: water } : {}),
     hasSetTargets: bool(raw.hasSetTargets, false),
     glp1MealCap: num(raw.glp1MealCap, DEFAULT_SETTINGS.glp1MealCap, 100, 2000),
     preferences: {

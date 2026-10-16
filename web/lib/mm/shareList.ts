@@ -42,8 +42,8 @@ export type Decoded = { ok: true; entries: SharedEntry[] } | { ok: false; reason
 
 // ---- the words of a typed-in item
 
-/** Control characters and the invisible ones that reorder text are not words (a link can come from anybody). */
-const NOT_TEXT = /[\u0000-\u001f\u007f-\u009f​-‏‪-‮⁦-⁩﻿]/g;
+/** Control characters and the invisible ones that reorder text are not words (a link can come from anybody). The joiners U+200C and U+200D stay: Persian, Urdu and Indic words need them. */
+const NOT_TEXT = /[\u0000-\u001f\u007f-\u009f\u200b\u200e\u200f\u202a-\u202e\u2066-\u2069\ufeff]/g;
 
 /** A typed-in item's words as they will be shown: tidied, short, and with something readable in them; else null. */
 export function cleanTyped(text: unknown): string | null {
@@ -202,8 +202,13 @@ export const shareUrl = (base: string, payload: string): string => `${base.repla
  */
 export function payloadFrom(pasted: string): string | null {
   const text = pasted.trim();
-  const fromLink = /#([A-Za-z0-9_-]{8,})/.exec(text)?.[1];
+  // The link itself first (the last one, a message ends with it), so a hashtag in an item's name ("#pancakes") can't be taken for it; else the last "#code".
+  let fromLink: string | undefined;
+  for (const m of text.matchAll(/(?:https?:\/\/|numbite:\/\/)[^\s#]*#([A-Za-z0-9_-]{8,})/g)) fromLink = m[1];
   if (fromLink) return fromLink;
+  let fromTag: string | undefined;
+  for (const m of text.matchAll(/#([A-Za-z0-9_-]{8,})/g)) fromTag = m[1];
+  if (fromTag) return fromTag;
   return /^[A-Za-z0-9_-]{8,}$/.test(text) ? text : null;
 }
 

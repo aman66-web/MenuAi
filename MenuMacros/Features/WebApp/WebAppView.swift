@@ -43,9 +43,12 @@ struct WebAppView: UIViewRepresentable {
     }
 
     func updateUIView(_ webView: WKWebView, context: Context) {
-        guard LinkInbox.shouldLoad(link, lastHandled: context.coordinator.lastLinkID, showing: webView.url), let link else { return }
+        guard let link, link.id != context.coordinator.lastLinkID else { return }
+        // Handled from now on, whether or not it needs loading: a link the page is already showing must not load later, after the person has moved on.
         context.coordinator.lastLinkID = link.id
-        webView.load(URLRequest(url: link.url))
+        if LinkInbox.shouldLoad(link, lastHandled: nil, showing: webView.url) {
+            webView.load(URLRequest(url: link.url))
+        }
     }
 
     static func dismantleUIView(_ webView: WKWebView, coordinator: Coordinator) {

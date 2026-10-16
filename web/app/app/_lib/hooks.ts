@@ -82,12 +82,25 @@ export function useSearchIndex() {
   return { searchIndex: state.searchIndex, loadedCount: state.searchReady ? totalCount : state.indexes.size, totalCount };
 }
 
-/** Re-renders every minute, and when the app comes back to the front (meal slot, "New" tags and "today" can change while the app is open or asleep). */
+/**
+ * Re-renders every minute, when the app comes back to the front, and just after local midnight (meal slot, "New" tags and "today" can change while
+ * the app is open or asleep: Home's day, its week and its water start again at midnight, not up to a minute later).
+ */
 export function useNow(intervalMs = 60_000): Date {
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
     const tick = () => setNow(new Date());
     const t = setInterval(tick, intervalMs);
+    let midnight: ReturnType<typeof setTimeout>;
+    const arm = () => {
+      const n = new Date();
+      const next = new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1, 0, 0, 0, 500);
+      midnight = setTimeout(() => {
+        tick();
+        arm();
+      }, Math.max(1000, next.getTime() - n.getTime()));
+    };
+    arm();
     const back = () => {
       if (document.visibilityState === "visible") tick();
     };
@@ -95,6 +108,7 @@ export function useNow(intervalMs = 60_000): Date {
     window.addEventListener("focus", back);
     return () => {
       clearInterval(t);
+      clearTimeout(midnight);
       document.removeEventListener("visibilitychange", back);
       window.removeEventListener("focus", back);
     };

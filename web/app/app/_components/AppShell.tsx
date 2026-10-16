@@ -64,8 +64,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   // First visit (SPEC §7.1): onboarding comes first, wherever the link pointed. It returns there when done.
   useEffect(() => {
     if (!hydrated || onboarded || pathname.startsWith("/app/welcome") || pathname.startsWith("/app/offline")) return;
-    const next = window.location.pathname + window.location.search + window.location.hash; // the part after "#" too: a shared shopping list is in it
-    router.replace(`/app/welcome?next=${encodeURIComponent(next)}`);
+    // The part after "#" (a shared shopping list is in it) goes after the welcome page's own "#", never into its query: a query is sent to the
+    // server, a fragment is not, and the list must stay on this phone.
+    const next = window.location.pathname + window.location.search;
+    router.replace(`/app/welcome?next=${encodeURIComponent(next)}${window.location.hash}`);
   }, [hydrated, onboarded, pathname, router]);
 
   // Signed in? (Optional: with no account nothing is sent anywhere.) Asks the server who this device is signed in as and starts syncing.

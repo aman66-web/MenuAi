@@ -191,6 +191,8 @@ export interface SyncEngineDeps {
   meta: Store<SyncMeta>;
   api: SyncApi;
   now: () => number;
+  /** Stores that stay on the device (water): they belong to whoever was using it, so a different person signing in starts with them empty too. */
+  localStores?: ReadonlyArray<{ reset: () => void }>;
 }
 
 /** A store changed because a sync put merged data into it (not because the person did something): it doesn't need another sync. */
@@ -221,6 +223,7 @@ export class SyncEngine {
       this.applying = true;
       try {
         for (const a of this.deps.adapters) a.store.reset();
+        for (const s of this.deps.localStores ?? []) s.reset();
       } finally {
         this.applying = false;
       }

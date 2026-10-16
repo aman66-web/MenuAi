@@ -21,11 +21,17 @@ const descending = <T>(entries: ReadonlyArray<{ item: T; t: number }>, when: (x:
   [...entries].sort(byTime(when as (x: never) => string, -1)).map((e) => e.item);
 
 /** The settings that follow the person from device to device. */
-const SYNCED_SETTINGS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "hasSetTargets", "glp1MealCap", "preferences", "hasCompletedOnboarding", "shops", "recipeMeal"] as const;
+export const SYNCED_SETTING_KEYS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "dailyWater", "hasSetTargets", "glp1MealCap", "preferences", "hasCompletedOnboarding", "shops", "recipeMeal"] as const;
+
+/**
+ * The synced settings a person can leave empty (a typed target, the shops, the recipe fit). `pickSettings` leaves an empty one out of what is sent, so
+ * a device that takes the account's settings must also let go of its own copy of those, or a target cleared on one device would come back from another.
+ */
+const OPTIONAL_SYNCED_KEYS = ["dailyProtein", "dailyCarbs", "dailyFat", "dailyWater", "shops", "recipeMeal"] as const satisfies readonly (typeof SYNCED_SETTING_KEYS)[number][];
 
 function pickSettings(s: UserSettings): Record<string, unknown> {
   const out: Record<string, unknown> = {};
-  for (const k of SYNCED_SETTINGS) if (s[k] !== undefined) out[k] = s[k];
+  for (const k of SYNCED_SETTING_KEYS) if (s[k] !== undefined) out[k] = s[k];
   return out;
 }
 
@@ -49,7 +55,12 @@ export const createSyncAdapters = (stores: SyncStores): Adapter[] => [
     store: stores.settings,
     pick: pickSettings,
     // checked like anything read from storage, and the per-device parts stay as they are
-    apply: (local, synced) => sanitizeSettings({ ...local, ...(synced && typeof synced === "object" ? synced : {}), ...{ textSize: local.textSize, language: local.language } }),
+    apply: (local, synced) => {
+      const theirs = synced && typeof synced === "object" ? (synced as Record<string, unknown>) : null;
+      const mine: Record<string, unknown> = { ...local };
+      if (theirs) for (const k of OPTIONAL_SYNCED_KEYS) if (!(k in theirs)) delete mine[k];
+      return sanitizeSettings({ ...mine, ...(theirs ?? {}), ...{ textSize: local.textSize, language: local.language } });
+    },
     meaningful: (v) => typeof v === "object" && v !== null && ((v as Record<string, unknown>).hasCompletedOnboarding === true || (v as Record<string, unknown>).hasSetTargets === true),
   }),
   setAdapter({

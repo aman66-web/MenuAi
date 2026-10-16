@@ -12,7 +12,10 @@ when the feature ships, and the privacy page and App Store answers change with i
   password to remember). Apple requires Sign in with Apple whenever Google sign-in is offered (guideline 4.8).
 - **What syncs:** settings and targets, diet and allergies, saved restaurant meals and favourite restaurants, My meals (saved recipes, Pip's
   recipes), the shopping list, today's log, "I have this" cupboard items and the comparison list. **What doesn't:** recently viewed dishes (24 hours
-  only), the offline menu cache, the language screen before sign-in.
+  only), the offline menu cache, the language screen before sign-in, and **the water drunk** (Home's Water section, 15 October 2026: the daily water goal
+  syncs with the other settings, the drinks stay on the device). Water drinks are not a synced store because `public.user_data` accepts only the store names its
+  CHECK constraint lists (`supabase/migrations/20261013120000_user_data.sql`); to sync them, add a new migration widening that constraint, apply it with the
+  founder's go-ahead **before** deploying the code that adds `water` to `SYNC_STORES` (`web/tests/water.test.ts` fails if a synced store isn't on the database's list).
 - **Settings › Account:** who you're signed in as, "Sign out" (data stays on this phone), and **"Delete my account"**. Apple requires deletion
   inside the app (guideline 5.1.1(v)); it deletes the account and every synced row at once.
 

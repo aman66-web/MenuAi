@@ -215,6 +215,25 @@ await step("Eat out › My favourite restaurants: star one from the list and it'
   if (await page.getByRole("heading", { name: "Recently viewed" }).count()) throw new Error("still shown after a day");
   await ctx.close();
 });
+await step("Home's round button at the top right is Settings (a gear), not the calendar: a 44 px link to /app/settings that opens Settings; Today's meals opens from a meal row", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app");
+  const header = page.locator("h1", { hasText: "Home" }).locator("xpath=..");
+  const gear = header.getByRole("link", { name: "Settings", exact: true });
+  await vis(gear);
+  if ((await gear.getAttribute("href")) !== "/app/settings") throw new Error("the button goes to " + (await gear.getAttribute("href")));
+  const box = await gear.boundingBox();
+  if (box.width < 44 || box.height < 44) throw new Error(`tap area ${box.width} x ${box.height}`);
+  if ((await gear.locator("svg").count()) !== 1) throw new Error("no icon");
+  if (await header.getByRole("link", { name: "Today's meals" }).count()) throw new Error("the calendar link is still in the header");
+  const row = page.getByRole("link", { name: /Breakfast/ }).first();
+  if ((await row.getAttribute("href")) !== "/app/today") throw new Error("a meal row no longer opens Today's meals: " + (await row.getAttribute("href")));
+  await gear.tap();
+  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
+  await ctx.close();
+});
 console.log(`\n${pass} passed, ${fail} failed`);
 await browser.close();
 process.exit(fail ? 1 : 0);
