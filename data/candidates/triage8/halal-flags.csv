@@ -1,0 +1,30 @@
+chain_id,earlier_row,shown_in_app_before,recheck_scope,shown_in_app_after,source_url,note
+ask-italian,(no row),not shown,no,not shown,https://www.askitalian.co.uk/help/faq,
+atis,(no row),not shown,some,some,https://atis.life/faqs,halal items are tagged in the chain's allergen guide
+bagel-factory,not_stated,not shown,some,not shown,https://www.bagelfactory.co.uk/wp-content/uploads/Full-Ingredient-List.pdf,"The PDF's key line reads 'H=Halal Friendly' and 79 rows carry an H, but it never says what 'Halal Friendly' means or that the meat is halal-slaughtered or certified (the H also sits on bagel buns, jam and sauces). Review 16 Oct: the page does not say halal food is sold, so it stays not_stated; restore only with a page that does."
+benugo,not_stated,not shown,(dropped),not shown,,"re-checker row dropped by the judge: the only evidence is a December 2024 menu PDF for one venue (Warwick Arts Centre) and the chain's words do not name the venue, so quoting them would suggest all Benugo chicken is halal; stays not_stated"
+bills,not_stated,not shown,some,some,https://bills-website.co.uk/restaurants/leicester/,Leicester restaurant only
+booths-cafe,(no row),not shown,no,not shown,https://www.booths.co.uk/halal-meat-statement/,
+burger-and-lobster,not_stated,not shown,no,not shown,https://www.burgerandlobster.com/locations/london/west-india-quay/,
+burger-king,(no row),not shown,no,not shown,https://www.burgerking.co.uk/faqs,
+coco-di-mama,(no row),not shown,no,not shown,https://www.cocodimama.co.uk/help/faq,
+dishoom,(no row),not shown,some,some,https://www.dishoom.com/frequently-asked-questions-faq/,
+dominos,(no row),not shown,some,some,https://corporate.dominos.co.uk/about-us/our-food/food-faq,added by the judge from the chain's food FAQ; the quote keeps its own 'we don't promote our stores or meat as halal approved' disclaimer
+fireaway,(no row),not shown,all,all,https://www.fireaway.co.uk/our-story,'All of our meats are 100% halal certified'
+hollywood-bowl,not_stated,not shown,some,some,https://media.hollywoodbowlgroup.com/assets/media/1000026/original?v=1791278420144,added by the judge from the chain's own menu PDF ('our Halal menu'); the PDF says halal items are not cooked in a dedicated halal kitchen
+pepes-piri-piri,not_stated,not shown,all,all,https://pepes.co.uk/pepes-news/perfect-pepes-picnic/,one news-post sentence ('all which are Halal'): founder may prefer some
+popeyes,not_stated,not shown,some,some,https://popeyesuk.com/faqs,"re-checker proposed all; judge set some (only 10 restaurants are HCO-certified, the claim covers chicken)"
+powerleague,(no row),not shown,some,some,https://www.powerleague.com/wp-content/uploads/2026/05/469U-PL-Q2-MAY_DIGITAL-MENU_A4_TIER-3_SINGLE-PAGES_FINAL-compressed.pdf,one 'rollover halal hot dog' at selected locations
+pure,not_stated,not shown,no,not shown,https://www.pure.co.uk/contact/,
+puttshack-uk,not_stated,not shown,some,some,https://www.puttshack.com/uk/food-and-drink/,'H = HALAL' tag on dishes in the chain's own menu page
+slim-chickens,not_stated,not shown,some,some,https://www.slimchickens.co.uk/halal,
+sticks-n-sushi,not_stated,not shown,no,not shown,https://www.sticksnsushi.com/gb/en/about/faq/,
+subway,(no row),not shown,some,some,https://www.subway.com/en-gb/assets/allergen-information-may-2026.pdf,"quote trimmed to the guide's own words; PDF is on www.subway.com/en-gb/assets (robots allows), not the disallowed media.subway.com"
+the-alchemist,(no row),not shown,no,not shown,https://thealchemistbars.com/faq/,
+the-salad-project,(no row),not shown,some,some,https://www.saladproject.co.uk/pages/faqs,halal-certified chicken thigh only
+turtle-bay,(no row),not shown,no,not shown,https://turtlebay.co.uk/faq/menu,
+wendys,not_stated,not shown,some,some,https://uklocations.wendys.com/dundee/15-reform-street,says the UK restaurants are not halal certified; only its breaded chicken comes from a halal certified supplier
+wildwood,not_stated,not shown,some,some,https://wildwoodrestaurants.co.uk/restaurant/ely/,quote is about one restaurant (Ely)
+zizzi,(no row),not shown,no,not shown,https://www.zizzi.co.uk/faq,
+jamaica-blue,some,shown,not_stated,not shown,https://www.jamaicablue.co.uk/,"Review 16 Oct: the old row quoted the file name of a Halal menu PDF (JAM_8294_JB_web_Menus_A3L_2026_Halal.pdf, linked for Ashford, Bradford, Ilford and Manchester Arndale) and said the PDF answered 403. The home page itself never says any food is halal. Not the chain's words, so the row is now not_stated. Restore with a page or the PDF (saved from the founder's browser) that says it."
+pizza-hut,some,shown,not_stated,not shown,https://www.pizzahut.co.uk/sitemap.xml,"Review 16 Oct: the old row listed 11 store-page slugs ending '-halal' from the sitemap (southall-halal, kings-heath-halal, pollokshields-halal, edgbaston-halal, east-ham-halal, forest-gate-halal, barking-halal and 4 more). That is inferred from URL names, not the chain's words, so the row is now not_stated. Restore with a Pizza Hut page or FAQ that says some stores are halal."

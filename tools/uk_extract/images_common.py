@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import http.client
 import io
 import re
 import time
@@ -69,17 +70,30 @@ def load_items(chain_id: str) -> list[dict]:
 
 _last_request: dict[str, float] = {}
 _robots: dict[str, list] = {}
+_robots_unreadable: dict[str, str] = {}   # host -> why its robots.txt could not be read (network/server error); never cached as "no rules"
+ROBOTS_DELAY = 1.0                        # the robots.txt request keeps the same 1 request/second pace per host as the pages
 
 
 def _robots_allow(url: str) -> bool:
-    """robots.txt as RFC 9309 reads it (wildcards included: see robots_rfc.py). Cached per host."""
+    """robots.txt as RFC 9309 reads it (wildcards included: see robots_rfc.py). Cached per host.
+
+    A robots.txt that cannot be read at all (timeout, DNS failure, connection reset, TLS error, a reply cut short) is "unreachable"
+    in RFC 9309 section 2.3.1.4: assume complete disallow, so this returns False and the page is not fetched. That answer is not cached
+    (a later call in the same run asks again) and the reason is kept in `_robots_unreadable`. The request itself is paced like a page."""
     host = urllib.parse.urlsplit(url)
     key = f"{host.scheme}://{host.netloc}"
     if key not in _robots:
+        wait = _last_request.get(host.netloc, 0) + ROBOTS_DELAY - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
         try:
             req = urllib.request.Request(f"{key}/robots.txt", headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=20) as r:
-                _robots[key] = robots_rfc.parse(r.read().decode("utf-8", "replace"))
+            try:
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    _robots[key] = robots_rfc.parse(r.read().decode("utf-8", "replace"))
+            finally:
+                _last_request[host.netloc] = time.monotonic()
+            _robots_unreadable.pop(key, None)
         except urllib.error.HTTPError as e:
             # RFC 9309: a 4xx for robots.txt (404, 410, a CDN's odd 400, a 403 "forbidden") means "no rules". Founder 2026-10-12 ("Yes, follow
             # the standard"): a 403 on robots.txt is read as no rules, as the standard says. 401 and 429 (a refusal or "slow down") and 5xx
@@ -95,8 +109,9 @@ def _robots_allow(url: str) -> bool:
                 body = b""
             cdn_missing_file = e.code == 403 and (b"<Code>MissingKey</Code>" in body or b"<Code>NoSuchKey</Code>" in body)
             _robots[key] = [] if (s3_missing_file or cdn_missing_file or e.code == 403) else [("disallow", "/")] if e.code in (401, 429) or e.code >= 500 else []
-        except Exception:
-            _robots[key] = []
+        except Exception as e:   # not an HTTP answer: the file could not be read, which RFC 9309 treats as "do not fetch"
+            _robots_unreadable[key] = f"{type(e).__name__}: {e}"
+            return False
     return robots_rfc.allowed(_robots[key], host.path + ("?" + host.query if host.query else ""))
 
 
@@ -109,7 +124,10 @@ def polite_get(url: str, cache_dir: Path, *, delay: float = 1.0, referer: str | 
     if cached.exists():
         return cached.read_bytes()
     if not _robots_allow(url):
-        raise Blocked(f"robots.txt disallows {url}")
+        u = urllib.parse.urlsplit(url)
+        why = _robots_unreadable.get(f"{u.scheme}://{u.netloc}")
+        raise Blocked(f"robots.txt could not be read ({why}); RFC 9309 says to assume it disallows, so {url} was not fetched: rerun later" if why
+                      else f"robots.txt disallows {url}")
     host = urllib.parse.urlsplit(url).netloc
     wait = _last_request.get(host, 0) + delay - time.monotonic()
     if wait > 0:
@@ -127,8 +145,8 @@ def polite_get(url: str, cache_dir: Path, *, delay: float = 1.0, referer: str | 
             if e.code in (401, 403, 429):
                 raise Blocked(f"HTTP {e.code} from {url}") from e
             raise
-        except (urllib.error.URLError, OSError):
-            # a dropped connection (reset, TLS EOF, timeout), not a refusal: wait and ask again, twice at most, same pace
+        except (urllib.error.URLError, OSError, http.client.HTTPException):
+            # a dropped connection (reset, TLS EOF, timeout, a reply cut short: IncompleteRead, BadStatusLine), not a refusal: wait and ask again, twice at most, same pace
             _last_request[host] = time.monotonic()
             if attempt == 2:
                 raise

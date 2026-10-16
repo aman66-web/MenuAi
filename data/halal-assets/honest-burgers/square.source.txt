@@ -1,0 +1,4 @@
+status: none
+reason: no square icon of 120 px or more is served by https://www.honestburgers.co.uk/. The home page declares no <link rel="icon">, apple-touch-icon or web-app manifest and no og:image (checked in the saved head, 2026-10-16); /apple-touch-icon.png answers 404; /favicon.ico (the conventional path) is a 5,430-byte ICO holding only 16 x 16 and 32 x 32 images, too small to use (and not saved). Nothing is saved as square.<ext>; the chain's tile uses its wordmark logo.svg.
+robots: https://www.honestburgers.co.uk/robots.txt has no Disallow rules (checked 2026-10-16)
+retrieved: 2026-10-16

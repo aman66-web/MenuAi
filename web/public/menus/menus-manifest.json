@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261015183156,
- "generatedAt": "2026-10-15T18:31:56Z",
+ "dataVersion": 20261016115943,
+ "generatedAt": "2026-10-16T11:59:43Z",
  "chains": [
   {
    "id": "abokado",
@@ -456,6 +456,17 @@
    "itemCount": 43,
    "checkedOn": "2026-10-09",
    "nutritionLevel": "calories"
+  },
+  {
+   "id": "burger-boi",
+   "name": "Burger Boi",
+   "cuisine": "Burgers",
+   "file": "chain-burger-boi.json",
+   "sha256": "117efce00a258601d72abd3f299773c8b8cbfaed522a5c17ce1575ff2c112ef1",
+   "contentHash": "9088adab8338016aa4b6adef15ea426baaa47162b6f0c9ce65b0e5b792a623a2",
+   "sample": false,
+   "itemCount": 35,
+   "checkedOn": "2026-10-16"
   },
   {
    "id": "burger-king",
@@ -1359,6 +1370,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "honest-burgers",
+   "name": "Honest Burgers",
+   "cuisine": "Burgers",
+   "file": "chain-honest-burgers.json",
+   "sha256": "d9340914db11d9b5f8bf127d9595836e40c023a6f4b4716bc9155465715b6cc3",
+   "contentHash": "319fadd07aff7977e28923b538321fd879714422f6acb1fa51484a18ee1387e7",
+   "sample": false,
+   "itemCount": 117,
+   "checkedOn": "2026-10-16"
+  },
+  {
    "id": "honi-poke",
    "name": "Honi Poke",
    "cuisine": "Poke bowls",
@@ -2102,6 +2124,17 @@
    "nutritionLevel": "calories"
   },
   {
+   "id": "sams-chicken",
+   "name": "Sam's Chicken",
+   "cuisine": "Chicken",
+   "file": "chain-sams-chicken.json",
+   "sha256": "47c834a023ea8ff2afa8f8a10062ba2937c61b9175d933f913b18d14fbfcc1f8",
+   "contentHash": "ea790fa6f52ac587408a011abcd352b990767d46fe92d345ed149698bf8e1eba",
+   "sample": false,
+   "itemCount": 59,
+   "checkedOn": "2026-10-16"
+  },
+  {
    "id": "san-carlo",
    "name": "San Carlo",
    "cuisine": "Italian",
@@ -2742,10 +2775,10 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "6b919c5793ed10095b665461f26cc61030ce9512f11e9575649dd76c999a1f0e"
+  "sha256": "a2f75e7fcc15dfeb312e92e2b513e94aa35bcbfcb11dd0cc05489d3de1a0b9dc"
  },
  "numbers": {
   "file": "menus-numbers.json",
-  "sha256": "1be9944a5a46abfec647b2d83175ab83a71378d8b23450f48d880b9588c20786"
+  "sha256": "a444a9e1f5d9afd6e6731479b652a3e212249b4caf78299d4c5ae11e4273c77f"
  }
 }

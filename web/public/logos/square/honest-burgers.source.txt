@@ -1,0 +1,4 @@
+status: skipped-unavailable
+why: no square icon of 120 px or more is served by https://www.honestburgers.co.uk/: the home page declares no <link rel="icon">, apple-touch-icon, web-app manifest or og:image, /apple-touch-icon.png answers 404 and /favicon.ico holds only 16 and 32 px images
+page_url: https://www.honestburgers.co.uk/
+retrieved: 2026-10-16

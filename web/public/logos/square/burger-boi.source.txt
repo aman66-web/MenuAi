@@ -1,0 +1,12 @@
+status: installed
+file: burger-boi.png
+kind: apple-touch-icon
+opaque: yes
+source_url: https://burgerboi.co.uk/wp-content/uploads/2026/08/burger-boi-favicon-300x300.png
+page_url: https://burgerboi.co.uk/
+why: the chain's own apple-touch-icon (also its 192 px site icon), declared by its home page https://burgerboi.co.uk/ in <link rel="apple-touch-icon">; 300 x 300 RGBA PNG, a purple rounded square with a cream "B", saved unchanged (no resizing, no conversion). The site declares no web-app manifest. Fills its square (97% opaque, transparent rounded corners): assemble_logos.square_display gives full, light tile.
+robots: https://burgerboi.co.uk/robots.txt answers 200 "User-agent: *  Allow: /" (checked 2026-10-16, RFC 9309 matcher: allowed)
+type: image/png
+size_bytes: 3362
+sha256: 359b011588b005c89fbf47f5ad0fd1ade3f767635ba3d00f67076824de8dc3c2
+retrieved: 2026-10-16

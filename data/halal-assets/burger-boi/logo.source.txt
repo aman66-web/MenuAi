@@ -1,0 +1,14 @@
+status: installed
+file: logo.svg
+tile: dark
+source_url: https://burgerboi.co.uk/wp-content/themes/burger-boi/assets/images/logo-primary-light.svg
+page: https://burgerboi.co.uk/
+terms_url: https://burgerboi.co.uk/terms-conditions (last updated 14 August 2026)
+terms_summary: section 15 "Intellectual property": the name Burger Boi and "our logos and device marks" belong to the chain; "You may print or download extracts of the Website for your own personal, non-commercial use, provided you do not alter them and you keep our notices intact. Any other use requires our written permission." Section 5.3 also forbids to "scrape, data-mine, crawl or systematically extract content from the Website, except by well-behaved search engine crawlers obeying our robots.txt". Installed under the founder's decision of 2026-10-06 (logos used whatever a chain's site terms say, accepted risk; CLAUDE.md rule 2); taken down the day the owner asks (web/public/logos/hidden.json).
+why: Own website header: the <img> inside a.custom-logo-link on https://burgerboi.co.uk/ (also the footer logo), 318 x 50 SVG, saved byte for byte, nothing recoloured, cropped, converted or redrawn. Its artwork is light-coloured (fills #E8E2E0 and #C4B4D7, made for the site's dark header), so on a white tile it nearly disappears: tile: dark.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt: https://burgerboi.co.uk/robots.txt answers 200 "User-agent: *  Allow: /" (checked 2026-10-16 with the RFC 9309 matcher in tools/uk_extract/robots_rfc.py: the page and the file are allowed)
+type: image/svg+xml, no script, no external references (passes assemble_logos.BAD_SVG)
+size_bytes: 13002
+sha256: 1da7efd4688638502fe75cd0802e53ee4ff537b8870a056a678e9b0b3a4ce65a
+retrieved: 2026-10-16
+fetched_by: tools/uk_extract/images_common.polite_get (1 request a second, normal browser User-Agent, robots.txt honoured); the same bytes were also fetched once with curl and match

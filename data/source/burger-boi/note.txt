@@ -1,0 +1,1 @@
+Per-serving figures from Burger Boi's own allergen table. It prints calories, fat, carbs and protein for only 39 of its 77 dishes, so the rest (most burgers, the Fuel bowls, breakfast) are not shown, and 4 dishes are left out because the chain's own pages or marks disagree with its table.

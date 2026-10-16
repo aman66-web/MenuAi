@@ -1,0 +1,1174 @@
+{
+ "schemaVersion": 1,
+ "id": "sams-chicken",
+ "name": "Sam's Chicken",
+ "cuisine": "Chicken",
+ "builderType": "standard",
+ "aliases": [
+  "sams chicken",
+  "sam's chicken"
+ ],
+ "sample": false,
+ "source": {
+  "title": "Sam's Chicken website: nutrition on each menu item page and the allergen chart (accessed 2026-10-16, no edition date shown)",
+  "url": "https://samschicken.com/category/1_chicken",
+  "checkedOn": "2026-10-16"
+ },
+ "note": "Figures are as printed on each item's page; only some pages state a basis (such as per wing or per 150 g), the rest are for the item as listed. Sodium is not shown: the chain's sodium figures are impossible as sodium (30 g in one bucket). The Combo, Blaze and Club Max boxes come with a drink, but their figures count the food only.",
+ "allergenGuide": {
+  "title": "Sam's Chicken allergen chart (accessed 2026-10-16, no edition date shown)",
+  "url": "https://samschicken.com/allergen",
+  "checkedOn": "2026-10-16",
+  "mayContainPublished": false,
+  "complete": false
+ },
+ "categories": [
+  "Chicken",
+  "Burgers",
+  "Box Deals",
+  "Wraps",
+  "Peri Peri Chicken",
+  "Family",
+  "Loaded",
+  "Sides",
+  "Drinks & Desserts",
+  "Sauces & Dips"
+ ],
+ "components": [],
+ "items": [
+  {
+   "id": "chicken-piece-1-piece",
+   "name": "Chicken Piece (1 piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 268,
+    "protein": 32.3,
+    "carbs": 9.1,
+    "fat": 11.2,
+    "saturatedFat": 2.2,
+    "sugar": 0.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fiery-wing-1-wing",
+   "name": "Fiery Wing (1 wing)",
+   "category": "Chicken",
+   "serving": "1 wing (average)",
+   "nutrients": {
+    "calories": 184,
+    "protein": 11.5,
+    "carbs": 7.5,
+    "fat": 12.1,
+    "saturatedFat": 2.2,
+    "sugar": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-strip-1-piece",
+   "name": "Chicken Strip (1 piece)",
+   "category": "Chicken",
+   "serving": "1 piece (average)",
+   "nutrients": {
+    "calories": 105,
+    "protein": 10.9,
+    "carbs": 5,
+    "fat": 4.6,
+    "saturatedFat": 0.4,
+    "sugar": 0.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-nuggets-5-nuggets",
+   "name": "Chicken Nuggets (5 nuggets)",
+   "category": "Chicken",
+   "serving": "5 nuggets (average)",
+   "nutrients": {
+    "calories": 305,
+    "protein": 10.8,
+    "carbs": 30.8,
+    "fat": 16,
+    "saturatedFat": 2.3,
+    "sugar": 0.7
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "poppers-10-poppers",
+   "name": "Poppers (10 poppers)",
+   "category": "Chicken",
+   "serving": "10 poppers (average)",
+   "nutrients": {
+    "calories": 238,
+    "protein": 16.2,
+    "carbs": 15.7,
+    "fat": 12.5,
+    "saturatedFat": 1.2,
+    "sugar": 0.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-wing-1-wing",
+   "name": "BBQ Wing (1 wing)",
+   "category": "Chicken",
+   "serving": "1 wing (average)",
+   "nutrients": {
+    "calories": 95,
+    "protein": 10.8,
+    "carbs": 2.1,
+    "fat": 5,
+    "saturatedFat": 1.1,
+    "sugar": 1.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "club-max-burger",
+   "name": "Club Max Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 541,
+    "protein": 30.1,
+    "carbs": 48.1,
+    "fat": 25.2,
+    "saturatedFat": 4.5,
+    "sugar": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-fillet-burger",
+   "name": "Chicken Fillet Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 489,
+    "protein": 33.3,
+    "carbs": 44.3,
+    "fat": 19.6,
+    "saturatedFat": 2.5,
+    "sugar": 4.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blaze-burger",
+   "name": "Blaze Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 467,
+    "protein": 28.3,
+    "carbs": 39.4,
+    "fat": 21.4,
+    "saturatedFat": 2.7,
+    "sugar": 4.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "maxi-burger",
+   "name": "Maxi Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 736,
+    "protein": 57.7,
+    "carbs": 54.8,
+    "fat": 31.5,
+    "saturatedFat": 5.1,
+    "sugar": 5.4
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "the-mighty-burger",
+   "name": "The Mighty Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 634,
+    "protein": 36.9,
+    "carbs": 56.2,
+    "fat": 29,
+    "saturatedFat": 4.8,
+    "sugar": 5.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "strips-burger",
+   "name": "Strips Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 396,
+    "protein": 26.5,
+    "carbs": 36.2,
+    "fat": 15.8,
+    "saturatedFat": 2.2,
+    "sugar": 4.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-steak-burger",
+   "name": "Chicken Steak Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 418,
+    "protein": 20.6,
+    "carbs": 39.6,
+    "fat": 19.4,
+    "saturatedFat": 2.8,
+    "sugar": 4.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-burger",
+   "name": "Veggie Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 409,
+    "protein": 7.8,
+    "carbs": 49.3,
+    "fat": 20.4,
+    "saturatedFat": 2.5,
+    "sugar": 5.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexo-burger",
+   "name": "Mexo Burger",
+   "category": "Burgers",
+   "serving": "",
+   "nutrients": {
+    "calories": 519,
+    "protein": 28.4,
+    "carbs": 41.8,
+    "fat": 26,
+    "saturatedFat": 3.2,
+    "sugar": 6.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sams-combo-box",
+   "name": "Combo Box",
+   "category": "Box Deals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1152,
+    "protein": 59.9,
+    "carbs": 105.3,
+    "fat": 55.6,
+    "saturatedFat": 7.8,
+    "sugar": 5.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "blaze-box",
+   "name": "Blaze Box",
+   "category": "Box Deals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1228,
+    "protein": 55.8,
+    "carbs": 107.1,
+    "fat": 65.1,
+    "saturatedFat": 8.5,
+    "sugar": 11.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "club-max-box",
+   "name": "Club Max Box",
+   "category": "Box Deals",
+   "serving": "",
+   "nutrients": {
+    "calories": 1414,
+    "protein": 78.5,
+    "carbs": 119.1,
+    "fat": 70.5,
+    "saturatedFat": 10.6,
+    "sugar": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chicken-wrap",
+   "name": "Chicken Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 577,
+    "protein": 29.7,
+    "carbs": 62.9,
+    "fat": 21.7,
+    "saturatedFat": 2.9,
+    "sugar": 3.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "veggie-wrap",
+   "name": "Veggie Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 493,
+    "protein": 10.2,
+    "carbs": 68.2,
+    "fat": 18.9,
+    "saturatedFat": 2.5,
+    "sugar": 5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mexo-wrap",
+   "name": "Mexo Wrap",
+   "category": "Wraps",
+   "serving": "",
+   "nutrients": {
+    "calories": 760,
+    "protein": 36.5,
+    "carbs": 71,
+    "fat": 25.4,
+    "saturatedFat": 3.2,
+    "sugar": 4.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "peri-wing-1-wing",
+   "name": "Peri Wing (1 wing)",
+   "category": "Peri Peri Chicken",
+   "serving": "1 wing (average)",
+   "nutrients": {
+    "calories": 92,
+    "protein": 10.9,
+    "carbs": 0,
+    "fat": 5.3,
+    "saturatedFat": 1.3,
+    "sugar": 0.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "family-mini-mix",
+   "name": "Family Mini Mix",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 2639,
+    "protein": 202.7,
+    "carbs": 216.8,
+    "fat": 107.7,
+    "saturatedFat": 15.6,
+    "sugar": 12.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "family-mega-mix",
+   "name": "Family Mega Mix",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 3579,
+    "protein": 260.8,
+    "carbs": 310.9,
+    "fat": 146.4,
+    "saturatedFat": 21.1,
+    "sugar": 14.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "value-bucket",
+   "name": "Value Bucket",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 3322,
+    "protein": 272.3,
+    "carbs": 256.5,
+    "fat": 137.2,
+    "saturatedFat": 21.1,
+    "sugar": 7.2
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "variety-bucket",
+   "name": "Variety Bucket",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 4869,
+    "protein": 343.5,
+    "carbs": 371.8,
+    "fat": 226.5,
+    "saturatedFat": 34.8,
+    "sugar": 16.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "boneless-bucket",
+   "name": "Boneless Bucket",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 3939,
+    "protein": 205.5,
+    "carbs": 428.6,
+    "fat": 157.6,
+    "saturatedFat": 17.1,
+    "sugar": 20.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fiery-bucket",
+   "name": "Fiery Bucket",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 6449,
+    "protein": 350.5,
+    "carbs": 478.5,
+    "fat": 352.9,
+    "saturatedFat": 55.8,
+    "sugar": 25.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-chicken-with-3-fries",
+   "name": "Whole Chicken with 3 Fries",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 2648,
+    "protein": 276.2,
+    "carbs": 138,
+    "fat": 111.8,
+    "saturatedFat": 23.5,
+    "sugar": 6.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "whole-chicken-with-3-rice",
+   "name": "Whole Chicken with 3 Rice",
+   "category": "Family",
+   "serving": "",
+   "nutrients": {
+    "calories": 2831,
+    "protein": 289.1,
+    "carbs": 202.3,
+    "fat": 96.4,
+    "saturatedFat": 28.8,
+    "sugar": 16.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-beans",
+   "name": "Loaded Beans",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 404,
+    "protein": 8,
+    "carbs": 61.6,
+    "fat": 14.3,
+    "saturatedFat": 2.2,
+    "sugar": 7.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-beans-with-chicken",
+   "name": "Loaded Beans with Chicken",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 509,
+    "protein": 18.9,
+    "carbs": 66.7,
+    "fat": 18.9,
+    "saturatedFat": 2.6,
+    "sugar": 7.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-beans-with-poppers",
+   "name": "Loaded Beans with Poppers",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 523,
+    "protein": 16.1,
+    "carbs": 69.5,
+    "fat": 20.6,
+    "saturatedFat": 2.7,
+    "sugar": 7.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-cheese-fries",
+   "name": "Loaded Cheese Fries",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 369,
+    "protein": 3.8,
+    "carbs": 52.2,
+    "fat": 17.2,
+    "saturatedFat": 2.7,
+    "sugar": 1.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-cheese-fries-with-chicken",
+   "name": "Loaded Cheese Fries with Chicken",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 473,
+    "protein": 14.8,
+    "carbs": 57.2,
+    "fat": 21.8,
+    "saturatedFat": 3.2,
+    "sugar": 1.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-cheese-fries-with-poppers",
+   "name": "Loaded Cheese Fries with Poppers",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 488,
+    "protein": 11.9,
+    "carbs": 60,
+    "fat": 23.4,
+    "saturatedFat": 3.3,
+    "sugar": 1.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries",
+   "name": "Loaded Fries",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 383,
+    "protein": 4,
+    "carbs": 50.9,
+    "fat": 19.1,
+    "saturatedFat": 2.6,
+    "sugar": 3.3
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries-with-chicken",
+   "name": "Loaded Fries with Chicken",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 487,
+    "protein": 14.9,
+    "carbs": 56,
+    "fat": 23.7,
+    "saturatedFat": 3.1,
+    "sugar": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-fries-with-poppers",
+   "name": "Loaded Fries with Poppers",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 501,
+    "protein": 12.1,
+    "carbs": 58.8,
+    "fat": 25.3,
+    "saturatedFat": 3.2,
+    "sugar": 3.5
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-rice",
+   "name": "Loaded Rice",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 443,
+    "protein": 8.3,
+    "carbs": 72.3,
+    "fat": 13.9,
+    "saturatedFat": 4.4,
+    "sugar": 6.6
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-rice-with-chicken",
+   "name": "Loaded Rice with Chicken",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 548,
+    "protein": 19.2,
+    "carbs": 77.4,
+    "fat": 18.5,
+    "saturatedFat": 4.8,
+    "sugar": 6.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "loaded-rice-with-poppers",
+   "name": "Loaded Rice with Poppers",
+   "category": "Loaded",
+   "serving": "",
+   "nutrients": {
+    "calories": 562,
+    "protein": 16.4,
+    "carbs": 80.2,
+    "fat": 20.2,
+    "saturatedFat": 4.9,
+    "sugar": 6.8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "fries-150-g",
+   "name": "Fries (150 g)",
+   "category": "Sides",
+   "serving": "150 g (average)",
+   "nutrients": {
+    "calories": 295,
+    "protein": 3.6,
+    "carbs": 46,
+    "fat": 11.8,
+    "saturatedFat": 0.9,
+    "sugar": 0.5,
+    "weight": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-potato-fries-150-g",
+   "name": "Sweet Potato Fries (150 g)",
+   "category": "Sides",
+   "serving": "150 g (average)",
+   "nutrients": {
+    "calories": 215,
+    "protein": 1.4,
+    "carbs": 37.5,
+    "fat": 6.6,
+    "saturatedFat": 1.1,
+    "sugar": 11,
+    "weight": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "wedges-150-g",
+   "name": "Wedges (150 g)",
+   "category": "Sides",
+   "serving": "150 g (average)",
+   "nutrients": {
+    "calories": 438,
+    "protein": 5.2,
+    "carbs": 53.4,
+    "fat": 21.2,
+    "saturatedFat": 1.7,
+    "sugar": 0.9,
+    "weight": 150
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "spicy-rice-200-g",
+   "name": "Spicy Rice (200 g)",
+   "category": "Sides",
+   "serving": "200 g (average)",
+   "nutrients": {
+    "calories": 356,
+    "protein": 7.9,
+    "carbs": 67.4,
+    "fat": 6.7,
+    "saturatedFat": 2.7,
+    "sugar": 3.8,
+    "weight": 200
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "corn-cobette-1-cobette",
+   "name": "Corn / Cobette (1 cobette)",
+   "category": "Sides",
+   "serving": "1 cobette (average)",
+   "nutrients": {
+    "calories": 122,
+    "protein": 4.4,
+    "carbs": 20.8,
+    "fat": 3.2,
+    "saturatedFat": 0.5,
+    "sugar": 10.1
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "coleslaw-75-g",
+   "name": "Coleslaw (75 g)",
+   "category": "Sides",
+   "serving": "75 g (average)",
+   "nutrients": {
+    "calories": 98,
+    "protein": 0.9,
+    "carbs": 6.8,
+    "fat": 7.6,
+    "saturatedFat": 0.6,
+    "sugar": 6.1,
+    "weight": 75
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "mozzarella-sticks-5-sticks",
+   "name": "Mozzarella Sticks (5 sticks)",
+   "category": "Sides",
+   "serving": "5 mozzarella sticks (average)",
+   "nutrients": {
+    "calories": 304,
+    "protein": 16,
+    "carbs": 24,
+    "fat": 15,
+    "saturatedFat": 7.2,
+    "sugar": 0.9
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-beans-100-g",
+   "name": "BBQ Beans (100 g)",
+   "category": "Sides",
+   "serving": "100 g (average)",
+   "nutrients": {
+    "calories": 79,
+    "protein": 4.1,
+    "carbs": 13.4,
+    "fat": 0.2,
+    "saturatedFat": 0.1,
+    "sugar": 6.3,
+    "weight": 100
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": true,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "apple-pie",
+   "name": "Apple Pie",
+   "category": "Drinks & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 337,
+    "protein": 3.2,
+    "carbs": 35,
+    "fat": 20,
+    "saturatedFat": 4,
+    "sugar": 8
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ben-and-jerrys-strawberry-cheesecake",
+   "name": "Ben & Jerry’s Strawberry Cheesecake",
+   "category": "Drinks & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 264,
+    "protein": 4.2,
+    "carbs": 32,
+    "fat": 13,
+    "saturatedFat": 8.1,
+    "sugar": 27
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "ben-and-jerrys-cookie-dough",
+   "name": "Ben & Jerry’s Cookie dough",
+   "category": "Drinks & Desserts",
+   "serving": "",
+   "nutrients": {
+    "calories": 270,
+    "protein": 4,
+    "carbs": 31,
+    "fat": 15,
+    "saturatedFat": 9.2,
+    "sugar": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "bbq-sauce-25-g",
+   "name": "BBQ Sauce (25 g)",
+   "category": "Sauces & Dips",
+   "serving": "25 g (average)",
+   "nutrients": {
+    "calories": 36,
+    "protein": 0.2,
+    "carbs": 8.3,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.6,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "garlic-and-herb-sauce-25-g",
+   "name": "Garlic & Herb Sauce (25 g)",
+   "category": "Sauces & Dips",
+   "serving": "25 g (average)",
+   "nutrients": {
+    "calories": 147,
+    "protein": 0.2,
+    "carbs": 1.8,
+    "fat": 15.4,
+    "saturatedFat": 1.1,
+    "sugar": 1.8,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "sweet-and-sour-sauce-25-g",
+   "name": "Sweet & Sour Sauce (25 g)",
+   "category": "Sauces & Dips",
+   "serving": "25 g (average)",
+   "nutrients": {
+    "calories": 45,
+    "protein": 0.1,
+    "carbs": 10.4,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 9.7,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "tomato-sauce-25-g",
+   "name": "Tomato Sauce (25 g)",
+   "category": "Sauces & Dips",
+   "serving": "25 g (average)",
+   "nutrients": {
+    "calories": 30,
+    "protein": 0.2,
+    "carbs": 7.1,
+    "fat": 0,
+    "saturatedFat": 0,
+    "sugar": 6.2,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "chili-mayo-25-g",
+   "name": "Chili Mayo (25 g)",
+   "category": "Sauces & Dips",
+   "serving": "25 g (average)",
+   "nutrients": {
+    "calories": 189,
+    "protein": 0.3,
+    "carbs": 8.9,
+    "fat": 16.5,
+    "saturatedFat": 1.9,
+    "sugar": 6.1,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  },
+  {
+   "id": "algerian-sauce-25-g",
+   "name": "Algerian Sauce (25 g)",
+   "category": "Sauces & Dips",
+   "serving": "25 g (average)",
+   "nutrients": {
+    "calories": 85,
+    "protein": 0.3,
+    "carbs": 1.9,
+    "fat": 8.5,
+    "saturatedFat": 0.6,
+    "sugar": 0,
+    "weight": 25
+   },
+   "tags": [],
+   "limitedTime": false,
+   "rankable": false,
+   "components": [],
+   "modifiers": []
+  }
+ ],
+ "combinations": []
+}

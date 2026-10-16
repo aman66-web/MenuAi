@@ -1,0 +1,4 @@
+status: skipped-unavailable
+why: no square icon of 120 px or more (or an SVG with a square viewBox) declared by the home page: it declares only a 32 x 32 favicon and no apple-touch-icon or web-app manifest
+page_url: https://samschicken.com/
+retrieved: 2026-10-16

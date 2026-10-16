@@ -1,0 +1,16 @@
+status: installed
+file: honest-burgers.svg
+kind: inline-svg
+tile: light
+source_url: https://www.honestburgers.co.uk/ (inline SVG symbol id="h_logo" in the page's hidden sprite, drawn by the header's <a class="main-logo"><svg viewbox="0 0 68.05 190"><use xlink:href="#h_logo"></use></svg>)
+page_url: https://www.honestburgers.co.uk/
+terms_url: none found. The site links no website terms and conditions: its footer links only "Privacy Policy" (https://www.honestburgers.co.uk/privacy-policy/) and "Company info" (https://www.honestburgers.co.uk/company-information/); neither mentions copyright, trade marks, logos or scraping (both read 2026-10-16). The footer reads "(c) 2026 Honest Burgers"; the site is operated by Honest Burgers Ltd (company number 07490829).
+terms_summary: no clause about reuse of the logo or site content found on the site. Installed under the founder's decision of 2026-10-06 (logos used whatever a chain's site terms say, accepted risk; CLAUDE.md rule 2); taken down the day the owner asks (web/public/logos/hidden.json).
+why: Own website header: the shield-and-HONEST logo exists only as a symbol in the page's inline SVG sprite (no standalone logo file is served, and no structured-data logo, og:image, apple-touch-icon or manifest is declared). The <g id="h_logo"> element (one outline path, one path and polygons for the letters) is copied unchanged, byte for byte, into a standalone <svg xmlns viewBox="0 0 68.05 190"> (the viewBox is the one on the header's own <svg>); nothing recoloured, cropped, converted or redrawn. The page's sprite also names a second symbol, h_logo_back (a filled copy of the inside of the shield, which the header's <use> points at), but its definition is commented out in the page source (<!-- <g id="h_logo_back">... -->, checked on the saved home page 2026-10-16), so there is nothing for it to draw and it is not included. The paths carry no fill, so as a standalone file it renders black (the colours the site gives the symbol where it draws it were not confirmed from the saved page and are not copied or claimed here). Looked at rendered in headless Chromium on white (a black outlined shield with HONEST set vertically, legible) and on near-black (invisible), hence tile: light.
+robots: https://www.honestburgers.co.uk/robots.txt answers 200 with "User-Agent: *" and a Sitemap line only (no Disallow rules); checked 2026-10-16 with the RFC 9309 matcher in tools/uk_extract/robots_rfc.py: the page and its theme files are allowed.
+type: image/svg+xml, no script, no external references (passes assemble_logos.BAD_SVG)
+size_bytes: 1717
+sha256: 44db6355ce59d9c4528785f11d2f06eed96d3ec6cf85cce033238e934ffc6915
+retrieved: 2026-10-16
+fetched_by: tools/uk_extract/images_common.polite_get (1 request a second, normal browser User-Agent, robots.txt honoured), one request each for the home page, its theme stylesheet, the FAQ page, the privacy page and the company page; the logo element was cut out of the saved home page with a script (an exact substring, asserted present in the output file)
+decision: founder, 2026-10-06 ("Use the actual logos for the brands") and 2026-10-10 ("every single restaurant needs a logo"); installed whatever the site terms say (founder's accepted risk)

@@ -13,7 +13,7 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 | Subtitle (30) | **UK menus, shops & recipes** (25) |
 | Keywords (100) | `macros,nutrition,restaurant,counter,diet,grocery,takeaway,supermarket,cooking,meal,food` (87; words already in the name and subtitle are indexed anyway, so they aren't repeated) |
 | Primary / secondary category | Food & Drink / Health & Fitness |
-| Promotional text (170) | Menu items from 238 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account needed, works offline. (131) |
+| Promotional text (170) | Menu items from 241 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account needed, works offline. (134) |
 | Price | Free (no in-app purchases in this version) |
 | Availability | United Kingdom first (the data is UK only) |
 
@@ -22,7 +22,7 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 
 ## Description (draft)
 
-Know the numbers before you eat. Numbite shows the calories, protein, carbs and fat for menu items at 238 UK restaurants, cafés and
+Know the numbers before you eat. Numbite shows the calories, protein, carbs and fat for menu items at 241 UK restaurants, cafés and
 pubs, taken from each chain's own published nutrition information, with the source and the date we checked shown on every menu.
 
 Eat out. Search a restaurant or find the ones near you, see every dish's numbers, and get the best orders for your goal and what you

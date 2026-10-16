@@ -509,6 +509,89 @@ header logo and its apple-touch-icon (the Belhaven lion) the same way.
   Resorts (robots.txt 403), Yates (523, origin unreachable), Old English Inns (the proxy answers 502). Topgolf's menus sit on
   topgolf.kitchencut.com, whose robots.txt is `Disallow: /` (4 UK venues).
 
+## Added 16 October (halal round)
+
+Founder, 16 October: "Add more halal resturantes". Two routes, both under the existing rule that **halal is only ever the chain's own words**, quoted
+exactly with the page and the date (never inferred from cuisine, never taken from reviews, directories or Google): **(A)** re-check the chains already in
+the app whose halal status was `not_stated` (or had been blocked), and **(B)** find new chains that say their food is halal and publish per-dish figures.
+Scouts proposed 152 candidates; a judge re-checked every claim on the live page or PDF (`data/candidates/triage8/halal.csv`, one row per candidate;
+`halal-flags.csv`, one row per flag change). Same data rules as before: official source only, copied by script, robots.txt (RFC 9309) honoured, nothing
+worked round, no alcoholic drinks; each new chain passed `check_chain.py` with 0 errors, 0 warnings and 0 high audit flags, and had an independent
+re-read by another method (`data/audit/verified/<chain>.json`, 0 differences).
+**Result: 241 chains, 36,842 items published in `web/public/menus` (123 full nutrition, 118 calories only; not yet committed, pushed or deployed). The Halal filter lists 14 chains (was 11); 43 chains (was 30) show the chain's own halal words on their page. Reviewed and corrected on 16 October: see "Withdrawn after review" below.**
+
+**(A) Halal flags: 15 chains now show what they say (`data/dietary/halal-c.csv`, 26 rows).** Each row is the chain's own words, copied from the page or
+PDF named in the row (Popeyes, Slim Chickens and Burger King are JavaScript pages, read in rendered text; Subway, Bagel Factory, Powerleague, Benugo and
+Hollywood Bowl are PDFs read with pdftotext).
+- **all (2):** Fireaway ("All of our meats are 100% halal certified"), Pepe's Piri Piri (one news-post sentence, "all which are Halal": say if you prefer `some`).
+- **some (13):** Atis (halal items tagged in its allergen guide), Bill's (Leicester
+  only), Dishoom (lamb, chicken and turkey from halal-certified suppliers), Domino's (most chicken certified; wings not; its own "we don't promote our stores
+  or meat as halal approved" is kept in the quote), Hollywood Bowl (its own menu PDF: "our Halal menu", not a dedicated halal kitchen), Popeyes (all chicken
+  halal, only 10 restaurants HCO-certified: the re-checker proposed `all`, the judge set `some`), Powerleague (one halal hot dog at selected locations),
+  Puttshack ("H = HALAL" dish tags), Slim Chickens (halal-slaughtered chicken and sauces), Subway (halal-named fillings in its May 2026 allergen guide), The Salad
+  Project (halal-certified chicken thigh only), Wendy's (UK restaurants are not halal certified; its breaded chicken comes from a halal certified supplier),
+  Wildwood (its own Ely page names two halal chicken dishes).
+- **Recorded, not shown (`no`, 10):** ASK Italian, Booths Cafe, Burger & Lobster (West India Quay), Burger King, Coco di Mama, Pure, Sticks'n'Sushi, The Alchemist,
+  Turtle Bay, Zizzi: each says in its own words that it is not halal. The app shows a halal statement only for `all` and `some`, so nothing changes on screen.
+- **Withdrawn after review (16 October), all three now `not_stated` and showing no halal line:** **Bagel Factory** (its ingredient list PDF tags 79 rows "H=Halal Friendly" but never says what that means or that the meat is halal-slaughtered or certified, and the tag also sits on bagel buns, jam and sauces; the first pass had published it as `some`); and two older rows in `halal-b.csv` that were not the chain's own words: **Jamaica Blue** (the row quoted the file name of a Halal menu PDF, `JAM_8294_JB_web_Menus_A3L_2026_Halal.pdf`, which answered 403 and was never read; the home page says nothing about halal) and **Pizza Hut** (the row listed 11 store-page names ending "-halal" from its sitemap, which is an inference from URL names). Restore any of them only with a page that says it in words: Jamaica Blue's Halal menu PDF or a store page saved from your browser, a Pizza Hut FAQ or store page, or a Bagel Factory page that says what "Halal Friendly" means. The evidence found is kept in `data/candidates/triage8/halal-flags.csv`.
+- **Dropped:** Benugo (the only evidence is a December 2024 menu PDF for one venue, Warwick Arts Centre, and the chain's words do not name the venue, so quoting
+  them would suggest all its chicken is halal). It stays `not_stated`.
+- **Re-checker (new tools):** `tools/dietary/recheck_halal.py` (plain pages, robots.txt by RFC 9309, one request a second) and `tools/dietary/recheck_render.py` with `tools/dietary/render_pages.mjs` (JavaScript pages, read in rendered text) proposed the rows of `halal-c.csv`; the judge then re-checked every quote on the live page or PDF. `tools/uk_extract/images_common.py` (shared by the new extractors): `polite_get` now retries a reply cut short (`IncompleteRead`, `BadStatusLine`) like any dropped connection, and a robots.txt that cannot be read at all (timeout, DNS failure, reset, TLS error) now means "do not fetch" (RFC 9309 section 2.3.1.4) instead of "no rules"; its request keeps the 1 request/second pace. A 4xx robots.txt (403 included) is still "no rules", and a page that itself answers 401/403/429 still stops the run (`tools/tests/test_robots.py`).
+- **Tool change:** `tools/dietary/build_halal.py` now says how several rows for one chain combine (`load_rows`, tested in `tools/tests/test_build_halal.py`): the
+  newest `checked_on` wins, then the file that sorts last; a later `all`/`some` replaces an earlier one, a later `no` removes an earlier `all`/`some`, and
+  `not_stated` never changes anything. Before, a `no` could not remove an earlier `some`. No chain had both, so the existing 41 rows are unchanged.
+- The Halal filter on Eat out lists only `all` chains, so it gains Fireaway, Pepe's Piri Piri and Sam's Chicken (14 in all); `some` chains show the
+  chain's own quote on their page. **On Nearby the chip can only show chains that have branch positions** (`web/public/branches/branches.json`): of the 14, only
+  Pepe's Piri Piri (20 positions) and Sbarro (5) have any, so with Halal on Nearby shows those two. Afrikana, Amigos, Cluck'd, Dave's Hot Chicken, Fireaway, Jollibee,
+  Little Dessert Shop, Maroush, Oodles Wok, Rola Wala, Sam's Chicken and Shah's have none yet (see "Nearby pins" below). The chip now hides itself when none of the
+  `all` chains has positions.
+
+**(B) New chains (3), all full nutrition, all with a halal row:**
+
+| Chain | Items | Level | Sites | Source and rule |
+|---|---|---|---|---|
+| Honest Burgers | 117 (6 held back) | full, allergens complete (may contain included) | 45 restaurants on its own locations page | Its own Ten Kites allergen and nutrition page (menus.tenkites.com/honestburgers/honestburgers, linked from its allergy page; "Updated 28 July 2026"), 11 tabs read with the shared `tenkites_c` reader: per serving kcal, fat, saturates, carbs, sugars, fibre, protein, salt. Halal row `some`: the FAQ says all its chicken is halal and it offers no halal beef. Not published: the one-off local burger each restaurant makes (the page never says where it is sold, so none is printed at 2+ sites), cocktails, the 2-site Baker St / Tooley St trial menu. Held back, never chosen between: Beef & Bacon Gravy and Heinz Mayonnaise (two figures each), Winter Coleslaw, the out-of-season Kids Seasonal Coleslaw. |
+| Sam's Chicken | 59 of 93 rows (34 held back) | full, allergens link-only | 45 branches (London, South East, Midlands) on its own locations page | Each item page's own figures (energy, protein, fat, saturates, carbs, sugars), 95 pages read at 6 seconds apart (the host answered 429 at 1 request a second in two earlier runs; none now). Halal row `all`: its About page says the chicken is halal "to the best of our knowledge, based on the representations of our suppliers", sourced solely from certified suppliers, and chicken is the only meat sold. Held back: 24 pages that print 0 for every figure (drinks, grilled dishes, sauces), Strawberry Cheese Cake and Chocolate Fudge Cake (1,320 cal against about 315 from their own macros), Whole Peri Chicken (sugars above carbohydrate), Devil Box (does not add up to its parts), two copied pages (Hash Brown, Spicy Fries), the two Ben & Jerry's that print one identical set, and (added 16 October after the review) Sam's Mayo and Sweet Chili Mayo, whose protein + carbohydrate + fat (35.3 g and 27.6 g) exceed their own "Average per 25g" basis (Sam's Mayo also prints 10.4 kcal a gram, above pure fat). The extractor now applies the audit's weight rules (macros over weight x 1.05 + 1 g, kcal over 9.3 a gram) to every page whose basis is a weight and writes that gram basis to `weight_g` on its 15 such rows, so `check_chain.py` and the accuracy audit enforce them from now on; Chili Mayo (25.7 g in 25 g) is inside the audit's tolerance and stays. **Sodium is not published** (its "sodium" column cannot be sodium: 30 g in one bucket), and **allergens are link-only** (its allergen lines contradict its dishes). Figures are for the item as listed; only some pages state a basis ("per wing"). |
+| Burger Boi | 35 (4 held back) | full, allergens complete | 19 GB stores in its sitemap (its page says "20+") | Its own allergen and nutrition table (burgerboi.co.uk/allergens, "last updated 5 October 2026"): only 39 of its 77 dishes print kcal, fat, carbs and protein, so the rest are not published. Held back where the chain's own pages disagree: American, Triple Cheese and Hot Honey (smash burger) (protein on the table against its menu card or "Find your fuel" pages) and Ranch (marked Vegan and also "contains eggs, milk"). Halal row `some`: the table's own "Suitable for ... Halaal" column, ticked on 41 of 77 dishes, quoted at Jamin (like Bagel Factory and Puttshack). |
+
+Logos: Honest Burgers' header logo exists only as an inline SVG symbol (copied byte for byte into a standalone file; its paths carry no fill, so on its own
+it renders black on the light tile; the page's sprite names a second symbol, h_logo_back, but its definition is commented out in the page source, so it is not included) and it serves no square icon; Sam's Chicken's header file (a chicken in a hat, its own logo mark, pale yellow on transparency,
+dark tile; no square icon: its only icon is 32 px); Burger Boi's header wordmark (light artwork, dark tile) and its own apple-touch-icon as the square icon
+(a pixel-style B, 300 px). All three were looked at on both tiles. Records are in `web/public/logos/<id>.source.txt`.
+
+**Checked and not added (119 candidates, plus 30 already in the app; every one is a row in `data/candidates/triage8/halal.csv`):**
+- **Halal but no per-dish figures (74):** almost every halal-only brand publishes an allergen grid or a price menu and no calories, e.g. Sobe Burger, Burgerism, Miss
+  Millie's, Chicken Cottage, Rio's Piri Piri, Legends Burgers, Wing Wing, German Doner Kebab, MeatLiquor, Haute Dolci, Bismillah Bakery, Gong Cha, Chatime, Karak Chaii
+  and the other dessert and bubble-tea brands.
+- **Blocked, never worked round (29):** Dixy Chicken (connection reset), Papa Johns (its 84-page nutrition PDF answers 403: full nutrition, 138 sites, the most
+  valuable file to save), Krispy Kreme (/nutritionals 403; its own wording is "suitable", not certified), Kaspa's (reCAPTCHA), Shake Shack, Wingstop (store nutrition sits
+  on a robots-disallowed ordering host), Chicking, Mad For Chicken, Caspian Pizza, Chicken.com, Apache Pizza, Cinnabon, Bubbleology, Cineworld, Bowlplex, Aagrah, Tamatanga,
+  Dawat, Jerk Junction, Hotcha, Wok to Walk, Tossed, Berenjak (429), Hafiz Mustafa (429), Manjaros, Perfect Fried Chicken, Southern Fried Chicken, Cake Inn, CrepeAffaire.
+- **Halal-all but per 100 g only (2):** Cake Box (310 stores) and Ambala (35 shops): DATA.md bars converting to a serving, so no menu.
+- **No halal wording:** Rooster's Piri Piri (about 32 sites, 49 calories-only items; its only halal marker is a halal logo image on its header, no halal word on any page:
+  say if the logo counts, otherwise it can be extracted as an ordinary calories-only chain) and Black Rooster Peri Peri (16 Scottish sites, calories only).
+- **Not halal:** Cosmo and Zambrero (their own words) and Odeon (a search summary of its help article; the page itself answers 403). **Under 3 sites:** The Halal Guys, Patty & Bun, Zouk, Ribeye Steakhouse, Lasan, Tayyabs, Shawa. **Closed or not open:**
+  Galito's, Raising Cane's UK (revisit once its first restaurant opens).
+- **Already in the app, no halal row** (stay `not_stated`): McDonald's (halal page 403, only a search summary), Pizza Express (help article 403), Taco Bell (old halal store
+  pages redirect), Creams Cafe, Dunkin', Muffin Break, Vue, Bettys, Costa, Caffe Nero, Tim Hortons, Auntie Anne's ("check at your local store" is not a halal claim);
+  Little Dessert Shop, Tenpin, Chaiiwala and Baskin-Robbins keep the rows they had.
+
+**Open decisions for you:**
+- **Burger Boi's terms** (14 August 2026, section 5.3) forbid "scrape, data-mine, crawl or systematically extract content from the Website" except by search engines;
+  section 15 reserves its logos. We read 16 pages, robots.txt allows everything, and the logo and figures went in on the same footing as other chains whose terms restrict reuse, which is the founder's accepted risk of 2026-10-06 for logos and photos
+  (CLAUDE.md rule 2) and is not yet confirmed for terms that forbid scraping of figures (decision (e) in docs/PROGRESS.md "Founder to-do" is still open). To take it out: delete `data/source/burger-boi/` and its logo files, rerun `./scripts/publish_menus.sh --web-only` and `build_halal.py`.
+- **Sam's Chicken `all`** rests on a hedged sentence about chicken ("to the best of our knowledge"); **Pepe's Piri Piri `all`** on one news-post sentence. Both put the chain
+  in the Halal filter. Change a row to `some` in `data/dietary/` and rerun `build_halal.py` if you want a softer reading.
+- **Honest Burgers' kids' menu:** five items print half the full-size figures on the Kids tab (Rosemary Salted Chips, BBQ Mayo, Burger Sauce, Chipotle Mayo, Vegan Chipotle Mayo); they are
+  published as separate "(kids' menu)" dishes rather than holding both back. Honest Loaded Chips, Hot Sauce and the three Mighties are kept because the nutrition page still lists them.
+  Its limited-time Chilli Con Carnage dishes (offer dated 6 October - 9 November 2026) drop out on the next run if the chain removes them.
+- **Files only your own browser can save** (`data/held-downloads/*/downloads.csv`): Papa Johns' nutrition PDF (84 pages, valid from 1 October 2026), Krispy Kreme's Allergen &
+  Nutrition book, Shake Shack's PDFs, Kaspa's allergen pack, plus the files already listed under "Blocked: needs a file from you" below.
+- **Nearby pins:** the three new chains have no branch positions yet, nor do 11 more of the 14 chains that say all their food is halal (listed above); only 72 of
+  241 chains have pins today. `python3 tools/branches/fetch_osm_branches.py --only afrikana,amigos-burgers-and-shakes,cluckd,daves-hot-chicken,fireaway,jollibee,little-dessert-shop,maroush,oodles-wok,rola-wala,sams-chicken,shahs-halal-food,honest-burgers,burger-boi`
+  resumes and fetches them (its default cache path is a Mac path: pass `--cache`). It could not be run in the cloud environment of this round: the connection to
+  `overpass-api.de` was closed by the egress proxy both times it was tried, and no other Overpass server was used instead. Run it on the Mac, then `git add web/public/branches data/branches`.
+
 ## Pulled because the source file's host disallows automated downloads (robots.txt)
 
 Eight chains' official PDFs had been fetched from hosts whose robots.txt disallows them (Python's robot parser ignores the `*` wildcard):

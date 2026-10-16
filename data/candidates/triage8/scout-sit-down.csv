@@ -1,0 +1,46 @@
+id,verdict,notes
+honest-burgers,GO,"FULL nutrition per serving on Ten Kites: https://menus.tenkites.com/honestburgers/honestburgers (linked from honestburgers.co.uk/allergy-information/ 'View the allergens and nutritional information'); 12 menu tabs via ?mguid= ids in data-menu-identifier; all 446 dish rows print kcal+fat+sat+carbs+sugars+fibre+protein+salt; 237 unique names; Master Menu 172 rows 'Updated 28 July 2026'; Contains/May contain per dish. 45 location pages. HALAL some (chicken only): honestburgers.co.uk/feedback-and-faqs/ 'All of the chicken in our restaurants is halal ... We do not offer halal beef at any of our restaurants.' Earlier verdict BLOCKED (Cloudflare 403 to curl): on 2026-10-16 the project helper (urllib, images_common.polite_get) got 200 on robots.txt, FAQ, allergy page while curl with the same UA got 403 - fragile; the data host menus.tenkites.com has no such block (robots: Disallow /fonts/ /views/ /*.less$). Exclude: New Menu Trial (Baker St & Tooley St only), Local Burgers (one per restaurant), cocktails in Drinks (no alcohol rule)."
+bleecker,NO-DATA,"9 London sites; HALAL some: bleecker.co.uk/halal/ halal-certified beef at Westfield, Baker Street, Soho, Victoria, Camden only, 'These sites aren't fully halal, as we also serve bacon and alcohol'. Menu page prints prices only; Allergens Matrix PDF is robots-disallowed (not read)."
+meatliquor,NO-DATA,"HALAL some: meatliquor.com/faqs/ 'All of our Chicken is Halal.' Allergen info only at sites, no nutrition link; site list is JS (count not read)."
+patty-and-bun,TOO-SMALL,"Locations page now lists Canary Wharf plus concessions. HALAL some: pattyandbun.co.uk/allergens-faqs 'all the lamb and chicken products at our sites are halal certified ... Halal beef burgers are available at Canary Wharf only'. Allergen info 'available at sites', no figures."
+pizza-pilgrims,NO-DATA,About 30 pizzerias. HALAL some: pizzapilgrims.co.uk/menu/ 'All our cheese is halal' + halal pepperoni option. Allergen matrix PDF (May 2026) has no kcal.
+kricket,NO-DATA,"About 4 London restaurants. HALAL some: kricketrestaurants.com/faqs/ 'While our chicken is always halal, our lamb and other meats vary.' No nutrition."
+bundobust,NO-DATA,"Leeds, Manchester, Liverpool (3). HALAL all (menu): bundobust.com/faq/ 'Is your menu Halal? Yes, because the entire food menu is strictly vegetarian and vegan'. Allergen only (earlier triage)."
+zouk,TOO-SMALL,"One restaurant (Manchester) on its site. HALAL all: zoukteabar.co.uk/faq 'Yes, all our meat is halal.' No nutrition."
+crome-london,NO-DATA,1-2 London sites + Doha. HALAL all: cromelondon.com/pages/faqs 'Everything on our menu is halal.' FAQ: 'We don't like to disclose the calorie content in our menu items'.
+harry-ramsdens,NO-DATA,11 UK restaurants. HALAL some (one site): harryramsdens.co.uk/faq 'Halal-certified meat and poultry are currently available at our Notting Hill restaurant.' FAQ says nutritional information is 'available here' but the linked Jan 2026 PDF is an allergen chart only (no kcal); calories 'provided in restaurant'. Worth asking the chain.
+ribeye-steakhouse,TOO-SMALL,Manchester + Birmingham (2). HALAL all: ribeyesteakhouse.com 'Does Ribeye serve halal meat? Yes. Ribeye serves halal meat at both restaurants.' No nutrition.
+cosmo,NOT-HALAL,"About 20 GB world-buffet sites. cosmo-restaurants.co.uk/faqs 'our food has not been halal certified. However, some of our chefs do source halal meat'. Allergen labels only."
+zambrero,NOT-HALAL,"zambrero.co.uk/faq 'Zambrero is not a Halal approved restaurant.' Allergen table only (/allergens), no kcal."
+akbars,NO-DATA,"10 UK restaurants (earlier triage). No halal wording found on home, menu PDF, about, news. Menu PDFs/allergen grid have no kcal."
+toros-steakhouse,NO-DATA,About 5 UK sites (earlier discovery). Own home page text has no halal wording; no nutrition (earlier NO-DATA).
+etci-mehmet,NO-DATA,"Manchester, Liverpool, Birmingham (+Leeds planned, press). Home page has no halal or nutrition wording; menu on qrmenu.etcimehmet.com."
+tas-restaurants,NO-DATA,"London Turkish group; home/about pages: no figures, no halal wording."
+sofra,NO-DATA,"Home page: no figures, no halal wording."
+haz,NO-DATA,Home page: no figures.
+kabab-ji,NO-DATA,Site shell only; no figures.
+beirut-express,NO-DATA,"Home page: no figures, no halal wording."
+noura,NO-DATA,noura.com is the French group's site; UK pages not found; no figures.
+roti-king,NO-DATA,"Home page: no halal wording, no figures."
+sakonis,NO-DATA,Vegetarian; no figures.
+tikka-nation,NO-DATA,Allergen PDF is image-only (as before); no kcal.
+cinnamon-club,NO-DATA,One site; no figures.
+eastzeast,NO-DATA,Home loads now (earlier challenge page); no halal wording or figures.
+rio-steakhouse,NO-DATA,"Newcastle, Jesmond, Middlesbrough; no halal wording or figures."
+lasan,TOO-SMALL,One restaurant (Birmingham).
+tayyabs,TOO-SMALL,One restaurant (Fieldgate Street).
+shawa,TOO-SMALL,"Two sites (Westfield Shepherd's Bush, Bluewater); own menu prints no kcal; no halal wording."
+aagrah,BLOCKED,aagrah.com answers HTTP 403 on the page itself (project helper); not worked round.
+tamatanga,BLOCKED,tamatanga.com HTTP 403.
+dawat,BLOCKED,dawatrestaurants.co.uk HTTP 403 on the page (robots 403 alone would be 'no rules').
+jerk-junction,BLOCKED,jerkjunction.co.uk HTTP 403.
+hotcha,BLOCKED,hotcha.co.uk HTTP 403.
+wok-to-walk,BLOCKED,woktowalk.com/uk/ HTTP 403.
+shake-shack,BLOCKED,shakeshack.co.uk HTTP 403. Press (third party) says its Trafford Centre restaurant became halal-certified in March 2026.
+tossed,BLOCKED,tossed.co.uk HTTP 403.
+berenjak,BLOCKED,berenjak.com HTTP 429; stopped.
+manjaros,BLOCKED,manjaros.co.uk HTTP 403.
+dishoom,DUPLICATE,"In app (calories). HALAL some: dishoom.com/frequently-asked-questions-faq/ 'All our lamb, chicken and turkey are sourced from Halal-certified suppliers ... we do offer items like alcohol, sausages, and bacon'."
+zizzi,DUPLICATE,In app. HALAL no: zizzi.co.uk/help/faq 'Zizzi is not a Halal or Kosher restaurant'.
+ask-italian,DUPLICATE,In app. HALAL no: askitalian.co.uk/help/faq 'ASK Italian is not a Halal or Kosher restaurant'.
+turtle-bay,DUPLICATE,"In app. HALAL no: turtlebay.co.uk/faq/menu 'Unfortunately, our restaurants are not Halal'."

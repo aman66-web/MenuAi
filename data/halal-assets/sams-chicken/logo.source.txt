@@ -1,0 +1,17 @@
+status: installed
+file: logo.png
+kind: header
+tile: dark
+source_url: https://samschicken.com/assets/imgs/logo_new.png
+page_url: https://samschicken.com/
+terms_url: none found. The site links no terms and conditions or privacy page (its footer links only the social accounts and reads "Sam's Chicken | © 2025 All rights reserved!"); the only legal-style text read is the cookie banner (read 2026-10-16).
+terms_summary: no clause about reuse of the logo or site content found on the site; the footer's "© 2025 All rights reserved" claims copyright in general. Installed under the founder's decision of 2026-10-06 (logos used whatever a chain's site terms say, accepted risk; CLAUDE.md rule 2); taken down the day the owner asks (web/public/logos/hidden.json).
+why: Own website header: the <img class="logo"> inside the link to https://samschicken.com/ in the fixed navbar of the home page (and of every page, e.g. /about_us), 500 x 500 RGBA PNG, the chain's own mark (a cartoon chicken in a hat with a star; it is the chain's mascot-logo, shown as the chain's own file only to identify the restaurant, never drawn or redrawn by us), saved byte for byte, nothing recoloured, cropped, resized, converted or redrawn. It is one pale yellow (#F8D67D) on a transparent background, made for the site's dark navbar, so on a white tile it nearly disappears: tile: dark. The artwork covers x 64-422, y 11-489 of the 500 px square (it does not fill the square edge to edge).
+alternative: the chain's "Sam's" wordmark, https://samschicken.com/assets/imgs/logo_11.png (served in the home page's first carousel slide, alt="logo", 1706 x 975 RGBA PNG, 64886 bytes, sha256 745974e5251f70a3d7a9da51ed397545c2a01fdcdea4a3ec1eb97a1b30c11e8d, one yellow #FCCC4C on transparent, with a (R) mark) is saved unchanged beside this file as alt-wordmark.png. It is NOT installed: the header's file is the site's logo link, and the wordmark is a wide carousel image with large transparent margins. The integrator may prefer it (it names the brand), also on the dark tile.
+square_icon: none saved. The home page declares only <link rel="icon" href="https://samschicken.com/assets/imgs/favicon.png">, which is 32 x 32 px (below the 120 px minimum, sha256 217ed00a9f94fb4c5605e0b0fbecc60ff306fa877da8f30bcf264a3c17bbd5c0, not kept); it declares no apple-touch-icon and no web-app manifest (checked 2026-10-16). The header logo above is already a 500 x 500 square canvas.
+decision: founder, 2026-10-06 ("Use the actual logos for the brands"); robots.txt: https://samschicken.com/robots.txt answers HTTP 404, which RFC 9309 reads as no rules (checked 2026-10-16 with the matcher in tools/uk_extract/images_common.py / robots_rfc.py: the page and the files are allowed). The host answered HTTP 429 at 1 request a second in two earlier runs, so every request here was made 6 seconds apart and none was refused.
+type: image/png
+size_bytes: 83214
+sha256: 22b6d3ff603291fe89a294e12a357f09b074964b0f891dc11e9464baf691c39b
+retrieved: 2026-10-16
+fetched_by: tools/uk_extract/images_common.polite_get with delay 6.0 s (normal browser User-Agent, robots.txt honoured); bytes written as received, not re-encoded.

@@ -181,7 +181,9 @@ export default function NearbyPage() {
     () => new Set([...byId.values()].filter((c) => (!fullOnly || (c.nutritionLevel ?? "full") === "full") && (!halalOnly || isAllHalal(c.id))).map((c) => c.id)),
     [byId, fullOnly, halalOnly],
   );
-  const anyHalal = useMemo(() => [...byId.keys()].some(isAllHalal), [byId]);
+  // The Halal chip only helps when a chain that says all its food is halal has branch positions in the file: a chain without pins can never
+  // appear on this map, so offering the chip for it would only lead to an empty list.
+  const anyHalal = useMemo(() => !!doc && [...byId.keys()].some((id) => isAllHalal(id) && (doc.chains[id]?.length ?? 0) > 0), [byId, doc]);
   const inRange = useMemo(() => (doc && origin ? nearbyBranches(doc, origin, radius, nutritionOk) : []), [doc, origin, radius, nutritionOk]);
   const typeChips = useMemo(() => cuisineGroups(groupByChain(inRange).map((g) => byId.get(g.chainId)!).filter(Boolean)), [inRange, byId]);
   const branches = useMemo(() => (types.size === 0 ? inRange : inRange.filter((b) => types.has(cuisineGroupId(byId.get(b.chainId)?.cuisine)))), [inRange, types, byId]);

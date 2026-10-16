@@ -1,4 +1,4 @@
-# Chrome queue: LOGOS (restaurants still without a logo file; 2026-10-15: 5 of 238 have none)
+# Chrome queue: LOGOS (restaurants still without a logo file; 2026-10-16: 5 of 241 have none)
 
 Our cloud session can't reach these logo files (bot checks, or the image host's robots.txt refuses automated tools). In your
 browser: open the page, find the restaurant's OWN logo (header logo, or its brand/press page), and save the file exactly as the site
@@ -27,3 +27,4 @@ Claude adds them to the app with tools/logos/assemble_logos.py.
 - [x] buy-and-bite | Buy & Bite | https://www.buyandbite.co.uk/robots.txt disallows the home page for automated visits | Open https://www.buyandbite.co.uk/ and save the logo at the top of the page as buy-and-bite.png/.svg.
 - [x] shop:tesco | Tesco (supermarket) | (2026-10-14: installed from tescoplc.com, which now answers the cloud environment) | Open https://www.tescoplc.com/ and save the TESCO logo from the header as web/public/logos/shops/tesco.svg/.png (the plain wordmark, not "Tesco Careers" or Clubcard).
 - [ ] shop:coop | Co-op (supermarket) | coop.co.uk and co-operative.coop (Imperva challenge) | Open https://www.coop.co.uk/ and save the Co-op logo from the header as web/public/logos/shops/coop.svg/.png.
+- [x] honest-burgers | Honest Burgers | installed 2026-10-16 from the site's own inline SVG sprite symbol <g id="h_logo"> (the header logo, shield and HONEST), copied unchanged into web/public/logos/honest-burgers.svg: the site serves no logo file, favicon or touch icon, and the only logo file on its Ten Kites page sits on images.tenkites.com, whose robots.txt disallows everything. As a standalone file it renders black (light tile). To replace it, save the logo from the header in your browser (copy the <svg> markup unchanged) as honest-burgers.svg and send it.

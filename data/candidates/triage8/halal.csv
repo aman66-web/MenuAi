@@ -1,0 +1,153 @@
+id,verdict,halal_scope,sites,nutrition_source,notes
+honest-burgers,GO,some,45,https://menus.tenkites.com/honestburgers/honestburgers (12 menu tabs by ?mguid=<data-menu-identifier>; linked from https://www.honestburgers.co.uk/allergy-information/),"ADDED 2026-10-16 (117 items published, full nutrition, complete allergens; 6 of 123 held back; independent Chromium re-read of all 12 Ten Kites tabs: 0 differences). Local burgers (one restaurant each), cocktails and the Baker St / Tooley St trial menu are not published. Halal row: scope some (halal chicken only, no halal beef), the FAQ's own words. VERIFIED by judge 2026-10-16. Halal (FAQ https://www.honestburgers.co.uk/feedback-and-faqs/, verbatim): 'Is your meat halal? All of the chicken in our restaurants is halal. ... We do not offer halal beef at any of our restaurants.' Chicken only, so scope some. Full nutrition per serving (kCal, fat, saturates, carbs, sugars, fibre, protein, salt) on Ten Kites; Master Menu 'Updated 28 July 2026', Core Burgers file dated 2026-10-16; per-dish 'Halaal' column present. 45 location pages. tenkites_c.read_table_layout already reads this page (20 rows on tab 1, 35 on Sides). Earlier verdict BLOCKED (curl got Cloudflare 403); the project helper (urllib, robots RFC 9309) got 200 on robots.txt, FAQ, allergy page and locations today; menus.tenkites.com robots allows menu pages. FRAGILE: stop at the first 403/429/challenge from honestburgers.co.uk and never retry with another client. Exclude New Menu Trial (Baker St and Tooley St only), Local Burgers (one per restaurant; at most 2+ sites agree), alcoholic drinks."
+sams-chicken,GO,all (chicken only; 'to the best of our knowledge'),45,https://samschicken.com/item/<n>_<slug> (95 item pages; categories 1_chicken to 10_sauces-dips),"ADDED 2026-10-16 (61 items published of 93 rows, full nutrition, allergens link-only; 32 held back: 24 pages print 0 for every figure, the rest contradict themselves or copy another page; sodium not published because the printed figures cannot be sodium). Halal row: scope all, the about_us paragraph in full (hedged 'to the best of our knowledge'; chicken is the only meat sold). VERIFIED by judge 2026-10-16. Halal (https://samschicken.com/about_us, verbatim): 'The chicken served in our stores is Halal (to the best of our knowledge, based on the representations of our suppliers) and is sourced solely from certified Halal suppliers.' Item page prints ENERGY (cal), PROTEIN, FAT, SAT FAT, CARBS, SUGARS, SODIUM (g) 'Average per one piece.' (Chicken Pieces 268 cal = 4x32.26+9x11.23+4x9.06 within 1%). 45 branches (45 Get Directions blocks on /locations). robots.txt 404 = no rules. RATE LIMIT: earlier runs and a scout got HTTP 429 at 1 request/s; 3 requests 6 s apart were fine today. Extract at 6 s or slower and STOP on any 429 (429 is a stop in our rules). Sodium not salt (store sodium, never convert). About 25 items print 0 for every figure (drinks, grilled items, sauces) and Strawberry Cheese Cake prints 1320 cal with 7.5 g protein: hold back, never correct. Multi-piece items are per ONE piece: publish as a 1-piece item, never multiply."
+burger-boi,GO,some (per-dish 'Suitable for Halaal' tick in the chain's own table),19,https://burgerboi.co.uk/allergens/ ('Allergen information last updated 5 October 2026'),"ADDED 2026-10-16 (35 items published, full nutrition, complete allergens; 39 dishes print full macros, 4 held back where the chain's own pages disagree: American, Triple Cheese, Hot Honey (smash burger), Ranch). Halal row: scope some, the table's own 'Suitable for Halaal' tick (quoted at Jamin). Its terms (14 August 2026, s.5.3) forbid scraping or systematically extracting content: founder to decide, see docs/UK_DATA_STATUS.md. VERIFIED by judge 2026-10-16. Server-rendered table, 77 dishes: 41 ticked 'Suitable for Halaal', 39 print kcal+fat+carbs+protein (all 39 are halal-ticked), the rest print kcal+carbs+protein with fat '—' (macros are all-or-none: hold back or calories-only, never fill). Basis 'Nutrition values per serving'. Dish names carry '(NNN kcal)' (strip it; the cell is the figure) and thousands use a comma ('1,485'). robots.txt Allow /. 19 location pages in sitemap.xml. Earlier verdict NO-DATA (Ten Kites iframe 404 on 9 Oct): the page has since been rebuilt with the table in the page. No halal sentence elsewhere on the site, so halal evidence is the table's own 'Halaal' column (precedent: Bagel Factory, Puttshack, Powerleague tags). Cross-check page rows against each dish's own page where they differ ('Taken from this dish's own menu page, not the January 2026 allergen sheet')."
+roosters-piri-piri,NO-HALAL-WORDS,not_stated (header halal logo image only),about 32 (UK),https://www.roosterspiripiri.com/menu + /_next/data/<buildId>/menu/<slug>.json ('calories'),"Calories-only GO as a plain chain (49 items, undated, site (c) 2023) but NOT a halal-statement chain: judge confirmed 2026-10-16 that every page carries only a header image halal.png and no halal sentence in words (home, menu, locations, about-us). Under our rule (own words only) the halal row stays not_stated. Founder may decide to accept the chain's own halal logo as its statement; otherwise extract only as an ordinary calories-only chain. robots.txt 404."
+black-rooster-peri-peri,NO-HALAL-WORDS,not_stated,16 (Scotland),https://www.blackroosterperiperi.com/menu (From N kCal per item and size),"Calories-only chain (68 figures, 'From' = smallest size), no halal wording on 10 pages read by the scout. Not part of the halal request; plain new calories-only chain if the founder wants it."
+sobe-burger,NO-DATA,all,19,allergen PDF (June 2025) only,"Halal wording clear and chain-wide ('ALL OF OUR CHICKEN AND BEEF IS HALAL'), allergen tick matrix only, no kcal or macros."
+burgerism,NO-DATA,all,3-10 (Greater Manchester),none,'All of our meats are Halal'; Framer menu has no figures.
+miss-millies,NO-DATA,all,15+,HTML allergen matrix (30/09/26) only,'All our chicken is halal'; no kcal or macros.
+chicken-cottage,NO-DATA,all,about 80,allergen grid image/PDF Oct 2020,Halal banner and about-us; no kcal anywhere.
+rios-piri-piri,NO-DATA,all,about 60 postcodes,2021 menu PDF only,'all our food is 100% Halal'; no figures.
+legends-burgers,NO-DATA,all,5+,none,"'Halal burgers and shakes'; no kcal, no allergen page."
+big-johns-takeaway,NO-DATA,all,7-22,allergen matrix PDF June 2026 only,'highest quality of halal ingredients'; /locations/ answered 403 so stopped; no figures.
+wing-wing,NO-DATA,some,not counted,allergen PDF 2025 only,Banner 'HALAL' only; no figures.
+german-doner-kebab,NO-DATA,unknown,many,allergen tick matrix only,No halal sentence read (certificate PDF linked); no kcal.
+morleys,NO-DATA,not_stated,about 94,allergen PNG grid,"No halal sentence, no kcal; www robots.txt answered 429 once (stopped)."
+mr-cod,NO-DATA,unknown,13 (FSA),none found,No official site reachable.
+alley-cats-pizza,NO-DATA,some,about 6 London,"JS allergens page, no nutrition",'PEPPERONI (Halal option available)'; under 10 sites and no figures.
+bleecker,NO-DATA,some,9 London,menu prices only; Allergens Matrix PDF robots-disallowed,Halal beef at 5 of 9 sites ('These sites aren't fully halal'); no figures.
+meatliquor,NO-DATA,some,"script-rendered, not counted",none,'All of our Chicken is Halal'; allergen info only at sites.
+pizza-pilgrims,NO-DATA,some,about 30,"allergen matrix PDF May 2026, no kcal",'All our cheese is halal' plus halal pepperoni option; no figures.
+kricket,NO-DATA,some,about 4 London,none,'our chicken is always halal'; no nutrition.
+bundobust,NO-DATA,all (vegetarian menu),3,allergen only,Halal because the whole food menu is vegetarian/vegan; sells beer; no figures.
+crome-london,NO-DATA,all,1-2 London + Doha,FAQ declines to publish calories,'Everything on our menu is halal'; chain says it does not disclose calories.
+harry-ramsdens,NO-DATA,some (Notting Hill only),11,allergen chart PDF Jan 2026 (no kcal),Halal at one restaurant only; nutrition sheets provided in restaurant only. Worth asking the chain for them.
+akbars,NO-DATA,not_stated,10,"menu PDF and allergen grid, no kcal",No halal wording found.
+toros-steakhouse,NO-DATA,not_stated,about 5,none,Press calls it halal; its own pages do not.
+etci-mehmet,NO-DATA,not_stated,few,none,"No figures, no halal wording on home."
+tas-restaurants,NO-DATA,not_stated,London group,none,No figures.
+sofra,NO-DATA,not_stated,London group,none,No figures.
+haz,NO-DATA,not_stated,few London,none,No figures.
+kabab-ji,NO-DATA,not_stated,about 4,site shell only,No figures.
+beirut-express,NO-DATA,not_stated,about 4 London,none,No figures.
+noura,NO-DATA,not_stated,about 5 London,none,No UK figures.
+roti-king,NO-DATA,not_stated,few London,none,No figures.
+sakonis,NO-DATA,not_stated,3+,none,Vegetarian; no figures.
+tikka-nation,NO-DATA,not_stated,3-4,image-only allergen PDF,No figures.
+cinnamon-club,NO-DATA,not_stated,1,none,One restaurant.
+eastzeast,NO-DATA,not_stated,about 4,none,Home loads now; no figures.
+rio-steakhouse,NO-DATA,not_stated,3 (North East),none,No figures.
+haute-dolci,NO-DATA,all,21 open UK stores,HTML menus (price + allergens) only,'we are 100% Halal certified' (faqs); no kcal or macros.
+heavenly-desserts,NO-DATA,"all (search-result wording, not read by scout)",about 61,allergen guide PDF only,Largest new halal-all chain but allergens only; host answered 429 to the scout; confirm the FAQ sentence in a browser before quoting it.
+nafees-bakers,NO-DATA,some (cakes only),6-12,"ingredient lists, no table",'All our Gateaux and Cakes are HALAL'; no figures.
+bismillah-bakery,NO-DATA,all,5 Birmingham,none,'100% halal ingredients and preparation'; no figures.
+karak-chaii,NO-DATA,some (per-location marketing sentence),15,none,No figures.
+chocoberry,NO-DATA,all (service tag per location),23,menu only inside Flipdish widget whose data host disallows all,Halal is a per-location service tag; no figures reachable.
+the-urban-chocolatier,NO-DATA,some (named products only),11,per-item allergens only,"No chain-wide statement, no figures."
+icestone-desserts,NO-DATA,not_stated,11,allergen chart PDF only,No halal wording.
+treatz,NO-DATA,not_stated,about 19,"JS allergy table, no kcal",No halal wording.
+rodeo-doughnuts,NO-DATA,not_stated,9 London,allergens only,No halal wording.
+doughnotts,NO-DATA,not_stated,6,general allergen statement,No halal wording.
+cream-curls,NO-DATA,not_stated,9,allergen statement,No halal wording.
+cuppa-chaii,NO-DATA,not_stated,7-8,menu without kcal,No halal wording on 15 pages.
+chai-green,NO-DATA,not_stated,about 12,none,"No halal sentence, no figures."
+cha-cha-chai,NO-DATA,not_stated,about 19 (FSA),none,Official site did not answer (network error).
+mooboo,NO-DATA,not_stated,100+,allergen PDF only,Pages now answer 403 (stop); no halal wording found.
+bubble-citea,NO-DATA,not_stated,about 25,kcal on 15 toppings only,No halal wording; drinks carry no kcal.
+gong-cha,NO-DATA,not_stated,13 (Mar 2025),product lists without nutrition,No halal wording.
+chatime-uk,NO-DATA,not_stated,5,none,One-page franchisee site.
+xing-fu-tang,NO-DATA,not_stated,not counted,prices only,No halal wording.
+milksha,NO-DATA,not_stated,not counted,none,No halal wording.
+happy-lemon,NO-DATA,not_stated,not counted,none,No halal wording.
+yo-chi,NO-DATA,not_stated,few,PDF gives kJ only,No halal wording.
+wafflemeister,NO-DATA,not_stated,10 concessions,menu PDFs without kcal,No halal wording.
+crepe-delicious-uk,NO-DATA,not_stated,not counted,price boards PDF,No halal wording.
+donut-king,NO-DATA,not_stated,not counted,none,No halal wording.
+paris-baguette-uk,NO-DATA,not_stated,7 London,none,No halal wording.
+kova-patisserie,NO-DATA,not_stated,6,per-product allergens only,No halal wording.
+shakeaway,NO-DATA,not_stated,not counted,"image menus, marketing claims only",No halal wording.
+cheat-daze,NO-DATA,not_stated,14,none (official site is a for-sale page),Delivery-app tags are third party: not used.
+cakes-and-shakes,NO-DATA,not_stated,4 (third party),none,No official site found.
+simit-sarayi,NO-DATA,not_stated,unknown,none,Domain for sale; no official UK site.
+areeshaz,NO-DATA,not_stated,2-3,none,Script shell only.
+millies-cookies,NO-DATA,not_stated,40+,"allergens only, no kcal",Now loads; no halal wording.
+namco-funscape,NO-DATA,not_stated,not counted,none,Halal only for party bookings via external caterers: not a claim.
+welcome-break,NO-DATA,not_stated,32,none,No halal statement.
+moto,NO-DATA,not_stated,not counted,none,No halal statement.
+roadchef,NO-DATA,not_stated,not counted,none,No halal statement.
+shaketastic,NO-DATA,not_stated,10,script shell,Nothing readable.
+cafe-chaiwala,NO-DATA,not_stated,1 open,none,Parked domain.
+cake-box,NO-MACROS,all,310 store pages,"per 100 g only (Nutritics panel in product JSON, no portion weight)","VERIFIED by judge 2026-10-16: FAQ 'All Cake Box products are Halal, and we are certified by the Universal Halal Authority' and the product page table is 'Per 100g' only (no serving weight). docs/DATA.md: per-100 g guides are a NO-MACROS verdict, we never convert to a serving. Strongest halal chain found; unlockable only by a founder decision on per-100 g data."
+ambala-foods,NO-MACROS,all,35,"per 100 g only in product page JSON (unit weight per piece printed, no per-piece values)",Halal and vegetarian ('Both!') per its FAQ; full nutrition per 100 g only; deriving per-piece values is barred by DATA.md. Earlier NO-DATA verdict was wrong about the page (figures sit in the JSON).
+the-halal-guys,TOO-SMALL,unknown,a few London franchise sites,none,No UK page; US 2021 PDF only.
+patty-and-bun,TOO-SMALL,some,Canary Wharf plus concessions,none,"Halal lamb and chicken, beef at Canary Wharf only; no figures; too few sites."
+zouk,TOO-SMALL,all,1,none,One restaurant.
+ribeye-steakhouse,TOO-SMALL,all,2,none,Two restaurants.
+lasan,TOO-SMALL,not_stated,1,none,One restaurant.
+tayyabs,TOO-SMALL,not_stated,1,none,One restaurant.
+shawa,TOO-SMALL,not_stated,2,none,Two sites; no kcal on its own menu.
+galitos,CLOSED,unknown,none,none,Parked lander page; no UK sites found.
+raising-canes-uk,CLOSED,unknown,0,none,First UK restaurant not open yet; revisit once open.
+odeon,NOT-HALAL,no,not counted,allergen matrix PDF (unread),"Help centre (per search result, page 403): Food and Drink range has no halal certification; site is blocked; no further work."
+cosmo,NOT-HALAL,no,about 20,allergen labels only,'our food has not been halal certified'; no figures.
+zambrero,NOT-HALAL,no,not counted,"allergen table (a 'Halal Chicken' column appears in it), no kcal",'Zambrero is not a Halal approved restaurant.'
+dixy-chicken,BLOCKED,unknown,about 110,not readable,Server unreachable (scout: connection reset/503; judge retest timed out). Re-test later; halal wording and nutrition both unknown.
+perfect-fried-chicken,BLOCKED,unknown,unknown,not readable,Page answers 403; not worked round.
+southern-fried-chicken,BLOCKED,unknown,franchise network,not readable,southernfriedchicken.com answers 403; the .co.uk site is a different 2-shop business.
+chicking,BLOCKED,unknown,30+,not readable,403 bot challenge.
+mad-for-chicken,BLOCKED,unknown,London,not readable,403 bot challenge.
+caspian-pizza,BLOCKED,unknown,5-29,not readable,403 bot challenge.
+chicken-dot-com,BLOCKED,unknown,2-20,not readable,403 bot challenge.
+wingstop,BLOCKED,unknown,105,not readable,UK menu has no calories; per-store nutrition sits on wingstop.vmos.io (robots-disallowed paths).
+apache-pizza,BLOCKED,unknown,"unknown, mostly Irish",not readable,Nutrition site apache.ie answers 403; no halal wording.
+krispy-kreme,BLOCKED,unknown,many,not readable,"VERIFIED by judge: /nutritionals answers HTTP 403. Nutrition book PDF likely has full macros; halal wording is 'suitable for a halal diet, not certified'. Founder to save the PDF from their browser (data/held-downloads/krispy-kreme/downloads.csv)."
+papa-johns,BLOCKED,unknown,138 (FSA),not readable,"VERIFIED by judge: the nutritional-information.pdf answers HTTP 403. Highest-value file for the founder to save (84 pages, valid 1 Oct 2026, full nutrition reported); halal wording on the chain's own pages not verified. See data/held-downloads/papa-johns/downloads.csv."
+kaspas,BLOCKED,unknown,78,not readable,VERIFIED by judge: the home page is a reCAPTCHA 'Bot Verification' page. No halal wording in indexed pages; allergen pack PDFs list kcal per earlier note.
+cake-inn,BLOCKED,unknown,5-10,not readable,"403; eggless cakes, halal unknown."
+cinnabon,BLOCKED,unknown,not counted,not readable,403.
+bubbleology,BLOCKED,unknown,not counted,not readable,403.
+crepeaffaire,BLOCKED,unknown,not counted,not readable,403.
+hafiz-mustafa,BLOCKED,unknown,not counted,not readable,Second request answered 429; stopped.
+cineworld,BLOCKED,unknown,not counted,not readable,403.
+bowlplex,BLOCKED,unknown,not counted,not readable,403.
+aagrah,BLOCKED,unknown,6+ Yorkshire,not readable,403 on the page.
+tamatanga,BLOCKED,unknown,about 4,not readable,403.
+dawat,BLOCKED,unknown,about 5,not readable,403 on the page.
+jerk-junction,BLOCKED,unknown,4+,not readable,403.
+hotcha,BLOCKED,unknown,unverified,not readable,403 on the page.
+wok-to-walk,BLOCKED,unknown,7+ cities,not readable,403.
+shake-shack,BLOCKED,unknown,about 15,not readable,403 on shakeshack.co.uk (allergen PDFs listed in data/held-downloads/shake-shack for the founder to save). Third-party press says one restaurant is halal-certified: not used.
+tossed,BLOCKED,unknown,13 London,not readable,403.
+berenjak,BLOCKED,unknown,3,not readable,"429, stopped."
+manjaros,BLOCKED,unknown,15+,not readable,403.
+fireaway,DUPLICATE,all,in app,already in the app,VERIFIED by judge: 'All of our meats are 100% halal certified ensuring quality and integrity in every bite.' (our-story). New halal row.
+wendys,DUPLICATE,some,in app,already in the app,VERIFIED by judge: breaded chicken products from a Halal certified supplier; UK restaurants are not Halal certified. New halal row.
+dominos,DUPLICATE,some,in app,already in the app,"VERIFIED by judge (corporate.dominos.co.uk food FAQ): 'We don't promote our stores or meat as halal approved. However, most of our chicken ... is certified as halal ...' except wings. New halal row (fast-food scout; the re-checker could not reach the page)."
+pepes-piri-piri,DUPLICATE,all,in app,already in the app,"VERIFIED by judge: 'Pepe's has a wide selection on their menu, all which are Halal ...' (a news post, the only wording). Weak page, clear words; founder may prefer some."
+popeyes,DUPLICATE,some,in app,already in the app,VERIFIED by judge (rendered FAQ): 'All of our chicken is Halal.' and '10 of our restaurants are Halal-certified by HCO'. Re-checker proposed all; judge sets some because only 10 restaurants are certified and the claim is for chicken.
+slim-chickens,DUPLICATE,some,in app,already in the app,VERIFIED by judge (rendered /halal): restaurants serve Halal-slaughtered chicken and sauces; never says all. New halal row.
+subway,DUPLICATE,some,in app,already in the app,"VERIFIED by judge: UK allergen guide May 2026 (www.subway.com/en-gb/assets, robots allows) lists Halal Breaded Chicken, Halal Pepperoni (Beef), Halal Rotisserie-Style Chicken, Halal Chicken Tikka under 'Halal Meat, Eggs & Plant-Based Proteins'. Descriptive prefix removed from the quote."
+burger-king,DUPLICATE,no,in app,already in the app,"VERIFIED by judge (rendered FAQ): 'Is Burger King meat halal? No, not currently.' Recorded as no."
+mcdonalds,DUPLICATE,not_stated,in app,already in the app,Scout saw only a search-result summary of a page that answers 403; judge could not verify: no row.
+pizza-express,DUPLICATE,not_stated,in app,already in the app,Help article answers 403; search summary says not halal-certified; unverified: no row.
+taco-bell,DUPLICATE,not_stated,in app,already in the app,Old halal store pages now redirect; no live statement.
+dishoom,DUPLICATE,some,in app,already in the app,"VERIFIED by judge: FAQ 'All our lamb, chicken and turkey are sourced from Halal-certified suppliers ...'."
+zizzi,DUPLICATE,no,in app,already in the app,VERIFIED by judge: 'Zizzi is not a Halal or Kosher restaurant ...'.
+ask-italian,DUPLICATE,no,in app,already in the app,VERIFIED by judge: 'ASK Italian is not a Halal or Kosher restaurant ...'.
+turtle-bay,DUPLICATE,no,in app,already in the app,"VERIFIED by judge (JSON-LD of the FAQ): 'Unfortunately, our restaurants are not Halal ...'."
+hollywood-bowl,DUPLICATE,some,in app,already in the app,VERIFIED by judge in the chain's own menu PDF (media.hollywoodbowlgroup.com ...): 'our Halal menu' and 'Halal products may not be cooked separately from non-Halal products ...'. The re-checker had left it out because its web pages only say 'Halal options are available at this centre'. New halal row.
+bagel-factory,DUPLICATE,some,in app,already in the app,VERIFIED by judge in the Full Ingredient List PDF: 'H=Halal Friendly' legend and 'Chicken Firecracker H'. Review 16 Oct: the PDF never defines 'Halal Friendly' so no halal row is published (not_stated in data/dietary/halal-c.csv).
+little-dessert-shop,DUPLICATE,all,in app,already in the app,Already in halal-b (all); confirmed unchanged by the cafe scout.
+tenpin,DUPLICATE,some,in app,already in the app,Already in halal-b; unchanged.
+chaiiwala,DUPLICATE,some,in app,already in the app,Already in halal-a/b; unchanged.
+baskin-robbins,DUPLICATE,some,in app,already in the app,Already in halal-b; unchanged.
+creams-cafe,DUPLICATE,not_stated,in app,already in the app,No halal wording on 16 own pages; third-party listings not used.
+dunkin,DUPLICATE,not_stated,in app,already in the app,Help centre still 403.
+muffin-break,DUPLICATE,not_stated,in app,already in the app,Still 403.
+vue,DUPLICATE,not_stated,in app,already in the app,Still 403.
+bettys,DUPLICATE,not_stated,in app,already in the app,Bot check.
+costa,DUPLICATE,not_stated,in app,already in the app,Site times out.
+caffe-nero,DUPLICATE,not_stated,in app,already in the app,No halal wording.
+tim-hortons,DUPLICATE,not_stated,in app,already in the app,No halal wording.
+aunties-anne,DUPLICATE,not_stated,in app,already in the app,FAQ 'Is your meat Halal? Please check this at your local store.' is not a halal claim.

@@ -1,0 +1,35 @@
+item_id,reason
+grilled-burger,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+devil-box,"The item page prints 1610 cal against 1583; 142.6 g protein against 95.86; 61.88 g fat against 79.67; 121.66 g carbohydrate against 123.22, but the pages of what the chain says it holds ('Spicy Fillet Maxi Burger with 3 Fiery Wings, Large Fries & Drink.') add up to the second figure each time; the other 11 boxes and buckets add up to within 1%, so this page's figures cannot be relied on. None is published or corrected."
+grilled-chicken-box,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+grilled-wrap,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+whole-peri-chicken,"The item page prints sugars 4.91 g above carbohydrate 0 g (sugars are part of the carbohydrate): the chain's own figures contradict each other, so none is published or corrected."
+grilled-chicken-rice,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+loaded-grilled-fries,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+loaded-grilled-salad,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+hash-brown-1-piece,"Hash Brown (1 piece) prints one identical set of seven figures (295 cal, protein 3.57 g, fat 11.83 g, saturates 0.93 g, carbohydrate 46.01 g, sugars 0.53 g, sodium 0.84 g) as Fries (150 g), with the basis line 'Average per one piece.'. The Fries page is the original: the chain's own Combo Box and Blaze Box pages add up from exactly its figures (489 + 2 x 184 + 295 = 1152 kcal; 467 + 2 x 184 + 295 + 98 = 1228 kcal). This page is a copy, so none of its figures is published."
+spicy-fries-150-g,"Spicy Fries (150 g) prints one identical set of seven figures (295 cal, protein 3.57 g, fat 11.83 g, saturates 0.93 g, carbohydrate 46.01 g, sugars 0.53 g, sodium 0.84 g) as Fries (150 g), with the basis line 'Average per 150g.'. The Fries page is the original: the chain's own Combo Box and Blaze Box pages add up from exactly its figures (489 + 2 x 184 + 295 = 1152 kcal; 467 + 2 x 184 + 295 + 98 = 1228 kcal). This page is a copy, so none of its figures is published."
+salad,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+strawberry-cheese-cake,"The item page prints 1320 cal but its own protein (7.5 g), carbohydrate (38.2 g) and fat (14.7 g) add up to about 315 kcal (76% apart): the chain's own figures contradict each other, so none is published or corrected."
+chocolate-fudge-cake,"The item page prints 1320 cal but its own protein (7.5 g), carbohydrate (38 g) and fat (14.7 g) add up to about 314 kcal (76% apart): the chain's own figures contradict each other, so none is published or corrected."
+diet-coke,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+sprite-bottle,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+coke-zero-bottle,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+coca-cola-bottle,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+sprite-zero-sugar,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+sprite,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+fanta-orange,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+fanta-fruit-twist,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+dr-pepper,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+coca-cola-cherry,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+coca-cola-zero-sugar,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+ben-and-jerrys-chocolate-fudge-brownie,"Two different flavours (Chocolate Fudge Brownie and Sundae Dulche De-Lish) print one identical set of seven figures (249 cal, protein 4.3 g, fat 13 g, saturates 7.8 g, carbohydrate 29 g, sugars 27 g, sodium 0.23 g) and no basis: one page is a copy of the other and the chain does not say which. Neither is chosen."
+coca-cola-original,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+fruit-shoot-orange,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+fruit-shoot-apple-and-blackcurrant,The item page prints 0 for every figure (no nutrition published) and no serving; the other drinks print the same zeros.
+ben-and-jerrys-sundae-dulche-de-lish,"Two different flavours (Chocolate Fudge Brownie and Sundae Dulche De-Lish) print one identical set of seven figures (249 cal, protein 4.3 g, fat 13 g, saturates 7.8 g, carbohydrate 29 g, sugars 27 g, sodium 0.23 g) and no basis: one page is a copy of the other and the chain does not say which. Neither is chosen."
+sweet-chili-mayo-25-g,"The item page prints protein 0.25 g, carbohydrate 10.95 g and fat 16.44 g, 27.6 g of macros in a basis of only 25 g: the chain's own figures contradict each other, so none is published or corrected."
+sams-mayo-25-g,"The item page prints protein 0.3 g, carbohydrate 12 g and fat 23 g, 35.3 g of macros in a basis of only 25 g (and 261 cal is 10.4 kcal a gram, more than pure fat): the chain's own figures contradict each other, so none is published or corrected."
+sams-chilli-sauce,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+sams-garlic-and-herb-peri-peri,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
+sams-garlic-mayo,The item page prints 0 for every figure (no nutrition published); the chain's allergen chart lists it as 'Awaiting for more info...'.
