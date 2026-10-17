@@ -1,0 +1,37 @@
+Recipe shop files (tools/groceries/build_recipe_shop_files.py; docs/DATA.md "Recipe shop files")
+Sainsbury's page labels offered to other shops:
+  rows with a label 12712; no barcode 8591; bad check digit 30; shop-internal barcode 1652; state recipes cannot use 274; implausible 0; barcode shared by two different labels 1; barcode only from an exact name-and-size twin 0 (left out) ; offered 2160 barcodes, 599 of them from a name-and-size twin
+  refused by the kJ against kcal test (still in Sainsbury's own list, unchanged): 3
+    goatsbridge-eat-trout-hot-smoked-trout-fillets-x2-170g-ready-to-eat (Goatsbridge Eat Trout Hot Smoked Trout Fillets x2 170g (Ready to Eat))
+    hershey-s-330g-cookies-n-creme-mix-ins-white-chocolate-dessert-with-cookie-pieces (Hershey's 330g Cookies N Creme Mix Ins White Chocolate Dessert with Cookie Pieces)
+    young-s-fisherman-s-pie-300g (Young's Fisherman's Pie 300g)
+
+tesco: 6079 rows in the list, 1035 in the recipe file (247,838 bytes, 101,373 gzip)
+  not joined: no price 0, no barcode 4501, bad check digit 19, no label found 494
+  kept: Sainsbury's page label of the same barcode 338 (19 where that Sainsbury's barcode came from a name-and-size twin), the shop's own page 1, community record 696 (100 with a shop-internal barcode, same shop only)
+  held back or refused: sources disagree 11, name shares no word 4, catalogue record unusable 0, shop-internal barcode matched a Sainsbury's number 0, community record for a barcode Sainsbury's prints a cooked/prepared label for 17
+  a drained Sainsbury's label used and a state-less community record ignored: 1; another source printed the other unit (per 100 ml against 100 g) with agreeing numbers and was not used: 23; optional rows left out because they can't hold (saturates above fat, sugars above carbohydrate): 0
+
+asda: 10527 rows in the list, 6727 in the recipe file (1,149,889 bytes, 308,314 gzip)
+  not joined: no price 0, no barcode 657, bad check digit 0, no label found 3047
+  kept: Sainsbury's page label of the same barcode 934 (555 where that Sainsbury's barcode came from a name-and-size twin), the shop's own page 0, community record 5793 (0 with a shop-internal barcode, same shop only)
+  held back or refused: sources disagree 41, name shares no word 8, catalogue record unusable 0, shop-internal barcode matched a Sainsbury's number 0, community record for a barcode Sainsbury's prints a cooked/prepared label for 53
+  a drained Sainsbury's label used and a state-less community record ignored: 4; another source printed the other unit (per 100 ml against 100 g) with agreeing numbers and was not used: 50; optional rows left out because they can't hold (saturates above fat, sugars above carbohydrate): 12
+
+morrisons: 16373 rows in the list, 1250 in the recipe file (292,448 bytes, 89,788 gzip)
+  not joined: no price 0, no barcode 14813, bad check digit 0, no label found 256
+  kept: Sainsbury's page label of the same barcode 538 (292 where that Sainsbury's barcode came from a name-and-size twin), the shop's own page 0, community record 712 (0 with a shop-internal barcode, same shop only)
+  held back or refused: sources disagree 24, name shares no word 0, catalogue record unusable 0, shop-internal barcode matched a Sainsbury's number 0, community record for a barcode Sainsbury's prints a cooked/prepared label for 30
+  a drained Sainsbury's label used and a state-less community record ignored: 1; another source printed the other unit (per 100 ml against 100 g) with agreeing numbers and was not used: 30; optional rows left out because they can't hold (saturates above fat, sugars above carbohydrate): 1
+
+waitrose: 9726 rows in the list, 502 in the recipe file (87,581 bytes, 28,643 gzip)
+  not joined: no price 0, no barcode 9108, bad check digit 0, no label found 93
+  kept: Sainsbury's page label of the same barcode 260 (148 where that Sainsbury's barcode came from a name-and-size twin), the shop's own page 0, community record 242 (0 with a shop-internal barcode, same shop only)
+  held back or refused: sources disagree 9, name shares no word 0, catalogue record unusable 0, shop-internal barcode matched a Sainsbury's number 0, community record for a barcode Sainsbury's prints a cooked/prepared label for 14
+  a drained Sainsbury's label used and a state-less community record ignored: 2; another source printed the other unit (per 100 ml against 100 g) with agreeing numbers and was not used: 7; optional rows left out because they can't hold (saturates above fat, sugars above carbohydrate): 0
+
+iceland: 5976 rows in the list, 1101 in the recipe file (264,322 bytes, 72,153 gzip)
+  not joined: no price 0, no barcode 4543, bad check digit 0, no label found 299
+  kept: Sainsbury's page label of the same barcode 289 (177 where that Sainsbury's barcode came from a name-and-size twin), the shop's own page 0, community record 812 (0 with a shop-internal barcode, same shop only)
+  held back or refused: sources disagree 14, name shares no word 0, catalogue record unusable 0, shop-internal barcode matched a Sainsbury's number 0, community record for a barcode Sainsbury's prints a cooked/prepared label for 19
+  a drained Sainsbury's label used and a state-less community record ignored: 0; another source printed the other unit (per 100 ml against 100 g) with agreeing numbers and was not used: 20; optional rows left out because they can't hold (saturates above fat, sugars above carbohydrate): 0

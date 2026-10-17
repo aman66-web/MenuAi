@@ -59,6 +59,8 @@ def main(src: Path, dst: Path, content_file: Path) -> int:
         for r in full["retailers"]:
             if r["id"] in left_out:
                 (dst / "groceries/all" / r["file"]).unlink(missing_ok=True)
+                if isinstance(r.get("recipe"), dict) and r["recipe"].get("file"):   # the labelled rows recipes swap to at that shop (tools/groceries/build_recipe_shop_files.py)
+                    (dst / "groceries/recipe" / r["recipe"]["file"]).unlink(missing_ok=True)
         full["retailers"] = [r for r in full["retailers"] if r["id"] not in left_out]
         full_manifest.write_text(json.dumps(full, ensure_ascii=False))
         if catalogue_manifest.is_file():

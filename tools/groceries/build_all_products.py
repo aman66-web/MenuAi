@@ -3,6 +3,7 @@
 
     python3 tools/groceries/build_all_products.py          # writes web/public/groceries/all/<shop>.json + all-manifest.json
     python3 tools/groceries/build_all_products.py --only marks-and-spencer   # rewrites just that shop's file and its entry in all-manifest.json
+Both then rebuild web/public/groceries/recipe/<shop>.json and each manifest entry's `recipe` (tools/groceries/build_recipe_shop_files.py; --no-recipe skips it).
 
 Input: data/groceries/listing/<shop>.csv (tools/groceries/ingest_listing.py): one row per product as the shop's own category pages printed it
 (name, price, unit price, card price, categories, photo address). These products have NO barcode and NO nutrition unless the shop's page was read
@@ -484,10 +485,20 @@ def write_wanted_off(docs: dict[str, dict], path: Path | None = None) -> int:
     return len(codes)
 
 
+def build_recipe_files() -> None:
+    """The recipe shop files (web/public/groceries/recipe/<shop>.json and each shop's `recipe` entry in all-manifest.json): the labelled rows of the other shops'
+    lists that recipes can swap an ingredient to (tools/groceries/build_recipe_shop_files.py, docs/DATA.md). They copy rows of the lists just written, so they are
+    rebuilt after every list build (the lists themselves are not touched by this step)."""
+    import build_recipe_shop_files as brsf  # noqa: E402
+
+    brsf.run(OUT.parent)
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--only", choices=PUBLISH, help="write only this shop's file and replace only its entry in all-manifest.json (every shop is still built, so the photos "
                     "borrowed across shops stay identical); the other shops' files and the barcodes-wanted list are left alone")
+    ap.add_argument("--no-recipe", action="store_true", help="do not rebuild the recipe shop files afterwards (python3 tools/groceries/build_recipe_shop_files.py does it on its own)")
     a = ap.parse_args(argv)
     manifest_path = OUT / "all-manifest.json"
     manifest = {"v": 1, "retailers": []}
@@ -529,6 +540,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{shop}: {len(doc['products'])} products ({priced} with a price), {len(text) / 1e6:.1f} MB, {sum(1 for p in doc['products'] if p[8])} with the shop's photo, "
               f"{sum(1 for p in doc['products'] if len(p) > 11 and p[11])} with a page address, {sum(1 for p in doc['products'] if p[9])} with a barcode, {with_nutrition} with nutrition, {len(doc['categories'])} categories")
     manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
+    if not a.no_recipe:
+        build_recipe_files()   # adds the `recipe` entries to the manifest just written
     for p in problems[:20]:
         print("problem:", p)
     if len(problems) > 20:

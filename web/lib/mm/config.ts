@@ -35,6 +35,15 @@ export const LANGUAGES_ENABLED = false;
 
 export const COMMUNITY_FRIENDS_ENABLED = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
 
+/**
+ * FOUNDER TO DECIDE (2026-10-16, "swap an ingredient for a product from another supermarket"). May a recipe add up Open Food Facts contributors' numbers
+ * ("community data") for a product from another supermarket? false (the shipped default): a recipe uses only labels printed on a supermarket's own product
+ * page, so a product at another shop is offered only with the label of the very same barcode from the recipe shop's own page, and community numbers are
+ * refused everywhere in the recipe engine. true: the same barcode's community record from that shop's catalogue is also allowed, marked "Community data"
+ * wherever it shows. NEXT_PUBLIC_RECIPE_COMMUNITY=1 turns it on at build time (the browser tests do); production stays false until the founder says.
+ */
+export const RECIPE_COMMUNITY_NUMBERS = process.env.NEXT_PUBLIC_RECIPE_COMMUNITY === "1";
+
 /** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
 export const PAYMENTS_ENABLED = false;
 

@@ -1,3 +1,4 @@
+import { RECIPE_COMMUNITY_NUMBERS } from "./config";
 import { formatInt } from "./format";
 import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind } from "./pantry";
 import { normalizeForSearch } from "./search";
@@ -16,6 +17,14 @@ export type { IngredientMatch } from "./pantry";
 // its numbers and price never move with the people (founder 2026-10-16). Substitutes and fitting are therefore always chosen for the recipe as
 // written and scaled afterwards, with the same products (recipeView is the whole pipeline; `scaledFrom` and `ResolvedRecipe.basis` carry it). Blurbs describe the dish,
 // never make a nutrition or health claim (CLAUDE.md rule 3). Pure and unit-tested.
+//
+// Another supermarket's product for one ingredient (founder 2026-10-16, "swap an ingredient for a product from another supermarket"): the person's
+// choice is a product key (`productKey`: a plain product id = the recipe's own shop, "asda:123" = Asda's product 123) and `resolveRecipe` / `fitRecipe`
+// / `recipeView` take the other shops' lists as `others`. A product from another shop carries numbers only from a label printed on a supermarket's page
+// (the recipe list copies the recipe shop's page label of the IDENTICAL barcode) or, only while config.RECIPE_COMMUNITY_NUMBERS is on, Open Food Facts
+// contributors' record of the same barcode (ShopNutrition.source "community": never for a drained amount or a kind without a kcal range, always named).
+// Two sources are never blended for one product, and every figure is still arithmetic on a published label. Helpers for the swap sheet, the
+// provenance and the supermarket filter are in crossShop.ts.
 
 export interface IngredientSpec {
   key: string;
@@ -197,6 +206,37 @@ export function withSubstitutes(recipe: Recipe, choices: Readonly<Record<string,
   };
 }
 
+// ---- product keys: a product of the recipe's own shop, or of another supermarket
+
+const SHOP_KEY = /^[a-z][a-z0-9-]{1,30}$/;
+const PRODUCT_ID = /^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/;
+
+/** The key a person's choice of product is kept under: the plain product id for the recipe's own shop (what choices always were), "shop:id" for another
+ *  supermarket's product. Shop ids are [a-z][a-z0-9-]{1,30} and product ids never contain ":", so a key parses back to exactly its parts. */
+export function productKey(shop: string | null | undefined, id: string): string {
+  return shop ? `${shop}:${id}` : id;
+}
+
+/** A product key's parts (`shop` null = the recipe's own shop), or null when it isn't one: no ":" more than once, no upper-case or odd shop id, no empty id,
+ *  nothing that isn't a product id of the shops' lists. Anything read from storage goes through this. */
+export function parseProductKey(key: unknown): { shop: string | null; id: string } | null {
+  if (typeof key !== "string" || key.length > 160) return null;
+  const at = key.indexOf(":");
+  const shop = at < 0 ? null : key.slice(0, at);
+  const id = at < 0 ? key : key.slice(at + 1);
+  if (shop !== null && !SHOP_KEY.test(shop)) return null;
+  return PRODUCT_ID.test(id) && !id.includes("..") ? { shop, id } : null;
+}
+
+/** Whether this can be a supermarket's id inside a product key. */
+export const isShopKey = (shop: string): boolean => SHOP_KEY.test(shop);
+
+/** A pick's product key (its shop and id: ids are only unique inside a shop, so a screen compares these, never bare ids). */
+export const pickKey = (p: Pick<IngredientPick, "product" | "shop">): string => productKey(p.shop, p.product.id);
+
+/** Own properties only: a recipe's choices come from storage, so a key like "constructor" must not find anything. */
+const ownValue = (o: Readonly<Record<string, string>>, key: string): string | undefined => (Object.hasOwn(o, key) ? o[key] : undefined);
+
 // ---- matching ----
 
 const hayCache = new WeakMap<object, string>();
@@ -257,6 +297,8 @@ export interface IngredientPick {
   basketCost: number;
   /** What the amount used costs at the shop's own price per kg or litre (null when the shop prints no such price). */
   usedCost: number | null;
+  /** The supermarket this product is from when it isn't the recipe's own shop (set by resolveRecipe from the person's choice; absent = the recipe's shop). */
+  shop?: string;
 }
 
 /** How many items a pack of things sold one at a time holds ("Limes x5", "4 x Unwaxed Lemons", "Brown Onions x3"); 1 when the name says none. */
@@ -315,7 +357,7 @@ const matchCache = new WeakMap<readonly ShopProduct[], Map<string, PricedProduct
 function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): PricedProduct[] {
   let byRule = matchCache.get(products);
   if (!byRule) { byRule = new Map(); matchCache.set(products, byRule); }
-  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree]);
+  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, RECIPE_COMMUNITY_NUMBERS]);
   const cached = byRule.get(rule);
   if (cached) return cached;
   const m = spec.match;
@@ -325,6 +367,9 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
     const n = p.nutrition;
     const h = hay(p);
     if (n) {
+      // Open Food Facts contributors' numbers (a product of another supermarket, ShopNutrition.source): never while the switch is off; never for a drained amount, because
+      // the record doesn't say whether it is for the drained food; never for a kind without a kcal range, which is all that fixes the form of the food they are for
+      if (n.source === "community" && (!RECIPE_COMMUNITY_NUMBERS || spec.drained || !m.kcal)) continue;
       if (n.per !== spec.unit) continue;
       // the label must be for the food as the recipe weighs it: as sold, or (for a drained amount) per 100 g drained or a product sold ready-drained
       if (!(n.state === "" ? !spec.drained || has(h, "drained") || has(h, "no drain") : spec.drained && n.state === "drained")) continue;
@@ -383,8 +428,11 @@ export function nameFits(name: string, spec: IngredientSpec, loose = false): boo
 export interface ResolvedRecipe {
   recipe: Recipe;
   picks: Array<IngredientPick | null>;
-  /** Every ingredient found at this shop. */
+  /** Every ingredient found at this shop (or at the other supermarkets the person chose products from). */
   complete: boolean;
+  /** Ingredient keys whose chosen product of another supermarket is no longer there (its list changed, the diet changed, the switch for community numbers went off):
+   *  that ingredient shows the usual product instead. Absent when none. The choice itself is kept until the person chooses again or goes back to the usual products. */
+  stale?: string[];
   /** Set when the recipe is cooked for a different number of people than it was written for: the same recipe resolved at its own servings, with the
    *  very same products. A serving's figures and price come from it (recipeTotals), so they can't change with the number of people; the picks above
    *  hold the amounts, packs and basket for the people shown. */
@@ -398,27 +446,45 @@ function scaleResolved(base: ResolvedRecipe, scaled: Recipe): ResolvedRecipe {
   const picks = base.picks.map((p): IngredientPick | null => {
     if (!p) return null;
     const q = pickFor(scaleSpec(p.spec, scaled.servings, from), p.product);
-    return { ...q, usedCost: p.usedCost === null ? null : (p.usedCost * scaled.servings) / from };
+    return { ...q, ...(p.shop ? { shop: p.shop } : {}), usedCost: p.usedCost === null ? null : (p.usedCost * scaled.servings) / from };
   });
-  return { recipe: scaled, picks, complete: base.complete, basis: base };
+  return { recipe: scaled, picks, complete: base.complete, basis: base, ...(base.stale ? { stale: base.stale } : {}) };
 }
 
-/** The cheapest match for each ingredient, or a chosen product where the user swapped one (by product id). A recipe cooked for more or fewer people
- *  (scaleServings) gets the products the recipe as written gets, so its numbers and its price a serving never move with the people. */
-export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>> = {}): ResolvedRecipe {
-  if (recipe.scaledFrom) return scaleResolved(resolveRecipe(recipe.scaledFrom, products, chosen), recipe);
+/** The other supermarkets' products by shop id (never the recipe's own shop). Keep the same Map and arrays between calls: which products fit a kind is worked out once per array. */
+export type OtherShops = ReadonlyMap<string, readonly ShopProduct[]>;
+
+/** The cheapest match for each ingredient, or a chosen product where the user swapped one (`chosen`: ingredient key → product key, see productKey). A recipe cooked
+ *  for more or fewer people (scaleServings) gets the products the recipe as written gets, so its numbers and its price a serving never move with the people. A choice
+ *  of another supermarket's product (`others`) is used only if that product still fits the ingredient there (the very rules the home shop's products must pass); if
+ *  not, the ingredient shows the usual product and is named in `stale`. A choice naming a shop whose list isn't in `others` (not loaded yet) is ignored for now,
+ *  silently. Another shop's product can also complete an ingredient the recipe's own shop doesn't sell. */
+export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>> = {}, others?: OtherShops): ResolvedRecipe {
+  if (recipe.scaledFrom) return scaleResolved(resolveRecipe(recipe.scaledFrom, products, chosen, others), recipe);
   const meatFree = isMeatFree(recipe);
+  const stale: string[] = [];
   const picks = recipe.ingredients.map((spec) => {
     let list = candidates(products, spec, meatFree);
+    let effective = spec;
     // the shop doesn't sell this kind: use the first substitute it does sell (the pick's spec says which, so the screen can say so)
     for (const sub of list.length ? [] : spec.subs ?? []) {
       const s2 = subSpec(spec, sub, recipe.halal);
       const l2 = s2 ? candidates(products, s2, meatFree) : [];
-      if (l2.length) { list = l2; break; }
+      if (s2 && l2.length) { list = l2; effective = s2; break; }
     }
-    return list.find((c) => c.product.id === chosen[spec.key]) ?? list[0] ?? null;
+    const want = parseProductKey(ownValue(chosen, spec.key));
+    if (want?.shop) {
+      const theirs = others?.get(want.shop);
+      if (!theirs) return list[0] ?? null; // that shop's list isn't here (yet): the usual product for now
+      // it must fit the kind the home shop's pick is for (a substitute, when the home shop lacks the kind), or the kind the recipe has
+      const hit = (effective === spec ? [spec] : [effective, spec]).map((k) => candidates(theirs, k, meatFree).find((c) => c.product.id === want.id)).find(Boolean);
+      if (hit) return { ...hit, shop: want.shop };
+      stale.push(spec.key);
+      return list[0] ?? null;
+    }
+    return (want ? list.find((c) => c.product.id === want.id) : undefined) ?? list[0] ?? null;
   });
-  return { recipe, picks, complete: picks.every(Boolean) };
+  return { recipe, picks, complete: picks.every(Boolean), ...(stale.length ? { stale } : {}) };
 }
 
 export interface RecipeTotals {
@@ -431,6 +497,40 @@ export interface RecipeTotals {
   basket: number;
   /** Ingredients whose label we haven't read: listed and priced, not counted in the nutrition (their labels, in recipe order). */
   notCounted: string[];
+  /** Ingredients whose numbers are Open Food Facts contributors' (community data) rather than a label printed on a supermarket's page: their labels, in recipe order.
+   *  Always empty while config.RECIPE_COMMUNITY_NUMBERS is off. */
+  community: string[];
+  /** The share of a serving's calories that comes from those ingredients, 0 to 1 to two places (plain arithmetic on the labels; 0 when there are none). */
+  communityShare: number;
+  /** What to buy at each supermarket, home shop (null) first, then in the order the recipe first uses them: only shops with something to buy (an ingredient marked
+   *  "I have this" is in no shop's basket). `basket` is whole packs at the shelf price and `used` the per-serving price of that shop's products (null if any has no
+   *  price per kg or litre; it counts "I have this" items too, like costPerServing, so the lines can differ from costPerServing by a penny of rounding). The headline
+   *  `basket` is exactly the sum of these rounded lines. */
+  byShop: ShopTotal[];
+}
+
+export interface ShopTotal {
+  /** The supermarket's id; null = the recipe's own shop. */
+  shop: string | null;
+  basket: number;
+  used: number | null;
+  /** Products to buy there (not counting "I have this" items). */
+  products: number;
+}
+
+const shopOf = (p: Pick<IngredientPick, "shop">): string | null => p.shop ?? null;
+
+/** What to put on the shopping list, shop by shop (the recipe's own shop first, then in the order the recipe first uses the others): every product that isn't a
+ *  store-cupboard item the person says they have, each to be added `packs` times. The basket in recipeTotals is the sum of exactly these. */
+export function linesByShop(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): Array<{ shop: string | null; picks: IngredientPick[] }> {
+  const out = new Map<string | null, IngredientPick[]>();
+  for (const p of r.picks as Array<IngredientPick | null>) {
+    if (!p || (p.spec.cupboard && p.spec.pantry && have.has(p.spec.pantry))) continue;
+    const list = out.get(shopOf(p));
+    if (list) list.push(p);
+    else out.set(shopOf(p), [p]);
+  }
+  return [...out].map(([shop, picks]) => ({ shop, picks })).sort((a, b) => Number(a.shop !== null) - Number(b.shop !== null));
 }
 
 /** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
@@ -440,20 +540,22 @@ export interface RecipeTotals {
 export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): RecipeTotals | null {
   if (!r.complete) return null;
   const notCounted: string[] = [];
+  const community: string[] = [];
+  let communityKcal = 0;
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
   const more: Record<"kj" | "saturates" | "sugars" | "fibre" | "salt", number | null> = { kj: 0, saturates: 0, sugars: 0, fibre: 0, salt: 0 };
   let used = 0;
   let usedKnown = true;
-  let basket = 0;
-  const kept = (p: IngredientPick) => !(p.spec.cupboard && p.spec.pantry && have.has(p.spec.pantry));
-  if (r.basis) for (const p of r.picks as IngredientPick[]) if (kept(p)) basket += p.basketCost;
+  const usedAt = new Map<string | null, number | null>(); // per supermarket: the per-serving cost of its products, null once one has no price per kg or litre
   for (const p of (r.basis ?? r).picks as IngredientPick[]) {
     if (p.usedCost === null) usedKnown = false;
     else used += p.usedCost;
-    if (!r.basis && kept(p)) basket += p.basketCost;
+    const was = usedAt.get(shopOf(p));
+    usedAt.set(shopOf(p), p.usedCost === null || was === null ? null : (was ?? 0) + p.usedCost);
     const n = p.product.nutrition;
     if (!n) { notCounted.push(p.spec.label); continue; }
     const f = p.spec.amount / 100;
+    if (n.source === "community") { community.push(p.spec.label); communityKcal += n.kcal * f; }
     sum.kcal += n.kcal * f;
     sum.protein += n.protein * f;
     sum.carbs += n.carbs * f;
@@ -466,12 +568,22 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
   const s = (r.basis ?? r).recipe.servings;
   const round1 = (v: number) => Math.round(v * 10) / 10;
   const per = (v: number | null, digits: number) => (v === null ? null : Math.round((v / s) * 10 ** digits) / 10 ** digits);
+  // the basket is for the amounts shown (the people), one line per supermarket, each rounded to the penny; the headline is the sum of those lines, so the page never disagrees with itself
+  const byShop: ShopTotal[] = linesByShop(r, have).map(({ shop, picks }) => ({
+    shop,
+    basket: Math.round(picks.reduce((x, p) => x + p.basketCost, 0) * 100) / 100,
+    used: usedAt.get(shop) == null ? null : Math.round((usedAt.get(shop)! / s) * 100) / 100,
+    products: picks.length,
+  }));
   return {
     perServing: { kcal: Math.round(sum.kcal / s), protein: round1(sum.protein / s), carbs: round1(sum.carbs / s), fat: round1(sum.fat / s) },
     label: { kj: per(more.kj, 0), saturates: per(more.saturates, 1), sugars: per(more.sugars, 1), fibre: per(more.fibre, 1), salt: per(more.salt, 2) },
     costPerServing: usedKnown ? Math.round((used / s) * 100) / 100 : null,
-    basket: Math.round(basket * 100) / 100,
+    basket: byShop.reduce((x, l) => x + Math.round(l.basket * 100), 0) / 100,
     notCounted,
+    community,
+    communityShare: sum.kcal > 0 ? Math.round((communityKcal / sum.kcal) * 100) / 100 : 0,
+    byShop,
   };
 }
 
@@ -547,24 +659,25 @@ function fitFactors(ingredients: readonly IngredientSpec[]): Array<(a: number, b
  * milk for porridge oats) moves with it; each stays inside its own limits (tinned pulses at most one and a half times), and sauces and the
  * rest stay as written. Calories and protein are aimed at; carbs and fat count only when they go over the limit. Amounts are rounded to 5 g
  * (eggs and wraps to whole ones) and every number is then worked out again from the labels for those rounded amounts. Null when the recipe
- * isn't complete here.
+ * isn't complete here. A product the person chose at another supermarket (`others`, see resolveRecipe) stays chosen through the fit and its label is used for it.
  */
-export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>>, target: MealTarget): FittedRecipe | null {
+export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>>, target: MealTarget, others?: OtherShops): FittedRecipe | null {
   if (recipe.scaledFrom) {
     // a serving is fitted once, for the recipe as written (the same products, the same factors, amounts rounded once); more or fewer people then
     // multiply the fitted amounts. Fitting the scaled amounts instead would round them again and could pick other factors for every number of people.
-    const f = fitRecipe(recipe.scaledFrom, products, chosen, target);
+    const f = fitRecipe(recipe.scaledFrom, products, chosen, target, others);
     if (!f) return null;
     const scaled = scaleServings(f.recipe, recipe.servings);
     const resolved = scaled.scaledFrom ? scaleResolved(f.resolved, scaled) : f.resolved;
     return { recipe: scaled, resolved, totals: recipeTotals(resolved)!, changed: f.changed };
   }
-  const base = resolveRecipe(recipe, products, chosen);
+  const base = resolveRecipe(recipe, products, chosen, others);
   if (!base.complete) return null;
   const picks = base.picks as IngredientPick[];
-  // the same products after fitting, even if a different pack size would be cheaper for the new amount
+  // the same products after fitting, even if a different pack size would be cheaper for the new amount (a product of another supermarket is pinned by its shop AND id:
+  // ids repeat across shops, and a bare id would silently give the ingredient back to the recipe's own shop)
   const pinned: Record<string, string> = { ...chosen };
-  for (const p of picks) pinned[p.spec.key] = p.product.id;
+  for (const p of picks) pinned[p.spec.key] = pickKey(p);
   const s = recipe.servings;
   // the picks' specs (a substitute in an ingredient's place) say how each one moves
   const factors = fitFactors(picks.map((p) => p.spec));
@@ -599,7 +712,9 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
     return f === 1 ? spec : withAmount(spec, spec.amount * f, false, s);
   });
   const fitted: Recipe = { ...recipe, ingredients };
-  const resolved = resolveRecipe(fitted, products, pinned);
+  const again = resolveRecipe(fitted, products, pinned, others);
+  // a choice that has gone stale was given back to the usual product above, so the second pass doesn't know it was: carry the first pass's answer
+  const resolved = base.stale ? { ...again, stale: base.stale } : again;
   const totals = recipeTotals(resolved);
   if (!totals) return null;
   return { recipe: fitted, resolved, totals, changed: ingredients.some((x, i) => x.amount !== recipe.ingredients[i]!.amount) };
@@ -678,13 +793,13 @@ export interface RecipeView {
 export function recipeView(
   recipe: Recipe,
   products: readonly ShopProduct[],
-  opts: { servings: number; subs?: Readonly<Record<string, string>>; chosen?: Readonly<Record<string, string>>; target?: MealTarget | null },
+  opts: { servings: number; subs?: Readonly<Record<string, string>>; chosen?: Readonly<Record<string, string>>; target?: MealTarget | null; others?: OtherShops },
 ): RecipeView {
   const withSubs = withSubstitutes(scaleServings(recipe, opts.servings), opts.subs ?? {});
   const chosen = opts.chosen ?? {};
-  const fitted = opts.target ? fitRecipe(withSubs, products, chosen, opts.target) : null;
+  const fitted = opts.target ? fitRecipe(withSubs, products, chosen, opts.target, opts.others) : null;
   if (fitted) return { recipe: fitted.recipe, resolved: fitted.resolved, totals: fitted.totals, fitted: fitted.changed };
-  const resolved = resolveRecipe(withSubs, products, chosen);
+  const resolved = resolveRecipe(withSubs, products, chosen, opts.others);
   return { recipe: withSubs, resolved, totals: recipeTotals(resolved), fitted: false };
 }
 

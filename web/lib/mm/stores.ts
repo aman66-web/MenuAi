@@ -3,6 +3,7 @@ import { sanitizeSavedRecipes, type SavedRecipe } from "./aiRecipe";
 import { createStore, requestPersistentStorage } from "./persist";
 import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
+import { sanitizeRecipeChoices, withRecipeChoice, withoutRecipeChoice, type RecipeChoices } from "./recipeChoices";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
@@ -40,6 +41,20 @@ export const savedRecipesStore = createStore<RecipeSave[]>("mm.v1.savedRecipes",
 export const cupboardStore = createStore<string[]>("mm.v1.cupboard", [], {
   sanitize: (x) => (Array.isArray(x) ? [...new Set(x.filter((k): k is string => typeof k === "string" && /^[a-z0-9-]{1,40}$/.test(k)))].slice(0, 200) : []),
 });
+
+/** What the person swapped on each recipe: the products they chose (the recipe shop's, or another supermarket's) and the ingredients they swapped for another kind
+ *  (lib/mm/recipeChoices.ts), put back when the recipe is opened again. On this device only: not one of the synced stores (a new one would need a migration), never sent anywhere. */
+export const recipeChoicesStore = createStore<RecipeChoices>("mm.v1.recipeChoices", {}, { sanitize: sanitizeRecipeChoices });
+
+/** Remember the recipe's choices as the screen now has them (an empty pair forgets the recipe). */
+export function setRecipeChoice(recipeId: string, home: string, state: { products: Readonly<Record<string, string>>; subs: Readonly<Record<string, string>> }): void {
+  recipeChoicesStore.update((all) => withRecipeChoice(all, recipeId, home, state, new Date()));
+}
+
+/** "Back to the usual products": forget the recipe's choices. */
+export function clearRecipeChoice(recipeId: string): void {
+  recipeChoicesStore.update((all) => withoutRecipeChoice(all, recipeId));
+}
 
 /** Dishes opened in the last day ("Recently viewed" on the restaurant's page; lib/mm/recent.ts). On this device only. */
 export const recentStore = createStore<RecentView[]>("mm.v1.recentItems", [], { sanitize: sanitizeRecent });

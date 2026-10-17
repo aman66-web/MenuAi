@@ -8,7 +8,7 @@ import { EMPTY_META, SyncEngine, sanitizeMeta, type SyncStatus } from "@/lib/mm/
 import { createSyncAdapters } from "@/lib/mm/syncStores";
 import { communityCacheStore } from "./communityCache";
 import { forgetInviteCode } from "./inviteCode";
-import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore } from "@/lib/mm/stores";
+import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, recipeChoicesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore } from "@/lib/mm/stores";
 
 // Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Signing in is optional: with no account none of this does anything and
 // everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
@@ -32,7 +32,7 @@ export const syncEngine = (): SyncEngine =>
       savedRecipes: savedRecipesStore, myRecipes: myRecipesStore, cupboard: cupboardStore, compare: compareStore,
     }),
     meta: syncMetaStore,
-    localStores: [waterStore, remindersStore],
+    localStores: [waterStore, remindersStore, recipeChoicesStore],
     api: accountApi(),
     now: () => Date.now(),
   }));

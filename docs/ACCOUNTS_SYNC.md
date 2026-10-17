@@ -26,6 +26,9 @@ when the feature ships, and the privacy page and App Store answers change with i
   server-side schedule exists. This is deliberate, not a gap: `web/tests/reminders.test.ts` fails if reminders ever appear in `SYNC_STORES`, the sync code or
   the settings that sync. Syncing them later is a product decision for the founder, and needs a new migration, an updated privacy policy and App Privacy
   answers (Health) first. Signing out or deleting the account leaves them on the phone; "Clear data on this device" removes them and cancels their notifications.
+  **The products a person swaps on a recipe stay on the device too** (a recipe's Swap sheet, 16 October 2026: a product of the recipe's shop or of another
+  supermarket, and the ingredients swapped for another kind, `mm.v1.recipeChoices`, `web/lib/mm/recipeChoices.ts`): not a synced store (a new one would need a migration), reset
+  when a different person signs in on the same phone (`localStores` in `web/app/app/_lib/account.ts`), removed by "Clear data on this device", never sent anywhere.
 - **Settings › Account:** who you're signed in as, "Sign out" (data stays on this phone), and **"Delete my account"**. Apple requires deletion
   inside the app (guideline 5.1.1(v)); it deletes the account and every synced row at once.
 

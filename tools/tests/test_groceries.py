@@ -1145,9 +1145,10 @@ class MsFoodRangeTests(unittest.TestCase):
             out = Path(d)
             with mock.patch.object(bap, "OUT", out), mock.patch.object(bap, "PUBLISH", shops), mock.patch.object(bap, "build_shop", lambda shop, problems: doc(shop, 3)), \
                     mock.patch.object(bap, "catalogue_photos", return_value={}), mock.patch.object(bap, "read_off_images", return_value={}), \
-                    mock.patch.object(bap, "write_wanted_off", return_value=0) as wanted, contextlib.redirect_stdout(io.StringIO()):
+                    mock.patch.object(bap, "write_wanted_off", return_value=0) as wanted, mock.patch.object(bap, "build_recipe_files") as recipe, contextlib.redirect_stdout(io.StringIO()):
                 self.assertEqual(bap.main([]), 0)
                 self.assertEqual(wanted.call_count, 1)
+                self.assertEqual(recipe.call_count, 1)                                # the recipe shop files are rebuilt after the lists (tests/test_recipe_shop_files.py)
                 first = json.loads((out / "all-manifest.json").read_text())
                 self.assertEqual([r["id"] for r in first["retailers"]], list(shops))
                 lidl_bytes, asda_bytes = (out / "lidl.json").read_bytes(), (out / "asda.json").read_bytes()

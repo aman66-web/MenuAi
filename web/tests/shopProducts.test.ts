@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, type ShopFile } from "../lib/mm/shopProducts";
+import { MIN_RECIPE_SHOP_PRODUCTS, decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, otherRecipeShops, possessive, recipeListOf, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, type ShopFile } from "../lib/mm/shopProducts";
 
 const file: ShopFile = {
   v: 1, retailer: "sainsburys", name: "Sainsbury's", checkedOn: "2026-10-08", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/",
@@ -198,5 +198,85 @@ describe("borrowed photos for list rows without one (founder 2026-10-11)", () =>
     }
     // the shop's own photo always comes first
     expect(shopPhotoSources(file, { ...asda, photoId: "6325944" })[0]).toMatchObject({ shop: "sainsburys" });
+  });
+});
+
+describe("recipe lists: another supermarket's products for a recipe (founder 2026-10-16)", () => {
+  const row = (id: string, n: unknown) => [id, `Item ${id}`, 1, null, "", null, null, 0, "", "", n] as unknown as ShopFile["products"][number];
+  const decode = (...n: unknown[]) => decodeShopProducts({ ...file, products: n.map((x, i) => row(`r-${i}`, x)) });
+
+  it("reads element 12 'c' as community numbers and nothing else as a source", () => {
+    const [community, own, empty, odd, upper, long, other] = decode(
+      [250, 9, 41, 4, null, null, null, null, null, "g", "", "c"],
+      [250, 9, 41, 4, null, null, null, null, null, "g", ""],
+      [250, 9, 41, 4, null, null, null, null, null, "g"],
+      [250, 9, 41, 4, null, null, null, null, null, "g", "", "s"], // a marker we don't know is ignored, never trusted
+      [250, 9, 41, 4, null, null, null, null, null, "g", "", "C"],
+      [250, 9, 41, 4, null, null, null, null, null, "g", "", "community"],
+      [250, 9, 41, 4, null, null, null, null, null, "g", "", 1],
+    );
+    expect(community!.nutrition).toEqual({ kcal: 250, protein: 9, carbs: 41, fat: 4, saturates: null, sugars: null, fibre: null, salt: null, kj: null, per: "g", state: "", source: "community" });
+    for (const p of [own, empty, odd, upper, long, other]) {
+      expect(p!.nutrition).not.toBeNull();
+      expect(p!.nutrition).not.toHaveProperty("source");
+    }
+    // rows without the marker decode exactly as they always did
+    expect(own!.nutrition).toEqual({ kcal: 250, protein: 9, carbs: 41, fat: 4, saturates: null, sugars: null, fibre: null, salt: null, kj: null, per: "g", state: "" });
+  });
+
+  it("keeps the state word next to the marker, and a bad state is still ignored", () => {
+    const [drained, bad] = decode([105, 8.1, 12.8, 0.6, null, null, null, null, null, "g", "drained"], [105, 8.1, 12.8, 0.6, null, null, null, null, null, "g", "Bad<state", "c"]);
+    expect(drained!.nutrition!.state).toBe("drained");
+    expect(bad!.nutrition).toMatchObject({ state: "", source: "community" });
+  });
+
+  describe("which shops a recipe can borrow from", () => {
+    const entry = (id: string, name: string, extra: Record<string, unknown> = {}) => ({ id, name, file: `${id}.json`, count: 5000, checkedOn: "2026-10-08", sha256: `full-${id}`, ...extra });
+    const manifest = {
+      v: 1 as const,
+      retailers: [
+        entry("sainsburys", "Sainsbury's", { nutrition: 12712 }),
+        entry("tesco", "Tesco", { nutrition: 0, recipe: { file: "tesco.json", count: 116, sha256: "r-tesco" } }),
+        entry("asda", "Asda", { nutrition: 0, recipe: { file: "asda.json", count: 476, sha256: "r-asda" } }),
+        entry("morrisons", "Morrisons", { recipe: { file: "morrisons.json", count: 159, sha256: "r-mor" } }),
+        entry("waitrose", "Waitrose", { recipe: { file: "waitrose.json", count: 99, sha256: "r-wait" } }), // under the threshold
+        entry("iceland", "Iceland", { recipe: { file: "iceland.json", count: 100, sha256: "r-ice" } }), // exactly the threshold
+        entry("aldi", "Aldi"), // no recipe list, no labels
+        entry("lidl", "Lidl", { nutrition: 0 }),
+        entry("evil", "Evil", { recipe: { file: "../../etc/passwd", count: 500, sha256: "x" } }), // not a plain file name
+      ],
+    };
+
+    it("offers shops with at least MIN_RECIPE_SHOP_PRODUCTS products, never the home shop, never a shop with no list or a bad file name", () => {
+      expect(MIN_RECIPE_SHOP_PRODUCTS).toBe(100);
+      expect(otherRecipeShops(manifest, "sainsburys").map((r) => r.id)).toEqual(["asda", "morrisons", "tesco", "iceland"]);
+      // a shop that is not the home shop but has its own labels read counts by its labelled products, and the home shop moves out of the list
+      expect(otherRecipeShops(manifest, "asda").map((r) => r.id)).toEqual(["sainsburys", "morrisons", "tesco", "iceland"]);
+      expect(otherRecipeShops(null, "sainsburys")).toEqual([]);
+      expect(otherRecipeShops({ v: 1, retailers: [] }, null)).toEqual([]);
+    });
+
+    it("puts the person's own supermarkets first, in their order, then the rest by size and name", () => {
+      expect(otherRecipeShops(manifest, "sainsburys", ["iceland", "tesco"]).map((r) => r.id)).toEqual(["iceland", "tesco", "asda", "morrisons"]);
+      expect(otherRecipeShops(manifest, "sainsburys", ["waitrose", "nowhere", "morrisons"]).map((r) => r.id)).toEqual(["morrisons", "asda", "tesco", "iceland"]); // a shop under the threshold is not offered even if it is theirs
+      const tie = { v: 1 as const, retailers: [entry("b-shop", "Beta", { recipe: { file: "b.json", count: 200, sha256: "b" } }), entry("a-shop", "Alpha", { recipe: { file: "a.json", count: 200, sha256: "a" } })] };
+      expect(otherRecipeShops(tie, null).map((r) => r.id)).toEqual(["a-shop", "b-shop"]);
+    });
+
+    it("does not change the manifest it is given", () => {
+      const before = JSON.stringify(manifest);
+      otherRecipeShops(manifest, "sainsburys", ["tesco"]);
+      expect(JSON.stringify(manifest)).toBe(before);
+    });
+
+    it("finds a shop's list: its recipe list, else its labelled full list, else nothing", () => {
+      const by = (id: string) => manifest.retailers.find((r) => r.id === id)!;
+      expect(recipeListOf(by("asda"))).toEqual({ kind: "recipe", path: "/groceries/recipe/asda.json", sha256: "r-asda", count: 476 });
+      expect(recipeListOf(by("sainsburys"))).toEqual({ kind: "all", path: "/groceries/all/sainsburys.json", sha256: "full-sainsburys", count: 12712 });
+      expect(recipeListOf(by("aldi"))).toBeNull();
+      expect(recipeListOf(by("lidl"))).toBeNull();
+      expect(recipeListOf(by("evil"))).toBeNull();
+      expect(recipeListOf({ ...by("aldi"), file: "../x.json", nutrition: 500 })).toBeNull();
+    });
   });
 });

@@ -19,7 +19,13 @@
    "checkedOn": "2026-10-09",
    "nutrition": 0,
    "priced": 6079,
-   "sha256": "2ad503b0b825b6bd0bafefdc865eee0cbaf1cd617daebc4ef189d6fbb1b68736"
+   "sha256": "2ad503b0b825b6bd0bafefdc865eee0cbaf1cd617daebc4ef189d6fbb1b68736",
+   "recipe": {
+    "file": "tesco.json",
+    "count": 1035,
+    "own": 339,
+    "sha256": "d472c7b576b2ea2cb962759acd2c2b5f7fa217a583e45f35977ca1133c22ed7e"
+   }
   },
   {
    "id": "asda",
@@ -29,7 +35,13 @@
    "checkedOn": "2026-10-08",
    "nutrition": 0,
    "priced": 10527,
-   "sha256": "ccdd954b67e2e99bd166f3e0c39e9fb1940077a5370bbbae8992747588ca4312"
+   "sha256": "ccdd954b67e2e99bd166f3e0c39e9fb1940077a5370bbbae8992747588ca4312",
+   "recipe": {
+    "file": "asda.json",
+    "count": 6727,
+    "own": 934,
+    "sha256": "ccdc5ead2846005d05ea99afc85efb1c40ef815b62d7c71b7cf365d035286e19"
+   }
   },
   {
    "id": "aldi",
@@ -59,7 +71,13 @@
    "checkedOn": "2026-10-08",
    "nutrition": 0,
    "priced": 16373,
-   "sha256": "88561ff0e31079f839fb6e36f41cd019230a86de4ea4b732948d817463974c4f"
+   "sha256": "88561ff0e31079f839fb6e36f41cd019230a86de4ea4b732948d817463974c4f",
+   "recipe": {
+    "file": "morrisons.json",
+    "count": 1250,
+    "own": 538,
+    "sha256": "1364f8d7088173955c8f1f538c94024083b6e16cbb3f2032840ab2c98ed5f569"
+   }
   },
   {
    "id": "waitrose",
@@ -69,7 +87,13 @@
    "checkedOn": "2026-10-08",
    "nutrition": 0,
    "priced": 9726,
-   "sha256": "4a02aee310d28b6546e29cd9f0eef1123f9aa88731298feb4a922124a0e84ca3"
+   "sha256": "4a02aee310d28b6546e29cd9f0eef1123f9aa88731298feb4a922124a0e84ca3",
+   "recipe": {
+    "file": "waitrose.json",
+    "count": 502,
+    "own": 260,
+    "sha256": "2a700c434e8ca89cd52bb9ed52b6926b9e1ab06cb517e6620a09aaee341b6905"
+   }
   },
   {
    "id": "iceland",
@@ -79,7 +103,13 @@
    "checkedOn": "2026-10-09",
    "nutrition": 0,
    "priced": 5976,
-   "sha256": "c933a126839f273de1a1c2952def8c5bfcb2d1dfe0a9c9990a4c509097ebabeb"
+   "sha256": "c933a126839f273de1a1c2952def8c5bfcb2d1dfe0a9c9990a4c509097ebabeb",
+   "recipe": {
+    "file": "iceland.json",
+    "count": 1101,
+    "own": 289,
+    "sha256": "a425fafe59a51e07bb35db4e6ba1e11896cd7867d96626c716cb158495c66f00"
+   }
   },
   {
    "id": "marks-and-spencer",

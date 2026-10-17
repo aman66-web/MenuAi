@@ -8,8 +8,10 @@ import { normalizeForSearch } from "./search";
 
 /** [id, name, price, unitPrice, unit, memberPrice, schemeIndex, categoryIndex, photoId, gtin, nutrition?, page?] where page is the product page's path after
  *  pageBase when it isn't pageBase + id (Aldi, Lidl: from the shop's own sitemap), and nutrition is
- *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml"] per 100 g or ml, copied from the product's own page, or null when that page has not been read. */
-export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?];
+ *  [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g" | "ml", state?, source?] per 100 g or ml, copied from the product's own page, or null when that page has not been read.
+ *  `source` (the recipe lists only, public/groceries/recipe/<shop>.json): "c" = the numbers are Open Food Facts contributors' (community data) for the product's barcode, not a
+ *  label printed on a supermarket's page; anything else or nothing = a label from a supermarket's own page. */
+export type ShopNutritionRow = [number, number, number, number, number | null, number | null, number | null, number | null, number | null, "g" | "ml", string?, string?];
 export type ShopRow = [string, string, number | null, number | null, string, number | null, number | null, number, string, string, (ShopNutritionRow | null)?, string?, [string, string]?];
 
 export interface ShopFile {
@@ -39,11 +41,37 @@ export interface ShopManifest {
   v: 1;
   /** `nutrition`: how many products have numbers read from their own page (recipes need them; absent = none). */
   /** `priced`: how many show a price (absent = all of them; fewer only for Lidl and M&S, whose everyday ranges are listed with no price). */
-  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number; priced?: number }>;
+  retailers: Array<{ id: string; name: string; file: string; count: number; checkedOn: string; sha256: string; nutrition?: number; priced?: number; recipe?: ShopRecipeFile }>;
 }
+
+/** A shop's "recipe list" (public/groceries/recipe/<file>): only the products a recipe could use at that shop, each with numbers for the same barcode (the shop-page label
+ *  of the identical barcode, or the community record: ShopNutrition.source). Same envelope and rows as the full list, so decodeShopProducts reads it. */
+export interface ShopRecipeFile { file: string; count: number; sha256: string }
+/** A shop is offered as "another supermarket" for a recipe only when its recipe list (or its own labelled full list) holds at least this many products. */
+export const MIN_RECIPE_SHOP_PRODUCTS = 100;
 
 /** The shops recipes can use: only those with products whose label we have read (recipes work out every figure from the labels). */
 export const recipeShops = (m: ShopManifest | null): ShopManifest["retailers"] => (m ? m.retailers.filter((r) => (r.nutrition ?? 0) > 0) : []);
+
+const LIST_FILE = /^[A-Za-z0-9][A-Za-z0-9_-]{0,60}\.json$/;
+
+/** Where a shop's products for recipes are: its recipe list (`kind` "recipe") when the manifest has one, else (a shop whose own pages we have read) its full list (`kind` "all");
+ *  null when it has neither, or the manifest names a file that isn't a plain file name. `count` = the products in it that carry numbers. */
+export function recipeListOf(r: ShopManifest["retailers"][number]): { kind: "recipe" | "all"; path: string; sha256: string; count: number } | null {
+  if (r.recipe) return LIST_FILE.test(r.recipe.file) ? { kind: "recipe", path: `/groceries/recipe/${r.recipe.file}`, sha256: r.recipe.sha256, count: r.recipe.count } : null;
+  return (r.nutrition ?? 0) > 0 && LIST_FILE.test(r.file) ? { kind: "all", path: `/groceries/all/${r.file}`, sha256: r.sha256, count: r.nutrition ?? 0 } : null;
+}
+
+/** The shops a recipe could take a product from instead of its own shop: not `home`, and with at least MIN_RECIPE_SHOP_PRODUCTS products that carry numbers (recipeListOf).
+ *  The person's own supermarkets (Settings, `mine`) come first in their order, then the rest by size (largest first) and name. A shop that is not offered here is never
+ *  fetched. */
+export function otherRecipeShops(m: ShopManifest | null, home: string | null, mine: readonly string[] = []): ShopManifest["retailers"] {
+  if (!m) return [];
+  const size = (r: ShopManifest["retailers"][number]) => recipeListOf(r)?.count ?? 0;
+  const list = m.retailers.filter((r) => r.id !== home && size(r) >= MIN_RECIPE_SHOP_PRODUCTS);
+  const rank = (id: string) => { const i = mine.indexOf(id); return i < 0 ? mine.length : i; };
+  return list.sort((a, b) => rank(a.id) - rank(b.id) || size(b) - size(a) || a.name.localeCompare(b.name, "en-GB"));
+}
 
 /** Per 100 g or 100 ml, as the shop's own product page printed them ("<0.5" counted as 0). */
 export interface ShopNutrition {
@@ -59,6 +87,9 @@ export interface ShopNutrition {
   per: "g" | "ml";
   /** "" when the numbers are for the food as sold; otherwise the word the page's own heading adds ("grilled", "cooked bacon", "prepared"), which the app shows next to them. */
   state: string;
+  /** "community" = Open Food Facts contributors' numbers for this product's barcode, not a label printed on a supermarket's page (recipe lists only; the app marks
+   *  them "Community data"). Absent = a label from a supermarket's own product page. */
+  source?: "community";
 }
 
 export interface ShopProduct {
@@ -116,10 +147,10 @@ export const nutritionBasis = (n: Pick<ShopNutrition, "per" | "state">, t: T = e
 
 function decodeNutrition(n: ShopNutritionRow | null | undefined): ShopNutrition | null {
   if (!Array.isArray(n) || n.length < 10) return null;
-  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state] = n;
+  const [kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kj, per, state, source] = n;
   if (![kcal, protein, carbs, fat].every((v) => typeof v === "number" && Number.isFinite(v)) || (per !== "g" && per !== "ml")) return null;
   const opt = (v: number | null) => (typeof v === "number" ? v : null);
-  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "" };
+  return { kcal, protein, carbs, fat, saturates: opt(saturates), sugars: opt(sugars), fibre: opt(fibre), salt: opt(salt), kj: opt(kj), per, state: typeof state === "string" && /^[a-z][a-z ]{0,23}$/.test(state) ? state : "", ...(source === "c" ? { source: "community" as const } : {}) };
 }
 
 // Where a borrowed photo may come from: the supermarkets' own image servers and Open Food Facts' (https only, checked again here).

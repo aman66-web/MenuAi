@@ -13,11 +13,13 @@ spec.loader.exec_module(pack)
 def make_export(root: Path) -> None:
     for rel in ["app.html", "sw.js", "menus/menus-manifest.json", "menus-sample/x.json", "menu-images/kfc/a.webp", "logos/kfc.png",
                 "groceries/tesco.json", "groceries/sainsburys.json", "groceries/coop.json", "groceries/all/tesco.json", "groceries/all/sainsburys.json",
-                "grocery-images/tesco/1.webp", "grocery-images/sainsburys/1.webp"]:
+                "groceries/recipe/tesco.json", "groceries/recipe/asda.json", "grocery-images/tesco/1.webp", "grocery-images/sainsburys/1.webp"]:
         p = root / rel
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text("x")
-    (root / "groceries/all/all-manifest.json").write_text(json.dumps({"v": 1, "retailers": [{"id": "sainsburys", "file": "sainsburys.json"}, {"id": "tesco", "file": "tesco.json"}]}))
+    (root / "groceries/all/all-manifest.json").write_text(json.dumps({"v": 1, "retailers": [{"id": "sainsburys", "file": "sainsburys.json"},
+                                                                                    {"id": "tesco", "file": "tesco.json", "recipe": {"file": "tesco.json", "count": 1, "own": 1, "sha256": "x"}},
+                                                                                    {"id": "asda", "file": "asda.json", "recipe": {"file": "asda.json", "count": 1, "own": 1, "sha256": "x"}}]}))
     (root / "groceries/groceries-manifest.json").write_text(json.dumps({"v": 1, "retailers": [{"id": "tesco", "file": "tesco.json"}, {"id": "sainsburys", "file": "sainsburys.json"}, {"id": "coop", "file": "coop.json"}]}))
 
 
@@ -33,6 +35,8 @@ class PackTests(unittest.TestCase):
         dst = self.run_pack({"menuPhotos": True, "shops": ["sainsburys", "tesco"]})
         self.assertTrue((dst / "menu-images/kfc/a.webp").exists())
         self.assertTrue((dst / "groceries/all/tesco.json").exists())
+        self.assertTrue((dst / "groceries/recipe/tesco.json").exists())
+        self.assertFalse((dst / "groceries/recipe/asda.json").exists())                # asda is not in the shops list: its list and its recipe rows are left out
         self.assertFalse((dst / "menus-sample").exists())
         self.assertFalse((dst / "sw.js").exists())
 
@@ -42,6 +46,8 @@ class PackTests(unittest.TestCase):
         self.assertFalse((dst / "groceries/all/tesco.json").exists())
         self.assertFalse((dst / "groceries/tesco.json").exists())
         self.assertFalse((dst / "grocery-images/tesco").exists())
+        self.assertFalse((dst / "groceries/recipe/tesco.json").exists())               # the labelled rows recipes swap to at a left-out shop go too
+        self.assertFalse((dst / "groceries/recipe/asda.json").exists())
         full = json.loads((dst / "groceries/all/all-manifest.json").read_text())
         self.assertEqual([r["id"] for r in full["retailers"]], ["sainsburys"])
         cat = json.loads((dst / "groceries/groceries-manifest.json").read_text())

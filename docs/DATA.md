@@ -310,6 +310,33 @@ The app always reads ONE complete set (a manifest + all its chain files) from
 - `menuBaseURL` lives in `AppConfig.swift`; while it is the placeholder `https://example.com/menus/`,
   the app skips remote updates.
 
+## Recipe shop files (supermarket labels for swapping a recipe's ingredient to another shop)
+
+Recipes are built from Sainsbury's products, the only shop whose product pages we read for nutrition (`data/groceries/nutrition/sainsburys.csv`). The other shops' lists
+(`web/public/groceries/all/<shop>.json`) have no numbers, so a recipe can use a product at another shop only when a published label for that exact product is joined to its
+row at build time. `tools/groceries/build_recipe_shop_files.py` (run by `build_all_products.py` after every list build, or on its own) writes
+`web/public/groceries/recipe/<shop>.json` for Tesco, Asda, Morrisons, Waitrose and Iceland (Aldi has one barcode; Lidl and M&S have none and mostly no price: no file).
+
+- **Rows:** the list's own envelope (`retailer`, `name`, `checkedOn`, `pageBase`, `photoBase`/`photoTemplate`, `categories`, `schemes`, ...) and only the rows that have a price, a
+  valid barcode and a usable label, copied unchanged and in list order (same id, name, prices, picture, page path, borrowed photo). The envelope adds `nutritionCheckedOn` (the
+  earliest day an own-page label used was read) and, when community rows exist, `communityGeneratedOn` (the day the community catalogue was built).
+- **The nutrition slot (row index 10)** is `[kcal, protein, carbs, fat, saturates, sugars, fibre, salt, kJ, "g"|"ml", state]` per 100 g/ml, like a list row, or the same with a 12th
+  element `"c"` when the numbers are Open Food Facts contributors' (community data, never a supermarket's). No `"c"` = copied from a supermarket's own product page. `state` is `""`
+  (as sold) or `"drained"`; every other state word is left out.
+- **Which label, per row** (first that exists; never blended, optional rows come from the same source only): (1) the shop's own page (catalogue record with `source: "retailer"`);
+  (2) the label Sainsbury's own page prints for the identical barcode (leading zeros ignored); (3) the Open Food Facts record of that barcode in the same shop's catalogue file
+  (`web/public/groceries/<shop>.json`), flagged `"c"`.
+- **Held back, not chosen between:** two labels of the same state that disagree materially (kcal more than 15% and 10 kcal apart, protein more than 3 g, carbs or fat more than
+  15% and 5 g); a unit difference alone is no conflict (Open Food Facts files many drinks per 100 g that the page prints per 100 ml: the page label wins).
+- **Refused:** a shop-internal ("restricted") barcode is never used to share a label from one shop to another; a bad check digit; a label failing `implausible()` including the kJ against
+  kcal test (3 Sainsbury's page labels fail it: they stay in Sainsbury's own list but are not copied); a community record whose name shares no word with the shop's name, or for a barcode
+  whose Sainsbury's page label is for the cooked or prepared food; an optional row that cannot hold (saturates above fat, sugars above carbohydrate) is dropped and shows as "not on the label".
+- **Manifest:** each of those shops' entries in `all/all-manifest.json` gains `recipe: {file, count, own, sha256}`: `file` is a name inside `web/public/groceries/recipe/`, `count` the rows,
+  `own` the rows with no `"c"` (the count that exists when community numbers are switched off), `sha256` of the file's exact bytes. The shop's own entry (`count`, `nutrition`, `sha256`) is unchanged.
+- **Reports:** `data/groceries/recipe/report.txt` (counts per shop and source) and `held-back.csv` (every held-back row with the reason and the two products).
+- **Choices to review:** `--page-barcodes-only` drops Sainsbury's labels whose list barcode came from an exact name-and-size twin at another shop (the 2026-10-11 rule) instead of being
+  printed on its page (599 of 2,160); `--no-shop-internal-community` drops the ~100 Tesco produce rows joined by Tesco's own internal numbers.
+
 ## Routine (for the founder)
 
 - Weekly: check the top 20 chains for new and limited-time items.

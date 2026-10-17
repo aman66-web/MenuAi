@@ -191,7 +191,7 @@ export default function Privacy() {
 
       <Section title={AI_RECIPES_ENABLED ? <>Recipes and Pip&apos;s recipe maker</> : "Recipes"}>
         <p className={para}>
-          Recipes are worked out on your device from the supermarket&apos;s product list; your meal size, diet choices, saved recipes, the store-cupboard items you mark as already having stay on your device.
+          Recipes are worked out on your device from the supermarket&apos;s product list; your meal size, diet choices, saved recipes, the products you chose to swap (from this supermarket or another) and the store-cupboard items you mark as already having stay on your device.
         </p>
         {AI_RECIPES_ENABLED && (
         <p className={para}>
