@@ -360,20 +360,6 @@ await step("a drink is asked for in millilitres; a nameless entry is called \"My
   await ctx.close();
 });
 
-await step("entries added from a meal keep their meal when the page is reopened in another language; Arabic reads right to left and its Back arrow points the right way", async () => {
-  const { ctx, page } = await open({ locale: "ar" }, { language: "ar" });
-  await page.goto(BASE + "/app");
-  const buttons = page.locator("li button[aria-label]").first();
-  await buttons.waitFor({ timeout: 90000 });
-  await buttons.tap();
-  await page.locator("dialog[open]").waitFor();
-  const dir = await page.evaluate(() => getComputedStyle(document.querySelector("dialog[open]")).direction);
-  expect(dir === "rtl", "direction " + dir);
-  const over = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-  expect(over <= 0, "sideways scroll " + over);
-  await ctx.close();
-});
-
 await step("Extra large text: no sideways scroll in any of the sheet's views", async () => {
   const { ctx, page } = await open({}, { textSize: "xlarge" });
   await home(page);

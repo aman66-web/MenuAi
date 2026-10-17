@@ -139,18 +139,7 @@ await step("a keyboard user can Tab from the box to Done and press it (no touch 
   await ctx.close();
 });
 
-await step("right to left (Arabic): Done is at the box's end (the left), and Extra large text: it fits with no sideways scroll", async () => {
-  const rtl = await open({ locale: "ar" }, { language: "ar" });
-  await rtl.page.goto(BASE + "/app/compare");
-  const input = rtl.page.locator('input[type="search"]').first();
-  await input.waitFor({ timeout: 90000 });
-  await input.tap();
-  await input.fill("Bak");
-  const btn = input.locator("xpath=following-sibling::div//button[contains(@class,'bg-foreground')]"); // its words are translated, so find it by place
-  await btn.waitFor({ state: "visible", timeout: 5000 });
-  const b = await btn.boundingBox(), f = await input.boundingBox();
-  expect(b.x - f.x < f.x + f.width - (b.x + b.width), "Done is nearer the left end in right-to-left");
-  await rtl.ctx.close();
+await step("Extra large text: Done fits with no sideways scroll", async () => {
   const big = await open({}, { textSize: "xlarge" });
   await big.page.goto(BASE + "/app/compare");
   const input2 = big.page.getByLabel("Add a product");

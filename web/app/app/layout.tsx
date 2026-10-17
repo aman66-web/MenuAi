@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { site } from "@/site.config";
+import { LANGUAGES_ENABLED } from "@/lib/mm/config";
 import { AppShell } from "./_components/AppShell";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export const viewport: Viewport = {
 // The chosen language (lib/mm/i18n.ts) also applies before the first paint: <html lang/dir> straight away, and the page stays hidden
 // until that language's words have loaded (AppShell) so nobody sees a flash of English; it shows anyway after 3 seconds.
 const RTL = ["ur", "ar"];
-const LANGS: Record<string, string> = { pl: "pl", ro: "ro", pa: "pa", ur: "ur", pt: "pt", es: "es", ar: "ar", bn: "bn", gu: "gu", it: "it" };
+const LANGS: Record<string, string> = !LANGUAGES_ENABLED ? {} : { pl: "pl", ro: "ro", pa: "pa", ur: "ur", pt: "pt", es: "es", ar: "ar", bn: "bn", gu: "gu", it: "it" };
 const ONBOARDING_REDIRECT = `try{var z=JSON.parse(localStorage.getItem("mm.v1.settings")||"null"),t=z&&z.data&&z.data.textSize,l=z&&z.data&&z.data.language,h=document.documentElement,L=${JSON.stringify(LANGS)};if(t==="large")h.style.fontSize="115%";else if(t==="xlarge")h.style.fontSize="130%";if(l&&L[l]){h.lang=L[l];h.dir=${JSON.stringify(RTL)}.indexOf(l)>=0?"rtl":"ltr";h.dataset.i18nPending="1";setTimeout(function(){delete h.dataset.i18nPending},3000)}}catch(e){}try{var p=location.pathname;if(!/^\\/app\\/(welcome|offline)/.test(p)){var s=JSON.parse(localStorage.getItem("mm.v1.settings")||"null");if(!(s&&s.data&&s.data.hasCompletedOnboarding))location.replace("/app/welcome?next="+encodeURIComponent(p+location.search)+location.hash)}}catch(e){}`;
 
 export default function AppLayout({ children }: LayoutProps<"/app">) {

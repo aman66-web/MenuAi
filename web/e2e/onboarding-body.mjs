@@ -1,5 +1,4 @@
 import { chromium } from "playwright-core";
-import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 
 // Onboarding's three questions about the person (About you, Your size, How active are you?) and "Your daily targets" arriving filled in from them
@@ -11,7 +10,6 @@ import { createRequire } from "node:module";
 
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
-const ar = JSON.parse(readFileSync(new URL("../lib/mm/locales/ar.json", import.meta.url), "utf8"));
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 let pass = 0, fail = 0;
 async function step(n, fn) { if (process.env.ONLY && !n.startsWith(process.env.ONLY)) return; try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
@@ -34,8 +32,6 @@ const head = (page, name) => vis(page.getByRole("heading", { name }));
 /** The welcome screens and Pip's walk, to "What's your goal?". */
 async function toGoal(page, path = "/app/welcome") {
   await page.goto(BASE + path);
-  await head(page, "Choose your language");
-  await cont(page);
   await go(page, "Get started");
   await go(page, "Show me around");
   for (let i = 0; i < 4; i++) { await page.waitForTimeout(150); await cont(page); }
@@ -841,31 +837,6 @@ await step("(t) a finger's quick second tap does not carry on past the next scre
   await mouse.ctx.close();
 });
 
-await step("(u) right to left: the arrow keys move along the tiles the way they are laid out (Left goes to the tile on the left)", async () => {
-  const { ctx, page } = await fresh({ locale: "ar" }, `localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { language: "ar" } }))`);
-  await arabicReach(page, "About you");
-  const radios = page.getByRole("radio");
-  const sex = [radios.nth(0), radios.nth(1), radios.nth(2)];
-  const at = async (l) => (await l.boundingBox()).x;
-  expect((await at(sex[1])) < (await at(sex[0])), "in Arabic the second tile is to the left of the first");
-  await sex[0].focus();
-  await page.keyboard.press("ArrowLeft");
-  expect(await sex[1].evaluate((el) => document.activeElement === el), "ArrowLeft goes to the tile on the left");
-  await page.keyboard.press("ArrowRight");
-  expect(await sex[0].evaluate((el) => document.activeElement === el), "ArrowRight goes back to the right");
-  await ctx.close();
-  // and in English nothing changed
-  const en = await fresh();
-  await toGoal(en.page);
-  await cont(en.page); await cont(en.page);
-  await head(en.page, "About you");
-  const first = en.page.getByRole("radio", { name: "Male", exact: true });
-  await first.focus();
-  await en.page.keyboard.press("ArrowRight");
-  expect(await en.page.getByRole("radio", { name: "Female", exact: true }).evaluate((el) => document.activeElement === el), "left to right: ArrowRight goes right");
-  await en.ctx.close();
-});
-
 await step("(v) Settings: 'Use these' puts the focus on the Calories box", async () => {
   const settings = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, glp1MealCap: 450, hasCompletedOnboarding: true } });
   const { ctx, page } = await fresh({}, `localStorage.setItem("mm.v1.settings", ${JSON.stringify(settings)})`);
@@ -886,7 +857,7 @@ await step("(v) Settings: 'Use these' puts the focus on the Calories box", async
   await ctx.close();
 });
 
-// ---- looks: no horizontal overflow, 44 px targets and axe on every new screen at 360 px, Extra large text and Arabic
+// ---- looks: no horizontal overflow, 44 px targets and axe on every new screen at 360 px and Extra large text
 const SCREENS = ["About you", "Your size", "How active are you?", "Your daily targets", "Your daily targets (skipped, suggestions open)"];
 async function reach(page, which, opts) {
   await toGoal(page, "/app/welcome");
@@ -932,20 +903,16 @@ async function looks(page, which, label) {
 for (const [label, ctxOptions, opts] of [
   ["360 px", { viewport: { width: 360, height: 740 } }, {}],
   ["Extra large text", { viewport: { width: 360, height: 740 } }, { xl: true }],
-  ["Arabic (right to left)", { viewport: { width: 360, height: 740 }, locale: "ar" }, { ar: true }],
 ]) {
   await step(`(j, k) ${label}: no sideways scrolling, 44 px tap targets and no axe violations on every new screen`, async () => {
     for (const which of SCREENS.slice(0, 4)) {
-      const r = await fresh(ctxOptions, opts.ar ? `localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { language: "ar" } }))` : undefined);
-      if (opts.ar) {
-        // the buttons are in Arabic; the new sentences fall back to English until they are translated
-        await arabicReach(r.page, which, opts);
-      } else await reach(r.page, which, opts);
+      const r = await fresh(ctxOptions);
+      await reach(r.page, which, opts);
       await looks(r.page, which, label);
       await r.ctx.close();
     }
-    // a person who skipped the questions: the suggestions form open (no Arabic run: it is the same form)
-    if (!opts.ar) {
+    // a person who skipped the questions: the suggestions form open
+    {
       const r = await fresh(ctxOptions);
       await toGoal(r.page);
       if (opts.xl) await r.page.addStyleTag({ content: "html { font-size: 200% !important; }" });
@@ -958,32 +925,6 @@ for (const [label, ctxOptions, opts] of [
       await r.ctx.close();
     }
   });
-}
-/** The Arabic run: the buttons are found by their Arabic words (from the dictionary), the fields by position (their labels are new English sentences until translated). */
-async function arabicReach(page, which) {
-  const b = (english) => page.getByRole("button", { name: ar[english], exact: true });
-  await page.goto(BASE + "/app/welcome");
-  await b("Continue").click();
-  await b("Get started").click();
-  await b("Show me around").click();
-  for (let i = 0; i < 4; i++) { await page.waitForTimeout(150); await b("Continue").click(); }
-  await b("Let's go!").click();
-  await vis(page.getByRole("radio").first());
-  await page.getByRole("radio").first().click();
-  await b("Continue").click();
-  await b("Continue").click();
-  await vis(page.locator("input").first());
-  if (which === "About you") return;
-  await page.locator("input").first().fill("34");
-  await b("Continue").click();
-  await vis(page.locator("input").nth(3));
-  if (which === "Your size") { await page.locator("input").nth(0).fill("11.5"); await vis(alerts(page).first()); return; }
-  await page.locator("input").nth(0).fill("11"); await page.locator("input").nth(2).fill("5");
-  await b("Continue").click();
-  await vis(page.getByRole("radio").nth(3));
-  if (which === "How active are you?") return;
-  await b("Continue").click();
-  await vis(page.locator("#target-calories"));
 }
 
 console.log(`\n${pass} passed, ${fail} failed`);

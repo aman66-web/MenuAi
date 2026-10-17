@@ -2010,6 +2010,29 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     community 10, back 44, account 8, sharelist 11, smoke 23, extra 13, a11y 0 violations, large text. **Not run or not provable here:** the real Supabase/PostgREST (the adapter was proven through a psql stand-in, error texts for the trigger
     and unique-index refusals are assumed), `build:app`/`app-build.mjs`/`offline.mjs` (the new shells in the service worker are unproven offline), the Swift (not compiled), a real iPhone or VoiceOver, the Resend alert (fake fetch only).
 
+- 2026-10-17 — **English only: no language choice** (founder: "lets just leave the app in only english then, there is no need for the step at the start where the person can choose their language they want my app in").
+  - **Gone:** the "Choose your language" first screen, the "Change language" button on the welcome screen and Settings › Language. Onboarding now opens on the welcome screen ("Get started"); the step numbers after it are unchanged.
+  - **One switch:** `LANGUAGES_ENABLED = false` (`lib/mm/config.ts`). A language stored on the phone or synced from an account (`settings.language`) is ignored: `setLanguage` forces English, so the page is
+    left to right and `<html lang>` is English, and no dictionary is loaded. The ten dictionaries, `LanguageList` and the translation tools stay in the repository, so bringing languages back is that switch plus the screens' two entry points
+    (the welcome step and the Settings row, in git history).
+  - **No translation work from now on:** new text shows in English (`web/lib/mm/locales/english-only.json` still exempts the Community strings from the all-languages test).
+  - **Tests:** the language step is out of smoke, extra, largetext, sharelist, onboarding-body, app-build, a11y, account and community-friends; every Arabic/right-to-left variant is dropped from the other suites (the right-to-left code in the app is untouched); `e2e/languages.mjs` is now three steps (no language screen even for a Polish browser, no Settings row,
+    a stored `language: "ar"` still shows English left to right). STORE.md no longer says "11 languages"; APP_BUILD.md's simulator check says the app opens on the welcome screen.
+  - **For the founder:** the iPhone app needs a Mac rebuild to lose the language screen; the AI translations (never checked by native speakers) are no longer shown, so that to-do is moot unless languages come back.
+
+- 2026-10-17 — **Recipe methods are much more detailed** (founder: "the instructions to making the recipes are not descriptive enough, you need more steps and more detail, right now its far too short and barely looks like the method to do it, it should be far more in detail").
+  - **What changed:** all 108 methods were rewritten from 2-7 short steps to about 10 steps each (4-16 allowed): a get-ready step, the pan and the heat, a time and a sign for every stage (colour, bubbling, "no pink left", "firm to a gentle press"), how to tell it is done, and how to serve.
+    Plain British words, no cook's jargon (a test fails "sweat", "deglaze", "al dente"...), oven settings only as "200°C (180°C fan, gas 6)" from the standard table, hands and boards washed after raw meat, fish and eggs, and the same
+    cooking-safety checks as before (chicken, mince, fish, eggs). Nothing about nutrition, health or prices was added, and no ingredient was added or removed (every food a method names is still bought, and every food bought is named).
+  - **Review:** each batch was read by three independent reviewers (cook, beginner, fixer); the 81 findings marked major (no blockers) were all checked and repaired, mostly about timing the rice or pasta to finish with the sauce, putting
+    raw-meat hand-washing in the right place, taking a hot tin out with gloves, and spraying oil off the heat. The 253 minor findings were not acted on.
+  - **Servings:** a method still scales its water (one "N ml" a step) with Serves; a new grey line under the steps says "Times are for the number of servings the recipe is written for. For more people, cook a little longer or in batches." when Serves differs from the written number.
+  - **`minutes` changed** where the steps clearly take longer than the old figure: shakshuka 25 to 35, mushroom and bean pasta 25 to 40, bean and mushroom cottage pie 55 to 75, the two barbecue skewer recipes 40 to 55, devilled eggs 20 to 30 (so it is no longer tagged Quick), egg mayonnaise wraps 15 to 25 (so it is no longer Quick), and the beef pasta bake 50 to 60.
+    **Left as they were though the writers said they take longer** (for you to decide): bacon and egg wraps (about 20, kept 15 and tagged Quick), spanish omelette (about 30, kept 25), peanut banana porridge (about 12, kept 10).
+  - **New test gates** (`tests/recipeBook.test.ts`, `methodProblems`): steps and words per meal, capital letter and full stop, no stray spaces, no jargon, no people counts, one ml amount, oven settings.
+  - **Not translated** (English only since today); `recipeServings.test.ts`'s "works in every language" check is skipped while `LANGUAGES_ENABLED` is false and must be translated again if languages come back.
+  - Checked: recipeBook (all 108), recipeServings (Serves 1 to 12 for every recipe), recipes, recipeNiche, recipeImages, i18n.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

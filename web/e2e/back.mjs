@@ -533,8 +533,6 @@ await step("(j) the link's own click handler leaves a Ctrl, Meta, Shift or Alt c
 
 const ar = JSON.parse(readFileSync(new URL("../lib/mm/locales/ar.json", import.meta.url), "utf8"));
 for (const [label, st, rtl, words] of [
-  ["Arabic", { language: "ar" }, true, { back: ar["Back"], home: ar["Back to home"] }],
-  ["Arabic at Extra large text", { language: "ar", textSize: "xlarge" }, true, { back: ar["Back"], home: ar["Back to home"] }],
   ["English at Extra large text", { textSize: "xlarge" }, false, { back: "Back", home: "Back to home" }],
 ]) {
   await step(`(k) ${label}: My meals reached from Recipes has its Back control at the start edge, big enough, no sideways scroll, and it goes back to Recipes`, async () => {

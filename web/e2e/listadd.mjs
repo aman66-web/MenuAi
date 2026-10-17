@@ -119,7 +119,7 @@ await step("an empty list is unchanged (Browse groceries, See recipes), and tick
 });
 
 await step("nothing runs sideways at 360 px, at Extra large text or right to left, and the rows read in order (item, add more, total, another shop)", async () => {
-  for (const [label, o] of [["360 px", { extra: { viewport: { width: 360, height: 780 } } }], ["Extra large", { st: { textSize: "xlarge" } }], ["Arabic", { extra: { locale: "ar" }, st: { language: "ar" } }]]) {
+  for (const [label, o] of [["360 px", { extra: { viewport: { width: 360, height: 780 } } }], ["Extra large", { st: { textSize: "xlarge" } }]]) {
     const { ctx, page } = await open([asdaItem, tescoItem, typedItem], o);
     await page.goto(BASE + "/app/groceries/list");
     const links = page.locator('a[href^="/app/groceries/shop?r="]');

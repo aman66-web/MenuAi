@@ -37,7 +37,7 @@ Made for your goal. Losing weight, maintaining, building muscle, or smaller, pro
 every suggestion follows it. Diet filters for vegetarian, vegan, pescatarian, halal, no pork, no beef and the 14 allergens, and a way to find
 restaurants by the calories, protein, carbs and fat you want, always going by what each restaurant or shop publishes.
 
-Easy to use. Large text options, a plain layout, and 11 languages.
+Easy to use. Large text options and a plain layout.
 
 Community. Read short food articles, and, if you sign in, add friends with a friend code and send them your shopping list. Only your username is ever shown to a friend.
 

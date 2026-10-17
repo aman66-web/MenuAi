@@ -233,7 +233,6 @@ await step("360 px, Extra large text and Arabic: no sideways scroll on the hub, 
     ["360 px", { viewport: { width: 360, height: 740 } }, {}],
     ["Extra large text", { viewport: { width: 390, height: 844 } }, { textSize: "xlarge" }],
     ["360 px and Extra large text", { viewport: { width: 360, height: 740 } }, { textSize: "xlarge" }],
-    ["Arabic", { viewport: { width: 390, height: 844 } }, { language: "ar" }],
   ];
   for (const [label, extra, settings] of variants) {
     const { ctx, page } = await open(extra, settings);

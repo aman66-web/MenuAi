@@ -28,8 +28,6 @@ await step("a shared link on a first visit goes through onboarding and then land
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/chain?id=cluck-house");
   await page.waitForURL(/\/app\/welcome\?next=/);
-  await vis(page.getByRole("heading", { name: "Choose your language" }));
-  await page.getByRole("button", { name: "Continue" }).click();
   await pastIntro(page);
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
   // goal, foods to avoid, the three questions about the person (one Skip for all three), the targets, shops and text size
@@ -43,8 +41,6 @@ await step("onboarding goal radios work with the arrow keys (roving focus)", asy
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
-  await vis(page.getByRole("heading", { name: "Choose your language" }));
-  await page.getByRole("button", { name: "Continue" }).click();
   await pastIntro(page);
   const first = page.getByRole("radio", { name: "Lose weight" });
   await first.focus();
@@ -58,8 +54,6 @@ await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … ca
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
-  await vis(page.getByRole("heading", { name: "Choose your language" }));
-  await page.getByRole("button", { name: "Continue" }).click();
   await pastIntro(page);
   await page.getByRole("radio", { name: "I'm on a GLP-1 medication" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
@@ -73,8 +67,6 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
-  await vis(page.getByRole("heading", { name: "Choose your language" }));
-  await page.getByRole("button", { name: "Continue" }).click();
   await pastIntro(page);
   await page.getByRole("radio", { name: /^Other/ }).click();
   await vis(page.getByText("No problem. I'll show you the numbers and keep your orders around your target."));
@@ -91,8 +83,6 @@ await step("onboarding back button returns to the previous step, keeping the cho
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
-  await vis(page.getByRole("heading", { name: "Choose your language" }));
-  await page.getByRole("button", { name: "Continue" }).click();
   await pastIntro(page);
   await page.getByRole("radio", { name: "Build muscle" }).click();
   await page.getByRole("button", { name: "Continue" }).click();

@@ -68,7 +68,7 @@ await step("two quick taps show the latest words (no stale note), and the note n
 });
 
 await step("360 px, Extra large text and Arabic: the note never overflows the page or runs into Back, and it reads right to left in Arabic", async () => {
-  for (const [label, width, settings] of [["360 px", 360, {}], ["Extra large", 390, { textSize: "xlarge" }], ["Arabic", 390, { language: "ar" }]]) {
+  for (const [label, width, settings] of [["360 px", 360, {}], ["Extra large", 390, { textSize: "xlarge" }]]) {
     const { ctx, page, errors } = await open({ viewport: { width, height: 844 } }, settings);
     await chain(page);
     await star(page).tap();

@@ -13,11 +13,10 @@ import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_T
 import type { Goal } from "@/lib/mm/types";
 import { DEFAULT_WATER_GOAL_ML, MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "@/lib/mm/water";
 import { site } from "@/site.config";
-import { CheckIcon, ChevronRightIcon, GlobeIcon } from "../_components/icons";
+import { CheckIcon, ChevronRightIcon } from "../_components/icons";
 import { BackLink } from "../groceries/PageBits";
-import { LanguageList } from "../_components/LanguageList";
-import { localeInfo, tk } from "@/lib/mm/i18n";
-import { setLanguage, useLanguage, useT } from "../_lib/i18n";
+import { tk } from "@/lib/mm/i18n";
+import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { ContactForm } from "../_components/Submit";
 import { AccountSection } from "../_components/AccountSection";
@@ -123,8 +122,6 @@ export default function SettingsPage() {
   const hydrated = useHydrated();
   const settings = useSettings();
   const t = useT();
-  const currentLanguage = useLanguage();
-  const [languageOpen, setLanguageOpen] = useState(false);
   const menu = useMenu();
   const outboxItems = useStore(outboxStore);
   const [contactOpen, setContactOpen] = useState(false);
@@ -186,21 +183,6 @@ export default function SettingsPage() {
 
       <Section title={t("Account")} id="account">
         <AccountSection />
-      </Section>
-
-      <Section title={t("Language")}>
-        <button type="button" onClick={() => setLanguageOpen(true)} className="glass flex min-h-16 w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-3 text-start transition hover:bg-soft-strong active:scale-[0.99]">
-          <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-soft-strong"><GlobeIcon className="h-[18px] w-[18px]" /></span>
-          <span className="min-w-0 flex-1 text-[1.0625rem] font-bold leading-snug" lang={localeInfo(currentLanguage).htmlLang}>{localeInfo(currentLanguage).name}</span>
-          <span className="text-[0.9375rem] font-semibold text-accent">{t("Change")}</span>
-          <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
-        </button>
-        <Sheet open={languageOpen} onClose={() => setLanguageOpen(false)} title={t("Language")}>
-          <div className="pt-1">
-            <LanguageList value={currentLanguage} label={t("Language")} onChange={(language) => { updateSettings({ language }); void setLanguage(language); setLanguageOpen(false); }} />
-            <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{t("Restaurant, dish and product names stay as each restaurant and shop writes them, in English.")}</p>
-          </div>
-        </Sheet>
       </Section>
 
       <Section title={t("Text size")}>

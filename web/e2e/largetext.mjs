@@ -20,7 +20,7 @@ for (const scale of [1, 1.5, 2]) {
     await page.close();
   }
 }
-// Pip's onboarding, screen by screen: the language screen, Pip's arrival, the five stops of the walk, the eight questions and the last screen.
+// Pip's onboarding, screen by screen: Pip's arrival, the five stops of the walk, the eight questions and the last screen.
 for (const scale of [1, 1.5, 2]) {
   const c = await browser.newContext({ viewport: { width: 360, height: 740 }, serviceWorkers: "block" });
   const page = await c.newPage();
@@ -32,7 +32,6 @@ for (const scale of [1, 1.5, 2]) {
     if (m.sw > m.cw + 1) { bad++; console.log(`OVERFLOW x${scale} onboarding "${label}": scrollWidth ${m.sw} > ${m.cw}`); }
   };
   const press = (name) => page.getByRole("button", { name, exact: true }).click();
-  await press("Continue"); // language
   await press("Get started");
   await check("Pip arrives");
   await press("Show me around");

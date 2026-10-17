@@ -30,9 +30,6 @@ const visible = async (loc, timeout = 8000) => { await loc.waitFor({ state: "vis
 await step("first visit redirects to onboarding", async () => {
   await page.goto(`${BASE}/app`);
   await page.waitForURL(/\/app\/welcome/);
-  await visible(page.getByRole("heading", { name: "Choose your language" }));
-  await shot("00-onboarding-language");
-  await page.getByRole("button", { name: "Continue" }).click();
   await visible(page.getByRole("button", { name: "Get started" }));
   await shot("00-onboarding-welcome");
   await page.getByRole("button", { name: "Get started" }).click();

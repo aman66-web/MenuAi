@@ -815,36 +815,6 @@ await step("200% text and right to left: no sideways scroll, the button stays 44
   expect(card.height <= 740 * 0.5 + 1, `the card is ${card.height} px high on a 740 px screen`);
   expect(await page.evaluate(() => { const c = document.querySelector('[data-nearby-fs] [role="status"]'); return getComputedStyle(c).overflowY === "auto" && c.scrollHeight >= c.clientHeight; }), "the card does not scroll inside itself");
   expect(!intersects(btn, card), "the button and the card overlap at 200% text");
-  // right to left: the toggle stays physically bottom right, under the zoom column
-  const ar = await open({ language: "ar" });
-  await goMap(ar);
-  expect((await ar.page.evaluate(() => document.documentElement.dir)) === "rtl", "Arabic is not right to left");
-  const fb = await ar.fsBtn.boundingBox();
-  expect(!!fb, `no button named "${ar.labels.full}" in Arabic`);
-  const af = await rectOf(ar.page, "[data-nearby-fs]");
-  const azoom = await rectOf(ar.page, ".maplibregl-ctrl-zoom-in");
-  expect(near(af.x + af.width - (fb.x + fb.width), 22, 8) && near(af.y + af.height - (fb.y + fb.height), 22, 8), `the Arabic button is at ${JSON.stringify(fb)} in a map at ${JSON.stringify(af)}`);
-  expect(near(azoom.x + azoom.width, fb.x + fb.width, 2), "the Arabic button is not under the zoom column");
-  const ac = await rectOf(ar.page, ".maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib");
-  expect(!intersects(ac, fb), "the Arabic credits run under the button");
-  // MapLibre gives the credits' "i" both right:0 and left:0; right to left drops left, which put the "i" over the end of the open credits. Open, it must sit
-  // at the physical left end of its box with the credits text starting after it, exactly as in English.
-  const attribOpen = () => ar.page.locator(".maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib").evaluate((e) => e.classList.contains("maplibregl-compact-show"));
-  if (!(await attribOpen())) {
-    await ar.page.locator(".maplibregl-ctrl-attrib-button").click();
-    await sleep(250);
-  }
-  expect(await attribOpen(), "the Arabic credits would not open");
-  const iBtn = await rectOf(ar.page, ".maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib-button");
-  const iBox = await rectOf(ar.page, ".maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib");
-  const iText = await rectOf(ar.page, ".maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib-inner");
-  expect(near(iBtn.x, iBox.x, 1), `in Arabic the credits button is at x ${iBtn.x}, not at the left end of its box (${iBox.x}..${iBox.x + iBox.width})`);
-  expect(iBtn.x + iBtn.width <= iText.x + 0.5, `in Arabic the credits button (to ${iBtn.x + iBtn.width}) covers the credits text (from ${iText.x})`);
-  expect((await ar.page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)) <= 1, "sideways scroll in Arabic");
-  await enter(ar);
-  expect((await ar.exitBtn.count()) === 1, `no button named "${ar.labels.exit}" in Arabic full screen`);
-  const eb = await ar.exitBtn.boundingBox();
-  expect(near(eb.x + eb.width, 390 - 22, 3), "the Arabic exit button moved from the right");
 });
 
 await step("axe finds no violation in the page or in full screen with a restaurant's card open", async () => {

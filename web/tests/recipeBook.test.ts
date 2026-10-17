@@ -85,6 +85,33 @@ export function unusedIngredients(r: { method: string[]; ingredients: Array<{ ke
   });
 }
 
+// founder 2026-10-16: "the instructions to making the recipes are not descriptive enough, you need more steps and more detail". A method now reads like a
+// real recipe: a get-ready step, the heat and the pan, a time and a sign for each stage, how to tell it is done, and how to serve.
+const MIN_STEPS: Record<string, number> = { snack: 4, breakfast: 5, lunch: 6, dinner: 8 };
+const MIN_WORDS: Record<string, number> = { snack: 50, breakfast: 70, lunch: 110, dinner: 150 };
+const OVEN_GAS: Record<number, [number, number]> = { 140: [120, 1], 150: [130, 2], 160: [140, 3], 180: [160, 4], 190: [170, 5], 200: [180, 6], 220: [200, 7], 230: [210, 8], 240: [220, 9] };
+const JARGON = /\b(?:sweat(?:ed|ing)?|deglaze|julienne|blanch(?:ed|ing)?|sear(?:ed|ing)?|baste|zest(?:ed)?|knob of|glug|chiffonade|reduce the sauce|al dente)\b/i;
+const PEOPLE_COUNT = /\b(?:two|three|four|five|six|seven|eight|nine|ten|\d+)\s+(?:plates|bowls|portions|servings|people|diners|helpings)\b/i;
+export function methodProblems(r: { method: string[] }): string[] {
+  const out: string[] = [];
+  r.method.forEach((step, i) => {
+    const at = `step ${i + 1}`;
+    if (step.length < 30) out.push(`${at} is too short to say anything useful: "${step}"`);
+    if (!/^[A-Z]/.test(step)) out.push(`${at} should start with a capital letter`);
+    if (!/[.!?]$/.test(step)) out.push(`${at} should end with a full stop`);
+    if (/\s{2,}/.test(step) || /\s[.,]/.test(step)) out.push(`${at} has stray spaces`);
+    if (JARGON.test(step)) out.push(`${at} uses cook's jargon: ${JARGON.exec(step)?.[0]}`);
+    if (PEOPLE_COUNT.test(step)) out.push(`${at} counts people or plates, which change with Serves: ${PEOPLE_COUNT.exec(step)?.[0]}`);
+    if ((step.match(/\b\d[\d,.]* ml\b/g) ?? []).length > 1) out.push(`${at} names more than one amount in ml`);
+    for (const m of step.matchAll(/(?<!\()(\d{3})°C(?! \(\d{3}°C fan, gas \d\))/g)) out.push(`${at}: write the oven as "200°C (180°C fan, gas 6)", not "${m[0]}"`);
+    for (const m of step.matchAll(/(\d{3})°C \((\d{3})°C fan, gas (\d)\)/g)) {
+      const want = OVEN_GAS[Number(m[1])];
+      if (!want || want[0] !== Number(m[2]) || want[1] !== Number(m[3])) out.push(`${at}: ${m[0]} is not a standard oven setting`);
+    }
+  });
+  return out;
+}
+
 describe("the recipe book", () => {
   it("has unique ids and names", () => {
     expect(new Set(RECIPES.map((r) => r.id)).size).toBe(RECIPES.length);
@@ -116,11 +143,13 @@ describe("the recipe book", () => {
       expect(r.servings, "servings").toBeLessThanOrEqual(6);
       expect(r.minutes, "minutes").toBeGreaterThanOrEqual(2);
       expect(r.minutes, "minutes").toBeLessThanOrEqual(240);
-      expect(r.method.length, "steps").toBeGreaterThanOrEqual(2);
-      expect(r.method.length, "steps").toBeLessThanOrEqual(7);
+      expect(r.method.length, "steps").toBeGreaterThanOrEqual(MIN_STEPS[r.meal ?? ""] ?? 6);
+      expect(r.method.length, "steps").toBeLessThanOrEqual(16);
+      expect(r.method.join(" ").split(/\s+/).length, "words in the whole method").toBeGreaterThanOrEqual(MIN_WORDS[r.meal ?? ""] ?? 100);
+      expect(methodProblems(r), "method style").toEqual([]);
       expect(cleanText(r.name, 60), `name "${r.name}"`).not.toBeNull();
       expect(r.blurb === "" || cleanText(r.blurb, 140) !== null, `blurb "${r.blurb}"`).toBe(true);
-      for (const step of r.method) expect(cleanText(step, 300), `step "${step}"`).not.toBeNull();
+      for (const step of r.method) expect(cleanText(step, 420), `step "${step}"`).not.toBeNull();
       expect(r.extras ?? [], "nothing left uncounted").toEqual([]);
       expect(missingFoods(r), "every food the method names is an ingredient").toEqual([]);
       expect(unusedIngredients(r), "every ingredient bought is used in a step").toEqual([]);

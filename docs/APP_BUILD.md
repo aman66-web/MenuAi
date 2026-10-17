@@ -51,7 +51,7 @@ website shows from the shops' own servers still load from those servers when onl
    The Swift in `MenuMacros/Features/WebApp/` and `MenuMacros/Services/` was written without a compiler: fix any Swift 6 concurrency or API
    errors in place, keeping the behaviour, and say what changed.
 4. **Spike checks in the simulator** (note the answers in docs/PROGRESS.md):
-   - the app opens on "Choose your language" with the Mac's network turned off;
+   - the app opens on its welcome screen ("Get started") with the Mac's network turned off;
    - Settings, a saved order and the shopping list are still there after quitting and reopening the app (localStorage on `app://`);
    - Safari › Develop › Simulator › the app: `window.isSecureContext` and `!!crypto.subtle` (if false, menus still load, without the
      file check; that's acceptable);

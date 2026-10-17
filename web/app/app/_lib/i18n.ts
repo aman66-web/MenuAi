@@ -3,6 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { englishT, localeInfo, translate, type Dict, type Locale, type T } from "@/lib/mm/i18n";
 import { possessive } from "@/lib/mm/shopProducts";
+import { LANGUAGES_ENABLED } from "@/lib/mm/config";
 
 // The language the app is shown in (lib/mm/i18n.ts). Each language's dictionary is its own small file, loaded only when that
 // language is chosen (and kept for offline use by the service worker like the rest of the app's code).
@@ -46,7 +47,8 @@ function done(): void {
 }
 
 /** Show the app in `locale` (loads its words first; English needs none). A failed load leaves the app in English. */
-export async function setLanguage(locale: Locale): Promise<void> {
+export async function setLanguage(requested: Locale): Promise<void> {
+  const locale: Locale = LANGUAGES_ENABLED ? requested : "en"; // English only while languages are switched off (lib/mm/config.ts)
   const mine = ++request;
   applyDocumentLanguage(locale);
   if (locale === "en") {

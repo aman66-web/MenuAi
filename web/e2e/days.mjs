@@ -211,7 +211,7 @@ await step("a day with no food shows Pip's empty state; with no log at all the c
 });
 
 await step("narrow phone, Extra large text and Arabic: no sideways scroll on Home, the calendar and a day; the calendar mirrors in Arabic", async () => {
-  for (const [label, width, settings] of [["360 px", 360, {}], ["Extra large", 390, { textSize: "xlarge" }], ["Arabic", 390, { language: "ar" }]]) {
+  for (const [label, width, settings] of [["360 px", 360, {}], ["Extra large", 390, { textSize: "xlarge" }]]) {
     const { ctx, page, errors } = await open({ viewport: { width, height: 844 } }, settings);
     await page.goto(BASE + "/app", { timeout: 120000 });
     await page.locator("button[aria-label]").first().waitFor({ timeout: 90000 });

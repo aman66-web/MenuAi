@@ -49,7 +49,6 @@ await step("first launch with no signal: the welcome wall shows restaurant and s
   const { ctx, page } = await newPage({ settings: null });
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome/);
-  await page.getByRole("button", { name: "Continue" }).first().click(); // the language screen comes first
   const wall = page.locator(".logo-wall");
   await wall.waitFor();
   await page.waitForTimeout(800);

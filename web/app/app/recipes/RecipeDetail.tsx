@@ -413,6 +413,9 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
               </li>
             ))}
           </ol>
+          {view.recipe.servings !== (recipe.scaledFrom?.servings ?? recipe.servings) && (
+            <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Times are for the number of servings the recipe is written for. For more people, cook a little longer or in batches.")}</p>
+          )}
         </section>
 
         {recipe.ai && (

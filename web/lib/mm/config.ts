@@ -26,6 +26,13 @@ export const AI_RECIPES_ENABLED = false;
  * Friends and Shared with you cards, the Send to a friend button and the tab bar's badge are hidden and nothing asks the server about Community. The food
  * blogs never depend on it.
  */
+/**
+ * The app is English only (founder 2026-10-16: "lets just leave the app in only english"). While this is false there is no language screen in
+ * onboarding and no Language row in Settings, and any language stored on the phone or synced from an account shows English. The ten
+ * dictionaries in lib/mm/locales stay in the repository, so switching this back on is the whole change to bring languages back.
+ */
+export const LANGUAGES_ENABLED = false;
+
 export const COMMUNITY_FRIENDS_ENABLED = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
 
 /** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */

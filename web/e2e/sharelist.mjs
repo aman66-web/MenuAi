@@ -149,7 +149,6 @@ await step("a first-time visitor opening the link goes through onboarding and th
   // The list's code is carried after the welcome page's own "#", never in its query (a query reaches the server, a fragment does not).
   expect(here.searchParams.get("next") === "/app/groceries/list/shared", "the way back: " + here.searchParams.get("next"));
   expect(here.hash === "#" + code, "the code should stay in the fragment: " + here.href.slice(-60));
-  await page.getByRole("button", { name: "Continue" }).click(); // language
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("button", { name: "Show me around" }).click({ timeout: 30000 });
   for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
@@ -269,7 +268,7 @@ await step("\"Got a list from a friend? Open it\": paste the whole message, the 
 
 await step("nothing runs sideways at 360 px, at Extra large text or right to left, on the shared list, the paste sheet or the link's page", async () => {
   const code = shared.text.match(LINK)[1];
-  for (const [label, o] of [["360 px", { extra: { viewport: { width: 360, height: 780 } } }], ["Extra large", { st: { textSize: "xlarge" } }], ["Arabic", { extra: { locale: "ar" }, st: { language: "ar" } }]]) {
+  for (const [label, o] of [["360 px", { extra: { viewport: { width: 360, height: 780 } } }], ["Extra large", { st: { textSize: "xlarge" } }]]) {
     const { ctx, page } = await open([pancakes, keema, milk], o);
     for (const url of ["/app/groceries/list/shared#" + code, "/l#" + code]) {
       await page.goto(BASE + url);

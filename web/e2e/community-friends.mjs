@@ -899,7 +899,6 @@ const variants = [
   { label: "390 px", width: 390, settings: {} },
   { label: "360 px", width: 360, settings: {} },
   { label: "Extra large text, 360 px", width: 360, settings: { textSize: "xlarge" } },
-  { label: "Arabic (right to left)", width: 390, settings: { language: "ar" } },
 ];
 if (process.env.SHOTS) mkdirSync(process.env.SHOTS, { recursive: true });
 
@@ -967,7 +966,7 @@ for (const v of variants) {
 }
 
 await step("the signed-out screens and the username sheet at 360 px and Extra large text: no sideways scroll, axe 0", async () => {
-  for (const v of [{ width: 360, settings: { textSize: "xlarge" } }, { width: 390, settings: { language: "ar" } }, { width: 360, settings: {} }]) {
+  for (const v of [{ width: 360, settings: { textSize: "xlarge" } }, { width: 360, settings: {} }]) {
     const sc = scene();
     const p = await phone(sc, "ana", { signedIn: false, width: v.width, settings: v.settings });
     await go(p.page, "/app/community/friends", null);
@@ -1189,7 +1188,6 @@ await step("a first-time visitor with an invite link goes from the last question
   await p.page.goto(BASE + `/app/community/friends#${a.friendCode}`, { timeout: 120000 });
   await p.page.waitForURL(/\/app\/welcome/, { timeout: 90000 });
   const pg = p.page;
-  await pg.getByRole("button", { name: "Continue" }).click();
   await pg.getByRole("button", { name: "Get started" }).click();
   await pg.getByRole("button", { name: "Show me around" }).click();
   for (let i = 0; i < 4; i++) { await pg.waitForTimeout(150); await pg.getByRole("button", { name: "Continue" }).click(); }

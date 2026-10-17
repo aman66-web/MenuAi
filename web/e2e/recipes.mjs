@@ -233,7 +233,7 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   await page.getByRole("tab", { name: "Ingredients", selected: true }).waitFor();
   await page.getByRole("tab", { name: "Method" }).click();
   await page.getByRole("heading", { name: "How to make it" }).waitFor();
-  await page.getByText("Cook the rice as the pack says.").waitFor();
+  await page.getByText("Check the chicken: lift out the biggest piece", { exact: false }).waitFor();
   expect((await page.getByRole("heading", { name: "What to buy" }).count()) === 0, "ingredients hidden on the Method tab");
   await page.getByRole("tab", { name: "Method", selected: true }).press("ArrowLeft");
   await page.getByRole("tab", { name: "Ingredients", selected: true }).waitFor();

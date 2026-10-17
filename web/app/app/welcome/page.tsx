@@ -9,7 +9,7 @@ import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
 import { APP_BUILD } from "@/lib/mm/config";
-import { guessLocale, localeInfo, tk, type Locale } from "@/lib/mm/i18n";
+import { tk } from "@/lib/mm/i18n";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { macroTargets } from "@/lib/mm/targets";
 import { settingsStore, updateSettings } from "@/lib/mm/stores";
@@ -17,10 +17,9 @@ import type { Goal, Preferences, Profile } from "@/lib/mm/types";
 import { TEXT_SCALE, type TextSize, type UserSettings } from "@/lib/mm/user-data";
 import { ALLERGEN_SHORT, DietPicker } from "../_components/DietPicker";
 import {
-  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, GlobeIcon, HomeIcon, LeafIcon,
+  BasketIcon, BoltIcon, CheckIcon, ChevronLeftIcon, DotsIcon, ForkIcon, GiftIcon, HomeIcon, LeafIcon,
   PeopleIcon, PillIcon, PotIcon, ScaleIcon, ShieldIcon, TextSizeIcon, TrendDownIcon,
 } from "../_components/icons";
-import { LanguageList } from "../_components/LanguageList";
 import { LogoWall, type WallItem } from "../_components/LogoWall";
 import { logoFor } from "@/lib/mm/logos";
 import { RETAILERS } from "@/lib/mm/groceries";
@@ -41,7 +40,7 @@ import { useChain, useHydrated, useMenu, useSettings } from "../_lib/hooks";
 import { recipeShop } from "../_lib/recipes";
 import { loadShopFile, loadShopManifest } from "../_lib/shopProducts";
 import { applyTextSize } from "../_lib/textSize";
-import { setLanguage, useT } from "../_lib/i18n";
+import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
 // SPEC §7.1 and §8, made friendlier at the founder's request (2026-10-10): Pip the mascot says what each step is for, buttons are big,
@@ -123,11 +122,10 @@ export default function WelcomePage() {
   const router = useRouter();
   const menu = useMenu();
   const initial = settingsStore.get();
-  // Step -1 is the language screen: the very first thing anyone sees (founder 2026-10-10). Step 0 is the welcome screen, then Pip's arrival
+  // The app is English only (founder 2026-10-16), so there is no language screen. Step 0 is the welcome screen, then Pip's arrival
   // and walk through the app (intro 1-6), then the eight questions (steps 1-8), "You're all set!" (9) and the first recipe (10).
-  const [step, setStep] = useState(-1);
+  const [step, setStep] = useState(0);
   const [intro, setIntro] = useState(0);
-  const [picked, setPicked] = useState<Locale | null>(null);
   const [signInOpen, setSignInOpen] = useState(false);
   const hydrated = useHydrated();
   // what has been saved so far: "You're all set!" shows this, so it is always what Home will show
@@ -141,9 +139,6 @@ export default function WelcomePage() {
     if (!hydrated || wasOnboarded.current || !onboarded || step > 0) return;
     router.replace(afterOnboarding());
   }, [hydrated, onboarded, step, router]);
-  // Pre-selected: the language chosen before, else the browser's own language if we have it (nothing is sent anywhere), else English.
-  const guess: Locale = hydrated ? guessLocale(navigator.languages) : "en";
-  const language: Locale = picked ?? initial.language ?? guess;
   const t = useT();
   const [goal, setGoal] = useState<Goal>(initial.goal);
   const target = useTargetFields(initial);
@@ -164,20 +159,11 @@ export default function WelcomePage() {
     setGoalTouched(true);
   };
 
-  // Show the pre-selected language straight away (the person still chooses).
-  useEffect(() => {
-    if (!picked && !settingsStore.get().language && guess !== "en") void setLanguage(guess);
-  }, [picked, guess]);
   // Warm up the first recipe screen: by the last questions, start loading the full list of the shop its recipes come from (it is a few hundred KB).
   useEffect(() => {
     if (step < TEXT_SIZE) return;
     void loadShopManifest().then((m) => { const id = recipeShop(m, null, settingsStore.get().shops); return id ? loadShopFile(id) : undefined; }).catch(() => undefined);
   }, [step]);
-  const chooseLanguage = (l: Locale) => {
-    setPicked(l);
-    void setLanguage(l); // the screen switches to it straight away
-  };
-
   const next = () => {
     if (step === 0 && intro < INTRO_SCREENS) setIntro((i) => i + 1);
     // Someone who came to read a shopping list a friend sent, or to add a friend from an invite link, goes straight there after "You're all set!" (no recipe to choose
@@ -193,7 +179,7 @@ export default function WelcomePage() {
     else if (step === TARGETS && jumpedFrom !== null) {
       setStep(jumpedFrom);
       setJumpedFrom(null);
-    } else setStep((s) => Math.max(-1, s - 1));
+    } else setStep((s) => Math.max(0, s - 1));
     window.scrollTo({ top: 0 });
   };
   // On to "Your daily targets" with the plan for what was answered (null = nothing to fill in).
@@ -290,25 +276,6 @@ export default function WelcomePage() {
     return (byPopularity ?? pool[0])?.id ?? "";
   }, [real, prefs.halalOnly]);
 
-  if (step === -1) {
-    return (
-      <div className={SCREEN}>
-        <TopBar />
-        <h1 className={`mt-7 ${HEADLINE}`}>{t("Choose your language")}<HeadPill Icon={GlobeIcon} /></h1>
-        {/* plain text under the headline (no box inside the page): the second line carries the weight */}
-        <p className="mt-4 text-[15px] leading-snug text-muted">{t("This is the language the app speaks to you in: its buttons, menus, help and recipes.")}</p>
-        <p className="mt-2 text-[15px] font-semibold leading-snug">{t("Restaurant, dish and product names stay as each restaurant and shop writes them, in English.")}</p>
-        <div className="mt-6">
-          <LanguageList value={language} onChange={chooseLanguage} label={t("Choose your language")} />
-        </div>
-        <p className="mt-5 text-sm text-muted">{t("You can change it any time in Settings.")}</p>
-        <Bottom>
-          <BottomButton onClick={() => { updateSettings({ language }); void setLanguage(language); next(); }}>{t("Continue")}</BottomButton>
-        </Bottom>
-      </div>
-    );
-  }
-
   // Pip arrives (intro 1), then walks along a little tab bar and says what each tab is for (intro 2-6); Skip goes straight to the questions.
   if (step === 0 && intro > 0) {
     const tour = intro - 2; // 0-4 on the walk, -1 on Pip's arrival
@@ -339,15 +306,9 @@ export default function WelcomePage() {
   }
 
   if (step === 0) {
-    const name = localeInfo(language);
     return (
       <div className={SCREEN}>
         <TopBar
-          end={
-            <button type="button" onClick={back} aria-label={t("Change language")} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-soft-strong px-3.5 text-sm font-semibold transition active:scale-95 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-              <GlobeIcon className="h-4 w-4" /><span lang={name.htmlLang}>{name.name}</span>
-            </button>
-          }
           segments={INTRO_SCREENS + 1}
           current={0}
         />

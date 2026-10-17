@@ -178,7 +178,7 @@ await step("a taken-down list that arrives after the page has opened takes the p
 
 await step("the layout: tick, picture, name and price, quantity under them; the picture opens the product; nothing runs sideways at 360 px, at Extra large text, or right to left", async () => {
   const list = [legacyTesco, keptSainsburys, typed];
-  for (const [label, o] of [["360 px", { extra: { viewport: { width: 360, height: 780 } } }], ["Extra large", { st: { textSize: "xlarge" } }], ["Arabic", { extra: { locale: "ar" }, st: { language: "ar" } }]]) {
+  for (const [label, o] of [["360 px", { extra: { viewport: { width: 360, height: 780 } } }], ["Extra large", { st: { textSize: "xlarge" } }]]) {
     const { ctx, page } = await open(list, o);
     await page.goto(BASE + "/app/groceries/list");
     const row = rowOf(page, "Jason's Sourdough");

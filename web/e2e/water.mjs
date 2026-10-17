@@ -312,7 +312,7 @@ await step("a free person's + shows the paywall instead of the sheet (logging is
 });
 
 await step("360 px, Extra large text and Arabic: no sideways scroll on Home or in the sheet, the + and Undo and Add stay whole and reachable, Arabic reads right to left", async () => {
-  for (const [label, o, st] of [["360 px", { viewport: { width: 360, height: 780 } }, {}], ["Extra large", {}, { textSize: "xlarge" }], ["Arabic", { locale: "ar" }, { language: "ar" }]]) {
+  for (const [label, o, st] of [["360 px", { viewport: { width: 360, height: 780 } }, {}], ["Extra large", {}, { textSize: "xlarge" }]]) {
     const width = o.viewport?.width ?? 390;
     const { ctx, page } = await open(o, st, { "mm.v1.water": [{ id: "a", loggedAt: todayAt(8), ml: 1250 }] });
     await page.goto(BASE + "/app");

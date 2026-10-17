@@ -767,7 +767,7 @@ await step("360 px, Extra large text and Arabic: no sideways scroll on Home, /ap
       rem("z3", "Third", "12:00", DAILY, { enabled: false }),
     ],
   };
-  for (const [label, o, st] of [["360 px", { viewport: { width: 360, height: 780 } }, {}], ["Extra large", {}, { textSize: "xlarge" }], ["Arabic", { locale: "ar" }, { language: "ar" }]]) {
+  for (const [label, o, st] of [["360 px", { viewport: { width: 360, height: 780 } }, {}], ["Extra large", {}, { textSize: "xlarge" }]]) {
     const width = o.viewport?.width ?? 390;
     const { ctx, page } = await open(o, st, seed);
     await page.goto(BASE + "/app");

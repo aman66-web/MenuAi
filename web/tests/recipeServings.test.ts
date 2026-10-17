@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { LANGUAGES_ENABLED } from "../lib/mm/config";
 import { PANTRY } from "../lib/mm/pantry";
 import { RECIPES } from "../lib/mm/recipeBook";
 import {
@@ -365,7 +366,8 @@ describe("the water in a method step goes with the people", () => {
       }
     }
   });
-  it("works in every language: each translated step keeps one 'N ml' with the same number", () => {
+  // (only while the app has languages: it is English only since 2026-10-16, and the new detailed steps are not translated)
+  it.skipIf(!LANGUAGES_ENABLED)("works in every language: each translated step keeps one 'N ml' with the same number", () => {
     for (const code of ["ar", "bn", "es", "gu", "it", "pa", "pl", "pt", "ro", "ur"]) {
       const dict = JSON.parse(readFileSync(`lib/mm/locales/${code}.json`, "utf8")) as Record<string, string>;
       for (const r of withMl) {

@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { englishT, format, LOCALES, placeholders, translate } from "../lib/mm/i18n";
+import { LANGUAGES_ENABLED } from "../lib/mm/config";
 import { PANTRY } from "../lib/mm/pantry";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { MEAL_TYPES } from "../lib/mm/recipes";
@@ -82,17 +83,21 @@ describe("translations", () => {
     expect(new Set(list).size, "a key listed twice").toBe(list.length);
   });
 
+  // Languages are switched off (lib/mm/config.ts LANGUAGES_ENABLED): the full "translates every key" check applies again the day they come back.
   for (const l of LOCALES.filter((x) => x.code !== "en")) {
     it(`${l.english} (${l.code}) translates every key, keeps every {placeholder}, and has nothing extra`, () => {
       const all = JSON.parse(readFileSync(KEYS_FILE, "utf8")) as string[];
       const skip = new Set(englishOnly());
       const keys = all.filter((k) => !skip.has(k));
       const dict = JSON.parse(readFileSync(`lib/mm/locales/${l.code}.json`, "utf8")) as Record<string, string>;
-      const missing = keys.filter((k) => typeof dict[k] !== "string" || dict[k]!.trim() === "");
-      expect(missing.length, `missing ${missing.length}, e.g. ${JSON.stringify(missing.slice(0, 3))}`).toBe(0);
-      const extra = Object.keys(dict).filter((k) => !all.includes(k));
-      expect(extra, "keys no longer used").toEqual([]);
-      for (const k of keys) expect(placeholders(dict[k]!), `${l.code}: "${k}"`).toEqual(placeholders(k));
+      if (LANGUAGES_ENABLED) {
+        const missing = keys.filter((k) => typeof dict[k] !== "string" || dict[k]!.trim() === "");
+        expect(missing.length, `missing ${missing.length}, e.g. ${JSON.stringify(missing.slice(0, 3))}`).toBe(0);
+        const extra = Object.keys(dict).filter((k) => !all.includes(k));
+        expect(extra, "keys no longer used").toEqual([]);
+      }
+      // while languages are off (the app is English only) the dictionaries are not kept up to date, but a translation that exists must still keep its {placeholders}
+      for (const k of keys) if (typeof dict[k] === "string" && dict[k]!.trim() !== "") expect(placeholders(dict[k]!), `${l.code}: "${k}"`).toEqual(placeholders(k));
     });
   }
 });
