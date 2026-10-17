@@ -23,7 +23,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 | Milestone | Status | Notes |
 |---|---|---|
-| M0 Project foundation | in progress | Xcode project, AppConfig, icon (2026-10-08). **Free launch (2026-10-12): the app is the web app packed inside it** (docs/APP_BUILD.md): web view + scheme handler + scanner/location/share bridge written, not yet compiled (needs the Mac session) |
+| M0 Project foundation | in progress | Xcode project, AppConfig, icon (2026-10-08). **Free launch (2026-10-12): the app is the web app packed inside it** (docs/APP_BUILD.md): web view + scheme handler + scanner/location/share bridge written, not yet compiled (needs the Mac session) **Mac session 18 Oct 2026: the whole app compiles (Xcode 26.6, iPhone 17 Pro simulator, Swift 6) with no error and 62 of 62 Swift tests pass; see the dated entry in the Decisions log.** |
 | M1 Menu data layer | not started | |
 | M2 Settings, targets, onboarding | not started | |
 | M3 Home, nearby, search, favourites | not started | |
@@ -2070,6 +2070,37 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   the welcome screen has "Get started" and no language screen, `/app`, `/app/community`, `/app/community/friends`, `/f`, `/l` answer 200, `/api/v1/community/me` and `/inbox` answer 401 (signed-out, as designed),
   `/api/health` 200, the site-association file and `/logos/hidden.json` 200. **Not yet done:** the Vercel environment check (needs the founder signed in to Vercel in Chrome), a real two-account Community
   test, and a rebuild of the iPhone app (the packed copy still has the old code).
+
+- **2026-10-18: Mac session on branch `mac-build` (IN PROGRESS: the founder paused it to sleep; everything below is checked, the rest is listed).**
+  Built from `main` at 39058813 (`git pull` then `mac-build`). Tools: Xcode 26.6, Node 26.5 (22 was expected; `npm ci` and the website tests are fine), Python 3.9.6.
+  *Build and tests.* `NEXT_PUBLIC_SUPPORT_EMAIL=aman66@hotmail.co.uk ./scripts/build_app_web.sh` packs 159.1 MB (menus 21.0, menu-images 87.7, groceries 23.1, grocery-images 10.3,
+  logos 6.8, _next 6.9, app 1.8; the folder is 164 MB on disk); `NEXT_PUBLIC_COMMUNITY_FRIENDS` not set, so Friends is on. `xcodebuild ... build` for the iPhone 17 Pro simulator:
+  **BUILD SUCCEEDED with no error** (the Swift was not broken after all; one warning, `NativeBridge.swift:36` "consider using asynchronous alternative function", left alone).
+  `./scripts/test.sh --unit` passes: 1,507 website tests, and **62 of 62 Swift tests** (AppConfig 2, FriendInviteLink 7, Reminder decoding 12 / schedule 6 / scheduler 10 / bridge 5,
+  SharedListLink 7, WebAppFiles 3, BridgeMessage 7, SignIn 3). The full `./scripts/test.sh` failed one UI test, `testLaunchShowsTheWebAppsFirstScreen`: it still expected the removed
+  "Choose your language" screen. **Fixed the test, not the app** (it now waits for the "Get started" button; commit 3e999ffc); it passes.
+  *Project check (looked at, nothing changed).* `Resources/WebApp.bundle` is not listed in project.pbxproj (the folder is a synchronized group) and ends up in the built app as ONE
+  folder with its subfolders intact, so no "Copy web app" Run Script phase is needed. Debug and Release both set `INFOPLIST_KEY_UIUserInterfaceStyle = Light`, the camera and location usage
+  strings and `ITSAppUsesNonExemptEncryption = NO`; `PrivacyInfo.xcprivacy` is in the app; `Config/MenuMacros.entitlements` has Sign in with Apple. **To recheck:** the Info.plist inside the
+  14 October *archive* had no `UIUserInterfaceStyle` key although the simulator Debug build has `Light`; step 11 (the archive) must be looked at for this before upload.
+  *In the iPhone 17 Pro simulator (a throwaway UI test drove the app; it is not committed and is kept in `build/scratch/ScratchWalk.swift`):*
+  a. Welcome screen shows "Get started". **Not done: Mac network off** (it would cut off the Claude session); do it by hand: Wi-Fi off, delete the app, run it, it must still open.
+  b. Finished onboarding, saved the order "Double Espresso + Big Mac" (McDonald's, 510 kcal) and put a Tesco product on the shopping list; quit and reopened the app: **both still there**,
+     and the app opened straight on Home (onboarding remembered). OK.
+  c. Read from inside the app (a temporary script in the packed Terms page, since removed): `location.origin` = `app://menumath`, `window.isSecureContext` = **true**, `crypto.subtle` = **true**,
+     localStorage works. OK.
+  d. From the app, `GET /api/v1/auth/session` answered 200 `{"user":null}` and `POST /api/v1/auth/email/start` with `{}` answered 400 `invalid_request`, both readable by the page, so the live
+     site accepts the Origin `app://menumath`; `APP_ORIGIN` in `web/lib/cors.ts` is right and needs no change. (A real "Request a restaurant" was not sent, so no test row was created.)
+  e. Eat out > Near me > Use my location: **one** iPhone prompt ("Allow Numbite to use your location?" with our usage text), then "732 branches · 50 restaurants" near London. OK.
+  f. The allergen-guide link in an order opens **Safari**. OK. **"Email instead" / mailto: cannot be tested here: the simulator has no Mail app and `simctl openurl mailto:` fails (error 115). Needs a real iPhone.**
+  g. Reminders: a reminder can be added (name, time, "Every day"); iOS asked "Numbite Would Like to Send You Notifications" once, on the first Save; Home lists it ("Every day 01:51"). **Not confirmed: that a
+     notification appears** (the check script missed the banner, Notification Center showed nothing afterwards, then a second run hung). Needs a retry by hand: add a reminder 2 minutes ahead, press Home, watch.
+  h. **Not done yet:** `xcrun simctl openurl booted "numbite://l#<code>"` and `numbite://f#ABCDEFGH` (the app has no URL Type yet, so nothing is expected to happen until the founder adds it).
+  i. **Not done yet:** dark appearance (`xcrun simctl ui booted appearance dark`).
+  Christmas is not in the Occasion list **because it starts on 1 November** (today is 18 October): the list shows Any occasion, Bonfire Night 6, Lunchbox 14, Party food 8, Picnic 14, Summer barbecue 8.
+  Screenshots (welcome, Home, Recipes, the Occasion list, a recipe, Groceries, Near me, Safari link) are in `build/screens/` (not committed).
+  *Still to do:* 9g retry, 9h, 9i, step 5 (`xcodebuild archive`, dry run, no upload; first rebuild the web bundle with `./scripts/build_app_web.sh`, and check the archive's Info.plist has `UIUserInterfaceStyle`),
+  the final `./scripts/test.sh --unit`, push `mac-build`, and the final report with the founder's click-by-click steps.
 
 ## Known issues
 
