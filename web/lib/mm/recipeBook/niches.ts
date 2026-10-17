@@ -44,6 +44,8 @@ export const CUISINES = [
 export const OCCASIONS = [
   // Bonfire Night is 5 November: offered from the middle of October to the 10th
   { id: "bonfire-night", label: tk("Bonfire Night"), words: ["guy fawkes", "fireworks"], season: { from: { month: 10, day: 15 }, to: { month: 11, day: 10 } } },
+  // Christmas recipes may use festive ingredients (pantry.ts FESTIVE_KINDS); offered from 1 November to 6 January, over New Year
+  { id: "christmas", label: tk("Christmas"), words: ["christmas", "festive", "xmas", "boxing day"], season: { from: { month: 11, day: 1 }, to: { month: 1, day: 6 } } },
   { id: "lunchbox", label: tk("Lunchbox"), words: ["packed lunch"] },
   { id: "party-food", label: tk("Party food"), words: ["party", "buffet", "nibbles", "finger food"] },
   { id: "picnic", label: tk("Picnic"), words: [] },
@@ -63,7 +65,7 @@ const occasion = (id: OccasionId, ...recipes: string[]): Array<readonly [string,
 
 /** One line per recipe and cuisine (a recipe has at most one: tests/recipeNiche.test.ts checks). */
 export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: CuisineId]> = [
-  ...cuisine("british", "cottage-pie", "bean-cottage-pie", "salmon-fish-pie", "ham-egg-potatoes", "easy-macaroni-cheese", "chicken-thigh-potato-traybake", "tuna-fishcakes", "smoked-salmon-kedgeree", "beans-poached-eggs"),
+  ...cuisine("british", "cottage-pie", "bean-cottage-pie", "salmon-fish-pie", "ham-egg-potatoes", "easy-macaroni-cheese", "chicken-thigh-potato-traybake", "tuna-fishcakes", "smoked-salmon-kedgeree", "beans-poached-eggs", "turkey-roast-parsnips-sprouts", "chipolatas-red-cabbage-mash", "gammon-parsnips-apple-sauce", "sprout-chestnut-potato-gratin"),
   ...cuisine("chinese", "chicken-chow-mein", "sticky-beef-noodles", "egg-fried-rice", "vegetable-almond-stir-fry", "chicken-sweetcorn-soup", "egg-chow-mein", "egg-tomato-stir-fry", "chicken-mushroom-noodle-soup", "chinese-style-chicken-curry"),
   ...cuisine("indian", "chicken-jalfrezi", "beef-keema-peas", "egg-pea-curry", "kidney-bean-curry", "spiced-chicken-naan", "chickpea-potato-curry", "chicken-curry", "chickpea-curry", "salmon-coconut-curry"),
   ...cuisine("italian", "spaghetti-bolognese", "beef-pasta-bake", "chicken-mozzarella-pasta-bake", "potato-tomato-mozzarella-bake", "bacon-carbonara-spaghetti", "beef-meatballs-spaghetti", "bacon-tomato-linguine", "minestrone-beans-pasta", "tuna-pasta", "mushroom-bean-pasta", "chicken-mushroom-pasta", "pesto-pasta-mozzarella-salad", "mushroom-wrap-pizzas"),
@@ -75,6 +77,7 @@ export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: C
 /** One line per recipe and occasion (a recipe may suit several; the same pair twice is a mistake the tests catch). */
 export const OCCASION_LINES: ReadonlyArray<readonly [recipeId: string, occasion: OccasionId]> = [
   ...occasion("bonfire-night", "beef-chilli", "bean-chilli", "bean-tomato-soup", "sweetcorn-potato-soup", "cottage-pie", "bean-cottage-pie"),
+  ...occasion("christmas", "turkey-roast-parsnips-sprouts", "turkey-cranberry-cheddar-wraps", "chipolatas-red-cabbage-mash", "gammon-parsnips-apple-sauce", "sprout-chestnut-potato-gratin", "spiced-parsnip-apple-soup", "red-cabbage-chestnut-cranberry-rice", "mince-pie-porridge", "cranberry-cheddar-ham-toasted-wraps"),
   ...occasion("lunchbox", "chicken-wraps", "tuna-sweetcorn-pasta-salad", "smoked-salmon-soft-cheese-wraps", "egg-mayonnaise-wraps", "ham-soft-cheese-wraps", "chickpea-tomato-salad", "pesto-pasta-mozzarella-salad", "tuna-bean-salad", "potato-egg-salad", "curried-rice-salad", "peanut-butter-oat-bites", "houmous-veg-sticks", "ham-soft-cheese-roll-ups", "crispy-spiced-chickpeas"),
   ...occasion("party-food", "houmous-veg-sticks", "ham-soft-cheese-roll-ups", "devilled-eggs", "tuna-chickpea-dip", "smoked-salmon-cucumber-bites", "crispy-spiced-chickpeas", "paprika-roasted-almonds", "cheese-bean-quesadilla-wedges"),
   // eaten cold or carried: the method does not have to be cold, the dish has to be fine away from the kitchen

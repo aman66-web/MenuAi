@@ -2044,6 +2044,25 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   the paste-ready prompt is `docs/MIDJOURNEY_CHROME_PROMPT.md` (108 recipes, one look, stops on any CAPTCHA or warning). (3) **Burger Boi stays** (founder, accepted risk; its terms s.5.3 forbid scraping). (4) **Christmas recipes may use festive ingredients** in principle; Claude was asked to explain first what "festive ingredients" means
   before any recipe is written (nothing built yet). (5) `docs/CHROME_PROMPT_LAUNCH.md`: a paste-ready prompt that applies the Community migration in Supabase (then runs the check script) and does a read-only look at Vercel (variable names only, never values). It does not merge or deploy. The founder asked Claude to do as much as it can.
 
+- 2026-10-17 — **Christmas recipes with festive ingredients** (founder: "yes christmas recipies can have festive ingreidents", then "Go" to the plan below).
+  - **Rule kept, with one exception:** every recipe in the book still uses only everyday ingredients (15 October), except the nine Christmas recipes, which may also use `FESTIVE_KINDS`
+    (`lib/mm/pantry.ts`): turkey breast fillets, pork chipolatas, gammon steaks, Brussels sprouts, parsnips, red cabbage, cooked chestnuts, cranberry sauce, apple sauce, mincemeat,
+    dried cranberries, ground mixed spice and ground nutmeg. `tests/recipeBook.test.ts` fails a festive kind in any other recipe, a festive kind no recipe uses, and any festive kind
+    that does not resolve to a Sainsbury's product whose label we have read **as sold** (nothing is estimated: a label headed "cooked" or "prepared" never counts).
+  - **Dropped for lack of a usable label (rule 1):** a whole turkey crown (none listed), nut roast and eggnog (none listed), bread sauce and Sainsbury's own stuffing (their labels are "cooked" or
+    "prepared"), roast gammon joints and turkey steaks (labelled cooked), fresh potatoes (no label read as sold; roast dinners use drained tinned potatoes, as the book already does), stuffing mix,
+    brandy mincemeat (alcohol). Turkey breast resolves to one product today (Sainsbury's fresh mini fillets) and gammon steaks to two.
+  - **Occasion `Christmas`** (`niches.ts`): offered **1 November to 6 January** by the date on the phone, so it **is on offer at the 4 January 2027 launch** and gone from 7 January. Search words: christmas,
+    festive, xmas, boxing day. Bonfire Night (to 10 November) and Christmas never overlap.
+  - **Nine recipes (108 -> 117):** Roast turkey with parsnips, sprouts and cranberry; Turkey, cranberry and cheddar wraps; Chipolatas with spiced red cabbage and mash; Gammon steaks with honey parsnips and
+    apple sauce; Sprout, chestnut and potato gratin; Spiced parsnip and apple soup (vegan); Red cabbage, chestnut and cranberry rice (vegan); Mince pie porridge; Cranberry, cheddar and ham toasted wraps.
+    Four are meat-free (two vegan), four suit halal (the turkey and pork ones don't: no halal-named product), all meet the detailed-method rules (about 8-11 steps, safety cues for turkey, pork and gammon).
+    Figures are worked out by the app from the labels, like every recipe; British cuisine lines added for the roast, sausage, gammon and gratin recipes.
+  - **Pictures:** a bird's-eye look for each (`looks.ts`), `docs/RECIPE_IMAGE_PROMPTS.md` regenerated (117 prompts). Founder still pastes the Midjourney prompt file.
+  - **Flagged (rule 8):** new recipe names, blurbs and steps, and the word "Christmas" in the Occasion menu, are English only (no translation work). `docs/STORE.md` still says "100 recipes" (the draft was already behind at 108).
+  - **Checked:** recipeBook (every recipe x all rules), recipeServings (Serves 1 to 12, fitted and as written), recipeNiche (Christmas offered 1 Nov and 4 Jan, gone 10 Jan; the
+    "occasion needs a meat-free recipe" rule), recipeImages, i18n, recipes, listRecipes, recipeRules, tsc, eslint. **Not run:** browser tests and a production build of the staged copy.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -12,6 +12,8 @@ const IDS = RECIPES.map((r) => r.id);
 const idsOf = (cuisine: string) => CUISINE_LINES.filter(([, c]) => c === cuisine).map(([id]) => id);
 const JAN = new Date(2027, 0, 4);
 const OCT_20 = new Date(2026, 9, 20);
+const NOV_15 = new Date(2026, 10, 15);
+const JAN_10 = new Date(2027, 0, 10);
 
 describe("which cuisines and occasions are offered", () => {
   it("offers a cuisine only when at least 3 recipes belong to it, in the catalogue's order", () => {
@@ -44,13 +46,15 @@ describe("which cuisines and occasions are offered", () => {
 
   it("ships these choices", () => {
     expect(cuisineOptions(IDS).map((o) => o.id)).toEqual(["british", "chinese", "indian", "italian", "mexican", "middle-eastern"]);
-    // the January 2027 launch: Bonfire Night is out of season
-    expect(occasionOptions(IDS, JAN).map((o) => o.id)).toEqual(["lunchbox", "party-food", "picnic", "summer-barbecue"]);
+    // the January 2027 launch (4 January) is still inside Christmas (1 November to 6 January); Bonfire Night is out of season
+    expect(occasionOptions(IDS, JAN).map((o) => o.id)).toEqual(["christmas", "lunchbox", "party-food", "picnic", "summer-barbecue"]);
+    expect(occasionOptions(IDS, JAN_10).map((o) => o.id), "Christmas is over").toEqual(["lunchbox", "party-food", "picnic", "summer-barbecue"]);
     expect(occasionOptions(IDS, OCT_20).map((o) => o.id)).toEqual(["bonfire-night", "lunchbox", "party-food", "picnic", "summer-barbecue"]);
+    expect(occasionOptions(IDS, NOV_15).map((o) => o.id)).toEqual(["christmas", "lunchbox", "party-food", "picnic", "summer-barbecue"]);
     // the founder's own examples are offered with plenty to choose from
     for (const id of ["chinese", "indian"]) expect(idsOf(id).length, id).toBeGreaterThanOrEqual(8);
-    // no Christmas for now: it needs festive ingredients (the founder's call), so it is not in the catalogue at all
-    expect(OCCASIONS.map((o) => o.id)).not.toContain("christmas");
+    // Christmas (founder 2026-10-17: festive ingredients allowed): offered 1 November to 6 January, with a meat-free and a vegan recipe among them
+    expect(OCCASIONS.map((o) => o.id)).toContain("christmas");
   });
 });
 
@@ -65,7 +69,8 @@ describe("reading a choice from the address", () => {
     // an occasion that exists but is out of season is not on offer, so it is no choice
     expect(parseOccasion("bonfire-night", occasions)).toBeNull();
     expect(parseOccasion("bonfire-night", occasionOptions(IDS, OCT_20))).toBe("bonfire-night");
-    expect(parseOccasion("christmas", occasions)).toBeNull();
+    expect(parseOccasion("christmas", occasionOptions(IDS, JAN_10))).toBeNull();
+    expect(parseOccasion("christmas", occasionOptions(IDS, NOV_15))).toBe("christmas");
   });
 });
 

@@ -10,7 +10,7 @@ each recipe's description of how it looks from above is in `web/lib/mm/recipeBoo
 
 Midjourney's Community Guidelines say it has no API and that **automating interactions with Midjourney is prohibited; accounts that do not comply may be blocked**
 (https://docs.midjourney.com/docs/community-guidelines). Letting Claude in Chrome paste the prompts and click through the site is automation of that kind, so it could put the founder's account at risk: read the current terms and decide.
-The safe way is for a person to paste each prompt (108 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
+The safe way is for a person to paste each prompt (117 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
 current plan rules: a company above a revenue threshold needs the Pro plan). If Midjourney is not wanted, the same descriptions work in Nano Banana: drop the `--` settings at the end of each prompt.
 
 ## Hand-over for Claude in Chrome (or for a person)
@@ -31,7 +31,7 @@ You are making one picture per recipe with Midjourney for Numbite, a UK calories
 Then, on the founder's computer: copy the PNG files into `data/recipe-images/` (named `<recipe id>.png`), run `python3 tools/recipes/import_recipe_images.py` (it crops to 4:3, resizes to 800 x 600, writes WebP copies into `web/public/recipe-images/`
 and lists them in `web/lib/mm/recipeImages.ts`), then commit and push. Or send the files to Claude and it does this.
 
-108 recipes, 0 with a picture.
+117 recipes, 0 with a picture.
 
 ## Breakfast
 
@@ -153,6 +153,12 @@ Smoked salmon kedgeree in a shallow white bowl: golden curry-tinted rice dotted 
 
 ```
 Bean and potato hash on a wide white round plate: golden, crisp-edged halved new potatoes, pieces of red pepper and softened onion dusted orange-brown with spices, dark red kidney beans mixed through, and chunky red tomato salsa spread over the top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Mince pie porridge · `mince-pie-porridge`
+
+```
+A round white bowl of thick, creamy pale oat porridge with a dollop of white yogurt in the middle, a spoonful of dark glossy mincemeat on top of the yogurt and roughly chopped almonds scattered over and around it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ## Lunch
@@ -281,6 +287,24 @@ Curried rice salad in a shallow white bowl: separate yellow-tinged rice grains d
 
 ```
 A wide white soup bowl filled with clear golden-brown broth, its surface covered with tangled noodles, thin strips of cooked chicken and sliced brown mushrooms, finished with a scatter of thin spring onion slices. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Turkey, cranberry and cheddar wraps · `turkey-cranberry-cheddar-wraps`
+
+```
+Two tortilla wraps each cut in half on the diagonal and leaning together on a pale wooden board, the cut ends showing pale golden turkey strips, a ribbon of deep red cranberry sauce, melted orange cheddar and green lettuce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Spiced parsnip and apple soup · `spiced-parsnip-apple-soup`
+
+```
+A round white shallow bowl of smooth, pale cream-beige parsnip soup with a swirl of golden oil in the centre and a dusting of dark pepper, with a few thin slices of apple beside it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Cranberry, cheddar and ham toasted wraps · `cranberry-cheddar-ham-toasted-wraps`
+
+```
+Two golden-brown toasted filled wraps each cut into wedges and fanned out on a pale wooden board, the cut edges showing melted orange cheddar, pink ham, thin green spring onion rings and a streak of deep red cranberry sauce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ## Dinner
@@ -619,6 +643,36 @@ One wrap on a pale wooden board, folded round golden grilled chicken chunks, red
 
 ```
 Two skewers of dark, sticky, glossy barbecue-glazed chicken thigh chunks beside a mound of corn salad on a wide white oval plate: yellow sweetcorn, halved red cherry tomatoes, diced cucumber and thin green spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Roast turkey with parsnips, sprouts and cranberry · `turkey-roast-parsnips-sprouts`
+
+```
+A large white oval plate showing sliced and whole white-golden roast turkey fillets on one side, golden-brown honey-glazed parsnip fingers and crisp roast potatoes in the middle, a heap of bright green halved sprouts on the other side and a small bowl of deep red cranberry sauce at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Chipolatas with spiced red cabbage and mash · `chipolatas-red-cabbage-mash`
+
+```
+A wide white round plate with a mound of smooth pale mash on one side, a pile of glossy deep purple-red cabbage and soft apple pieces beside it, and a row of browned golden chipolata sausages laid across the top, with a small spoonful of yellow mustard at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Gammon steaks with honey parsnips and apple sauce · `gammon-parsnips-apple-sauce`
+
+```
+A round white plate with two pink-edged gammon steaks with golden-brown seared surfaces, a row of caramelised honey-roast parsnip fingers beside them, a small heap of bright green peas and a small bowl of pale golden apple sauce at the rim. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Sprout, chestnut and potato gratin · `sprout-chestnut-potato-gratin`
+
+```
+A rectangular white ovenproof dish seen from above, filled with a bubbling golden-brown cheddar crust, dark green sprout halves and pale brown chestnut pieces showing through at the edges and slices of cream potato layered underneath. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### Red cabbage, chestnut and cranberry rice · `red-cabbage-chestnut-cranberry-rice`
+
+```
+A wide shallow white bowl of fluffy rice tinted pink-purple by red cabbage ribbons, studded with pale brown chestnut pieces, small chunks of apple and glossy deep red dried cranberries. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ## Snacks

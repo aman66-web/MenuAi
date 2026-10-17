@@ -379,6 +379,31 @@ const KINDS: PantryKind[] = [
   { key: "fresh-parsley", label: "Fresh parsley", unit: "g", role: "other", contains: [], match: { all: ["parsley"], none: ["living", "noodle", "soup", "sauce"], kcal: [30, 60] } },
   { key: "fresh-basil", label: "Fresh basil", unit: "g", role: "other", contains: [], match: { all: ["basil"], none: ["living", "passata", "tomatoes", "tomato", "pesto", "seed", "tuna", "beans", "oil", "sauce", "pasta", "dolmio"], kcal: [20, 50] } },
   { key: "banana", label: "Bananas", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 120, pieceName: ["banana", "bananas"], match: { all: ["bananas"], none: ["shrimps", "chips", "dried", "bread", "cake", "milk", "smoothie", "baby", "eclairs", "foam", "flavour", "organic"], kcal: [70, 100] } },
+  // ---- festive (FESTIVE_KINDS below): only the Christmas recipes use these. Each is matched, like every other kind, only to products whose label
+  // we have read as sold (a label headed "cooked" or "prepared" never counts), so nothing here is ever estimated.
+  {
+    key: "turkey-breast", label: "Turkey breast fillets", unit: "g", role: "protein", meat: "turkey", animal: true, contains: [],
+    match: { all: ["turkey", "breast"], any: ["fillets"], none: ["mince", "sausage", "slices", "rashers", "smoked", "roast", "brine", "steaks", "burger", "meatball"], kcal: [120, 180], minProtein: 25 },
+  },
+  {
+    key: "pork-chipolatas", label: "Pork chipolata sausages", unit: "g", role: "protein", meat: "pork", animal: true, contains: ["gluten"], pieceGrams: 30, pieceName: ["chipolata", "chipolatas"], fit: [0.5, 1.5],
+    match: { all: ["chipolata", "pork"], none: ["chicken", "turkey", "vegan", "vegetarian", "quorn", "veggie", "gluten free", "heck"], kcal: [200, 350], minProtein: 13 },
+  },
+  {
+    key: "gammon-steaks", label: "Gammon steaks", unit: "g", role: "protein", meat: "pork", animal: true, contains: [],
+    match: { all: ["gammon", "steaks"], none: ["honey", "apple", "cheese", "pineapple", "glaze", "just cook", "grilled"], kcal: [180, 260], minProtein: 25 },
+  },
+  { key: "brussels-sprouts", label: "Brussels sprouts", unit: "g", role: "other", contains: [], match: { all: ["brussels", "sprouts"], none: ["pate", "chocolate", "crisps", "mash"], kcal: [30, 70] } },
+  { key: "parsnips", label: "Parsnips", unit: "g", role: "other", contains: [], match: { all: ["parsnips"], none: ["soup", "honey", "roast", "glazed", "crisps", "chips"], kcal: [55, 90] } },
+  // sold one at a time ("Red Cabbage Each"): a whole one is about 900 g, used in parts
+  { key: "red-cabbage", label: "Red cabbage", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 900, pieceName: ["red cabbage", "red cabbages"], match: { all: ["red cabbage"], none: ["pickled", "kimchi", "polish", "specialities", "baxters", "sarson", "taste the difference"], kcal: [20, 45] } },
+  { key: "cooked-chestnuts", label: "Cooked chestnuts", unit: "g", role: "other", contains: [], match: { all: ["chestnuts"], none: ["mushroom", "stuffing", "puree", "pizza", "chocolate"], kcal: [150, 200] } },
+  { key: "cranberry-sauce", label: "Cranberry sauce", unit: "g", role: "other", contains: [], match: { all: ["cranberry", "sauce"], none: ["mulled", "jelly", "chicken", "turkey", "stuffing", "brie", "orange"], kcal: [140, 260] } },
+  { key: "apple-sauce", label: "Apple sauce", unit: "g", role: "other", contains: [], match: { all: ["apple", "sauce"], none: ["pineapple", "sweet", "bens", "pork", "chicken"], kcal: [90, 190] } },
+  { key: "mincemeat", label: "Mincemeat", unit: "g", role: "other", contains: [], match: { all: ["mincemeat"], none: ["pie", "tart", "cake", "brandy", "amaretto", "cherry"], kcal: [250, 340] } },
+  { key: "dried-cranberries", label: "Dried cranberries", unit: "g", role: "other", contains: [], match: { all: ["cranberries"], any: ["dried", "whole cranberries"], none: ["cheese", "cheddar", "wensleydale", "flakes", "sauce", "juice", "clusters"], kcal: [300, 380] } },
+  { key: "mixed-spice", label: "Ground mixed spice", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "mixed", "spice"], none: ["juice"], kcal: [250, 350] } },
+  { key: "nutmeg", label: "Ground nutmeg", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ground", "nutmeg"], none: ["dauphinoise", "tea", "potatoes"], kcal: [450, 550] } },
   { key: "apple", label: "Apples", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 150, pieceName: ["apple", "apples"], match: { all: [], any: ["apple single", "single apple", "apples single", "royal gala apples", "braeburn apples", "british apples", "granny smith apples"], none: ["mini", "juice", "pie", "sauce", "grape", "pineapple", "strawberry", "porridge", "organic"], kcal: [40, 70] } },
 ];
 
@@ -510,6 +535,14 @@ export const EVERYDAY_KINDS: ReadonlySet<string> = new Set([
   // fresh vegetables and fruit
   "onion", "red-onion", "garlic", "lemon-juice", "carrots", "peppers", "tomatoes", "cherry-tomatoes", "cucumber", "lettuce", "salad-leaves", "spinach",
   "mushrooms", "broccoli", "spring-onions", "stir-fry-veg", "banana", "apple", "berries", "raisins", "almonds",
+]);
+
+// The festive kinds (founder 2026-10-17: "christmas recipies can have festive ingreidents"): foods that are sold in Christmas weeks and not
+// stocked by every small shop all year. Only recipes the Occasion list files under Christmas (niches.ts) may use them, on top of the everyday ones
+// (tests/recipeBook.test.ts checks it, and that each one still resolves to a product with a label we have read).
+export const FESTIVE_KINDS: ReadonlySet<string> = new Set([
+  "turkey-breast", "pork-chipolatas", "gammon-steaks", "brussels-sprouts", "parsnips", "red-cabbage", "cooked-chestnuts", "cranberry-sauce", "apple-sauce",
+  "mincemeat", "dried-cranberries", "mixed-spice", "nutmeg",
 ]);
 
 export interface DietPrefs {

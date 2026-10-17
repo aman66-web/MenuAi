@@ -39,7 +39,7 @@ export function promptsDoc(): string {
     "",
     "Midjourney's Community Guidelines say it has no API and that **automating interactions with Midjourney is prohibited; accounts that do not comply may be blocked**",
     "(https://docs.midjourney.com/docs/community-guidelines). Letting Claude in Chrome paste the prompts and click through the site is automation of that kind, so it could put the founder's account at risk: read the current terms and decide.",
-    "The safe way is for a person to paste each prompt (108 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the",
+    `The safe way is for a person to paste each prompt (${RECIPES.length} of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the`,
     "current plan rules: a company above a revenue threshold needs the Pro plan). If Midjourney is not wanted, the same descriptions work in Nano Banana: drop the `--` settings at the end of each prompt.",
     "",
     "## Hand-over for Claude in Chrome (or for a person)",
