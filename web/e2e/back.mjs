@@ -89,7 +89,7 @@ await step("(a) Recipes, then the heart at the top right, then My meals: Back la
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const recipes = path(page);
   expect(recipes.startsWith("/app/recipes"), "Recipes opened at " + recipes);
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   expect((await depth(page)) === 2, "My meals sits two steps from the start, depth " + (await depth(page)));
   await back(page, "Back", recipes);
@@ -103,7 +103,7 @@ await step("(a) Recipes, then the heart at the top right, then My meals: Back la
   await fresh.goto(BASE + "/app/recipes", { timeout: 180000 });
   await fresh.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const at = path(fresh);
-  await fresh.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await fresh.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(fresh, "/app/meals?tab=recipes");
   await back(fresh, "Back", at);
   noErrors(errors);
@@ -419,7 +419,7 @@ await step("(g) Recipes, My meals, reload, Back: Recipes", async () => {
   await tab(page, "/app/recipes").tap();
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const recipes = path(page);
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   await page.reload({ timeout: 180000 });
   expect((await depth(page)) === 2, "the reloaded entry lost its depth: " + (await depth(page)));
@@ -461,7 +461,7 @@ await step("(h) Recipes, My meals, Restaurant meals tab, Recipes tab: no step ad
   await go(page, "/app/recipes");
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
   const recipes = path(page);
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   const d0 = await depth(page);
   expect(d0 === 1, "My meals is one step from Recipes, depth " + d0);
@@ -483,7 +483,7 @@ await step("(j) a Ctrl or Shift click on Back is left to the browser (a new tab 
   const { ctx, page, errors } = await open();
   await go(page, "/app/recipes");
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   const l = await nameIs(page, "Back"); // reached from the app: a plain click would be router.back()
   expect((await l.getAttribute("href")) === "/app", "the href is " + (await l.getAttribute("href")) + ", expected /app");
@@ -506,7 +506,7 @@ await step("(j) the link's own click handler leaves a Ctrl, Meta, Shift or Alt c
   const { ctx, page, errors } = await open();
   await go(page, "/app/recipes");
   await page.getByRole("heading", { name: "What's cooking today?" }).waitFor({ timeout: 120000 });
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   const l = await nameIs(page, "Back");
   const cancelled = (init) => l.evaluate((el, i) => {
@@ -539,10 +539,10 @@ for (const [label, st, rtl, words] of [
     expect(words.back && words.home, "the translation of Back is missing from the locale file");
     const { ctx, page, errors } = await open({ settings: st });
     await go(page, "/app/recipes");
-    await page.locator('a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
+    await page.locator('main a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
     await page.waitForFunction((want) => document.documentElement.dir === want, rtl ? "rtl" : "ltr", { timeout: 30000 });
     const recipes = path(page);
-    await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+    await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
     await waitPath(page, "/app/meals?tab=recipes");
     const l = await nameIs(page, words.back, { word: words.back });
     const box = await l.boundingBox();
@@ -574,8 +574,8 @@ for (const [label, st, rtl, words] of [
 await step("(l) axe: My meals reached from Recipes (with a saved recipe, and on the Restaurant meals tab) has 0 violations", async () => {
   const { ctx, page, errors } = await open({ seed: { "mm.v1.savedRecipes": [{ id: RECIPE, savedAt: iso }] } });
   await go(page, "/app/recipes");
-  await page.locator('a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   await nameIs(page, "Back");
   await page.locator('a[href^="/app/recipes/view?id=' + RECIPE + '"]').first().waitFor({ timeout: 180000 });
@@ -599,8 +599,8 @@ await step("(l) axe: My meals reached from Recipes (with a saved recipe, and on 
 await step("(m) two quick activations of Back take one step, not two (the second would leave the app)", async () => {
   const { ctx, page, errors } = await open();
   await go(page, "/app/recipes");
-  await page.locator('a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').waitFor({ timeout: 180000 });
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   await nameIs(page, "Back");
   await page.evaluate(() => { const a = [...document.querySelectorAll("a")].find((x) => (x.textContent || "").trim() === "Back"); a.click(); a.click(); });
@@ -608,7 +608,7 @@ await step("(m) two quick activations of Back take one step, not two (the second
   await page.waitForTimeout(1500);
   expect(path(page) === "/app/recipes", `after a double activation the page is ${page.url()}, expected /app/recipes`);
   // and the guard lets go: a later Back works again
-  await page.locator('a[href="/app/meals?tab=recipes"]').tap();
+  await page.locator('main a[href="/app/meals?tab=recipes"]').tap();
   await waitPath(page, "/app/meals?tab=recipes");
   await back(page, "Back", "/app/recipes");
   noErrors(errors);

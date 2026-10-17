@@ -7,6 +7,7 @@ import { APP_BUILD } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { chooseWarmChains } from "@/lib/mm/popular";
 import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
+import { tabTarget } from "@/lib/mm/tabMemory";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { installBackDepth } from "../_lib/backNav";
 import { refreshHiddenLogos } from "../_lib/hiddenLogos";
@@ -14,6 +15,7 @@ import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
 import { bootAccount } from "../_lib/account";
+import { noteTabPage, useTabMemory } from "../_lib/tabMemoryStore";
 import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
 import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
@@ -54,6 +56,12 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (process.env.NODE_ENV !== "production" || menu.status !== "ready" || menu.chains.length === 0) return;
     void warmOffline(chooseWarmChains(menu.chains, ownChains ? ownChains.split("|") : []));
   }, [menu.status, menu.chains, ownChains]);
+
+  // Tabs remember where you were (lib/mm/tabMemory.ts): coming back to a tab opens the page last seen in it; the open tab's own link goes to its first page.
+  const tabMemory = useTabMemory();
+  useEffect(() => {
+    if (hydrated) noteTabPage(TABS, pathname, window.location.search);
+  }, [hydrated, pathname]);
 
   // Text size from Settings / onboarding (the layout's inline script applies it before the first paint too).
   useEffect(() => {
@@ -133,12 +141,13 @@ export function AppShell({ children }: { children: ReactNode }) {
             className="fixed inset-x-[12px] bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 mx-auto max-w-[calc(28rem-1.5rem)] rounded-[2rem] bg-[#1d2320] p-[6px] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]"
           >
             <ul className="flex">
-              {TABS.map(({ href, label, Icon, match }) => {
+              {TABS.map((tab) => {
+                const { href, label, Icon, match } = tab;
                 const active = match(pathname);
                 return (
                   <li key={href} className="min-w-0 flex-1">
                     <Link
-                      href={href}
+                      href={tabTarget(tabMemory, tab, active)}
                       aria-current={active ? "page" : undefined}
                       className={`group relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[13px] font-semibold leading-[1.1] transition-colors focus-visible:outline-[#d6efa0] ${active ? "text-[#d6efa0]" : "text-[#c2c9c4] hover:text-white"}`}
                     >

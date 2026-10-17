@@ -2033,6 +2033,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Not translated** (English only since today); `recipeServings.test.ts`'s "works in every language" check is skipped while `LANGUAGES_ENABLED` is false and must be translated again if languages come back.
   - Checked: recipeBook (all 108), recipeServings (Serves 1 to 12 for every recipe), recipes, recipeNiche, recipeImages, i18n.
 
+- 2026-10-17 — **Tabs remember where you were** (task from the founder's list: "switching tabs returns to the same page").
+  - **What it does:** leave a tab from a page deep inside it (a restaurant, a recipe, a shop's list, an article) and tapping that tab again opens the same page, with its address query (`?id=…`). Tapping the tab you are already on goes to its first page, and a tab shown at its first page remembers nothing.
+  - **How:** `lib/mm/tabMemory.ts` (pure, 7 unit tests) and `app/app/_lib/tabMemoryStore.ts`; `AppShell` points each tab link at the remembered address. It lives in this browser tab's `sessionStorage` (`mm.tabs`), so it survives a reload but not closing the app, and holds only addresses inside the app that belong to that tab.
+    **Never a `#` part** (a shared list or a friend's code lives there), never the welcome or offline pages, and anything hand-edited into storage is dropped when read.
+  - **Not remembered:** the scroll position and a page's filters, search words or "show more" limits that are not in its address (Search and My meals' tabs already restore theirs); a page restores what its address holds.
+  - **No new copy.** Checked: tabMemory unit tests, `e2e/tabs.mjs` 3 steps (tab opens the page last seen, the open tab goes to its first page, survives a reload, no fragment stored, hand-edited storage ignored).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
