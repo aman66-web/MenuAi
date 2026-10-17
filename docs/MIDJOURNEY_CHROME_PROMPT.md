@@ -1,4 +1,4 @@
-BUILT FROM the recipe book at commit dfa71bd: 108 recipes (20 breakfast, 21 lunch, 56 dinner, 11 snacks). If your copy of the app lists a different number of recipes, or still has dishes such as the halloumi or lentil ones (replaced on 15 October 2026), your copy of the app is older than this file: update it first.
+BUILT FROM the recipe book at commit cce7977: 117 recipes (21 breakfast, 24 lunch, 61 dinner, 11 snacks). If your copy of the app lists a different number of recipes, or still has dishes such as the halloumi or lentil ones (replaced on 15 October 2026), your copy of the app is older than this file: update it first.
 
 # Midjourney pictures for every Numbite recipe: paste this whole file into Claude in Chrome
 
@@ -9,7 +9,7 @@ Note: Midjourney's Community Guidelines say it has no API and that automating th
 
 --------------------------------------------------------------------------------------------------------------
 
-You are making ONE picture for each of the 108 recipes below, using Midjourney in this browser (I am already logged in with a paid plan). The pictures are for Numbite, a UK calories and protein app, and they must all look like they were shot by the same photographer in the same studio: same camera angle, same table, same light, same colour feel.
+You are making ONE picture for each of the 117 recipes below, using Midjourney in this browser (I am already logged in with a paid plan). The pictures are for Numbite, a UK calories and protein app, and they must all look like they were shot by the same photographer in the same studio: same camera angle, same table, same light, same colour feel.
 
 THE LOOK (already inside every prompt, do not change it): a bird's-eye view photograph taken straight down from directly above (90 degrees, flat lay), one dish centred on a light oak wooden table with space around it, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. Every prompt ends with the settings `--ar 4:3 --v 7 --style raw` and a `--no` list. Never remove or change them.
 
@@ -22,10 +22,10 @@ RULES
 6. STOP and tell me (do not try to get past it) if Midjourney shows a CAPTCHA or human check, a login or payment page, an error about too many jobs, or any warning about my account.
 7. After every 10 recipes, tell me in one line: done so far, and the NEEDS ATTENTION list. At the end tell me which ids are done, which need attention, and where the files are. Do not upload other images or add text or branding to any picture.
 
-THE 108 RECIPES (paste each prompt exactly; "id" is the file name):
+THE 117 RECIPES (paste each prompt exactly; "id" is the file name):
 
 
-=== BREAKFAST (20) ===
+=== BREAKFAST (21) ===
 
 1. Overnight oats with yogurt  |  id: overnight-oats
 PROMPT: Overnight oats in a wide shallow white bowl: a thick, pale oat and yogurt surface with a golden-brown spiral of peanut butter from the centre outwards, and a tight cluster of glossy deep red and purple mixed berries heaped on one side. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
@@ -87,275 +87,302 @@ PROMPT: Smoked salmon kedgeree in a shallow white bowl: golden curry-tinted rice
 20. Bean and potato hash  |  id: bean-potato-hash
 PROMPT: Bean and potato hash on a wide white round plate: golden, crisp-edged halved new potatoes, pieces of red pepper and softened onion dusted orange-brown with spices, dark red kidney beans mixed through, and chunky red tomato salsa spread over the top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
+21. Mince pie porridge  |  id: mince-pie-porridge
+PROMPT: A round white bowl of thick, creamy pale oat porridge with a dollop of white yogurt in the middle, a spoonful of dark glossy mincemeat on top of the yogurt and roughly chopped almonds scattered over and around it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-=== LUNCH (21) ===
 
-21. Chicken and yogurt wraps  |  id: chicken-wraps
+=== LUNCH (24) ===
+
+22. Chicken and yogurt wraps  |  id: chicken-wraps
 PROMPT: One chicken and yogurt wrap cut in half, the two halves leaning together in a V on a round white plate, the cut ends facing outwards and showing browned chicken slices, green lettuce, white yogurt and orange grated cheddar. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-22. Chickpea and houmous wraps  |  id: chickpea-houmous-wraps
+23. Chickpea and houmous wraps  |  id: chickpea-houmous-wraps
 PROMPT: One chickpea and houmous wrap cut in half on the diagonal on a pale wooden board, one half resting across the other, the cut ends showing beige houmous, spice-dusted chickpeas, green lettuce and red tomato slices inside a soft pale wrap. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-23. Tuna and sweetcorn pasta salad  |  id: tuna-sweetcorn-pasta-salad
+24. Tuna and sweetcorn pasta salad  |  id: tuna-sweetcorn-pasta-salad
 PROMPT: Tuna and sweetcorn pasta salad heaped in a shallow round white bowl: pasta shapes coated in creamy mayonnaise, with flakes of pale pink tuna, yellow sweetcorn kernels, thin rings of green spring onion and flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-24. BBQ chicken and pepper wraps  |  id: chicken-caesar-wraps
+25. BBQ chicken and pepper wraps  |  id: chicken-caesar-wraps
 PROMPT: One barbecue chicken and red pepper wrap cut in half and laid head to tail on a pale grey round plate, the cut ends showing glossy dark-glazed chicken strips, red pepper strips, green lettuce and orange grated cheddar inside a soft pale wrap. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-25. Mushroom and mozzarella wrap pizzas  |  id: mushroom-wrap-pizzas
+26. Mushroom and mozzarella wrap pizzas  |  id: mushroom-wrap-pizzas
 PROMPT: One round wrap pizza on a pale wooden board, spread with red passata and topped with sliced brown mushrooms and torn white mozzarella melted into creamy white patches, with crisp edges and a sprinkle of dried oregano. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-26. Mexican bean and rice bowl  |  id: mexican-bean-rice-bowl
+27. Mexican bean and rice bowl  |  id: mexican-bean-rice-bowl
 PROMPT: Mexican bean and rice bowl in a wide white round bowl, filled in sections: white rice, dark kidney beans with yellow sweetcorn, shredded green lettuce, a patch of red salsa, and orange grated cheddar scattered over the top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-27. Smoked salmon and soft cheese wraps  |  id: smoked-salmon-soft-cheese-wraps
+28. Smoked salmon and soft cheese wraps  |  id: smoked-salmon-soft-cheese-wraps
 PROMPT: One smoked salmon and soft cheese wrap cut in half and set side by side on a white square plate, the cut ends showing white soft cheese, pink smoked salmon, green cucumber slices and a few salad leaves inside a soft pale wrap. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-28. Egg mayonnaise wraps  |  id: egg-mayonnaise-wraps
+29. Egg mayonnaise wraps  |  id: egg-mayonnaise-wraps
 PROMPT: One egg mayonnaise wrap cut into two halves, one half overlapping the other in a short diagonal row on a pale wooden board, the cut ends showing a creamy mash of yellow and white egg with green spring onion flecks and salad leaves. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-29. Ham and soft cheese wraps  |  id: ham-soft-cheese-wraps
+30. Ham and soft cheese wraps  |  id: ham-soft-cheese-wraps
 PROMPT: One ham and soft cheese wrap cut in half, the halves set side by side and slightly staggered on a white oval plate, the cut ends showing pink ham, white soft cheese, red tomato slices and green salad leaves. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-30. Chickpea, cucumber and tomato salad  |  id: chickpea-tomato-salad
+31. Chickpea, cucumber and tomato salad  |  id: chickpea-tomato-salad
 PROMPT: Chickpea, cucumber and tomato salad in a shallow white bowl: pale golden chickpeas mixed with pieces of green-edged cucumber, red tomato and thin purple red onion, glistening with a thin olive oil dressing. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-31. Pesto pasta salad with mozzarella  |  id: pesto-pasta-mozzarella-salad
+32. Pesto pasta salad with mozzarella  |  id: pesto-pasta-mozzarella-salad
 PROMPT: Pesto pasta salad in a wide white pasta bowl: pasta shapes coated in green pesto, halved red cherry tomatoes and torn pieces of white mozzarella scattered over, with a few green salad leaves tucked on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-32. Sweet chilli chicken noodle salad  |  id: sweet-chilli-chicken-noodle-salad
+33. Sweet chilli chicken noodle salad  |  id: sweet-chilli-chicken-noodle-salad
 PROMPT: Sweet chilli chicken noodle salad in a wide shallow white bowl: pale noodles tossed with orange grated carrot and cucumber sticks in a glossy red-orange glaze, topped with browned chicken slices fanned across one side and rings of green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-33. Sweet chilli chickpea rice bowl  |  id: chickpea-rice-bowl
+34. Sweet chilli chickpea rice bowl  |  id: chickpea-rice-bowl
 PROMPT: Sweet chilli chickpea rice bowl in a shallow white bowl: a bed of white rice topped in the centre with a heap of golden chickpeas glazed glossy dark with soy and sweet chilli, ringed by green peas, cucumber slices and spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-34. Sweetcorn and potato soup  |  id: sweetcorn-potato-soup
+35. Sweetcorn and potato soup  |  id: sweetcorn-potato-soup
 PROMPT: Chunky sweetcorn and potato soup in a deep round white bowl: a golden-yellow surface tinted orange by paprika, with whole yellow sweetcorn kernels and small pieces of pale potato showing through, glistening drops of olive oil and black pepper specks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-35. Chicken and sweetcorn soup  |  id: chicken-sweetcorn-soup
+36. Chicken and sweetcorn soup  |  id: chicken-sweetcorn-soup
 PROMPT: Chicken and sweetcorn soup in a shallow white bowl: a pale golden broth holding small pieces of cooked white chicken, yellow sweetcorn kernels and thin ribbons of set egg, topped with rings of green spring onion and flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-36. Bean and tomato soup  |  id: bean-tomato-soup
+37. Bean and tomato soup  |  id: bean-tomato-soup
 PROMPT: Bean and tomato soup in a wide white rimmed soup plate: a smooth, deep red-orange surface with golden beads of olive oil floating in a loose swirl and a scatter of black pepper specks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-37. Tuna and bean salad  |  id: tuna-bean-salad
+38. Tuna and bean salad  |  id: tuna-bean-salad
 PROMPT: Tuna and bean salad heaped in a shallow white bowl: dark red kidney beans mixed with large pale flakes of tuna, thin purple red onion slices and halved cherry tomatoes, all glossy with a thin dressing and flecked with black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-38. New potato, egg and pea salad  |  id: potato-egg-salad
+39. New potato, egg and pea salad  |  id: potato-egg-salad
 PROMPT: A round white plate spread with green salad leaves, topped with halved small new potatoes and green peas coated in a pale creamy mustard dressing, and boiled egg quarters scattered over the top with their set yellow yolks showing. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-39. Cheese and bean quesadillas  |  id: cheese-bean-quesadillas
+40. Cheese and bean quesadillas  |  id: cheese-bean-quesadillas
 PROMPT: A pale wooden board holding one quesadilla cut into wedges, the toasted wrap golden brown with darker spots and the cut edges showing melted yellow cheese, red-brown mashed beans and green spring onion, with a small heap of salad leaves beside it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-40. Curried rice salad with raisins and almonds  |  id: curried-rice-salad
+41. Curried rice salad with raisins and almonds  |  id: curried-rice-salad
 PROMPT: Curried rice salad in a shallow white bowl: separate yellow-tinged rice grains dotted with diced red pepper, thin green spring onion slices and dark raisins, with roughly chopped almonds scattered across the top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-41. Chicken and mushroom noodle soup  |  id: chicken-mushroom-noodle-soup
+42. Chicken and mushroom noodle soup  |  id: chicken-mushroom-noodle-soup
 PROMPT: A wide white soup bowl filled with clear golden-brown broth, its surface covered with tangled noodles, thin strips of cooked chicken and sliced brown mushrooms, finished with a scatter of thin spring onion slices. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
+43. Turkey, cranberry and cheddar wraps  |  id: turkey-cranberry-cheddar-wraps
+PROMPT: Two tortilla wraps each cut in half on the diagonal and leaning together on a pale wooden board, the cut ends showing pale golden turkey strips, a ribbon of deep red cranberry sauce, melted orange cheddar and green lettuce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-=== DINNER (56) ===
+44. Spiced parsnip and apple soup  |  id: spiced-parsnip-apple-soup
+PROMPT: A round white shallow bowl of smooth, pale cream-beige parsnip soup with a swirl of golden oil in the centre and a dusting of dark pepper, with a few thin slices of apple beside it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-42. Chicken, rice and soy bowl  |  id: chicken-rice-bowl
+45. Cranberry, cheddar and ham toasted wraps  |  id: cranberry-cheddar-ham-toasted-wraps
+PROMPT: Two golden-brown toasted filled wraps each cut into wedges and fanned out on a pale wooden board, the cut edges showing melted orange cheddar, pink ham, thin green spring onion rings and a streak of deep red cranberry sauce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+
+
+=== DINNER (61) ===
+
+46. Chicken, rice and soy bowl  |  id: chicken-rice-bowl
 PROMPT: A wide shallow white bowl of white rice covered by browned chicken strips and stir-fried vegetable strips in orange, red and green, all coated in a glossy dark soy glaze, with a crescent of rice showing at the rim. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-43. Chicken curry with rice  |  id: chicken-curry
+47. Chicken curry with rice  |  id: chicken-curry
 PROMPT: A white oval plate holding a creamy orange curry with golden chunks of chicken and soft pieces of onion on one side, and a neat mound of white rice on the other. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-44. Beef chilli and rice  |  id: beef-chilli
+48. Beef chilli and rice  |  id: beef-chilli
 PROMPT: A deep round white bowl filled with thick deep red-brown chilli of crumbled beef mince, dark red kidney beans and soft pieces of onion in tomato sauce, with a half-moon of fluffy white rice tucked against one side of the rim. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-45. Creamy chicken and mushroom pasta  |  id: chicken-mushroom-pasta
+49. Creamy chicken and mushroom pasta  |  id: chicken-mushroom-pasta
 PROMPT: A wide white pasta bowl heaped with pasta shapes in a pale creamy sauce, with bite-sized pieces of golden chicken, sliced brown mushrooms and wilted dark green spinach through it, flecked with black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-46. Salmon and soy noodles  |  id: salmon-noodles
+50. Salmon and soy noodles  |  id: salmon-noodles
 PROMPT: A shallow white bowl of soy-darkened noodles in a loose nest, topped with large flakes of pink-orange salmon with browned edges and a scatter of thin green spring onion slices. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-47. Tuna and tomato pasta  |  id: tuna-pasta
+51. Tuna and tomato pasta  |  id: tuna-pasta
 PROMPT: A round white plate with a wide rim holding pasta shapes in a smooth red tomato sauce speckled with dried herbs, pale flakes of tuna through it and a mound of finely grated yellow cheddar melting in the centre. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-48. Coconut salmon curry with rice  |  id: salmon-coconut-curry
+52. Coconut salmon curry with rice  |  id: salmon-coconut-curry
 PROMPT: A round white plate with a raised rim: white rice on one side, and on the other a creamy pale orange coconut curry sauce holding large chunks of pink salmon and bright green peas. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-49. Satay noodles with egg  |  id: satay-egg-noodles
+53. Satay noodles with egg  |  id: satay-egg-noodles
 PROMPT: A wide white bowl of noodles and stir-fried vegetable strips glossy with a tan-brown peanut sauce, topped with ribbons of rolled pale yellow omelette laid across the surface. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-50. Chickpea and tomato curry  |  id: chickpea-curry
+54. Chickpea and tomato curry  |  id: chickpea-curry
 PROMPT: A wide white pasta bowl with a round dome of white rice in the centre, ringed by thick orange-red tomato and coconut curry full of golden chickpeas, dark green wilted spinach and soft pieces of onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-51. Bean chilli  |  id: bean-chilli
+55. Bean chilli  |  id: bean-chilli
 PROMPT: A wide shallow white bowl divided on the diagonal: white rice on one side and, on the other, a deep red chunky chilli of dark red kidney beans, pale golden chickpeas and soft pieces of onion in thick tomato sauce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-52. Tuna fishcakes with peas  |  id: tuna-fishcakes
+56. Tuna fishcakes with peas  |  id: tuna-fishcakes
 PROMPT: A round white plate with two flat, round, golden-brown fishcakes side by side, crisp on top and flecked with green spring onion, and a small heap of bright green peas on the other side. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-53. Mushroom and bean pasta  |  id: mushroom-bean-pasta
+57. Mushroom and bean pasta  |  id: mushroom-bean-pasta
 PROMPT: A shallow round white bowl of pasta shapes tossed in a rich red tomato sauce, sliced brown mushrooms and dark red kidney beans showing on top among small pieces of onion, speckled with dried herbs. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-54. Chicken thigh, bean and tomato rice  |  id: chicken-bean-rice
+58. Chicken thigh, bean and tomato rice  |  id: chicken-bean-rice
 PROMPT: A wide round white bowl heaped with sticky orange-red tomato and paprika rice, browned pieces of chicken thigh and dark red kidney beans sitting on the surface among soft pieces of onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-55. Chicken jalfrezi with rice  |  id: chicken-jalfrezi
+59. Chicken jalfrezi with rice  |  id: chicken-jalfrezi
 PROMPT: Chicken jalfrezi with rice on a wide white plate: a neat mound of white rice beside a glossy orange-red tomato sauce holding browned chicken chunks, strips of red and yellow pepper and soft pieces of onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-56. Beef keema with peas and rice  |  id: beef-keema-peas
+60. Beef keema with peas and rice  |  id: beef-keema-peas
 PROMPT: Beef keema with peas and rice on a white square plate: a neat dome of white rice in the centre ringed by rich red-brown tomato sauce full of finely crumbled spiced beef mince, bright green peas and small pieces of soft onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-57. Egg and pea curry  |  id: egg-pea-curry
+61. Egg and pea curry  |  id: egg-pea-curry
 PROMPT: Egg and pea curry in a wide shallow white bowl: halved boiled eggs with set yellow yolks lie cut side up in an orange-red tomato sauce dotted with green peas, with a mound of white rice at one side. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-58. Kidney bean curry with rice  |  id: kidney-bean-curry
+62. Kidney bean curry with rice  |  id: kidney-bean-curry
 PROMPT: A wide white soup plate with a bed of white rice covered by glossy dark red kidney beans and soft pieces of onion in a thick, spiced orange-red tomato sauce, a white crescent of rice showing along one edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-59. Chicken chow mein  |  id: chicken-chow-mein
+63. Chicken chow mein  |  id: chicken-chow-mein
 PROMPT: Chicken chow mein in a wide white pasta bowl: a tangled heap of glossy soy-brown noodles mixed with browned chicken strips and colourful strips of stir-fried vegetables, with sliced green spring onion scattered across the top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-60. Sticky soy beef noodles  |  id: sticky-beef-noodles
+64. Sticky soy beef noodles  |  id: sticky-beef-noodles
 PROMPT: Sticky soy beef noodles in a deep white bowl: a loose swirl of glossy dark-brown noodles with a heap of crumbled browned beef mince in the centre, small broccoli florets and red pepper strips around it, and sliced green spring onion on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-61. Sweet chilli chicken stir-fry  |  id: sweet-chilli-chicken
+65. Sweet chilli chicken stir-fry  |  id: sweet-chilli-chicken
 PROMPT: Sweet chilli chicken stir-fry on a round white plate: a neat mound of white rice beside strips of chicken glazed in glossy red-orange sweet chilli sauce, mixed with red pepper strips, broccoli florets and pieces of green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-62. Spiced yogurt chicken with naan  |  id: spiced-chicken-naan
+66. Spiced yogurt chicken with naan  |  id: spiced-chicken-naan
 PROMPT: Spiced yogurt chicken with naan on a large round white platter: golden-orange chicken chunks with browned edges, roasted red and yellow pepper pieces and onion wedges in a single layer, and one soft naan bread with pale blistered spots alongside. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-63. Chicken fajitas with salsa  |  id: chicken-fajitas
+67. Chicken fajitas with salsa  |  id: chicken-fajitas
 PROMPT: Chicken fajitas with salsa on a pale wooden board: two tortilla wraps side by side, each open and filled with browned chicken strips and strips of red and yellow pepper and onion, topped with red tomato salsa and a dollop of white yogurt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-64. Beef burrito bowl  |  id: beef-burrito-bowl
+68. Beef burrito bowl  |  id: beef-burrito-bowl
 PROMPT: Beef burrito bowl in a wide shallow white bowl: a base of white rice with crumbled spiced beef mince heaped in the centre under red tomato salsa, ringed by neat piles of dark red kidney beans, yellow sweetcorn and shredded green lettuce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-65. Chicken shawarma-style wraps  |  id: chicken-shawarma-wraps
+69. Chicken shawarma-style wraps  |  id: chicken-shawarma-wraps
 PROMPT: Chicken shawarma-style wraps on a long white platter: two tortilla wraps rolled and cut in half, lying side by side, their cut ends showing golden-brown sliced chicken, green lettuce, tomato and cucumber slices and white garlic yogurt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-66. Spiced chickpea and potato curry  |  id: chickpea-potato-curry
+70. Spiced chickpea and potato curry  |  id: chickpea-potato-curry
 PROMPT: Chickpea and potato curry in a wide shallow white bowl: pale golden chickpeas and halved new potatoes in a creamy orange coconut and tomato sauce, dark green wilted spinach folded through, with a mound of white rice at one side. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-67. Soy and honey salmon rice bowl  |  id: soy-honey-salmon-bowl
+71. Soy and honey salmon rice bowl  |  id: soy-honey-salmon-bowl
 PROMPT: Soy and honey salmon rice bowl in a shallow white bowl: a salmon fillet with a glossy dark glaze and pink-orange flaking flesh on a bed of white rice, with broccoli florets and thin cucumber slices alongside and sliced spring onion on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-68. Egg fried rice with peas  |  id: egg-fried-rice
+72. Egg fried rice with peas  |  id: egg-fried-rice
 PROMPT: Egg fried rice with peas in a round white bowl: a heaped surface of rice tinted pale brown by soy, mixed with small pieces of yellow scrambled egg and green peas and flecked with sliced green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-69. Vegetable and almond stir-fry with rice  |  id: vegetable-almond-stir-fry
+73. Vegetable and almond stir-fry with rice  |  id: vegetable-almond-stir-fry
 PROMPT: Vegetable and almond stir-fry in a wide white pasta bowl: white rice as a bed, covered on one half by glossy broccoli florets, red pepper strips and orange carrot slices in a red-orange glaze, with chopped golden almonds and sliced spring onion over them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-70. Mexican chicken and bean rice  |  id: mexican-chicken-rice
+74. Mexican chicken and bean rice  |  id: mexican-chicken-rice
 PROMPT: Mexican chicken and bean rice in a shallow round white dish: orange-red tomato-tinted rice with browned chicken chunks, dark red kidney beans, and pieces of onion and red pepper mixed through, filling the dish edge to edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-71. Bean and pepper fajitas  |  id: bean-pepper-fajitas
+75. Bean and pepper fajitas  |  id: bean-pepper-fajitas
 PROMPT: Bean and pepper fajitas on a white rectangular plate: two tortilla wraps side by side, each open and filled with soft strips of red and yellow pepper, onion and dark red kidney beans, topped with red tomato salsa. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-72. Moroccan-style chickpea stew with rice  |  id: moroccan-chickpea-stew
+76. Moroccan-style chickpea stew with rice  |  id: moroccan-chickpea-stew
 PROMPT: Moroccan-style chickpea stew on a wide white plate with a rim: thick red-brown stew heaped in the centre, crowded with pale golden chickpeas, orange carrot pieces and plump dark raisins, with a ring of white rice around it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-73. Egg chow mein with vegetables  |  id: egg-chow-mein
+77. Egg chow mein with vegetables  |  id: egg-chow-mein
 PROMPT: A round white plate piled with egg chow mein: glossy soy-browned noodles tangled with shredded stir-fry vegetables in green, orange and cream strands, with pale yellow pieces of scrambled egg showing across the top and sliced spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-74. Egg and tomato stir-fry with rice  |  id: egg-tomato-stir-fry
+78. Egg and tomato stir-fry with rice  |  id: egg-tomato-stir-fry
 PROMPT: A shallow white bowl with a bed of white rice showing at the edge under soft pale yellow scrambled egg folded through glossy red tomato pieces that have broken down into a thick sauce, scattered with sliced spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-75. Chinese-style chicken curry with rice and peas  |  id: chinese-style-chicken-curry
+79. Chinese-style chicken curry with rice and peas  |  id: chinese-style-chicken-curry
 PROMPT: A wide white plate with a straight band of white rice along one side and, beside it, a thick golden-yellow curry holding bite-sized pieces of chicken, softened onion and bright green peas. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-76. Spiced chicken and rice bowl with yogurt  |  id: spiced-chicken-rice-bowl
+80. Spiced chicken and rice bowl with yogurt  |  id: spiced-chicken-rice-bowl
 PROMPT: A wide round white bowl with white rice in the middle, topped with golden chicken chunks coated in orange-red spices, neat piles of diced cucumber and red tomato to one side, and a dollop of white yogurt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-77. Chickpea and spinach stew with eggs  |  id: chickpea-spinach-egg-stew
+81. Chickpea and spinach stew with eggs  |  id: chickpea-spinach-egg-stew
 PROMPT: A wide white bowl of thick red tomato stew crowded with pale chickpeas and dark green wilted spinach, with two eggs, their whites set and their yolks bright yellow, resting side by side on the surface. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-78. Spaghetti bolognese  |  id: spaghetti-bolognese
+82. Spaghetti bolognese  |  id: spaghetti-bolognese
 PROMPT: A wide round white plate holding a nest of spaghetti topped with a mound of thick red-brown beef and tomato sauce flecked with orange carrot, finely grated cheddar over the centre and a few spaghetti strands curling out at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-79. Cheesy beef pasta bake  |  id: beef-pasta-bake
+83. Cheesy beef pasta bake  |  id: beef-pasta-bake
 PROMPT: A round white plate holding a square serving of cheesy beef pasta bake: pasta shapes in red beef sauce under a golden, bubbling layer of melted mozzarella and creamy cheese sauce with browned patches. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-80. Cottage pie with cheesy mash  |  id: cottage-pie
+84. Cottage pie with cheesy mash  |  id: cottage-pie
 PROMPT: A white square plate holding a serving of cottage pie: a golden-browned mashed potato top with melted cheddar patches, the savoury beef mince filling flecked with green peas and orange carrot showing along one cut edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-81. Chicken, tomato and mozzarella pasta bake  |  id: chicken-mozzarella-pasta-bake
+85. Chicken, tomato and mozzarella pasta bake  |  id: chicken-mozzarella-pasta-bake
 PROMPT: A small white rectangular baking dish of pasta shapes and bite-sized chicken pieces in red tomato sauce with dark green wilted spinach, under a golden bubbling layer of melted mozzarella with a few browned spots. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-82. Salmon with new potatoes and peas  |  id: salmon-new-potatoes-peas
+86. Salmon with new potatoes and peas  |  id: salmon-new-potatoes-peas
 PROMPT: A white oval plate with one baked salmon fillet in pink-orange with paler flaking lines, beside a pile of small pale new potatoes and a heap of bright green peas. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-83. Pesto salmon with crushed potatoes  |  id: pesto-salmon-crushed-potatoes
+87. Pesto salmon with crushed potatoes  |  id: pesto-salmon-crushed-potatoes
 PROMPT: A wide round white plate with one salmon fillet under a spread of green pesto, a few roasted red cherry tomatoes beside it, roughly crushed pale potatoes with a glossy sheen of olive oil, and a few broccoli florets. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-84. Ham, egg and crispy potatoes with peas  |  id: ham-egg-potatoes
+88. Ham, egg and crispy potatoes with peas  |  id: ham-egg-potatoes
 PROMPT: A large white plate with two fried eggs, set whites and golden yolks, folded slices of pink ham, halved crispy golden potatoes and a pile of green peas, with a small dab of yellow mustard at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-85. Chicken thigh and potato traybake  |  id: chicken-thigh-potato-traybake
+89. Chicken thigh and potato traybake  |  id: chicken-thigh-potato-traybake
 PROMPT: A white oval baking dish holding a portion of traybake: two golden-brown roast chicken thighs, halved roast potatoes with browned edges, red onion wedges and red pepper pieces, all dusted orange-red with paprika. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-86. Potato, tomato and mozzarella bake  |  id: potato-tomato-mozzarella-bake
+90. Potato, tomato and mozzarella bake  |  id: potato-tomato-mozzarella-bake
 PROMPT: A small white oval baking dish of halved soft potatoes in a red tomato sauce, covered by melted mozzarella that is golden and bubbling in places, with the red sauce showing between the patches of cheese. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-87. Easy macaroni cheese  |  id: easy-macaroni-cheese
+91. Easy macaroni cheese  |  id: easy-macaroni-cheese
 PROMPT: A small round white baking dish of macaroni cheese, its surface a golden-brown grilled layer of melted cheddar with darker toasted patches and slices of red tomato laid across the top, creamy pasta shapes visible at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-88. Bacon carbonara-style spaghetti  |  id: bacon-carbonara-spaghetti
+92. Bacon carbonara-style spaghetti  |  id: bacon-carbonara-spaghetti
 PROMPT: A shallow round white bowl holding a nest of spaghetti coated in a creamy pale yellow egg and cheese sauce, with golden-brown bacon strips scattered through, grated cheddar on top and flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-89. Beef meatballs with spaghetti  |  id: beef-meatballs-spaghetti
+93. Beef meatballs with spaghetti  |  id: beef-meatballs-spaghetti
 PROMPT: A deep white plate holding a nest of spaghetti topped with several round browned meatballs, all coated in a thick red tomato sauce that pools around the edges, with dried herb flecks showing in the meatballs. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-90. Salmon and pea fish pie  |  id: salmon-fish-pie
+94. Salmon and pea fish pie  |  id: salmon-fish-pie
 PROMPT: A small white square baking dish of salmon fish pie, its top a golden-browned layer of mashed potato with melted cheddar, one corner broken open to show pink salmon chunks and green peas in a creamy sauce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-91. Bean and mushroom cottage pie  |  id: bean-cottage-pie
+95. Bean and mushroom cottage pie  |  id: bean-cottage-pie
 PROMPT: A small round white pie dish of bean and mushroom cottage pie, its golden-brown mashed potato top covering the dish, one corner scooped away to show a rich red filling of kidney beans, peas, mushrooms and diced carrot. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-92. Chicken and chickpea stew  |  id: chicken-chickpea-stew
+96. Chicken and chickpea stew  |  id: chicken-chickpea-stew
 PROMPT: Chicken and chickpea stew in a wide white pasta bowl: browned chicken chunks, round chickpeas and soft onion pieces in an orange-red paprika and tomato sauce, with dark green wilted spinach stirred through the surface. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-93. Bacon and tomato linguine  |  id: bacon-tomato-linguine
+97. Bacon and tomato linguine  |  id: bacon-tomato-linguine
 PROMPT: Bacon and tomato linguine in a wide white pasta bowl: a loose nest of linguine coated in glossy red tomato sauce, golden bacon strips mixed through it and showing at the surface, with a speckling of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-94. Chickpea, potato and pepper traybake  |  id: chickpea-potato-traybake
+98. Chickpea, potato and pepper traybake  |  id: chickpea-potato-traybake
 PROMPT: A roasted traybake on a wide white oval plate: golden halved potatoes, browned chickpeas, red and yellow pepper strips with softened edges, red onion wedges and a few split cherry tomatoes, all coloured orange-red with paprika and cumin. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-95. Minestrone with beans and pasta  |  id: minestrone-beans-pasta
+99. Minestrone with beans and pasta  |  id: minestrone-beans-pasta
 PROMPT: A shallow white bowl of thick minestrone, its round surface an orange-red tomato broth crowded with small pasta shapes, red kidney beans, green peas, diced orange carrot and onion, flecked with dried herbs. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-96. Chicken and pepper kebabs with yogurt dressing  |  id: chicken-pepper-kebabs
+100. Chicken and pepper kebabs with yogurt dressing  |  id: chicken-pepper-kebabs
 PROMPT: One wrap on a pale wooden board, folded round golden grilled chicken chunks, red and yellow pepper pieces and red onion that spill onto the board, finished with a zigzag of thick white yogurt dressing. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-97. Barbecue chicken thigh skewers with corn salad  |  id: bbq-chicken-thigh-skewers
+101. Barbecue chicken thigh skewers with corn salad  |  id: bbq-chicken-thigh-skewers
 PROMPT: Two skewers of dark, sticky, glossy barbecue-glazed chicken thigh chunks beside a mound of corn salad on a wide white oval plate: yellow sweetcorn, halved red cherry tomatoes, diced cucumber and thin green spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+
+102. Roast turkey with parsnips, sprouts and cranberry  |  id: turkey-roast-parsnips-sprouts
+PROMPT: A large white oval plate showing sliced and whole white-golden roast turkey fillets on one side, golden-brown honey-glazed parsnip fingers and crisp roast potatoes in the middle, a heap of bright green halved sprouts on the other side and a small bowl of deep red cranberry sauce at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+
+103. Chipolatas with spiced red cabbage and mash  |  id: chipolatas-red-cabbage-mash
+PROMPT: A wide white round plate with a mound of smooth pale mash on one side, a pile of glossy deep purple-red cabbage and soft apple pieces beside it, and a row of browned golden chipolata sausages laid across the top, with a small spoonful of yellow mustard at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+
+104. Gammon steaks with honey parsnips and apple sauce  |  id: gammon-parsnips-apple-sauce
+PROMPT: A round white plate with two pink-edged gammon steaks with golden-brown seared surfaces, a row of caramelised honey-roast parsnip fingers beside them, a small heap of bright green peas and a small bowl of pale golden apple sauce at the rim. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+
+105. Sprout, chestnut and potato gratin  |  id: sprout-chestnut-potato-gratin
+PROMPT: A rectangular white ovenproof dish seen from above, filled with a bubbling golden-brown cheddar crust, dark green sprout halves and pale brown chestnut pieces showing through at the edges and slices of cream potato layered underneath. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+
+106. Red cabbage, chestnut and cranberry rice  |  id: red-cabbage-chestnut-cranberry-rice
+PROMPT: A wide shallow white bowl of fluffy rice tinted pink-purple by red cabbage ribbons, studded with pale brown chestnut pieces, small chunks of apple and glossy deep red dried cranberries. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
 
 === SNACKS (11) ===
 
-98. Peanut butter oat bites  |  id: peanut-butter-oat-bites
+107. Peanut butter oat bites  |  id: peanut-butter-oat-bites
 PROMPT: Two round, matte, golden-tan balls of peanut butter and oats, flecked with oat flakes and dark raisins, sitting side by side on a small plain white round plate. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-99. Houmous with vegetable sticks  |  id: houmous-veg-sticks
+108. Houmous with vegetable sticks  |  id: houmous-veg-sticks
 PROMPT: A pale wooden board with a small white bowl of smooth beige houmous at one end and, laid in neat parallel rows beside it, orange carrot sticks, pale green cucumber sticks and red pepper sticks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-100. Honey and almond yogurt pots  |  id: honey-almond-yogurt-pots
+109. Honey and almond yogurt pots  |  id: honey-almond-yogurt-pots
 PROMPT: A small round white ramekin of thick, creamy white yogurt, a ring of roughly chopped almonds around the edge and a spiral of glossy amber honey winding in from the centre. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-101. Frozen yogurt and berry bark  |  id: frozen-yogurt-berry-bark
+110. Frozen yogurt and berry bark  |  id: frozen-yogurt-berry-bark
 PROMPT: Four jagged shards of frozen yogurt bark, creamy off-white with a frosted surface, studded with red, purple and deep blue berries pressed into the top, overlapping loosely on a pale grey round plate. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-102. Ham and soft cheese roll-ups  |  id: ham-soft-cheese-roll-ups
+111. Ham and soft cheese roll-ups  |  id: ham-soft-cheese-roll-ups
 PROMPT: Four tight rolls of pink ham lying side by side on a small white round plate, each rolled end showing a white spiral of soft cheese around a pale green cucumber core. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-103. Devilled eggs  |  id: devilled-eggs
+112. Devilled eggs  |  id: devilled-eggs
 PROMPT: Four boiled egg halves in a tidy row on a white oval plate, each white hollow piled with a creamy pale yellow filling and dusted with orange-red paprika. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-104. Tuna and chickpea dip  |  id: tuna-chickpea-dip
+113. Tuna and chickpea dip  |  id: tuna-chickpea-dip
 PROMPT: A round white platter with a shallow white bowl of speckled beige dip showing pale tuna flakes and thin green spring onion rings, and three fanned bundles of orange carrot, pale green cucumber and red pepper sticks at one side. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-105. Smoked salmon cucumber bites  |  id: smoked-salmon-cucumber-bites
+114. Smoked salmon cucumber bites  |  id: smoked-salmon-cucumber-bites
 PROMPT: Six thick cucumber rounds with green skin edges arranged in a ring on a round white plate, each spread with white soft cheese, topped with a folded pink-orange ribbon of smoked salmon and cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-106. Crispy spiced chickpeas  |  id: crispy-spiced-chickpeas
+115. Crispy spiced chickpeas  |  id: crispy-spiced-chickpeas
 PROMPT: A small shallow white bowl heaped with roasted chickpeas, golden-brown and rough-skinned, coated in orange-red paprika and cumin with a faint gloss of oil and a few white salt flecks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-107. Paprika roasted almonds  |  id: paprika-roasted-almonds
+116. Paprika roasted almonds  |  id: paprika-roasted-almonds
 PROMPT: A small white square dish with whole roasted almonds spread in a loose single layer, deep golden-brown and coated in orange-red paprika, with a slight oily sheen and a few white salt flecks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 
-108. Cheese and salsa quesadilla wedges  |  id: cheese-bean-quesadilla-wedges
+117. Cheese and salsa quesadilla wedges  |  id: cheese-bean-quesadilla-wedges
 PROMPT: Three triangular wedges of toasted folded wrap fanned on a white round plate, golden-brown with darker toasted spots, the cut sides showing melted orange cheddar, red salsa and green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
