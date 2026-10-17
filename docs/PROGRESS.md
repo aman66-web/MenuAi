@@ -2063,6 +2063,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Checked:** recipeBook (every recipe x all rules), recipeServings (Serves 1 to 12, fitted and as written), recipeNiche (Christmas offered 1 Nov and 4 Jan, gone 10 Jan; the
     "occasion needs a meat-free recipe" rule), recipeImages, i18n, recipes, listRecipes, recipeRules, tsc, eslint. **Not run:** browser tests and a production build of the staged copy.
 
+- 2026-10-17 — **Community database applied, and `main` deployed.** (1) The founder had Claude in Chrome run `supabase/migrations/20261016120000_community.sql` in the Supabase SQL Editor
+  (project `menumacros`, "Success. No rows returned"): the six `community_*` tables (profiles, friendships, blocks, reports, lists, attempts) and the view `open_community_reports` exist, RLS on
+  with no policies. `supabase/tests/community.sql` was then run (Supabase warned "destructive" because the script deletes its own throwaway test accounts; it begins with `begin;` and ends with
+  `rollback;`) and printed **ALL COMMUNITY CHECKS PASSED**. (2) `main` was fast-forwarded to `claude/menumacros-kit` (`ce908da`, 22 commits) and Vercel deployed it. Checked on https://numbite.com:
+  the welcome screen has "Get started" and no language screen, `/app`, `/app/community`, `/app/community/friends`, `/f`, `/l` answer 200, `/api/v1/community/me` and `/inbox` answer 401 (signed-out, as designed),
+  `/api/health` 200, the site-association file and `/logos/hidden.json` 200. **Not yet done:** the Vercel environment check (needs the founder signed in to Vercel in Chrome), a real two-account Community
+  test, and a rebuild of the iPhone app (the packed copy still has the old code).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
