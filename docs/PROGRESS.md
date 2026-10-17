@@ -2028,7 +2028,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     raw-meat hand-washing in the right place, taking a hot tin out with gloves, and spraying oil off the heat. The 253 minor findings were not acted on.
   - **Servings:** a method still scales its water (one "N ml" a step) with Serves; a new grey line under the steps says "Times are for the number of servings the recipe is written for. For more people, cook a little longer or in batches." when Serves differs from the written number.
   - **`minutes` changed** where the steps clearly take longer than the old figure: shakshuka 25 to 35, mushroom and bean pasta 25 to 40, bean and mushroom cottage pie 55 to 75, the two barbecue skewer recipes 40 to 55, devilled eggs 20 to 30 (so it is no longer tagged Quick), egg mayonnaise wraps 15 to 25 (so it is no longer Quick), and the beef pasta bake 50 to 60.
-    **Left as they were though the writers said they take longer** (for you to decide): bacon and egg wraps (about 20, kept 15 and tagged Quick), spanish omelette (about 30, kept 25), peanut banana porridge (about 12, kept 10).
+    **Later the same day (founder: "yes please change them"):** bacon and egg wraps 15 to 20 (still tagged Quick, which is 20 minutes or less), spanish omelette 25 to 30, peanut banana porridge 10 to 15.
   - **New test gates** (`tests/recipeBook.test.ts`, `methodProblems`): steps and words per meal, capital letter and full stop, no stray spaces, no jargon, no people counts, one ml amount, oven settings.
   - **Not translated** (English only since today); `recipeServings.test.ts`'s "works in every language" check is skipped while `LANGUAGES_ENABLED` is false and must be translated again if languages come back.
   - Checked: recipeBook (all 108), recipeServings (Serves 1 to 12 for every recipe), recipes, recipeNiche, recipeImages, i18n.
@@ -2039,6 +2039,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     **Never a `#` part** (a shared list or a friend's code lives there), never the welcome or offline pages, and anything hand-edited into storage is dropped when read.
   - **Not remembered:** the scroll position and a page's filters, search words or "show more" limits that are not in its address (Search and My meals' tabs already restore theirs); a page restores what its address holds.
   - **No new copy.** Checked: tabMemory unit tests, `e2e/tabs.mjs` 3 steps (tab opens the page last seen, the open tab goes to its first page, survives a reload, no fragment stored, hand-edited storage ignored).
+
+- 2026-10-17 — **Founder's answers, and prompts for Claude in Chrome.** (1) The three cooking times were changed (above). (2) **Midjourney by Claude in Chrome: yes**, the founder's call after being told Midjourney's guidelines prohibit automated use and can block the account (their account, their risk);
+  the paste-ready prompt is `docs/MIDJOURNEY_CHROME_PROMPT.md` (108 recipes, one look, stops on any CAPTCHA or warning). (3) **Burger Boi stays** (founder, accepted risk; its terms s.5.3 forbid scraping). (4) **Christmas recipes may use festive ingredients** in principle; Claude was asked to explain first what "festive ingredients" means
+  before any recipe is written (nothing built yet). (5) `docs/CHROME_PROMPT_LAUNCH.md`: a paste-ready prompt that applies the Community migration in Supabase (then runs the check script) and does a read-only look at Vercel (variable names only, never values). It does not merge or deploy. The founder asked Claude to do as much as it can.
 
 ## Known issues
 

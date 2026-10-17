@@ -16,7 +16,7 @@ export const BREAKFAST: readonly Recipe[] = [
     ],
   },
   {
-    id: "peanut-banana-porridge", meal: "breakfast", tags: ["Porridge", "Vegan"], name: "Peanut butter and banana porridge", blurb: "Oats cooked in oat drink with a swirl of peanut butter and sliced banana.", servings: 2, minutes: 10,
+    id: "peanut-banana-porridge", meal: "breakfast", tags: ["Porridge", "Vegan"], name: "Peanut butter and banana porridge", blurb: "Oats cooked in oat drink with a swirl of peanut butter and sliced banana.", servings: 2, minutes: 15,
     ingredients: [ing("oats", 100), ing("oat-drink", 400, { follows: "oats" }), ing("peanut-butter", 30), ing("banana", 120, { note: "about 1 banana" }), ing("cinnamon", 1)],
     method: [
       "Peel the banana and cut it into thin round slices, about as thick as a pound coin. Put the slices on a plate and leave them to one side.",
@@ -43,7 +43,7 @@ export const BREAKFAST: readonly Recipe[] = [
     ],
   },
   {
-    id: "spanish-omelette", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Spanish-style omelette with potatoes and peas", blurb: "A thick, golden omelette to cut into wedges.", servings: 3, minutes: 25,
+    id: "spanish-omelette", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Spanish-style omelette with potatoes and peas", blurb: "A thick, golden omelette to cut into wedges.", servings: 3, minutes: 30,
     // the potatoes follow the eggs so the omelette keeps its proportions, and one frying pan holds at most half as many eggs again
     ingredients: [ing("eggs", 360, { note: "about 6 eggs", fit: [0.5, 1.5] }), ing("new-potatoes", 300, { follows: "eggs" }), ing("peas", 120), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("salt", 1), ing("black-pepper", 1)],
     method: [
@@ -76,7 +76,7 @@ export const BREAKFAST: readonly Recipe[] = [
     ],
   },
   {
-    id: "bacon-egg-wraps", meal: "breakfast", tags: ["Eggs", "Quick"], name: "Bacon and egg breakfast wraps", blurb: "Grilled bacon and scrambled egg in a warm wrap.", servings: 2, minutes: 15,
+    id: "bacon-egg-wraps", meal: "breakfast", tags: ["Eggs", "Quick"], name: "Bacon and egg breakfast wraps", blurb: "Grilled bacon and scrambled egg in a warm wrap.", servings: 2, minutes: 20,
     ingredients: [ing("bacon", 120), ing("eggs", 240, { note: "about 4 eggs" }), ing("wraps", 120), ing("tomatoes", 80), ing("spinach", 30), ing("black-pepper", 1)],
     method: [
       "Turn the grill on to a medium-high heat and leave it to warm up while you get everything else ready.",
