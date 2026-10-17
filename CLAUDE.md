@@ -75,7 +75,15 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    the device (except what the user chooses to send through the API: reports, chain requests, support messages). If the person signs in (Apple,
    Google or an email code) we keep their email address, a user ID and only the stores they sync (`user_data`: settings, diet and allergies, saved
    meals and recipes, shopping list, favourites, comparison list, today's log); never recently viewed dishes, reminders (medication or otherwise), location or the offline cache. Sign-in
-   is never required for a feature, Sign in with Apple is always offered next to Google, and "Delete my account" stays inside the app. **Never put a
+   is never required for a feature **except Community's friends** (founder 2026-10-16, "add a friend ... send them shopping lists"; the food blogs and everything else stay
+   account-free): adding friends and sending a friend a shopping list need an account, so there is something to send to. For a signed-in person who uses it, Community keeps, in its own
+   `community_*` tables (never in `user_data`, never in `SYNC_STORES`; docs/BACKEND.md "Community"): a username (chosen once; shown, instead of an email address, to friends and to anyone who enters the person's friend code), a friend code,
+   friendships and blocks, the shopping lists sent between friends (references to products and typed words, never prices; deleted after 30 days), a short tally per account of friend codes tried, lists
+   sent and reports made (no content; deleted after 2 days), a declined friend request (30 days) and reports (both usernames, a reason from a fixed list, an optional note of at most 500 characters and,
+   for a reported list, the list and its typed words; the founder reads them in Supabase; **a report is kept, with the account's ID emptied, if either account is deleted, and a closed one is deleted a year after it was made**).
+   **Another person's email address or user ID is never
+   shown or sent to anyone**; people are found only by a friend code or invite link (no search by name or email, no contact upload), and there is no chat, no posts and no push. The phone keeps only a
+   copy of the last friend list and inbox for offline display, cleared by signing out, deleting the account and "Clear data". Sign in with Apple is always offered next to Google, and "Delete my account" stays inside the app (it removes the Community rows too, except reports as above). **Never put a
    Supabase key in the app or the browser**; the app and the website only call the Vercel API (`AppConfig.apiBaseURL`), which holds the server-only
    key. Never run `supabase db push` or change production data without the founder's go-ahead; schema changes are new migration files. Location is
    used on device only, reminders ring as local notifications (no push server), Health is write-only and never used for anything else.

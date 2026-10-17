@@ -45,10 +45,25 @@ export default function Terms() {
 
       <Section title="Accounts (optional)">
         <p className={para}>
-          You can use {site.name} without an account. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.
+          You can use {site.name} without an account; only friends (the Community tab) need one. If you sign in (with Apple, Google or an email code) your settings and saved items sync across your devices.
           Keep your sign-in secure and tell us if you think someone else has used it. You can delete your account at any time in Settings › Account; that
           deletes the account and everything synced for it. We may close an account that is used to misuse the service. What we keep, and for how long, is
           in the <a className={LINK} href="/privacy">privacy policy</a>.
+        </p>
+      </Section>
+
+      <Section title="Community">
+        <p className={para}>
+          Adding friends and sending them shopping lists (the Community tab) needs an account. Choose a username you are happy for your friends to see: it is chosen once and shown to
+          your friends and to anyone who enters your friend code or whose friend request you have received, and we never show your email address. We do not tolerate offensive or abusive
+          content, and we remove it and the accounts behind it. Be kind. Don&apos;t use a username or a shopping list to insult, harass or threaten anyone, to pretend to be
+          someone else (or us), to send spam or advertising, or to share anything unlawful or offensive. Only add and send to people who are happy to hear from you; share your friend code only
+          with people you choose.
+        </p>
+        <p className={para}>
+          You can report a username or a shopping list, and block anyone, in the app: report and block are in Community › Friends, and on every list in Shared with you. We read reports and may
+          remove a username or list, refuse a friend request or close an account that breaks these rules, without warning. Lists are kept for 30 days and can be deleted by the person who
+          receives them, so we cannot promise a list arrives or stays. See the <a className={LINK} href="/privacy">privacy policy</a> for what Community keeps.
         </p>
       </Section>
 

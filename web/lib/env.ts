@@ -13,6 +13,10 @@ const schema = z.object({
   APPLE_KEY_ID: z.string().optional(),
   APPLE_PRIVATE_KEY: z.string().optional(),
   APPLE_CLIENT_ID: z.string().optional(),
+  // Optional daily email when a Community report is open (lib/reportAlert.ts): all three together, or nothing is sent. Checked when used, not here, so an empty value can't stop the server.
+  RESEND_API_KEY: z.string().optional(),
+  REPORT_ALERT_TO: z.string().optional(),
+  REPORT_ALERT_FROM: z.string().optional(),
 });
 
 let cached: z.infer<typeof schema> | null = null;

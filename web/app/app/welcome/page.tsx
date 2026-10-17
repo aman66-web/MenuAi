@@ -27,6 +27,7 @@ import { RETAILERS } from "@/lib/mm/groceries";
 import { site } from "@/site.config";
 import { Pip, PipSays, type PipMood } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
+import { FRIENDS_APP_PATH } from "@/lib/community/friendCode";
 import { SHARED_APP_PATH } from "@/lib/mm/shareList";
 import { ActivityStep, AboutYouStep, YourSizeStep } from "./BodySteps";
 import { CAPS, CARD, HEADLINE, PlateArt } from "./parts";
@@ -179,8 +180,9 @@ export default function WelcomePage() {
 
   const next = () => {
     if (step === 0 && intro < INTRO_SCREENS) setIntro((i) => i + 1);
-    // Someone who came to read a shopping list a friend sent goes straight to it after "You're all set!" (no recipe to choose first)
-    else if (step === ALL_SET && (new URLSearchParams(window.location.search).get("next") ?? "").startsWith(SHARED_APP_PATH)) finish();
+    // Someone who came to read a shopping list a friend sent, or to add a friend from an invite link, goes straight there after "You're all set!" (no recipe to choose
+    // first: a recipe card would open the recipe and lose the list or the friend's code)
+    else if (step === ALL_SET && [SHARED_APP_PATH, FRIENDS_APP_PATH].some((p) => (new URLSearchParams(window.location.search).get("next") ?? "").startsWith(p))) finish();
     else setStep((s) => s + 1);
     window.scrollTo({ top: 0 });
   };

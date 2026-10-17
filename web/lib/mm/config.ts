@@ -20,6 +20,14 @@ export const PRO_ENABLED = process.env.NEXT_PUBLIC_PRO === "1";
  *  can't switch it on by accident. Its code stays for later. */
 export const AI_RECIPES_ENABLED = false;
 
+/**
+ * Friends and shopping lists sent to a friend (Community, founder 2026-10-16). On unless NEXT_PUBLIC_COMMUNITY_FRIENDS=0: the switch is for shipping the app
+ * BEFORE the database tables exist (supabase/migrations/20261016120000_community.sql is applied by the founder, never by us). While it is off the hub's
+ * Friends and Shared with you cards, the Send to a friend button and the tab bar's badge are hidden and nothing asks the server about Community. The food
+ * blogs never depend on it.
+ */
+export const COMMUNITY_FRIENDS_ENABLED = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
+
 /** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
 export const PAYMENTS_ENABLED = false;
 

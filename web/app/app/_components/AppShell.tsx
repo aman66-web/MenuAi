@@ -17,6 +17,7 @@ import { bootAccount } from "../_lib/account";
 import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
 import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
+import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 
 // Five tabs, one job each (founder 2026-10-10): Home is today (your numbers and your own lists), then the three things the app does —
@@ -139,7 +140,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <Link
                       href={href}
                       aria-current={active ? "page" : undefined}
-                      className={`group flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[13px] font-semibold leading-[1.1] transition-colors focus-visible:outline-[#d6efa0] ${active ? "text-[#d6efa0]" : "text-[#c2c9c4] hover:text-white"}`}
+                      className={`group relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[13px] font-semibold leading-[1.1] transition-colors focus-visible:outline-[#d6efa0] ${active ? "text-[#d6efa0]" : "text-[#c2c9c4] hover:text-white"}`}
                     >
                       <span
                         aria-hidden
@@ -148,6 +149,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                         <Icon className="h-5 w-5" />
                       </span>
                       <TabLabel text={t(label)} />
+                      {href === "/app/community" && <CommunityBadge />}
                     </Link>
                   </li>
                 );

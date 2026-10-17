@@ -4,6 +4,8 @@ import { serverEnv } from "../env";
 import { ipHash } from "../http";
 import { site } from "../../site.config";
 import { supabaseUserData } from "../store-supabase";
+import { supabaseCommunity } from "../store-supabase-community";
+import type { CommunityCtx } from "../community/handlers";
 import type { SyncCtx } from "../sync/handlers";
 import type { AuthCtx, HttpResult } from "./handlers";
 import { appleConfigFromEnv } from "./apple";
@@ -49,6 +51,11 @@ export function authContext(request: Request): AuthCtx {
 export function syncContext(request: Request): SyncCtx {
   authContext(request); // same environment checks
   return { data: supabaseUserData, limit, now: () => Date.now() };
+}
+
+export function communityContext(request: Request): CommunityCtx {
+  authContext(request); // same environment checks
+  return { store: supabaseCommunity, limit, now: () => Date.now() };
 }
 
 export function toResponse(result: HttpResult, origin: string): Response {

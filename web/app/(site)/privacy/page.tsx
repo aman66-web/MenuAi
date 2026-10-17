@@ -45,8 +45,9 @@ export default function Privacy() {
 
       <p className={`${FILL} mt-8 rounded-[1.25rem] p-[20px] text-base leading-[1.65] sm:p-6 sm:text-[1.0625rem]`}>
         {site.name} is built to know as little about you as possible. You don&apos;t need an account: everything works without one, and then
-        nothing you set up leaves your device. If you choose to sign in, to keep your data on all your devices, the section &ldquo;Signing in and
-        syncing (optional)&rdquo; below says exactly what we then keep. This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
+        nothing you set up leaves your device. The one exception is adding friends and sending them shopping lists (Community), which needs an account so
+        there is someone to send to. If you choose to sign in, to keep your data on all your devices or to use Community, the sections &ldquo;Signing in and
+        syncing (optional)&rdquo; and &ldquo;Community (needs an account)&rdquo; below say exactly what we then keep. This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
         is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone.
       </p>
 
@@ -69,7 +70,7 @@ export default function Privacy() {
 
       <Section title="Signing in and syncing (optional)">
         <p className={para}>
-          Signing in is your choice and nothing in {site.name} needs it. You can sign in with Apple, with Google, or with a 6-digit code we email you
+          Signing in is your choice, and nothing in {site.name} needs it except adding friends and sending them shopping lists (see &ldquo;Community (needs an account)&rdquo; below). You can sign in with Apple, with Google, or with a 6-digit code we email you
           (no password). Signing in turns on sync, so your data follows you to your other devices.
         </p>
         <Rows>
@@ -107,6 +108,49 @@ export default function Privacy() {
         </Rows>
       </Section>
 
+      <Section title="Community (needs an account)">
+        <p className={para}>
+          Community is the Community tab. The food articles in it need no account. <strong>Friends</strong> and <strong>Shared with you</strong> do: you add a friend with their friend
+          code or invite link, and you can then send them your shopping list. Nobody can search for you, there is no chat, no posts, no comments and no push notifications, and
+          we do not read your contacts.
+        </p>
+        <Rows>
+          <li className={row}>
+            <strong>What we keep, if you use it:</strong> a username that you choose once (it cannot be changed), a friend code made for you, your friends and the requests you have sent or
+            received, the people you have blocked, the shopping lists you send or receive, and any report you make. This is in tables separate from the data that syncs; it is kept in our
+            database at Supabase (hosted in the United States) and only our service can read or write it.
+          </li>
+          <li className={row}>
+            <strong>What other people see:</strong> only your username. Never your email address, your account ID or your friend code (other than the code you choose to share). Your friends
+            see the username next to a shopping list you send. Anyone who enters your friend code, and anyone whose friend request you have received, also sees your username.
+          </li>
+          <li className={row}>
+            <strong>Shopping lists you send:</strong> the list is the products on it (a reference to each, such as a supermarket&apos;s own product number, and how many) and any words you typed
+            in, never prices or other numbers. The list is checked, and words that are strongly offensive are refused. The friend can open it, add it to their own list, delete it, or report it.
+            A list is deleted after 30 days, or sooner when the friend you sent it to deletes it, or when either of you deletes an account or blocks the other. You cannot take a list back once it is sent.
+          </li>
+          <li className={row}>
+            <strong>Limits and abuse:</strong> to stop spam and guessing of friend codes we count, for each account, the friend codes tried, the lists sent and the reports made (no names and no content),
+            and delete those counts after 2 days. A friend request that is turned down is kept for 30 days, without anyone being shown it, so the same person cannot ask again at once.
+          </li>
+          <li className={row}>
+            <strong>Reporting and blocking:</strong> you can report a username or a list, and block anyone, from the app (Community › Friends, or open a list in Shared with you). A report goes to us:
+            it holds your username, the other person&apos;s username, the reason you pick, your note if you add one (500 characters at most) and, for a list, the list itself (its products and the words
+            typed into it). Only we read reports. We keep a report while we deal with it, and delete one that is closed a year after it was made. A report is kept even if either of you deletes your account (the
+            account&apos;s ID is taken out of it; the usernames, reason, note and words stay), so deleting an account does not wipe a report about it. The person you report or block is never told. We may remove an
+            account that breaks the rules in the Terms, and stop the same sign-in from making another one.
+          </li>
+          <li className={row}>
+            <strong>On your phone:</strong> the app keeps a copy of your last friend list and of the lists you received, so you can see them without a connection. It is never synced, is not
+            shared with anyone, and is removed when you sign out, delete your account or use &ldquo;Clear data on this device&rdquo;.
+          </li>
+          <li className={row}>
+            <strong>Delete my account</strong> (Settings › Account) deletes your username, friend code, friendships, blocks and the lists you sent and received, along with the rest of your account,
+            straight away. Reports are the one exception, as described above.
+          </li>
+        </Rows>
+      </Section>
+
       <Section title="Location">
         <p className={para}>
           The Near me map (in Eat out) can use your location, but only when you tap &ldquo;Use my location&rdquo; and allow it (in the
@@ -134,12 +178,12 @@ export default function Privacy() {
           which pictures your device asks for (we ask it not to say which page you are on); or, only for a product no supermarket&apos;s website has a photo
           of, the Open Food Facts photo of that exact barcode, loaded from Open Food Facts&apos; servers, which can see the same. If a picture fails to load we try the
           next place, and show no picture if none loads.
-          Your shopping list stays on your device. If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
+          Your shopping list stays on your device, unless you sign in to sync it or send it to a friend (see &ldquo;Community (needs an account)&rdquo; above). If you scan a barcode, the camera picture is read on your device and is never sent anywhere.
         </p>
         <p className={para}>
-          If you share your shopping list, the app makes a link and hands it to whatever you choose to send it with (Messages, WhatsApp, email). The list is inside the link,
+          If you share your shopping list as a link, the app makes a link and hands it to whatever you choose to send it with (Messages, WhatsApp, email). The list is inside the link,
           after the &ldquo;#&rdquo;: the products (each shop&apos;s own product number, or the barcode) and how many, plus the words of anything you typed in. It holds no name, no
-          account and no prices. That part of a link is not sent to any server, so we never receive or store your list; anyone who has the link can open it, so share it
+          account and no prices. That part of a link is not sent to any server, so we never receive or store a list shared this way; anyone who has the link can open it, so share it
           with people you trust. When someone opens the link, their own phone reads the list from the link and looks up the products in the shops&apos; lists
           on our site and in the app.
         </p>
@@ -147,7 +191,7 @@ export default function Privacy() {
 
       <Section title={AI_RECIPES_ENABLED ? <>Recipes and Pip&apos;s recipe maker</> : "Recipes"}>
         <p className={para}>
-          Recipes are worked out on your device from the supermarket&apos;s product list; your meal size, diet choices, saved recipes and the store-cupboard items you mark as already having stay on your device.
+          Recipes are worked out on your device from the supermarket&apos;s product list; your meal size, diet choices, saved recipes, the store-cupboard items you mark as already having stay on your device.
         </p>
         {AI_RECIPES_ENABLED && (
         <p className={para}>
@@ -243,7 +287,7 @@ export default function Privacy() {
         <p className={para}>
           Reports, requests and support messages are kept while they help us maintain accurate menus and support you.
           Waitlist emails are used only to send you one email when what you signed up for is ready (the iPhone app
-          launch{PRO_ENABLED ? ", or Pro in the web app" : ""}), and are deleted after that (or sooner if you ask). Your account and its synced data are kept until you delete your account. You can ask us to delete anything you&apos;ve sent at any time.
+          launch{PRO_ENABLED ? ", or Pro in the web app" : ""}), and are deleted after that (or sooner if you ask). Your account and its synced data are kept until you delete your account. Community data is kept until you delete it or your account; shopping lists sent to a friend are deleted after 30 days, and reports are kept as described under Community. You can ask us to delete anything you&apos;ve sent at any time.
         </p>
       </Section>
 

@@ -12,6 +12,10 @@ import { MEAL_TYPES } from "../lib/mm/recipes";
 // then translate the new keys into each language file.
 
 const KEYS_FILE = "lib/mm/locales/keys.json";
+// Text we have chosen NOT to translate (founder 2026-10-16: "I don't need you to translate the community ... it's just wasted credits"). It shows in English in
+// every language (t() falls back to English). A key goes in this list only on the founder's say-so; one that is no longer used must be taken out.
+const ENGLISH_ONLY_FILE = "lib/mm/locales/english-only.json";
+const englishOnly = (): string[] => (existsSync(ENGLISH_ONLY_FILE) ? (JSON.parse(readFileSync(ENGLISH_ONLY_FILE, "utf8")) as { keys: string[] }).keys : []);
 const CALL = /\bt[k]?\(\s*"((?:[^"\\]|\\.)*)"/g;
 
 function files(dir: string, out: string[] = []): string[] {
@@ -71,13 +75,22 @@ describe("translations", () => {
     expect(saved, "run WRITE_I18N=1 npx vitest run tests/i18n.test.ts").toEqual(keys);
   });
 
+  it("the English-only list names only keys that are still used", () => {
+    const keys = new Set(JSON.parse(readFileSync(KEYS_FILE, "utf8")) as string[]);
+    const list = englishOnly();
+    expect(list.filter((k) => !keys.has(k)), "English-only keys no longer used").toEqual([]);
+    expect(new Set(list).size, "a key listed twice").toBe(list.length);
+  });
+
   for (const l of LOCALES.filter((x) => x.code !== "en")) {
     it(`${l.english} (${l.code}) translates every key, keeps every {placeholder}, and has nothing extra`, () => {
-      const keys = JSON.parse(readFileSync(KEYS_FILE, "utf8")) as string[];
+      const all = JSON.parse(readFileSync(KEYS_FILE, "utf8")) as string[];
+      const skip = new Set(englishOnly());
+      const keys = all.filter((k) => !skip.has(k));
       const dict = JSON.parse(readFileSync(`lib/mm/locales/${l.code}.json`, "utf8")) as Record<string, string>;
       const missing = keys.filter((k) => typeof dict[k] !== "string" || dict[k]!.trim() === "");
       expect(missing.length, `missing ${missing.length}, e.g. ${JSON.stringify(missing.slice(0, 3))}`).toBe(0);
-      const extra = Object.keys(dict).filter((k) => !keys.includes(k));
+      const extra = Object.keys(dict).filter((k) => !all.includes(k));
       expect(extra, "keys no longer used").toEqual([]);
       for (const k of keys) expect(placeholders(dict[k]!), `${l.code}: "${k}"`).toEqual(placeholders(k));
     });

@@ -48,8 +48,14 @@ const NOT_TEXT = /[\u0000-\u001f\u007f-\u009f\u200b\u200e\u200f\u202a-\u202e\u20
 /** A typed-in item's words as they will be shown: tidied, short, and with something readable in them; else null. */
 export function cleanTyped(text: unknown): string | null {
   if (typeof text !== "string") return null;
-  const name = text.replace(NOT_TEXT, " ").replace(/\s+/g, " ").trim().slice(0, MAX_CUSTOM_NAME).trim();
+  // cut at MAX_CUSTOM_NAME, then drop half an emoji if the cut fell inside one (Postgres refuses text with half a character, and the server stores these words)
+  const name = wholeCharacters(text.replace(NOT_TEXT, " ").replace(/\s+/g, " ").trim().slice(0, MAX_CUSTOM_NAME)).trim();
   return /\p{L}|\p{N}/u.test(name) ? name : null;
+}
+
+/** The text without any half of a character (a lone surrogate). */
+function wholeCharacters(text: string): string {
+  return Array.from(text).filter((c) => !(c.length === 1 && c >= "\uD800" && c <= "\uDFFF")).join("");
 }
 
 // ---- from the list to the entries

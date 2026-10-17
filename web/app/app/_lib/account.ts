@@ -6,6 +6,8 @@ import { cleanUser, createAccountApi, sanitizeStoredSession, type AccountApi, ty
 import { createStore } from "@/lib/mm/persist";
 import { EMPTY_META, SyncEngine, sanitizeMeta, type SyncStatus } from "@/lib/mm/sync";
 import { createSyncAdapters } from "@/lib/mm/syncStores";
+import { communityCacheStore } from "./communityCache";
+import { forgetInviteCode } from "./inviteCode";
 import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore } from "@/lib/mm/stores";
 
 // Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Signing in is optional: with no account none of this does anything and
@@ -90,8 +92,12 @@ export function signedIn(user: AccountUser): void {
 async function leave(tellServer: boolean): Promise<void> {
   stopLoop?.();
   if (tellServer) await accountApi().signOut();
+  communityCacheStore.reset(); // friends and shared lists belong to the account, not to the device (docs/BACKEND.md "Community")
   userStore.set(null);
 }
+
+/** The server says the session is over (a Community call came back "not signed in" and the session could not be renewed): go back to plain local data. */
+export const sessionEnded = (): Promise<void> => leave(false);
 
 /** Sign out. The data stays on this device. */
 export const signOut = (): Promise<void> => leave(true);
@@ -101,12 +107,16 @@ export async function deleteAccount(appleAuthorizationCode?: string): Promise<vo
   await accountApi().deleteAccount(appleAuthorizationCode);
   stopLoop?.();
   syncEngine().forget();
+  communityCacheStore.reset(); // the username, friends and lists were deleted with the account
+  forgetInviteCode();
   userStore.set(null);
 }
 
 /** "Clear data on this device": also leaves the account here (otherwise the next sync would bring it all straight back, or worse, treat the
  *  clearing as the person deleting everything). Call this BEFORE emptying the stores. The synced data stays in the account. */
 export async function leaveForClearing(): Promise<void> {
+  communityCacheStore.reset(); // the copy of friends and shared lists goes whether or not someone is signed in
+  forgetInviteCode(); // and a friend's code kept from an invite link, that nobody has used yet
   if (!userStore.get()) return;
   stopLoop?.();
   syncEngine().forget();

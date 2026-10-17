@@ -1962,6 +1962,54 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     yet by native speakers): "Cuisine", "Occasion", "Any cuisine", "Any occasion", "Try another cuisine, occasion, word or meal.", "Bonfire Night", "Lunchbox", "Party food",
     "Picnic", "Summer barbecue", the 8 recipe names, blurbs and steps.
 
+- 2026-10-16 — **Community steps 2 and 3: friends by code, sending a shopping list, the inbox** (founder: "add a friend and more, you can add a friend and send them shopping lists";
+  answers: sign-in only for Community, a friend code and an invite link, lists land in an inbox). **The database migration is written and NOT applied** (rule 4: your go-ahead first).
+  - **What a person sees.** Community hub: **Friends** and **Shared with you** cards under Food blogs (signed out they say "Sign in to add friends"). **Friends** (`/app/community/friends`): "Your friend code"
+    with Copy code, Copy link and Share invite; one box that takes a friend's code **or** the whole invite link; requests with Accept / Decline; "Waiting for an answer" with Take back; the friend list with a three-dot
+    menu (Report or block, Remove). The first time someone opens Friends, or taps **Send to a friend** on the Shopping list (new button beside Share), a **Choose a username** sheet opens: chosen once, 3 to 20
+    letters, numbers, dots and underscores, shown to friends instead of an email address. Sending asks "Send your shopping list to {name}?" and sends the same references the share link carries (products and typed
+    words, never prices; ticked items are left out). The **inbox** (`/app/community/inbox`, `/inbox/view?id=`) shows each list with the shared-list view (Add all, pictures, takedowns), marks it read, lets you delete it and
+    report or block the sender; lists stay 30 days. The **Community tab** shows a badge (unread lists plus friend requests; asked when the app opens, on return to the front, when the network returns and every 3 minutes
+    while open). The invite link is `https://numbite.com/f#CODE` (a website page like `/l`, not indexed; the code lives after the `#` so no server sees it; Universal Link path `/f` next to `/l` in the site-association file, so the
+    Associated Domains step you already have to do covers it; `FriendInviteLink` in `SharedListLink.swift`, **not compiled here**). A first-time visitor opening an invite link goes through onboarding and **lands on Friends with the code**
+    (the "choose a recipe" step is skipped for it, like for a shared list).
+  - **What the server keeps** (rule 4 amended; `docs/BACKEND.md` "Community"): in six new tables, never in `user_data` or the synced stores: `community_profiles` (username, friend code), `friendships`, `community_blocks`,
+    `community_reports`, `community_lists` (references and typed words, deleted after 30 days) and `community_attempts` (a durable tally of friend-code tries, lists sent and reports made). RLS on, no policies, revoked from the
+    app roles, written only by the API with the server-only key; deleting an account removes its rows (reports are the exception, below). **Nobody ever sees another person's email address or user id**: people are found only by a
+    friend code or link (no search, no contact upload), the app is given only a username and the id of the row that connects you, and every code that cannot be added (unknown, malformed, your own, blocked either way, already friends,
+    declined) answers with the same words and the same database work. No chat, no posts, no push.
+  - **Thirteen routes** under `/api/v1/community` (me, friends, friends/request, friends/respond, friends/{id}, blocks, blocks/{id}, report, send-list, inbox, inbox/{id}, inbox/{id}/read), all behind the sign-in and CORS for the
+    iPhone app, errors as codes the app turns into its own words. Limits: 200 friends; 20 friend-code tries and 20 requests a day; 100 requests waiting to be answered and 50 pending ones a person made; 30 lists a day (and 10 a day
+    to one friend); 50 unread lists in an inbox; a list of at most 100 lines or 6,000 characters (the server **re-encodes** what it stores, so nothing else can ride in); 10 reports a day; 10 username tries an hour.
+  - **Independent review (5 lenses, 38 findings, 9 major) and what was done:** the daily limits did not bind (a restart or taking a request back reset them): now counted in the database (`community_attempts`), parallel requests
+    included; a declined request keeps a hidden `declined` row for 30 days so a re-ask is refused and not a way to pester; **reports survive the deletion of either account** (set null, a copy of the usernames and words, kept a year,
+    one open report per reporter, person and list) and cannot be aimed at a stranger by holding their code; the caps (50 unread lists, 100 requests, 200 friends) are held by lock-taking triggers under a race (proved with 10 parallel
+    inserts on a real PostgreSQL: exactly 5 got in); half an emoji can no longer make Postgres refuse a report; the word filters see through spacing, look-alikes and slurs; a phrase such as "kill yourself" is refused in a typed list.
+    Skipped on purpose (follow-ups): rotating a friend code, per-IP limits (31^8 codes at 20 tries a day per account is not enumerable).
+  - **Switch.** `COMMUNITY_FRIENDS_ENABLED` (`lib/mm/config.ts`, on unless `NEXT_PUBLIC_COMMUNITY_FRIENDS=0`) hides every Friends entry point and stops every Community call, so the app can be deployed before the tables exist.
+    The food blogs never depend on it.
+  - **Legal and store text:** CLAUDE.md rule 4, the privacy page ("Community"), terms, support, the website's "No account needed for menus, shops and recipes", `docs/STORE.md` (App Privacy rows, App Review notes, age-rating
+    note for limited user-generated content), `docs/ACCOUNTS_SYNC.md` and `docs/BACKEND.md` updated. Delete my account says Community data goes too. The Welcome screen's "No account needed" and Settings' "You don't need an account to use
+    Numbite" are unchanged: still true of everything except friends.
+  - **Founder steps (in order):** (1) read `supabase/migrations/20261016120000_community.sql` (it only creates); Supabase dashboard > project menumacros > SQL Editor > paste it > Run ("Success. No rows returned"); do not use `supabase db push`.
+    (2) New query > paste `supabase/tests/community.sql` > Run: it rolls back and must print ALL COMMUNITY CHECKS PASSED. (3) **Apply the migration before the website or app build with Friends goes live** (or build with
+    `NEXT_PUBLIC_COMMUNITY_FRIENDS=0`; the daily cleanup skips Community until the tables exist). (4) Optional but recommended (App Review 1.2 expects reports acted on within 24 hours): Vercel env `RESEND_API_KEY`, `REPORT_ALERT_TO`,
+    `REPORT_ALERT_FROM` so the daily cleanup emails a **count only** while a report is open; otherwise a daily reminder to open Table Editor > `open_community_reports`. (5) To remove someone follow `docs/BACKEND.md` "Removing someone"
+    (Ban user, not delete, plus two DELETE statements); check on the first real ban that their calls stop (a token they hold may work for up to an hour). (6) Before announcing it do a real two-account test (two emails, or Apple and Google):
+    usernames, add by code, accept, send a list, open it, report and block, and see the report in `open_community_reports`. Keep "acted on within 24 hours" in STORE.md only if you will check daily.
+  - **Decisions for you (rule 8):** whether the tab badge may ask the server for every signed-in person (current) or only people who have a username; whether to keep a founder-held copy of removed people's reports outside the database
+    (reports are kept a year and survive account deletion); friend-code rotation if codes get posted publicly.
+  - **New copy (rule 8, logged here):** 117 new English strings (the Friends, report, block, username, inbox and send text); site pages (`/f`, privacy, terms, support) are English only like the rest of the site.
+    **Not translated, on the founder's say-so** ("I don't need you to translate the community ... it's just wasted credits"): they show in English in every language (t() falls back to English). They are listed in
+    `web/lib/mm/locales/english-only.json`, which `tests/i18n.test.ts` reads so the other languages are not required to translate them (and fails if a listed key is no longer used). To translate them later: delete the list's keys,
+    run `translate_chunks.py pending <code>` and merge.
+  - **Checked:** 84 community unit tests (handlers, limits, races, privacy of every answer), 34 username/filter, 22 client, 13 route, 8 cleanup, 19 adapter tests against a **real PostgreSQL 16** with the migration applied
+    (`supabase/tests/community.sql` passes twice; mutation-checked: every injected bug in the handlers, the adapter and the SQL test was caught), whole-project `tsc` and eslint; `e2e/community-friends.mjs` 28 steps with two people in two browsers (signed out asks the server nothing; username
+    rules; add by code or pasted link; identical answers for every refused code; accept, decline, take back; send from the Shopping list; inbox badge, open, Add all, delete; report and block; offline copy; sign out, Clear data and
+    Delete my account clear it; no friend or inbox data in any sync request; no email or account id in any answer; the invite through onboarding; 390 px, 360 px, Extra large and Arabic with no sideways scroll, 44 px targets, axe 0),
+    community 10, back 44, account 8, sharelist 11, smoke 23, extra 13, a11y 0 violations, large text. **Not run or not provable here:** the real Supabase/PostgREST (the adapter was proven through a psql stand-in, error texts for the trigger
+    and unique-index refusals are assumed), `build:app`/`app-build.mjs`/`offline.mjs` (the new shells in the service worker are unproven offline), the Swift (not compiled), a real iPhone or VoiceOver, the Resend alert (fake fetch only).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

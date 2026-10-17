@@ -13,7 +13,7 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 | Subtitle (30) | **UK menus, shops & recipes** (25) |
 | Keywords (100) | `macros,nutrition,restaurant,counter,diet,grocery,takeaway,supermarket,cooking,meal,food` (87; words already in the name and subtitle are indexed anyway, so they aren't repeated) |
 | Primary / secondary category | Food & Drink / Health & Fitness |
-| Promotional text (170) | Menu items from 241 UK restaurants and 68,000 supermarket products, with calories and protein. Free, no account needed, works offline. (134) |
+| Promotional text (170) | Menu items from 241 UK restaurants and 68,000 supermarket products, with calories and protein. Free and works offline. Only friends need an account. (148) |
 | Price | Free (no in-app purchases in this version) |
 | Availability | United Kingdom first (the data is UK only) |
 
@@ -39,7 +39,9 @@ restaurants by the calories, protein, carbs and fat you want, always going by wh
 
 Easy to use. Large text options, a plain layout, and 11 languages.
 
-Private by design. No account needed, no ads, no tracking. Your settings, saved meals and lists stay on your phone unless you choose to
+Community. Read short food articles, and, if you sign in, add friends with a friend code and send them your shopping list. Only your username is ever shown to a friend.
+
+Private by design. No account needed (only friends need one), no ads, no tracking. Your settings, saved meals and lists stay on your phone unless you choose to
 sign in (with Apple, Google or an email code) to keep them on all your devices. Your location is used on your phone only.
 
 Every feature is free. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
@@ -66,6 +68,8 @@ tracking, and there is no analytics in this version.
 | Identifiers → User ID | **Only if the person signs in**: the account's ID | Yes |
 | User Content → Other User Content (now linked) | **Only if the person signs in**: what they choose to sync (saved meals and recipes, shopping list, favourites, comparison list) | Yes |
 | Health & Fitness → Health | **Only if the person signs in**: synced goal, targets, diet and allergy choices and today's log entries (see below) | Yes |
+| Identifiers → User ID (Community) | **Only if the person uses Community**: the username they choose (shown to their friends) and their friend code | Yes |
+| User Content → Other User Content (Community) | **Only if the person uses Community**: friends and requests, blocks, the shopping lists sent between friends (product references and typed words, no prices; 30 days) and reports | Yes |
 
 - Purpose for all of the above: App Functionality.
 - Location: **not collected** (used on the phone only to sort nearby branches; a typed postcode goes to postcodes.io for the lookup and
@@ -81,6 +85,12 @@ tracking, and there is no analytics in this version.
   2026. "Health" is declared because the synced goal (which can be a GLP-1 goal), calorie and protein targets, allergies and logged meals are
   health-related information the person typed in; it is the cautious answer, so confirm it in App Store Connect before submitting (Apple's
   definition of Health data decides whether it is needed). Used for App Functionality only; never for tracking, advertising or analytics.
+- **Community (added 16 October 2026, docs/BACKEND.md "Community"):** the two Community rows are the same two data types the sign-in rows already declare ("Identifiers →
+  User ID" covers a username or screen name; "Other User Content"), so `PrivacyInfo.xcprivacy` needs **no change**; they are only used when a person signs in AND uses Community.
+  Linked to the person, App Functionality only, never tracking. A person's email address is never shown to anyone else. The Community data is deleted by Delete my account, EXCEPT reports: a report
+  (both usernames, the reason, the note and, for a list, the list and its typed words) is kept, with the account's ID taken out, so that deleting an account can't wipe a report about it; closed ones are deleted a year after they were made.
+  The server also keeps a short tally per account (friend codes tried, lists sent, reports made; no content) for 2 days, and a declined friend request for 30 days, to stop abuse; both go with the account.
+  The phone keeps a cleared-on-sign-out copy of the last friend list and inbox (nothing for the questionnaire: it stays on the device).
 - Account deletion is inside the app (Settings › Account › Delete my account), as App Review guideline 5.1.1(v) requires; Sign in with Apple is
   offered next to Google (guideline 4.8).
 - If anything is added (crash reporting, analytics, Pro, the AI recipe maker), update this table, the privacy manifest and the website
@@ -88,7 +98,11 @@ tracking, and there is no analytics in this version.
 
 ## Age rating
 
-Answer the questionnaire honestly. Notes: no violence, no user-to-user content, no web browsing (links open Safari). Apple's definitions
+Answer the questionnaire honestly. Notes: no violence, no web browsing (links open Safari). **User-to-user content (Community, 16 October 2026): very limited.** There is no chat,
+no posting, no comments, no photos and no public profiles; the only things a person writes that another person sees are a **username** and the **words typed into a shopping list sent to a
+friend** (and only a friend, by a code the receiver shared). Where the questionnaire asks about user-generated content or messaging, answer for exactly that (a limited form of
+user-generated content, and no chat). Guideline 1.2 is met in the app: usernames are filtered (reserved names and a blocklist, also disguised), a list's typed words are screened,
+and **Report and Block are in the app** on every friend, every request and every list received (the founder to confirm the questionnaire's wording when answering). Apple's definitions
 (App Review 2.3.6): **Health or Wellness Topics: Frequent** (calorie tracking and dieting advice count, and the app is about little else);
 **Medical or Treatment Information: Infrequent** (the GLP-1 goal mentions a medicine class, and every number comes with "not medical advice");
 **Alcohol, Tobacco or Drug Use or References: Infrequent/Mild** (a few pub and restaurant menus list cocktails or ciders by name; alcohol is
@@ -130,6 +144,18 @@ and if the questionnaire's own wording for the medical question covers apps that
 "Numbite works without an account and every feature is free. Signing in is optional and only turns on sync across the person's devices: use
 Sign in with Apple with any Apple ID, or 'Continue with email' (a 6-digit code is sent to the address). Settings > Account has Sign out and
 Delete my account (for an Apple sign-in it asks Apple to confirm and then revokes the Apple token).
+
+Community (the fifth tab): the food articles need no account. Friends and Shared with you need one (Sign in with Apple, or 'Continue with email'),
+so that a shopping list can be sent to a friend. A person chooses a username once (reserved names and offensive words are refused) and gets a friend
+code; they add a friend by typing the friend's code or opening the friend's invite link (there is no search for people and no email address is ever
+shown). The only user content is the username and the shopping lists friends send each other (references to products, plus any words typed in, checked
+for offensive words). Guideline 1.2: the app has (1) a filter for objectionable material: usernames are checked against reserved names and a word list (also when disguised with look-alike
+letters or separators) and the words typed into a shared list against a shorter list; it is a small list, not a promise, so (2) on every friend, friend request and received list there are
+Report and Block (Community > Friends: the three dots next to a name; Community > Shared with you: open a list > Report or block; the person reported or blocked is never told) and those carry the real load;
+(3) a report goes to us, is checked every day and acted on within 24 hours [Founder: only keep this sentence if you will check `open_community_reports` daily; set the optional alert variables in docs/BACKEND.md so a count is emailed to you each day while a report is open]: we remove the offending username or list and the account, and
+stop the same sign-in making another; (4) our contact details are at https://numbite.com/support and in the privacy policy, and the Terms (agreed when a username is chosen) say that offensive or abusive content is not tolerated. To try it you need two accounts (two Apple IDs, or two email
+addresses): one shows its friend code under Community > Friends, the other types it under 'Add a friend', the first accepts, then 'Send to a friend' on
+the Shopping list puts the list in the other's Shared with you. [Founder: add two demo accounts here if you want review to be quick.]
 
 Why this is an app and not a website: all menus, products, recipes and photos are packed inside the app, so it works with Airplane Mode on.
 It uses the iPhone itself for Groceries > Scan a barcode (VisionKit, camera, nothing leaves the phone), Eat out > Near me > Use my location (one

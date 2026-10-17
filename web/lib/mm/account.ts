@@ -131,6 +131,14 @@ export function createAccountApi(deps: AccountDeps) {
   }
 
   return {
+    /**
+     * A signed-in request to any other route of our API (Community uses it): the cookies or the Bearer token, renewed once on a 401. It rejects with an offline
+     * AccountError when the server can't be reached, and otherwise hands back the response as it is (the caller reads the status and body).
+     */
+    request(path: string, init: { method?: string; body?: unknown } = {}): Promise<Response> {
+      return authed(path, init);
+    },
+
     /** Who is signed in, or null. A network failure throws (so the caller keeps what it knew). */
     async session(): Promise<AccountUser | null> {
       if (deps.useTokens && !deps.tokens.get()) return null;

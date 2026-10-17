@@ -4,6 +4,10 @@ Founder, 12 October 2026: "we need to do the apple google and also set up resend
 should do: **"Sync across devices"**. This changes CLAUDE.md rule 4 ("no accounts, no personal data off the device"). The rule is rewritten
 when the feature ships, and the privacy page and App Store answers change with it (below).
 
+> **Community (friends and shopping lists sent to a friend, 16 October 2026) is separate from sync.** It needs an account (the only feature that does) but its data lives in its own
+> `community_*` tables, is never in `user_data` or `SYNC_STORES`, and is never synced to a device: the phone keeps only a copy of the last friend list and inbox for offline display,
+> cleared by sign-out, account deletion and "Clear data". "Delete my account" removes it too (ON DELETE CASCADE), except reports, which are kept without the account's ID. See docs/BACKEND.md "Community".
+
 ## What people get
 
 - **Sign-in is optional.** Everything works as now without an account, and data stays on the phone. Signing in turns on sync. Apple rejects

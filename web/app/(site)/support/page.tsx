@@ -44,8 +44,12 @@ export default function Support() {
               </div>
             )}
             <div className="py-4">
+              <h2 className="text-base font-bold tracking-[-0.01em]">Someone is bothering me, or a username or list is offensive</h2>
+              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app, open Community › Friends, tap the three dots next to their name, then choose Report or Block. For a shopping list a friend sent you, open it in Community › Shared with you and choose Report or block. A blocked person is not told. You can also email us.</p>
+            </div>
+            <div className="py-4">
               <h2 className="text-base font-bold tracking-[-0.01em]">Your data</h2>
-              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">You don&apos;t need an account. Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account). Settings › Account › Delete my account removes the account and what was synced; Settings › Clear data on this device removes what is on the phone.</p>
+              <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">You don&apos;t need an account (only friends, in the Community tab, need one). Everything you set up stays on your phone unless you sign in to sync it across your devices (Settings › Account). Settings › Account › Delete my account removes the account and what was synced; Settings › Clear data on this device removes what is on the phone.</p>
             </div>
           </div>
         </div>

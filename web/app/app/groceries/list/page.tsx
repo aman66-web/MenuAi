@@ -11,6 +11,7 @@ import { shoppingStore } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
+import { SendToFriend } from "../../_components/SendToFriend";
 import { Button, EmptyIcon, EmptyState, LinkButton, Sheet } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
@@ -213,6 +214,8 @@ export default function ShoppingListPage() {
           <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.5rem),1fr))] gap-2.5">
             <Button className="min-h-12" onClick={share}><ShareIcon className="h-5 w-5" />{t("Share list")}</Button>
             <Button variant="secondary" className="min-h-12" onClick={copy}><CopyIcon className="h-5 w-5" />{t("Copy")}</Button>
+            {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
+            <SendToFriend list={list} onSent={setNote} />
             {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { shoppingStore.update(withoutDone); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
             <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { shoppingStore.set([]); setNote(null); }}>{t("Clear")}</Button>
           </div>

@@ -1,13 +1,21 @@
 import { z } from "zod";
 import type { Store, Table } from "./store";
 import { TABLES } from "./store";
+import { DECLINED_DAYS, REPORT_KEEP_DAYS, TALLY_DAYS } from "./community/limits";
+import type { CommunityStore } from "./community/types";
 import { chainRequestSchema, reportSchema, supportSchema, waitlistSchema } from "./validation";
 
 // Pure request handlers: (body, context) -> { status, body }. No Next.js or Supabase imports,
 // so they're easy to test (tests/handlers.test.ts). Route files in app/api wire them up.
 
 export type Result = { status: number; body: Record<string, unknown> };
-export type Ctx = { store: Store; ipHash: string | null; now?: Date };
+export type Ctx = {
+  store: Store;
+  ipHash: string | null;
+  now?: Date;
+  /** Only the daily clean-up uses this: Community's tidying and its count of open reports (docs/BACKEND.md "Community"). Left out, nothing about Community is touched. */
+  community?: Pick<CommunityStore, "deleteExpiredLists" | "deleteOldAttempts" | "deleteOldDeclined" | "deleteOldReports" | "countOpenReports">;
+};
 
 /** Max submissions per caller per hour. */
 export const RATE_LIMITS: Record<Table, number> = {
@@ -108,11 +116,32 @@ export async function handleSupport(raw: unknown, ctx: Ctx): Promise<Result> {
   return ok({ ok: true }, 201);
 }
 
-/** Daily cron: forget IP hashes older than the retention period. */
+/**
+ * Daily cron: forget IP hashes older than the retention period, and tidy Community: delete shopping lists in inboxes that have expired (30 days), the daily
+ * tallies older than 2 days, declined friend requests older than 30 days and closed reports older than a year, and count the reports still open (the answer says
+ * how many, so the cron log and the optional alert email tell the founder a report is waiting). Each Community step stands alone: if its tables don't exist yet
+ * (the migration is applied by hand) or one step fails, that step reports null and the rest still run, and the IP-hash clearing is never held up by Community.
+ */
 export async function handleCleanup(authorization: string | null, cronSecret: string | undefined, ctx: Ctx): Promise<Result> {
   if (!cronSecret || authorization !== `Bearer ${cronSecret}`) return { status: 401, body: { error: "unauthorized" } };
-  const before = new Date((ctx.now ?? new Date()).getTime() - IP_HASH_RETENTION_DAYS * 24 * 60 * 60 * 1000).toISOString();
+  const now = ctx.now ?? new Date();
+  const ago = (days: number) => new Date(now.getTime() - days * 24 * 60 * 60 * 1000).toISOString();
   const cleared: Record<string, number> = {};
-  for (const t of TABLES) cleared[t] = await ctx.store.clearIpHashes(t, before);
-  return ok({ ok: true, cleared });
+  for (const t of TABLES) cleared[t] = await ctx.store.clearIpHashes(t, ago(IP_HASH_RETENTION_DAYS));
+  const community = ctx.community;
+  if (!community) return ok({ ok: true, cleared });
+  const step = async (what: string, run: () => Promise<number>): Promise<number | null> => {
+    try {
+      return await run();
+    } catch (error) {
+      console.error(`Community clean-up (${what}) failed`, error);
+      return null;
+    }
+  };
+  const expiredLists = await step("expired lists", () => community.deleteExpiredLists(now.toISOString()));
+  const oldTallies = await step("daily tallies", () => community.deleteOldAttempts(ago(TALLY_DAYS)));
+  const oldDeclined = await step("declined requests", () => community.deleteOldDeclined(ago(DECLINED_DAYS)));
+  const oldReports = await step("closed reports", () => community.deleteOldReports(ago(REPORT_KEEP_DAYS)));
+  const openReports = await step("open reports", () => community.countOpenReports());
+  return ok({ ok: true, cleared, expiredLists, oldTallies, oldDeclined, oldReports, openReports });
 }

@@ -49,16 +49,17 @@ function ProviderButton({ href, disabled, onClick, className, children }: { href
 /** What went wrong, under the field or the buttons: plain semi-bold text. A grey box under grey fields would read as one more field. */
 const errorClass = "mt-2.5 text-[0.9375rem] font-semibold leading-snug";
 
-export function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
+/** `community`: the sheet was opened to use friends, so it also says what Community keeps (a username, friends and the lists sent), not only the sync data. */
+export function SignInSheet({ open, onClose, community }: { open: boolean; onClose: () => void; community?: boolean }) {
   const t = useT();
   return (
     <Sheet open={open} onClose={onClose} title={t("Sign in")}>
-      {open && <SignInPanel onDone={onClose} />}
+      {open && <SignInPanel onDone={onClose} community={community === true} />}
     </Sheet>
   );
 }
 
-function SignInPanel({ onDone }: { onDone: () => void }) {
+function SignInPanel({ onDone, community }: { onDone: () => void; community: boolean }) {
   const t = useT();
   const [step, setStep] = useState<Step>("choose");
   const [email, setEmail] = useState("");
@@ -205,6 +206,7 @@ function SignInPanel({ onDone }: { onDone: () => void }) {
       )}
 
       <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+      {community && <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("To use friends, we also keep the username you choose, your friends and the shopping lists you send and get.")}</p>}
     </div>
   );
 }

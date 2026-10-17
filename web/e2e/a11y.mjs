@@ -78,6 +78,8 @@ const pages = [
   ["settings", "/app/settings", true, async () => {}],
   ["numbers", "/app/settings/numbers", true, async () => {}],
   ["community", "/app/community", true, async () => {}],
+  ["friends (signed out)", "/app/community/friends", true, async (p) => { await p.getByRole("button", { name: "Sign in", exact: true }).waitFor(); }],
+  ["shared with you (signed out)", "/app/community/inbox", true, async (p) => { await p.getByRole("button", { name: "Sign in", exact: true }).waitFor(); }],
   ["food blogs", "/app/community/blog", true, async (p) => { await p.getByRole("group", { name: "Topics" }).getByRole("button").nth(1).click(); await p.waitForTimeout(300); }],
   ["article", "/app/community/blog/view?id=where-our-numbers-come-from", true, async (p) => { await p.locator("article h1").waitFor(); }],
   ["offline", "/app/offline", true, async () => {}],
@@ -101,6 +103,7 @@ const pages = [
   ["welcome: your daily targets", "/app/welcome", false, async (p) => { await toTargets(p); await p.getByLabel("Protein (g)").focus(); await p.waitForTimeout(700); }],
   ["welcome: targets, suggest form", "/app/welcome", false, async (p) => { await toGoal(p); await next(p); await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("button", { name: "Not sure? Suggest targets for me" }).click(); await p.locator("form").getByRole("button", { name: "Suggest targets", exact: true }).click(); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
   ["site", "/", false, async () => {}],
+  ["friend invite page", "/f#K7M2QXWA", false, async (p) => { await p.getByRole("heading", { level: 1, name: /A friend invited you/ }).waitFor(); }],
 ];
 
 let total = 0;

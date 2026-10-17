@@ -19,6 +19,9 @@ function db(): SupabaseClient {
   return client;
 }
 
+/** The shared server-side client, for the other adapters in this folder (lib/store-supabase-community.ts). */
+export const serverDb = db;
+
 function fail(what: string, error: { message: string } | null): never {
   throw new Error(`Supabase ${what} failed: ${error?.message ?? "unknown error"}`);
 }

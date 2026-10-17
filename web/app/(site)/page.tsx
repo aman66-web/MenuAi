@@ -33,7 +33,7 @@ const goals = [
 ];
 
 const faqs = [
-  { q: "Is it free?", a: PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, with no account and nothing to buy." },
+  { q: "Is it free?", a: PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, and nothing needs an account except adding friends in Community. There is nothing to buy." },
   { q: "Where do the numbers come from?", a: "From each restaurant's own published nutrition information. We show the source and the date we last checked on every chain, never estimate missing values, and fix reported mistakes within 48 hours." },
   { q: "Which restaurants?", a: `${stats.chains > 0 ? `${stats.chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
   { q: "Is it an app?", a: "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later." },
@@ -92,7 +92,7 @@ export default function Home() {
                 </a>
               )}
             </div>
-            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">Free. No account needed. Your targets and saved orders stay on your device unless you sign in to sync them.</p>
+            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them.</p>
           </div>
 
           {stats.chains > 0 && (

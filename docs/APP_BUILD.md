@@ -117,6 +117,16 @@ phone that has never opened Numbite it goes through the questions first and then
 a friend who doesn't have the app yet goes to the App Store and, after installing, has to tap the link in the message again (or open Numbite › Shopping list ›
 "Got a list from a friend?" and paste it): iOS gives an app no way to know which link led to its install. The page says so under "After you've installed it".
 
+**Friend invites use the same two settings (16 October 2026).** Community › Friends › Share invite sends `https://numbite.com/f#<friend code>` (8 characters; the code is after the "#",
+which no server sees from the link itself). The website page `/f` says what it is and offers the same three choices as `/l`; on the iPhone the Swift that opens it is in the same
+file (`FriendInviteLink` in `MenuMacros/Features/WebApp/SharedListLink.swift`, tests in `MenuMacrosTests/FriendInviteLinkTests.swift`; **not compiled here**) and it opens the packed app's
+Friends page with the code filled in (nothing is sent until the person taps Add friend). The Associated Domains setup above already covers it: the site's
+`apple-app-site-association` file now lists the path `/f` as well as `/l`, and the `numbite` URL type opens `numbite://f#<code>`. After setting `NEXT_PUBLIC_APP_STORE_URL`, the invite
+page offers the App Store button too. As with shopping lists, a friend who installs the app *because of* the invite taps the link again afterwards (or types the code under Community ›
+Friends). A first-time visitor goes through the questions first and lands on Friends with the code in its box. Friends and the inbox need the database tables from
+`supabase/migrations/20261016120000_community.sql` (applied by the founder in Supabase's SQL editor, docs/BACKEND.md "Community"); until then set `NEXT_PUBLIC_COMMUNITY_FRIENDS=0` for
+the build to hide the Friends and Shared with you cards, the Send to a friend button and the tab badge (the food articles stay); the Friends and inbox screens then go back to Community if an old link opens them, nothing asks the Community routes, and the website's invite page says friends aren't switched on yet.
+
 ## Reminders (local notifications)
 
 Home has a **Reminders** section (16 October 2026; web side: `web/lib/mm/reminders.ts`, `web/app/app/_lib/reminderSync.ts`). The person makes their own

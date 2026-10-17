@@ -92,7 +92,8 @@ await step("the hub: a heading, a short line, and the Food blogs card with the l
     const box = await links.nth(i).boundingBox();
     expect(box.height >= 44, `row ${i + 1} is ${box.height} px high`);
   }
-  expect(!(await page.locator("main").innerText()).match(/friend/i), "the hub mentions friends before they exist");
+  // Friends and Shared with you sit above the blogs (e2e/community-friends.mjs covers them in depth)
+  expect((await page.locator("main a[href='/app/community/friends']").count()) === 1 && (await page.locator("main a[href='/app/community/inbox']").count()) === 1, "the hub's Friends and Shared with you cards are missing");
   // the heading and See all sit on the grey page above the card (like Eat out's "All restaurants" row), not inside it
   expect((await card.getByRole("heading", { level: 2 }).count()) === 0 && (await card.getByRole("link", { name: /See all/ }).count()) === 0, "the section heading or See all is still inside the card");
   const hb = await page.getByRole("heading", { level: 2, name: "Food blogs", exact: true }).boundingBox();
