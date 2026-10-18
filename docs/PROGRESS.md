@@ -2112,6 +2112,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   *Final checks.* `./scripts/test.sh --unit` again: 1,507 website tests and **62 of 62 Swift tests** pass; the throwaway UI test file (`build/scratch/ScratchWalk.swift`) is not in the project. Only one repo file was changed by this session:
   `MenuMacrosUITests/MenuMacrosUITests.swift` (the stale first-screen check). Screenshots (welcome, Home, Recipes, the Occasion list, a recipe, Groceries, Near me, the Safari link, dark appearance, both `numbite://` links) are in `build/screens/` (not committed).
 
+  *Founder steps done later on 18 October ("do everything"):* **Associated Domains** `applinks:numbite.com` added to `Config/MenuMacros.entitlements`; the **`numbite` URL Type** added as a small partial `Config/Info.plist`
+  (`INFOPLIST_FILE = Config/Info.plist` in both app configurations; Xcode merges it with the generated plist: checked, the built app has CFBundleURLTypes, `UIUserInterfaceStyle = Light`, the usage strings and the rest); **build number 2**
+  (`CURRENT_PROJECT_VERSION`). Commit 4465841a. The simulator build then accepts `xcrun simctl openurl booted "numbite://f#ABCDEFGH"` (before: error 115). `./scripts/test.sh --unit`: 1,507 website + 62 of 62 Swift tests pass.
+  **Archive of 1.0 (2): ARCHIVE SUCCEEDED** (`-allowProvisioningUpdates`), entitlements Sign in with Apple + Associated Domains, URL scheme `numbite`, Light. **The upload to App Store Connect was NOT done by Claude: the permission checker blocked
+  it, so the founder runs it** (command in the chat; or Xcode > Window > Organizer, open `build/Numbite.xcarchive`, Distribute App > App Store Connect > Upload). Then App Store Connect > the version > Build > Add Build: 1.0 (2) and remove build 1.
+  App Privacy: **no change needed for Community** (STORE.md: the Community rows are the User ID and Other User Content types already declared); `NEXT_PUBLIC_APP_STORE_URL` is for after the app is live in the store.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
