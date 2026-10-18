@@ -2125,6 +2125,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   `web/app-content.json` (names and cuisine icons everywhere, the welcome wall included, a smaller app), rebuild (`./scripts/build_app_web.sh`), new build number, archive, upload; or take one brand down with `web/public/logos/hidden.json` (no app update).
   Review notes must stay factual and must NOT claim permission. Web tests: 1,507 pass (one recipes test flaked once under load and passes alone).
 
+- **2026-10-18 (evening): App Store Connect state for Numbite 1.0 (Apple ID 6822767746).** Build **3** (1.0) uploaded by the founder (15:37) and selected on the version; builds 1 and 2 are older uploads. Review notes now include the Community paragraph
+  (docs/STORE.md, without the "checked every day / acted on within 24 hours" promise: the founder hasn't said they'll check `open_community_reports` daily). Age rating re-answered for Community: User-Generated Content **Yes**, Messaging and Chat **No**; rating stays **13+**.
+  **Regulated medical device: declared No.** **App Privacy published** (the 7 data types as in this file). The Apple agreement banner is gone (accepted). **Still open:** the **Content Rights** answer ("Does your app contain, show, or access third-party content?"
+  Yes, and I have the necessary rights, or No): the founder's own statement, left unanswered by Claude because the app shows chains' logos and photos; then **Add for Review**, which Claude did not press.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
