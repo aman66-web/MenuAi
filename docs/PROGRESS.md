@@ -2136,6 +2136,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   `web/app-content.json`, rebuild, build number 4, archive, upload. **Open:** re-verify Google branding (Google Cloud > Auth Platform > Branding > "I have fixed the issues", due since 15 October; keep the Vercel DNS TXT record), the Vercel read-only name check, `NEXT_PUBLIC_APP_STORE_URL`
   after the app is live, and the real-iPhone checks (TestFlight build 3).
 
+- **2026-10-18/19 (night): open items closed.** **Google branding verified and published** (Google Cloud > Auth Platform > Branding: "Your branding has been verified and is being shown to users": the consent screen should now say Numbite instead of the Supabase address; keep the DNS TXT
+  record). **Vercel (read-only, names only):** present in Production and Preview: APPLE_TEAM_ID, APPLE_KEY_ID, APPLE_PRIVATE_KEY, NEXT_PUBLIC_SUPPORT_EMAIL, SUPABASE_URL, SUPABASE_SECRET_KEY, IP_HASH_SALT, CRON_SECRET; NEXT_PUBLIC_SHOW_SAMPLE_DATA only in Preview;
+  **missing: RESEND_API_KEY, REPORT_ALERT_TO, REPORT_ALERT_FROM** (so no daily email about open Community reports: check `open_community_reports` in Supabase by hand, or set them, docs/BACKEND.md) and **NEXT_PUBLIC_APP_STORE_URL** (set after release); NEXT_PUBLIC_COMMUNITY_FRIENDS correctly absent.
+  Production Branch `main`; numbite.com and www.numbite.com (308 to it) and menumacros.vercel.app valid; the newest Production deployment (3905881, main) and the mac-build and claude/menumacros-kit Previews are Ready; numbite.com/app/welcome now says "Get started";
+  /api/health, /support, /privacy 200; apple-app-site-association served (paths /l and /f). **TestFlight:** internal group "Founder" created with builds 1-3, tester aman66@hotmail.co.uk invited (install build 3 from the TestFlight app for the real-iPhone checks).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
