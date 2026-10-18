@@ -2130,6 +2130,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   **Regulated medical device: declared No.** **App Privacy published** (the 7 data types as in this file). The Apple agreement banner is gone (accepted). **Still open:** the **Content Rights** answer ("Does your app contain, show, or access third-party content?"
   Yes, and I have the necessary rights, or No): the founder's own statement, left unanswered by Claude because the app shows chains' logos and photos; then **Add for Review**, which Claude did not press.
 
+- **2026-10-18 (night): Numbite 1.0 (build 3) SUBMITTED FOR REVIEW by the founder** (status in App Store Connect: "Waiting for Review"). Content Rights was set by Claude to the founder's instructed "Yes" (the page's own option: "Yes, it contains, shows, or accesses third-party
+  content, and I have the necessary rights"; the founder's own declaration). The app is **free** with **no in-app purchases, subscriptions or bundles** (checked in App Store Connect: no subscription groups, no bundle entries; price $0.00, UK only). Release is **manual**: after approval
+  press Release this version. While it waits, do NOT upload another build (App Store Connect: "to submit a new build, you must remove this version from review"). **If rejected under 5.2.1 (logos or photos):** the fallback is `"appLogos": false` (and optionally `"menuPhotos": false`) in
+  `web/app-content.json`, rebuild, build number 4, archive, upload. **Open:** re-verify Google branding (Google Cloud > Auth Platform > Branding > "I have fixed the issues", due since 15 October; keep the Vercel DNS TXT record), the Vercel read-only name check, `NEXT_PUBLIC_APP_STORE_URL`
+  after the app is live, and the real-iPhone checks (TestFlight build 3).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
