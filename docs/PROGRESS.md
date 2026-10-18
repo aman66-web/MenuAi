@@ -2125,6 +2125,13 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   `web/app-content.json` (names and cuisine icons everywhere, the welcome wall included, a smaller app), rebuild (`./scripts/build_app_web.sh`), new build number, archive, upload; or take one brand down with `web/public/logos/hidden.json` (no app update).
   Review notes must stay factual and must NOT claim permission. Web tests: 1,507 pass (one recipes test flaked once under load and passes alone).
 
+- 2026-10-18 — **Numbite 1.0 (build 3) submitted to App Review** (reported by the Claude in Chrome session and the founder; not seen directly by this session). Content Rights was answered **"Yes, this app has the necessary rights to
+  its third-party content"** by the founder's own decision ("Yes, I have the rights", after being told what each answer means and that the logos, chain photos and supermarket lists are the accepted risk of CLAUDE.md rule 2); Claude only set the page to the founder's instruction.
+  Other App Store Connect state: build 3 attached (replacing build 1), review notes with the Community paragraph (no "acted on within 24 hours" promise), age rating re-answered for limited user-generated content (still 13+), "not a regulated medical device" declared, App Privacy published
+  (seven data types), Apple's agreement accepted. Status: **Waiting for Review**; release is manual. **While it is in review do not upload another build** (it would have to be taken out of review first) **and do not break the live website or API**: the app reads newer menus,
+  the taken-down logo list and the API from numbite.com, and CORS allows only `app://menumath`. The submitted source is `origin/mac-build` (merged into this branch on 2026-10-18); it also holds the Mac session's fixes (Associated Domains, `numbite://` URL Type, `Config/Info.plist`, build numbers).
+  **If App Review objects** (5.2.1 or anything else): the fallbacks are in the entry above (`appLogos: false` and rebuild, `hidden.json` takedowns). Still open: real-iPhone tests (barcode scanner, Sign in with Apple, Google, email code, reminders on the lock screen), the two-account Friends test, the Vercel variable check, `NEXT_PUBLIC_APP_STORE_URL` once the App Store page exists.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
