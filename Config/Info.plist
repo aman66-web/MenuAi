@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Only what the build settings can't say: the numbite:// address (docs/APP_BUILD.md "Shared shopping lists"). Xcode merges this with the Info.plist it generates
+  from the INFOPLIST_KEY_* settings. The app only opens numbite://l... and numbite://f... links and ignores every other address (Sign in with Google's
+  numbite://auth is handled by the sign-in sheet itself). Kept outside the MenuMacros folder (which Xcode syncs into the target) so it isn't copied in as a resource.
+-->
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>com.amanmarwaha.MenuMacros.link</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>numbite</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

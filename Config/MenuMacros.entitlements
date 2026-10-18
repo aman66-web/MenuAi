@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
   The app's capabilities (docs/ACCOUNTS_SYNC.md). Sign in with Apple is switched on for the App ID com.amanmarwaha.MenuMacros in Apple's portal.
+  Associated Domains (docs/APP_BUILD.md "Shared shopping lists"): https://numbite.com/l#... and /f#... open in the app; the site serves the matching
+  apple-app-site-association file.
   Kept outside the MenuMacros folder (which Xcode syncs into the target) so it isn't copied into the app as a resource.
 -->
 <plist version="1.0">
@@ -9,6 +11,10 @@
 	<key>com.apple.developer.applesignin</key>
 	<array>
 		<string>Default</string>
+	</array>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:numbite.com</string>
 	</array>
 </dict>
 </plist>
