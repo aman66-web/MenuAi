@@ -2119,6 +2119,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   it, so the founder runs it** (command in the chat; or Xcode > Window > Organizer, open `build/Numbite.xcarchive`, Distribute App > App Store Connect > Upload). Then App Store Connect > the version > Build > Add Build: 1.0 (2) and remove build 1.
   App Privacy: **no change needed for Community** (STORE.md: the Community rows are the User ID and Other User Content types already declared); `NEXT_PUBLIC_APP_STORE_URL` is for after the app is live in the store.
 
+- **2026-10-18 (later): founder decision: logos on the iPhone app's welcome wall too** ("i cant ask permission from each brands and it has to be the logos too"; accepted risk, after the App Review 5.2.1 and UK trade mark / copyright
+  analysis in the chat: names are easier to defend than logos, the logo artwork's copyright has no "identifying a business" defence, permission is the only certain route, the realistic risk is a takedown letter or a 5.2.1 rejection).
+  `web/app/app/welcome/page.tsx`: the wall now uses `LOGOS_ENABLED` (the `appLogos` switch) instead of `APP_BUILD`, so the app's wall shows the official logo files like the website's. **Fallback if App Review rejects or a brand objects:** set `"appLogos": false` in
+  `web/app-content.json` (names and cuisine icons everywhere, the welcome wall included, a smaller app), rebuild (`./scripts/build_app_web.sh`), new build number, archive, upload; or take one brand down with `web/public/logos/hidden.json` (no app update).
+  Review notes must stay factual and must NOT claim permission. Web tests: 1,507 pass (one recipes test flaked once under load and passes alone).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

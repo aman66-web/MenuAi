@@ -8,7 +8,7 @@ import { isAllHalal } from "@/lib/mm/halal";
 import { lunchTeaser, TEASER_MIN_PROTEIN } from "@/lib/mm/onboarding";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
 import { analytics } from "@/lib/mm/analytics";
-import { APP_BUILD } from "@/lib/mm/config";
+import { LOGOS_ENABLED } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers } from "@/lib/mm/onboardingPlan";
 import { macroTargets } from "@/lib/mm/targets";
@@ -255,8 +255,9 @@ export default function WelcomePage() {
   // The welcome wall: restaurants in the app that have an official logo file (well-known ones first, then the rest; a few very large
   // files left out so the first screen stays quick), mixed with the supermarkets by name.
   const wallItems = useMemo<WallItem[]>(() => {
-    // the iPhone app shows names only (LogoWall namesOnly), so any well-known chain can be on its wall
-    const withLogo = APP_BUILD ? real : real.filter((c) => { const l = logoFor(c.id); return !!l && (!!l.square || !HEAVY_LOGOS.has(c.id)); });
+    // Logos on (the website, and the iPhone app while web/app-content.json says "appLogos": true; founder 2026-10-18: "it has to be the logos too"):
+    // only chains whose logo file we hold. Logos off (appLogos false, the safe fallback for App Review 5.2.1): names only, so any well-known chain can be on the wall.
+    const withLogo = !LOGOS_ENABLED ? real : real.filter((c) => { const l = logoFor(c.id); return !!l && (!!l.square || !HEAVY_LOGOS.has(c.id)); });
     const popular = POPULAR_ORDER.map((id) => withLogo.find((c) => c.id === id)).filter((c): c is (typeof withLogo)[number] => !!c);
     const rest = withLogo.filter((c) => !POPULAR_ORDER.includes(c.id)).sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
     const chains: WallItem[] = [...popular, ...rest].slice(0, 36).map((c) => ({ id: c.id, name: c.name, kind: "restaurant" }));
@@ -331,7 +332,7 @@ export default function WelcomePage() {
         </ul>
         {/* the picture: the restaurants and shops in the app drifting by, with two labels floating over it */}
         <div className="relative -mx-5 mt-2 flex-1">
-          <LogoWall hero items={wallItems} namesOnly={APP_BUILD} label={APP_BUILD ? t("Names of restaurants and shops in the app") : t("Logos of restaurants and shops in the app")} />
+          <LogoWall hero items={wallItems} namesOnly={!LOGOS_ENABLED} label={!LOGOS_ENABLED ? t("Names of restaurants and shops in the app") : t("Logos of restaurants and shops in the app")} />
           {restaurants > 0 && (
             <>
               <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} UK restaurants", { n: restaurants })}</span>

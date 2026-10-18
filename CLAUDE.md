@@ -68,7 +68,8 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    restaurant logos (from the company's own website or press page, unmodified, `web/public/logos/shops/` + `SOURCES.md`, taken down the
    day its owner asks). Founder's decision (2026-10-12, free App Store launch, "Keep, with safeguards"): a logo (and, since 2026-10-14, that chain's item photos or that shop's product photos) can be taken
    down without an app update by listing its chain id (or `shop:<id>`) in `web/public/logos/hidden.json` and deploying the website; the iPhone
-   app's welcome wall shows names only (no logo files); store screenshots never show a logo or a photo (`web/e2e/store-shots.mjs`).
+   app's welcome wall showed names only until 2026-10-18, when the founder decided "it has to be the logos too" (accepted risk): the wall now follows the same `appLogos` switch as the rest of the app
+   (`web/app-content.json`; false = names and cuisine icons everywhere, the one-line fallback if App Review objects under 5.2.1); store screenshots never show a logo or a photo (`web/e2e/store-shots.mjs`).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
    Reminder names and times are the person's own: the app gives no medication guidance and never calls a reminder missed or late.
 4. **Privacy:** accounts are **optional** (founder 2026-10-12, "Sync across devices"; docs/ACCOUNTS_SYNC.md). With no account nothing leaves
