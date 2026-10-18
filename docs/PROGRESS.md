@@ -23,7 +23,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 | Milestone | Status | Notes |
 |---|---|---|
-| M0 Project foundation | in progress | Xcode project, AppConfig, icon (2026-10-08). **Free launch (2026-10-12): the app is the web app packed inside it** (docs/APP_BUILD.md): web view + scheme handler + scanner/location/share bridge written, not yet compiled (needs the Mac session) **Mac session 18 Oct 2026: the whole app compiles (Xcode 26.6, iPhone 17 Pro simulator, Swift 6) with no error and 62 of 62 Swift tests pass; see the dated entry in the Decisions log.** |
+| M0 Project foundation | in progress | Xcode project, AppConfig, icon (2026-10-08). **Free launch (2026-10-12): the app is the web app packed inside it** (docs/APP_BUILD.md): web view + scheme handler + scanner/location/share bridge written, not yet compiled (needs the Mac session) **Mac session 18 Oct 2026: the whole app compiles (Xcode 26.6, iPhone 17 Pro simulator, Swift 6) with no error, 62 of 62 Swift tests pass, the simulator checks and the Release archive dry run pass; see the dated entry in the Decisions log.** |
 | M1 Menu data layer | not started | |
 | M2 Settings, targets, onboarding | not started | |
 | M3 Home, nearby, search, favourites | not started | |
@@ -2071,7 +2071,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   `/api/health` 200, the site-association file and `/logos/hidden.json` 200. **Not yet done:** the Vercel environment check (needs the founder signed in to Vercel in Chrome), a real two-account Community
   test, and a rebuild of the iPhone app (the packed copy still has the old code).
 
-- **2026-10-18: Mac session on branch `mac-build` (IN PROGRESS: the founder paused it to sleep; everything below is checked, the rest is listed).**
+- **2026-10-18: Mac session on branch `mac-build` (finished).**
   Built from `main` at 39058813 (`git pull` then `mac-build`). Tools: Xcode 26.6, Node 26.5 (22 was expected; `npm ci` and the website tests are fine), Python 3.9.6.
   *Build and tests.* `NEXT_PUBLIC_SUPPORT_EMAIL=aman66@hotmail.co.uk ./scripts/build_app_web.sh` packs 159.1 MB (menus 21.0, menu-images 87.7, groceries 23.1, grocery-images 10.3,
   logos 6.8, _next 6.9, app 1.8; the folder is 164 MB on disk); `NEXT_PUBLIC_COMMUNITY_FRIENDS` not set, so Friends is on. `xcodebuild ... build` for the iPhone 17 Pro simulator:
@@ -2093,14 +2093,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
      site accepts the Origin `app://menumath`; `APP_ORIGIN` in `web/lib/cors.ts` is right and needs no change. (A real "Request a restaurant" was not sent, so no test row was created.)
   e. Eat out > Near me > Use my location: **one** iPhone prompt ("Allow Numbite to use your location?" with our usage text), then "732 branches · 50 restaurants" near London. OK.
   f. The allergen-guide link in an order opens **Safari**. OK. **"Email instead" / mailto: cannot be tested here: the simulator has no Mail app and `simctl openurl mailto:` fails (error 115). Needs a real iPhone.**
-  g. Reminders: a reminder can be added (name, time, "Every day"); iOS asked "Numbite Would Like to Send You Notifications" once, on the first Save; Home lists it ("Every day 01:51"). **Not confirmed: that a
-     notification appears** (the check script missed the banner, Notification Center showed nothing afterwards, then a second run hung). Needs a retry by hand: add a reminder 2 minutes ahead, press Home, watch.
-  h. **Not done yet:** `xcrun simctl openurl booted "numbite://l#<code>"` and `numbite://f#ABCDEFGH` (the app has no URL Type yet, so nothing is expected to happen until the founder adds it).
-  i. **Not done yet:** dark appearance (`xcrun simctl ui booted appearance dark`).
+  g. Reminders: a reminder can be added (name, time, "Every day"); iOS asked "Numbite Would Like to Send You Notifications" once, on the first Save. The app logs "Reminders scheduled: 2 of 2, 0 old removed"
+     and iOS accepted every request without error. With the app in the background (Safari in front) the banner **"Spike reminder / Tap to open Numbite"** appeared at the minute set, with the Numbite icon. **Settings > Clear data on this device >
+     Clear everything** logged "Reminders scheduled: 0 of 0, 3 old removed" (all three cancelled) and the app went back to the welcome screen. OK. (My first attempts missed the banner because my check ran after its 5 seconds.)
+  h. The app has no URL Type yet, so `xcrun simctl openurl booted "numbite://l#<code>"` and `numbite://f#ABCDEFGH` fail with error 115 (nothing is registered for `numbite://`): **the missing founder step, not a bug**. To prove the Swift anyway, a
+     throwaway copy of the built app was patched with the URL Type (identifier `com.amanmarwaha.MenuMacros.link`, scheme `numbite`, Viewer), re-signed ad hoc and run in the simulator (the repo was not touched): `numbite://l#<code>` (a real code from the
+     web app's own encoder) opens "Shared shopping list: Spike test milk x2, Spike eggs x1, Add all to my shopping list" **both when the app is running and when it was closed (cold start)**; `numbite://f#ABCDEFGH` opens Friends with "Your friend's
+     code is saved. After you sign in, it will be ready to add." (a signed-out person). iOS shows its own "Open in Numbite?" question for a custom link sent from outside. Not tried: a first-time launch (questions first, then the list).
+  i. Dark appearance (`xcrun simctl ui booted appearance dark`): the app stays light, status-bar text dark. OK.
   Christmas is not in the Occasion list **because it starts on 1 November** (today is 18 October): the list shows Any occasion, Bonfire Night 6, Lunchbox 14, Party food 8, Picnic 14, Summer barbecue 8.
   Screenshots (welcome, Home, Recipes, the Occasion list, a recipe, Groceries, Near me, Safari link) are in `build/screens/` (not committed).
-  *Still to do:* 9g retry, 9h, 9i, step 5 (`xcodebuild archive`, dry run, no upload; first rebuild the web bundle with `./scripts/build_app_web.sh`, and check the archive's Info.plist has `UIUserInterfaceStyle`),
-  the final `./scripts/test.sh --unit`, push `mac-build`, and the final report with the founder's click-by-click steps.
+  *Archive dry run* (`xcodebuild -scheme MenuMacros -destination 'generic/platform=iOS' -configuration Release -archivePath build/Numbite.xcarchive archive`, nothing uploaded): **ARCHIVE SUCCEEDED** (169 MB). Inside: version 1.0 (1),
+  `UIUserInterfaceStyle = Light`, camera and location strings, `ITSAppUsesNonExemptEncryption = NO`, `PrivacyInfo.xcprivacy`, `WebApp.bundle` as one folder, the Sign in with Apple entitlement, signed "Apple Development: AMAN UMESH MAFWVAHA"
+  (the App Store export re-signs with the Distribution certificate). **Two things for the founder:** (1) the build uploaded on 14 October (1.0 build 1) is the OLD app: it has none of Reminders, Community/Friends, shared-list links, and its
+  Info.plist had no `UIUserInterfaceStyle` key; upload a new build, which needs a **new build number** (Xcode > target MenuMacros > General > Build: 2), because App Store Connect refuses a build number it already has. (2) no `CFBundleURLTypes` yet (see h).
+  The first archive attempt failed with "No space left on device": **the Mac's disk was full (a few hundred MB free)**, which also stopped the Claude shell. Freed by deleting build/DerivedData and the old archives, this project's own caches in
+  ~/Library/Developer/Xcode/DerivedData (MenuMacros-*) and web/.next, web/.next-app (all regenerated by builds). **Only about 0.5 GB is free now**: clear space before the next Xcode build (Downloads is 24 GB, CoreSimulator 7 GB).
+  *Final checks.* `./scripts/test.sh --unit` again: 1,507 website tests and **62 of 62 Swift tests** pass; the throwaway UI test file (`build/scratch/ScratchWalk.swift`) is not in the project. Only one repo file was changed by this session:
+  `MenuMacrosUITests/MenuMacrosUITests.swift` (the stale first-screen check). Screenshots (welcome, Home, Recipes, the Occasion list, a recipe, Groceries, Near me, the Safari link, dark appearance, both `numbite://` links) are in `build/screens/` (not committed).
 
 ## Known issues
 
