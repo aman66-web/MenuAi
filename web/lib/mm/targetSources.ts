@@ -29,7 +29,7 @@ export const TARGET_SOURCES: readonly TargetSource[] = [
 ];
 
 /** The day the three pages above were opened and read (ISO date). */
-export const TARGET_SOURCES_CHECKED = "2026-10-31";
+export const TARGET_SOURCES_CHECKED = "2026-10-30";
 
 /** The only hosts a source link may point to (a test fails any other). */
 export const TARGET_SOURCE_HOSTS: readonly string[] = ["pubmed.ncbi.nlm.nih.gov", "pmc.ncbi.nlm.nih.gov", "www.nhs.uk"];

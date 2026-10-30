@@ -2138,12 +2138,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   targets with a suggested 3,980 kcal / 290 g protein). Nothing was raised about logos, photos, Community, reminders or privacy this round.
   - **Founder's choices (30 Oct):** option A (cite sources in the app, new build, short factual reply to Apple); build 4 = `main` + this fix only (the unfinished improvement pass on
     `claude/menumacros-kit` waits for 1.0.1); the GLP-1 meal size is kept and labelled as Numbite's own setting.
-  - **What it adds (branch `fix-1-4-1-sources`, from `main`):** `lib/mm/targetSources.ts` (three sources, each opened and read on 31 October: Mifflin-St Jeor 1990 on PubMed 2305711; NHS "Understanding
+  - **What it adds (branch `fix-1-4-1-sources`, from `main`):** `lib/mm/targetSources.ts` (three sources, each opened and read on 30 October: Mifflin-St Jeor 1990 on PubMed 2305711; NHS "Understanding
     calories", which gives the 2,500 / 2,000 kcal averages and says you are likely to lose weight if you eat and drink fewer calories than you use; the ISSN protein position stand 2017, PMC5477153,
     1.4-2.0 g/kg a day for most exercising people; a test allows only https links on pubmed / pmc / nhs.uk), `SourcesBody` (the words; every figure in them is read from the constants the
     suggestions use), `SourcesLink` (a 44 px button that opens the sources in a sheet, so onboarding never loses its place) beside the Daily targets and the GLP-1 note in Settings and on the
     targets step of onboarding, and the page `/app/settings/sources` (Settings > About, precached for offline). Rules with no published source are listed under "Numbite's own starting
-    points" and are not given one: the activity multipliers, the -500 / +250 kcal adjustments, the 1,200 kcal floor, the 15-35% protein limits and diet nudge, the 30% fat share, the 2,000 ml water goal,
+    points" and are not given one: the activity multipliers, the -500 / +250 kcal adjustments, the 1,200 kcal floor, the 15-35% protein limits and the vegetarian/vegan nudge, the 20% protein / 30% fat default split, the 2,000 ml water goal,
     the GLP-1 meal size, and the halfway figure for "unspecified" sex. **No number or rule changed.** The NHS page says it was last reviewed 17 April 2023 with its next review due 17 April 2026: the
     screen says when we checked it. NICE (for GLP-1 medicines) refused our fetch with 403 and is not cited.
   - **New copy (rule 8, logged here; English only):** "Where these numbers come from" (link, sheet and page title), the intro, "Calories your body uses at rest", "How many calories people need", "Protein",
