@@ -2149,7 +2149,16 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **New copy (rule 8, logged here; English only):** "Where these numbers come from" (link, sheet and page title), the intro, "Calories your body uses at rest", "How many calories people need", "Protein",
     "{app}'s own starting points", the seven bullets under it, the two source-sentence paragraphs, the doctor/dietitian line, "Links open in your browser. Sources checked on {date}." and "Numbers for restaurants, shops and recipes: {link}.".
   - **Build 4:** `CURRENT_PROJECT_VERSION` 3 → 4 (the two lines of the app target in `MenuMacros.xcodeproj/project.pbxproj`); docs/STORE.md's App Review notes gained a 1.4.1 paragraph. The founder archives and
-    uploads, swaps build 3 for build 4 on the rejected submission and resubmits (steps in the Claude desktop report; draft reply to Apple in docs/REJECTION_REPORT.md if the founder commits it).
+    uploads, swaps build 3 for build 4 on the rejected submission and resubmits: `docs/CLAUDE_DESKTOP_BUILD4_PROMPT.md` is the paste-ready prompt for Claude desktop (it holds the reply to Apple).
+  - **Independent review (30 Oct)** found: the protein line wrongly included pescatarians (their factor is 1), a skipped heading level on the page, the GLP-1 goal missing from the 500 kcal line, the
+    20% protein default not stated, and the checked date a day ahead. All fixed; a test now keeps the words and the constants together (GLP-1 and lose-weight share one adjustment; only vegetarian and
+    vegan get the protein nudge).
+  - **Checked:** tsc, eslint, 1,511 unit tests, production build; e2e extra 14 (new step: the link beside Daily targets is 44 px and opens the sheet with exactly three https links to PubMed, PMC and
+    nhs.uk, nothing fetched until tapped; the GLP-1 note's link; Settings › About opens the page), a11y 0 violations (new page and the sheet), largetext (no overflow at 200%), smoke 23, back 42, tabs 3;
+    `npm run build:app` exports `/app/settings/sources`, and `app-build.mjs` 9 of 9. Its welcome-wall step still expected names only (out of date since the founder's 18 Oct logos decision): it now
+    follows the `appLogos` switch. The iPhone app sends `target="_blank"` links to Safari (`WebAppView.swift` `createWebViewWith`), so the source links open there.
+  - **Merged to `main` on 30 Oct** (numbite.com shows the new page). `HANDOVER.md` (root) hands the project to a Claude desktop session; `docs/IMPROVEMENT_PASS_REVIEW.md` lists the 19 open review
+    findings of the unfinished improvement pass on `claude/menumacros-kit`.
 
 ## Known issues
 

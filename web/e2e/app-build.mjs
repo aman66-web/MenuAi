@@ -1,6 +1,7 @@
+import { readFileSync } from "node:fs";
 // The iPhone app's copy of the web app (npm run build:app, served like the app does by e2e/serve-app.mjs on port 3103), with the live
-// website unreachable (as on a phone with no signal): everything works from the files packed inside it, the welcome wall shows names (no
-// logos), no service worker, no Pro or AI wording, and the iPhone's own scanner, location and share sheet are used through the bridge
+// website unreachable (as on a phone with no signal): everything works from the files packed inside it, the welcome wall follows the appLogos switch (logos,
+// or names when it is off), no service worker, no Pro or AI wording, and the iPhone's own scanner, location and share sheet are used through the bridge
 // (lib/mm/native.ts; faked here). Also: a logo taken down on the live website disappears.
 //   cd web && npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/app-build.mjs
 import { chromium } from "playwright-core";
@@ -45,16 +46,26 @@ async function noForbidden(page, where) {
   expect(!hit, `${where}: "${hit?.[0]}"`);
 }
 
-await step("first launch with no signal: the welcome wall shows restaurant and shop names, no logo pictures", async () => {
+// Founder 2026-10-18 ("it has to be the logos too"): the app's welcome wall follows the appLogos switch (web/app-content.json) like the rest of the app.
+// With appLogos on, the packed logo files show with no signal; with it off, plain names (the App Review fallback).
+await step("first launch with no signal: the welcome wall follows the appLogos switch (logos packed in the app, or names when it is off)", async () => {
   const { ctx, page } = await newPage({ settings: null });
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome/);
   const wall = page.locator(".logo-wall");
   await wall.waitFor();
   await page.waitForTimeout(800);
-  expect((await wall.locator("img").count()) === 0, "no logo files on the wall");
-  expect((await wall.innerText()).length > 0 || (await wall.getAttribute("aria-label"))?.includes("Names"), "names on the wall");
-  expect((await wall.getAttribute("aria-label")) === "Names of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
+  const appLogos = JSON.parse(readFileSync(new URL("../app-content.json", import.meta.url), "utf8")).appLogos !== false;
+  const imgs = await wall.locator("img").count();
+  if (appLogos) {
+    expect(imgs > 0, "logo files on the wall");
+    const srcs = await wall.locator("img").evaluateAll((els) => els.slice(0, 20).map((e) => e.getAttribute("src") ?? ""));
+    expect(srcs.every((s) => !/^https?:/.test(s)), `logos load from inside the app: ${srcs.join(", ")}`);
+    expect((await wall.getAttribute("aria-label")) === "Logos of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
+  } else {
+    expect(imgs === 0, "no logo files on the wall");
+    expect((await wall.getAttribute("aria-label")) === "Names of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
+  }
   await ctx.close();
 });
 
