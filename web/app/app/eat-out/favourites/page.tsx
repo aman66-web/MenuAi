@@ -9,10 +9,11 @@ import { ChainRow, chainGroupClass } from "../../_components/ChainRow";
 import { ChevronLeftIcon, SearchIcon, StarIcon } from "../../_components/icons";
 import { Pip } from "../../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
-import { EmptyState, Spinner } from "../../_components/ui";
+import { EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useMenu, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
+import { menuClient } from "../../_lib/menu";
 
 // "My favourite restaurants" (founder 2026-10-11: "on the eat out section there should be one which says my favourite restaurants ... that's when they can
 // bookmark restaurants"): the person's favourites first, then every restaurant with a star to add or take it off. On this device only (mm.v1.favorites),
@@ -49,6 +50,11 @@ export default function FavouriteRestaurantsPage() {
 
       {!hydrated || menu.status === "loading" || menu.status === "idle" ? (
         <Spinner label={t("Loading restaurants")} />
+      ) : menu.status === "error" ? (
+        // the restaurants couldn't be loaded: say so (as Eat out does), never "No favourite restaurants yet", which would read as if the favourites were gone
+        <div className="mt-6">
+          <ErrorBox message={menu.error != null ? t(menu.error) : t("Couldn't load the restaurants.")} onRetry={() => void menuClient.ensureManifest(true)} />
+        </div>
       ) : (
         <>
           {mine.length === 0 ? (

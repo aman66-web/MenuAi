@@ -20,6 +20,8 @@ const appConfig: NextConfig = {
     NEXT_PUBLIC_APP_BUILD: "1",
     // where the app reaches the live website (newer menus, the taken-down logos list, the API)
     NEXT_PUBLIC_REMOTE_BASE: process.env.NEXT_PUBLIC_REMOTE_BASE ?? "https://numbite.com",
+    // the app's own version and build number, "1.0 (3)", read from the Xcode project by scripts/build_app_web.sh (Settings' footer, reports)
+    NEXT_PUBLIC_APP_VERSION: process.env.NEXT_PUBLIC_APP_VERSION || "1.0",
   },
 };
 

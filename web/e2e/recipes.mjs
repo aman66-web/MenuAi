@@ -580,6 +580,145 @@ await step("cuisine and occasion: two fields with counts, one tap to choose, AND
   await b.ctx.close();
 });
 
+await step("Back from a recipe finds the list as it was left: the search words (even after a tile is tapped), the meal tile, the toggles and the shop, kept in the address with no extra history", async () => {
+  const { ctx, page } = await newPage();
+  const status = () => page.getByRole("status").filter({ hasText: /recipes? match$/ });
+  const matchCount = async () => Number(/^(\d+) recipes? match$/.exec((await status().innerText()).trim())?.[1]);
+  const tiles = page.getByRole("group", { name: "Filters" });
+  const pressed = async (name) => (await tiles.getByRole("button", { name, exact: true }).getAttribute("aria-pressed")) === "true";
+  const openFirstAndBack = async () => {
+    await page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']").first().click();
+    await page.waitForURL((u) => u.pathname.startsWith("/app/recipes/view"));
+    await page.getByRole("button", { name: /^Save to My meals/ }).waitFor();
+    await page.goBack();
+    await status().waitFor();
+  };
+  await page.goto(BASE + "/app/recipes?r=sainsburys");
+  await page.getByRole("heading", { name: /All recipes · 117/ }).waitFor();
+  const historyBefore = await page.evaluate(() => history.length);
+  // the words first, then a tile: the tile is written into the address without losing the words kept in the history entry
+  await page.getByLabel("Search recipes").fill("chicken");
+  await tiles.getByRole("button", { name: "Dinner", exact: true }).click();
+  await page.waitForURL((u) => u.searchParams.get("meal") === "dinner" && u.searchParams.get("r") === "sainsburys");
+  await status().waitFor();
+  const chickenDinners = await matchCount();
+  expect(chickenDinners >= 2, `chicken dinners: ${chickenDinners}`);
+  expect((await page.evaluate(() => history.length)) === historyBefore, "choosing added a history entry");
+  await openFirstAndBack();
+  expect((await page.getByLabel("Search recipes").inputValue()) === "chicken", `the search box came back as "${await page.getByLabel("Search recipes").inputValue()}"`);
+  expect(await pressed("Dinner"), "Dinner is no longer chosen after Back");
+  expect((await matchCount()) === chickenDinners, `${await matchCount()} recipes after Back, ${chickenDinners} before`);
+  // a meal and a toggle together, kept by a reload and by Back
+  await page.getByLabel("Search recipes").fill("");
+  await tiles.getByRole("button", { name: "Lunch", exact: true }).click();
+  await tiles.getByRole("button", { name: "No meat or fish", exact: true }).click();
+  await page.waitForURL((u) => u.searchParams.get("meal") === "lunch" && u.searchParams.get("only") === "meatFree" && u.searchParams.get("r") === "sainsburys");
+  await status().waitFor();
+  const lunches = await matchCount();
+  await page.reload();
+  await status().waitFor();
+  expect((await pressed("Lunch")) && (await pressed("No meat or fish")) && !(await pressed("Dinner")), "the tiles after a reload");
+  expect((await page.getByLabel("Search recipes").inputValue()) === "", "an emptied search box came back with words");
+  await openFirstAndBack();
+  expect((await pressed("Lunch")) && (await pressed("No meat or fish")) && (await matchCount()) === lunches, "the tiles after Back");
+  // a bad address is read as no choice
+  await page.goto(BASE + "/app/recipes?meal=brunch&only=nope,quick,%3Cb%3E");
+  await status().waitFor();
+  expect(!(await pressed("Breakfast")) && !(await pressed("Lunch")) && (await pressed("Quick")) && !(await pressed("Vegan")), "a bad meal or toggle in the address chose something");
+  // Clear takes everything off in one go and keeps the shop
+  await page.goto(BASE + "/app/recipes?r=sainsburys&meal=dinner&only=vegan&cuisine=indian");
+  await page.getByRole("status").filter({ hasText: /recipes? match/ }).or(page.getByRole("button", { name: "Show all recipes" })).first().waitFor();
+  expect((await pressed("Dinner")) && (await pressed("Vegan")) && (await page.getByRole("combobox", { name: "Cuisine" }).inputValue()) === "indian", "the address's choices are shown");
+  // "Clear" beside the count, or "Show all recipes" when nothing matches: both take everything off
+  await page.getByRole("button", { name: /^(Clear|Show all recipes)$/ }).first().click();
+  await page.getByRole("status").filter({ hasText: /^117 recipes$/ }).waitFor();
+  await page.waitForURL((u) => u.search === "?r=sainsburys");
+  await ctx.close();
+});
+
+await step("Log a serving: logs one serving of exactly the figures the page shows (fitted, and as written), with Undo at the top; fits 360 px at Extra large text", async () => {
+  const { ctx, page } = await newPage("light", proSettings);
+  const read = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.log") ?? '{"data":[]}').data);
+  const shown = async () => {
+    const text = await page.getByRole("group", { name: /Beef chilli and rice, per serving/ }).innerText();
+    return { kcal: Number(/^\s*([\d,]+)/.exec(text)?.[1].replace(/,/g, "")), protein: Number(/protein\s*(\d+)g/i.exec(text)?.[1]) };
+  };
+  await page.goto(BASE + "/app/recipes/view?id=beef-chilli&r=sainsburys");
+  await page.getByRole("heading", { level: 1, name: "Beef chilli and rice" }).waitFor();
+  await page.getByRole("group", { name: /Beef chilli and rice, per serving/ }).waitFor();
+  const fitted = await shown();
+  const log = page.getByRole("button", { name: "Log a serving", exact: true });
+  await log.click();
+  await page.getByRole("status").filter({ hasText: /^Logged to Today\.$/ }).waitFor();
+  let entries = await read();
+  expect(entries.length === 1, `${entries.length} entries`);
+  let e = entries[0];
+  expect(e.source === "recipe" && e.chainName === "Recipe" && e.chainId === "" && e.name === "Beef chilli and rice", JSON.stringify(e));
+  expect(Math.round(e.nutrients.calories) === fitted.kcal, `logged ${e.nutrients.calories} kcal, the page shows ${fitted.kcal}`);
+  expect(Math.abs(Math.round(e.nutrients.protein) - fitted.protein) <= 1, `logged ${e.nutrients.protein} g protein, the page shows ${fitted.protein} g`);
+  expect(typeof e.nutrients.carbs === "number" && typeof e.nutrients.fat === "number", "carbs and fat are logged too");
+  // the Undo sits at the top (the foot holds "Add all to my shopping list") and takes it back
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  const ub = await undo.boundingBox();
+  expect(ub.y < 120, `the Undo pill is at y=${ub.y}`);
+  await undo.click();
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem("mm.v1.log")).data.length === 0);
+  // as written: whatever the page shows is what is logged
+  await page.getByRole("button", { name: "Show it as written" }).click();
+  await page.getByText("Showing the recipe as written.").waitFor();
+  const written = await shown();
+  await log.click();
+  await page.getByRole("status").filter({ hasText: /^Logged to Today\.$/ }).waitFor();
+  entries = await read();
+  e = entries[entries.length - 1];
+  expect(Math.round(e.nutrients.calories) === written.kcal, `as written: logged ${e.nutrients.calories}, shown ${written.kcal}`);
+  // it shows up on Today
+  await page.goto(BASE + "/app/today");
+  await page.getByText("Beef chilli and rice").first().waitFor();
+  await ctx.close();
+  // 360 px at Extra large text: the button is whole and nothing scrolls sideways
+  const big = await browser.newContext({ viewport: { width: 360, height: 780 }, serviceWorkers: "block" });
+  await big.addInitScript((s) => { if (!localStorage.getItem("mm.v1.settings")) localStorage.setItem("mm.v1.settings", s); }, JSON.stringify({ v: 1, data: { ...baseSettings, devProOverride: true, textSize: "xlarge" } }));
+  const bp = await big.newPage();
+  await bp.route("**/assets.sainsburys-groceries.co.uk/**", (r) => r.fulfill({ contentType: "image/png", body: PNG }));
+  await bp.goto(BASE + "/app/recipes/view?id=beef-chilli&r=sainsburys");
+  const bl = bp.getByRole("button", { name: "Log a serving", exact: true });
+  await bl.waitFor();
+  const lb = await bl.boundingBox();
+  expect(lb.height >= 44 && lb.x >= 0 && lb.x + lb.width <= 360, `the button at ${JSON.stringify(lb)}`);
+  expect(await bp.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), "sideways scroll at 360 px, Extra large text");
+  await big.close();
+});
+
+await step("a recipe that no longer suits the diet isn't shown with a diet note: the page says it no longer suits; one that suits still opens", async () => {
+  const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, preferences: { ...baseSettings.preferences, veganOnly: true } } }));
+  await page.goto(BASE + "/app/recipes/view?id=beef-chilli&r=sainsburys");
+  await page.getByText("That recipe isn't saved on this device, or no longer suits your diet.").waitFor();
+  expect((await page.getByRole("heading", { level: 1, name: "Beef chilli and rice" }).count()) === 0, "the beef recipe is still shown to a vegan");
+  await page.getByRole("link", { name: /^Back/ }).first().waitFor();
+  await ctx.close();
+});
+
+await step("a list of shops that can't be downloaded says so with a Try again that works (Recipes, a recipe, My meals), never 'No supermarket list yet.'", async () => {
+  const { ctx, page } = await newPage();
+  await page.addInitScript(() => localStorage.setItem("mm.v1.savedRecipes", JSON.stringify({ v: 1, data: [{ id: "chicken-curry", savedAt: "2026-10-10T10:00:00.000Z" }] })));
+  const offline = (r) => r.abort("internetdisconnected");
+  for (const [where, address, words, ready] of [
+    ["Recipes", "/app/recipes", "Couldn't load the recipes. Check your connection.", () => page.getByRole("heading", { name: /All recipes · 117/ })],
+    ["a recipe", "/app/recipes/view?id=chicken-curry&r=sainsburys", "Couldn't load this recipe. Check your connection.", () => page.getByRole("heading", { level: 1, name: "Chicken curry with rice" })],
+    ["My meals", "/app/meals?tab=recipes", "Couldn't load the recipes. Check your connection.", () => page.locator("a[href*='/app/recipes/view']").first()],
+  ]) {
+    await page.route("**/groceries/all/all-manifest.json", offline);
+    await page.goto(BASE + address);
+    await page.getByText(words).waitFor();
+    expect((await page.getByText("No supermarket list yet.").count()) === 0, `${where}: a failed download reads as no supermarket list`);
+    await page.unroute("**/groceries/all/all-manifest.json", offline);
+    await page.getByRole("button", { name: "Try again" }).click();
+    await ready().waitFor({ timeout: 30000 });
+  }
+  await ctx.close();
+});
+
 for (const scheme of ["light", "dark"]) {
   await step(`axe: recipes list and a recipe (${scheme})`, async () => {
     const { ctx, page } = await newPage(scheme, proSettings);

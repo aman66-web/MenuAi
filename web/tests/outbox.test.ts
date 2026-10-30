@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   chainRequestPayload, mailtoFor, OUTBOX_MAX_ATTEMPTS, OUTBOX_RECONNECT_MIN_MS, OUTBOX_RETRY_MS, OUTBOX_SENT_KEEP_MS, OutboxSender, reportPayload, supportPayload,
   type OutboxItem, type PhotoStore,
@@ -229,5 +229,43 @@ describe("request bodies match docs/BACKEND.md and pass the server's own validat
     expect(decodeURIComponent(link)).toContain("Hello there");
     // mailto can't carry a photo: the link says what it contains and nothing about an attachment
     expect(decodeURIComponent(link)).not.toContain("photo");
+  });
+});
+
+// The iPhone app's packed copy (npm run build:app, NEXT_PUBLIC_APP_BUILD=1) says it is the app and gives its own version and build number,
+// read from the Xcode project by scripts/build_app_web.sh. APP_BUILD is read when lib/mm/config.ts loads, so each case loads the modules afresh.
+describe("inside the iPhone app", () => {
+  afterEach(() => { vi.unstubAllEnvs(); vi.resetModules(); });
+  const load = async (env: Record<string, string>) => {
+    for (const [k, v] of Object.entries(env)) vi.stubEnv(k, v);
+    vi.resetModules();
+    return { outbox: await import("../lib/mm/outbox"), config: await import("../lib/mm/config") };
+  };
+
+  it("sends source \"app\" and the app's version, and the server accepts both", async () => {
+    const { outbox, config } = await load({ NEXT_PUBLIC_APP_BUILD: "1", NEXT_PUBLIC_APP_VERSION: "1.0 (3)" });
+    expect(config.APP_VERSION).toBe("1.0 (3)");
+    const support = outbox.supportPayload("I found a bug", "me@example.com");
+    expect(support).toEqual({ message: "I found a bug", email: "me@example.com", source: "app", appVersion: "1.0 (3)" });
+    expect(supportSchema.safeParse(support).success).toBe(true);
+    const report = outbox.reportPayload({ chainId: "a", itemId: "b", field: "other", hasPhoto: false });
+    expect(report).toEqual({ chainId: "a", itemId: "b", field: "other", appVersion: "1.0 (3)" });
+    expect(reportSchema.safeParse(report).success).toBe(true);
+    const request = outbox.chainRequestPayload("Raising Cane's");
+    expect(request).toEqual({ name: "Raising Cane's", appVersion: "1.0 (3)" });
+    expect(chainRequestSchema.safeParse(request).success).toBe(true);
+  });
+
+  it("an app build without a version from the script says \"1.0\"", async () => {
+    const { outbox, config } = await load({ NEXT_PUBLIC_APP_BUILD: "1", NEXT_PUBLIC_APP_VERSION: "" });
+    expect(config.APP_VERSION).toBe("1.0");
+    expect(outbox.supportPayload("I found a bug").source).toBe("app");
+  });
+
+  it("the website ignores an app version in its environment", async () => {
+    const { outbox, config } = await load({ NEXT_PUBLIC_APP_VERSION: "1.0 (3)" });
+    expect(config.APP_BUILD).toBe(false);
+    expect(config.APP_VERSION).toBe("web 1.0");
+    expect(outbox.supportPayload("I found a bug").source).toBe("web");
   });
 });

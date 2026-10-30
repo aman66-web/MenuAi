@@ -2,21 +2,28 @@
 
 import Link from "next/link";
 import { builderHref, chainHref } from "@/lib/mm/routes";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { analytics } from "@/lib/mm/analytics";
 import { FREE_SAVED_ORDER_LIMIT } from "@/lib/mm/config";
 import { formatGrams, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
 import type { Nutrients } from "@/lib/mm/types";
+import { savedOrderEntry } from "@/lib/mm/logCopy";
 import { describeOrder, isOrderAvailable } from "@/lib/mm/order";
-import { deleteSavedOrder, favoritesStore, restoreSavedOrder, savedStore } from "@/lib/mm/stores";
+import { addLogEntry, countProAction, deleteLogEntry, deleteSavedOrder, favoritesStore, restoreSavedOrder, savedStore } from "@/lib/mm/stores";
 import type { SavedOrder } from "@/lib/mm/user-data";
 import { ChainCard } from "../_components/ChainRow";
 import { TrashIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { MacroSummary } from "../_components/Nutrition";
+import { useGate } from "../_components/Paywall";
 import { Badge, Button, EmptyState, LinkButton } from "../_components/ui";
+import { UndoToast, type ToastMessage } from "../_components/UndoToast";
 import { useChainIndexes, useIsPro, useMenu, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
+
+/** A white card's secondary pill (Menu, Log). */
+const SOFT_PILL = "inline-flex min-h-11 flex-[1_1_auto] items-center justify-center rounded-full bg-[var(--fill)] px-5 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong";
 
 const CHIP = "inline-flex items-baseline gap-[0.25em] whitespace-nowrap rounded-md bg-[var(--fill)] px-1.5 py-[0.1875rem]";
 
@@ -31,6 +38,7 @@ function figures(n: Nutrients, t: T): Array<[string, string]> {
 // SPEC §7.7: most recent first. Pro: tap opens the builder. Free: read-only detail. A saved order whose item or
 // ingredient left the menu says "No longer on the menu", keeps its saved numbers, and can't be edited.
 // Styled like Home's cards (2026-10-15): white, 20 px corners, the restaurant and figures quiet under the name.
+// Each saved meal can be logged as it is ("Log": its saved figures, exactly as the Add food sheet logs a saved meal), with an Undo.
 export function RestaurantMeals() {
   const t = useT();
   const saved = useStore(savedStore);
@@ -40,15 +48,22 @@ export function RestaurantMeals() {
   const favoriteChains = menu.chains.filter((c) => favorites.some((f) => f.chainId === c.id));
   const indexes = useChainIndexes(saved.map((o) => o.chainId));
   const [open, setOpen] = useState<string | null>(null);
-  const [undo, setUndo] = useState<SavedOrder | null>(null);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+  const { gate } = useGate();
+  // one toast at a time ("Deleted …" or "Logged to Today."), each with its own Undo
+  const [toast, setToast] = useState<(ToastMessage & { undo: () => void }) | null>(null);
 
   function remove(order: SavedOrder) {
     deleteSavedOrder(order.id);
-    setUndo(order);
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setUndo(null), 6000);
+    setToast({ key: `deleted:${order.id}`, text: t("Deleted “{name}”.", { name: order.name }), undo: () => restoreSavedOrder(order) });
+  }
+
+  function log(order: SavedOrder) {
+    gate("log", () => {
+      const entry = addLogEntry(savedOrderEntry(order));
+      analytics.track({ name: "mealLogged" });
+      countProAction();
+      setToast({ key: `logged:${entry.id}`, text: t("Logged to Today."), undo: () => deleteLogEntry(entry.id) });
+    });
   }
 
   return (
@@ -90,7 +105,9 @@ export function RestaurantMeals() {
                   ) : (
                     <Button variant="secondary" className="flex-[3_1_auto]" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : o.id)}>{expanded ? t("Hide details") : t("Details")}</Button>
                   )}
-                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 flex-[1_1_auto] items-center justify-center rounded-full bg-[var(--fill)] px-5 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">{t("Menu")}</Link>}
+                  {!gone && <Link href={chainHref(o.chainId)} className={SOFT_PILL}>{t("Menu")}</Link>}
+                  {/* its spoken name says which meal it logs, as the Add food sheet's Add pills do */}
+                  <button type="button" onClick={() => log(o)} className={SOFT_PILL}>{t("Log")}<span className="sr-only"> {o.name}</span></button>
                 </div>
                 {expanded && (
                   <div className="mt-3 rounded-[1rem] bg-[var(--fill)] p-3.5">
@@ -111,12 +128,8 @@ export function RestaurantMeals() {
         </section>
       )}
 
-      {undo && (
-        <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-foreground px-5 py-2 text-background shadow-lg">
-          <span className="text-[0.9375rem]">{t("Deleted “{name}”.", { name: undo.name })}</span>
-          <button type="button" className="min-h-11 px-2 text-[0.9375rem] font-bold text-[var(--sun)]" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>{t("Undo")}</button>
-        </div>
-      )}
+      {/* above the floating tab bar and the home bar (UndoToast) */}
+      <UndoToast message={toast} onUndo={toast?.undo} onDone={() => setToast(null)} />
     </div>
   );
 }

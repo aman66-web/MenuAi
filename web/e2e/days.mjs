@@ -200,6 +200,104 @@ await step("a bad, missing or future date shows today; deleting an entry on a pa
   await ctx.close();
 });
 
+await step("a past day's meal can be added to today: exact copies (new id, today's time, the same meal row), one Undo takes them back; today has no such button", async () => {
+  const { ctx, page, errors } = await open();
+  const y = at(1, 12);
+  await page.goto(BASE + "/app/today?d=" + keyOf(y), { timeout: 120000 });
+  await page.getByText("Yesterday chicken wrap").waitFor({ timeout: 90000 });
+  const lunch = page.getByRole("region", { name: "Lunch", exact: true });
+  const add = lunch.getByRole("button", { name: /^Add to today/ });
+  expect((await add.count()) === 1, "no Add to today in yesterday's Lunch");
+  expect((await page.getByRole("button", { name: /^Add to today/ }).count()) === 3, "each of yesterday's three meals should offer Add to today");
+  const box = await add.boundingBox();
+  expect(box.height >= 44, `the button is ${box.height} px tall`);
+  await add.tap();
+  await page.getByRole("status").filter({ hasText: /^Added to today\.$/ }).waitFor();
+  const read = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.log")).data);
+  let log = await read();
+  expect(log.length === SEED_LOG.length + 1, `${log.length} entries, expected ${SEED_LOG.length + 1}`);
+  const copy = log.find((e) => e.name === "Yesterday chicken wrap" && e.id !== "y2");
+  const original = SEED_LOG.find((e) => e.id === "y2");
+  expect(copy, "no copy in the log");
+  expect(JSON.stringify(copy.nutrients) === JSON.stringify(original.nutrients), `the figures changed: ${JSON.stringify(copy.nutrients)}`);
+  expect(copy.chainId === original.chainId && copy.chainName === original.chainName && copy.source === original.source, "restaurant or source changed");
+  expect(copy.meal === "lunch", `the copy sits under ${copy.meal}, not Lunch`);
+  expect(new Date(copy.loggedAt).toDateString() === new Date().toDateString(), "the copy isn't logged today");
+  // Undo takes the copy back, and only the copy
+  await page.getByRole("button", { name: "Undo", exact: true }).tap();
+  await page.waitForFunction((n) => JSON.parse(localStorage.getItem("mm.v1.log")).data.length === n, SEED_LOG.length);
+  log = await read();
+  expect(log.some((e) => e.id === "y2"), "Undo removed the original");
+  // add it again and find it on today's page, under Lunch whatever the time now; today offers no Add to today
+  await add.tap();
+  await page.getByRole("status").filter({ hasText: /^Added to today\.$/ }).waitFor();
+  await page.goto(BASE + "/app/today", { timeout: 120000 });
+  await page.getByRole("region", { name: "Lunch", exact: true }).getByText("Yesterday chicken wrap").waitFor({ timeout: 90000 });
+  expect((await page.getByRole("button", { name: /^Add to today/ }).count()) === 0, "today should not offer Add to today");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("Last 7 days: the average a day over the days with food (an empty day isn't a 0), calories only when an entry has no protein, hidden when the week has no food", async () => {
+  const { ctx, page, errors } = await open();
+  const card = () => page.getByRole("region", { name: "Last 7 days" });
+  await page.goto(BASE + "/app/today", { timeout: 120000 });
+  await card().waitFor({ timeout: 90000 });
+  // today 200 kcal / 6 g, yesterday 1,800 / 92, three days ago 300 / 20: (2,300 / 3) and (118 / 3)
+  let text = (await card().innerText()).replace(/\s+/g, " ");
+  expect(text.includes("Average a day: 767 kcal · 39g protein"), "today's week: " + text);
+  expect(text.includes("From 3 days with food logged."), "today's week: " + text);
+  await page.goto(BASE + "/app/today?d=" + keyOf(at(1, 12)), { timeout: 120000 });
+  await page.getByText("Yesterday curry").waitFor({ timeout: 90000 });
+  text = (await card().innerText()).replace(/\s+/g, " ");
+  expect(text.includes("Average a day: 1,050 kcal · 56g protein") && text.includes("From 2 days with food logged."), "the week ending yesterday: " + text);
+  await ctx.close();
+  // an entry typed with calories only: no protein average at all, never one that counts it as 0
+  const typed = await open({}, {}, [entry("c1", at(0, 0, 5), "Coffee and cake", { calories: 420 }), entry("c2", at(2, 9), "Eggs", { calories: 300, protein: 20, carbs: 2, fat: 22 })]);
+  await typed.page.goto(BASE + "/app/today", { timeout: 120000 });
+  const tc = typed.page.getByRole("region", { name: "Last 7 days" });
+  await tc.waitFor({ timeout: 90000 });
+  text = (await tc.innerText()).replace(/\s+/g, " ");
+  expect(text.includes("Average a day: 360 kcal") && !/protein/.test(text), "calories only: " + text);
+  await typed.ctx.close();
+  // one day with food, a week back: "1 day"; nothing in the week: no card
+  const one = await open({}, {}, [entry("o1", at(6, 9), "Toast", { calories: 250, protein: 8, carbs: 40, fat: 6 }), entry("o2", at(9, 9), "Old", { calories: 900, protein: 40 })]);
+  await one.page.goto(BASE + "/app/today", { timeout: 120000 });
+  const oc = one.page.getByRole("region", { name: "Last 7 days" });
+  await oc.waitFor({ timeout: 90000 });
+  expect((await oc.innerText()).includes("From 1 day with food logged."), "one day: " + (await oc.innerText()));
+  await one.page.goto(BASE + "/app/today?d=" + keyOf(at(10, 12)), { timeout: 120000 });
+  await one.page.getByText("Nothing was logged on this day.").waitFor({ timeout: 90000 });
+  // the week ending 10 days ago runs from 16 to 10 days ago: Old (9 days ago) and Toast (6 days ago) both come after it
+  expect((await one.page.getByRole("region", { name: "Last 7 days" }).count()) === 0, "a week with no food shows the card");
+  expect(errors.length === 0, errors.join(" | "));
+  await one.ctx.close();
+});
+
+await step("times are on the 24-hour clock (19:00, not 7:00 PM); today with nothing logged offers Add food, which opens Home; a past day doesn't", async () => {
+  const { ctx, page, errors } = await open();
+  await page.goto(BASE + "/app/today?d=" + keyOf(at(1, 12)), { timeout: 120000 });
+  await page.getByText("Yesterday curry").waitFor({ timeout: 90000 });
+  const text = await figuresText(page);
+  expect(/\b19:00\b/.test(text) && /\b08:00\b/.test(text), "no 24-hour times: " + text.slice(0, 400));
+  expect(!/\b(AM|PM)\b/i.test(text), "a 12-hour time is still shown");
+  await ctx.close();
+  const empty = await open({}, {}, [entry("p1", at(2, 9), "Past only", { calories: 300, protein: 20 })]);
+  await empty.page.goto(BASE + "/app/today", { timeout: 120000 });
+  await empty.page.getByText("Nothing logged yet today").waitFor({ timeout: 90000 });
+  const addFood = empty.page.getByRole("link", { name: "Add food", exact: true });
+  await addFood.waitFor();
+  expect((await addFood.getAttribute("href")) === "/app", "Add food goes to " + (await addFood.getAttribute("href")));
+  await empty.page.goto(BASE + "/app/today?d=" + keyOf(at(1, 12)), { timeout: 120000 });
+  await empty.page.getByText("Nothing was logged on this day.").waitFor({ timeout: 90000 });
+  expect((await empty.page.getByRole("link", { name: "Add food", exact: true }).count()) === 0, "a past day offers Add food");
+  await empty.page.goto(BASE + "/app/today", { timeout: 120000 });
+  await empty.page.getByRole("link", { name: "Add food", exact: true }).tap();
+  await empty.page.getByRole("button", { name: "Choose a day", exact: true }).waitFor({ timeout: 90000 });
+  expect(errors.length === 0 && empty.errors.length === 0, [...errors, ...empty.errors].join(" | "));
+  await empty.ctx.close();
+});
+
 await step("a day with no food shows Pip's empty state; with no log at all the calendar has no dots", async () => {
   const { ctx, page, errors } = await open({}, {}, []);
   await home(page);

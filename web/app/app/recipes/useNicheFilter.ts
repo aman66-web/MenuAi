@@ -1,15 +1,17 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 import type { CuisineId, OccasionId } from "@/lib/mm/recipeBook/niches";
 import { parseCuisine, parseOccasion, type CuisineOption, type OccasionOption } from "@/lib/mm/recipeNiche";
+import { writeRecipesAddress } from "./useRecipeChoices";
 
 // The cuisine and occasion chosen on the Recipes screen live in the address (/app/recipes?cuisine=chinese&occasion=picnic), not in the settings and not in
 // any storage: the browser's Back and a link bring the same choice back, nothing is kept or sent anywhere, and a choice made for one occasion is not still on in
 // the next season. They are read in the browser (useSearchParams), so the packed iPhone app, which is a static export, works the same way. Choosing writes the
-// address with replace, not push, so each choice does not add a step to Back (the same as My meals' tabs). An address that names something that is not on offer
-// (a typo, a cuisine with too few recipes, an occasion out of season) is read as no choice.
+// address with replace, not push, so each choice does not add a step to Back (the same as My meals' tabs), and through writeRecipesAddress, so it keeps the shop,
+// meal and toggles chosen beside it and the search words kept in the history entry. An address that names something that is not on offer (a typo, a cuisine with
+// too few recipes, an occasion out of season) is read as no choice.
 
 export interface NicheChoice {
   cuisine: CuisineId | null;
@@ -24,7 +26,6 @@ export interface NicheFilter extends NicheChoice {
 }
 
 export function useNicheFilter(cuisines: readonly CuisineOption[], occasions: readonly OccasionOption[]): NicheFilter {
-  const router = useRouter();
   const params = useSearchParams();
   const askedCuisine = parseCuisine(params.get("cuisine"), cuisines);
   const askedOccasion = parseOccasion(params.get("occasion"), occasions);
@@ -45,14 +46,10 @@ export function useNicheFilter(cuisines: readonly CuisineOption[], occasions: re
     (next: NicheChoice) => {
       if (next.cuisine === cuisine && next.occasion === occasion) return;
       setMine(next);
-      // keep everything else in the address (the shop, ?r=)
-      const q = new URLSearchParams(window.location.search);
-      if (next.cuisine) q.set("cuisine", next.cuisine); else q.delete("cuisine");
-      if (next.occasion) q.set("occasion", next.occasion); else q.delete("occasion");
-      const qs = q.toString();
-      router.replace(`/app/recipes${qs ? `?${qs}` : ""}`, { scroll: false });
+      // everything else in the address (the shop, the meal, the toggles) is kept
+      writeRecipesAddress({ cuisine: next.cuisine, occasion: next.occasion });
     },
-    [router, cuisine, occasion],
+    [cuisine, occasion],
   );
 
   return {

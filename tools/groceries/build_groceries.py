@@ -533,7 +533,7 @@ ALCOHOL_WORD = re.compile(r"\b(?:whisk(?:e)?y|vodka|gin|rum|brandy|cognac|armagn
                           r"amaretto|sambuca|limoncello|ouzo|jägermeister|jagermeister|kahlua|cointreau|smirnoff|gordon'?s|bacardi|captain morgan|jack daniel'?s|jameson|"
                           r"famous grouse|glenfiddich|stella artois|budweiser|peroni|corona|heineken|carlsberg|guinness|kopparberg|strongbow|thatchers|magners|"
                           r"san miguel|madri|birra moretti|coors|foster'?s|carling|cobra|kronenbourg|desperados|old speckled hen|hobgoblin|doom bar|bass|fruli|four loko|"
-                          r"pornstar martini|mojito|margarita|daiquiri|g&t)\b", re.I)
+                          r"pornstar martini|martinis?|mojito|margarita|daiquiri|g&t|pils|cyder|brewery|blackthorn|brewdog)\b", re.I)
 DRINK_SIZE = re.compile(r"\b\d+(?:\.\d+)?\s?(?:cl|ml|l|ltr|litres?)\b|\b\d+\s?x\s?\d+(?:\.\d+)?\s?(?:cl|ml|l)\b|\bbottles?\b|\bcans?\b|\bmagnum\b", re.I)
 FOOD_WORD = re.compile(r"\b(?:vinegar|gums?|sauce|chocolates?|truffles?|cakes?|jelly|jellies|crisps|sweets|fudge|marmalade|mustard|gravy|batter(?:ed)?|sorbet|"
                        r"ice cream|pudding|p[aâ]t[eé]|cheese|sausages?|chutney|glaze|marinade|stock|casserole|mix|cooking|jam|crackers?|biscuits?|caramel|"
@@ -547,10 +547,60 @@ ALCOHOL_TYPES = {"beers", "ciders", "wheat-beers", "craft-beers", "lagers", "ale
                  "white-wines", "rose-wines", "sparkling-wines", "champagnes", "proseccos", "spirits", "whiskies", "vodkas", "gins", "rums", "hard-seltzers"}
 
 
+# Said outright, so a food or soft-drink word in the same name can't keep it (Iceland files its alcohol under plain "Drinks", where "Jam Shed Shiraz",
+# "Country Cream Liqueur", "Hooch Alcoholic Lemonade" and "Baileys ... Liqueur 17% vol" slipped through FOOD_WORD and SOFT_DRINK below, 2026-10-29). Checked
+# after NO_ALCOHOL, so "non-alcoholic", "alcohol free" and "0.0%" still stay.
+ALCOHOLIC = re.compile(r"\balcoholic\b", re.I)
+READY_MIXED = re.compile(r"\bpre[- ]{0,2}mix(?:ed)?\b|\bready[- ]to[- ]drink\b", re.I)  # with a spirit's name: "Absolut Pre-Mixed Raspberry Lemonade Vodka Drink 250ml"
+ABV = re.compile(r"(?<![\d.])(\d+(?:[.,]\d+)?)\s?%\s?(?:vol\b|abv\b|alc\b)|\babv\s?:?\s?(\d+(?:[.,]\d+)?)\s?%", re.I)
+LIQUEUR = re.compile(r"\bliqueurs?\b", re.I)
+WEIGHT = re.compile(r"(?<![\d.])\d+(?:\.\d+)?\s?k?g\b", re.I)
+# Brands that make only alcoholic drinks (no food carries their name): a size or a food word in the name doesn't matter ("Jam Shed", "Au Vodka Bubble Gum",
+# "Tequila Rose Strawberry Cream"). Brands that also name foods stay in ALCOHOL_WORD, where a food word keeps the food: Jack Daniel's sauces, Baileys
+# chocolates, BrewDog's sauces and seasonings (only its "Mix Pack" of beers is named here), Thatchers cider pies, Nairn's "Blackthorn" sea-salt oatcakes.
+DRINK_ONLY_BRAND = re.compile(r"\b(?:hooch|wkd|breezer|buzzballz|echo falls|blossom hill|lambrini|beefeater|jam shed|la vieille ferme|vk|black tower|19 crimes|"
+                              r"babycham|holsten|estrella damm|au vodka|tequila rose|old westminster reserve|chardolini|dandelione|louis jadot|rabo de gal[ao]|"
+                              r"(?:cornish|cornwall) rattler|crabbie'?s|vodkashakes?|brewdog mix(?:ed)? pack|simply yours(?=.*\b(?:75\s?cl|\d+(?:\.\d+)?\s?litres?)\b))\b", re.I)
+# A spirit's name without a size ("The Kraken Black Spiced Rum"): alcohol unless a food word says it is a food ("Kraken Rum Fudge").
+SPIRIT_BRAND = re.compile(r"\b(?:the )?kraken\b", re.I)
+# A wine-style word with a wine bottle's size ("The Jam Factory Red 75cl", "Spyland Red Blend 750ml", "Peach Bellini Sparkling Cocktail 75cl"), a cocktail in a
+# can or bottle ("All Shook Up Cocktail Variety Pack 10 x 250ml"), and a 70 cl bottle, the spirits size ("Soiree Brand X 70cl"). Grape juice, fruit drinks,
+# pressés, energy drinks, waters and the rest in NOT_WINE are soft drinks or foods of those sizes, and stay ("J2O Fizz 750ml", "Red Bull 250ml").
+WINE_STYLE = re.compile(r"\b(?:red|white|ros[eé]|rosato|rosso|bianco|blanc|blush|vino|vin|spumante|frizzante|fizz|bellini|perry)\b", re.I)
+WINE_SIZE = re.compile(r"\b(?:75|37\.5|18\.7)\s?cl\b|\b(?:750|375|187)\s?ml\b|\b1\.5\s?(?:l|ltr|litres?)\b|\bbag in box\b", re.I)
+COCKTAIL = re.compile(r"\bcocktails?\b", re.I)
+SPIRIT_SIZE = re.compile(r"\b70\s?cl\b", re.I)
+NOT_WINE = re.compile(r"\b(?:grapes?|fruit drinks?|soft drinks?|drinks?|juices?|press[eé]|waters?|cordials?|squash|soda|lemonade|mixers?|syrups?|milk|milkshakes?|tea|"
+                      r"coffee|smoothies?|shloer|nozeco|eisberg|kombucha|j2o|energy|red bull|vitamins?|greens|vinegar|sauce|dressing|mayonnaise|gravy|broth|"
+                      r"crisps|sweets|gums?|chocolates?|truffles?|cakes?|jelly|jellies|sausages?|prawns?|fruit cocktail|tomato|in juice|shampoo)\b", re.I)
+# A grape or a wine named with no size at all ("Badia San Mercuriale Pinot Grigio Delle Venezie", "Louis Jadot Mâcon-Villages"), and a drink sold with its glass
+# ("Guinness Duo and Glass"); a food named after one keeps its food word, a dish's name or its weight ("Prosecco Seafood Gratin", "Raspberry & Prosecco
+# Panna Cotta", "Moules Marinière with Chardonnay 2x250g").
+DISH = re.compile(r"\b(?:gratin|seafood|moules|marini[eè]re|bake|tart|dip|dressing|sauce|jus|ragu|ragout|bourguignon|coq au vin|panna cotta|mousse|posset|"
+                  r"roulade|g[aâ]teaux?|crumble|pavlova|syllabub|granita|gummies|desserts?|pots?|terrine|parfait|cupcakes?|macarons?|popcorn|lollipops?)\b", re.I)
+GRAPE = re.compile(r"\b(?:pinot (?:grigio|noir|blanc|gris)|sauvignon blanc|cabernet sauvignon|chardonnay|merlot|malbec|shiraz|tempranillo|prosecco|champagne|"
+                   r"m[aâ]con[ -]villages|c[oô]tes du rh[oô]ne|chablis|sancerre|beaujolais)\b", re.I)
+WITH_GLASS = re.compile(r"\b(?:gift set|and glass|& glass|with glass|miniatures? gift)\b", re.I)
+
+
 def is_alcohol(name: str, aisle: str = "") -> bool:
     """True for an alcoholic drink, going by the shop's own aisle and the product's own name (see ALCOHOL_AISLE above)."""
     if NO_ALCOHOL.search(name):
         return False
+    # said outright: the word, a strength over 0.5%, a liqueur (unless it is chocolates or truffles named after one), a brand that makes only drinks
+    if ALCOHOLIC.search(name) or any(float((m.group(1) or m.group(2)).replace(",", ".")) > 0.5 for m in ABV.finditer(name)):
+        return True
+    if READY_MIXED.search(name) and ALCOHOL_WORD.search(name):
+        return True
+    liqueur = LIQUEUR.search(name)
+    if liqueur and not FOOD_WORD.search(name[liqueur.end():]) and not (WEIGHT.search(name) and not DRINK_SIZE.search(name)):
+        return True  # "Cream Liqueur 70cl"; "Liqueur Chocolates", "Chocolate Liqueurs 150g" are sweets
+    if DRINK_ONLY_BRAND.search(name) or (SPIRIT_BRAND.search(name) and not FOOD_WORD.search(name)):
+        return True
+    if not NOT_WINE.search(name) and ((WINE_SIZE.search(name) and WINE_STYLE.search(name)) or (COCKTAIL.search(name) and DRINK_SIZE.search(name)) or SPIRIT_SIZE.search(name)):
+        return True
+    if (GRAPE.search(name) or (ALCOHOL_WORD.search(name) and WITH_GLASS.search(name))) and not (FOOD_WORD.search(name) or DISH.search(name) or NOT_WINE.search(name) or WEIGHT.search(name)):
+        return True
     aisle = re.sub(r"[-_/]+", " ", aisle or "")
     word = ALCOHOL_WORD.search(name)
     if re.search(r"\bno[ -]?(?:and[ -]?)?low\b", aisle, re.I):

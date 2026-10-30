@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { recipeNutrients } from "@/lib/mm/addFood";
+import { analytics } from "@/lib/mm/analytics";
 import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -9,10 +11,13 @@ import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, 
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
-import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
+import { addLogEntry, countProAction, cupboardStore, deleteLogEntry, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
+import type { LogEntry } from "@/lib/mm/user-data";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
+import { useGate } from "../_components/Paywall";
 import { Button, Sheet, radioKeyNav } from "../_components/ui";
+import { UndoToast } from "../_components/UndoToast";
 import { backName, useBack } from "../_lib/backNav";
 import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
@@ -28,6 +33,8 @@ import { MEAL_LOOK, RecipeHeroArt } from "./RecipeTile";
 // Restyled 2026-10-15 to match Home: the serving's numbers as Home's pair of cards (the calories big beside protein, carbs and fat as
 // spaced-capital rows), white cards with 20 px corners everywhere, grey circles for − and +, one card for the method, and
 // the main action a black pill with its words (and a plain plus, no circle).
+// "Log a serving" (founder's list, B2) logs one serving to Today with exactly the per-serving figures shown here (fitted to the meal, or as written when that is
+// what is shown, with any swaps), the same entry the Add food sheet's "Choose a recipe" makes, with an Undo for a few seconds.
 
 const amountText = (s: IngredientSpec) => `${formatInt(s.amount)} ${s.unit}`;
 
@@ -126,6 +133,8 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   const [added, setAdded] = useState<string | null>(null);
   const [tab, setTab] = useState<RecipeTab>("ingredients");
   const [detail, setDetail] = useState(false);
+  const [logged, setLogged] = useState<LogEntry | null>(null);
+  const { gate } = useGate();
   const haveList = useStore(cupboardStore);
   const have = useMemo(() => new Set(haveList), [haveList]);
   const meatFree = isMeatFree(recipe);
@@ -184,6 +193,16 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
     const ready = picks.filter((p): p is IngredientPick => !!p && !hasIt(p.spec));
     shoppingStore.update((list) => ready.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn, ...withPhoto(shopPhotoSources(file, p.product)) }, new Date(), p.packs), list));
     setAdded(ready.length === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n: ready.length, shop: file.name }));
+  };
+  // one serving of what the chips above show: the same entry as the Add food sheet's "Choose a recipe" (RecipePick), in the meal its time falls in
+  const logServing = () => {
+    if (!totals) return;
+    gate("log", () => {
+      const entry = addLogEntry({ chainId: "", chainName: t("Recipe"), name: rt(recipe.name), nutrients: recipeNutrients(totals, 1), source: "recipe" });
+      analytics.track({ name: "mealLogged" });
+      countProAction();
+      setLogged(entry);
+    });
   };
   const notOnLabel = t(NOT_ON_LABEL);
   const rows: Array<[string, string, boolean?]> = totals
@@ -272,6 +291,11 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
             {roundedAmountsMatter(view.resolved, totals) && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Eggs, wraps and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown.")}</p>
             )}
+            {/* beside the figures it logs, a white pill (the black one is "Add all to my shopping list", at the foot) */}
+            <Button variant="secondary" full className="mt-3 min-h-12 [overflow-wrap:anywhere]" onClick={logServing}>
+              <PlusIcon aria-hidden className="h-5 w-5 shrink-0" />
+              {t("Log a serving")}
+            </Button>
             <div className="mt-3">
               <button type="button" aria-expanded={detail} aria-controls="recipe-label" onClick={() => setDetail((d) => !d)} className={`${CARD} flex min-h-14 w-full items-center gap-3 px-4 py-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
                 <span className="min-w-0 flex-1">
@@ -442,6 +466,9 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
           </div>
         )}
       </div>
+
+      {/* at the top: the foot of the screen holds "Add all to my shopping list" */}
+      <UndoToast top message={logged ? { key: logged.id, text: t("Logged to Today.") } : null} onUndo={logged ? () => deleteLogEntry(logged.id) : undefined} onDone={() => setLogged(null)} />
 
       <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: t(swapSpec.label).toLowerCase() }) : t("Swap")}>
         {swapSpec && (

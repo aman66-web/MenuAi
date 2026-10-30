@@ -187,7 +187,7 @@ await step("the shared list shows each product with its picture, price and quant
   await page.getByText("Abra Ca Debora Sweet Pancakes").waitFor({ timeout: 60000 });
   for (const group of ["Tesco", "Asda", "Sainsbury's", "Any shop"]) await page.getByRole("region", { name: group }).waitFor();
   const tesco = page.getByRole("region", { name: "Tesco" });
-  expect((await tesco.innerText()).includes("£2.40") && (await tesco.getByLabel("Quantity 2").count()) === 1, "price and quantity: " + (await tesco.innerText()));
+  expect((await tesco.innerText()).includes("£2.40") && (await tesco.getByText("Quantity 2", { exact: true }).count()) === 1, "price and quantity: " + (await tesco.innerText()));
   await tesco.locator("li img").waitFor(); // the shop's own mark sits in the heading; the product's picture is in its row
   expect((await page.getByRole("region", { name: "Any shop" }).locator("li img").count()) === 0, "a picture for typed milk");
   expect(!(await page.locator("main").innerText()).includes("Warburtons"), "the ticked item travelled");

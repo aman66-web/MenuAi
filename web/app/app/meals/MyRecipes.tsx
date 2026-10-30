@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -12,7 +12,7 @@ import { EmptyState, ErrorBox, LinkButton, Spinner } from "../_components/ui";
 import { useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { recipeShop, useRecipeCards } from "../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
+import { useShopManifestState, useShopProducts } from "../_lib/shopProducts";
 import { RecipeTile } from "../recipes/RecipeTile";
 
 // "My meals" › Recipes: recipes from our book the person saved, newest first, and the ones Pip made for them.
@@ -22,9 +22,12 @@ export function MyRecipes() {
   const settings = useSettings();
   const saves = useStore(savedRecipesStore);
   const mine = useStore(myRecipesStore);
-  const manifest = useShopManifest();
+  // one Try again for both downloads: the list of shops and the shop's own products
+  const [retry, setRetry] = useState(0);
+  const manifestState = useShopManifestState(retry);
+  const manifest = manifestState.status === "ready" ? manifestState.manifest : null;
   const shop = recipeShop(manifest, null, settings.shops);
-  const state = useShopProducts(shop);
+  const state = useShopProducts(shop, retry);
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
   const book = useMemo(() => saves.map((s) => RECIPES.find((r) => r.id === s.id)).filter((r): r is Recipe => !!r), [saves]);
@@ -36,9 +39,11 @@ export function MyRecipes() {
   if (saves.length === 0 && pip.length === 0) {
     return <EmptyState icon={<Pip mood="point" size={64} />} title={t("No saved recipes yet")} body={t("Open any recipe and tap “Save to My meals”. It will be here next time.")} action={<LinkButton href="/app/recipes" variant="secondary">{t("See all recipes")}</LinkButton>} />;
   }
+  // a list of shops that couldn't be downloaded is a connection problem, not "no supermarket list yet"
+  if (manifestState.status === "error") return <ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />;
   if (!manifest || (shop && state.status === "loading")) return <Spinner label={t("Loading recipes")} />;
   if (!shop) return <EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} />;
-  if (state.status === "error") return <ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => window.location.reload()} />;
+  if (state.status === "error") return <ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />;
 
   return (
     <div>

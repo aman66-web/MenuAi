@@ -974,6 +974,41 @@ class AlcoholAndPhotoTests(unittest.TestCase):
         for name, aisle in stay:
             self.assertFalse(bg.is_alcohol(name, aisle), name)
 
+    def test_alcohol_said_outright_goes_even_in_a_plain_drinks_aisle(self):
+        """Iceland files its alcohol under plain "Drinks" (2026-10-29): "Jam", "Cream", "Mix" and "Lemonade" in these names used to keep them, and so did a
+        missing size. The word "alcoholic", a strength over 0.5%, a liqueur, a brand that makes only drinks, a wine bottle with a wine word, a cocktail can,
+        a 70 cl bottle and a drink sold with its glass now say it."""
+        gone = ["Hooch Alcoholic Lemonade with Vodka & Fruit Juice 440ml", "Hooch Cherry Alcoholic Cherryade with Vodka & Fruit Juice 440ml",
+                "WKD Blue Alcoholic Mix 700ml", "VK Mixed Pack A Selection of Vodka Mix Drinks 10 x 275ml", "Au Vodka Bubble Gum 330ml", "Au Vodka Miniature Gift Set",
+                "BREEZER Watermelon, 27.5cl", "BuzzBallz Strawberry 'Rita Cocktails 200ml", "BuzzBallz Choc Tease Cocktails 200ml",
+                "Baileys Original Irish Cream Liqueur 17% vol 70cl", "Baileys White Chocolate Flavour with Raspberry Liqueur 17% vol 50cl",
+                "Carthy's Winter Edition Country Cream Liqueur 70cl", "Tequila Rose Strawberry Cream 700ml", "Old Westminster Reserve Cream 1L",
+                "Echo Falls Summer Berries Fruit Fusion 75cl", "Blossom Hill Crisp & Fruity White 750ml", "La Vieille Ferme 750ml", "La Vieille Ferme Rosé 750ml",
+                "Jam Shed Shiraz Red Wine 75cl", "Jam Shed Black Forest Mess Red 75cl", "The Jam Factory Red 75cl", "Lambrini Lightly Sparkling Original 125cl",
+                "The Kraken Black Spiced Rum", "Beefeater London Blood Orange 70cl", "Soiree Brand X 70cl", "Lacey's Banana Vodkashake 70cl",
+                "Bucks Fizz Sparkling Cocktail 75cl", "Peach Bellini Sparkling Cocktail 75cl", "All Shook Up Cocktail Variety Pack 10 x 250ml",
+                "Navigator Passion Fruit Martini 250ml", "Crabbie's Original Alcoholic Ginger Beer 500ml", "Holsten Pils 4 x 568ml", "BrewDog Mix Pack 8 x 330ml",
+                "Belhaven Brewery 80 Shilling 500ml", "Healeys Cornwall Rattler Original Cornish Cloudy Cyder 500ml", "Blackthorn Reserve 3 Litres",
+                "Babycham Refreshing Sparkling Perry", "Badia San Mercuriale Pinot Grigio Delle Venezie", "Louis Jadot Mâcon-Villages", "Chardolini Bag in Box 3 Litre",
+                "Guinness Duo and Glass", "Stella Artois Beer and Glass Gift Set", "Served Mojito 8% ABV", "Absolut Pre-Mixed Raspberry Lemonade Vodka Drink 250ml",
+                "Captain Morgan Original Spiced Gold and Pepsi MAX® Pre-mix 6x250ml 5% vol can"]
+        stay = ["Maynards Bassetts Wine Gums Candy 110g", "Braggs Organic Apple Cider Vinegar with the Mother 473ml", "Heineken 0.0 Alcohol Free Premium Lager Beer 0% ABV Bottles 4x330ml",
+                "Guinness Draught Alcohol Free Stout Beer 0.0% vol 4x440ml Cans", "Grace Mighty Malt Premium Original Non-Alcoholic Drink 330ml",
+                "Exceptional by ASDA Mojito Mocktail 750ml", "Nozeco Special Edition Alcohol Free Fine Sparkling 75cl", "Baileys Chocolate Truffles 200g",
+                "Baileys Creams Milk Chocolate 128g", "Baileys Caramel Sauce 200ml", "Carte D'or Ice Cream Dessert Baileys 825 ml", "Anthon Berg Chocolate Liqueurs 15 pack 187g",
+                "Liqueur Chocolates 150g", "Shloer Red Grape Sparkling Fruit Drink 750ml", "Shloer White Grape Sparkling Juice Drink 750 ml", "J2O Fizz Pear & Raspberry 750ml",
+                "Red Bull Energy Drink 250ml", "Belvoir Farm 750ml Elderflower & Rose Sparkling Soft Drink", "Clamato Tomato Cocktail 946ml", "Pressed Merlot Grape Juice 1 l",
+                "Del Monte Fruit Cocktail in Juice 415g", "Iceland King Prawn Cocktail Ring with Marie Rose Dip 140g", "Walkers Prawn Cocktail Multipack Crisps 6 x 25g",
+                "club Rock Shandy 1.75 Litres", "Old Jamaica Regular Ginger Beer 24 x 330ml", "KA Sparkling Fruit Punch 6 x 330ml",
+                "BrewDog Punk IPA BBQ Sauce 240ml", "BrewDog Lost Lager Patriot Mustard 240ml", "BrewDog Spicy Wings Seasoning 40g", "Nairn's 150g Blackthorn Sea Salt Flatbreads",
+                "Higgidy 200g Free-Range Chicken, Mushroom & Thatchers Cider Pie", "SPECIALLY SELECTED Prosecco Seafood Gratin", "Raspberry & Prosecco Panna Cotta",
+                "No.1 Moules Marinière with Wild Garlic & Chardonnay 2x250g", "Morrisons Extra Thick Brandy Cream With French Brandy 250ml", "Monin Mojito Mint Syrup 70cl",
+                "Dan Cake Winter Edition Mini Rum Truffle Cakes 140g", "Starbucks Multiserve Frappuccino Caramel Flavoured Milk Iced Coffee 700ml", "Batiste Dry Blush Shampoo 200ml"]
+        for name in gone:
+            self.assertTrue(bg.is_alcohol(name, "Drinks"), name)
+        for name in stay:
+            self.assertFalse(bg.is_alcohol(name, "Drinks"), name)
+
     def test_adverts_and_flowers_are_not_groceries(self):
         for name in ("Rainbow Alstroemeria", "Tesco Oriental Lilies", "Simply Roses", "Seasonal Show"):
             self.assertTrue(bap.not_food(name), name)

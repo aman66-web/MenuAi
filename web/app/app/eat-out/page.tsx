@@ -17,6 +17,7 @@ import { scrollToElement } from "../_lib/scroll";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
+import { useEatOutChoices } from "./eatOutChoices";
 import { FinderResults, NumbersPanel, useFinderResults, useNumbersFinder } from "./NumbersFinder";
 
 // The Eat out tab (founder 2026-10-10: "find restaurants near you and also see all the restaurants we have and also search"): search, the
@@ -50,15 +51,15 @@ export default function EatOutPage() {
   const favorites = useStore(favoritesStore);
   const [requesting, setRequesting] = useState(false);
   const [type, setType] = useBrowseType();
-  const [fullOnly, setFullOnly] = useState(false);
-  const [halalOnly, setHalalOnly] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
+  // "More ways", "Full nutrition only" and "Halal" are kept for this tab too (eatOutChoices.ts), so Back from a restaurant finds the list as it was left
+  const [choices, choose] = useEatOutChoices(settingsStore.get().preferences.halalOnly ?? false);
+  const { moreOpen, fullOnly, halalOnly } = choices;
   const anyHalal = useMemo(() => menu.chains.some((c) => isAllHalal(c.id)), [menu.chains]);
-  const [moreOpen, setMoreOpen] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
-  useEffect(() => { if (type) setMoreOpen(true); }, [type]); // eslint-disable-line react-hooks/set-state-in-effect -- a type restored for this tab shows its choices
+  useEffect(() => { if (type && !moreOpen) choose({ moreOpen: true }); }, [type]); // eslint-disable-line react-hooks/exhaustive-deps -- a type kept for this tab shows its choices
   const finder = useNumbersFinder();
   const toggleMore = () => {
-    if (moreOpen) { setType(null); setFullOnly(false); setHalalOnly(false); }
-    setMoreOpen(!moreOpen);
+    if (moreOpen) setType(null);
+    choose(moreOpen ? { moreOpen: false, fullOnly: false, halalOnly: false } : { moreOpen: true });
   };
   const toggleFinder = () => {
     if (finder.open) finder.reset();
@@ -142,8 +143,8 @@ export default function EatOutPage() {
           {types.length > 1 && moreOpen && (
             <div id="more-ways" role="group" aria-label={t("Browse by type")} className="mt-3.5 flex flex-wrap gap-2">
               <Chip selected={!activeType} onClick={() => setType(null)}>{t("All")}</Chip>
-              {hasCaloriesOnly && <Chip selected={fullOnly} onClick={() => setFullOnly((v) => !v)}>{t("Full nutrition only")}</Chip>}
-              {(anyHalal || halalOnly) && <Chip selected={halalOnly} onClick={() => setHalalOnly((v) => !v)}>{t("Halal")}</Chip>}
+              {hasCaloriesOnly && <Chip selected={fullOnly} onClick={() => choose({ fullOnly: !fullOnly })}>{t("Full nutrition only")}</Chip>}
+              {(anyHalal || halalOnly) && <Chip selected={halalOnly} onClick={() => choose({ halalOnly: !halalOnly })}>{t("Halal")}</Chip>}
               {types.map((g) => (
                 <Chip key={g.id} selected={activeType?.id === g.id} onClick={() => setType(activeType?.id === g.id ? null : g.id)}>
                   {t(g.label)} <span className={`app-numbers ms-1.5 font-normal ${activeType?.id === g.id ? "" : "text-muted"}`}>{g.count}</span>
@@ -202,15 +203,20 @@ export default function EatOutPage() {
   );
 }
 
-/** The chosen "browse by type" chip, kept for this tab so coming back from a restaurant keeps the list the user was in. */
+/**
+ * The chosen "browse by type" chip, kept for this tab so coming back from a restaurant keeps the list the user was in. Read when the page is first built
+ * (it shows a spinner until it has hydrated, so the restored choice is never a mismatch), so the list is right from the first frame after Back. A type that
+ * no longer exists matches no group and reads as All.
+ */
 function useBrowseType(): [string | null, (id: string | null) => void] {
-  const [type, setType] = useState<string | null>(null);
-  useEffect(() => {
+  const [type, setType] = useState<string | null>(() => {
     try {
       const stored = sessionStorage.getItem("mm.browseType");
-      if (stored) setType(stored); // eslint-disable-line react-hooks/set-state-in-effect -- restoring a per-tab choice after hydration
-    } catch { /* storage blocked: start from All */ }
-  }, []);
+      return stored && stored.length <= 80 ? stored : null;
+    } catch {
+      return null; // storage blocked, or the server: start from All
+    }
+  });
   const set = (id: string | null) => {
     setType(id);
     try {

@@ -235,6 +235,72 @@ await step("M&S's everyday food range (founder 2026-10-16): its aisle lists show
   await ctx.close();
 });
 
+// Code audit 2026-10-29: a failed download made every shop "not here yet"; Back from a product showed a shop's list unfiltered.
+await step("Which shop? when the list of shops can't be downloaded: says so with Try again (no shop is called \"not here yet\"), and Try again brings the shops", async () => {
+  const { ctx, page } = await newPage();
+  let down = true;
+  await page.route("**/groceries/all/all-manifest.json", (r) => (down ? r.fulfill({ status: 503, body: "" }) : r.fulfill({ contentType: "application/json", body: JSON.stringify(allManifest) })));
+  await page.goto(BASE + "/app/groceries");
+  await page.getByText("Couldn't load the products. Check your connection.").waitFor();
+  expect((await page.getByText(/Not here yet/).count()) === 0, "a failed download listed the shops as not here yet");
+  await page.getByRole("link", { name: "Search every shop at once" }).waitFor(); // the rest of the screen still works
+  down = false;
+  await page.getByRole("button", { name: "Try again" }).click();
+  await page.getByRole("link", { name: /^Sainsbury's\b.*products/ }).waitFor();
+  await page.getByText(/Not here yet: Tesco, Asda/).waitFor();
+  await ctx.close();
+});
+
+const shopRows = (page) => page.locator("a[href*='/groceries/shop/item']");
+const searchValue = (page) => page.getByRole("searchbox").inputValue();
+
+await step("a shop's list keeps its words, aisle, sort and Show more when a product is opened and Back is pressed; the chips too", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/groceries");
+  await page.getByRole("link", { name: /^Sainsbury's\b.*products/ }).click();
+  await page.getByRole("heading", { level: 1, name: "Sainsbury's" }).waitFor();
+  await page.getByText("73 products", { exact: true }).waitFor();
+  // the words first, then the aisle and the sort: changing the address must not lose the words kept in the history entry
+  await page.getByRole("searchbox").fill("crackers");
+  await page.getByText("70 products", { exact: true }).waitFor();
+  await page.getByRole("combobox", { name: "Aisle" }).selectOption("Bakery");
+  await page.getByRole("combobox", { name: "Sort" }).selectOption("price");
+  await page.waitForFunction(() => { const q = new URLSearchParams(location.search); return q.get("aisle") === "Bakery" && q.get("sort") === "price" && q.get("r") === "sainsburys"; });
+  await page.getByRole("button", { name: /Show 10 more/ }).click();
+  expect((await shopRows(page).count()) === 70, "show more");
+  await page.getByRole("link", { name: /Filler Crackers 65/ }).click();
+  await page.getByRole("heading", { level: 1, name: /Filler Crackers 65/ }).waitFor();
+  await page.getByRole("link", { name: "Back" }).first().click();
+  await page.getByRole("heading", { level: 1, name: "Sainsbury's" }).waitFor();
+  await page.waitForFunction(() => document.querySelector("input[type=search]")?.value === "crackers", null, { timeout: 15000 });
+  expect((await page.getByRole("combobox", { name: "Aisle" }).inputValue()) === "Bakery", "the aisle came back as " + (await page.getByRole("combobox", { name: "Aisle" }).inputValue()));
+  expect((await page.getByRole("combobox", { name: "Sort" }).inputValue()) === "price", "the sort came back as " + (await page.getByRole("combobox", { name: "Sort" }).inputValue()));
+  await page.getByText("70 products", { exact: true }).waitFor();
+  await page.waitForFunction(() => document.querySelectorAll("a[href*='/groceries/shop/item']").length === 70, null, { timeout: 15000 }); // the rows Show more had opened
+  expect(/Filler Crackers 0\b/.test(await shopRows(page).first().innerText()), "still cheapest first");
+  // a chip, with the aisle put back to every aisle
+  await page.getByRole("combobox", { name: "Aisle" }).selectOption("");
+  await page.getByRole("searchbox").fill("");
+  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has a card price" }).click();
+  await page.getByText("1 product", { exact: true }).waitFor();
+  await page.getByRole("link", { name: /Multiseed Loaf/ }).click();
+  await page.getByRole("heading", { level: 1, name: /Multiseed Loaf/ }).waitFor();
+  await page.goBack();
+  await page.getByText("1 product", { exact: true }).waitFor();
+  expect((await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Has a card price" }).getAttribute("aria-pressed")) === "true", "the chip came back off");
+  expect((await searchValue(page)) === "" && (await page.getByRole("combobox", { name: "Aisle" }).inputValue()) === "", "the cleared words and aisle came back");
+  await ctx.close();
+});
+
+await step("a shop's list ignores an address it can't do (an aisle it hasn't got, a made-up sort) instead of showing nothing", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/groceries/shop?r=sainsburys&aisle=Nope&sort=cheapest");
+  await page.getByRole("heading", { level: 1, name: "Sainsbury's" }).waitFor();
+  await page.getByText("73 products", { exact: true }).waitFor();
+  expect((await page.getByRole("combobox", { name: "Aisle" }).inputValue()) === "" && (await page.getByRole("combobox", { name: "Sort" }).inputValue()) === "name", "an unknown aisle or sort was used");
+  await ctx.close();
+});
+
 await step("accessibility: the full list and a product with nutrition have no axe violations in light and dark", async () => {
   for (const scheme of ["light", "dark"]) {
     for (const path of ["/app/groceries/shop?r=sainsburys", "/app/groceries/shop/item?r=sainsburys&id=sainsburys-multiseed-loaf-800g"]) {

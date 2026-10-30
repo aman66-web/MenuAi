@@ -24,6 +24,13 @@ export const RETAILERS = [
 export type RetailerId = (typeof RETAILERS)[number]["id"];
 export const retailerName = (id: string) => RETAILERS.find((r) => r.id === id)?.name ?? id;
 
+/** Shops we hold no product list for, so they are never offered as "your shop": Co-op blocks us and Ocado's crawl is set aside (PROGRESS 2026-10-09). Remove one here the day its list is published. */
+export const SHOPS_WITHOUT_LIST: ReadonlySet<string> = new Set(["coop", "ocado"]);
+/** The shops a person can pick, in the app's order. */
+export const PICKABLE_RETAILERS = RETAILERS.filter((r) => !SHOPS_WITHOUT_LIST.has(r.id));
+/** A person's saved shops without any we hold no list for (an earlier version let them pick Co-op or Ocado). */
+export const listedShops = <S extends string>(ids: readonly S[]): S[] => ids.filter((id) => !SHOPS_WITHOUT_LIST.has(id));
+
 export interface GroceryPrice {
   /** The regular shelf price (before any loyalty-card price). */
   amount: number;

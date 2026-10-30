@@ -2,6 +2,7 @@ import { tk } from "./i18n";
 import { halfUp } from "./nutrients";
 import { toAsciiDigits } from "./numbers";
 import type { Meal, Nutrients } from "./types";
+import type { LogEntry } from "./user-data";
 
 // The "Add food" sheet on Home's meal rows (founder 2026-10-15, on the + beside Breakfast: "a kind of menu vibe sheet should launch where you can
 // either type in macros, choose a recipe perhaps, choose a meal from a restaurant or whatever"). Pure rules for what it adds. Nothing here
@@ -134,4 +135,39 @@ export function recipeNutrients(
   if (l.salt !== null) n.salt = halfUp(l.salt * servings, 2);
   if (l.kj !== null) n.energyKj = halfUp(l.kj * servings);
   return n;
+}
+
+// ---- recently added: the same thing again, in one tap
+
+/** What a new entry copies from an earlier one: the sheet gives it its own id, the time of the tap and the meal whose + was tapped. */
+export type LoggedFood = Pick<LogEntry, "chainId" | "chainName" | "name" | "nutrients" | "source">;
+
+/** How many things "Recently added" shows at the top of the sheet. */
+export const RECENT_SHOWN = 6;
+
+/** Two entries are the same thing when they came from the same place (source and restaurant), have the same name and every figure is the same. */
+function foodKey(e: LoggedFood): string {
+  const n = e.nutrients as unknown as Record<string, number | undefined>;
+  const figures = Object.keys(n).filter((k) => n[k] !== undefined && n[k] !== null).sort().map((k) => `${k}=${n[k]}`);
+  return JSON.stringify([e.source, e.chainId, e.name, figures]);
+}
+
+/**
+ * The last things this person logged, newest first (by the time logged; an entry whose time can't be read goes last), each thing once, at most `n`.
+ * Each is a copy of the entry's name, restaurant, source and figures, exactly as logged: nothing is worked out again, and a figure that was never
+ * entered (protein left empty) stays absent.
+ */
+export function recentLogged(log: readonly LogEntry[], n: number = RECENT_SHOWN): LoggedFood[] {
+  const time = (e: LogEntry) => { const ms = Date.parse(e.loggedAt); return Number.isNaN(ms) ? -Infinity : ms; };
+  const newest = log.map((e, i) => ({ e, i, at: time(e) })).sort((a, b) => b.at - a.at || b.i - a.i);
+  const seen = new Set<string>();
+  const out: LoggedFood[] = [];
+  for (const { e } of newest) {
+    if (out.length >= n) break;
+    const key = foodKey(e);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ chainId: e.chainId, chainName: e.chainName, name: e.name, nutrients: { ...e.nutrients }, source: e.source });
+  }
+  return out;
 }

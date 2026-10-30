@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { parseNumber } from "@/lib/mm/addFood";
 import { APP_BUILD, DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
 import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
@@ -146,20 +147,24 @@ export default function SettingsPage() {
   const fatText = fat ?? (settings.dailyFat ? String(settings.dailyFat) : "");
   const waterText = water ?? (settings.dailyWater ? String(settings.dailyWater) : "");
   // Left empty, protein follows the calories and carbs and fat follow the calories and protein typed above (shown as the placeholder).
-  const draftCalories = Number(caloriesText);
-  const draftProtein = proteinText.trim() === "" ? undefined : Number(proteinText);
-  const suggestedCarbFat = suggestCarbFat(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories, draftProtein !== undefined && Number.isFinite(draftProtein) ? draftProtein : undefined);
+  // Typed numbers are read as the Add food sheet reads them (parseNumber): "2,000" is two thousand, and digits from other numeral systems count.
+  const typed = (text: string): number | null => { const n = parseNumber(text); return typeof n === "number" ? n : null; };
+  const draftCalories = typed(caloriesText);
+  const draftProtein = typed(proteinText) ?? undefined;
+  const suggestedCarbFat = suggestCarbFat(draftCalories ?? settings.dailyCalories, draftProtein);
   const capText = mealCap ?? String(settings.glp1MealCap);
   const failed = outboxItems.filter((i) => i.status === "failed");
   const pending = outboxItems.filter((i) => i.status === "pending");
 
   function saveTargets() {
-    const c = Number(caloriesText);
-    const p = proteinText.trim() === "" ? undefined : Number(proteinText);
-    const cb = carbsText.trim() === "" ? undefined : Number(carbsText);
-    const ft = fatText.trim() === "" ? undefined : Number(fatText);
-    const wt = waterText.trim() === "" ? undefined : Number(waterText);
-    const cap = Number(capText);
+    // An empty box is null (no target: it follows the suggestion); a box that isn't a number is NaN, so the range checks below refuse it.
+    const read = (text: string): number | undefined => { const n = parseNumber(text); return n === null ? undefined : n === "bad" ? Number.NaN : n; };
+    const c = read(caloriesText) ?? Number.NaN;
+    const p = read(proteinText);
+    const cb = read(carbsText);
+    const ft = read(fatText);
+    const wt = read(waterText);
+    const cap = read(capText) ?? Number.NaN;
     if (!Number.isFinite(c) || c < 500 || c > 10000) return setTargetsMessage({ ok: false, text: tk("Calories should be between 500 and 10,000.") });
     if (p !== undefined && (!Number.isFinite(p) || p <= 0 || p > 1000)) return setTargetsMessage({ ok: false, text: tk("Protein should be above 0 and at most 1,000 g.") });
     if ([cb, ft].some((g) => g !== undefined && (!Number.isFinite(g) || g <= 0 || g > MAX_MACRO_TARGET))) return setTargetsMessage({ ok: false, text: tk("Carbs and fat should be above 0 and at most 2,000 g.") });
@@ -200,7 +205,7 @@ export default function SettingsPage() {
           {/* Two tiles side by side, stacked when the text is large (the minimum width is in rem, so it grows with the text). */}
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,6.5rem),1fr))] gap-2.5">
             <TargetTile label={t("Calories")} value={caloriesText} onChange={(v) => { setCalories(v); setTargetsMessage(null); }} />
-            <TargetTile label={t("Protein (g)")} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
+            <TargetTile label={t("Protein (g)")} value={proteinText} placeholder={String(suggestProtein(draftCalories ?? settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
             <TargetTile label={t("Carbs (g)")} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); }} />
             <TargetTile label={t("Fat (g)")} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); }} />
             <TargetTile wide label={t("Water (ml)")} hint={t("Your goal for the day on Home. Left empty it is 2,000 ml.")} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); }} />
@@ -209,7 +214,7 @@ export default function SettingsPage() {
             )}
           </div>
           <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted">{t(CARB_FAT_NOTE)}</p>
-          {isLowCalories(caloriesText) && <p role="status" className={messageClass}>{t(LOW_CALORIES_NOTE)}</p>}
+          {isLowCalories(draftCalories ?? 0) && <p role="status" className={messageClass}>{t(LOW_CALORIES_NOTE)}</p>}
           <div className="mt-4 flex flex-wrap items-center gap-2.5">
             <Button onClick={saveTargets}>{t("Save targets")}</Button>
             {/* A quiet disclosure, not a second pill: the form it opens ends with its own "Suggest targets" button, then "Use these" fills the four boxes above. */}
@@ -218,9 +223,9 @@ export default function SettingsPage() {
               <ChevronRightIcon aria-hidden className={`h-4 w-4 transition-transform ${suggest ? "rotate-90 rtl:-rotate-90" : ""}`} />
             </button>
           </div>
-          {targetsMessage && (targetsMessage.ok
-            ? <p role="status" className="mt-3 text-[0.9375rem] font-semibold text-accent">{t(targetsMessage.text)}</p>
-            : <p role="alert" className={messageClass}>{t(targetsMessage.text)}</p>)}
+          {/* "Saved." sits in a status line that is always on the page (one mounted together with its words is often not read aloud); empty, it takes no room */}
+          <p role="status" className={targetsMessage?.ok ? "mt-3 text-[0.9375rem] font-semibold text-accent" : "sr-only"}>{targetsMessage?.ok ? t(targetsMessage.text) : ""}</p>
+          {targetsMessage && !targetsMessage.ok && <p role="alert" className={messageClass}>{t(targetsMessage.text)}</p>}
           {suggest && (
             <div className="mt-4">
               <TargetSuggestForm goal={settings.goal} preferences={settings.preferences} onApply={(s) => { setCalories(s.calories); setProtein(s.protein); setCarbs(s.carbs); setFat(s.fat); setSuggest(false); setTargetsMessage(null); focusTargetBox("#targets input"); }} />

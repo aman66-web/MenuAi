@@ -131,6 +131,76 @@ await step("a list under a supermarket filter reads as that supermarket names th
   await ctx.close();
 });
 
+// Code audit 2026-10-29: the product page kept "Added …" and "Copied" across sizes, had no Try again, failed when one shop's file failed, and its
+// "At other supermarkets" links were plain text under 44 px tall.
+await step("\"Added to your list for …\" and \"Copied\" belong to the pack they were about: another size starts afresh", async () => {
+  const { ctx, page } = await newPage();
+  await ctx.grantPermissions(["clipboard-read", "clipboard-write"], { origin: BASE });
+  await page.goto(`${BASE}/app/groceries/product?code=${milk2}&r=tesco`);
+  await page.getByRole("heading", { name: "Cowbelle Semi Skimmed Milk 2 Litres", level: 1 }).waitFor();
+  await page.getByRole("button", { name: "Add · Tesco" }).click();
+  await page.getByText("Added to your list for Tesco.").waitFor();
+  await page.getByRole("button", { name: "Copy", exact: true }).click();
+  await page.getByRole("button", { name: "Copied", exact: true }).waitFor();
+  await page.getByRole("heading", { name: "Other sizes" }).locator("xpath=ancestor::section[1]").getByRole("link", { name: "1 litre" }).click();
+  await page.getByRole("heading", { name: "Cowbelle Semi Skimmed Milk 1 Litre", level: 1 }).waitFor();
+  expect((await page.getByText(/Added to your list for/).count()) === 0, "\"Added\" carried over to the other size");
+  expect((await page.getByRole("link", { name: "Open your shopping list" }).count()) === 0, "the list link carried over to the other size");
+  expect((await page.getByRole("button", { name: "Copied", exact: true }).count()) === 0, "\"Copied\" carried over to the other size");
+  await page.getByRole("button", { name: "Copy", exact: true }).waitFor();
+  await ctx.close();
+});
+
+await step("\"At other supermarkets\": each shop's name, price and \"Check\" link has a 44 px tap area, no two overlap, and the rows keep their height", async () => {
+  const { ctx, page } = await newPage();
+  const oats = "5033333333336";
+  const oatsRow = { ...base, gtin: oats, name: "Plain Porridge Oats 1kg", size: "1kg", per: "g", type: "oats" }; // no price anywhere: the other shop shows "Check"
+  const withAldi = { ...files.aldi, products: [{ ...files.aldi.products[0], price: px(1.5) }] };
+  await page.route("**/groceries/aldi.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(withAldi) }));
+  await page.route("**/groceries/tesco.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ ...files.tesco, products: [...files.tesco.products, oatsRow] }) }));
+  await page.route("**/groceries/sainsburys.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ ...files.sainsburys, products: [...files.sainsburys.products, oatsRow] }) }));
+  const check = async (code, wanted) => {
+    await page.goto(`${BASE}/app/groceries/product?code=${code}&r=tesco`);
+    const others = page.getByRole("heading", { name: "At other supermarkets" }).locator("xpath=ancestor::div[1]");
+    await others.waitFor();
+    const links = others.getByRole("link");
+    const n = await links.count();
+    expect(n === wanted, `${code}: ${n} links`);
+    const boxes = [];
+    for (let i = 0; i < n; i++) boxes.push(await links.nth(i).boundingBox());
+    for (const [i, b] of boxes.entries()) expect(b.height >= 44 && b.width >= 44, `${code}: link ${i} is ${Math.round(b.width)} x ${Math.round(b.height)}`);
+    const overlap = (a, b) => a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+    for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) expect(!overlap(boxes[i], boxes[j]), `${code}: links ${i} and ${j} overlap`);
+    // the padding that makes the target is taken back out of the line, so a row is as tall as before (one or two short lines on each side)
+    for (const row of await others.locator("li").all()) { const h = (await row.boundingBox()).height; expect(h <= 84, `${code}: a row grew to ${Math.round(h)} px`); }
+  };
+  await check(milk2, 4); // Sainsbury's and Aldi: a name and a price each
+  await check(oats, 2); // Sainsbury's: its name and "Check"
+  await page.getByRole("heading", { name: "At other supermarkets" }).locator("xpath=ancestor::div[1]").getByRole("link", { name: /^Check at Sainsbury's/ }).waitFor();
+  await ctx.close();
+});
+
+await step("one shop's file failing doesn't fail the page; when none can be read it says so with Try again, which works; a barcode not found while a file is missing is a failed load, not \"not in our list\"", async () => {
+  const a = await newPage();
+  await a.page.route("**/groceries/aldi.json", (r) => r.fulfill({ status: 500, body: "" }));
+  await a.page.goto(`${BASE}/app/groceries/product?code=${milk2}&r=tesco`);
+  await a.page.getByRole("heading", { name: "Cowbelle Semi Skimmed Milk 2 Litres", level: 1 }).waitFor();
+  await a.page.getByRole("heading", { name: "Price at Tesco" }).waitFor();
+  await a.page.goto(`${BASE}/app/groceries/product?code=5000000000000&r=tesco`);
+  await a.page.getByText("Couldn't load this product. Check your connection.").waitFor();
+  expect((await a.page.getByText("That barcode isn't in our list yet.").count()) === 0, "said not in our list while a shop's file was missing");
+  await a.ctx.close();
+  const b = await newPage();
+  let down = true;
+  for (const f of Object.values(files)) await b.page.route(`**/groceries/${f.retailer}.json`, (r) => (down ? r.fulfill({ status: 503, body: "" }) : r.fulfill({ contentType: "application/json", body: JSON.stringify(f) })));
+  await b.page.goto(`${BASE}/app/groceries/product?code=${milk2}&r=tesco`);
+  await b.page.getByText("Couldn't load this product. Check your connection.").waitFor();
+  down = false;
+  await b.page.getByRole("button", { name: "Try again" }).click();
+  await b.page.getByRole("heading", { name: "Cowbelle Semi Skimmed Milk 2 Litres", level: 1 }).waitFor();
+  await b.ctx.close();
+});
+
 await step("accessibility: the compare page has no axe violations in light and dark", async () => {
   for (const scheme of ["light", "dark"]) {
     const { ctx, page } = await newPage();

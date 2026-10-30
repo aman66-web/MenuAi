@@ -1,13 +1,23 @@
 // The iPhone app's copy of the web app (npm run build:app, served like the app does by e2e/serve-app.mjs on port 3103), with the live
-// website unreachable (as on a phone with no signal): everything works from the files packed inside it, the welcome wall shows names (no
-// logos), no service worker, no Pro or AI wording, and the iPhone's own scanner, location and share sheet are used through the bridge
-// (lib/mm/native.ts; faked here). Also: a logo taken down on the live website disappears.
+// website unreachable (as on a phone with no signal): everything works from the files packed inside it, the welcome wall follows the logos
+// switch (web/app-content.json), no service worker, no Pro or AI wording, and the iPhone's own scanner, location and share sheet are used through
+// the bridge (lib/mm/native.ts; faked here). Also: a logo taken down on the live website disappears; Settings and messages carry the app's own
+// version and build number (from the Xcode project); an unknown address gets the app's own "Page not found".
 //   cd web && npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/app-build.mjs
 import { chromium } from "playwright-core";
+import { readFileSync } from "node:fs";
 const BASE = process.env.BASE ?? "http://localhost:3103";
 const LIVE = process.env.LIVE ?? "https://numbite.com";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const onboarded = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"] } });
+// What the packed copy was built with (scripts/build_app_web.sh reads the same files): the logos switch, and the app's version and build number.
+const CONTENT = JSON.parse(readFileSync(new URL("../app-content.json", import.meta.url), "utf8"));
+const LOGOS = CONTENT.appLogos !== false;
+const PBX = readFileSync(new URL("../../MenuMacros.xcodeproj/project.pbxproj", import.meta.url), "utf8");
+const release = /\/\* Build configuration list for PBXNativeTarget "MenuMacros" \*\/ = \{[\s\S]*?buildConfigurations = \(([\s\S]*?)\);/.exec(PBX)?.[1].match(/([0-9A-F]{24}) \/\* Release \*\//)?.[1];
+const releaseBlock = release ? new RegExp(release + " /\\* Release \\*/ = \\{([\\s\\S]*?)\\n\\t\\t\\};").exec(PBX)?.[1] ?? "" : "";
+const setting = (key) => new RegExp("^\\s*" + key + "\\s*=\\s*\"?([0-9.]+)\"?;", "m").exec(releaseBlock)?.[1];
+const APP_VERSION = setting("CURRENT_PROJECT_VERSION") ? `${setting("MARKETING_VERSION") ?? "1.0"} (${setting("CURRENT_PROJECT_VERSION")})` : setting("MARKETING_VERSION") ?? "1.0";
 const FORBIDDEN = /\bPro\b|(?<!un)subscri|free trial|paywall|Anthropic|Ask Pip|Claude|Add .* to your Home Screen|iPhone Safari/i;
 
 // A fake of the iPhone app's bridge: answers scan, locate and share like MenuMacros/App/WebApp/NativeBridge.swift does.
@@ -45,16 +55,25 @@ async function noForbidden(page, where) {
   expect(!hit, `${where}: "${hit?.[0]}"`);
 }
 
-await step("first launch with no signal: the welcome wall shows restaurant and shop names, no logo pictures", async () => {
+await step(`first launch with no signal: the welcome wall shows ${LOGOS ? "the official logo files (app-content.json appLogos: true, founder 2026-10-18)" : "restaurant and shop names, no logo pictures"}, and only the supermarkets the app lists (no Co-op or Ocado)`, async () => {
   const { ctx, page } = await newPage({ settings: null });
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome/);
   const wall = page.locator(".logo-wall");
   await wall.waitFor();
   await page.waitForTimeout(800);
-  expect((await wall.locator("img").count()) === 0, "no logo files on the wall");
-  expect((await wall.innerText()).length > 0 || (await wall.getAttribute("aria-label"))?.includes("Names"), "names on the wall");
-  expect((await wall.getAttribute("aria-label")) === "Names of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
+  if (LOGOS) {
+    expect((await wall.locator("img").count()) > 0, "logo files on the wall");
+    expect((await wall.getAttribute("aria-label")) === "Logos of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
+  } else {
+    expect((await wall.locator("img").count()) === 0, "no logo files on the wall");
+    expect((await wall.innerText()).length > 0, "names on the wall");
+    expect((await wall.getAttribute("aria-label")) === "Names of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
+  }
+  const words = await wall.evaluate((el) => el.textContent ?? "");
+  expect(!/Co-op|Ocado/.test(words), "a shop with no product list is on the wall: " + words.match(/Co-op|Ocado/)?.[0]);
+  expect((await wall.locator("img[src*='/logos/shops/coop'], img[src*='/logos/shops/ocado'], img[src*='/square/coop'], img[src*='/square/ocado']").count()) === 0, "a Co-op or Ocado logo is on the wall");
+  await page.getByText("9 supermarkets", { exact: true }).first().waitFor(); // PICKABLE_RETAILERS (lib/mm/groceries.ts): the shops with a product list, not 11
   await ctx.close();
 });
 
@@ -85,7 +104,44 @@ await step("no signal: groceries, recipes and settings work; Settings has no bro
   await page.getByRole("heading", { name: "Settings" }).waitFor();
   expect((await page.getByText(/Browsers can clear site data/).count()) === 0, "browser advice shown in the app");
   expect((await page.getByText("Testing tools").count()) === 0, "testing tools shown");
+  // the footer says the app's own version and build number, read from the Xcode project when the copy was built (scripts/build_app_web.sh), not "web 1.0"
+  await page.getByText(`Numbite · ${APP_VERSION}`, { exact: true }).waitFor();
+  expect((await page.getByText(/web 1\.0/).count()) === 0, "Settings says web 1.0 inside the app");
   await noForbidden(page, "Settings");
+  await ctx.close();
+});
+
+await step("the app's messages say they come from the app: Contact us sends source \"app\" and the app's version to the live website's API", async () => {
+  const { ctx, page } = await newPage();
+  const sent = [];
+  await page.route(`${LIVE}/api/v1/support`, (r) => {
+    if (r.request().method() === "POST") sent.push(JSON.parse(r.request().postData() ?? "{}"));
+    const cors = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Allow-Methods": "POST, OPTIONS" };
+    if (r.request().method() === "OPTIONS") return r.fulfill({ status: 204, headers: cors });
+    return r.fulfill({ status: 201, contentType: "application/json", headers: cors, body: JSON.stringify({ id: "x" }) });
+  });
+  await page.goto(BASE + "/app/settings");
+  await page.getByRole("heading", { name: "Settings" }).waitFor();
+  await page.getByRole("button", { name: /Contact us/ }).first().click();
+  await page.getByRole("dialog").locator("textarea").first().fill("Hello from the app test");
+  await page.getByRole("dialog").getByRole("button", { name: /^Send/ }).click();
+  await page.waitForTimeout(1500);
+  expect(sent.length === 1 && sent[0].source === "app" && sent[0].appVersion === APP_VERSION, "what was sent: " + JSON.stringify(sent));
+  await ctx.close();
+});
+
+await step("an address the app has no page for shows the app's own 'Page not found' card (404.html), with a link home that works", async () => {
+  const { ctx, page } = await newPage();
+  const res = await page.goto(BASE + "/app/no-such-page");
+  expect(res?.status() === 404, `status ${res?.status()}`);
+  await page.getByRole("heading", { level: 1, name: "Page not found" }).waitFor({ timeout: 10000 });
+  await page.getByText("This page doesn't exist or has moved.").waitFor();
+  expect((await page.getByText("This page could not be found").count()) === 0, "Next's bare default 404 shows");
+  const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  expect(bg === "rgb(244, 245, 246)", `page background ${bg}, not the app's grey`);
+  await noForbidden(page, "Page not found");
+  await page.getByRole("link", { name: "Back to home" }).click();
+  await page.waitForURL(/\/app\/?$/, { timeout: 10000 });
   await ctx.close();
 });
 

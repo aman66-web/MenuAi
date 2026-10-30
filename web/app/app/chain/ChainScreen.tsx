@@ -23,11 +23,12 @@ import { ItemThumb } from "../_components/ItemPhoto";
 import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, Chip, EmptyState, ErrorBox, SampleBadge, Sheet, Spinner } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
+import { backName, useBack, useEntryQuery } from "../_lib/backNav";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
+import { useChainView } from "./chainView";
 
 // SPEC §7.4: header, meal chip, Best for you, full menu (sort, filter, tags), source footer.
 // Kept plain for older users (founder 2026-10-11): the diet and allergy choices are one line ("Your diet: Vegetarian · Change") that opens
@@ -97,11 +98,17 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
     if (fromLink.length === 0) return saved;
     return { ...saved, avoidAllergens: ALLERGEN_KEYS.filter((k) => (saved.avoidAllergens ?? []).includes(k) || fromLink.includes(k)) };
   });
-  const [sort, setSort] = useState<SortKind>("menu");
-  const [query, setQuery] = useState("");
+  const caloriesOnly = chain.nutritionLevel === "calories";
+  // The words in the menu's search box come back with Back (kept with the history entry); the sort, the sections opened and how far a sorted list was
+  // shown are kept for this tab per restaurant (chainView.ts), so a dish opened and closed, or the Eat out tab left and come back to, finds the menu as it was.
+  const [query, setQuery] = useEntryQuery();
+  const sorts = caloriesOnly ? CALORIES_ONLY_SORTS : ALL_SORTS;
+  const [view, setView] = useChainView(chain.id, sorts, FLAT_PAGE);
+  const { sort, limit: flatLimit } = view;
+  const expanded = useMemo<ReadonlySet<string>>(() => new Set(view.expanded), [view.expanded]);
+  const expand = (category: string) => setView((v) => (v.expanded.includes(category) ? v : { ...v, expanded: [...v.expanded, category] }));
+  const firstPage = () => setView((v) => (v.limit === FLAT_PAGE ? v : { ...v, limit: FLAT_PAGE }));
   const [halalOpen, setHalalOpen] = useState(false);
-  const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set());
-  const [flatLimit, setFlatLimit] = useState(FLAT_PAGE);
   const [reporting, setReporting] = useState<MenuItem | "any" | null>(null);
   const [dietOpen, setDietOpen] = useState(false);
   const halal = halalFor(chain.id);
@@ -121,7 +128,6 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const grouped = sort === "menu";
   const sections = useMemo(() => (grouped ? groupByCategory(chain, visible) : [{ category: "", items: visible }]), [chain, visible, grouped]);
   const large = chain.items.length > LARGE_MENU_ITEMS;
-  const caloriesOnly = chain.nutritionLevel === "calories";
   const clearFilters = () => { setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false, ...(prefs.halalOnly ? { halalOnly: true } : {}) }); setLimits({}); };
   const anyFilter = anyDietFilter(prefs) || hasLimits(limits);
   const caution = filterCaution(prefs, t);
@@ -140,7 +146,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const activeCategory = useActiveSection(showCategoryChips ? sections.map((s) => s.category) : []);
 
   const jumpToCategory = (category: string) => {
-    setExpanded((e) => new Set(e).add(category));
+    expand(category);
     requestAnimationFrame(() => {
       const el = document.getElementById(sectionId(category));
       if (el) scrollToElement(el);
@@ -270,12 +276,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             className="min-h-11 max-w-full appearance-none truncate rounded-full bg-white ps-4 pe-10 text-[0.9375rem] font-semibold shadow-[var(--card-shadow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             value={sort}
             onChange={(e) => {
-              setSort(e.target.value as SortKind);
-              setFlatLimit(FLAT_PAGE);
-              analytics.track({ name: "menuSorted", kind: e.target.value });
+              const kind = e.target.value as SortKind;
+              setView((v) => ({ ...v, sort: kind, limit: FLAT_PAGE }));
+              analytics.track({ name: "menuSorted", kind });
             }}
           >
-            {SORT_OPTIONS.filter((o) => !caloriesOnly || o.value === "menu" || o.value === "calories").map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
+            {SORT_OPTIONS.filter((o) => sorts.includes(o.value)).map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
           </select>
           <ChevronRightIcon aria-hidden className="pointer-events-none absolute end-4 h-4 w-4 rotate-90 text-muted" />
         </label>
@@ -291,7 +297,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
-              setFlatLimit(FLAT_PAGE);
+              firstPage();
             }}
             placeholder={t("Search the {chain} menu", { chain: chain.name })}
             aria-label={t("Search the {chain} menu", { chain: chain.name })}
@@ -338,7 +344,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                     chainId={chain.id}
                     now={now}
                     footer={shown.length < s.items.length && (
-                      <button type="button" onClick={() => setExpanded((e) => new Set(e).add(s.category))} className={MORE_ROW}>
+                      <button type="button" onClick={() => expand(s.category)} className={MORE_ROW}>
                         {t("Show all {n} in {section}", { n: s.items.length, section: s.category })}
                         <ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 rotate-90" />
                       </button>
@@ -355,7 +361,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
               chainId={chain.id}
               now={now}
               footer={visible.length > flatLimit && (
-                <button type="button" onClick={() => setFlatLimit((n) => n + FLAT_PAGE)} className={MORE_ROW}>
+                <button type="button" onClick={() => setView((v) => ({ ...v, limit: v.limit + FLAT_PAGE }))} className={MORE_ROW}>
                   {t("Show {n} more", { n: Math.min(FLAT_PAGE, visible.length - flatLimit) })}
                   <ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 rotate-90" />
                 </button>
@@ -403,6 +409,9 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 }
 
 const FLAT_PAGE = 60;
+/** The sorts a menu offers: a restaurant that publishes calories only has no protein to sort by. */
+const ALL_SORTS: readonly SortKind[] = SORT_OPTIONS.map((o) => o.value);
+const CALORIES_ONLY_SORTS: readonly SortKind[] = ["menu", "calories"];
 const sectionId = (category: string) => `cat-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 const smoothScroll = (): ScrollBehavior => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
 

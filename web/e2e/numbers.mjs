@@ -92,12 +92,50 @@ await step("allergies: picking Milk narrows the list, the link carries it, and t
   await ctx.close();
 });
 
-await step("nothing fits: an honest empty state, no zero heading", async () => {
+await step("nothing fits: an honest empty state, no zero heading, and a hint naming only what was asked for", async () => {
   const { ctx, page } = await open();
   await page.getByLabel("Calories, up to").fill("5");
   await page.getByLabel("Protein, at least (g)").fill("60");
   await page.getByText("No restaurant has a dish that fits all of that").first().waitFor({ timeout: 60000 });
   expect((await heading(page).count()) === 0, "no '0 restaurants' heading");
+  await page.getByText("Try a higher calorie limit or a lower protein.", { exact: true }).waitFor({ timeout: 30000 });
+  await page.getByRole("button", { name: "Milk", exact: true }).click();
+  await page.getByText("Try a higher calorie limit, a lower protein or fewer allergies.", { exact: true }).waitFor({ timeout: 30000 });
+  await page.getByLabel("Protein, at least (g)").fill("");
+  await page.getByRole("button", { name: "Milk", exact: true }).click();
+  await page.getByLabel("Calories, up to").fill("0");
+  await page.getByLabel("Carbs, up to (g)").fill("0");
+  await page.getByLabel("Fat, up to (g)").fill("0");
+  await page.getByLabel("Protein, at least (g)").fill("900");
+  await page.getByText("Try a higher calorie limit, a lower protein, a higher carbs limit or a higher fat limit.", { exact: true }).waitFor({ timeout: 30000 });
+  expect((await page.getByText(/fewer allergies/).count()) === 0, "allergies named when none is chosen");
+  await ctx.close();
+});
+
+await step("a restaurant that publishes calories only shows as its example the dish nearest the calorie limit, not its lowest (water, tea)", async () => {
+  const manifest = await (await fetch(BASE + "/menus/menus-manifest.json")).json();
+  const lite = manifest.chains.filter((c) => c.nutritionLevel === "calories" && !c.sample).sort((a, b) => b.itemCount - a.itemCount)[0];
+  expect(lite, "no calories-only restaurant in the data");
+  const doc = await (await fetch(BASE + "/menus/" + lite.file)).json();
+  const LIMIT = 600;
+  const fit = doc.items.filter((i) => i.nutrients.calories <= LIMIT && !/^(?:add|extra)\b/i.test(i.name));
+  const want = fit.reduce((best, i) => (!best || i.nutrients.calories > best.nutrients.calories ? i : best), null);
+  const lowest = Math.min(...fit.map((i) => i.nutrients.calories));
+  const { ctx, page } = await open();
+  await page.getByLabel("Calories, up to").fill(String(LIMIT));
+  await heading(page).waitFor({ timeout: 60000 });
+  const row = page.locator(`a[href^="/app/chain?id=${lite.id}&"]`);
+  for (let i = 0; i < 12 && (await row.count()) === 0; i++) {
+    const more = page.getByRole("button", { name: "Show more restaurants" });
+    if ((await more.count()) === 0) break;
+    await more.click();
+  }
+  const text = await row.first().textContent();
+  expect(text.includes(`${want.name} · ${want.nutrients.calories} kcal`), `${lite.name}'s example should be ${want.name} (${want.nutrients.calories} kcal), the row says: ${text}`);
+  expect(want.nutrients.calories === lowest || !text.includes(` · ${lowest} kcal`), `the row shows the lowest-calorie dish: ${text}`);
+  // full-nutrition restaurants still show their highest-protein dish, with its protein
+  const full = page.locator('a[href^="/app/chain?id="]').filter({ hasText: /g protein/ });
+  expect((await full.count()) > 0, "no example shows protein");
   await ctx.close();
 });
 

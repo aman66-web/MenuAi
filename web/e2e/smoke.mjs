@@ -280,6 +280,61 @@ await step("report a number queues to /api/v1/reports with the right body", asyn
   const r = posts.find((p) => p.startsWith("POST /api/v1/reports"));
   if (!r || !r.includes('"chainId":"bowl-and-co"') || !r.includes('"itemId":"chicken-bowl"') || !r.includes('"shownValue":655') || !r.includes('"reportedValue":640')) throw new Error("bad report: " + r);
 });
+await step("report a number: the photo is our own 'Add a photo' pill (no browser file control), shows the file's name, can be changed and removed, and is reachable by keyboard", async () => {
+  await page.goto(`${BASE}/app/item?chain=bowl-and-co&item=chicken-bowl`);
+  await page.getByRole("button", { name: "Report a number" }).click();
+  const input = page.locator("dialog input[type=file]");
+  const pick = page.locator("dialog label", { hasText: /^(Add a photo|Change photo)$/ });
+  await visible(text("Photo of the menu board (optional)"));
+  await visible(page.locator("dialog label", { hasText: "Add a photo" }));
+  const box = await input.boundingBox();
+  if (box && (box.width > 2 || box.height > 2)) throw new Error(`the browser's own file control shows (${box.width}x${box.height})`);
+  if ((await input.getAttribute("accept")) !== "image/*") throw new Error("the input no longer takes only images");
+  const pickBox = await pick.boundingBox();
+  if (!pickBox || pickBox.height < 43.5) throw new Error(`the Add a photo pill is under 44 px: ${pickBox?.height}`);
+  const name = await input.evaluate((el) => [...(el.getAttribute("aria-labelledby") ?? "").split(" ")].map((id) => document.getElementById(id)?.textContent).join(" "));
+  if (!name.startsWith("Photo of the menu board (optional)")) throw new Error("the input's name: " + name);
+  if ((await page.getByRole("button", { name: "Remove photo" }).count()) !== 0) throw new Error("Remove photo shows before a photo is picked");
+  // a 1x1 PNG
+  const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==", "base64");
+  await input.setInputFiles({ name: "menu-board.png", mimeType: "image/png", buffer: png });
+  await visible(page.locator("dialog label", { hasText: "Change photo" }));
+  await visible(page.locator("dialog").getByText("menu-board.png", { exact: true }));
+  await page.getByRole("button", { name: "Remove photo" }).click();
+  await visible(page.locator("dialog label", { hasText: "Add a photo" }));
+  if ((await page.locator("dialog").getByText("menu-board.png", { exact: true }).count()) !== 0) throw new Error("the file's name stays after Remove photo");
+  if ((await input.inputValue()) !== "") throw new Error("the input still holds the file after Remove photo");
+  if (!(await input.evaluate((el) => el === document.activeElement))) throw new Error("the focus is lost after Remove photo");
+  // keyboard: Tab from the note reaches the hidden input, and the pill shows the focus ring
+  await page.getByLabel("Note (optional)").focus();
+  await page.keyboard.press("Tab");
+  if (!(await input.evaluate((el) => el === document.activeElement))) throw new Error("Tab from the note doesn't reach the photo field");
+  const ring = await pick.evaluate((el) => getComputedStyle(el).outlineStyle);
+  if (ring === "none") throw new Error("no focus ring on the Add a photo pill while its field has the keyboard focus");
+  await shot("14b-report-photo");
+  await page.keyboard.press("Escape");
+});
+await step("an unknown /app address shows the app's own 'Page not found' card with a 44 px link home", async () => {
+  const before = problems.length;
+  const res = await page.goto(`${BASE}/app/no-such-page`);
+  if (res && res.status() !== 404) throw new Error(`status ${res.status()}, not 404`);
+  await visible(page.getByRole("heading", { level: 1, name: "Page not found" }));
+  await visible(text("This page doesn't exist or has moved."));
+  const home = page.getByRole("link", { name: "Back to home" });
+  if ((await home.getAttribute("href")) !== "/app") throw new Error("the link goes to " + (await home.getAttribute("href")));
+  const b = await home.boundingBox();
+  if (!b || b.height < 43.5) throw new Error(`the link is under 44 px: ${b?.height}`);
+  const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  if (bg !== "rgb(244, 245, 246)") throw new Error(`the page is ${bg}, not the app's grey`);
+  // the app's fonts (the root layout's font variables) and its weights (.app-surface) reach this page, which is outside the /app layout
+  const look = await page.evaluate(() => ({ font: getComputedStyle(document.documentElement).getPropertyValue("--font-sans-loaded").trim(), weight: getComputedStyle(document.querySelector("h1").closest(".app-surface") ?? document.body).fontWeight }));
+  if (!look.font || look.weight !== "500") throw new Error("the page doesn't get the app's font or weights: " + JSON.stringify(look));
+  await shot("14c-not-found");
+  await home.click();
+  await page.waitForURL(`${BASE}/app`);
+  await visible(page.getByRole("link", { name: "Settings" }).first());
+  problems.splice(before, problems.length - before, ...problems.slice(before).filter((p) => !/status of 404/.test(p))); // the 404 itself is expected
+});
 await step("settings: goal, targets, GLP-1 meal size, data version, numbers page", async () => {
   await page.goto(`${BASE}/app/settings`);
   await visible(page.getByRole("heading", { name: "Settings" }));

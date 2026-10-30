@@ -52,6 +52,63 @@ await step("Eat out: honest count, type chips, and filtering by type", async () 
   expect(await page.getByRole("group", { name: "Browse by type" }).count() === 0, "choices still shown after closing");
 });
 
+await step("Eat out: 'Full nutrition only', 'Halal' and the open row are still there after going into a restaurant and back; closed, they stay closed after Back", async () => {
+  await page.goto(BASE + "/app/eat-out");
+  await page.getByText(/\d+ UK restaurants/).waitFor();
+  const more = page.getByRole("button", { name: "More ways to find a restaurant" });
+  if ((await more.getAttribute("aria-expanded")) !== "true") await more.click();
+  const group = page.getByRole("group", { name: "Browse by type" });
+  const full = group.getByRole("button", { name: "Full nutrition only" });
+  await full.click();
+  expect(await full.getAttribute("aria-pressed") === "true", "Full nutrition only didn't turn on");
+  const halal = group.getByRole("button", { name: "Halal", exact: true });
+  const hasHalal = (await halal.count()) > 0;
+  if (hasHalal) {
+    await halal.click();
+    if ((await page.locator('main a[href^="/app/chain?id="]').count()) === 0) await halal.click(); // no all-halal restaurant with full nutrition: test the other two
+  }
+  const halalOn = hasHalal && (await halal.getAttribute("aria-pressed")) === "true";
+  const counted = await page.getByText(/\d+ UK restaurants/).textContent();
+  await page.locator('main a[href^="/app/chain?id="]').first().click();
+  await page.waitForURL(/\/app\/chain\?id=/);
+  await page.getByRole("heading", { level: 1 }).waitFor();
+  await page.goBack();
+  await group.waitFor();
+  expect(await more.getAttribute("aria-expanded") === "true", "the row was closed after Back");
+  expect(await full.getAttribute("aria-pressed") === "true", "Full nutrition only was lost after Back");
+  if (halalOn) expect(await halal.getAttribute("aria-pressed") === "true", "Halal was lost after Back");
+  expect((await page.getByText(/\d+ UK restaurants/).textContent()) === counted, `a different list after Back: ${counted}`);
+  // closing the row shows every restaurant, and it stays that way after a restaurant and Back
+  await more.click();
+  await page.getByRole("heading", { name: "Popular" }).waitFor();
+  await page.locator('main a[href^="/app/chain?id="]').first().click();
+  await page.waitForURL(/\/app\/chain\?id=/);
+  await page.getByRole("heading", { level: 1 }).waitFor();
+  await page.goBack();
+  await page.getByRole("heading", { name: "Popular" }).waitFor();
+  expect(await page.getByRole("group", { name: "Browse by type" }).count() === 0, "the choices came back after closing and Back");
+  expect(await more.getAttribute("aria-expanded") === "false", "the row is open again");
+  // storage holding nonsense is ignored
+  await page.evaluate(() => sessionStorage.setItem("mm.eatOutChoices", "{\"moreOpen\":\"yes\""));
+  await page.reload();
+  await page.getByRole("heading", { name: "Popular" }).waitFor();
+});
+
+await step("My favourite restaurants: when the restaurants can't be loaded it says so with Try again, never 'No favourite restaurants yet'", async () => {
+  const c = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  await c.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true } })));
+  let fail = true;
+  await c.route("**/menus-manifest.json", (r) => (fail ? r.abort() : r.continue()));
+  const p = await c.newPage();
+  await p.goto(BASE + "/app/eat-out/favourites");
+  await p.getByRole("alert").getByText("Couldn't reach the menus. Check your connection and try again.").waitFor({ timeout: 30000 });
+  expect((await p.getByText("No favourite restaurants yet").count()) === 0, "said there are no favourites while the menus failed");
+  fail = false;
+  await p.getByRole("button", { name: "Try again" }).click();
+  await p.getByText("No favourite restaurants yet").waitFor({ timeout: 30000 });
+  await c.close();
+});
+
 await step("Home: A-Z jump scrolls to the letter", async () => {
   const before = await page.evaluate(() => scrollY);
   await page.getByRole("navigation", { name: "Jump to letter" }).getByRole("link", { name: /starting with M/ }).click();
@@ -69,6 +126,49 @@ await step("Chain: data note first, long sections trimmed, Show all expands", as
   expect((await section.getByRole("listitem").count()) === 6, "Hot coffee not trimmed to 6");
   await section.getByRole("button", { name: /Show all \d+ in Hot coffee/ }).click();
   expect((await section.getByRole("listitem").count()) > 100, "Hot coffee didn't expand");
+});
+
+await step("Chain: an opened section, the sort and how far a sorted list was shown come back after Back from a dish; storage holding nonsense is ignored", async () => {
+  const section = page.getByRole("region", { name: "Hot coffee" });
+  // a dish far down the opened section, then Back
+  await section.getByRole("listitem").nth(20).getByRole("link").click();
+  await page.waitForURL(/\/app\/item\?chain=puccinos/);
+  await page.goBack();
+  await page.getByRole("heading", { name: "Puccino's" }).waitFor();
+  expect((await section.getByRole("listitem").count()) > 100, "Hot coffee closed again after Back");
+  // a sorted list, shown a page further, then a dish and Back
+  const sort = page.getByRole("combobox", { name: "Sort by" });
+  await sort.selectOption("calories");
+  const flat = page.getByRole("region", { name: "All items" });
+  expect((await flat.getByRole("listitem").count()) === 60, "the sorted list doesn't start at 60");
+  await flat.getByRole("button", { name: /^Show \d+ more/ }).click();
+  expect((await flat.getByRole("listitem").count()) === 120, "Show more didn't show 120");
+  await flat.getByRole("listitem").nth(90).getByRole("link").click();
+  await page.waitForURL(/\/app\/item\?chain=puccinos/);
+  await page.goBack();
+  await page.getByRole("heading", { name: "Puccino's" }).waitFor();
+  expect((await sort.inputValue()) === "calories", "the sort was lost after Back");
+  expect((await flat.getByRole("listitem").count()) === 120, "the sorted list went back to 60 after Back");
+  // the words in the menu's search come back too
+  const box = page.getByRole("searchbox", { name: /Search the Puccino's menu/ });
+  await box.fill("latte");
+  await page.getByText(/\d+ items? match/).waitFor();
+  await page.locator("main li a").first().click();
+  await page.waitForURL(/\/app\/item\?chain=puccinos/);
+  await page.goBack();
+  await page.getByText(/\d+ items? match/).waitFor();
+  expect((await box.inputValue()) === "latte", "the search words were lost after Back");
+  await box.fill("");
+  // a reload keeps the sort for this tab; nonsense in storage reads as menu order
+  await page.reload();
+  await page.getByRole("heading", { name: "Puccino's" }).waitFor();
+  expect((await sort.inputValue()) === "calories", "the sort was lost after a reload");
+  await page.evaluate(() => sessionStorage.setItem("mm.chainView", JSON.stringify({ v: 1, chains: [{ id: "puccinos", sort: "tastiest", expanded: 7, limit: -1 }] })));
+  await page.reload();
+  await page.getByRole("heading", { name: "Puccino's" }).waitFor();
+  expect((await sort.inputValue()) === "menu", "a sort that doesn't exist was used");
+  // put things back for the steps below: menu order with Hot coffee opened
+  await section.getByRole("button", { name: /Show all \d+ in Hot coffee/ }).click();
 });
 
 await step("Chain: section chips jump to a section and expand it", async () => {

@@ -1,5 +1,6 @@
 "use client";
 
+import { SHOPS_WITHOUT_LIST } from "@/lib/mm/groceries";
 import { logoFor, shopLogoFor, tileArt } from "@/lib/mm/logos";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 
@@ -9,6 +10,7 @@ import { useHiddenLogos } from "../_lib/hiddenLogos";
 // sentence instead (the caller's `label`). Rows drift slowly in alternating directions; with reduced motion they stand still.
 // `namesOnly` (the iPhone app, founder 2026-10-12: logo safeguards for the App Store): every tile shows the plain-text name, no logo files,
 // because this first screen is the one place logos could read as promotion rather than just identifying a restaurant.
+// Only shops whose products the app lists are on the wall: a supermarket with no list (Co-op, Ocado) is left out, whoever passes it.
 
 export interface WallItem {
   id: string;
@@ -41,7 +43,7 @@ function Tile({ item, namesOnly }: { item: WallItem; namesOnly?: boolean }) {
 export function LogoWall({ items, label, namesOnly, hero }: { items: readonly WallItem[]; label: string; namesOnly?: boolean; hero?: boolean }) {
   useHiddenLogos();
   const rows: WallItem[][] = Array.from({ length: ROWS }, () => []);
-  items.forEach((item, i) => rows[i % ROWS]!.push(item));
+  items.filter((item) => item.kind !== "shop" || !SHOPS_WITHOUT_LIST.has(item.id)).forEach((item, i) => rows[i % ROWS]!.push(item));
   return (
     <div role="img" aria-label={label} className={`logo-wall pointer-events-none relative overflow-hidden ${hero ? "wall-hero h-[clamp(11rem,34dvh,19rem)]" : "h-[19rem]"}`}>
       {/* always laid out left to right, so the loop works the same in Urdu and Arabic */}

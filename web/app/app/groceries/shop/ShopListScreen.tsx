@@ -10,11 +10,14 @@ import { SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
 import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { useEntryQuery } from "../../_lib/backNav";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useSettings } from "../../_lib/hooks";
 import { useShopProducts } from "../../_lib/shopProducts";
 import { loadManifest, loadRetailer } from "../../_lib/groceries";
+import { readShopListChoice, shopListChanges, type ShopListChoice } from "../addressState";
 import { BackLink, FootNote, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
+import { useAddress, useEntryShown } from "../useAddress";
 import { ShopProductRow } from "./ShopProductRow";
 
 // A supermarket's own list (founder 2026-10-09, docs/GROCERIES_PLAN.md; since 2026-10-11 the main Groceries list, opened from "Which shop?"): name, price,
@@ -22,6 +25,8 @@ import { ShopProductRow } from "./ShopProductRow";
 // we've read it, else from the catalogue's community record for the same barcode (matched exactly, never guessed); the product's page says which.
 // Looks follow Home (founder 2026-10-15): the shop's logo beside a compact title, a white pill search box, outlined chips, the aisle and the sort as
 // white fields with their label in small capitals inside, white rows with 20 px corners.
+// Back from a product finds the list as it was left (code audit 2026-10-29): the aisle, the sort and the chips are in the address, the search words and the
+// number of rows "Show more" opened are in the history entry (addressState.ts).
 const PAGE = 60;
 const NONE: ShopProduct[] = [];
 const NO_CATALOGUE = new Map<string, GroceryProduct>();
@@ -52,13 +57,11 @@ export function ShopListScreen({ shop }: { shop: string }) {
   const poss = usePossessive();
   const [retry, setRetry] = useState(0);
   const state = useShopProducts(shop, retry);
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<string | null>(null);
-  const [card, setCard] = useState(false);
-  const [nutrition, setNutrition] = useState(false);
-  const [sort, setSort] = useState<ShopSort>("name");
-  const [shown, setShown] = useState(PAGE);
-  const [dietOn, setDietOn] = useState(true);
+  const [query, setQuery] = useEntryQuery(); // kept in the history entry, so Back from a product finds the search as it was left
+  const address = useAddress();
+  const asked = readShopListChoice(address.get);
+  const choose = (c: Partial<ShopListChoice>) => address.set(shopListChanges(c));
+  const [shown, setShown] = useEntryShown(PAGE);
   const prefs = useSettings().preferences;
   const deferred = useDeferredValue(query);
   const listed = state.status === "ready" ? state.products : NONE;
@@ -73,14 +76,21 @@ export function ShopListScreen({ shop }: { shop: string }) {
     const c = p.gtin ? catalogue.get(noZeros(p.gtin)) : undefined;
     return foodDietProblem(c ? { ...listedFacts(c), name: `${p.name} ; ${c.name}`, category: `${p.category} ; ${c.category}` } : { name: p.name, category: p.category }, prefs);
   }).map((p) => p.id)) : null), [products, prefs, catalogue]);
+  const hasCard = useMemo(() => products.some((p) => p.member), [products]);
+  const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
+  const pricedCount = useMemo(() => products.reduce((n, p) => n + (p.price !== null ? 1 : 0), 0), [products]);
+  // What the address asks for, where this list can do it: an aisle the shop doesn't have, a chip that isn't offered (no card prices, no numbers) or a
+  // sort by numbers the list doesn't have would show nothing with no way out, so they count as not chosen.
+  const category = state.status === "ready" && asked.aisle && state.file.categories.includes(asked.aisle) ? asked.aisle : null;
+  const card = asked.card && hasCard;
+  const nutrition = asked.nutrition && nutritionCount > 0;
+  const sort: ShopSort = nutritionCount === 0 && (asked.sort === "density" || asked.sort === "protein") ? "name" : asked.sort;
+  const dietOn = asked.dietOn;
   const diet = !!unsuited && dietOn;
   const results = useMemo(() => {
     const found = searchShopProducts(products, { query: deferred, category, card, nutrition, sort });
     return diet && unsuited ? found.filter((p) => !unsuited.has(p.id)) : found;
   }, [products, deferred, category, card, nutrition, sort, diet, unsuited]);
-  const hasCard = useMemo(() => products.some((p) => p.member), [products]);
-  const nutritionCount = useMemo(() => products.reduce((n, p) => n + (p.nutrition ? 1 : 0), 0), [products]);
-  const pricedCount = useMemo(() => products.reduce((n, p) => n + (p.price !== null ? 1 : 0), 0), [products]);
   const reset = () => setShown(PAGE);
   const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
 
@@ -112,16 +122,16 @@ export function ShopListScreen({ shop }: { shop: string }) {
       </div>
 
       <div role="group" aria-label={t("Filters")} className="mt-3.5 flex flex-wrap gap-2 empty:hidden">
-        {unsuited && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
-        {nutritionCount > 0 && <Chip selected={nutrition} onClick={() => { setNutrition((v) => !v); reset(); }}>{t("Has nutrition")}</Chip>}
-        {hasCard && <Chip selected={card} onClick={() => { setCard((v) => !v); reset(); }}>{t("Has a card price")}</Chip>}
+        {unsuited && <Chip selected={dietOn} onClick={() => { choose({ dietOn: !dietOn }); reset(); }}>{t("Fits my diet")}</Chip>}
+        {nutritionCount > 0 && <Chip selected={nutrition} onClick={() => { choose({ nutrition: !nutrition }); reset(); }}>{t("Has nutrition")}</Chip>}
+        {hasCard && <Chip selected={card} onClick={() => { choose({ card: !card }); reset(); }}>{t("Has a card price")}</Chip>}
       </div>
       <div className="mt-3.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-3">
-        <SelectField label={t("Aisle")} value={category ?? ""} onChange={(e) => { setCategory(e.target.value || null); reset(); }}>
+        <SelectField label={t("Aisle")} value={category ?? ""} onChange={(e) => { choose({ aisle: e.target.value || null }); reset(); }}>
           <option value="">{t("Every aisle")}</option>
           {file.categories.map((c) => (<option key={c} value={c}>{c}</option>))}
         </SelectField>
-        <SelectField label={t("Sort")} value={sort} onChange={(e) => { setSort(e.target.value as ShopSort); reset(); }}>
+        <SelectField label={t("Sort")} value={sort} onChange={(e) => { choose({ sort: e.target.value as ShopSort }); reset(); }}>
           {SHOP_SORTS.filter((o) => nutritionCount > 0 || (o.value !== "density" && o.value !== "protein")).map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
         </SelectField>
       </div>
@@ -138,7 +148,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
         </ul>
       )}
       {results.length > shown && (
-        <MoreButton onClick={() => setShown((n) => n + PAGE)}>{t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}</MoreButton>
+        <MoreButton onClick={() => setShown(shown + PAGE)}>{t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}</MoreButton>
       )}
 
       {catalogue.size > 0 && (

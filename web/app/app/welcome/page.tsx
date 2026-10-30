@@ -22,7 +22,7 @@ import {
 } from "../_components/icons";
 import { LogoWall, type WallItem } from "../_components/LogoWall";
 import { logoFor } from "@/lib/mm/logos";
-import { RETAILERS } from "@/lib/mm/groceries";
+import { listedShops, PICKABLE_RETAILERS } from "@/lib/mm/groceries";
 import { site } from "@/site.config";
 import { Pip, PipSays, type PipMood } from "../_components/Mascot";
 import { ShopPicker } from "../_components/ShopPicker";
@@ -144,7 +144,7 @@ export default function WelcomePage() {
   const target = useTargetFields(initial);
   const [prefs, setPrefs] = useState(initial.preferences);
   const [size, setSize] = useState<TextSize>(initial.textSize ?? "standard");
-  const [shops, setShops] = useState<string[]>(initial.shops ?? []);
+  const [shops, setShops] = useState<string[]>(listedShops(initial.shops ?? [])); // a saved Co-op or Ocado (no product list) is ignored
   // The answers about the person (steps 3-5): React state only, never saved or sent; dropped with this page when onboarding ends.
   const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
   // Skip on any of the three: the targets screen has nothing filled in; and the step to go Back to when the questions were left by a jump (skip, or under 18)
@@ -253,7 +253,7 @@ export default function WelcomePage() {
   const hiddenLogos = useHiddenLogos();
   const restaurants = real.length;
   // The welcome wall: restaurants in the app that have an official logo file (well-known ones first, then the rest; a few very large
-  // files left out so the first screen stays quick), mixed with the supermarkets by name.
+  // files left out so the first screen stays quick), mixed with the supermarkets whose products the app lists (not Co-op or Ocado).
   const wallItems = useMemo<WallItem[]>(() => {
     // Logos on (the website, and the iPhone app while web/app-content.json says "appLogos": true; founder 2026-10-18: "it has to be the logos too"):
     // only chains whose logo file we hold. Logos off (appLogos false, the safe fallback for App Review 5.2.1): names only, so any well-known chain can be on the wall.
@@ -261,7 +261,7 @@ export default function WelcomePage() {
     const popular = POPULAR_ORDER.map((id) => withLogo.find((c) => c.id === id)).filter((c): c is (typeof withLogo)[number] => !!c);
     const rest = withLogo.filter((c) => !POPULAR_ORDER.includes(c.id)).sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
     const chains: WallItem[] = [...popular, ...rest].slice(0, 36).map((c) => ({ id: c.id, name: c.name, kind: "restaurant" }));
-    const shops: WallItem[] = RETAILERS.map((r) => ({ id: r.id, name: r.name, kind: "shop" }));
+    const shops: WallItem[] = PICKABLE_RETAILERS.map((r) => ({ id: r.id, name: r.name, kind: "shop" }));
     const out: WallItem[] = [];
     for (let i = 0, j = 0; i < chains.length || j < shops.length; ) {
       for (let k = 0; k < 3 && i < chains.length; k++) out.push(chains[i++]!);
@@ -336,7 +336,7 @@ export default function WelcomePage() {
           {restaurants > 0 && (
             <>
               <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} UK restaurants", { n: restaurants })}</span>
-              <span className="bob-slow app-numbers absolute end-6 top-[48%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: RETAILERS.length })}</span>
+              <span className="bob-slow app-numbers absolute end-6 top-[48%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: PICKABLE_RETAILERS.length })}</span>
             </>
           )}
         </div>
@@ -558,7 +558,7 @@ export default function WelcomePage() {
               )}
             </PipSays>
           </div>
-          <Plan goal={settings.goal} settings={settings} prefs={settings.preferences} shops={settings.shops ?? []} />
+          <Plan goal={settings.goal} settings={settings} prefs={settings.preferences} shops={listedShops(settings.shops ?? [])} />
           <Bottom>
             <BottomButton onClick={next}>{t("Continue")}</BottomButton>
           </Bottom>

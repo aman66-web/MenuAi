@@ -49,7 +49,9 @@ export const MENU_PHOTOS_ENABLED = process.env.NEXT_PUBLIC_MENU_PHOTOS !== "0";
  *  cuisine icons and shops their plain-text names. Off is the safest answer to App Review 5.2.1 (third-party trademarks); on is the founder's accepted-risk decision (CLAUDE.md rule 2). */
 export const LOGOS_ENABLED = process.env.NEXT_PUBLIC_APP_LOGOS !== "0";
 
-export const APP_VERSION = "web 1.0";
+/** Shown in Settings' footer and sent with reports, chain requests and messages (docs/BACKEND.md). The iPhone app's build says its own
+ *  version and build number, "1.0 (3)", read by scripts/build_app_web.sh from the Xcode project; the website says "web 1.0". */
+export const APP_VERSION = APP_BUILD ? (process.env.NEXT_PUBLIC_APP_VERSION || "1.0") : "web 1.0";
 /** Our API (reports, chain requests, messages). The iPhone app reaches it on the live website (lib/cors.ts lets the app's pages call it). */
 export const API_BASE = `${REMOTE_BASE}/api/v1/`;
 export const FREE_SAVED_ORDER_LIMIT = 3;

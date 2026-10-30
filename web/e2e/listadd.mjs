@@ -137,6 +137,89 @@ await step("nothing runs sideways at 360 px, at Extra large text or right to lef
   }
 });
 
+// Undo on the Shopping list (code audit 2026-10-29): "Clear" and "−" at quantity 1 used to remove things at once, with no way back.
+const TESCO_PHOTO = { src: "https://digitalcontent.api.tesco.com/v2/media/ghs/1ae5ef44-e50e-42f5-8844-13346be3a111/b38866f9-6933-43ad-a388-15a1baf5b669.jpeg?h=225&w=225", from: "retailer", shop: "tesco" };
+/** The same list whatever order each item's keys were written in (the page writes what it read back, the test seeded its own). */
+const canon = (list) => JSON.stringify(list.map((i) => Object.fromEntries(Object.entries(i).sort(([a], [b]) => a.localeCompare(b)))));
+const undoButton = (page) => page.getByRole("button", { name: "Undo", exact: true });
+
+await step("Clear empties the list with an Undo pill at the top; Undo puts it back exactly (the same items in the same order, ticks, quantities, prices, pictures)", async () => {
+  const before = [asdaItem, { ...tescoItem, qty: 3, done: true, photo: TESCO_PHOTO }, typedItem];
+  const { ctx, page, errors } = await open(before);
+  await page.goto(BASE + "/app/groceries/list");
+  await more(page, "Asda").waitFor({ timeout: 90000 });
+  // tick and untick Milk, so the store writes the list as the page holds it (read back through its checks) to compare with after Undo
+  await page.getByRole("checkbox", { name: /^Milk:/ }).tap();
+  await page.getByRole("checkbox", { name: /^Milk:/ }).tap();
+  const held = await stored(page);
+  expect(held.length === 3 && held[1].qty === 3 && held[1].done === true && held[1].photo?.src === TESCO_PHOTO.src, "the seeded list didn't read back: " + JSON.stringify(held));
+  await page.getByRole("button", { name: "Clear", exact: true }).tap();
+  await page.getByRole("link", { name: "Browse groceries" }).waitFor();
+  expect((await stored(page)).length === 0, "the list was not cleared");
+  const undo = undoButton(page);
+  await undo.waitFor();
+  await page.getByRole("status").filter({ hasText: "Shopping list cleared." }).waitFor(); // read out through the status line that is always there
+  const box = await undo.boundingBox();
+  expect(box.y < 200, "the pill sits at the top, clear of the rows: y " + box.y);
+  expect(box.height >= 44 && box.width >= 44, "Undo is a proper tap target: " + JSON.stringify(box));
+  await undo.tap();
+  await more(page, "Asda").waitFor();
+  const back = await stored(page);
+  expect(canon(back) === canon(held), "not restored exactly: " + JSON.stringify(back));
+  expect(await page.getByRole("checkbox", { name: /Abra Ca Debora Sweet Pancakes.*in the basket/ }).isVisible(), "the tick came back");
+  expect((await undo.count()) === 0, "the pill stays after Undo");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("\"−\" at quantity 1 takes the item off with \"Removed “…”.\" and an Undo that puts it back in its place; above 1 it only counts down; after 8 seconds the pill goes and the item stays off", async () => {
+  const second = { ...asdaItem, gtin: "5000128002056", name: "Second Asda Thing", qty: 2 };
+  const { ctx, page } = await open([asdaItem, second, tescoItem]);
+  await page.goto(BASE + "/app/groceries/list");
+  await more(page, "Asda").waitFor({ timeout: 90000 });
+  // the quantity is words a screen reader reads (an aria-label on a plain span is ignored), with the figure drawn beside it
+  await page.getByText("Quantity 2", { exact: true }).waitFor();
+  expect((await page.locator("span[aria-label^='Quantity']").count()) === 0, "a quantity still hangs on an aria-label");
+  await page.getByRole("button", { name: "One fewer Second Asda Thing" }).tap();
+  expect((await stored(page)).find((i) => i.name === "Second Asda Thing")?.qty === 1, "2 → 1");
+  expect((await undoButton(page).count()) === 0, "counting down from 2 offered Undo");
+  await page.getByRole("button", { name: /^One fewer Aaila/ }).tap();
+  await undoButton(page).waitFor();
+  await page.getByRole("status").filter({ hasText: `Removed “${asdaItem.name}”.` }).waitFor();
+  expect(!(await stored(page)).some((i) => i.name === asdaItem.name), "still on the list");
+  await undoButton(page).tap();
+  await page.getByRole("checkbox", { name: new RegExp(`^${asdaItem.name.slice(0, 20)}`) }).waitFor();
+  const back = await stored(page);
+  expect(back.map((i) => i.name).join("|") === [asdaItem.name, "Second Asda Thing", tescoItem.name].join("|") && back[0].qty === 1, "not back in its place: " + back.map((i) => `${i.name} ${i.qty}`).join(", "));
+  // no Undo: the pill goes by itself and the item stays off
+  await page.getByRole("button", { name: /^One fewer Abra Ca Debora/ }).tap();
+  await undoButton(page).waitFor();
+  await page.waitForTimeout(9000);
+  expect((await undoButton(page).count()) === 0, "the pill stayed after 8 seconds");
+  expect(!(await stored(page)).some((i) => i.retailer === "tesco"), "the Tesco item came back by itself");
+  await ctx.close();
+});
+
+await step("when the list of shops can't be downloaded: \"Add more from Tesco\" still opens Tesco's own list (Co-op, which has none, goes to Which shop?), and the recipe tile never says it is still looking", async () => {
+  const { ctx, page } = await open([tescoItem, coopItem]);
+  await page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ status: 503, body: "" }));
+  await page.goto(BASE + "/app/groceries/list");
+  await more(page, "Tesco").waitFor({ timeout: 90000 });
+  await page.getByText("See recipes that use what's on your list.").waitFor({ timeout: 15000 });
+  expect((await page.getByText("Looking through the recipes…").count()) === 0, "the tile still says it is looking");
+  expect((await more(page, "Tesco").getAttribute("href")) === "/app/groceries/shop?r=tesco", "Tesco's row goes to " + (await more(page, "Tesco").getAttribute("href")));
+  expect((await more(page, "Co-op").getAttribute("href")) === "/app/groceries", "Co-op's row goes to " + (await more(page, "Co-op").getAttribute("href")));
+  await ctx.close();
+  // a list of shops where none has labels we've read (so none can make a recipe): the tile offers the recipes instead of looking for ever
+  const b = await open([tescoItem]);
+  await b.page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ v: 1, retailers: [{ id: "tesco", name: "Tesco", file: "tesco.json", count: 1, checkedOn: "2026-10-09", sha256: "" }] }) }));
+  await b.page.goto(BASE + "/app/groceries/list");
+  await b.page.getByText("See recipes that use what's on your list.").waitFor({ timeout: 90000 });
+  await b.page.waitForTimeout(1500);
+  expect((await b.page.getByText("Looking through the recipes…").count()) === 0, "no recipe shop: the tile still says it is looking");
+  await b.ctx.close();
+});
+
 await step("axe: no violations with the new rows and button", async () => {
   const { ctx, page } = await open([asdaItem, tescoItem, typedItem, { ...asdaItem, gtin: "", shopId: "x", name: "Ticked thing", done: true }]);
   await page.goto(BASE + "/app/groceries/list");

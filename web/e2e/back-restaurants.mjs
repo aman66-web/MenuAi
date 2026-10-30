@@ -150,6 +150,36 @@ await step("'How we get our numbers' opened from Settings: its pill returns to S
   await ctx.close();
 });
 
+await step("a restaurant's sort and search words are still there after Back from a dish; opened again from Eat out the sort is kept for the tab and the box is empty", async () => {
+  const { ctx, page, errors } = await open();
+  await chainFromEatOut(page);
+  const sort = page.getByRole("combobox", { name: "Sort by" });
+  await sort.waitFor({ timeout: 120000 });
+  await sort.selectOption("protein");
+  const box = page.getByRole("searchbox", { name: /Search the .* menu/ });
+  await box.fill("chicken");
+  await page.getByText(/\d+ items? match/).waitFor();
+  await page.locator(`main a[href*="item?chain=bowl-and-co&item="]`).first().click();
+  await page.waitForURL(/\/app\/item\?chain=bowl-and-co/);
+  await (await backLink(page, "Back")).click();
+  await waitPath(page, "/app/chain?id=bowl-and-co");
+  await page.getByText(/\d+ items? match/).waitFor({ timeout: 30000 });
+  expect((await box.inputValue()) === "chicken", "the search words were lost: " + (await box.inputValue()));
+  expect((await sort.inputValue()) === "protein", "the sort was lost: " + (await sort.inputValue()));
+  // a fresh visit (a new entry, not Back): the words start empty, the sort is this tab's
+  await chainFromEatOut(page);
+  await sort.waitFor({ timeout: 120000 });
+  expect((await box.inputValue()) === "", "the search words came back on a fresh visit");
+  expect((await sort.inputValue()) === "protein", "the sort wasn't kept for the tab");
+  // another tab starts in menu order
+  const other = await ctx.newPage();
+  await other.goto(BASE + "/app/chain?id=bowl-and-co", { timeout: 180000 });
+  await other.getByRole("combobox", { name: "Sort by" }).waitFor({ timeout: 120000 });
+  expect((await other.getByRole("combobox", { name: "Sort by" }).inputValue()) === "menu", "a new tab took this tab's sort");
+  expect(errors.length === 0, "errors: " + errors.join(" | "));
+  await ctx.close();
+});
+
 await step("a modified click (new tab) is left to the link: it opens the fixed page and this page stays where it is", async () => {
   const { ctx, page } = await open();
   await chainFromEatOut(page);

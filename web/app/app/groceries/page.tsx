@@ -7,10 +7,10 @@ import { barcodeQuery, RETAILERS } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { ChevronRightIcon, CompareIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { ShopMark } from "../_components/ChainMark";
-import { Spinner } from "../_components/ui";
+import { ErrorBox, Spinner } from "../_components/ui";
 import { useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
-import { useShopManifest } from "../_lib/shopProducts";
+import { useShopManifestState } from "../_lib/shopProducts";
 import { CARD, FootNote, HEADING, ListLink, ROUND, TITLE } from "./PageBits";
 import { Scanner } from "./Scanner";
 
@@ -28,7 +28,10 @@ export default function GroceriesPage() {
   const router = useRouter();
   const list = useStore(shoppingStore);
   const settings = useSettings();
-  const lists = useShopManifest();
+  const [retry, setRetry] = useState(0);
+  // a failed download is said so, with Try again: never "no shops", so no shop is called "not here yet" because a file didn't arrive (code audit 2026-10-29)
+  const manifest = useShopManifestState(retry);
+  const lists = manifest.status === "ready" ? manifest.manifest : null;
   const [scanning, setScanning] = useState(false);
   const mine = settings.shops ?? [];
   const order = (id: string) => (mine.includes(id) ? mine.indexOf(id) : 100 + RETAILERS.findIndex((r) => r.id === id));
@@ -46,7 +49,9 @@ export default function GroceriesPage() {
       <h2 className={`mt-7 ${HEADING}`}>{t("Which shop?")}</h2>
       <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Tap a shop to see its products, prices and photos.")}</p>
 
-      {!shops ? (
+      {manifest.status === "error" ? (
+        <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
+      ) : !shops ? (
         <Spinner label={t("Loading products")} />
       ) : (
         <ul className={`mt-4 ${PAIR}`}>

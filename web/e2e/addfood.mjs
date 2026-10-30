@@ -274,6 +274,83 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   await ctx.close();
 });
 
+await step("a dish that publishes calories only at a restaurant that publishes everything else (Tenpin) says so, with no Add", async () => {
+  const doc = await (await fetch(BASE + "/menus/chain-tenpin.json")).json();
+  // the longest such name, so the search finds it among the first results
+  const dish = doc.items.filter((i) => i.nutrients.protein === undefined && !/^(add|double|pizza add)/i.test(i.name)).sort((a, b) => b.name.length - a.name.length)[0];
+  expect(dish, "no calories-only dish at Tenpin to try");
+  const { ctx, page, errors } = await open();
+  await home(page);
+  await openMeal(page, "Lunch");
+  await choose(page, "Choose a restaurant meal");
+  await page.getByLabel("Search restaurants and items").fill(dish.name);
+  const row = dlg(page).locator("li", { hasText: dish.name }).filter({ hasText: `${doc.name} ·` }).first();
+  await row.waitFor({ timeout: 60000 });
+  await row.getByText("calories only", { exact: true }).waitFor({ timeout: 60000 }); // once the numbers file has arrived
+  expect((await row.getByRole("button").count()) === 0, "the calories-only dish still has a button: " + (await row.innerText()));
+  expect((await log(page)).length === 0, "something was logged");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("Recently added: hidden with nothing logged; then the last things logged, newest first and each once, one tap logging the same name, restaurant and figures into the meal tapped", async () => {
+  const yesterday = new Date(Date.now() - 86400000).toISOString();
+  const { ctx, page, errors } = await open();
+  await home(page);
+  await openMeal(page, "Lunch");
+  expect((await page.getByRole("heading", { name: "Recently added", exact: true }).count()) === 0, "Recently added shows with an empty log");
+  await page.getByRole("button", { name: "Close" }).tap();
+  await sheetTitle(page, "Add to Lunch").waitFor({ state: "hidden" });
+  // something logged yesterday at a restaurant, and something typed just now
+  await page.evaluate((at) => {
+    const twister = { id: "seed-1", loggedAt: at, chainId: "kfc", chainName: "KFC", name: "Twister Wrap", nutrients: { calories: 512, protein: 30.5, carbs: 41.2, fat: 20.4, salt: 2.31 }, source: "item", meal: "lunch" };
+    localStorage.setItem("mm.v1.log", JSON.stringify({ v: 1, data: [twister] }));
+  }, yesterday);
+  await page.reload();
+  await plus(page, "Breakfast").waitFor({ timeout: 90000 });
+  await openMeal(page, "Dinner");
+  await choose(page, "Type in your numbers");
+  await page.getByLabel("Name (optional)").fill("Toast and jam");
+  await page.getByLabel("Calories (kcal)").fill("250");
+  await page.getByLabel("Protein (g)").fill("7");
+  await dlg(page).getByRole("button", { name: "Add to Dinner", exact: true }).tap();
+  await page.getByText("Added “Toast and jam” to Dinner.").waitFor();
+  // on another meal: both, newest first
+  await openMeal(page, "Breakfast");
+  const section = dlg(page).locator("section", { has: page.getByRole("heading", { name: "Recently added", exact: true }) });
+  await section.waitFor();
+  const rows = section.getByRole("listitem");
+  expect((await rows.count()) === 2, "expected two recent things: " + (await rows.allInnerTexts()).join(" | "));
+  expect((await rows.nth(0).innerText()).includes("Toast and jam") && /250 kcal/.test(await rows.nth(0).innerText()), "first row: " + (await rows.nth(0).innerText()));
+  expect((await rows.nth(1).innerText()).includes("Twister Wrap") && (await rows.nth(1).innerText()).includes("KFC · 512 kcal"), "second row: " + (await rows.nth(1).innerText()));
+  // the four choices are still there under it
+  await dlg(page).getByRole("button", { name: /Type in your numbers/ }).waitFor();
+  await section.getByRole("button", { name: "Add Twister Wrap" }).tap();
+  await sheetTitle(page, "Add to Breakfast").waitFor({ state: "hidden" });
+  await page.getByText("Added “Twister Wrap” to Breakfast.").waitFor();
+  const entries = await log(page);
+  const copy = entries.find((e) => e.name === "Twister Wrap" && e.id !== "seed-1");
+  expect(copy && copy.meal === "breakfast" && copy.source === "item" && copy.chainId === "kfc" && copy.chainName === "KFC", "the copy: " + JSON.stringify(copy));
+  expect(JSON.stringify(copy.nutrients) === JSON.stringify({ calories: 512, protein: 30.5, carbs: 41.2, fat: 20.4, salt: 2.31 }), "figures not copied exactly: " + JSON.stringify(copy.nutrients));
+  expect(Date.now() - Date.parse(copy.loggedAt) < 60000, "the copy isn't logged now: " + copy.loggedAt);
+  expect(new RegExp("^Breakfast\\s+512\\s*/").test((await mealRow(page, "Breakfast").innerText()).trim()), "Breakfast row: " + (await mealRow(page, "Breakfast").innerText()));
+  // the typed one: protein typed, carbs and fat left empty, copied that way
+  await page.getByRole("button", { name: "Undo" }).waitFor();
+  await openMeal(page, "Lunch");
+  const rows2 = dlg(page).locator("section", { has: page.getByRole("heading", { name: "Recently added", exact: true }) }).getByRole("listitem");
+  expect((await rows2.count()) === 2, "the same thing is listed twice: " + (await rows2.allInnerTexts()).join(" | "));
+  await dlg(page).getByRole("button", { name: "Add Toast and jam" }).tap();
+  await page.getByText("Added “Toast and jam” to Lunch.").waitFor();
+  const toast = (await log(page)).filter((e) => e.name === "Toast and jam");
+  expect(toast.length === 2 && toast[1].meal === "lunch" && toast[1].source === "custom" && JSON.stringify(toast[1].nutrients) === JSON.stringify({ calories: 250, protein: 7 }), "the typed copy: " + JSON.stringify(toast));
+  // Undo takes the copy back
+  await page.getByRole("button", { name: "Undo" }).tap();
+  await page.waitForTimeout(300);
+  expect((await log(page)).filter((e) => e.name === "Toast and jam").length === 1, "Undo left the copy");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("a supermarket product: found by name, how much, the label's figures shown before Add, and exactly label x amount / 100 logged", async () => {
   const { ctx, page, errors } = await open();
   await home(page);

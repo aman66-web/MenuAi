@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useId, useRef, useState, type ReactNode } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import {
   chainRequestPayload, REPORT_FIELDS, REPORT_THANKS, reportPayload, REQUEST_THANKS, SUPPORT_THANKS, supportPayload, type ReportField,
@@ -48,6 +48,56 @@ function SelectField({ children, ...rest }: React.SelectHTMLAttributes<HTMLSelec
       <select className={`${fieldClass} appearance-none pe-11`} {...rest}>{children}</select>
       <ChevronRightIcon aria-hidden className="pointer-events-none absolute end-4 top-1/2 h-5 w-5 -translate-y-1/2 rotate-90 rtl:-rotate-90 text-muted" />
     </span>
+  );
+}
+
+/**
+ * The photo of the menu board: our own secondary pill ("Add a photo", then "Change photo") instead of the browser's file control, whose words
+ * are the browser's own and which has no way to take a photo back out. The file input itself is visually hidden but stays in the page and in
+ * the tab order (a focus ring then shows on the pill), so a tap on the pill, or Enter or Space on the focused input, opens the picker. After a
+ * pick the file's name shows and "Remove photo" clears it (the input's value too, so the same file can be picked again).
+ */
+function PhotoField({ label, photo, onChange }: { label: string; photo: File | null; onChange: (photo: File | null) => void }) {
+  const t = useT();
+  const id = useId();
+  const input = useRef<HTMLInputElement>(null);
+  return (
+    <div>
+      <span id={`${id}-label`} className={labelClass}>{label}</span>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <input
+          ref={input}
+          id={`${id}-input`}
+          type="file"
+          accept="image/*"
+          aria-labelledby={`${id}-label ${id}-pick`}
+          onChange={(e) => onChange(e.target.files?.[0] ?? null)}
+          className="peer sr-only"
+        />
+        <label
+          id={`${id}-pick`}
+          htmlFor={`${id}-input`}
+          className="glass inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full px-5 text-[0.9375rem] font-semibold leading-snug text-foreground transition duration-150 active:scale-[0.97] hover:bg-soft-strong peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent"
+        >
+          {photo ? t("Change photo") : t("Add a photo")}
+        </label>
+        {photo && (
+          <Button
+            variant="ghost"
+            onClick={() => {
+              onChange(null);
+              if (input.current) {
+                input.current.value = "";
+                input.current.focus(); // the button goes away: keep the focus on the field
+              }
+            }}
+          >
+            {t("Remove photo")}
+          </Button>
+        )}
+      </div>
+      {photo && <p className={`${hintClass} [overflow-wrap:anywhere]`}>{photo.name}</p>}
+    </div>
   );
 }
 
@@ -219,14 +269,7 @@ function ReportForm({ target, onClose }: { target: ReportTarget; onClose: () => 
         <Row label={t("Note (optional)")}>
           <textarea className={`${fieldClass} resize-none py-3 leading-snug`} rows={3} maxLength={1000} value={note} onChange={(e) => setNote(e.target.value)} />
         </Row>
-        <Row label={t("Photo of the menu board (optional)")}>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setPhoto(e.target.files?.[0] ?? null)}
-            className="block min-h-11 w-full rounded-full text-[0.9375rem] text-muted file:me-3 file:min-h-11 file:cursor-pointer file:rounded-full file:border-0 file:bg-soft-strong file:px-5 file:py-2.5 file:text-[0.9375rem] file:font-semibold file:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          />
-        </Row>
+        <PhotoField label={t("Photo of the menu board (optional)")} photo={photo} onChange={setPhoto} />
       </Group>
       {error && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug text-accent">{error}</p>}
       <Button type="submit" full className={submitClass} disabled={busy}>{t("Send report")}</Button>

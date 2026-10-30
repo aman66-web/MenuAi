@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, listAsText, listTotals, setQty, toggleDone, withoutDone, type ShoppingItem } from "@/lib/mm/groceries";
+import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, listAsText, listTotals, setQty, SHOPS_WITHOUT_LIST, toggleDone, withoutDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { nextToBuy } from "@/lib/mm/listRecipes";
 import { decodePayload, encodeEntries, payloadFrom, SHARE_PROBLEM, SHARED_APP_PATH, shareUrl, toEntries } from "@/lib/mm/shareList";
@@ -12,16 +12,18 @@ import { site } from "@/site.config";
 import { ArrowRightIcon, BasketIcon, CheckIcon, CopyIcon, MinusIcon, PlusIcon, PotIcon, ShareIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { SendToFriend } from "../../_components/SendToFriend";
+import { UndoToast, type ToastMessage } from "../../_components/UndoToast";
 import { Button, EmptyIcon, EmptyState, LinkButton, Sheet } from "../../_components/ui";
 import { useHydrated, useStore } from "../../_lib/hooks";
 import { usePossessive, useT } from "../../_lib/i18n";
 import { useListPhotos } from "../../_lib/listPhotos";
 import { addMissing, useListRecipes } from "../../_lib/listRecipes";
-import { useShopManifest } from "../../_lib/shopProducts";
+import { useShopManifestState } from "../../_lib/shopProducts";
 import { Rich } from "../../_lib/Rich";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { BackLink, CARD, LABEL, PILL_INPUT, TITLE } from "../PageBits";
 import { ListThumb } from "../ProductPhoto";
+import { undoClear, undoRemove } from "./undo";
 
 // "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
 // recipes; tick things off as they go in the basket. At the top: the recipes this list can make, and what one of them still needs. Share or
@@ -29,6 +31,7 @@ import { ListThumb } from "../ProductPhoto";
 // Looks follow Home (founder 2026-10-15): the compact title, a white pill to type in with a black Add pill, "What can I cook with this?" as the
 // one lime tile on the screen, each shop's items under a small capital label in one white card (rows divided by a fine line, like a recipe's
 // ingredients), each with a round tick and grey round − and + buttons.
+// "Clear" and "−" at quantity 1 offer Undo for 8 seconds (code audit 2026-10-29: one tap wiped the whole synced list, and "−" removed an item without a word).
 
 export default function ShoppingListPage() {
   const t = useT();
@@ -41,9 +44,35 @@ export default function ShoppingListPage() {
   const [suggestNote, setSuggestNote] = useState<string | null>(null);
   const { state, matches } = useListRecipes(list);
   const photosOf = useListPhotos(list);
-  const lists = useShopManifest();
-  /** Where "Add more from {shop}" goes: that shop's own list of products, or (a shop with no list) the page that asks which shop. */
-  const shopHref = (retailer: string) => (lists && !lists.retailers.some((r) => r.id === retailer) ? "/app/groceries" : `/app/groceries/shop?r=${encodeURIComponent(retailer)}`);
+  const lists = useShopManifestState();
+  /**
+   * Where "Add more from {shop}" goes: that shop's own list of products, or (a shop with no list) the page that asks which shop. Until the list of shops is in,
+   * or when it couldn't be downloaded, only the shops we hold no list for go to "Which shop?": a failed download doesn't make Tesco a shop with no list (its own
+   * page then says it couldn't load, with Try again).
+   */
+  const hasNoList = (retailer: string) => (lists.status === "ready" ? !lists.manifest.retailers.some((r) => r.id === retailer) : SHOPS_WITHOUT_LIST.has(retailer));
+  const shopHref = (retailer: string) => (hasNoList(retailer) ? "/app/groceries" : `/app/groceries/shop?r=${encodeURIComponent(retailer)}`);
+  // The Undo pill: what it says and how to put things back. A new one replaces the last (its Undo is then gone, as on Home).
+  const [undo, setUndo] = useState<{ message: ToastMessage; restore: (now: readonly ShoppingItem[]) => ShoppingItem[] } | null>(null);
+  const offerUndo = (text: string, restore: (now: readonly ShoppingItem[]) => ShoppingItem[]) => setUndo({ message: { key: `${Date.now()}-${Math.random()}`, text }, restore });
+  const clearAll = () => {
+    const before = list;
+    shoppingStore.set([]);
+    setNote(null);
+    offerUndo(t("Shopping list cleared."), (now) => undoClear(now, before));
+  };
+  /** "−": one fewer, and at quantity 1 the item comes off the list, with Undo putting it back where it was. */
+  const fewer = (i: ShoppingItem) => {
+    const code = itemCode(i);
+    if (i.qty > 1) {
+      shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1));
+      return;
+    }
+    const index = list.findIndex((x) => itemCode(x) === code && x.retailer === i.retailer);
+    const item = list[index] ?? i;
+    shoppingStore.update((l) => setQty(l, code, i.retailer, 0));
+    offerUndo(t("Removed “{name}”.", { name: i.name }), (now) => undoRemove(now, item, index));
+  };
   const groups = new Map<string, ShoppingItem[]>();
   for (const i of list) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
   const ticked = list.filter((i) => i.done).length;
@@ -130,7 +159,7 @@ export default function ShoppingListPage() {
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]">{t("What can I cook with this?")}</span>
               <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug">
-                {matches === null ? (state?.status === "error" ? t("See recipes that use what's on your list.") : t("Looking through the recipes…")) : matches.length === 0 ? t("No recipe uses these yet. See all recipes.") : matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}
+                {matches === null ? (state === null || state.status === "error" ? t("See recipes that use what's on your list.") : t("Looking through the recipes…")) : matches.length === 0 ? t("No recipe uses these yet. See all recipes.") : matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}
               </span>
             </span>
             <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
@@ -173,8 +202,9 @@ export default function ShoppingListPage() {
                           <div className="min-w-0 flex-1">
                             {href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
                             <div className="mt-1 flex items-center justify-end">
-                              <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
-                              <span className="app-numbers w-7 text-center font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>{i.qty}</span>
+                              <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => fewer(i)} className={qtyButton}><span aria-hidden className={qtyCircle}><MinusIcon className="h-[18px] w-[18px]" /></span></button>
+                              {/* the figure is drawn, the words are read (an aria-label on a plain span is ignored by screen readers) */}
+                              <span className="app-numbers w-7 text-center font-mono text-base"><span aria-hidden>{i.qty}</span><span className="sr-only">{t("Quantity {n}", { n: i.qty })}</span></span>
                               <button type="button" aria-label={t("One more {name}", { name: i.name })} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1))} className={qtyButton}><span aria-hidden className={qtyCircle}><PlusIcon className="h-[18px] w-[18px]" /></span></button>
                             </div>
                           </div>
@@ -217,7 +247,7 @@ export default function ShoppingListPage() {
             {/* to a friend who has the app (Community, founder 2026-10-16): lands in their Shared with you; needs an account, the rest of this page does not */}
             <SendToFriend list={list} onSent={setNote} />
             {ticked > 0 && <Button variant="secondary" className="min-h-12" onClick={() => { shoppingStore.update(withoutDone); setNote(null); }}>{t("Remove ticked ({n})", { n: ticked })}</Button>}
-            <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={() => { shoppingStore.set([]); setNote(null); }}>{t("Clear")}</Button>
+            <Button variant="ghost" className={`min-h-12 ${ticked > 0 ? "" : "col-span-full"}`} onClick={clearAll}>{t("Clear")}</Button>
           </div>
           <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Sharing sends a link that holds your list, so anyone who has it can see it.")}</p>
           {suggestion && state?.status === "ready" && (
@@ -241,6 +271,9 @@ export default function ShoppingListPage() {
 
         </>
       )}
+
+      {/* at the top, clear of the rows' − and + and of the buttons at the foot of the list */}
+      <UndoToast message={undo?.message ?? null} top onUndo={undo ? () => { const restore = undo.restore; shoppingStore.update((l) => restore(l)); } : undefined} onDone={() => setUndo(null)} />
 
       <Sheet open={opening} onClose={() => setOpening(false)} title={t("Open a shared list")}>
         <form onSubmit={openPasted} className="space-y-4 pb-2 pt-1">

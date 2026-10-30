@@ -66,6 +66,40 @@ await step("a hand-edited store cannot send a tab outside its own pages", async 
   await ctx.close();
 });
 
+await step("Home never remembers Settings, Reminders or a past day: after any of them, the Home tab opens Home (today)", async () => {
+  const { ctx, page } = await fresh();
+  // Settings, reached from Home's gear
+  await page.goto(BASE + "/app");
+  await page.locator('a[aria-label="Settings"]').click();
+  await page.waitForURL(/\/app\/settings$/);
+  await tab(page, "Eat out").click();
+  await page.waitForURL(/\/app\/eat-out/);
+  expect((await tab(page, "Home").getAttribute("href")) === "/app", "Home points at " + (await tab(page, "Home").getAttribute("href")));
+  await tab(page, "Home").click();
+  await page.waitForURL((u) => u.pathname === "/app" && u.search === "");
+  // Reminders, and a past day from the calendar's address
+  const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+  const d = `${yesterday.getFullYear()}-${String(yesterday.getMonth() + 1).padStart(2, "0")}-${String(yesterday.getDate()).padStart(2, "0")}`;
+  for (const side of ["/app/reminders", "/app/today?d=" + d]) {
+    await page.goto(BASE + side);
+    await page.getByRole("navigation", { name: "Main" }).waitFor();
+    await page.waitForTimeout(500);
+    await tab(page, "Recipes").click();
+    await page.waitForURL(/\/app\/recipes/);
+    expect((await tab(page, "Home").getAttribute("href")) === "/app", `after ${side} Home points at ${await tab(page, "Home").getAttribute("href")}`);
+  }
+  // today's own page is still remembered
+  await page.goto(BASE + "/app/today");
+  await page.getByRole("navigation", { name: "Main" }).waitFor();
+  await page.waitForTimeout(500);
+  await tab(page, "Recipes").click();
+  await page.waitForURL(/\/app\/recipes/);
+  expect((await tab(page, "Home").getAttribute("href")) === "/app/today", "Home should still remember today's page");
+  const stored = await page.evaluate(() => sessionStorage.getItem("mm.tabs") ?? "");
+  expect(!/settings|reminders|\?d=/.test(stored), "stored: " + stored);
+  await ctx.close();
+});
+
 console.log(`\n${passed} passed, ${failed} failed`);
 await browser.close();
 process.exit(failed ? 1 : 0);

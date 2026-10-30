@@ -4,21 +4,30 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { hasMacros } from "@/lib/mm/nutrients";
+import { macrosLookup } from "@/lib/mm/numbers";
 import { search, type ItemHit } from "@/lib/mm/search";
 import { savedStore } from "@/lib/mm/stores";
 import { ForkIcon } from "../icons";
 import { ErrorBox, Spinner } from "../ui";
-import { useMenu, useSearchIndex, useStore } from "../../_lib/hooks";
+import { useMenu, useNumbers, useSearchIndex, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { menuClient } from "../../_lib/menu";
 import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts";
 
 // "Choose a restaurant meal": a dish found in the menus, or an order the person saved. A dish is added as the restaurant publishes it (one
 // serving, all of its figures); one that publishes calories only can't be, because the log counts protein, carbs and fat too (the same rule as
-// the dish's own page), and the way to log it is to type its calories in.
+// the dish's own page), and the way to log it is to type its calories in. A restaurant that publishes everything can still list a dish or two with
+// calories only (Tenpin, Chozen): once the numbers file has arrived (it says, dish by dish, which ones publish protein, carbs and fat), such a dish
+// shows "calories only" in place of Add; until then its Add explains why it can't be added.
 
 const SAVED_SHOWN = 5;
 const CALORIES_ONLY = tk("This dish publishes calories only, so it can't be added here. You can type its calories in instead.");
+
+/** "calories only" where a dish's Add would be: the same small pill restaurant lists use for a chain that publishes calories only. */
+function CaloriesOnlyPill() {
+  const t = useT();
+  return <span className="inline-flex shrink-0 items-center rounded-full bg-soft-strong px-3 py-1.5 text-[0.8125rem] font-semibold leading-tight text-muted">{t("calories only")}</span>;
+}
 
 const lead = <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-accent"><ForkIcon className="h-5 w-5" /></span>;
 
@@ -46,6 +55,9 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
     () => (searchIndex && deferred.length >= 2 ? search(searchIndex, deferred, 60).items.filter((h) => !caloriesOnly.has(h.chainId)).slice(0, 10) : []),
     [searchIndex, deferred, caloriesOnly],
   );
+  // which dishes publish protein, carbs and fat: asked for once something is searched (the finder on Eat out uses the same file)
+  const nums = useNumbers(deferred.length >= 2);
+  const publishesMacros = useMemo(() => macrosLookup(nums.searchIndex, nums.numbers), [nums.searchIndex, nums.numbers]);
 
   const addHit = async (h: ItemHit) => {
     setBusy(`${h.chainId}:${h.itemId}`);
@@ -103,7 +115,9 @@ export function DishPick({ onAdd }: { onAdd: (entry: NewEntry) => void }) {
                 lead={lead}
                 title={h.name}
                 line={`${h.chainName} · ${formatCalories(h.calories)}`}
-                action={<AddPill name={h.name} disabled={busy !== null} busy={busy === `${h.chainId}:${h.itemId}`} onClick={() => void addHit(h)} />}
+                action={publishesMacros(h.chainId, h.itemId) === false
+                  ? <CaloriesOnlyPill />
+                  : <AddPill name={h.name} disabled={busy !== null} busy={busy === `${h.chainId}:${h.itemId}`} onClick={() => void addHit(h)} />}
               />
             ))}
           </ul>

@@ -48,6 +48,9 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
   const baseCalories = calories ?? Number(fields.calories);
   const suggestedProtein = suggestProtein(baseCalories);
   const suggestedCarbFat = suggestCarbFat(baseCalories, reading.protein);
+  // An empty box shows the figure Home will use in its place, as Settings' boxes do (no figure while the calories box can't be read).
+  const hint = (n: number) => (n > 0 ? String(n) : t("Optional"));
+  const shownProtein = reading.protein ?? (fields.protein.trim() === "" && suggestedProtein > 0 ? suggestedProtein : undefined);
   const anyEmpty = fields.protein.trim() === "" || fields.carbs.trim() === "" || fields.fat.trim() === "";
   const notes: readonly PlanNote[] = plan?.kind === "ok" ? plan.notes : suggestedNotes ?? (goal === "glp1" ? ["glp1"] : []);
   // Pip does not cheer over a caution to check the measurements or to talk to a doctor or dietitian
@@ -66,7 +69,7 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
       {/* the plan as it stands, like the reference's coloured bars (the app's two greens): it follows the numbers below as they change */}
       <div aria-hidden className="app-numbers mt-5 space-y-2.5 pe-24">
         <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-[var(--bar)]" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{calories !== undefined ? formatInt(calories) : "–"}</span><span className="text-sm font-semibold text-muted">kcal</span></p>
-        <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{reading.protein !== undefined ? `${formatInt(reading.protein)}g` : "–"}</span><span className="text-sm font-semibold text-muted">{t("protein")}</span></p>
+        <p className="flex items-baseline gap-3"><span className="h-7 w-1.5 shrink-0 self-center rounded-full bg-accent" /><span className="text-[1.6rem] font-medium leading-none tracking-[-0.01em]">{shownProtein !== undefined ? `${formatInt(shownProtein)}g` : "–"}</span><span className="text-sm font-semibold text-muted">{t("protein")}</span></p>
       </div>
       <div aria-live="polite" className="mt-4">
         <PipSays lively size={56} mood={cautious ? "think" : filled ? "cheer" : "point"}>
@@ -79,9 +82,9 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
       </div>
       <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5">
         <StepperCard id="target-calories" label={t("Calories")} Icon={FlameIcon} value={fields.calories} onChange={(v) => setField("calories", v)} step={50} min={500} max={10000} invalid={bad("calories")} describedBy={MAIN_PROBLEM} />
-        <StepperCard id="target-protein" label={t("Protein (g)")} Icon={BoltIcon} value={fields.protein} onChange={(v) => setField("protein", v)} step={5} min={5} max={1000} placeholder={t("Optional")} from={suggestedProtein} invalid={bad("protein")} describedBy={MAIN_PROBLEM} />
-        <StepperCard id="target-carbs" label={t("Carbs (g)")} Icon={SproutIcon} value={fields.carbs} onChange={(v) => setField("carbs", v)} step={5} min={5} max={MAX_MACRO_TARGET} placeholder={t("Optional")} from={suggestedCarbFat.carbs} invalid={bad("carbs")} describedBy={MACRO_PROBLEM} />
-        <StepperCard id="target-fat" label={t("Fat (g)")} Icon={DropIcon} value={fields.fat} onChange={(v) => setField("fat", v)} step={5} min={5} max={MAX_MACRO_TARGET} placeholder={t("Optional")} from={suggestedCarbFat.fat} invalid={bad("fat")} describedBy={MACRO_PROBLEM} />
+        <StepperCard id="target-protein" label={t("Protein (g)")} Icon={BoltIcon} value={fields.protein} onChange={(v) => setField("protein", v)} step={5} min={5} max={1000} placeholder={hint(suggestedProtein)} from={suggestedProtein} invalid={bad("protein")} describedBy={MAIN_PROBLEM} />
+        <StepperCard id="target-carbs" label={t("Carbs (g)")} Icon={SproutIcon} value={fields.carbs} onChange={(v) => setField("carbs", v)} step={5} min={5} max={MAX_MACRO_TARGET} placeholder={hint(suggestedCarbFat.carbs)} from={suggestedCarbFat.carbs} invalid={bad("carbs")} describedBy={MACRO_PROBLEM} />
+        <StepperCard id="target-fat" label={t("Fat (g)")} Icon={DropIcon} value={fields.fat} onChange={(v) => setField("fat", v)} step={5} min={5} max={MAX_MACRO_TARGET} placeholder={hint(suggestedCarbFat.fat)} from={suggestedCarbFat.fat} invalid={bad("fat")} describedBy={MACRO_PROBLEM} />
       </div>
       {mainProblem && (
         <p id={MAIN_PROBLEM} role="alert" className="mt-3 text-[0.9375rem] font-medium leading-snug">{t("Calories should be 500–10,000, protein above 0, and the meal size 100–2,000.")}</p>

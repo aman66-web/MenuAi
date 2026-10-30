@@ -25,11 +25,11 @@
    "id": "asda",
    "name": "Asda",
    "file": "asda.json",
-   "count": 10527,
+   "count": 10523,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "priced": 10527,
-   "sha256": "ccdd954b67e2e99bd166f3e0c39e9fb1940077a5370bbbae8992747588ca4312"
+   "priced": 10523,
+   "sha256": "f538561661d34b2c697191ca4927d75754a4fb4c98a72e942000d8c74665ac10"
   },
   {
    "id": "aldi",
@@ -75,11 +75,11 @@
    "id": "iceland",
    "name": "Iceland",
    "file": "iceland.json",
-   "count": 5976,
+   "count": 5910,
    "checkedOn": "2026-10-09",
    "nutrition": 0,
-   "priced": 5976,
-   "sha256": "c933a126839f273de1a1c2952def8c5bfcb2d1dfe0a9c9990a4c509097ebabeb"
+   "priced": 5910,
+   "sha256": "5e7834b5dc38cd1c929c2f22aaa19bfca8f542ce775dd132d75c1937388a6234"
   },
   {
    "id": "marks-and-spencer",

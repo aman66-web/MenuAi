@@ -857,6 +857,33 @@ await step("(v) Settings: 'Use these' puts the focus on the Calories box", async
   await ctx.close();
 });
 
+await step("(w) after the questions were skipped, the empty protein, carbs and fat boxes show the figures Home will use (as Settings does), the bar shows that protein, and the empty boxes are still saved as unset", async () => {
+  const { ctx, page } = await fresh();
+  await toGoal(page);
+  await cont(page); await cont(page); await go(page, "Skip");
+  await head(page, "Your daily targets");
+  const hints = async () => ({ protein: await page.locator("#target-protein").getAttribute("placeholder"), carbs: await page.locator("#target-carbs").getAttribute("placeholder"), fat: await page.locator("#target-fat").getAttribute("placeholder") });
+  const bar = async () => ((await page.locator("div[aria-hidden].app-numbers").first().textContent()) ?? "").replace(/\s+/g, "");
+  // 2,000 kcal: protein 20% at 4 kcal a gram = 100 g, fat 30% at 9 = 65 g, carbs the rest = 255 g (lib/mm/targets.ts suggestProtein / suggestCarbFat)
+  expect(JSON.stringify(await hints()) === JSON.stringify({ protein: "100", carbs: "255", fat: "65" }), "the boxes show the worked-out figures: " + JSON.stringify(await hints()));
+  expect((await targets(page)).protein === "" && (await targets(page)).carbs === "" && (await targets(page)).fat === "", "the boxes themselves stay empty");
+  expect((await page.locator("[placeholder='Optional']").count()) === 0, "no box says Optional");
+  expect((await bar()).includes("2,000kcal") && (await bar()).includes("100gprotein"), "the bar shows the protein Home will use, not a dash: " + (await bar()));
+  // they follow the calories, and carbs follow a protein typed in
+  await page.locator("#target-calories").fill("1800");
+  expect(JSON.stringify(await hints()) === JSON.stringify({ protein: "90", carbs: "225", fat: "60" }), "the figures follow the calories: " + JSON.stringify(await hints()));
+  expect((await bar()).includes("90gprotein"), "the bar follows too: " + (await bar()));
+  await page.locator("#target-protein").fill("120");
+  expect((await hints()).carbs === "195" && (await bar()).includes("120gprotein"), "carbs follow the typed protein, and the bar shows it: " + JSON.stringify(await hints()) + " " + (await bar()));
+  await page.locator("#target-protein").fill("");
+  expect((await bar()).includes("90gprotein"), "emptied again, the bar shows the worked-out protein: " + (await bar()));
+  await cont(page);
+  await page.waitForTimeout(200);
+  const s = await settingsOf(page);
+  expect(s.dailyCalories === 1800 && s.dailyProtein === undefined && s.dailyCarbs === undefined && s.dailyFat === undefined, "only the calories are saved; the empty boxes stay unset: " + JSON.stringify(s));
+  await ctx.close();
+});
+
 // ---- looks: no horizontal overflow, 44 px targets and axe on every new screen at 360 px and Extra large text
 const SCREENS = ["About you", "Your size", "How active are you?", "Your daily targets", "Your daily targets (skipped, suggestions open)"];
 async function reach(page, which, opts) {

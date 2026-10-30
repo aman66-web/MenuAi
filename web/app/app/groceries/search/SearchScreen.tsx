@@ -13,35 +13,43 @@ import { useEntryQuery } from "../../_lib/backNav";
 import { useGroceryCatalogue, useGroceryManifest } from "../../_lib/groceries";
 import { useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
+import { readSearchChoice, searchChanges, type SearchChoice } from "../addressState";
 import { BackLink, FootNote, ListLink, MoreButton, NOTE, PILL_INPUT, SelectField, TITLE } from "../PageBits";
 import { ProductRow } from "../ProductRow";
 import { Scanner } from "../Scanner";
+import { useAddress, useEntryShown } from "../useAddress";
 
 // Search every shop at once (founder's request 2026-10-07; moved here 2026-10-11 when Groceries began with "Which shop?"): search by name or barcode,
 // per-100 g macros, allergens, prices where known, the same product at every shop that sells it. Product data is community data from Open Food Facts,
 // credited below; docs/GROCERIES_PLAN.md. Looks follow Home (founder 2026-10-15): grey pills top left and right, a compact title, a white pill
 // search box with a round white scan button, outlined chips, the sort as a white field with its label in small capitals inside.
+// Back from a product finds the search as it was left (code audit 2026-10-29): the shop (?r=, also how a shop's list opens this screen on that shop), the type,
+// the sort and "Fits my diet" are in the address; the words and the rows "Show more" opened are in the history entry (addressState.ts).
 const PAGE = 60;
 
-export function GroceriesSearchScreen({ initialShop }: { initialShop: string | null }) {
+export function GroceriesSearchScreen() {
   const t = useT();
   const router = useRouter();
   const list = useStore(shoppingStore);
-  // undefined until the person picks: then the first of their supermarkets (Settings) that has products here, else All
-  const [picked, setPicked] = useState<string | null | undefined>(initialShop ?? undefined);
-  const [category, setCategory] = useState<string | null>(null);
+  const address = useAddress();
+  const asked = readSearchChoice(address.get);
+  const choose = (c: Partial<SearchChoice>) => address.set(searchChanges(c));
   const [query, setQuery] = useEntryQuery(); // kept in the history entry, so Back from a product finds the search as it was left
-  const [sort, setSort] = useState<GrocerySort>("density");
-  const [shown, setShown] = useState(PAGE);
+  const [shown, setShown] = useEntryShown(PAGE);
   const [retry, setRetry] = useState(0);
   const [scanning, setScanning] = useState(false);
-  const [dietOn, setDietOn] = useState(true);
   const deferred = useDeferredValue(query);
   const settings = useSettings();
   const catManifest = useGroceryManifest();
-  const retailer = picked !== undefined ? picked : (settings.shops?.find((id) => catManifest?.retailers.some((r) => r.id === id && r.count > 0)) ?? null);
-  const setRetailer = (r: string | null) => setPicked(r);
+  // not chosen yet (no ?r=): the first of the person's supermarkets (Settings) that has products here, else All
+  const retailer = asked.shop !== undefined ? asked.shop : (settings.shops?.find((id) => catManifest?.retailers.some((r) => r.id === id && r.count > 0)) ?? null);
+  const setRetailer = (r: string | null) => choose({ shop: r });
   const catalogue = useGroceryCatalogue(retailer, retry);
+  // a type the catalogue doesn't have counts as "All types" (once the catalogue says which it has)
+  const category = asked.type && (!catalogue.manifest || catalogue.manifest.categories.some((c) => c.id === asked.type)) ? asked.type : null;
+  const setCategory = (c: string | null) => choose({ type: c });
+  const sort = asked.sort;
+  const dietOn = asked.dietOn;
 
   // The person's diet settings (Settings › Diet) leave out products that plainly don't suit (lib/mm/foodDiet.ts); one tap shows everything.
   const prefs = settings.preferences;
@@ -91,11 +99,11 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
         ))}
       </div>
       <div role="group" aria-label={t("Filters")} className="no-scrollbar -mx-5 mt-2.5 flex gap-2 overflow-x-auto px-5">
-        {anyFoodDiet(prefs) && <Chip selected={dietOn} onClick={() => { setDietOn((v) => !v); reset(); }}>{t("Fits my diet")}</Chip>}
+        {anyFoodDiet(prefs) && <Chip selected={dietOn} onClick={() => { choose({ dietOn: !dietOn }); reset(); }}>{t("Fits my diet")}</Chip>}
         <Chip selected={category === null} onClick={() => { setCategory(null); reset(); }}>{t("All types")}</Chip>
         {categories.map((c) => (<Chip key={c.id} selected={category === c.id} onClick={() => { setCategory(c.id); reset(); }}>{t(c.label)}</Chip>))}
       </div>
-      <SelectField label={t("Sort")} className="mt-3.5" value={sort} onChange={(e) => { setSort(e.target.value as GrocerySort); reset(); }}>
+      <SelectField label={t("Sort")} className="mt-3.5" value={sort} onChange={(e) => { choose({ sort: e.target.value as GrocerySort }); reset(); }}>
         {GROCERY_SORTS.map((o) => (<option key={o.value} value={o.value}>{t(o.label)}</option>))}
       </SelectField>
 
@@ -115,7 +123,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
             </ul>
           )}
           {results.length > shown && (
-            <MoreButton onClick={() => setShown((n) => n + PAGE)}>{t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}</MoreButton>
+            <MoreButton onClick={() => setShown(shown + PAGE)}>{t("Show {n} more", { n: Math.min(PAGE, results.length - shown) })}</MoreButton>
           )}
         </>
       )}

@@ -11,7 +11,8 @@ function ProductRoute() {
   const t = useT();
   const params = useSearchParams();
   const code = params.get("code");
-  return code ? <ProductScreen code={code} retailerHint={params.get("r")} /> : <ErrorBox message={t("Choose a product first.")} />;
+  // keyed by the barcode: another size is a fresh screen, so "Added to your list for …" and "Copied" never carry over to a pack they weren't about
+  return code ? <ProductScreen key={code} code={code} retailerHint={params.get("r")} /> : <ErrorBox message={t("Choose a product first.")} />;
 }
 
 export default function ProductPage() {

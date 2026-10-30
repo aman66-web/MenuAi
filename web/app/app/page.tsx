@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, loggedGaps, loggedToday, mealBudget, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
@@ -19,6 +19,7 @@ import { DayPicker } from "./_components/DayPicker";
 import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
+import { UndoToast } from "./_components/UndoToast";
 import { WaterCard } from "./_components/WaterCard";
 import { CalendarIcon, FlameIcon, ForkIcon, GearIcon, PlusIcon } from "./_components/icons";
 import { Card, Spinner } from "./_components/ui";
@@ -109,11 +110,6 @@ export default function HomePage() {
   const [picking, setPicking] = useState(false);
   const [addTo, setAddTo] = useState<Meal | null>(null);
   const [added, setAdded] = useState<{ entry: LogEntry; meal: Meal } | null>(null);
-  useEffect(() => {
-    if (!added) return;
-    const timer = setTimeout(() => setAdded(null), 8000);
-    return () => clearTimeout(timer);
-  }, [added]);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now));
   const indexes = useChainIndexes(todays.filter((e) => e.source === "item").map((e) => e.chainId));
 
@@ -280,13 +276,8 @@ export default function HomePage() {
 
       <AddFoodSheet meal={addTo} onClose={() => setAddTo(null)} onAdded={(entry, meal) => { setAddTo(null); setAdded({ entry, meal }); }} />
 
-      {added && (
-        // At the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo.
-        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
-          <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(ADDED_TO[added.meal], { name: added.entry.name })}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
-        </div>
-      )}
+      {/* At the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo. */}
+      <UndoToast top message={added ? { key: added.entry.id, text: t(ADDED_TO[added.meal], { name: added.entry.name }) } : null} onUndo={added ? () => deleteLogEntry(added.entry.id) : undefined} onDone={() => setAdded(null)} />
     </div>
   );
 }

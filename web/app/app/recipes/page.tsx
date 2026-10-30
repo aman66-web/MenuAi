@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
@@ -13,6 +13,7 @@ import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { toggleAllergen } from "@/lib/mm/menu-view";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { cuisineOptions, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, type CuisineOption, type OccasionOption } from "@/lib/mm/recipeNiche";
+import type { RecipeToggle } from "@/lib/mm/recipeAddress";
 import { isMeatFree, isQuick, isVegan, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
@@ -22,14 +23,16 @@ import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { useGate } from "../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
+import { useEntryQuery } from "../_lib/backNav";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
+import { useShopManifestState, useShopProducts } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 import { useNicheFilter } from "./useNicheFilter";
+import { useRecipeChoices } from "./useRecipeChoices";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
 // nutrition its own page prints. Each recipe is fitted to the person's meal (size and protein) and their diet from Settings.
@@ -45,9 +48,11 @@ import { useNicheFilter } from "./useNicheFilter";
 // under the tiles (NicheFields; the choice lives in the address, useNicheFilter; the catalogue is lib/mm/recipeBook/niches.ts). They narrow the list like
 // the tiles and the search do (both together, and the diet), hide "Picked for you" like a search does, and the search finds a recipe by their words too.
 // Nothing about a niche is printed on a recipe card.
+// The shop, the meal tile and the toggles are kept in the address too (useRecipeChoices) and the search words in the history entry (useEntryQuery), so Back
+// from a recipe finds the list exactly as it was left.
 
 type Sort = "fit" | "price" | "protein";
-type Toggle = "quick" | "meatFree" | "vegan";
+type Toggle = RecipeToggle;
 const PAGE = 24;
 const PICKS = 8;
 // The cuisines on offer are decided by the whole book (not by a person's diet or shop), so a choice never comes and goes; the occasions by the book and today's date.
@@ -101,12 +106,13 @@ function Tile({ label, Icon, pressed, onClick, more, expanded }: { label: string
 function RecipesScreen() {
   const t = useT();
   const poss = usePossessive();
-  const asked = useSearchParams().get("r");
+  const choices = useRecipeChoices();
   const settings = useSettings();
-  const manifest = useShopManifest();
-  const [picked, setPicked] = useState<string | null>(null);
-  const shop = recipeShop(manifest, picked ?? asked, settings.shops);
+  // one Try again for both downloads: the list of shops and the shop's own products
   const [retry, setRetry] = useState(0);
+  const manifestState = useShopManifestState(retry);
+  const manifest = manifestState.status === "ready" ? manifestState.manifest : null;
+  const shop = recipeShop(manifest, choices.shop, settings.shops);
   const state = useShopProducts(shop, retry);
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
@@ -118,10 +124,9 @@ function RecipesScreen() {
   const dietKey = JSON.stringify(diet);
   const mine = useMemo(() => saved.filter((s) => s.shop === shop).map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, shop, dietKey]);
   const mineCards = useRecipeCards(mine, products, diet, target).cards;
-  const [meal, setMeal] = useState<MealType | null>(null);
-  const [toggles, setToggles] = useState<ReadonlySet<Toggle>>(new Set());
+  const { meal, toggles, setMeal } = choices;
   const [more, setMore] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useEntryQuery();
   const [limit, setLimit] = useState(PAGE);
   const [sort, setSort] = useState<Sort | null>(null);
   const effectiveSort: Sort = sort ?? (target ? "fit" : "protein");
@@ -152,12 +157,12 @@ function RecipesScreen() {
   const router = useRouter();
   const makeHref = `/app/recipes/make${shop ? `?r=${shop}` : ""}`;
 
-  const flip = (x: Toggle) => { setToggles((s) => { const n = new Set(s); if (n.has(x)) n.delete(x); else n.add(x); return n; }); setLimit(PAGE); };
+  const flip = (x: Toggle) => { choices.flip(x); setLimit(PAGE); };
   // What a screen reader is told as the list changes: how many recipes there are, or that none match. One live region stays mounted for every state, so the
   // words are read when an empty list fills and when a list empties (a region that appears together with its text is often not read).
   const countLine = shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length });
   const liveLine = shown.length > 0 ? countLine : filtering && cards.length > 0 ? t("No recipes match.") : "";
-  const clearAll = () => { setQuery(""); setMeal(null); setToggles(new Set()); niche.clear(); setLimit(PAGE); };
+  const clearAll = () => { setQuery(""); choices.clear(); niche.clear(); setLimit(PAGE); };
   const href = (c: RecipeCard) => `/app/recipes/view?id=${c.recipe.id}&r=${shop}`;
 
   return (
@@ -184,7 +189,7 @@ function RecipesScreen() {
       {/* Which supermarket the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe. */}
       {recipeShops(manifest).length > 1 && shop && (
         <div className="mt-4">
-          <Segmented label={t("Supermarket")} value={shop} options={recipeShops(manifest).map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
+          <Segmented label={t("Supermarket")} value={shop} options={recipeShops(manifest).map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => choices.setShop(v)} />
         </div>
       )}
 
@@ -303,7 +308,10 @@ function RecipesScreen() {
 
         <p role="status" className="sr-only">{liveLine}</p>
 
-        {!manifest || (shop && state.status === "loading") ? (
+        {manifestState.status === "error" ? (
+          // the list of shops couldn't be downloaded: a connection problem, not "no supermarket list yet"
+          <div className="mt-4"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
+        ) : !manifest || (shop && state.status === "loading") ? (
           <Spinner label={t("Loading recipes")} />
         ) : !shop ? (
           <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
