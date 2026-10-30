@@ -167,6 +167,13 @@ is not affiliated with any of them, and we remove anything on request, without a
 data with the source and date shown; allergen information says 'check with staff'. The app gives no medical advice (stated in the app and the
 terms), warns when a calorie target is very low, and the GLP-1 goal says to follow a doctor's or pharmacist's advice.
 
+Guideline 1.4.1 (build 4): the suggested daily calories, protein, carbs and fat now come with their sources. Settings > Daily targets (the screen the review
+photographed), the targets step of onboarding, the GLP-1 goal note and Settings > About > 'Where these numbers come from' all open one screen that lists the
+published sources with links that open in the browser: the Mifflin-St Jeor equation (Am J Clin Nutr 1990, PubMed), the NHS's 'Understanding calories' page and
+the International Society of Sports Nutrition position stand on protein and exercise (2017). Where a starting point has no published source (the activity levels,
+the 500 and 250 kcal goal adjustments, the 1,200 kcal floor, the protein limits and the 20/30/50 split, the 2,000 ml water goal and the GLP-1 meal size) the same
+screen says it is Numbite's own starting point, and every suggested number can be changed by the person.
+
 Reminders (Home > Reminders, the + button): the person types their own reminder (any name, an optional short note, the days and the time) and the
 iPhone shows it as a local notification at that time. To try it, add a reminder a minute ahead and allow notifications when asked (the permission is
 asked only when the first reminder is saved, never at launch). Every word is the person's own: the Reminders feature contains no medicine names, suggests no

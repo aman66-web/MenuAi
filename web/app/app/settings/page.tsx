@@ -25,6 +25,7 @@ import { ShopPicker } from "../_components/ShopPicker";
 import { applyTextSize } from "../_lib/textSize";
 import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Card, radioKeyNav, Segmented, Sheet, Toggle } from "../_components/ui";
+import { SourcesLink } from "../_components/SourcesLink";
 import { menuClient } from "../_lib/menu";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { leaveForClearing, useAccountUser } from "../_lib/account";
@@ -193,6 +194,7 @@ export default function SettingsPage() {
         <OptionList label={t("Goal")} value={settings.goal} options={GOAL_OPTIONS.map((o) => ({ ...o, label: t(o.label) }))} onChange={(goal) => updateSettings({ goal })} />
         {settings.goal === "glp1" && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Smaller, protein-first orders, capped at the meal size you set below.")}</p>}
         {settings.goal === "glp1" && <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
+        {settings.goal === "glp1" && <SourcesLink className="mt-1" />}
       </Section>
 
       <Section title={t("Daily targets")} id="targets">
@@ -209,6 +211,7 @@ export default function SettingsPage() {
             )}
           </div>
           <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted">{t(CARB_FAT_NOTE)}</p>
+          <SourcesLink className="mt-1" />
           {isLowCalories(caloriesText) && <p role="status" className={messageClass}>{t(LOW_CALORIES_NOTE)}</p>}
           <div className="mt-4 flex flex-wrap items-center gap-2.5">
             <Button onClick={saveTargets}>{t("Save targets")}</Button>
@@ -256,6 +259,7 @@ export default function SettingsPage() {
 
       <Section title={t("About")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
+          <LinkRow href="/app/settings/sources">{t("Where these numbers come from")}</LinkRow>
           <LinkRow href="/app/settings/numbers">{t("How we get our numbers")}</LinkRow>
           <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></button>
           <LinkRow href="/privacy" external>{t("Privacy policy")}</LinkRow>

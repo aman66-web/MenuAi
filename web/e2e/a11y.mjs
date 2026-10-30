@@ -75,6 +75,7 @@ const pages = [
   ["today", "/app/today", true, async () => {}],
   ["settings", "/app/settings", true, async () => {}],
   ["numbers", "/app/settings/numbers", true, async () => {}],
+  ["where these numbers come from", "/app/settings/sources", true, async () => {}],
   ["community", "/app/community", true, async () => {}],
   ["friends (signed out)", "/app/community/friends", true, async (p) => { await p.getByRole("button", { name: "Sign in", exact: true }).waitFor(); }],
   ["shared with you (signed out)", "/app/community/inbox", true, async (p) => { await p.getByRole("button", { name: "Sign in", exact: true }).waitFor(); }],

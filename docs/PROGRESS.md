@@ -2132,6 +2132,25 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   the taken-down logo list and the API from numbite.com, and CORS allows only `app://menumath`. The submitted source is `origin/mac-build` (merged into this branch on 2026-10-18); it also holds the Mac session's fixes (Associated Domains, `numbite://` URL Type, `Config/Info.plist`, build numbers).
   **If App Review objects** (5.2.1 or anything else): the fallbacks are in the entry above (`appLogos: false` and rebuild, `hidden.json` takedowns). Still open: real-iPhone tests (barcode scanner, Sign in with Apple, Google, email code, reminders on the lock screen), the two-account Friends test, the Vercel variable check, `NEXT_PUBLIC_APP_STORE_URL` once the App Store page exists.
 
+- 2026-10-31 — **App Review rejected build 3 (Guideline 1.4.1) and the fix for build 4** (Claude desktop's report from 31 October read the rejection in App Store Connect: submission
+  396dfb5d-7738-4aa0-ac84-6e93d16747d4, reviewed 30 October on an iPad Air 11-inch (M3); its only issue: "the app includes medical information but does not include citations for the
+  medical information ... include citations in the app of the sources of the recommendations or information, such as links to those sources". Apple's screenshot was Settings > Daily
+  targets with a suggested 3,980 kcal / 290 g protein). Nothing was raised about logos, photos, Community, reminders or privacy this round.
+  - **Founder's choices (30 Oct):** option A (cite sources in the app, new build, short factual reply to Apple); build 4 = `main` + this fix only (the unfinished improvement pass on
+    `claude/menumacros-kit` waits for 1.0.1); the GLP-1 meal size is kept and labelled as Numbite's own setting.
+  - **What it adds (branch `fix-1-4-1-sources`, from `main`):** `lib/mm/targetSources.ts` (three sources, each opened and read on 31 October: Mifflin-St Jeor 1990 on PubMed 2305711; NHS "Understanding
+    calories", which gives the 2,500 / 2,000 kcal averages and says you are likely to lose weight if you eat and drink fewer calories than you use; the ISSN protein position stand 2017, PMC5477153,
+    1.4-2.0 g/kg a day for most exercising people; a test allows only https links on pubmed / pmc / nhs.uk), `SourcesBody` (the words; every figure in them is read from the constants the
+    suggestions use), `SourcesLink` (a 44 px button that opens the sources in a sheet, so onboarding never loses its place) beside the Daily targets and the GLP-1 note in Settings and on the
+    targets step of onboarding, and the page `/app/settings/sources` (Settings > About, precached for offline). Rules with no published source are listed under "Numbite's own starting
+    points" and are not given one: the activity multipliers, the -500 / +250 kcal adjustments, the 1,200 kcal floor, the 15-35% protein limits and diet nudge, the 30% fat share, the 2,000 ml water goal,
+    the GLP-1 meal size, and the halfway figure for "unspecified" sex. **No number or rule changed.** The NHS page says it was last reviewed 17 April 2023 with its next review due 17 April 2026: the
+    screen says when we checked it. NICE (for GLP-1 medicines) refused our fetch with 403 and is not cited.
+  - **New copy (rule 8, logged here; English only):** "Where these numbers come from" (link, sheet and page title), the intro, "Calories your body uses at rest", "How many calories people need", "Protein",
+    "{app}'s own starting points", the seven bullets under it, the two source-sentence paragraphs, the doctor/dietitian line, "Links open in your browser. Sources checked on {date}." and "Numbers for restaurants, shops and recipes: {link}.".
+  - **Build 4:** `CURRENT_PROJECT_VERSION` 3 → 4 (the two lines of the app target in `MenuMacros.xcodeproj/project.pbxproj`); docs/STORE.md's App Review notes gained a 1.4.1 paragraph. The founder archives and
+    uploads, swaps build 3 for build 4 on the rejected submission and resubmits (steps in the Claude desktop report; draft reply to Apple in docs/REJECTION_REPORT.md if the founder commits it).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

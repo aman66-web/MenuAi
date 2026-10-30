@@ -230,6 +230,41 @@ await step("Home's round button at the top right is Settings (a gear), not the c
   await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
   await ctx.close();
 });
+await step("App Review 1.4.1: the sources of the suggested targets are one tap away (Settings > About, beside Daily targets, and in onboarding) with working https links", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "glp1", dailyCalories: 2000 } })); });
+  const page = await ctx.newPage();
+  const requests = [];
+  page.on("request", (r) => requests.push(r.url()));
+  await page.goto(BASE + "/app/settings");
+  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
+  // beside the Daily targets (the screen Apple's reviewer photographed): a 44 px button that opens the sources in a sheet
+  const targets = page.locator("#targets");
+  const link = targets.getByRole("button", { name: "Where these numbers come from" });
+  await vis(link);
+  const box = await link.boundingBox();
+  if (box.height < 44) throw new Error("tap area " + box.height);
+  await link.click();
+  const sheet = page.getByRole("dialog", { name: "Where these numbers come from" });
+  await vis(sheet);
+  const hrefs = await sheet.locator("a[target=_blank]").evaluateAll((as) => as.map((a) => a.href));
+  if (hrefs.length !== 3) throw new Error("expected 3 source links, got " + hrefs.join(", "));
+  for (const h of hrefs) if (!/^https:\/\/(pubmed\.ncbi\.nlm\.nih\.gov|pmc\.ncbi\.nlm\.nih\.gov|www\.nhs\.uk)\//.test(h)) throw new Error("unexpected link " + h);
+  await vis(sheet.getByText("Mifflin-St Jeor equation", { exact: false }));
+  await vis(sheet.getByText("Numbite's own starting points"));
+  await vis(sheet.getByText("comfortable meal size that starts at 450 kcal", { exact: false }));
+  if (requests.some((u) => /nhs\.uk|ncbi\.nlm\.nih\.gov/.test(u))) throw new Error("a source page was fetched without a tap");
+  await sheet.getByRole("button", { name: "Close" }).click();
+  // the GLP-1 goal note has its own link, and Settings > About has the page
+  await vis(page.locator("section, div").filter({ hasText: "follow the advice of your doctor or pharmacist" }).getByRole("button", { name: "Where these numbers come from" }).first());
+  await page.getByRole("link", { name: "Where these numbers come from" }).click();
+  await page.waitForURL(/\/app\/settings\/sources/);
+  await vis(page.getByRole("heading", { level: 1, name: "Where these numbers come from" }));
+  await vis(page.getByRole("link", { name: "How we get our numbers" }));
+  await page.getByRole("link", { name: "Settings", exact: true }).click();
+  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
+  await ctx.close();
+});
 console.log(`\n${pass} passed, ${fail} failed`);
 await browser.close();
 process.exit(fail ? 1 : 0);

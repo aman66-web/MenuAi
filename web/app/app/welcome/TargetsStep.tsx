@@ -7,6 +7,7 @@ import type { AnswersPlan, TargetFieldKey, TargetFieldTexts, TargetFieldsReading
 import type { Goal, Preferences } from "@/lib/mm/types";
 import { BoltIcon, DropIcon, FlameIcon, SproutIcon } from "../_components/icons";
 import { PlanNotes } from "../_components/BodyFields";
+import { SourcesLink } from "../_components/SourcesLink";
 import { PipSays } from "../_components/Mascot";
 import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { inputClass } from "../_components/ui";
@@ -118,6 +119,8 @@ export function TargetsStep({ goal, prefs, answers, skipped, fields, setField, r
       )}
       {/* "Suggested starting points" is about numbers that were suggested: none were for an age under 18 */}
       {plan?.kind !== "under18" && <p className="mt-3 text-[0.9375rem] text-muted">{t(SUGGESTION_NOTE)}</p>}
+      {/* App Review 1.4.1: the sources of the suggestions, one tap away, in a sheet so the answers on this screen are never lost */}
+      {plan?.kind !== "under18" && <SourcesLink className="mt-0.5" />}
     </section>
   );
 }
