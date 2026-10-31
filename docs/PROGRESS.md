@@ -2160,6 +2160,26 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Merged to `main` on 30 Oct** (numbite.com shows the new page). `HANDOVER.md` (root) hands the project to a Claude desktop session; `docs/IMPROVEMENT_PASS_REVIEW.md` lists the 19 open review
     findings of the unfinished improvement pass on `claude/menumacros-kit`.
 
+- 2026-10-31 — **Build 4 uploaded, attached and resubmitted to App Review** (Claude desktop on the Mac, from `main` at 6a6482ff, following `docs/CLAUDE_DESKTOP_BUILD4_PROMPT.md`; the founder said "do everything"
+  and, when asked just before it went out, "Do all of it for me"). **App Store Connect now shows "1.0 Waiting for Review"; release stays manual. While it is in review do not upload another build and do not
+  break the live website or API** (see the 18 October entry).
+  - **Checks:** `npm run build:app` packed 159.2 MB (the sources page `/app/settings/sources` is in `WebApp.bundle`); website unit tests 1,509 passed, 20 skipped, and 3 timed out at 5 s under load
+    (`listRecipes`, `recipe-ai`, `reminders` fuzz), which pass on their own (109 of 109) and are the known load flake; Swift unit tests 62 of 62. The first Swift run failed only because the iPhone 17 Pro
+    simulator's data had gone from the disk (the Mac's disk had been full): that simulator was deleted and a new iPhone 17 Pro made (new id 753F5742-0C0F-4211-8867-75B468192B40).
+  - **Simulator (iPhone 17 Pro, fresh install):** onboarding > Your daily targets > "Where these numbers come from" opens the sheet with the three sources and "Numbite's own starting points"; a source link opens
+    PubMed (the Mifflin-St Jeor paper) in Safari; Settings > About > "Where these numbers come from" opens the page; the link under Daily targets in Settings is on the screen but was not tapped (the founder was
+    typing). **Not checked: the same sheet on an iPad simulator** (Apple reviewed on an iPad Air 11-inch (M3)). Screenshots: `build/screens/build4-*.png` (not committed).
+  - **Archive and upload:** `build/Numbite-build4.xcarchive` is 1.0 (4), `UIUserInterfaceStyle` Light, Sign in with Apple and `applinks:numbite.com` present, bundle `com.amanmarwaha.MenuMacros`. This time the upload
+    worked from the command line (`xcodebuild -exportArchive` with `build/ExportOptionsUpload.plist`, "Upload succeeded"), so no Organizer clicks were needed. Apple processed it in a few minutes: build 4 "Ready to Submit".
+  - **In App Store Connect:** on iOS 1.0 removed build 3, added build 4, saved (nothing else changed); replied to App Review with the text in the prompt file, word for word; the submission's "Resubmit to App Review"
+    stayed greyed out until the version page's "Update Review" was pressed (the item then read "Ready for Review"), after which "Resubmit to App Review" worked.
+  - **Disk:** the Mac's disk (228 GB) was nearly full (1.5 GB free, then full). With the founder's go-ahead to "do a full clean up" it was cleared of things that rebuild or re-download themselves, about 7 GB: Xcode DerivedData,
+    npm, npx, Gradle, Homebrew and app caches, VS Code's extension cache, old logs, the website's `web/.next` and `web/.next-app`, old test results, and Chrome's on-device AI model and component cache (about 4.5 GB,
+    Chrome fetches them again if it wants them). Left alone: Downloads (14 GB), the founder's other projects (including their `node_modules`, about 4.5 GB), WhatsApp (2.4 GB) and the Claude app's own data
+    (`~/Library/Application Support/Claude/vm_bundles`, 11 GB). About 6.4 GB free afterwards: tight for another archive, so check `df -h /` first (the build and archive need about 5-6 GB).
+  - **If App Review objects:** read the message in App Store Connect and tell the founder before changing anything; the fallbacks are unchanged (`web/app-content.json` switches, `web/public/logos/hidden.json`).
+    No code, wording or data changed in this session. `docs/REJECTION_REPORT.md` (untracked, from the earlier chat) is still in the folder: its content is in the 31 October entry, so it can be deleted with the founder's OK.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
