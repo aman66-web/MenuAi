@@ -29,16 +29,22 @@ const variants: Record<Variant, string> = {
 // Unavailable (disabled) is a quiet grey pill with muted words, never a faded one: no opacity, so the words keep AA contrast (muted
 // on --soft-strong is 5.1:1), like iOS. `hover:not-disabled:` rather than `enabled:`, which a LinkButton (an <a>) never matches.
 const buttonBase =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-[0.9375rem] leading-snug transition duration-150 disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+  "inline-flex items-center justify-center gap-2 rounded-full leading-snug transition duration-150 disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+/**
+ * "lg" is the chunky size of the Truth screens (viral upgrade, Nov 2026: "a 75-year-old wearing reading glasses"): 48 px tall (3rem, so it also grows with the
+ * text size) and 16 px words. The two sizes never share a min-height class, so which one applies never depends on stylesheet order.
+ */
+export type ControlSize = "md" | "lg";
+const buttonSize: Record<ControlSize, string> = { md: "min-h-11 px-5 text-[0.9375rem]", lg: "min-h-12 px-6 text-base" };
 
-export function Button({ variant = "primary", full, className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant; full?: boolean }) {
-  return <button type="button" className={cx(buttonBase, variants[variant], full && "w-full", className)} {...rest} />;
+export function Button({ variant = "primary", size = "md", full, className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant; size?: ControlSize; full?: boolean }) {
+  return <button type="button" className={cx(buttonBase, buttonSize[size], variants[variant], full && "w-full", className)} {...rest} />;
 }
 
 /** `onClick` runs first (a Back button takes the browser's own Back there); `replace` swaps the current history entry for the page instead of adding one (a "Back to ..." button on a page that was opened by address, so the page it leaves is not left behind to be Backed into). */
-export function LinkButton({ href, variant = "primary", full, className, children, onClick, replace }: { href: string; variant?: Variant; full?: boolean; className?: string; children: ReactNode; onClick?: (e: MouseEvent<HTMLElement>) => void; replace?: boolean }) {
+export function LinkButton({ href, variant = "primary", size = "md", full, className, children, onClick, replace }: { href: string; variant?: Variant; size?: ControlSize; full?: boolean; className?: string; children: ReactNode; onClick?: (e: MouseEvent<HTMLElement>) => void; replace?: boolean }) {
   return (
-    <Link href={href} onClick={onClick} replace={replace} className={cx(buttonBase, variants[variant], full && "w-full", className)}>
+    <Link href={href} onClick={onClick} replace={replace} className={cx(buttonBase, buttonSize[size], variants[variant], full && "w-full", className)}>
       {children}
     </Link>
   );
@@ -141,14 +147,15 @@ export function ErrorBox({ message, onRetry }: { message: string; onRetry?: () =
  * An outlined pill that fills dark when selected (the founder's reference pictures: a fine grey outline, medium-weight words, the
  * chosen one solid); `segment` is the quiet, borderless kind. The weight stays the same when selected so a row never shifts.
  */
-export function Chip({ selected, children, onClick, className, segment, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean; segment?: boolean }) {
+export function Chip({ selected, children, onClick, className, segment, size = "md", ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean; segment?: boolean; size?: ControlSize }) {
   return (
     <button
       type="button"
       aria-pressed={selected}
       onClick={onClick}
       className={cx(
-        "inline-flex min-h-11 max-w-full shrink-0 items-center rounded-full border px-4 py-2 text-start text-base font-medium leading-snug transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+        "inline-flex max-w-full shrink-0 items-center rounded-full border py-2 text-start text-base font-medium leading-snug transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+        size === "lg" ? "min-h-12 px-5 font-semibold" : "min-h-11 px-4",
         selected
           ? "border-transparent bg-foreground text-background"
           : segment
@@ -326,7 +333,8 @@ export const inputClass = `min-h-12 w-full rounded-2xl border border-line bg-sof
 // light grey fill instead of white, flat with no shadow, the same way globals.css treats things sitting on a white card.
 const sheetSurface = { "--soft": "var(--fill)", "--tile": "var(--fill)", "--card-shadow": "none" } as CSSProperties;
 
-export function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
+/** `dark`: the high-contrast #09090B card theme of the Truth screens (globals.css .truth-dark), for filming; every colour inside follows its variables. */
+export function Sheet({ open, onClose, title, children, dark }: { open: boolean; onClose: () => void; title: string; children: ReactNode; dark?: boolean }) {
   const t = useT();
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -352,10 +360,10 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
       {open && (
         <div
           style={sheetSurface}
-          className="sheet-panel sheet-in max-h-[92dvh] scroll-pt-24 overflow-y-auto overscroll-contain rounded-t-[1.75rem] bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-20px_rgba(17,24,20,0.35)]"
+          className={`sheet-panel sheet-in ${dark ? "truth-dark " : ""}max-h-[92dvh] scroll-pt-24 overflow-y-auto overscroll-contain rounded-t-[1.75rem] bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-20px_rgba(17,24,20,0.35)]`}
         >
           {/* The grab handle and the title stay at the top while a long sheet scrolls, so Close is always in reach. */}
-          <div className="sticky top-0 z-20 -mx-5 bg-white px-5 pb-4 pt-2.5">
+          <div className="sheet-head sticky top-0 z-20 -mx-5 bg-white px-5 pb-4 pt-2.5">
             <div aria-hidden className="mx-auto mb-4 h-1.5 w-10 rounded-full bg-soft-strong" />
             <div className="flex items-center justify-between gap-3">
               <h2 tabIndex={-1} className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em] outline-none">{title}</h2>

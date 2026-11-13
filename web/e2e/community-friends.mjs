@@ -804,18 +804,19 @@ await step("an invite link: signed in it fills the box (the code is kept out of 
   await out.ctx.close();
 });
 
-await step("first-time visitor with an invite link: the questions come first and the code survives them (it travels after the welcome page's own '#', never in the query)", async () => {
+await step("a first-time visitor with an invite link lands straight on Friends with the code in the box: no questions first, and the code never reaches a request's query", async () => {
   const sc = scene();
   const a = await join(sc, "ana");
   const p = await phone(sc, "ben", { settings: { hasCompletedOnboarding: false } });
   await join(sc, "ben");
   const queries = [];
-  p.page.on("request", (r) => { if (/\/app\/welcome/.test(r.url())) queries.push(new URL(r.url()).search); });
+  p.page.on("request", (r) => { try { queries.push(new URL(r.url()).search); } catch { /* data: and blob: */ } });
   await p.page.goto(BASE + `/app/community/friends#${a.friendCode}`, { timeout: 120000 });
-  await p.page.waitForURL(/\/app\/welcome/, { timeout: 90000 });
-  const url = new URL(p.page.url());
-  expect(url.hash === `#${a.friendCode}` && !url.search.includes(a.friendCode), "the code is not kept after the welcome page's '#': " + url.toString());
-  expect(/next=%2Fapp%2Fcommunity%2Ffriends/.test(url.search), "the way back is lost: " + url.search);
+  await p.page.locator('section[aria-labelledby="my-code"], [role=dialog]').first().waitFor({ timeout: 60000 });
+  expect(!/welcome/.test(p.page.url()), "sent to the questions first: " + p.page.url());
+  if (await p.page.locator("dialog[open]").count()) { await pickUsername(p.page, "ben.new"); }
+  await p.page.locator('section[aria-labelledby="my-code"]').waitFor({ timeout: 30000 });
+  await until("the invite code is in the box", async () => (await codeBox(p.page).inputValue()) === a.friendCode);
   expect(!queries.some((q) => q.includes(a.friendCode)), "the code reached a request's query: " + queries.join(","));
   await p.ctx.close();
 });
@@ -1179,32 +1180,6 @@ await step("at Extra large text the hub cards and the inbox rows keep their word
   await scan(ana.page, "inbox row at Extra large text");
   await ana.ctx.close(); await sender.ctx.close();
 });
-
-await step("a first-time visitor with an invite link goes from the last question straight to Friends with the code in the box (no recipe to choose that would lose it)", async () => {
-  const sc = scene();
-  const a = await join(sc, "ana");
-  const p = await phone(sc, "ben", { settings: { hasCompletedOnboarding: false } });
-  await join(sc, "ben");
-  await p.page.goto(BASE + `/app/community/friends#${a.friendCode}`, { timeout: 120000 });
-  await p.page.waitForURL(/\/app\/welcome/, { timeout: 90000 });
-  const pg = p.page;
-  await pg.getByRole("button", { name: "Get started" }).click();
-  await pg.getByRole("button", { name: "Show me around" }).click();
-  for (let i = 0; i < 4; i++) { await pg.waitForTimeout(150); await pg.getByRole("button", { name: "Continue" }).click(); }
-  await pg.getByRole("button", { name: "Let's go!" }).click();
-  await pg.getByRole("heading", { name: "What's your goal?" }).waitFor();
-  for (let i = 0; i < 6; i++) await pg.getByRole("button", { name: "Skip" }).click();
-  await pg.getByRole("heading", { name: "You're all set!" }).waitFor();
-  await pg.getByRole("button", { name: "Continue" }).click();
-  // for a friend's invite there is no recipe to choose: onboarding ends and the code is in the box
-  await pg.waitForURL(/\/app\/community\/friends/, { timeout: 30000 });
-  await pg.locator('section[aria-labelledby="my-code"], [role=dialog]').first().waitFor({ timeout: 60000 });
-  if (await pg.locator("dialog[open]").count()) { await pickUsername(pg, "ben.new"); }
-  await pg.locator('section[aria-labelledby="my-code"]').waitFor({ timeout: 30000 });
-  await until("the invite code is in the box", async () => (await codeBox(pg).inputValue()) === a.friendCode);
-  await p.ctx.close();
-});
-
 
 await step("a list that has run out (30 days) is not shown from the copy kept on the phone: not listed, not counted on the tab, not openable", async () => {
   const sc = scene();

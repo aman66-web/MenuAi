@@ -29,6 +29,7 @@ import { SourcesLink } from "../_components/SourcesLink";
 import { menuClient } from "../_lib/menu";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { leaveForClearing, useAccountUser } from "../_lib/account";
+import { setCreatorMode, useCreatorMode } from "../_lib/creator";
 
 // SPEC §7.9. Not on the web: Apple Health, Location, StoreKit's manage/restore rows (see docs/WEB_BUILD_PLAN.md).
 // Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): a compact heavy title, spaced-capital group labels,
@@ -121,6 +122,7 @@ function LinkRow({ href, children, external }: { href: string; children: React.R
 
 export default function SettingsPage() {
   const hydrated = useHydrated();
+  const creator = useCreatorMode();
   const settings = useSettings();
   const t = useT();
   const menu = useMenu();
@@ -289,6 +291,12 @@ export default function SettingsPage() {
           </ul>
         </Section>
       )}
+
+      <Section title={t("Filming mode")}>
+        <Card className="p-3">
+          <Toggle label={t("Filming mode")} description={t("Shows the Truth and Swap cards as the dark card with bigger figures, adds a Replay button and hides the bottom bar. Shift+F switches it too.")} checked={creator} onChange={setCreatorMode} />
+        </Card>
+      </Section>
 
       <Section title={t("Your data")}>
         <Card className="p-4">

@@ -81,6 +81,11 @@ export default function GroceriesPage() {
           <span className="min-w-0 flex-1">{t("Search every shop at once")}</span>
           <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
         </Link>
+        <Link href="/app/groceries/protein" className={row}>
+          <span aria-hidden className={ROUND}><CompareIcon className="h-[18px] w-[18px]" /></span>
+          <span className="min-w-0 flex-1">{t("Cheapest protein")}</span>
+          <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
+        </Link>
         <Link href="/app/compare?tab=food" className={row}>
           <span aria-hidden className={ROUND}><CompareIcon className="h-[18px] w-[18px]" /></span>
           <span className="min-w-0 flex-1">{t("Compare products")}</span>

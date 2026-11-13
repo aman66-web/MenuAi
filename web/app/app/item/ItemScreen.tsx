@@ -14,6 +14,7 @@ import { ChevronLeftIcon, ChevronRightIcon, InfoIcon } from "../_components/icon
 import { ItemPhotoHero } from "../_components/ItemPhoto";
 import { AllergenSection } from "../_components/Allergens";
 import { ItemHero, NutrientTable } from "../_components/Nutrition";
+import { TruthButton } from "../_components/truth/TruthButton";
 import { ShareButton } from "../_components/ShareButton";
 import { CompareButton } from "../_components/CompareButton";
 import { compareDish } from "../_lib/compare";
@@ -78,6 +79,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
           )}
         </ItemHero>
       </div>
+
+      <div className="mt-3.5"><TruthButton chain={chain} item={item} /></div>
 
       <div className="mt-3.5"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
 

@@ -138,41 +138,15 @@ await step("the page says plainly when a link is cut short, not a list, or empty
   await ctx.close();
 });
 
-await step("a first-time visitor opening the link goes through onboarding and then lands on the list (the # survives, and no recipe is asked for first)", async () => {
+await step("a first-time visitor opening the link lands on the list straight away: no questions first, the # stays in the address and never reaches a request", async () => {
   const code = shared.text.match(LINK)[1];
   const { ctx, page } = await open(null, { onboarded: false });
   const requested = [];
   page.on("request", (r) => { try { const u = new URL(r.url()); requested.push(u.pathname + u.search); } catch { /* data: and blob: */ } });
   await page.goto(BASE + "/app/groceries/list/shared#" + code);
-  await page.waitForURL(/\/app\/welcome\?next=/, { timeout: 60000 });
-  const here = new URL(page.url());
-  // The list's code is carried after the welcome page's own "#", never in its query (a query reaches the server, a fragment does not).
-  expect(here.searchParams.get("next") === "/app/groceries/list/shared", "the way back: " + here.searchParams.get("next"));
-  expect(here.hash === "#" + code, "the code should stay in the fragment: " + here.href.slice(-60));
-  await page.getByRole("button", { name: "Get started" }).click();
-  await page.getByRole("button", { name: "Show me around" }).click({ timeout: 30000 });
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes", "Community"]) {
-    await page.getByRole("heading", { level: 1, name: tab, exact: true }).waitFor();
-    await page.waitForTimeout(800);
-    await page.getByRole("button", { name: tab === "Community" ? "Let's go!" : "Continue" }).click();
-  }
-  await page.getByRole("radio", { name: "Maintain weight" }).click().catch(() => page.getByRole("radio").first().click());
-  await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { name: "Anything you avoid?" }).waitFor();
-  await page.getByRole("button", { name: "Skip" }).click();
-  await page.getByRole("heading", { name: "About you" }).waitFor();
-  await page.getByRole("button", { name: "Skip" }).click(); // skips the three questions about the person
-  await page.getByRole("heading", { name: "Your daily targets" }).waitFor();
-  await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { name: "Where do you shop?" }).waitFor();
-  await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { name: "Easy to read" }).waitFor();
-  await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { name: "You're all set!" }).waitFor();
-  await page.getByRole("button", { name: "Continue" }).click();
-  await page.waitForURL(/\/app\/groceries\/list\/shared/, { timeout: 30000 });
+  await page.getByRole("heading", { level: 1, name: "Shared shopping list" }).waitFor({ timeout: 60000 });
+  expect(!/welcome/.test(page.url()), "sent to the questions first: " + page.url());
   expect(new URL(page.url()).hash === "#" + code, "the list is still in the address: " + page.url().slice(-30));
-  await page.getByRole("heading", { level: 1, name: "Shared shopping list" }).waitFor();
   await page.getByText("Abra Ca Debora Sweet Pancakes").waitFor({ timeout: 60000 });
   expect(!requested.some((u) => u.includes(code) || u.includes(encodeURIComponent(code))), "the list code reached a request: " + requested.filter((u) => u.includes(code.slice(0, 12))).slice(0, 2).join(" | "));
   await ctx.close();

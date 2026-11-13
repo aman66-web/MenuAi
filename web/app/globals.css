@@ -314,3 +314,44 @@ html[data-i18n-pending] body {
   main { overflow-wrap: anywhere; }
   .app-numbers, .app-numbers * { overflow-wrap: normal; }
 }
+
+/* The Truth & Swap cards (viral upgrade, Nov 2026). Two things only: the official-scheme colours for the FSA pills, and a dark card for filming.
+   - Pills: the traffic-light fills are fixed (the same on a light or a dark card) with near-black words (green 11.1:1, amber 11.6:1, red 7.4:1), so a
+     colour never depends on the theme around it. They are only ever used for fat, saturates, sugars and salt, as the FSA guidance says.
+   - .truth-dark: #09090B with white words (19.4:1) and a muted grey of 12.9:1, so a phone camera filming the screen never blows out a white card.
+     The app itself stays light (founder 2026-10-15); the dark card is used in Creator View and in the saved image card only. Every colour inside
+     follows the variables, so any component works on it unchanged. */
+:root {
+  --tl-green: #3ddc84;
+  --tl-amber: #ffb020;
+  --tl-red: #ff6b63;
+  --tl-grey: #d4d4d8;
+  --tl-ink: #09090b;
+}
+.truth-dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #d4d4d8;
+  --line: rgba(255, 255, 255, 0.16);
+  --soft: #18181b;
+  --soft-strong: #27272a;
+  --fill: #18181b;
+  --accent: #bef264;
+  --accent-soft: rgba(190, 242, 100, 0.16);
+  --on-accent: #09090b;
+  --card-shadow: none;
+  background: #09090b;
+  color: #fafafa;
+  color-scheme: dark;
+}
+.truth-dark .glass { background: #18181b; box-shadow: none; }
+@keyframes truth-bounce { 0% { transform: scale(0.88); opacity: 0; } 60% { transform: scale(1.06); opacity: 1; } 100% { transform: scale(1); } }
+@keyframes truth-drop { from { transform: translateY(-10px) scale(0.6); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: no-preference) {
+  .truth-bounce { animation: truth-bounce 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
+  .truth-drop { animation: truth-drop 0.22s ease-out backwards; animation-delay: calc(var(--i, 0) * 90ms); }
+}
+.truth-dark .sheet-head { background: var(--background); }
+/* Creator "Filming mode": a clean screen for video (the tab bar steps aside). */
+html[data-creator] nav[aria-label="Main"] { display: none; }
+html[data-creator] main { padding-bottom: 2rem; }

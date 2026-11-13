@@ -50,8 +50,7 @@ async function noForbidden(page, where) {
 // With appLogos on, the packed logo files show with no signal; with it off, plain names (the App Review fallback).
 await step("first launch with no signal: the welcome wall follows the appLogos switch (logos packed in the app, or names when it is off)", async () => {
   const { ctx, page } = await newPage({ settings: null });
-  await page.goto(BASE + "/app");
-  await page.waitForURL(/\/app\/welcome/);
+  await page.goto(BASE + "/app/welcome");
   const wall = page.locator(".logo-wall");
   await wall.waitFor();
   await page.waitForTimeout(800);

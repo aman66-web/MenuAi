@@ -21,6 +21,7 @@ import { ChainMark } from "../_components/ChainMark";
 import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
+import { PresetPills } from "../_components/truth/PresetPills";
 import { ReportSheet } from "../_components/Submit";
 import { Badge, Button, Chip, EmptyState, ErrorBox, SampleBadge, Sheet, Spinner } from "../_components/ui";
 import { backName, useBack } from "../_lib/backNav";
@@ -210,6 +211,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           </p>
         </div>
       </div>
+      <PresetPills chain={chain} items={filtered} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} />} />
       {recent.length > 0 && (
         <section aria-labelledby="recent-heading" className="mt-7">
           <h2 id="recent-heading" className="mb-3 text-xl font-[800] tracking-[-0.01em]">{t("Recently viewed")}</h2>

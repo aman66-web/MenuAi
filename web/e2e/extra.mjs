@@ -23,18 +23,14 @@ async function finishWithoutRecipe(page) {
   await page.getByRole("button", { name: "Take me to Home" }).click();
 }
 
-await step("a shared link on a first visit goes through onboarding and then lands on the shared page", async () => {
+await step("a link to a restaurant on a first visit opens it straight away: no questions first, and nothing is redirected", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/chain?id=cluck-house");
-  await page.waitForURL(/\/app\/welcome\?next=/);
-  await pastIntro(page);
-  await vis(page.getByRole("heading", { name: "What's your goal?" }));
-  // goal, foods to avoid, the three questions about the person (one Skip for all three), the targets, shops and text size
-  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Skip" }).click();
-  await finishWithoutRecipe(page);
-  await page.waitForURL(/\/app\/chain\?id=cluck-house/);
   await vis(page.getByRole("heading", { name: "Cluck House" }));
+  if (/welcome/.test(page.url())) throw new Error("sent to the questions first: " + page.url());
+  await page.waitForTimeout(600);
+  if (/welcome/.test(page.url())) throw new Error("sent to the questions later: " + page.url());
   await ctx.close();
 });
 await step("onboarding goal radios work with the arrow keys (roving focus)", async () => {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { APP_BUILD } from "@/lib/mm/config";
 import { tk } from "@/lib/mm/i18n";
@@ -19,6 +19,7 @@ import { noteTabPage, useTabMemory } from "../_lib/tabMemoryStore";
 import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
 import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
+import { CreatorKeys } from "../_lib/creator";
 import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 
@@ -36,10 +37,8 @@ const TABS = [
 export function AppShell({ children }: { children: ReactNode }) {
   const t = useT();
   const pathname = usePathname();
-  const router = useRouter();
   const hydrated = useHydrated();
   const settings = useSettings();
-  const onboarded = settings.hasCompletedOnboarding;
   const textSize = settings.textSize;
   const language = settings.language;
   const fullScreen = pathname.startsWith("/app/welcome");
@@ -72,15 +71,6 @@ export function AppShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (hydrated) void setLanguage(language ?? "en");
   }, [hydrated, language]);
-
-  // First visit (SPEC §7.1): onboarding comes first, wherever the link pointed. It returns there when done.
-  useEffect(() => {
-    if (!hydrated || onboarded || pathname.startsWith("/app/welcome") || pathname.startsWith("/app/offline")) return;
-    // The part after "#" (a shared shopping list is in it) goes after the welcome page's own "#", never into its query: a query is sent to the
-    // server, a fragment is not, and the list must stay on this phone.
-    const next = window.location.pathname + window.location.search;
-    router.replace(`/app/welcome?next=${encodeURIComponent(next)}${window.location.hash}`);
-  }, [hydrated, onboarded, pathname, router]);
 
   // Signed in? (Optional: with no account nothing is sent anywhere.) Asks the server who this device is signed in as and starts syncing.
   useEffect(() => {
@@ -124,6 +114,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <PaywallProvider>
+      <CreatorKeys />
       <div className="app-surface relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
         {!online && (
           <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-sm text-muted">

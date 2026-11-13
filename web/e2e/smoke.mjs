@@ -27,9 +27,16 @@ const text = (t) => page.getByText(t, { exact: false }).first();
 const shot = (n) => page.screenshot({ path: `${SHOTS}${n}.png`, fullPage: false });
 const visible = async (loc, timeout = 8000) => { await loc.waitFor({ state: "visible", timeout }); };
 
-await step("first visit redirects to onboarding", async () => {
+await step("first visit goes straight to Home: no questionnaire first, and a quiet card offers to set a goal", async () => {
   await page.goto(`${BASE}/app`);
-  await page.waitForURL(/\/app\/welcome/);
+  await visible(page.getByRole("heading", { level: 1, name: "Home" }));
+  if (page.url().includes("welcome")) throw new Error("redirected to welcome");
+  await visible(page.getByRole("heading", { level: 2, name: "Make Numbite fit you" }));
+  await visible(page.getByRole("button", { name: "Set up" }));
+  await shot("00-first-visit-home");
+});
+await step("the guided setup is still there at /app/welcome: welcome, Pip's arrival and walk, the first question", async () => {
+  await page.goto(`${BASE}/app/welcome`);
   await visible(page.getByRole("button", { name: "Get started" }));
   await shot("00-onboarding-welcome");
   await page.getByRole("button", { name: "Get started" }).click();
@@ -155,7 +162,7 @@ await step("chain page: free user sees blurred Best for you, menu rows with macr
   await visible(text("655 kcal · 50g protein · 67g carbs · 21g fat"));
   await visible(text("Not affiliated with Bowl & Co."));
   await visible(text("checked 1 Oct 2026"));
-  await visible(text("New"));
+  // (The "New" badge lasts 30 days from a dish's addedOn, so it is covered by the unit tests, not by a date-dependent browser step.)
   await shot("06-chain-free");
 });
 await step("sorting flattens categories; filter chips narrow the menu", async () => {

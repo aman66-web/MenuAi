@@ -34,7 +34,7 @@ const FG = "#0b1a12";
 const MUTED = "#5f6361";
 
 /** The page's own font (Urbanist, loaded by next/font) so the card matches the app; system fonts if it isn't there. */
-function pageFont(): string {
+export function pageFont(): string {
   try {
     const style = getComputedStyle(document.body);
     const loaded = style.getPropertyValue("--font-sans-loaded").trim();
@@ -51,7 +51,7 @@ const isLatin = (s: string) => /^[\p{Script=Latin}\p{Script=Common}\p{Script=Inh
  *  even on an Urdu or Arabic card, so "White rice, chicken," keeps its commas at the end of its words. */
 const readsRtl = (s: string) => /[\u0590-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/.test(s);
 
-function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number, maxLines: number): string[] {
+export function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number, maxLines: number): string[] {
   const words = text.split(/\s+/).filter(Boolean);
   const lines: string[] = [];
   let line = "";
@@ -70,7 +70,7 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number, max
   return lines;
 }
 
-function roundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+export function roundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
   const rr = Math.min(r, w / 2, h / 2);
   ctx.beginPath();
   ctx.moveTo(x + rr, y);
@@ -290,12 +290,9 @@ export async function renderShareCard(input: ShareCardInput): Promise<Blob> {
 
 export type ShareResult = "shared" | "downloaded" | "cancelled";
 
-/** Web Share with the image where the browser supports it, otherwise download the PNG. */
-export async function shareOrderCard(input: ShareCardInput): Promise<ShareResult> {
-  const blob = await renderShareCard(input);
-  const file = new File([blob], "my-order.png", { type: "image/png" });
-  const { t } = input;
-  const text = `${input.orderName} — ${formatCalories(input.nutrients.calories)}, ${formatGrams(input.nutrients.protein ?? 0)} ${t("protein")}`;
+/** Hands a finished PNG to the person: the iPhone's own share sheet in the app, the browser's share sheet with the picture where it has one, otherwise a download. */
+export async function deliverImage(blob: Blob, opts: { fileName: string; title: string; text: string }): Promise<ShareResult> {
+  const file = new File([blob], opts.fileName, { type: "image/png" });
   if (hasNative()) {
     // In the iPhone app: the iPhone's own share sheet, with the picture
     const imageDataUrl = await new Promise<string>((resolve, reject) => {
@@ -304,12 +301,12 @@ export async function shareOrderCard(input: ShareCardInput): Promise<ShareResult
       reader.onerror = () => reject(reader.error);
       reader.readAsDataURL(blob);
     });
-    const r = await nativeCall("share", { title: t("My order at {chain}", { chain: input.chainName }), text, imageDataUrl });
+    const r = await nativeCall("share", { title: opts.title, text: opts.text, imageDataUrl });
     if (r.done || r.error === "cancelled") return r.done ? "shared" : "cancelled";
   }
   try {
     if (navigator.canShare?.({ files: [file] })) {
-      await navigator.share({ files: [file], title: t("My order at {chain}", { chain: input.chainName }), text });
+      await navigator.share({ files: [file], title: opts.title, text: opts.text });
       return "shared";
     }
   } catch (e) {
@@ -318,8 +315,16 @@ export async function shareOrderCard(input: ShareCardInput): Promise<ShareResult
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "my-order.png";
+  a.download = opts.fileName;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 5000);
   return "downloaded";
+}
+
+/** Web Share with the image where the browser supports it, otherwise download the PNG. */
+export async function shareOrderCard(input: ShareCardInput): Promise<ShareResult> {
+  const blob = await renderShareCard(input);
+  const { t } = input;
+  const text = `${input.orderName} — ${formatCalories(input.nutrients.calories)}, ${formatGrams(input.nutrients.protein ?? 0)} ${t("protein")}`;
+  return deliverImage(blob, { fileName: "my-order.png", title: t("My order at {chain}", { chain: input.chainName }), text });
 }

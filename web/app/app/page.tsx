@@ -1,5 +1,6 @@
 "use client";
 
+import { StartPrompt } from "./_components/StartPrompt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -117,7 +118,7 @@ export default function HomePage() {
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now));
   const indexes = useChainIndexes(todays.filter((e) => e.source === "item").map((e) => e.chainId));
 
-  if (!hydrated || !settings.hasCompletedOnboarding) return <Spinner />;
+  if (!hydrated) return <Spinner />;
 
   const profile = { goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap, ...(settings.dailyProtein ? { dailyProtein: settings.dailyProtein } : {}) };
   const eaten = loggedToday(log, now);
@@ -228,7 +229,9 @@ export default function HomePage() {
         </Card>
       )}
 
-      {!settings.hasSetTargets && !settings.dismissedTargetsCard && (
+      <StartPrompt className="mt-3" />
+
+      {!settings.hasSetTargets && !settings.dismissedTargetsCard && settings.hasCompletedOnboarding && (
         <Card className="mt-3 flex items-center justify-between gap-3 p-4">
           <Link href="/app/settings#targets" className="min-h-11 flex-1 font-medium">{t("Set your targets to see what's left today")}</Link>
           <button type="button" className="min-h-11 min-w-11 text-sm text-muted" onClick={() => updateSettings({ dismissedTargetsCard: true })} aria-label={t("Dismiss")}>{t("Dismiss")}</button>
