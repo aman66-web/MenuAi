@@ -244,7 +244,9 @@ await step("Terms, Privacy, Support and the landing page describe paid access (o
   expect(/Stripe takes your payment/.test(privacy) && /never see your card number/.test(privacy) && /creator/.test(privacy) && /six years/.test(privacy), "privacy: missing payment text");
   expect(!/There is nothing to buy/.test(privacy), "privacy still says nothing is for sale");
   expect(/cancel/i.test(await body("/support")), "support: no cancel answer");
-  expect(/£2\.99 a month/.test(await body("/")), "landing FAQ: no prices");
+  // the FAQ answers sit in closed <details>, which innerText leaves out: read the page's text content instead
+  await page.goto(BASE + "/");
+  expect(/£2\.99 a month/.test(((await page.locator("body").textContent()) ?? "").replace(/\s+/g, " ")), "landing FAQ: no prices");
   await ctx.close();
 });
 

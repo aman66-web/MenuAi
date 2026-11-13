@@ -1,0 +1,4 @@
+// This route's entry is a .ts file on purpose: the iPhone app's export reads only .tsx pages (next.config.ts), so the website's chain pages stay out of the app.
+// The page itself is in _page.tsx next to this file.
+export const dynamicParams = false; // (a route setting has to be written out here, not re-exported)
+export { default, generateMetadata, generateStaticParams } from "./_page";

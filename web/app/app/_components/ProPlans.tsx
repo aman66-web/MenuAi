@@ -22,7 +22,9 @@ import { Button } from "./ui";
 
 const GENERIC_SHARE = `Look at the real calories and protein of UK restaurant meals, worked out from each restaurant's own published figures: ${site.url}`;
 
-export function ProPlans() {
+/** `level` is the heading level of each plan's name: h3 inside the paywall sheet (whose title is the h2), h2 on the Pro page (under its h1). */
+export function ProPlans({ level = "h3" }: { level?: "h2" | "h3" } = {}) {
+  const Heading = level;
   const t = useT();
   const paid = useStore(paidStore);
   const user = useAccountUser();
@@ -63,7 +65,7 @@ export function ProPlans() {
           return (
             <li key={id} className={`rounded-[1.25rem] p-4 ${p.badge === "Most popular" ? "bg-[var(--sun)] text-[var(--tl-ink)]" : "bg-soft"}`}>
               {p.badge && <p className="text-base font-bold uppercase tracking-wide">{t(p.badge)}</p>}
-              <h3 className="mt-0.5 text-xl font-extrabold leading-snug tracking-tight">{t(p.label)}</h3>
+              <Heading className="mt-0.5 text-xl font-extrabold leading-snug tracking-tight">{t(p.label)}</Heading>
               <p className="app-numbers mt-1 text-4xl font-extrabold leading-none tracking-tight">{p.price} <span className="text-lg font-bold opacity-80">{t(p.per)}</span></p>
               <p className="mt-2 text-base leading-snug">{t(p.tagline)}</p>
               <Button size="lg" full className="mt-3" disabled={busy !== null} onClick={() => void pay(id)}>

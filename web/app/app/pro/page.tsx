@@ -35,7 +35,7 @@ function Pricing() {
         ))}
       </ul>
       <p className="mt-3 text-base leading-snug text-muted">{t("Every restaurant's full menu with calories and macros stays free.")}</p>
-      <div className="mt-5"><ProPlans /></div>
+      <div className="mt-5"><ProPlans level="h2" /></div>
       <p className="mt-5 text-base leading-snug text-muted">
         <a className="inline-flex min-h-11 items-center underline underline-offset-4" href="/terms">{t("Terms")}</a> · <a className="inline-flex min-h-11 items-center underline underline-offset-4" href="/privacy">{t("Privacy")}</a>
       </p>

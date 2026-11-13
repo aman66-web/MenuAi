@@ -12,7 +12,6 @@ import { Crumbs, Faqs, faqJsonLd, ItemCard, JsonLd, OpenInApp, SourceNote } from
 // copied from the restaurant's own nutrition guide; the answers in the FAQ are worked out from those numbers (lib/mm/truth/chainFacts.ts) and shown on the page as well
 // as in its structured data, so the two agree. No logos or photos, and each page says it is not affiliated with the restaurant.
 
-export const dynamicParams = false;
 export function generateStaticParams() {
   return realChains().map((c) => ({ slug: c.id }));
 }

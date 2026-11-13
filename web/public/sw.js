@@ -10,14 +10,14 @@
  * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
  * Bump VERSION to drop all old caches.
  */
-const VERSION = "mm-v6"; // v6: Community tab and the food blog pages (new shells); v5: plate-and-fork app icon; v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
+const VERSION = "mm-v7"; // v7: Cheapest protein page (a new shell), and precached screens are no longer evicted by the page-cache limit (now 120); v6: Community tab and the food blog pages (new shells); v5: plate-and-fork app icon; v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;
 const IMAGES = `${VERSION}-images`;
-const MAX_ENTRIES = { [PAGES]: 80, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150 };
+const MAX_ENTRIES = { [PAGES]: 120, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150 };
 const NETWORK_TIMEOUT_MS = 5000;
-const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/list/shared", "/app/recipes", "/app/recipes/view", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/compare", "/app/today", "/app/settings", "/app/settings/numbers", "/app/settings/sources", "/app/reminders", "/app/community", "/app/community/blog", "/app/community/blog/view", "/app/community/friends", "/app/community/inbox", "/app/community/inbox/view", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
+const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/list/shared", "/app/groceries/protein", "/app/recipes", "/app/recipes/view", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/compare", "/app/today", "/app/settings", "/app/settings/numbers", "/app/settings/sources", "/app/reminders", "/app/community", "/app/community/blog", "/app/community/blog/view", "/app/community/friends", "/app/community/inbox", "/app/community/inbox/view", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
 const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder", "/app/groceries/product", "/app/groceries/search", "/app/groceries/shop", "/app/groceries/shop/item", "/app/recipes", "/app/recipes/view", "/app/meals", "/app/compare", "/app/today", "/app/community/blog", "/app/community/blog/view", "/app/community/inbox/view"];
 
 /** Page navigations to the query-driven shells share one cache entry; everything else is keyed by its full URL. */
@@ -90,10 +90,21 @@ self.addEventListener("activate", (event) => {
   );
 });
 
+const SHELL_PATHS = new Set(SHELLS);
+
 async function trim(cache, name) {
   const keys = await cache.keys();
   const extra = keys.length - (MAX_ENTRIES[name] ?? 100);
-  for (let i = 0; i < extra; i++) await cache.delete(keys[i]);
+  let removed = 0;
+  for (const key of keys) {
+    if (removed >= extra) break;
+    // the oldest entries go first, but a precached screen (Home, Eat out, ...) is never the one dropped: with about 35 of them
+    // and the warm-up's chain pages, the cache passed its limit and Home itself was evicted, so it did not open offline
+    const url = new URL(key.url);
+    if (name === PAGES && !url.search && SHELL_PATHS.has(url.pathname)) continue;
+    await cache.delete(key);
+    removed++;
+  }
 }
 
 async function cacheFirst(request, cacheName = STATIC) {

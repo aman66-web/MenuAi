@@ -184,8 +184,11 @@ export default function HomePage() {
               ) : (
                 // every day up to today opens that day's page (founder 2026-10-16: "when they click the number at the top it shows what they got on that day");
                 // the link reaches into the gap on each side so a narrow phone still gets a full-size tap target
-                <Link href={dayHref(d, now)} aria-label={label} aria-current={today ? "date" : undefined} className="-mx-1 flex flex-col items-center gap-2.5 rounded-2xl px-1 py-0.5 transition active:scale-95">
+                // (the spoken name is text inside the link, not an aria-label: the letter and number drawn above are the day's visible text, and an
+                // aria-label that doesn't contain them is what axe's label-content-name-mismatch rule flags)
+                <Link href={dayHref(d, now)} aria-current={today ? "date" : undefined} className="-mx-1 flex flex-col items-center gap-2.5 rounded-2xl px-1 py-0.5 transition active:scale-95">
                   {inner}
+                  <span className="sr-only">{label}</span>
                 </Link>
               )}
             </li>

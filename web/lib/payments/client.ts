@@ -7,6 +7,10 @@ import type { PlanId } from "./plans";
 import { cleanRef } from "./plans";
 import { verifyToken } from "./token";
 
+/** True in the iPhone app's copy. The app never starts a payment on our own website (App Store rule 3.1.1: purchases there go through Apple), so the two functions that talk to
+ *  Stripe's side return at once, and written as a build-time constant the rest of their code is left out of the app's files. */
+const IN_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1";
+
 /** The server's public key, set at build time (NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK, a JSON string). Absent = no token can be accepted. */
 function publicKey(): JsonWebKey | null {
   try {
@@ -58,6 +62,7 @@ export function currentRef(): string | null {
 export type PayResult = { ok: true } | { ok: false; error: "unavailable" | "failed" | "not_paid" | "none" };
 
 export async function startCheckout(plan: PlanId, fetchImpl: typeof fetch = fetch): Promise<{ url: string } | { error: "unavailable" | "failed" }> {
+  if (IN_APP) return { error: "unavailable" };
   try {
     const ref = currentRef();
     const res = await fetchImpl("/api/v1/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ plan, ...(ref ? { ref } : {}) }) });
@@ -70,6 +75,7 @@ export async function startCheckout(plan: PlanId, fetchImpl: typeof fetch = fetc
 }
 
 export async function claimSession(sessionId: string, fetchImpl: typeof fetch = fetch): Promise<PayResult> {
+  if (IN_APP) return { ok: false, error: "unavailable" };
   try {
     const res = await fetchImpl("/api/v1/entitlement", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sessionId }) });
     if (res.status === 503) return { ok: false, error: "unavailable" };

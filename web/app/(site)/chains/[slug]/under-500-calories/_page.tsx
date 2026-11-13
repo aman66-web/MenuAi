@@ -6,7 +6,6 @@ import { chainFacts } from "@/lib/mm/truth/chainFacts";
 import { chainEntry, chainsWithSubPage, hasSubPage, loadChain, subPageItems } from "../../_data";
 import { Crumbs, ItemCard, OpenInApp, SourceNote } from "../../_components";
 
-export const dynamicParams = false;
 export function generateStaticParams() {
   return chainsWithSubPage("under-500-calories").map((slug) => ({ slug }));
 }
