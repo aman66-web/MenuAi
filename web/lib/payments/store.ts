@@ -8,7 +8,8 @@ export type EntitlementStatus = "active" | "cancelled" | "refunded" | "expired";
 
 export interface EntitlementRecord {
   id: string;
-  email: string;
+  /** The buyer's email: always set for a website payment; absent for an App Store purchase (which is tied to the signed-in account instead). */
+  email: string | null;
   source: "stripe" | "apple";
   plan: PlanId;
   status: EntitlementStatus;

@@ -10,13 +10,15 @@
 -- server-only secret key; RLS is on with NO policies and anon/authenticated privileges are revoked, so the publishable key can read or write nothing.
 -- Rows are written only by the Stripe webhook and the success page's claim (lib/payments/), and read only to give a signed-in person their own access back.
 --
--- Apple's In-App Purchase (the iPhone app) writes rows of source 'apple' with the same shape through the same API (docs/PAYMENTS.md "iPhone app").
+-- Apple's In-App Purchase (the iPhone app) writes rows of source 'apple' with the same shape through the same API (docs/PAYMENTS.md "iPhone app"): no email, and user_id set when the
+-- buyer was signed in (so the purchase also works on the web for them). Deleting an account keeps the payment record (user_id is emptied) because accounting records must be kept.
 --
 -- NOT applied by Claude: you read it, then run it in the Supabase SQL Editor (never `supabase db push`).
 
 create table public.pro_entitlements (
   id                            uuid primary key default gen_random_uuid(),
-  email                         text not null,
+  email                         text,
+  user_id                       uuid references auth.users (id) on delete set null,
   source                        text not null check (source in ('stripe', 'apple')),
   plan                          text not null check (plan in ('pass90', 'annual', 'monthly')),
   status                        text not null default 'active' check (status in ('active', 'cancelled', 'refunded', 'expired')),
@@ -32,7 +34,9 @@ create table public.pro_entitlements (
   currency                      text,
   created_at                    timestamptz not null default now(),
   updated_at                    timestamptz not null default now(),
-  constraint pro_entitlements_email_format check (email = lower(email) and char_length(email) between 3 and 254 and email like '%_@_%'),
+  constraint pro_entitlements_email_format check (email is null or (email = lower(email) and char_length(email) between 3 and 254 and email like '%_@_%')),
+  -- a website payment is known by the email Stripe collected; an App Store purchase has no email and is tied to the signed-in account (user_id) when there is one
+  constraint pro_entitlements_who check (source <> 'stripe' or email is not null),
   constraint pro_entitlements_ref_format check (ref is null or ref ~ '^[a-z0-9_-]{2,32}$'),
   constraint pro_entitlements_amount_sane check (amount_pence is null or amount_pence between 0 and 100000),
   constraint pro_entitlements_dates check (expires_at >= started_at),
@@ -44,7 +48,8 @@ comment on table public.pro_entitlements is 'Paid access: one row per payment th
 
 create unique index pro_entitlements_stripe_session_key on public.pro_entitlements (stripe_session_id) where stripe_session_id is not null;
 create unique index pro_entitlements_apple_txn_key on public.pro_entitlements (apple_original_transaction_id) where apple_original_transaction_id is not null;
-create index pro_entitlements_email_idx on public.pro_entitlements (email, expires_at desc);
+create index pro_entitlements_email_idx on public.pro_entitlements (email, expires_at desc) where email is not null;
+create index pro_entitlements_user_idx on public.pro_entitlements (user_id, expires_at desc) where user_id is not null;
 create index pro_entitlements_subscription_idx on public.pro_entitlements (stripe_subscription_id) where stripe_subscription_id is not null;
 create index pro_entitlements_payment_intent_idx on public.pro_entitlements (stripe_payment_intent_id) where stripe_payment_intent_id is not null;
 
