@@ -2,11 +2,15 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { PAID_ACCESS_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
+import { FREE_LEADERBOARD_ROWS } from "@/lib/mm/paid";
 import { formatPrice } from "@/lib/mm/groceries";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { cheapestProtein, comparePair, costOf100gProtein, CURATED_PAIRS, proteinValue, type ProteinValue } from "@/lib/mm/truth/proteinValue";
-import { EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { useGate } from "../../_components/Paywall";
+import { Button, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { useIsPro } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { BackLink, CARD, FootNote, HEADING, TITLE } from "../PageBits";
@@ -61,6 +65,9 @@ function PairCard({ shop, title, branded, everyday }: { shop: string; title: str
 
 export function ProteinScreen() {
   const t = useT();
+  const pro = useIsPro();
+  const { showPaywall } = useGate();
+  const gated = PAID_ACCESS_ENABLED && !pro; // free tier (only when paid access exists): the first five rows
   const manifest = useShopManifest();
   const shops = recipeShops(manifest);
   const shop = shops[0] ?? null;
@@ -118,7 +125,7 @@ export function ProteinScreen() {
       <section aria-labelledby="board-heading" className="mt-8">
         <h2 id="board-heading" className={HEADING}>{t("The {n} cheapest protein foods", { n: top.length })}</h2>
         <ol className={`${CARD} mt-3 divide-y divide-line overflow-hidden`}>
-          {top.map((v, i) => (
+          {top.slice(0, gated ? FREE_LEADERBOARD_ROWS : top.length).map((v, i) => (
             <li key={v.product.id}>
               <Link href={productHref(shop.id, v.product.id)} className="flex min-h-[4.75rem] items-center gap-3.5 px-4 py-3 transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
                 <span aria-hidden className="app-numbers w-8 shrink-0 text-center text-2xl font-extrabold text-muted">{i + 1}</span>
@@ -134,6 +141,9 @@ export function ProteinScreen() {
             </li>
           ))}
         </ol>
+        {gated && top.length > FREE_LEADERBOARD_ROWS && (
+          <Button size="lg" full variant="secondary" className="mt-3" onClick={() => showPaywall("leaderboard")}>{t("Unlock the other {n}", { n: top.length - FREE_LEADERBOARD_ROWS })}</Button>
+        )}
       </section>
 
       <FootNote>

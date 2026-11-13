@@ -1,10 +1,14 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
+import { PAID_ACCESS_ENABLED } from "@/lib/mm/config";
+import { FREE_PRESET_RESULTS } from "@/lib/mm/paid";
 import { applyPreset, presetsFor, type PresetId } from "@/lib/mm/truth/presets";
 import type { Chain, MenuItem } from "@/lib/mm/types";
+import { useIsPro } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { Chip } from "../ui";
+import { useGate } from "../Paywall";
+import { Button, Chip } from "../ui";
 
 /** How many dishes a preset shows. */
 export const PRESET_TOP = 5;
@@ -16,6 +20,10 @@ export const PRESET_TOP = 5;
  */
 export function PresetPills({ chain, items, renderList }: { chain: Chain; items: readonly MenuItem[]; renderList: (items: readonly MenuItem[]) => ReactNode }) {
   const t = useT();
+  const pro = useIsPro();
+  const { showPaywall } = useGate();
+  // Free tier (only when paid access exists): the first two results of a list; "Small appetite" (the GLP-1 and smaller-meal optimiser) is paid.
+  const gated = PAID_ACCESS_ENABLED && !pro;
   const defs = useMemo(() => presetsFor(chain), [chain]);
   const counts = useMemo(() => new Map(defs.map((d) => [d.id, applyPreset(d.id, items).length])), [defs, items]);
   const [active, setActive] = useState<PresetId | null>(null);
@@ -30,7 +38,7 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
         {defs.map((d) => {
           const n = counts.get(d.id) ?? 0;
           return (
-            <Chip key={d.id} size="lg" selected={active === d.id} disabled={n === 0} className="disabled:opacity-100 disabled:text-muted" onClick={() => setActive((a) => (a === d.id ? null : d.id))}>
+            <Chip key={d.id} size="lg" selected={active === d.id} disabled={n === 0} className="disabled:opacity-100 disabled:text-muted" onClick={() => { if (gated && d.id === "small-appetite") return showPaywall("smallAppetite"); setActive((a) => (a === d.id ? null : d.id)); }}>
               {t(d.label)}
             </Chip>
           );
@@ -43,7 +51,10 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
           </p>
         )}
       </div>
-      {def && results.length > 0 && <div className="mt-2.5">{renderList(results.slice(0, PRESET_TOP))}</div>}
+      {def && results.length > 0 && <div className="mt-2.5">{renderList(results.slice(0, gated ? FREE_PRESET_RESULTS : PRESET_TOP))}</div>}
+      {def && gated && Math.min(results.length, PRESET_TOP) > FREE_PRESET_RESULTS && (
+        <Button size="lg" full variant="secondary" className="mt-2.5" onClick={() => showPaywall("moreResults")}>{t("Unlock the other {n}", { n: Math.min(results.length, PRESET_TOP) - FREE_PRESET_RESULTS })}</Button>
+      )}
     </section>
   );
 }

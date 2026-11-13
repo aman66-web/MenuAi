@@ -3,7 +3,8 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { catalogueStats } from "@/lib/mm/catalogue";
 import type { Manifest } from "@/lib/mm/types";
-import { PRO_ENABLED } from "@/lib/mm/config";
+import { IAP_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 import { BasketIcon, CheckIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_components/icons";
 import { WaitlistForm } from "@/app/components/WaitlistForm";
@@ -33,7 +34,7 @@ const goals = [
 ];
 
 const faqs = [
-  { q: "Is it free?", a: PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, and nothing needs an account except adding friends in Community. There is nothing to buy." },
+  { q: "Is it free?", a: WEB_PRO_ENABLED || IAP_ENABLED ? `Every restaurant's full menu with calories and macros is free, and so is the Truth card for three dishes a day. Paid access adds the rest: ${PLANS.monthly.price} a month, ${PLANS.annual.price} a year, or a ${PLANS.pass90.price} 90-day pass with no subscription. Prices are shown before you pay.` : PRO_ENABLED ? "Full menus with calories and macros are free for everyone. Pro adds the ranked best orders, the order builder and logging. Pricing will be shown before you pay for anything." : "Yes. Every feature is free, and nothing needs an account except adding friends in Community. There is nothing to buy." },
   { q: "Where do the numbers come from?", a: "From each restaurant's own published nutrition information. We show the source and the date we last checked on every chain, never estimate missing values, and fix reported mistakes within 48 hours." },
   { q: "Which restaurants?", a: `${stats.chains > 0 ? `${stats.chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
   { q: "Is it an app?", a: "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later." },

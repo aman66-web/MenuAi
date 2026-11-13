@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PRO_ENABLED } from "@/lib/mm/config";
+import { IAP_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SupportForm } from "./SupportForm";
 
@@ -26,7 +26,15 @@ export default function Support() {
               <h2 className="text-base font-bold tracking-[-0.01em]">A number looks wrong</h2>
               <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">Open the item in the app and tap &ldquo;Report a number&rdquo;. We check every report within 48 hours.</p>
             </div>
-            {PRO_ENABLED ? (
+            {WEB_PRO_ENABLED && (
+              <>
+                <div className="py-4">
+                  <h2 className="text-base font-bold tracking-[-0.01em]">Cancel, ask for a refund or get your access back (paid on the website)</h2>
+                  <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">Email us from the address you paid with and we will cancel a year or a month (you keep access until the end of the period you paid for) or look at a refund, and reply within two working days. To use your access on another device, sign in there with the same email address (Settings › Account) and tap Restore my access.</p>
+                </div>
+              </>
+            )}
+            {IAP_ENABLED || (PRO_ENABLED && !WEB_PRO_ENABLED) ? (
               <>
                 <div className="py-4">
                   <h2 className="text-base font-bold tracking-[-0.01em]">Cancel or manage your subscription</h2>
@@ -37,12 +45,12 @@ export default function Support() {
                   <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app: Settings › Restore purchases.</p>
                 </div>
               </>
-            ) : (
+            ) : !WEB_PRO_ENABLED ? (
               <div className="py-4">
                 <h2 className="text-base font-bold tracking-[-0.01em]">Is anything paid?</h2>
                 <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">No. Every feature is free and there is nothing to buy.</p>
               </div>
-            )}
+            ) : null}
             <div className="py-4">
               <h2 className="text-base font-bold tracking-[-0.01em]">Someone is bothering me, or a username or list is offensive</h2>
               <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app, open Community › Friends, tap the three dots next to their name, then choose Report or Block. For a shopping list a friend sent you, open it in Community › Shared with you and choose Report or block. A blocked person is not told. You can also email us.</p>

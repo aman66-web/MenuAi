@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { site } from "@/site.config";
 import { formatInt } from "@/lib/mm/format";
 import { itemHref } from "@/lib/mm/routes";
@@ -14,6 +14,7 @@ import { REFERENCE_INTAKE_SOURCE } from "@/lib/mm/truth/referenceIntake";
 import { imageFileName, shareMessage, whatsappUrl } from "@/lib/mm/truth/shareTruth";
 import { swapFacts, type SwapSuggestion } from "@/lib/mm/truth/swap";
 import { useT } from "../../_lib/i18n";
+import { setLastTruthMessage } from "../../_lib/lastTruth";
 import { deliverImage } from "../../_lib/share-card";
 import { renderTruthCard } from "../../_lib/truth-card";
 import { Button } from "../ui";
@@ -199,6 +200,7 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
   const callout = calorieCalloutParts(truth.caloriePercent);
   const caloriesOnly = chain.nutritionLevel === "calories" || item.nutrients.protein === undefined;
   const message = shareMessage({ chainId: chain.id, chainName: chain.name, item, swap, origin: shareOrigin() });
+  useEffect(() => { setLastTruthMessage(message); }, [message]);
 
   const saveImage = async () => {
     try {

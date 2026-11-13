@@ -20,6 +20,9 @@ import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
 import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
 import { CreatorKeys } from "../_lib/creator";
+import { RefCapture } from "../../components/RefCapture";
+import { recheckStoredToken } from "@/lib/payments/client";
+import { GATING_ENABLED } from "@/lib/mm/config";
 import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 
@@ -72,6 +75,11 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (hydrated) void setLanguage(language ?? "en");
   }, [hydrated, language]);
 
+  // A stored payment token that no longer checks out (run out, changed) is forgotten. Only when payments are on.
+  useEffect(() => {
+    if (hydrated && GATING_ENABLED) void recheckStoredToken();
+  }, [hydrated]);
+
   // Signed in? (Optional: with no account nothing is sent anywhere.) Asks the server who this device is signed in as and starts syncing.
   useEffect(() => {
     if (hydrated) void bootAccount();
@@ -115,6 +123,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <PaywallProvider>
       <CreatorKeys />
+      <RefCapture />
       <div className="app-surface relative mx-auto flex min-h-dvh w-full max-w-md flex-col">
         {!online && (
           <p role="status" className="glass mx-4 mt-[max(0.5rem,env(safe-area-inset-top))] rounded-full px-4 py-2 text-center text-sm text-muted">

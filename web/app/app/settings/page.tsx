@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { APP_BUILD, DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
+import { APP_BUILD, DEV_TOOLS_ENABLED, GATING_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, WEB_PRO_ENABLED, APP_VERSION } from "@/lib/mm/config";
 import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
-import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
+import { paidStore, compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
@@ -27,7 +27,7 @@ import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestF
 import { Button, Card, radioKeyNav, Segmented, Sheet, Toggle } from "../_components/ui";
 import { SourcesLink } from "../_components/SourcesLink";
 import { menuClient } from "../_lib/menu";
-import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
+import { useHydrated, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { leaveForClearing, useAccountUser } from "../_lib/account";
 import { setCreatorMode, useCreatorMode } from "../_lib/creator";
 
@@ -123,6 +123,8 @@ function LinkRow({ href, children, external }: { href: string; children: React.R
 export default function SettingsPage() {
   const hydrated = useHydrated();
   const creator = useCreatorMode();
+  const paid = useStore(paidStore);
+  const nowMs = useNow().getTime();
   const settings = useSettings();
   const t = useT();
   const menu = useMenu();
@@ -250,11 +252,14 @@ export default function SettingsPage() {
         <ShopPicker value={settings.shops ?? []} onChange={(shops) => updateSettings({ shops: shops.length ? shops : undefined })} />
       </Section>
 
-      {PRO_ENABLED && (
+      {GATING_ENABLED && (
         <Section title={t("Subscription")}>
           <Card className="p-4">
-            <p className="text-[1.0625rem] font-bold">{isPro(settings) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
-            {!PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
+            <p className="text-[1.0625rem] font-bold">{isPro(settings, paid, nowMs) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
+            {paid.until && paid.until > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
+            {!paid.until && paid.unlockUntil && paid.unlockUntil > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}
+            {WEB_PRO_ENABLED ? <Link href="/app/pro" className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{t("See plans")}</Link>
+              : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
           </Card>
         </Section>
       )}
@@ -309,7 +314,7 @@ export default function SettingsPage() {
       {DEV_TOOLS_ENABLED && (
         <Section title={t("Testing tools")}>
           <Card className="space-y-2 p-3">
-            {PRO_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
+            {GATING_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
             <Button variant="secondary" full onClick={() => updateSettings({ hasCompletedOnboarding: false })}>{t("Reset onboarding")}</Button>
             <Button variant="secondary" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
           </Card>

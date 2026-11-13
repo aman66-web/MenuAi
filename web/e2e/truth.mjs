@@ -162,7 +162,7 @@ await step("Settings has the Filming mode switch, and it works", async () => {
   const label = page.locator("label", { hasText: "Shows the Truth and Swap cards" });
   await label.click();
   expect((await page.locator("html").getAttribute("data-creator")) !== null, "not on");
-  expect(await page.getByRole("switch").last().isChecked(), "the switch does not show on");
+  expect(await label.locator("input[role=switch]").isChecked(), "the switch does not show on");
   await label.click();
   expect((await page.locator("html").getAttribute("data-creator")) === null, "not off");
   await ctx.close();

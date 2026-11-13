@@ -56,6 +56,9 @@ export const IAP_ENABLED = process.env.NEXT_PUBLIC_IAP === "1" && APP_BUILD;
 
 /** Paid access exists on this build, by either route. */
 export const PAID_ACCESS_ENABLED = WEB_PRO_ENABLED || IAP_ENABLED;
+
+/** Free and paid are told apart on this build: the older Pro machinery (test builds, NEXT_PUBLIC_PRO=1) or real paid access. False = every feature is open to everyone (the free launch). */
+export const GATING_ENABLED = PRO_ENABLED || PAID_ACCESS_ENABLED;
 /** Where the app build reaches the live website for newer data and the API: absolute, no trailing slash. Empty on the website itself. */
 export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "").replace(/\/$/, "") : "";
 
