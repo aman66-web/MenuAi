@@ -245,7 +245,7 @@ export default function Privacy() {
         {WEB_PRO_ENABLED && (
           <p className={para}>
             On your device we keep a small signed token that says your access runs until a date (it holds no name or email), the 48-hour unlock if you shared, and, if you have no paid access, which dishes&apos; Truth cards you opened today. A creator code from a link
-            is kept for the browser tab&apos;s session only. Clearing the site&apos;s data removes all of this; sign in with the email you paid with to get your access back.
+            is held in the page&apos;s memory only, not saved on your device, and is sent only if you start a payment in that same visit. Clearing the site&apos;s data removes all of this; sign in with the email you paid with to get your access back.
           </p>
         )}
       </Section>

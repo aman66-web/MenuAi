@@ -91,7 +91,10 @@ await step("the plans: three cards with the prices and badges, Pay buttons 48 px
 await step("Pay sends the plan (and a creator code from ?ref=), goes to Stripe, comes back, and the signed token makes the device paid", async () => {
   const { ctx, page, calls } = await open();
   await page.goto(BASE + "/app?ref=Anna_B");
-  await page.goto(BASE + "/app/pro");
+  // the code is held in memory only: reach the plans by tapping links inside the app (no reload), as a visitor would
+  await page.getByRole("link", { name: "Settings", exact: true }).first().click();
+  await page.getByRole("link", { name: "See plans" }).click();
+  await page.waitForURL(/\/app\/pro$/, { timeout: 30000 });
   await page.getByRole("button", { name: "Pay £9.99" }).click();
   await page.waitForURL(/\/app\/pro\/thanks\?session_id=cs_test_abc12345/, { timeout: 30000 });
   await page.getByText("You have Founding Member 90-Day Pass.", { exact: false }).waitFor({ timeout: 30000 });
@@ -104,6 +107,23 @@ await step("Pay sends the plan (and a creator code from ?ref=), goes to Stripe, 
   for (const d of DISHES) { await seeTruth(page, d); await page.getByRole("dialog").getByRole("heading", { level: 3, name: "Calories" }).waitFor(); await page.getByRole("button", { name: "Close" }).click(); } // four dishes, no paywall
   await page.goto(BASE + "/app/settings");
   await page.getByText("Pro", { exact: true }).first().waitFor();
+  await ctx.close();
+});
+
+await step("the creator code is never stored, and a reload forgets it", async () => {
+  const { ctx, page, calls } = await open();
+  await page.goto(BASE + "/app?ref=Anna_B");
+  await page.waitForFunction(() => !location.search.includes("ref="), null, { timeout: 15000 }); // the code is taken out of the address at once (the tab memory and history would otherwise keep it)
+  await page.getByRole("link", { name: "Settings", exact: true }).first().click();
+  await page.waitForURL(/\/app\/settings$/, { timeout: 30000 });
+  const stored = await page.evaluate(() => JSON.stringify([Object.entries(localStorage), Object.entries(sessionStorage), document.cookie]));
+  expect(!/anna_b/i.test(stored), "the creator code was written to storage or a cookie: " + stored.slice(0, 200));
+  expect(!page.url().includes("ref="), "the address still carries ?ref=: " + page.url());
+  await page.reload();
+  await page.getByRole("link", { name: "See plans" }).click();
+  await page.getByRole("button", { name: "Pay £9.99" }).click();
+  await page.waitForURL(/thanks/, { timeout: 30000 });
+  expect(JSON.stringify(calls.find((c) => c.path === "checkout").body) === JSON.stringify({ plan: "pass90" }), "after a reload the request still carried a code: " + JSON.stringify(calls[0].body));
   await ctx.close();
 });
 

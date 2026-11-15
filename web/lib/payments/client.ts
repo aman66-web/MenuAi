@@ -4,7 +4,7 @@
 
 import { forgetPaidToken, keepPaidToken, paidStore } from "../mm/stores";
 import type { PlanId } from "./plans";
-import { cleanRef } from "./plans";
+import { currentRef } from "./ref";
 import { verifyToken } from "./token";
 
 /** True in the iPhone app's copy. The app never starts a payment on our own website (App Store rule 3.1.1: purchases there go through Apple), so the two functions that talk to
@@ -36,26 +36,9 @@ export async function recheckStoredToken(nowMs: number = Date.now()): Promise<vo
   if (token && !(await acceptToken(token, nowMs))) forgetPaidToken();
 }
 
-// ---- the creator code (?ref=): kept for this browser tab's session only, so the creator can be credited if the visitor buys in the same visit
+// ---- the creator code (?ref=): held in memory only, see lib/payments/ref.ts
 
-const REF_KEY = "mm.ref";
-
-export function captureRef(search: string): void {
-  try {
-    const ref = cleanRef(new URLSearchParams(search).get("ref"));
-    if (ref) sessionStorage.setItem(REF_KEY, ref);
-  } catch {
-    // storage blocked: no creator credit, nothing else changes
-  }
-}
-
-export function currentRef(): string | null {
-  try {
-    return cleanRef(sessionStorage.getItem(REF_KEY));
-  } catch {
-    return null;
-  }
-}
+export { captureRef, currentRef, forgetRef } from "./ref";
 
 // ---- calls to our own API
 

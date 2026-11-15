@@ -9,7 +9,7 @@ import { BackLink, TITLE } from "../groceries/PageBits";
 import { ProPlans } from "../_components/ProPlans";
 import { CheckIcon } from "../_components/icons";
 import { useT } from "../_lib/i18n";
-import { captureRef } from "@/lib/payments/client";
+import { captureRefFromLocation } from "@/lib/payments/ref";
 
 // The pricing screen (website only; with paid access off it forwards to the app, shows no words and the iPhone app's copy never mentions it).
 function Pricing() {
@@ -18,7 +18,7 @@ function Pricing() {
   const cancelled = useSearchParams().get("cancelled") === "1";
   useEffect(() => {
     if (!WEB_PRO_ENABLED) router.replace("/app");
-    else captureRef(window.location.search);
+    else captureRefFromLocation();
   }, [router]);
   if (!WEB_PRO_ENABLED) return null;
   return (

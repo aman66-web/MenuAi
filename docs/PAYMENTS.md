@@ -22,7 +22,7 @@ up to 3 saved orders. Logging and the order builder stay free. **Paid:** the res
 3. Stripe also calls `POST /api/v1/webhook/stripe` (signature checked against the raw body, 5-minute window). It creates the same record (so it never matters which arrives first), extends renewals (`invoice.paid`), notes cancellations (`customer.subscription.deleted`: what was paid for stays until its end date) and ends access on a full refund (`charge.refunded`).
 4. The device keeps the token (`mm.v1.paid`), checks it with the public key (works offline) and treats the device as paid until its end date.
 5. **Another device:** sign in with the same email address → Settings › Subscription, or the plans screen › "Restore my access" (`GET /api/v1/entitlement/me`).
-6. **Creator links:** `?ref=anna` on any page is kept for that browser tab's session only and goes into the Stripe payment's metadata and our `pro_entitlements.ref`. The report is the `creator_sales` view. **Stripe cannot pay creators automatically**: you pay them by hand from that report.
+6. **Creator links:** `?ref=anna` on a page is held **in memory only** (nothing is stored on the device, so no consent banner is needed; founder 14 Nov 2026): it survives moving around the app but not a reload, and is sent only with the person's own Checkout request. A creator's link should therefore point straight at the app (`https://numbite.com/app?ref=anna`). It goes into the Stripe payment's metadata and our `pro_entitlements.ref`. The report is the `creator_sales` view. **Stripe cannot pay creators automatically**: you pay them by hand from that report.
 
 Code: `web/lib/payments/*` (pure, 27 tests in `tests/payments.test.ts`), `web/lib/mm/paid.ts`, `web/app/api/v1/{checkout,entitlement,webhook/stripe}`, `web/app/app/pro/*`, `web/app/app/_components/ProPlans.tsx`.
 
@@ -34,7 +34,7 @@ Code: `web/lib/payments/*` (pure, 27 tests in `tests/payments.test.ts`), `web/li
 4. **Webhook**: Developers › Webhooks › add endpoint `https://numbite.com/api/v1/webhook/stripe`, events `checkout.session.completed`, `invoice.paid`, `customer.subscription.deleted`, `charge.refunded`. Copy the signing secret `whsec_…`.
 5. **Keys**: run `node tools/payments/make_entitlement_key.mjs` on your own computer. Put the values in Vercel (Production and Preview): `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_PASS90`, `STRIPE_PRICE_ANNUAL`, `STRIPE_PRICE_MONTHLY`, `ENTITLEMENT_PRIVATE_JWK`, `NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK`. Never paste a key into a chat.
 6. **Database**: read `supabase/migrations/20261113120000_pro_entitlements.sql` (it only creates one table and one view), run it in the Supabase SQL Editor (never `supabase db push`). Until then the routes fail safely.
-7. **Legal check** (before the first real sale): the wording in Terms › "Paid access on the website" and Stripe's consent line (`CHECKOUT_CONSENT` in `web/lib/payments/stripe.ts`) is a **draft** for the UK 14-day digital-content rule and renewal terms; have it confirmed. Also decide whether the creator-code storage (browser tab only) needs a consent banner under PECR, and tell me.
+7. **Legal check** (before the first real sale): the wording in Terms › "Paid access on the website" and Stripe's consent line (`CHECKOUT_CONSENT` in `web/lib/payments/stripe.ts`) is a **draft** for the UK 14-day digital-content rule and renewal terms; have it confirmed. (The creator code is held in memory only, so there is no PECR question there.)
 8. **Test in Stripe test mode** with card `4242 4242 4242 4242`: pay each plan, confirm access appears, then `Refund` and confirm it ends. Then set `NEXT_PUBLIC_WEB_PRO=1` in Vercel and redeploy.
 9. **Go live**: swap in live-mode keys and Price ids, add the live webhook, redeploy.
 
@@ -44,6 +44,6 @@ App Store guideline 3.1.1: digital features in the app must be bought with In-Ap
 
 ## Not decided (yours)
 
-- Whether to show a cookie/consent banner for the creator code.
+- ~~Whether to show a cookie/consent banner for the creator code.~~ Decided 14 Nov 2026: no storage, so no banner.
 - How long payment records are kept (drafted as: while access lasts plus six years, for accounting).
 - Whether a refund should also end an Annual/Monthly subscription in Stripe automatically (today: you cancel it in Stripe).

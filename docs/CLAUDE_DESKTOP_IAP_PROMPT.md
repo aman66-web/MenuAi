@@ -1,8 +1,8 @@
 # Claude desktop: add Apple In-App Purchase to Numbite (paste everything below the line)
 
-HOW TO USE: this is for AFTER the website payments (docs/PAYMENTS.md) work in Stripe's test mode and after version 1.0 is approved. On your Mac, open a NEW chat in Claude desktop with
-access to your Mac turned on, signed in to App Store Connect and Xcode. Paste EVERYTHING below the line. It builds the Swift purchase code, writes the server route and tests it in the
-simulator with a StoreKit test file. It stops and asks you before anything that costs money, touches App Store Connect or uploads a build.
+HOW TO USE: version 1.0 of the app is live and the website payments are merged on `main` (docs/PAYMENTS.md, docs/PAID_ACCESS_GO_LIVE.md). Run this AFTER the website payments have worked in Stripe's test mode (block 2 of the go-live checklist).
+You first need the **Paid Apps agreement, banking and tax** done in App Store Connect (only you can). On your Mac, open a NEW chat in Claude desktop with access to your Mac turned on, signed in to App Store Connect and Xcode. Paste EVERYTHING below the line.
+It builds the Swift purchase code, writes the server route and tests it in the simulator with a StoreKit test file. It stops and asks you before anything that costs money, touches App Store Connect or uploads a build. The result is app version 1.1 with a new build number and a new App Review.
 
 --------------------------------------------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@ Numbite sold with Apple In-App Purchase (App Store guideline 3.1.1 forbids selli
 BACKGROUND
 - Numbite is a free UK calories/protein app: the web app in web/ (Next.js, TypeScript) packed inside a SwiftUI WKWebView app. Repo folder MenuAi on this Mac (GitHub aman66-web/MenuAi). Xcode project
   MenuMacros.xcodeproj, scheme MenuMacros, bundle ID com.amanmarwaha.MenuMacros, team S7G6ZHHK59. Read CLAUDE.md first (the non-negotiable rules), then docs/PAYMENTS.md, docs/APP_BUILD.md and
-  web/lib/payments/ and web/lib/mm/paid.ts. The branch to start from is `viral-upgrade` (or `main` once it has been merged).
+  web/lib/payments/ and web/lib/mm/paid.ts. The branch to start from is `main` (`git pull` first).
 - The website side is built and OFF: three plans (90-day pass GBP 9.99 once; Annual GBP 14.99; Monthly GBP 2.99), a signed ES256 access token that carries no personal data (web/lib/payments/token.ts),
   `GET /api/v1/entitlement/me` that returns a token for a signed-in person, a table `pro_entitlements` that already has `source = 'apple'`, `apple_original_transaction_id` and `user_id` columns.
 - The web layer decides what is free or paid from the token on the device (`paidStore`, web/lib/mm/stores.ts). In the iPhone app the web layer must NOT show the Stripe page: `NEXT_PUBLIC_IAP=1` and
