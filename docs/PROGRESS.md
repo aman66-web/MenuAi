@@ -2215,6 +2215,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Not verified by anyone yet:** a real Stripe test payment, Apple Pay on an iPhone, the new screens in Safari/WebKit, VoiceOver, the packed app with the new code.
   - The 31 October entry above (build 4 resubmitted) was on a local branch only until today.
 
+- 2026-11-15 (later) — **Heavy work goes to the cloud session; the Mac only does Mac-only work** (founder: "my application keeps running out of memory ... assign as much as possible to the cloud session so that my computer can run").
+  The Mac has 16 GB; before a restart its swap file had grown to 13 GB; after it, memory is fine (80% free) and the Claude app with its background processes is the biggest user (about 3.3 GB).
+  - **Sent to the cloud session "menu ai"** (one message; delivery isn't confirmed, so check `git fetch` for the branches): **Part A, branch `release-1-0-1` from `main`:** build number 5 (marketing version left for the Mac to confirm
+    against App Store Connect), the full set of checks on production builds incl. the packed-export checks (no Stripe or payment wording in the app, Apple 3.1.1), an App Review audit of the new Truth, Swap, Quick answers and Cheapest protein screens against
+    Guideline 1.4.1 (sources visible in the app: the rule that rejected build 3), a try at Playwright WebKit, and a draft of the next version's "What's New" (`docs/STORE_NEXT_VERSION_DRAFT.md`). **Part B, branch `improvement-pass-merge`:** merge `main` into
+    `claude/menumacros-kit`, fix the open review findings except 6 and 7 (they need the founder's answer), run the same checks. Results go in `docs/CLOUD_REPORT_2026-11-15.md` and `docs/IMPROVEMENT_PASS_REPORT.md` on those branches. It was told: branches only, never push to `main`,
+    no database, Stripe, Vercel, DNS or secrets, no new dependencies, and not to edit this file.
+  - **Stays on the Mac:** packing `WebApp.bundle`, the Xcode build, archive and upload, the Simulator (its runtime was deleted on 3 Nov to free 8 GB, so it must be downloaded again from Xcode > Settings > Components, or a real iPhone used), Claude in Chrome tasks
+    (App Store Connect, Supabase, Stripe, Vercel) and anything the founder types. One heavy thing at a time.
+  - **Waiting on the founder:** the Stripe account name, pasting the Supabase SQL, which release order (1.0.1 with the new screens first, In-App Purchase later), findings 6 and 7 of the improvement pass.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
