@@ -2226,6 +2226,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     (App Store Connect, Supabase, Stripe, Vercel) and anything the founder types. One heavy thing at a time.
   - **Waiting on the founder:** the Stripe account name, pasting the Supabase SQL, which release order (1.0.1 with the new screens first, In-App Purchase later), findings 6 and 7 of the improvement pass.
 
+- 2026-11-15 (later still) — **Founder's answer: "Viral screens first"; Numbite 1.0 is live.** (1) **Next iPhone release = 1.0.1 with the free viral screens only** (Truth card, Smart Swap, Quick answers, Cheapest protein, no welcome gate, sharing);
+  **Apple In-App Purchase is a later 1.1**; the improvement pass is not part of 1.0.1 (it stays on its own branch until the founder decides). (2) **Checked on the public store lookup (15 Nov):** "Numbite: Calories & Protein" **1.0 is live on the UK App Store, released 12 November 2026**
+  (iOS 17.0 and later, `https://apps.apple.com/gb/app/numbite-calories-protein/id6822767746`). Because 1.0 is live, a new App Store version record is needed and the build's version string must match it: `MARKETING_VERSION` becomes **1.0.1** with build number **5** (the cloud session was told).
+  (3) **`NEXT_PUBLIC_APP_STORE_URL` does not seem to be set yet:** the shared-list page (`/l`) on numbite.com carries no App Store address, so a friend without the app still sees "coming soon". Setting it is a Vercel environment-variable change plus a redeploy (the founder's go-ahead is needed;
+  best folded into the next push to `main`, since each push costs a Production build). (4) The iPhone 16 showed "unavailable" to Xcode (not plugged in or awake), and the iOS Simulator runtime was deleted on 3 Nov, so the packed app with the new code needs either the phone plugged in or the 8 GB Simulator download.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -2252,7 +2258,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] **Paid access (built, off): follow docs/PAID_ACCESS_GO_LIVE.md (blocks 1–6; the long version is docs/PAYMENTS.md steps 1–9)** (Stripe account in test mode, three GBP Prices, webhook, the key pair from `tools/payments/make_entitlement_key.mjs`, the Vercel variables, the Supabase migration `20261113120000_pro_entitlements.sql`, then `NEXT_PUBLIC_WEB_PRO=1`); give Claude the seller's company details for Terms/Privacy and decide whether a solicitor reads the wording first (docs/LEGAL_REVIEW_PACK.md); the creator-code question is decided (memory only, no banner)
 - [ ] **Apple In-App Purchase** (after 1.0 is approved): Paid Apps agreement, banking and tax, then paste `docs/CLAUDE_DESKTOP_IAP_PROMPT.md` into Claude desktop on the Mac (needs the three products; it stops before spending or uploading anything)
 - [x] **Merge decision for `viral-upgrade`**: merged and live by 15 November (`main` = `viral-upgrade`, payments off)
-- [ ] **Decide the next iPhone release:** 1.0.1 with the viral screens first (free) and In-App Purchase later as 1.1, or both in one release
+- [x] **Decide the next iPhone release:** decided 15 Nov: 1.0.1 with the viral screens first (free), In-App Purchase later as 1.1
+- [ ] **Set `NEXT_PUBLIC_APP_STORE_URL`** in Vercel to the App Store address (1.0 is live) and redeploy; shared-list and friend-invite pages then offer the App Store button
 - [ ] **Choose the Stripe account** and write its exact name into `STRIPE_ACCOUNT` at the top of docs/CHROME_PROMPT_PAID_ACCESS.md before pasting it
 - [ ] hello@numbite.com mailbox: follow docs/MAILBOX_SETUP.md (free forwarding to Hotmail; you add the records in Vercel), then Claude changes `NEXT_PUBLIC_SUPPORT_EMAIL` and redeploys
 - [ ] Real bundle ID prefix, Team, App Group ID in Xcode signing and `AppConfig.swift`
