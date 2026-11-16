@@ -8,7 +8,7 @@ import {
 import { SYNC_STORES } from "../lib/mm/syncMerge";
 import { PANTRY } from "../lib/mm/pantry";
 import { RECIPES } from "../lib/mm/recipeBook";
-import { recipeForDiet, scaleSpec } from "../lib/mm/recipes";
+import { recipeForDiet, scaleSpec, subSpec } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 
 const products = decodeShopProducts(JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")));
@@ -179,10 +179,21 @@ describe("what the cupboard makes", () => {
     const best = matches[0]!;
     const uses = (m: typeof best, key: string) => m.recipe.ingredients.some((i) => i.pantry === key);
     expect(uses(best, "chicken") && uses(best, "rice")).toBe(true);
-    // an onion-only cupboard still finds recipes, scored lower than one with the meat and the rice
-    const onion = recipesForCupboard([kind("onion", { level: "plenty" })], {}, products, SHOP).matches;
-    expect(onion.length).toBeGreaterThan(0);
-    expect(onion[0]!.score).toBeLessThan(best.score);
+    // an onion-only cupboard still finds recipes
+    expect(recipesForCupboard([kind("onion", { level: "plenty" })], {}, products, SHOP).matches.length).toBeGreaterThan(0);
+  });
+
+  it("uses what you have: with chicken, rice and eggs the best match puts at least two of them to use, not a two-ingredient recipe that uses one", () => {
+    const { matches } = recipesForCupboard(["chicken", "rice", "eggs"].map((k) => kind(k, { level: "plenty" })), {}, products, SHOP);
+    const used = (m: (typeof matches)[number]) => new Set(m.recipe.ingredients.filter((_, i) => m.have.includes(i)).map((i) => i.pantry!)).size;
+    expect(used(matches[0]!)).toBeGreaterThanOrEqual(2);
+    // a recipe that uses all three outranks one that uses only one of them, however few ingredients that one has
+    const all3 = matches.filter((m) => used(m) === 3);
+    const one = matches.filter((m) => used(m) === 1);
+    if (all3.length && one.length) expect(matches.indexOf(all3[0]!)).toBeLessThan(matches.indexOf(one[0]!));
+    // and the same cupboard with a staple added ranks the same: staples never count either way
+    const withSalt = recipesForCupboard([...["chicken", "rice", "eggs"].map((k) => kind(k, { level: "plenty" })), kind("salt", { level: "plenty" })], {}, products, SHOP).matches;
+    expect(withSalt.map((m) => m.recipe.id)).toEqual(matches.map((m) => m.recipe.id));
   });
 
   it("every ingredient is exactly one of have, short, swap, missing or store cupboard; the counts add up", () => {
@@ -256,6 +267,21 @@ describe("what the cupboard makes", () => {
     expect(toBuy(m)).not.toContain(beans);
     expect(matchSubs(m)).toEqual({ [chilli.ingredients[beans]!.key]: "chickpeas" });
     expect(recipeHref(m, SHOP)).toBe(`/app/recipes/view?id=${chilli.id}&r=${SHOP}&n=${m.servings}&w=1&s=${chilli.ingredients[beans]!.key}:chickpeas`);
+    // a substitute counts only when there is enough of it for the people shown: a pinch of chickpeas doesn't stand in for the kidney beans
+    const beanSpec = chilli.ingredients[beans]!;
+    const pinch = matchRecipe([kind("chickpeas", { level: undefined, qty: 5 }), kind("rice", { level: "plenty" })], chilli, products, SHOP, new Set());
+    if (pinch) {
+      expect(pinch.ingredients[beans]!.state).toBe("missing");
+      expect(pinch.swaps).toEqual([]);
+      expect(toBuy(pinch)).toContain(beans);
+    }
+    const sub = beanSpec.subs!.find((s) => s.key === "chickpeas")!;
+    const subAmount = (people: number) => scaleSpec(subSpec(beanSpec, sub)!, people, chilli.servings).amount;
+    const withChickpeas = (qty: number) => matchRecipe([kind("chickpeas", { level: undefined, qty }), kind("rice", { level: "plenty" })], chilli, products, SHOP, new Set())!;
+    // beans are a minor ingredient: too few don't shrink the dish, so the recipe stays at its people and the beans stay to buy; enough for all of them is a swap
+    expect(beanSpec.role).toBe("other");
+    expect(withChickpeas(subAmount(chilli.servings - 1)).ingredients[beans]!.state).toBe("missing");
+    expect(withChickpeas(subAmount(chilli.servings)).ingredients[beans]!.state).toBe("swap");
     // the exact kind wins over a substitute, and a substitute never takes what another ingredient needs
     const both = matchRecipe([kind("chickpeas", { level: "plenty" }), kind("kidney-beans", { level: "plenty" })], chilli, products, SHOP, new Set())!;
     expect(both.swaps).toEqual([]);

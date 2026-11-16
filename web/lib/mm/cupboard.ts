@@ -39,7 +39,7 @@ export interface CupboardIngredient {
   /** Index in the recipe's ingredients. */
   index: number;
   /** have: in the cupboard, enough for the servings shown. short: in the cupboard, but not quite enough. swap: a substitute for it is in the cupboard.
-   *  missing: to buy. staple: a store-cupboard kind (salt, oil, spices), counted neither way. */
+   *  missing: to buy (also a substitute in the cupboard that is not enough for the people shown). staple: a store-cupboard kind (salt, oil, spices), counted neither way. */
   state: CoverState;
   /** swap: the substitute's pantry kind (the recipe page's "Use something else instead"). */
   sub?: string;
@@ -51,7 +51,8 @@ export interface CupboardMatch {
   recipe: Recipe;
   /** How many people the cupboard's amounts allow, as the recipe page's − and + count them (never more than the recipe is written for). */
   servings: number;
-  /** 0 to 1: how much of the recipe the cupboard covers, main ingredients (protein and carbs) counting most. */
+  /** 0 to 1: half how much of the recipe the cupboard covers and half how much of the cupboard the recipe uses, main ingredients (protein and carbs) counting most
+   *  in both, so a two-ingredient recipe that uses one thing doesn't beat one that uses most of what you have. */
   score: number;
   ingredients: CupboardIngredient[];
   have: number[];
@@ -124,8 +125,10 @@ export function matchRecipe(
     if (spec.cupboard) return { index, state: "staple", ticked: !!spec.pantry && staples.has(spec.pantry) };
     const f = found[index];
     if (!f) return { index, state: "missing" };
-    if (f.sub) return { index, state: "swap", sub: f.sub.key };
-    return { index, state: allowed(index) >= servings ? "have" : "short" };
+    const enough = allowed(index) >= servings;
+    // a substitute counts only when there is enough of it for the people shown: otherwise the recipe's own ingredient is still to buy
+    if (f.sub) return enough ? { index, state: "swap", sub: f.sub.key } : { index, state: "missing" };
+    return { index, state: enough ? "have" : "short" };
   });
 
   const real = ingredients.filter((x) => x.state !== "staple");
@@ -137,11 +140,21 @@ export function matchRecipe(
     all += w;
     got += w * CREDIT[x.state];
   }
+  // how much of the cupboard the recipe uses: the weight of each item it puts to use (a swap too), over the weight of everything in the cupboard (staples aside)
+  const itemWeight = (it: CupboardItem) => WEIGHT[kindOf(it)?.role ?? "other"];
+  const inUse = new Set(ingredients.filter((x) => x.state === "have" || x.state === "short" || x.state === "swap").map((x) => found[x.index]!.item.id));
+  let cupboardAll = 0;
+  let cupboardUsed = 0;
+  for (const it of items) {
+    if (isStaple(kindOf(it))) continue;
+    cupboardAll += itemWeight(it);
+    if (inUse.has(it.id)) cupboardUsed += itemWeight(it);
+  }
   const index = (s: CoverState) => ingredients.filter((x) => x.state === s).map((x) => x.index);
   return {
     recipe,
     servings,
-    score: all ? got / all : 0,
+    score: 0.5 * (all ? got / all : 0) + 0.5 * (cupboardAll ? cupboardUsed / cupboardAll : 0),
     ingredients,
     have: index("have"),
     short: index("short"),
