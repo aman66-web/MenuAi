@@ -38,7 +38,7 @@ export function shareMessage(i: ShareInput): string {
 export const whatsappUrl = (message: string): string => `https://wa.me/?text=${encodeURIComponent(message)}`;
 
 /** The footer on the saved image card. Plain words, no logo, no photo (CLAUDE.md rule 2). */
-export const IMAGE_CARD_FOOTER = "Official UK menu figures • numbite.com";
+export const IMAGE_CARD_FOOTER = "Figures from each restaurant's own guide • numbite.com";
 export const IMAGE_CARD_SIZE = { width: 1080, height: 1350 } as const;
 
 /** A file name for the saved image: lower-case words and dashes only. */

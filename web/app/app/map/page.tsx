@@ -315,7 +315,7 @@ export default function NearbyPage() {
                       </div>
                     </div>
                     <div className={`mt-3.5 ${ACTIONS}`}>
-                      <Link href={chainHref(chain.id)} className={ACTION_SOFT}><ForkIcon /><span>{t("Menu")}</span></Link>
+                      <Link href={chainHref(chain.id)} prefetch={false} className={ACTION_SOFT}><ForkIcon /><span>{t("Menu")}</span></Link>
                       <button type="button" className={ACTION_SOFT} onClick={() => { setSelectedId(id); document.querySelector("[data-nearby-map]")?.scrollIntoView({ block: "center", behavior: "smooth" }); }}><PinIcon /><span>{t("Show on map")}</span></button>
                       <a href={directionsUrl(g.nearest)} target="_blank" rel="noopener noreferrer" className={ACTION_SOFT}><DirectionsIcon /><span>{t("Directions")}<span className="sr-only"> {t("to the nearest {name} (opens in a new tab)", { name: chain.name })}</span></span></a>
                     </div>

@@ -54,7 +54,7 @@ export function SelectedCard({ branch, chain, variant, replaceHistory = false }:
         </div>
       </div>
       <div className={`mt-3.5 ${ACTIONS}`}>
-        <Link href={chainHref(chain.id)} replace={replaceHistory} className={ACTION_MAIN}><ForkIcon /><span>{t("Menu")}</span></Link>
+        <Link href={chainHref(chain.id)} replace={replaceHistory} prefetch={false} className={ACTION_MAIN}><ForkIcon /><span>{t("Menu")}</span></Link>
         <a href={directionsUrl(branch)} target="_blank" rel="noopener noreferrer" className={ACTION_SOFT}><DirectionsIcon /><span>{t("Directions")}<span className="sr-only"> {t("(opens in a new tab)")}</span></span></a>
       </div>
     </div>

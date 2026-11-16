@@ -1,6 +1,6 @@
 # Numbite 1.0.1 (build 5): App Store text, draft
 
-**Draft for the founder to approve (CLAUDE.md rule 8). Nothing here is in App Store Connect yet, and `docs/STORE.md` is unchanged.**
+**Approved by the founder on 16 November 2026 ("Approve all"). Copied into `docs/STORE.md`.**
 Written 16 November 2026 by a cloud session for release 1.0.1 (branch `release-1-0-1-b`): the free "viral upgrade" screens only, no payments.
 
 Rules followed: no payment, subscription or "Pro" wording (this version has no in-app purchases); no health claims and no "good", "bad" or "healthy";
