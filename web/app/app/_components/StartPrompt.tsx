@@ -9,6 +9,7 @@ import type { Goal, Preferences } from "@/lib/mm/types";
 import { useT } from "../_lib/i18n";
 import { useHydrated, useSettings } from "../_lib/hooks";
 import { DietPicker, PickTile } from "./DietPicker";
+import { SourcesLink } from "./SourcesLink";
 import { Button, Card, Sheet } from "./ui";
 
 // Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire any more. A first visit goes straight to
@@ -48,6 +49,9 @@ export function StartPrompt({ className = "" }: { className?: string }) {
         <div>
           <h2 className="text-xl font-extrabold leading-snug tracking-tight">{t("Make {app} fit you", { app: site.name })}</h2>
           <p className="mt-1.5 text-base leading-snug">{t("Choose your goal and what you avoid. It takes a minute and you can change it any time.")}</p>
+          {/* App Review 1.4.1: a first visit now lands on Home with the default targets above this card, so their sources are one tap away here too
+              (the same sheet as Settings > Daily targets). */}
+          <SourcesLink className="mt-1" />
         </div>
         <div className="flex flex-wrap gap-2.5">
           <Button size="lg" aria-haspopup="dialog" onClick={() => { setGoal(settings.goal); setPrefs(settings.preferences); setOpen(true); }}>{t("Set up")}</Button>
@@ -64,7 +68,12 @@ export function StartPrompt({ className = "" }: { className?: string }) {
             </PickTile>
           ))}
         </div>
-        {goal === "glp1" && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
+        {goal === "glp1" && (
+          <>
+            <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t(GLP1_NOTE, { app: site.name })}</p>
+            <SourcesLink />
+          </>
+        )}
         <p className="mb-2 mt-6 text-base font-bold">{t("Anything you avoid?")}</p>
         <DietPicker value={prefs} onChange={setPrefs} />
         <div className="mt-5">
