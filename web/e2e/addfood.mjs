@@ -85,7 +85,7 @@ await step("type in your numbers: calories are needed, a wrong box is named, the
   expect(!(await add.isDisabled()), "Add is off with good numbers");
   await add.tap();
   await sheetTitle(page, "Type in your numbers").waitFor({ state: "hidden" });
-  await page.getByText("Added “Toast and jam” to Dinner.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “Toast and jam” to Dinner." }).waitFor();
   const [e] = await log(page);
   expect(e && e.meal === "dinner" && e.source === "custom" && e.name === "Toast and jam", "entry: " + JSON.stringify(e));
   expect(e.nutrients.calories === 250 && e.nutrients.protein === 12 && !("carbs" in e.nutrients) && !("fat" in e.nutrients), "numbers: " + JSON.stringify(e.nutrients));
@@ -107,7 +107,7 @@ await step("an entry stays in the meal whose + was tapped, whatever the time, on
     await page.getByLabel("Name (optional)").fill(name);
     await page.getByLabel("Calories (kcal)").fill(cals);
     await dlg(page).getByRole("button", { name: `Add to ${meal}`, exact: true }).tap();
-    await page.getByText(`Added “${name}” to ${meal}.`).waitFor();
+    await page.getByRole("status").filter({ hasText: `Added “${name}” to ${meal}.` }).waitFor();
   }
   await page.getByText("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.").waitFor(); // never "0g" as if it were known
   for (const [meal, cals] of [["Breakfast", "111"], ["Lunch", "222"], ["Dinner", "333"]]) {
@@ -259,7 +259,7 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   await choose(page, "Choose a restaurant meal");
   await dlg(page).getByText("My usual", { exact: true }).first().waitFor();
   await dlg(page).getByRole("button", { name: "Add My usual" }).tap();
-  await page.getByText("Added “My usual” to Dinner.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “My usual” to Dinner." }).waitFor();
   const entries = await log(page);
   const s = entries.find((x) => x.name === "My usual");
   expect(s && s.source === "savedOrder" && s.chainName === "KFC" && s.nutrients.calories === 600 && s.meal === "dinner", "saved meal entry: " + JSON.stringify(s));
@@ -314,7 +314,7 @@ await step("Recently added: hidden with nothing logged; then the last things log
   await page.getByLabel("Calories (kcal)").fill("250");
   await page.getByLabel("Protein (g)").fill("7");
   await dlg(page).getByRole("button", { name: "Add to Dinner", exact: true }).tap();
-  await page.getByText("Added “Toast and jam” to Dinner.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “Toast and jam” to Dinner." }).waitFor();
   // on another meal: both, newest first
   await openMeal(page, "Breakfast");
   const section = dlg(page).locator("section", { has: page.getByRole("heading", { name: "Recently added", exact: true }) });
@@ -327,7 +327,7 @@ await step("Recently added: hidden with nothing logged; then the last things log
   await dlg(page).getByRole("button", { name: /Type in your numbers/ }).waitFor();
   await section.getByRole("button", { name: "Add Twister Wrap" }).tap();
   await sheetTitle(page, "Add to Breakfast").waitFor({ state: "hidden" });
-  await page.getByText("Added “Twister Wrap” to Breakfast.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “Twister Wrap” to Breakfast." }).waitFor();
   const entries = await log(page);
   const copy = entries.find((e) => e.name === "Twister Wrap" && e.id !== "seed-1");
   expect(copy && copy.meal === "breakfast" && copy.source === "item" && copy.chainId === "kfc" && copy.chainName === "KFC", "the copy: " + JSON.stringify(copy));
@@ -340,7 +340,7 @@ await step("Recently added: hidden with nothing logged; then the last things log
   const rows2 = dlg(page).locator("section", { has: page.getByRole("heading", { name: "Recently added", exact: true }) }).getByRole("listitem");
   expect((await rows2.count()) === 2, "the same thing is listed twice: " + (await rows2.allInnerTexts()).join(" | "));
   await dlg(page).getByRole("button", { name: "Add Toast and jam" }).tap();
-  await page.getByText("Added “Toast and jam” to Lunch.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “Toast and jam” to Lunch." }).waitFor();
   const toast = (await log(page)).filter((e) => e.name === "Toast and jam");
   expect(toast.length === 2 && toast[1].meal === "lunch" && toast[1].source === "custom" && JSON.stringify(toast[1].nutrients) === JSON.stringify({ calories: 250, protein: 7 }), "the typed copy: " + JSON.stringify(toast));
   // Undo takes the copy back
@@ -419,7 +419,7 @@ await step("a drink is asked for in millilitres; a nameless entry is called \"My
   await page.getByLabel("Calories (kcal)").fill("100");
   const add = dlg(page).getByRole("button", { name: "Add to Lunch", exact: true });
   await add.tap();
-  await page.getByText("Added “My own numbers” to Lunch.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “My own numbers” to Lunch." }).waitFor();
   expect((await log(page)).length === 1, "one tap added " + (await log(page)).length);
   expect((await log(page))[0].name === "My own numbers", "the fallback name: " + (await log(page))[0].name);
   if (drink) {

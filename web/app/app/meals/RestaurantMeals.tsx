@@ -128,7 +128,8 @@ export function RestaurantMeals() {
         </section>
       )}
 
-      {/* above the floating tab bar and the home bar (UndoToast) */}
+      {/* above the floating tab bar and the home bar, or at the top when the Log or Delete just tapped sits there, so a second tap on Log logs again
+          instead of landing on Undo (review finding 17; UndoToast) */}
       <UndoToast message={toast} onUndo={toast?.undo} onDone={() => setToast(null)} />
     </div>
   );

@@ -2406,6 +2406,7 @@
  "This product",
  "This product doesn't fit your diet settings, going by its name, type and label.",
  "This recipe already fits your meal, so nothing is changed.",
+ "This recipe doesn't fit your diet settings, going by its ingredients.",
  "This recipe is fitted to about {kcal} kcal a serving.",
  "This recipe is fitted to about {kcal} kcal and {more} a serving.",
  "This removes your goal, targets, saved orders, log, water you added, reminders you set, favourites, recent searches, the area you typed for Near me, your shopping list, recipes you saved, what you picked to compare and any messages not sent yet from this browser. It can't be undone.",

@@ -467,8 +467,15 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
         )}
       </div>
 
-      {/* at the top: the foot of the screen holds "Add all to my shopping list" */}
-      <UndoToast top message={logged ? { key: logged.id, text: t("Logged to Today.") } : null} onUndo={logged ? () => deleteLogEntry(logged.id) : undefined} onDone={() => setLogged(null)} />
+      {/* Above the "Add all to my shopping list" bar, clear of the picture's Back and Save pills at the top (review finding 18); when "Log a serving"
+          itself sits there, the toast goes to the top, below those pills (UndoToast). */}
+      <UndoToast
+        message={logged ? { key: logged.id, text: t("Logged to Today.") } : null}
+        onUndo={logged ? () => deleteLogEntry(logged.id) : undefined}
+        onDone={() => setLogged(null)}
+        topInset="calc(max(0.75rem, env(safe-area-inset-top)) + 3.5rem)"
+        bottomInset={view.resolved.complete ? "calc(max(0.75rem, env(safe-area-inset-bottom)) + 11.5rem)" : undefined}
+      />
 
       <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: t(swapSpec.label).toLowerCase() }) : t("Swap")}>
         {swapSpec && (
