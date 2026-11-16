@@ -215,6 +215,8 @@ What's new in 1.0.1
 
 • Starts straight away: no questions first. Set your goal and what you avoid whenever you like.
 
+• Recipes: 165 recipes, with many more for vegan, vegetarian, gluten-free and dairy-free diets. Every method is now in short, clear steps with cooking times, and every recipe has a picture of the dish (made with AI).
+
 Every figure still comes from each restaurant's or shop's own published information. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
 ```
 

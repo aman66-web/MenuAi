@@ -2323,7 +2323,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     packaging or logos. Captioned as AI-made as before (rule 2). `web/public/recipe-images/` is now 17 MB (was 6.2: the busier pictures compress less), so the app bundle grows by about 11 MB.
   - **Cost:** 82.5 credits for the 165 (plus 8.25 for the quality comparison and 19.5 for the 13 high-quality examples earlier); 1,233.84 left.
   - **New copy (rule 8, logged here; English only):** the 48 new recipe names, blurbs and methods, and every rewritten step title and instruction.
-  - **Not done:** the iPhone app isn't re-packed or rebuilt with these (build 5 still to archive and upload); `tests/menu-view.test.ts` "New for 30 days" still fails only on UK time (passes with `TZ=UTC`).
+  - **Live the same night (founder: "make everything live ... if there are any other things to fix too please do em"):** `main` fast-forwarded to `recipe-photos` (d4382d45) and
+    Vercel deployed it to numbite.com (deployment dpl_8bfg9CMgvLo1DLdh7UA2hXY6iXNY, READY; the recipes page, a new recipe and its photo answer 200). **Fixed on the way:** the "New" tag on a
+    dish counted milliseconds, so across the October clock change an item added on 1 October stopped being new an hour early on day 30; it now counts calendar days (`isNewItem`,
+    tested in four time zones), which also fixes the test that failed only on UK time.
+  - **iPhone 1.0.1 (build 5):** re-packed (177 MB, all 165 photos, no payment wording) and archived (`build/Numbite-1.0.1-build5.xcarchive`: 1.0.1 (5), Light, Sign in with Apple and
+    applinks). **Upload blocked:** Apple has updated the Developer Program License Agreement and App Store Connect refuses new builds and versions ("You do not have required contracts")
+    until the Account Holder accepts it at developer.apple.com/account. Claude does not accept legal agreements for the founder. After that: upload, create version 1.0.1, paste the
+    store text, attach build 5, submit. **New store copy (rule 8, founder asked to ship):** a "Recipes" line added to 1.0.1's What's New in docs/STORE.md.
 
 ## Known issues
 
