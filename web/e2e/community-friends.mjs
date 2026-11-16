@@ -36,7 +36,8 @@ const LOAF = { shopId: "sainsburys-multiseed-loaf--taste-the-difference-800g", n
 
 /** The shared state of one scene: the Community world, what sync stored, and every call any phone made. */
 function scene() {
-  return { world: communityWorld(), rows: new Map(), calls: [], responses: [], syncBodies: [] };
+  // the fake server runs on the same clock as the browser: a fixed date (16 October) made every list sent in the test "run out" in the app's offline copy from 15 November
+  return { world: communityWorld(Date.now()), rows: new Map(), calls: [], responses: [], syncBodies: [] };
 }
 
 async function install(ctx, sc, device) {
