@@ -2261,6 +2261,11 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     a store picker that runs only on the phone, from an open store list, 3 to 5 days more; live stock only through a partner (weeks to months, and only if one agrees). **Biggest risk:** wording that sounds certain ("in stock near you"). **Not verified:** what each shop shows once a store is chosen and whether its stock pages accept a link naming the store (needs the founder's Chrome), the Tesco, Waitrose and Asda app labels, whether Lidl Plus reservation is live in Great Britain.
     **Founder decides:** whether opening the shop's own page is enough; whether to write to Sainsbury's and Snappy Shopper asking for a stock feed; the new wording (rule 8).
 
+- 2026-11-16 (night) — **Sainsbury's Store Stock Checker tried in the founder's Chrome (one neutral test, nothing typed that is personal).** `https://stockchecker.sainsburys.co.uk/` is a public page with no login: step 1 a postcode (a list of nearby stores appears), step 2 a product search; each result shows a label ("In Stock" in green for Napolina and KTC chopped tomatoes at Westminster Rochester Row Local)
+  and a "Check nearby stores" button; the page says availability "is given as an indication". After a search the address becomes `/?store_code=<code>&store_name=<name>&search_term=<ingredient>`, so **a link that names the store and the ingredient opens the checker already filled in**; a link with only `?search_term=` is **not** kept (the page asks for the postcode and drops the ingredient).
+  Consequences for the feature: (1) the simplest honest version opens the checker (no prefill) from a recipe or the shopping list: about a day; (2) a prefilled link needs the person's Sainsbury's store code, which only Sainsbury's own store search gives us (whether an open list of store codes exists is **not verified**), and the person's postcode or store choice must stay on the phone (rule 4);
+  (3) Tesco's check is in its app only and M&S's "Select your store" was not opened. Nothing was built.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
