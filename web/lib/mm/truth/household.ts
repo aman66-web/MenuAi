@@ -42,6 +42,13 @@ export const HOUSEHOLD_SOURCES: Record<HouseholdKind, HouseholdSource> = {
   },
 };
 
+/** The one-line basis for each kind, shown with its equivalent and on the sources screen ("Where these numbers come from"). */
+export const HOUSEHOLD_BASIS: Record<HouseholdKind, string> = {
+  sugar: `The NHS counts a sugar cube as about ${SUGAR_GRAMS_PER_CUBE} g.`,
+  fat: `Butter is about ${Math.round(BUTTER_FAT_FRACTION * 100)} g of fat in every 100 g. Each block drawn is ${BUTTER_GRAMS_PER_BLOCK} g.`,
+  protein: `A medium egg has about ${EGG_PROTEIN_GRAMS} g of protein.`,
+};
+
 export interface HouseholdEquivalent {
   kind: HouseholdKind;
   /** The published figure this is worked out from, in grams. */
@@ -76,7 +83,7 @@ export function sugarEquivalent(n: Partial<Nutrients>): HouseholdEquivalent | un
     amount,
     icons: iconCount(amount),
     text: `about ${countText(amount)} sugar ${amount === 1 ? "cube" : "cubes"}`,
-    basis: `The NHS counts a sugar cube as about ${SUGAR_GRAMS_PER_CUBE} g.`,
+    basis: HOUSEHOLD_BASIS.sugar,
     source: HOUSEHOLD_SOURCES.sugar,
   };
 }
@@ -90,7 +97,7 @@ export function butterEquivalent(n: Partial<Nutrients>): HouseholdEquivalent | u
     amount,
     icons: iconCount(amount / BUTTER_GRAMS_PER_BLOCK),
     text: `about ${amount} g of butter`,
-    basis: `Butter is about ${Math.round(BUTTER_FAT_FRACTION * 100)} g of fat in every 100 g. Each block drawn is ${BUTTER_GRAMS_PER_BLOCK} g.`,
+    basis: HOUSEHOLD_BASIS.fat,
     source: HOUSEHOLD_SOURCES.fat,
   };
 }
@@ -104,7 +111,7 @@ export function eggEquivalent(n: Partial<Nutrients>): HouseholdEquivalent | unde
     amount,
     icons: iconCount(amount),
     text: `about ${countText(amount)} medium ${amount === 1 ? "egg's" : "eggs'"} worth`,
-    basis: `A medium egg has about ${EGG_PROTEIN_GRAMS} g of protein.`,
+    basis: HOUSEHOLD_BASIS.protein,
     source: HOUSEHOLD_SOURCES.protein,
   };
 }
