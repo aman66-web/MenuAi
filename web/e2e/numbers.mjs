@@ -65,8 +65,10 @@ await step("a restaurant opens with the same numbers applied, and 'Show all dish
   expect(/kcal=500/.test(href ?? "") && /protein=35/.test(href ?? ""), "the link carries the numbers: " + href);
   await row.click();
   await page.getByText("Your numbers:").waitFor({ timeout: 30000 });
-  expect(await page.getByText("up to 500 kcal").isVisible(), "kcal limit said");
-  expect(await page.getByText("35 g+ protein").isVisible(), "protein limit said");
+  // read the "Your numbers:" line itself: since 13 November the page also has a Quick answers pill called "35 g+ protein"
+  const said = (await page.locator("p", { hasText: "Your numbers:" }).first().innerText()).replace(/\s+/g, " ");
+  expect(said.includes("up to 500 kcal"), "kcal limit said: " + said);
+  expect(said.includes("35 g+ protein"), "protein limit said: " + said);
   await page.getByText(/\d+ of \d+ items/).waitFor();
   await page.getByRole("button", { name: "Show all dishes" }).click();
   expect((await page.getByText("Your numbers:").count()) === 0, "numbers lifted");
