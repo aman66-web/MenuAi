@@ -22,3 +22,6 @@ saved-pages/
 # translation working files (tools/i18n/translate_chunks.py); the dictionaries are web/lib/mm/locales/*.json
 data/i18n/
 .claude/worktrees/
+
+# Recipe pictures as made (large PNGs); only the 800 x 600 WebP copies in web/public/recipe-images/ are kept in git
+data/recipe-images/
