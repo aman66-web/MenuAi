@@ -226,6 +226,56 @@ Every figure still comes from each restaurant's or shop's own published informat
 New: see any menu item's calories, protein score and traffic lights in one tap, find a lighter swap at the same restaurant, and share the numbers. Free.
 ```
 
+## Version 1.1 (build 6): Premium with Apple In-App Purchase (built 16 November 2026, DRAFT for the founder to approve, rule 8)
+
+1.0.1 was never uploaded (Apple's updated agreement was waiting for the Account Holder), so **1.1 replaces it**: it has everything in 1.0.1 above plus Premium. Code: branch `iap`
+(docs/PAYMENTS.md "iPhone app"). Nothing here mentions the website, Stripe or any price outside the App Store (guidelines 3.1.1 and 3.1.3).
+
+**In-App Purchases to create in App Store Connect** (Monetization; needs the Paid Apps agreement, banking and tax first, which only the Account Holder can accept):
+
+| Product ID | Type | Reference name / display name (English UK) | Price | Length |
+|---|---|---|---|---|
+| `com.amanmarwaha.numbite.pro.annual` | Auto-renewable subscription, group "Numbite Pro" | Annual | £14.99 | 1 year |
+| `com.amanmarwaha.numbite.pro.monthly` | Auto-renewable subscription, same group | Monthly | £2.99 | 1 month |
+| `com.amanmarwaha.numbite.pro.pass90` | Non-renewing subscription | Founding Member 90-Day Pass | £9.99 | 90 days |
+
+Each needs a short description (e.g. "Every Truth card, Smart Swap and Quick answer, the full Cheapest protein list and Make it at home.") and a **review screenshot of the plans screen**
+(Settings › Subscription › See plans), then is submitted **with** version 1.1 (tick them on the version page before Submit for Review).
+
+**Subscription metadata (guideline 3.1.2):** the description must include a link to the Terms of Use. Add this line at the end of the App Store description:
+`Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/` (the Privacy Policy URL field already points to numbite.com/privacy). In the app, the plans screen
+shows each plan's name, length and StoreKit's own price, the renewal and cancellation words, Restore purchases, and links to the Terms of Use (EULA), our Terms and the Privacy Policy.
+
+**What's New in This Version** (draft):
+
+```
+What's new in 1.1
+
+• Premium: open every Truth card, Smart Swap and Quick answer, see the full Cheapest protein list, and use Make it at home. Choose Monthly, Annual or a one-off 90-day pass. Everything that was free stays free.
+
+• Make it at home (Premium): take or choose a photo of a dish you'd like to cook, say what it is, and Pip writes a home recipe from real supermarket products, with the amounts, the price and the nutrition of each serving.
+
+• See the truth: tap the new button on a menu item to see its calories as a share of the 2,000 kcal reference intake used on food labels, a protein score from 1 to 5, the UK's front-of-pack traffic lights, and its sugar, fat and protein shown as sugar cubes, grams of butter and eggs.
+
+• Smart Swap, Quick answers and Cheapest protein: a lighter dish from the same part of the same menu, one-tap lists of a restaurant's meals, and what 10 g of protein costs at the shops.
+
+• Recipes: 165 recipes in short, clear steps with cooking times, and a picture of every dish (made with AI).
+
+Every figure still comes from each restaurant's or shop's own published information. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
+```
+
+**Notes for App Review (add to the existing notes):**
+
+```
+In-App Purchase (new in 1.1): three products, Annual and Monthly (auto-renewable, one group) and a Founding Member 90-Day Pass (non-renewing). To see them: Settings (gear on Home) › Subscription › See plans, or open "See the truth" on four different menu items, or Recipes › Make it at home. Restore purchases is on the plans screen and in Settings › Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work. Premium needs no account.
+
+Make it at home (Premium) sends the photo the person chooses, their description and their diet choices to our server, which asks Anthropic's Claude to write a recipe from the supermarket products we list; every amount, price and nutrition figure is then worked out by the app from the products' own labels. Nothing is kept on our server.
+```
+
+**App Privacy changes for 1.1** (founder to confirm): Purchases: **not collected** (the app sends Apple's signed purchase record to our server only to check it, and it isn't kept). Make it at home: add
+**User Content › Photos or Videos** and **User Content › Other User Content** (the dish description), **not linked**, purpose App Functionality, because they pass through our server to Anthropic, which may keep API
+requests for a limited time under its own terms. Both types are already in the questionnaire and in `PrivacyInfo.xcprivacy` (photos not linked, user content linked for synced data), so the only change is to tick App Functionality for them if it isn't already, and nothing changes in the manifest.
+
 ## Release checklist (free launch)
 
 - [ ] Decide which supermarkets the App Store version includes (web/app-content.json; food photos are in): see docs/APP_BUILD.md

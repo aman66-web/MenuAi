@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { PAID_ACCESS_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { PAID_BULLETS } from "@/lib/mm/entitlements";
 import { site } from "@/site.config";
 import { BackLink, TITLE } from "../groceries/PageBits";
@@ -11,16 +11,16 @@ import { CheckIcon } from "../_components/icons";
 import { useT } from "../_lib/i18n";
 import { captureRefFromLocation } from "@/lib/payments/ref";
 
-// The pricing screen (website only; with paid access off it forwards to the app, shows no words and the iPhone app's copy never mentions it).
+// The pricing screen (the website with paid access on, or the In-App Purchase app; with paid access off it forwards to the app, shows no words and the iPhone app's copy never mentions it).
 function Pricing() {
   const t = useT();
   const router = useRouter();
   const cancelled = useSearchParams().get("cancelled") === "1";
   useEffect(() => {
-    if (!WEB_PRO_ENABLED) router.replace("/app");
-    else captureRefFromLocation();
+    if (!PAID_ACCESS_ENABLED) router.replace("/app");
+    else if (WEB_PRO_ENABLED) captureRefFromLocation();
   }, [router]);
-  if (!WEB_PRO_ENABLED) return null;
+  if (!PAID_ACCESS_ENABLED) return null;
   return (
     <div>
       <BackLink href="/app" label={t("Back to home")} />

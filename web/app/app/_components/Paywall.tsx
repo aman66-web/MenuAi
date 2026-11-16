@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from "react";
 import { analytics } from "@/lib/mm/analytics";
-import { DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { DEV_TOOLS_ENABLED, PAID_ACCESS_ENABLED, PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { needsPaywall, PAID_BULLETS, PAYWALL_BULLETS, PAYWALL_TITLE, type PaywallTrigger } from "@/lib/mm/entitlements";
 import { format, tk } from "@/lib/mm/i18n";
 import { savedStore, settingsStore, updateSettings } from "@/lib/mm/stores";
@@ -87,10 +87,10 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
   return (
     <div className="pb-1 font-medium">
       <h3 className="text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">
-        {WEB_PRO_ENABLED ? t("Unlock everything") : TITLE_FITS ? <Rich text={t(TITLE_RICH)} values={{ accent: <span>{t(TITLE_ACCENT)}</span> }} /> : t(PAYWALL_TITLE)}
+        {PAID_ACCESS_ENABLED ? t("Unlock everything") : TITLE_FITS ? <Rich text={t(TITLE_RICH)} values={{ accent: <span>{t(TITLE_ACCENT)}</span> }} /> : t(PAYWALL_TITLE)}
       </h3>
       <ul className={`mt-5 divide-y divide-line ${card}`}>
-        {(WEB_PRO_ENABLED ? PAID_BULLETS : PAYWALL_BULLETS).map((b) => (
+        {(PAID_ACCESS_ENABLED ? PAID_BULLETS : PAYWALL_BULLETS).map((b) => (
           <li key={b} className="flex items-center gap-3.5 px-4 py-3.5">
             <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-background"><CheckIcon className="h-4 w-4" strokeWidth={2.5} /></span>
             <span className="text-base font-semibold leading-snug">{t(b)}</span>
@@ -98,7 +98,7 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
         ))}
       </ul>
 
-      {WEB_PRO_ENABLED ? <div className="mt-4"><ProPlans /></div> : PAYMENTS_ENABLED ? null : (
+      {PAID_ACCESS_ENABLED ? <div className="mt-4"><ProPlans /></div> : PAYMENTS_ENABLED ? null : (
         <div className={`mt-3.5 p-4 ${card}`}>
           <p className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t("Pro isn't on the web yet.")}</p>
           <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("Everything free stays free: every chain's full menu with calories and macros. Leave your email and we'll tell you once, when Pro is ready.")}</p>

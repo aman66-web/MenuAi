@@ -208,6 +208,24 @@ not touched.
 None in Xcode, App Store Connect or the Apple Developer site for this feature. Try it on your iPhone once the Mac session has built it (list above).
 The App Privacy answers don't change (reminders never leave the phone); the age-rating and review-note lines for reminders are in docs/STORE.md.
 
+## Testing 1.1 (Premium with In-App Purchase) on your iPhone (16 November 2026)
+
+Xcode's Run uses the test store in `Config/Numbite.storekit` (the scheme's Run option): purchases are free test purchases, no App Store Connect products or agreements
+needed. Each test purchase is signed by Xcode's own test certificate, which our live server accepts only while it is pinned in Vercel (`APPLE_XCODE_TEST_CERT`), and a
+token from it lasts 48 hours at most (docs/PAYMENTS.md).
+
+1. **Free disk space**: at least 10 GB free (Downloads is the big one). The Mac ran out during this build; Xcode needs room to build for the phone.
+2. **Make the key** (once): in Terminal, in the repo folder, run `node tools/payments/make_entitlement_key.mjs`. It saves the public key in the repo and puts the private key
+   on your clipboard. Paste it into Vercel › menumacros › Settings › Environment Variables as `ENTITLEMENT_PRIVATE_JWK` (Sensitive, Production and Preview). Tell Claude.
+3. **Claude then**: commits the public key, deploys the server part to numbite.com (with your go-ahead), sets `NEXT_PUBLIC_PHOTO_RECIPES=1` in Vercel, and rebuilds the app's web part
+   with the key (`NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_SUPPORT_EMAIL=… ./scripts/build_app_web.sh`).
+4. **You**: plug the iPhone in, open `MenuMacros.xcodeproj`, choose your iPhone at the top of the window, press Run (▶). In the app: Settings › Subscription › See plans, buy one.
+   The first purchase can't be checked yet (the server doesn't know your Mac's test certificate): it says "Your purchase went through, but Premium couldn't be switched on".
+   The server logs the certificate (public, no personal data); Claude pins it, then tap **Restore purchases**: Premium switches on. Try Make it at home, the Truth cards, a refund
+   (Xcode › Debug › StoreKit › Manage Transactions › Refund, then reopen the app), Restore and Manage subscription.
+5. **After the test**: Claude removes `APPLE_XCODE_TEST_CERT` from Vercel. TestFlight and App Review buy in Apple's sandbox instead, which needs the real products in App Store Connect
+   (Paid Apps agreement, banking and tax first: only the Account Holder can accept those).
+
 ## What comes after approval (updates)
 
 Pro and subscriptions (`PRO_ENABLED`, StoreKit), Pip's AI recipe maker (`AI_RECIPES_ENABLED`, needs an API key and a privacy update),

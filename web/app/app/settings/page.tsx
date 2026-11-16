@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { APP_BUILD, DEV_TOOLS_ENABLED, GATING_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, WEB_PRO_ENABLED, APP_VERSION } from "@/lib/mm/config";
+import { APP_BUILD, DEV_TOOLS_ENABLED, GATING_ENABLED, IAP_ENABLED, PAID_ACCESS_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
 import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
@@ -14,6 +14,7 @@ import type { Goal } from "@/lib/mm/types";
 import { DEFAULT_WATER_GOAL_ML, MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "@/lib/mm/water";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon } from "../_components/icons";
+import { AppStoreAccountButtons } from "../_components/AppStorePlans";
 import { BackLink } from "../groceries/PageBits";
 import { tk } from "@/lib/mm/i18n";
 import { useT } from "../_lib/i18n";
@@ -259,8 +260,9 @@ export default function SettingsPage() {
             <p className="text-[1.0625rem] font-bold">{isPro(settings, paid, nowMs) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
             {paid.until && paid.until > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
             {!paid.until && paid.unlockUntil && paid.unlockUntil > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}
-            {WEB_PRO_ENABLED ? <Link href="/app/pro" className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{t("See plans")}</Link>
+            {PAID_ACCESS_ENABLED ? <Link href="/app/pro" className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{t("See plans")}</Link>
               : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
+            {IAP_ENABLED && <AppStoreAccountButtons />}
           </Card>
         </Section>
       )}

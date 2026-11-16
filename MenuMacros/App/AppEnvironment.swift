@@ -10,25 +10,28 @@ final class AppEnvironment {
     let appleSignIn: any AppleSigningIn
     let webSignIn: any WebSigningIn
     let notifications: any NotificationScheduling
+    /// Apple In-App Purchase (the paid features).
+    let purchases: any PurchaseService
     /// Links the app is opened with (a shared shopping list): MenuMacrosApp hands them in, the web view shows them.
     let links = LinkInbox()
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
         self.appleSignIn = appleSignIn
         self.webSignIn = webSignIn
         self.notifications = notifications
+        self.purchases = purchases
     }
 
     /// The real iPhone services.
     static func live() -> AppEnvironment {
-        AppEnvironment(scanner: VisionKitBarcodeScanner(), location: CoreLocationService(), sharer: ActivityShareService(), appleSignIn: AuthorizationAppleSignIn(), webSignIn: AuthenticationSessionWebSignIn(), notifications: UserNotificationScheduler())
+        AppEnvironment(scanner: VisionKitBarcodeScanner(), location: CoreLocationService(), sharer: ActivityShareService(), appleSignIn: AuthorizationAppleSignIn(), webSignIn: AuthenticationSessionWebSignIn(), notifications: UserNotificationScheduler(), purchases: StoreKitPurchaseService())
     }
 
     /// Fakes, for previews and tests.
     static func preview() -> AppEnvironment {
-        AppEnvironment(scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(), appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: FakeNotificationScheduler())
+        AppEnvironment(scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(), appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: FakeNotificationScheduler(), purchases: FakePurchaseService())
     }
 }

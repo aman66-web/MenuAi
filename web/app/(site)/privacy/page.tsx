@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { AI_RECIPES_ENABLED, IAP_ENABLED, PHOTO_RECIPES_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, APP_PREMIUM, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -202,7 +202,7 @@ export default function Privacy() {
           person asking too often.
         </p>
         )}
-        {PHOTO_RECIPES_ENABLED && (
+        {PHOTO_RECIPES_API_ENABLED && (
         <p className={para}>
           If you use Make it at home (part of Premium), the photo you choose is made smaller on your device first, and then that photo, what you typed about the dish,
           your diet and allergy choices and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic, the company that makes
@@ -244,9 +244,9 @@ export default function Privacy() {
 
       <Section title="Purchases">
         <p className={para}>
-          {PRO_ENABLED || IAP_ENABLED || WEB_PRO_ENABLED
+          {PRO_ENABLED || APP_PREMIUM || WEB_PRO_ENABLED
             ? <>
-                {IAP_ENABLED || (PRO_ENABLED && !WEB_PRO_ENABLED) ? <>Purchases in the iPhone app are handled by Apple. We don&apos;t receive your name, email or payment details from Apple. </> : null}
+                {APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED) ? <>Purchases in the iPhone app are handled by Apple. We don&apos;t receive your name, email or payment details from Apple. To switch paid features on, the app sends our server the purchase record Apple signed (which plan, its dates and Apple&apos;s reference number for the purchase) so we can check it is genuine; we don&apos;t keep it. </> : null}
                 {WEB_PRO_ENABLED ? <>When you pay on the website, Stripe takes your payment on its own page and tells us your email address, what you bought, the amount, the dates and a payment reference. We never see your card number. We keep these records for as long as your access lasts and for six years after, because we must keep our accounts. If you arrived through a creator&apos;s link, we also record the creator&apos;s code against your payment so the creator can be credited, and we never tell the creator who you are. </> : null}
                 {!WEB_PRO_ENABLED ? <>Paid features aren&apos;t available in the web app yet.</> : null}
               </>
@@ -295,7 +295,7 @@ export default function Privacy() {
             If you sign in: Supabase also provides the accounts and keeps your synced data; Resend delivers the sign-in code email to your address;
             and Apple or Google confirm your identity if you choose them (see their own privacy policies for what they keep).
           </li>
-          {(PRO_ENABLED || IAP_ENABLED) && <li className={row}>Apple processes App Store purchases for the iPhone app.</li>}
+          {(PRO_ENABLED || APP_PREMIUM) && <li className={row}>Apple processes App Store purchases for the iPhone app.</li>}
           {WEB_PRO_ENABLED && <li className={row}>Stripe takes payments on the website (card, Apple Pay and Google Pay) and sends us the email address and payment details above.</li>}
           <li className={row}>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there), or by Open Food Facts for a product no supermarket has a photo of.</li>
           <li className={row}>postcodes.io looks up the postcode or town you type on the Near me map, and OpenFreeMap serves the map tiles there.</li>

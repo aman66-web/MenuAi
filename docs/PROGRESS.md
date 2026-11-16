@@ -2376,6 +2376,44 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (Vercel › menumacros › Settings › Environment Variables, Sensitive, Production) with a monthly spend limit in console.anthropic.com. (3) Make it at home needs Premium to be buyable
   (Stripe on the website: docs/PAID_ACCESS_GO_LIVE.md; Apple In-App Purchase in the app, 1.1), which needs the founder's accounts, bank and tax details.
 
+- 2026-11-16 (late night, Mac) — **iPhone 1.1: Premium with Apple In-App Purchase, Make it at home in the app, and recipes open at Serves 1** (founder: "Finish the app, and then
+  after that I'll test it, and then I'll upload it"; "Serves 1 should be the norm ... press plus ... the calories, the protein, all that will change, and all the ingredients ...
+  the descriptions of like how to cook it should also like reflect that too"). Branch `iap`, not merged. Version **1.1 (build 6)**; 1.0.1 was never uploaded, so 1.1 replaces it.
+  - **Buying** (App Store rule 3.1.1): three products, `com.amanmarwaha.numbite.pro.annual` and `.monthly` (auto-renewable, one group) and `.pass90` (non-renewing, 90 days);
+    `Config/Numbite.storekit` has them for testing. Swift: `PurchaseService` / `StoreKitPurchaseService` (StoreKit 2: products, purchase, `Transaction.updates` listener started at
+    launch, `currentEntitlements`, `AppStore.sync()`, Apple's manage-subscriptions sheet) and a fake; bridge actions `iap.products`, `iap.purchase`, `iap.entitlements`, `iap.restore`,
+    `iap.manage`. Page: `AppStorePlans.tsx` (StoreKit's own names and prices, Buy/Subscribe, Restore purchases, Manage subscription while subscribed, Apple's renewal words, links to the
+    Terms of Use (EULA), Terms and Privacy), `lib/payments/iap.ts`; Settings › Subscription gains Restore purchases and Manage subscription; at start-up and on return to the app, Apple's
+    current purchases decide (a refund removes the token at the next start). The WhatsApp "share to unlock" is off in the app (rule 3.2.2). No Stripe wording ships in the app's files.
+  - **Checking** (`POST /api/v1/entitlement/apple`, `lib/payments/apple.ts`, `appleHandler.ts`, `appleRoute.ts`): the signature chain up to Apple Root CA - G3 (fingerprint checked
+    against Apple's support article 126047), Apple's certificate markers, our bundle ID and products; refunded or upgraded transactions refused; **Sandbox accepted** (App Review and
+    TestFlight buy there); stateless (Apple keeps the record); the same ES256 token as the website (`src: "apple"`). Xcode test purchases count only while `APPLE_XCODE_TEST_CERT` pins
+    the founder's Mac's test certificate, and then for 48 hours at most; a refused request logs reason codes only (and a refused Xcode certificate, which is public) so a test can be
+    put right. The public key now lives in the repo (`web/lib/payments/entitlement-public-key.json`, written by `tools/payments/make_entitlement_key.mjs`, which puts the private key
+    on the clipboard only); `NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK` still overrides it.
+  - **Make it at home in the app**: on for Premium (`NEXT_PUBLIC_PHOTO_RECIPES=1` in the app build). Its two API routes now answer on the website whenever `NEXT_PUBLIC_PHOTO_RECIPES=1`
+    (`PHOTO_RECIPES_API_ENABLED`; each still needs a paid token), and the website still shows no card while it sells nothing. `NEXT_PUBLIC_APP_PREMIUM=1` (website, once 1.1 is out)
+    makes Privacy, Terms and Support describe Apple purchases; Privacy gains a sentence on the purchase check (Apple's signed record is sent to check it and isn't kept).
+  - **Recipes open at Serves 1**; + cooks for more. The card shows the numbers for everyone ("For 2 servings: 1,198 kcal") with "Each serving: …" under it; the full label follows; a
+    serving's price stays; every ingredient's amount for that many people is shown under the first step that uses it ("You'll need: Chicken breast fillets 150 g · Onion 75 g",
+    `lib/mm/stepIngredients.ts`, using the recipe tests' word table, which now lives there); water in the steps scales as before; a new line says the cooking times are for the
+    written servings, with what to do for fewer or more.
+  - **Tests**: website 1,890 unit tests, tsc, eslint; 45+9 Apple-check tests (throwaway CA in `web/tests/fixtures/apple/`, test-only keys); `tests/iap.test.ts`, `tests/stepIngredients.test.ts`;
+    e2e `recipes.mjs` 15 of 15 (incl. axe). Swift: 83 of 83. The StoreKit-service tests (`StoreKitPurchaseServiceTests`) are opt-in (`NUMBITE_STOREKIT_TESTS=1`, from Xcode): on the iOS 26.5
+    simulator `xcodebuild test` never hands the .storekit file to StoreKit (SKInternalErrorDomain Code=3, Apple's known FB22237318, developer.apple.com/forums/thread/826971).
+  - **Not verified here:** a real purchase end to end (the Simulator test was dropped: the disk filled up, see below, and Xcode's Run destination needs full-screen control that wasn't
+    approved in time); the founder's phone test is the first (docs/APP_BUILD.md "Testing 1.1"). A real Apple-signed or Xcode-signed transaction has not been through the server yet.
+  - **Disk:** the Mac's disk filled up completely during this work (swap about 2.6 GB, the Simulator device 2.3 GB). The Simulator device was deleted; Xcode's index and the website builds
+    are removed after use. Free space is about 2.5 GB: **the founder needs to free about 10 GB** before the phone build.
+  - **Decisions for the founder (rule 8):** the name is "Pro" in places (paywall title "Numbite Pro", Settings) and "Premium" in others (Make it at home, the new plans lines): say which to
+    use everywhere; the App Store products' descriptions and the 1.1 What's New and review notes are drafts in docs/STORE.md.
+  - **New copy (rule 8, logged here; English only):** the plans' taglines ("One payment. 90 days of access. It doesn't renew.", "Renews each year until you cancel.", "Renews each month until you
+    cancel."), "Premium is on.", "Your pass ends on {date}.", "Manage subscription", "Getting prices from the App Store…", "Couldn't reach the App Store. Check your connection and try again.",
+    "Buy for {price}", "Subscribe for {price} {per}", "Waiting for the App Store…", "Restore purchases", "Checking with the App Store…", the four purchase results and three restore results,
+    the renewal paragraph, "Terms of Use (EULA)", "Privacy Policy", the privacy sentence above; for recipes "For 1 serving", "For {n} servings", "Each serving: {kcal} kcal, {protein}g protein,
+    {carbs}g carbs, {fat}g fat.", "Full nutrition for {n} servings", "You'll need:", and "The cooking times are for {n} servings, as the recipe is written. For fewer, use a smaller pan and
+    check it a little sooner; for more, use a bigger pan or cook in batches, and allow a little longer." (replaces "Times are for the number of servings…").
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -2404,6 +2442,9 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [x] **Merge decision for `viral-upgrade`**: merged and live by 15 November (`main` = `viral-upgrade`, payments off)
 - [x] **Decide the next iPhone release:** decided 15 Nov: 1.0.1 with the viral screens first (free), In-App Purchase later as 1.1
 - [x] **Set `NEXT_PUBLIC_APP_STORE_URL`** in Vercel to the App Store address: done 16 Nov (shared-list and friend-invite pages now offer the App Store button)
+- [ ] **Free about 10 GB on the Mac** (Downloads is 14 GB): the disk filled up on 16 Nov and Xcode needs room to build 1.1 for your phone
+- [ ] **Make the paid-access key**: `node tools/payments/make_entitlement_key.mjs` in Terminal, paste the clipboard into Vercel as `ENTITLEMENT_PRIVATE_JWK` (Sensitive); then test 1.1 on your phone (docs/APP_BUILD.md "Testing 1.1")
+- [ ] **In-App Purchase products** in App Store Connect (after the Paid Apps agreement, banking and tax): the three in docs/STORE.md "Version 1.1", each with a review screenshot of the plans screen
 - [ ] **Ask Aayush Dwivedi (the Apple team's Account Holder) to accept the updated Apple Developer Program License Agreement** at developer.apple.com/account; then Claude uploads build 5 and submits 1.0.1
 - [x] **`ANTHROPIC_API_KEY` in Vercel** (founder, 16 Nov: key `numbite-website`, never expires, MoneySave organisation; Sensitive, Production). Spend limit already $20 a month for that organisation. Not used until Make it at home is switched on with Premium
 - [ ] **Choose the Stripe account** and write its exact name into `STRIPE_ACCOUNT` at the top of docs/CHROME_PROMPT_PAID_ACCESS.md before pasting it

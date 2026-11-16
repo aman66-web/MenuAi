@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
+import { firstMentions } from "@/lib/mm/stepIngredients";
 import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleMethodMl, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
@@ -120,7 +121,8 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
   // snacks are shown as written: a meal-sized target would double them
   const targetKey = JSON.stringify(recipe.meal === "snack" ? null : mealTargetFor(settings));
   const target = useMemo(() => JSON.parse(targetKey) as ReturnType<typeof mealTargetFor>, [targetKey]);
-  const [servings, setServings] = useState(recipe.servings);
+  // founder 2026-11-16: a recipe opens for one person ("Serves 1 should be the norm"); + cooks for more, and the amounts, the numbers shown and the steps follow
+  const [servings, setServings] = useState(1);
   const [chosen, setChosen] = useState<Record<string, string>>({});
   const [subs, setSubs] = useState<Record<string, string>>({});
   const [asWritten, setAsWritten] = useState(false);
@@ -188,18 +190,26 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
     setAdded(ready.length === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n: ready.length, shop: file.name }));
   };
   const notOnLabel = t(NOT_ON_LABEL);
+  // The numbers are for everyone the recipe now serves: a serving's figures (always the recipe-as-written's serving, lib/mm/recipes.ts) times the servings
+  const people = view.recipe.servings;
+  const all = (v: number) => Math.round(v * people * 10) / 10;
+  const kcalAll = (v: number) => formatInt(Math.round(v * people));
   const rows: Array<[string, string, boolean?]> = totals
     ? [
-        [t("Energy"), `${formatInt(totals.perServing.kcal)} kcal${totals.label.kj !== null ? ` · ${formatInt(totals.label.kj)} kJ` : ""}`],
-        [t("Fat"), `${totals.perServing.fat} g`],
-        [t("of which saturates"), totals.label.saturates !== null ? `${totals.label.saturates} g` : notOnLabel, true],
-        [t("Carbohydrate"), `${totals.perServing.carbs} g`],
-        [t("of which sugars"), totals.label.sugars !== null ? `${totals.label.sugars} g` : notOnLabel, true],
-        [t("Fibre"), totals.label.fibre !== null ? `${totals.label.fibre} g` : notOnLabel],
-        [t("Protein"), `${totals.perServing.protein} g`],
-        [t("Salt"), totals.label.salt !== null ? `${totals.label.salt} g` : notOnLabel],
+        [t("Energy"), `${kcalAll(totals.perServing.kcal)} kcal${totals.label.kj !== null ? ` · ${kcalAll(totals.label.kj)} kJ` : ""}`],
+        [t("Fat"), `${all(totals.perServing.fat)} g`],
+        [t("of which saturates"), totals.label.saturates !== null ? `${all(totals.label.saturates)} g` : notOnLabel, true],
+        [t("Carbohydrate"), `${all(totals.perServing.carbs)} g`],
+        [t("of which sugars"), totals.label.sugars !== null ? `${all(totals.label.sugars)} g` : notOnLabel, true],
+        [t("Fibre"), totals.label.fibre !== null ? `${all(totals.label.fibre)} g` : notOnLabel],
+        [t("Protein"), `${all(totals.perServing.protein)} g`],
+        [t("Salt"), totals.label.salt !== null ? `${all(totals.label.salt)} g` : notOnLabel],
       ]
     : [];
+  const forPeople = people === 1 ? t("For 1 serving") : t("For {n} servings", { n: people });
+  // which step first uses each ingredient, so its amount (for this many people) is shown under that step
+  const stepUses = firstMentions(recipe.method, view.recipe.ingredients);
+  const specByKey = new Map(view.recipe.ingredients.map((spec, i) => [spec.key, picks[i]?.spec ?? spec]));
   const kicker = `${recipe.ai ? t("Made by Pip") : t("Recipe")} · ${file.name}`;
   const mealLabel = recipe.meal ? MEAL_TYPES.find((m) => m.value === recipe.meal)?.label : undefined;
   const MealIcon = MEAL_LOOK[recipe.meal ?? "dinner"]?.Icon ?? MEAL_LOOK.dinner.Icon;
@@ -260,22 +270,25 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
         {totals ? (
           <div className="mt-5">
             {/* Home's pair: the calories big on the left, protein, carbs and fat as spaced-capital rows on the right */}
-            <div role="group" aria-label={nutrientAriaLabel(t("{name}, per serving", { name: rt(recipe.name) }), { calories: totals.perServing.kcal, protein: totals.perServing.protein, carbs: totals.perServing.carbs, fat: totals.perServing.fat }, t)} className={`app-numbers ${PAIR}`}>
+            <div role="group" aria-label={nutrientAriaLabel(`${rt(recipe.name)}, ${forPeople}`, { calories: Math.round(totals.perServing.kcal * people), protein: all(totals.perServing.protein), carbs: all(totals.perServing.carbs), fat: all(totals.perServing.fat) }, t)} className={`app-numbers ${PAIR}`}>
               <div className={`${CARD} flex min-w-0 flex-col gap-3 p-4`}>
                 {/* The figure comes first in reading order ("688 kcal, per serving"; the e2e test reads the group's text from its first number);
                     the label is drawn above it, top left like Home's "CALORIES", and the figure sits centred in the rest of the card. */}
                 <p className="flex flex-1 flex-col items-center justify-center text-center [overflow-wrap:anywhere]">
-                  <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-accent">{formatInt(totals.perServing.kcal)}</span>
+                  <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-accent">{kcalAll(totals.perServing.kcal)}</span>
                   <span className="mt-1.5 text-[1.0625rem] font-normal leading-tight">kcal</span>
                 </p>
-                <p className={`order-first ${LABEL}`}>{t("Per serving")}</p>
+                <p className={`order-first ${LABEL}`}>{forPeople}</p>
               </div>
               <div className={`${CARD} flex min-w-0 flex-col justify-center gap-3.5 px-4 py-4`}>
-                <MacroRow label={t("protein")} grams={totals.perServing.protein} dot="bg-protein" />
-                <MacroRow label={t("carbs")} grams={totals.perServing.carbs} dot="bg-carbs" />
-                <MacroRow label={t("fat")} grams={totals.perServing.fat} dot="bg-fat" />
+                <MacroRow label={t("protein")} grams={all(totals.perServing.protein)} dot="bg-protein" />
+                <MacroRow label={t("carbs")} grams={all(totals.perServing.carbs)} dot="bg-carbs" />
+                <MacroRow label={t("fat")} grams={all(totals.perServing.fat)} dot="bg-fat" />
               </div>
             </div>
+            {people > 1 && (
+              <p className="app-numbers mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Each serving: {kcal} kcal, {protein}g protein, {carbs}g carbs, {fat}g fat.", { kcal: formatInt(totals.perServing.kcal), protein: Math.round(totals.perServing.protein), carbs: Math.round(totals.perServing.carbs), fat: Math.round(totals.perServing.fat) })}</p>
+            )}
             {totals.notCounted.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("We haven't read the label for {name} yet, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("We haven't read the labels for {names} yet, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
             )}
@@ -292,7 +305,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
               </button>
               {detail && (
                 <section id="recipe-label" aria-labelledby="label-heading" className={`${CARD} mt-2 p-4`}>
-                  <h2 id="label-heading" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{t("Full nutrition per serving")}</h2>
+                  <h2 id="label-heading" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{people === 1 ? t("Full nutrition per serving") : t("Full nutrition for {n} servings", { n: people })}</h2>
                   <dl className="app-numbers mt-2 divide-y divide-line">
                     {rows.map(([label, value, sub]) => (
                       <div key={label} className="flex min-h-11 flex-wrap items-center justify-between gap-x-3">
@@ -431,13 +444,22 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
                       </div>
                     )}
                     <p className="text-base leading-snug">{text}</p>
+                    {(stepUses.get(i)?.length ?? 0) > 0 && (
+                      <p className="app-numbers mt-2 rounded-[0.875rem] bg-[var(--fill)] px-3 py-2 text-[0.875rem] leading-snug">
+                        <span className="font-semibold">{t("You'll need:")}</span>{" "}
+                        {stepUses.get(i)!.map((key) => {
+                          const spec = specByKey.get(key)!;
+                          return `${t(spec.label)} ${amountText(spec)}${spec.note ? ` (${noteText(t, spec.note)})` : ""}`;
+                        }).join(" · ")}
+                      </p>
+                    )}
                   </div>
                 </li>
               );
             })}
           </ol>
           {view.recipe.servings !== (recipe.scaledFrom?.servings ?? recipe.servings) && (
-            <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Times are for the number of servings the recipe is written for. For more people, cook a little longer or in batches.")}</p>
+            <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("The cooking times are for {n} servings, as the recipe is written. For fewer, use a smaller pan and check it a little sooner; for more, use a bigger pan or cook in batches, and allow a little longer.", { n: recipe.scaledFrom?.servings ?? recipe.servings })}</p>
           )}
         </section>
 

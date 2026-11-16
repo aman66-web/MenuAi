@@ -8,6 +8,7 @@ import { sanitizeCompare, type CompareItem } from "./compare";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
 import type { PlanId } from "../payments/plans";
+import { IAP_ENABLED } from "./config";
 import { addWater, lastWaterToday, removeWater, sanitizeWater, type WaterEntry } from "./water";
 import {
   isDoneToday, localDateString, markDone, MAX_REMINDERS, sanitiseReminders, undoDone, validateDraft,
@@ -225,8 +226,10 @@ export function keepPaidToken(token: string, plan: PlanId, untilMs: number) {
 export function forgetPaidToken() {
   if (paidStore.get().token) paidStore.update(withoutToken);
 }
-/** The person shared on WhatsApp: 48 hours of paid features (a soft nudge: a share cannot be verified). */
+/** The person shared on WhatsApp: 48 hours of paid features (a soft nudge: a share cannot be verified). Website only: in the iPhone app paid features come only
+ *  through Apple (App Store rules 3.1.1 and 3.2.2 forbid unlocking them for sharing). */
 export function noteShareUnlock(nowMs: number = Date.now()) {
+  if (IAP_ENABLED) return;
   paidStore.update((p) => grantShareUnlock(p, nowMs));
 }
 /** May this dish's Truth card be opened by a free person today? Counts it if it is a new one. */

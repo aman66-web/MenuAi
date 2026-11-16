@@ -17,7 +17,20 @@ export type NativeAction =
   | "notifications.requestPermission"
   | "notifications.status"
   | "notifications.syncReminders"
-  | "notifications.openSettings";
+  | "notifications.openSettings"
+  | "iap.products"
+  | "iap.purchase"
+  | "iap.entitlements"
+  | "iap.restore"
+  | "iap.manage";
+
+/** "iap.products": one App Store product as StoreKit gives it (the price is StoreKit's own localised text, never ours). */
+export interface NativeProduct {
+  id: string;
+  name: string;
+  price: string;
+  period: "month" | "year" | "none";
+}
 
 export interface NativeResult {
   /** "scan": the barcode digits. */
@@ -37,6 +50,12 @@ export interface NativeResult {
   verifier?: string;
   /** "notifications.requestPermission" and "notifications.status": whether the person lets the app show notifications ("notDetermined" = not asked yet). */
   permission?: "granted" | "denied" | "notDetermined";
+  /** "iap.products": the products asked for that the App Store knows, in the order asked. */
+  products?: NativeProduct[];
+  /** "iap.purchase", "iap.entitlements", "iap.restore": Apple's signed transactions (JWS), verified by StoreKit on the phone and checked again by our server. */
+  transactions?: string[];
+  /** "iap.purchase": waiting for approval (Ask to Buy, or the bank's extra check). */
+  pending?: boolean;
   /** "denied" (the person said no in Settings), "unavailable" (this iPhone can't), "cancelled", "timeout". */
   error?: "denied" | "unavailable" | "cancelled" | "timeout";
 }
@@ -62,6 +81,18 @@ const waiting = new Map<string, (result: NativeResult) => void>();
 let counter = 0;
 
 /** Only plain, expected fields get through: the reply comes from our own app, but nothing else is trusted. */
+const JWS = /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/;
+
+function cleanProduct(raw: unknown): NativeProduct | null {
+  const p = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
+  const text = (v: unknown, max: number) => (typeof v === "string" && v.trim() !== "" && v.length <= max && !/[<>]/.test(v) ? v.trim() : null);
+  const id = typeof p.id === "string" && /^[a-z0-9.]{3,100}$/.test(p.id) ? p.id : null;
+  const name = text(p.name, 100);
+  const price = text(p.price, 40);
+  const period = p.period === "month" || p.period === "year" || p.period === "none" ? p.period : null;
+  return id && name && price && period ? { id, name, price, period } : null;
+}
+
 export function cleanNativeResult(raw: unknown): NativeResult {
   const r = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
   const out: NativeResult = {};
@@ -77,8 +108,11 @@ export function cleanNativeResult(raw: unknown): NativeResult {
   if (typeof r.authCode === "string" && r.authCode.length <= 8192 && /^[A-Za-z0-9_-]{40,}$/.test(r.authCode)) out.authCode = r.authCode;
   if (typeof r.verifier === "string" && /^[A-Za-z0-9_-]{43,128}$/.test(r.verifier)) out.verifier = r.verifier;
   if (r.permission === "granted" || r.permission === "denied" || r.permission === "notDetermined") out.permission = r.permission;
+  if (Array.isArray(r.products)) out.products = r.products.slice(0, 10).map(cleanProduct).filter((p): p is NativeProduct => p !== null);
+  if (Array.isArray(r.transactions) && r.transactions.length <= 20 && r.transactions.every((t) => typeof t === "string" && t.length <= 20_000 && JWS.test(t))) out.transactions = r.transactions as string[];
+  if (r.pending === true) out.pending = true;
   if (r.error === "denied" || r.error === "unavailable" || r.error === "cancelled" || r.error === "timeout") out.error = r.error;
-  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.error) out.error = "unavailable";
+  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.pending && !out.error) out.error = "unavailable";
   return out;
 }
 

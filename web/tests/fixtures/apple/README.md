@@ -1,0 +1,1 @@
+Test-only throwaway certificates and keys for `tests/applePurchase.test.ts`: they stand in for Apple's and for Xcode's StoreKit test certificate, are trusted nowhere else, and are remade by `sh make.sh`.

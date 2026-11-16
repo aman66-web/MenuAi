@@ -24,6 +24,8 @@
 # misc
 .DS_Store
 *.pem
+# throwaway test certificates for the Apple purchase check (tests/fixtures/apple/README.md); never a real key
+!tests/fixtures/apple/*.pem
 
 # debug
 npm-debug.log*

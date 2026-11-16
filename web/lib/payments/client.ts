@@ -6,20 +6,14 @@ import { forgetPaidToken, keepPaidToken, paidStore } from "../mm/stores";
 import type { PlanId } from "./plans";
 import { currentRef } from "./ref";
 import { verifyToken } from "./token";
+import { entitlementPublicKey } from "./publicKey";
 
 /** True in the iPhone app's copy. The app never starts a payment on our own website (App Store rule 3.1.1: purchases there go through Apple), so the two functions that talk to
  *  Stripe's side return at once, and written as a build-time constant the rest of their code is left out of the app's files. */
 const IN_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1";
 
 /** The server's public key, set at build time (NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK, a JSON string). Absent = no token can be accepted. */
-function publicKey(): JsonWebKey | null {
-  try {
-    const raw = process.env.NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK;
-    return raw ? (JSON.parse(raw) as JsonWebKey) : null;
-  } catch {
-    return null;
-  }
-}
+export const publicKey = entitlementPublicKey;
 
 /** Checks a token and keeps it if it is genuine and current. Returns whether the device is now paid. */
 export async function acceptToken(token: string, nowMs: number = Date.now()): Promise<boolean> {

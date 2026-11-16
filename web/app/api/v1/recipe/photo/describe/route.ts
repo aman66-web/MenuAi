@@ -1,4 +1,4 @@
-import { PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
+import { PHOTO_RECIPES_API_ENABLED } from "@/lib/mm/config";
 import { preflight, withCors } from "@/lib/cors";
 import { withJsonBody } from "@/lib/http";
 import { handleDescribePhoto } from "@/lib/photoRecipeHandler";
@@ -13,7 +13,7 @@ export function OPTIONS(request: Request) {
 }
 
 export async function POST(request: Request) {
-  if (!PHOTO_RECIPES_ENABLED) return notFound(request);
+  if (!PHOTO_RECIPES_API_ENABLED) return notFound(request);
   if (!fromUs(request)) return withCors(request, Response.json({ error: "forbidden" }, { status: 403, headers: { "Cache-Control": "no-store" } }), PHOTO_CORS);
   const res = await withJsonBody(request, (body) => handleDescribePhoto(body, photoCtx(request, "describe", maxDuration * 1000)), 1_500 * 1024);
   return withCors(request, res, PHOTO_CORS);

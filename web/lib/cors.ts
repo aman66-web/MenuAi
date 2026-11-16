@@ -33,3 +33,15 @@ export function withCors(request: Request, response: Response, options: CorsOpti
   for (const [k, v] of Object.entries(corsHeaders(request.headers.get("origin"), options))) response.headers.set(k, v);
   return response;
 }
+
+/** Only our own pages (same host) and the iPhone app may ask: a browser always sends Origin on a POST. */
+export function fromUs(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  if (!origin) return false;
+  if (origin === APP_ORIGIN) return true;
+  try {
+    return new URL(origin).host === new URL(request.url).host;
+  } catch {
+    return false;
+  }
+}

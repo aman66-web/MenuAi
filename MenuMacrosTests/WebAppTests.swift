@@ -95,7 +95,7 @@ struct BridgeMessageTests {
     @Test @MainActor func theBridgeUsesTheServices() async {
         let bridge = NativeBridge(
             scanner: FakeBarcodeScanner(outcome: .code("12345678")), location: FakeLocationService(outcome: .denied), sharer: FakeShareService(completes: false),
-            appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: FakeNotificationScheduler()
+            appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: FakeNotificationScheduler(), purchases: FakePurchaseService()
         )
         #expect(await bridge.handle(.scan(id: "a")) == BridgeReply(code: "12345678"))
         #expect(await bridge.handle(.locate(id: "b", onlyIfAllowed: true)) == .failure("denied"))
@@ -107,7 +107,7 @@ struct BridgeMessageTests {
             scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(),
             appleSignIn: FakeAppleSignIn(outcome: .token(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce", authorizationCode: "c72f5a2b0f4e84e22b8c9d0a1d5d7a1ae.0.rrwv.k3v6J0sdsfDzwEl7ZmYMpw")),
             webSignIn: FakeWebSignIn(outcome: .code(authCode: String(repeating: "A", count: 60), verifier: String(repeating: "v", count: 64))),
-            notifications: FakeNotificationScheduler()
+            notifications: FakeNotificationScheduler(), purchases: FakePurchaseService()
         )
         #expect(await signedIn.handle(.appleSignIn(id: "a")) == BridgeReply(idToken: "aaa.bbb.ccc", nonce: "n0nceN0nceN0nce", appleCode: "c72f5a2b0f4e84e22b8c9d0a1d5d7a1ae.0.rrwv.k3v6J0sdsfDzwEl7ZmYMpw"))
         #expect(await signedIn.handle(.webAuth(id: "b", provider: "google")) == BridgeReply(authCode: String(repeating: "A", count: 60), verifier: String(repeating: "v", count: 64)))
@@ -116,7 +116,7 @@ struct BridgeMessageTests {
 
         let backedOut = NativeBridge(
             scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(),
-            appleSignIn: FakeAppleSignIn(outcome: .cancelled), webSignIn: FakeWebSignIn(outcome: .unavailable), notifications: FakeNotificationScheduler()
+            appleSignIn: FakeAppleSignIn(outcome: .cancelled), webSignIn: FakeWebSignIn(outcome: .unavailable), notifications: FakeNotificationScheduler(), purchases: FakePurchaseService()
         )
         #expect(await backedOut.handle(.appleSignIn(id: "a")) == .failure("cancelled"))
         #expect(await backedOut.handle(.webAuth(id: "b", provider: "google")) == .failure("unavailable"))

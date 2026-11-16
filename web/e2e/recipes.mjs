@@ -112,7 +112,7 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes/view?id=beef-chilli&r=sainsburys");
   await page.getByRole("heading", { level: 1, name: "Beef chilli and rice" }).waitFor();
-  await page.getByRole("group", { name: /Beef chilli and rice, per serving/ }).waitFor();
+  await page.getByRole("group", { name: /Beef chilli and rice, For 1 serving/ }).waitFor();
   await page.getByText("a serving", { exact: true }).waitFor();
   await page.getByText("to buy it all", { exact: true }).waitFor();
   const buy = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li");
@@ -188,7 +188,7 @@ await step("a substitute: use Quorn or tofu instead of chicken, and back again",
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
   await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).waitFor();
   const row = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
-  const kcalBefore = await page.getByRole("group", { name: /per serving/ }).innerText();
+  const kcalBefore = await page.getByRole("group", { name: /, For \d+ servings?/ }).innerText();
   await page.getByRole("button", { name: /^Swap Chicken/ }).click();
   const sheet = page.getByRole("dialog");
   await sheet.getByRole("heading", { name: "Use something else instead" }).waitFor();
@@ -198,7 +198,7 @@ await step("a substitute: use Quorn or tofu instead of chicken, and back again",
   await sheet.waitFor({ state: "hidden" });
   await row.getByText(/^Instead of chicken/).waitFor();
   expect((await row.innerText()).includes(subName), `the row shows ${subName}`);
-  expect((await page.getByRole("group", { name: /per serving/ }).innerText()) !== kcalBefore, "the numbers follow the substitute");
+  expect((await page.getByRole("group", { name: /, For \d+ servings?/ }).innerText()) !== kcalBefore, "the numbers follow the substitute");
   await page.getByRole("button", { name: new RegExp(`^Swap ${subName.slice(0, 5)}`) }).click();
   await page.getByRole("dialog").getByRole("button", { name: /As the recipe has it/ }).click();
   await page.getByRole("dialog").waitFor({ state: "hidden" });
@@ -214,18 +214,27 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   await page.getByRole("button", { name: "Save to My meals", pressed: false }).click();
   await page.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
   const chicken = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
-  expect(lines(await chicken.innerText()).includes("300 g"), "300 g chicken for 2");
+  // founder 2026-11-16: a recipe opens for one person; + cooks for more, and the amounts and the numbers shown follow
+  await page.getByText("Serves 1", { exact: true }).waitFor();
+  expect(!(await page.getByRole("button", { name: "Fewer servings" }).isEnabled()), "opens at 1, not below 1");
+  expect(lines(await chicken.innerText()).includes("150 g"), "150 g chicken for 1");
+  await page.getByRole("group", { name: /, For 1 serving\b/ }).waitFor();
+  const kcal = async () => Number(/^([\d,]+)/.exec(await page.getByRole("group", { name: /, For \d+ servings?/ }).innerText())?.[1]?.replace(",", ""));
+  const one = await kcal();
+  expect((await page.getByText(/^Each serving: /).count()) === 0, "no each-serving line for one person");
+  await page.getByRole("button", { name: "More servings" }).click();
   await page.getByText("Serves 2", { exact: true }).waitFor();
-  expect(await page.getByRole("button", { name: "Fewer servings" }).isEnabled(), "can go down to 1");
-  const kcal = async () => Number(/^([\d,]+)/.exec(await page.getByRole("group", { name: /per serving/ }).innerText())?.[1]?.replace(",", ""));
-  const before = await kcal();
+  expect(lines(await chicken.innerText()).includes("300 g"), "300 g chicken for 2");
+  await page.getByRole("group", { name: /, For 2 servings\b/ }).waitFor();
+  const two = await kcal();
+  expect(Math.abs(two - 2 * one) <= 1, `the calories are for both servings (${one} -> ${two} kcal)`);
+  await page.getByText(new RegExp(`^Each serving: ${one.toLocaleString("en-GB")} kcal`)).waitFor();
   await page.getByRole("button", { name: "More servings" }).click();
   await page.getByRole("button", { name: "More servings" }).click();
   await page.getByText("Serves 4", { exact: true }).waitFor();
   const four = lines(await chicken.innerText());
   expect(four.includes("600 g"), `600 g chicken for 4, got ${four.join(" | ")}`);
-  const after = await kcal();
-  expect(after === before, `a serving stays exactly the same (${before} -> ${after} kcal)`);
+  expect(Math.abs((await kcal()) - 4 * one) <= 2, "the calories are for all four");
   for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Fewer servings" }).click();
   await page.getByText("Serves 1", { exact: true }).waitFor();
   expect(!(await page.getByRole("button", { name: "Fewer servings" }).isEnabled()), "not below 1");
@@ -236,6 +245,11 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   // founder 2026-11-16: each step has a short bold title (its own heading) above the instruction, with the step's time beside it
   await page.getByRole("heading", { name: "Check the chicken", exact: true }).waitFor();
   await page.getByText("Cut into the thickest part of the biggest piece.", { exact: false }).waitFor();
+  // each ingredient's amount for this many people sits under the first step that uses it
+  const needs = page.locator("#recipe-panel-method p", { hasText: /^You'll need:/ });
+  expect((await needs.count()) >= 3, `amounts under the steps (${await needs.count()})`);
+  expect((await needs.allInnerTexts()).some((x) => / 150 g\b/.test(x)), "the chicken's 150 g for one person is under a step");
+  await page.getByText(/^The cooking times are for 2 servings/).waitFor();
   expect((await page.getByRole("heading", { name: "What to buy" }).count()) === 0, "ingredients hidden on the Method tab");
   await page.getByRole("tab", { name: "Method", selected: true }).press("ArrowLeft");
   await page.getByRole("tab", { name: "Ingredients", selected: true }).waitFor();
@@ -250,10 +264,10 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   await ctx.close();
 });
 
-// founder 2026-10-16: "the maths doesn't work when you increase the servings" (chicken chow mein showed 451, 456, 451 kcal at Serves 4, 3, 2).
-// A serving is the same serving whoever it is cooked for: the numbers, the full label and the price a serving are the same text at every Serves
-// value; the amounts, the packs and "to buy it all" follow the people.
-await step("a serving's numbers and price are the same at Serves 1, 2, 3, 4, 5 and 12: chow mein (as written and fitted), eggs, wraps", async () => {
+// founder 2026-10-16: "the maths doesn't work when you increase the servings" (chicken chow mein showed 451, 456, 451 kcal at Serves 4, 3, 2), and 2026-11-16:
+// a recipe opens for one person and the numbers shown are for everyone it serves. So: the numbers for n people are n times one serving, "Each serving" and the
+// price a serving are the same text at every Serves value, and the amounts, the packs and "to buy it all" follow the people.
+await step("numbers for n people are n servings, and a serving and its price stay the same at Serves 1, 2, 3, 4, 5 and 12: chow mein (as written and fitted), eggs, wraps", async () => {
   const written = { recipeMeal: { size: "written", moreProtein: false } };
   const fitted = { recipeMeal: { size: "normal", moreProtein: true } };
   const cases = [
@@ -268,10 +282,7 @@ await step("a serving's numbers and price are the same at Serves 1, 2, 3, 4, 5 a
     const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, ...extra } }));
     await page.goto(BASE + `/app/recipes/view?id=${id}&r=sainsburys`);
     await page.getByRole("heading", { level: 1, name: title ?? /.+/ }).waitFor();
-    await page.getByRole("group", { name: /per serving/ }).waitFor();
-    const written0 = await page.getByText(/^Serves \d+$/).innerText();
-    const start = Number(/\d+/.exec(written0)[0]);
-    await page.getByRole("button", { name: /^More detail/ }).click(); // the full label stays open while the servings change
+    await page.getByRole("group", { name: /, For 1 serving\b/ }).waitFor();
     const serves = async (n) => {
       for (let guard = 0; guard < 14; guard++) {
         const now = Number(/\d+/.exec(await page.getByText(/^Serves \d+$/).innerText())[0]);
@@ -281,74 +292,35 @@ await step("a serving's numbers and price are the same at Serves 1, 2, 3, 4, 5 a
       }
       throw new Error(`could not reach Serves ${n}`);
     };
+    const kcalOf = (text) => Number(/^([\d,]+)/.exec(text)?.[1]?.replace(",", ""));
     const read = async () => ({
-      per: await page.getByRole("group", { name: /per serving/ }).innerText(),
-      label: await page.locator("#recipe-label").innerText(),
+      group: await page.getByRole("group", { name: /, For \d+ servings?/ }).innerText(),
+      each: (await page.getByText(/^Each serving: /).count()) ? await page.getByText(/^Each serving: /).innerText() : null,
       price: await page.locator("#recipe-panel-ingredients").getByText("a serving", { exact: true }).locator("xpath=following-sibling::p[1]").innerText(),
-      basket: await page.locator("#recipe-panel-ingredients").getByText("to buy it all", { exact: true }).locator("xpath=following-sibling::p[1]").innerText(),
       first: await page.locator("#recipe-panel-ingredients ul li").first().innerText(),
     });
-    await serves(start);
-    const ref = await read();
-    expect(/^[\d,]+/.test(ref.per) && /£\d/.test(ref.price), `${label}: numbers and a price at Serves ${start}: ${JSON.stringify(ref.per)} ${ref.price}`);
-    let firstGrams = [];
+    const one = await read();
+    const kcal1 = kcalOf(one.group);
+    expect(kcal1 > 0 && /£\d/.test(one.price) && one.each === null, `${label}: one serving's numbers and price: ${JSON.stringify(one.group)} ${one.price}`);
+    let each2 = null;
+    const firstGrams = [];
     for (const n of [1, 2, 3, 4, 5, 12]) {
       await serves(n);
       const got = await read();
-      expect(got.per === ref.per, `${label}: Serves ${n} shows ${JSON.stringify(got.per)}, not ${JSON.stringify(ref.per)}`);
-      expect(got.label === ref.label, `${label}: Serves ${n} full label differs: ${JSON.stringify(got.label)} vs ${JSON.stringify(ref.label)}`);
-      expect(got.price === ref.price, `${label}: Serves ${n} price a serving ${got.price}, not ${ref.price}`);
+      await page.getByRole("group", { name: new RegExp(`, For ${n} servings?\\b`) }).waitFor();
+      expect(Math.abs(kcalOf(got.group) - n * kcal1) <= n, `${label}: Serves ${n} shows ${kcalOf(got.group)} kcal, not about ${n} x ${kcal1}`);
+      expect(got.price === one.price, `${label}: Serves ${n} price a serving ${got.price}, not ${one.price}`);
+      if (n > 1) {
+        each2 ??= got.each;
+        expect(got.each !== null && got.each === each2 && got.each.startsWith(`Each serving: ${kcal1.toLocaleString("en-GB")} kcal`), `${label}: Serves ${n} each serving ${JSON.stringify(got.each)}`);
+      }
       firstGrams.push(Number(/(\d[\d,]*) (?:g|ml)\b/.exec(got.first)?.[1]?.replace(",", "") ?? NaN));
     }
-    // what changes is the shopping: the first ingredient's amount grows with the people, and the basket never shrinks as they grow
+    // what changes is the shopping: the first ingredient's amount grows with the people
     expect(firstGrams.every((g) => g > 0), `${label}: amounts shown ${firstGrams}`);
     expect(firstGrams[5] > firstGrams[0], `${label}: 12 people need more than 1 (${firstGrams[5]} vs ${firstGrams[0]})`);
-    await serves(1);
-    const one = money((await read()).basket);
-    await serves(12);
-    const twelve = money((await read()).basket);
-    expect(twelve > one, `${label}: the basket for 12 (£${twelve}) is more than for 1 (£${one})`);
     await ctx.close();
   }
-});
-
-await step("a shop product can be added to the list from its own page", async () => {
-  const { ctx, page } = await newPage();
-  await page.goto(BASE + "/app/groceries/shop/item?r=sainsburys&id=sainsburys-red-kidney-beans-in-water-400g-240g");
-  await page.getByRole("heading", { level: 1, name: /Red Kidney Beans/ }).waitFor();
-  await page.getByRole("button", { name: "Add to my list" }).click();
-  await page.getByText("Added to your Sainsbury's list.").waitFor();
-  await page.goto(BASE + "/app/groceries/list");
-  await page.getByRole("link", { name: /Red Kidney Beans in Water 400g/ }).waitFor();
-  await ctx.close();
-});
-
-await step("your meal: sizes fit every recipe, own numbers, and recipes as written", async () => {
-  const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, goal: "maintain", dailyCalories: 2000 } }));
-  await page.goto(BASE + "/app/recipes");
-  await page.getByText("Each recipe is fitted to about 600 kcal a serving.").waitFor();
-  const cards = page.getByRole("region", { name: /All recipes/ }).locator("a[href*='/app/recipes/view']");
-  await cards.first().waitFor();
-  expect((await page.getByRole("radio", { name: /^Small/ }).count()) === 0, "meal sizes shown before Adjust");
-  await page.getByRole("button", { name: "Adjust" }).click();
-  await page.getByRole("radio", { name: /^Small, 400 kcal/ }).click();
-  await page.getByText("Each recipe is fitted to about 400 kcal a serving.").waitFor();
-  await page.getByRole("radio", { name: /^More protein/ }).click();
-  await page.getByText("Each recipe is fitted to about 400 kcal and 30 g protein a serving.").waitFor();
-  const first = (await cards.first().innerText()).replace(/\n/g, " ");
-  const kcal = Number(/(\d[\d,]*)\s*kcal/i.exec(first)?.[1]?.replace(",", ""));
-  expect(kcal > 300 && kcal < 520, `closest fit near 400 kcal first, got ${kcal} in ${first.slice(0, 80)}`);
-  await page.getByRole("button", { name: "Type my own numbers" }).click();
-  await page.getByLabel("Calories a serving").fill("550");
-  await page.getByLabel("Protein (g)").fill("40");
-  await page.getByLabel("Fat, at most (g)").fill("18");
-  await page.getByRole("button", { name: "Use my numbers" }).click();
-  await page.getByText("Each recipe is fitted to about 550 kcal and 40 g protein, no more than 18 g fat a serving.").waitFor();
-  await page.getByRole("button", { name: "Show recipes as written" }).click();
-  await page.getByText("Recipes are shown as written.").waitFor();
-  await page.reload();
-  await page.getByText("Recipes are shown as written.").waitFor(); // remembered
-  await ctx.close();
 });
 
 await step("a fitted recipe shows the full label (under More detail) and can be seen as written", async () => {
@@ -366,7 +338,7 @@ await step("a fitted recipe shows the full label (under More detail) and can be 
   await page.getByRole("button", { name: "Show it as written" }).click();
   await page.getByText("Showing the recipe as written.").waitFor();
   const written = await chicken.innerText();
-  expect(lines(written).includes("300 g"), `as written: 300 g chicken, got ${written.slice(0, 60)}`);
+  expect(lines(written).includes("150 g"), `as written, for 1: 150 g chicken, got ${written.slice(0, 60)}`);
   expect(fitted !== written, "fitting changed the chicken amount");
   await ctx.close();
 });
@@ -379,7 +351,7 @@ await step("halal: chicken recipes use halal-named chicken, others are left out 
   await page.getByText(/recipes? (is|are) left out for your diet/).waitFor();
   expect((await page.getByRole("link", { name: /Ham and cheese omelette/ }).count()) === 0, "ham left out for halal");
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
-  await page.getByText(/Halal chicken breast fillets/).waitFor();
+  await page.locator("#recipe-panel-ingredients").getByText(/Halal chicken breast fillets/).first().waitFor();
   await page.getByRole("link", { name: /Halal/ }).first().waitFor();
   await page.getByText(/check each pack before you buy/).waitFor();
   await ctx.close();

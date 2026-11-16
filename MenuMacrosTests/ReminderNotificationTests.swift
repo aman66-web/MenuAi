@@ -373,7 +373,7 @@ struct ReminderBridgeTests {
     private func makeBridge(_ notifications: FakeNotificationScheduler) -> NativeBridge {
         NativeBridge(
             scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(),
-            appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: notifications
+            appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: notifications, purchases: FakePurchaseService()
         )
     }
 

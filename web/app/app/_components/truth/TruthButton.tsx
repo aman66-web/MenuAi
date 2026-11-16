@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { PAID_ACCESS_ENABLED } from "@/lib/mm/config";
+import { PAID_ACCESS_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { noteShareUnlock, tryOpenTruth } from "@/lib/mm/stores";
 import { smartSwap } from "@/lib/mm/truth/swap";
 import type { Chain, MenuItem } from "@/lib/mm/types";
@@ -47,7 +47,7 @@ export function TruthButton({ chain, item }: { chain: Chain; item: MenuItem }) {
           {t("Show a Smart Swap at {chain}", { chain: chain.name })}
         </button>
       )}
-      <TruthSheet open={open !== null} onClose={() => setOpen(null)} chain={chain} item={item} swap={swap} onWhatsApp={PAID_ACCESS_ENABLED ? () => noteShareUnlock() : undefined} />
+      <TruthSheet open={open !== null} onClose={() => setOpen(null)} chain={chain} item={item} swap={swap} onWhatsApp={WEB_PRO_ENABLED ? () => noteShareUnlock() : undefined} />
     </div>
   );
 }

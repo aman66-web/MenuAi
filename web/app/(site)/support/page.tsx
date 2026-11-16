@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IAP_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SupportForm } from "./SupportForm";
 
@@ -34,7 +34,7 @@ export default function Support() {
                 </div>
               </>
             )}
-            {IAP_ENABLED || (PRO_ENABLED && !WEB_PRO_ENABLED) ? (
+            {APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED) ? (
               <>
                 <div className="py-4">
                   <h2 className="text-base font-bold tracking-[-0.01em]">Cancel or manage your subscription</h2>

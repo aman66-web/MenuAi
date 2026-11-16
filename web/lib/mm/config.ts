@@ -67,6 +67,18 @@ export const GATING_ENABLED = PRO_ENABLED || PAID_ACCESS_ENABLED;
  * so it can never show up free, nor before Premium launches. The API route needs ANTHROPIC_API_KEY as well (and checks the paid token).
  */
 export const PHOTO_RECIPES_ENABLED = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1" && GATING_ENABLED;
+
+/**
+ * The iPhone app sells Premium through Apple (version 1.1). True in an In-App Purchase app build; on the website it is set with NEXT_PUBLIC_APP_PREMIUM=1 once that
+ * app version is out, so the website's Privacy, Terms and Support pages (the ones the App Store links to) describe Apple purchases, and its API serves the app's
+ * paid features. It sells nothing on the website itself.
+ */
+export const APP_PREMIUM = IAP_ENABLED || (!APP_BUILD && process.env.NEXT_PUBLIC_APP_PREMIUM === "1");
+
+/** Make it at home's two API routes answer with NEXT_PUBLIC_PHOTO_RECIPES=1 (each still needs a paid token and ANTHROPIC_API_KEY, lib/photoRecipeRoute.ts), so the
+ *  website can serve the iPhone app's Premium feature while the website itself shows no Make it at home card (that needs GATING_ENABLED too). The privacy page
+ *  describes the feature whenever these routes answer. */
+export const PHOTO_RECIPES_API_ENABLED = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1";
 /** Where the app build reaches the live website for newer data and the API: absolute, no trailing slash. Empty on the website itself. */
 export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "").replace(/\/$/, "") : "";
 

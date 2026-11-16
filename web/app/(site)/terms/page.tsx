@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { IAP_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { APP_PREMIUM, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { PASS_DAYS, PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 
@@ -30,7 +30,7 @@ export default function Terms() {
         <p className={para}>
           Your use of the {site.name} app is governed by Apple&apos;s{" "}
           <a className={LINK} href={site.appleStandardEula}>Licensed Application End User License Agreement</a>.{" "}
-          {IAP_ENABLED
+          {APP_PREMIUM
             ? "Paid features in the iPhone app are bought with Apple In-App Purchase. Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
             : PRO_ENABLED
               ? "Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."

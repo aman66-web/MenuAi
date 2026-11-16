@@ -1,7 +1,7 @@
 # Paid access (built 13–14 November 2026, switched OFF)
 
 Everything in this document is built, tested with fakes, and **off**. Nothing changes on numbite.com or in the iPhone app until you set `NEXT_PUBLIC_WEB_PRO=1`
-(website) and make the build with `NEXT_PUBLIC_IAP=1` (iPhone app, later). The free launch stays exactly as it is until then (`web/lib/mm/config.ts`: `WEB_PRO_ENABLED`, `IAP_ENABLED`).
+(website) and make the build with `NEXT_PUBLIC_IAP=1` (iPhone app 1.1, see below). The free launch stays exactly as it is until then (`web/lib/mm/config.ts`: `WEB_PRO_ENABLED`, `IAP_ENABLED`).
 
 ## What it is
 
@@ -38,9 +38,29 @@ Code: `web/lib/payments/*` (pure, 27 tests in `tests/payments.test.ts`), `web/li
 8. **Test in Stripe test mode** with card `4242 4242 4242 4242`: pay each plan, confirm access appears, then `Refund` and confirm it ends. Then set `NEXT_PUBLIC_WEB_PRO=1` in Vercel and redeploy.
 9. **Go live**: swap in live-mode keys and Price ids, add the live webhook, redeploy.
 
-## iPhone app (Apple In-App Purchase): planned, not built
+## iPhone app (Apple In-App Purchase): built 16 November 2026 for version 1.1 (branch `iap`)
 
-App Store guideline 3.1.1: digital features in the app must be bought with In-App Purchase, so the app never shows the Stripe page (`/api/v1/checkout` refuses the app's origin). Plan: three products (90-day pass = non-renewing subscription; annual and monthly = auto-renewing, one group), StoreKit 2 in Swift, a server route that verifies Apple's signed transaction and writes a `source = 'apple'` row to the same table, and the same token. A purchase then works on the web too for a signed-in person (guideline 3.1.3(b)). It needs the Mac session and your App Store Connect setup: `docs/CLAUDE_DESKTOP_IAP_PROMPT.md`.
+App Store guideline 3.1.1: digital features in the app are bought with In-App Purchase, so the app never shows the Stripe page (`/api/v1/checkout` refuses the app's origin)
+and never mentions the website or another way to pay. The WhatsApp "share to unlock" is off in the app (guideline 3.2.2: no unlocking for sharing).
+
+1. **Products** (App Store Connect; `Config/Numbite.storekit` holds the same three for testing): `com.amanmarwaha.numbite.pro.annual` and `.monthly` (auto-renewable, one group "Numbite Pro"),
+   `.pass90` (non-renewing, 90 days). Names and prices on screen come from StoreKit, never from our table.
+2. **Buying** (`web/app/app/_components/AppStorePlans.tsx` → `web/lib/payments/iap.ts` → bridge `iap.purchase` → `MenuMacros/Services/StoreKitPurchaseService.swift`): Apple's own sheet; StoreKit
+   checks the purchase on the phone and hands the page Apple's **signed transaction** (a JWS).
+3. **Checking** (`POST /api/v1/entitlement/apple`, `web/lib/payments/apple.ts`): the server checks the signature chain up to **Apple Root CA - G3**, Apple's certificate markers, our bundle ID and the
+   product, refuses refunded or upgraded transactions, accepts Production and **Sandbox** (App Review and TestFlight buy in the sandbox), and answers with the same signed token as the website
+   (`src: "apple"`). It keeps nothing: Apple keeps the purchase record.
+4. **Keeping it current**: at start-up and whenever the app comes back to the front the page asks StoreKit for the person's current purchases (`iap.entitlements`); nothing there (refunded, cancelled
+   and ended) and the Apple token goes; a purchase there and no token (new phone, reinstall), or one with under a week left, and a fresh token is fetched. **Restore purchases** (plans screen and
+   Settings › Subscription) asks the App Store to sync first. **Manage subscription** opens Apple's own screen.
+5. **Testing on the Mac or your phone from Xcode**: the scheme's Run uses `Config/Numbite.storekit` (Xcode's local test store: no money, no App Store Connect products needed). Those purchases are signed by
+   Xcode's own test certificate, which the server accepts only when `APPLE_XCODE_TEST_CERT` (that certificate) is set in Vercel. **Remove it after testing.** TestFlight and App Review use Apple's sandbox
+   instead, which needs the real products in App Store Connect.
+6. **Keys**: run `node tools/payments/make_entitlement_key.mjs` once in Terminal on your Mac: it writes the public key into `web/lib/payments/entitlement-public-key.json` (commit it; the website and every app
+   build read it) and puts the private key on your clipboard only; paste it into Vercel as `ENTITLEMENT_PRIVATE_JWK` (Sensitive, Production and Preview).
+
+Not done for Apple purchases: no `pro_entitlements` row (not needed: restore goes through the Apple ID), no creator code (an App Store purchase can't carry one), no App Store Server Notifications (a refund is
+noticed at the next start-up; the token of a refunded purchase still checks until then).
 
 ## Not decided (yours)
 

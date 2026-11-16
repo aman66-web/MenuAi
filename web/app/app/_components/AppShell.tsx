@@ -22,7 +22,9 @@ import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "./icons";
 import { CreatorKeys } from "../_lib/creator";
 import { RefCapture } from "../../components/RefCapture";
 import { recheckStoredToken } from "@/lib/payments/client";
-import { GATING_ENABLED } from "@/lib/mm/config";
+import { GATING_ENABLED, IAP_ENABLED } from "@/lib/mm/config";
+import { hasNative } from "@/lib/mm/native";
+import { refreshAppStoreAccess } from "@/lib/payments/iap";
 import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 
@@ -75,9 +77,16 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (hydrated) void setLanguage(language ?? "en");
   }, [hydrated, language]);
 
-  // A stored payment token that no longer checks out (run out, changed) is forgotten. Only when payments are on.
+  // A stored payment token that no longer checks out (run out, changed) is forgotten. Only when payments are on. In the In-App Purchase app, Apple's list of current
+  // purchases then decides (lib/payments/iap.ts), and again whenever the app comes back to the front: a renewal, an approved Ask to Buy or a refund shows up there.
   useEffect(() => {
-    if (hydrated && GATING_ENABLED) void recheckStoredToken();
+    if (!hydrated || !GATING_ENABLED) return;
+    const checked = recheckStoredToken();
+    if (!IAP_ENABLED || !hasNative()) return;
+    void checked.then(() => refreshAppStoreAccess());
+    const back = () => { if (document.visibilityState === "visible") void refreshAppStoreAccess(); };
+    document.addEventListener("visibilitychange", back);
+    return () => document.removeEventListener("visibilitychange", back);
   }, [hydrated]);
 
   // Signed in? (Optional: with no account nothing is sent anywhere.) Asks the server who this device is signed in as and starts syncing.

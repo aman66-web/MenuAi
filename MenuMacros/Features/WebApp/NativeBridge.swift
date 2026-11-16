@@ -2,7 +2,8 @@ import Foundation
 import OSLog
 import WebKit
 
-/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet, sign-in sheets and reminder notifications, and hands
+/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet, sign-in sheets, reminder notifications and the App
+/// Store's In-App Purchase, and hands
 /// the result back with window.__menumathReply (web/lib/mm/native.ts). Only the app's own pages (the main frame on app://menumath) are listened to.
 final class NativeBridge: NSObject, WKScriptMessageHandler {
     static let handlerName = "menumath"
@@ -14,14 +15,16 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
     private let appleSignIn: any AppleSigningIn
     private let webSignIn: any WebSigningIn
     private let notifications: any NotificationScheduling
+    private let purchases: any PurchaseService
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
         self.appleSignIn = appleSignIn
         self.webSignIn = webSignIn
         self.notifications = notifications
+        self.purchases = purchases
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -77,6 +80,27 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
             return BridgeReply(done: true)
         case .openNotificationSettings:
             notifications.openSettings()
+            return BridgeReply(done: true)
+        case .iapProducts(_, let productIDs):
+            guard let products = await purchases.products(ids: productIDs) else { return .failure("unavailable") }
+            return BridgeReply(products: products)
+        case .iapPurchase(_, let productID):
+            switch await purchases.purchase(id: productID) {
+            case .succeeded(let jws): return BridgeReply(transactions: [jws])
+            case .cancelled: return .failure("cancelled")
+            case .pending: return BridgeReply(pending: true)
+            case .failed: return .failure("unavailable")
+            }
+        case .iapEntitlements:
+            return BridgeReply(transactions: await purchases.entitlements())
+        case .iapRestore:
+            switch await purchases.restore() {
+            case .transactions(let signed): return BridgeReply(transactions: signed)
+            case .cancelled: return .failure("cancelled")
+            case .failed: return .failure("unavailable")
+            }
+        case .iapManage:
+            await purchases.manageSubscriptions()
             return BridgeReply(done: true)
         }
     }

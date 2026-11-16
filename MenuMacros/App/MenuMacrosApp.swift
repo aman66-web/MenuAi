@@ -7,6 +7,8 @@ struct MenuMacrosApp: App {
     init() {
         // A reminder that comes due while the app is open is shown too (Services/ReminderNotificationDelegate.swift). Once, as the app starts.
         ReminderNotificationDelegate.install()
+        // Renewals, Ask to Buy approvals and refunds arrive through Transaction.updates: listened to from the start so none is missed.
+        StoreKitPurchaseService.startListeningForTransactions()
     }
 
     var body: some Scene {

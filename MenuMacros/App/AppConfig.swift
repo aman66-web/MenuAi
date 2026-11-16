@@ -19,6 +19,15 @@ nonisolated enum AppConfig {
     static let appGroupID = "group.com.amanmarwaha.menumacros"
     static let yearlyProductID = "com.amanmarwaha.menumacros.pro.yearly"
     static let monthlyProductID = "com.amanmarwaha.menumacros.pro.monthly"
+    /// Apple In-App Purchase (docs/CLAUDE_DESKTOP_IAP_PROMPT.md): the only products the page may ask for (BridgeRequest drops or refuses any other).
+    /// Annual and Monthly renew, in one subscription group; the 90-day pass is a non-renewing subscription, so its 90 days are counted by our server
+    /// from the purchase date (StoreKit doesn't know when a non-renewing subscription ends). Config/Numbite.storekit has the same three for testing.
+    static let iapAnnualProductID = "com.amanmarwaha.numbite.pro.annual"
+    static let iapMonthlyProductID = "com.amanmarwaha.numbite.pro.monthly"
+    static let iapPass90ProductID = "com.amanmarwaha.numbite.pro.pass90"
+    static let iapProductIDs: [String] = [iapAnnualProductID, iapMonthlyProductID, iapPass90ProductID]
+    /// Where "Manage subscription" goes when Apple's sheet can't be shown in the app.
+    static let manageSubscriptionsURL = URL(string: "https://apps.apple.com/account/subscriptions")!
     static let freeSavedOrderLimit = 3
     static let newItemDays = 30
 }

@@ -13,11 +13,21 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     case notificationStatus(id: String)
     case syncReminders(id: String, plan: ReminderPlanItem.Parsed)
     case openNotificationSettings(id: String)
+    /// Apple In-App Purchase (Services/PurchaseService.swift): only our three products (AppConfig.iapProductIDs) ever reach the App Store.
+    case iapProducts(id: String, productIDs: [String])
+    case iapPurchase(id: String, productID: String)
+    case iapEntitlements(id: String)
+    case iapRestore(id: String)
+    case iapManage(id: String)
+
+    /// The most product ids one `iap.products` request may list (there are three products; anything longer is not a real request).
+    static let maxProductIDs = 20
 
     var id: String {
         switch self {
         case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _),
-             .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id): id
+             .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id),
+             .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id): id
         }
     }
 
@@ -49,6 +59,20 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
             self = .syncReminders(id: id, plan: plan)
         case "notifications.openSettings":
             self = .openNotificationSettings(id: id)
+        case "iap.products":
+            // A list of strings or nothing; ids that aren't ours are dropped (an empty list is a real question with an empty answer).
+            guard let ids = payload["ids"] as? [String], ids.count <= Self.maxProductIDs else { return nil }
+            self = .iapProducts(id: id, productIDs: IAPProduct.onlyOurs(ids))
+        case "iap.purchase":
+            // Never a product that isn't ours.
+            guard let productID = payload["id"] as? String, AppConfig.iapProductIDs.contains(productID) else { return nil }
+            self = .iapPurchase(id: id, productID: productID)
+        case "iap.entitlements":
+            self = .iapEntitlements(id: id)
+        case "iap.restore":
+            self = .iapRestore(id: id)
+        case "iap.manage":
+            self = .iapManage(id: id)
         default:
             return nil
         }
@@ -106,6 +130,11 @@ nonisolated struct BridgeReply: Codable, Equatable, Sendable {
     var verifier: String?
     /// Notifications: "granted", "denied" or "notDetermined" (NotificationPermission.rawValue).
     var permission: String?
+    /// In-App Purchase: the products with Apple's names and prices; Apple's signed transactions (compact JWS) for our server to check; true while a
+    /// purchase waits for Ask to Buy or extra authentication.
+    var products: [IAPProduct]?
+    var transactions: [String]?
+    var pending: Bool?
     var error: String?
 
     static func failure(_ reason: String) -> BridgeReply { BridgeReply(error: reason) }

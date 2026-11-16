@@ -14,6 +14,7 @@ import { getLastTruthMessage } from "../_lib/lastTruth";
 import { useT } from "../_lib/i18n";
 import { restoreFromAccount } from "@/lib/payments/client";
 import { SignInSheet } from "./SignIn";
+import { AppStorePlans } from "./AppStorePlans";
 import { WhatsAppShareIcon } from "./truth/TruthIcons";
 import { Button } from "./ui";
 
@@ -26,9 +27,13 @@ const GENERIC_SHARE = `Look at the real calories and protein of UK restaurant me
 /** True in the iPhone app's copy, written as a build-time constant: the app never shows plans or prices (App Store 3.1.1: purchases there go through Apple), and
  *  with this the plans, the prices and the words about paying on Stripe are left out of the app's files altogether (App Review 2.3.1: no dormant features). */
 const IN_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1"; // the free iPhone app (an In-App Purchase build, 1.1, keeps it)
+/** The iPhone app that sells with Apple In-App Purchase (version 1.1): Apple's plans only. The Stripe plans below, their prices and the WhatsApp unlock are then left out
+ *  of the app's files (written as a build-time constant so the minifier drops them). */
+const IAP_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP === "1";
 
 export function ProPlans(props: { level?: "h2" | "h3" } = {}) {
   if (IN_APP) return null;
+  if (IAP_APP) return <AppStorePlans {...props} />;
   return <PlansBody {...props} />;
 }
 
