@@ -72,6 +72,10 @@ export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: C
   // chilli and burritos are Tex-Mex rather than strictly Mexican; filed here because that is where a shopper looks for them
   ...cuisine("mexican", "chicken-fajitas", "beef-burrito-bowl", "mexican-chicken-rice", "bean-pepper-fajitas", "beef-chilli", "bean-chilli", "breakfast-burrito", "huevos-rancheros", "mexican-bean-rice-bowl", "cheese-bean-quesadillas", "cheese-bean-quesadilla-wedges"),
   ...cuisine("middle-eastern", "chicken-shawarma-wraps", "moroccan-chickpea-stew", "shakshuka", "chickpea-houmous-wraps", "houmous-veg-sticks", "chickpea-tomato-salad", "spiced-chicken-rice-bowl", "chickpea-spinach-egg-stew"),
+  // the recipes added 2026-11-16 (veganMorning, veganMains, glutenFree, moreMains)
+  ...cuisine("british", "crispy-potatoes-garlic-mushrooms", "crispy-potato-cakes-fried-eggs", "broccoli-cheddar-soup", "cheese-onion-potato-cakes", "tuna-sweetcorn-pasta-bake", "beef-potato-pepper-hash", "broccoli-pepper-cheddar-pasta-bake", "honey-mustard-chicken-traybake"),
+  ...cuisine("indian", "coconut-vegetable-curry", "potato-pea-curry", "chicken-biryani-style-rice", "chicken-korma-style-curry"),
+  ...cuisine("italian", "mushroom-pea-risotto-rice", "garlic-mushroom-spinach-spaghetti", "spinach-soft-cheese-pasta", "mozzarella-tomato-pesto-wraps", "smoked-salmon-pea-pasta", "salmon-broccoli-pasta"),
 ];
 
 /** One line per recipe and occasion (a recipe may suit several; the same pair twice is a mistake the tests catch). */
@@ -84,6 +88,12 @@ export const OCCASION_LINES: ReadonlyArray<readonly [recipeId: string, occasion:
   ...occasion("picnic", "chicken-wraps", "spanish-omelette", "tuna-sweetcorn-pasta-salad", "smoked-salmon-soft-cheese-wraps", "egg-mayonnaise-wraps", "ham-soft-cheese-wraps", "chickpea-tomato-salad", "pesto-pasta-mozzarella-salad", "tuna-bean-salad", "potato-egg-salad", "curried-rice-salad", "houmous-veg-sticks", "ham-soft-cheese-roll-ups", "devilled-eggs"),
   // cooked on a barbecue or under a grill, or a cold salad that keeps and is served beside it (the same standard for every salad)
   ...occasion("summer-barbecue", "chicken-shawarma-wraps", "chicken-pepper-kebabs", "bbq-chicken-thigh-skewers", "potato-egg-salad", "chickpea-tomato-salad", "pesto-pasta-mozzarella-salad", "curried-rice-salad", "tuna-sweetcorn-pasta-salad"),
+  // the recipes added 2026-11-16
+  ...occasion("bonfire-night", "carrot-coconut-soup", "tomato-pepper-chickpea-soup", "broccoli-cheddar-soup", "beef-potato-pepper-hash"),
+  ...occasion("lunchbox", "peanut-butter-apple-slices", "banana-oat-cookies", "lemony-chickpea-potato-salad", "satay-pasta-salad", "pepper-spinach-cheddar-frittata", "ham-pepper-egg-cups", "tuna-egg-potato-salad", "chicken-sweetcorn-rice-salad", "mozzarella-tomato-pesto-wraps"),
+  ...occasion("party-food", "wrap-crisps-tomato-salsa", "sweetcorn-pepper-lettuce-cups", "ham-pepper-egg-cups"),
+  ...occasion("picnic", "banana-oat-cookies", "lemony-chickpea-potato-salad", "satay-pasta-salad", "pepper-spinach-cheddar-frittata", "ham-pepper-egg-cups", "tuna-egg-potato-salad", "chicken-sweetcorn-rice-salad", "salmon-potato-salad-cucumber-yogurt", "mozzarella-tomato-pesto-wraps"),
+  ...occasion("summer-barbecue", "lemony-chickpea-potato-salad", "satay-pasta-salad", "tuna-egg-potato-salad", "chicken-sweetcorn-rice-salad", "salmon-potato-salad-cucumber-yogurt"),
 ];
 
 /** Every recipe's niche, by recipe id (a recipe in neither table is not here). Built from the two tables above; whoever writes a recipe adds its lines there. */

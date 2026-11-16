@@ -7,6 +7,7 @@ import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleMethodMl, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
+import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
 import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
 import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
@@ -406,12 +407,25 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
         <section id="recipe-panel-method" role="tabpanel" aria-labelledby="recipe-tab-method" hidden={tab !== "method"} className="mt-5">
           <h2 id="method-heading" className={HEADING}>{t("How to make it")}</h2>
           <ol className={`${CARD} mt-3 divide-y divide-line px-4`}>
-            {recipe.method.map((step, i) => (
-              <li key={i} className="flex gap-3.5 py-4">
-                <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-soft-strong text-[0.875rem] font-bold">{i + 1}</span>
-                <span className="pt-1 text-base leading-snug">{scaleMethodMl(rt(step), view.recipe.servings, recipe.scaledFrom?.servings ?? recipe.servings)}</span>
-              </li>
-            ))}
+            {recipe.method.map((step, i) => {
+              // founder 2026-11-16: clear steps, each with a short bold title and its cooking time beside it (lib/mm/recipeSteps.ts)
+              const { title, text } = splitStep(scaleMethodMl(rt(step), view.recipe.servings, recipe.scaledFrom?.servings ?? recipe.servings));
+              const time = stepTime(text);
+              return (
+                <li key={i} className="flex gap-3.5 py-4">
+                  <span aria-hidden className="app-numbers grid h-8 w-8 shrink-0 place-items-center rounded-full bg-soft-strong text-[0.875rem] font-bold">{i + 1}</span>
+                  <div className="min-w-0 flex-1 pt-1">
+                    {(title || time) && (
+                      <div className="mb-1 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                        {title && <h3 className="text-base font-bold leading-snug">{title}</h3>}
+                        {time && <span className="app-numbers ms-auto inline-flex shrink-0 items-center gap-1 text-[0.875rem] text-muted"><TodayIcon className="h-4 w-4 self-center" /><span className="sr-only">{t("Time")}: </span>{time}</span>}
+                      </div>
+                    )}
+                    <p className="text-base leading-snug">{text}</p>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
           {view.recipe.servings !== (recipe.scaledFrom?.servings ?? recipe.servings) && (
             <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Times are for the number of servings the recipe is written for. For more people, cook a little longer or in batches.")}</p>

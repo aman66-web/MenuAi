@@ -10,7 +10,7 @@ each recipe's description of how it looks from above is in `web/lib/mm/recipeBoo
 
 Midjourney's Community Guidelines say it has no API and that **automating interactions with Midjourney is prohibited; accounts that do not comply may be blocked**
 (https://docs.midjourney.com/docs/community-guidelines). Letting Claude in Chrome paste the prompts and click through the site is automation of that kind, so it could put the founder's account at risk: read the current terms and decide.
-The safe way is for a person to paste each prompt (117 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
+The safe way is for a person to paste each prompt (165 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
 current plan rules: a company above a revenue threshold needs the Pro plan). If Midjourney is not wanted, the same descriptions work in Nano Banana: drop the `--` settings at the end of each prompt.
 
 ## Hand-over for Claude in Chrome (or for a person)
@@ -31,7 +31,7 @@ You are making one picture per recipe with Midjourney for Numbite, a UK calories
 Then, on the founder's computer: copy the PNG files into `data/recipe-images/` (named `<recipe id>.png`), run `python3 tools/recipes/import_recipe_images.py` (it crops to 4:3, resizes to 800 x 600, writes WebP copies into `web/public/recipe-images/`
 and lists them in `web/lib/mm/recipeImages.ts`), then commit and push. Or send the files to Claude and it does this.
 
-117 recipes, 117 with a picture.
+165 recipes, 165 with a picture.
 
 ## Breakfast
 
@@ -128,19 +128,19 @@ Two halves of a rolled tortilla wrap laid side by side on a white oval plate, th
 ### ✓ Oat pancakes with yogurt and berries · `oat-pancakes`
 
 ```
-Several small round, golden-brown oat pancakes overlapping on a round white plate, with a dollop of thick white yogurt in the middle and deep red and purple mixed berries scattered over and beside them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A stack of several small round, golden-brown oat pancakes on a round white plate, with a dollop of thick white yogurt on top and deep red and purple mixed berries scattered over and around them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Huevos rancheros · `huevos-rancheros`
 
 ```
-A flat round tortilla wrap on a round white plate, spread with reddish-brown crushed kidney beans and topped with two fried eggs, white with bright yellow yolks, and red tomato salsa laid between them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A flat round tortilla wrap on a round white plate, spread with reddish-brown crushed kidney beans and topped with two fried eggs, white with bright yellow yolks, with red tomato salsa spooned over and around them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Apple Bircher muesli · `bircher-muesli`
 
 ```
-Bircher muesli in a deep round pale grey bowl: creamy pale soaked oats flecked with fine grated apple and dark raisins, with a heap of roughly chopped almonds in the centre and a few raisins dotted around it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Bircher muesli in a deep round pale grey bowl: creamy pale soaked oats flecked with coarsely grated apple and dark raisins, with roughly chopped almonds scattered over the top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Smoked salmon kedgeree · `smoked-salmon-kedgeree`
@@ -159,6 +159,66 @@ Bean and potato hash on a wide white round plate: golden, crisp-edged halved new
 
 ```
 A round white bowl of thick, creamy pale oat porridge with a dollop of white yogurt in the middle, a spoonful of dark glossy mincemeat on top of the yogurt and roughly chopped almonds scattered over and around it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Apple and cinnamon baked oats · `apple-cinnamon-baked-oats`
+
+```
+A square white baking dish of golden-brown baked oats, the top dotted with soft cubes of apple and dark raisins and dusted with cinnamon, one square cut out to show the firm, moist oat inside. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Coconut rice pudding with berries · `coconut-rice-pudding-berries`
+
+```
+Creamy coconut rice pudding in a round white bowl, soft pale grains flecked with cinnamon and dotted with plump dark raisins, topped in the centre with a heap of warm, glossy red and purple mixed berries in their juice. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Crispy potatoes with garlic mushrooms and tomatoes · `crispy-potatoes-garlic-mushrooms`
+
+```
+A round white plate of halved golden potatoes with crisp, browned edges, topped with glossy golden sliced mushrooms flecked with garlic and soft, split red cherry tomatoes, dotted with cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Banana and berry overnight oats · `banana-berry-overnight-oats`
+
+```
+A deep white bowl of thick, creamy soaked oats flecked with cinnamon, topped with overlapping thin rounds of banana on one side and a heap of glossy red and purple mixed berries on the other. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Peanut butter and banana breakfast wraps · `peanut-butter-banana-wraps`
+
+```
+A peanut butter and banana wrap cut in half on a round white plate, the toasted wrap golden with darker patches, the cut ends showing a layer of golden-brown peanut butter and round banana slices dusted with cinnamon. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Turmeric chickpea breakfast wraps · `turmeric-chickpea-wraps`
+
+```
+A tortilla wrap cut in half on a round white plate, the cut ends showing roughly crushed chickpeas stained golden yellow with turmeric, dark green wilted spinach, halved red cherry tomatoes and thin rings of green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Crispy potato cakes with fried eggs · `crispy-potato-cakes-fried-eggs`
+
+```
+Two round, golden-brown potato cakes flecked with green spring onion on a white round plate, each topped with a fried egg with a set white and bright yellow yolk, with soft halved red cherry tomatoes beside them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Pepper, spinach and cheddar frittata · `pepper-spinach-cheddar-frittata`
+
+```
+A thick round frittata on a white round plate with one wedge cut and eased slightly apart, its golden top spotted with melted orange cheddar, the cut sides showing soft red pepper pieces and dark green spinach set in yellow egg. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Baked egg cups with ham and peppers · `ham-pepper-egg-cups`
+
+```
+Three round baked egg cups on a white plate, puffed and golden at the edges, their set yellow tops dotted with small pieces of red pepper, torn pink ham and thin rings of green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Mushroom and cheddar omelette · `mushroom-cheddar-omelette`
+
+```
+A folded half-moon omelette on a round white plate, smooth and pale golden on top, with golden-brown sliced mushrooms and melted orange cheddar spilling from the open edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ## Lunch
@@ -190,7 +250,7 @@ One barbecue chicken and red pepper wrap cut in half and laid head to tail on a 
 ### ✓ Mushroom and mozzarella wrap pizzas · `mushroom-wrap-pizzas`
 
 ```
-One round wrap pizza on a pale wooden board, spread with red passata and topped with sliced brown mushrooms and torn white mozzarella melted into creamy white patches, with crisp edges and a sprinkle of dried oregano. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+One round wrap pizza cut into wedges on a pale wooden board, spread with red passata and topped with sliced brown mushrooms and torn white mozzarella melted into creamy white patches, with crisp edges and a sprinkle of dried oregano. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Mexican bean and rice bowl · `mexican-bean-rice-bowl`
@@ -202,7 +262,7 @@ Mexican bean and rice bowl in a wide white round bowl, filled in sections: white
 ### ✓ Smoked salmon and soft cheese wraps · `smoked-salmon-soft-cheese-wraps`
 
 ```
-One smoked salmon and soft cheese wrap cut in half and set side by side on a white square plate, the cut ends showing white soft cheese, pink smoked salmon, green cucumber slices and a few salad leaves inside a soft pale wrap. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+One smoked salmon and soft cheese wrap cut in half at a slant and set side by side on a white square plate, the cut ends showing white soft cheese, pink smoked salmon, green cucumber sticks and a few salad leaves inside a soft pale wrap. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Egg mayonnaise wraps · `egg-mayonnaise-wraps`
@@ -220,7 +280,7 @@ One ham and soft cheese wrap cut in half, the halves set side by side and slight
 ### ✓ Chickpea, cucumber and tomato salad · `chickpea-tomato-salad`
 
 ```
-Chickpea, cucumber and tomato salad in a shallow white bowl: pale golden chickpeas mixed with pieces of green-edged cucumber, red tomato and thin purple red onion, glistening with a thin olive oil dressing. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Chickpea, cucumber and tomato salad in a shallow white bowl: pale golden chickpeas mixed with small chunks of green-edged cucumber and red tomato and tiny pieces of purple red onion, glistening with a thin olive oil dressing. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Pesto pasta salad with mozzarella · `pesto-pasta-mozzarella-salad`
@@ -238,13 +298,13 @@ Sweet chilli chicken noodle salad in a wide shallow white bowl: pale noodles tos
 ### ✓ Sweet chilli chickpea rice bowl · `chickpea-rice-bowl`
 
 ```
-Sweet chilli chickpea rice bowl in a shallow white bowl: a bed of white rice topped in the centre with a heap of golden chickpeas glazed glossy dark with soy and sweet chilli, ringed by green peas, cucumber slices and spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Sweet chilli chickpea rice bowl in a shallow white bowl: a bed of white rice topped in the centre with a heap of golden chickpeas glazed glossy dark with soy and sweet chilli, ringed by green peas, small cucumber chunks and spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Sweetcorn and potato soup · `sweetcorn-potato-soup`
 
 ```
-Chunky sweetcorn and potato soup in a deep round white bowl: a golden-yellow surface tinted orange by paprika, with whole yellow sweetcorn kernels and small pieces of pale potato showing through, glistening drops of olive oil and black pepper specks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Chunky sweetcorn and potato soup in a deep round white bowl: a golden-yellow surface tinted orange by paprika, with whole yellow sweetcorn kernels and small pieces of pale potato showing through, a faint sheen of oil and black pepper specks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Chicken and sweetcorn soup · `chicken-sweetcorn-soup`
@@ -256,7 +316,7 @@ Chicken and sweetcorn soup in a shallow white bowl: a pale golden broth holding 
 ### ✓ Bean and tomato soup · `bean-tomato-soup`
 
 ```
-Bean and tomato soup in a wide white rimmed soup plate: a smooth, deep red-orange surface with golden beads of olive oil floating in a loose swirl and a scatter of black pepper specks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Bean and tomato soup in a wide white rimmed soup plate: a smooth, thick, deep red-orange surface blended from kidney beans and tomatoes, with a faint sheen of olive oil and a scatter of black pepper specks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Tuna and bean salad · `tuna-bean-salad`
@@ -292,19 +352,103 @@ A wide white soup bowl filled with clear golden-brown broth, its surface covered
 ### ✓ Turkey, cranberry and cheddar wraps · `turkey-cranberry-cheddar-wraps`
 
 ```
-Two tortilla wraps each cut in half on the diagonal and leaning together on a pale wooden board, the cut ends showing pale golden turkey strips, a ribbon of deep red cranberry sauce, melted orange cheddar and green lettuce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Two tortilla wraps each cut in half on the diagonal and leaning together on a pale wooden board, the cut ends showing pale golden turkey strips, a ribbon of deep red cranberry sauce, grated orange cheddar and green lettuce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Spiced parsnip and apple soup · `spiced-parsnip-apple-soup`
 
 ```
-A round white shallow bowl of smooth, pale cream-beige parsnip soup with a swirl of golden oil in the centre and a dusting of dark pepper, with a few thin slices of apple beside it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A round white shallow bowl of completely smooth, thick, pale cream-beige parsnip and apple soup with a faint golden tinge from the roasted parsnips and a few fine specks of black pepper across the surface. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Cranberry, cheddar and ham toasted wraps · `cranberry-cheddar-ham-toasted-wraps`
 
 ```
-Two golden-brown toasted filled wraps each cut into wedges and fanned out on a pale wooden board, the cut edges showing melted orange cheddar, pink ham, thin green spring onion rings and a streak of deep red cranberry sauce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+One golden-brown toasted filled wrap cut into wedges and fanned out on a pale wooden board, the cut edges showing melted orange cheddar, pink ham, thin green spring onion rings and a streak of deep red cranberry sauce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Carrot and coconut soup · `carrot-coconut-soup`
+
+```
+A wide white bowl of smooth, thick bright orange carrot soup with a thin swirl of white coconut milk drizzled across the middle and a few specks of black pepper on the surface. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Tomato, pepper and chickpea soup · `tomato-pepper-chickpea-soup`
+
+```
+A deep white bowl of thick brick-red tomato and pepper soup, half smooth and half chunky, with whole golden chickpeas and soft pieces of red pepper showing on the surface and a few specks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Lemony chickpea and new potato salad · `lemony-chickpea-potato-salad`
+
+```
+A wide shallow white bowl of halved pale yellow new potatoes and golden chickpeas glossy with a cloudy mustard dressing, mixed with halved red cherry tomatoes, thin rings of green spring onion and dark green spinach leaves. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Satay pasta salad with crunchy vegetables · `satay-pasta-salad`
+
+```
+A wide white bowl of pasta shapes coated in a glossy golden-brown peanut dressing, tossed with green peas, grated orange carrot, thin red pepper strips, small pale green cucumber chunks and rings of green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Broccoli and pea soup · `broccoli-pea-soup`
+
+```
+A round white bowl of smooth, thick bright green broccoli and pea soup with a velvety surface and a small sprinkle of ground black pepper in the centre. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Tuna, egg and new potato salad · `tuna-egg-potato-salad`
+
+```
+A shallow white bowl of green salad leaves topped with halved new potatoes, large flakes of pale pink tuna and halved red cherry tomatoes, glossy with a mustard dressing, with boiled egg quarters showing set yellow yolks and thin green spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Chicken, sweetcorn and rice salad · `chicken-sweetcorn-rice-salad`
+
+```
+A wide white bowl of white rice mixed with golden paprika-dusted chicken pieces, bright yellow sweetcorn, small cubes of red pepper and green cucumber, and thin rings of green spring onion, glossy with a lemon dressing. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Broccoli and cheddar soup · `broccoli-cheddar-soup`
+
+```
+A round white bowl of smooth, thick pale green broccoli soup with darker green flecks, a small heap of grated orange cheddar melting in the centre and a scatter of cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Salmon and new potato salad with a cucumber yogurt dressing · `salmon-potato-salad-cucumber-yogurt`
+
+```
+A wide white plate of green salad leaves topped with warm halved new potatoes and large flakes of pink baked salmon, with a thick white yogurt dressing flecked with pale green grated cucumber spooned over and thin green spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Cheese and onion potato cakes with salad · `cheese-onion-potato-cakes`
+
+```
+Three round golden-brown potato cakes with crisp edges on a white round plate, flecks of green spring onion and melted orange cheddar showing in them, beside green salad leaves, halved red cherry tomatoes and cucumber slices. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Spinach and soft cheese pasta · `spinach-soft-cheese-pasta`
+
+```
+Pasta shapes in a wide white pasta bowl, coated in a smooth, pale creamy sauce with dark green wilted spinach folded through, finely grated orange cheddar scattered over the top and flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Tuna melt wraps · `tuna-melt-wraps`
+
+```
+One tortilla wrap folded into a half-moon and toasted golden brown with darker spots, cut into two wedges on a white round plate, the cut edges showing pale tuna, yellow sweetcorn and melted orange cheddar, with green salad leaves beside it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Mozzarella, tomato and pesto wraps · `mozzarella-tomato-pesto-wraps`
+
+```
+One tortilla wrap rolled up and cut in half on the diagonal, the two halves crossed on a white square plate, the cut ends showing green pesto, red tomato slices, soft white mozzarella and green salad leaves. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Smoked salmon and pea pasta with soft cheese · `smoked-salmon-pea-pasta`
+
+```
+Pasta shapes in a wide white pasta bowl, coated in a pale creamy sauce, with bright green peas and soft pink folds of smoked salmon through it and flecks of black pepper on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ## Dinner
@@ -342,7 +486,7 @@ A shallow white bowl of soy-darkened noodles in a loose nest, topped with large 
 ### ✓ Tuna and tomato pasta · `tuna-pasta`
 
 ```
-A round white plate with a wide rim holding pasta shapes in a smooth red tomato sauce speckled with dried herbs, pale flakes of tuna through it and a mound of finely grated yellow cheddar melting in the centre. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A round white plate with a wide rim holding pasta shapes in a smooth red tomato sauce speckled with dried herbs, pale flakes of tuna through it and coarsely grated yellow cheddar sprinkled over the top, just starting to melt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Coconut salmon curry with rice · `salmon-coconut-curry`
@@ -390,7 +534,7 @@ A wide round white bowl heaped with sticky orange-red tomato and paprika rice, b
 ### ✓ Chicken jalfrezi with rice · `chicken-jalfrezi`
 
 ```
-Chicken jalfrezi with rice on a wide white plate: a neat mound of white rice beside a glossy orange-red tomato sauce holding browned chicken chunks, strips of red and yellow pepper and soft pieces of onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Chicken jalfrezi with rice on a wide white plate: a neat mound of white rice beside a glossy orange-red tomato sauce holding browned chicken chunks, large pieces of red and yellow pepper and soft pieces of onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Beef keema with peas and rice · `beef-keema-peas`
@@ -438,19 +582,19 @@ Spiced yogurt chicken with naan on a large round white platter: golden-orange ch
 ### ✓ Chicken fajitas with salsa · `chicken-fajitas`
 
 ```
-Chicken fajitas with salsa on a pale wooden board: two tortilla wraps side by side, each open and filled with browned chicken strips and strips of red and yellow pepper and onion, topped with red tomato salsa and a dollop of white yogurt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Chicken fajitas with salsa on a pale wooden board: two rolled tortilla wraps side by side, the filling just showing at one end of each: browned chicken strips, strips of red and yellow pepper and onion, red tomato salsa and white yogurt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Beef burrito bowl · `beef-burrito-bowl`
 
 ```
-Beef burrito bowl in a wide shallow white bowl: a base of white rice with crumbled spiced beef mince heaped in the centre under red tomato salsa, ringed by neat piles of dark red kidney beans, yellow sweetcorn and shredded green lettuce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Beef burrito bowl in a wide shallow white bowl: a base of white rice with crumbled spiced beef mince in the centre under a spoonful of red tomato salsa, beside a pile of dark red kidney beans mixed with yellow sweetcorn and a heap of shredded green lettuce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Chicken shawarma-style wraps · `chicken-shawarma-wraps`
 
 ```
-Chicken shawarma-style wraps on a long white platter: two tortilla wraps rolled and cut in half, lying side by side, their cut ends showing golden-brown sliced chicken, green lettuce, tomato and cucumber slices and white garlic yogurt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Chicken shawarma-style wraps on a long white platter: two rolled tortilla wraps lying side by side, their open top ends showing golden-brown sliced chicken, green lettuce, tomato slices, cucumber half-moons and white garlic yogurt. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Spiced chickpea and potato curry · `chickpea-potato-curry`
@@ -462,7 +606,7 @@ Chickpea and potato curry in a wide shallow white bowl: pale golden chickpeas an
 ### ✓ Soy and honey salmon rice bowl · `soy-honey-salmon-bowl`
 
 ```
-Soy and honey salmon rice bowl in a shallow white bowl: a salmon fillet with a glossy dark glaze and pink-orange flaking flesh on a bed of white rice, with broccoli florets and thin cucumber slices alongside and sliced spring onion on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Soy and honey salmon rice bowl in a shallow white bowl: large flaked pieces of salmon with a glossy dark glaze and pink-orange flesh on a bed of white rice, with broccoli florets and cucumber half-moons alongside and sliced spring onion on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Egg fried rice with peas · `egg-fried-rice`
@@ -486,7 +630,7 @@ Mexican chicken and bean rice in a shallow round white dish: orange-red tomato-t
 ### ✓ Bean and pepper fajitas · `bean-pepper-fajitas`
 
 ```
-Bean and pepper fajitas on a white rectangular plate: two tortilla wraps side by side, each open and filled with soft strips of red and yellow pepper, onion and dark red kidney beans, topped with red tomato salsa. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Bean and pepper fajitas on a white rectangular plate: two rolled tortilla wraps side by side, the filling just showing at one end of each: soft strips of red and yellow pepper, onion, dark red kidney beans and red tomato salsa. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Moroccan-style chickpea stew with rice · `moroccan-chickpea-stew`
@@ -534,13 +678,13 @@ A wide round white plate holding a nest of spaghetti topped with a mound of thic
 ### ✓ Cheesy beef pasta bake · `beef-pasta-bake`
 
 ```
-A round white plate holding a square serving of cheesy beef pasta bake: pasta shapes in red beef sauce under a golden, bubbling layer of melted mozzarella and creamy cheese sauce with browned patches. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A round white plate holding a spooned serving of cheesy beef pasta bake: pasta shapes in red beef sauce under a golden, bubbling layer of melted mozzarella and creamy cheese sauce with browned patches. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Cottage pie with cheesy mash · `cottage-pie`
 
 ```
-A white square plate holding a serving of cottage pie: a golden-browned mashed potato top with melted cheddar patches, the savoury beef mince filling flecked with green peas and orange carrot showing along one cut edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A white square plate holding a spooned serving of cottage pie: a golden-browned ridged mashed potato top with melted cheddar patches, and the savoury beef mince filling flecked with green peas and orange carrot showing at one side. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Chicken, tomato and mozzarella pasta bake · `chicken-mozzarella-pasta-bake`
@@ -624,7 +768,7 @@ Bacon and tomato linguine in a wide white pasta bowl: a loose nest of linguine c
 ### ✓ Chickpea, potato and pepper traybake · `chickpea-potato-traybake`
 
 ```
-A roasted traybake on a wide white oval plate: golden halved potatoes, browned chickpeas, red and yellow pepper strips with softened edges, red onion wedges and a few split cherry tomatoes, all coloured orange-red with paprika and cumin. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A roasted traybake on a wide white oval plate: golden halved potatoes, browned chickpeas, chunks of red and yellow pepper with softened edges, red onion wedges and a few split cherry tomatoes, all coloured orange-red with paprika and cumin. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Minestrone with beans and pasta · `minestrone-beans-pasta`
@@ -636,7 +780,7 @@ A shallow white bowl of thick minestrone, its round surface an orange-red tomato
 ### ✓ Chicken and pepper kebabs with yogurt dressing · `chicken-pepper-kebabs`
 
 ```
-One wrap on a pale wooden board, folded round golden grilled chicken chunks, red and yellow pepper pieces and red onion that spill onto the board, finished with a zigzag of thick white yogurt dressing. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+One rolled wrap on a pale wooden board, its open end showing golden grilled chicken chunks, squares of red and yellow pepper, pieces of red onion with browned edges and a thick white yogurt dressing inside. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Barbecue chicken thigh skewers with corn salad · `bbq-chicken-thigh-skewers`
@@ -648,25 +792,25 @@ Two skewers of dark, sticky, glossy barbecue-glazed chicken thigh chunks beside 
 ### ✓ Roast turkey with parsnips, sprouts and cranberry · `turkey-roast-parsnips-sprouts`
 
 ```
-A large white oval plate showing sliced and whole white-golden roast turkey fillets on one side, golden-brown honey-glazed parsnip fingers and crisp roast potatoes in the middle, a heap of bright green halved sprouts on the other side and a small bowl of deep red cranberry sauce at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A large white oval plate showing whole white-golden roast turkey fillets on one side, golden-brown honey-glazed parsnip fingers and crisp roast potatoes in the middle, a heap of bright green halved sprouts on the other side and a small bowl of deep red cranberry sauce at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Chipolatas with spiced red cabbage and mash · `chipolatas-red-cabbage-mash`
 
 ```
-A wide white round plate with a mound of smooth pale mash on one side, a pile of glossy deep purple-red cabbage and soft apple pieces beside it, and a row of browned golden chipolata sausages laid across the top, with a small spoonful of yellow mustard at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A wide white round plate with a mound of smooth pale mash on one side, a pile of soft, glossy deep purple-red cabbage beside it, and a row of browned golden chipolata sausages laid across the top, with a small spoonful of yellow mustard at the edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Gammon steaks with honey parsnips and apple sauce · `gammon-parsnips-apple-sauce`
 
 ```
-A round white plate with two pink-edged gammon steaks with golden-brown seared surfaces, a row of caramelised honey-roast parsnip fingers beside them, a small heap of bright green peas and a small bowl of pale golden apple sauce at the rim. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A round white plate with one pink-edged gammon steak with golden-brown seared surfaces, a row of caramelised honey-roast parsnip fingers beside it, a small heap of bright green peas, and small bowls of pale golden apple sauce and yellow mustard at the rim. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Sprout, chestnut and potato gratin · `sprout-chestnut-potato-gratin`
 
 ```
-A rectangular white ovenproof dish seen from above, filled with a bubbling golden-brown cheddar crust, dark green sprout halves and pale brown chestnut pieces showing through at the edges and slices of cream potato layered underneath. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A rectangular white ovenproof dish seen from above, filled with a bubbling golden-brown cheddar crust, with dark green sprout halves, pale brown chestnut halves and slices of cream potato in a creamy sauce showing through at the edges. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Red cabbage, chestnut and cranberry rice · `red-cabbage-chestnut-cranberry-rice`
@@ -675,24 +819,132 @@ A rectangular white ovenproof dish seen from above, filled with a bubbling golde
 A wide shallow white bowl of fluffy rice tinted pink-purple by red cabbage ribbons, studded with pale brown chestnut pieces, small chunks of apple and glossy deep red dried cranberries. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
+### ✓ Coconut vegetable curry with rice · `coconut-vegetable-curry`
+
+```
+A wide white bowl with a mound of fluffy white rice on one side and a creamy orange coconut curry on the other, full of red pepper pieces, orange carrot rounds, green peas, golden chickpeas and wilted dark green spinach. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Mushroom and pea risotto-style rice · `mushroom-pea-risotto-rice`
+
+```
+A wide shallow white bowl of soft, creamy rice studded with golden-brown sliced mushrooms and bright green peas, with tiny flecks of dried herbs and black pepper through it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Garlic mushroom and spinach spaghetti · `garlic-mushroom-spinach-spaghetti`
+
+```
+A twirled nest of spaghetti in a wide white bowl, glossy with olive oil and tangled with golden-brown sliced mushrooms and dark green wilted spinach, flecked with black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Potato and pea curry with rice · `potato-pea-curry`
+
+```
+A round white plate with fluffy white rice on one side and a golden-orange potato and pea curry on the other, the halved new potatoes coated in thick spiced tomato sauce and dotted with bright green peas. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Rice-stuffed peppers with beans and tomatoes · `rice-stuffed-peppers`
+
+```
+Two baked pepper halves on a round white plate, one red and one yellow, their skins soft and browned at the edges, each heaped with rice mixed with dark red kidney beans, yellow sweetcorn and chopped tomato. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Paprika bean and vegetable goulash-style stew with rice · `bean-vegetable-goulash`
+
+```
+A wide shallow grey bowl with fluffy white rice on one side and a thick, deep brick-red paprika stew on the other, full of dark red kidney beans, red pepper pieces, orange carrot rounds and soft brown mushroom slices. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Peanut and vegetable stew with rice · `peanut-vegetable-stew`
+
+```
+A deep white bowl of thick, creamy orange-brown peanut and tomato stew with golden chickpeas, orange carrot rounds, red pepper pieces and wilted dark green spinach, beside a mound of fluffy white rice. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Lemon and garlic chicken with potatoes and broccoli · `lemon-garlic-chicken-potatoes`
+
+```
+A round white plate of golden roasted chicken chunks, halved new potatoes browned at the edges and roasted broccoli florets with crisp darker tips, all glossy with lemon and garlic juices and flecked with dried oregano and black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Chicken biryani-style rice · `chicken-biryani-style-rice`
+
+```
+A wide white bowl heaped with fluffy golden-yellow spiced rice mixed through with chicken pieces, soft browned onion and green peas, with a small white bowl of thick natural yogurt beside it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Paprika chicken with peppers and rice · `paprika-chicken-peppers-rice`
+
+```
+A wide white bowl of fluffy white rice topped with golden chicken pieces and soft strips of red pepper in a thick, glossy brick-red paprika and tomato sauce with softened onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Salmon with lemon rice and broccoli · `salmon-lemon-rice-broccoli`
+
+```
+A round white plate with a baked salmon fillet, pink and opaque with a golden top, beside a mound of fluffy white rice flecked with green spring onion and glossy with lemon, and bright green broccoli florets. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Tuna and sweetcorn pasta bake with cheese · `tuna-sweetcorn-pasta-bake`
+
+```
+A white square plate holding a serving of tuna pasta bake: pasta shapes in red tomato sauce with pale flakes of tuna, yellow sweetcorn and soft onion, under a golden, bubbling layer of melted cheddar with browned patches. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Salmon and broccoli pasta with soft cheese · `salmon-broccoli-pasta`
+
+```
+Pasta shapes and bright green broccoli florets in a wide white pasta bowl, coated in a smooth pale creamy sauce, with large flakes of pink-orange baked salmon on top and flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Chicken korma-style curry with almonds and rice · `chicken-korma-style-curry`
+
+```
+A wide white bowl holding a mound of fluffy white rice on one side and chunks of chicken in a smooth, creamy pale golden coconut sauce on the other, with roughly chopped almonds scattered over the curry. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Beef, potato and pepper hash · `beef-potato-pepper-hash`
+
+```
+A wide white plate of beef hash: golden, crisp-edged chunks of potato mixed with browned beef mince, soft red pepper pieces and onion, all tinted orange-brown with paprika and flecked with black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Mushroom and spinach rice bake with cheddar · `mushroom-spinach-rice-bake`
+
+```
+A white square plate holding a serving of rice bake: rice mixed with golden-brown sliced mushrooms, dark green wilted spinach and soft onion in a creamy sauce, under a layer of melted cheddar baked golden at the edges. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Broccoli, pepper and cheddar pasta bake · `broccoli-pepper-cheddar-pasta-bake`
+
+```
+A white square plate holding a serving of pasta bake: pasta shapes, bright green broccoli florets and red pepper pieces in a creamy pale cheese sauce, under grated cheddar baked golden brown with crisp darker patches. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Honey mustard chicken with potatoes and carrots · `honey-mustard-chicken-traybake`
+
+```
+A white oval plate holding one chicken breast with a sticky, glossy golden honey and mustard glaze browned at the edges, beside roasted halved new potatoes and orange carrot chunks with caramelised edges. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
 ## Snacks
 
 ### ✓ Peanut butter oat bites · `peanut-butter-oat-bites`
 
 ```
-Two round, matte, golden-tan balls of peanut butter and oats, flecked with oat flakes and dark raisins, sitting side by side on a small plain white round plate. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Three round, matte, golden-tan balls of peanut butter and oats, flecked with oat flakes and dark raisins, sitting together on a small plain white round plate. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Houmous with vegetable sticks · `houmous-veg-sticks`
 
 ```
-A pale wooden board with a small white bowl of smooth beige houmous at one end and, laid in neat parallel rows beside it, orange carrot sticks, pale green cucumber sticks and red pepper sticks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A pale wooden board with a small white bowl of smooth beige houmous in the middle, and orange carrot sticks, pale green cucumber sticks and red pepper strips arranged in neat groups around it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Honey and almond yogurt pots · `honey-almond-yogurt-pots`
 
 ```
-A small round white ramekin of thick, creamy white yogurt, a ring of roughly chopped almonds around the edge and a spiral of glossy amber honey winding in from the centre. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A small round white ramekin of thick, creamy white yogurt, with roughly chopped almonds scattered evenly over the top and a thin zigzag of glossy amber honey drizzled across them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Frozen yogurt and berry bark · `frozen-yogurt-berry-bark`
@@ -704,7 +956,7 @@ Four jagged shards of frozen yogurt bark, creamy off-white with a frosted surfac
 ### ✓ Ham and soft cheese roll-ups · `ham-soft-cheese-roll-ups`
 
 ```
-Four tight rolls of pink ham lying side by side on a small white round plate, each rolled end showing a white spiral of soft cheese around a pale green cucumber core. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Three tight rolls of pink ham lying side by side on a small white round plate, each rolled end showing a white spiral of soft cheese around a pale green cucumber core. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Devilled eggs · `devilled-eggs`
@@ -716,7 +968,7 @@ Four boiled egg halves in a tidy row on a white oval plate, each white hollow pi
 ### ✓ Tuna and chickpea dip · `tuna-chickpea-dip`
 
 ```
-A round white platter with a shallow white bowl of speckled beige dip showing pale tuna flakes and thin green spring onion rings, and three fanned bundles of orange carrot, pale green cucumber and red pepper sticks at one side. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A round white platter with a shallow white bowl of speckled beige dip in the middle, showing pale tuna flakes and thin green spring onion rings, and orange carrot, pale green cucumber and red pepper sticks arranged around it. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Smoked salmon cucumber bites · `smoked-salmon-cucumber-bites`
@@ -740,5 +992,41 @@ A small white square dish with whole roasted almonds spread in a loose single la
 ### ✓ Cheese and salsa quesadilla wedges · `cheese-bean-quesadilla-wedges`
 
 ```
-Three triangular wedges of toasted folded wrap fanned on a white round plate, golden-brown with darker toasted spots, the cut sides showing melted orange cheddar, red salsa and green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+Two triangular wedges of toasted folded wrap fanned on a white round plate, golden-brown with darker toasted spots, the cut sides showing melted orange cheddar, red salsa and green spring onion. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Peanut butter apple slices with raisins · `peanut-butter-apple-slices`
+
+```
+Thick apple slices with their skins on, laid in a fan on a round white plate, each spread with a stripe of golden-brown peanut butter and dotted with dark, wrinkled raisins. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Banana and oat cookies · `banana-oat-cookies`
+
+```
+Round, flat banana and oat cookies with golden-brown edges, a rough oat texture and dark raisins pressed into their tops, arranged in a loose circle on a round white plate. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Frozen banana and berry ice · `frozen-banana-berry-ice`
+
+```
+A small round white bowl holding two scoops of thick, smooth frozen banana and berry ice, a deep pinky-purple colour with a soft, creamy texture and rounded edges. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Baked wrap crisps with tomato salsa · `wrap-crisps-tomato-salsa`
+
+```
+Golden, crisp triangles of baked tortilla wrap fanned around a small white bowl of chunky salsa made from diced red tomato, pale green cucumber and purple red onion, flecked with black pepper, on a round white plate. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Baked cinnamon apple slices · `baked-cinnamon-apple-slices`
+
+```
+Soft baked apple slices with their skins on, fanned in an overlapping ring on a round white plate, golden at the edges and dusted with warm brown cinnamon. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Sweetcorn and pepper salsa in lettuce cups · `sweetcorn-pepper-lettuce-cups`
+
+```
+Crisp, cup-shaped pale green lettuce leaves on a round white plate, each filled with a bright salsa of yellow sweetcorn, diced red pepper, quartered cherry tomatoes and finely chopped purple onion, dusted with red chilli powder. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```

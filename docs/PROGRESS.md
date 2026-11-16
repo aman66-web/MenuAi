@@ -2297,6 +2297,33 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **In the app:** `python3 tools/recipes/import_recipe_images.py` → 117 WebP files, 800 x 600, 6.2 MB in `web/public/recipe-images/`, listed in `web/lib/mm/recipeImages.ts`; cards and recipe pages show them with the existing captions "AI illustration" and "Illustration made with AI, not a photo of the products below." (CLAUDE.md rule 2). The large PNGs stay on the Mac in `data/recipe-images/` (now git-ignored).
     `docs/RECIPE_IMAGE_PROMPTS.md` regenerated (every recipe ticked). Looked at on the Recipes page and a recipe page (dev server, 375 px).
   - **Cost:** about 61 credits for these (0.5 a picture), plus about 10 on the Soul tries; 1,403 credits were left before the full set.
+  - **Replaced the same night** by the colourful set below.
+
+- 2026-11-16 (late night, Mac) — **165 recipes, clear titled steps, and a colourful photo for every recipe** (founder: "make the rest of the images ... make sure the ingredients
+  match the photo exactly. Use medium please ... We need plenty of recipes because people are restricted with different dietary requirements ... make new completely recipes";
+  then, on screenshots of a recipe app they like: "detailed recipes, but ... easy to understand ... these recipes will be followed by uni students ... make it into clear steps").
+  - **48 new recipes (117 → 165)**, written by four helpers for the diets with the fewest recipes, each in its own file in `web/lib/mm/recipeBook/`: `veganMorning.ts` (6 vegan breakfasts,
+    6 vegan snacks), `veganMains.ts` (5 vegan lunches, 7 vegan dinners, 10 of them gluten-free), `glutenFree.ts` (12 gluten-free, none vegan), `moreMains.ts` (vegetarian, fish and
+    halal-friendly lunches and dinners). Same rules as the book: everyday ingredients only, every figure from Sainsbury's labels, every food a step names is bought and every food bought is used.
+    Their looks sit in their own files (spread into `looks.ts`) and their cuisine/occasion lines are in `niches.ts` (a snack suggested for Bonfire Night was left out: the test forbids snacks there).
+    **Counts now:** breakfast 31, lunch 38, dinner 79, snack 17; vegetarian 92 (was 59), vegan 50 (26; breakfasts 10, was 4), gluten-free 92 (60), dairy-free 107 (73), vegan and gluten-free 32 (17),
+    pescatarian 114, halal 147, egg-free 128, nut-free 146.
+  - **Every method rewritten as short titled steps** (all 165): each step is "Short title: instruction." (1 to 5 words, then one job in at most 45 words, with a time and a sign where it cooks;
+    food-safety wording kept). `tests/recipeBook.test.ts` checks it (`splitStep`, `STEP_WORDS = 45`); the per-meal word minimums were lowered to 110/80/60/40 (dinner/lunch/breakfast/snack) so
+    shorter steps pass. Dishes, ingredients, times and temperatures are unchanged; the helpers list their small merges and cut asides in their reports (nothing about food safety cut).
+    `sprout-chestnut-potato-gratin` no longer says to peel and chop garlic (its garlic is purée).
+  - **Recipe page:** each step shows its title in bold with the step's time beside it ("6 min", "8–10 min", "Overnight"), the instruction below (`lib/mm/recipeSteps.ts` `splitStep`/`stepTime`,
+    `tests/recipeSteps.test.ts`; a lead time like "12 minutes before the sauce is ready" is not shown as the step's time). Steps without a title (older saved and Pip's recipes) show as before.
+    No new copy beyond the recipe text ("Time" is read only by screen readers and already existed). Looked at on a 375 px phone.
+  - **Quick** (20 minutes or less, not left to chill) now also spots "in the fridge for" and steps titled Chill, Freeze or Soak (the peanut butter oat bites had become "Quick" after the rewrite).
+  - **Photos: one per recipe, all 165, in the colourful style the founder picked** (three backgrounds in turn: grey concrete with a mustard napkin, mint green with a striped tea towel, blue
+    hexagon tiles with a beige napkin; cream speckled or teal plates). GPT Image 2.6 at **medium** quality, 1k (0.5 credits each; low, medium, high, extra high and max were compared on one dish
+    first). **Ingredients match the photo:** a helper checked all 117 older looks against their recipes and fixed 33 (foods not in the recipe, wrong number of pieces, served the wrong way); the props are
+    never food (napkin, cutlery, a glass of water) and every prompt forbids any other food. Every photo was looked at on a contact sheet: all 165 show only the recipe's own foods, no writing,
+    packaging or logos. Captioned as AI-made as before (rule 2). `web/public/recipe-images/` is now 17 MB (was 6.2: the busier pictures compress less), so the app bundle grows by about 11 MB.
+  - **Cost:** 82.5 credits for the 165 (plus 8.25 for the quality comparison and 19.5 for the 13 high-quality examples earlier); 1,233.84 left.
+  - **New copy (rule 8, logged here; English only):** the 48 new recipe names, blurbs and methods, and every rewritten step title and instruction.
+  - **Not done:** the iPhone app isn't re-packed or rebuilt with these (build 5 still to archive and upload); `tests/menu-view.test.ts` "New for 30 days" still fails only on UK time (passes with `TZ=UTC`).
 
 ## Known issues
 

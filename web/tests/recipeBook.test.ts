@@ -5,6 +5,7 @@ import { EVERYDAY_KINDS, FESTIVE_KINDS, PANTRY } from "../lib/mm/pantry";
 import { OCCASION_LINES } from "../lib/mm/recipeBook/niches";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { fitRecipe, ing, isMeatFree, recipeForDiet, recipeTotals, resolveRecipe, MEAL_TYPES } from "../lib/mm/recipes";
+import { splitStep } from "../lib/mm/recipeSteps";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 
 // The rules every recipe in the book follows (lib/mm/recipeBook/index.ts), checked against the real Sainsbury's list.
@@ -93,8 +94,11 @@ export function unusedIngredients(r: { method: string[]; ingredients: Array<{ ke
 
 // founder 2026-10-16: "the instructions to making the recipes are not descriptive enough, you need more steps and more detail". A method now reads like a
 // real recipe: a get-ready step, the heat and the pan, a time and a sign for each stage, how to tell it is done, and how to serve.
+// founder 2026-11-16 (on a recipe app they like; readers include uni students): "make it into clear steps for the person to do". Each step is
+// "Short title: instruction." (lib/mm/recipeSteps.ts shows the title in bold), one job a step, at most STEP_WORDS words of instruction.
 const MIN_STEPS: Record<string, number> = { snack: 4, breakfast: 5, lunch: 6, dinner: 8 };
-const MIN_WORDS: Record<string, number> = { snack: 50, breakfast: 70, lunch: 110, dinner: 150 };
+const MIN_WORDS: Record<string, number> = { snack: 40, breakfast: 60, lunch: 80, dinner: 110 };
+const STEP_WORDS = 45;
 const OVEN_GAS: Record<number, [number, number]> = { 140: [120, 1], 150: [130, 2], 160: [140, 3], 180: [160, 4], 190: [170, 5], 200: [180, 6], 220: [200, 7], 230: [210, 8], 240: [220, 9] };
 const JARGON = /\b(?:sweat(?:ed|ing)?|deglaze|julienne|blanch(?:ed|ing)?|sear(?:ed|ing)?|baste|zest(?:ed)?|knob of|glug|chiffonade|reduce the sauce|al dente)\b/i;
 const PEOPLE_COUNT = /\b(?:two|three|four|five|six|seven|eight|nine|ten|\d+)\s+(?:plates|bowls|portions|servings|people|diners|helpings)\b/i;
@@ -102,6 +106,9 @@ export function methodProblems(r: { method: string[] }): string[] {
   const out: string[] = [];
   r.method.forEach((step, i) => {
     const at = `step ${i + 1}`;
+    const parts = splitStep(step);
+    if (!parts.title) out.push(`${at} needs a short title first ("Soften the onion: ..."): "${step.slice(0, 60)}"`);
+    else if (parts.text.trim().split(/\s+/).length > STEP_WORDS) out.push(`${at} ("${parts.title}") is over ${STEP_WORDS} words: split it or say it more simply`);
     if (step.length < 30) out.push(`${at} is too short to say anything useful: "${step}"`);
     if (!/^[A-Z]/.test(step)) out.push(`${at} should start with a capital letter`);
     if (!/[.!?]$/.test(step)) out.push(`${at} should end with a full stop`);

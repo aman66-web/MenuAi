@@ -148,7 +148,7 @@ export function isVegan(recipe: Recipe): boolean {
 /** "Quick" on the Recipes page: ready in this many minutes or less, as the recipe says, and not left to soak, chill or freeze for a while
  *  first (a recipe's minutes are the time spent making it, so overnight oats take 5). */
 export const QUICK_MINUTES = 20;
-const WAITS = /\b(?:overnight|chill for|freeze for)\b/i;
+const WAITS = /\b(?:overnight|chill for|freeze for|in the (?:fridge|freezer) for)\b|^(?:Chill|Freeze|Soak)\b/i;
 export const isQuick = (recipe: Pick<Recipe, "minutes"> & { method?: readonly string[] }): boolean =>
   recipe.minutes <= QUICK_MINUTES && !(recipe.method ?? []).some((step) => WAITS.test(step));
 
