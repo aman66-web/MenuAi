@@ -90,8 +90,10 @@ export function isNewItem(item: Pick<MenuItem, "addedOn">, now: Date, days = NEW
   if (!item.addedOn) return false;
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(item.addedOn);
   if (!m) return false;
-  const added = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
-  const ageDays = (now.getTime() - added.getTime()) / 86_400_000;
+  // whole calendar days on the phone's own calendar, so a clock change (an hour shorter or longer day) never moves the cut-off
+  const added = Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const ageDays = Math.round((today - added) / 86_400_000);
   return ageDays >= 0 && ageDays <= days;
 }
 
