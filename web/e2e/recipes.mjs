@@ -657,10 +657,19 @@ await step("Log a serving: logs one serving of exactly the figures the page show
   expect(Math.round(e.nutrients.calories) === fitted.kcal, `logged ${e.nutrients.calories} kcal, the page shows ${fitted.kcal}`);
   expect(Math.abs(Math.round(e.nutrients.protein) - fitted.protein) <= 1, `logged ${e.nutrients.protein} g protein, the page shows ${fitted.protein} g`);
   expect(typeof e.nutrients.carbs === "number" && typeof e.nutrients.fat === "number", "carbs and fat are logged too");
-  // the Undo sits at the top (the foot holds "Add all to my shopping list") and takes it back
+  // the Undo sits clear of the picture's Back and Save pills, of "Log a serving" and of "Add all to my shopping list" (review finding 18), and takes it back
   const undo = page.getByRole("button", { name: "Undo", exact: true });
   const ub = await undo.boundingBox();
-  expect(ub.y < 120, `the Undo pill is at y=${ub.y}`);
+  const over = (a, b) => !!a && !!b && a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(200);
+  const ubTop = await undo.boundingBox();
+  for (const [what, el] of [["Back", page.getByRole("link", { name: /^Back/ }).first()], ["Save", page.getByRole("button", { name: /^Save(d)? to My meals$/ })]]) {
+    expect(!over(ubTop, await el.boundingBox()), `Undo (${JSON.stringify(ubTop)}) sits on the picture's ${what} pill`);
+  }
+  expect(!over(ub, await log.boundingBox()), `Undo (${JSON.stringify(ub)}) sits on "Log a serving"`);
+  const addAll = page.getByRole("button", { name: "Add all to my shopping list" });
+  if (await addAll.count()) expect(!over(ub, await addAll.boundingBox()), `Undo (${JSON.stringify(ub)}) sits on "Add all to my shopping list"`);
   await undo.click();
   await page.waitForFunction(() => JSON.parse(localStorage.getItem("mm.v1.log")).data.length === 0);
   // as written: whatever the page shows is what is logged
@@ -693,7 +702,9 @@ await step("Log a serving: logs one serving of exactly the figures the page show
 await step("a recipe that no longer suits the diet isn't shown with a diet note: the page says it no longer suits; one that suits still opens", async () => {
   const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, preferences: { ...baseSettings.preferences, veganOnly: true } } }));
   await page.goto(BASE + "/app/recipes/view?id=beef-chilli&r=sainsburys");
-  await page.getByText("That recipe isn't saved on this device, or no longer suits your diet.").waitFor();
+  // a recipe of ours is never "saved on this device": it has its own sentence (review finding 6); the old one stays for recipes saved on this device
+  await page.getByText("This recipe doesn't fit your diet settings, going by its ingredients.").waitFor();
+  expect((await page.getByText("That recipe isn't saved on this device, or no longer suits your diet.").count()) === 0, "the saved-recipe sentence is shown for a recipe of ours");
   expect((await page.getByRole("heading", { level: 1, name: "Beef chilli and rice" }).count()) === 0, "the beef recipe is still shown to a vegan");
   await page.getByRole("link", { name: /^Back/ }).first().waitFor();
   await ctx.close();
