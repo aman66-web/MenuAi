@@ -191,7 +191,7 @@ await step("a recipe: the figures on its row are what is logged, more servings m
   expect(Math.abs(oneAndHalf - one * 1.5) <= 1.5, `1.5 servings: ${oneAndHalf} vs ${one}`);
   expect((await page.locator("output").innerText()).trim() === "1.5", "the stepper doesn't read 1.5");
   await firstAdd.tap();
-  await page.getByText(/^Added “.*” to Lunch\.$/).waitFor();
+  await page.getByRole("status").filter({ hasText: /^Added “.*” to Lunch\.$/ }).waitFor();
   const [e] = await log(page);
   expect(e.source === "recipe" && e.meal === "lunch", "entry: " + JSON.stringify(e));
   expect(e.name === `${title} (1.5 servings)`, `name: ${e.name} vs ${title}`);
@@ -249,7 +249,7 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   const text = await row.innerText();
   const dish = text.split("\n")[0].replace(/\s*Add.*$/, "").trim();
   await row.getByRole("button", { name: /^Add / }).tap();
-  await page.getByText(/^Added “.*” to Lunch\.$/).waitFor({ timeout: 30000 });
+  await page.getByRole("status").filter({ hasText: /^Added “.*” to Lunch\.$/ }).waitFor({ timeout: 30000 });
   const [e] = await log(page);
   expect(e.source === "item" && e.meal === "lunch" && e.name === dish, `entry: ${JSON.stringify(e)} vs ${dish}`);
   expect(typeof e.nutrients.protein === "number" && typeof e.nutrients.carbs === "number" && typeof e.nutrients.fat === "number", "a full-nutrition dish was added without its macros: " + JSON.stringify(e.nutrients));
@@ -378,7 +378,7 @@ await step("a supermarket product: found by name, how much, the label's figures 
   const said = kcal(await page.getByText(/From (the label|Open Food Facts contributors \(community data\)), for 200 g/).innerText());
   expect(said === Math.round(per100 * 2) || Math.abs(said - per100 * 2) <= 2, `label said ${said} for 200 g, per 100 g is ${per100}`);
   await add.tap();
-  await page.getByText(/^Added “.* \(200 g\)” to Breakfast\.$/).waitFor();
+  await page.getByRole("status").filter({ hasText: /^Added “.* \(200 g\)” to Breakfast\.$/ }).waitFor();
   const [e] = await log(page);
   expect(e.source === "product" && e.meal === "breakfast" && e.name === `${productName} (200 g)`, "entry: " + JSON.stringify(e));
   expect(e.nutrients.calories === said, `logged ${e.nutrients.calories}, label ${said}`);
