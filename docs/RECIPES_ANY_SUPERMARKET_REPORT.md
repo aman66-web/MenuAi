@@ -136,3 +136,5 @@ Reused unchanged: "No recipes here yet.", "We haven't read enough of {shop} prod
 - A product chosen from another shop is not remembered after leaving the recipe (like the existing Swap choices).
 - Name-only matches can still include a product of a different form when its name has the ingredient's words (for example a sausage named "chicken breast" ranks below the fillets but is offered); it has no numbers, so it can't change any figure.
 - The iPhone app gets this only from a new build packed with `NEXT_PUBLIC_RECIPES_ANY_SHOP=1` set (the packing script passes the shell's variables through) and the switch on in Vercel for the API; not tried in the packed app here.
+
+PUSHED a079d52
