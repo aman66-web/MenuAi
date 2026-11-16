@@ -5,11 +5,11 @@
    "id": "sainsburys",
    "name": "Sainsbury's",
    "file": "sainsburys.json",
-   "count": 15310,
+   "count": 15309,
    "checkedOn": "2026-10-08",
    "nutrition": 12712,
-   "priced": 15310,
-   "sha256": "517221dd9629db92e25b9dda7a2eaefcca1c777dbc968c966d295fd4ae5435d4"
+   "priced": 15309,
+   "sha256": "d0282914f33aa9fca89f5372d4e33f9b12fc6987c44afa503b0bd5b066436375"
   },
   {
    "id": "tesco",
@@ -25,11 +25,11 @@
    "id": "asda",
    "name": "Asda",
    "file": "asda.json",
-   "count": 10523,
+   "count": 10522,
    "checkedOn": "2026-10-08",
    "nutrition": 0,
-   "priced": 10523,
-   "sha256": "f538561661d34b2c697191ca4927d75754a4fb4c98a72e942000d8c74665ac10"
+   "priced": 10522,
+   "sha256": "7487a5e27daa8fd51cf4848b64d08756c78e4af6270b974c32b64629ff9c81e0"
   },
   {
    "id": "aldi",

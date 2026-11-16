@@ -561,8 +561,9 @@ WEIGHT = re.compile(r"(?<![\d.])\d+(?:\.\d+)?\s?k?g\b", re.I)
 DRINK_ONLY_BRAND = re.compile(r"\b(?:hooch|wkd|breezer|buzzballz|echo falls|blossom hill|lambrini|beefeater|jam shed|la vieille ferme|vk|black tower|19 crimes|"
                               r"babycham|holsten|estrella damm|au vodka|tequila rose|old westminster reserve|chardolini|dandelione|louis jadot|rabo de gal[ao]|"
                               r"(?:cornish|cornwall) rattler|crabbie'?s|vodkashakes?|brewdog mix(?:ed)? pack|simply yours(?=.*\b(?:75\s?cl|\d+(?:\.\d+)?\s?litres?)\b))\b", re.I)
-# A spirit's name without a size ("The Kraken Black Spiced Rum"): alcohol unless a food word says it is a food ("Kraken Rum Fudge").
-SPIRIT_BRAND = re.compile(r"\b(?:the )?kraken\b", re.I)
+# A spirit's name without a size ("The Kraken Black Spiced Rum"): alcohol unless a food word says it is a food ("Kraken Rum Fudge"). Archers is a peach
+# schnapps: "Archers and Lemonade Ready to Drink 250ml" sat in Asda's "Premixed Spirits & Mixers" aisle, which the aisle rule spares for its mixers.
+SPIRIT_BRAND = re.compile(r"\b(?:(?:the )?kraken|archers)\b", re.I)
 # A wine-style word with a wine bottle's size ("The Jam Factory Red 75cl", "Spyland Red Blend 750ml", "Peach Bellini Sparkling Cocktail 75cl"), a cocktail in a
 # can or bottle ("All Shook Up Cocktail Variety Pack 10 x 250ml"), and a 70 cl bottle, the spirits size ("Soiree Brand X 70cl"). Grape juice, fruit drinks,
 # pressés, energy drinks, waters and the rest in NOT_WINE are soft drinks or foods of those sizes, and stay ("J2O Fizz 750ml", "Red Bull 250ml").

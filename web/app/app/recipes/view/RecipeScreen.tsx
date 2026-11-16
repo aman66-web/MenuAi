@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
+import { tk } from "@/lib/mm/i18n";
 import { recipeForDiet } from "@/lib/mm/recipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { myRecipesStore } from "@/lib/mm/stores";
@@ -19,6 +20,12 @@ import { RecipeDetail } from "../RecipeDetail";
 // A recipe page: one of ours (?id=) or one Pip wrote that the person saved (?mine=), at the shop asked for or their own.
 // A recipe that doesn't suit the person's diet now (they changed it, or followed an old link) is not shown at all: the page says so, as it does for
 // Pip's recipes, rather than showing it with the line that recipes are chosen for their diet.
+/**
+ * Shown when a recipe of ours is opened (a link, a bookmark, a saved recipe) and the person's diet settings leave it out. New copy (rule 8): worded like the
+ * approved grocery sentence "This product doesn't fit your diet settings, going by its name, type and label.", since recipes are judged by their ingredients.
+ */
+export const BOOK_RECIPE_LEFT_OUT = tk("This recipe doesn't fit your diet settings, going by its ingredients.");
+
 export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; mine: string | null; shop: string | null }) {
   const t = useT();
   const router = useRouter();
@@ -46,7 +53,8 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
   const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
   // the diet is only known once the settings have been read on this device
   if ((mine || inBook) && !hydrated) return (<div>{back}<Spinner label={t("Loading recipe")} /></div>);
-  if (!recipe) return (<div>{back}<div className="mt-4"><ErrorBox message={mine || inBook ? t("That recipe isn't saved on this device, or no longer suits your diet.") : t("That recipe isn't in the list.")} /></div></div>);
+  // A recipe of ours that the diet settings leave out is not shown (as in the list); only a recipe saved on this device can be missing from it (review finding 6).
+  if (!recipe) return (<div>{back}<div className="mt-4"><ErrorBox message={mine ? t("That recipe isn't saved on this device, or no longer suits your diet.") : inBook ? t(BOOK_RECIPE_LEFT_OUT) : t("That recipe isn't in the list.")} /></div></div>);
   if (manifestState.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this recipe. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
   if (!manifest || (shop && state.status === "loading")) return (<div>{back}<Spinner label={t("Loading recipe")} /></div>);
   // the list of shops arrived and none of them can fill a recipe yet: trying again won't change that

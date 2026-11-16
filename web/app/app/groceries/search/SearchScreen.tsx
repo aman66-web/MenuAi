@@ -2,7 +2,7 @@
 
 import { useDeferredValue, useMemo, useState } from "react";
 import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
-import { barcodeQuery, GROCERY_SORTS, RETAILERS, searchProducts, type GrocerySort } from "@/lib/mm/groceries";
+import { barcodeQuery, GROCERY_SORTS, listedShops, RETAILERS, searchProducts, type GrocerySort } from "@/lib/mm/groceries";
 import { shoppingStore } from "@/lib/mm/stores";
 import { useRouter } from "next/navigation";
 import { ScanIcon, SearchIcon } from "../../_components/icons";
@@ -42,7 +42,7 @@ export function GroceriesSearchScreen() {
   const settings = useSettings();
   const catManifest = useGroceryManifest();
   // not chosen yet (no ?r=): the first of the person's supermarkets (Settings) that has products here, else All
-  const retailer = asked.shop !== undefined ? asked.shop : (settings.shops?.find((id) => catManifest?.retailers.some((r) => r.id === id && r.count > 0)) ?? null);
+  const retailer = asked.shop !== undefined ? asked.shop : (listedShops(settings.shops ?? []).find((id) => catManifest?.retailers.some((r) => r.id === id && r.count > 0)) ?? null) /* a saved Co-op or Ocado (no product list) is never the default */;
   const setRetailer = (r: string | null) => choose({ shop: r });
   const catalogue = useGroceryCatalogue(retailer, retry);
   // a type the catalogue doesn't have counts as "All types" (once the catalogue says which it has)
