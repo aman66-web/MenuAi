@@ -2405,7 +2405,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [x] **Decide the next iPhone release:** decided 15 Nov: 1.0.1 with the viral screens first (free), In-App Purchase later as 1.1
 - [x] **Set `NEXT_PUBLIC_APP_STORE_URL`** in Vercel to the App Store address: done 16 Nov (shared-list and friend-invite pages now offer the App Store button)
 - [ ] **Ask Aayush Dwivedi (the Apple team's Account Holder) to accept the updated Apple Developer Program License Agreement** at developer.apple.com/account; then Claude uploads build 5 and submits 1.0.1
-- [ ] **Add `ANTHROPIC_API_KEY` in Vercel yourself** (Sensitive, Production; never in chat) and set a monthly spend limit at console.anthropic.com; then Make it at home can be switched on once Premium is buyable
+- [x] **`ANTHROPIC_API_KEY` in Vercel** (founder, 16 Nov: key `numbite-website`, never expires, MoneySave organisation; Sensitive, Production). Spend limit already $20 a month for that organisation. Not used until Make it at home is switched on with Premium
 - [ ] **Choose the Stripe account** and write its exact name into `STRIPE_ACCOUNT` at the top of docs/CHROME_PROMPT_PAID_ACCESS.md before pasting it
 - [ ] hello@numbite.com mailbox: follow docs/MAILBOX_SETUP.md (free forwarding to Hotmail; you add the records in Vercel), then Claude changes `NEXT_PUBLIC_SUPPORT_EMAIL` and redeploys
 - [ ] Real bundle ID prefix, Team, App Group ID in Xcode signing and `AppConfig.swift`
