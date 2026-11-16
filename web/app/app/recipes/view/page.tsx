@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { parsePreset } from "@/lib/mm/cupboard";
 import { ErrorBox, Spinner } from "../../_components/ui";
 import { useT } from "../../_lib/i18n";
 import { RecipeScreen } from "./RecipeScreen";
@@ -15,7 +16,7 @@ function RecipeRoute() {
   const shop = params.get("r");
   const okId = id && /^[a-z0-9-]{2,60}$/.test(id) ? id : null;
   const okMine = mine && /^ai-[a-z0-9-]{4,40}$/.test(mine) ? mine : null;
-  return okId || okMine ? <RecipeScreen id={okId} mine={okMine} shop={shop && /^[a-z0-9-]{2,40}$/.test(shop) ? shop : null} /> : <ErrorBox message={t("Choose a recipe first.")} />;
+  return okId || okMine ? <RecipeScreen id={okId} mine={okMine} shop={shop && /^[a-z0-9-]{2,40}$/.test(shop) ? shop : null} preset={parsePreset((k) => params.get(k))} /> : <ErrorBox message={t("Choose a recipe first.")} />;
 }
 
 export default function RecipePage() {

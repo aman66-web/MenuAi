@@ -359,6 +359,18 @@ function RecipesScreen() {
         </section>
       )}
 
+      {/* "Cook from my cupboard" (founder 2026-11-16): say what you have and roughly how much; recipes ranked by how much of them it covers (app/app/recipes/cupboard). */}
+      {!filtering && shop && (
+        <Link href="/app/recipes/cupboard" className="glass lift group mt-4 flex min-h-16 items-center gap-3 rounded-[1.25rem] p-3.5">
+          <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0"><PotIcon className="h-5 w-5" /></span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-base font-bold leading-snug">{t("Cook from my cupboard")}</span>
+            <span className="block text-[0.8125rem] leading-snug text-muted">{t("Say what you have and see what you can cook")}</span>
+          </span>
+          <ArrowRightIcon className="h-5 w-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      )}
+
       {!filtering && listRecipes > 0 && (
         <Link href="/app/groceries/list/recipes" className="glass lift group mt-4 flex min-h-16 items-center gap-3 rounded-[1.25rem] p-3.5">
           <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0"><ListIcon className="h-5 w-5" /></span>
