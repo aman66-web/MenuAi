@@ -5,16 +5,20 @@ import { useMemo, useState } from "react";
 import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
-import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleMethodMl, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
+import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleMethodMl, scaleServings, scaleSpec, subSpec, type ForeignChoice, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
+import { RECIPES_ANY_SHOP_ENABLED } from "@/lib/mm/config";
+import { notFoundPayload } from "@/lib/mm/outbox";
+import { otherShopOptions, type OtherShopOption } from "@/lib/mm/recipeShops";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
-import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { shopPhotoSources, type ShopFile, type ShopManifest, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
-import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
+import { cupboardStore, outbox, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
-import { Button, Sheet, radioKeyNav } from "../_components/ui";
+import { Button, Chip, Sheet, Spinner, ErrorBox, radioKeyNav } from "../_components/ui";
 import { backName, useBack } from "../_lib/backNav";
 import { useSettings, useStore } from "../_lib/hooks";
+import { useOtherShopLists } from "../_lib/recipeShops";
 import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
 import { targetSentence } from "./MealPicker";
@@ -107,7 +111,12 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
   );
 }
 
-export function RecipeDetail({ recipe, file, products, backHref, actions }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode }) {
+/** A product chosen from another supermarket for one ingredient (RECIPES_ANY_SHOP_ENABLED): the engine's choice plus that shop's file (its name, photos, prices' date). */
+type ForeignPick = ForeignChoice & { file: ShopFile };
+/** The steps of the Swap sheet when RECIPES_ANY_SHOP_ENABLED is on: the question, the two ways to swap, and each list. Off: the sheet is the same-shop list, as before. */
+type SwapStep = "ask" | "choose" | "same" | "other";
+
+export function RecipeDetail({ recipe, file, products, manifest, backHref, actions }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; manifest?: ShopManifest | null; backHref: string; actions?: React.ReactNode }) {
   const t = useT();
   const poss = usePossessive();
   // Back goes to the page before when this one was reached from another page of the app; `backHref` (the recipes, at the right shop) is the fallback
@@ -123,6 +132,15 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   const [subs, setSubs] = useState<Record<string, string>>({});
   const [asWritten, setAsWritten] = useState(false);
   const [swapping, setSwapping] = useState<string | null>(null);
+  // RECIPES_ANY_SHOP_ENABLED: products chosen from other supermarkets (ingredient key → choice), the Swap sheet's step and which other shop it shows
+  const [foreign, setForeign] = useState<Record<string, ForeignPick>>({});
+  const [swapStep, setSwapStep] = useState<SwapStep>("ask");
+  const [noted, setNoted] = useState(false);
+  const [otherShop, setOtherShop] = useState<string | null>(null);
+  /** The shop file a pick's product comes from: the recipe's own, or (a mixed recipe) the other supermarket's. */
+  const fileOf = (p: IngredientPick): ShopFile => (p.shop ? foreign[p.spec.key]?.file ?? file : file);
+  const foreignFiles = useMemo(() => [...new Map(Object.values(foreign).map((f) => [f.shop, f.file])).values()], [foreign]);
+  const mixed = foreignFiles.length > 0;
   const [added, setAdded] = useState<string | null>(null);
   const [tab, setTab] = useState<RecipeTab>("ingredients");
   const [detail, setDetail] = useState(false);
@@ -132,7 +150,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   // cooking for more or fewer people scales every amount with them (eggs, peppers and cloves stay whole), but a serving stays the same: its numbers
   // and price come from the recipe as written, with the substitutes and the fit to the meal chosen for it (recipeView, lib/mm/recipes.ts)
   const scaled = useMemo(() => scaleServings(recipe, servings), [recipe, servings]);
-  const view = useMemo(() => recipeView(recipe, products, { servings, subs, chosen, target: asWritten ? null : target }), [recipe, servings, subs, products, chosen, target, asWritten]);
+  const view = useMemo(() => recipeView(recipe, products, { servings, subs, chosen, target: asWritten ? null : target, foreign }), [recipe, servings, subs, products, chosen, target, asWritten, foreign]);
   // the basket leaves out the cupboard items the person has ticked; a serving's price and numbers never do
   const totals = useMemo(() => (view.totals ? recipeTotals(view.resolved, have) : null), [view, have]);
   const picks = view.resolved.picks;
@@ -167,8 +185,41 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
     }
     return out.filter((o) => candidates(products, o.spec, meatFree).length > 0);
   }, [swapSpec, scaled, products, meatFree]);
+  const dropForeign = (key: string) => setForeign((c) => { if (!c[key]) return c; const n = { ...c }; delete n[key]; return n; });
   const chooseInstead = (key: string, subKey: string | null) => {
     setSubs((c) => { const n = { ...c }; if (subKey) n[key] = subKey; else delete n[key]; return n; });
+    setChosen((c) => { const n = { ...c }; delete n[key]; return n; });
+    dropForeign(key);
+    setSwapping(null);
+    setAdded(null);
+  };
+  // RECIPES_ANY_SHOP_ENABLED: the other supermarkets a Swap can choose from, the person's own first; one list is loaded at a time, only on that step
+  const otherShops = useMemo(() => {
+    const all = (manifest?.retailers ?? []).filter((r) => r.id !== file.retailer);
+    const mine = settings.shops ?? [];
+    return [...all.filter((r) => mine.includes(r.id)), ...all.filter((r) => !mine.includes(r.id))];
+  }, [manifest, file.retailer, settings.shops]);
+  const shownShop = otherShop ?? otherShops[0]?.id ?? null;
+  const [otherRetry, setOtherRetry] = useState(0);
+  const otherLists = useOtherShopLists(RECIPES_ANY_SHOP_ENABLED && swapStep === "other" && swapSpec && shownShop ? [shownShop] : [], otherRetry);
+  const otherOptions = useMemo(
+    () => (otherLists.status === "ready" && swapSpec ? otherShopOptions(otherLists.lists, swapSpec, meatFree).slice(0, 25) : []),
+    [otherLists, swapSpec, meatFree],
+  );
+  const currentPick = swapIndex >= 0 ? picks[swapIndex] ?? null : null;
+  const currentShopName = currentPick ? fileOf(currentPick).name : file.name;
+  /** "No, I couldn't find it": queue a report of which product of which shop wasn't found (the outbox sends it when online). Nothing about the person. */
+  const reportNotFound = () => {
+    if (currentPick) {
+      void outbox().enqueue("notFound", notFoundPayload({ shop: fileOf(currentPick).retailer, kind: currentPick.spec.pantry ?? currentPick.spec.key, productId: currentPick.product.id, recipeId: recipe.ai ? undefined : recipe.id }));
+    }
+    setNoted(true);
+    setSwapStep("choose");
+  };
+  const chooseOther = (o: OtherShopOption, f: ShopFile) => {
+    if (!swapSpec) return;
+    const key = swapSpec.key;
+    setForeign((c) => ({ ...c, [key]: { shop: o.shop, product: o.pick.product, file: f } }));
     setChosen((c) => { const n = { ...c }; delete n[key]; return n; });
     setSwapping(null);
     setAdded(null);
@@ -182,7 +233,10 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   const dietNote = (prefs.avoidAllergens?.length ?? 0) > 0 || prefs.halalOnly || prefs.veganOnly || prefs.vegetarianOnly || prefs.pescatarianOnly;
   const addAll = () => {
     const ready = picks.filter((p): p is IngredientPick => !!p && !hasIt(p.spec));
-    shoppingStore.update((list) => ready.reduce((l, p) => addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: file.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: file.checkedOn, ...withPhoto(shopPhotoSources(file, p.product)) }, new Date(), p.packs), list));
+    shoppingStore.update((list) => ready.reduce((l, p) => {
+      const f = fileOf(p);
+      return addToList(l, { gtin: p.product.gtin, shopId: p.product.id, retailer: f.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: f.checkedOn, ...withPhoto(shopPhotoSources(f, p.product)) }, new Date(), p.packs);
+    }, list));
     setAdded(ready.length === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n: ready.length, shop: file.name }));
   };
   const notOnLabel = t(NOT_ON_LABEL);
@@ -247,7 +301,11 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
           </div>
         )}
 
-        {totals ? (
+        {totals && totals.noNumbers.length > 0 ? (
+          <p role="status" className={`${CARD} mt-5 p-4 text-[0.9375rem] leading-snug`}>
+            {t("We don't have numbers we can use for {names} from the shop you chose, so this recipe's calories and nutrition aren't shown. Its price still is.", { names: totals.noNumbers.map((n) => t(n).toLowerCase()).join(", ") })}
+          </p>
+        ) : totals ? (
           <div className="mt-5">
             {/* Home's pair: the calories big on the left, protein, carbs and fat as spaced-capital rows on the right */}
             <div role="group" aria-label={nutrientAriaLabel(t("{name}, per serving", { name: rt(recipe.name) }), { calories: totals.perServing.kcal, protein: totals.perServing.protein, carbs: totals.perServing.carbs, fat: totals.perServing.fat }, t)} className={`app-numbers ${PAIR}`}>
@@ -268,6 +326,9 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
             </div>
             {totals.notCounted.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{totals.notCounted.length === 1 ? t("We haven't read the label for {name} yet, so it isn't counted in these numbers.", { name: t(totals.notCounted[0]!).toLowerCase() }) : t("We haven't read the labels for {names} yet, so they aren't counted in these numbers.", { names: totals.notCounted.map((n) => t(n).toLowerCase()).join(", ") })}</p>
+            )}
+            {totals.community.length > 0 && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("The numbers for {names} come from Open Food Facts contributors (community data) for the same barcode, not from the shop's own page.", { names: totals.community.map((n) => t(n).toLowerCase()).join(", ") })}</p>
             )}
             {roundedAmountsMatter(view.resolved, totals) && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Eggs, wraps and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown.")}</p>
@@ -304,7 +365,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
           <p className={`${CARD} mt-3 p-4 text-[0.9375rem] font-semibold leading-snug`}>{t("Snacks are shown as written, not fitted to your meal size.")}</p>
         )}
 
-        {totals && target && (
+        {totals && totals.noNumbers.length === 0 && target && (
           <div className={`${CARD} mt-3 p-4`}>
             <p className="app-numbers text-[0.9375rem] leading-snug">{asWritten ? t("Showing the recipe as written.") : view.fitted ? `${targetSentence(t, target, "this")} ${t("The amounts below are changed to fit.")}` : t("This recipe already fits your meal, so nothing is changed.")}</p>
             <button type="button" onClick={() => setAsWritten((v) => !v)} className={`mt-3 ${SOFT_PILL}`}>{asWritten ? t("Fit it to my meal") : t("Show it as written")}</button>
@@ -346,7 +407,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
                   <p className="mt-2.5 text-[1.75rem] font-medium leading-none tracking-[-0.02em]">{formatPrice(totals.basket)}</p>
                 </div>
               </div>
-              <p className="mt-2.5 px-1 text-[0.8125rem] leading-snug text-muted">{t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(file.name) })}</p>
+              <p className="mt-2.5 px-1 text-[0.8125rem] leading-snug text-muted">{mixed ? t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at each shop's own shelf prices; you'll have some left over.") : t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(file.name) })}</p>
             </div>
           )}
           <h2 id="ingredients-heading" className={`mt-6 ${HEADING}`}>{t("What to buy")}</h2>
@@ -357,7 +418,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
               return (
                 <li key={spec.key} className="@container py-4">
                   <div className="flex flex-col gap-3 @[12rem]:flex-row @[12rem]:items-start">
-                    {p ? <PickPhoto file={file} product={p.product} /> : <span aria-hidden className="h-16 w-16 shrink-0 rounded-2xl bg-[var(--fill)]" />}
+                    {p ? <PickPhoto file={fileOf(p)} product={p.product} /> : <span aria-hidden className="h-16 w-16 shrink-0 rounded-2xl bg-[var(--fill)]" />}
                     <div className="min-w-0 flex-1">
                       {/* the name wraps beside a fixed amount, so the amount never drops onto a line of its own */}
                       <p className="flex items-start gap-3">
@@ -370,10 +431,11 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
                       )}
                       {p ? (
                         <>
-                          <Link href={`/app/groceries/shop/item?r=${file.retailer}&id=${encodeURIComponent(p.product.id)}`} prefetch={false} className="mt-1 block rounded-lg text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere] hover:underline">{p.product.name}</Link>
+                          <Link href={`/app/groceries/shop/item?r=${fileOf(p).retailer}&id=${encodeURIComponent(p.product.id)}`} prefetch={false} className="mt-1 block rounded-lg text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere] hover:underline">{p.product.name}</Link>
+                          {p.shop && <p className="mt-0.5 text-[0.8125rem] font-semibold leading-snug">{t("From {shop}", { shop: fileOf(p).name })}</p>}
                           <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                             <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
-                            <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
+                            <button type="button" onClick={() => { setSwapping(spec.key); setSwapStep("ask"); setNoted(false); }} aria-label={t("Swap {name}", { name: t(spec.label) })} className="ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
                               <SwapIcon className="h-4 w-4" />{t("Swap")}
                             </button>
                           </div>
@@ -425,7 +487,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
         {actions && <div className="mt-5 space-y-2">{actions}</div>}
 
         <p className="mt-8 border-t border-line pt-4 text-[0.8125rem] leading-relaxed text-muted">
-          {t("Prices are {shop} shelf prices, checked {date}, and vary by store.", { shop: poss(file.name), date: formatDate(file.checkedOn, t) })} {recipe.ai ? t("Recipe written by Pip with AI.") : t("Recipe by {app}.", { app: site.name })} {t("Not affiliated with {shop}.", { shop: file.name })}
+          {t("Prices are {shop} shelf prices, checked {date}, and vary by store.", { shop: poss(file.name), date: formatDate(file.checkedOn, t) })}{foreignFiles.map((f) => <span key={f.retailer}> {t("Prices from {shop} were checked {date}.", { shop: f.name, date: formatDate(f.checkedOn, t) })}</span>)} {recipe.ai ? t("Recipe written by Pip with AI.") : t("Recipe by {app}.", { app: site.name })} {t("Not affiliated with {shop}.", { shop: file.name })}{foreignFiles.map((f) => <span key={`na-${f.retailer}`}> {t("Not affiliated with {shop}.", { shop: f.name })}</span>)}
         </p>
         {view.resolved.complete && (
           // Kept in reach at the foot of the screen, just above the tab bar, on a flat strip of the page's grey that the page slides under
@@ -444,8 +506,97 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
       </div>
 
       <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: t(swapSpec.label).toLowerCase() }) : t("Swap")}>
-        {swapSpec && (
+        {swapSpec && RECIPES_ANY_SHOP_ENABLED && swapStep !== "same" ? (
+          swapStep === "ask" ? (
+            <div>
+              {currentPick && (
+                <div className={`${CARD} flex items-center gap-3 p-3`}>
+                  <PickPhoto file={fileOf(currentPick)} product={currentPick.product} />
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{currentPick.product.name}</span>
+                    <span className="block text-[0.8125rem] text-muted">{currentShopName}</span>
+                  </span>
+                </div>
+              )}
+              <h3 className="mt-5 text-lg font-bold leading-snug">{t("Could you find this at {shop}?", { shop: currentShopName })}</h3>
+              <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,8rem),1fr))] gap-2.5">
+                <Button size="lg" onClick={() => { setNoted(false); setSwapStep("choose"); }}>{t("Yes")}</Button>
+                <Button size="lg" variant="secondary" onClick={reportNotFound}>{t("No")}</Button>
+              </div>
+              <p className="mt-3 text-[0.8125rem] leading-snug text-muted">{t("If you tap No, we're sent which product you couldn't find and at which shop, so we can improve the recipes. Nothing about you is sent.")}</p>
+            </div>
+          ) : swapStep === "choose" ? (
+            <div>
+              {noted && <p role="status" className="mb-4 rounded-[1.25rem] bg-accent-soft p-3.5 text-[0.9375rem] font-semibold leading-snug text-accent">{t("Thanks, we've noted it.")}</p>}
+              <ul className="space-y-2.5">
+                <li>
+                  <button type="button" onClick={() => setSwapStep("same")} className={`${CARD} flex min-h-16 w-full items-center gap-3 p-4 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-base font-bold leading-snug">{t("Choose another product from {shop}", { shop: file.name })}</span>
+                      <span className="mt-0.5 block text-[0.8125rem] leading-snug text-muted">{t("The ones that fit this recipe best come first.")}</span>
+                    </span>
+                    <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
+                  </button>
+                </li>
+                {otherShops.length > 0 && (
+                  <li>
+                    <button type="button" onClick={() => setSwapStep("other")} className={`${CARD} flex min-h-16 w-full items-center gap-3 p-4 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-base font-bold leading-snug">{t("Choose a product from another supermarket")}</span>
+                        <span className="mt-0.5 block text-[0.8125rem] leading-snug text-muted">{t("The best fits from other supermarkets. Choose which supermarket to look at.")}</span>
+                      </span>
+                      <ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" />
+                    </button>
+                  </li>
+                )}
+              </ul>
+            </div>
+          ) : (
+            <div>
+              <button type="button" onClick={() => setSwapStep("choose")} className={`${SOFT_PILL} mb-3`}><ChevronLeftIcon className="h-4 w-4" />{t("Back")}</button>
+              <div role="group" aria-label={t("Supermarket")} className="flex flex-wrap gap-2">
+                {otherShops.map((r) => (
+                  <Chip key={r.id} selected={r.id === shownShop} onClick={() => setOtherShop(r.id)}>{r.name}</Chip>
+                ))}
+              </div>
+              <p className="mb-3 mt-3 text-[0.8125rem] leading-snug text-muted">{t("Products that fit this recipe, best fit first. It uses {amount}.", { amount: amountText(swapSpec) })}</p>
+              {otherLists.status === "loading" ? (
+                <Spinner label={t("Loading products")} />
+              ) : otherLists.status === "error" ? (
+                <ErrorBox message={t("Couldn't load the products.")} onRetry={() => setOtherRetry((n) => n + 1)} />
+              ) : otherOptions.length === 0 ? (
+                <p className={`${CARD} p-4 text-[0.9375rem] leading-snug`}>{t("Nothing at {shop} fits this ingredient yet.", { shop: otherShops.find((r) => r.id === shownShop)?.name ?? "" })}</p>
+              ) : (
+                <ul className="space-y-2">
+                  {otherOptions.map((o) => {
+                    const f = otherLists.lists.find((l) => l.shop === o.shop)?.file ?? file;
+                    const n = o.pick.product.nutrition;
+                    const cost = servingCost(o.pick);
+                    return (
+                      <li key={`${o.shop}-${o.pick.product.id}`}>
+                        <button type="button" onClick={() => chooseOther(o, f)} className={`${CARD} flex w-full items-center gap-3 rounded-[1.25rem] p-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
+                          <PickPhoto file={f} product={o.pick.product} />
+                          <span className="min-w-0 flex-1">
+                            <span className="block text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{o.pick.product.name}</span>
+                            <span className="block text-[0.8125rem] font-semibold">{f.name}</span>
+                            <span className="app-numbers block text-[0.8125rem] text-muted">{formatPrice(o.pick.basketCost)}{o.pick.packs > 1 ? ` ${t("for {n}", { n: o.pick.packs })}` : ""}{cost !== null ? ` · ${t("{price} a serving", { price: formatPrice(cost) })}` : ""}</span>
+                            {n && o.numbers ? (
+                              <span className="app-numbers block text-[0.8125rem] text-muted">{Math.round(n.kcal)} kcal · {t("{n} g protein per 100 {unit}", { n: n.protein, unit: n.per })}{o.numbers === "community" ? ` · ${t("community data")}` : ""}</span>
+                            ) : (
+                              <span className="block text-[0.8125rem] leading-snug text-muted">{t("No numbers yet: with this one, the recipe's nutrition won't be shown.")}</span>
+                            )}
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
+          )
+        ) : swapSpec && (
           <>
+            {RECIPES_ANY_SHOP_ENABLED && <button type="button" onClick={() => setSwapStep("choose")} className={`${SOFT_PILL} mb-3`}><ChevronLeftIcon className="h-4 w-4" />{t("Back")}</button>}
             {insteadOptions.length > 0 && (
               <section aria-labelledby="instead-heading" className="mb-5">
                 <h3 id="instead-heading" className="text-base font-bold">{t("Use something else instead")}</h3>
@@ -472,7 +623,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
                 return (
                   <li key={o.product.id}>
                     {/* the current pick is the one lime row, with a dark tick; the rest are white */}
-                    <button type="button" aria-pressed={selected} onClick={() => { setChosen((c) => ({ ...c, [swapSpec.key]: o.product.id })); setSwapping(null); setAdded(null); }} className={`flex w-full items-center gap-3 rounded-[1.25rem] p-3 text-start transition active:scale-[0.99] ${selected ? "bg-sun text-on-accent" : `${CARD} hover:bg-soft-strong`}`}>
+                    <button type="button" aria-pressed={selected} onClick={() => { setChosen((c) => ({ ...c, [swapSpec.key]: o.product.id })); dropForeign(swapSpec.key); setSwapping(null); setAdded(null); }} className={`flex w-full items-center gap-3 rounded-[1.25rem] p-3 text-start transition active:scale-[0.99] ${selected ? "bg-sun text-on-accent" : `${CARD} hover:bg-soft-strong`}`}>
                       <PickPhoto file={file} product={o.product} />
                       <span className="min-w-0 flex-1">
                         <span className="block text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{o.product.name}</span>

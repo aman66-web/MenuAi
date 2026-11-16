@@ -13,7 +13,7 @@ import type { Store, Table } from "../lib/store";
 type Row = Record<string, unknown> & { id: string; created_at: string };
 
 class FakeStore implements Store {
-  rows: Record<Table, Row[]> = { waitlist: [], number_reports: [], chain_requests: [], support_messages: [] };
+  rows: Record<Table, Row[]> = { waitlist: [], number_reports: [], chain_requests: [], support_messages: [], not_found_reports: [] };
   uploads: string[] = [];
   private seq = 0;
   constructor(private now: () => Date) {}

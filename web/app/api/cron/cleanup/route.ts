@@ -1,4 +1,5 @@
 import { handleCleanup } from "@/lib/handlers";
+import { RECIPES_ANY_SHOP_ENABLED } from "@/lib/mm/config";
 import { safely } from "@/lib/http";
 import { serverEnv } from "@/lib/env";
 import { sendReportAlert } from "@/lib/reportAlert";
@@ -10,7 +11,7 @@ import { supabaseCommunity } from "@/lib/store-supabase-community";
 // reports are open; if any are, and the optional alert variables are set, a short email with the count nudges the founder (lib/reportAlert.ts).
 export async function GET(request: Request) {
   return safely(async () => {
-    const result = await handleCleanup(request.headers.get("authorization"), serverEnv().CRON_SECRET, { store: supabaseStore, ipHash: null, community: supabaseCommunity });
+    const result = await handleCleanup(request.headers.get("authorization"), serverEnv().CRON_SECRET, { store: supabaseStore, ipHash: null, community: supabaseCommunity, notFoundReports: RECIPES_ANY_SHOP_ENABLED });
     const open = result.body.openReports;
     if (result.status === 200 && typeof open === "number" && open > 0) {
       const env = serverEnv();
