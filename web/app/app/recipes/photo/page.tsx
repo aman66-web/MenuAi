@@ -18,7 +18,8 @@ import { Button, ErrorBox, inputClass, Spinner } from "../../_components/ui";
 import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { shrinkPhoto, type ShrunkPhoto } from "../../_lib/photo";
+import { recipeThumbnail, shrinkPhoto, type ShrunkPhoto } from "../../_lib/photo";
+import { keepRecipePhoto } from "../../_lib/recipePhotos";
 import { recipeShop } from "../../_lib/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
@@ -213,7 +214,12 @@ function PhotoScreen() {
             {savedId ? (
               <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">{t("Saved to Your recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link></p>
             ) : (
-              <Button full className="min-h-14 text-base" onClick={() => { myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30)); setSavedId(recipe.id); }}>{t("Save this recipe")}</Button>
+              <Button full className="min-h-14 text-base" onClick={() => {
+                myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30));
+                setSavedId(recipe.id);
+                // the person's photo becomes the saved recipe's picture, kept on this phone only (lib/mm/recipePhotos.ts)
+                if (photo) void recipeThumbnail(photo.url).then((thumb) => thumb && keepRecipePhoto(recipe.id, thumb));
+              }}>{t("Save this recipe")}</Button>
             )}
             <Button full variant="secondary" className="min-h-14 text-base" onClick={() => { setRecipe(null); setPhoto(null); setDescription(""); setNudged(false); setStep("photo"); }}>{t("Make another")}</Button>
           </>

@@ -77,6 +77,20 @@ async function axe(page) {
   return page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa", "wcag21aa", "best-practice"] })).violations.map((v) => `${v.id} (${v.nodes.length})`));
 }
 
+/** The ids of the photos kept on the phone, read without creating the database (null until the app has made it). */
+const keptPhotos = (page) => page.evaluate(async () => {
+  if (!(await indexedDB.databases()).some((d) => d.name === "mm-recipe-photos")) return null;
+  return new Promise((resolve) => {
+    const req = indexedDB.open("mm-recipe-photos");
+    req.onsuccess = () => {
+      try { const all = req.result.transaction("photos", "readonly").objectStore("photos").getAllKeys(); all.onsuccess = () => resolve(all.result); all.onerror = () => resolve(null); }
+      catch { resolve(null); }
+    };
+    req.onerror = () => resolve(null);
+  });
+});
+async function until(fn, ok, ms = 8000) { const end = Date.now() + ms; for (;;) { const v = await fn(); if (ok(v)) return v; if (Date.now() > end) return v; await new Promise((r) => setTimeout(r, 200)); } }
+
 await step("Recipes shows the Make it at home card; a free person gets the paywall, a Premium person the page", async () => {
   const free = await open({ devProOverride: false });
   await free.page.goto(BASE + "/app/recipes");
@@ -154,6 +168,42 @@ await step("Generate shows the working list, then the recipe from real products,
   await page.getByText("Saved to Your recipes.").waitFor();
   const mine = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
   expect(mine.length === 1 && mine[0].name === RECIPE.name, "the recipe wasn't saved");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("the photo becomes the saved recipe's picture: on its card in My meals and at the top of the recipe, kept on this phone only, gone after Clear data", async () => {
+  const { ctx, page, errors, sent } = await open();
+  await pretend(page, sent, { delay: 300 });
+  await toDescribe(page);
+  await page.getByRole("textbox", { name: "What's in the photo?" }).fill("peri-peri chicken wings with spicy rice");
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.includes("Generate my recipe"))?.disabled, null, { timeout: 30000 });
+  await page.getByRole("button", { name: "Generate my recipe" }).tap();
+  await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
+  await page.getByRole("button", { name: "Save this recipe" }).tap();
+  await page.getByText("Saved to Your recipes.").waitFor();
+  // the photo is kept on the phone (IndexedDB), and NOT inside the saved recipe that syncs to an account
+  const kept = (await until(() => keptPhotos(page), (v) => Array.isArray(v) && v.length === 1))?.[0];
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
+  expect(saved.length === 1 && kept === saved[0].id, `photo kept under the recipe's id: ${kept} / ${saved[0]?.id}`);
+  expect(!JSON.stringify(saved).includes("base64") && JSON.stringify(saved).length < 6000, "the photo got into the synced recipe");
+  // its card in My meals shows the photo, labelled as the person's own
+  await page.goto(BASE + "/app/meals");
+  const card = page.locator(`a[href*="mine=${saved[0].id}"]`);
+  await card.waitFor({ timeout: 30000 });
+  await page.waitForFunction((id) => document.querySelector(`a[href*="mine=${id}"] img`)?.getAttribute("src")?.startsWith("blob:"), saved[0].id, { timeout: 5000 });
+  expect(/your photo/i.test(await card.innerText()), "the card's picture isn't labelled as the person's photo");
+  // and the recipe page opened from it has the photo at the top
+  await card.tap();
+  await page.getByRole("img", { name: "Your photo" }).waitFor({ timeout: 15000 });
+  await page.getByText("Your photo. The recipe is Pip's home version.").waitFor();
+  // Settings > Clear data removes it
+  await page.goto(BASE + "/app/settings");
+  await page.getByRole("button", { name: /Clear data on this device/ }).tap();
+  await page.getByRole("button", { name: "Clear everything" }).tap();
+  const left = await until(() => keptPhotos(page), (v) => Array.isArray(v) && v.length === 0);
+  expect(Array.isArray(left) && left.length === 0, `photos left after Clear data: ${JSON.stringify(left)}`);
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });

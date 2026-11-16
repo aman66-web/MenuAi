@@ -2361,6 +2361,12 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     (`NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 NEXT_PUBLIC_PRO=1 NEXT_PUBLIC_PHOTO_RECIPES=1`; card and paywall for a free person, nudge and suggestion, Generate and the request's fields
     (only dish, diet, photo, products), titled steps, Save, errors with Try again, Back keeps the photo and words, 360 px at the largest text size with no sideways scroll, axe 0).
   - **Not tried:** a real AI answer (no Anthropic key here; the founder adds one with a spending limit), the iPhone camera inside the app, and real Premium (needs In-App Purchase, 1.1).
+  - **The photo is the recipe's picture** (founder, same night: "The photo the user takes of the food they wanna make that's the thumbnail of the recipe"): on Save, an 800 x 600
+    copy (cropped to the cards' 4:3) is kept in IndexedDB on the phone (`lib/mm/recipePhotos.ts`, database `mm-recipe-photos`) under the saved recipe's id, and shown on its card
+    in Recipes and My meals ("Your photo") and at the top of its page. Saved recipes sync to a signed-in person's account, so the photo is kept apart from them: it is never
+    synced or sent (another device shows the drawing), is tidied away when its recipe is no longer saved, and is deleted by Clear data. Privacy paragraph says so. Checked:
+    2 unit tests, `e2e/photorecipe.mjs` 8 of 8 (new step: kept under the recipe's id, not inside the synced recipe, on the My meals card and the recipe page, gone after Clear
+    data), `e2e/recipes.mjs` 17 of 17. New copy: "Your photo" on the card's label.
 
 ## Known issues
 

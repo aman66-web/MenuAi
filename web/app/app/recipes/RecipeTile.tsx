@@ -8,6 +8,7 @@ import type { MealType } from "@/lib/mm/recipes";
 import { savedRecipesStore, toggleSavedRecipe } from "@/lib/mm/stores";
 import { AppleIcon, EggGlyph, FishGlyph, HeartIcon, MoonIcon, NoodleGlyph, OatsGlyph, PastaGlyph, PotIcon, RiceBowlGlyph, SaladGlyph, SandwichIcon, SunriseIcon, TacoGlyph, TrayGlyph } from "../_components/icons";
 import { useStore } from "../_lib/hooks";
+import { useRecipePhoto } from "../_lib/recipePhotos";
 import { useT } from "../_lib/i18n";
 import type { RecipeCard } from "../_lib/recipes";
 
@@ -61,7 +62,9 @@ const PICTURE_LABEL = "absolute start-3 bottom-3 max-w-[calc(100%-1.5rem)] round
 /** The picture area: the recipe's AI illustration, or a plate with a drawing of the kind of dish (the calories pill is drawn over it by RecipeTile). */
 function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: MealType | undefined; wide: boolean }) {
   const t = useT();
-  const image = RECIPE_IMAGES[id];
+  // a recipe made from the person's own photo (Make it at home) shows that photo (founder 2026-11-16: "that's the thumbnail of the recipe")
+  const own = useRecipePhoto(id);
+  const image = own ?? RECIPE_IMAGES[id];
   const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
   return (
@@ -77,7 +80,7 @@ function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: M
           </span>
         </span>
       )}
-      {image && <span className={`${PICTURE_LABEL} bg-black/60 text-white`}>{t("AI illustration")}</span>}
+      {image && <span className={`${PICTURE_LABEL} bg-black/60 text-white`}>{own ? t("Your photo") : t("AI illustration")}</span>}
     </span>
   );
 }
@@ -88,7 +91,8 @@ function RecipeArt({ id, name, meal, wide }: { id: string; name: string; meal: M
  */
 export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: string; label: string; meal: MealType | undefined }) {
   const t = useT();
-  const image = RECIPE_IMAGES[id];
+  const own = useRecipePhoto(id);
+  const image = own ?? RECIPE_IMAGES[id];
   const look = MEAL_LOOK[meal ?? "dinner"] ?? MEAL_LOOK.dinner;
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? look.Icon;
   return (
@@ -96,8 +100,8 @@ export function RecipeHeroArt({ id, name, label, meal }: { id: string; name: str
       {image ? (
         <>
           {/* eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; the service worker caches it */}
-          <img src={image} alt={t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
-          <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Illustration made with AI, not a photo of the products below.")}</p>
+          <img src={image} alt={own ? t("Your photo") : t("An illustration of {name}", { name: label.toLowerCase() })} width={800} height={600} decoding="async" className="h-full w-full object-cover" />
+          <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{own ? t("Your photo. The recipe is Pip's home version.") : t("Illustration made with AI, not a photo of the products below.")}</p>
         </>
       ) : (
         <span aria-hidden className="absolute inset-0">

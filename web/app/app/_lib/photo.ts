@@ -50,3 +50,22 @@ export async function shrinkPhoto(file: Blob, maxSide = MAX_PHOTO_SIDE): Promise
     return null;
   }
 }
+
+/** The saved recipe's picture: the photo cropped from the middle to 4:3 (the cards' shape) at 800 x 600, as a JPEG. Null when it can't be made. */
+export async function recipeThumbnail(url: string): Promise<Blob | null> {
+  try {
+    const blob = await (await fetch(url)).blob();
+    const pic = await draw(blob);
+    const W = 800, H = 600;
+    const scale = Math.max(W / pic.width, H / pic.height);
+    const sw = W / scale, sh = H / scale;
+    const canvas = document.createElement("canvas");
+    canvas.width = W;
+    canvas.height = H;
+    canvas.getContext("2d")?.drawImage(pic.source, (pic.width - sw) / 2, (pic.height - sh) / 2, sw, sh, 0, 0, W, H);
+    pic.done();
+    return await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.8));
+  } catch {
+    return null;
+  }
+}
