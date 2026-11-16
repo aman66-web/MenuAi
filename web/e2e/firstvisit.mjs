@@ -116,7 +116,7 @@ await step("App Review 1.4.1: the first-visit card under Home's targets links th
   const setup = page.getByRole("dialog", { name: "Make Numbite fit you" });
   await setup.getByRole("radio", { name: /GLP-1/ }).click();
   await setup.getByRole("button", { name: "Where these numbers come from" }).click();
-  await sources.getByText("Calories your body uses at rest").waitFor();
+  await sources.getByRole("heading", { name: "Calories your body uses at rest" }).waitFor();
   await page.keyboard.press("Escape");
   await sources.waitFor({ state: "hidden" });
   await setup.getByRole("radio", { name: /GLP-1/ }).waitFor();
