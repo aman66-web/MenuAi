@@ -36,6 +36,24 @@ await step("a tab opens the page you were on in it; the open tab goes to its fir
   await ctx.close();
 });
 
+await step("filters a page keeps in its address come back with its tab: Recipes' Dinner and Vegan tiles, then Home, then Recipes (review finding 14)", async () => {
+  const { ctx, page } = await fresh();
+  await page.goto(BASE + "/app/recipes");
+  const tiles = page.getByRole("group", { name: "Filters" });
+  await tiles.getByRole("button", { name: "Dinner" }).click();
+  await tiles.getByRole("button", { name: "Vegan" }).click();
+  await page.waitForFunction(() => /meal=dinner/.test(location.search) && /only=[^&]*vegan/.test(location.search));
+  const chosen = here(page);
+  await tab(page, "Home").click();
+  await page.waitForURL(/\/app$/);
+  expect((await tab(page, "Recipes").getAttribute("href")) === chosen, "the Recipes tab points at " + (await tab(page, "Recipes").getAttribute("href")) + ", not " + chosen);
+  await tab(page, "Recipes").click();
+  await page.waitForURL((u) => u.pathname === "/app/recipes" && /meal=dinner/.test(u.search));
+  expect(here(page) === chosen, "came back to " + here(page));
+  expect((await tiles.getByRole("button", { name: "Dinner" }).getAttribute("aria-pressed")) === "true" && (await tiles.getByRole("button", { name: "Vegan" }).getAttribute("aria-pressed")) === "true", "the tiles are not chosen again");
+  await ctx.close();
+});
+
 await step("it survives a reload of the page, keeps the query, and never holds a # fragment", async () => {
   const { ctx, page } = await fresh();
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
