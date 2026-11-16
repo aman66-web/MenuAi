@@ -69,6 +69,12 @@ Send `Content-Type: application/json`. Bodies over 16 KB (UTF-8 bytes) are rejec
 ### POST /api/v1/chain-requests — "Request a chain"
 `{ "name": "Raising Cane's", "appVersion": "1.0 (12)" }` → 201. Name 2–80 chars.
 
+### POST /api/v1/not-found — "Couldn't find it" in a recipe's Swap (behind `RECIPES_ANY_SHOP_ENABLED`, off; docs/RECIPES_ANY_SUPERMARKET_REPORT.md)
+`{ "shop": "tesco", "kind": "chicken-breast", "productId": "254656543", "recipeId": "chicken-curry", "appVersion": "web 1.0" }` → 201. Exactly these
+fields (anything else is refused): the shop id, the pantry kind, the shop's product id, our recipe id (left out for Pip's recipes) and the app version. Nothing about
+the person. **404 while the switch is off.** Table `not_found_reports` and view `not_found_counts` come from `supabase/migrations/20261117120000_not_found_reports.sql`,
+which is applied by hand (not yet). Sent through the app's outbox (kind `notFound`).
+
 ### POST /api/v1/support — in-app "Contact us"
 (The web app sends `source: "web"` and `appVersion: "web 1.0"`; the iPhone app sends `source: "app"`.)
 `{ "message": "…", "email": "optional@example.com", "source": "app", "appVersion": "1.0 (12)" }` → 201.
@@ -244,7 +250,7 @@ Do **not** delete the person's account to remove them: that lets the same Apple,
   until payments exist there is no server-verified Pro, so the endpoint relies on the Origin check and the rate limits (add an entitlement check with payments).
 
 ### Rate limits (per caller per hour)
-Reports 30 · chain requests 30 · support 5 · waitlist 5. Constants: `web/lib/handlers.ts`.
+Reports 30 · chain requests 30 · support 5 · waitlist 5 · not-found reports 60. Constants: `web/lib/handlers.ts`.
 
 ## Database (Supabase)
 

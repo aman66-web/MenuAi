@@ -24,6 +24,17 @@ async function step(name, fn) { try { await fn(); passed++; console.log("PASS", 
 const expect = (c, m) => { if (!c) throw new Error(m); };
 const money = (t) => Number(/£(\d+\.\d\d)/.exec(t)?.[1] ?? NaN);
 const lines = (text) => text.split("\n").map((l) => l.trim());
+/** With the "recipes from any supermarket" switch on (NEXT_PUBLIC_RECIPES_ANY_SHOP=1), a Swap first asks "Could you find this at {shop}?": answer Yes and choose the same
+ *  shop, so the steps below check the same list either way. Off (the default), the sheet opens straight on that list and this does nothing. */
+async function sameShopList(page) {
+  const dialog = page.getByRole("dialog");
+  await dialog.waitFor();
+  const asked = dialog.getByText(/^Could you find this at /);
+  if (await asked.isVisible().catch(() => false) || (await asked.waitFor({ timeout: 800 }).then(() => true, () => false))) {
+    await dialog.getByRole("button", { name: "Yes", exact: true }).click();
+    await dialog.getByRole("button", { name: /^Choose another product from / }).click();
+  }
+}
 
 await step("the tab bar opens Recipes; Home's My meals tile opens one page with two tabs; the old addresses forward to it", async () => {
   const { ctx, page } = await newPage();
@@ -129,6 +140,7 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   const riceRow = buy.nth(3);
   const before = await riceRow.innerText();
   await page.getByRole("button", { name: "Swap Rice" }).click();
+  await sameShopList(page);
   const sheet = page.getByRole("dialog", { name: "Swap rice" });
   await sheet.waitFor();
   const options = sheet.locator("button[aria-pressed]");
@@ -190,6 +202,7 @@ await step("a substitute: use Quorn or tofu instead of chicken, and back again",
   const row = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
   const kcalBefore = await page.getByRole("group", { name: /per serving/ }).innerText();
   await page.getByRole("button", { name: /^Swap Chicken/ }).click();
+  await sameShopList(page);
   const sheet = page.getByRole("dialog");
   await sheet.getByRole("heading", { name: "Use something else instead" }).waitFor();
   const sub = sheet.getByRole("button", { name: /Quorn|tofu/i }).first();
@@ -200,6 +213,7 @@ await step("a substitute: use Quorn or tofu instead of chicken, and back again",
   expect((await row.innerText()).includes(subName), `the row shows ${subName}`);
   expect((await page.getByRole("group", { name: /per serving/ }).innerText()) !== kcalBefore, "the numbers follow the substitute");
   await page.getByRole("button", { name: new RegExp(`^Swap ${subName.slice(0, 5)}`) }).click();
+  await sameShopList(page);
   await page.getByRole("dialog").getByRole("button", { name: /As the recipe has it/ }).click();
   await page.getByRole("dialog").waitFor({ state: "hidden" });
   expect((await row.getByText(/^Instead of/).count()) === 0, "back to chicken");

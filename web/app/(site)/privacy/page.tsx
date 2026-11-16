@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { AI_RECIPES_ENABLED, IAP_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, IAP_ENABLED, PRO_ENABLED, RECIPES_ANY_SHOP_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -265,6 +265,14 @@ export default function Privacy() {
             your note, an optional photo, and the app (or web app) version and menu data version.
           </li>
           <li className={row}><strong>Request a restaurant:</strong> the name you type and the app version.</li>
+          {/* Draft for the founder's approval (docs/RECIPES_ANY_SUPERMARKET_REPORT.md): shown only while the "recipes from any supermarket" switch is on. */}
+          {RECIPES_ANY_SHOP_ENABLED && (
+            <li className={row}>
+              <strong>&ldquo;Couldn&apos;t find it&rdquo; in a recipe:</strong> when you tap No under &ldquo;Could you find this at&rdquo; a shop, we receive which product
+              you couldn&apos;t find, at which supermarket, for which ingredient of which recipe, and the app version. Nothing about you: no account, name, email or location.
+              We count these to learn which products are hard to find, and keep them while they help us improve the recipes.
+            </li>
+          )}
           <li className={row}><strong>Support messages:</strong> your message and, if you give it, your email address so we can reply.</li>
           <li className={row}>
             <strong>Website and web app waitlist:</strong> your email address, and which link or screen brought you here

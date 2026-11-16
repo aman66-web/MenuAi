@@ -1,9 +1,9 @@
 import { z } from "zod";
 import type { Store, Table } from "./store";
-import { TABLES } from "./store";
+import { NOT_FOUND_TABLE, TABLES } from "./store";
 import { DECLINED_DAYS, REPORT_KEEP_DAYS, TALLY_DAYS } from "./community/limits";
 import type { CommunityStore } from "./community/types";
-import { chainRequestSchema, reportSchema, supportSchema, waitlistSchema } from "./validation";
+import { chainRequestSchema, notFoundSchema, reportSchema, supportSchema, waitlistSchema } from "./validation";
 
 // Pure request handlers: (body, context) -> { status, body }. No Next.js or Supabase imports,
 // so they're easy to test (tests/handlers.test.ts). Route files in app/api wire them up.
@@ -15,6 +15,9 @@ export type Ctx = {
   now?: Date;
   /** Only the daily clean-up uses this: Community's tidying and its count of open reports (docs/BACKEND.md "Community"). Left out, nothing about Community is touched. */
   community?: Pick<CommunityStore, "deleteExpiredLists" | "deleteOldAttempts" | "deleteOldDeclined" | "deleteOldReports" | "countOpenReports">;
+  /** Only the daily clean-up uses this: also forget old IP hashes in the "couldn't find it" reports (set while RECIPES_ANY_SHOP_ENABLED is on). Left out, that table is
+   *  not touched, so the clean-up never fails on a table the founder hasn't created yet. */
+  notFoundReports?: boolean;
 };
 
 /** Max submissions per caller per hour. */
@@ -23,6 +26,7 @@ export const RATE_LIMITS: Record<Table, number> = {
   support_messages: 5,
   number_reports: 30,
   chain_requests: 30,
+  not_found_reports: 60,
 };
 export const IP_HASH_RETENTION_DAYS = 30;
 const PHOTO_UPLOAD_TTL_SECONDS = 2 * 60 * 60; // Supabase signed upload URLs last 2 hours
@@ -100,6 +104,24 @@ export async function handleChainRequest(raw: unknown, ctx: Ctx): Promise<Result
   return ok({ ok: true }, 201);
 }
 
+/** "Couldn't find this at {shop}" from a recipe's Swap (RECIPES_ANY_SHOP_ENABLED; the route answers 404 while it is off). Stores the shop, the ingredient's kind, the
+ *  product, the recipe and the app version; the IP hash only limits how many one caller sends an hour and is forgotten after 30 days, like every other report. */
+export async function handleNotFound(raw: unknown, ctx: Ctx): Promise<Result> {
+  const parsed = notFoundSchema.safeParse(raw);
+  if (!parsed.success) return invalid(parsed.error);
+  if (await overLimit(ctx, NOT_FOUND_TABLE)) return tooMany;
+  const r = parsed.data;
+  await ctx.store.insert(NOT_FOUND_TABLE, {
+    shop: r.shop,
+    ingredient_kind: r.kind,
+    product_id: r.productId,
+    recipe_id: r.recipeId ?? null,
+    app_version: r.appVersion ?? null,
+    ip_hash: ctx.ipHash,
+  });
+  return ok({ ok: true }, 201);
+}
+
 export async function handleSupport(raw: unknown, ctx: Ctx): Promise<Result> {
   const parsed = supportSchema.safeParse(raw);
   if (!parsed.success) return invalid(parsed.error);
@@ -128,8 +150,19 @@ export async function handleCleanup(authorization: string | null, cronSecret: st
   const ago = (days: number) => new Date(now.getTime() - days * 24 * 60 * 60 * 1000).toISOString();
   const cleared: Record<string, number> = {};
   for (const t of TABLES) cleared[t] = await ctx.store.clearIpHashes(t, ago(IP_HASH_RETENTION_DAYS));
+  // the "couldn't find it" reports' table may not exist yet (its migration is applied by hand): on its own, null when it fails, and only when asked for
+  let notFoundCleared: number | null | undefined;
+  if (ctx.notFoundReports) {
+    try {
+      notFoundCleared = await ctx.store.clearIpHashes(NOT_FOUND_TABLE, ago(IP_HASH_RETENTION_DAYS));
+    } catch (error) {
+      console.error("Clean-up of not_found_reports failed", error);
+      notFoundCleared = null;
+    }
+  }
+  const extra = notFoundCleared === undefined ? {} : { notFoundCleared };
   const community = ctx.community;
-  if (!community) return ok({ ok: true, cleared });
+  if (!community) return ok({ ok: true, cleared, ...extra });
   const step = async (what: string, run: () => Promise<number>): Promise<number | null> => {
     try {
       return await run();
@@ -143,5 +176,5 @@ export async function handleCleanup(authorization: string | null, cronSecret: st
   const oldDeclined = await step("declined requests", () => community.deleteOldDeclined(ago(DECLINED_DAYS)));
   const oldReports = await step("closed reports", () => community.deleteOldReports(ago(REPORT_KEEP_DAYS)));
   const openReports = await step("open reports", () => community.countOpenReports());
-  return ok({ ok: true, cleared, expiredLists, oldTallies, oldDeclined, oldReports, openReports });
+  return ok({ ok: true, cleared, ...extra, expiredLists, oldTallies, oldDeclined, oldReports, openReports });
 }

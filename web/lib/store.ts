@@ -1,7 +1,7 @@
 // The storage interface the API handlers depend on. The real implementation talks to Supabase
 // (lib/store-supabase.ts); tests use an in-memory fake. Handlers never import Supabase directly.
 
-export type Table = "waitlist" | "number_reports" | "chain_requests" | "support_messages";
+export type Table = "waitlist" | "number_reports" | "chain_requests" | "support_messages" | "not_found_reports";
 
 export interface Store {
   /** Rows inserted into `table` by this caller (ip hash) since `sinceIso`. */
@@ -19,4 +19,7 @@ export interface Store {
 }
 
 export const TABLES: Table[] = ["waitlist", "number_reports", "chain_requests", "support_messages"];
+/** "Couldn't find it at this shop" reports (RECIPES_ANY_SHOP_ENABLED): their table exists only once the founder applies
+ *  supabase/migrations/20261117120000_not_found_reports.sql, so the daily clean-up handles it on its own (handleCleanup `notFoundReports`), never in TABLES. */
+export const NOT_FOUND_TABLE: Table = "not_found_reports";
 export const REPORT_PHOTO_BUCKET = "report-photos";

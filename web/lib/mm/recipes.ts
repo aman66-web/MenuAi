@@ -130,6 +130,12 @@ function countNote(k: PantryKind, amount: number): string | undefined {
 const GLOBAL_NONE = ["meal", "sandwich", "kit", "gift", "hamper", "soup", "chowder", "broth"];
 const MEAT_WORDS = ["chicken", "beef", "pork", "lamb", "turkey", "bacon", "ham", "sausage", "salmon", "tuna", "prawn", "fish", "anchov", "chorizo", "pepperoni", "cod"];
 
+/** The product's name names meat or fish (the same words a meat-free recipe leaves out). */
+export const namesMeat = (name: string): boolean => {
+  const h = ` ${normalizeForSearch(name)} `;
+  return MEAT_WORDS.some((w) => has(h, w));
+};
+
 // ---- diet
 
 /** The recipe has no meat or fish in it, by its pantry kinds (an ingredient without one can't be known, so the answer is no). */
@@ -257,6 +263,15 @@ export interface IngredientPick {
   basketCost: number;
   /** What the amount used costs at the shop's own price per kg or litre (null when the shop prints no such price). */
   usedCost: number | null;
+  /** Set when the person chose this product from another supermarket than the recipe's (a mixed recipe): that shop's id. */
+  shop?: string;
+}
+
+/** A product the person chose for one ingredient from another supermarket's list (RECIPES_ANY_SHOP_ENABLED). Its own numbers count only when they are usable
+ *  for the amount as the recipe weighs it (labelFits); otherwise the recipe's figures can't be worked out and are not shown (RecipeTotals.noNumbers). */
+export interface ForeignChoice {
+  shop: string;
+  product: PricedProduct;
 }
 
 /** How many items a pack of things sold one at a time holds ("Limes x5", "4 x Unwaxed Lemons", "Brown Onions x3"); 1 when the name says none. */
@@ -325,9 +340,7 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
     const n = p.nutrition;
     const h = hay(p);
     if (n) {
-      if (n.per !== spec.unit) continue;
-      // the label must be for the food as the recipe weighs it: as sold, or (for a drained amount) per 100 g drained or a product sold ready-drained
-      if (!(n.state === "" ? !spec.drained || has(h, "drained") || has(h, "no drain") : spec.drained && n.state === "drained")) continue;
+      if (!labelFits(spec, p)) continue;
     } else if (!spec.labelOptional) continue; // a pinch of a spice whose label we haven't read may still be listed and priced (not counted)
     if (!m.all.every((w) => has(h, w))) continue;
     if (m.any && !m.any.some((w) => has(h, w))) continue;
@@ -346,6 +359,15 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
   return list;
 }
 
+/** Whether a product's numbers can be used for this ingredient's amount: per 100 g or ml in the recipe's unit, for the food as the recipe weighs it (as sold,
+ *  or, for a drained amount, per 100 g drained or a product sold ready-drained). False when it has no numbers. */
+export function labelFits(spec: Pick<IngredientSpec, "unit" | "drained">, p: ShopProduct): boolean {
+  const n = p.nutrition;
+  if (!n || n.per !== spec.unit) return false;
+  const h = hay(p);
+  return n.state === "" ? !spec.drained || has(h, "drained") || has(h, "no drain") : !!spec.drained && n.state === "drained";
+}
+
 export function candidates(products: readonly ShopProduct[], spec: IngredientSpec, meatFree = false): IngredientPick[] {
   const out = matching(products, spec, meatFree).map((p) => pickFor(spec, p));
   // Products whose cost for the amount used can be worked out come first (a serving's price needs it), then labels we've read. Among those within
@@ -361,7 +383,10 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
     if (!n || !inBand(c)) return 0;
     return 10 * [n.saturates, n.sugars, n.salt].filter((v) => v === null).length + Number(n.fibre === null);
   };
-  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
+  // a product counted with community numbers (RECIPE_COMMUNITY_NUMBERS_ENABLED) only ever stands in where the shop's own labels can't: products without them come first,
+  // so turning community numbers on never changes a recipe the shop's labels already make (nothing is marked community otherwise, so this changes no order)
+  const communityLast = (c: IngredientPick) => Number(c.product.nutritionFrom === "community");
+  return out.sort((a, b) => communityLast(a) - communityLast(b) || Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
@@ -398,17 +423,20 @@ function scaleResolved(base: ResolvedRecipe, scaled: Recipe): ResolvedRecipe {
   const picks = base.picks.map((p): IngredientPick | null => {
     if (!p) return null;
     const q = pickFor(scaleSpec(p.spec, scaled.servings, from), p.product);
-    return { ...q, usedCost: p.usedCost === null ? null : (p.usedCost * scaled.servings) / from };
+    return { ...q, ...(p.shop ? { shop: p.shop } : {}), usedCost: p.usedCost === null ? null : (p.usedCost * scaled.servings) / from };
   });
   return { recipe: scaled, picks, complete: base.complete, basis: base };
 }
 
 /** The cheapest match for each ingredient, or a chosen product where the user swapped one (by product id). A recipe cooked for more or fewer people
  *  (scaleServings) gets the products the recipe as written gets, so its numbers and its price a serving never move with the people. */
-export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>> = {}): ResolvedRecipe {
-  if (recipe.scaledFrom) return scaleResolved(resolveRecipe(recipe.scaledFrom, products, chosen), recipe);
+export function resolveRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>> = {}, foreign: Readonly<Record<string, ForeignChoice>> = {}): ResolvedRecipe {
+  if (recipe.scaledFrom) return scaleResolved(resolveRecipe(recipe.scaledFrom, products, chosen, foreign), recipe);
   const meatFree = isMeatFree(recipe);
   const picks = recipe.ingredients.map((spec) => {
+    // a product the person chose from another supermarket stands for this ingredient as it is (its amount, its own price and numbers)
+    const f = foreign[spec.key];
+    if (f) return { ...pickFor(spec, f.product), shop: f.shop };
     let list = candidates(products, spec, meatFree);
     // the shop doesn't sell this kind: use the first substitute it does sell (the pick's spec says which, so the screen can say so)
     for (const sub of list.length ? [] : spec.subs ?? []) {
@@ -431,6 +459,11 @@ export interface RecipeTotals {
   basket: number;
   /** Ingredients whose label we haven't read: listed and priced, not counted in the nutrition (their labels, in recipe order). */
   notCounted: string[];
+  /** Ingredients whose chosen product (from another supermarket) has no numbers we can use for its amount: then the serving's figures can't be worked out
+   *  and are not shown (perServing and label are then for the rest only and must not be displayed). Empty for a recipe from one shop. */
+  noNumbers: string[];
+  /** Ingredients counted with Open Food Facts community numbers rather than a label read from the shop's own page (RECIPE_COMMUNITY_NUMBERS_ENABLED). */
+  community: string[];
 }
 
 /** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
@@ -440,6 +473,8 @@ export interface RecipeTotals {
 export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new Set()): RecipeTotals | null {
   if (!r.complete) return null;
   const notCounted: string[] = [];
+  const noNumbers: string[] = [];
+  const community: string[] = [];
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
   const more: Record<"kj" | "saturates" | "sugars" | "fibre" | "salt", number | null> = { kj: 0, saturates: 0, sugars: 0, fibre: 0, salt: 0 };
   let used = 0;
@@ -451,8 +486,14 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     if (p.usedCost === null) usedKnown = false;
     else used += p.usedCost;
     if (!r.basis && kept(p)) basket += p.basketCost;
-    const n = p.product.nutrition;
-    if (!n) { notCounted.push(p.spec.label); continue; }
+    // a product from another supermarket counts only when its numbers fit the amount as the recipe weighs it (the recipe's own shop's picks were matched by them)
+    const n = p.product.nutrition && (!p.shop || labelFits(p.spec, p.product)) ? p.product.nutrition : null;
+    if (!n) {
+      if (p.shop && !p.spec.labelOptional) noNumbers.push(p.spec.label);
+      else notCounted.push(p.spec.label);
+      continue;
+    }
+    if (p.product.nutritionFrom === "community") community.push(p.spec.label);
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;
     sum.protein += n.protein * f;
@@ -472,6 +513,8 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     costPerServing: usedKnown ? Math.round((used / s) * 100) / 100 : null,
     basket: Math.round(basket * 100) / 100,
     notCounted,
+    noNumbers,
+    community,
   };
 }
 
@@ -549,19 +592,21 @@ function fitFactors(ingredients: readonly IngredientSpec[]): Array<(a: number, b
  * (eggs and wraps to whole ones) and every number is then worked out again from the labels for those rounded amounts. Null when the recipe
  * isn't complete here.
  */
-export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>>, target: MealTarget): FittedRecipe | null {
+export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chosen: Readonly<Record<string, string>>, target: MealTarget, foreign: Readonly<Record<string, ForeignChoice>> = {}): FittedRecipe | null {
   if (recipe.scaledFrom) {
     // a serving is fitted once, for the recipe as written (the same products, the same factors, amounts rounded once); more or fewer people then
     // multiply the fitted amounts. Fitting the scaled amounts instead would round them again and could pick other factors for every number of people.
-    const f = fitRecipe(recipe.scaledFrom, products, chosen, target);
+    const f = fitRecipe(recipe.scaledFrom, products, chosen, target, foreign);
     if (!f) return null;
     const scaled = scaleServings(f.recipe, recipe.servings);
     const resolved = scaled.scaledFrom ? scaleResolved(f.resolved, scaled) : f.resolved;
     return { recipe: scaled, resolved, totals: recipeTotals(resolved)!, changed: f.changed };
   }
-  const base = resolveRecipe(recipe, products, chosen);
+  const base = resolveRecipe(recipe, products, chosen, foreign);
   if (!base.complete) return null;
   const picks = base.picks as IngredientPick[];
+  // a product from another supermarket without usable numbers: the serving's figures can't be worked out, so nothing can be fitted to them
+  if (recipeTotals(base)!.noNumbers.length > 0) return { recipe, resolved: base, totals: recipeTotals(base)!, changed: false };
   // the same products after fitting, even if a different pack size would be cheaper for the new amount
   const pinned: Record<string, string> = { ...chosen };
   for (const p of picks) pinned[p.spec.key] = p.product.id;
@@ -599,7 +644,7 @@ export function fitRecipe(recipe: Recipe, products: readonly ShopProduct[], chos
     return f === 1 ? spec : withAmount(spec, spec.amount * f, false, s);
   });
   const fitted: Recipe = { ...recipe, ingredients };
-  const resolved = resolveRecipe(fitted, products, pinned);
+  const resolved = resolveRecipe(fitted, products, pinned, foreign);
   const totals = recipeTotals(resolved);
   if (!totals) return null;
   return { recipe: fitted, resolved, totals, changed: ingredients.some((x, i) => x.amount !== recipe.ingredients[i]!.amount) };
@@ -678,13 +723,14 @@ export interface RecipeView {
 export function recipeView(
   recipe: Recipe,
   products: readonly ShopProduct[],
-  opts: { servings: number; subs?: Readonly<Record<string, string>>; chosen?: Readonly<Record<string, string>>; target?: MealTarget | null },
+  opts: { servings: number; subs?: Readonly<Record<string, string>>; chosen?: Readonly<Record<string, string>>; target?: MealTarget | null; foreign?: Readonly<Record<string, ForeignChoice>> },
 ): RecipeView {
   const withSubs = withSubstitutes(scaleServings(recipe, opts.servings), opts.subs ?? {});
   const chosen = opts.chosen ?? {};
-  const fitted = opts.target ? fitRecipe(withSubs, products, chosen, opts.target) : null;
+  const foreign = opts.foreign ?? {};
+  const fitted = opts.target ? fitRecipe(withSubs, products, chosen, opts.target, foreign) : null;
   if (fitted) return { recipe: fitted.recipe, resolved: fitted.resolved, totals: fitted.totals, fitted: fitted.changed };
-  const resolved = resolveRecipe(withSubs, products, chosen);
+  const resolved = resolveRecipe(withSubs, products, chosen, foreign);
   return { recipe: withSubs, resolved, totals: recipeTotals(resolved), fitted: false };
 }
 

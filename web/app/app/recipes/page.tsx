@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
-import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, RECIPE_COMMUNITY_NUMBERS_ENABLED, RECIPES_ANY_SHOP_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -15,7 +15,7 @@ import { toggleAllergen } from "@/lib/mm/menu-view";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { cuisineOptions, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, type CuisineOption, type OccasionOption } from "@/lib/mm/recipeNiche";
 import { isMeatFree, isQuick, isVegan, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
-import { recipeShops } from "@/lib/mm/shopProducts";
+import { recipeCoverage } from "@/lib/mm/recipeShops";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
@@ -28,7 +28,8 @@ import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_com
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../_lib/shopProducts";
+import { recipeShopAny, recipeShopChoices, useRecipeProducts } from "../_lib/recipeShops";
+import { useShopManifest } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
@@ -168,9 +169,12 @@ function RecipesScreen() {
   const settings = useSettings();
   const manifest = useShopManifest();
   const [picked, setPicked] = useState<string | null>(null);
-  const shop = recipeShop(manifest, picked ?? asked, settings.shops);
+  // RECIPES_ANY_SHOP_ENABLED (off by default): any of the person's supermarkets, not only those whose labels we've read; off, exactly as before
+  const shop = RECIPES_ANY_SHOP_ENABLED ? recipeShopAny(manifest, picked ?? asked, settings.shops) : recipeShop(manifest, picked ?? asked, settings.shops);
+  const shopChoices = recipeShopChoices(manifest, settings.shops);
   const [retry, setRetry] = useState(0);
-  const state = useShopProducts(shop, retry);
+  // the shop's products for recipes (with community numbers only when RECIPE_COMMUNITY_NUMBERS_ENABLED; otherwise the same list as before)
+  const state = useRecipeProducts(shop, retry);
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
   const diet = settings.preferences;
@@ -211,6 +215,8 @@ function RecipesScreen() {
   const filtering = toggles.size > 0 || meal !== null || query.trim() !== "" || nicheOn;
   const slot: MealType = mealSlotFor(now);
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
+  // RECIPES_ANY_SHOP_ENABLED: at a shop where no recipe is complete, which ingredients are missing most often (worked out only then)
+  const coverage = useMemo(() => (RECIPES_ANY_SHOP_ENABLED && products && cards.length === 0 ? recipeCoverage(RECIPES, products) : null), [products, cards.length]);
   const listRecipes = useMemo(() => (shop && products && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), products, shop).length : 0), [shopping, cards, products, shop]);
   const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? "";
   const makerOn = useRecipeMakerEnabled();
@@ -250,9 +256,9 @@ function RecipesScreen() {
       </p>
 
       {/* Which supermarket the ingredients come from: only shops whose full product list, prices and labels we've read can fill a recipe. */}
-      {recipeShops(manifest).length > 1 && shop && (
+      {shopChoices.length > 1 && shop && (
         <div className="mt-4">
-          <Segmented label={t("Supermarket")} value={shop} options={recipeShops(manifest).map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
+          <Segmented label={t("Supermarket")} value={shop} options={shopChoices.map((r) => ({ value: r.id, label: r.name }))} onChange={(v) => setPicked(v)} />
         </div>
       )}
 
@@ -400,7 +406,15 @@ function RecipesScreen() {
             <div className="mt-3 flex justify-center"><Button variant="secondary" onClick={clearAll}>{t("Show all recipes")}</Button></div>
           </div>
         ) : shown.length === 0 ? (
-          <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes here yet.")} body={leftOut ? t("None of our recipes suit your diet at this shop yet.") : t("We haven't read enough of {shop} product pages to fill these recipes yet.", { shop: poss(shopName) })} /></div>
+          <div className="mt-4">
+            <EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipes here yet.")} body={leftOut ? t("None of our recipes suit your diet at this shop yet.") : t("We haven't read enough of {shop} product pages to fill these recipes yet.", { shop: poss(shopName) })} />
+            {coverage && !leftOut && coverage.mostMissing.length > 0 && (
+              <div className="glass mt-3 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">
+                <p>{t("A recipe appears here once every ingredient has a product at {shop} with numbers we can use.", { shop: shopName })}</p>
+                <p className="mt-2 text-muted">{t("Most often missing at {shop}: {names}.", { shop: shopName, names: coverage.mostMissing.slice(0, 6).map((m) => t(m.label).toLowerCase()).join(", ") })}</p>
+              </div>
+            )}
+          </div>
         ) : (
           <>
             {/* on screen the count shows only while filtering, next to Clear (the heading already says how many); it is said aloud by the one live region above */}
@@ -425,6 +439,7 @@ function RecipesScreen() {
             ? t("Prices from {shop} website, checked {date}; nutrition from each product's own page, checked {nutritionDate}.", { shop: poss(state.file.name), date: formatDate(state.file.checkedOn, t), nutritionDate: formatDate(state.file.nutritionCheckedOn, t) })
             : t("Prices from {shop} website, checked {date}; nutrition from each product's own page.", { shop: poss(state.file.name), date: formatDate(state.file.checkedOn, t) })}{" "}
           {t("\"Each\" prices only the amounts a serving uses, including the pinch of salt and the spoon of oil. Recipes are chosen for your diet by their ingredients; check each pack.")} {t("Not affiliated with {shop}.", { shop: state.file.name })}
+          {RECIPE_COMMUNITY_NUMBERS_ENABLED && <> {t("Where we haven't read a product's own page, its numbers come from Open Food Facts contributors (community data) for the same barcode.")}</>}
         </p>
       )}
     </div>

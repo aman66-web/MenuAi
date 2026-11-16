@@ -13,7 +13,9 @@ import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { recipeShop } from "../../_lib/recipes";
-import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
+import { RECIPES_ANY_SHOP_ENABLED } from "@/lib/mm/config";
+import { recipeShopAny, useRecipeProducts } from "../../_lib/recipeShops";
+import { useShopManifest } from "../../_lib/shopProducts";
 import { RecipeDetail } from "../RecipeDetail";
 
 // A recipe page: one of ours (?id=) or one Pip wrote that the person saved (?mine=), at the shop asked for or their own.
@@ -25,9 +27,10 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
   const saved = useStore(myRecipesStore);
   const savedOne = mine ? saved.find((s) => s.id === mine) : undefined;
   const manifest = useShopManifest();
-  const shop = recipeShop(manifest, asked ?? savedOne?.shop ?? null, settings.shops);
+  // RECIPES_ANY_SHOP_ENABLED (off by default): any of the person's supermarkets; off, exactly as before
+  const shop = RECIPES_ANY_SHOP_ENABLED ? recipeShopAny(manifest, asked ?? savedOne?.shop ?? null, settings.shops) : recipeShop(manifest, asked ?? savedOne?.shop ?? null, settings.shops);
   const [retry, setRetry] = useState(0);
-  const state = useShopProducts(shop, retry);
+  const state = useRecipeProducts(shop, retry);
   const dietKey = JSON.stringify(settings.preferences);
   const recipe = useMemo(() => {
     const diet = JSON.parse(dietKey);
@@ -50,6 +53,7 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
       recipe={recipe}
       file={state.file}
       products={state.products}
+      manifest={manifest}
       backHref={backHref}
       actions={savedOne ? <Button full variant="ghost" onClick={() => { myRecipesStore.update((l) => l.filter((s) => s.id !== savedOne.id)); router.push(`/app/recipes?r=${shop}`); }}><TrashIcon className="h-5 w-5" />{t("Remove from my recipes")}</Button> : undefined}
     />

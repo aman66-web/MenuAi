@@ -284,7 +284,7 @@ export default function SettingsPage() {
           <ul className="space-y-2.5">
             {outboxItems.filter((i) => i.status !== "sent").map((i) => (
               <li key={i.id} className="glass rounded-[1.25rem] p-4">
-                <p className="text-[0.9375rem] font-semibold leading-snug">{i.kind === "report" ? t("Number report") : i.kind === "chainRequest" ? t("Chain request") : t("Message")} · {i.status === "failed" ? t("couldn't be sent") : t("will send when you're online")}</p>
+                <p className="text-[0.9375rem] font-semibold leading-snug">{i.kind === "report" ? t("Number report") : i.kind === "chainRequest" ? t("Chain request") : i.kind === "notFound" ? t("Product not found") : t("Message")} · {i.status === "failed" ? t("couldn't be sent") : t("will send when you're online")}</p>
                 {i.status === "failed" && (
                   <div className="mt-3 flex flex-wrap gap-2">
                     <a className="glass inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold" href={mailtoFor(i, site.supportEmail)}>{t("Email instead")}</a>

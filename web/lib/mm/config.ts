@@ -35,6 +35,20 @@ export const LANGUAGES_ENABLED = false;
 
 export const COMMUNITY_FRIENDS_ENABLED = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
 
+/**
+ * Recipes from any supermarket (founder's idea, 16 Nov 2026; docs/RECIPES_ANY_SUPERMARKET_REPORT.md). OFF unless NEXT_PUBLIC_RECIPES_ANY_SHOP=1: the person's own
+ * supermarkets on Recipes (a recipe is made from one shop's products, and appears only when every ingredient has a product with usable numbers there), the new
+ * Swap flow ("Could you find this at {shop}?", another product from the same shop or from another supermarket) and the "couldn't find it" reports
+ * (/api/v1/not-found, which answers 404 while this is off). Off = everything exactly as before.
+ */
+export const RECIPES_ANY_SHOP_ENABLED = process.env.NEXT_PUBLIC_RECIPES_ANY_SHOP === "1";
+/**
+ * Only with RECIPES_ANY_SHOP_ENABLED: let recipes use Open Food Facts community numbers (the shop's barcode catalogue, matched by exact barcode) for products whose
+ * own page we haven't read. OFF unless NEXT_PUBLIC_RECIPE_COMMUNITY_NUMBERS=1: the founder's decision (CLAUDE.md rule 1 counts these as community data, not a
+ * shop's label; every screen that uses them says so). Off = recipes use only labels read from the shop's own product pages.
+ */
+export const RECIPE_COMMUNITY_NUMBERS_ENABLED = RECIPES_ANY_SHOP_ENABLED && process.env.NEXT_PUBLIC_RECIPE_COMMUNITY_NUMBERS === "1";
+
 /** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
 export const PAYMENTS_ENABLED = false;
 

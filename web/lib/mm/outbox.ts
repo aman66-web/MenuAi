@@ -9,7 +9,7 @@ import type { Store } from "./persist";
 //  - 400/413 (and other 4xx) mean an app bug: mark `failed` right away, no retry.
 // Request bodies match docs/BACKEND.md exactly.
 
-export type OutboxKind = "report" | "chainRequest" | "support";
+export type OutboxKind = "report" | "chainRequest" | "support" | "notFound";
 export type OutboxStatus = "pending" | "sent" | "failed";
 
 export interface OutboxItem {
@@ -33,7 +33,7 @@ export const OUTBOX_RECONNECT_MIN_MS = 60_000;
 /** Sent items are only bookkeeping; they are dropped after a day. */
 export const OUTBOX_SENT_KEEP_MS = 24 * 60 * 60 * 1000;
 
-const PATH: Record<OutboxKind, string> = { report: "reports", chainRequest: "chain-requests", support: "support" };
+const PATH: Record<OutboxKind, string> = { report: "reports", chainRequest: "chain-requests", support: "support", notFound: "not-found" };
 
 // ---- payload builders (docs/BACKEND.md) ----
 
@@ -72,6 +72,16 @@ export function reportPayload(input: {
 }
 
 export const chainRequestPayload = (name: string) => ({ name: name.trim(), appVersion: APP_VERSION });
+
+/** "Couldn't find this at {shop}" from a recipe's Swap (RECIPES_ANY_SHOP_ENABLED): which product of which shop, for which ingredient kind and recipe. Nothing about the
+ *  person (docs/BACKEND.md "Not-found reports"); the server adds only a hashed IP to limit how many one caller sends, forgotten after 30 days. */
+export const notFoundPayload = (input: { shop: string; kind: string; productId: string; recipeId?: string }) => ({
+  shop: input.shop,
+  kind: input.kind,
+  productId: input.productId,
+  ...(input.recipeId ? { recipeId: input.recipeId } : {}),
+  appVersion: APP_VERSION,
+});
 
 export const supportPayload = (message: string, email?: string) => ({
   message: message.trim(),
@@ -255,7 +265,7 @@ export function sanitizeOutbox(raw: unknown): OutboxItem[] {
   return raw.filter(
     (i): i is OutboxItem =>
       typeof i === "object" && i !== null && typeof (i as OutboxItem).id === "string" &&
-      ["report", "chainRequest", "support"].includes((i as OutboxItem).kind) &&
+      ["report", "chainRequest", "support", "notFound"].includes((i as OutboxItem).kind) &&
       ["pending", "sent", "failed"].includes((i as OutboxItem).status) &&
       typeof (i as OutboxItem).payload === "object",
   );
@@ -269,7 +279,9 @@ export function mailtoFor(item: OutboxItem, supportEmail: string): string {
       ? [`Report a number — ${p.itemName ?? p.itemId} (${p.chainId})`, `Field: ${p.field}`, `Shown: ${p.shownValue ?? "-"}`, `Correct: ${p.reportedValue ?? "-"}`, `Note: ${p.note ?? ""}`]
       : item.kind === "chainRequest"
         ? [`Please add this chain: ${p.name}`]
-        : [String(p.message ?? ""), p.email ? `Reply to: ${p.email}` : ""];
-  const subject = item.kind === "report" ? "Report a number" : item.kind === "chainRequest" ? "Chain request" : "Support";
+        : item.kind === "notFound"
+          ? [`Couldn't find this product: ${p.productId} at ${p.shop} (${p.kind}${p.recipeId ? `, recipe ${p.recipeId}` : ""})`]
+          : [String(p.message ?? ""), p.email ? `Reply to: ${p.email}` : ""];
+  const subject = item.kind === "report" ? "Report a number" : item.kind === "chainRequest" ? "Chain request" : item.kind === "notFound" ? "Product not found" : "Support";
   return `mailto:${supportEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.filter(Boolean).join("\n"))}`;
 }

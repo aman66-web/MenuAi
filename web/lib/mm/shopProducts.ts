@@ -77,8 +77,10 @@ export interface ShopProduct {
   page?: string;
   /** Set only where the shop's own product page was read and showed a barcode: the full product page in the app is /app/groceries/product?code=. */
   gtin: string;
-  /** Set only where the product's own page was read. */
+  /** Set only where the product's own page was read (or, with nutritionFrom "community", copied from the shop's barcode catalogue for recipes: lib/mm/recipeShops.ts). */
   nutrition: ShopNutrition | null;
+  /** "community" when `nutrition` is Open Food Facts community data for the same barcode, not the shop's own page (only with RECIPE_COMMUNITY_NUMBERS_ENABLED). */
+  nutritionFrom?: "community";
   /** Only where the shop's listing showed no picture: the same product's photo from another supermarket's own website, or the Open Food Facts front photo
    *  of its exact barcode (founder 2026-10-11; tools/groceries/build_all_products.py fill_photos). `from` is that shop's id, or "off". */
   otherPhoto?: { src: string; from: string };

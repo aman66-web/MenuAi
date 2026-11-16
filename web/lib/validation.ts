@@ -32,6 +32,16 @@ export const reportSchema = z.object({
   photoContentType: z.enum(["image/jpeg", "image/png", "image/heic"]).optional(),
 });
 
+// "Couldn't find this at {shop}?" (RECIPES_ANY_SHOP_ENABLED): which product of which shop someone couldn't find, for which ingredient of which recipe. Nothing about
+// the person: no account, name, email, location or free text. The ids are the ones the app's own lists use (lib/mm/shopProducts.ts, lib/mm/pantry.ts).
+export const notFoundSchema = z.object({
+  shop: z.string().regex(/^[a-z][a-z-]{1,30}$/, "must be a shop id"),
+  kind: id.max(60),
+  productId: z.string().regex(/^[A-Za-z0-9][A-Za-z0-9\-_.%]{0,119}$/, "must be a product id").refine((v) => !v.includes(".."), "must be a product id"),
+  recipeId: id.max(80).optional(),
+  appVersion,
+}).strict();
+
 export const chainRequestSchema = z.object({
   name: z.string().trim().min(2).max(80),
   appVersion,
@@ -48,4 +58,5 @@ export const supportSchema = z.object({
 export type WaitlistInput = z.infer<typeof waitlistSchema>;
 export type ReportInput = z.infer<typeof reportSchema>;
 export type ChainRequestInput = z.infer<typeof chainRequestSchema>;
+export type NotFoundInput = z.infer<typeof notFoundSchema>;
 export type SupportInput = z.infer<typeof supportSchema>;
