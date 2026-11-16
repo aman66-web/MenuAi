@@ -226,6 +226,93 @@ await step("Home's round button at the top right is Settings (a gear), not the c
   await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
   await ctx.close();
 });
+await step("My meals › Restaurant meals: Log logs the saved meal's own figures to Today, says so above the tab bar, and Undo takes it back; the card fits a narrow phone", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 360, height: 780 }, hasTouch: true, serviceWorkers: "block" });
+  const order = { id: "s5", createdAt: "2026-10-05T12:00:00.000Z", chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Lunch bowl", lines: [{ kind: "components", itemId: "chicken-bowl", components: [{ id: "chicken", qty: 1 }] }], nutrients: { calories: 180, protein: 32, carbs: 0, fat: 7, salt: 0.9 }, dataVersionAtSave: 1 };
+  await ctx.addInitScript(([o]) => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000, devProOverride: true } })); localStorage.setItem("mm.v1.saved", JSON.stringify({ v: 1, data: [o] })); localStorage.removeItem("mm.v1.log"); }, [order]);
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/meals?tab=restaurant");
+  await vis(page.getByRole("heading", { name: "Lunch bowl" }));
+  const log = page.getByRole("button", { name: "Log Lunch bowl", exact: true });
+  await vis(log);
+  const b = await log.boundingBox();
+  if (b.height < 44) throw new Error(`Log is ${b.height} px tall`);
+  if (!(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))) throw new Error("sideways scroll at 360 px");
+  await log.tap();
+  await vis(page.getByRole("status").filter({ hasText: /^Logged to Today\.$/ }));
+  const entries = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.log")).data);
+  if (entries.length !== 1) throw new Error("log has " + entries.length);
+  const e = entries[0];
+  if (e.source !== "savedOrder" || e.name !== "Lunch bowl" || e.chainId !== "bowl-and-co" || e.chainName !== "Bowl & Co." || JSON.stringify(e.nutrients) !== JSON.stringify(order.nutrients)) throw new Error(JSON.stringify(e));
+  // the Undo pill sits above the floating tab bar, never over it
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  const [u, nav] = [await undo.boundingBox(), await page.getByRole("navigation", { name: "Main" }).boundingBox()];
+  if (u.y + u.height > nav.y) throw new Error(`Undo (bottom ${u.y + u.height}) runs under the tab bar (top ${nav.y})`);
+  await undo.tap();
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem("mm.v1.log")).data.length === 0);
+  // Delete says so the same way, and its Undo brings the order back
+  await page.getByRole("button", { name: "Delete Lunch bowl" }).tap();
+  await vis(page.getByRole("status").filter({ hasText: /^Deleted “Lunch bowl”\.$/ }));
+  await page.getByRole("button", { name: "Undo", exact: true }).tap();
+  await vis(page.getByRole("heading", { name: "Lunch bowl" }));
+  await ctx.close();
+});
+await step("My meals: Log tapped where the Undo pill would sit sends the pill to the top, so a second tap on Log logs again; the second \"Logged to Today.\" is read out again from the other status line (review findings 17 and 19)", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 480 }, hasTouch: true, serviceWorkers: "block" });
+  const order = { id: "s6", createdAt: "2026-10-05T12:00:00.000Z", chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Lunch bowl", lines: [{ kind: "components", itemId: "chicken-bowl", components: [{ id: "chicken", qty: 1 }] }], nutrients: { calories: 180, protein: 32, carbs: 0, fat: 7, salt: 0.9 }, dataVersionAtSave: 1 };
+  await ctx.addInitScript(([o]) => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000, devProOverride: true } })); localStorage.setItem("mm.v1.saved", JSON.stringify({ v: 1, data: [o] })); localStorage.removeItem("mm.v1.log"); }, [order]);
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/meals?tab=restaurant");
+  const log = page.getByRole("button", { name: "Log Lunch bowl", exact: true });
+  await vis(log);
+  // a short window, so the card's Log pill sits where the bottom pill goes (about 7rem above the foot of the screen)
+  const lb = await log.boundingBox();
+  if (!(lb.y + lb.height > 480 - 112 - 56 && lb.y < 480 - 112)) throw new Error("set-up: Log is not where the bottom pill goes: " + JSON.stringify(lb));
+  await log.tap();
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  await vis(undo);
+  const [u, l] = [await undo.boundingBox(), await log.boundingBox()];
+  if (!(u.y + u.height <= l.y || l.y + l.height <= u.y)) throw new Error(`Undo (${Math.round(u.y)}-${Math.round(u.y + u.height)}) sits on Log (${Math.round(l.y)}-${Math.round(l.y + l.height)})`);
+  if (u.y > 120) throw new Error("the pill didn't move to the top: y " + u.y);
+  const lines = page.locator("p[role=status].sr-only").filter({ hasText: /^Logged to Today\.$/ });
+  const firstLine = await lines.first().evaluate((el) => Array.from(el.parentElement.children).indexOf(el));
+  await log.tap(); // the second portion
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem("mm.v1.log")).data.length === 2);
+  await vis(lines.first());
+  if ((await lines.count()) !== 1) throw new Error("status lines holding the words: " + (await lines.count()));
+  const secondLine = await lines.first().evaluate((el) => Array.from(el.parentElement.children).indexOf(el));
+  if (secondLine === firstLine) throw new Error("the second toast went into the same status line, so it isn't read again");
+  await ctx.close();
+});
+await step("Settings › Daily targets reads 2,000 as two thousand (calories, water, protein, carbs, fat), still refuses what isn't a number, and Saved. is read from a status line that is always there", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 1800 } })); });
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/settings");
+  const targets = page.locator("#targets");
+  await vis(targets.getByRole("button", { name: "Save targets" }));
+  if ((await targets.getByRole("status").count()) < 1) throw new Error("no status line before saving");
+  const box = (name) => targets.getByLabel(name, { exact: true });
+  await box("Calories").fill("2,250");
+  await targets.getByLabel(/^Water \(ml\)/).fill("2,500");
+  await box("Protein (g)").fill("140");
+  await box("Carbs (g)").fill("2,0"); // a comma that doesn't group three digits is a decimal point, as in the Add food sheet
+  await box("Fat (g)").fill("70");
+  await targets.getByRole("button", { name: "Save targets" }).click();
+  await vis(targets.getByRole("status").filter({ hasText: /^Saved\.$/ }));
+  const s = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data);
+  if (s.dailyCalories !== 2250 || s.dailyWater !== 2500 || s.dailyProtein !== 140 || s.dailyCarbs !== 2 || s.dailyFat !== 70) throw new Error(JSON.stringify({ c: s.dailyCalories, w: s.dailyWater, p: s.dailyProtein, cb: s.dailyCarbs, f: s.dailyFat }));
+  // the ranges still apply, and words are still refused
+  await box("Calories").fill("20,000");
+  await targets.getByRole("button", { name: "Save targets" }).click();
+  await vis(targets.getByRole("alert").filter({ hasText: "Calories should be between 500 and 10,000." }));
+  await box("Calories").fill("lots");
+  await targets.getByRole("button", { name: "Save targets" }).click();
+  await vis(targets.getByRole("alert").filter({ hasText: "Calories should be between 500 and 10,000." }));
+  const after = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.dailyCalories);
+  if (after !== 2250) throw new Error("a refused value was saved: " + after);
+  await ctx.close();
+});
 await step("App Review 1.4.1: the sources of the suggested targets are one tap away (Settings > About, beside Daily targets, and in onboarding) with working https links", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: "block" });
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "glp1", dailyCalories: 2000 } })); });

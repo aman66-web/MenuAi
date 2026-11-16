@@ -85,7 +85,7 @@ await step("type in your numbers: calories are needed, a wrong box is named, the
   expect(!(await add.isDisabled()), "Add is off with good numbers");
   await add.tap();
   await sheetTitle(page, "Type in your numbers").waitFor({ state: "hidden" });
-  await page.getByText("Added “Toast and jam” to Dinner.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “Toast and jam” to Dinner." }).waitFor();
   const [e] = await log(page);
   expect(e && e.meal === "dinner" && e.source === "custom" && e.name === "Toast and jam", "entry: " + JSON.stringify(e));
   expect(e.nutrients.calories === 250 && e.nutrients.protein === 12 && !("carbs" in e.nutrients) && !("fat" in e.nutrients), "numbers: " + JSON.stringify(e.nutrients));
@@ -107,7 +107,7 @@ await step("an entry stays in the meal whose + was tapped, whatever the time, on
     await page.getByLabel("Name (optional)").fill(name);
     await page.getByLabel("Calories (kcal)").fill(cals);
     await dlg(page).getByRole("button", { name: `Add to ${meal}`, exact: true }).tap();
-    await page.getByText(`Added “${name}” to ${meal}.`).waitFor();
+    await page.getByRole("status").filter({ hasText: `Added “${name}” to ${meal}.` }).waitFor();
   }
   await page.getByText("Some meals you added have no protein, carbs or fat entered, so those figures only count the rest.").waitFor(); // never "0g" as if it were known
   for (const [meal, cals] of [["Breakfast", "111"], ["Lunch", "222"], ["Dinner", "333"]]) {
@@ -191,7 +191,7 @@ await step("a recipe: the figures on its row are what is logged, more servings m
   expect(Math.abs(oneAndHalf - one * 1.5) <= 1.5, `1.5 servings: ${oneAndHalf} vs ${one}`);
   expect((await page.locator("output").innerText()).trim() === "1.5", "the stepper doesn't read 1.5");
   await firstAdd.tap();
-  await page.getByText(/^Added “.*” to Lunch\.$/).waitFor();
+  await page.getByRole("status").filter({ hasText: /^Added “.*” to Lunch\.$/ }).waitFor();
   const [e] = await log(page);
   expect(e.source === "recipe" && e.meal === "lunch", "entry: " + JSON.stringify(e));
   expect(e.name === `${title} (1.5 servings)`, `name: ${e.name} vs ${title}`);
@@ -249,7 +249,7 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   const text = await row.innerText();
   const dish = text.split("\n")[0].replace(/\s*Add.*$/, "").trim();
   await row.getByRole("button", { name: /^Add / }).tap();
-  await page.getByText(/^Added “.*” to Lunch\.$/).waitFor({ timeout: 30000 });
+  await page.getByRole("status").filter({ hasText: /^Added “.*” to Lunch\.$/ }).waitFor({ timeout: 30000 });
   const [e] = await log(page);
   expect(e.source === "item" && e.meal === "lunch" && e.name === dish, `entry: ${JSON.stringify(e)} vs ${dish}`);
   expect(typeof e.nutrients.protein === "number" && typeof e.nutrients.carbs === "number" && typeof e.nutrients.fat === "number", "a full-nutrition dish was added without its macros: " + JSON.stringify(e.nutrients));
@@ -259,7 +259,7 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   await choose(page, "Choose a restaurant meal");
   await dlg(page).getByText("My usual", { exact: true }).first().waitFor();
   await dlg(page).getByRole("button", { name: "Add My usual" }).tap();
-  await page.getByText("Added “My usual” to Dinner.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “My usual” to Dinner." }).waitFor();
   const entries = await log(page);
   const s = entries.find((x) => x.name === "My usual");
   expect(s && s.source === "savedOrder" && s.chainName === "KFC" && s.nutrients.calories === 600 && s.meal === "dinner", "saved meal entry: " + JSON.stringify(s));
@@ -270,6 +270,83 @@ await step("a restaurant meal: a dish is added as published; a saved meal sits a
   await page.waitForTimeout(1500);
   const lines = await dlg(page).locator("li", { has: page.getByRole("button", { name: /^Add / }) }).allInnerTexts();
   expect(!lines.some((l) => l.includes(lite.name + " ·") || l.includes("\n" + lite.name)), `${lite.name}'s dish "${liteDish}" is offered: ${lines.join(" | ")}`);
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("a dish that publishes calories only at a restaurant that publishes everything else (Tenpin) says so, with no Add", async () => {
+  const doc = await (await fetch(BASE + "/menus/chain-tenpin.json")).json();
+  // the longest such name, so the search finds it among the first results
+  const dish = doc.items.filter((i) => i.nutrients.protein === undefined && !/^(add|double|pizza add)/i.test(i.name)).sort((a, b) => b.name.length - a.name.length)[0];
+  expect(dish, "no calories-only dish at Tenpin to try");
+  const { ctx, page, errors } = await open();
+  await home(page);
+  await openMeal(page, "Lunch");
+  await choose(page, "Choose a restaurant meal");
+  await page.getByLabel("Search restaurants and items").fill(dish.name);
+  const row = dlg(page).locator("li", { hasText: dish.name }).filter({ hasText: `${doc.name} ·` }).first();
+  await row.waitFor({ timeout: 60000 });
+  await row.getByText("calories only", { exact: true }).waitFor({ timeout: 60000 }); // once the numbers file has arrived
+  expect((await row.getByRole("button").count()) === 0, "the calories-only dish still has a button: " + (await row.innerText()));
+  expect((await log(page)).length === 0, "something was logged");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("Recently added: hidden with nothing logged; then the last things logged, newest first and each once, one tap logging the same name, restaurant and figures into the meal tapped", async () => {
+  const yesterday = new Date(Date.now() - 86400000).toISOString();
+  const { ctx, page, errors } = await open();
+  await home(page);
+  await openMeal(page, "Lunch");
+  expect((await page.getByRole("heading", { name: "Recently added", exact: true }).count()) === 0, "Recently added shows with an empty log");
+  await page.getByRole("button", { name: "Close" }).tap();
+  await sheetTitle(page, "Add to Lunch").waitFor({ state: "hidden" });
+  // something logged yesterday at a restaurant, and something typed just now
+  await page.evaluate((at) => {
+    const twister = { id: "seed-1", loggedAt: at, chainId: "kfc", chainName: "KFC", name: "Twister Wrap", nutrients: { calories: 512, protein: 30.5, carbs: 41.2, fat: 20.4, salt: 2.31 }, source: "item", meal: "lunch" };
+    localStorage.setItem("mm.v1.log", JSON.stringify({ v: 1, data: [twister] }));
+  }, yesterday);
+  await page.reload();
+  await plus(page, "Breakfast").waitFor({ timeout: 90000 });
+  await openMeal(page, "Dinner");
+  await choose(page, "Type in your numbers");
+  await page.getByLabel("Name (optional)").fill("Toast and jam");
+  await page.getByLabel("Calories (kcal)").fill("250");
+  await page.getByLabel("Protein (g)").fill("7");
+  await dlg(page).getByRole("button", { name: "Add to Dinner", exact: true }).tap();
+  await page.getByRole("status").filter({ hasText: "Added “Toast and jam” to Dinner." }).waitFor();
+  // on another meal: both, newest first
+  await openMeal(page, "Breakfast");
+  const section = dlg(page).locator("section", { has: page.getByRole("heading", { name: "Recently added", exact: true }) });
+  await section.waitFor();
+  const rows = section.getByRole("listitem");
+  expect((await rows.count()) === 2, "expected two recent things: " + (await rows.allInnerTexts()).join(" | "));
+  expect((await rows.nth(0).innerText()).includes("Toast and jam") && /250 kcal/.test(await rows.nth(0).innerText()), "first row: " + (await rows.nth(0).innerText()));
+  expect((await rows.nth(1).innerText()).includes("Twister Wrap") && (await rows.nth(1).innerText()).includes("KFC · 512 kcal"), "second row: " + (await rows.nth(1).innerText()));
+  // the four choices are still there under it
+  await dlg(page).getByRole("button", { name: /Type in your numbers/ }).waitFor();
+  await section.getByRole("button", { name: "Add Twister Wrap" }).tap();
+  await sheetTitle(page, "Add to Breakfast").waitFor({ state: "hidden" });
+  await page.getByRole("status").filter({ hasText: "Added “Twister Wrap” to Breakfast." }).waitFor();
+  const entries = await log(page);
+  const copy = entries.find((e) => e.name === "Twister Wrap" && e.id !== "seed-1");
+  expect(copy && copy.meal === "breakfast" && copy.source === "item" && copy.chainId === "kfc" && copy.chainName === "KFC", "the copy: " + JSON.stringify(copy));
+  expect(JSON.stringify(copy.nutrients) === JSON.stringify({ calories: 512, protein: 30.5, carbs: 41.2, fat: 20.4, salt: 2.31 }), "figures not copied exactly: " + JSON.stringify(copy.nutrients));
+  expect(Date.now() - Date.parse(copy.loggedAt) < 60000, "the copy isn't logged now: " + copy.loggedAt);
+  expect(new RegExp("^Breakfast\\s+512\\s*/").test((await mealRow(page, "Breakfast").innerText()).trim()), "Breakfast row: " + (await mealRow(page, "Breakfast").innerText()));
+  // the typed one: protein typed, carbs and fat left empty, copied that way
+  await page.getByRole("button", { name: "Undo" }).waitFor();
+  await openMeal(page, "Lunch");
+  const rows2 = dlg(page).locator("section", { has: page.getByRole("heading", { name: "Recently added", exact: true }) }).getByRole("listitem");
+  expect((await rows2.count()) === 2, "the same thing is listed twice: " + (await rows2.allInnerTexts()).join(" | "));
+  await dlg(page).getByRole("button", { name: "Add Toast and jam" }).tap();
+  await page.getByRole("status").filter({ hasText: "Added “Toast and jam” to Lunch." }).waitFor();
+  const toast = (await log(page)).filter((e) => e.name === "Toast and jam");
+  expect(toast.length === 2 && toast[1].meal === "lunch" && toast[1].source === "custom" && JSON.stringify(toast[1].nutrients) === JSON.stringify({ calories: 250, protein: 7 }), "the typed copy: " + JSON.stringify(toast));
+  // Undo takes the copy back
+  await page.getByRole("button", { name: "Undo" }).tap();
+  await page.waitForTimeout(300);
+  expect((await log(page)).filter((e) => e.name === "Toast and jam").length === 1, "Undo left the copy");
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });
@@ -301,7 +378,7 @@ await step("a supermarket product: found by name, how much, the label's figures 
   const said = kcal(await page.getByText(/From (the label|Open Food Facts contributors \(community data\)), for 200 g/).innerText());
   expect(said === Math.round(per100 * 2) || Math.abs(said - per100 * 2) <= 2, `label said ${said} for 200 g, per 100 g is ${per100}`);
   await add.tap();
-  await page.getByText(/^Added “.* \(200 g\)” to Breakfast\.$/).waitFor();
+  await page.getByRole("status").filter({ hasText: /^Added “.* \(200 g\)” to Breakfast\.$/ }).waitFor();
   const [e] = await log(page);
   expect(e.source === "product" && e.meal === "breakfast" && e.name === `${productName} (200 g)`, "entry: " + JSON.stringify(e));
   expect(e.nutrients.calories === said, `logged ${e.nutrients.calories}, label ${said}`);
@@ -342,7 +419,7 @@ await step("a drink is asked for in millilitres; a nameless entry is called \"My
   await page.getByLabel("Calories (kcal)").fill("100");
   const add = dlg(page).getByRole("button", { name: "Add to Lunch", exact: true });
   await add.tap();
-  await page.getByText("Added “My own numbers” to Lunch.").waitFor();
+  await page.getByRole("status").filter({ hasText: "Added “My own numbers” to Lunch." }).waitFor();
   expect((await log(page)).length === 1, "one tap added " + (await log(page)).length);
   expect((await log(page))[0].name === "My own numbers", "the fallback name: " + (await log(page))[0].name);
   if (drink) {

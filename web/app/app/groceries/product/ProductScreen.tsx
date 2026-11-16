@@ -42,6 +42,13 @@ const SEARCH_LINKS: Record<string, (code: string) => string> = {
 
 type State = { status: "loading" } | { status: "missing" } | { status: "error" } | { status: "ready"; product: ListedProduct; all: ListedProduct[] };
 
+/**
+ * A 44 px tap area round a small link in a row ("At other supermarkets": the shop's name, its price, "Check") without changing how the row looks: the padding
+ * makes the target, the same negative margin takes it back out of the line (as the welcome page's Terms and Privacy links do). The rows are 56 px or taller
+ * with the links on separate lines and sides, so no two targets overlap.
+ */
+const TAP = "-my-3.5 inline-flex min-h-11 min-w-11 items-center py-3.5";
+
 /** A small quiet mark beside a price ("Lowest", "Lowest with card"): the accent green on the light grey fill. */
 const MARK = "inline-flex items-center rounded-full bg-[var(--fill)] px-2.5 py-1 text-xs font-bold text-accent";
 
@@ -77,6 +84,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
   const [state, setState] = useState<State>({ status: "loading" });
   const [added, setAdded] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [retry, setRetry] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -85,27 +93,28 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         if (!wanted) return void (!cancelled && setState({ status: "missing" }));
         const manifest = await loadManifest();
         const order = [...(retailerHint ? [retailerHint] : []), ...RETAILERS.map((r) => r.id).filter((id) => id !== retailerHint)].filter((id) => manifest.retailers.some((m) => m.id === id));
-        const files: GroceryFile[] = [];
-        for (const id of order) {
-          files.push(await loadRetailer(id));
-          // keep going: the same barcode may be sold by other retailers, which we list too
-        }
+        // every shop's file at once (the same barcode may be sold by other retailers, which we list too); one that fails to arrive doesn't fail the page
+        const settled = await Promise.allSettled(order.map((id) => loadRetailer(id)));
+        const files: GroceryFile[] = settled.flatMap((r) => (r.status === "fulfilled" ? [r.value] : []));
+        const someFailed = files.length < settled.length;
+        if (order.length > 0 && files.length === 0) throw new Error("no shop's products could be read");
         // a shop counts only where its own list shows the price; a scanned barcode no shop prices still opens with its numbers
         const priced = mergeProducts(files, { pricedOnly: true });
         const pricedHit = priced.find((p) => p.gtin.replace(/^0+/, "") === wanted);
         const all = pricedHit ? priced : mergeProducts(files);
         const found = pricedHit ?? all.find((p) => p.gtin.replace(/^0+/, "") === wanted);
-        if (!cancelled) setState(found ? { status: "ready", product: found, all } : { status: "missing" });
+        // not found while a shop's file is missing could be that shop's product: said as a failed load (with Try again), never "not in our list"
+        if (!cancelled) setState(found ? { status: "ready", product: found, all } : someFailed ? { status: "error" } : { status: "missing" });
       } catch {
         if (!cancelled) setState({ status: "error" });
       }
     })();
     return () => { cancelled = true; };
-  }, [wanted, retailerHint]);
+  }, [wanted, retailerHint, retry]);
 
   const back = <BackLink href="/app/groceries" label={t("Back to groceries")} />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
-  if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} /></div></div>);
+  if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} onRetry={() => { setState({ status: "loading" }); setRetry((n) => n + 1); }} /></div></div>);
   if (state.status === "missing") return (<div>{back}<div className="mt-4"><ErrorBox message={t("That barcode isn't in our list yet.")} /></div></div>);
 
   const listed = state.product;
@@ -247,7 +256,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
                 return (
                   <li key={r} className="flex min-h-14 items-center justify-between gap-3 py-2.5">
                     <span className="min-w-0">
-                      <Link href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} className="text-[0.9375rem] font-bold underline-offset-4 hover:underline">{retailerName(r)}</Link>
+                      <Link href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} className={`${TAP} -mx-1.5 px-1.5 text-[0.9375rem] font-bold underline-offset-4 hover:underline`}>{retailerName(r)}</Link>
                       {price && cheapest === r && pricedCount > 1 && <span className={`ms-2 ${MARK} py-0.5`}>{t("Lowest")}</span>}
                       {price && cardLowest(r) && <span className={`ms-2 ${MARK} py-0.5`}>{t("Lowest with card")}</span>}
                       <span className="block text-[0.8125rem] text-muted">{price ? t("checked {date}", { date: formatDate(price.checkedOn, t) }) : t("price not read yet")}</span>
@@ -255,13 +264,13 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
                     <span className="app-numbers shrink-0 text-end">
                       {price ? (
                         <>
-                          <a className="text-base font-bold underline underline-offset-4" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
+                          <a className={`${TAP} justify-end text-base font-bold underline underline-offset-4`} href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
                           {diff !== null && diff !== 0 && <span className="block text-[0.8125rem] text-muted">{diff < 0 ? t("{price} cheaper", { price: formatPrice(Math.abs(diff)) }) : t("{price} more", { price: formatPrice(Math.abs(diff)) })}</span>}
                           {diff === 0 && <span className="block text-[0.8125rem] text-muted">{t("same price")}</span>}
                           {price.member && <span className="block text-[0.8125rem] font-semibold text-accent">{t("{price} with {scheme}", { price: formatPrice(price.member.amount), scheme: price.member.scheme.replace(/ price$/i, "") })}</span>}
                         </>
                       ) : (
-                        <a className={`text-sm ${outLink}`} href={SEARCH_LINKS[r]?.(listed.gtin) ?? "#"} target="_blank" rel="noopener noreferrer">{t("Check")}<span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
+                        <a className={`${TAP} justify-end text-sm ${outLink}`} href={SEARCH_LINKS[r]?.(listed.gtin) ?? "#"} target="_blank" rel="noopener noreferrer">{t("Check")}<span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
                       )}
                     </span>
                   </li>

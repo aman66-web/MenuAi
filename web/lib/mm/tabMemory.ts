@@ -10,6 +10,15 @@ export interface TabDef {
 export type TabMemory = Record<string, string>;
 
 const NOT_REMEMBERED = ["/app/welcome", "/app/offline"];
+// Pages Home reaches by its gear (Settings), Settings' Reminders row and its calendar (a past day, /app/today?d=...): they are side trips from Home, not
+// where the person "was" in it, so tapping Home from another tab opens today, never Settings or an old day. What Home remembered before is kept.
+const SIDE_TRIPS = ["/app/settings", "/app/reminders"];
+
+/** Whether an address is never remembered: the welcome and offline pages, Home's side trips, and a day page that names a day. */
+function notRemembered(path: string, search: string): boolean {
+  if (NOT_REMEMBERED.some((p) => path.startsWith(p)) || SIDE_TRIPS.some((p) => path.startsWith(p))) return true;
+  return path.startsWith("/app/today") && new URLSearchParams(search).has("d");
+}
 
 /** The tab a page belongs to (the first one whose match fits), if any. */
 export function tabFor(tabs: readonly TabDef[], path: string): TabDef | undefined {
@@ -20,13 +29,14 @@ export function tabFor(tabs: readonly TabDef[], path: string): TabDef | undefine
 export function validFor(tab: TabDef, address: unknown): address is string {
   if (typeof address !== "string" || address.length > 300) return false;
   if (!address.startsWith("/app") || address.startsWith("/app//") || address.includes("#") || address.includes("\\")) return false;
-  const path = address.split("?")[0]!;
-  return !NOT_REMEMBERED.some((p) => path.startsWith(p)) && tab.match(path);
+  const q = address.indexOf("?");
+  const path = q < 0 ? address : address.slice(0, q);
+  return !notRemembered(path, q < 0 ? "" : address.slice(q)) && tab.match(path);
 }
 
 /** The memory after the person has arrived on `path` + `search`. A tab's first page clears its memory. */
 export function remember(memory: TabMemory, tabs: readonly TabDef[], path: string, search: string): TabMemory {
-  if (NOT_REMEMBERED.some((p) => path.startsWith(p))) return memory;
+  if (notRemembered(path, search)) return memory;
   const tab = tabFor(tabs, path);
   if (!tab) return memory;
   const address = path + search;

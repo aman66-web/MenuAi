@@ -70,7 +70,8 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
                         <span className="block text-base font-semibold leading-snug [overflow-wrap:anywhere]">{i.name}</span>
                         {detail && <span className="app-numbers mt-0.5 block text-sm text-muted [overflow-wrap:anywhere]">{detail}</span>}
                       </span>
-                      <span className="app-numbers shrink-0 font-mono text-base" aria-label={t("Quantity {n}", { n: i.qty })}>×{i.qty}</span>
+                      {/* the figure is drawn, the words are read (an aria-label on a plain span is ignored by screen readers) */}
+                      <span className="app-numbers shrink-0 font-mono text-base"><span aria-hidden>×{i.qty}</span><span className="sr-only">{t("Quantity {n}", { n: i.qty })}</span></span>
                     </li>
                   );
                 })}

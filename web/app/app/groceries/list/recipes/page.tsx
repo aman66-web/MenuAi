@@ -64,7 +64,8 @@ export default function ListRecipesPage() {
   const t = useT();
   const hydrated = useHydrated();
   const list = useStore(shoppingStore);
-  const { state, matches } = useListRecipes(list);
+  const [retry, setRetry] = useState(0);
+  const { state, matches } = useListRecipes(list, retry);
   const [limit, setLimit] = useState(PAGE);
   const listNav = useBack("/app/groceries/list"); // for the empty-state button: the page before when there is one in the app, else the list in this page's place
 
@@ -79,7 +80,7 @@ export default function ListRecipesPage() {
       ) : state === null ? (
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
       ) : state.status === "error" ? (
-        <div className="mt-5"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => window.location.reload()} /></div>
+        <div className="mt-5"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
       ) : state.status === "loading" || matches === null ? (
         <Spinner label={t("Loading recipes")} />
       ) : matches.length === 0 ? (

@@ -6,7 +6,7 @@ import { tk } from "@/lib/mm/i18n";
 import { filterCaution } from "@/lib/mm/menu-view";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import type { CatalogChain } from "@/lib/mm/menu-client";
-import { findRestaurants, hasLimits, hasMacroLimits, limitsToParams, toAsciiDigits, type FinderHit, type FinderResult, type NumberLimits } from "@/lib/mm/numbers";
+import { finderEmptyHint, findRestaurants, hasLimits, hasMacroLimits, limitsToParams, toAsciiDigits, type FinderHit, type FinderResult, type NumberLimits } from "@/lib/mm/numbers";
 import { chainHref } from "@/lib/mm/routes";
 import { ALLERGEN_KEYS, type AllergenKey, type Preferences } from "@/lib/mm/types";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
@@ -52,6 +52,8 @@ export interface NumbersFinderState {
   active: boolean;
   reset: () => void;
   useMine: (() => void) | null;
+  /** The person's meal size in kcal ("Use my meal numbers"), or null: what an example dish at a calories-only restaurant aims at when no calorie limit is typed. */
+  mealKcal: number | null;
 }
 
 const EMPTY_FIELDS: Record<FieldKey, string> = { kcal: "", protein: "", carbs: "", fat: "" };
@@ -131,6 +133,7 @@ export function useNumbersFinder(): NumbersFinderState {
           fat: target.fatMax ? String(Math.round(target.fatMax)) : "",
         })
       : null,
+    mealKcal: target ? Math.round(target.kcal) : null,
   };
 }
 
@@ -243,12 +246,12 @@ export interface FinderFound {
 
 /** Find the restaurants that fit: once, here, so that the panel and the list agree. `allowed` = the restaurants the type, halal and full-nutrition choices leave in. */
 export function useFinderResults(state: NumbersFinderState, allowed: ReadonlySet<string>): FinderFound {
-  const { limits, prefs } = state;
+  const { limits, prefs, mealKcal } = state;
   const macros = hasMacroLimits(limits);
   const { searchIndex, searchReady, numbers, status } = useNumbers(state.open && state.active);
   const result = useMemo(
-    () => (state.open && state.active && searchReady && (!macros || numbers) ? findRestaurants(searchIndex, numbers, limits, prefs) : null),
-    [state.open, state.active, searchReady, macros, numbers, searchIndex, limits, prefs],
+    () => (state.open && state.active && searchReady && (!macros || numbers) ? findRestaurants(searchIndex, numbers, limits, prefs, { mealKcal }) : null),
+    [state.open, state.active, searchReady, macros, numbers, searchIndex, limits, prefs, mealKcal],
   );
   const hits = useMemo(() => (result ? result.hits.filter((h) => allowed.has(h.chainId)) : []), [result, allowed]);
   const failed = !result && (status === "unavailable" || (!searchReady && status === "ready"));
@@ -280,7 +283,8 @@ export function FinderResults({ state, chains, found }: { state: NumbersFinderSt
       {caution && <p className="mt-2 px-1 text-[0.9375rem] leading-snug text-muted">{caution}</p>}
       {hits.length === 0 ? (
         <div className="mt-4">
-          <EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No restaurant has a dish that fits all of that")} body={t("Try a higher calorie limit, a lower protein or fewer allergies.")} />
+          {/* what to change, naming only what was typed or picked (lib/mm/numbers.ts finderEmptyHint) */}
+          <EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No restaurant has a dish that fits all of that")} body={finderEmptyHint(limits, (prefs.avoidAllergens?.length ?? 0) > 0, t)} />
         </div>
       ) : (
         <div className={`mt-3.5 ${chainGroupClass}`}>

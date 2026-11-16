@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
-  amountNutrients, MAX_AMOUNT, MAX_NAME_LENGTH, MAX_SERVINGS, MAX_TYPED_GRAMS, MAX_TYPED_KCAL, MIN_SERVINGS, parseAmount, parseNumber, recipeNutrients, stepServings, typedEntry,
+  amountNutrients, MAX_AMOUNT, MAX_NAME_LENGTH, MAX_SERVINGS, MAX_TYPED_GRAMS, MAX_TYPED_KCAL, MIN_SERVINGS, parseAmount, parseNumber, recentLogged, RECENT_SHOWN, recipeNutrients, stepServings, typedEntry,
 } from "../lib/mm/addFood";
 import { entryMeal, loggedGaps, loggedToday } from "../lib/mm/budget";
-import { sanitizeLog } from "../lib/mm/user-data";
+import { sanitizeLog, type LogEntry } from "../lib/mm/user-data";
 
 // The Add food sheet's rules: typed numbers are the person's own (an empty box is no figure, never 0), a product is its label x the amount over 100,
 // a recipe is its per-serving figures x the servings, and an entry added from a meal's + stays in that meal.
@@ -156,5 +156,57 @@ describe("a logged entry without protein, carbs or fat", () => {
     expect(kept?.meal).toBe("lunch");
     expect(dropped).toBeDefined();
     expect(dropped && "meal" in dropped).toBe(false);
+  });
+});
+
+describe("Recently added (the top of the Add food sheet)", () => {
+  let n = 0;
+  const at = (day: number, hour: number) => new Date(2026, 9, day, hour, 0).toISOString();
+  const entry = (name: string, loggedAt: string, extra: Partial<LogEntry> = {}): LogEntry => ({
+    id: `e${++n}`, loggedAt, chainId: "kfc", chainName: "KFC", name, nutrients: { calories: 500, protein: 30, carbs: 40, fat: 20 }, source: "item", meal: "lunch", ...extra,
+  });
+
+  it("is empty when nothing has been logged", () => {
+    expect(recentLogged([])).toEqual([]);
+  });
+  it("lists the newest first, by the time logged (not the order kept), at most six by default", () => {
+    const log = [entry("A", at(10, 9)), entry("C", at(12, 9)), entry("B", at(11, 9)), ...["D", "E", "F", "G"].map((x, i) => entry(x, at(13, 9 + i)))];
+    expect(RECENT_SHOWN).toBe(6);
+    expect(recentLogged(log).map((e) => e.name)).toEqual(["G", "F", "E", "D", "C", "B"]);
+    expect(recentLogged(log, 2).map((e) => e.name)).toEqual(["G", "F"]);
+    expect(recentLogged(log, 0)).toEqual([]);
+  });
+  it("shows the same thing once, at its newest", () => {
+    const log = [entry("Twister", at(10, 12)), entry("Fries", at(11, 12)), entry("Twister", at(12, 12)), entry("Twister", at(12, 13))];
+    expect(recentLogged(log).map((e) => e.name)).toEqual(["Twister", "Fries"]);
+  });
+  it("keeps things apart that differ in where they came from, the restaurant, the name or any figure", () => {
+    const log = [
+      entry("Wrap", at(10, 9)),
+      entry("Wrap", at(10, 10), { source: "savedOrder" }),
+      entry("Wrap", at(10, 11), { chainId: "subway", chainName: "Subway" }),
+      entry("Wrap ", at(10, 12)),
+      entry("Wrap", at(10, 13), { nutrients: { calories: 500, protein: 30, carbs: 40, fat: 21 } }),
+      entry("Wrap", at(10, 14), { nutrients: { calories: 500, protein: 30, carbs: 40 } }),
+      entry("Wrap", at(10, 15), { nutrients: { calories: 500, protein: 30, carbs: 40, fat: 20, salt: 1.2 } }),
+    ];
+    expect(recentLogged(log, 10)).toHaveLength(7);
+  });
+  it("treats the same figures written in another order as the same thing", () => {
+    const log = [entry("Wrap", at(10, 9)), entry("Wrap", at(10, 10), { nutrients: { fat: 20, carbs: 40, protein: 30, calories: 500 } })];
+    expect(recentLogged(log)).toHaveLength(1);
+  });
+  it("copies the name, restaurant, source and every figure exactly, and nothing else (no id, time or meal: a new entry gets its own)", () => {
+    const typed = entry("Toast and jam", at(14, 8), { chainId: "", chainName: "", source: "custom", nutrients: { calories: 250, protein: 7.3 }, meal: "breakfast" });
+    const [copy] = recentLogged([typed]);
+    expect(copy).toEqual({ chainId: "", chainName: "", name: "Toast and jam", nutrients: { calories: 250, protein: 7.3 }, source: "custom" });
+    expect(copy && ("carbs" in copy.nutrients || "fat" in copy.nutrients)).toBe(false); // left empty, never 0
+    expect(copy && copy.nutrients).not.toBe(typed.nutrients); // a copy: changing it can't change the log
+    const full = entry("Salmon", at(14, 19), { nutrients: { calories: 612, protein: 41.5, carbs: 3.2, fat: 44.1, saturatedFat: 8.4, salt: 1.37, energyKj: 2561, fiber: 0 } });
+    expect(recentLogged([full])[0]?.nutrients).toEqual(full.nutrients);
+  });
+  it("puts an entry whose time can't be read last", () => {
+    const log = [entry("Old", "not a date"), entry("New", at(10, 9))];
+    expect(recentLogged(log).map((e) => e.name)).toEqual(["New", "Old"]);
   });
 });

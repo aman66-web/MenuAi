@@ -9,7 +9,7 @@ import { chooseWarmChains } from "@/lib/mm/popular";
 import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
 import { tabTarget } from "@/lib/mm/tabMemory";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
-import { installBackDepth } from "../_lib/backNav";
+import { ADDRESS_EVENT, installBackDepth } from "../_lib/backNav";
 import { refreshHiddenLogos } from "../_lib/hiddenLogos";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
@@ -62,7 +62,13 @@ export function AppShell({ children }: { children: ReactNode }) {
   // Tabs remember where you were (lib/mm/tabMemory.ts): coming back to a tab opens the page last seen in it; the open tab's own link goes to its first page.
   const tabMemory = useTabMemory();
   useEffect(() => {
-    if (hydrated) noteTabPage(TABS, pathname, window.location.search);
+    if (!hydrated) return;
+    const note = () => noteTabPage(TABS, window.location.pathname.replace(/(.)\/+$/, "$1"), window.location.search);
+    note();
+    // Filters that a page keeps in its address (Recipes' meal and diet tiles, a shop list's aisle and sort) change the query without a new page: remember those too.
+    window.addEventListener(ADDRESS_EVENT, note);
+    window.addEventListener("popstate", note);
+    return () => { window.removeEventListener(ADDRESS_EVENT, note); window.removeEventListener("popstate", note); };
   }, [hydrated, pathname]);
 
   // Text size from Settings / onboarding (the layout's inline script applies it before the first paint too).

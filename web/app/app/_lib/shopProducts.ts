@@ -16,15 +16,22 @@ function getJson(url: string): Promise<unknown> {
   });
 }
 
-/** The shops that have a full list. A missing or invalid manifest means "none yet", never an error on the Groceries screen. */
-export function loadShopManifest(): Promise<ShopManifest> {
+const NO_SHOPS: ShopManifest = { v: 1, retailers: [] };
+
+/** The shops that have a full list. An invalid manifest means "none yet"; a failed download rejects (and is tried again next time). */
+function fetchShopManifest(): Promise<ShopManifest> {
   manifestPromise ??= getJson("/groceries/all/all-manifest.json")
-    .then((m) => (isShopManifest(m) ? m : ({ v: 1, retailers: [] } as ShopManifest)))
-    .catch(() => {
+    .then((m) => (isShopManifest(m) ? m : NO_SHOPS))
+    .catch((e: unknown) => {
       manifestPromise = null;
-      return { v: 1, retailers: [] } as ShopManifest;
+      throw e;
     });
   return manifestPromise;
+}
+
+/** The shops that have a full list, or none when it can't be had. For screens that only need to know which shops to offer. */
+export function loadShopManifest(): Promise<ShopManifest> {
+  return fetchShopManifest().catch(() => NO_SHOPS);
 }
 
 export function loadShopFile(id: string): Promise<{ file: ShopFile; products: ShopProduct[] }> {
@@ -58,6 +65,25 @@ export function useShopManifest(retry = 0): ShopManifest | null {
     return () => { cancelled = true; };
   }, [retry]);
   return m;
+}
+
+export type ShopManifestState =
+  | { status: "loading" }
+  | { status: "error" }
+  | { status: "ready"; manifest: ShopManifest };
+
+/** Which shops have a full list, telling a failed download ("error": show Try again and bump `retry`) apart from "no shops yet". */
+export function useShopManifestState(retry = 0): ShopManifestState {
+  const [state, setState] = useState<{ retry: number; value: ShopManifestState }>({ retry: -1, value: { status: "loading" } });
+  useEffect(() => {
+    let cancelled = false;
+    fetchShopManifest().then(
+      (manifest) => { if (!cancelled) setState({ retry, value: { status: "ready", manifest } }); },
+      () => { if (!cancelled) setState({ retry, value: { status: "error" } }); },
+    );
+    return () => { cancelled = true; };
+  }, [retry]);
+  return state.retry === retry ? state.value : { status: "loading" };
 }
 
 export type ShopListState =

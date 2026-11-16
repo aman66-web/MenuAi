@@ -28,13 +28,23 @@ export function installBackDepth(): void {
   w[FLAG] = true;
   const push = window.history.pushState.bind(window.history);
   const replace = window.history.replaceState.bind(window.history);
+  // An address written by the page itself (Recipes' and a shop list's filters use replaceState) is announced, so the tabs can remember it (AppShell).
+  // After the call, and on a microtask: never inside whatever React work made the call.
+  const announce = (url?: string | URL | null) => { if (url !== undefined && url !== null) queueMicrotask(() => window.dispatchEvent(new Event(ADDRESS_EVENT))); };
   window.history.pushState = function pushState(data: unknown, unused: string, url?: string | URL | null) {
-    return push(stateFor("push", data, window.history.state), unused, url);
+    const r = push(stateFor("push", data, window.history.state), unused, url);
+    announce(url);
+    return r;
   };
   window.history.replaceState = function replaceState(data: unknown, unused: string, url?: string | URL | null) {
-    return replace(stateFor("replace", data, window.history.state), unused, url);
+    const r = replace(stateFor("replace", data, window.history.state), unused, url);
+    announce(url);
+    return r;
   };
 }
+
+/** Sent on the window after the app writes a new address into the history (installBackDepth). */
+export const ADDRESS_EVENT = "mm:address";
 
 /** Whether the page on screen was reached from another page of the app (read from the browser when asked, so it is never stale). */
 export const reachedFromApp = (): boolean => typeof window !== "undefined" && canGoBack(window.history.state);

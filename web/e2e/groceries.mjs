@@ -94,11 +94,40 @@ await step("shopping list: add (per supermarket), quantity, text, empty", async 
   await page.getByRole("button", { name: "Add · Tesco" }).click();
   await page.getByRole("link", { name: "Open your shopping list" }).click();
   await page.getByRole("heading", { name: "Aldi", exact: true }).waitFor();
-  await page.getByLabel("Quantity 2").waitFor();
+  // the quantity is read as words (sr-only), not hung on a plain span's aria-label, which screen readers ignore
+  await page.getByText("Quantity 2", { exact: true }).waitFor();
   await page.getByRole("button", { name: "One fewer Greek Style Yogurt" }).first().click();
-  await page.getByLabel("Quantity 1").first().waitFor();
+  await page.getByText("Quantity 1", { exact: true }).first().waitFor();
   await page.reload();
   await page.getByRole("heading", { name: "Tesco", exact: true }).waitFor(); // kept on this device
+  await ctx.close();
+});
+
+// Code audit 2026-10-29: the words came back after Back, but the shop chip, the type chip and the sort did not.
+await step("Back from a product finds Search every shop as it was left: the words, the shop, the type, the sort; an explicit All stays All", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/groceries/search");
+  await page.getByText("3 products", { exact: true }).waitFor();
+  await page.getByRole("searchbox").fill("chicken");
+  await page.getByText("1 product", { exact: true }).waitFor();
+  await page.getByRole("group", { name: "Supermarket" }).getByRole("button", { name: "Aldi" }).click();
+  await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "Meat" }).click();
+  await page.getByRole("combobox", { name: "Sort" }).selectOption("name");
+  await page.waitForFunction(() => { const q = new URLSearchParams(location.search); return q.get("r") === "aldi" && q.get("type") === "meat" && q.get("sort") === "name"; });
+  await page.getByRole("link", { name: /Chicken Breast Fillets/ }).click();
+  await page.getByRole("heading", { name: "Chicken Breast Fillets", level: 1 }).waitFor();
+  await page.getByRole("link", { name: "Back" }).first().click();
+  await page.getByRole("heading", { name: "Search every shop", level: 1 }).waitFor();
+  await page.waitForFunction(() => document.querySelector("input[type=search]")?.value === "chicken", null, { timeout: 15000 });
+  const pressed = async (group, name, exact = false) => page.getByRole("group", { name: group }).getByRole("button", { name, exact }).getAttribute("aria-pressed");
+  expect((await pressed("Supermarket", "Aldi")) === "true", "the shop chip came back off");
+  expect((await pressed("Filters", "Meat")) === "true", "the type chip came back off");
+  expect((await page.getByRole("combobox", { name: "Sort" }).inputValue()) === "name", "the sort came back as " + (await page.getByRole("combobox", { name: "Sort" }).inputValue()));
+  await page.getByText("1 product", { exact: true }).waitFor();
+  // All is written as All (r=all), so a person whose own shop is set isn't put back on it
+  await page.getByRole("group", { name: "Supermarket" }).getByRole("button", { name: "All", exact: true }).click();
+  await page.waitForFunction(() => new URLSearchParams(location.search).get("r") === "all");
+  expect((await pressed("Supermarket", "All", true)) === "true", "All is not chosen");
   await ctx.close();
 });
 

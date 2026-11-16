@@ -1,4 +1,4 @@
-import { API_BASE, APP_VERSION } from "./config";
+import { API_BASE, APP_BUILD, APP_VERSION } from "./config";
 import { tk } from "./i18n";
 import type { Store } from "./persist";
 
@@ -76,7 +76,7 @@ export const chainRequestPayload = (name: string) => ({ name: name.trim(), appVe
 export const supportPayload = (message: string, email?: string) => ({
   message: message.trim(),
   ...(email?.trim() ? { email: email.trim() } : {}),
-  source: "web" as const,
+  source: APP_BUILD ? ("app" as const) : ("web" as const), // the iPhone app's packed copy says so (docs/BACKEND.md)
   appVersion: APP_VERSION,
 });
 

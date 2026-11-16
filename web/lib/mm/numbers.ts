@@ -75,8 +75,17 @@ export interface FinderHit {
   name: string;
   /** How many dishes fit everything. */
   count: number;
-  /** One dish that fits, the one with the most protein: shown as an example. */
+  /**
+   * One dish that fits, shown as an example: the one with the most protein (fewest calories on a tie). Where no dish that fits has a protein figure (a
+   * restaurant that publishes calories only), the one whose calories are closest to the calorie limit typed in, or with none to the person's meal size
+   * (fewer calories on a tie), so the example isn't always the water or the tea; with neither, the one with the fewest calories.
+   */
   example: { name: string; calories: number; protein: number | null };
+}
+
+export interface FinderOptions {
+  /** The person's meal size in kcal (the finder's "Use my meal numbers"): what a calories-only example aims at when no calorie limit is typed. */
+  mealKcal?: number | null;
 }
 
 export interface FinderResult {
@@ -93,10 +102,11 @@ export interface FinderResult {
  * The restaurants with at least one dish that fits every number typed in and the person's diet and allergy settings, most dishes first.
  * `numbers` may be null while calories are the only limit (the search file carries them).
  */
-export function findRestaurants(index: SearchIndex, numbers: NumbersIndex | null, limits: NumberLimits, prefs: Preferences): FinderResult {
+export function findRestaurants(index: SearchIndex, numbers: NumbersIndex | null, limits: NumberLimits, prefs: Preferences, opts: FinderOptions = {}): FinderResult {
   const macros = hasMacroLimits(limits);
   const allergy = (prefs.avoidAllergens?.length ?? 0) > 0;
   const names = new Map(index.chains.map((c) => [c.chainId, c.name]));
+  const aim = limits.maxCalories ?? opts.mealKcal ?? null;
   const hits: FinderHit[] = [];
   let noAllergenGuide = 0, caloriesOnly = 0, unchecked = 0;
   for (const [chainId, items] of itemsByChain(index)) {
@@ -104,7 +114,8 @@ export function findRestaurants(index: SearchIndex, numbers: NumbersIndex | null
     if (macros && !cols) { unchecked++; continue; }
     if (macros && cols && cols.p.every((v) => v === null)) { caloriesOnly++; continue; }
     let count = 0;
-    let best: { name: string; calories: number; protein: number | null } | null = null;
+    let best: { name: string; calories: number; protein: number } | null = null; // the most protein, among the dishes that have a figure for it
+    let bestNoProtein: { name: string; calories: number; protein: null } | null = null; // used only when none has
     let anyAllergenInfo = false;
     for (let i = 0; i < items.length; i++) {
       const it = items[i]!;
@@ -117,13 +128,73 @@ export function findRestaurants(index: SearchIndex, numbers: NumbersIndex | null
       if (limits.maxFat !== undefined) { const f = cols?.f[i] ?? null; if (f === null || f > limits.maxFat) continue; }
       if (!fitsDiet(it.diet, prefs)) continue;
       count++;
-      if (!best || (p ?? -1) > (best.protein ?? -1) || ((p ?? -1) === (best.protein ?? -1) && it.calories < best.calories)) best = { name: it.name, calories: it.calories, protein: p };
+      if (p === null) {
+        if (!bestNoProtein || closerTo(aim, it.calories, bestNoProtein.calories)) bestNoProtein = { name: it.name, calories: it.calories, protein: null };
+      } else if (!best || p > best.protein || (p === best.protein && it.calories < best.calories)) best = { name: it.name, calories: it.calories, protein: p };
     }
     if (allergy && !anyAllergenInfo) noAllergenGuide++;
-    if (count > 0 && best) hits.push({ chainId, name: names.get(chainId) ?? chainId, count, example: best });
+    const example = best ?? bestNoProtein;
+    if (count > 0 && example) hits.push({ chainId, name: names.get(chainId) ?? chainId, count, example });
   }
   hits.sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "en-GB"));
   return { hits, noAllergenGuide, caloriesOnly, unchecked };
+}
+
+/** Whether `calories` is a better calories-only example than `than`: closer to `aim` (fewer calories on a tie), or with nothing to aim at, fewer. */
+function closerTo(aim: number | null, calories: number, than: number): boolean {
+  if (aim === null) return calories < than;
+  const d = Math.abs(calories - aim), e = Math.abs(than - aim);
+  return d < e || (d === e && calories < than);
+}
+
+/**
+ * Whether a dish publishes protein, carbs and fat, from the numbers file: true or false, or null when that isn't known (the file hasn't arrived, or the
+ * restaurant or the dish isn't in it). A restaurant that publishes everything can still list a dish or two with calories only (Tenpin, Chozen), so this
+ * answers dish by dish. Each restaurant's positions are worked out the first time it is asked about.
+ */
+export function macrosLookup(index: SearchIndex, numbers: NumbersIndex | null): (chainId: string, itemId: string) => boolean | null {
+  if (!numbers) return () => null;
+  let by: Map<string, IndexedItem[]> | null = null;
+  const positions = new Map<string, Map<string, number>>();
+  return (chainId, itemId) => {
+    const cols = numbers.get(chainId);
+    if (!cols) return null;
+    let pos = positions.get(chainId);
+    if (!pos) {
+      by ??= itemsByChain(index);
+      pos = new Map();
+      (by.get(chainId) ?? []).forEach((it, i) => { if (!pos!.has(it.itemId)) pos!.set(it.itemId, i); });
+      positions.set(chainId, pos);
+    }
+    const i = pos.get(itemId);
+    if (i === undefined) return null;
+    return cols.p[i] != null && cols.c[i] != null && cols.f[i] != null;
+  };
+}
+
+// ---- the hint under "No restaurant has a dish that fits all of that": it names only what was asked for
+
+const HINT_PIECES = {
+  maxCalories: tk("a higher calorie limit"),
+  minProtein: tk("a lower protein"),
+  maxCarbs: tk("a higher carbs limit"),
+  maxFat: tk("a higher fat limit"),
+} as const;
+const FEWER_ALLERGIES = tk("fewer allergies");
+/** One whole sentence for each number of pieces, so a translation can join them its own way. */
+const HINT_SENTENCES = [tk("Try {a}."), tk("Try {a} or {b}."), tk("Try {a}, {b} or {c}."), tk("Try {a}, {b}, {c} or {d}."), tk("Try {a}, {b}, {c}, {d} or {e}.")] as const;
+const NOTHING_TO_LOOSEN = tk("Try another type of restaurant, or change your diet in Settings.");
+
+/**
+ * "Try a higher calorie limit or fewer allergies.": what to change when nothing fits, naming only the limits that are set (in the boxes' order) and
+ * the allergies when some are chosen. With none of those, the type of restaurant and the diet are what is left to change.
+ */
+export function finderEmptyHint(limits: NumberLimits, allergies: boolean, t: T): string {
+  const pieces = (Object.keys(HINT_PIECES) as Array<keyof NumberLimits>).filter((k) => limits[k] !== undefined).map((k) => t(HINT_PIECES[k]));
+  if (allergies) pieces.push(t(FEWER_ALLERGIES));
+  if (pieces.length === 0) return t(NOTHING_TO_LOOSEN);
+  const names = ["a", "b", "c", "d", "e"] as const;
+  return t(HINT_SENTENCES[pieces.length - 1]!, Object.fromEntries(pieces.map((p, i) => [names[i], p])));
 }
 
 /** A full menu item against the numbers (the restaurant page's "Your numbers" filter). A missing figure never fits a limit on it. */

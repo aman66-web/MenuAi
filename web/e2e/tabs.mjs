@@ -36,6 +36,24 @@ await step("a tab opens the page you were on in it; the open tab goes to its fir
   await ctx.close();
 });
 
+await step("filters a page keeps in its address come back with its tab: Recipes' Dinner and Vegan tiles, then Home, then Recipes (review finding 14)", async () => {
+  const { ctx, page } = await fresh();
+  await page.goto(BASE + "/app/recipes");
+  const tiles = page.getByRole("group", { name: "Filters" });
+  await tiles.getByRole("button", { name: "Dinner" }).click();
+  await tiles.getByRole("button", { name: "Vegan" }).click();
+  await page.waitForFunction(() => /meal=dinner/.test(location.search) && /only=[^&]*vegan/.test(location.search));
+  const chosen = here(page);
+  await tab(page, "Home").click();
+  await page.waitForURL(/\/app$/);
+  expect((await tab(page, "Recipes").getAttribute("href")) === chosen, "the Recipes tab points at " + (await tab(page, "Recipes").getAttribute("href")) + ", not " + chosen);
+  await tab(page, "Recipes").click();
+  await page.waitForURL((u) => u.pathname === "/app/recipes" && /meal=dinner/.test(u.search));
+  expect(here(page) === chosen, "came back to " + here(page));
+  expect((await tiles.getByRole("button", { name: "Dinner" }).getAttribute("aria-pressed")) === "true" && (await tiles.getByRole("button", { name: "Vegan" }).getAttribute("aria-pressed")) === "true", "the tiles are not chosen again");
+  await ctx.close();
+});
+
 await step("it survives a reload of the page, keeps the query, and never holds a # fragment", async () => {
   const { ctx, page } = await fresh();
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
@@ -63,6 +81,40 @@ await step("a hand-edited store cannot send a tab outside its own pages", async 
     const href = await tab(page, name).getAttribute("href");
     expect(href === want, `${name} points at ${href}`);
   }
+  await ctx.close();
+});
+
+await step("Home never remembers Settings, Reminders or a past day: after any of them, the Home tab opens Home (today)", async () => {
+  const { ctx, page } = await fresh();
+  // Settings, reached from Home's gear
+  await page.goto(BASE + "/app");
+  await page.locator('a[aria-label="Settings"]').click();
+  await page.waitForURL(/\/app\/settings$/);
+  await tab(page, "Eat out").click();
+  await page.waitForURL(/\/app\/eat-out/);
+  expect((await tab(page, "Home").getAttribute("href")) === "/app", "Home points at " + (await tab(page, "Home").getAttribute("href")));
+  await tab(page, "Home").click();
+  await page.waitForURL((u) => u.pathname === "/app" && u.search === "");
+  // Reminders, and a past day from the calendar's address
+  const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+  const d = `${yesterday.getFullYear()}-${String(yesterday.getMonth() + 1).padStart(2, "0")}-${String(yesterday.getDate()).padStart(2, "0")}`;
+  for (const side of ["/app/reminders", "/app/today?d=" + d]) {
+    await page.goto(BASE + side);
+    await page.getByRole("navigation", { name: "Main" }).waitFor();
+    await page.waitForTimeout(500);
+    await tab(page, "Recipes").click();
+    await page.waitForURL(/\/app\/recipes/);
+    expect((await tab(page, "Home").getAttribute("href")) === "/app", `after ${side} Home points at ${await tab(page, "Home").getAttribute("href")}`);
+  }
+  // today's own page is still remembered
+  await page.goto(BASE + "/app/today");
+  await page.getByRole("navigation", { name: "Main" }).waitFor();
+  await page.waitForTimeout(500);
+  await tab(page, "Recipes").click();
+  await page.waitForURL(/\/app\/recipes/);
+  expect((await tab(page, "Home").getAttribute("href")) === "/app/today", "Home should still remember today's page");
+  const stored = await page.evaluate(() => sessionStorage.getItem("mm.tabs") ?? "");
+  expect(!/settings|reminders|\?d=/.test(stored), "stored: " + stored);
   await ctx.close();
 });
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { addToCompare, COMPARE_MAX, compareRows, inCompare, mixedBasis, removeFromCompare, type CompareItem, type CompareKind, type CompareRow } from "@/lib/mm/compare";
-import { formatPrice, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
+import { formatPrice, listedShops, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
 import { itemImageUrl } from "@/lib/mm/images";
 import { search } from "@/lib/mm/search";
 import { compareStore } from "@/lib/mm/stores";
@@ -282,7 +282,7 @@ function FoodAdder({ items }: { items: readonly CompareItem[] }) {
 function FoodResults({ query, items }: { query: string; items: readonly CompareItem[] }) {
   const t = useT();
   const catalogue = useGroceryCatalogue(null);
-  const prefer = useSettings().shops?.[0] ?? null;
+  const prefer = listedShops(useSettings().shops ?? [])[0] ?? null; // a saved Co-op or Ocado (no product list) is ignored
   const results = useMemo(() => searchProducts(catalogue.products, { query, sort: "name" }).slice(0, 8), [catalogue.products, query]);
   const full = items.filter((i) => i.kind === "food").length >= COMPARE_MAX;
   if (catalogue.status === "loading") return <Spinner label={t("Loading products")} />;

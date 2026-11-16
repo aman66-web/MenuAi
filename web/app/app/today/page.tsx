@@ -1,30 +1,35 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 import { dayHref, dayParam, parseDayParam, stepDay } from "@/lib/mm/day";
 import { localeInfo } from "@/lib/mm/i18n";
 import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL } from "@/lib/mm/budget";
+import { analytics } from "@/lib/mm/analytics";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { itemImageUrl } from "@/lib/mm/images";
-import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
+import { copyForToday, withoutEntries } from "@/lib/mm/logCopy";
+import { addLogEntry, countProAction, deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
+import { weekAverage } from "@/lib/mm/weekAverage";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { useGate } from "../_components/Paywall";
 import Link from "next/link";
-import { ChevronLeftIcon, ChevronRightIcon, ForkIcon, TrashIcon } from "../_components/icons";
+import { ChevronLeftIcon, ChevronRightIcon, ForkIcon, PlusIcon, TrashIcon } from "../_components/icons";
 import { Gauge } from "../_components/Gauge";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
-import { Button, Card, EmptyState } from "../_components/ui";
+import { Button, Card, EmptyState, LinkButton } from "../_components/ui";
+import { UndoToast, type ToastMessage } from "../_components/UndoToast";
 import { backName, useBack } from "../_lib/backNav";
 import { useChainIndexes, useHydrated, useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
-const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" });
+// the 24-hour clock, as times are written in the UK (13:05)
+const timeFormat = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit" });
 
 // SPEC §7.8, reached from Home's "today" card. Free: explainer + the paywall. Pro: totals against targets and today's entries.
 // Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): one summary card in Home's voice (Home's calories dial,
@@ -34,6 +39,8 @@ const timeFormat = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "
 // Any day (founder 2026-10-16: "they can find any day and click on it and see their macros and what they ate on that day"): the page is a static shell that reads
 // ?d=YYYY-MM-DD (like /app/chain?id=), reached from Home's calendar and week circles; a missing, bad or future date is today. A past day shows that day's figures and
 // meals measured against the person's current targets (the app keeps no target history), with Previous day / Next day and a Today shortcut.
+// A past day's meal can be logged again today ("Add to today": exact copies of its entries, in the same meal row, with an Undo), and under the meals
+// "Last 7 days" gives the average calories and protein a day over the seven days ending on the day shown, counting only the days with food (weekAverage.ts).
 
 /** Home's macro row (app/app/page.tsx): "PROTEIN   144g / 150g" in small spaced capitals and DM Mono, the same grey, and a thin bar below. */
 function MacroRow({ label, eaten, target }: { label: string; eaten: number; target?: number }) {
@@ -65,15 +72,14 @@ function TodayScreen() {
   const t = useT();
   const htmlLang = localeInfo(useLanguage()).htmlLang;
   const pro = useIsPro();
-  const { showPaywall } = useGate();
+  const { gate, showPaywall } = useGate();
   const settings = useSettings();
   const log = useStore(logStore);
   const now = useNow();
   const day = parseDayParam(useSearchParams().get("d"), now);
   const isToday = dayParam(day) === dayParam(now);
-  const [undo, setUndo] = useState<LogEntry | null>(null);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+  // one toast at a time: "Deleted …" or "Added to today.", each with its own Undo
+  const [toast, setToast] = useState<(ToastMessage & { undo: () => void }) | null>(null);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), day)).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
   const indexes = useChainIndexes(pro ? todays.filter((e) => e.source === "item").map((e) => e.chainId) : []);
 
@@ -109,9 +115,17 @@ function TodayScreen() {
 
   function remove(entry: LogEntry) {
     deleteLogEntry(entry.id);
-    setUndo(entry);
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setUndo(null), 6000);
+    setToast({ key: `deleted:${entry.id}`, text: t("Deleted “{name}”.", { name: entry.name }), undo: () => restoreLogEntry(entry) });
+  }
+
+  // A past day's meal, logged again now: a copy of each of its entries (new id, the time of the tap, the same meal row), all taken back by one Undo.
+  function addToToday(meal: Meal, entries: readonly LogEntry[]) {
+    gate("log", () => {
+      const ids = new Set(entries.map((e) => addLogEntry(copyForToday(e, meal)).id));
+      analytics.track({ name: "mealLogged" });
+      countProAction();
+      setToast({ key: `copied:${[...ids].join(",")}`, text: t("Added to today."), undo: () => logStore.update((list) => withoutEntries(list, ids)) });
+    });
   }
 
   const photoOf = (e: LogEntry): string | undefined => {
@@ -157,7 +171,7 @@ function TodayScreen() {
       {todays.length === 0 ? (
         <div className="mt-5">
           {isToday ? (
-            <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing logged yet today")} body={t("Open an item or build an order, then tap Log.")} />
+            <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing logged yet today")} body={t("Open an item or build an order, then tap Log.")} action={<LinkButton href="/app" variant="secondary">{t("Add food")}</LinkButton>} />
           ) : (
             <EmptyState icon={<Pip mood="point" size={64} />} title={t("Nothing was logged on this day.")} />
           )}
@@ -195,19 +209,42 @@ function TodayScreen() {
                     </li>
                   ))}
                 </ul>
+                {!isToday && (
+                  <div className="border-t border-line px-4 py-3">
+                    <button type="button" onClick={() => addToToday(meal, entries)} className="inline-flex min-h-11 max-w-full items-center justify-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
+                      <PlusIcon aria-hidden className="h-4 w-4 shrink-0" />
+                      <span className="min-w-0 [overflow-wrap:anywhere]">{t("Add to today")}<span className="sr-only"> · {t(MEAL_LABEL[meal])}</span></span>
+                    </button>
+                  </div>
+                )}
               </section>
             );
           })}
         </div>
       )}
 
-      {undo && (
-        <div role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
-          <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t("Deleted “{name}”.", { name: undo.name })}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { restoreLogEntry(undo); setUndo(null); }}>{t("Undo")}</button>
-        </div>
-      )}
+      <WeekCard log={log} day={day} />
+
+      <UndoToast message={toast} onUndo={toast?.undo} onDone={() => setToast(null)} />
     </div>
+  );
+}
+
+/** "Last 7 days": the average calories (and protein, when every entry has a protein figure) a day over the days with food in the seven ending on `day`. Hidden when none has food. */
+function WeekCard({ log, day }: { log: readonly LogEntry[]; day: Date }) {
+  const t = useT();
+  const avg = weekAverage(log, day);
+  if (!avg) return null;
+  return (
+    <section aria-labelledby="today-week" className="glass app-numbers mt-5 rounded-[1.25rem] px-4 py-4">
+      <h2 id="today-week" className="text-lg font-[800] leading-snug tracking-[-0.01em]">{t("Last 7 days")}</h2>
+      <p className="mt-1.5 text-base leading-snug [overflow-wrap:anywhere]">
+        {avg.protein === null
+          ? t("Average a day: {kcal}", { kcal: formatCalories(avg.calories) })
+          : t("Average a day: {kcal} · {protein} protein", { kcal: formatCalories(avg.calories), protein: formatGrams(avg.protein) })}
+      </p>
+      <p className="mt-1 text-[0.875rem] leading-snug text-muted">{avg.days === 1 ? t("From 1 day with food logged.") : t("From {n} days with food logged.", { n: avg.days })}</p>
+    </section>
   );
 }
 

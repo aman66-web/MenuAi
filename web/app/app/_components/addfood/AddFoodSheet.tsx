@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { ADD_TO } from "@/lib/mm/addFood";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { ADD_TO, recentLogged, type LoggedFood } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
+import { formatCalories } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
-import { addLogEntry, countProAction } from "@/lib/mm/stores";
+import { addLogEntry, countProAction, logStore } from "@/lib/mm/stores";
 import type { Meal } from "@/lib/mm/types";
-import type { LogEntry } from "@/lib/mm/user-data";
+import type { LogEntry, LogSource } from "@/lib/mm/user-data";
 import { BasketIcon, ForkIcon, PencilIcon, PotIcon } from "../icons";
 import { Sheet } from "../ui";
+import { useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { DishPick } from "./DishPick";
-import { BackBar, Choice, type NewEntry } from "./parts";
+import { AddPill, BackBar, Choice, PICK_LIST, PickRow, type NewEntry } from "./parts";
 import { ProductPick } from "./ProductPick";
 import { RecipePick } from "./RecipePick";
 import { TypedNumbers } from "./TypedNumbers";
@@ -19,6 +21,8 @@ import { TypedNumbers } from "./TypedNumbers";
 // The "Add food" sheet that Home's + opens on Breakfast, Lunch or Dinner (founder 2026-10-15: "a kind of menu vibe sheet should launch where you can
 // either type in macros, choose a recipe perhaps, choose a meal from a restaurant or whatever"). Four plain choices, each leading to a short list
 // or form; whatever is picked is added to the meal whose + was tapped (not to the meal the clock says), at the time of the tap.
+// Above the four choices, "Recently added": the last few different things this person logged, one tap each to log the same again (its name, restaurant and
+// figures copied exactly, nothing worked out again; lib/mm/addFood.ts recentLogged).
 
 type View = "menu" | "numbers" | "recipe" | "restaurant" | "product";
 
@@ -29,9 +33,17 @@ const TITLE: Record<Exclude<View, "menu">, string> = {
   product: tk("Choose a supermarket product"),
 };
 
+/** The round icon of a recently added thing: the same picture as the choice it came from (typed, a recipe, a supermarket product, a restaurant). */
+function recentIcon(source: LogSource): ReactNode {
+  const Icon = source === "custom" ? PencilIcon : source === "recipe" ? PotIcon : source === "product" ? BasketIcon : ForkIcon;
+  return <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-accent"><Icon className="h-5 w-5" /></span>;
+}
+
 export function AddFoodSheet({ meal, onClose, onAdded }: { meal: Meal | null; onClose: () => void; onAdded: (entry: LogEntry, meal: Meal) => void }) {
   const t = useT();
   const [view, setView] = useState<View>("menu");
+  const log = useStore(logStore);
+  const recent = useMemo<LoggedFood[]>(() => recentLogged(log), [log]);
 
   // When the view changes the title changes with it: focus goes to the title (so a screen reader says where it is and a keyboard starts from the top),
   // never to a search box, which would put the keyboard over the list.
@@ -61,6 +73,22 @@ export function AddFoodSheet({ meal, onClose, onAdded }: { meal: Meal | null; on
     <Sheet open={meal !== null} onClose={close} title={meal === null ? "" : view === "menu" ? t(ADD_TO[meal]) : t(TITLE[view])}>
       {meal !== null && view === "menu" && (
         <div className="space-y-3 pb-2">
+          {recent.length > 0 && (
+            <section aria-labelledby="addfood-recent" className="pb-2">
+              <h3 id="addfood-recent" className="mb-2.5 text-[0.9375rem] font-semibold leading-snug">{t("Recently added")}</h3>
+              <ul className={PICK_LIST}>
+                {recent.map((f, i) => (
+                  <PickRow
+                    key={`${i}:${f.source}:${f.chainId}:${f.name}`}
+                    lead={recentIcon(f.source)}
+                    title={f.name}
+                    line={f.chainName ? `${f.chainName} · ${formatCalories(f.nutrients.calories)}` : formatCalories(f.nutrients.calories)}
+                    action={<AddPill name={f.name} onClick={() => add({ chainId: f.chainId, chainName: f.chainName, name: f.name, nutrients: { ...f.nutrients }, source: f.source })} />}
+                  />
+                ))}
+              </ul>
+            </section>
+          )}
           <Choice icon={<PencilIcon className="h-6 w-6" />} title={t("Type in your numbers")} line={t("Calories, protein, carbs and fat")} onClick={() => setView("numbers")} />
           <Choice icon={<PotIcon className="h-6 w-6" />} title={t("Choose a recipe")} line={t("A serving of one of our recipes")} onClick={() => setView("recipe")} />
           <Choice icon={<ForkIcon className="h-6 w-6" />} title={t("Choose a restaurant meal")} line={t("Search the menus, or pick a saved meal")} onClick={() => setView("restaurant")} />

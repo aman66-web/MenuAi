@@ -3,7 +3,7 @@
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { ADD_TO, amountNutrients, MAX_AMOUNT, MIN_AMOUNT, parseAmount } from "@/lib/mm/addFood";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
-import { forRetailer, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
+import { forRetailer, listedShops, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
 import type { Meal, Nutrients } from "@/lib/mm/types";
 import { NumberDone } from "../SearchDone";
 import { ScanIcon } from "../icons";
@@ -23,7 +23,7 @@ const RESULTS = 8;
 
 export function ProductPick({ meal, onAdd, onBack }: { meal: Meal; onAdd: (entry: NewEntry) => void; onBack: () => void }) {
   const t = useT();
-  const prefer = useSettings().shops?.[0] ?? null;
+  const prefer = listedShops(useSettings().shops ?? [])[0] ?? null; // the person's first shop we hold a list for (an earlier version let them pick Co-op or Ocado)
   const [retry, setRetry] = useState(0);
   const catalogue = useGroceryCatalogue(null, retry);
   const [query, setQuery] = useState("");
