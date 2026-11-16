@@ -9,6 +9,7 @@ import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, 
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
+import type { RecipePreset } from "@/lib/mm/cupboard";
 import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
@@ -107,7 +108,8 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
   );
 }
 
-export function RecipeDetail({ recipe, file, products, backHref, actions }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode }) {
+/** `preset`: what the page starts with when it is opened from "Cook from my cupboard" (the people the cupboard feeds, the swaps, as written; lib/mm/cupboard.ts). */
+export function RecipeDetail({ recipe, file, products, backHref, actions, preset }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; preset?: RecipePreset }) {
   const t = useT();
   const poss = usePossessive();
   // Back goes to the page before when this one was reached from another page of the app; `backHref` (the recipes, at the right shop) is the fallback
@@ -118,10 +120,10 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
   // snacks are shown as written: a meal-sized target would double them
   const targetKey = JSON.stringify(recipe.meal === "snack" ? null : mealTargetFor(settings));
   const target = useMemo(() => JSON.parse(targetKey) as ReturnType<typeof mealTargetFor>, [targetKey]);
-  const [servings, setServings] = useState(recipe.servings);
+  const [servings, setServings] = useState(preset?.servings ?? recipe.servings);
   const [chosen, setChosen] = useState<Record<string, string>>({});
-  const [subs, setSubs] = useState<Record<string, string>>({});
-  const [asWritten, setAsWritten] = useState(false);
+  const [subs, setSubs] = useState<Record<string, string>>(preset?.subs ?? {});
+  const [asWritten, setAsWritten] = useState(preset?.asWritten ?? false);
   const [swapping, setSwapping] = useState<string | null>(null);
   const [added, setAdded] = useState<string | null>(null);
   const [tab, setTab] = useState<RecipeTab>("ingredients");

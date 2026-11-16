@@ -193,6 +193,10 @@ export default function Privacy() {
         <p className={para}>
           Recipes are worked out on your device from the supermarket&apos;s product list; your meal size, diet choices, saved recipes, the store-cupboard items you mark as already having stay on your device.
         </p>
+        <p className={para}>
+          What you tell &ldquo;Cook from my cupboard&rdquo; (the things you have and roughly how much) stays on your device too. It is not synced to your account and
+          is never sent to us, and Clear data on this device removes it. The recipes it finds are worked out on your device.
+        </p>
         {AI_RECIPES_ENABLED && (
         <p className={para}>
           If you ask Pip to make a recipe, we send what you chose on that page (the meal, how many people, the meal size and protein, your diet and allergy

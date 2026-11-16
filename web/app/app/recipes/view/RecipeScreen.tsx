@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
+import type { RecipePreset } from "@/lib/mm/cupboard";
 import { recipeForDiet } from "@/lib/mm/recipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { myRecipesStore } from "@/lib/mm/stores";
@@ -17,7 +18,7 @@ import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { RecipeDetail } from "../RecipeDetail";
 
 // A recipe page: one of ours (?id=) or one Pip wrote that the person saved (?mine=), at the shop asked for or their own.
-export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; mine: string | null; shop: string | null }) {
+export function RecipeScreen({ id, mine, shop: asked, preset }: { id: string | null; mine: string | null; shop: string | null; preset?: RecipePreset }) {
   const t = useT();
   const router = useRouter();
   const hydrated = useHydrated();
@@ -48,6 +49,7 @@ export function RecipeScreen({ id, mine, shop: asked }: { id: string | null; min
     <RecipeDetail
       key={recipe.id}
       recipe={recipe}
+      preset={preset}
       file={state.file}
       products={state.products}
       backHref={backHref}

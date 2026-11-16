@@ -5,6 +5,7 @@ import { sanitizeOutbox, OutboxSender, type OutboxItem } from "./outbox";
 import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
+import { sanitizeCupboard, type CupboardItem } from "./cupboardItems";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
 import type { PlanId } from "../payments/plans";
@@ -46,6 +47,10 @@ export const savedRecipesStore = createStore<RecipeSave[]>("mm.v1.savedRecipes",
 export const cupboardStore = createStore<string[]>("mm.v1.cupboard", [], {
   sanitize: (x) => (Array.isArray(x) ? [...new Set(x.filter((k): k is string => typeof k === "string" && /^[a-z0-9-]{1,40}$/.test(k)))].slice(0, 200) : []),
 });
+
+/** What the person says they have in the kitchen, with a rough amount ("Cook from my cupboard": lib/mm/cupboard.ts). On this device only: not one of the synced
+ *  stores, never sent anywhere. (cupboardStore above is a different thing: the store-cupboard "I have this" ticks, which do sync.) */
+export const cupboardItemsStore = createStore<CupboardItem[]>("mm.v1.cupboardItems", [], { sanitize: sanitizeCupboard });
 
 /** Dishes opened in the last day ("Recently viewed" on the restaurant's page; lib/mm/recent.ts). On this device only. */
 export const recentStore = createStore<RecentView[]>("mm.v1.recentItems", [], { sanitize: sanitizeRecent });

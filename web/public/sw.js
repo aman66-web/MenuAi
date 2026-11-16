@@ -10,14 +10,14 @@
  * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
  * Bump VERSION to drop all old caches.
  */
-const VERSION = "mm-v7"; // v7: Cheapest protein page (a new shell), and precached screens are no longer evicted by the page-cache limit (now 120); v6: Community tab and the food blog pages (new shells); v5: plate-and-fork app icon; v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
+const VERSION = "mm-v8"; // v8: Cook from my cupboard (a new shell); v7: Cheapest protein page (a new shell), and precached screens are no longer evicted by the page-cache limit (now 120); v6: Community tab and the food blog pages (new shells); v5: plate-and-fork app icon; v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;
 const IMAGES = `${VERSION}-images`;
 const MAX_ENTRIES = { [PAGES]: 120, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150 };
 const NETWORK_TIMEOUT_MS = 5000;
-const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/list/shared", "/app/groceries/protein", "/app/recipes", "/app/recipes/view", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/compare", "/app/today", "/app/settings", "/app/settings/numbers", "/app/settings/sources", "/app/reminders", "/app/community", "/app/community/blog", "/app/community/blog/view", "/app/community/friends", "/app/community/inbox", "/app/community/inbox/view", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
+const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/list/shared", "/app/groceries/protein", "/app/recipes", "/app/recipes/view", "/app/recipes/cupboard", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/compare", "/app/today", "/app/settings", "/app/settings/numbers", "/app/settings/sources", "/app/reminders", "/app/community", "/app/community/blog", "/app/community/blog/view", "/app/community/friends", "/app/community/inbox", "/app/community/inbox/view", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline"];
 const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder", "/app/groceries/product", "/app/groceries/search", "/app/groceries/shop", "/app/groceries/shop/item", "/app/recipes", "/app/recipes/view", "/app/meals", "/app/compare", "/app/today", "/app/community/blog", "/app/community/blog/view", "/app/community/inbox/view"];
 
 /** Page navigations to the query-driven shells share one cache entry; everything else is keyed by its full URL. */
