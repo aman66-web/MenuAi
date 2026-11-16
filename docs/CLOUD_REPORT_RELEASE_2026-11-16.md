@@ -291,3 +291,5 @@ Reused unchanged: "Traffic lights", "What that looks like", the three existing "
 - The free iPhone build no longer packs the website's plans, prices, Stripe text or Unlock buttons.
 - Tests fixed for date rot (community-friends) and the new '35 g+ protein' pill (numbers).
 - New copy listed in docs/CLOUD_REPORT_RELEASE_2026-11-16.md section 5, awaiting approval."
+
+PUSHED ea6c39f
