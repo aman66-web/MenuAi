@@ -221,7 +221,7 @@ await step("App Review 1.4.1: 'Where these numbers come from' sits at the top of
   for (const h of hrefs) { const u = new URL(h); expect(u.protocol === "https:" && HOSTS.includes(u.host), "source " + h); }
   expect([...new Set(cardLinks)].sort().join() === [...hrefs].sort().join(), "the sheet should list exactly the card's own links: " + cardLinks.join(" "));
   const words = (await sources.innerText()).replace(/\s+/g, " ");
-  for (const w of ["2,000 kcal of energy", "Protein score: 5 needs at least 25%", "Quick answers: meals of 500 kcal or less", "Smart Swap:", "Cheapest protein:", "not taken from a published source", "doesn't give medical advice", "Sources checked on 13 November 2026"]) expect(words.includes(w), "missing: " + w);
+  for (const w of ["2,000 kcal of energy", "Protein score: 5 needs at least 25%", "Quick answers: meals of 500 kcal or less", "Smart Swap:", "Cheapest protein:", "not taken from a published source", "doesn't give medical advice", "Sources checked on 13 Nov 2026"]) expect(words.includes(w), "missing: " + w);
   expect(!/\b(good|bad|healthy)\b/i.test(words), "judging words in the sheet");
   expect(!requests.some((u) => HOSTS.includes(new URL(u).host)), "a source was fetched before it was tapped");
   await page.waitForTimeout(500);
