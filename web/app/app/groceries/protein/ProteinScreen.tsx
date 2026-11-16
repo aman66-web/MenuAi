@@ -8,6 +8,7 @@ import { FREE_LEADERBOARD_ROWS } from "@/lib/mm/paid";
 import { formatPrice } from "@/lib/mm/groceries";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { cheapestProtein, comparePair, costOf100gProtein, CURATED_PAIRS, proteinValue, type ProteinValue } from "@/lib/mm/truth/proteinValue";
+import { MenuSourcesLink } from "../../_components/MenuSourcesLink";
 import { useGate } from "../../_components/Paywall";
 import { Button, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useIsPro } from "../../_lib/hooks";
@@ -112,6 +113,8 @@ export function ProteinScreen() {
       <p className="mt-2.5 text-base leading-snug">
         {t("What 10 g of protein costs at {shop}, worked out from each product's own label and shelf price.", { shop: shop.name })}
       </p>
+      {/* App Review 1.4.1: the line for a "protein food" is Numbite's own; the menu sources sheet says so. */}
+      <MenuSourcesLink className="mt-1" />
 
       {pairs.length > 0 && (
         <section aria-labelledby="pairs-heading" className="mt-6">
