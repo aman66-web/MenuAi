@@ -11,6 +11,9 @@ import { useGate } from "../Paywall";
 import { MenuSourcesLink } from "../MenuSourcesLink";
 import { Button, Chip } from "../ui";
 
+/** True in the free iPhone app's copy (build-time constant): no paid tier there, so the locked-list button and its words are left out of the app's files (App Store 3.1.1, App Review 2.3.1). */
+const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1";
+
 /** How many dishes a preset shows. */
 export const PRESET_TOP = 5;
 
@@ -24,7 +27,7 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
   const pro = useIsPro();
   const { showPaywall } = useGate();
   // Free tier (only when paid access exists): the first two results of a list; "Small appetite" (the GLP-1 and smaller-meal optimiser) is paid.
-  const gated = PAID_ACCESS_ENABLED && !pro;
+  const gated = !FREE_APP && PAID_ACCESS_ENABLED && !pro;
   const defs = useMemo(() => presetsFor(chain), [chain]);
   const counts = useMemo(() => new Map(defs.map((d) => [d.id, applyPreset(d.id, items).length])), [defs, items]);
   const [active, setActive] = useState<PresetId | null>(null);

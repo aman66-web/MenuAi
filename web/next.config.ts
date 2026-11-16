@@ -18,6 +18,8 @@ const appConfig: NextConfig = {
   env: {
     ...env,
     NEXT_PUBLIC_APP_BUILD: "1",
+    // always "1" or "0" in the app's copy, so the free app's build-time checks (lib/payments/plans.ts, ProPlans, the Pro pages) fold and leave the paid screens out of its files
+    NEXT_PUBLIC_IAP: process.env.NEXT_PUBLIC_IAP === "1" ? "1" : "0",
     // where the app reaches the live website (newer menus, the taken-down logos list, the API)
     NEXT_PUBLIC_REMOTE_BASE: process.env.NEXT_PUBLIC_REMOTE_BASE ?? "https://numbite.com",
   },

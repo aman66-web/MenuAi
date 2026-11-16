@@ -16,6 +16,9 @@ import { useT } from "../../_lib/i18n";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { BackLink, CARD, FootNote, HEADING, TITLE } from "../PageBits";
 
+/** True in the free iPhone app's copy (build-time constant): no paid tier there, so the locked-list button and its words are left out of the app's files (App Store 3.1.1, App Review 2.3.1). */
+const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1";
+
 // "Cheapest protein" (founder's brief, 13 Nov 2026, "Supermarket Truth Compare" and "Cheapest Protein Leaderboard"): what 10 g of protein costs at a shop, from each
 // product's own label and shelf price (lib/mm/truth/proteinValue.ts), ranked, and a few "sold on its protein or everyday?" pairs. It says what things cost and
 // nothing about whether a food is good or bad: neutral words, numbers only (CLAUDE.md rule 3).
@@ -68,7 +71,7 @@ export function ProteinScreen() {
   const t = useT();
   const pro = useIsPro();
   const { showPaywall } = useGate();
-  const gated = PAID_ACCESS_ENABLED && !pro; // free tier (only when paid access exists): the first five rows
+  const gated = !FREE_APP && PAID_ACCESS_ENABLED && !pro; // free tier (only when paid access exists): the first five rows
   const manifest = useShopManifest();
   const shops = recipeShops(manifest);
   const shop = shops[0] ?? null;
