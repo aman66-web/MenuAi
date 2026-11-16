@@ -2,6 +2,7 @@ import Link from "next/link";
 import { APP_BUILD } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SiteBack } from "./SiteBack";
+import { RefCapture } from "../components/RefCapture";
 
 // Marketing site chrome (landing page, privacy, terms, support). The web app under /app has its own layout.
 // Look (founder 2026-10-15): the app's own icon beside the name, quiet links, and the app's black pill for "Open app".
@@ -35,6 +36,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
         </div>
       </header>
       )}
+      <RefCapture />
       <main className="flex-1">{children}</main>
       <footer className="mx-auto mt-16 w-full max-w-5xl border-t border-line px-[20px] py-10 text-sm text-muted">
         <div className="flex flex-col gap-6 sm:flex-row-reverse sm:items-start sm:justify-between sm:gap-10">

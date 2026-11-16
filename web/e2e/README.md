@@ -23,6 +23,10 @@ node largetext.mjs                                # no horizontal overflow at 10
 node share.mjs                                    # share card downloads as a 1080×1350 PNG
 node browse.mjs                                   # Home browse by type + A-Z jump, long-menu search/section chips, filter caution, recent searches
 node calories.mjs                                  # chains that publish calories only: badge, filter, "not published", no ordering tools (stubbed chain)
+node firstvisit.mjs                                # no welcome gate (13 Nov 2026): a first visit lands on Home / Eat out / a restaurant / a shared list at once; the "Make Numbite fit you" card and its sheet (goal + what you avoid) save and go away; "Not now"; 48 px buttons; 360 px / Extra large text; axe
+node truth.mjs                                     # Truth and Swap on real data: the item page's two buttons, the Truth card (calories and % of the 2,000 kcal reference intake, Protein score, official traffic lights, sugar cubes / butter / eggs), the Smart Swap card, the WhatsApp message, the saved 1080 x 1350 image, the dark card, Creator View (Shift+F), Settings' Filming mode, Quick answers pills, calories-only restaurants, 360 px / 200% text, axe
+node seo.mjs                                       # public restaurant pages: sitemap (241 chains), /chains/<id> title/description/canonical/FAQPage matching the real menu file, high-protein and under-500 pages, calories-only and sample chains, thin pages noindex, no logos or photos, axe
+node protein.mjs                                   # Groceries > Cheapest protein: the 20-row leaderboard (pence for 10 g from label and price per kg), the everyday-vs-branded pairs and their savings, the footnote, 360 px / 200% text, axe
 node onboarding-body.mjs                           # onboarding's three questions about the person (About you, Your size, How active are you?) and "Your daily targets" filled in from them: the new order and 'Step n of 10', two people typed in (a vegan woman in stone and feet, a man in kg and cm on a GLP-1 medicine) and the numbers they get, editing and saving all four, switching units, Skip (all three) and Back, under 18 and invalid answers, the plan's notes, nothing about the body in storage / the address / any request, Settings' single-screen form giving the same numbers, no "doesn't look right" on the first digit, Skip on the targets / goal / diet screens, "Use these" keeping its notes and focus, a finger's quick second tap not skipping a screen, right-to-left arrow keys, the Done pill, 360 px / 200% text / Arabic (overflow, 44 px targets, axe); `ONLY="(t)"` runs one step
 node numbers.mjs                                   # Eat out: find a restaurant by calories, protein, carbs, fat and allergies; the restaurant opens with them applied; numbers file missing; axe, 200% text
 node done.mjs                                      # a Done button for the keyboard: in every search box while it is in use, inside Eat out's number boxes; tap, Return key, Tab, clear button beside it, RTL, 200% text, axe
@@ -44,6 +48,10 @@ node offline.mjs                                  # stops and restarts the serve
 node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THEME=light, WIDTH=360, FULL=1, PRO=1)
 node brand.mjs                                    # re-render the app icon + social card from web/design/ (after a name change too)
 ```
+
+`pay.mjs` is for paid access (Stripe and our payment routes are FAKED in the browser; nothing reaches Stripe or a database). It needs its own build with payments on and a throwaway key:
+`PUB=$(node e2e/paykey.mjs); NEXT_PUBLIC_WEB_PRO=1 NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$PUB" NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 npm run build && npm start -- -p 3104` then `BASE=http://localhost:3104 node e2e/pay.mjs`.
+It checks the free tier's limits, the plans, the checkout request and a creator code, the return from Stripe, the signed token (forged, expired and foreign tokens refused), the 48-hour WhatsApp unlock, restore, and the legal pages' paid-access text.
 
 `prodmode.mjs` is for the **production default** as it ships for the free launch (no sample data, Pro and Pip's recipe maker off):
 build without `NEXT_PUBLIC_SHOW_SAMPLE_DATA` and `NEXT_PUBLIC_PRO`, start on port 3102 (`BASE=http://localhost:3102 node prodmode.mjs`).

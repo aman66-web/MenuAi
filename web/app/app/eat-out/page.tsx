@@ -14,7 +14,8 @@ import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../_components/ui";
 import { menuClient } from "../_lib/menu";
 import { scrollToElement } from "../_lib/scroll";
-import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
+import { StartPrompt } from "../_components/StartPrompt";
+import { useHydrated, useMenu, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { useEatOutChoices } from "./eatOutChoices";
@@ -46,7 +47,6 @@ function Shortcut({ href, icon, title, line, highlight }: { href: string; icon: 
 export default function EatOutPage() {
   const t = useT();
   const hydrated = useHydrated();
-  const settings = useSettings();
   const menu = useMenu();
   const favorites = useStore(favoritesStore);
   const [requesting, setRequesting] = useState(false);
@@ -85,12 +85,14 @@ export default function EatOutPage() {
     return menu.chains.filter((c) => ids.has(c.id));
   }, [favorites, menu.chains]);
 
-  if (!hydrated || !settings.hasCompletedOnboarding) return <Spinner />;
+  if (!hydrated) return <Spinner />;
 
   return (
     <div>
       <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} /></h1>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Restaurants, cafés, pubs and takeaways, with the calories and protein of every dish.")}</p>
+
+      <StartPrompt className="mt-5" />
 
       <Link href="/app/search" className="glass mt-5 flex min-h-[3.25rem] items-center gap-3 rounded-[1.625rem] px-5 text-muted transition hover:bg-soft-strong active:scale-[0.99]">
         <SearchIcon className="h-5 w-5 shrink-0 text-foreground" />

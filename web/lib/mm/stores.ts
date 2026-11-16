@@ -6,6 +6,8 @@ import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
+import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
+import type { PlanId } from "../payments/plans";
 import { addWater, lastWaterToday, removeWater, sanitizeWater, type WaterEntry } from "./water";
 import {
   isDoneToday, localDateString, markDone, MAX_REMINDERS, sanitiseReminders, undoDone, validateDraft,
@@ -20,6 +22,10 @@ import {
 // the user chooses to send through the outbox.
 
 export const settingsStore = createStore<UserSettings>("mm.v1.settings", DEFAULT_SETTINGS, { sanitize: sanitizeSettings });
+/** Paid access on this device: the signed token and when it ends, plus the 48 hours given for sharing (lib/mm/paid.ts). Not personal data and not synced; "Clear data" leaves a purchase alone. */
+export const paidStore = createStore<PaidState>("mm.v1.paid", NO_PAID, { sanitize: sanitizePaid });
+/** The different dishes' Truth cards a free person has opened today (lib/mm/paid.ts). */
+export const truthDayStore = createStore<TruthDay>("mm.v1.truthDay", NO_TRUTH_DAY, { sanitize: sanitizeTruthDay });
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });
@@ -209,6 +215,25 @@ export function dropFutureTicks(now: Date = new Date()): void {
  *  sends an empty plan, which cancels every notification Numbite has scheduled. */
 export function clearReminders(): void {
   remindersStore.reset();
+}
+
+/** A payment's token that checked out: keep it with its end date. */
+export function keepPaidToken(token: string, plan: PlanId, untilMs: number) {
+  paidStore.update((p) => withVerifiedToken(p, token, plan, untilMs));
+}
+/** A stored token that no longer checks out (changed, run out). */
+export function forgetPaidToken() {
+  if (paidStore.get().token) paidStore.update(withoutToken);
+}
+/** The person shared on WhatsApp: 48 hours of paid features (a soft nudge: a share cannot be verified). */
+export function noteShareUnlock(nowMs: number = Date.now()) {
+  paidStore.update((p) => grantShareUnlock(p, nowMs));
+}
+/** May this dish's Truth card be opened by a free person today? Counts it if it is a new one. */
+export function tryOpenTruth(key: string, now: Date = new Date()): boolean {
+  const r = openTruth(truthDayStore.get(), localDay(now), key);
+  if (r.allowed && r.next !== truthDayStore.get()) truthDayStore.set(r.next);
+  return r.allowed;
 }
 
 /** Counts a successful save/log/share (drives the review-prompt style nudges later). */

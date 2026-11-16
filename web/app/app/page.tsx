@@ -1,5 +1,6 @@
 "use client";
 
+import { StartPrompt } from "./_components/StartPrompt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -113,7 +114,7 @@ export default function HomePage() {
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now));
   const indexes = useChainIndexes(todays.filter((e) => e.source === "item").map((e) => e.chainId));
 
-  if (!hydrated || !settings.hasCompletedOnboarding) return <Spinner />;
+  if (!hydrated) return <Spinner />;
 
   const profile = { goal: settings.goal, dailyCalories: settings.dailyCalories, glp1MealCap: settings.glp1MealCap, ...(settings.dailyProtein ? { dailyProtein: settings.dailyProtein } : {}) };
   const eaten = loggedToday(log, now);
@@ -179,8 +180,11 @@ export default function HomePage() {
               ) : (
                 // every day up to today opens that day's page (founder 2026-10-16: "when they click the number at the top it shows what they got on that day");
                 // the link reaches into the gap on each side so a narrow phone still gets a full-size tap target
-                <Link href={dayHref(d, now)} aria-label={label} aria-current={today ? "date" : undefined} className="-mx-1 flex flex-col items-center gap-2.5 rounded-2xl px-1 py-0.5 transition active:scale-95">
+                // (the spoken name is text inside the link, not an aria-label: the letter and number drawn above are the day's visible text, and an
+                // aria-label that doesn't contain them is what axe's label-content-name-mismatch rule flags)
+                <Link href={dayHref(d, now)} aria-current={today ? "date" : undefined} className="-mx-1 flex flex-col items-center gap-2.5 rounded-2xl px-1 py-0.5 transition active:scale-95">
                   {inner}
+                  <span className="sr-only">{label}</span>
                 </Link>
               )}
             </li>
@@ -224,7 +228,9 @@ export default function HomePage() {
         </Card>
       )}
 
-      {!settings.hasSetTargets && !settings.dismissedTargetsCard && (
+      <StartPrompt className="mt-3" />
+
+      {!settings.hasSetTargets && !settings.dismissedTargetsCard && settings.hasCompletedOnboarding && (
         <Card className="mt-3 flex items-center justify-between gap-3 p-4">
           <Link href="/app/settings#targets" className="min-h-11 flex-1 font-medium">{t("Set your targets to see what's left today")}</Link>
           <button type="button" className="min-h-11 min-w-11 text-sm text-muted" onClick={() => updateSettings({ dismissedTargetsCard: true })} aria-label={t("Dismiss")}>{t("Dismiss")}</button>

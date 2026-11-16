@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { PRO_ENABLED } from "@/lib/mm/config";
+import { IAP_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { PASS_DAYS, PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Terms" };
@@ -29,19 +30,45 @@ export default function Terms() {
         <p className={para}>
           Your use of the {site.name} app is governed by Apple&apos;s{" "}
           <a className={LINK} href={site.appleStandardEula}>Licensed Application End User License Agreement</a>.{" "}
-          {PRO_ENABLED
-            ? "Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
-            : "The app is free: there is nothing to buy in it."}
+          {IAP_ENABLED
+            ? "Paid features in the iPhone app are bought with Apple In-App Purchase. Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
+            : PRO_ENABLED
+              ? "Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
+              : WEB_PRO_ENABLED
+                ? "Paid features are not sold inside the iPhone app; the app is free."
+                : "The app is free: there is nothing to buy in it."}
         </p>
       </Section>
 
       <Section title="The web app">
         <p className={para}>
-          The {site.name} web app (at /app on this website) is free to use.{PRO_ENABLED ? " Paid features aren't available in it yet." : ""}{" "}
+          The {site.name} web app (at /app on this website) is free to use{WEB_PRO_ENABLED ? ", with some paid features (see Paid access on the website below)" : ""}.{PRO_ENABLED && !WEB_PRO_ENABLED ? " Paid features aren't available in it yet." : ""}{" "}
           Your goal, targets, saved orders and log are kept only in your browser unless you sign in (see below); if you clear your browser&apos;s site
           data, or the browser removes it, and you aren&apos;t signed in, they are deleted and we can&apos;t restore them.
         </p>
       </Section>
+
+      {WEB_PRO_ENABLED && (
+        <Section title="Paid access on the website">
+          <p className={para}>
+            Every restaurant&apos;s full menu with calories and macros stays free. Paid access adds the extras listed on the pricing screen (for example the Truth card for every dish rather than three a day,
+            every Smart Swap and Quick answer, and the full Cheapest protein list). You can pay for one of three plans: a one-off {PLANS.pass90.price} {PLANS.pass90.label} that gives {PASS_DAYS} days of access and does not renew,
+            {" "}{PLANS.annual.price} a year, or {PLANS.monthly.price} a month. The year and the month renew automatically until you cancel. Prices are shown before you pay.
+          </p>
+          <p className={para}>
+            Payments are taken by Stripe on its own secure page (card, Apple Pay or Google Pay), and you do not need an account to pay. We receive your email address, what you bought and when, and a payment reference
+            from Stripe, and never your card number. To use your access on another device, sign in there with the same email address, or ask us to help.
+          </p>
+          <p className={para}>
+            <strong>Cancelling.</strong> Cancel a year or a month any time by emailing us; you keep access until the end of the period you have paid for, and we do not take another payment.
+            <strong> Your right to cancel.</strong> Access starts as soon as you pay, because you ask us to start it at once. As a UK consumer you normally have 14 days to cancel a digital purchase, but once access has begun
+            and you have agreed to that, you lose that right. If something is wrong with what you bought, we will put it right or refund you as the law requires. Email us and we will reply within two working days.
+          </p>
+          <p className={para}>
+            <strong>Sharing for 48 hours.</strong> If you share on WhatsApp from the pricing screen, we give you 48 hours of paid features on that device. We cannot see what you share or who receives it, so this is a goodwill offer and we may change or withdraw it.
+          </p>
+        </Section>
+      )}
 
       <Section title="Accounts (optional)">
         <p className={para}>

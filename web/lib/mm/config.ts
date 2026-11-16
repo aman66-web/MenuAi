@@ -40,6 +40,25 @@ export const PAYMENTS_ENABLED = false;
 
 /** The iPhone app's build of the web app (npm run build:app): a static copy packed inside the app (docs/APP_BUILD.md). */
 export const APP_BUILD = process.env.NEXT_PUBLIC_APP_BUILD === "1";
+
+/**
+ * Paid access on the website (Stripe Checkout, the "viral and monetisation upgrade" of November 2026). Off unless NEXT_PUBLIC_WEB_PRO=1, and never in
+ * the iPhone app's build: App Store guideline 3.1.1 forbids buying digital features there with anything but In-App Purchase. While it is off the
+ * website and the app behave exactly as before (every feature free, no wording about Pro, payment or a pass anywhere; tests/prodmode.mjs checks that).
+ */
+export const WEB_PRO_ENABLED = process.env.NEXT_PUBLIC_WEB_PRO === "1" && !APP_BUILD;
+
+/**
+ * Paid access inside the iPhone app through Apple's In-App Purchase (StoreKit). Off unless the app is built with NEXT_PUBLIC_IAP=1 (and only in the
+ * app build). Needs the Swift side and the App Store Connect products, which the founder and the Mac session set up (docs/APP_BUILD.md).
+ */
+export const IAP_ENABLED = process.env.NEXT_PUBLIC_IAP === "1" && APP_BUILD;
+
+/** Paid access exists on this build, by either route. */
+export const PAID_ACCESS_ENABLED = WEB_PRO_ENABLED || IAP_ENABLED;
+
+/** Free and paid are told apart on this build: the older Pro machinery (test builds, NEXT_PUBLIC_PRO=1) or real paid access. False = every feature is open to everyone (the free launch). */
+export const GATING_ENABLED = PRO_ENABLED || PAID_ACCESS_ENABLED;
 /** Where the app build reaches the live website for newer data and the API: absolute, no trailing slash. Empty on the website itself. */
 export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "").replace(/\/$/, "") : "";
 

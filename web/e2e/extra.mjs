@@ -23,18 +23,14 @@ async function finishWithoutRecipe(page) {
   await page.getByRole("button", { name: "Take me to Home" }).click();
 }
 
-await step("a shared link on a first visit goes through onboarding and then lands on the shared page", async () => {
+await step("a link to a restaurant on a first visit opens it straight away: no questions first, and nothing is redirected", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/chain?id=cluck-house");
-  await page.waitForURL(/\/app\/welcome\?next=/);
-  await pastIntro(page);
-  await vis(page.getByRole("heading", { name: "What's your goal?" }));
-  // goal, foods to avoid, the three questions about the person (one Skip for all three), the targets, shops and text size
-  for (let i = 0; i < 6; i++) await page.getByRole("button", { name: "Skip" }).click();
-  await finishWithoutRecipe(page);
-  await page.waitForURL(/\/app\/chain\?id=cluck-house/);
   await vis(page.getByRole("heading", { name: "Cluck House" }));
+  if (/welcome/.test(page.url())) throw new Error("sent to the questions first: " + page.url());
+  await page.waitForTimeout(600);
+  if (/welcome/.test(page.url())) throw new Error("sent to the questions later: " + page.url());
   await ctx.close();
 });
 await step("onboarding goal radios work with the arrow keys (roving focus)", async () => {
@@ -288,6 +284,41 @@ await step("Settings › Daily targets reads 2,000 as two thousand (calories, wa
   await vis(targets.getByRole("alert").filter({ hasText: "Calories should be between 500 and 10,000." }));
   const after = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.dailyCalories);
   if (after !== 2250) throw new Error("a refused value was saved: " + after);
+  await ctx.close();
+});
+await step("App Review 1.4.1: the sources of the suggested targets are one tap away (Settings > About, beside Daily targets, and in onboarding) with working https links", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: "block" });
+  await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "glp1", dailyCalories: 2000 } })); });
+  const page = await ctx.newPage();
+  const requests = [];
+  page.on("request", (r) => requests.push(r.url()));
+  await page.goto(BASE + "/app/settings");
+  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
+  // beside the Daily targets (the screen Apple's reviewer photographed): a 44 px button that opens the sources in a sheet
+  const targets = page.locator("#targets");
+  const link = targets.getByRole("button", { name: "Where these numbers come from" });
+  await vis(link);
+  const box = await link.boundingBox();
+  if (box.height < 44) throw new Error("tap area " + box.height);
+  await link.click();
+  const sheet = page.getByRole("dialog", { name: "Where these numbers come from" });
+  await vis(sheet);
+  const hrefs = await sheet.locator("a[target=_blank]").evaluateAll((as) => as.map((a) => a.href));
+  if (hrefs.length !== 3) throw new Error("expected 3 source links, got " + hrefs.join(", "));
+  for (const h of hrefs) if (!/^https:\/\/(pubmed\.ncbi\.nlm\.nih\.gov|pmc\.ncbi\.nlm\.nih\.gov|www\.nhs\.uk)\//.test(h)) throw new Error("unexpected link " + h);
+  await vis(sheet.getByText("Mifflin-St Jeor equation", { exact: false }));
+  await vis(sheet.getByText("Numbite's own starting points"));
+  await vis(sheet.getByText("comfortable meal size that starts at 450 kcal", { exact: false }));
+  if (requests.some((u) => /nhs\.uk|ncbi\.nlm\.nih\.gov/.test(u))) throw new Error("a source page was fetched without a tap");
+  await sheet.getByRole("button", { name: "Close" }).click();
+  // the GLP-1 goal note has its own link, and Settings > About has the page
+  await vis(page.locator("section, div").filter({ hasText: "follow the advice of your doctor or pharmacist" }).getByRole("button", { name: "Where these numbers come from" }).first());
+  await page.getByRole("link", { name: "Where these numbers come from" }).click();
+  await page.waitForURL(/\/app\/settings\/sources/);
+  await vis(page.getByRole("heading", { level: 1, name: "Where these numbers come from" }));
+  await vis(page.getByRole("link", { name: "How we get our numbers" }));
+  await page.getByRole("link", { name: "Settings", exact: true }).click();
+  await vis(page.getByRole("heading", { level: 1, name: "Settings", exact: true }));
   await ctx.close();
 });
 console.log(`\n${pass} passed, ${fail} failed`);

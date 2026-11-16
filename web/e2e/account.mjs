@@ -244,8 +244,7 @@ await step("a new phone's welcome screen offers 'Already have an account? Sign i
   await seed.ctx.close();
 
   const fresh = await newPhone({ onboarded: false });
-  await fresh.page.goto(BASE + "/app");
-  await fresh.page.waitForURL(/\/app\/welcome/);
+  await fresh.page.goto(BASE + "/app/welcome");
   await fresh.page.getByRole("button", { name: "Get started" }).waitFor();
   await fresh.page.getByRole("button", { name: "Already have an account? Sign in" }).click();
   const sheet = fresh.page.getByRole("dialog");

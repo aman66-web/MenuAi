@@ -55,15 +55,18 @@ async function noForbidden(page, where) {
   expect(!hit, `${where}: "${hit?.[0]}"`);
 }
 
+// Founder 2026-10-18 ("it has to be the logos too"): the app's welcome wall follows the appLogos switch (web/app-content.json) like the rest of the app.
+// With appLogos on, the packed logo files show with no signal; with it off, plain names (the App Review fallback).
 await step(`first launch with no signal: the welcome wall shows ${LOGOS ? "the official logo files (app-content.json appLogos: true, founder 2026-10-18)" : "restaurant and shop names, no logo pictures"}, and only the supermarkets the app lists (no Co-op or Ocado)`, async () => {
   const { ctx, page } = await newPage({ settings: null });
-  await page.goto(BASE + "/app");
-  await page.waitForURL(/\/app\/welcome/);
+  await page.goto(BASE + "/app/welcome");
   const wall = page.locator(".logo-wall");
   await wall.waitFor();
   await page.waitForTimeout(800);
   if (LOGOS) {
     expect((await wall.locator("img").count()) > 0, "logo files on the wall");
+    const srcs = await wall.locator("img").evaluateAll((els) => els.slice(0, 20).map((e) => e.getAttribute("src") ?? ""));
+    expect(srcs.every((s) => !/^https?:/.test(s)), `logos load from inside the app: ${srcs.join(", ")}`);
     expect((await wall.getAttribute("aria-label")) === "Logos of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
   } else {
     expect((await wall.locator("img").count()) === 0, "no logo files on the wall");

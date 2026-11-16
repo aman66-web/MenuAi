@@ -7,6 +7,7 @@ import { analytics } from "@/lib/mm/analytics";
 import { loggedToday, MEAL_LABEL } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
+import { FREE_BEST_RESULTS, PAID_TIER_ONLY } from "@/lib/mm/entitlements";
 import { formatCalories, nutrientsSpoken } from "@/lib/mm/format";
 import { chainForDiet } from "@/lib/mm/menu-view";
 import { NO_MATCHES_COPY, OUT_OF_BUDGET_BANNER, OUT_OF_BUDGET_EMPTY, rank, type Pick } from "@/lib/mm/ranking";
@@ -67,30 +68,37 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
 
   // The picks sit straight on the white card, divided by fine lines (no box per pick), each with its number in a small grey circle;
   // the first pick's circle is the brand lime, the one highlighted thing.
-  const cards = result.picks.length > 0 && (
+  const renderPicks = (picks: typeof result.picks, offset: number, enabled: boolean) => (
     <ol>
-      {result.picks.map((pick, i) => (
-        <li key={pick.id} className="relative before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-line first:before:hidden">
-          <button
-            type="button"
-            onClick={() => open(pick, i + 1)}
-            disabled={!pro}
-            className="app-numbers group -mx-2 flex min-h-[4.5rem] w-[calc(100%+1rem)] items-center gap-3.5 rounded-2xl px-2 py-3 text-start transition enabled:active:bg-[var(--fill)] enabled:hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-accent"
-          >
-            <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[0.9375rem] font-bold ${i === 0 ? "bg-sun text-on-accent" : "bg-[var(--fill)] text-foreground"}`}>{i + 1}</span>
-            <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-              <span className="block text-base font-bold leading-snug tracking-[-0.005em]">{pick.name}</span>
-              <span className="mt-0.5 block text-pretty text-[0.9375rem] leading-snug text-muted">
-                <ReasonLine parts={[pick.reason, ...(pick.overBy !== undefined ? [t("Over by {kcal}", { kcal: formatCalories(pick.overBy) })] : [])]} />
+      {picks.map((pick, j) => {
+        const i = offset + j;
+        return (
+          <li key={pick.id} className="relative before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-line first:before:hidden">
+            <button
+              type="button"
+              onClick={() => open(pick, i + 1)}
+              disabled={!enabled}
+              className="app-numbers group -mx-2 flex min-h-[4.5rem] w-[calc(100%+1rem)] items-center gap-3.5 rounded-2xl px-2 py-3 text-start transition enabled:active:bg-[var(--fill)] enabled:hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-accent"
+            >
+              <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[0.9375rem] font-bold ${i === 0 ? "bg-sun text-on-accent" : "bg-[var(--fill)] text-foreground"}`}>{i + 1}</span>
+              <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+                <span className="block text-base font-bold leading-snug tracking-[-0.005em]">{pick.name}</span>
+                <span className="mt-0.5 block text-pretty text-[0.9375rem] leading-snug text-muted">
+                  <ReasonLine parts={[pick.reason, ...(pick.overBy !== undefined ? [t("Over by {kcal}", { kcal: formatCalories(pick.overBy) })] : [])]} />
+                </span>
+                <span className="sr-only">, {nutrientsSpoken(pick.nutrients, t)}</span>
               </span>
-              <span className="sr-only">, {nutrientsSpoken(pick.nutrients, t)}</span>
-            </span>
-            <ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-muted transition group-enabled:group-hover:text-foreground rtl:rotate-180" />
-          </button>
-        </li>
-      ))}
+              <ChevronRightIcon aria-hidden className="h-4 w-4 shrink-0 text-muted transition group-enabled:group-hover:text-foreground rtl:rotate-180" />
+            </button>
+          </li>
+        );
+      })}
     </ol>
   );
+  // Real paid access: a free person sees the first two picks as they are and the rest locked (founder's brief: results #3 to #5 are the paid part).
+  const freeCount = PAID_TIER_ONLY && !pro ? Math.min(FREE_BEST_RESULTS, result.picks.length) : 0;
+  const cards = result.picks.length > 0 && (freeCount > 0 ? renderPicks(result.picks.slice(0, freeCount), 0, true) : renderPicks(result.picks, 0, pro));
+  const lockedRest = freeCount > 0 && result.picks.length > freeCount ? renderPicks(result.picks.slice(freeCount), freeCount, false) : null;
 
   const body = (
     <>
@@ -100,7 +108,23 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
       {copy && <p role="status" className="mb-2.5 text-[0.9375rem] font-medium leading-snug">{copy}</p>}
       {result.mode === "noMatches" && <Button variant="secondary" onClick={onClearFilters}>{t("Clear filters")}</Button>}
 
-      {cards && (
+      {cards && freeCount > 0 && (
+        <div>
+          {cards}
+          {lockedRest && (
+            <div className="relative mt-1">
+              <div aria-hidden inert className="pointer-events-none select-none blur-sm">{lockedRest}</div>
+              <div className="absolute inset-0 flex items-start justify-center rounded-2xl bg-white/75 px-3 pt-4">
+                <Button onClick={() => showPaywall("bestForYou")} className="shadow-[0_12px_28px_-12px_rgba(17,24,20,0.5)]">
+                  <LockIcon className="h-5 w-5" />
+                  {t("Unlock the other {n}", { n: result.picks.length - freeCount })}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+      {cards && freeCount === 0 && (
         <div className="relative">
           {pro ? (
             cards

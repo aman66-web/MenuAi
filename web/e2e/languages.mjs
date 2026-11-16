@@ -10,11 +10,13 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 const fresh = (locale = "en-GB") => browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block", locale });
 const done = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, hasCompletedOnboarding: true, preferences: {} } });
 
-await step("the first screen is the welcome screen: no language choice, no 'Change language' button, even for a Polish browser", async () => {
+await step("the first screen is Home in English, and the welcome screen has no language choice, even for a Polish browser", async () => {
   const ctx = await fresh("pl-PL");
   const page = await ctx.newPage();
   await page.goto(BASE + "/app");
-  await page.waitForURL(/\/app\/welcome/);
+  await page.getByRole("heading", { level: 1, name: "Home" }).waitFor();
+  expect((await page.getByText("Choose your language").count()) === 0, "a language choice on Home");
+  await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Get started" }).waitFor();
   expect((await page.getByRole("radio").count()) === 0, "no language radios");
   expect((await page.getByText("Choose your language").count()) === 0, "no language heading");

@@ -14,19 +14,19 @@ export const viewport: Viewport = {
   themeColor: "#f4f5f6", // the app's light grey (globals.css .app-surface); there is no dark mode
 };
 
-// First visit (SPEC §7.1): send people to onboarding before the app's JavaScript has even loaded, so they see the welcome
-// screen straight from its static HTML instead of a spinner then a redirect. Same rule as AppShell's effect, which stays as
-// the fallback (e.g. storage blocked). The settings key and shape are lib/mm/stores.ts + persist.ts ({ v, data }).
+// No first-visit redirect any more (founder's brief, 13 Nov 2026: "instant utility first"): a link to a chain, a dish or a shared list opens it straight away
+// with sensible defaults, and Home and Eat out offer a quiet card to set a goal and a diet (_components/StartPrompt.tsx). This script only applies the chosen
+// text size before the first paint so a large-text reader never sees the page jump. The settings key and shape are lib/mm/stores.ts + persist.ts ({ v, data }).
 // The chosen language (lib/mm/i18n.ts) also applies before the first paint: <html lang/dir> straight away, and the page stays hidden
 // until that language's words have loaded (AppShell) so nobody sees a flash of English; it shows anyway after 3 seconds.
 const RTL = ["ur", "ar"];
 const LANGS: Record<string, string> = !LANGUAGES_ENABLED ? {} : { pl: "pl", ro: "ro", pa: "pa", ur: "ur", pt: "pt", es: "es", ar: "ar", bn: "bn", gu: "gu", it: "it" };
-const ONBOARDING_REDIRECT = `try{var z=JSON.parse(localStorage.getItem("mm.v1.settings")||"null"),t=z&&z.data&&z.data.textSize,l=z&&z.data&&z.data.language,h=document.documentElement,L=${JSON.stringify(LANGS)};if(t==="large")h.style.fontSize="115%";else if(t==="xlarge")h.style.fontSize="130%";if(l&&L[l]){h.lang=L[l];h.dir=${JSON.stringify(RTL)}.indexOf(l)>=0?"rtl":"ltr";h.dataset.i18nPending="1";setTimeout(function(){delete h.dataset.i18nPending},3000)}}catch(e){}try{var p=location.pathname;if(!/^\\/app\\/(welcome|offline)/.test(p)){var s=JSON.parse(localStorage.getItem("mm.v1.settings")||"null");if(!(s&&s.data&&s.data.hasCompletedOnboarding))location.replace("/app/welcome?next="+encodeURIComponent(p+location.search)+location.hash)}}catch(e){}`;
+const FIRST_PAINT = `try{var z=JSON.parse(localStorage.getItem("mm.v1.settings")||"null"),t=z&&z.data&&z.data.textSize,l=z&&z.data&&z.data.language,h=document.documentElement,L=${JSON.stringify(LANGS)};if(t==="large")h.style.fontSize="115%";else if(t==="xlarge")h.style.fontSize="130%";if(l&&L[l]){h.lang=L[l];h.dir=${JSON.stringify(RTL)}.indexOf(l)>=0?"rtl":"ltr";h.dataset.i18nPending="1";setTimeout(function(){delete h.dataset.i18nPending},3000)}}catch(e){}`;
 
 export default function AppLayout({ children }: LayoutProps<"/app">) {
   return (
     <>
-      <script dangerouslySetInnerHTML={{ __html: ONBOARDING_REDIRECT }} />
+      <script dangerouslySetInnerHTML={{ __html: FIRST_PAINT }} />
       <AppShell>{children}</AppShell>
     </>
   );

@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { parseNumber } from "@/lib/mm/addFood";
-import { APP_BUILD, DEV_TOOLS_ENABLED, PAYMENTS_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV, APP_VERSION } from "@/lib/mm/config";
+import { APP_BUILD, DEV_TOOLS_ENABLED, GATING_ENABLED, PAYMENTS_ENABLED, PRO_PREVIEW_FROM_ENV, WEB_PRO_ENABLED, APP_VERSION } from "@/lib/mm/config";
 import { isPro } from "@/lib/mm/entitlements";
 import { dataVersionDate } from "@/lib/mm/menu-client";
 import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
-import { compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
+import { paidStore, compareStore, cupboardStore, favoritesStore, recentStore, logStore, myRecipesStore, outbox, outboxStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, updateSettings, waterStore, clearReminders } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS, type TextSize } from "@/lib/mm/user-data";
 import { CARB_FAT_NOTE, GLP1_NOTE, isLowCalories, LOW_CALORIES_NOTE, MAX_MACRO_TARGET, suggestCarbFat, suggestProtein, SUGGESTION_NOTE } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
@@ -26,9 +26,11 @@ import { ShopPicker } from "../_components/ShopPicker";
 import { applyTextSize } from "../_lib/textSize";
 import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Button, Card, radioKeyNav, Segmented, Sheet, Toggle } from "../_components/ui";
+import { SourcesLink } from "../_components/SourcesLink";
 import { menuClient } from "../_lib/menu";
-import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
+import { useHydrated, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { leaveForClearing, useAccountUser } from "../_lib/account";
+import { setCreatorMode, useCreatorMode } from "../_lib/creator";
 
 // SPEC §7.9. Not on the web: Apple Health, Location, StoreKit's manage/restore rows (see docs/WEB_BUILD_PLAN.md).
 // Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): a compact heavy title, spaced-capital group labels,
@@ -121,6 +123,9 @@ function LinkRow({ href, children, external }: { href: string; children: React.R
 
 export default function SettingsPage() {
   const hydrated = useHydrated();
+  const creator = useCreatorMode();
+  const paid = useStore(paidStore);
+  const nowMs = useNow().getTime();
   const settings = useSettings();
   const t = useT();
   const menu = useMenu();
@@ -198,6 +203,7 @@ export default function SettingsPage() {
         <OptionList label={t("Goal")} value={settings.goal} options={GOAL_OPTIONS.map((o) => ({ ...o, label: t(o.label) }))} onChange={(goal) => updateSettings({ goal })} />
         {settings.goal === "glp1" && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Smaller, protein-first orders, capped at the meal size you set below.")}</p>}
         {settings.goal === "glp1" && <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t(GLP1_NOTE, { app: site.name })}</p>}
+        {settings.goal === "glp1" && <SourcesLink className="mt-1" />}
       </Section>
 
       <Section title={t("Daily targets")} id="targets">
@@ -214,6 +220,7 @@ export default function SettingsPage() {
             )}
           </div>
           <p className="mt-3.5 text-[0.9375rem] leading-snug text-muted">{t(CARB_FAT_NOTE)}</p>
+          <SourcesLink className="mt-1" />
           {isLowCalories(draftCalories ?? 0) && <p role="status" className={messageClass}>{t(LOW_CALORIES_NOTE)}</p>}
           <div className="mt-4 flex flex-wrap items-center gap-2.5">
             <Button onClick={saveTargets}>{t("Save targets")}</Button>
@@ -250,17 +257,21 @@ export default function SettingsPage() {
         <ShopPicker value={settings.shops ?? []} onChange={(shops) => updateSettings({ shops: shops.length ? shops : undefined })} />
       </Section>
 
-      {PRO_ENABLED && (
+      {GATING_ENABLED && (
         <Section title={t("Subscription")}>
           <Card className="p-4">
-            <p className="text-[1.0625rem] font-bold">{isPro(settings) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
-            {!PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
+            <p className="text-[1.0625rem] font-bold">{isPro(settings, paid, nowMs) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
+            {paid.until && paid.until > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
+            {!paid.until && paid.unlockUntil && paid.unlockUntil > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}
+            {WEB_PRO_ENABLED ? <Link href="/app/pro" className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{t("See plans")}</Link>
+              : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
           </Card>
         </Section>
       )}
 
       <Section title={t("About")}>
         <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
+          <LinkRow href="/app/settings/sources">{t("Where these numbers come from")}</LinkRow>
           <LinkRow href="/app/settings/numbers">{t("How we get our numbers")}</LinkRow>
           <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-muted" /></button>
           <LinkRow href="/privacy" external>{t("Privacy policy")}</LinkRow>
@@ -291,6 +302,12 @@ export default function SettingsPage() {
         </Section>
       )}
 
+      <Section title={t("Filming mode")}>
+        <Card className="p-3">
+          <Toggle label={t("Filming mode")} description={t("Shows the Truth and Swap cards as the dark card with bigger figures, adds a Replay button and hides the bottom bar. Shift+F switches it too.")} checked={creator} onChange={setCreatorMode} />
+        </Card>
+      </Section>
+
       <Section title={t("Your data")}>
         <Card className="p-4">
           <p className="text-[0.9375rem] leading-snug text-muted">{account ? t("Because you're signed in, your settings, saved meals, shopping list, favourites and today's log are also saved in your account, so they follow you to your other devices. Everything else stays on this device.") : t("Your settings, saved orders and log stay on this device. We never receive them.")}</p>
@@ -302,7 +319,7 @@ export default function SettingsPage() {
       {DEV_TOOLS_ENABLED && (
         <Section title={t("Testing tools")}>
           <Card className="space-y-2 p-3">
-            {PRO_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
+            {GATING_ENABLED && <Toggle label={t("Pro preview")} description={t("Unlock Pro features without paying (testing builds only)")} checked={settings.devProOverride} onChange={(v) => updateSettings({ devProOverride: v })} />}
             <Button variant="secondary" full onClick={() => updateSettings({ hasCompletedOnboarding: false })}>{t("Reset onboarding")}</Button>
             <Button variant="secondary" full onClick={() => logStore.reset()}>{t("Clear logs")}</Button>
           </Card>

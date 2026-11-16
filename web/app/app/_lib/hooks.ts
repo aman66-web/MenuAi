@@ -6,7 +6,7 @@ import { isPro } from "@/lib/mm/entitlements";
 import { tk } from "@/lib/mm/i18n";
 import type { MenuState } from "@/lib/mm/menu-client";
 import type { Store } from "@/lib/mm/persist";
-import { settingsStore } from "@/lib/mm/stores";
+import { paidStore, settingsStore } from "@/lib/mm/stores";
 import { menuClient } from "./menu";
 
 export function useStore<T>(store: Store<T>): T {
@@ -18,7 +18,7 @@ export function useSettings() {
 }
 
 export function useIsPro(): boolean {
-  return isPro(useSettings());
+  return isPro(useSettings(), useStore(paidStore));
 }
 
 /** The menu catalogue (which chains exist). Starts the manifest load on first use. */

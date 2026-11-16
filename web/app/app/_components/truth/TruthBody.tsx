@@ -1,0 +1,286 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { site } from "@/site.config";
+import { formatInt } from "@/lib/mm/format";
+import { itemHref } from "@/lib/mm/routes";
+import type { Chain, MenuItem } from "@/lib/mm/types";
+import { FSA_SOURCE, type Light, type LightResult } from "@/lib/mm/truth/fsaLights";
+import { calorieCalloutParts, itemTruth, type ItemTruth, type ReferenceRow } from "@/lib/mm/truth/itemTruth";
+import type { HouseholdEquivalent } from "@/lib/mm/truth/household";
+import { PROTEIN_SCORE_HOW, SCORE_LABELS } from "@/lib/mm/truth/proteinScore";
+import { REFERENCE_INTAKE_SOURCE } from "@/lib/mm/truth/referenceIntake";
+import { imageFileName, shareMessage, whatsappUrl } from "@/lib/mm/truth/shareTruth";
+import { swapFacts, type SwapSuggestion } from "@/lib/mm/truth/swap";
+import { useT } from "../../_lib/i18n";
+import { setLastTruthMessage } from "../../_lib/lastTruth";
+import { deliverImage } from "../../_lib/share-card";
+import { renderTruthCard } from "../../_lib/truth-card";
+import { Button } from "../ui";
+import { ButterIcon, EggIcon, ImageDownIcon, SugarCubeIcon, WhatsAppShareIcon } from "./TruthIcons";
+import { useCountUp } from "./useCountUp";
+
+// The "Truth" card for one menu item (founder's brief, 13 Nov 2026): the Protein score, the official traffic lights for fat, saturates, sugars and salt,
+// the calories as a share of the 2,000 kcal reference intake, what the figures look like as everyday things, and the Smart Swap. Everything is worked out from the
+// figures the restaurant publishes (lib/mm/truth/*); a figure it doesn't publish is not shown, never estimated. Big figures (32 to 72 px), 16 px words and
+// 48 px buttons, so it reads for a 75-year-old with reading glasses and from a phone's camera.
+
+/** The site's address for a shared link: the real one, even when the app is being tried on localhost. */
+export function shareOrigin(): string {
+  try {
+    const u = new URL(site.url);
+    return u.host.startsWith("localhost") ? "https://numbite.com" : `${u.protocol}//${u.host}`;
+  } catch {
+    return "https://numbite.com";
+  }
+}
+
+const LIGHT_FILL: Record<Light, string> = { green: "bg-[var(--tl-green)]", amber: "bg-[var(--tl-amber)]", red: "bg-[var(--tl-red)]" };
+const LIGHT_WORD: Record<Light, string> = { green: "Low", amber: "Medium", red: "High" };
+const LIGHT_NAME: Record<LightResult["key"], string> = { fat: "Fat", saturatedFat: "Saturates", sugar: "Sugars", salt: "Salt" };
+const gramsText = (n: number, digits = 1) => `${Number.isInteger(n) ? n : n.toFixed(digits)} g`;
+
+function LightPill({ r, percent, index }: { r: LightResult; percent?: number; index: number }) {
+  const t = useT();
+  const coloured = r.light !== undefined;
+  const name = t(LIGHT_NAME[r.key]);
+  return (
+    <li
+      style={{ "--i": index } as React.CSSProperties}
+      className={`truth-drop rounded-[1.25rem] px-3.5 py-3 text-[var(--tl-ink)] ${coloured ? LIGHT_FILL[r.light as Light] : "bg-[var(--tl-grey)]"}`}
+    >
+      <p className="text-base font-bold leading-tight">{name}</p>
+      {r.grams === undefined ? (
+        <p className="mt-1 text-lg font-bold leading-snug">{t("Not published")}</p>
+      ) : (
+        <>
+          <p className="app-numbers mt-0.5 text-3xl font-extrabold leading-none tracking-tight">{gramsText(r.grams, r.key === "salt" ? 2 : 1)}</p>
+          <p className="mt-1.5 text-lg font-bold leading-snug">{coloured ? t(LIGHT_WORD[r.light as Light]) : t("No colour")}</p>
+          {percent !== undefined && <p className="app-numbers text-base font-semibold leading-snug">{t("{n}% of reference intake", { n: percent })}</p>}
+        </>
+      )}
+    </li>
+  );
+}
+
+function Lights({ truth, chain }: { truth: ItemTruth; chain: Chain }) {
+  const t = useT();
+  const pct = (key: string) => truth.reference.find((r: ReferenceRow) => r.key === key)?.percent;
+  const published = truth.lights.filter((l) => l.grams !== undefined);
+  if (truth.kind === "drink" && published.length === 0) return null;
+  const anyUncoloured = truth.lights.some((l) => l.basis === "no-weight");
+  return (
+    <section aria-labelledby="truth-lights" className="mt-6">
+      <h3 id="truth-lights" className="text-xl font-extrabold leading-snug tracking-tight">{t("Traffic lights")}</h3>
+      <ul className="mt-3 grid grid-cols-2 gap-2.5">
+        {truth.lights.map((r, i) => (
+          <LightPill key={r.key} r={r} index={i} percent={pct(r.key)} />
+        ))}
+      </ul>
+      <div className="mt-3 space-y-2 text-base leading-snug text-muted">
+        {truth.kind === "drink" ? (
+          <p>{t("Drinks aren't coloured here: the official scheme measures them per 100 ml.")}</p>
+        ) : anyUncoloured ? (
+          <p>{t("A colour needs the dish's weight, which {chain} doesn't publish for it. A figure above the official high level is red whatever it weighs.", { chain: chain.name })}</p>
+        ) : null}
+        <p>
+          {t("Colours follow the official UK scheme.")}{" "}
+          <a href={FSA_SOURCE.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-4">
+            {t("See the guidance")}<span className="sr-only"> {t("(opens in a new tab)")}</span>
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Household({ rows, replay }: { rows: HouseholdEquivalent[]; replay: number }) {
+  const t = useT();
+  if (rows.length === 0) return null;
+  const Icon = { sugar: SugarCubeIcon, fat: ButterIcon, protein: EggIcon } as const;
+  const label = { sugar: "Sugar", fat: "Fat", protein: "Protein" } as const;
+  return (
+    <section aria-labelledby="truth-inside" className="mt-6">
+      <h3 id="truth-inside" className="text-xl font-extrabold leading-snug tracking-tight">{t("What that looks like")}</h3>
+      <ul className="mt-3 space-y-3">
+        {rows.map((h) => {
+          const I = Icon[h.kind];
+          return (
+            <li key={`${h.kind}-${replay}`} className="glass rounded-[1.25rem] p-4">
+              <p className="text-base font-semibold text-muted">{t(label[h.kind])}: <span className="app-numbers">{gramsText(h.grams)}</span></p>
+              <p aria-hidden className="mt-2 flex flex-wrap gap-1.5">
+                {Array.from({ length: h.icons }, (_, i) => (
+                  <I key={i} style={{ "--i": i } as React.CSSProperties} className="truth-drop h-9 w-9" />
+                ))}
+              </p>
+              <p className="mt-2 text-2xl font-extrabold leading-snug tracking-tight">= {t(h.text)}</p>
+              <p className="mt-1 text-base leading-snug text-muted">
+                {t(h.basis)}{" "}
+                <a href={h.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-4">
+                  {t("Source")}<span className="sr-only"> {t("(opens in a new tab)")}</span>
+                </a>
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+function ScoreDots({ score }: { score: number }) {
+  return (
+    <span aria-hidden className="mt-2 flex gap-1.5">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <span key={n} className={`h-3 flex-1 rounded-full ${n <= score ? "bg-accent" : "bg-soft-strong"}`} />
+      ))}
+    </span>
+  );
+}
+
+function MiniDish({ item, heading, tone }: { item: MenuItem; heading: string; tone: "plain" | "swap" }) {
+  const t = useT();
+  const tr = itemTruth(item);
+  return (
+    <div className={`rounded-[1.25rem] p-4 ${tone === "swap" ? "bg-accent-soft ring-2 ring-accent" : "glass"}`}>
+      <p className="text-base font-bold uppercase tracking-wide text-muted">{heading}</p>
+      <p className="mt-1 text-xl font-extrabold leading-snug [overflow-wrap:anywhere]">{item.name}</p>
+      <p className="app-numbers mt-2 text-3xl font-extrabold leading-none tracking-tight">{formatInt(item.nutrients.calories)} <span className="text-lg font-bold text-muted">kcal</span></p>
+      {item.nutrients.protein !== undefined && <p className="app-numbers mt-1.5 text-xl font-bold">{gramsText(item.nutrients.protein)} <span className="text-base font-semibold text-muted">{t("protein")}</span></p>}
+      {tr.score && <p className="app-numbers mt-1.5 text-lg font-bold">{t("Protein score")} {tr.score.score} / 5</p>}
+    </div>
+  );
+}
+
+/** The split card: your pick above, the swap below, and what the swap saves across the middle, in numbers only. */
+function SwapCard({ chain, item, swap }: { chain: Chain; item: MenuItem; swap: SwapSuggestion }) {
+  const t = useT();
+  const facts = swapFacts(swap);
+  const banner =
+    facts.moreProtein !== undefined
+      ? t("Save {kcal} kcal and get {protein} g more protein in 1 swap", { kcal: formatInt(facts.saves), protein: facts.moreProtein })
+      : t("Save {kcal} kcal in 1 swap", { kcal: formatInt(facts.saves) });
+  return (
+    <section aria-labelledby="truth-swap" className="mt-6">
+      <h3 id="truth-swap" className="text-xl font-extrabold leading-snug tracking-tight">{t("Smart Swap")}</h3>
+      <div className="mt-3 space-y-2.5">
+        <MiniDish item={item} heading={t("Your pick")} tone="plain" />
+        <p className="truth-bounce rounded-[1.25rem] bg-[var(--sun)] px-4 py-4 text-center text-3xl font-extrabold leading-tight tracking-tight text-[var(--tl-ink)]">{banner}</p>
+        <MiniDish item={swap.item} heading={t("Smart Swap at {chain}", { chain: chain.name })} tone="swap" />
+      </div>
+      <p className="mt-3 text-base leading-snug text-muted">
+        {swap.tier === "protein-first"
+          ? t("Same restaurant, same part of the menu, with at least as much protein and fewer calories. Your diet and allergy settings are applied.")
+          : t("Same restaurant, same part of the menu, with fewer calories. {chain} doesn't publish protein, so only calories are compared.", { chain: chain.name })}
+      </p>
+      <Link href={itemHref(chain.id, swap.item.id)} className="mt-1 inline-flex min-h-12 items-center font-bold text-accent underline underline-offset-4">{t("See the swap's full numbers")}</Link>
+    </section>
+  );
+}
+
+export interface TruthBodyProps {
+  chain: Chain;
+  item: MenuItem;
+  swap: SwapSuggestion | null;
+  /** Creator View: even bigger figures. */
+  creator?: boolean;
+  /** Bumping this plays the opening animation again (Creator View's Replay button). */
+  replay?: number;
+  /** Called when the person taps Share to WhatsApp (the share-to-unlock note, once paid access exists). */
+  onWhatsApp?: () => void;
+}
+
+export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWhatsApp }: TruthBodyProps) {
+  const t = useT();
+  const truth = useMemo(() => itemTruth(item), [item]);
+  const calories = useCountUp(Math.round(item.nutrients.calories), 300, replay);
+  const scoreShown = useCountUp(truth.score?.score ?? 0, 300, replay);
+  const [saved, setSaved] = useState<string | null>(null);
+  const callout = calorieCalloutParts(truth.caloriePercent);
+  const caloriesOnly = chain.nutritionLevel === "calories" || item.nutrients.protein === undefined;
+  const message = shareMessage({ chainId: chain.id, chainName: chain.name, item, swap, origin: shareOrigin() });
+  useEffect(() => { setLastTruthMessage(message); }, [message]);
+
+  const saveImage = async () => {
+    try {
+      const blob = await renderTruthCard({ chainName: chain.name, itemName: item.name, nutrients: item.nutrients, truth, swap: swap ? { name: swap.item.name, kcal: swap.item.nutrients.calories, facts: swapFacts(swap) } : null, t });
+      const r = await deliverImage(blob, { fileName: imageFileName(chain.name, item.name), title: t("{item} at {chain}", { item: item.name, chain: chain.name }), text: message });
+      setSaved(r === "cancelled" ? null : r === "downloaded" ? t("Image saved to your downloads.") : t("Image ready to share."));
+    } catch {
+      setSaved(t("Couldn't make the image. Try again."));
+    }
+  };
+
+  return (
+    <div key={replay} className="pb-4">
+      <p className="text-base font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{chain.name}</p>
+
+      <section aria-labelledby="truth-calories" className="truth-bounce mt-3 rounded-[1.5rem] bg-[var(--fill)] p-5">
+        <h3 id="truth-calories" className="text-base font-bold uppercase tracking-wide text-muted">{t("Calories")}</h3>
+        <p className="mt-1 flex items-baseline gap-2">
+          <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight ${creator ? "text-7xl" : "text-6xl"}`}>{formatInt(calories)}</span>
+          <span className="sr-only">{formatInt(item.nutrients.calories)}</span>
+          <span className="text-2xl font-bold text-muted">kcal</span>
+        </p>
+        {callout && (
+          <p className="mt-2 text-xl font-bold leading-snug">
+            {t("{percent}% of the 2,000 kcal reference intake in one item.", { percent: callout.percent })}
+          </p>
+        )}
+        {item.nutrients.protein !== undefined && (
+          <p className="mt-3 text-2xl font-extrabold leading-snug">
+            <span className="app-numbers">{gramsText(item.nutrients.protein)}</span> <span className="text-lg font-bold text-muted">{t("protein")}</span>
+            <span className="app-numbers text-base font-semibold text-muted"> · {t("{n}% of reference intake", { n: truth.reference.find((r) => r.key === "protein")?.percent ?? 0 })}</span>
+          </p>
+        )}
+      </section>
+
+      {truth.score ? (
+        <section aria-labelledby="truth-score" className="truth-bounce mt-3 rounded-[1.5rem] bg-[var(--fill)] p-5">
+          <h3 id="truth-score" className="text-base font-bold uppercase tracking-wide text-muted">{t("Protein score")}</h3>
+          <p className="mt-1 flex items-baseline gap-2">
+            <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight text-accent ${creator ? "text-8xl" : "text-7xl"}`}>{scoreShown}</span>
+            <span aria-hidden className="text-4xl font-bold text-muted">/ 5</span>
+            <span className="sr-only">{t("{score} out of 5", { score: truth.score.score })}</span>
+          </p>
+          <ScoreDots score={truth.score.score} />
+          <p className="mt-3 text-xl font-bold leading-snug">{t(SCORE_LABELS[truth.score.score])}</p>
+          <p className="mt-1.5 text-base leading-snug text-muted">{t(PROTEIN_SCORE_HOW)}</p>
+        </section>
+      ) : caloriesOnly && truth.kind !== "drink" ? (
+        <p className="mt-3 rounded-[1.25rem] bg-[var(--fill)] p-4 text-base leading-snug">{t("{chain} publishes calories only for this dish, so there is no protein score.", { chain: chain.name })}</p>
+      ) : null}
+
+      <Lights truth={truth} chain={chain} />
+      <Household rows={truth.household} replay={replay} />
+      {swap && <SwapCard chain={chain} item={item} swap={swap} />}
+
+      <div className="mt-7 space-y-2.5">
+        <a
+          href={whatsappUrl(message)}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => onWhatsApp?.()}
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--tl-green)] px-6 text-base font-bold text-[var(--tl-ink)] transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          <WhatsAppShareIcon className="h-6 w-6" />
+          <span>{t("Share to WhatsApp")}</span>
+          <span className="sr-only">{t("(opens in a new tab)")}</span>
+        </a>
+        <Button size="lg" full variant="secondary" onClick={() => void saveImage()}>
+          <ImageDownIcon className="h-6 w-6" />
+          {t("Save image card")}
+        </Button>
+        <p role="status" aria-live="polite" className="text-center text-base font-semibold text-accent empty:hidden">{saved}</p>
+      </div>
+
+      <p className="mt-5 text-base leading-snug text-muted">
+        {t("Not affiliated with {chain}.", { chain: chain.name })} {t("Percentages use the UK reference intakes.")}{" "}
+        <a href={REFERENCE_INTAKE_SOURCE.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-4">
+          {t("Source")}<span className="sr-only"> {t("(opens in a new tab)")}</span>
+        </a>
+      </p>
+    </div>
+  );
+}

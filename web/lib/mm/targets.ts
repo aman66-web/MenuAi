@@ -71,7 +71,7 @@ export function suggestTargets(input: SuggestionInput): Suggestion {
 // (9 kcal a gram) and the rest from carbs (4 kcal a gram) after protein (4 kcal a gram; 20% of calories when no protein target is set),
 // rounded to 5 g. They are targets the person can change, never figures about a food.
 export const FAT_SHARE = 0.3;
-const PROTEIN_SHARE_WITHOUT_TARGET = 0.2;
+export const PROTEIN_SHARE_WITHOUT_TARGET = 0.2;
 // Protein gets a suggested target too (founder 2026-10-15, on Home's protein row with no bar: "there should be a bar like for carbs and fats"):
 // left empty it is 20% of the day's calories at 4 kcal a gram, rounded to 5 g, the same share carbs are worked out after.
 export const CARB_FAT_NOTE = tk("Left empty, protein, carbs and fat are worked out from your calories: about 20% from protein, 30% from fat and the rest from carbs. Type your own to change them.");
