@@ -580,6 +580,48 @@ await step("cuisine and occasion: two fields with counts, one tap to choose, AND
   await b.ctx.close();
 });
 
+await step("Your supermarkets beside the search: the chosen shops' logos, a tap opens the same list as Settings, Continue saves and shows a short working moment, Close leaves it as it was, recipes still say Sainsbury's, axe", async () => {
+  const { ctx, page } = await newPage();
+  await page.goto(BASE + "/app/recipes");
+  await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
+  const search = page.getByLabel("Search recipes");
+  const shops = page.getByRole("button", { name: /^Your supermarkets/ });
+  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's", "label: " + (await shops.getAttribute("aria-label")));
+  expect((await search.getAttribute("placeholder")) === "Search recipes", "placeholder: " + (await search.getAttribute("placeholder")));
+  const s = await search.boundingBox();
+  const b = await shops.boundingBox();
+  expect(b.height >= 44 && b.width >= 44, `the button is ${b.width} x ${b.height}`);
+  expect(b.x >= s.x + s.width && Math.abs(b.y + b.height / 2 - (s.y + s.height / 2)) < 4, "the button should sit right of the search, on the same line");
+  expect(b.x + b.width <= 390, "the button runs off the screen");
+  await shops.click();
+  const sheet = page.getByRole("dialog", { name: "Your supermarkets" });
+  await sheet.waitFor();
+  await page.waitForTimeout(500);
+  await page.addScriptTag({ path: AXE });
+  const v = await page.evaluate(async () => (await window.axe.run(document, { resultTypes: ["violations"] })).violations.map((x) => `${x.id} (${x.nodes.length})`));
+  expect(v.length === 0, `the open sheet: ${v.join(", ")}`);
+  const tesco = sheet.getByRole("button", { name: /Tesco/ });
+  await tesco.click();
+  expect((await tesco.getAttribute("aria-pressed")) === "true", "Tesco was not chosen");
+  await sheet.getByRole("button", { name: "Continue" }).click();
+  await sheet.getByRole("status").filter({ hasText: /Saving your supermarkets/ }).waitFor({ timeout: 1500 });
+  await sheet.getByText("Working out each serving's price and nutrition…").waitFor();
+  const t0 = Date.now();
+  await sheet.waitFor({ state: "hidden", timeout: 6000 });
+  expect(Date.now() - t0 < 4000, "the working moment lasted too long");
+  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's, Tesco", "after: " + (await shops.getAttribute("aria-label")));
+  await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
+  expect(JSON.stringify(stored) === JSON.stringify(["sainsburys", "tesco"]), "stored: " + JSON.stringify(stored));
+  await page.reload();
+  await page.getByRole("button", { name: "Your supermarkets: Sainsbury's, Tesco" }).click();
+  await sheet.getByRole("button", { name: /Asda/ }).click();
+  await sheet.getByRole("button", { name: "Close" }).click();
+  await sheet.waitFor({ state: "hidden" });
+  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's, Tesco", "Close should leave the shops as they were");
+  await ctx.close();
+});
+
 for (const scheme of ["light", "dark"]) {
   await step(`axe: recipes list and a recipe (${scheme})`, async () => {
     const { ctx, page } = await newPage(scheme, proSettings);

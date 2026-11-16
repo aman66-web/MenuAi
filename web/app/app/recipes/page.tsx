@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
 import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
+import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
 import { recipesFromList } from "@/lib/mm/listRecipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
@@ -16,12 +17,14 @@ import { cuisineOptions, matchesNiche, nicheCounts, nicheSearchWords, occasionOp
 import { isMeatFree, isQuick, isVegan, MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
+import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CheckIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
+import { ShopPicker } from "../_components/ShopPicker";
 import { useGate } from "../_components/Paywall";
-import { Button, EmptyState, ErrorBox, Segmented, Spinner } from "../_components/ui";
+import { Button, EmptyState, ErrorBox, Segmented, Sheet, Spinner } from "../_components/ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { recipeShop, useRecipeCards, useRecipeMakerEnabled, type RecipeCard } from "../_lib/recipes";
@@ -98,6 +101,66 @@ function Tile({ label, Icon, pressed, onClick, more, expanded }: { label: string
   );
 }
 
+/** The supermarkets someone shops at, beside the search (founder 2026-11-16: "on the right of that should be the supermarket"): their own logos, up to three
+ *  overlapping, and a tap opens the same list as onboarding and Settings. Recipes still come from a shop whose labels we've read; the sentence above names it. */
+function ShopsButton({ shops, onClick }: { shops: readonly string[]; onClick: () => void }) {
+  const t = useT();
+  const names = shops.flatMap((id) => RETAILERS.find((r) => r.id === id)?.name ?? []);
+  const shown = shops.slice(0, 3);
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-haspopup="dialog"
+      aria-label={names.length ? `${t("Your supermarkets")}: ${names.join(", ")}` : t("Your supermarkets")}
+      className="glass inline-flex min-h-[3.25rem] shrink-0 items-center gap-1 rounded-full px-2 transition hover:bg-soft-strong active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      {shown.length ? (
+        <span aria-hidden className="flex items-center">
+          {shown.map((id, i) => <span key={id} className={`rounded-xl ring-2 ring-white ${i ? "-ms-3" : ""}`}><ShopMark shopId={id} size="sm" /></span>)}
+        </span>
+      ) : (
+        <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-soft-strong"><BasketIcon className="h-5 w-5" /></span>
+      )}
+      {shops.length > 3 && <span aria-hidden className="app-numbers pe-1 text-sm font-bold">+{shops.length - 3}</span>}
+    </button>
+  );
+}
+
+// What happens after Continue, said one line at a time (founder 2026-11-16: "a loading animation ... about 2 seconds ... showing that it's working"). Each line
+// is something the app really does once the shops are saved: the list below is worked out again for the person's diet and meal size.
+const WORKING_LINES = [tk("Saving your supermarkets…"), tk("Matching recipes to your diet…"), tk("Working out each serving's price and nutrition…")];
+const WORKING_STEP_MS = 650;
+
+function ShopsWorking({ onDone }: { onDone: () => void }) {
+  const t = useT();
+  const [step, setStep] = useState(0);
+  useEffect(() => {
+    const timer = setTimeout(() => (step < WORKING_LINES.length ? setStep(step + 1) : onDone()), step < WORKING_LINES.length ? WORKING_STEP_MS : 300);
+    return () => clearTimeout(timer);
+  }, [step, onDone]);
+  return (
+    <div className="pb-2 pt-1">
+      <div className="flex justify-center"><Pip mood={step >= WORKING_LINES.length ? "cheer" : "think"} size={88} /></div>
+      <p role="status" aria-live="polite" className="sr-only">{t(WORKING_LINES[Math.min(step, WORKING_LINES.length - 1)]!)}</p>
+      <ul aria-hidden className="mt-4 space-y-3">
+        {WORKING_LINES.map((line, i) => (
+          <li key={line} className={`flex items-center gap-3 text-[1.0625rem] font-semibold transition-colors ${i <= step ? "text-foreground" : "text-muted"}`}>
+            {i < step ? (
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
+            ) : i === step ? (
+              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+            ) : (
+              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-[rgba(17,24,20,0.1)]" />
+            )}
+            <span>{t(line)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function RecipesScreen() {
   const t = useT();
   const poss = usePossessive();
@@ -121,6 +184,11 @@ function RecipesScreen() {
   const [meal, setMeal] = useState<MealType | null>(null);
   const [toggles, setToggles] = useState<ReadonlySet<Toggle>>(new Set());
   const [more, setMore] = useState(false);
+  const [shopsOpen, setShopsOpen] = useState(false);
+  const [draftShops, setDraftShops] = useState<string[]>([]);
+  const [working, setWorking] = useState(false);
+  const chosenShops = settings.shops ?? [];
+  const closeShops = useCallback(() => { setShopsOpen(false); setWorking(false); }, []);
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(PAGE);
   const [sort, setSort] = useState<Sort | null>(null);
@@ -188,12 +256,29 @@ function RecipesScreen() {
         </div>
       )}
 
-      <div className="group/search relative mt-4">
-        <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
-        {/* 16 px text: smaller text makes iPhone Safari zoom into the field */}
-        <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes, e.g. chicken or curry")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent`} />
-        <SearchDone />
+      <div className="mt-4 flex items-center gap-2.5">
+        <div className="group/search relative min-w-0 flex-1">
+          <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-muted" />
+          {/* 16 px text: smaller text makes iPhone Safari zoom into the field */}
+          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent`} />
+          <SearchDone />
+        </div>
+        <ShopsButton shops={chosenShops} onClick={() => { setDraftShops([...chosenShops]); setWorking(false); setShopsOpen(true); }} />
       </div>
+      {/* The choice is saved on Continue (Close leaves it as it was), then a short "working" moment, then back to the recipes. */}
+      <Sheet open={shopsOpen} onClose={closeShops} title={t("Your supermarkets")}>
+        {working ? (
+          <ShopsWorking onDone={closeShops} />
+        ) : (
+          <>
+            <p className="text-[0.9375rem] leading-snug text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
+            <div className="mt-3">
+              <ShopPicker value={draftShops} onChange={setDraftShops} />
+            </div>
+            <Button full className="mt-4" onClick={() => { updateSettings({ shops: draftShops.length ? draftShops : undefined }); setWorking(true); }}>{t("Continue")}</Button>
+          </>
+        )}
+      </Sheet>
 
       {/* Eight big tiles: four columns on a phone, fewer when the text is large (the minimum width is in rem). */}
       <div role="group" aria-label={t("Filters")} className="mt-3.5 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,4.9rem),1fr))] gap-2.5">

@@ -84,6 +84,16 @@ await step("360 px and Extra large text: no sideways scroll; axe 0", async () =>
   await r.ctx.close();
 });
 
+await step("App Review 1.4.1: 'Where these numbers come from' under the page's first line opens the menu sources, with the protein-food line", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  const page = await ctx.newPage();
+  await loaded(page);
+  await page.getByRole("button", { name: "Where these numbers come from" }).click();
+  await page.getByRole("dialog", { name: "Where these numbers come from" }).getByText("Cheapest protein: a food counts as a protein food when it has at least 12 g of protein in every 100 g and at least 25% of its calories come from protein.").waitFor();
+  await page.keyboard.press("Escape");
+  await ctx.close();
+});
+
 console.log(`\n${passed} passed, ${failed} failed`);
 await browser.close();
 process.exit(failed ? 1 : 0);

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { site } from "@/site.config";
 import { formatDate, formatInt } from "@/lib/mm/format";
-import { DEFAULT_GLP1_MEAL_CAP } from "@/lib/mm/budget";
+import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP } from "@/lib/mm/budget";
 import { DEFAULT_WATER_GOAL_ML } from "@/lib/mm/water";
 import { CALORIE_ADJUSTMENT, FAT_SHARE, MIN_SUGGESTED_CALORIES, PROTEIN_PER_KG, PROTEIN_SHARE_MAX, PROTEIN_SHARE_MIN, PROTEIN_SHARE_WITHOUT_TARGET } from "@/lib/mm/targets";
 import { TARGET_SOURCES_CHECKED, targetSource, type TargetSource } from "@/lib/mm/targetSources";
@@ -69,6 +69,7 @@ export function SourcesBody({ withNumbersLink, level = "h3" }: { withNumbersLink
       <Block level={level} title={t("{app}'s own starting points", { app })}>
         <p>{t("These are not taken from a published source. They are just where {app} starts, and you can change all of them in Settings.", { app })}</p>
         <ul className="list-disc space-y-1.5 ps-5">
+          <li>{t("Until you set your own, a target of {kcal} kcal a day.", { kcal: formatInt(DEFAULT_DAILY_CALORIES) })}</li>
           <li>{t("The four activity levels, from mostly sitting to very active, and the numbers we multiply your resting calories by.")}</li>
           <li>{t("For the lose-weight and GLP-1 goals, {lose} kcal a day below that estimate. To build muscle, {gain} kcal a day above it.", { lose: formatInt(Math.abs(CALORIE_ADJUSTMENT.lose)), gain: formatInt(CALORIE_ADJUSTMENT.buildMuscle) })}</li>
           <li>{t("We never suggest fewer than {min} kcal a day, and we show a note if you type less than that.", { min: formatInt(MIN_SUGGESTED_CALORIES) })}</li>

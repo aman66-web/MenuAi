@@ -174,6 +174,18 @@ the International Society of Sports Nutrition position stand on protein and exer
 the 500 and 250 kcal goal adjustments, the 1,200 kcal floor, the protein limits and the 20/30/50 split, the 2,000 ml water goal and the GLP-1 meal size) the same
 screen says it is Numbite's own starting point, and every suggested number can be changed by the person.
 
+New in 1.0.1 (build 5): a menu item's page has "See the truth", which opens a card with the item's own published figures and a few numbers worked out from
+them: calories and protein as a percentage of the UK reference intakes used on food labels, the UK government's front-of-pack traffic-light colours for fat,
+saturates, sugars and salt, and the sugar, fat and protein shown as sugar cubes, grams of butter and eggs. Each of these links its published source on the
+card, and a "Where these numbers come from" link at the top of the card (and under any Quick answers list, and on Groceries > Cheapest protein) opens one
+screen listing all the sources: Regulation (EU) No 1169/2011 Annex XIII as it applies in Great Britain (legislation.gov.uk), the UK front-of-pack labelling
+guidance (gov.uk), the NHS "Sugar: the facts", McCance and Widdowson's Composition of Foods dataset (via Patient.info) and the British Egg Information
+Service. The same screen says which rules are Numbite's own and have no published source: the 1 to 5 protein score (it compares the calories from protein with
+the item's calories), the Quick answers limits, the Smart Swap rules and the Cheapest protein list's line for a protein food. It is also under Settings >
+About > "Where these numbers come from", below the sources for the suggested daily targets. Because a first visit now opens straight on Home (no questions
+first), the card under Home's daily numbers ("Make Numbite fit you") also links the sources of the daily targets. Nothing in 1.0.1 can be bought: there are no
+in-app purchases and no paid features. Sharing a card opens the iPhone share sheet or a message link; nothing is posted by the app.
+
 Reminders (Home > Reminders, the + button): the person types their own reminder (any name, an optional short note, the days and the time) and the
 iPhone shows it as a local notification at that time. To try it, add a reminder a minute ahead and allow notifications when asked (the permission is
 asked only when the first reminder is saved, never at launch). Every word is the person's own: the Reminders feature contains no medicine names, suggests no
@@ -181,6 +193,36 @@ medicine, dose or time, never says a reminder was missed or late, and has no str
 'Numbite rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone. Follow the advice of your doctor or pharmacist about any medication.' (guideline 1.4.1) and the
 terms say it is not a medical device. Reminders stay on the phone: they are not sent to us, not synced even when signed in, and the app uses no push
 server or remote notifications."
+
+## Version 1.0.1 (build 5): the free viral screens (approved by the founder on 16 November 2026)
+
+Paste into App Store Connect › Numbite › 1.0.1. Source and the facts behind each line: `docs/STORE_NEXT_VERSION_DRAFT.md`. No payment, subscription or "Pro" wording; no company names; no health claims. The App Review paragraph for 1.0.1 is in "Notes for App Review" above, after the build 4 paragraph.
+
+**What's New in This Version:**
+
+```
+What's new in 1.0.1
+
+• See the truth: tap the new button on a menu item to see its calories as a share of the 2,000 kcal reference intake used on food labels, a protein score from 1 to 5, the UK's front-of-pack traffic lights for fat, saturates, sugars and salt, and its sugar, fat and protein shown as sugar cubes, grams of butter and eggs. "Where these numbers come from" lists the sources.
+
+• Smart Swap: when the same restaurant has a dish from the same part of the menu with fewer calories that fits your diet and allergy settings (and, where it publishes protein, has at least as much protein), you see the two side by side, with the calories it saves.
+
+• Quick answers: one tap on a restaurant's page shows its top 5 meals of 500 calories or less, with 35 g of protein or more, for a small appetite, with 5 g of sugar or less, or with the most protein for the calories.
+
+• Cheapest protein: in Groceries, see what 10 g of protein costs, worked out from each product's own label and shelf price.
+
+• Share: send a dish's numbers in a message, or save them as an image card.
+
+• Starts straight away: no questions first. Set your goal and what you avoid whenever you like.
+
+Every figure still comes from each restaurant's or shop's own published information. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
+```
+
+**Promotional text** (optional, can change without a build):
+
+```
+New: see any menu item's calories, protein score and traffic lights in one tap, find a lighter swap at the same restaurant, and share the numbers. Free.
+```
 
 ## Release checklist (free launch)
 

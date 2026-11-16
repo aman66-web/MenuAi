@@ -19,6 +19,9 @@ import { Button, SectionTitle } from "./ui";
 import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
+/** True in the free iPhone app's copy (build-time constant): no paid tier there, so the locked-list button and its words are left out of the app's files (App Store 3.1.1, App Review 2.3.1). */
+const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1";
+
 // SPEC §6.4 and §7.4 block 1. Uses the chain page's current filters and meal chip.
 // Free users see the real cards blurred under an overlay; Pro users can tap a card to open the builder prefilled.
 // Look (founder 2026-10-15, Home's language): the picks straight on the white card with fine lines between them, a number in a grey
@@ -96,7 +99,7 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
     </ol>
   );
   // Real paid access: a free person sees the first two picks as they are and the rest locked (founder's brief: results #3 to #5 are the paid part).
-  const freeCount = PAID_TIER_ONLY && !pro ? Math.min(FREE_BEST_RESULTS, result.picks.length) : 0;
+  const freeCount = !FREE_APP && PAID_TIER_ONLY && !pro ? Math.min(FREE_BEST_RESULTS, result.picks.length) : 0;
   const cards = result.picks.length > 0 && (freeCount > 0 ? renderPicks(result.picks.slice(0, freeCount), 0, true) : renderPicks(result.picks, 0, pro));
   const lockedRest = freeCount > 0 && result.picks.length > freeCount ? renderPicks(result.picks.slice(freeCount), freeCount, false) : null;
 

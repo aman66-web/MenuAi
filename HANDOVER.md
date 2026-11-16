@@ -56,14 +56,14 @@ The app also reads newer menus, the logo take-down list and the API from numbite
 | Service | What it's for | Account / project | Where its secrets live |
 |---|---|---|---|
 | GitHub | the code | repo `aman66-web/MenuAi` | — |
-| Vercel (Pro plan) | the website, API and domain | project `menumacros` (root folder `web`, Production branch `main`); domain `numbite.com` bought on Vercel in my name (renews 12 Oct 2027), `www` redirects to it; `menumacros.vercel.app` is an alias | Vercel › menumacros › Settings › Environment Variables: `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `IP_HASH_SALT`, `CRON_SECRET`, `NEXT_PUBLIC_SUPPORT_EMAIL` (Production + Preview), `NEXT_PUBLIC_SHOW_SAMPLE_DATA=1` (Preview only, never Production); possibly `RESEND_API_KEY`, `REPORT_ALERT_TO/FROM`, `APPLE_TEAM_ID/KEY_ID/PRIVATE_KEY` (not yet checked) |
+| Vercel (Pro plan) | the website, API and domain (team "Aman Marwaha's projects", slug `aman-moneysave`: checked 16 Nov, it is where `menumacros` and numbite.com live) | project `menumacros` (root folder `web`, Production branch `main`); domain `numbite.com` bought on Vercel in my name (renews 12 Oct 2027), `www` redirects to it; `menumacros.vercel.app` is an alias | Vercel › menumacros › Settings › Environment Variables: `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `IP_HASH_SALT`, `CRON_SECRET`, `NEXT_PUBLIC_SUPPORT_EMAIL` (Production + Preview), `NEXT_PUBLIC_SHOW_SAMPLE_DATA=1` (Preview only, never Production); possibly `RESEND_API_KEY`, `REPORT_ALERT_TO/FROM`, `APPLE_TEAM_ID/KEY_ID/PRIVATE_KEY` (not yet checked) |
 | Supabase (free plan) | database and sign-in | project `menumacros`, ref `rbbalkfkpacazzhsqfzz`, org "Aman's Org", us-east-1 | the secret key is only in Vercel; Google and Apple sign-in settings are in Supabase › Authentication › Providers |
 | Resend | sign-in code emails from noreply@numbite.com | domain `numbite.com` (Ireland); DNS records in Vercel DNS | a sending-only key in Supabase's custom SMTP settings |
 | Apple Developer / App Store Connect | the iPhone app | team `S7G6ZHHK59` (CLARIFO DEVELOPERS LTD); bundle ID `com.amanmarwaha.MenuMacros`; app "Numbite: Calories & Protein"; Sign in with Apple Services ID `com.amanmarwaha.numbite.web`, key ID `X374U6N8FP` | the `.p8` key file is mine (wherever I saved it). The Sign in with Apple client secret made from it is in Supabase and **expires 11 April 2027** (reminder in my Outlook for 29 March 2027; `tools/auth/apple_client_secret.py` makes the next one) |
 | Google Cloud | Continue with Google | project "Numbite": Web and iOS OAuth clients | the web client's secret is in Supabase › Authentication › Google |
 | OpenFreeMap, postcodes.io, Open Food Facts | the map, typed postcodes, community grocery data | no account | — |
 
-**Do not touch:** the Vercel account `aman-moneysave` (a different account a cloud connector once saw), my older Supabase account (its free plan is full with
+**Do not touch:** my older Supabase account (its free plan is full with
 other projects), and my other apps and projects on this Mac (ReadFluent, CaseSpar / interview prep, and anything else outside `MenuAi`).
 
 **Support email:** my personal address `aman66@hotmail.co.uk` is the public support contact for now (on the site and in the app). A `support@numbite.com` forwarding

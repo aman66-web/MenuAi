@@ -21,11 +21,16 @@ export interface PlanInfo {
   badge?: string;
 }
 
-export const PLANS: Record<PlanId, PlanInfo> = {
+/** True in the free iPhone app's copy (no In-App Purchase): it sells nothing, so the price table is left out of its files (App Store 3.1.1, App Review 2.3.1). A build-time
+ *  constant, so the minifier drops the figures; nothing in that build reads them (ProPlans, the Pro pages and the paid text of the legal pages are off there). */
+const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1";
+
+const PLAN_TABLE: Record<PlanId, PlanInfo> = {
   pass90: { id: "pass90", label: "Founding Member 90-Day Pass", amountPence: 999, price: "£9.99", per: "one payment", tagline: "No recurring subscription. 90 days of access.", mode: "payment", badge: "Most popular" },
   annual: { id: "annual", label: "Annual", amountPence: 1499, price: "£14.99", per: "a year", tagline: "About 29p a week. Renews each year until you cancel.", mode: "subscription", badge: "Best value" },
   monthly: { id: "monthly", label: "Monthly", amountPence: 299, price: "£2.99", per: "a month", tagline: "Renews each month until you cancel.", mode: "subscription" },
 };
+export const PLANS: Record<PlanId, PlanInfo> = FREE_APP ? ({} as Record<PlanId, PlanInfo>) : PLAN_TABLE;
 
 export const isPlanId = (v: unknown): v is PlanId => typeof v === "string" && (PLAN_IDS as readonly string[]).includes(v);
 

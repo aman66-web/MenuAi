@@ -43,7 +43,17 @@ function Pricing() {
   );
 }
 
+/** True in the iPhone app's copy (build-time constant): the page only forwards to Home there, and nothing of the paid screens is in the app's files (App Store 3.1.1, App Review 2.3.1). */
+const IN_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1"; // the free iPhone app (an In-App Purchase build, 1.1, keeps it)
+
+function ToHome() {
+  const router = useRouter();
+  useEffect(() => { router.replace("/app"); }, [router]);
+  return null;
+}
+
 export default function ProPage() {
+  if (IN_APP) return <ToHome />;
   return (
     <Suspense fallback={null}>
       <Pricing />

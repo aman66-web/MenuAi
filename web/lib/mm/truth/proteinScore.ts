@@ -23,8 +23,8 @@ export const SIZE_CAPS: ReadonlyArray<{ maxKcal: number; cap: ProteinScoreValue 
   { maxKcal: 800, cap: 4 },
   { maxKcal: 1000, cap: 3 },
 ];
-const OVER_1000_CAP: ProteinScoreValue = 2;
-const LOW_SHARE_OVER_1000 = 0.12;
+export const OVER_1000_CAP: ProteinScoreValue = 2;
+export const LOW_SHARE_OVER_1000 = 0.12;
 
 export type ProteinScoreValue = 1 | 2 | 3 | 4 | 5;
 

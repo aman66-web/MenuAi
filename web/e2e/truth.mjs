@@ -199,6 +199,61 @@ await step("a calories-only restaurant offers only the calories pill (no protein
   await ctx.close();
 });
 
+await step("App Review 1.4.1: 'Where these numbers come from' sits at the top of the Truth card and under a Quick answers list; it opens one sheet with the card's own five sources (nothing fetched until tapped) and Numbite's own rules; closing it keeps the card open; dark card; axe 0", async () => {
+  const HOSTS = ["www.legislation.gov.uk", "assets.publishing.service.gov.uk", "www.nhs.uk", "patient.info", "www.egginfo.co.uk"];
+  const { ctx, page } = await open();
+  const requests = [];
+  page.on("request", (r) => requests.push(r.url()));
+  await seeTruth(page, SUBWAY);
+  const truthSheet = page.locator("dialog[open]");
+  expect((await truthSheet.count()) === 1, "one sheet open");
+  const link = truthSheet.getByRole("button", { name: "Where these numbers come from" });
+  const box = await link.boundingBox();
+  const score = await truthSheet.getByRole("heading", { level: 3, name: "Protein score" }).boundingBox();
+  expect(box.height >= 43.5, "the link is " + box.height + "px tall");
+  expect(box.y < score.y, "the link should sit above the Protein score");
+  const cardLinks = (await truthSheet.locator("a[target=_blank]").evaluateAll((as) => as.map((a) => a.href))).filter((h) => !h.startsWith("https://wa.me/"));
+  await link.click();
+  const sources = page.getByRole("dialog", { name: "Where these numbers come from" });
+  await sources.getByRole("heading", { level: 3, name: "Reference intakes" }).waitFor();
+  const hrefs = await sources.locator("a[href^='http']").evaluateAll((as) => as.map((a) => a.href));
+  expect(hrefs.length === 5, "five sources: " + hrefs.join(" "));
+  for (const h of hrefs) { const u = new URL(h); expect(u.protocol === "https:" && HOSTS.includes(u.host), "source " + h); }
+  expect([...new Set(cardLinks)].sort().join() === [...hrefs].sort().join(), "the sheet should list exactly the card's own links: " + cardLinks.join(" "));
+  const words = (await sources.innerText()).replace(/\s+/g, " ");
+  for (const w of ["2,000 kcal of energy", "Protein score: 5 needs at least 25%", "Quick answers: meals of 500 kcal or less", "Smart Swap:", "Cheapest protein:", "not taken from a published source", "doesn't give medical advice", "Sources checked on 13 Nov 2026"]) expect(words.includes(w), "missing: " + w);
+  expect(!/\b(good|bad|healthy)\b/i.test(words), "judging words in the sheet");
+  expect(!requests.some((u) => HOSTS.includes(new URL(u).host)), "a source was fetched before it was tapped");
+  await page.waitForTimeout(500);
+  await axeCheck(page);
+  await page.keyboard.press("Escape");
+  await sources.waitFor({ state: "hidden" });
+  expect((await page.locator("dialog[open]").count()) === 1, "closing the sources should leave the Truth card open");
+  await truthSheet.getByRole("heading", { level: 3, name: "Calories" }).waitFor();
+  expect((await page.evaluate(() => document.activeElement?.textContent ?? "")) === "Where these numbers come from", "focus should go back to the link");
+  // the dark card's colours never reach the sources sheet
+  await truthSheet.getByRole("button", { name: "Dark card" }).click();
+  await truthSheet.getByRole("button", { name: "Where these numbers come from" }).click();
+  await sources.getByRole("heading", { level: 3, name: "Traffic lights" }).waitFor();
+  const colours = await sources.locator(".sheet-panel").evaluate((el) => ({ bg: getComputedStyle(el).backgroundColor, ink: getComputedStyle(el.querySelector("p")).color }));
+  expect(colours.bg === "rgb(255, 255, 255)" && colours.ink !== "rgb(255, 255, 255)", "sources sheet over the dark card: " + JSON.stringify(colours));
+  await page.keyboard.press("Escape");
+  await ctx.close();
+  // under a Quick answers list
+  const r = await open();
+  await r.page.goto(BASE + "/app/chain?id=kfc");
+  const group = r.page.getByRole("group", { name: "Quick answers" });
+  await group.waitFor();
+  const section = r.page.locator("section[aria-labelledby='quick-heading']");
+  expect((await section.getByRole("button", { name: "Where these numbers come from" }).count()) === 0, "no link before a list is open");
+  await group.getByRole("button", { name: "Small appetite" }).click();
+  await section.getByRole("button", { name: "Where these numbers come from" }).click();
+  await r.page.getByRole("dialog", { name: "Where these numbers come from" }).getByText("for a small appetite, 400 kcal or less with at least 20 g of protein").waitFor();
+  await r.page.keyboard.press("Escape");
+  expect((await section.locator("ul > li").count()) > 0, "the list should still be there");
+  await r.ctx.close();
+});
+
 await step("360 px and Extra large text: the sheet and the pills do not scroll sideways, the buttons stay 48 px", async () => {
   const { ctx, page } = await open({ textSize: "xlarge" }, { width: 360, height: 740 });
   await seeTruth(page, SUBWAY);

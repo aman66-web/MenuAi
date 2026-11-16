@@ -203,7 +203,13 @@ export async function renderTruthCard(input: TruthCardInput): Promise<Blob> {
   // the footer
   draw(t("Not affiliated with {chain}.", { chain: input.chainName }).slice(0, 60), M, H - M - 52, MUTED, 32, 500);
   draw(site.name, M, H - M, FG, 46, 800);
-  draw(IMAGE_CARD_FOOTER, W - M, H - M, MUTED, 32, 500, "right");
+  // the footer shares the bottom line with the name: smaller type, never overlapping it
+  ctx.font = font(46, 800);
+  const room = CW - ctx.measureText(site.name).width - 32;
+  let footerPx = 32;
+  ctx.font = font(footerPx, 500);
+  while (footerPx > 22 && ctx.measureText(IMAGE_CARD_FOOTER).width > room) ctx.font = font(--footerPx, 500);
+  draw(IMAGE_CARD_FOOTER, W - M, H - M, MUTED, footerPx, 500, "right");
 
   const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
   if (!blob) throw new Error("Couldn't create the image.");

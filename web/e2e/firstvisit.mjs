@@ -101,6 +101,29 @@ await step("the guided setup is still reachable at /app/welcome", async () => {
   await ctx.close();
 });
 
+await step("App Review 1.4.1: the first-visit card under Home's targets links their sources, and so does the GLP-1 note in its sheet", async () => {
+  const ctx = await fresh(); const page = await ctx.newPage();
+  await page.goto(BASE + "/app");
+  await card(page).waitFor();
+  const sources = page.getByRole("dialog", { name: "Where these numbers come from" });
+  await page.getByRole("button", { name: "Where these numbers come from" }).click();
+  await sources.getByText("Until you set your own, a target of 2,000 kcal a day.").waitFor();
+  const hosts = (await sources.locator("a[href^='http']").evaluateAll((as) => as.map((a) => new URL(a.href).host))).sort();
+  expect(hosts.join() === "pmc.ncbi.nlm.nih.gov,pubmed.ncbi.nlm.nih.gov,www.nhs.uk", "sources: " + hosts.join());
+  await page.keyboard.press("Escape");
+  await sources.waitFor({ state: "hidden" });
+  await page.getByRole("button", { name: "Set up" }).click();
+  const setup = page.getByRole("dialog", { name: "Make Numbite fit you" });
+  await setup.getByRole("radio", { name: /GLP-1/ }).click();
+  await setup.getByRole("button", { name: "Where these numbers come from" }).click();
+  await sources.getByRole("heading", { name: "Calories your body uses at rest" }).waitFor();
+  await page.keyboard.press("Escape");
+  await sources.waitFor({ state: "hidden" });
+  await setup.getByRole("radio", { name: /GLP-1/ }).waitFor();
+  expect((await setup.getByRole("radio", { name: /GLP-1/ }).getAttribute("aria-checked")) === "true", "the set-up sheet kept its answer");
+  await ctx.close();
+});
+
 await step("the card and sheet: 48 px buttons, no sideways scroll at 360 px and Extra large text, axe 0", async () => {
   const ctx = await fresh({ viewport: { width: 360, height: 740 } });
   await ctx.addInitScript(() => localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { textSize: "xlarge" } })));

@@ -31,11 +31,12 @@ export function EggIcon(p: SVGProps<SVGSVGElement>) {
   );
 }
 
+/** A plain speech bubble for "Share to WhatsApp": a generic message shape, never WhatsApp's own logo or a redrawing of it (CLAUDE.md rule 2, App Review 5.2.1). */
 export function WhatsAppShareIcon(p: SVGProps<SVGSVGElement>) {
   return (
     <svg {...base} {...p}>
-      <path d="M4 27l2-6.5A11.500 11.500 0 1 1 11 25z" />
-      <path d="M12 12c0 5 4 9 9 9l1.500-2-3-1.500-1.500 1c-1.500-.5-3-2-3.500-3.500l1-1.500L14.500 11z" />
+      <path d="M6 7h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H14l-6 5v-5H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" />
+      <path d="M10 13h12M10 17h8" />
     </svg>
   );
 }

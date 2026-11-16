@@ -23,7 +23,16 @@ import { Button } from "./ui";
 const GENERIC_SHARE = `Look at the real calories and protein of UK restaurant meals, worked out from each restaurant's own published figures: ${site.url}`;
 
 /** `level` is the heading level of each plan's name: h3 inside the paywall sheet (whose title is the h2), h2 on the Pro page (under its h1). */
-export function ProPlans({ level = "h3" }: { level?: "h2" | "h3" } = {}) {
+/** True in the iPhone app's copy, written as a build-time constant: the app never shows plans or prices (App Store 3.1.1: purchases there go through Apple), and
+ *  with this the plans, the prices and the words about paying on Stripe are left out of the app's files altogether (App Review 2.3.1: no dormant features). */
+const IN_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_PUBLIC_IAP !== "1"; // the free iPhone app (an In-App Purchase build, 1.1, keeps it)
+
+export function ProPlans(props: { level?: "h2" | "h3" } = {}) {
+  if (IN_APP) return null;
+  return <PlansBody {...props} />;
+}
+
+function PlansBody({ level = "h3" }: { level?: "h2" | "h3" }) {
   const Heading = level;
   const t = useT();
   const paid = useStore(paidStore);

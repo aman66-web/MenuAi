@@ -77,7 +77,7 @@ describe("share message and links", () => {
   });
   it("the image card is 1080 x 1350, with a plain footer and a safe file name", () => {
     expect(IMAGE_CARD_SIZE).toEqual({ width: 1080, height: 1350 });
-    expect(IMAGE_CARD_FOOTER).toBe("Official UK menu figures • numbite.com");
+    expect(IMAGE_CARD_FOOTER).toBe("Figures from each restaurant's own guide • numbite.com");
     expect(imageFileName("Nando's", "Peri-Peri Chicken Wrap!")).toBe("numbite-nando-s-peri-peri-chicken-wrap.png");
     expect(imageFileName("", "")).toBe("numbite-card.png");
   });
