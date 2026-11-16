@@ -128,6 +128,11 @@ describe("other supermarkets' products for one ingredient, most suitable first",
     expect(out.map((o) => `${o.shop}:${o.pick.product.id}:${o.numbers}`)).toEqual(["asda:a1:label", "tesco:t2:community", "tesco:t1:null"]);
     for (const o of out) expect(o.pick.shop).toBe(o.shop);
   });
+  it("among products with no numbers, the name closest to the ingredient comes first (fillets before sausages for 'Chicken breast fillets')", () => {
+    const fillets = RECIPES.flatMap((r) => r.ingredients).find((x) => /chicken breast/i.test(x.label))!;
+    const out = otherShopOptions([{ shop: "tesco", products: [product("s", "Brand Chicken Breast Sausages 400g", { price: 1 }), product("f", "Tesco British Chicken Breast Fillets 350g", { price: 3 })] }], fillets);
+    expect(out.map((o) => o.pick.product.id)).toEqual(["f", "s"]);
+  });
   it("a meat-free recipe is never offered a product named for meat", () => {
     const meatFree = RECIPES.find((r) => r.ingredients.every((s) => !/chicken|beef|pork|fish|tuna|salmon|bacon|ham|turkey|lamb|sausage|prawn|cod/.test(s.key)))!;
     const s = meatFree.ingredients[0]!;

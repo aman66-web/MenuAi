@@ -91,8 +91,8 @@ const RANK: Record<string, number> = { label: 0, community: 1, none: 2 };
 /**
  * Products at other supermarkets that could stand for an ingredient, most suitable first: those whose numbers pass every rule the recipe's own shop uses
  * (unit, as sold, the plausible range for the form: lib/mm/recipes.ts matching), its own label before community data; then products named for the ingredient
- * (all its words, none of its excluded words) that have no numbers yet. A product whose numbers exist but don't fit is never offered. Within each group, a
- * price for the amount used before none, the kind's preferred words first, then the cheapest to buy, then by name.
+ * (all its words, none of its excluded words) that have no numbers yet. A product whose numbers exist but don't fit is never offered. Within each group, the name
+ * with more of the ingredient's own words first, then a price for the amount used before none, the kind's preferred words first, then the cheapest to buy, then by name.
  */
 export function otherShopOptions(lists: ReadonlyArray<{ shop: string; products: readonly ShopProduct[] }>, spec: IngredientSpec, meatFree = false): OtherShopOption[] {
   const out: OtherShopOption[] = [];
@@ -113,9 +113,17 @@ export function otherShopOptions(lists: ReadonlyArray<{ shop: string; products: 
   }
   const prefer = spec.match.prefer;
   const unpreferred = (o: OtherShopOption) => Number(!!prefer && !prefer.some((w) => ` ${normalizeForSearch(o.pick.product.name)} `.includes(` ${normalizeForSearch(w)}`)));
+  // how many of the ingredient's own words the name has ("Chicken Breast Fillets" before "Chicken Breast Sausages" for "Chicken breast fillets"): a name is all a
+  // product with no numbers can be judged by
+  const words = [...new Set(normalizeForSearch(spec.label).split(" ").filter((w) => w.length >= 3).map((w) => w.replace(/s$/, "")))];
+  const closeness = (o: OtherShopOption) => {
+    const h = ` ${normalizeForSearch(o.pick.product.name)} `;
+    return words.filter((w) => h.includes(` ${w}`)).length;
+  };
   return out.sort(
     (a, b) =>
       RANK[a.numbers ?? "none"]! - RANK[b.numbers ?? "none"]! ||
+      closeness(b) - closeness(a) ||
       Number(a.pick.usedCost === null) - Number(b.pick.usedCost === null) ||
       unpreferred(a) - unpreferred(b) ||
       a.pick.basketCost - b.pick.basketCost ||

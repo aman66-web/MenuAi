@@ -9,11 +9,13 @@ import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const ON = process.env.ANYSHOP === "1";
+/** COMMUNITY=1: a build that also has NEXT_PUBLIC_RECIPE_COMMUNITY_NUMBERS=1 (the founder's decision): Asda's recipes appear, from community numbers, and say so. */
+const COMMUNITY = process.env.COMMUNITY === "1";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==", "base64");
 const base = { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, recipeMeal: { size: "written", moreProtein: false } };
 let passed = 0, failed = 0;
-async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
+async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n").slice(0, 4).join(" / ")); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
 
 async function open({ shops = ["sainsburys", "tesco"], width = 390, textSize } = {}) {
@@ -57,7 +59,21 @@ if (!ON) {
     expect(r.status === 404, `status ${r.status}`);
   });
 } else {
-  await step("Recipes shows the person's own supermarkets; at Tesco (no labels read yet) it says no recipe is complete and which ingredients are missing most", async () => {
+  if (COMMUNITY) await step("community numbers on: Asda has recipes made from products with community numbers, and the list and the recipe say where the numbers come from", async () => {
+    const { ctx, page } = await open({ shops: ["asda"] });
+    await page.goto(BASE + "/app/recipes");
+    const heading = page.getByRole("heading", { name: /^All recipes · \d+/ });
+    await heading.waitFor({ timeout: 90000 });
+    const n = Number(/· (\d+)/.exec(await heading.innerText())[1]);
+    expect(n > 0 && n < 117, `${n} recipes at Asda`);
+    await page.getByText("Where we haven't read a product's own page, its numbers come from Open Food Facts contributors (community data) for the same barcode.").waitFor();
+    await page.locator("ul li a[href*='/app/recipes/view']").first().click();
+    await page.getByText(/^The numbers for .+ come from Open Food Facts contributors \(community data\) for the same barcode, not from the shop's own page\.$/).waitFor({ timeout: 60000 });
+    await axe(page);
+    await ctx.close();
+  });
+
+  if (!COMMUNITY) await step("Recipes shows the person's own supermarkets; at Tesco (no labels read yet) it says no recipe is complete and which ingredients are missing most", async () => {
     const { ctx, page } = await open();
     await page.goto(BASE + "/app/recipes");
     await page.getByRole("heading", { name: /^All recipes/ }).waitFor({ timeout: 60000 });
@@ -123,7 +139,7 @@ if (!ON) {
     expect((await page.getByRole("group", { name: /per serving/ }).count()) === 0, "the figures are still shown");
     await page.getByText("a serving", { exact: true }).waitFor();
     await page.getByText(/at each shop's own shelf prices/).waitFor();
-    await page.getByText(/^Prices from Tesco were checked /).waitFor();
+    await page.getByText(/Prices from Tesco were checked \d/).waitFor();
     expect(!sent.some((s) => s.url.includes("not-found")), "Yes sent a report");
     // back to a Sainsbury's product: the figures come back
     await page.getByRole("button", { name: /^Swap Chicken/ }).click();
