@@ -65,8 +65,10 @@ await step("a restaurant opens with the same numbers applied, and 'Show all dish
   expect(/kcal=500/.test(href ?? "") && /protein=35/.test(href ?? ""), "the link carries the numbers: " + href);
   await row.click();
   await page.getByText("Your numbers:").waitFor({ timeout: 30000 });
-  expect(await page.getByText("up to 500 kcal").isVisible(), "kcal limit said");
-  expect(await page.getByText("35 g+ protein").isVisible(), "protein limit said");
+  // the line that says what is applied (the Quick answers pill "35 g+ protein" on the same page is a different thing)
+  const applied = page.locator("p").filter({ hasText: /^Your numbers:/ });
+  expect((await applied.innerText()).includes("up to 500 kcal"), "kcal limit said: " + (await applied.innerText()));
+  expect((await applied.innerText()).includes("35 g+ protein"), "protein limit said: " + (await applied.innerText()));
   await page.getByText(/\d+ of \d+ items/).waitFor();
   await page.getByRole("button", { name: "Show all dishes" }).click();
   expect((await page.getByText("Your numbers:").count()) === 0, "numbers lifted");
@@ -134,7 +136,9 @@ await step("a restaurant that publishes calories only shows as its example the d
   expect(text.includes(`${want.name} · ${want.nutrients.calories} kcal`), `${lite.name}'s example should be ${want.name} (${want.nutrients.calories} kcal), the row says: ${text}`);
   expect(want.nutrients.calories === lowest || !text.includes(` · ${lowest} kcal`), `the row shows the lowest-calorie dish: ${text}`);
   // full-nutrition restaurants still show their highest-protein dish, with its protein
+  // with only calories typed, the list comes from the search file first; the protein of each dish arrives with the numbers file a moment later
   const full = page.locator('a[href^="/app/chain?id="]').filter({ hasText: /g protein/ });
+  await full.first().waitFor({ timeout: 20000 }).catch(() => {});
   expect((await full.count()) > 0, "no example shows protein");
   await ctx.close();
 });
