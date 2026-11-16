@@ -2242,6 +2242,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     each shop's terms on automated access, and a comparison of five approaches (Numbite calls the shops, an official feed, a third-party provider, "Open in {shop}" links, an honest "usually stocked" label), with a recommended smallest first version.
     Location must stay on the device (CLAUDE.md rule 4) and robots.txt and blocks stay honoured. The desktop session reads its result from git; nothing is decided or built until the founder has seen it.
 
+- 2026-11-16 (later) — **The first "menu ai" cloud session got stuck; fresh cloud sessions started; Claude in Chrome is signed out.** (1) GitHub showed no new branches from the 15 Nov hand-off: the cloud session "menu ai" (release prep, improvement pass) sat "waiting on a human" for over 12 hours with nothing pushed, and the stock-check
+  research session went idle without pushing its report (it was asked to push now, and told nobody will answer questions). Cloud transcripts can't be read from the desktop session. (2) **Two fresh cloud sessions were started** (founder: "ive always just wanted you to do everything"):
+  `release-prep-b` (branch `release-1-0-1-b` from `main`: MARKETING_VERSION 1.0.1 and build 5, the full checks, the 1.4.1 audit of the new screens, WebKit try, "What's New" draft; report `docs/CLOUD_REPORT_RELEASE_2026-11-16.md`) and `improvement-pass-b`
+  (branch `improvement-pass-b` from `claude/menumacros-kit` with `main` merged; findings 6 and 7 decided conservatively and recorded; report `docs/IMPROVEMENT_PASS_REPORT.md`). Both were told: never wait for approval or answers, never push to `main`, do not edit PROGRESS.
+  The old "menu ai" session may still be waiting; if it ever resumes it would push `release-1-0-1` and `improvement-pass-merge`, which can be ignored. (3) **Claude in Chrome:** the extension (version 1.0.107, from the Chrome Web Store, in the founder's profile aman66@hotmail.co.uk) is installed and enabled and its link to the desktop app is in place, but it is **not signed in**
+  (Chrome showed its "installed" welcome page and the tools report no connected browser). Until the founder signs it in (Chrome > puzzle-piece icon > Claude > sign in with the same account as the Claude app), nothing that needs the founder's logged-in Chrome can run: App Store Connect (the 1.0.1 version record, What's New, attach the build), Supabase and Stripe.
+  The Mac-only steps that don't need Chrome (packing the web app, the Xcode build and archive) can go ahead meanwhile.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
