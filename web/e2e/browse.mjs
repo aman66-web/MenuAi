@@ -187,7 +187,7 @@ await step("Chain: section chips jump to a section and expand it", async () => {
 await step("Chain: search within the menu", async () => {
   await page.getByRole("searchbox", { name: /Search the Puccino's menu/ }).fill("latte oat");
   await page.getByText(/\d+ items? match/).waitFor();
-  const names = await page.locator("main li a").allTextContents();
+  const names = await page.locator('main li a:not(section[aria-labelledby="recent-heading"] a)').allTextContents(); // the results, not the dishes viewed earlier
   expect(names.length > 0 && names.every((t) => /latte/i.test(t) && /oat/i.test(t)), `unexpected results: ${names.slice(0, 3).join(" | ")}`);
   await page.getByRole("searchbox", { name: /Search the Puccino's menu/ }).fill("zzqx");
   await page.getByText(/Nothing on this menu matches/).waitFor();

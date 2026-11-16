@@ -478,13 +478,17 @@ function CategoryChips({ categories, active, onJump }: { categories: string[]; a
   );
 }
 
-/** True once the element has scrolled up and out of view (not before the user reaches it). */
+/**
+ * True once the element has scrolled up and out of view (not before the user reaches it). The screen counts as reaching all the way down, so the element
+ * is "in view" until it has gone off the top: a jump from below the screen to above it (a section chip, with Recently viewed pushing the card below the
+ * fold) is a change the observer reports, where a plain observer saw "out of view" both times and never said so.
+ */
 function useScrolledPast(ref: React.RefObject<HTMLElement | null>): boolean {
   const [past, setPast] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => setPast(!!e && !e.isIntersecting && e.boundingClientRect.top < 0));
+    const io = new IntersectionObserver(([e]) => setPast(!!e && !e.isIntersecting && e.boundingClientRect.top < 0), { rootMargin: "0px 0px 100000px 0px" });
     io.observe(el);
     return () => io.disconnect();
   }, [ref]);
