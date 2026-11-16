@@ -59,6 +59,14 @@ export const PAID_ACCESS_ENABLED = WEB_PRO_ENABLED || IAP_ENABLED;
 
 /** Free and paid are told apart on this build: the older Pro machinery (test builds, NEXT_PUBLIC_PRO=1) or real paid access. False = every feature is open to everyone (the free launch). */
 export const GATING_ENABLED = PRO_ENABLED || PAID_ACCESS_ENABLED;
+
+/**
+ * "Make it at home" (founder 2026-11-16: "take photo of food and add a name to it then it makes the recipe ... using the ingredients from the supermarket";
+ * "Only on the premium mode"). A photo (or screenshot) of a dish and the person's description go to Pip, who writes a home recipe from real supermarket
+ * products (lib/mm/photoRecipe.ts). Premium only: it exists only on a build where free and paid are told apart (GATING_ENABLED) AND NEXT_PUBLIC_PHOTO_RECIPES=1,
+ * so it can never show up free, nor before Premium launches. The API route needs ANTHROPIC_API_KEY as well (and checks the paid token).
+ */
+export const PHOTO_RECIPES_ENABLED = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1" && GATING_ENABLED;
 /** Where the app build reaches the live website for newer data and the API: absolute, no trailing slash. Empty on the website itself. */
 export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "").replace(/\/$/, "") : "";
 

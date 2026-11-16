@@ -108,7 +108,8 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
   );
 }
 
-export function RecipeDetail({ recipe, file, products, backHref, actions }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode }) {
+/** `photo`: the person's own photo of the dish (Make it at home), shown at the top in place of the drawing; it is on this phone only and never saved with the recipe. */
+export function RecipeDetail({ recipe, file, products, backHref, actions, photo }: { recipe: Recipe; file: ShopFile; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string }) {
   const t = useT();
   const poss = usePossessive();
   // Back goes to the page before when this one was reached from another page of the app; `backHref` (the recipes, at the right shop) is the fallback
@@ -222,7 +223,15 @@ export function RecipeDetail({ recipe, file, products, backHref, actions }: { re
     <div>
       {/* the picture runs to the edges and under the status bar, like the reference */}
       <div className="relative -mx-5" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
-        <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
+        {photo ? (
+          <div className="relative h-[clamp(15rem,36dvh,22rem)] overflow-hidden bg-soft-strong">
+            {/* eslint-disable-next-line @next/next/no-img-element -- the person's own photo, a local address on this phone */}
+            <img src={photo} alt={t("Your photo")} className="h-full w-full object-cover" />
+            <p className="absolute bottom-12 start-4 me-4 rounded-[1rem] bg-black/65 px-3 py-1.5 text-[0.8125rem] font-semibold leading-snug text-white">{t("Your photo. The recipe is Pip's home version.")}</p>
+          </div>
+        ) : (
+          <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
+        )}
         <div className="absolute inset-x-0 top-0 flex flex-wrap items-start justify-between gap-2 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
           <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to recipes"), back.cameFromApp)} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
           {!recipe.ai && <SaveRecipeButton id={recipe.id} />}

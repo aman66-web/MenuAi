@@ -150,7 +150,8 @@ export function recipeFromAi(out: unknown, req: Pick<RecipeRequest, "servings" |
     ingredients.push(specFromKind(kindForDiet(kind, req.diet), rounded, { role }));
   }
   // every step must pass: a cooking step is never dropped silently (the whole answer is refused and asked for again instead)
-  const method = o.method.slice(0, 8).map((m) => cleanText(m, 300));
+  // up to 11 steps: the titled steps of Make it at home (lib/mm/photoRecipe.ts) run longer than the recipe maker's 2 to 8
+  const method = o.method.slice(0, 11).map((m) => cleanText(m, 300));
   if (ingredients.length < 2 || method.length < 2 || method.some((m) => m === null)) return null;
   // a recipe saved before everything became an ingredient keeps its old "not counted" notes
   const extras = (Array.isArray(o.extras) ? o.extras : []).map((e) => cleanText(e, 80)).filter((e): e is string => !!e).slice(0, 6);

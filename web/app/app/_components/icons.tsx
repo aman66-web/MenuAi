@@ -77,6 +77,8 @@ export const PinIcon = (p: P) => (<svg {...base(p)}><path d="M12 21s-6.5-5.6-6.5
 export const LocateIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="3.2" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3" /><circle cx="12" cy="12" r="7.5" /></svg>);
 export const DirectionsIcon = (p: P) => (<svg {...base(p)}><path d="M12 3l9 9-9 9-9-9z" /><path d="M8.5 12.5V11a1.5 1.5 0 011.5-1.5h5m0 0l-1.8-1.8m1.8 1.8l-1.8 1.8" /></svg>);
 export const BasketIcon = (p: P) => (<svg {...base(p)}><path d="M3.5 9.5h17l-1.6 9a1.6 1.6 0 01-1.6 1.3H6.7a1.6 1.6 0 01-1.6-1.3z" /><path d="M8 9.5L11 4M16 9.5L13 4" /><path d="M9.5 13v3.5M14.5 13v3.5" /></svg>);
+/** A camera: Make it at home's "Take a photo". */
+export const CameraIcon = (p: P) => (<svg {...base(p)}><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.5" /></svg>);
 export const ScanIcon = (p: P) => (<svg {...base(p)}><path d="M4 8V5.5A1.5 1.5 0 015.5 4H8M16 4h2.5A1.5 1.5 0 0120 5.5V8M20 16v2.5a1.5 1.5 0 01-1.5 1.5H16M8 20H5.5A1.5 1.5 0 014 18.5V16" /><path d="M8 8v8M11 8v8M14 8v8M17 8v8" /></svg>);
 export const PotIcon = (p: P) => (<svg {...base(p)}><path d="M4 10h16v5a5 5 0 01-5 5H9a5 5 0 01-5-5z" /><path d="M2 10h2M20 10h2M9 6.5c0-1 .8-1.5.8-2.5M12 6.5c0-1 .8-1.5.8-2.5M15 6.5c0-1 .8-1.5.8-2.5" /></svg>);
 // Community's tab: two people, a head and shoulders each (the nearer one larger), in the same stroke as the others.

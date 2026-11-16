@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { savedToRecipe } from "@/lib/mm/aiRecipe";
 import { mealSlotFor } from "@/lib/mm/budget";
-import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, PHOTO_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { tk, type T } from "@/lib/mm/i18n";
@@ -19,7 +19,7 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CheckIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CameraIcon, CheckIcon, GridIcon, HeartIcon, LeafIcon, ListIcon, PotIcon, SearchIcon, SproutIcon, TodayIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { ShopPicker } from "../_components/ShopPicker";
@@ -340,6 +340,18 @@ function RecipesScreen() {
           <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
             <span className="block text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{t("Ask Pip to make a recipe")}{!pro && <span className="ms-2 inline-block rounded-full bg-accent-soft px-2 py-0.5 align-middle text-sm font-bold text-accent">Pro</span>}</span>
             <span className="block text-[0.9375rem] leading-snug text-muted">{shopName ? t("Say what you fancy and Pip writes one from {shop} products, fitted to your meal and diet.", { shop: poss(shopName) }) : t("Say what you fancy and Pip writes one from your shop's products, fitted to your meal and diet.")}</span>
+          </span>
+          <span aria-hidden className="icon-bubble-soft h-10 w-10 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
+        </button>
+      )}
+
+      {PHOTO_RECIPES_ENABLED && (
+        // Make it at home (Premium; app/app/recipes/photo/page.tsx): the card is there for everyone on a build where Premium exists, and opens the paywall for a free person
+        <button type="button" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="glass lift group mt-4 flex min-h-[5.5rem] w-full items-center gap-3 rounded-[1.25rem] p-3 ps-3.5 text-start">
+          <span aria-hidden className="icon-bubble-soft h-12 w-12 shrink-0"><CameraIcon className="h-6 w-6" /></span>
+          <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+            <span className="block text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{t("Make it at home")}{!pro && <span className="ms-2 inline-block rounded-full bg-accent-soft px-2 py-0.5 align-middle text-sm font-bold text-accent">{t("Premium")}</span>}</span>
+            <span className="block text-[0.9375rem] leading-snug text-muted">{t("Snap a dish you've loved and get a recipe from your supermarket.")}</span>
           </span>
           <span aria-hidden className="icon-bubble-soft h-10 w-10 shrink-0 transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
         </button>

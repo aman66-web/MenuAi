@@ -1,4 +1,4 @@
-import { DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, GATING_ENABLED, PAID_ACCESS_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV } from "./config";
+import { DEV_TOOLS_ENABLED, FREE_SAVED_ORDER_LIMIT, GATING_ENABLED, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED, PRO_ENABLED, PRO_PREVIEW_FROM_ENV } from "./config";
 import { hasAccess, NO_PAID, type PaidState } from "./paid";
 import { englishT, tk, type T } from "./i18n";
 import type { UserSettings } from "./user-data";
@@ -6,7 +6,7 @@ import type { UserSettings } from "./user-data";
 // SPEC §4: free vs Pro. With GATING_ENABLED off (the free launch) every feature is open. With it on, "Pro" is a preview switch (test builds), a checked payment token
 // or the 48 hours given for a WhatsApp share (lib/mm/paid.ts); a payment is verified on the server (lib/payments).
 
-export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker" | "truthLimit" | "moreResults" | "leaderboard" | "smallAppetite";
+export type PaywallTrigger = "saveLimit" | "bestForYou" | "orderBuilder" | "log" | "recipeMaker" | "truthLimit" | "moreResults" | "leaderboard" | "smallAppetite" | "photoRecipe";
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">, paid: PaidState = NO_PAID, nowMs: number = Date.now()): boolean {
   if (!GATING_ENABLED) return true;
@@ -67,6 +67,8 @@ export const PAID_BULLETS = [
   tk("The full Cheapest protein list"),
   tk("Top 5 picks for your goal at every chain"),
   tk("Unlimited saved orders"),
+  // Make it at home (lib/mm/photoRecipe.ts): listed only on a build where it exists
+  ...(PHOTO_RECIPES_ENABLED ? [tk("Make any dish at home from a photo")] : []),
 ] as const;
 export const PAYWALL_BULLETS = [
   tk("Top 5 picks for your goal at every chain"),

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { AI_RECIPES_ENABLED, IAP_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, IAP_ENABLED, PHOTO_RECIPES_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -200,6 +200,15 @@ export default function Privacy() {
           them to Anthropic, the company that makes the Claude AI, to write the recipe. No name, account, location or anything else is sent, and we don&apos;t keep a
           copy: the recipe comes straight back to your browser. Our server uses a one-way scramble of your IP address, held only in memory for a day, to stop one
           person asking too often.
+        </p>
+        )}
+        {PHOTO_RECIPES_ENABLED && (
+        <p className={para}>
+          If you use Make it at home (part of Premium), the photo you choose is made smaller on your device first, and then that photo, what you typed about the dish,
+          your diet and allergy choices and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic, the company that makes
+          the Claude AI, to write the recipe (and, if you tap &ldquo;Suggest from my photo&rdquo;, to say what the dish looks like). No name, account, location or anything else
+          is sent, and we don&apos;t keep the photo or the recipe: the recipe comes straight back to your device. To check you have Premium, your device sends its access
+          token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
         </p>
         )}
       </Section>

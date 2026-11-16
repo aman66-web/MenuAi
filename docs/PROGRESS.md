@@ -2331,6 +2331,36 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     applinks). **Upload blocked:** Apple has updated the Developer Program License Agreement and App Store Connect refuses new builds and versions ("You do not have required contracts")
     until the Account Holder accepts it at developer.apple.com/account. Claude does not accept legal agreements for the founder. After that: upload, create version 1.0.1, paste the
     store text, attach build 5, submit. **New store copy (rule 8, founder asked to ship):** a "Recipes" line added to 1.0.1's What's New in docs/STORE.md.
+  - **Founder's test first (same night):** build 5 installed on the founder's iPhone 16 straight from the Mac (`xcrun devicectl device install app`, the archive's development-signed
+    app; it replaces the App Store copy; data kept). Nothing submitted until the founder has tried it.
+
+- 2026-11-16 (night, Mac) — **Make it at home: built, switched off, Premium only** (founder: "take photo of food and add a name to it then it makes the recipe ... at a restaurant
+  take a photo of the food and add what it's called ... take a screenshot or a real life photo ... fill in what they've taken a photo of in as much detail. They then press next and
+  select the supermarkets ... press generate and it shows it generating then shows the ingredients and how to make"; "It should specify to add as much info like peri peri chicken
+  wings not chicken wings"; "Only on the premium mode"). Branch `photo-recipes`, not merged.
+  - **Why not "share a reel":** checked first. TikTok's official embed service no longer returns the caption (live call and its docs, 16 Nov), and Instagram's oEmbed terms forbid
+    extracting or storing the caption ("only meant to be used for embedding"); Facebook's page was unreadable. Fetching posts otherwise would mean scraping (never). The founder
+    chose this photo flow instead.
+  - **The flow** (`/app/recipes/photo`): Take a photo or Choose from your photos (a screenshot works) → "What's in the photo?" with the founder's example and a nudge under 3 words
+    ("Carry on anyway" after it), plus **Suggest from my photo** (Pip describes the dish for the person to correct) → Where do you shop? (the same shop picker; for now recipes use
+    Sainsbury's, the only shop whose labels are read, and the screen says so) → **Generate my recipe** → four working lines (each ticks off; the last spins until the answer) → the
+    normal recipe page with **the person's own photo at the top** ("Your photo. The recipe is Pip's home version."), titled steps with times, Save, Add all to my shopping list.
+  - **Honesty rules** (`lib/mm/photoRecipe.ts`, checked on the server and again on the phone): the AI only picks pantry kinds this diet allows, amounts and words; every number is
+    worked out from the products' labels; 4 to 11 "Short title: instruction." steps of at most 45 words; a doneness sign whenever there is meat, fish or eggs; no nutrition figures,
+    prices, health claims, restaurant or brand names, or "official/copycat/same as"; a bad answer is asked for once more, then the person gets a plain "couldn't make one".
+  - **Switch and Premium:** `PHOTO_RECIPES_ENABLED` = `NEXT_PUBLIC_PHOTO_RECIPES=1` AND Premium exists on the build (`GATING_ENABLED`), so it can't appear free or before Premium. The
+    API (`/api/v1/recipe/photo`, `/api/v1/recipe/photo/describe`; docs/BACKEND.md) answers 404 while off, 402 without a valid paid token, needs ANTHROPIC_API_KEY, rate-limits per
+    caller, allows our pages and the iPhone app (CORS), and stores nothing. The photo is made ≤1024 px JPEG on the phone first. Model: Claude Haiku 5.5 (the recipe maker's, founder's
+    choice for recipes), about 0.1p to 2p a recipe. A Recipes card ("Make it at home", Premium badge) and a paywall line ("Make any dish at home from a photo") appear only when on.
+  - **Privacy:** a paragraph on the privacy page, shown only when the feature is on (photo, description, diet and product list go to Anthropic; nothing kept; the paid token holds
+    no personal details). **Draft for the founder to approve before launch**, with the App Store privacy answers (photos sent for processing).
+  - **New copy (rule 8, logged here; English only):** "Make it at home", "Make it at home is part of Premium.", "See Premium", the Pip lines, "Take a photo", "Choose from your photos",
+    "Your photo", "Change photo", "What's in the photo?", the specific-description help and placeholder, "Suggest from my photo", the nudge, "Carry on anyway", the shop note, "Generate
+    my recipe", the four working lines, the AI note under Generate, the error lines, "Your photo. The recipe is Pip's home version.", the Recipes card line, the paywall line.
+  - **Checked:** 12 unit tests (`tests/photoRecipe.test.ts`, pretend AI), all 1,831 unit tests, tsc, eslint; browser test `e2e/photorecipe.mjs` 7 of 7 on a test build
+    (`NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 NEXT_PUBLIC_PRO=1 NEXT_PUBLIC_PHOTO_RECIPES=1`; card and paywall for a free person, nudge and suggestion, Generate and the request's fields
+    (only dish, diet, photo, products), titled steps, Save, errors with Try again, Back keeps the photo and words, 360 px at the largest text size with no sideways scroll, axe 0).
+  - **Not tried:** a real AI answer (no Anthropic key here; the founder adds one with a spending limit), the iPhone camera inside the app, and real Premium (needs In-App Purchase, 1.1).
 
 ## Known issues
 

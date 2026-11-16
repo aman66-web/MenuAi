@@ -242,6 +242,17 @@ Do **not** delete the person's account to remove them: that lets the same Apple,
   503 not switched on. Model: Claude Haiku 5.5 (`web/lib/recipeAi.ts`, founder's choice), medium effort, structured output.
   Nothing is stored. Cost: about a penny or two per recipe; set a monthly spend limit in the Anthropic console. The recipe maker is a Pro feature in the app;
   until payments exist there is no server-verified Pro, so the endpoint relies on the Origin check and the rate limits (add an entitlement check with payments).
+- `POST /api/v1/recipe/photo` — **Make it at home** (Premium; founder 16 November 2026). Off unless `PHOTO_RECIPES_ENABLED` (`web/lib/mm/config.ts`: the build sets
+  `NEXT_PUBLIC_PHOTO_RECIPES=1` AND Premium exists on it) and `ANTHROPIC_API_KEY` is set. Body: `{ shop, servings (1-6), target {…}, diet {…}, description (≤300 chars),
+  image (base64 JPEG, ≤1.4 MB as text; the phone makes it ≤1024 px first), pantry [...] }` (same shapes as the recipe maker). Header `Authorization: Bearer <paid token>`
+  (the signed entitlement token, `web/lib/payments/token.ts`; checked with `NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK`); test builds that preview Pro without payments
+  (`NEXT_PUBLIC_PRO=1`) skip it. → 200 `{ recipe }` that passes `photoRecipeFromAi` (pantry kinds for the diet, 4 to 11 titled steps of ≤45 words, a doneness sign
+  for meat/fish/eggs, no claims, figures or restaurant/brand names), asked once more with a reminder if the first answer fails. 400 bad body or not a JPEG,
+  402 no Premium, 403 not from our pages or the iPhone app (Origin; CORS for `app://menumath`), 404 switched off, 422 not enough ingredients for the diet,
+  429 too many (5 per 10 minutes, 25 a day), 502 no usable recipe, 503 no key. Model: Claude Haiku 5.5 with the photo (`web/lib/photoRecipeAi.ts`). Nothing stored.
+  Cost: about 0.1p to 2p a recipe.
+- `POST /api/v1/recipe/photo/describe` — Make it at home's "Suggest from my photo": `{ image }` → 200 `{ description }` (≤24 words, what the dish looks like),
+  422 no food in the photo, 502 no usable suggestion; same switch, Premium check, Origin and CORS rules; 10 per 10 minutes, 40 a day.
 
 ### Rate limits (per caller per hour)
 Reports 30 · chain requests 30 · support 5 · waitlist 5. Constants: `web/lib/handlers.ts`.
