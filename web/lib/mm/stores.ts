@@ -27,6 +27,8 @@ export const settingsStore = createStore<UserSettings>("mm.v1.settings", DEFAULT
 export const paidStore = createStore<PaidState>("mm.v1.paid", NO_PAID, { sanitize: sanitizePaid });
 /** The different dishes' Truth cards a free person has opened today (lib/mm/paid.ts). */
 export const truthDayStore = createStore<TruthDay>("mm.v1.truthDay", NO_TRUTH_DAY, { sanitize: sanitizeTruthDay });
+/** The iPhone app has shown its one-time "try Premium free" offer after setup on this phone (founder 2026-11-16). Never synced: it belongs to the phone. */
+export const trialOfferStore = createStore<boolean>("mm.v1.trialOffer", false, { sanitize: (v) => v === true });
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
 export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitize: sanitizeSavedOrders });
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });

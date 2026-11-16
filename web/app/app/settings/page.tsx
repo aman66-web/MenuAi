@@ -15,6 +15,7 @@ import { DEFAULT_WATER_GOAL_ML, MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "@/l
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon } from "../_components/icons";
 import { AppStoreAccountButtons } from "../_components/AppStorePlans";
+import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
 import { BackLink } from "../groceries/PageBits";
 import { tk } from "@/lib/mm/i18n";
 import { useT } from "../_lib/i18n";
@@ -126,6 +127,8 @@ export default function SettingsPage() {
   const hydrated = useHydrated();
   const creator = useCreatorMode();
   const paid = useStore(paidStore);
+  // the free trial this Apple ID can still have (iPhone app only): the Subscription link offers it (founder 2026-11-16: "they can claim the free trial later")
+  const trial = trialDaysOf(useStoreProducts(IAP_ENABLED).products);
   const nowMs = useNow().getTime();
   const settings = useSettings();
   const t = useT();
@@ -260,7 +263,7 @@ export default function SettingsPage() {
             <p className="text-[1.0625rem] font-bold">{isPro(settings, paid, nowMs) ? (PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Pro (preview, for testing)") : t("Pro")) : t("Free")}</p>
             {paid.until && paid.until > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
             {!paid.until && paid.unlockUntil && paid.unlockUntil > nowMs && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}
-            {PAID_ACCESS_ENABLED ? <Link href="/app/pro" className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{t("See plans")}</Link>
+            {PAID_ACCESS_ENABLED ? <Link href="/app/pro" className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background">{trial ? t("Start your {days}-day free trial", { days: trial }) : t("See plans")}</Link>
               : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Pro isn't available on the web yet. Every chain's full menu with calories and macros stays free.")}</p>}
             {IAP_ENABLED && <AppStoreAccountButtons />}
           </Card>

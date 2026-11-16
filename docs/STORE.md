@@ -239,6 +239,11 @@ New: see any menu item's calories, protein score and traffic lights in one tap, 
 | `com.amanmarwaha.numbite.pro.monthly` | Auto-renewable subscription, same group | Monthly | £2.99 | 1 month |
 | `com.amanmarwaha.numbite.pro.pass90` | Non-renewing subscription | Founding Member 90-Day Pass | £9.99 | 90 days |
 
+**Free trial (founder 2026-11-16: "we're offering the person a 7-day free trial"):** on **Annual and Monthly**, add an **Introductory Offer**: Free, 1 week, all UK storefronts
+(Subscriptions › each subscription › Subscription Prices › Introductory Offers). Apple gives one introductory offer per subscription group per Apple ID, so a phone's App Store
+account gets one free week, whichever account the person uses inside Numbite. The 90-day pass can't have one (it isn't a subscription that renews). The app reads the trial and whether
+this Apple ID can still have it from StoreKit, so nothing in the app changes if you set a different length.
+
 Each needs a short description (e.g. "Every Truth card, Smart Swap and Quick answer, the full Cheapest protein list and Make it at home.") and a **review screenshot of the plans screen**
 (Settings › Subscription › See plans), then is submitted **with** version 1.1 (tick them on the version page before Submit for Review).
 
@@ -251,7 +256,7 @@ shows each plan's name, length and StoreKit's own price, the renewal and cancell
 ```
 What's new in 1.1
 
-• Premium: open every Truth card, Smart Swap and Quick answer, see the full Cheapest protein list, and use Make it at home. Choose Monthly, Annual or a one-off 90-day pass. Everything that was free stays free.
+• Premium: open every Truth card, Smart Swap and Quick answer, see the full Cheapest protein list, and use Make it at home. Try it free for 7 days, then choose Monthly or Annual, or a one-off 90-day pass. Everything that was free stays free.
 
 • Make it at home (Premium): take or choose a photo of a dish you'd like to cook, say what it is, and Pip writes a home recipe from real supermarket products, with the amounts, the price and the nutrition of each serving.
 
@@ -267,7 +272,7 @@ Every figure still comes from each restaurant's or shop's own published informat
 **Notes for App Review (add to the existing notes):**
 
 ```
-In-App Purchase (new in 1.1): three products, Annual and Monthly (auto-renewable, one group) and a Founding Member 90-Day Pass (non-renewing). To see them: Settings (gear on Home) › Subscription › See plans, or open "See the truth" on four different menu items, or Recipes › Make it at home. Restore purchases is on the plans screen and in Settings › Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work. Premium needs no account.
+In-App Purchase (new in 1.1): three products, Annual and Monthly (auto-renewable, one group, each with a 7-day free trial as an introductory offer) and a Founding Member 90-Day Pass (non-renewing). A one-time offer of the free trial appears after the first setup ("Not now" skips it). To see the plans: Settings (gear on Home) › Subscription › See plans, or open "See the truth" on four different menu items, or Recipes › Make it at home. Restore purchases is on the plans screen and in Settings › Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work. Premium needs no account.
 
 Make it at home (Premium) sends the photo the person chooses, their description and their diet choices to our server, which asks Anthropic's Claude to write a recipe from the supermarket products we list; every amount, price and nutrition figure is then worked out by the app from the products' own labels. Nothing is kept on our server.
 ```

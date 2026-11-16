@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from "react";
 import { analytics } from "@/lib/mm/analytics";
-import { DEV_TOOLS_ENABLED, PAID_ACCESS_ENABLED, PAYMENTS_ENABLED } from "@/lib/mm/config";
+import { DEV_TOOLS_ENABLED, IAP_ENABLED, PAID_ACCESS_ENABLED, PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { needsPaywall, PAID_BULLETS, PAYWALL_BULLETS, PAYWALL_TITLE, type PaywallTrigger } from "@/lib/mm/entitlements";
 import { format, tk } from "@/lib/mm/i18n";
 import { savedStore, settingsStore, updateSettings } from "@/lib/mm/stores";
@@ -12,6 +12,7 @@ import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 import { CheckIcon } from "./icons";
 import { ProPlans } from "./ProPlans";
+import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
 import { Button, Sheet } from "./ui";
 
 // SPEC §9: the paywall appears only when a free user taps a Pro action. Closing returns to exactly where they were.
@@ -82,12 +83,17 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
 function PaywallBody({ onDone }: { onDone: () => void }) {
   const t = useT();
   const settings = useStore(settingsStore);
+  // In the iPhone app: the free trial this Apple ID can still have, as the banner on top (founder 2026-11-16: "it should pop up with a banner saying 7-day free trial")
+  const trial = trialDaysOf(useStoreProducts(IAP_ENABLED).products);
   // This sheet lives outside AppShell's .app-surface (the provider wraps it), so the running weight is set here to match the rest of
   // the app (500). The Sheet turns every soft surface light grey, so the two cards below sit as grey blocks on its white panel.
   return (
     <div className="pb-1 font-medium">
+      {trial && (
+        <p className="mb-3 inline-flex min-h-9 items-center rounded-full bg-sun px-4 text-[0.9375rem] font-extrabold uppercase tracking-wide text-on-accent">{t("{days}-day free trial", { days: trial })}</p>
+      )}
       <h3 className="text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]">
-        {PAID_ACCESS_ENABLED ? t("Unlock everything") : TITLE_FITS ? <Rich text={t(TITLE_RICH)} values={{ accent: <span>{t(TITLE_ACCENT)}</span> }} /> : t(PAYWALL_TITLE)}
+        {trial ? t("Try Premium free for {days} days", { days: trial }) : PAID_ACCESS_ENABLED ? t("Unlock everything") : TITLE_FITS ? <Rich text={t(TITLE_RICH)} values={{ accent: <span>{t(TITLE_ACCENT)}</span> }} /> : t(PAYWALL_TITLE)}
       </h3>
       <ul className={`mt-5 divide-y divide-line ${card}`}>
         {(PAID_ACCESS_ENABLED ? PAID_BULLETS : PAYWALL_BULLETS).map((b) => (

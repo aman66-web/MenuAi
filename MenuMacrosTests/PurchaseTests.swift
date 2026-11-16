@@ -126,6 +126,15 @@ struct PurchaseReplyTests {
         let data = try JSONEncoder().encode(product)
         #expect(String(decoding: data, as: UTF8.self).contains(#""period":"none""#))
         #expect(try JSONDecoder().decode(IAPProduct.self, from: data) == product)
+        // no free trial: the key isn't sent at all
+        #expect(!String(decoding: data, as: UTF8.self).contains("trialDays"))
+    }
+
+    @Test func aFreeTrialIsSentInDays() throws {
+        let product = IAPProduct(id: AppConfig.iapAnnualProductID, name: "Annual", price: "£14.99", period: .year, trialDays: 7)
+        let data = try JSONEncoder().encode(product)
+        #expect(String(decoding: data, as: UTF8.self).contains(#""trialDays":7"#))
+        #expect(try JSONDecoder().decode(IAPProduct.self, from: data) == product)
     }
 }
 
@@ -213,6 +222,11 @@ struct StoreKitConfigurationFileTests {
         #expect(renewing.map { $0["productID"] as? String } == [AppConfig.iapAnnualProductID, AppConfig.iapMonthlyProductID])
         #expect(renewing.map { $0["displayPrice"] as? String } == ["14.99", "2.99"])
         #expect(renewing.map { $0["recurringSubscriptionPeriod"] as? String } == ["P1Y", "P1M"])
+        // both subscriptions start with a free week (the 90-day pass can't have a trial: it isn't a subscription that renews)
+        for sub in renewing {
+            let offer = try #require(sub["introductoryOffer"] as? [String: Any])
+            #expect(offer["paymentMode"] as? String == "free" && offer["subscriptionPeriod"] as? String == "P1W")
+        }
         let nonRenewing = try #require(root["nonRenewingSubscriptions"] as? [[String: Any]])
         #expect(nonRenewing.map { $0["productID"] as? String } == [AppConfig.iapPass90ProductID])
         #expect(nonRenewing.first?["displayPrice"] as? String == "9.99")

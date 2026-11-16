@@ -14,6 +14,8 @@ nonisolated struct IAPProduct: Codable, Equatable, Sendable {
     var name: String
     var price: String
     var period: Period
+    /// The free trial's length in days, only when the product has one and this Apple ID can still have it (Apple gives one per subscription group per Apple ID).
+    var trialDays: Int? = nil
 
     /// Only our three products (AppConfig.iapProductIDs), each once, in the order given.
     static func onlyOurs(_ ids: [String]) -> [String] {

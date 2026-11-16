@@ -2414,6 +2414,29 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     {carbs}g carbs, {fat}g fat.", "Full nutrition for {n} servings", "You'll need:", and "The cooking times are for {n} servings, as the recipe is written. For fewer, use a smaller pan and
     check it a little sooner; for more, use a bigger pan or cook in batches, and allow a little longer." (replaces "Times are for the number of servings…").
 
+- 2026-11-16 (later still, Mac) — **A 7-day free trial, offered once after setup** (founder: "we're offering the person a 7-day free trial ... one free trial per phone ... no matter
+  if they sign up with Apple or Google or by email ... after they've done all the onboarding screens, they will then see sign up to Premium today, get a 7-day free trial, which they can
+  skip ... claim the free trial later ... whenever they click on a paid feature, it should pop up with a banner saying 7-day free trial"; "The paid features of the app, I'll let you decide").
+  - **How:** Apple's introductory offer, Free for 1 week, on Annual and Monthly (`Config/Numbite.storekit`; App Store Connect for real: docs/STORE.md). Apple gives one per subscription group per
+    Apple ID, so a phone's App Store account gets one free week whatever account the person signs into Numbite with; only changing the phone's whole Apple ID gets round it. A strict per-device
+    lock (Apple's DeviceCheck plus no-trial products) is possible later if needed. The 90-day pass can't have a trial (not a renewing subscription).
+  - **iPhone:** `IAPProduct.trialDays` (only when the product has a free introductory offer and `isEligibleForIntroOffer` is true for this Apple ID), sent as `trialDays` in `iap.products`.
+  - **Screens:** a one-time offer sheet after setup (`TrialOffer.tsx`: once on this phone, `mm.v1.trialOffer`; never on the welcome screens; not when the trial has been used or Premium is on;
+    "Not now" skips it), the paywall's "7-day free trial" banner and "Try Premium free for 7 days" title, the plans' "First 7 days free, then £14.99 a year." and "Start 7-day free trial", the
+    trial sentence under Apple's renewal words, and Settings › Subscription's "Start your 7-day free trial" while it's available; plans with a trial come first. StoreKit is asked once per session
+    (`app/app/_lib/storeProducts.ts`) and again after a purchase or restore.
+  - **Paid features (founder's "I'll let you decide"):** kept as built: free = every menu with full nutrition, search, groceries, recipes, logging and the order builder, shopping list, water,
+    reminders, Community, 3 Truth cards a day, the top 2 results of Best for you and each Quick answers list, the first 5 rows of Cheapest protein, 3 saved orders; Premium = Make it at home,
+    every Truth card, every Smart Swap and Quick answer, top 5 picks, the full Cheapest protein list, unlimited saved orders.
+  - **Tests:** `e2e/iap.mjs` 7 of 7 on the packed app with a pretend iPhone and server (offer once and skippable, no offer when used, before setup or with Premium, paywall banner, starting the trial
+    sends Apple's transaction and Premium switches on, cancel, Ask to Buy, Restore, Settings, a refund at start-up, axe on the offer and the paywall); Swift compiles with its tests
+    (`build-for-testing`; Swift tests not run: no Simulator, the disk is too full).
+  - **New copy (rule 8, logged here):** "Try Premium free for {days} days", "{days}-day free trial", "First {days} days free, then {price} {per}.", "Start {days}-day free trial", "Start your {days}-day free
+    trial", "Everything that's free stays free. Premium adds:", "Not now" (existing), "You can start your free trial later from any Premium feature, or in Settings › Subscription.", "With the free trial
+    you pay nothing for the first {days} days. If you don't cancel at least 24 hours before it ends, the subscription starts and you're charged. There is one free trial per Apple ID."
+  - **App Store answer given to the founder:** changes to screens, features, wording or recipes need a new build and App Review (the app carries its own copy of the web app, and rule 2.5.2 forbids
+    downloading new features); menu data and prices, the logo takedown list, the server's answers and the promotional text change without one.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

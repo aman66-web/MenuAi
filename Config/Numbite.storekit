@@ -27,9 +27,7 @@
       "type" : "NonRenewingSubscription"
     }
   ],
-  "products" : [
-
-  ],
+  "products" : [],
   "settings" : {
     "_askToBuyEnabled" : false,
     "_billingGracePeriodEnabled" : false,
@@ -38,24 +36,18 @@
     "_failTransactionsEnabled" : false,
     "_locale" : "en_GB",
     "_renewalBillingIssuesEnabled" : false,
+    "_storeKitErrors" : [],
     "_storefront" : "GBR",
-    "_storeKitErrors" : [
-
-    ],
     "_timeRate" : 0
   },
   "subscriptionGroups" : [
     {
       "id" : "4E504752",
-      "localizations" : [
-
-      ],
+      "localizations" : [],
       "name" : "Numbite Pro",
       "subscriptions" : [
         {
-          "adHocOffers" : [
-
-          ],
+          "adHocOffers" : [],
           "billingPlans" : [
             {
               "billingPlanType" : "BILLED_UPFRONT",
@@ -65,15 +57,26 @@
               "isEnabled" : true
             }
           ],
-          "codeOffers" : [
-
-          ],
+          "codeOffers" : [],
           "displayPrice" : "14.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "4E414E31",
+          "introductoryOffer" : {
+            "billingPlanType" : "BILLED_UPFRONT",
+            "internalID" : "4E545231",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
           "introductoryOffers" : [
-
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "internalID" : "4E545231",
+              "numberOfPeriods" : 1,
+              "paymentMode" : "free",
+              "subscriptionPeriod" : "P1W"
+            }
           ],
           "localizations" : [
             {
@@ -87,14 +90,10 @@
           "referenceName" : "Annual",
           "subscriptionGroupID" : "4E504752",
           "type" : "RecurringSubscription",
-          "winbackOffers" : [
-
-          ]
+          "winbackOffers" : []
         },
         {
-          "adHocOffers" : [
-
-          ],
+          "adHocOffers" : [],
           "billingPlans" : [
             {
               "billingPlanType" : "BILLED_UPFRONT",
@@ -104,15 +103,26 @@
               "isEnabled" : true
             }
           ],
-          "codeOffers" : [
-
-          ],
+          "codeOffers" : [],
           "displayPrice" : "2.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "4E4D4F31",
+          "introductoryOffer" : {
+            "billingPlanType" : "BILLED_UPFRONT",
+            "internalID" : "4E545232",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
           "introductoryOffers" : [
-
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "internalID" : "4E545232",
+              "numberOfPeriods" : 1,
+              "paymentMode" : "free",
+              "subscriptionPeriod" : "P1W"
+            }
           ],
           "localizations" : [
             {
@@ -126,9 +136,7 @@
           "referenceName" : "Monthly",
           "subscriptionGroupID" : "4E504752",
           "type" : "RecurringSubscription",
-          "winbackOffers" : [
-
-          ]
+          "winbackOffers" : []
         }
       ]
     }

@@ -37,7 +37,11 @@ final class StoreKitPurchaseService: PurchaseService {
         guard !wanted.isEmpty else { return [] }
         do {
             let found = try await Product.products(for: wanted)
-            return wanted.compactMap { id in found.first { $0.id == id }.map(Self.describe) }
+            var described: [IAPProduct] = []
+            for id in wanted {
+                if let product = found.first(where: { $0.id == id }) { described.append(await Self.describe(product)) }
+            }
+            return described
         } catch {
             Logger.purchases.error("Loading the products failed: \(error.localizedDescription, privacy: .public)")
             return nil
@@ -117,8 +121,24 @@ final class StoreKitPurchaseService: PurchaseService {
         _ = await UIApplication.shared.open(AppConfig.manageSubscriptionsURL)
     }
 
-    private static func describe(_ product: Product) -> IAPProduct {
-        IAPProduct(id: product.id, name: product.displayName, price: product.displayPrice, period: period(of: product))
+    private static func describe(_ product: Product) async -> IAPProduct {
+        IAPProduct(id: product.id, name: product.displayName, price: product.displayPrice, period: period(of: product), trialDays: await freeTrialDays(of: product))
+    }
+
+    /// The free trial's length in days, when the product has one (an introductory offer that is free) and this Apple ID can still have it: Apple gives one
+    /// introductory offer per subscription group per Apple ID, whatever account the person uses inside the app.
+    private static func freeTrialDays(of product: Product) async -> Int? {
+        guard let subscription = product.subscription, let offer = subscription.introductoryOffer, offer.paymentMode == .freeTrial,
+              await subscription.isEligibleForIntroOffer else { return nil }
+        let days: Int
+        switch offer.period.unit {
+        case .day: days = offer.period.value
+        case .week: days = offer.period.value * 7
+        case .month: days = offer.period.value * 30
+        case .year: days = offer.period.value * 365
+        @unknown default: return nil
+        }
+        return days * max(1, offer.periodCount)
     }
 
     /// "year" or "month" for a subscription that renews every 1 year or 1 month; anything else (the 90-day pass) is "none".

@@ -27,6 +27,7 @@ import { hasNative } from "@/lib/mm/native";
 import { refreshAppStoreAccess } from "@/lib/payments/iap";
 import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
+import { TrialOffer } from "./TrialOffer";
 
 // Five tabs, one job each (founder 2026-10-10): Home is today (your numbers and your own lists), then the three things the app does —
 // eat out, shop, cook — then Community (founder 2026-10-16: "The settings at the bottom right is now a community"). Settings has no tab of its
@@ -176,6 +177,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </nav>
         )}
       </div>
+      <TrialOffer />
     </PaywallProvider>
   );
 }

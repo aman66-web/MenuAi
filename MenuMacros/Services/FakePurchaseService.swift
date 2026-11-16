@@ -3,8 +3,8 @@ import Foundation
 /// For previews and tests: a pretend App Store with the three products and their launch prices. Remembers what it was asked.
 final class FakePurchaseService: PurchaseService {
     nonisolated static let sampleCatalogue = [
-        IAPProduct(id: AppConfig.iapAnnualProductID, name: "Annual", price: "£14.99", period: .year),
-        IAPProduct(id: AppConfig.iapMonthlyProductID, name: "Monthly", price: "£2.99", period: .month),
+        IAPProduct(id: AppConfig.iapAnnualProductID, name: "Annual", price: "£14.99", period: .year, trialDays: 7),
+        IAPProduct(id: AppConfig.iapMonthlyProductID, name: "Monthly", price: "£2.99", period: .month, trialDays: 7),
         IAPProduct(id: AppConfig.iapPass90ProductID, name: "Founding Member 90-Day Pass", price: "£9.99", period: .noRenewal),
     ]
     /// A made-up compact JWS (three dot-separated parts), never a real Apple signature.

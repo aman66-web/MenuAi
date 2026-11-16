@@ -30,6 +30,8 @@ export interface NativeProduct {
   name: string;
   price: string;
   period: "month" | "year" | "none";
+  /** The free trial's length in days: only when the product has one and this Apple ID can still have it (one per subscription group per Apple ID). */
+  trialDays?: number;
 }
 
 export interface NativeResult {
@@ -90,7 +92,8 @@ function cleanProduct(raw: unknown): NativeProduct | null {
   const name = text(p.name, 100);
   const price = text(p.price, 40);
   const period = p.period === "month" || p.period === "year" || p.period === "none" ? p.period : null;
-  return id && name && price && period ? { id, name, price, period } : null;
+  const trial = typeof p.trialDays === "number" && Number.isInteger(p.trialDays) && p.trialDays >= 1 && p.trialDays <= 31 ? p.trialDays : null;
+  return id && name && price && period ? { id, name, price, period, ...(trial ? { trialDays: trial } : {}) } : null;
 }
 
 export function cleanNativeResult(raw: unknown): NativeResult {

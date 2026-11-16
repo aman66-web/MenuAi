@@ -33,6 +33,9 @@ describe("bridge answers for purchases", () => {
     expect(cleanNativeResult({ transactions: ["not a jws"] })).toEqual({ error: "unavailable" });
     expect(cleanNativeResult({ pending: true })).toEqual({ pending: true });
     expect(cleanNativeResult({ products: [{ ...product, price: "<b>£1</b>" }] })).toEqual({ products: [] });
+    // the free trial's length, only as a whole number of days StoreKit could mean
+    expect(cleanNativeResult({ products: [{ ...product, trialDays: 7 }] })).toEqual({ products: [{ ...product, trialDays: 7 }] });
+    for (const bad of [0, 1.5, 40, "7", -7, null]) expect(cleanNativeResult({ products: [{ ...product, trialDays: bad }] })).toEqual({ products: [product] });
   });
 });
 
@@ -43,6 +46,8 @@ describe("loading the plans from the App Store", () => {
       { id: IAP_PRODUCT_IDS.pass90, name: "Founding Member 90-Day Pass", price: "£9.99", period: "none" },
     ] } });
     expect((await loadProducts(call))?.map((p) => `${p.plan} ${p.price}`)).toEqual(["pass90 £9.99", "monthly £2.99"]);
+    const withTrial = phone({ "iap.products": { products: [{ id: IAP_PRODUCT_IDS.annual, name: "Annual", price: "£14.99", period: "year", trialDays: 7 }] } });
+    expect((await loadProducts(withTrial))?.[0]).toMatchObject({ plan: "annual", trialDays: 7 });
     expect(call).toHaveBeenCalledWith("iap.products", { ids: [IAP_PRODUCT_IDS.pass90, IAP_PRODUCT_IDS.annual, IAP_PRODUCT_IDS.monthly] }, 30_000);
     expect(await loadProducts(phone({ "iap.products": { products: [] } }))).toBeNull();
     expect(await loadProducts(phone({}))).toBeNull();

@@ -49,6 +49,8 @@ node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THE
 node brand.mjs                                    # re-render the app icon + social card from web/design/ (after a name change too)
 ```
 
+`iap.mjs` is the iPhone app 1.1's Apple In-App Purchase (the iPhone and our server are FAKED; a throwaway key from `paykey.mjs`): `KEY=$(node e2e/paykey.mjs); NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app`, then `PORT=3103 node e2e/serve-app.mjs .next-app &` and `BASE=http://localhost:3103 node e2e/iap.mjs`. Delete `.next-app` afterwards: it carries the throwaway key.
+
 `pay.mjs` is for paid access (Stripe and our payment routes are FAKED in the browser; nothing reaches Stripe or a database). It needs its own build with payments on and a throwaway key:
 `PUB=$(node e2e/paykey.mjs); NEXT_PUBLIC_WEB_PRO=1 NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$PUB" NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 npm run build && npm start -- -p 3104` then `BASE=http://localhost:3104 node e2e/pay.mjs`.
 It checks the free tier's limits, the plans, the checkout request and a creator code, the return from Stripe, the signed token (forged, expired and foreign tokens refused), the 48-hour WhatsApp unlock, restore, and the legal pages' paid-access text.
