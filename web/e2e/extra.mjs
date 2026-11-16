@@ -257,6 +257,35 @@ await step("My meals › Restaurant meals: Log logs the saved meal's own figures
   await vis(page.getByRole("heading", { name: "Lunch bowl" }));
   await ctx.close();
 });
+await step("My meals: Log tapped where the Undo pill would sit sends the pill to the top, so a second tap on Log logs again; the second \"Logged to Today.\" is read out again from the other status line (review findings 17 and 19)", async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: "block" });
+  const order = { id: "s6", createdAt: "2026-10-05T12:00:00.000Z", chainId: "bowl-and-co", chainName: "Bowl & Co.", name: "Lunch bowl", lines: [{ kind: "components", itemId: "chicken-bowl", components: [{ id: "chicken", qty: 1 }] }], nutrients: { calories: 180, protein: 32, carbs: 0, fat: 7, salt: 0.9 }, dataVersionAtSave: 1 };
+  await ctx.addInitScript(([o]) => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000, devProOverride: true } })); localStorage.setItem("mm.v1.saved", JSON.stringify({ v: 1, data: [o] })); localStorage.removeItem("mm.v1.log"); }, [order]);
+  const page = await ctx.newPage();
+  await page.goto(BASE + "/app/meals?tab=restaurant");
+  const log = page.getByRole("button", { name: "Log Lunch bowl", exact: true });
+  await vis(log);
+  // scroll the card so its Log pill sits where the bottom pill goes (about 7rem above the foot of the screen)
+  await page.evaluate(() => { document.documentElement.style.paddingBottom = "1200px"; });
+  const lb = await log.boundingBox();
+  await page.evaluate((dy) => window.scrollBy(0, dy), lb.y - (844 - 112 - 40));
+  await page.waitForTimeout(300);
+  await log.tap();
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  await vis(undo);
+  const [u, l] = [await undo.boundingBox(), await log.boundingBox()];
+  if (!(u.y + u.height <= l.y || l.y + l.height <= u.y)) throw new Error(`Undo (${Math.round(u.y)}-${Math.round(u.y + u.height)}) sits on Log (${Math.round(l.y)}-${Math.round(l.y + l.height)})`);
+  if (u.y > 300) throw new Error("the pill didn't move to the top: y " + u.y);
+  const lines = page.locator("p[role=status].sr-only").filter({ hasText: /^Logged to Today\.$/ });
+  const firstLine = await lines.first().evaluate((el) => Array.from(el.parentElement.children).indexOf(el));
+  await log.tap(); // the second portion
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem("mm.v1.log")).data.length === 2);
+  await vis(lines.first());
+  if ((await lines.count()) !== 1) throw new Error("status lines holding the words: " + (await lines.count()));
+  const secondLine = await lines.first().evaluate((el) => Array.from(el.parentElement.children).indexOf(el));
+  if (secondLine === firstLine) throw new Error("the second toast went into the same status line, so it isn't read again");
+  await ctx.close();
+});
 await step("Settings › Daily targets reads 2,000 as two thousand (calories, water, protein, carbs, fat), still refuses what isn't a number, and Saved. is read from a status line that is always there", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 1800 } })); });

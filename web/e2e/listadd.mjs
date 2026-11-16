@@ -200,6 +200,29 @@ await step("\"−\" at quantity 1 takes the item off with \"Removed “…”.\"
   await ctx.close();
 });
 
+await step("keyboard: Enter on the \"−\" at quantity 1 removes the item and puts the focus on Undo (the row it was on is gone); a second Enter at once does nothing, a later one puts it back and the focus goes to the list's heading; the pill stays while Undo has the focus (review finding 16)", async () => {
+  const { ctx, page } = await open([asdaItem, tescoItem]);
+  await page.goto(BASE + "/app/groceries/list");
+  await more(page, "Asda").waitFor({ timeout: 90000 });
+  const minus = page.getByRole("button", { name: /^One fewer Aaila/ });
+  await minus.focus();
+  await page.keyboard.press("Enter");
+  await page.getByRole("status").filter({ hasText: `Removed “${asdaItem.name}”.` }).waitFor();
+  const focused = () => page.evaluate(() => document.activeElement?.textContent?.trim() ?? "");
+  expect((await focused()) === "Undo", "the focus is on: " + (await focused()));
+  await page.keyboard.press("Enter"); // the same key pressed twice in a row: an accident
+  await page.waitForTimeout(150);
+  expect(!(await stored(page)).some((i) => i.name === asdaItem.name), "a second Enter at once undid it");
+  await page.waitForTimeout(8800); // longer than the toast's 8 seconds: it waits while Undo has the focus
+  expect((await undoButton(page).count()) === 1, "the pill went while Undo had the focus");
+  await page.keyboard.press("Enter");
+  await page.getByRole("checkbox", { name: new RegExp(`^${asdaItem.name.slice(0, 20)}`) }).waitFor();
+  expect((await undoButton(page).count()) === 0, "the pill stayed after Undo");
+  const where = await page.evaluate(() => document.activeElement?.tagName ?? "");
+  expect(where === "H1", "after Undo the focus is on " + where);
+  await ctx.close();
+});
+
 await step("when the list of shops can't be downloaded: \"Add more from Tesco\" still opens Tesco's own list (Co-op, which has none, goes to Which shop?), and the recipe tile never says it is still looking", async () => {
   const { ctx, page } = await open([tescoItem, coopItem]);
   await page.route("**/groceries/all/all-manifest.json", (r) => r.fulfill({ status: 503, body: "" }));
