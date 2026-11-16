@@ -2232,6 +2232,16 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (3) **`NEXT_PUBLIC_APP_STORE_URL` does not seem to be set yet:** the shared-list page (`/l`) on numbite.com carries no App Store address, so a friend without the app still sees "coming soon". Setting it is a Vercel environment-variable change plus a redeploy (the founder's go-ahead is needed;
   best folded into the next push to `main`, since each push costs a Production build). (4) The iPhone 16 showed "unavailable" to Xcode (not plugged in or awake), and the iOS Simulator runtime was deleted on 3 Nov, so the packed app with the new code needs either the phone plugged in or the 8 GB Simulator download.
 
+- 2026-11-16 — **App Store address set on numbite.com, and a research session started on ingredient stock checks** (founder: "Yes, set it"; then "I want a way for the app to check a certain location to see if those ingredients are in stock").
+  - **`NEXT_PUBLIC_APP_STORE_URL` is set (Vercel, project `menumacros`, Production only, plain, not a secret):** `https://apps.apple.com/gb/app/numbite-calories-protein/id6822767746`. The project was identified before anything was changed
+    (domains numbite.com, www.numbite.com and menumacros.vercel.app; every variable created by the founder's GitHub account `aman66-web`; comments matching PROGRESS). The same code was then redeployed to Production
+    (`main` at ca8d8a56, deployment `dpl_G69ErZVUeRZiPGuJHbe1F77t6T16`, READY about a minute later, `numbite.com` aliased to it), because a `NEXT_PUBLIC_` value is only read when the site is built.
+    **Checked live:** the invite page (`/f#ABCDEFGH`) now shows "Get Numbite on the App Store" linking to the App Store page; `/`, `/app`, `/l`, `/f` and `/api/health` answer 200.
+  - **Correction to HANDOVER.md:** the Vercel team `aman-moneysave` ("Aman Marwaha's projects") is NOT a different account: it is where project `menumacros` and numbite.com live, and it is the only team the desktop session's Vercel connector sees.
+  - **Stock check, research only (nothing built):** a cloud session "stock-research" (branch `stock-check-research`, report `docs/STOCK_CHECK_FEASIBILITY.md`) was asked, for 21 UK grocery retailers, what stock a shopper can see (per store or per delivery postcode), any official API or licensed data,
+    each shop's terms on automated access, and a comparison of five approaches (Numbite calls the shops, an official feed, a third-party provider, "Open in {shop}" links, an honest "usually stocked" label), with a recommended smallest first version.
+    Location must stay on the device (CLAUDE.md rule 4) and robots.txt and blocks stay honoured. The desktop session reads its result from git; nothing is decided or built until the founder has seen it.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -2259,7 +2269,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [ ] **Apple In-App Purchase** (after 1.0 is approved): Paid Apps agreement, banking and tax, then paste `docs/CLAUDE_DESKTOP_IAP_PROMPT.md` into Claude desktop on the Mac (needs the three products; it stops before spending or uploading anything)
 - [x] **Merge decision for `viral-upgrade`**: merged and live by 15 November (`main` = `viral-upgrade`, payments off)
 - [x] **Decide the next iPhone release:** decided 15 Nov: 1.0.1 with the viral screens first (free), In-App Purchase later as 1.1
-- [ ] **Set `NEXT_PUBLIC_APP_STORE_URL`** in Vercel to the App Store address (1.0 is live) and redeploy; shared-list and friend-invite pages then offer the App Store button
+- [x] **Set `NEXT_PUBLIC_APP_STORE_URL`** in Vercel to the App Store address: done 16 Nov (shared-list and friend-invite pages now offer the App Store button)
 - [ ] **Choose the Stripe account** and write its exact name into `STRIPE_ACCOUNT` at the top of docs/CHROME_PROMPT_PAID_ACCESS.md before pasting it
 - [ ] hello@numbite.com mailbox: follow docs/MAILBOX_SETUP.md (free forwarding to Hotmail; you add the records in Vercel), then Claude changes `NEXT_PUBLIC_SUPPORT_EMAIL` and redeploys
 - [ ] Real bundle ID prefix, Team, App Group ID in Xcode signing and `AppConfig.swift`
