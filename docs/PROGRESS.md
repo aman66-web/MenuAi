@@ -2368,6 +2368,14 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     2 unit tests, `e2e/photorecipe.mjs` 8 of 8 (new step: kept under the recipe's id, not inside the synced recipe, on the My meals card and the recipe page, gone after Clear
     data), `e2e/recipes.mjs` 17 of 17. New copy: "Your photo" on the card's label.
 
+- 2026-11-16 (late night) — **Founder: "You have my approval for everything please do it all for me".** Done: the privacy paragraph for Make it at home is approved (it shows
+  only when the feature is on); `main` fast-forwarded to `photo-recipes` (a8593d46) and deployed, with Make it at home still off (no `NEXT_PUBLIC_PHOTO_RECIPES`, no Premium on
+  the build). **Blocked, not by us:** (1) Apple's updated Developer Program License Agreement must be accepted by the team's **Account Holder, Aayush Dwivedi** (developer.apple.com
+  › Account shows "Aayush Dwivedi needs to accept ..."); the founder's login can't, and Claude doesn't accept legal agreements. Until then App Store Connect refuses build 5 ("You do
+  not have required contracts", tried again 16 Nov) and any new version. (2) `ANTHROPIC_API_KEY` is **not** set in Vercel (checked by name only); the founder adds it themselves
+  (Vercel › menumacros › Settings › Environment Variables, Sensitive, Production) with a monthly spend limit in console.anthropic.com. (3) Make it at home needs Premium to be buyable
+  (Stripe on the website: docs/PAID_ACCESS_GO_LIVE.md; Apple In-App Purchase in the app, 1.1), which needs the founder's accounts, bank and tax details.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -2396,6 +2404,8 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 - [x] **Merge decision for `viral-upgrade`**: merged and live by 15 November (`main` = `viral-upgrade`, payments off)
 - [x] **Decide the next iPhone release:** decided 15 Nov: 1.0.1 with the viral screens first (free), In-App Purchase later as 1.1
 - [x] **Set `NEXT_PUBLIC_APP_STORE_URL`** in Vercel to the App Store address: done 16 Nov (shared-list and friend-invite pages now offer the App Store button)
+- [ ] **Ask Aayush Dwivedi (the Apple team's Account Holder) to accept the updated Apple Developer Program License Agreement** at developer.apple.com/account; then Claude uploads build 5 and submits 1.0.1
+- [ ] **Add `ANTHROPIC_API_KEY` in Vercel yourself** (Sensitive, Production; never in chat) and set a monthly spend limit at console.anthropic.com; then Make it at home can be switched on once Premium is buyable
 - [ ] **Choose the Stripe account** and write its exact name into `STRIPE_ACCOUNT` at the top of docs/CHROME_PROMPT_PAID_ACCESS.md before pasting it
 - [ ] hello@numbite.com mailbox: follow docs/MAILBOX_SETUP.md (free forwarding to Hotmail; you add the records in Vercel), then Claude changes `NEXT_PUBLIC_SUPPORT_EMAIL` and redeploys
 - [ ] Real bundle ID prefix, Team, App Group ID in Xcode signing and `AppConfig.swift`
