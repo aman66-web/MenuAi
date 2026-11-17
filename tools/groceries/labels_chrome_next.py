@@ -74,8 +74,8 @@ def main() -> int:
         # the site allows inline scripts but not eval: the stored reader runs as a script element and leaves its JSON line on window.__lbl
         # --wait S: seconds on each page before reading (a gentler pace for a shop that slows down a quick reader: Tesco)
         wait_ms = int(float(sys.argv[sys.argv.index("--wait") + 1]) * 1000) if "--wait" in sys.argv else 2500
-        code = (f"await new Promise((r) => setTimeout(r, {wait_ms})); if (!window.name.startsWith('(() => {')) JSON.stringify({ id: location.pathname.split('/').filter(Boolean).pop(), needInstall: true }); "
-                "else { const s = document.createElement('script'); s.textContent = 'window.__lbl = ' + window.name; document.head.appendChild(s); s.remove(); window.__lbl }")
+        code = ("await new Promise((r) => setTimeout(r, WAIT_MS)); if (!window.name.startsWith('(() => {')) JSON.stringify({ id: location.pathname.split('/').filter(Boolean).pop(), needInstall: true }); "
+                "else { const s = document.createElement('script'); s.textContent = 'window.__lbl = ' + window.name; document.head.appendChild(s); s.remove(); window.__lbl }").replace("WAIT_MS", str(wait_ms))
     elif tab is not None:
         js = (Path(__file__).resolve().parent / "labels_chrome.js").read_text(encoding="utf-8")
         # a moment for the page to draw its folded sections before reading
