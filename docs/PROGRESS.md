@@ -2619,6 +2619,24 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     `NEXT_PUBLIC_SUPPORT_EMAIL=… ./scripts/build_app_web.sh` again (about 62 MB) before any archive. The founder's limit is **100 MB on the phone** (about 70 MB expected; not measured, because Xcode
     needs its "iOS 26.5" component before it will build). Not done: the build-script size check (fail above 85 MB), which the founder has not yet said yes to.
 
+- 2026-11-17 (morning, Mac) — **Groceries: pick several shops and see them together** (founder, on the "Which shop?" screen: "a little select button on each one at the bottom right ... at the top
+  right ... it will say the number that I've been selected ... the person can press go, and all the shops that they selected ... on the next page"). Mac branch `iap` only: not pushed.
+  - **Groceries:** each shop's tile has a **Select** button at its bottom right (a 44 px pill that turns into a dark **Selected** with a tick); tapping a shop's name or logo still opens that one shop.
+    Once one is picked, a bar under the title says **"1 shop selected"** / **"{n} shops selected"** with a black **Go**; it stays at the top while the shops are scrolled. The choice is kept for this
+    browser tab (sessionStorage `mm.groceryPick`), so coming Back from the next page finds the shops still ticked.
+  - **Go:** one shop opens that shop's own list as before; two or more open **`/app/groceries/shops?r=tesco,asda`** ("Your selected shops"): every picked shop's list together with each row
+    showing its shop's name (small capitals above the product), its own price, price per kg or litre, card price, photo and numbers, and opening the same product page. Search across all of them,
+    a shop chip row ("All selected shops", one chip per shop), Fits my diet / Has nutrition / Has a card price, and the sort. Nothing is merged: a product sold at two shops is two rows. A shop that
+    can't load is named with Try again while the others still show. The address is checked (`lib/mm/shopPick.ts`: valid ids only, each once, at most 12). The page is a static shell, also in the
+    offline cache (`sw.js` SHELLS and QUERY_SHELLS).
+  - **Left out on purpose:** the single shop's "Aisle" menu (each shop names its aisles differently, so a union would mislead) and the catalogue's allergens (these lists have none: the
+    existing sentence says so).
+  - **New copy (rule 8, logged here; English only):** "Select", "Selected", "1 shop selected", "{n} shops selected", "Go", "Your selected shops", "Products from {shops}, each with its own shop's price and photo.",
+    "Couldn't load {shops}. Check your connection.", "Search these shops' products", "All selected shops", "Shop" (the chips' group name).
+  - **Checked:** `tests/shopPick.test.ts` (3), `e2e/shoppick.mjs` 5 steps (the button's place and size, counts, Go in tick order and sticky, Back keeps the choice, two shops' rows each naming its shop,
+    search, shop chip, sort, the product page, one shop uses the single list, bad address, a failed shop, 360 px and Extra large text, axe 0 on both screens), groceries-all 8, groceries 6,
+    groceries-compare 8, groceries-photos 4, listadd 8, listphotos 11, smoke 24, a11y 0 violations, largetext no overflow, tsc, eslint, i18n test.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

@@ -10,13 +10,15 @@ import { ROW } from "../PageBits";
 import { PhotoTile } from "../ProductPhoto";
 
 /** A product in a shop's full list: the shop's own picture (decorative), its name, price, price per kg or litre, any card price and, where we have read its page, the numbers per 100 g or ml. */
-export function ShopProductRow({ file, product }: { file: ShopFile; product: ShopProduct }) {
+export function ShopProductRow({ file, product, showShop }: { file: ShopFile; product: ShopProduct; showShop?: boolean }) {
   const t = useT();
   const href = `/app/groceries/shop/item?r=${file.retailer}&id=${encodeURIComponent(product.id)}`;
   return (
     <Link href={href} prefetch={false} className={ROW}>
       <PhotoTile sources={shopPhotoSources(file, product)} />
       <span className="min-w-[9rem] flex-1 py-0.5">
+        {/* in a list that mixes shops, each row says whose it is (the name comes first so a screen reader hears the shop, then the product) */}
+        {showShop && <span className="block text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted">{file.name}</span>}
         <span className="block text-base font-bold leading-snug [overflow-wrap:anywhere]">{product.name}</span>
         <span className="app-numbers mt-1 block text-[0.9375rem] leading-snug">
           {product.price !== null ? <span className="font-bold text-accent">{formatPrice(product.price)}</span> : <span className="font-semibold">{t("Price in store")}</span>}
