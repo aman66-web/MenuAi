@@ -17,7 +17,7 @@ import type { Preferences } from "@/lib/mm/types";
 import { Pip, PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { ShopPicker } from "../../_components/ShopPicker";
-import { Button, Chip, ErrorBox, inputClass, Spinner } from "../../_components/ui";
+import { Button, ErrorBox, inputClass, Spinner } from "../../_components/ui";
 import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
@@ -92,14 +92,6 @@ function Working({ shopName, finished, photoUrl }: { shopName: string; finished:
     </div>
   );
 }
-
-/** Dishes to tap when you can't think of one (founder 2026-11-17: "that screen has to look nice"): each fills the name and the short description. */
-const IDEAS = [
-  { name: tk("Salsa chicken tacos"), about: tk("Seasoned chicken in soft tacos with tomato salsa, lettuce and soured cream") },
-  { name: tk("Peri-peri chicken wings"), about: tk("Spicy, smoky chicken wings with rice and a little salad") },
-  { name: tk("Creamy mushroom pasta"), about: tk("Penne in a creamy garlic mushroom sauce with black pepper") },
-  { name: tk("Honey soy salmon bowl"), about: tk("Salmon glazed with honey and soy, on rice with cucumber") },
-] as const;
 
 /** Where the person is: the dish, the photo, the shop. */
 function Steps({ current }: { current: 1 | 2 | 3 }) {
@@ -362,13 +354,6 @@ function PhotoScreen() {
           )}
 
           <Button full className="mt-5 min-h-14 text-lg" disabled={!name.trim()} onClick={next}>{nudged && thin ? t("Carry on anyway") : t("Next")}</Button>
-
-          <p className="mt-6 text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-muted">{t("Need an idea? Tap one.")}</p>
-          <div className="mt-2.5 flex flex-wrap gap-2">
-            {IDEAS.map((idea) => (
-              <Chip key={idea.name} size="lg" onClick={() => { setName(t(idea.name)); setAbout(t(idea.about)); setNudged(false); }}>{t(idea.name)}</Chip>
-            ))}
-          </div>
         </section>
       )}
 
