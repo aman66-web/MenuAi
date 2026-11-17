@@ -61,7 +61,7 @@ export function compareFoodFromShop(f: ShopFile, p: ShopProduct): CompareItem | 
 /** A restaurant dish, per serving as the restaurant publishes it. */
 export function compareDish(chain: Pick<Chain, "id" | "name">, item: MenuItem): CompareItem {
   const n = item.nutrients;
-  const photo = itemImageUrl(item.image);
+  const photo = itemImageUrl(item.image) ? `/menu-images/${item.image}` : undefined; // the path, not the address: the app may load it from the website
   return {
     key: `dish:${chain.id}:${item.id}`,
     kind: "dish",

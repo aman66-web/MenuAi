@@ -49,8 +49,9 @@ const websiteConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }, ...openToTheApp],
       },
       {
-        // Item photos are named by a hash of their content (tools/uk_extract/images_common.py), so a file never changes.
-        source: "/menu-images/:path*",
+        // Dish, recipe and stored product photos are named by a hash of their content (tools/uk_extract/images_common.py, tools/recipes/import_recipe_images.py,
+        // tools/groceries/fetch_retailer_images.py), so a file never changes: the iPhone app loads them from here and keeps them (lib/mm/config.ts REMOTE_IMAGES).
+        source: "/:dir(menu-images|recipe-images|grocery-images)/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
           { key: "X-Content-Type-Options", value: "nosniff" },

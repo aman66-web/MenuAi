@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { AI_RECIPES_ENABLED, APP_PREMIUM, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
@@ -48,7 +49,8 @@ export default function Privacy() {
         nothing you set up leaves your device. The one exception is adding friends and sending them shopping lists (Community), which needs an account so
         there is someone to send to. If you choose to sign in, to keep your data on all your devices or to use Community, the sections &ldquo;Signing in and
         syncing (optional)&rdquo; and &ldquo;Community (needs an account)&rdquo; below say exactly what we then keep. This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
-        is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone.
+        is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone. To keep the app small, it loads
+        photos of dishes, recipes and products from this website the first time you look at them (like the web app does), and keeps them on your phone to show again.
       </p>
 
       <Section title="What stays on your phone or in your browser">
@@ -213,6 +215,23 @@ export default function Privacy() {
         </p>
         )}
       </Section>
+
+      {COMPARE_PICK_ENABLED && (
+      <Section title="Pip's pick on Compare">
+        <p className={para}>
+          When you compare two products or two dishes, Pip&apos;s pick sends the names of the two items, the shops or restaurants they come from, their nutrition figures, the
+          goal you chose (for example Build muscle) and your diet choices as words (for example vegetarian) to our server, which passes them to Anthropic, the company that
+          makes the Claude AI, so Pip can say which one it would pick for your goal. Your allergies, your name, your account, your location and everything else about you are not sent.
+          Pip writes a short sentence and picks reasons; the numbers beside it are worked out on your device from the figures on the screen.
+        </p>
+        <p className={para}>
+          We keep Pip&apos;s answer for that pair of items (the sentence and the reasons, filed under a one-way scramble of the two items, their figures, the goal and the diet choices,
+          with nothing about you in it) so that the next time anyone compares the same two items for the same goal the answer is reused and the AI isn&apos;t asked again. Your device
+          keeps a copy of the answers it has seen; they aren&apos;t synced to your account and are deleted by Clear data. Our server uses a one-way scramble of your IP address,
+          held only in memory for a day, to stop one person asking too often.
+        </p>
+      </Section>
+      )}
 
       <Section title="Reminders">
         <p className={para}>

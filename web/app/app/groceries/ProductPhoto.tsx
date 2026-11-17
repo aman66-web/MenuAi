@@ -1,5 +1,6 @@
 "use client";
 
+import { assetUrl } from "@/lib/mm/config";
 import { useState } from "react";
 import { photoCaption, type PhotoSource } from "@/lib/mm/groceries";
 import { BasketIcon } from "../_components/icons";
@@ -13,7 +14,9 @@ export function usePhotoSource(sources: readonly PhotoSource[]): { current: Phot
   const key = sources.map((s) => s.src).join("\n");
   const [failed, setFailed] = useState<{ key: string; n: number }>({ key, n: 0 });
   const n = failed.key === key ? failed.n : 0;
-  return { current: sources[n], fail: () => setFailed({ key, n: n + 1 }) };
+  const cur = sources[n];
+  // our stored copies (/grocery-images/...) come from the live site in the iPhone app (lib/mm/config.ts REMOTE_IMAGES)
+  return { current: cur && cur.src.startsWith("/") ? { ...cur, src: assetUrl(cur.src) } : cur, fail: () => setFailed({ key, n: n + 1 }) };
 }
 
 /**

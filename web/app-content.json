@@ -1,5 +1,5 @@
 {
-  "note": "What goes inside the iPhone app (scripts/build_app_web.sh, docs/APP_BUILD.md). The website always has everything. appLogos: the chains' and supermarkets' own logo files inside the app (false = our cuisine icons and plain shop names instead; the safest answer to App Review 5.2.1). menuPhotos: the chains' own item photos (founder 2026-10-12: \"yes i want all the food photos there\"). shops: the supermarkets whose full product lists and catalogue are packed in (a shop left out also disappears from the app's Groceries); every shop is in until the founder decides otherwise.",
+  "note": "What goes inside the iPhone app (scripts/build_app_web.sh, docs/APP_BUILD.md). The website always has everything. appLogos: the chains' and supermarkets' own logo files inside the app (false = our cuisine icons and plain shop names instead; the safest answer to App Review 5.2.1). menuPhotos: the chains' own item photos (founder 2026-10-12: \"yes i want all the food photos there\"). shops: the supermarkets whose full product lists and catalogue are packed in (a shop left out also disappears from the app's Groceries); every shop is in until the founder decides otherwise. remoteImages: true leaves the dish, recipe and product photos out of the app (about 125 MB) and loads each from the live site the first time it is shown, kept in the phone's cache (founder 2026-11-17: the app shouldn't use excessive storage).",
   "menuPhotos": true,
   "shops": [
     "sainsburys",
@@ -12,5 +12,6 @@
     "iceland",
     "marks-and-spencer"
   ],
-  "appLogos": true
+  "appLogos": true,
+  "remoteImages": true
 }

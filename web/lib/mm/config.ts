@@ -82,6 +82,16 @@ export const PHOTO_RECIPES_API_ENABLED = process.env.NEXT_PUBLIC_PHOTO_RECIPES =
 /** Where the app build reaches the live website for newer data and the API: absolute, no trailing slash. Empty on the website itself. */
 export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "").replace(/\/$/, "") : "";
 
+/**
+ * Photos in the iPhone app come from the website, not from inside the app (founder 2026-11-17: "when the user downloads the app it shouldn't use excessive
+ * storage"): dish, recipe and stored product photos are about 125 MB, so the app's build leaves them out (scripts/pack_app_web.py, web/app-content.json
+ * "remoteImages") and loads each one from the live site the first time it is shown; the phone keeps it in the web view's cache. Offline, a photo not yet
+ * seen shows the usual plain tile. NEXT_PUBLIC_APP_REMOTE_IMAGES=0 packs them in again.
+ */
+export const REMOTE_IMAGES = APP_BUILD && !!REMOTE_BASE && process.env.NEXT_PUBLIC_APP_REMOTE_IMAGES !== "0";
+/** A photo's address: the site's own path on the website and in a packed app, the live site's address when the app loads photos from it. */
+export const assetUrl = (path: string): string => (REMOTE_IMAGES && path.startsWith("/") && !path.startsWith("//") ? `${REMOTE_BASE}${path}` : path);
+
 /** The chains' own item photos (CLAUDE.md rule 2). The iPhone app's build can leave them out (web/app-content.json, docs/APP_BUILD.md). */
 export const MENU_PHOTOS_ENABLED = process.env.NEXT_PUBLIC_MENU_PHOTOS !== "0";
 /** The chains' and supermarkets' own logo files. The iPhone app can be built without them (web/app-content.json "appLogos": false → NEXT_PUBLIC_APP_LOGOS=0): chains then show our own

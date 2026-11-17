@@ -7,6 +7,8 @@
     (index.html) is replaced by a page that only forwards to /app;
   * "appLogos": false leaves out logos/ (the build also sets NEXT_PUBLIC_APP_LOGOS=0, so chains show our cuisine icons and shops their names);
   * "menuPhotos": false leaves out menu-images/ (the build also sets NEXT_PUBLIC_MENU_PHOTOS=0, so no item asks for one);
+  * "remoteImages": true leaves out menu-images/, recipe-images/ and grocery-images/ (founder 2026-11-17: the app shouldn't use excessive storage): the
+    build sets NEXT_PUBLIC_APP_REMOTE_IMAGES=1, so the app loads each photo from the live site when it is first shown and the phone keeps it in its cache;
   * "shops": the supermarkets whose full product lists (groceries/all/) and catalogue files (groceries/) are packed in. A shop with a full
     list that isn't named is removed from both manifests and its files are left out, so it disappears from the app's Groceries. Catalogue
     entries for shops that have no full list (Co-op, Ocado: community data only) are kept as on the website.
@@ -38,7 +40,8 @@ def main(src: Path, dst: Path, content_file: Path) -> int:
     if dst.exists():
         shutil.rmtree(dst)
     logos = bool(content.get("appLogos", True))
-    out = set(ALWAYS_OUT) | (set() if photos else {"menu-images"}) | (set() if logos else {"logos"})
+    remote = bool(content.get("remoteImages", False))
+    out = set(ALWAYS_OUT) | (set() if photos else {"menu-images"}) | (set() if logos else {"logos"}) | ({"menu-images", "recipe-images", "grocery-images"} if remote else set())
     shutil.copytree(src, dst, ignore=lambda d, names: [n for n in names if Path(d) == src and n in out])
 
     # The website's landing page (an app that "is planned", a waitlist) must not ship inside the app (App Review 2.3.10): its address only forwards to the app.
@@ -73,11 +76,11 @@ def main(src: Path, dst: Path, content_file: Path) -> int:
 
     total = size(dst)
     print(f"{dst.name}: {total / 1e6:.1f} MB")
-    for part in ["menus", "menu-images", "groceries", "grocery-images", "logos", "_next", "app"]:
+    for part in ["menus", "menu-images", "recipe-images", "groceries", "grocery-images", "logos", "_next", "app"]:
         p = dst / part
         if p.exists():
             print(f"  {part}: {size(p) / 1e6:.1f} MB")
-    print(f"  menu photos: {'in' if photos else 'left out'}; shops left out: {', '.join(left_out) or 'none'}")
+    print(f"  menu photos: {'loaded from the website' if remote and photos else 'in' if photos else 'left out'}; recipe and product photos: {'loaded from the website' if remote else 'in'}; shops left out: {', '.join(left_out) or 'none'}")
     if total > 190e6:
         print("warning: over 190 MB; the App Store downloads apps over 200 MB only on Wi-Fi", file=sys.stderr)
     return 0
