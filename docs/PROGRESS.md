@@ -2816,6 +2816,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   1 is not really, 5 is love it.", "Your rating, 1 to 5", "{n} out of 5", "Not really", "Love it", "Thank you", the thank-you sentence above. Checked: unit 6, `e2e/rating.mjs` 4 on the
   packed app with a pretend iPhone (axe 0), the Swift compiles with a bridge test line.
 
+- 2026-11-17 (night, Mac) — **No product without numbers in any recipe** (founder: "products that have no nutritional information shouldn't be used for recipes in general";
+  "You need nutritional information for every product for every store"). This **reverses** tonight's pinch-sized-spices rule (and ground cinnamon's since 11 October): no pantry
+  kind may now be listed without a label (`labelOptional` is unused). Ground cinnamon was the only gap at Sainsbury's: its own-brand label prints no fibre and failed our energy check;
+  the Stamford Street Co. Ground Cinnamon page (read in the founder's Chrome, 17 Nov) prints fibre 53.1 g and adds up exactly once fibre's 2 kcal a gram is counted, so
+  `build_groceries.implausible` now takes the printed fibre and keeps a label that adds up either with fibre on top (UK labels) or inside carbohydrate (some imported labels;
+  nothing accepted before is rejected; Python test added). Cinnamon also gets a small-shop tip ("any jar of ground cinnamon", new copy, rule 8). Recipes now: **Sainsbury's 165**,
+  **Morrisons 145** (missing cinnamon, mixed spice, nutmeg, turkey breast, chipolatas, gammon: labels to read), **Asda 40 and Iceland 33: below the 80-recipe bar, so out of
+  Recipes** until their own labels are read. **numbite.com still runs the earlier rule** (Asda 99, Iceland 122 with uncounted spices) until this is put live.
+  Next (founder's go-ahead, accepted risk of the shops' terms): read every product's own page in the founder's Chrome, one at a time, starting with the products recipes use, at
+  Tesco, Waitrose, Aldi, Asda and M&S (Lidl's pages print no nutrition: rechecked before giving up).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

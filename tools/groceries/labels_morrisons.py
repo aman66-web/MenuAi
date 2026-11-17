@@ -543,7 +543,7 @@ def label_from(nutrition_html) -> tuple[dict | None, str]:
     if None in main:
         return None, "a main figure isn't a number"
     kj = bg.printed_num(r["kj"]) if r["kj"] else None
-    bad = bg.implausible(main[0], main[1], main[2], main[3], kj)
+    bad = bg.implausible(main[0], main[1], main[2], main[3], kj, bg.printed_num(r["fibre"]) if r.get("fibre") else None)
     if not bad and kj and main[0] >= 20 and not 3.55 <= kj / main[0] <= 4.82:
         bad = "kJ and kcal disagree"
     if bad:

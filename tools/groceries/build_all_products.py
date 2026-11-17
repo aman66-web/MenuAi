@@ -219,7 +219,7 @@ def read_nutrition(shop: str, problems: list, path: Path | None = None) -> dict:
         for line, r in enumerate(csv.DictReader(f), start=2):
             slug, per = (r.get("product_id") or "").strip(), (r.get("per") or "").strip()
             main = [bg.printed_num(r.get(k)) for k in ("kcal", "protein_g", "carbs_g", "fat_g")]
-            if not SLUG.fullmatch(slug) or per not in ("g", "ml") or None in main or bg.implausible(main[0], main[1], main[2], main[3]):
+            if not SLUG.fullmatch(slug) or per not in ("g", "ml") or None in main or bg.implausible(main[0], main[1], main[2], main[3], fibre=bg.printed_num(r.get("fibre_g"))):
                 problems.append(f"nutrition/{path.name} line {line}: not usable ({slug!r})")
                 continue
 
@@ -449,7 +449,8 @@ def catalogue_nutrition(base: Path | None = None, details: Path | None = None, l
             if not code or code in out or code in own or restricted_code(code) or c.get("per") not in ("g", "ml"):
                 continue
             main = [c.get(k) for k in ("kcal", "protein", "carbs", "fat")]
-            if not all(isinstance(v, (int, float)) for v in main) or implausible(*main, c.get("kj") if isinstance(c.get("kj"), (int, float)) else None):
+            if not all(isinstance(v, (int, float)) for v in main) or implausible(*main, c.get("kj") if isinstance(c.get("kj"), (int, float)) else None,
+                                                                                 c.get("fibre") if isinstance(c.get("fibre"), (int, float)) else None):
                 continue
             out[code] = (community_row(c), None)
     looked_up = looked_up or ROOT / "data" / "groceries" / "nutrition" / "raw-off"

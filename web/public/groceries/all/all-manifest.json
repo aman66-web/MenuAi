@@ -7,10 +7,10 @@
    "file": "sainsburys.json",
    "count": 15310,
    "checkedOn": "2026-10-08",
-   "nutrition": 13206,
+   "nutrition": 13207,
    "community": 192,
    "priced": 15310,
-   "sha256": "920e2d26ff6597e7c63568e2e53b8bb1e60cba22adcfdac9833d6767a5f1b2f7"
+   "sha256": "5e973c00e89ca488e098afc3d03cc34ce613c2e8112daf1620a16e498b3591d7"
   },
   {
    "id": "tesco",

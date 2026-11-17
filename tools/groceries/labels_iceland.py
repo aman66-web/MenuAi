@@ -391,7 +391,7 @@ def row_from(rec: dict) -> tuple[dict | None, str]:
     if None in main:
         return None, "a main number (kcal, protein, carbs or fat) missing or not a plain figure"
     kj = bg.printed_num(row["kj"])
-    bad = bg.implausible(main[0], main[1], main[2], main[3], kj)
+    bad = bg.implausible(main[0], main[1], main[2], main[3], kj, bg.printed_num(row["fibre_g"]))
     if not bad and kj and main[0] >= 20 and not 3.55 <= kj / main[0] <= 4.82:
         bad = "kJ and kcal disagree"
     if bad:

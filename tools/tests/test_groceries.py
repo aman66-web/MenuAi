@@ -1224,3 +1224,14 @@ class CommunityNutritionTests(unittest.TestCase):
             differ = {"asda": {"products": [["1", "Saxa Table Salt 750g", 1.0, None, "", None, None, 0, "", "5010024103644", None]]}}
             self.assertEqual(bap.fill_community_nutrition(agree, by_code), {"asda": 1})
             self.assertEqual(bap.fill_community_nutrition(differ, by_code), {"asda": 0})
+
+
+class FibreEnergyTests(unittest.TestCase):
+    """build_groceries.implausible counts fibre's energy when a label prints fibre (founder 2026-11-17: no product without numbers in a recipe; ground cinnamon's
+    own label adds up only with its fibre), and keeps a label whose carbohydrate already includes the fibre."""
+
+    def test_high_fibre_labels(self):
+        self.assertIsNone(bg.implausible(243, 4.0, 27.5, 1.2, 1006, 53.1))        # UK label: fibre on top of carbohydrate
+        self.assertIsNotNone(bg.implausible(243, 4.0, 27.5, 1.2, 1006))           # the same label without its fibre line can't be checked: left out
+        self.assertIsNone(bg.implausible(255, 11, 65, 3, 1067, 27))               # fibre already inside carbohydrate: still fine
+        self.assertIsNotNone(bg.implausible(400, 5, 10, 2, None, 5))              # fibre can't explain 400 kcal from 5 g protein, 10 g carbs, 2 g fat
