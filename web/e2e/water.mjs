@@ -41,8 +41,8 @@ async function drink(page, text) {
   await addButton(page).tap();
   await sheet(page).waitFor({ state: "detached" });
 }
-/** The water's drawn level in the first bottle inside `where`: the translateY of its water rectangle, in drawing units. */
-const lift = (where) => where.locator("svg rect[style]").first().evaluate((el) => parseFloat(/translateY\(([-\d.]+)px\)/.exec(el.style.transform)?.[1] ?? "NaN"));
+/** The water's drawn level in the first bottle inside `where`: the translateY of its water (the group that carries the waves), in drawing units. */
+const lift = (where) => where.locator("svg [data-water-level]").first().evaluate((el) => parseFloat(/translateY\(([-\d.]+)px\)/.exec(el.style.transform)?.[1] ?? "NaN"));
 const undo = (page) => page.getByRole("button", { name: "Undo the last water you added", exact: true });
 /** "750 / 2,000 ml" as numbers. */
 async function figures(page) {
@@ -159,6 +159,53 @@ await step("the bottle in the sheet moves with a finger or the mouse and with th
   expect((await bottle.getAttribute("aria-valuenow")) === "1000" && (await lift(sheet(page))) === 0, "3,000 ml should show a full bottle");
   expect(/Add 3,000 ml/.test(await addButton(page).innerText()), "button: " + (await addButton(page).innerText()));
   await ctx.close();
+});
+
+await step("no box round the bottle (founder 2026-11-17: \"the green box there again\"): none after a tap or a drag; with the keyboard the handle gets a ring and the amount shows beside it", async () => {
+  const { ctx, page } = await open();
+  await home(page);
+  await openSheet(page);
+  const bottle = slider(page);
+  const look = () => bottle.evaluate((el) => {
+    const cs = getComputedStyle(el);
+    const handle = getComputedStyle(el.querySelector(".water-handle"));
+    return { focused: document.activeElement === el, outline: cs.outlineStyle === "none" || cs.outlineWidth === "0px" ? "none" : cs.outlineStyle + " " + cs.outlineColor, ring: handle.boxShadow, tip: getComputedStyle(el.querySelector(".water-tip")).opacity };
+  });
+  const box = await bottle.boundingBox();
+  await bottle.tap({ position: { x: box.width / 2, y: box.height * 0.6 } });
+  let l = await look();
+  expect(l.focused, "a tap should put the focus on the bottle (so the keys work after it)");
+  expect(l.outline === "none", "a box round the bottle after a tap: " + l.outline);
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height * 0.8);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height * 0.4, { steps: 5 });
+  await page.waitForTimeout(300); // it fades in
+  expect((await look()).tip === "1", "the amount doesn't show beside the handle while dragging");
+  await page.mouse.up();
+  await page.waitForTimeout(300);
+  l = await look();
+  expect(l.outline === "none", "a box round the bottle after a drag: " + l.outline);
+  expect(l.tip === "0", "the amount label stays after the drag");
+  const before = l.ring;
+  await page.keyboard.press("ArrowUp");
+  await page.waitForTimeout(300);
+  l = await look();
+  expect(l.outline === "none", "with the keyboard the bottle should still have no box: " + l.outline);
+  expect(l.ring !== before && /rgb\(11, 26, 18\)/.test(l.ring), "no dark ring on the handle for a keyboard user: " + l.ring);
+  expect(l.tip === "1", "the amount doesn't show for a keyboard user");
+  // the water moves for everyone else; with reduced motion nothing drifts or sloshes
+  const moving = await sheet(page).evaluate((d) => [...d.querySelectorAll(".water-wave, .water-wave-back, .water-bubble")].filter((el) => getComputedStyle(el).animationName !== "none").length);
+  expect(moving >= 3, "the waves and bubbles aren't moving: " + moving);
+  await ctx.close();
+  const still = await open({ reducedMotion: "reduce" });
+  await home(still.page);
+  await openSheet(still.page);
+  const anim = await sheet(still.page).evaluate((d) => [...d.querySelectorAll(".water-wave, .water-wave-back, .water-bubble, [class*=water-slosh]")].filter((el) => getComputedStyle(el).animationName !== "none").length);
+  expect(anim === 0, "with reduced motion " + anim + " parts of the water still move");
+  await amount(still.page).fill("750");
+  expect(Math.abs((await lift(sheet(still.page))) - 22.25) < 0.01, "reduced motion: the level still follows the amount");
+  expect((await sheet(still.page).locator("[data-water-level]").evaluate((el) => getComputedStyle(el).transitionProperty)) === "none", "reduced motion: the level should change at once");
+  await still.ctx.close();
 });
 
 await step("the amount is checked: nothing, 0, over 5,000 or words can't be added; 1,250 can; the Glass and Bottle shortcuts fill it in", async () => {

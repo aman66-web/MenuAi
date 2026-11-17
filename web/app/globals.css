@@ -362,3 +362,39 @@ html[data-i18n-pending] body {
 /* Creator "Filming mode": a clean screen for video (the tab bar steps aside). */
 html[data-creator] nav[aria-label="Main"] { display: none; }
 html[data-creator] main { padding-bottom: 2rem; }
+
+/* ---- Water bottle (WaterBottle.tsx: Home's Water card and the "Add water" sheet; founder 2026-11-17: "make it better") ----
+   Transforms and opacity only, on the bottle's own SVG; no script loop. Two waves drift sideways at different speeds (by one 24-unit wavelength, so the
+   loop has no seam), bubbles rise now and then, the surface tilts and settles once when the level changes (two identical animations, swapped to
+   restart it) and rises higher while a finger drags it. Home's small bottle drifts slowly. Nothing drifts, rises or sloshes for reduced motion: the
+   level still changes, at once. The slider shows no box when focused: for keyboard users its handle gets a dark ring and the amount label shows. */
+@keyframes water-drift { from { transform: translateX(0); } to { transform: translateX(-24px); } }
+@keyframes water-drift-back { from { transform: translateX(-24px); } to { transform: translateX(0); } }
+@keyframes water-bubble {
+  0% { transform: translateY(0); opacity: 0; }
+  6% { opacity: 1; }
+  34% { opacity: 0.9; }
+  42% { transform: translateY(calc(var(--rise, 60) * -1px)); opacity: 0; }
+  100% { transform: translateY(calc(var(--rise, 60) * -1px)); opacity: 0; }
+}
+@keyframes water-slosh-a { 0% { transform: rotate(0deg); } 14% { transform: rotate(-6deg); } 36% { transform: rotate(4deg); } 58% { transform: rotate(-2.2deg); } 80% { transform: rotate(0.9deg); } 100% { transform: rotate(0deg); } }
+@keyframes water-slosh-b { 0% { transform: rotate(0deg); } 14% { transform: rotate(-6deg); } 36% { transform: rotate(4deg); } 58% { transform: rotate(-2.2deg); } 80% { transform: rotate(0.9deg); } 100% { transform: rotate(0deg); } }
+.water-amp { transition: transform 320ms cubic-bezier(0.3, 1.4, 0.5, 1); }
+.water-bubble { opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .water-wave { animation: water-drift 3.4s linear infinite; }
+  .water-wave-back { animation: water-drift-back 5.6s linear infinite; }
+  .water-wave.water-calm { animation-duration: 8s; }
+  .water-wave-back.water-calm { animation-duration: 13s; }
+  .water-bubble { animation: water-bubble var(--bubble-s, 5s) ease-in var(--bubble-d, 0s) infinite; }
+  .water-slosh-a { animation: water-slosh-a 1.15s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+  .water-slosh-b { animation: water-slosh-b 1.15s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .water-amp { transform: none !important; transition: none; }
+  .water-bubble { display: none; }
+}
+.water-slider:focus, .water-slider:focus-visible { outline: none; }
+html[data-keys] .water-slider:focus .water-handle { box-shadow: 0 0 0 2px #fff, 0 0 0 4.5px var(--foreground); }
+html[data-keys] .water-slider:focus .water-tip { opacity: 1; }
+/* ---- end of water bottle ---- */
