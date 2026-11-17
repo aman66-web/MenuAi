@@ -281,6 +281,30 @@ await step("a photo that isn't of food goes back to the camera with 'please try 
   await ctx.close();
 });
 
+await step("the shop step lets one shop be chosen, only from the shops that can make recipes; the one chosen is sent and becomes the first shop", async () => {
+  const { ctx, page, errors, sent } = await open({ shops: ["tesco", "sainsburys"] });
+  await pretend(page, sent, { delay: 200 });
+  await toShops(page);
+  const group = page.getByRole("radiogroup", { name: "Shopping at" });
+  await group.waitFor();
+  const names = await group.getByRole("radio").allInnerTexts();
+  expect(names.some((n) => /Sainsbury/.test(n)) && names.some((n) => /Morrisons/.test(n)) && !names.some((n) => /Tesco/.test(n)), "shops listed: " + names.join(" | "));
+  const checked = () => group.locator('[role="radio"][aria-checked="true"]').count();
+  expect((await checked()) === 1, "not exactly one shop chosen at the start");
+  await page.getByText("Recipes can't use Tesco yet", { exact: false }).waitFor();
+  await group.getByRole("radio", { name: /Morrisons/ }).tap();
+  expect((await checked()) === 1 && (await group.getByRole("radio", { name: /Morrisons/ }).getAttribute("aria-checked")) === "true", "Morrisons isn't the one shop chosen");
+  await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await page.waitForFunction(() => true);
+  await until(async () => sent.recipe.length, (n) => n > 0, 10000);
+  expect(sent.recipe[0].body.shop === "morrisons", "shop sent: " + sent.recipe[0].body.shop);
+  const shops = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") ?? "null")?.data?.shops);
+  expect(JSON.stringify(shops) === '["morrisons","tesco","sainsburys"]', "settings shops: " + JSON.stringify(shops));
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("a photo picked from the phone is scanned the same way; Next shows the loading screen, then the recipe with titled steps; only the dish, diet and products are sent", async () => {
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent);

@@ -16,7 +16,6 @@ import { toggleAllergen, toggleDiet } from "@/lib/mm/menu-view";
 import type { Preferences } from "@/lib/mm/types";
 import { Pip, PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
-import { ShopPicker } from "../../_components/ShopPicker";
 import { Button, ErrorBox, inputClass, Spinner } from "../../_components/ui";
 import { backName, useBack } from "../../_lib/backNav";
 import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
@@ -27,6 +26,7 @@ import { recipeShop } from "../../_lib/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
 import { RecipeDetail } from "../RecipeDetail";
+import { ShopChoice } from "../ShopChoice";
 import { PhotoCamera, ScanningPhoto } from "./PhotoCamera";
 
 // Make it at home (founder 2026-11-16, new order 2026-11-17): the name of the dish and a short description (they help Pip choose the right ingredients), then the
@@ -143,7 +143,8 @@ function PhotoScreen() {
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
   const [nudged, setNudged] = useState(false);
-  const [shops, setShops] = useState<string[]>(() => settings.shops ?? []);
+  // One shop for the recipe (founder 2026-11-17: "they should only be allowed to choose one shop on this screen"); it starts with the person's first shop that can make recipes
+  const [pickedShop, setPickedShop] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [finished, setFinished] = useState(false);
@@ -153,7 +154,10 @@ function PhotoScreen() {
   const heading = useRef<HTMLHeadingElement>(null);
   const abort = useRef<AbortController | null>(null);
 
-  const shop = recipeShop(manifest, null, shops.length ? shops : settings.shops);
+  const shop = pickedShop ?? recipeShop(manifest, null, settings.shops);
+  const readyShops = recipeShops(manifest).map((r) => ({ id: r.id, name: r.name }));
+  // the person's own shops whose labels we haven't read enough of to make recipes (named under the list, as on the Recipes page)
+  const unreadShops = (manifest?.retailers ?? []).filter((r) => (settings.shops ?? []).includes(r.id) && !readyShops.some((x) => x.id === r.id)).map((r) => r.name);
   const shopName = manifest?.retailers.find((r) => r.id === shop)?.name ?? t("your shop");
   const [retry, setRetry] = useState(0);
   const products = useShopProducts(shop, retry);
@@ -220,7 +224,8 @@ function PhotoScreen() {
 
   const generate = async () => {
     if (!photo || !shop || pantry.length < 2) return;
-    updateSettings({ shops: shops.length ? shops : undefined });
+    // the shop chosen here becomes the person's first shop, as on the Recipes page (the others stay ticked for Groceries)
+    if (pickedShop && settings.shops?.[0] !== pickedShop) updateSettings({ shops: [pickedShop, ...(settings.shops ?? []).filter((id) => id !== pickedShop)] });
     const body: PhotoRecipeRequest = { shop, servings: SERVINGS, target, diet, description: text, image: photo.base64, pantry };
     setStep("working");
     setFinished(false);
@@ -406,7 +411,10 @@ function PhotoScreen() {
         <section aria-labelledby="shops-q">
           <Steps current={3} />
           <h2 id="shops-q" className={`${H2} mt-5`}>{t("Where do you shop?")}</h2>
-          <div className="mt-3"><ShopPicker value={shops} onChange={setShops} /></div>
+          <div className="mt-3"><ShopChoice shops={readyShops} value={shop} onChange={setPickedShop} /></div>
+          {unreadShops.length > 0 && (
+            <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("Recipes can't use {shops} yet: we haven't read enough of their products' labels.", { shops: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(unreadShops) })}</p>
+          )}
           {onlyOneShop && shop && <p className="mt-3 text-[0.9375rem] leading-snug text-muted">{t("For now, recipes use {shop} products, the shop whose labels we've read. More supermarkets will come as we read theirs.", { shop: shopName })}</p>}
           {step === "error" && error && <div className="mt-4"><ErrorBox message={t(error)} onRetry={generate} /></div>}
           {!manifest || (shop && products.status === "loading") ? (
