@@ -102,7 +102,9 @@ struct PurchaseReplyTests {
         #expect(Set(json.keys) == ["products"])
         let products = try #require(json["products"] as? [[String: Any]])
         #expect(products.count == 3)
-        for product in products { #expect(Set(product.keys) == ["id", "name", "price", "period"]) }
+        // the two renewing plans carry the free week (trialDays, only when this Apple ID can still have it); the 90-day pass has none
+        #expect(products.map { Set($0.keys) } == [["id", "name", "price", "period", "trialDays"], ["id", "name", "price", "period", "trialDays"], ["id", "name", "price", "period"]])
+        #expect(products.map { $0["trialDays"] as? Int } == [7, 7, nil])
         #expect(products.map { $0["id"] as? String } == AppConfig.iapProductIDs)
         #expect(products.map { $0["name"] as? String } == ["Annual", "Monthly", "Founding Member 90-Day Pass"])
         #expect(products.map { $0["price"] as? String } == ["£14.99", "£2.99", "£9.99"])
