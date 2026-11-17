@@ -2763,7 +2763,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     own label. Check the pack.", the plural "…for those products' barcodes, not from the supermarket's own labels. Check the packs.", and "Added up from each product's numbers
     for the amounts below, before cooking: its own label, or the community numbers named above. \"Not on every label\" means one of the products doesn't give that figure, so
     we don't give a total for it."
-  - **Checked:** 2,095 unit tests, 232 Python, tsc, eslint; e2e recipes 17, groceries-all 8, protein 6, compare 4, shoppick 5, addfood 15, photorecipe 15, smoke 24; an Asda
+  - **Checked:** 2,095 unit tests, 230 Python, tsc, eslint; e2e recipes 17, groceries-all 8, protein 6, compare 4, shoppick 5, addfood 15, photorecipe 15, smoke 24; an Asda
     recipe and an Asda product page looked at in the browser at 375 px. **Where it lives:** Mac branch `iap` only (not pushed, not on numbite.com, not in an App Store build).
 
 ## Known issues
