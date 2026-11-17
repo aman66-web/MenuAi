@@ -3,17 +3,13 @@ wendys-single,Wendy's Single,Burgers,213 g,524,28,37,29,10,,2.2,8.2,1.7,,213,,,,
 wendys-double,Wendy's Double,Burgers,324 g,879,54,39,56,22,,4.4,9.7,1.7,,324,,,,,,false,true,,,Meat type not stated in the guide
 wendys-triple,Wendy's Triple,Burgers,422 g,1195,77,41,80,33,,6.1,10,1.7,,422,,,,,,false,true,,,Meat type not stated in the guide
 baconator,Baconator,Burgers,298 g,1001,63,38,66,26,,5.8,8.5,1.7,,298,,,,,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
+cranberry-heat-baconator,Cranberry Heat Baconator,Burgers,316 g,1039,64,46,66,26,,5.9,14,2.3,,316,,,,,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
 jr-cheeseburger-deluxe,Jr. Cheeseburger Deluxe,Burgers,151 g,366,17,31,19,6.3,,1.9,7.3,1.4,,151,,,,,,false,true,,,Meat type not stated in the guide
 jr-bacon-cheeseburger,Jr. Bacon Cheeseburger,Burgers,143 g,410,20,30,23,7.4,,2.3,5.9,1.4,,143,,,,,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
-bbq-bacon-melt-single-cheeseburger,BBQ Bacon Melt Single Cheeseburger,Burgers,266 g,827,46,56,46,19,,3.9,15,2.3,,266,,,,,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
-bbq-bacon-melt-double-cheeseburger,BBQ Bacon Melt Double Cheeseburger,Burgers,393 g,1243,76,58,78,32,,5.7,15,2.3,,393,,,,,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
-bbq-bacon-melt-triple-cheeseburger,BBQ Bacon Melt Triple Cheeseburger,Burgers,520 g,1646,106,59,109,46,,7.4,16,2.3,,520,,,,,contains_pork,false,true,,,Name says bacon (pork); patty type not stated in the guide
 spicy-chicken,Spicy Chicken,Chicken,177 g,400,20,45,15,2.4,,2.2,6.3,2.4,,177,,,,,,false,true,,,
 classic-chicken,Classic Chicken,Chicken,189 g,404,20,46,15,2.5,,2.5,6.4,2.5,,189,,,,,,false,true,,,
 avocado-chicken-club,Avocado Chicken Club,Chicken,240 g,583,30,47,30,8.7,,3.4,6.5,2.4,,240,,,,,,false,true,,,
 jr-crispy-chicken-sandwich,Jr. Crispy Chicken Sandwich,Chicken,112 g,321,13,35,14,1.7,,1.3,4.5,1.4,,112,,,,,,false,true,,,"Listed again, with identical numbers, under Kid's Meal"
-bbq-bacon-melt-classic-chicken,BBQ Bacon Melt Classic Chicken,Chicken,227 g,627,31,68,25,7.9,,4.1,15,3,,227,,,,,contains_pork,false,true,,,Name says bacon (pork)
-bbq-bacon-melt-spicy-chicken,BBQ Bacon Melt Spicy Chicken,Chicken,227 g,619,30,67,25,7.9,,4.1,15,3,,227,,,,,contains_pork,false,true,,,Name says bacon (pork)
 4-pc-boneless-bites,4 Pc Boneless Bites,Chicken,72 g,164,16,7.0,8,2.0,,1.3,0,0,,72,,,,,,false,true,,,
 8-pc-boneless-bites,8 Pc Boneless Bites,Chicken,144 g,324,31,14,16,3.9,,2.6,0,0,,144,,,,,,false,true,,,
 11-pc-boneless-bites,11 Pc Boneless Bites,Chicken,198 g,437,43,19,21,5.3,,3.6,0,0,,198,,,,,,false,true,,,
@@ -101,10 +97,14 @@ jr-chocolate-frosty,Jr. Chocolate Frosty,Frosty & desserts,143 g,168,5,28,4,3.6,
 regular-chocolate-frosty,Regular Chocolate Frosty,Frosty & desserts,168 g,199,5.8,33,4.7,4.2,,0.34,26,0.6,,168,,,,,,false,false,,,
 large-chocolate-frosty,Large Chocolate Frosty,Frosty & desserts,247 g,290,8.6,48,6.9,6.2,,0.5,39,0.8,,247,,,,,,false,false,,,
 x-large-chocolate-frosty,X-Large Chocolate Frosty,Frosty & desserts,338 g,399,12,66,9.4,8.5,,0.69,53,1.1,,338,,,,,,false,false,,,
-regular-vanilla-strawberries-and-cream-frosty,Regular Vanilla Strawberries & Cream Frosty,Frosty & desserts,182 g,301,4.5,46,11,8.6,,0.42,35,0,,182,,,,,,false,false,,,
-large-vanilla-strawberries-and-cream-frosty,Large Vanilla Strawberries & Cream Frosty,Frosty & desserts,243 g,386,6,59,14,11,,0.56,44,0,,243,,,,,,false,false,,,
-regular-chocolate-strawberries-and-cream-frosty,Regular Chocolate Strawberries & Cream Frosty,Frosty & desserts,182 g,284,6,46,8.3,6.3,,0.36,38,0.5,,182,,,,,,false,false,,,
-large-chocolate-strawberries-and-cream-frosty,Large Chocolate Strawberries & Cream Frosty,Frosty & desserts,243 g,359,8.1,59,9.9,7.8,,0.47,48,0.7,,243,,,,,,false,false,,,
+regular-vanilla-cranberry-frosty,Regular Vanilla Cranberry Frosty,Frosty & desserts,175 g,266,4.5,42,9,7,,0.5,29,0,,175,,,,,,false,false,,,
+large-vanilla-cranberry-frosty,Large Vanilla Cranberry Frosty,Frosty & desserts,237 g,348,5.9,55,12,9.3,,0.66,39,0,,237,,,,,,false,false,,,
+regular-chocolate-cranberry-frosty,Regular Chocolate Cranberry Frosty,Frosty & desserts,175 g,248,5.9,42,6.3,4.7,,0.43,32,0.8,,175,,,,,,false,false,,,
+large-chocolate-cranberry-frosty,Large Chocolate Cranberry Frosty,Frosty & desserts,237 g,324,8,55,7.9,6.2,,0.56,43,1,,237,,,,,,false,false,,,
+regular-vanilla-biscoff-frosty,Regular Vanilla Biscoff Frosty,Frosty & desserts,180 g,338,4.8,44,16,8.1,,0.55,29,0,,180,,,,,,false,false,,,
+large-vanilla-biscoff-frosty,Large Vanilla Biscoff Frosty,Frosty & desserts,255 g,543,6.8,63,29,12,,0.78,41,0,,255,,,,,,false,false,,,
+regular-chocolate-biscoff-frosty,Regular Chocolate Biscoff Frosty,Frosty & desserts,180 g,320,6.3,44,13,5.9,,0.48,32,0.8,,180,,,,,,false,false,,,
+large-chocolate-biscoff-frosty,Large Chocolate Biscoff Frosty,Frosty & desserts,258 g,519,8.8,63,26,8.9,,0.69,45,1.1,,258,,,,,,false,false,,,
 regular-vanilla-frostyccino,Regular Vanilla Frostyccino,Frosty & desserts,355 g,186,3.7,28,6.6,5.8,,0.36,20,0,,355,,,,,,false,false,,,
 large-vanilla-frostyccino,Large Vanilla Frostyccino,Frosty & desserts,421 g,192,3.8,29,6.8,5.9,,0.37,21,0,,421,,,,,,false,false,,,Weight 421 g is 66 g more than the regular but only 6 kcal more; entered as printed
 regular-chocolate-frostyccino,Regular Chocolate Frostyccino,Frosty & desserts,355 g,169,5.1,28,4.1,3.7,,0.3,23,0,,355,,,,,,false,false,,,
@@ -137,3 +137,9 @@ latte,Latte,Drinks,390 g,153,11,16,5,3.1,,0.47,16,0,,390,,,,,,false,false,,,Ever
 mocha,Mocha,Drinks,335 g,190,7.3,31,3.5,2.2,,0.41,30,2.4,,335,,,,,,false,false,,,
 tea,Tea,Drinks,31 g,0,0,0,0,0,,0,0,0,,31,,,,,,false,false,,,Printed weight is 31 g; every nutrient printed as 0
 hot-chocolate,Hot Chocolate,Drinks,318 g,245,8.9,41,4.3,2.7,,0.51,39,3.2,,318,,,,,,false,false,,,
+buttermilk-ranch-dip-pot,Buttermilk Ranch Dip Pot,Dips,35 g,169,0.5,3.1,17,1.3,,0.7,2.1,0,,35,,,,,,false,false,,,
+cranberry-kick-dip-pot,Cranberry Kick Dip Pot,Dips,35 g,55,0,13,0,0,,0.54,11,0.9,,35,,,,,,false,false,,,
+honey-bbq-dip-pot,Honey BBQ Dip Pot,Dips,35 g,64,0,15,0,0,,0.6,13,0,,35,,,,,,false,false,,,
+signature-dip-pot,Signature Dip Pot,Dips,35 g,153,0,3.9,15,1.2,,0.56,2.9,0,,35,,,,,,false,false,,,
+smokin-hot-dip-pot,Smokin' Hot Dip Pot,Dips,35 g,151,0,2.9,15,1.2,,0.53,1.7,0,,35,,,,,,false,false,,,
+sweet-chili-dip-pot,Sweet Chili Dip Pot,Dips,35 g,62,0,15,0,0,,0.53,14,0,,35,,,,,,false,false,,,

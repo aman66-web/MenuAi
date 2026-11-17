@@ -4,8 +4,10 @@
     python3 tools/uk_extract/yalla_yalla.py path/to/guide.pdf --checked-on 2026-10-08 [--out DIR]
 
 Source (the file the chain's own main-menu page links, as a visible button "Allergen & Calorie"):
-    https://yalla-yalla.co.uk/main-menu/  ->  https://yalla-yalla.co.uk/wp-content/uploads/2026/08/YallaYalla_AllergenMenu_Spring2026_v04.pdf
-    Spring 2026, Version 04; PDF created 17 Aug 2026, served Last-Modified 17 Aug 2026; 8 A4 pages with a text layer.
+    https://yalla-yalla.co.uk/main-menu/  ->  https://yalla-yalla.co.uk/wp-content/uploads/2026/10/YallaYalla_AllergenMenu_Autumn2026_v01-2.pdf
+    Autumn 2026, Version 01; PDF created 7 Oct 2026, served Last-Modified 13 Oct 2026; 9 A4 pages with a text layer
+    (sha256 2d450f1e42da5de8637e29a58b4ff2fb21cf2dc39e7a273a30439131c97ddfe1, 131,680 bytes, read 2026-11-17).
+    It replaced the Spring 2026 Version 04 guide (.../2026/08/YallaYalla_AllergenMenu_Spring2026_v04.pdf) on the main-menu page.
     robots.txt (https://yalla-yalla.co.uk/robots.txt) is "User-agent: * / Disallow:" (everything allowed).
     (The chain's /drinks/ page still links an older Spring 2024 v01 guide; it is not used: this guide has its own drinks pages.)
 Needs poppler (`pdftotext`, `pdftocairo`, `pdfinfo`). The tables are read by position and by the drawn allergen circles: see
@@ -26,8 +28,8 @@ other comment stops the run. Allergens (docs/DATA.md "Allergens") are therefore 
 
 Not published (each is printed by the script and listed in the final report):
 - dishes whose kcals cell is empty or "xxx" (alternative-milk coffees and hot chocolates, Peach lemonade, cocktails, mocktails,
-  wine, beer, cider, Arak, Karfa Sangria / Yalla Baby Yalla, Mixed Grill with Wings): no calorie figure is printed;
-- Halloumi Man'ousha: the guide says "Westfield only" (a single venue).
+  wine, beer, cider, Arak, Lebanese Sangria / Yalla Baby Yalla, Mixed Grill with Wings): no calorie figure is printed.
+  (The Spring 2026 guide's "Westfield only" Halloumi Man'ousha is no longer printed; EXCLUDED is kept for such rows.)
 Held back (in items.csv with the printed figure, listed in holdback.csv, not published):
 - Mezze Platter "793pp" and Baklawa & Rose Mint Tea "528pp": the guide never says what "pp" means (the chain's web menu sells both
   "for one" / "for two", which suggests per person, but the basis is not stated);
@@ -45,31 +47,30 @@ import yalla_yalla_pdf as reader  # noqa: E402
 from common import allergen_words, sha256_file, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "yalla-yalla"
-SOURCE_URL = "https://yalla-yalla.co.uk/wp-content/uploads/2026/08/YallaYalla_AllergenMenu_Spring2026_v04.pdf"
+SOURCE_URL = "https://yalla-yalla.co.uk/wp-content/uploads/2026/10/YallaYalla_AllergenMenu_Autumn2026_v01-2.pdf"
 MENU_PAGE = "https://yalla-yalla.co.uk/main-menu/"
-SOURCE_TITLE = "Yalla Yalla Allergen & Calorie Menu, Spring 2026, Version 04 (PDF created 17 August 2026)"
-GUIDE_TITLE = "Yalla Yalla Allergen & Calorie Menu, Spring 2026, Version 04"
+SOURCE_TITLE = "Yalla Yalla Allergen & Calorie Menu, Autumn 2026, Version 01 (PDF created 7 October 2026)"
+GUIDE_TITLE = "Yalla Yalla Allergen & Calorie Menu, Autumn 2026, Version 01"
 ALIASES = ["yalla yalla", "yalla yalla lebanese kitchen"]
 NOTE = ("Calories only, as printed in the guide's kcals column (it gives no serving sizes), so protein, carbs and fat are not "
         "published. Dishes with no calorie figure in the guide (most alternative-milk coffees, cocktails, wine, beer, Peach "
         "lemonade) are not listed, and the guide's drinks pages carry no 'may contain' marks.")
-EXPECTED_ROWS = 136
-EXPECTED_WITHOUT_KCAL = 53  # rows whose kcals cell is empty or "xxx" (not published)
+EXPECTED_ROWS = 130
+EXPECTED_WITHOUT_KCAL = 56  # rows whose kcals cell is empty or "xxx" (not published)
 # The words printed outside table cells that are not dishes: column headings, the legend, the version line.
-EXPECTED_STRAY = {"SUITABLE", "FOR", "DOES", "IT", "CONTAIN", "May", "Contain", "Allergen", "Vegan", "/", "Vegetarian", "Version", "04"}
+EXPECTED_STRAY = {"SUITABLE", "FOR", "DOES", "IT", "CONTAIN", "May", "Contain", "Allergen", "Vegan", "/", "Vegetarian", "Version", "01"}
 
 # (page, banner as printed, category shown, [dish names as printed in that section, in order]). Only dishes with a printed number.
 SECTIONS = [
-    (2, "NIBBLES", "Nibbles", ["Lebanese Pickles", "Marinated Olives", "Roasted Almonds"]),
-    (2, "MEZZE", "Mezze", ["Mezze Platter", "Lentil Soup", "Hommos", "Baba Ghanuj", "Falafel", "Cheese Samboussek", "Chicken Samboussek",
-                           "Feta & Pepper Dip", "Batata Harra", "Lebanese Wings", "Halloumi Steak", "Lamb Kibbeh", "Tabbouleh", "Fattoush"]),
+    (2, "MEZZE", "Mezze", ["Mezze Platter", "Lentil Soup", "Hommos", "Baba Ghanuj", "Falafel", "Cheese Samboussek", "Feta & Pepper Dip",
+                           "Batata Harra", "Lebanese Wings", "Halloumi Steak", "Tabbouleh", "Fattoush"]),
     (2, "FLATBREADS", "Flatbreads", ["Warm Olive Oil Bread", "Za’atar & Garlic Bread"]),
-    (3, "GRILLS", "Grills", ["Mixed Grill", "Lamb Kofta", "Chicken Taouk", "Chicken Kofta", "Lamb Kofta Burger", "Chicken Kofta Burger"]),
+    (2, "SALADS", "Salads", ["Grilled Chicken Salad", "Grilled Halloumi"]),
+    (3, "GRILLS", "Grills", ["Mixed Grill", "Lamb Kofta", "Chicken Taouk", "Chicken Kofta"]),
     (3, "TAKEAWAY GRILLS (with flatbread)", "Takeaway grills (with flatbread)",
      ["Mixed Grill", "Mixed Grill with Wings", "Lamb Kofta Grill", "Chicken Taouk", "Chicken Kofta"]),
-    (3, "HOUSE SPECIALITIES", "House specialities", ["Roasted Salmon", "Spinach & Feta Borek", "Chicken Shawarma Rice Bowl", "Halloumi Man’ousha"]),
+    (3, "HOUSE SPECIALITIES", "House specialities", ["Roasted Salmon", "Chicken Shawarma Rice Bowl"]),
     (3, "TAGINES", "Tagines", ["Chicken & Green Olive", "Aubergine"]),
-    (4, "SALADS", "Salads", ["Mama Zohra", "Grilled Halloumi"]),
     (4, "WRAP PLATTERS", "Wrap platters", ["Chicken Taouk", "Lamb Kofta", "Halloumi", "Chicken Shawarma", "Falafel"]),
     (4, "SINGLE WRAPS (takeaway)", "Single wraps (takeaway)", ["Chicken Taouk", "Lamb Kofta", "Halloumi", "Chicken Shawarma", "Falafel"]),
     (4, "SIDE DISHES & SAUCES", "Side dishes & sauces", ["Fries & Garlic Dip", "Quinoa", "Vermicelli Rice", "Couscous", "Garlic Sauce", "Tahina Sauce",
@@ -81,7 +82,7 @@ SECTIONS = [
                                      "Latte with Cow Milk", "Flat White with Cow Milk", "Mocha with Cow Milk", "Macchiato with Cow Milk"]),
     (7, "Hot Drinks - Continued", "Hot drinks", ["Espresso Single", "Tahina & Date Molasses with Almond Milk", "Hot Chocolate with Cow Milk",
                                                 "Lebanese Hot Choc. with Cow Milk"]),
-    (7, "Homemade Lemonades / Loaded Lemonades", "Lemonades", ["Roomana", "Roza", "Toufaha", "Leymona", "Strawberyy"]),
+    (7, "Homemade Lemonades", "Lemonades", ["Roomana", "Roza", "Toufaha", "Leymona", "Strawberyy"]),
 ]
 # Section dishes that print no number are not listed above; every other printed row must be (the run stops otherwise).
 # Names shown where they differ from the printed one (the same dish name recurs in several sections, or the type of dish helps).
@@ -93,7 +94,7 @@ NAMES = {
     ("TAKEAWAY GRILLS (with flatbread)", "Chicken Taouk"): "Chicken Taouk Grill (takeaway, with flatbread)",
     ("TAKEAWAY GRILLS (with flatbread)", "Chicken Kofta"): "Chicken Kofta Grill (takeaway, with flatbread)",
     ("TAGINES", "Chicken & Green Olive"): "Chicken & Green Olive Tagine", ("TAGINES", "Aubergine"): "Aubergine Tagine",
-    ("SALADS", "Mama Zohra"): "Mama Zohra Salad", ("SALADS", "Grilled Halloumi"): "Grilled Halloumi Salad",
+    ("SALADS", "Grilled Halloumi"): "Grilled Halloumi Salad",
     ("WRAP PLATTERS", "Chicken Taouk"): "Chicken Taouk Wrap Platter", ("WRAP PLATTERS", "Lamb Kofta"): "Lamb Kofta Wrap Platter",
     ("WRAP PLATTERS", "Halloumi"): "Halloumi Wrap Platter", ("WRAP PLATTERS", "Chicken Shawarma"): "Chicken Shawarma Wrap Platter",
     ("WRAP PLATTERS", "Falafel"): "Falafel Wrap Platter",
@@ -106,10 +107,10 @@ NAMES = {
     ("Ice Cream (40g per scoop)", "Chocolate"): "Chocolate Ice Cream", ("Ice Cream (40g per scoop)", "Rose"): "Rose Ice Cream",
     ("Hot Drinks", "Orange blossom, hibiscus & mint tea"): "Orange Blossom, Hibiscus & Mint Tea",
     ("Hot Drinks - Continued", "Lebanese Hot Choc. with Cow Milk"): "Lebanese Hot Chocolate with Cow Milk",
-    ("Homemade Lemonades / Loaded Lemonades", "Strawberyy"): "Strawberry",  # printed "Strawberyy" (typo in the guide)
+    ("Homemade Lemonades", "Strawberyy"): "Strawberry",  # printed "Strawberyy" (typo in the guide)
 }
 # Rows printed with a number that are not published, and why (the script checks the printed comment still says so).
-EXCLUDED = {("HOUSE SPECIALITIES", "Halloumi Man’ousha"): ("Westfield only", "Single venue: the guide's comment says 'Westfield only'")}
+EXCLUDED: dict = {}  # e.g. {(section, printed name): ("Westfield only", "Single venue: ...")}; the Autumn 2026 guide has none
 PP_REASON = ("Printed '{n}pp': the guide never says what 'pp' means, so the basis of the figure is not stated (the chain's web menu "
              "https://yalla-yalla.co.uk/main-menu/ sells this dish 'for one' / 'for two', which suggests per person, but that is not printed "
              "beside the figure). Restore by deleting this line if per person is accepted.")
@@ -156,9 +157,15 @@ def parse_allergens(row: dict) -> dict:
         cereals |= c
         nuts |= n
     for col, label in row["blue"].items():
-        if col not in COLUMN_KEYS or label:
+        # The Autumn 2026 guide prints the cereal under some may-contain gluten marks ("Wheat"); only the gluten and nuts columns may
+        # carry such a word, and it must name that allergen. The kind is not stored for a may-contain (docs/DATA.md: cereals/nuts name
+        # the contained kinds), so the app shows the generic "may contain gluten".
+        if col not in COLUMN_KEYS or (label and col not in ("gluten", "nuts")):
             raise SystemExit(f"{where}: unexpected may-contain mark {col!r} label {label!r}")
-        may |= allergen_words([col], where)[0]
+        keys = allergen_words([col] + (label.split() if label else []), where, EXTRA_WORDS)[0]
+        if keys != {col}:
+            raise SystemExit(f"{where}: the label {label!r} under the may-contain {col} mark names another allergen ({sorted(keys)})")
+        may |= keys
     comment = row["comments"]
     if comment and not COMMENT_DOUBLE.match(comment) and comment != "Westfield only":
         m = COMMENT_MAY.match(comment)
@@ -184,7 +191,7 @@ def parse_allergens(row: dict) -> dict:
 
 def build(pdf: Path) -> tuple:
     cover = reader.cover_text(pdf)
-    if "Spring 2026 Version 04" not in cover:
+    if "Autumn 2026 Version 01" not in cover:
         raise SystemExit(f"The guide's version changed (cover reads ...{cover[-60:]!r}): update SOURCE_TITLE and re-check every table below")
     rows, stray = [], []
     for page in range(2, reader.pages(pdf) + 1):

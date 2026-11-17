@@ -8,16 +8,18 @@ no kJ column), per menu item as sold. The weight printed in the first column is 
 Only the NAMES, categories, rankable flags and meat tags below are typed by hand, in the PDF's reading order. The script
 stops if the number of rows, any row label or any section changes, so a human re-checks the names when Wendy's edits the guide.
 
-Source: https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf
-(linked from https://www.wendys.com/en-gb/nutrition; printed "September 2026", PDF created 17 Sep 2026).
+Source: https://www.wendys.com/sites/default/files/2026-10/United-Kingdom-National-Nutrition-Information---11.3.2026.pdf
+(linked from https://www.wendys.com/en-gb/nutrition; printed "November 2026", PDF created 30 Sep 2026; read 17 Nov 2026).
+The September 2026 guide (.../2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf) printed the dip pots
+per 100 g; the November 2026 guide prints each pot as 35 g with per-pot figures, so the pots are now listed.
 
 Allergens come from the same PDF's allergen columns (wendys_pdf.py): "✓" = contains, a dot = may contain, copied per row.
 The guide prints columns for ten allergens only (celery, egg, fish, barley, rye, milk, mustard, soy, wheat, sesame) and says
 it gives "current information on the known instances of the 14 major allergens", so an allergen without a column is one the
 guide marks for no item. Gluten cereals are named as the guide names them (barley, rye, wheat).
 
-Left out on purpose (see the `None` rows): the five dip pots, whose weight is printed as 100 g (values are per 100 g of sauce,
-not per pot), and the second copy of the Jr. Crispy Chicken Sandwich (identical numbers, listed again under Kid's Meal).
+Left out on purpose (see the `None` rows): the second copy of the Jr. Crispy Chicken Sandwich (identical numbers, listed
+again under Kid's Meal).
 """
 from __future__ import annotations
 import argparse
@@ -30,19 +32,19 @@ import wendys_pdf  # noqa: E402
 from common import allergen_words, slug, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "wendys"
-SOURCE_URL = "https://www.wendys.com/sites/default/files/2026-09/United-Kingdom-National-Nutrition-Information---9.10.2026.pdf"
-SOURCE_TITLE = "Wendy's UK National Nutrition Information (September 2026)"
-ALLERGEN_TITLE = "Wendy's UK National Nutrition Information, allergen columns (September 2026)"
+SOURCE_URL = "https://www.wendys.com/sites/default/files/2026-10/United-Kingdom-National-Nutrition-Information---11.3.2026.pdf"
+SOURCE_TITLE = "Wendy's UK National Nutrition Information (November 2026)"
+ALLERGEN_TITLE = "Wendy's UK National Nutrition Information, allergen columns (November 2026)"
 ALIASES = ["wendys", "wendy's", "wendys uk", "wendys burgers"]
 
-BU, CH, WR, SL, SI, KD, BF, FR, DR = "Burgers", "Chicken", "Wraps", "Salads", "Sides", "Kids", "Breakfast", "Frosty & desserts", "Drinks"
+BU, CH, WR, SL, SI, KD, BF, FR, DR, DP = ("Burgers", "Chicken", "Wraps", "Salads", "Sides", "Kids", "Breakfast", "Frosty & desserts", "Drinks",
+                                          "Dips")
 PORK, BEEF = "contains_pork", "contains_beef"
 H, C, W, S, K, F, B, V, D = ("HAMBURGERS", "CHICKEN", "WRAPS", "SALADS INCLUDES TOPPINGS & DRESSINGS", "SIDES", "KID'S MEAL",
                              "FROSTY®", "BREAKFAST", "BEVERAGES")
 CONDIMENTS = "CONDIMENTS"
 NOT_STATED = "Meat type not stated in the guide"
 BACON = "Name says bacon (pork); patty type not stated in the guide"
-SAUCE_NOTE = "Printed weight is 100 g for every dip pot (a pot is far lighter): these are per-100 g values, so not published"
 
 # One entry per printed row, in the PDF's order: (printed label, printed section, name, category, rankable, tags, note).
 # name None = a row we deliberately leave out; `note` then gives the reason (printed in the run summary).
@@ -52,18 +54,14 @@ ROWS: list[tuple] = [
     ("Wendy's Double", H, "Wendy's Double", BU, True, [], NOT_STATED),
     ("Wendy's Triple", H, "Wendy's Triple", BU, True, [], NOT_STATED),
     ("Baconator", H, "Baconator", BU, True, [PORK], BACON),
+    ("Cranberry Heat Baconator", H, "Cranberry Heat Baconator", BU, True, [PORK], BACON),
     ("Jr. Cheeseburger Deluxe", H, "Jr. Cheeseburger Deluxe", BU, True, [], NOT_STATED),
     ("Jr. Bacon Cheeseburger", H, "Jr. Bacon Cheeseburger", BU, True, [PORK], BACON),
-    ("BBQ Bacon Melt Single Cheeseburger", H, "BBQ Bacon Melt Single Cheeseburger", BU, True, [PORK], BACON),
-    ("BBQ Bacon Melt Double Cheeseburger", H, "BBQ Bacon Melt Double Cheeseburger", BU, True, [PORK], BACON),
-    ("BBQ Bacon Melt Triple Cheeseburger", H, "BBQ Bacon Melt Triple Cheeseburger", BU, True, [PORK], BACON),
     # CHICKEN
     ("Spicy Chicken", C, "Spicy Chicken", CH, True, [], ""),
     ("Classic Chicken", C, "Classic Chicken", CH, True, [], ""),
     ("Avocado Chicken Club", C, "Avocado Chicken Club", CH, True, [], ""),
     ("Jr. Crispy Chicken Sandwich", C, "Jr. Crispy Chicken Sandwich", CH, True, [], "Listed again, with identical numbers, under Kid's Meal"),
-    ("BBQ Bacon Melt Classic Chicken", C, "BBQ Bacon Melt Classic Chicken", CH, True, [PORK], "Name says bacon (pork)"),
-    ("BBQ Bacon Melt Spicy Chicken", C, "BBQ Bacon Melt Spicy Chicken", CH, True, [PORK], "Name says bacon (pork)"),
     ("4 Pc Boneless Bites", C, "4 Pc Boneless Bites", CH, True, [], ""),
     ("8 Pc Boneless Bites", C, "8 Pc Boneless Bites", CH, True, [], ""),
     ("11 Pc Boneless Bites", C, "11 Pc Boneless Bites", CH, True, [], ""),
@@ -137,10 +135,14 @@ ROWS: list[tuple] = [
     ("Regular Chocolate Frosty", B, "Regular Chocolate Frosty", FR, False, [], ""),
     ("Large Chocolate Frosty", B, "Large Chocolate Frosty", FR, False, [], ""),
     ("X-Large Chocolate Frosty", B, "X-Large Chocolate Frosty", FR, False, [], ""),
-    ("Regular Vanilla Strawberries & Cream Frosty", B, "Regular Vanilla Strawberries & Cream Frosty", FR, False, [], ""),
-    ("Large Vanilla Strawberries & Cream Frosty", B, "Large Vanilla Strawberries & Cream Frosty", FR, False, [], ""),
-    ("Regular Chocolate Strawberries & Cream Frosty", B, "Regular Chocolate Strawberries & Cream Frosty", FR, False, [], ""),
-    ("Large Chocolate Strawberries & Cream Frosty", B, "Large Chocolate Strawberries & Cream Frosty", FR, False, [], ""),
+    ("Regular Vanilla Cranberry Frosty", B, "Regular Vanilla Cranberry Frosty", FR, False, [], ""),
+    ("Large Vanilla Cranberry Frosty", B, "Large Vanilla Cranberry Frosty", FR, False, [], ""),
+    ("Regular Chocolate Cranberry Frosty", B, "Regular Chocolate Cranberry Frosty", FR, False, [], ""),
+    ("Large Chocolate Cranberry Frosty", B, "Large Chocolate Cranberry Frosty", FR, False, [], ""),
+    ("Regular Vanilla Biscoff Frosty", B, "Regular Vanilla Biscoff Frosty", FR, False, [], ""),
+    ("Large Vanilla Biscoff Frosty", B, "Large Vanilla Biscoff Frosty", FR, False, [], ""),
+    ("Regular Chocolate Biscoff Frosty", B, "Regular Chocolate Biscoff Frosty", FR, False, [], ""),
+    ("Large Chocolate Biscoff Frosty", B, "Large Chocolate Biscoff Frosty", FR, False, [], ""),
     ("Regular Vanilla Frostyccino", B, "Regular Vanilla Frostyccino", FR, False, [], ""),
     ("Large Vanilla Frostyccino", B, "Large Vanilla Frostyccino", FR, False, [], ""),
     ("Regular Chocolate Frostyccino", B, "Regular Chocolate Frostyccino", FR, False, [], ""),
@@ -196,11 +198,12 @@ ROWS: list[tuple] = [
     ("Tea", D, "Tea", DR, False, [], ""),
     ("Hot Chocolate", D, "Hot Chocolate", DR, False, [], ""),
     # CONDIMENTS
-    ("Buttermilk Ranch Dip Pot", CONDIMENTS, None, "", False, [], SAUCE_NOTE),
-    ("Honey BBQ Dip Pot", CONDIMENTS, None, "", False, [], SAUCE_NOTE),
-    ("Smokin' Hot Dip Pot", CONDIMENTS, None, "", False, [], SAUCE_NOTE),
-    ("Sweet Chili Dip Pot", CONDIMENTS, None, "", False, [], SAUCE_NOTE),
-    ("Signature Dip Pot", CONDIMENTS, None, "", False, [], SAUCE_NOTE),
+    ("Buttermilk Ranch Dip Pot", CONDIMENTS, "Buttermilk Ranch Dip Pot", DP, False, [], ""),
+    ("Cranberry Kick Dip Pot", CONDIMENTS, "Cranberry Kick Dip Pot", DP, False, [], ""),
+    ("Honey BBQ Dip Pot", CONDIMENTS, "Honey BBQ Dip Pot", DP, False, [], ""),
+    ("Signature Dip Pot", CONDIMENTS, "Signature Dip Pot", DP, False, [], ""),
+    ("Smokin' Hot Dip Pot", CONDIMENTS, "Smokin' Hot Dip Pot", DP, False, [], ""),
+    ("Sweet Chili Dip Pot", CONDIMENTS, "Sweet Chili Dip Pot", DP, False, [], ""),
 ]
 
 # Rows the guide prints impossibly: kept in items.csv for the record but listed in holdback.csv (never corrected).
@@ -210,10 +213,9 @@ HOLDBACK: dict[str, str] = {
 }
 
 NOTE = ("The guide prints no ingredients, so the pork and beef filters only know what an item's name says (bacon, sausage, "
-        "beef); its burgers and chili don't state their meat. The five dip pots are not listed because the guide prints "
-        "them only as 100 g each.")
+        "beef); its burgers and chili don't state their meat.")
 
-CATEGORY_ORDER = [BU, CH, WR, SL, SI, KD, BF, FR, DR]
+CATEGORY_ORDER = [BU, CH, WR, SL, SI, KD, BF, FR, DR, DP]
 
 # Odd-but-possible things the pipeline or a reader of the PDF may flag, by printed label (go to `notes`, which is not exported).
 ODDITIES: dict[str, str] = {

@@ -19,6 +19,10 @@ Some dishes print the calories on the name line itself ("Jalapeno oil vg 6.75 57
      nearest dish line above it that starts at the same left edge (columns are left-aligned) at most MAX_GAP points higher;
   4. a dish line belongs to the menu section whose box (SECTION_BOXES, measured from this PDF) holds it; the section's heading
      text must still be printed where the box expects it.
+  5. (Winter 2026-27) a dish line followed by the line "Served by the scoop:" prints its flavours below it, one per line, each
+     "Name marks NNkcal" with no price ("Ice Cream 2.75" / "Served by the scoop:" / "Mango Sorbet dusted with Tajín vg 56kcal"):
+     each flavour line, in the same column and directly under the previous one, is a dish of its own (scoop_of = the dish line's
+     name, price = the dish line's per-scoop price). The dish line itself then prints no calories of its own.
 
 Anything that does not fit (a calorie value nobody owns, a dish line outside every box that carries calories, a heading that
 moved) raises, so a new menu layout stops the run instead of attaching a number to the wrong dish.
@@ -36,11 +40,15 @@ DISH = re.compile(
     r"^(?P<new>NEW )?(?P<name>[A-Z‘'][^\d]*?)(?P<marks>(?: (?:vgo|vg|v|n))*) "
     r"(?P<price>\+?\d+(?:\.\d\d|p))(?: (?P<kcal>\d+)kcal)?$")
 KCAL_WORD = re.compile(r"^(\d+)kcal$")
+SCOOP = re.compile(r"^(?P<name>[A-Z‘'][^\d]*?)(?P<marks>(?: (?:vgo|vg|v|n))*) (?P<kcal>\d+)kcal$")
+SCOOP_HEAD = "Served by the scoop:"
+SCOOP_STEP = 15.0     # points: a flavour line sits at most this far under the line above it
 MAX_GAP = 45.0        # points between a dish's name line and a calorie line below it
 SAME_COLUMN = 2.0     # points: left edges closer than this are the same column
 
 # (section, heading as printed, x0, y0, x1, y1): the area of the page (points) holding that section's dish lines. Measured from
-# WAH-Summer-050326. The heading must be printed with its left edge inside [x0 - 40, x1] and its top between y0 - 60 and y0.
+# WAH-Summer-050326; DESSERTS re-measured from WAH-Winter-191026 (its "Ice Cream" scoops run on to y 711). The heading must be
+# printed with its left edge inside [x0 - 40, x1] and its top between y0 - 60 and y0.
 SECTION_BOXES = [
     ("ENTRADAS", "ENTRADAS", 325, 55, 880, 160),
     ("TACOS", "TACOS", 325, 215, 880, 345),
@@ -51,7 +59,7 @@ SECTION_BOXES = [
     ("SUNSHINE BOWLS", "SUNSHINE BOWLS", 905, 55, 1170, 165),
     ("BURRITOS", "BURRITOS", 905, 215, 1170, 330),
     ("SIDES", "SIDES", 905, 350, 1170, 510),
-    ("DESSERTS", "DESSERTS", 905, 535, 1170, 640),
+    ("DESSERTS", "DESSERTS", 905, 535, 1170, 720),
 ]
 
 
@@ -95,7 +103,30 @@ def read_dishes(pdf: Path) -> tuple[list[dict], list[dict]]:
             dish_lines.append(dict(ln, name=m["name"].strip(), marks=m["marks"].split(), price=m["price"], new=bool(m["new"]),
                                    own_kcal=m["kcal"], section=_section(ln), kcal=[], desc=[ln["text"]]))
     kcal_lines = [(ln, w) for ln in lines for w in ln["words"] if KCAL_WORD.match(w)]
+    # "Served by the scoop:" under a dish line: each flavour line below it is a dish of its own (step 5 in the docstring)
+    scoop_lines, scooped = set(), set()
+    for head in (ln for ln in lines if ln["text"] == SCOOP_HEAD):
+        owners = [d for d in dish_lines if abs(d["x0"] - head["x0"]) <= SAME_COLUMN and 0 < head["y0"] - d["y0"] <= SCOOP_STEP]
+        if len(owners) != 1:
+            raise ValueError(f"{SCOOP_HEAD!r} at ({head['x0']:.0f}, {head['y0']:.0f}) has {len(owners)} dish lines directly above it")
+        owner, prev, flavours = owners[0], head, []
+        while True:
+            nxt = [ln for ln in lines if abs(ln["x0"] - head["x0"]) <= SAME_COLUMN and 0 < ln["y0"] - prev["y0"] <= SCOOP_STEP]
+            if len(nxt) != 1 or not SCOOP.match(nxt[0]["text"]):
+                break
+            prev = nxt[0]
+            m = SCOOP.match(prev["text"])
+            flavours.append(dict(prev, name=m["name"].strip(), marks=m["marks"].split(), price=owner["price"], new=False, own_kcal=None,
+                                 section=_section(prev), kcal=[(m["kcal"], prev["text"])], desc=[owner["text"], head["text"], prev["text"]],
+                                 scoop_of=owner["name"]))
+            scoop_lines.add(id(prev))
+        if not flavours:
+            raise ValueError(f"{SCOOP_HEAD!r} under {owner['name']!r} is followed by no flavour line with calories")
+        scooped.add(id(owner))
+        dish_lines.extend(flavours)
     for ln, word in kcal_lines:
+        if id(ln) in scoop_lines:
+            continue
         value = KCAL_WORD.match(word).group(1)
         owner = next((d for d in dish_lines if d is not None and d["x0"] == ln["x0"] and d["y0"] == ln["y0"] and d["own_kcal"] == value), None)
         if owner is None:
@@ -110,7 +141,7 @@ def read_dishes(pdf: Path) -> tuple[list[dict], list[dict]]:
         owner["kcal"].append((value, ln["text"]))
     # description lines between the name and the last calorie line, same column, for the meat tags
     for d in dish_lines:
-        if d["kcal"]:
+        if d["kcal"] and not d.get("scoop_of"):
             last = max(ln["y0"] for ln in lines if any(ln["text"] == t for _, t in d["kcal"]) and abs(ln["x0"] - d["x0"]) < 200)
             d["desc"] = [ln["text"] for ln in lines if abs(ln["x0"] - d["x0"]) <= SAME_COLUMN and d["y0"] <= ln["y0"] <= last] or d["desc"]
     with_kcal = [d for d in dish_lines if d["own_kcal"] or d["kcal"]]
@@ -122,4 +153,4 @@ def read_dishes(pdf: Path) -> tuple[list[dict], list[dict]]:
     seen = [v for d in with_kcal for v, _ in d["kcal"]]
     if len(seen) != len(kcal_lines):
         raise ValueError(f"{len(kcal_lines)} calorie values on the page but {len(seen)} were attached to dishes")
-    return with_kcal, [d for d in dish_lines if not (d["own_kcal"] or d["kcal"])]
+    return with_kcal, [d for d in dish_lines if not (d["own_kcal"] or d["kcal"]) and id(d) not in scooped]

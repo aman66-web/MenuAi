@@ -7,6 +7,10 @@ Source (the file the chain's own page links as "Menu with Calories"):
     https://www.wahaca.co.uk/mexican-menu-full/  ->  button "Menu with Calories" -> https://www.wahaca.co.uk/full-menu
     (HTTP 301) -> https://www.wahaca.co.uk/wp-content/uploads/2026/03/0304_WAH_Main_Estate_Table_Menu_KCAL_Summer_050326.pdf
     The page prints "WAH-Summer-050326"; PDF created 2026-03-23, served Last-Modified 2026-03-25. One A3 page with a text layer.
+    Refreshed 2026-11-17: the same button now links
+    https://www.wahaca.co.uk/wp-content/uploads/2026/10/0377_Main_Estate_Table_Menu_KCAL_Winter_26-27_191026_WEB.pdf
+    ("WAH-Winter-191026", PDF created 2026-10-28, served Last-Modified 2026-10-28, SHA-256 0721626c...f280d0): page 1 is the menu
+    (text layer), page 2 a cover ("MENU WITH NUTRITIONAL INFORMATION").
 Needs `pdftotext` (poppler). The page is read by position: see wahaca_pdf.py.
 
 The menu prints calories ONLY ("542kcal" after a dish's description): protein, carbs and fat are never printed, so they stay blank
@@ -28,7 +32,9 @@ How the menu's own wording is read:
   and Feasting menus use the same names ("Buttermilk Chicken Tacos", "Grilled Brindisa Chorizo Quesadilla").
 - No serving is stated per dish (tacos are described as two soft tortillas in some columns only), so `serving` stays blank.
 - Not listed, because the menu prints no calories for them: MINI MARG TRIO (cocktails), WAHACA FOR ONE and FEASTING MENUS (set
-  menus of dishes already listed), The Frozen Flight (alcoholic ice cream and sorbet scoops), drinks (not on this menu).
+  menus of dishes already listed), drinks (not on this menu). (Summer's The Frozen Flight is not on the Winter menu.)
+- Winter 2026-27: "Ice Cream 2.75" is followed by "Served by the scoop:" and five flavour lines, each with its own calories and no
+  price: one item per flavour, named "... (1 scoop)", serving "1 scoop" (the price is per scoop).
 - "NEW" before a dish name is a menu marker, not a limited-time flag, so limited_time stays false.
 - Tags: vegetarian when the dish line carries the menu's own v or vg mark. contains_pork / contains_beef when the dish's name or
   description says so (pork, chorizo, sobrasada, bacon, ham, sausage; beef). Nothing else is inferred.
@@ -39,6 +45,10 @@ Trio of Fresh Salsas, "Grilled chorizo", "Mushroom burrito", "Frijoles", "Chocol
 "Grilled achiote seabass" for the taco board, "Guacamole with chilli oil" for the 49 kcal add-on), several cells hold ingredient text
 instead of a dot, and some menu dishes have no row under any name. Allergens are safety information: no name matching, no guessing,
 so only the guide's link is published (all or nothing).
+
+Refreshed 2026-11-17: the menu page's "Allergen Guides" button now links the Winter 2026-27 guide (ALLERGEN_GUIDE_URL; 5 pages,
+same key: black dot present, pink dot removable, fried-oil traces asterisk), so the link is updated. The grid reader was not re-run:
+allergens stay link-only (the reasons below still apply until the owner approves row names).
 
 Re-checked 2026-10-09 (allergen pass, with a reader for the guide's grid, wahaca_allergen_pdf.py, which reads all 7 pages: 87 dish rows with a PLU number):
 same answer, link-only stays. Of the 44 published dishes only 29 have a guide row whose name has the same words (case, punctuation, "&",
@@ -63,19 +73,21 @@ import wahaca_pdf as pdf_reader  # noqa: E402
 from common import ROOT, sha256_file, write_chain_folder  # noqa: E402
 
 CHAIN_ID = "wahaca"
-SOURCE_URL = "https://www.wahaca.co.uk/wp-content/uploads/2026/03/0304_WAH_Main_Estate_Table_Menu_KCAL_Summer_050326.pdf"
-SOURCE_TITLE = "Wahaca table menu with calories, Summer 2026 (WAH-Summer-050326; PDF created 23 March 2026)"
+SOURCE_URL = "https://www.wahaca.co.uk/wp-content/uploads/2026/10/0377_Main_Estate_Table_Menu_KCAL_Winter_26-27_191026_WEB.pdf"
+SOURCE_TITLE = "Wahaca table menu with calories, Winter 2026-27 (WAH-Winter-191026; PDF created 28 October 2026)"
 ALIASES = ["wahaca"]
-ALLERGEN_GUIDE_TITLE = "Wahaca back of house allergen & dietary requirements guide, Summer menu 2026 (WAH.SUM2026.V3, 7 pages)"
-ALLERGEN_GUIDE_URL = "https://www.wahaca.co.uk/wp-content/uploads/2026/07/BOH-allergy-guides-Summer-Menu-2026-V3-Summer-specials-1.pdf"
+ALLERGEN_GUIDE_TITLE = ("Wahaca's allergen & dietary requirements guide, Winter menu 2026-27 (printed 'WAH.WIN 20 2627.V1', 5 pages; "
+                        "PDF created 4 November 2026)")
+ALLERGEN_GUIDE_URL = "https://www.wahaca.co.uk/wp-content/uploads/2026/11/FOH-allergy-guides-Winter-menu-202627-V1.pdf"
 # The guide prints that the kitchen cooks in an open kitchen with nuts and other allergens throughout, cannot guarantee against cross
 # contamination, and marks deep-fried dishes with an asterisk for possible traces: traces information is published.
 MAY_CONTAIN_PUBLISHED = True
-NOTE = ("Wahaca prints calories only, beside each dish, so protein, carbs and fat are not published. Cocktails, drinks, the Frozen Flight "
+NOTE = ("Wahaca prints calories only, beside each dish, so protein, carbs and fat are not published. Cocktails, drinks "
         "and the set menus print no calories and are not listed.")
-EXPECTED_ITEMS = 44
-# Dish lines on the page that print a price but no calories (checked on every run; anything else stops the script).
-EXPECTED_WITHOUT_KCAL = {"MINI MARG TRIO", "For when sharing’s not on the table", "The Frozen Flight"}
+EXPECTED_ITEMS = 49
+# Dish lines on the page that print a price but no calories (checked on every run; anything else stops the script). "Ice Cream 2.75"
+# prints its calories per flavour ("Served by the scoop:"), so it is not one of them.
+EXPECTED_WITHOUT_KCAL = {"MINI MARG TRIO", "For when sharing’s not on the table"}
 
 ENT, TAC, QUE, PLA, SUN, BUR, SID, SAL, DES = ("Entradas", "Tacos", "Quesadillas", "Platitos", "Sunshine Bowls", "Burritos", "Sides",
                                                 "Salsas", "Desserts")
@@ -91,6 +103,7 @@ def E(section, printed, name, cat, note="", id=None):
 # section's heading as printed and the dish's printed name. The Churros entry is expanded below (two printed values).
 OPTION = "Printed as an option with its own full price; the dip alone has no price or calories"
 BOWL = "Printed under 'With:' with the bowl's full price, so the value is for the whole bowl"
+SCOOP = "Printed under 'Ice Cream 2.75 / Served by the scoop:', so the value is for one scoop"
 ITEMS = [
     E("ENTRADAS", "Jalapeño oil", "Butter Bean & Confit Garlic Dip with Jalapeño oil", ENT, OPTION,
       id="butter-bean-and-confit-garlic-dip-with-jalapeno-oil"),  # slug() would turn the n-tilde into a hyphen
@@ -100,7 +113,7 @@ ITEMS = [
     E("ENTRADAS", "Chorizo Nachos", "Chorizo Nachos", ENT),
     E("ENTRADAS", "House Nachos", "House Nachos", ENT),
     E("TACOS", "Pork Pibil", "Pork Pibil Tacos", TAC, "Printed 'Pork Pibil 7.95'; the same dish name is also a burrito"),
-    E("TACOS", "Roast Ancho Mushroom", "Roast Ancho Mushroom Tacos", TAC, "Same printed value (310) as the Sweet Potato side"),
+    E("TACOS", "Roast Ancho Mushroom", "Roast Ancho Mushroom Tacos", TAC),
     E("TACOS", "Beef Gringa", "Beef Gringa Tacos", TAC),
     E("TACOS", "Plantain", "Plantain Tacos", TAC),
     E("TACOS", "‘Halloumi’ Al Pastor", "‘Halloumi’ Al Pastor Tacos", TAC),
@@ -108,26 +121,26 @@ ITEMS = [
     E("TACOS", "Buttermilk Chicken", "Buttermilk Chicken Tacos", TAC),
     E("TACOS", "Baja Fish", "Baja Fish Tacos", TAC),
     E("GRILLED SEABASS TACO BOARD", "Fillet of Achiote Marinated Seabass", "Grilled Seabass Taco Board", TAC,
-      "Printed 'Ideal for one, or to share 793kcal'; same printed value as the Warm Chocolate & Pecan Cake"),
+      "Printed under 'Ideal for one, or to share'"),
     E("QUESADILLAS", "Grilled Ajillo Chicken Club", "Grilled Ajillo Chicken Club Quesadilla", QUE),
     E("QUESADILLAS", "Black Bean & Three Cheese", "Black Bean & Three Cheese Quesadilla", QUE),
     E("QUESADILLAS", "Grilled Brindisa Chorizo", "Grilled Brindisa Chorizo Quesadilla", QUE),
     E("PLATITOS", "Sweet Potato & Feta Taquito", "Sweet Potato & Feta Taquito", PLA),
-    E("PLATITOS", "Crispy Cauliflower Bites", "Crispy Cauliflower Bites", PLA, "Same printed value (642) as the Churros with chocolate sauce and the Sweet Potato 'Bravas'"),
+    E("PLATITOS", "Crispy Cauliflower Bites", "Crispy Cauliflower Bites", PLA),
     E("PLATITOS", "Smoky Pork Belly Skewer", "Smoky Pork Belly Skewer", PLA),
-    E("PLATITOS", "Yellowfin Tuna Tostadas", "Yellowfin Tuna Tostadas", PLA, "Marked NEW on the menu"),
-    E("PLATITOS", "Chipotle Glazed Aubergine", "Chipotle Glazed Aubergine", PLA, "Marked NEW on the menu"),
+    E("PLATITOS", "Yellowfin Tuna Tostadas", "Yellowfin Tuna Tostadas", PLA),
+    E("PLATITOS", "Riverford Organic Squash", "Riverford Organic Squash", PLA),
     E("PLATITOS", "Corn, Bean & Feta Tostadas", "Corn, Bean & Feta Tostadas", PLA),
-    E("SUNSHINE BOWLS", "Sunshine Bowl", "Sunshine Bowl", SUN, "Marked NEW on the menu"),
+    E("SUNSHINE BOWLS", "Sunshine Bowl", "Sunshine Bowl", SUN),
     E("SUNSHINE BOWLS", "‘Halloumi’ Al Pastor", "Sunshine Bowl with ‘Halloumi’ Al Pastor", SUN, BOWL),
-    E("SUNSHINE BOWLS", "Garlic Sweet Potato", "Sunshine Bowl with Garlic Sweet Potato", SUN, BOWL),
+    E("SUNSHINE BOWLS", "Mojo Sweet Potato", "Sunshine Bowl with Mojo Sweet Potato", SUN, BOWL),
     E("SUNSHINE BOWLS", "Grilled Chicken", "Sunshine Bowl with Grilled Chicken", SUN, BOWL),
     E("BURRITOS", "Roast Ancho Mushroom", "Roast Ancho Mushroom Burrito", BUR),
     E("BURRITOS", "Grilled Chicken", "Grilled Chicken Burrito", BUR),
     E("BURRITOS", "Pork Pibil", "Pork Pibil Burrito", BUR),
     E("BURRITOS", "Slow-Cooked Beef", "Slow-Cooked Beef Burrito", BUR),
-    E("SIDES", "Sweet Potato", "Sweet Potato", SID, "Same printed value (310) as the Roast Ancho Mushroom Tacos"),
-    E("SIDES", "Sweet Potato ‘Bravas’", "Sweet Potato ‘Bravas’", SID, "Same printed value (642) as the Crispy Cauliflower Bites"),
+    E("SIDES", "Sweet Potato", "Sweet Potato", SID),
+    E("SIDES", "Sweet Potato ‘Bravas’", "Sweet Potato ‘Bravas’", SID),
     E("SIDES", "Frijoles Crema", "Frijoles Crema", SID),
     E("SIDES", "Frijoles Chorizo", "Frijoles Chorizo", SID),
     E("SIDES", "Grilled Tenderstem Broccoli", "Grilled Tenderstem Broccoli", SID),
@@ -135,8 +148,15 @@ ITEMS = [
     E("SALSAS", "Trio of Fresh Salsas", "Trio of Fresh Salsas", SAL, "One value for the trio (Tomatillo, Habanero, Macha)"),
     E("SALSAS", "House Hot Sauce", "House Hot Sauce", SAL),
     E("DESSERTS", "Churros", None, DES),  # two printed values: see CHURROS
-    E("DESSERTS", "Ice Cream Sundae", "Ice Cream Sundae", DES),
-    E("DESSERTS", "Warm Chocolate & Pecan Cake", "Warm Chocolate & Pecan Cake", DES, "Same printed value (793) as the Grilled Seabass Taco Board"),
+    E("DESSERTS", "Warm Chocolate & Pecan Cake", "Warm Chocolate & Pecan Cake", DES),
+    E("DESSERTS", "Ice Cream Taco", "Ice Cream Taco", DES),
+    # "Ice Cream 2.75" / "Served by the scoop:": one value per flavour, for one scoop (the price is per scoop)
+    E("DESSERTS", "Mango Sorbet dusted with Tajín", "Mango Sorbet dusted with Tajín (1 scoop)", DES, SCOOP,
+      id="mango-sorbet-dusted-with-tajin-1-scoop"),  # slug() would turn the i-acute into a hyphen
+    E("DESSERTS", "Agave-Lime Sorbet", "Agave-Lime Sorbet (1 scoop)", DES, SCOOP),
+    E("DESSERTS", "Vanilla Ice Cream", "Vanilla Ice Cream (1 scoop)", DES, SCOOP),
+    E("DESSERTS", "Salted Caramel Ice Cream", "Salted Caramel Ice Cream (1 scoop)", DES, SCOOP),
+    E("DESSERTS", "Chocolate Ice Cream", "Chocolate Ice Cream (1 scoop)", DES, SCOOP),
 ]
 # The Churros dish line prints two values on two description lines: (text the value's line must contain, item name).
 CHURROS = [("chocolate sauce", "Churros with chocolate sauce"), ("dulce de leche caramel", "Churros with dulce de leche caramel")]
@@ -184,13 +204,21 @@ def build_items(dishes: list[dict], without_kcal: list[dict]) -> list[dict]:
             continue
         if len(d["kcal"]) != 1:
             raise SystemExit(f"{e['name']}: {len(d['kcal'])} calorie values found, expected 1")
+        if d.get("scoop_of"):
+            printed_note = f"Printed '{d['text']}' under '{d['scoop_of']} {d['price']}'"
         items.append(dict(name=e["name"], id=e["id"], category=e["cat"], calories=d["kcal"][0][0], tags="|".join(tags), rankable=False,
+                          serving="1 scoop" if d.get("scoop_of") else "",
                           notes="; ".join(x for x in (printed_note, e["note"]) if x)))
     if len(items) != EXPECTED_ITEMS:
         raise SystemExit(f"Expected {EXPECTED_ITEMS} items, built {len(items)}: the menu changed, re-check ITEMS")
     names = [i["name"] for i in items]
     if len(set(names)) != len(names):
         raise SystemExit("Item names are not unique")
+    # Two dishes printing the same value are noted on both, so a reader can see it is the menu's own figure, not a copying slip.
+    for it in items:
+        same = [o["name"] for o in items if o is not it and o["calories"] == it["calories"]]
+        if same:
+            it["notes"] += f"; same printed value ({it['calories']}) as " + " and ".join(same)
     return items
 
 

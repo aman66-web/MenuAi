@@ -15,7 +15,8 @@ cereals and tree nuts as sub-flags), each "yes" (shown on the site as contains) 
 The flag names are read from the page and mapped with common.allergen_words; an unknown flag name or value stops the script.
 Wagamama's allergen table (ALLERGEN_TABLE, the "17 June 2026" menu) printed the same flags for the food dishes and was
 used to cross-check them on 2026-10-06. Read again on 2026-10-08 from the page's new menu "07/10/2026 - UK - main website" (10 dishes
-gone, 22 new, 10 with new numbers, 3 of those with new allergens; the section table, GF_SAME_AS and the counts below were updated). Two of the page's notices are not allergens and are reported, not read:
+gone, 22 new, 10 with new numbers, 3 of those with new allergens; the section table, GF_SAME_AS and the counts below were updated). Read again on 2026-11-17 (same menu name, item records modified up to 17 Nov 2026): same items and allergens, new numbers on 33 items,
+and three seasonal iced drinks now print 0 for everything (held back, see CONTRADICTED). Two of the page's notices are not allergens and are reported, not read:
 "for allergen information please check the label" (bottled soft drinks, beers, wines: the flags still list what the
 drink contains, e.g. gluten for beer) and "do not display the allergen/nutrition" (an item the site hides: held back).
 
@@ -373,6 +374,14 @@ CONTRADICTED = {
     "9f2647c3": ("The gluten free menu's record for the Revive juice (named 'revive (parent)' in Wagamama's menu data) prints 0 kcal and 0 g of "
                  "everything, while the main menu prints 165 kcal for the same juice (revive - regular, same ingredients), so its figures "
                  "cannot be trusted."),
+    # Read again on 2026-11-17: since 10 Oct 2026 these three seasonal iced drinks print 0 kcal, 0 kJ and 0.0 g of every nutrient (per serving
+    # and per 100 g), while the same records printed 141, 155 and 159 kcal on 8 Oct 2026 and each is a matcha or coffee drink with milk/oat or maple.
+    "38038655": ("Wagamama's menu data prints 0 kcal and 0 g of every nutrient for this iced matcha latte made with oat (it printed 141 kcal on "
+                 "8 October 2026), so its figures cannot be trusted."),
+    "7fcbd51a": ("Wagamama's menu data prints 0 kcal and 0 g of every nutrient for this iced matcha drink (it printed 155 kcal on "
+                 "8 October 2026), so its figures cannot be trusted."),
+    "f2b1b9f4": ("Wagamama's menu data prints 0 kcal and 0 g of every nutrient for this miso maple iced latte (it printed 159 kcal on "
+                 "8 October 2026), so its figures cannot be trusted."),
 }
 
 

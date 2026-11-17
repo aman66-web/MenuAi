@@ -23,7 +23,7 @@ CHAIN_ID = "yo-sushi"
 URL = "https://menus.tenkites.com/yosushi/allergenpageyosushi"
 FILE = "yosushi.html"
 WEBSITE_DISAGREES = {"chicken-gyoza": 139, "vegetable-gyoza": 142, "prawn-crackers-2": 151, "cotton-candy-cheesecake": 319}
-EXPECTED_ROWS = 108
+EXPECTED_ROWS = 115  # 17 Nov 2026: 108 + the 7-dish "Christmas Menu" section
 
 # printed section -> (category shown, rankable, limited_time) or None = left out (reason in EXCLUDED).
 SECTIONS = {
@@ -32,12 +32,15 @@ SECTIONS = {
     "Fish": ("Sushi & fish", True, False), "Yasai": ("Yasai (vegetable)", True, False), "Meat": ("Meat", True, False),
     "To share": ("To share", False, False), "Desserts": ("Desserts", False, False), "Condiments": ("Condiments", False, False),
     "Sides": ("Sides", True, False), "Limited time": ("Limited time", True, True),
+    "Christmas Menu": ("Christmas menu", True, True),  # added 17 Nov 2026: a seasonal section, so limited time
     "Selfridges & Heathrow": None, "Selfridges": None, "Heathrow": None,
 }
 EXCLUDED = {"Selfridges & Heathrow": "dishes sold only at the Selfridges and Heathrow sites",
             "Selfridges": "dishes sold only at the Selfridges site", "Heathrow": "dishes sold only at Heathrow"}
 # rows that are not a meal on their own although they sit in a rankable section
-NOT_RANKABLE = {"curry sauce"}
+NOT_RANKABLE = {"curry sauce", "chocolate & mandarin cream puff"}  # the cream puff is a dessert in the Christmas Menu section
+# Alcoholic drinks are not published (founder's rule of 11 Oct 2026): printed name -> reason.
+ALCOHOL = {"yuzu spicy margarita": "an alcoholic cocktail (Christmas Menu section)"}
 # printed numbers that look odd; they are entered exactly as printed
 ODD = {"Pulled Shiitake Teriyaki Donburi": "Fibre is printed as 27.0 g, far above the other dishes (7.6 g for the fried rice)"}
 # The same page prints each dish's 14 allergen columns (a tick = contains, "M" = may contain, as its key says), a
@@ -46,8 +49,8 @@ ODD = {"Pulled Shiitake Teriyaki Donburi": "Fibre is printed as 27.0 g, far abov
 ALLERGEN_COLUMNS = ["Cereals with Gluten", "Tree Nuts", "Peanuts", "Eggs", "Milk", "Fish", "Crustaceans", "Molluscs", "Celery",
                     "Mustard", "Sesame", "Soyabeans", "Sulphur Dioxide / Sulphites", "Lupin"]
 ALLERGEN_EXTRA = {"soyabeans": ("soya", None), "sulphur dioxide / sulphites": ("sulphites", None)}
-ALLERGEN_TITLE = "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-10-06)"
-SOURCE_TITLE = "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-10-06)"
+ALLERGEN_TITLE = "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (Ten Kites page; no date printed, read 2026-11-17)"
+SOURCE_TITLE = "Yo! Sushi Allergen & Nutrition Information, Dine-in menu (no date printed on the page; read 2026-11-17)"
 NOTE = ("Figures are per serving from Yo! Sushi's own nutrition page for its Dine-in menu (hosted by Ten Kites), which "
         "prints no date. Dishes sold only at Selfridges and Heathrow are left out.")
 
@@ -72,6 +75,9 @@ def build(pages_dir: Path) -> tuple[list[dict], list[tuple[str, str]], list[str]
         if r["section"] not in SECTIONS:
             raise SystemExit(f"new section {r['section']!r}: add it to SECTIONS (category, rankable, limited_time) or None.")
         spec = SECTIONS[r["section"]]
+        if r["name"].lower() in ALCOHOL:
+            report.append(f"left out {r['name']!r}: {ALCOHOL[r['name'].lower()]}; alcoholic drinks are not published")
+            continue
         if spec is None:
             left_out[r["section"]] = left_out.get(r["section"], 0) + 1
             continue
