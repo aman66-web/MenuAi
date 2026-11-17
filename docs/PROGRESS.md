@@ -2493,6 +2493,34 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     "{chain} doesn't publish allergen details we can read, so only dishes whose names mention {allergens} are left out." (replaces the first allergy sentence), the empty-state lines above, "Show every dish", "Change my diet", "In a small local shop, look for {tip}.", the 29 tips,
     and "Small local shops, such as a Sainsbury's Local or a Tesco Express, usually sell everything here. Where a small shop is likely to stock a different pack, we say what to look for; the numbers are for the product shown."
 
+- 2026-11-17 (night) — **Recipes from the shops you pick, amounts in the steps, Co-op's logo, no focus boxes** (founder, from the phone: "If I choose to shop at Asda, it's still
+  showing stuff from Sainsbury's"; "have the logo of Sainsbury's, and add ... a plus button, so they can add more stores ... or remove Sainsbury's. And if they did this, then the
+  ingredients for the recipe would change"; "the method doesn't specify how much to add ... be very specific with these people because they haven't cooked [before]"; "We're missing the
+  co-op logo"; the green box on the Sign in and Add water sheets).
+  - **Why Asda showed Sainsbury's:** a recipe works out every figure from each product's own label, and only Sainsbury's labels had been read. Labels are now being read from the shops' own product
+    pages for the products recipes can use (`data/groceries/recipe-candidates/<shop>.csv`, `tools/groceries/labels_<shop>.py`, written to `data/groceries/nutrition/<shop>.csv` like Sainsbury's,
+    each re-read by a second agent): Iceland done (407 of 459), Morrisons running; **Asda (Cloudflare), Aldi and Tesco (Akamai) and Waitrose refuse scripted requests from the Mac**, so they stay out
+    of recipes. Reading Asda and Aldi in the founder's own Chrome was tried (33 Asda labels read) and then paused: it means automating about 1,500 page visits on sites that block scripts (Aldi's terms
+    forbid automated collection), so it waits for the founder's explicit yes. `tools/groceries/labels_chrome.js` + `labels_chrome_next.py` + `labels_chrome_ingest.py` are ready if he says yes.
+  - **Shop set:** recipes use the person's ticked shops that have read labels, in the order ticked (`recipeShopSet`); the first shop's usable product always wins, another ticked shop fills only an
+    ingredient the first doesn't sell (`candidates()` sorts by `shopRank` after the "usable" keys; products are shop-tagged copies, keys `shop:id`). With one shop every result is byte-identical to before
+    (165-recipe test). Until a ticked shop is ready the Recipes page says "These recipes use {shop} products for now. We haven't read the nutrition labels of {shops} products yet, so their recipes aren't ready."
+  - **Recipe page header:** "RECIPE ·", one pill per shop (logo + name) and a 44 px **+** ("Change shops") opening "Where to buy the ingredients" with the shop picker (each tick saved at once, Done pinned);
+    each ingredient row, Swap option, shopping-list item and photo comes from its own shop. The small-shop line and tips are Sainsbury's-only (`LOCAL_RANGE_SHOP`).
+  - **Amounts in the method** (`lib/mm/kitchenAmount.ts`, tests): each ingredient's amount sits right after the words that first name it in the steps ("Stir the mayonnaise (**1 tbsp, 15 g**), mustard
+    (**½ tsp, 3 g**) and lemon juice (**1 tsp, 5 ml**)", "Lower in the eggs (**2 eggs**)", "Peel the onion (**75 g, about ½ an onion**)", "Season (**a pinch of salt, a pinch of black pepper**)",
+    "about 5 sprays" of oil spray), from the same amounts as the list, so it follows Serves and the fit; level spoons for small amounts of oils, sauces, pastes, spices and seasonings (usual kitchen
+    densities: a cooking measure, nutrition still from the grams); an ingredient named only in a step's title keeps the "You'll need:" line. A test places every ingredient of all 165 recipes.
+  - **Co-op logo:** coop.co.uk draws its mark inline in the header (no file); copied unchanged in the founder's Chrome at their request (`web/public/logos/shops/coop.svg`, record beside it).
+  - **No focus boxes after a tap:** rings show only after a keyboard is used (`app/app/_lib/inputModality.ts` marks `<html data-keys>`; `globals.css`); titles the app focuses never show one.
+  - **New copy (rule 8, logged here; English only):** the multi-shop lines ("Change shops", "Where to buy the ingredients", "Tick the shops you'll buy from. The first one you tick is used first; the others
+    fill in anything it doesn't sell.", "Recipes can't use {shops} yet: we haven't read their products' labels.", "Your shops don't sell {name} that fits, so this uses {sub} instead.", "Not found at your shops
+    yet.", "We couldn't find every ingredient at your shops yet, so there are no totals for this recipe.", the several-shops price and basket sentences, "Added {n} products to your shopping list.", "Products at
+    your shops that fit this recipe, {shop} first, then the cheapest. It uses {amount}.", "Prices are each shop's shelf prices, checked {date}, and vary by store.", "Not affiliated with {shops}."), the
+    Recipes note above, and the method's spoon and size words ("tsp", "tbsp", "a pinch", "about ½ an onion", "about 5 sprays").
+  - **For the founder:** `ENTITLEMENT_PRIVATE_JWK` in Vercel currently holds a value starting "sk-ant-" (an Anthropic key, pasted by mistake): replace it with the output of
+    `node tools/payments/make_entitlement_key.mjs` (it starts with {"kty":"EC"); only Premium purchases in the 1.1 test build use it.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
