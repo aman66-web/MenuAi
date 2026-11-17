@@ -206,9 +206,9 @@ export default function Privacy() {
         )}
         {PHOTO_RECIPES_API_ENABLED && (
         <p className={para}>
-          If you use Make it at home (part of Premium), the photo you choose is made smaller on your device first, and then that photo, what you typed about the dish,
-          your diet and allergy choices and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic, the company that makes
-          the Claude AI, to write the recipe (and, if you tap &ldquo;Suggest from my photo&rdquo;, to say what the dish looks like). No name, account, location or anything else
+          If you use Make it at home (part of Premium), the photo you choose is made smaller on your device first, and then that photo, what you typed about the dish (its name and
+          a short description), your diet and allergy choices and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic,
+          the company that makes the Claude AI, to write the recipe. The camera view you see while taking the photo stays on your device: only the one photo you take is sent. No name, account, location or anything else
           is sent, and we don&apos;t keep the photo or the recipe: the recipe comes straight back to your device. If you save the recipe, a small copy of your photo is kept on
           your device as its picture; it is not synced to your account or sent anywhere, and it is deleted with the recipe or by Clear data. To check you have Premium, your device sends its access
           token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
