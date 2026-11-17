@@ -5,16 +5,19 @@ import { chainHref, itemHref } from "@/lib/mm/routes";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
 import { formatCalories } from "@/lib/mm/format";
+import { itemImageUrl } from "@/lib/mm/images";
 import { anyDietFilter, filterCaution } from "@/lib/mm/menu-view";
 import { addRecentSearch, highlightRange, MIN_QUERY_LENGTH, normalizeForSearch, search } from "@/lib/mm/search";
 import { ChainMark } from "../_components/ChainMark";
 import { chainGroupClass } from "../_components/ChainRow";
+import { ItemThumb } from "../_components/ItemPhoto";
 import { blurOnEnter, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon } from "../_components/icons";
 import { RequestChainSheet } from "../_components/Submit";
 import { Button, Chip, EmptyIcon, EmptyState, SampleBadge } from "../_components/ui";
 import { PipSays } from "../_components/Mascot";
 import { useBack, useEntryQuery } from "../_lib/backNav";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useSearchIndex, useSettings } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
@@ -24,6 +27,10 @@ import { useT } from "../_lib/i18n";
 // results sit in grouped white cards under compact headings, calories in DM Mono like Home's figures, and the matched letters are
 // marked with the brand lime like a highlighter. Words, roles and names are unchanged; an item row still reads
 // "Chicken wrap · Cluck House · 440 kcal" in that order (SPEC §7.3).
+// Photos (founder 2026-11-17, "Use images please when possible"): a dish with the chain's own photo (the search file's photo entry) shows it
+// before its name like a restaurant's menu list. When any dish in the list has one, the others get the grey fork tile so every name starts at
+// the same place; a photo that can't load (offline in the iPhone app, which loads photos from the website) becomes that tile too. On a narrow
+// row (its content under 18.5rem: a 360 px phone, Large text on most phones, Extra large on all) the photos step aside, as Compare's rows do, so names keep their room.
 
 const heading = "mt-7 text-xl font-[800] tracking-[-0.01em]";
 
@@ -45,6 +52,10 @@ export default function SearchPage() {
   const empty = results.chains.length === 0 && results.items.length === 0 && results.hiddenByDiet === 0;
   const stillLoading = loadedCount < totalCount;
   const remember = () => setRecent(addRecentSearch(recent, deferred));
+  // itemImageUrl is undefined when photos are switched off or a chain's photos are taken down (hidden.json); the taken-down list can arrive
+  // after the page opens, so re-check (and re-render the rows' photos) when it does, as a restaurant's page does.
+  const hiddenLogos = useHiddenLogos();
+  const itemPhotos = useMemo(() => results.items.some((i) => itemImageUrl(i.image) !== undefined), [results.items, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- itemImageUrl reads the taken-down list, which hiddenLogos tracks
 
   return (
     <div>
@@ -157,8 +168,10 @@ export default function SearchPage() {
                 <Link
                   href={itemHref(i.chainId, i.itemId)}
                   onClick={remember}
-                  className="group flex min-h-[4.25rem] items-center gap-3 px-4 py-2.5 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!"
+                  className={`group flex items-center px-4 transition-colors hover:bg-[var(--fill)] active:bg-soft-strong focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]! ${itemPhotos ? "@container min-h-[4.75rem] gap-3.5 py-3" : "min-h-[4.25rem] gap-3 py-2.5"}`}
                 >
+                  {/* The photo steps aside when the row is narrow (a small phone, or larger text), so the dish's name keeps room beside the calories. */}
+                  {itemPhotos && <span className="hidden shrink-0 @[18.5rem]:flex"><ItemThumb key={i.image ?? ""} image={i.image} placeholder /></span>}
                   {/* SPEC §7.3: "Chicken wrap · Cluck House · 440 kcal", in that order for screen readers and for the text as a whole;
                       on screen the dish sits over its restaurant with the calories at the end of the row, like a price list, so the
                       separators are kept for assistive tech only. */}

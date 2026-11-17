@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { buildSearchIndex, buildSearchIndexFromCompact, decodeDiet, dietFactsOf, fitsDiet, normalizeForSearch, search } from "../lib/mm/search";
+import { buildSearchIndex, buildSearchIndexFromCompact, compactPhoto, type CompactSearchChain, decodeDiet, dietFactsOf, fitsDiet, normalizeForSearch, search } from "../lib/mm/search";
 import { loadChain, tinyChain } from "./fixtures";
 
 const index = buildSearchIndex([loadChain("bowl-and-co"), loadChain("cluck-house")]);
@@ -115,5 +115,52 @@ describe("search with diet settings", () => {
       const chain = loadChain(id);
       for (const item of chain.items) expect(fromFile.items.find((i) => i.chainId === id && i.itemId === item.id)?.diet).toEqual(dietFactsOf(item));
     }
+  });
+});
+
+describe("search results carry the dish's photo", () => {
+  it("reads the search file's 5th entry as the photo in the chain's own folder, and still reads files written before photos", () => {
+    const compact = buildSearchIndexFromCompact([
+      { id: "cafe", name: "Cafe", cuisine: "Cafe", aliases: [], sample: false, items: [
+        ["a", "Chicken wrap", 400, "", "abc123def456"], // a photo and no diet letters: the letters are ""
+        ["b", "Halloumi wrap", 450, "v", "0d4a8872f20c"],
+        ["c", "Tuna wrap", 420], // no photo (an old 3- or 4-entry row)
+        ["d", "Bean wrap", 380, "vn"],
+        ["e", "Odd wrap", 300, "", "../x" as string], // a value of any other shape is no photo
+      ] },
+    ]);
+    const hits = new Map(search(compact, "wrap").items.map((i) => [i.itemId, i]));
+    expect(hits.get("a")?.image).toBe("cafe/abc123def456.webp");
+    expect(hits.get("b")?.image).toBe("cafe/0d4a8872f20c.webp");
+    expect(hits.get("a")!.calories).toBe(400);
+    for (const id of ["c", "d", "e"]) expect(hits.get(id)).not.toHaveProperty("image");
+    expect(search(compact, "wrap", 40, { vegetarianOnly: true, noPork: false, noBeef: false }).items.map((i) => i.itemId)).toEqual(["d", "b"]); // the letters still read
+    expect(compactPhoto("cafe", undefined)).toBeUndefined();
+    expect(compactPhoto("cafe", 42)).toBeUndefined();
+    expect(compactPhoto("cafe", "ABC.webp")).toBeUndefined();
+  });
+  it("gives the same photo from a full menu as from the search file", () => {
+    const chain = tinyChain([["a", "Chicken wrap", 400, 30], ["b", "Tuna wrap", 420, 25]]);
+    chain.items[0] = { ...chain.items[0]!, image: "tiny/abc123def456.webp" };
+    const r = search(buildSearchIndex([chain]), "wrap");
+    expect(r.items.find((i) => i.itemId === "a")?.image).toBe("tiny/abc123def456.webp");
+    expect(r.items.find((i) => i.itemId === "b")).not.toHaveProperty("image");
+  });
+  // Runs once the published menus are rebuilt with the photo column (tools/build_menus.py search_row); until then the file has no 5th entries.
+  const dir = new URL("../public/menus/", import.meta.url);
+  const published = JSON.parse(readFileSync(new URL("menus-search.json", dir), "utf8")) as { chains: CompactSearchChain[] };
+  const carriesPhotos = published.chains.some((c) => c.items.some((row) => row.length >= 5));
+  it.skipIf(!carriesPhotos)("the published search file gives every dish exactly the photo its chain file has", () => {
+    const fromFile = buildSearchIndexFromCompact(published.chains);
+    const byKey = new Map(fromFile.items.map((i) => [`${i.chainId}/${i.itemId}`, i.image]));
+    let photos = 0;
+    for (const c of published.chains) {
+      const chain = JSON.parse(readFileSync(new URL(`chain-${c.id}.json`, dir), "utf8")) as { items: Array<{ id: string; image?: string }> };
+      for (const item of chain.items) {
+        expect(byKey.get(`${c.id}/${item.id}`), `${c.id}/${item.id}`).toBe(item.image);
+        if (item.image) photos++;
+      }
+    }
+    expect(photos).toBeGreaterThan(1000);
   });
 });

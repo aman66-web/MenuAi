@@ -33,6 +33,9 @@ export interface ItemHit {
   name: string;
   calories: number;
   sample: boolean;
+  /** The chain's own photo of the dish, "<chain id>/<file>.webp" as in the menu files (shown through itemImageUrl, which applies the
+   *  photo switch and the taken-down list); absent when the dish has none or the search file predates photos. */
+  image?: string;
 }
 
 export interface SearchResults {
@@ -129,6 +132,7 @@ export function buildSearchIndex(chains: readonly Chain[]): SearchIndex {
         name: item.name,
         calories: item.nutrients.calories,
         sample: chain.sample,
+        ...(item.image ? { image: item.image } : {}),
         norm: normalizeForSearch(item.name),
         diet: dietFactsOf(item),
       });
@@ -137,14 +141,25 @@ export function buildSearchIndex(chains: readonly Chain[]): SearchIndex {
   return index;
 }
 
-/** One chain in the pipeline's compact search file (menus-search.json): items are [item id, name, calories, diet letters?] (docs/DATA.md). */
+/**
+ * One chain in the pipeline's compact search file (menus-search.json): items are [item id, name, calories, diet letters?, photo?]
+ * (docs/DATA.md "Search file"). The photo is the file name without ".webp" in the chain's own folder; a dish with a photo and no diet
+ * letters has "" for the letters. Files written before photos have at most 4 entries.
+ */
 export interface CompactSearchChain {
   id: string;
   name: string;
   cuisine: string;
   aliases: string[];
   sample: boolean;
-  items: Array<[string, string, number, string?]>;
+  items: Array<[string, string, number, string?, string?]>;
+}
+
+const PHOTO_NAME_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+/** The search file's photo entry as the menu files write it ("<chain id>/<file>.webp"); anything else (absent, malformed) is no photo. */
+export function compactPhoto(chainId: string, photo: unknown): string | undefined {
+  return typeof photo === "string" && PHOTO_NAME_RE.test(photo) ? `${chainId}/${photo}.webp` : undefined;
 }
 
 /** The same index as buildSearchIndex, built from the compact file so no full menu has to be downloaded to search. */
@@ -158,8 +173,9 @@ export function buildSearchIndexFromCompact(chains: readonly CompactSearchChain[
       sample: chain.sample,
       norms: [chain.name, ...chain.aliases].map(normalizeForSearch).filter(Boolean),
     });
-    for (const [itemId, name, calories, diet] of chain.items) {
-      index.items.push({ chainId: chain.id, chainName: chain.name, itemId, name, calories, sample: chain.sample, norm: normalizeForSearch(name), diet: decodeDiet(diet, name) });
+    for (const [itemId, name, calories, diet, photo] of chain.items) {
+      const image = compactPhoto(chain.id, photo);
+      index.items.push({ chainId: chain.id, chainName: chain.name, itemId, name, calories, sample: chain.sample, ...(image ? { image } : {}), norm: normalizeForSearch(name), diet: decodeDiet(diet, name) });
     }
   }
   return index;
@@ -199,6 +215,7 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet
       name: i.name,
       calories: i.calories,
       sample: i.sample,
+      ...(i.image ? { image: i.image } : {}),
     }));
 
   return { chains, items, hiddenByDiet: matched.length - fitting.length };

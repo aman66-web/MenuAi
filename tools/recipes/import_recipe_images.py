@@ -10,6 +10,7 @@ Founder's decision 2026-10-10 (CLAUDE.md rule 2): our OWN recipes may show an il
      Each picture is centre-cropped to 4:3, resized to 800 x 600 (never enlarged past what it is) and saved as WebP in
      web/public/recipe-images/<id>-<hash>.webp; web/lib/mm/recipeImages.ts is rewritten to list them. A file whose name is not
      a recipe id is reported and skipped. Delete a picture from data/recipe-images/ and rerun to take it out of the app.
+     It then makes the small copies (tools/recipes/make_recipe_thumbs.py: web/public/recipe-images/thumbs/, web/lib/mm/recipeThumbs.ts).
 
 The recipe ids are read from web/lib/mm/recipeBook/*.ts (each recipe has `id: "..."`).
 """
@@ -115,6 +116,11 @@ def main() -> int:
     missing = sorted(ids - set(mapping))
     if missing:
         print(f"  still without a picture: {len(missing)}")
+    # the small copies shown where a recipe is shown small (web/public/recipe-images/thumbs/, web/lib/mm/recipeThumbs.ts)
+    import make_recipe_thumbs
+
+    thumbs = make_recipe_thumbs.run()
+    print(f"{len(thumbs)} small copies in web/public/recipe-images/thumbs/.")
     return 0
 
 

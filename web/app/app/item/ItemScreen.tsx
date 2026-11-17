@@ -99,7 +99,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
               full
               onClick={() =>
                 gate("log", () => {
-                  addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item" });
+                  // the dish's photo goes with the entry, so Home and Today can show it (lib/mm/user-data.ts LogEntry.image)
+                  addLogEntry({ chainId: chain.id, chainName: chain.name, name: item.name, nutrients: item.nutrients, source: "item", ...(item.image ? { image: item.image } : {}) });
                   analytics.track({ name: "mealLogged" });
                   countProAction();
                   setMessage(tk("Logged to Today."));

@@ -22,6 +22,7 @@ import { backName, useBack } from "../_lib/backNav";
 import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
+import { ProductMini } from "../groceries/ProductMini";
 import { targetSentence } from "./MealPicker";
 import { MEAL_LOOK, RecipeHeroArt } from "./RecipeTile";
 import { ShopMark } from "../_components/ChainMark";
@@ -189,7 +190,11 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
       const s2 = subSpec(original, sub, scaled.halal);
       if (s2) out.push({ subKey: sub.key, spec: scaled.scaledFrom ? scaleSpec(s2, scaled.servings, scaled.scaledFrom.servings) : s2 });
     }
-    return out.filter((o) => candidates(products, o.spec, meatFree).length > 0);
+    // each with the product it would use (candidates are in pick order), whose photo the row shows
+    return out.flatMap((o) => {
+      const pick = candidates(products, o.spec, meatFree)[0];
+      return pick ? [{ ...o, pick }] : [];
+    });
   }, [swapSpec, scaled, products, meatFree]);
   const chooseInstead = (key: string, subKey: string | null) => {
     setSubs((c) => { const n = { ...c }; if (subKey) n[key] = subKey; else delete n[key]; return n; });
@@ -240,6 +245,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   // which step first uses each ingredient, so its amount (for this many people) is shown under that step
   const stepUses = firstMentions(recipe.method, view.recipe.ingredients);
   const specByKey = new Map(view.recipe.ingredients.map((spec, i) => [spec.key, picks[i]?.spec ?? spec]));
+  const pickByKey = new Map(view.recipe.ingredients.map((spec, i) => [spec.key, picks[i]]));
   const mealLabel = recipe.meal ? MEAL_TYPES.find((m) => m.value === recipe.meal)?.label : undefined;
   const MealIcon = MEAL_LOOK[recipe.meal ?? "dinner"]?.Icon ?? MEAL_LOOK.dinner.Icon;
 
@@ -428,7 +434,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               return (
                 <li key={spec.key} className="@container py-4">
                   <div className="flex flex-col gap-3 @[12rem]:flex-row @[12rem]:items-start">
-                    {p ? <PickPhoto file={pf} product={p.product} /> : <span aria-hidden className="h-16 w-16 shrink-0 rounded-2xl bg-[var(--fill)]" />}
+                    {p ? <PickPhoto file={pf} product={p.product} /> : <PhotoTile sources={[]} />}
                     <div className="min-w-0 flex-1">
                       {/* the name wraps beside a fixed amount, so the amount never drops onto a line of its own */}
                       <p className="flex items-start gap-3">
@@ -519,7 +525,19 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                           {rest.length > 0 && (
                             <p className="app-numbers mt-2 rounded-[0.875rem] bg-[var(--fill)] px-3 py-2 text-[0.875rem] leading-snug">
                               <span className="font-semibold">{t("You'll need:")}</span>{" "}
-                              {rest.map((x) => `${x.label} ${x.amount.full}`).join(" · ")}
+                              {/* each with its product's photo, as on the Ingredients tab (inline, so the line reads as before) */}
+                              {rest.map((x, k) => {
+                                const pick = pickByKey.get(x.key);
+                                // the photo never ends a line on its own: it stays with the first word of the name
+                                const [word, ...more] = x.label.split(" ");
+                                return (
+                                  <span key={x.key}>
+                                    {k > 0 && " · "}
+                                    {pick ? <span className="whitespace-nowrap"><ProductMini sources={shopPhotoSources(fileOf(pick.product), pick.product)} />{"\u00a0"}{word}</span> : word}
+                                    {more.length > 0 && ` ${more.join(" ")}`} {x.amount.full}
+                                  </span>
+                                );
+                              })}
                             </p>
                           )}
                         </>
@@ -573,12 +591,14 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 <ul className="mt-2 space-y-2">
                   {insteadOptions.map((o) => (
                     <li key={o.subKey ?? "written"}>
-                      <button type="button" onClick={() => chooseInstead(swapSpec.key, o.subKey)} className={`${CARD} flex min-h-14 w-full items-center gap-3 p-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
-                        <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-soft-strong"><SwapIcon className="h-5 w-5" /></span>
-                        <span className="min-w-0 flex-1">
+                      {/* the photo of the product the recipe would use, like the product rows below (founder 2026-11-17: "Use images please when possible"); drawn first,
+                          but after the words in the page, so the button's text starts with its name */}
+                      <button type="button" onClick={() => chooseInstead(swapSpec.key, o.subKey)} className={`${CARD} flex w-full items-center gap-3 p-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
+                        <span className="order-1 min-w-0 flex-1">
                           <span className="block text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{t(o.spec.label)}</span>
                           <span className="app-numbers block text-[0.8125rem] text-muted">{o.subKey ? t("{amount} in the recipe", { amount: amountText(o.spec) }) : t("As the recipe has it, {amount}", { amount: amountText(o.spec) })}</span>
                         </span>
+                        <span className="order-first shrink-0"><PickPhoto file={fileOf(o.pick.product)} product={o.pick.product} /></span>
                       </button>
                     </li>
                   ))}
@@ -595,9 +615,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 return (
                   <li key={key}>
                     {/* the current pick is the one lime row, with a dark tick; the rest are white */}
-                    <button type="button" aria-pressed={selected} onClick={() => { setChosen((c) => ({ ...c, [swapSpec.key]: key })); setSwapping(null); setAdded(null); }} className={`flex w-full items-center gap-3 rounded-[1.25rem] p-3 text-start transition active:scale-[0.99] ${selected ? "bg-sun text-on-accent" : `${CARD} hover:bg-soft-strong`}`}>
+                    <button type="button" aria-pressed={selected} onClick={() => { setChosen((c) => ({ ...c, [swapSpec.key]: key })); setSwapping(null); setAdded(null); }} className={`flex w-full flex-wrap items-center gap-3 rounded-[1.25rem] p-3 text-start transition active:scale-[0.99] ${selected ? "bg-sun text-on-accent" : `${CARD} hover:bg-soft-strong`}`}>
                       <PickPhoto file={of} product={o.product} />
-                      <span className="min-w-0 flex-1">
+                      {/* at large text on a narrow phone the words go under the photo instead of a letter or two a line beside it */}
+                      <span className="min-w-0 flex-1 basis-[9rem]">
                         {/* the logo of the shop it's bought from beside its name (the logo is silent; with several shops a screen reader hears the shop's name first) */}
                         <span className="flex items-start gap-2">
                           <ShopMark shopId={of.retailer} size="xs" />

@@ -32,6 +32,7 @@ import { useShopManifest } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { NicheFields } from "./NicheFields";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
+import { RecipeThumbStack, hasRecipePicture } from "./RecipeThumb";
 import { useNicheFilter } from "./useNicheFilter";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
@@ -227,7 +228,9 @@ function RecipesScreen() {
   const filtering = toggles.size > 0 || meal !== null || query.trim() !== "" || nicheOn;
   const slot: MealType = mealSlotFor(now);
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
-  const listRecipes = useMemo(() => (shop && firstList && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), firstList, shop).length : 0), [shopping, cards, firstList, shop]);
+  // how many recipes the shopping list can help make, and the first three (their pictures go on the card)
+  const fromList = useMemo(() => (shop && firstList && shopping.length ? recipesFromList(shopping, cards.map((c) => c.recipe), firstList, shop) : []), [shopping, cards, firstList, shop]);
+  const listRecipes = fromList.length;
   const nameOf = (id: string) => manifest?.retailers.find((r) => r.id === id)?.name ?? "";
   const shopName = shop ? nameOf(shop) : "";
   const shopNames = shopIds.map(nameOf).filter(Boolean);
@@ -402,8 +405,11 @@ function RecipesScreen() {
       )}
 
       {!filtering && listRecipes > 0 && (
-        <Link href="/app/groceries/list/recipes" className="glass lift group mt-4 flex min-h-16 items-center gap-3 rounded-[1.25rem] p-3.5">
-          <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0"><ListIcon className="h-5 w-5" /></span>
+        <Link href="/app/groceries/list/recipes" className="glass lift group @container mt-4 flex min-h-16 items-center gap-3 rounded-[1.25rem] p-3.5">
+          {/* the pictures of the recipes it leads to (founder 2026-11-17: "Use images please when possible"), the same files as the cards below; the list icon when none has one */}
+          {fromList.some((m) => hasRecipePicture(m.recipe.id))
+            ? <RecipeThumbStack recipes={fromList.slice(0, 3).map((m) => m.recipe)} moreClass="hidden @[18rem]:block" />
+            : <span aria-hidden className="icon-bubble-soft h-11 w-11 shrink-0"><ListIcon className="h-5 w-5" /></span>}
           <span className="min-w-0 flex-1">
             <span className="block text-base font-bold leading-snug">{t("Cook with what's on your list")}</span>
             <span className="app-numbers block text-[0.8125rem] text-muted">{listRecipes === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: listRecipes })}</span>

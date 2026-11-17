@@ -13,6 +13,7 @@ import { chainForDiet } from "@/lib/mm/menu-view";
 import { NO_MATCHES_COPY, OUT_OF_BUDGET_BANNER, OUT_OF_BUDGET_EMPTY, rank, type Pick } from "@/lib/mm/ranking";
 import { logStore } from "@/lib/mm/stores";
 import type { Meal, Preferences } from "@/lib/mm/types";
+import { ItemThumb } from "./ItemPhoto";
 import { useGate } from "./Paywall";
 import { ChevronRightIcon, LockIcon } from "./icons";
 import { Button, SectionTitle } from "./ui";
@@ -26,8 +27,19 @@ const FREE_APP = process.env.NEXT_PUBLIC_APP_BUILD === "1" && process.env.NEXT_P
 // Free users see the real cards blurred under an overlay; Pro users can tap a card to open the builder prefilled.
 // Look (founder 2026-10-15, Home's language): the picks straight on the white card with fine lines between them, a number in a grey
 // circle at the start, the first pick's circle in the brand lime (the one highlighted thing), a small chevron at the end.
+// Photos (founder 2026-11-17, "use images please when possible"): on a menu with the chain's own photos (`photos`, ChainScreen's menuPhotos, which already
+// re-checks the taken-down list), each pick shows its dish's photo after the number, like the menu rows below, and the grey fork tile when it has none (or
+// it can't load), so the names line up. The tile steps aside when the row is narrow (large text, a small phone) so the name keeps its room.
 
-export function BestForYou({ index, meal, preferences, onClearFilters, bare = false }: { index: ChainIndex; meal: Meal; preferences: Preferences; onClearFilters: () => void; bare?: boolean }) {
+/** The photo for a pick: the dish itself, or for a pre-built combination its base dish (else its first item). Undefined when there is none. */
+function pickImage(index: ChainIndex, pick: Pick): string | undefined {
+  if (pick.source === "item") return index.items.get(pick.id)?.image;
+  const combination = index.combinations.get(pick.id);
+  const itemId = combination?.baseItemId ?? combination?.items[0]?.itemId;
+  return itemId ? index.items.get(itemId)?.image : undefined;
+}
+
+export function BestForYou({ index, meal, preferences, onClearFilters, bare = false, photos = false }: { index: ChainIndex; meal: Meal; preferences: Preferences; onClearFilters: () => void; bare?: boolean; photos?: boolean }) {
   const t = useT();
   const router = useRouter();
   const { gate, showPaywall } = useGate();
@@ -81,9 +93,11 @@ export function BestForYou({ index, meal, preferences, onClearFilters, bare = fa
               type="button"
               onClick={() => open(pick, i + 1)}
               disabled={!enabled}
-              className="app-numbers group -mx-2 flex min-h-[4.5rem] w-[calc(100%+1rem)] items-center gap-3.5 rounded-2xl px-2 py-3 text-start transition enabled:active:bg-[var(--fill)] enabled:hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-accent"
+              className={`app-numbers group -mx-2 flex w-[calc(100%+1rem)] items-center gap-3.5 rounded-2xl px-2 py-3 text-start transition enabled:active:bg-[var(--fill)] enabled:hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-accent ${photos ? "@container min-h-[4.75rem]" : "min-h-[4.5rem]"}`}
             >
               <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[0.9375rem] font-bold ${i === 0 ? "bg-sun text-on-accent" : "bg-[var(--fill)] text-foreground"}`}>{i + 1}</span>
+              {/* a locked (blurred) pick keeps the plain tile: its photo isn't fetched for a row nobody can read */}
+              {photos && <span className="hidden shrink-0 @[17.5rem]:block"><ItemThumb image={enabled ? pickImage(index, pick) : undefined} placeholder /></span>}
               <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
                 <span className="block text-base font-bold leading-snug tracking-[-0.005em]">{pick.name}</span>
                 <span className="mt-0.5 block text-pretty text-[0.9375rem] leading-snug text-muted">

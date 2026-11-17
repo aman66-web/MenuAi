@@ -8,8 +8,8 @@ import type { LogEntry } from "@/lib/mm/user-data";
 
 // The small pieces the "Add food" sheet's views share: a Back pill, a big choice, a list of picks with a black pill each, a search box with Done.
 
-/** What a view hands up to be added to the meal: the sheet adds the time, the id and the meal. */
-export type NewEntry = Pick<LogEntry, "chainId" | "chainName" | "name" | "nutrients" | "source">;
+/** What a view hands up to be added to the meal: the sheet adds the time, the id and the meal. The picture references are kept where the view has one (EntryPicture.tsx). */
+export type NewEntry = Pick<LogEntry, "chainId" | "chainName" | "name" | "nutrients" | "source"> & Partial<Pick<LogEntry, "image" | "recipeId" | "photo">>;
 
 /** The way back to the four choices (or, inside a view, to its list). Light grey on the sheet's white, like Today's Back pill. */
 export function BackBar({ onBack }: { onBack: () => void }) {
@@ -64,11 +64,14 @@ export function ChoosePill({ name, onClick }: { name: string; onClick: () => voi
   );
 }
 
-/** One row of a pick list: a picture or icon, the name, a line of figures, and the pill. */
+/**
+ * One row of a pick list: a picture or icon, the name, a line of figures, and the pill. The picture steps aside when the row is narrow (large
+ * text, a small phone), so the name keeps its room, as on Today and My meals.
+ */
 export function PickRow({ lead, title, line, action }: { lead?: ReactNode; title: string; line: ReactNode; action: ReactNode }) {
   return (
-    <li className="flex min-h-[4.5rem] items-center gap-3 py-3 ps-3.5 pe-3">
-      {lead}
+    <li className="@container flex min-h-[4.5rem] items-center gap-3 py-3 ps-3.5 pe-3">
+      {lead && <span className="hidden shrink-0 @[17rem]:contents">{lead}</span>}
       <span className="min-w-0 flex-1">
         <span className="block text-base font-bold leading-snug [overflow-wrap:anywhere]">{title}</span>
         <span className="app-numbers mt-0.5 block text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere]">{line}</span>

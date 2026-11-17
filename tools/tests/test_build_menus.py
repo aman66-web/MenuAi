@@ -525,6 +525,22 @@ class ImagesTests(unittest.TestCase):
         self.assertEqual(self.build(), 0)
         self.assertEqual({self.items()[i]["image"] for i in ("burger", "odd")}, {"uk-chain/abc123def456.webp"})
 
+    def test_the_search_file_carries_the_photo_name_as_a_5th_entry(self):
+        (self.src / "uk-chain" / "holdback.csv").unlink()
+        self.images_csv("burger,abc123def456.webp,https://example.com/x,2026-10-06")
+        self.assertEqual(self.build(), 0)
+        (chain,) = json.loads((self.out / "menus-search.json").read_text())["chains"]
+        rows = {r[0]: r for r in chain["items"]}
+        # a photo without diet letters keeps the 4th entry as "" so the photo is always the 5th; the app adds "<chain id>/" and ".webp" back
+        self.assertEqual(rows["burger"], ["burger", "Burger", 463, "", "abc123def456"])
+        self.assertEqual(rows["odd"], ["odd", "Odd burger", rows["odd"][2]])  # no photo, no letters: 3 entries as before
+        self.assertEqual(rows["burger"][4] + ".webp", self.items()["burger"]["image"].split("/", 1)[1])
+        self.assertEqual(bm.search_row("uk-chain", {"id": "x", "name": "X", "nutrients": {"calories": 1}, "tags": ["vegetarian"],
+                                                    "image": "uk-chain/abc123def456.webp"}), ["x", "X", 1, "v", "abc123def456"])
+        # a value of any other shape (another chain's folder, not .webp) is left out rather than written in a form the app would guess at
+        for image in ("other-chain/abc123def456.webp", "uk-chain/abc123def456.png", "abc123def456.webp"):
+            self.assertEqual(bm.search_row("uk-chain", {"id": "x", "name": "X", "nutrients": {"calories": 1}, "image": image}), ["x", "X", 1])
+
 
 class AllergenTests(unittest.TestCase):
     """allergens.csv + allergen_guide.csv: copied from the chain's own guide, all or nothing (docs/DATA.md "Allergens")."""

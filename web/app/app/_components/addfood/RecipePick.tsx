@@ -7,7 +7,7 @@ import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { normalizeForSearch } from "@/lib/mm/search";
 import type { Meal } from "@/lib/mm/types";
-import { MEAL_LOOK } from "../../recipes/RecipeTile";
+import { RecipeThumb } from "../../recipes/RecipeThumb";
 import { MinusIcon, PlusIcon } from "../icons";
 import { Button, ErrorBox, Spinner } from "../ui";
 import { useSettings } from "../../_lib/hooks";
@@ -18,7 +18,9 @@ import { AddPill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts
 
 // "Choose a recipe": one of our recipes, a serving or more of it. The figures are exactly the ones the recipe's card and page show per serving
 // (fitted to the person's meal size, from the shop's own labels); the servings stepper only multiplies them. Recipes that don't suit the
-// person's diet are left out, as everywhere else.
+// person's diet are left out, as everywhere else. Each row leads with the recipe's own picture (founder 2026-11-17, "use images please when
+// possible"; RecipeThumb: its small copy, the full picture, else the card's plate drawing), the size of a product's picture in this sheet; the
+// recipe's id is kept on the entry so Home and Today show the same picture.
 
 const PAGE = 8;
 const NAME_WITH_SERVINGS = tk("{name} ({n} servings)");
@@ -62,7 +64,7 @@ export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntr
 
       {/* How many servings were eaten: the figures below follow it. */}
       <div role="group" aria-label={t("Servings")} className="glass flex items-center justify-between gap-3 rounded-full py-1.5 ps-5 pe-1.5">
-        <span className="text-base font-semibold">{t("Servings")}</span>
+        <span className="min-w-0 text-base font-semibold [overflow-wrap:normal] [word-break:keep-all]">{t("Servings")}</span>
         <span className="flex items-center gap-1">
           <button type="button" aria-label={t("Fewer servings")} disabled={servings <= MIN_SERVINGS} onClick={() => setServings((s) => stepServings(s, -1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white transition active:scale-95 disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><MinusIcon className="h-5 w-5" /></button>
           <output aria-live="polite" className="app-numbers min-w-10 text-center text-lg font-bold">{servings}</output>
@@ -78,14 +80,13 @@ export function RecipePick({ meal, onAdd }: { meal: Meal; onAdd: (entry: NewEntr
             {shown.slice(0, limit).map((c) => {
               const n = recipeNutrients(c.totals, servings);
               const name = t(c.recipe.name);
-              const Icon = (MEAL_LOOK[c.recipe.meal ?? "dinner"] ?? MEAL_LOOK.dinner).Icon;
               return (
                 <PickRow
                   key={c.recipe.id}
-                  lead={<span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-accent"><Icon className="h-5 w-5" /></span>}
+                  lead={<RecipeThumb id={c.recipe.id} name={c.recipe.name} meal={c.recipe.meal} />}
                   title={name}
                   line={t("{kcal} · {protein} protein", { kcal: formatCalories(n.calories), protein: formatGrams(n.protein ?? 0) })}
-                  action={<AddPill name={name} onClick={() => onAdd({ chainId: "", chainName: t("Recipe"), name: servings === 1 ? name : t(NAME_WITH_SERVINGS, { name, n: servings }), nutrients: n, source: "recipe" })} />}
+                  action={<AddPill name={name} onClick={() => onAdd({ chainId: "", chainName: t("Recipe"), name: servings === 1 ? name : t(NAME_WITH_SERVINGS, { name, n: servings }), nutrients: n, source: "recipe", recipeId: c.recipe.id })} />}
                 />
               );
             })}

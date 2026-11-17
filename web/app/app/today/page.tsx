@@ -9,14 +9,14 @@ import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, MEALS, MEAL_LABEL }
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
-import { itemImageUrl } from "@/lib/mm/images";
-import { deleteLogEntry, logStore, restoreLogEntry } from "@/lib/mm/stores";
+import { deleteLogEntry, logStore, restoreLogEntry, savedStore } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "../_components/addfood/AddFoodSheet";
+import { EatenThumb, entryPicture, legacyImage } from "../_components/addfood/EntryPicture";
 import { useGate } from "../_components/Paywall";
 import Link from "next/link";
-import { ChevronLeftIcon, ChevronRightIcon, ForkIcon, PlusIcon, TrashIcon } from "../_components/icons";
+import { ChevronLeftIcon, ChevronRightIcon, PlusIcon, TrashIcon } from "../_components/icons";
 import { Gauge } from "../_components/Gauge";
 import { Pip } from "../_components/Mascot";
 import { Ring } from "../_components/Ring";
@@ -30,7 +30,9 @@ import { Rich } from "../_lib/Rich";
 // Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): one summary card in Home's voice (Home's calories dial,
 // the figures in a regular weight with the eaten one in the accent, then Home's protein, carbs and fat rows with their targets and thin
 // bars, so the same day reads the same on both screens), then what was eaten under Breakfast, Lunch and Dinner (SPEC §6.3 mealSlotFor,
-// or the row an entry was added to from Home's +, as on Home: budget.ts entryMeal), each entry with the chain's own photo of the dish where we have one.
+// or the row an entry was added to from Home's +, as on Home: budget.ts entryMeal), each entry with its picture (founder 2026-11-17, "use images
+// please when possible"): the dish's, the recipe's or the product's, kept on the entry when it was logged (EntryPicture.tsx; older entries: the
+// dish found by its name), else, or when it doesn't load, a plain fork tile (the basket for a product).
 // Any day (founder 2026-10-16: "they can find any day and click on it and see their macros and what they ate on that day"): the page is a static shell that reads
 // ?d=YYYY-MM-DD (like /app/chain?id=), reached from Home's calendar and week circles; a missing, bad or future date is today. A past day shows that day's figures and
 // meals measured against the person's current targets (the app keeps no target history), with Previous day / Next day and a Today shortcut.
@@ -87,7 +89,9 @@ function TodayScreen() {
     return () => clearTimeout(hide);
   }, [added]);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), day)).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
-  const indexes = useChainIndexes(pro ? todays.filter((e) => e.source === "item").map((e) => e.chainId) : []);
+  const saved = useStore(savedStore);
+  // only for entries logged before entries kept their picture: their dish is looked up in its chain's menu
+  const indexes = useChainIndexes(pro ? todays.filter((e) => e.chainId && !e.image && !e.recipeId && !e.photo).map((e) => e.chainId) : []);
 
   if (!hydrated) return null;
 
@@ -126,12 +130,6 @@ function TodayScreen() {
     timer.current = setTimeout(() => setUndo(null), 6000);
   }
 
-  const photoOf = (e: LogEntry): string | undefined => {
-    const ix = e.source === "item" ? indexes.get(e.chainId) : undefined;
-    if (!ix || ix === "missing") return undefined;
-    for (const item of ix.items.values()) if (item.name === e.name) return itemImageUrl(item.image);
-    return undefined;
-  };
   const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal);
 
   return (
@@ -203,7 +201,7 @@ function TodayScreen() {
                     {entries.map((e) => (
                       <li key={e.id} className="@container flex items-center gap-3.5 px-4 py-3">
                         {/* the picture steps aside when the row is narrow (large text), so the name and figures keep their room */}
-                        <span className="hidden shrink-0 @[18rem]:block"><EatenThumb src={photoOf(e)} /></span>
+                        <span className="hidden shrink-0 @[18rem]:block"><EatenThumb picture={entryPicture(e, legacyImage(e, indexes.get(e.chainId), saved))} product={e.source === "product"} /></span>
                         <div className="min-w-0 flex-1">
                           <p className="text-base font-bold leading-snug [overflow-wrap:anywhere]">{e.name}</p>
                           <p className="mt-0.5 text-[0.875rem] leading-snug text-muted">{timeFormat.format(new Date(e.loggedAt))}{e.chainName ? ` · ${e.chainName}` : ""}</p>
@@ -244,16 +242,6 @@ function TodayScreen() {
         </div>
       )}
     </div>
-  );
-}
-
-/** A round picture of something eaten: the chain's own photo of the dish where we have one, otherwise a plain fork. */
-function EatenThumb({ src }: { src: string | undefined }) {
-  return src ? (
-    // eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py
-    <img src={src} alt="" width={44} height={44} loading="lazy" decoding="async" className="h-11 w-11 shrink-0 rounded-full bg-white object-cover" />
-  ) : (
-    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong text-foreground"><ForkIcon className="h-5 w-5" /></span>
   );
 }
 

@@ -354,6 +354,8 @@ def load_chain(folder: Path) -> ChainBuild:
     b = ChainBuild(folder=folder)
     E, W = b.errors, b.warnings
     cid = folder.name
+    if cid == "thumbs":  # web/public/menu-images/thumbs/ holds the small copies of every chain's photos (tools/uk_extract/make_thumbs.py)
+        E.append("thumbs: 'thumbs' is reserved for the small photo copies and can't be a chain id: rename this folder")
 
     # chain.csv ---------------------------------------------------------
     rows = read_csv(folder / "chain.csv", E, f"{cid}/chain.csv")
@@ -820,16 +822,36 @@ def search_diet(item: dict) -> str:
     return out
 
 
+def search_photo(chain_id: str, item: dict) -> str:
+    """The item's photo for the search file (docs/DATA.md "Search file"): its file name without ".webp", or "" when it has none. Every photo
+    lives in the item's own chain folder as a .webp (images.csv rules), so the app rebuilds "<chain id>/<name>.webp" from this alone; a value
+    of any other shape is left out rather than written in a form the app would have to guess at."""
+    folder, _, file = (item.get("image") or "").partition("/")
+    return file[: -len(".webp")] if folder == chain_id and IMAGE_FILE_RE.match(file) else ""
+
+
+def search_row(chain_id: str, item: dict) -> list:
+    """[item id, name, calories], then the diet letters when there are any, then the photo's name when there is one (an item with a photo but
+    no diet letters gets "" for the letters, so the photo is always the 5th entry)."""
+    row = [item["id"], item["name"], item["nutrients"]["calories"]]
+    diet, photo = search_diet(item), search_photo(chain_id, item)
+    if diet or photo:
+        row.append(diet)
+    if photo:
+        row.append(photo)
+    return row
+
+
 def search_document(out: Path, manifest_chains: list) -> dict:
-    """Compact index for the app's search: chain names plus [item id, name, calories] per item (and a 4th entry, the diet letters of
-    search_diet, when there are any), so search never has to download every full menu. Built from the chain files just written, so it
-    can never disagree with them."""
+    """Compact index for the app's search: chain names plus [item id, name, calories] per item (a 4th entry, the diet letters of
+    search_diet, and a 5th, the photo's file name, when there are any; search_row), so search never has to download every full menu.
+    Built from the chain files just written, so it can never disagree with them."""
     chains = []
     for c in manifest_chains:
         doc = json.loads((out / c["file"]).read_text())
         chains.append({
             "id": doc["id"], "name": doc["name"], "cuisine": doc["cuisine"], "aliases": doc["aliases"], "sample": doc["sample"],
-            "items": [[i["id"], i["name"], i["nutrients"]["calories"], *([d] if (d := search_diet(i)) else [])] for i in doc["items"]],
+            "items": [search_row(doc["id"], i) for i in doc["items"]],
         })
     return {"schemaVersion": SCHEMA_VERSION, "chains": chains}
 

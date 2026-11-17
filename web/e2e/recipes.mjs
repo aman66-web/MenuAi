@@ -288,10 +288,11 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   // founder 2026-11-16: each step has a short bold title (its own heading) above the instruction, with the step's time beside it
   await page.getByRole("heading", { name: "Check the chicken", exact: true }).waitFor();
   await page.getByText("Cut into the thickest part of the biggest piece.", { exact: false }).waitFor();
-  // each ingredient's amount for this many people sits under the first step that uses it
-  const needs = page.locator("#recipe-panel-method p", { hasText: /^You'll need:/ });
-  expect((await needs.count()) >= 3, `amounts under the steps (${await needs.count()})`);
-  expect((await needs.allInnerTexts()).some((x) => / 150 g\b/.test(x)), "the chicken's 150 g for one person is under a step");
+  // founder 2026-11-17: each ingredient's amount for this many people sits in the step right after the words that first name it ("the chicken (150 g)")
+  const method = await page.locator("#recipe-panel-method").innerText();
+  const amounts = method.match(/\((?:[\d¼½¾][^)]*?(?:g|ml|tsp|tbsp|eggs?|sprays)|a pinch[^)]*)\)/g) ?? [];
+  expect(amounts.length >= 3, `amounts in the steps (${amounts.length})`);
+  expect(/chicken \(150\u00a0g/.test(method), "the chicken's 150 g for one person is in the step that first names it");
   await page.getByText(/^The cooking times are for 2 servings/).waitFor();
   expect((await page.getByRole("heading", { name: "What to buy" }).count()) === 0, "ingredients hidden on the Method tab");
   await page.getByRole("tab", { name: "Method", selected: true }).press("ArrowLeft");

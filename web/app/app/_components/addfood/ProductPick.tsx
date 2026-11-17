@@ -3,7 +3,7 @@
 import { useDeferredValue, useId, useMemo, useState } from "react";
 import { ADD_TO, amountNutrients, MAX_AMOUNT, MIN_AMOUNT, parseAmount } from "@/lib/mm/addFood";
 import { formatCalories, formatGrams } from "@/lib/mm/format";
-import { forRetailer, photoSources, searchProducts, type ListedProduct } from "@/lib/mm/groceries";
+import { forRetailer, photoSources, searchProducts, withPhoto, type ListedProduct } from "@/lib/mm/groceries";
 import type { Meal, Nutrients } from "@/lib/mm/types";
 import { NumberDone } from "../SearchDone";
 import { ScanIcon } from "../icons";
@@ -17,7 +17,8 @@ import { BackBar, ChoosePill, PICK_LIST, PickRow, SheetSearch, type NewEntry } f
 
 // "Choose a supermarket product": found by name or by its barcode (typed, or read by the camera), then how much was had, in grams or millilitres.
 // The figures are the product's label per 100 g or 100 ml times the amount over 100: plain arithmetic, shown before it is added. A figure the
-// label doesn't print stays out.
+// label doesn't print stays out. The product's picture (the first one fit to keep, as a shopping list item keeps one) goes with the entry, for
+// Home and Today.
 
 const RESULTS = 8;
 
@@ -78,18 +79,19 @@ function HowMuch({ product, meal, prefer, onBack, onAdd }: { product: ListedProd
   const n = amount === null ? null : amountNutrients(p, amount);
   const unit = p.per;
   const shown = amount === null ? "" : `${Math.round(amount * 10) / 10} ${unit}`;
+  const sources = photoSources(p, prefer);
 
   return (
     <form
       className="space-y-5 pb-2"
       onSubmit={(e) => {
         e.preventDefault();
-        if (n && amount !== null) onAdd({ chainId: "", chainName: t("Groceries"), name: `${p.name} (${shown})`, nutrients: n, source: "product" });
+        if (n && amount !== null) onAdd({ chainId: "", chainName: t("Groceries"), name: `${p.name} (${shown})`, nutrients: n, source: "product", ...withPhoto(sources) });
       }}
     >
       <BackBar onBack={onBack} />
       <div className="flex items-center gap-3.5">
-        <PhotoTile sources={photoSources(p, prefer)} />
+        <PhotoTile sources={sources} />
         <div className="min-w-0 flex-1">
           <p className="text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere]">{p.name}</p>
           <p className="app-numbers mt-0.5 text-[0.875rem] leading-snug text-muted">{t("{kcal} kcal · {protein}g protein per 100 {unit}", { kcal: Math.round(p.kcal), protein: p.protein, unit })}</p>

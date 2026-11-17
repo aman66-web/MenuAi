@@ -261,10 +261,14 @@ Example (trimmed) from the fictional sample:
 ```
 
 Search file (`menus-search.json`, listed in the manifest with its own `sha256`): `{ "schemaVersion": 1, "chains": [ { "id", "name",
-"cuisine", "aliases", "sample", "items": [ [itemId, name, calories, diet?] ] } ] }`. `diet` is present only when it isn't empty: `v` =
-vegetarian tag, `p` = contains_pork, `b` = contains_beef, `n` = the name or menu section says vegan or plant-based, then `a` + the
-item's contains-or-may-contain allergens as a base-36 bit mask (bit i = the i-th allergen in the order of the allergen list above),
-present only when the item has allergen information. It lets search apply the diet settings without downloading every menu.
+"cuisine", "aliases", "sample", "items": [ [itemId, name, calories, diet?, photo?] ] } ] }`. `diet` is present only when it isn't empty
+or the item has a photo: `v` = vegetarian tag, `p` = contains_pork, `b` = contains_beef, `n` = the name or menu section says vegan or
+plant-based, then `a` + the item's contains-or-may-contain allergens as a base-36 bit mask (bit i = the i-th allergen in the order of the
+allergen list above), present only when the item has allergen information. It lets search apply the diet settings without downloading every
+menu. `photo` (added 2026-11-17, so search results can show the chain's own photo of a dish) is present only when the item has an `image`:
+the photo's file name without `.webp` (e.g. `0d4a8872f20c`), always in the item's own chain folder, so the app rebuilds the item's
+`image` as `<chain id>/<photo>.webp`; an item with a photo and no diet letters has `""` for `diet`. Rows written before photos have at most
+four entries, and the app reads both (about +68 KB raw, +41 KB gzipped for 4,329 photos).
 
 Numbers file (`menus-numbers.json`, listed in the manifest as `numbers` with its own `sha256`; added 2026-10-15 for "find a restaurant by my
 numbers"): `{ "schemaVersion": 1, "chains": [ { "id", "k": [calories], "p": [protein], "c": [carbohydrate], "f": [fat] } ] }`. Each column has one

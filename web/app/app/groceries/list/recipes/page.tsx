@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { ListRecipe } from "@/lib/mm/listRecipes";
-import type { ShopFile } from "@/lib/mm/shopProducts";
+import { shopPhotoSources, type ShopFile } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
 import { PipSays } from "../../../_components/Mascot";
@@ -14,6 +14,8 @@ import { useT } from "../../../_lib/i18n";
 import { addMissing, useListRecipes } from "../../../_lib/listRecipes";
 import { Rich } from "../../../_lib/Rich";
 import { BackLink, CARD, LABEL, NOTE } from "../../PageBits";
+import { ProductMini } from "../../ProductMini";
+import { RecipeThumb } from "../../../recipes/RecipeThumb";
 
 // "What can I cook with this?" (founder 2026-10-10): recipes that use something on the shopping list, the ones needing least else first.
 // Each says what the list already covers and what is still to buy, with one tap to add the rest (the recipe's own picks at the shop).
@@ -29,13 +31,18 @@ function MatchCard({ m, file }: { m: ListRecipe; file: ShopFile }) {
   const label = (i: number) => t(m.resolved.picks[i]?.spec.label ?? m.recipe.ingredients[i]!.label);
   return (
     <li className={`${CARD} p-5`}>
-      <Link href={`/app/recipes/view?id=${m.recipe.id}&r=${file.retailer}`} className="group @container -m-1 flex items-center gap-3.5 rounded-2xl p-1">
-        <span aria-hidden className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-strong @[18rem]:inline-flex"><PotIcon className="h-6 w-6" /></span>
-        <span className="min-w-0 flex-1">
-          <span className="block text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] group-hover:underline group-hover:underline-offset-4">{t(m.recipe.name)}</span>
-          <span className="app-numbers mt-0.5 block text-sm font-semibold text-accent">{t("You have {have} of {total} ingredients", { have: m.have.length, total })}</span>
+      {/* the recipe's own picture beside its name (founder 2026-11-17: "Use images please when possible"); where the card is narrow (large text) it sits above the name */}
+      <Link href={`/app/recipes/view?id=${m.recipe.id}&r=${file.retailer}`} className="group @container -m-1 block rounded-2xl p-1">
+        <span className="flex flex-col gap-3 @[18rem]:flex-row @[18rem]:items-center @[18rem]:gap-3.5">
+          <RecipeThumb id={m.recipe.id} name={m.recipe.name} meal={m.recipe.meal} />
+          <span className="flex min-w-0 flex-1 items-center gap-3">
+            <span className="min-w-0 flex-1">
+              <span className="block text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] group-hover:underline group-hover:underline-offset-4">{t(m.recipe.name)}</span>
+              <span className="app-numbers mt-0.5 block text-sm font-semibold text-accent">{t("You have {have} of {total} ingredients", { have: m.have.length, total })}</span>
+            </span>
+            <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-muted" />
+          </span>
         </span>
-        <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-muted" />
       </Link>
       <div aria-hidden className="mt-4 h-1 overflow-hidden rounded-full bg-[var(--ring-track)]"><div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${(m.have.length / total) * 100}%` }} /></div>
       <p className="sr-only">{t("On your list:")} {m.have.map(label).join(", ")}</p>
@@ -46,7 +53,13 @@ function MatchCard({ m, file }: { m: ListRecipe; file: ShopFile }) {
         <>
           <p className={`mt-5 ${LABEL}`}>{t("Still to buy")}</p>
           <ul className="mt-2.5 flex flex-wrap gap-2">
-            {m.missing.map((i) => (<li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{label(i)}</li>))}
+            {/* each with the photo of the product "Add the other n" puts on the list (the recipe's own pick at the shop); the words stay the label */}
+            {m.missing.map((i) => {
+              const pick = m.resolved.picks[i];
+              return pick
+                ? <li key={i} className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] py-1 pe-3.5 ps-1.5 text-sm font-medium"><ProductMini sources={shopPhotoSources(file, pick.product)} />{label(i)}</li>
+                : <li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{label(i)}</li>;
+            })}
           </ul>
           <Button variant="secondary" className="mt-5" onClick={() => { const n = addMissing(m, file); setAdded(n === 1 ? t("Added 1 product to your {shop} list.", { shop: file.name }) : t("Added {n} products to your {shop} list.", { n, shop: file.name })); }}>
             <PlusIcon className="h-5 w-5" />{m.missing.length === 1 ? t("Add the last one to my list") : t("Add the other {n} to my list", { n: m.missing.length })}

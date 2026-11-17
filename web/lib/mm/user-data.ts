@@ -4,6 +4,7 @@ import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, MEALS } from "./budget";
 import type { OrderLine } from "./order";
 import { MAX_WATER_GOAL_ML, MIN_WATER_GOAL_ML } from "./water";
+import { validPhoto, type PhotoSource } from "./groceries";
 
 // User data lives only in this browser (localStorage). Nutrient snapshots let history survive menu changes.
 
@@ -31,6 +32,16 @@ export interface LogEntry {
   source: LogSource;
   /** The meal row it was added to (Home's + on Breakfast, Lunch or Dinner). Absent = the meal its time falls in (budget.ts entryMeal, SPEC §6.3). */
   meal?: Meal;
+  /**
+   * The pictures shown beside it on Home and Today (founder 2026-11-17, "use images please when possible"), kept when it was logged; older entries
+   * have none. `image`: the chain's own photo of the dish, or of the first dish in the order that has one, "<chain id>/<file>.webp" as in the menu
+   * files (shown through images.ts, which applies the photo switch and the taken-down list). `recipeId`: the recipe book recipe it is a serving of
+   * (its picture is ours, lib/mm/recipeImages.ts). `photo`: a supermarket product's picture, kept as a shopping list item keeps one (groceries.ts
+   * validPhoto). A reference only: never a Make it at home photo, which stays on the phone.
+   */
+  image?: string;
+  recipeId?: string;
+  photo?: PhotoSource;
 }
 
 export interface Favorite {
@@ -183,6 +194,11 @@ const looksLikeLoggedNutrients = (n: unknown): n is Nutrients =>
   isObject(n) && typeof n.calories === "number" && Number.isFinite(n.calories) &&
   ["protein", "carbs", "fat"].every((k) => n[k] === undefined || (typeof n[k] === "number" && Number.isFinite(n[k] as number)));
 
+/** A menu photo's "<chain id>/<file>.webp", the shape the menu files write (lib/mm/images.ts checks it again before showing it). */
+const LOG_IMAGE = /^[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/;
+/** A recipe book id, as saved recipes are checked (sanitizeRecipeSaves). */
+const RECIPE_ID = /^[a-z0-9-]{1,80}$/;
+
 export function sanitizeLog(raw: unknown): LogEntry[] {
   if (!Array.isArray(raw)) return [];
   return raw
@@ -192,9 +208,17 @@ export function sanitizeLog(raw: unknown): LogEntry[] {
         typeof e.name === "string" && looksLikeLoggedNutrients(e.nutrients),
     )
     .map((e) => {
-      if (e.meal === undefined || MEALS.includes(e.meal)) return e;
-      const { meal: _unknown, ...rest } = e; // eslint-disable-line @typescript-eslint/no-unused-vars -- a meal row this app doesn't know: the entry falls back to its time
-      return rest;
+      // A meal row this app doesn't know: the entry falls back to its time. A picture reference that isn't one we would show is dropped
+      // (it comes back from this phone's storage and from the sync server); the entry itself stays.
+      const { meal, image, recipeId, photo, ...rest } = e;
+      const kept = validPhoto(photo);
+      return {
+        ...rest,
+        ...(meal !== undefined && MEALS.includes(meal) ? { meal } : {}),
+        ...(typeof image === "string" && image.length <= 200 && LOG_IMAGE.test(image) ? { image } : {}),
+        ...(typeof recipeId === "string" && RECIPE_ID.test(recipeId) ? { recipeId } : {}),
+        ...(kept ? { photo: kept } : {}),
+      };
     });
 }
 

@@ -2541,6 +2541,21 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **For the founder:** the Settings line "A short tour of the app, then your goal, diet, daily numbers, shops and text size." lists text size last though the tour now asks it first; say if you'd like it reordered.
   - Checked: tsc, eslint, 2,001 unit tests; browser tests run in the final pass.
 
+- 2026-11-17 (night) — **Photos everywhere the app has one, small thumbnails, and a lighter iPhone app** (founder: "Use images please when possible"; "when the user downloads the app it
+  shouldn't use excessive storage").
+  - **Lighter app:** the iPhone build no longer packs the dish, recipe and stored product photos (about 125 MB): `web/app-content.json` "remoteImages": true makes `scripts/pack_app_web.py` leave
+    `menu-images/`, `recipe-images/` and `grocery-images/` out and `lib/mm/config.ts` `assetUrl()` load each from the live site the first time it is shown (content-hashed names, cached for a year by
+    `next.config.ts`); offline, a photo not yet seen shows the screen's plain tile. Privacy page: "To keep the app small, it loads photos of dishes, recipes and products from this website the first time you
+    look at them (like the web app does), and keeps them on your phone to show again." **Order for release: update the website first (it must have the photos), then the app.**
+  - **Thumbnails:** lists load small copies (`tools/uk_extract/make_thumbs.py` → `menu-images/thumbs/`, 168 px on the short side so a 56 px tile is sharp on a 3x iPhone; `tools/recipes/make_recipe_thumbs.py`
+    → `recipe-images/thumbs/`, 240 px), resize only, falling back to the full photo and then the plain tile. "thumbs" is reserved and can't be a chain id.
+  - **New photos in:** Search's dish results (the search file gains an optional photo column: `docs/DATA.md`, schema, `lib/mm/search.ts`; shows once the menus are rebuilt), Best for you picks, saved orders in
+    My meals, the Smart Swap cards (never in the saved image card or Creator mode), the order builder's lines and Add item sheet, Home's and Today's meals (a logged entry now keeps its dish image, recipe id or
+    product photo: optional `LogEntry` fields, checked by the sanitiser; no migration), every Add food picker, "What can I cook with this?", "You might also need", the Recipes "Cook with what's on your list" card,
+    the recipe page's Swap sheet substitutes, and a product's "Other sizes".
+  - **For the founder:** the Truth sheet's plain "Dark card" view still shows the two dishes' photos (only Creator/filming mode drops them); say if the Dark card should drop them too.
+  - No new words. Checked: tsc, unit tests (thumbs, images, search, log pictures, recipe thumbs), Python tests; each part reviewed by a second agent with screenshots at 360 px and Extra large text.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

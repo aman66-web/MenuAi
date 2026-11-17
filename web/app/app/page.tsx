@@ -11,11 +11,11 @@ import { dayHref, shortDate } from "@/lib/mm/day";
 import { formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
-import { itemImageUrl } from "@/lib/mm/images";
 import { deleteLogEntry, logStore, myRecipesStore, savedRecipesStore, savedStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import type { LogEntry } from "@/lib/mm/user-data";
 import type { Meal } from "@/lib/mm/types";
 import { AddFoodSheet } from "./_components/addfood/AddFoodSheet";
+import { EntryAvatars, entryPicture, legacyImage, type EntryPicture } from "./_components/addfood/EntryPicture";
 import { DayPicker } from "./_components/DayPicker";
 import { Gauge } from "./_components/Gauge";
 import { useGate } from "./_components/Paywall";
@@ -36,6 +36,8 @@ import { useLanguage, useT } from "./_lib/i18n";
 // macroTargets). The picture's bodyweight card is left out (the app doesn't track weight) and Numbite's lime stays (founder's answers).
 // Under the meals, "Water" (founder 2026-10-15): today's millilitres against the person's own goal, a small bottle and a + that opens "Add water" (WaterCard).
 // Logging is Pro (SPEC §7.8): while Pro is on, a free user's + opens the paywall.
+// Each meal row shows up to two pictures of what was eaten (founder 2026-11-17, "use images please when possible"): the dish's, the recipe's or the
+// product's, kept on the entry when it was logged (EntryPicture.tsx; older entries: the dish found by its name). One that doesn't load is left out.
 
 /** Two cards side by side, stacked when the text is large: the minimum width is in rem, so it grows with the text size. */
 const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3.5";
@@ -97,7 +99,8 @@ export default function HomePage() {
   const log = useStore(logStore);
   const shopping = useStore(shoppingStore);
   // what "My meals" holds: the same three stores its page counts (saved recipes, Pip's recipes, saved restaurant orders)
-  const savedMeals = useStore(savedRecipesStore).length + useStore(myRecipesStore).length + useStore(savedStore).length;
+  const savedOrders = useStore(savedStore);
+  const savedMeals = useStore(savedRecipesStore).length + useStore(myRecipesStore).length + savedOrders.length;
   const now = useNow();
   // The + on a meal opens the Add food sheet for that meal; what it adds is offered back with an Undo for a few seconds.
   const router = useRouter();
@@ -110,7 +113,8 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, [added]);
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), now));
-  const indexes = useChainIndexes(todays.filter((e) => e.source === "item").map((e) => e.chainId));
+  // only for entries logged before entries kept their picture: their dish is looked up in its chain's menu
+  const indexes = useChainIndexes(todays.filter((e) => e.chainId && !e.image && !e.recipeId && !e.photo).map((e) => e.chainId));
 
   if (!hydrated) return <Spinner />;
 
@@ -128,12 +132,7 @@ export default function HomePage() {
   const mealsLine = savedMeals === 0 ? t("Your favourite meals") : savedMeals === 1 ? t("1 saved meal") : t("{n} saved meals", { n: savedMeals });
   const groceriesLine = shopping.length === 0 ? t("Nothing on it yet") : toBuy === 0 ? t("All picked up") : toBuy === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n: toBuy });
 
-  const photoOf = (e: LogEntry): string | undefined => {
-    const ix = e.source === "item" ? indexes.get(e.chainId) : undefined;
-    if (!ix || ix === "missing") return undefined;
-    for (const item of ix.items.values()) if (item.name === e.name) return itemImageUrl(item.image);
-    return undefined;
-  };
+  const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
   const byMeal = (meal: Meal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
 
   return (
@@ -253,8 +252,8 @@ export default function HomePage() {
           const kcal = entries.reduce((s, e) => s + e.nutrients.calories, 0);
           const { budget } = mealBudget(profile, 0, meal);
           const title = t(MEAL_LABEL[meal]);
-          // up to two different dish photos (the chain's own, where we have one), then what was eaten by the names the person logged
-          const photos = [...new Set(entries.map(photoOf).filter((s): s is string => !!s))].slice(0, 2);
+          // up to two different pictures (EntryAvatars leaves out one that doesn't load), then what was eaten by the names the person logged
+          const pictures = entries.map(pictureOf).filter((p): p is EntryPicture => !!p);
           return (
             <li key={meal} className="glass flex min-w-0 items-center gap-3 rounded-[1.75rem] p-4">
               <Link href="/app/today" className="min-w-0 flex-1 break-words">
@@ -265,14 +264,7 @@ export default function HomePage() {
                 </span>
                 {entries.length > 0 && (
                   <span className="mt-2.5 flex items-center gap-2.5">
-                    {photos.length > 0 && (
-                      <span aria-hidden className="flex shrink-0 -space-x-2.5">
-                        {photos.map((src) => (
-                          // eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py
-                          <img key={src} src={src} alt="" width={36} height={36} loading="lazy" decoding="async" className="h-9 w-9 rounded-full border-2 border-background bg-white object-cover" />
-                        ))}
-                      </span>
-                    )}
+                    <EntryAvatars pictures={pictures} />
                     <span className="line-clamp-2 min-w-0 text-[0.9375rem] leading-snug text-muted [overflow-wrap:anywhere]">{entries.map((e) => e.name).join(", ")}</span>
                   </span>
                 )}

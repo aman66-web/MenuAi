@@ -3,18 +3,22 @@
 import Link from "next/link";
 import { builderHref, chainHref } from "@/lib/mm/routes";
 import { useEffect, useRef, useState } from "react";
+import type { ChainIndex } from "@/lib/mm/chain-index";
 import { FREE_SAVED_ORDER_LIMIT } from "@/lib/mm/config";
 import { formatGrams, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
+import { itemImageUrl } from "@/lib/mm/images";
 import type { Nutrients } from "@/lib/mm/types";
 import { describeOrder, isOrderAvailable } from "@/lib/mm/order";
 import { deleteSavedOrder, favoritesStore, restoreSavedOrder, savedStore } from "@/lib/mm/stores";
 import type { SavedOrder } from "@/lib/mm/user-data";
 import { ChainCard } from "../_components/ChainRow";
 import { TrashIcon } from "../_components/icons";
+import { ItemThumb } from "../_components/ItemPhoto";
 import { Pip } from "../_components/Mascot";
 import { MacroSummary } from "../_components/Nutrition";
 import { Badge, Button, EmptyState, LinkButton } from "../_components/ui";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChainIndexes, useIsPro, useMenu, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
@@ -25,6 +29,19 @@ function figures(n: Nutrients, t: T): Array<[string, string]> {
   const out: Array<[string, string]> = [[formatInt(n.calories), "kcal"]];
   if (n.protein === undefined || n.carbs === undefined || n.fat === undefined) return out;
   return [...out, [formatGrams(n.protein), t("protein")], [formatGrams(n.carbs), t("carbs")], [formatGrams(n.fat), t("fat")]];
+}
+
+/**
+ * The photo for a saved order's card: the chain's own photo of the first dish in it that has one (founder 2026-11-17, "use images please when
+ * possible"). None while the chain is loading, when it or a dish has left the menu, or when its photos are switched off or taken down.
+ */
+function orderImage(ix: ChainIndex | "missing" | undefined, lines: SavedOrder["lines"]): string | undefined {
+  if (!ix || ix === "missing" || !isOrderAvailable(ix, lines)) return undefined;
+  for (const line of lines) {
+    const image = ix.items.get(line.itemId)?.image;
+    if (itemImageUrl(image)) return image;
+  }
+  return undefined;
 }
 
 // "My meals" › Restaurant meals: the restaurant meals the person saved, then their favourite restaurants.
@@ -39,6 +56,9 @@ export function RestaurantMeals() {
   const menu = useMenu();
   const favoriteChains = menu.chains.filter((c) => favorites.some((f) => f.chainId === c.id));
   const indexes = useChainIndexes(saved.map((o) => o.chainId));
+  useHiddenLogos(); // re-render when the taken-down list arrives: itemImageUrl reads it
+  // When any card has a photo, the others get the grey fork tile, so every name starts at the same place (as on a menu).
+  const photos = saved.some((o) => orderImage(indexes.get(o.chainId), o.lines) !== undefined);
   const [open, setOpen] = useState<string | null>(null);
   const [undo, setUndo] = useState<SavedOrder | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -67,12 +87,14 @@ export function RestaurantMeals() {
             const expanded = open === o.id;
             return (
               <li key={o.id} className="glass rounded-[1.25rem] p-4">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="min-w-0">
+                {/* the photo steps aside when the card is narrow (large text, a small phone), so the name keeps its room */}
+                <div className={`flex justify-between ${photos ? "@container items-center gap-3.5" : "items-start gap-2"}`}>
+                  {photos && <span className="hidden shrink-0 @[16rem]:block"><ItemThumb image={orderImage(ix, o.lines)} placeholder /></span>}
+                  <div className="min-w-0 flex-1">
                     <h3 className="text-[1.0625rem] font-bold leading-snug tracking-[-0.01em]">{o.name}</h3>
                     <p className="text-[0.9375rem] text-muted">{o.chainName}</p>
                   </div>
-                  <button type="button" aria-label={t("Delete {name}", { name: o.name })} onClick={() => remove(o)} className="group -me-1.5 -mt-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted transition active:scale-95">
+                  <button type="button" aria-label={t("Delete {name}", { name: o.name })} onClick={() => remove(o)} className={`group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted transition active:scale-95 ${photos ? "" : "-mt-1"}`}>
                     <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--fill)] transition-colors group-hover:bg-soft-strong"><TrashIcon className="h-[18px] w-[18px]" /></span>
                   </button>
                 </div>

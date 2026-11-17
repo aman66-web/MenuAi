@@ -291,7 +291,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <p>{t("Best for you can't pick for your diet here, because {chain} doesn't mark which dishes fit it. Its full menu is below.", { chain: chain.name })}</p>
             <Button variant="secondary" className="mt-3" onClick={() => { const el = document.getElementById("full-menu"); if (el) scrollToElement(el); }}>{t("See the full menu")}</Button>
           </div>
-        ) : <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={menuPrefs} onClearFilters={clearFilters} /></div>)}
+        ) : <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={menuPrefs} onClearFilters={clearFilters} photos={menuPhotos} /></div>)}
       </section>
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { site } from "@/site.config";
 import { formatInt } from "@/lib/mm/format";
+import { itemImageUrl } from "@/lib/mm/images";
 import { itemHref } from "@/lib/mm/routes";
 import type { Chain, MenuItem } from "@/lib/mm/types";
 import { FSA_SOURCE, type Light, type LightResult } from "@/lib/mm/truth/fsaLights";
@@ -13,10 +14,12 @@ import { PROTEIN_SCORE_HOW, SCORE_LABELS } from "@/lib/mm/truth/proteinScore";
 import { REFERENCE_INTAKE_SOURCE } from "@/lib/mm/truth/referenceIntake";
 import { imageFileName, shareMessage, whatsappUrl } from "@/lib/mm/truth/shareTruth";
 import { swapFacts, type SwapSuggestion } from "@/lib/mm/truth/swap";
+import { useHiddenLogos } from "../../_lib/hiddenLogos";
 import { useT } from "../../_lib/i18n";
 import { setLastTruthMessage } from "../../_lib/lastTruth";
 import { deliverImage } from "../../_lib/share-card";
 import { renderTruthCard } from "../../_lib/truth-card";
+import { ItemThumb } from "../ItemPhoto";
 import { MenuSourcesLink } from "../MenuSourcesLink";
 import { Button } from "../ui";
 import { ButterIcon, EggIcon, ImageDownIcon, SugarCubeIcon, WhatsAppShareIcon } from "./TruthIcons";
@@ -26,6 +29,10 @@ import { useCountUp } from "./useCountUp";
 // the calories as a share of the 2,000 kcal reference intake, what the figures look like as everyday things, and the Smart Swap. Everything is worked out from the
 // figures the restaurant publishes (lib/mm/truth/*); a figure it doesn't publish is not shown, never estimated. Big figures (32 to 72 px), 16 px words and
 // 48 px buttons, so it reads for a 75-year-old with reading glasses and from a phone's camera.
+// Photos (founder 2026-11-17, "use images please when possible"): the chain's own photo of the dish beside the chain's name at the top, and of each dish in the
+// Smart Swap card, on screen only. Never in the saved image card (renderTruthCard draws no photo: CLAUDE.md rule 2, never in the share card) and never on
+// the dark card: Creator View (no photo is rendered) or the "Dark card" chip (the sheet's .truth-dark, also made for filming: hidden by CSS), since a
+// filmed screen gets posted (rule 2: never in marketing).
 
 /** The site's address for a shared link: the real one, even when the app is being tried on localhost. */
 export function shareOrigin(): string {
@@ -140,13 +147,19 @@ function ScoreDots({ score }: { score: number }) {
   );
 }
 
-function MiniDish({ item, heading, tone }: { item: MenuItem; heading: string; tone: "plain" | "swap" }) {
+/** `photo`: the card shows the dish's photo (or the grey fork tile when it has none, so the two cards line up); it steps aside when the card is narrow. */
+function MiniDish({ item, heading, tone, photo }: { item: MenuItem; heading: string; tone: "plain" | "swap"; photo: boolean }) {
   const t = useT();
   const tr = itemTruth(item);
   return (
     <div className={`rounded-[1.25rem] p-4 ${tone === "swap" ? "bg-accent-soft ring-2 ring-accent" : "glass"}`}>
-      <p className="text-base font-bold uppercase tracking-wide text-muted">{heading}</p>
-      <p className="mt-1 text-xl font-extrabold leading-snug [overflow-wrap:anywhere]">{item.name}</p>
+      <div className={photo ? "@container flex items-start gap-3.5" : undefined}>
+        {photo && <span className="hidden shrink-0 @[14rem]:block [.truth-dark_&]:hidden"><ItemThumb image={item.image} placeholder /></span>}
+        <div className="min-w-0 flex-1">
+          <p className="text-base font-bold uppercase tracking-wide text-muted">{heading}</p>
+          <p className="mt-1 text-xl font-extrabold leading-snug [overflow-wrap:anywhere]">{item.name}</p>
+        </div>
+      </div>
       <p className="app-numbers mt-2 text-3xl font-extrabold leading-none tracking-tight">{formatInt(item.nutrients.calories)} <span className="text-lg font-bold text-muted">kcal</span></p>
       {item.nutrients.protein !== undefined && <p className="app-numbers mt-1.5 text-xl font-bold">{gramsText(item.nutrients.protein)} <span className="text-base font-semibold text-muted">{t("protein")}</span></p>}
       {tr.score && <p className="app-numbers mt-1.5 text-lg font-bold">{t("Protein score")} {tr.score.score} / 5</p>}
@@ -155,9 +168,10 @@ function MiniDish({ item, heading, tone }: { item: MenuItem; heading: string; to
 }
 
 /** The split card: your pick above, the swap below, and what the swap saves across the middle, in numbers only. */
-function SwapCard({ chain, item, swap }: { chain: Chain; item: MenuItem; swap: SwapSuggestion }) {
+function SwapCard({ chain, item, swap, photos }: { chain: Chain; item: MenuItem; swap: SwapSuggestion; photos: boolean }) {
   const t = useT();
   const facts = swapFacts(swap);
+  const photo = photos && (itemImageUrl(item.image) !== undefined || itemImageUrl(swap.item.image) !== undefined);
   const banner =
     facts.moreProtein !== undefined
       ? t("Save {kcal} kcal and get {protein} g more protein in 1 swap", { kcal: formatInt(facts.saves), protein: facts.moreProtein })
@@ -166,9 +180,9 @@ function SwapCard({ chain, item, swap }: { chain: Chain; item: MenuItem; swap: S
     <section aria-labelledby="truth-swap" className="mt-6">
       <h3 id="truth-swap" className="text-xl font-extrabold leading-snug tracking-tight">{t("Smart Swap")}</h3>
       <div className="mt-3 space-y-2.5">
-        <MiniDish item={item} heading={t("Your pick")} tone="plain" />
+        <MiniDish item={item} heading={t("Your pick")} tone="plain" photo={photo} />
         <p className="truth-bounce rounded-[1.25rem] bg-[var(--sun)] px-4 py-4 text-center text-3xl font-extrabold leading-tight tracking-tight text-[var(--tl-ink)]">{banner}</p>
-        <MiniDish item={swap.item} heading={t("Smart Swap at {chain}", { chain: chain.name })} tone="swap" />
+        <MiniDish item={swap.item} heading={t("Smart Swap at {chain}", { chain: chain.name })} tone="swap" photo={photo} />
       </div>
       <p className="mt-3 text-base leading-snug text-muted">
         {swap.tier === "protein-first"
@@ -201,6 +215,8 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
   const callout = calorieCalloutParts(truth.caloriePercent);
   const caloriesOnly = chain.nutritionLevel === "calories" || item.nutrients.protein === undefined;
   const message = shareMessage({ chainId: chain.id, chainName: chain.name, item, swap, origin: shareOrigin() });
+  useHiddenLogos(); // re-render when the taken-down list arrives: itemImageUrl reads it
+  const photos = !creator; // never in Creator View (filmed and posted)
   useEffect(() => { setLastTruthMessage(message); }, [message]);
 
   const saveImage = async () => {
@@ -215,7 +231,14 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
 
   return (
     <div key={replay} className="pb-4">
-      <p className="text-base font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{chain.name}</p>
+      {photos && itemImageUrl(item.image) ? (
+        <div className="flex items-center gap-3.5">
+          <span className="shrink-0 empty:hidden [.truth-dark_&]:hidden"><ItemThumb image={item.image} /></span>
+          <p className="min-w-0 flex-1 text-base font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{chain.name}</p>
+        </div>
+      ) : (
+        <p className="text-base font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{chain.name}</p>
+      )}
 
       <section aria-labelledby="truth-calories" className="truth-bounce mt-3 rounded-[1.5rem] bg-[var(--fill)] p-5">
         <h3 id="truth-calories" className="text-base font-bold uppercase tracking-wide text-muted">{t("Calories")}</h3>
@@ -258,7 +281,7 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
 
       <Lights truth={truth} chain={chain} />
       <Household rows={truth.household} replay={replay} />
-      {swap && <SwapCard chain={chain} item={item} swap={swap} />}
+      {swap && <SwapCard chain={chain} item={item} swap={swap} photos={photos} />}
 
       <div className="mt-7 space-y-2.5">
         <a

@@ -23,6 +23,9 @@ import { Rich } from "../../_lib/Rich";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { BackLink, CARD, LABEL, PILL_INPUT, TITLE } from "../PageBits";
 import { ListThumb } from "../ProductPhoto";
+import { ProductMini } from "../ProductMini";
+import { RecipeThumb, RecipeThumbStack, hasRecipePicture } from "../../recipes/RecipeThumb";
+import { shopPhotoSources } from "@/lib/mm/shopProducts";
 
 // "Shopping list" (founder 2026-10-10, renamed from "My groceries" 2026-10-11): the shopping list, on this device only. Type anything in ("Milk"), or add products from Groceries and
 // recipes; tick things off as they go in the basket. At the top: the recipes this list can make, and what one of them still needs. Share or
@@ -155,7 +158,10 @@ export default function ShoppingListPage() {
           {/* At the top, as asked: what this list can make (its own products, matched by the recipes' rules). The one lime tile on the screen. */}
           {/* at large text the round pot steps aside (a container query) so the words keep their room */}
           <Link href="/app/groceries/list/recipes" className="bg-sun lift group @container mt-2 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] p-3.5 text-on-accent">
-            <span aria-hidden className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-on-accent @[19rem]:inline-flex"><PotIcon className="h-6 w-6" /></span>
+            {/* the pictures of the first recipes it finds (founder 2026-11-17: "Use images please when possible"); the pot while it looks, or when none matches */}
+            {matches && matches.some((m) => hasRecipePicture(m.recipe.id))
+              ? <span className="hidden @[19rem]:inline-flex"><RecipeThumbStack recipes={matches.slice(0, 3).map((m) => m.recipe)} ring="ring-[color:var(--sun)]" moreClass="hidden @[22rem]:block" /></span>
+              : <span aria-hidden className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-on-accent @[19rem]:inline-flex"><PotIcon className="h-6 w-6" /></span>}
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]">{t("What can I cook with this?")}</span>
               <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug">
@@ -252,13 +258,23 @@ export default function ShoppingListPage() {
           {suggestion && state?.status === "ready" && (
             <section aria-labelledby="suggest-heading" className={`${CARD} mt-8 p-5`}>
               <h2 id="suggest-heading" className={LABEL}>{t("You might also need")}</h2>
-              <p className="mt-2 text-[0.9375rem] leading-snug">
-                <Rich text={t("To make {recipe}, you'd also need:")} values={{ recipe: <Link href={`/app/recipes/view?id=${suggestion.recipe.id}&r=${state.file.retailer}`} className="font-bold text-accent underline underline-offset-4">{t(suggestion.recipe.name)}</Link> }} />
-              </p>
+              {/* the recipe's picture before the sentence; it opens the recipe too (the name in the sentence is the link a screen reader and the keyboard use), and sits above the words where the card is narrow */}
+              <div className="@container mt-2">
+                <div className="flex flex-col gap-3 @[16rem]:flex-row @[16rem]:items-center @[16rem]:gap-3.5">
+                  <Link href={`/app/recipes/view?id=${suggestion.recipe.id}&r=${state.file.retailer}`} tabIndex={-1} aria-hidden className="shrink-0 self-start @[16rem]:self-center"><RecipeThumb id={suggestion.recipe.id} name={suggestion.recipe.name} meal={suggestion.recipe.meal} /></Link>
+                  <p className="min-w-0 flex-1 text-[0.9375rem] leading-snug">
+                    <Rich text={t("To make {recipe}, you'd also need:")} values={{ recipe: <Link href={`/app/recipes/view?id=${suggestion.recipe.id}&r=${state.file.retailer}`} className="font-bold text-accent underline underline-offset-4">{t(suggestion.recipe.name)}</Link> }} />
+                  </p>
+                </div>
+              </div>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {suggestion.missing.map((i) => {
-                  const label = suggestion.resolved.picks[i]?.spec.label ?? suggestion.recipe.ingredients[i]!.label;
-                  return <li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{t(label)}</li>;
+                  const pick = suggestion.resolved.picks[i];
+                  const label = pick?.spec.label ?? suggestion.recipe.ingredients[i]!.label;
+                  // each with the photo of the product "Add them to my list" adds (the recipe's own pick at the shop)
+                  return pick
+                    ? <li key={i} className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] py-1 pe-3.5 ps-1.5 text-sm font-medium"><ProductMini sources={shopPhotoSources(state.file, pick.product)} />{t(label)}</li>
+                    : <li key={i} className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] px-3.5 py-1.5 text-sm font-medium">{t(label)}</li>;
                 })}
               </ul>
               <Button variant="secondary" className="mt-4" onClick={() => { const n = addMissing(suggestion, state.file); setSuggestNote(n === 1 ? t("Added 1 product to your {shop} list.", { shop: state.file.name }) : t("Added {n} products to your {shop} list.", { n, shop: state.file.name })); }}>

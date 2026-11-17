@@ -21,6 +21,7 @@ import { Rich } from "../../_lib/Rich";
 import { NutritionPanel } from "../NutritionPanel";
 import { BackLink, CARD, CHIP, CHIP_ON, FootNote, HEADING, LABEL, NOTE } from "../PageBits";
 import { ProductPhotoFigure } from "../ProductPhoto";
+import { ProductMini } from "../ProductMini";
 
 // A product from the supermarket lists (docs/GROCERIES_PLAN.md): photo, per-100 g numbers, price where known, the 14 allergens, the barcode.
 // Looks follow Home (founder 2026-10-15): one white card holding the picture, the name as a big title and the nutrition as Home's macro rows; the
@@ -204,8 +205,9 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
           <div className="no-scrollbar -mx-5 mt-2 flex gap-2 overflow-x-auto px-5">
             {sizes.map((v) => (
               <Link key={v.gtin} href={`/app/groceries/product?code=${v.gtin}${v.retailers.includes(selected) ? `&r=${selected}` : ""}`} replace prefetch={false} aria-current={v.gtin === listed.gtin ? "page" : undefined}
-                className={`${v.gtin === listed.gtin ? CHIP_ON : CHIP} px-4`}>
-                {forRetailer(v, selected).size || t("Size not stated")}
+                className={`${v.gtin === listed.gtin ? CHIP_ON : CHIP} gap-2 pe-4 ps-1.5`}>
+                {/* each size's own pack photo, like the shops' logos in the chips above (a multipack is easier to spot); the size stays the label */}
+                <ProductMini sources={photoSources(v, selected)} />{forRetailer(v, selected).size || t("Size not stated")}
               </Link>
             ))}
           </div>

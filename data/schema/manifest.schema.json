@@ -31,7 +31,7 @@
         "sha256"
       ],
       "additionalProperties": false,
-      "description": "The compact search index (chain names plus [item id, name, calories] per item), so the app can search every menu without downloading them all. Optional so older manifests stay valid.",
+      "description": "The compact search index (chain names plus [item id, name, calories, diet letters?, photo?] per item; docs/DATA.md \"Search file\"), so the app can search every menu without downloading them all. Optional so older manifests stay valid.",
       "properties": {
         "file": {
           "type": "string"

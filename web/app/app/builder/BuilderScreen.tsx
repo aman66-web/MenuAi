@@ -10,6 +10,7 @@ import { loggedGaps, loggedToday, remainingToday } from "@/lib/mm/budget";
 import type { ChainIndex } from "@/lib/mm/chain-index";
 import { formatCalories, lowerFirst } from "@/lib/mm/format";
 import type { T } from "@/lib/mm/i18n";
+import { itemImageUrl } from "@/lib/mm/images";
 import {
   addComponent, addableComponents, afterThis, afterThisText, describeOrder, GROUP_LABEL, isOrderAvailable, lineFromItem, lineNutrients,
   linesFromCombination, lineName, orderName, orderNutrients, removeComponent, setComponentQty, setItemQty, sortedComponents, swapComponent,
@@ -22,11 +23,14 @@ import { passesPreferences } from "@/lib/mm/ranking";
 import type { MenuComponent } from "@/lib/mm/types";
 import { AllergenSection } from "../_components/Allergens";
 import { useGate } from "../_components/Paywall";
+import { linesImage } from "../_components/addfood/EntryPicture";
+import { ItemThumb } from "../_components/ItemPhoto";
 import { ChevronLeftIcon, LockIcon, MinusIcon, PlusIcon, SwapIcon, TrashIcon } from "../_components/icons";
 import { MacroSummary, SMALL_LABEL } from "../_components/Nutrition";
 import { ShareButton } from "../_components/ShareButton";
 import { Button, Card, Chip, ErrorBox, Field, inputClass, Sheet, Spinner } from "../_components/ui";
 import { backName, travelBack, useBack } from "../_lib/backNav";
+import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { useChain, useHydrated, useIsPro, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
@@ -34,6 +38,10 @@ import { useT } from "../_lib/i18n";
 // Look (founder 2026-10-15, Home's language): a compact heavy title, white cards with 20 px corners, each ingredient group as a quiet
 // grey list on the card with its label in small spaced capitals and the portion and calories in DM Mono, "Double" a white pill lit in
 // the brand lime when it's on, and the totals as a floating white card that stays in reach above the tab bar.
+// Photos (founder 2026-11-17, "use images please when possible"): each order line's card and each dish in the "Add item" sheet lead with the
+// chain's own photo of the dish (ItemThumb: the small copy, then the full photo, else the grey fork tile, so the names line up), as on the
+// restaurant's menu; never on an ingredient (ingredients have no photos, and a dish photo never stands in for one). They step aside when the
+// card is narrow (large text). Log keeps the first dish's photo on the entry, for Home and Today.
 
 /** Where Save takes the person: My meals, on the restaurant meals tab. */
 const MEALS_RESTAURANT = "/app/meals?tab=restaurant";
@@ -164,6 +172,9 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   }, []);
 
   const total = useMemo(() => orderNutrients(ix, lines), [ix, lines]);
+  // With a photo on any line, every line's card gets the tile (the fork where it has none), so the names start at the same place.
+  const hiddenLogos = useHiddenLogos();
+  const linePhotos = useMemo(() => lines.some((l) => itemImageUrl(ix.items.get(l.itemId)?.image) !== undefined), [ix, lines, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- itemImageUrl reads the taken-down list, which hiddenLogos tracks
   const allergens = useMemo(() => orderAllergens(ix, lines), [ix, lines]);
   const valid = validateOrder(lines, t);
   const defaultName = orderName(ix, lines);
@@ -198,10 +209,11 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       <div className="mt-5 space-y-3.5">
         {lines.map((line, i) => (
           <Card key={i} className="p-4">
-            <div className="flex items-start justify-between gap-2">
-              <h2 className="text-lg font-[800] leading-snug tracking-[-0.01em]">{lineName(ix, line)}</h2>
+            <div className={`flex ${linePhotos ? "@container items-center gap-3.5" : "items-start justify-between gap-2"}`}>
+              {linePhotos && <span className="hidden shrink-0 @[16rem]:block"><ItemThumb image={ix.items.get(line.itemId)?.image} placeholder /></span>}
+              <h2 className="min-w-0 flex-1 text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere]">{lineName(ix, line)}</h2>
               {lines.length > 1 && (
-                <button type="button" aria-label={t("Remove {name} from the order", { name: ix.items.get(line.itemId)?.name ?? t("item") })} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className={`-me-2 -mt-1.5 ${ICON_BUTTON}`}>
+                <button type="button" aria-label={t("Remove {name} from the order", { name: ix.items.get(line.itemId)?.name ?? t("item") })} onClick={() => setLines((ls) => ls.filter((_, j) => j !== i))} className={`-me-2 ${linePhotos ? "" : "-mt-1.5"} ${ICON_BUTTON}`}>
                   <TrashIcon className="h-5 w-5" />
                 </button>
               )}
@@ -282,7 +294,8 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                 full
                 onClick={() =>
                   gate("log", () => {
-                    addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource() });
+                    const image = linesImage(ix, lines); // the first dish in the order with a photo, shown beside it on Home and Today
+                    addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource(), ...(image ? { image } : {}) });
                     analytics.track({ name: "mealLogged" });
                     countProAction();
                     router.replace("/app/today"); // replace: Back from Today must not return to the finished builder, where one more Log would log the meal twice
@@ -418,6 +431,11 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
   }
   // The choices are white rows on the sheet, each a full-width button with the portion under the name and the calories at the end.
   const choice = "app-numbers flex min-h-14 w-full items-center justify-between gap-3 px-4 py-3 text-start transition hover:bg-soft-strong active:bg-soft-strong";
+  // The dishes in "Add item" lead with their photo, as on the restaurant's menu (ChainScreen's menuPhotos): with any photo on the menu, a dish
+  // without one gets the grey fork tile, so every name starts at the same place.
+  const hiddenLogos = useHiddenLogos();
+  const menuPhotos = useMemo(() => ix.chain.items.some((i) => itemImageUrl(i.image) !== undefined), [ix.chain.items, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- itemImageUrl reads the taken-down list, which hiddenLogos tracks
+  const dishChoice = "app-numbers flex min-h-[4.75rem] w-full items-center gap-3.5 px-4 py-2.5 text-start transition hover:bg-soft-strong active:bg-soft-strong";
   return (
     <>
       <Sheet open={picker?.type === "add" || picker?.type === "swap"} onClose={onClose} title={picker?.type === "swap" ? t("Swap ingredient") : t("Add ingredient")}>
@@ -447,9 +465,11 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
               <h3 className={`mb-2 ${SMALL_LABEL}`}>{cat}</h3>
               <ul className={SHEET_LIST}>
                 {items.map((i) => (
-                  <li key={i.id}>
-                    <button type="button" onClick={() => onPickItem(i.id)} className={choice}>
-                      <span className="min-w-0 text-base font-semibold leading-snug">{i.name}</span>
+                  <li key={i.id} className={menuPhotos ? "@container" : undefined}>
+                    <button type="button" onClick={() => onPickItem(i.id)} className={menuPhotos ? dishChoice : choice}>
+                      {/* on the sheet's grey list, the fork tile of a dish without a photo is white, like the photos' own background */}
+                      {menuPhotos && <span className="hidden shrink-0 @[16rem]:block [&>span]:bg-white"><ItemThumb image={i.image} placeholder /></span>}
+                      <span className="min-w-0 flex-1 text-base font-semibold leading-snug [overflow-wrap:anywhere]">{i.name}</span>
                       <span className="shrink-0 font-mono text-[0.8125rem] text-muted">{formatCalories(i.nutrients.calories)}</span>
                     </button>
                   </li>
