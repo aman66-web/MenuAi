@@ -257,6 +257,10 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   await page.getByRole("button", { name: "Save to My meals", pressed: false }).click();
   await page.getByRole("button", { name: "Saved to My meals", pressed: true }).waitFor();
   const chicken = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li").first();
+  // founder 2026-11-17: each ingredient shows what the amount used costs ("£1.39 used"), in the green of "a serving"; it grows with the people
+  const usedOf = async () => Number(((await chicken.innerText()).match(/£(\d+\.\d\d) used/) ?? [])[1] ?? NaN);
+  const used1 = await usedOf();
+  expect(used1 > 0, "the first ingredient shows the cost of the amount used: " + (await chicken.innerText()).replace(/\n/g, " | "));
   // founder 2026-11-16: a recipe opens for one person; + cooks for more, and the amounts and the numbers shown follow
   await page.getByText("Serves 1", { exact: true }).waitFor();
   expect(!(await page.getByRole("button", { name: "Fewer servings" }).isEnabled()), "opens at 1, not below 1");
@@ -278,6 +282,7 @@ await step("a recipe page: Back and Save on the picture, cook for more or fewer 
   const four = lines(await chicken.innerText());
   expect(four.includes("600 g"), `600 g chicken for 4, got ${four.join(" | ")}`);
   expect(Math.abs((await kcal()) - 4 * one) <= 2, "the calories are for all four");
+  expect(Math.abs((await usedOf()) - 4 * used1) <= 0.05, `the cost of the amount used is for all four: ${used1} x 4 = ${await usedOf()}`);
   for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Fewer servings" }).click();
   await page.getByText("Serves 1", { exact: true }).waitFor();
   expect(!(await page.getByRole("button", { name: "Fewer servings" }).isEnabled()), "not below 1");

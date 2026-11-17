@@ -3662,6 +3662,7 @@
  "{price} a serving",
  "{price} cheaper",
  "{price} more",
+ "{price} used",
  "{price} with {scheme}",
  "{price} {per}. Renews until you cancel.",
  "{price}, one payment. It doesn't renew.",
