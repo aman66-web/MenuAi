@@ -6,12 +6,14 @@ import { site } from "@/site.config";
 import { AccountError } from "@/lib/mm/account";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { tk } from "@/lib/mm/i18n";
+import { SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { tourStore } from "@/lib/mm/stores";
 import { deleteAccount, signOut, syncEngine, useAccountUser, useSyncState } from "../_lib/account";
 import { communityCacheStore } from "../_lib/communityCache";
 import { useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { Button, Card, Sheet } from "./ui";
+import { TrashIcon } from "./icons";
 import { SignInSheet } from "./SignIn";
 
 // Settings › Account (docs/ACCOUNTS_SYNC.md). Optional: signed out, everything stays on this device. Signed in, the person's saved meals,
@@ -120,10 +122,18 @@ export function AccountSection() {
         <Button variant="secondary" disabled={busy} onClick={() => void out()}>{t("Sign out")}</Button>
       </div>
       {message && <p role="status" className={noteClass}>{message}</p>}
-      <button type="button" className="mt-3 min-h-11 text-[0.9375rem] font-semibold text-muted underline underline-offset-4 hover:text-foreground" onClick={() => setDeleteOpen(true)}>{t("Delete my account")}</button>
+      {/* founder 2026-11-17 ("There's no way for the person to delete their account"): a full-width button of its own, not a small grey link */}
+      <div className="mt-4 border-t border-line pt-4">
+        <Button full variant="danger" className="min-h-12 gap-2 text-base" disabled={busy} onClick={() => setDeleteOpen(true)}>
+          <TrashIcon aria-hidden className="h-5 w-5" />{t("Delete my account")}
+        </Button>
+        <p className="mt-2 text-[0.875rem] leading-snug text-muted">{t("Deletes your account and everything synced for it.")}</p>
+      </div>
 
       <Sheet open={deleteOpen} onClose={() => setDeleteOpen(false)} title={t("Delete my account")}>
-        <p className="pt-1 text-base leading-snug">{t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}</p>
+        <p className="pt-1 text-base leading-snug">{SIGN_IN_REQUIRED
+          ? t("This deletes your account and everything we've synced for it. This can't be undone. To use {app} again, you'll need to create a new account.", { app: site.name })
+          : t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}</p>
         {/* Community's rows are removed with the account (docs/BACKEND.md "Community"): said here only to someone who has a username */}
         {community?.userId === user.id && community.profile && <p className="mt-3 text-base leading-snug">{t("Your username, friends and the shopping lists you sent or received are deleted too.")}</p>}
         <div className="mt-5 space-y-2 pb-2">

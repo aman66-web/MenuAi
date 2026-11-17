@@ -2766,6 +2766,36 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **Checked:** 2,095 unit tests, 230 Python, tsc, eslint; e2e recipes 17, groceries-all 8, protein 6, compare 4, shoppick 5, addfood 15, photorecipe 15, smoke 24; an Asda
     recipe and an Asda product page looked at in the browser at 375 px. **Where it lives:** Mac branch `iap` only (not pushed, not on numbite.com, not in an App Store build).
 
+- 2026-11-17 (night, Mac) — **Everyone signs in, and Delete my account is easy to find** (founder: "There's no way for the person to delete their numbite account also
+  everyone must sign in or up to use", then, after the App Review 5.1.1(v) risk was explained and a skippable sign-up screen suggested: "Sign up screen shouldn't be
+  skippable required for everyone though please"). **CLAUDE.md rule 4 changed** (accounts were optional since 2026-10-12).
+  - **One switch:** `SIGN_IN_REQUIRED` (`web/lib/mm/config.ts`): on for the real website and the iPhone app; off on the browser tests' sample-data builds
+    (`NEXT_PUBLIC_SIGN_IN_REQUIRED=1` forces it on there); `NEXT_PUBLIC_SIGN_IN_REQUIRED=0` is the fallback if App Review objects (accounts optional again, nothing else changes).
+  - **The sign-in screen** (`_components/SignInScreen.tsx`, the same Apple / Google / email-code panel as Settings, `SignIn.tsx` `SignInPanel required`): "Create your free account",
+    "Already have one? Sign in the same way as before.", no way past it. `lib/mm/signInGate.ts` (unit-tested): every `/app` page shows it instead of the page until someone is
+    signed in (no tab bar); the welcome screen and the offline page stay open, and so do the privacy, terms and support pages; while the app checks who just signed in
+    (back from Apple or Google, or the iPhone app's stored session) it waits rather than flashing the screen. The address stays as it was, so the page asked for (a restaurant
+    link, a shared list with its "#") opens once they're in. On the welcome cover, **Get started** leads to the sign-in screen (with Back to the cover), then the tour; the cover's
+    promises read "Free account · On all your devices · Every menu free" (was "No account needed · Stays on your phone"), and "Already have an account? Sign in" is gone (Get
+    started signs in too). Sign out, the server ending the session, or deleting the account all bring the sign-in screen or the welcome cover back.
+  - **Delete my account:** it was a small grey link at the foot of Settings › Account, shown only when signed in; now a full-width button with a bin icon and "Deletes your
+    account and everything synced for it." under it. Its sheet now says "To use {app} again, you'll need to create a new account."
+  - **Legal and store text** (shown according to the switch): privacy page (intro, "Your account and syncing", the shopping-list and Community lines; last updated 17 November 2026),
+    terms ("Accounts"), support ("Your data"), the website's front page, docs/STORE.md (App Review note and App Privacy line, drafts), docs/ACCOUNTS_SYNC.md untouched (history).
+  - **New copy (rule 8, logged here; English only):** "Create your free account", "Already have one? Sign in the same way as before.", "Your free account keeps your meals, shopping
+    list and settings safe on all your devices. New here? Any of these creates it.", "We only keep your email address and what your account syncs. No ads, no tracking.", "Free account",
+    "On all your devices", "Help", "Deletes your account and everything synced for it.", "This deletes your account and everything we've synced for it. This can't be undone. To use {app}
+    again, you'll need to create a new account.", and the site sentences above (privacy, terms, support, front page).
+  - **For the founder:** Apple usually asks for a demo account when an app needs a sign-in (Sign in with Apple works with any Apple ID; an email code needs a mailbox the reviewer can't
+    open): add one to the review notes if asked. Re-check the App Privacy answers before submitting a build with this on. The website gets it when this is put live; the iPhone app only
+    with its next build.
+  - **Checked:** unit `signInGate` 4, e2e `signin.mjs` 6 (cover, no way past, every page gated with no tab bar, legal pages open, sign in keeps the page and a shared list's "#", Get started then
+    the tour, the delete button's size, sign out and delete, 360 px Extra large with axe 0), and on the normal test build smoke 24, extra 16, account 8, firstvisit 10, back 42, tour 14;
+    2,099 unit tests, tsc, eslint. **Not confirmed:** the full-app `a11y.mjs` and `largetext.mjs` runs printed no result this time (rerun them). **Where it lives:** Mac branch `iap` only (not pushed).
+  - **Paused (founder: "pause where you are and commit what you've done"):** a check of every recipe at all four recipe supermarkets (a listing of every recipe's products,
+    numbers and sources was made for it) and a cook's read of all 165 methods were started with seven reviewers, but they stopped when the weekly usage limit was reached
+    (resets 19 November, 8am). Not started yet: the design and onboarding pass, and the check that every product has its image, allergens and barcode.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

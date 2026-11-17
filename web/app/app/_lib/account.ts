@@ -10,8 +10,8 @@ import { communityCacheStore } from "./communityCache";
 import { forgetInviteCode } from "./inviteCode";
 import { compareStore, cupboardStore, favoritesStore, logStore, myRecipesStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore } from "@/lib/mm/stores";
 
-// Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Signing in is optional: with no account none of this does anything and
-// everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
+// Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (lib/mm/config.ts SIGN_IN_REQUIRED: the app shows the
+// sign-in screen until someone is); with that switch off signing in is optional, and with no account none of this does anything and everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
 // (http-only cookies on the website; the iPhone app's own copy in mm.v1.session).
 
 const isUser = (u: unknown): u is AccountUser =>
@@ -127,6 +127,16 @@ export async function leaveForClearing(): Promise<void> {
 /** Read when this file loads, before the settings page tidies "?signin=ok" out of the address. */
 const RETURNING = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("signin") === "ok";
 
+// While the app finds out who is signed in and nobody is known yet (just back from Google or Apple, or the iPhone app holds a session the device has no name
+// for), the sign-in screen waits instead of flashing up (lib/mm/signInGate.ts).
+let checking = typeof window !== "undefined" && !userStore.get() && (RETURNING || (APP_BUILD && !!tokensStore.get()));
+const checkingListeners = new Set<() => void>();
+function doneChecking(): void {
+  if (!checking) return;
+  checking = false;
+  checkingListeners.forEach((f) => f());
+}
+
 let booted = false;
 /** On every launch: ask who is signed in. Offline keeps what we knew; a "no" means the session ended, so the device goes back to plain local data. */
 export async function bootAccount(): Promise<void> {
@@ -134,7 +144,7 @@ export async function bootAccount(): Promise<void> {
   booted = true;
   // Someone who never signed in sends the server nothing: ask only if this device already knows an account, the iPhone app holds a session,
   // or the browser has just come back from Google or Apple sign-in (the callback adds ?signin=ok).
-  if (!userStore.get() && !RETURNING && !(APP_BUILD && tokensStore.get())) return;
+  if (!userStore.get() && !RETURNING && !(APP_BUILD && tokensStore.get())) return doneChecking();
   try {
     const user = await accountApi().session();
     if (user) signedIn(user);
@@ -142,6 +152,8 @@ export async function bootAccount(): Promise<void> {
   } catch {
     const known = userStore.get();
     if (known) startLoop(); // offline: stay signed in as far as we know and sync when the network is back
+  } finally {
+    doneChecking();
   }
 }
 
@@ -149,6 +161,18 @@ export async function bootAccount(): Promise<void> {
 
 export function useAccountUser(): AccountUser | null {
   return useSyncExternalStore(userStore.subscribe, userStore.get, userStore.getServerSnapshot);
+}
+
+/** True while the app is still finding out who is signed in (see `checking` above). */
+export function useAccountChecking(): boolean {
+  return useSyncExternalStore(
+    (fn) => {
+      checkingListeners.add(fn);
+      return () => checkingListeners.delete(fn);
+    },
+    () => checking,
+    () => false,
+  );
 }
 
 export function useSyncState(): { status: SyncStatus; lastSyncAt?: number } {

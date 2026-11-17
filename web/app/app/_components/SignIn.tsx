@@ -9,7 +9,8 @@ import { accountApi, signedIn } from "../_lib/account";
 import { useT } from "../_lib/i18n";
 import { Button, Field, Sheet, Spinner, inputClass } from "./ui";
 
-// Sign in (docs/ACCOUNTS_SYNC.md). Optional: the app works the same without it, and signing in only turns on sync across devices.
+// Sign in (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (SIGN_IN_REQUIRED: the full-screen SignInScreen uses this same panel); with that
+// switch off it is optional, and signing in only turns on sync across devices.
 // Three ways in, one big button each: Apple, Google, and a 6-digit code by email (no password to remember).
 //   * Website: Apple and Google are a normal sign-in on numbite.com (the browser leaves for the provider and comes back).
 //   * iPhone app: Apple uses the iPhone's own Apple sheet; Google opens numbite.com in the iPhone's secure browser sheet.
@@ -59,7 +60,8 @@ export function SignInSheet({ open, onClose, community }: { open: boolean; onClo
   );
 }
 
-function SignInPanel({ onDone, community }: { onDone: () => void; community: boolean }) {
+/** The three ways in. `required`: on the sign-in screen everyone sees first (it says an account is needed rather than that it isn't). */
+export function SignInPanel({ onDone, community, required = false }: { onDone: () => void; community: boolean; required?: boolean }) {
   const t = useT();
   const [step, setStep] = useState<Step>("choose");
   const [email, setEmail] = useState("");
@@ -152,7 +154,9 @@ function SignInPanel({ onDone, community }: { onDone: () => void; community: boo
     <div className="pb-2 pt-1">
       {step === "choose" && (
         <>
-          <p className="text-base leading-snug">{t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
+          <p className="text-base leading-snug">{required
+            ? t("Your free account keeps your meals, shopping list and settings safe on all your devices. New here? Any of these creates it.")
+            : t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
           <div className="mt-5 space-y-2.5">
             {canUseProviders && (
               <>
@@ -205,7 +209,7 @@ function SignInPanel({ onDone, community }: { onDone: () => void; community: boo
         </form>
       )}
 
-      <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+      <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{required ? t("We only keep your email address and what your account syncs. No ads, no tracking.") : t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
       {community && <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("To use friends, we also keep the username you choose, your friends and the shopping lists you send and get.")}</p>}
     </div>
   );

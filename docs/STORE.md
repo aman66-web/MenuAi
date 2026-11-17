@@ -81,7 +81,8 @@ tracking, and there is no analytics in this version.
   and not used for tracking. They ring as **local** notifications scheduled by iOS on the phone: no Push Notifications capability, no device token and
   no server involved, so there is nothing to declare under "Identifiers" or "Health". Keep it that way: if reminders ever sync or a push server is
   added, this table, the privacy manifest and the website privacy policy change first (and "Health" then covers reminders too).
-- **Sign-in (optional, docs/ACCOUNTS_SYNC.md):** the four rows marked "only if the person signs in" are why the manifest changed on 13 October
+- **Sign-in (required for everyone since 2026-11-17, SIGN_IN_REQUIRED; optional before, docs/ACCOUNTS_SYNC.md):** the four rows marked "only if the person signs in"
+  now apply to everyone (re-check the App Privacy answers in App Store Connect before submitting a build with sign-in required). They are why the manifest changed on 13 October
   2026. "Health" is declared because the synced goal (which can be a GLP-1 goal), calorie and protein targets, allergies and logged meals are
   health-related information the person typed in; it is the cautious answer, so confirm it in App Store Connect before submitting (Apple's
   definition of Health data decides whether it is needed). Used for App Functionality only; never for tracking, advertising or analytics.
@@ -141,8 +142,13 @@ and if the questionnaire's own wording for the medical question covers apps that
 
 ## Notes for App Review (draft; replaced 14 October 2026 after an internal guideline review)
 
-"Numbite works without an account and every feature is free. Signing in is optional and only turns on sync across the person's devices: use
-Sign in with Apple with any Apple ID, or 'Continue with email' (a 6-digit code is sent to the address). Settings > Account has Sign out and
+[Founder 2026-11-17: sign-in is now required for everyone (SIGN_IN_REQUIRED). Use this paragraph for a build with it on; the old one, for a build with it
+off, follows in brackets. Apple usually asks for a demo account when an app needs a sign-in: Sign in with Apple works with any Apple ID, and an email code needs a
+mailbox the reviewer can't open, so add a demo account here if Apple asks.]
+"Numbite needs a free account: the first screen after the welcome is 'Create your free account', with Sign in with Apple (any Apple ID works), Google, or
+'Continue with email' (a 6-digit code is sent to the address). The account keeps the person's settings, saved meals and shopping list on all their devices.
+[Old, sign-in optional: Numbite works without an account and every feature is free. Signing in is optional and only turns on sync across the person's devices: use
+Sign in with Apple with any Apple ID, or 'Continue with email' (a 6-digit code is sent to the address).] Settings > Account has Sign out and
 Delete my account (for an Apple sign-in it asks Apple to confirm and then revokes the Apple token).
 
 Community (the fifth tab): the food articles need no account. Friends and Shared with you need one (Sign in with Apple, or 'Continue with email'),

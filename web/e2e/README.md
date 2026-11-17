@@ -49,19 +49,23 @@ node shoot.mjs home=/app "chain=/app/chain?id=kfc" # screenshots for review (THE
 node brand.mjs                                    # re-render the app icon + social card from web/design/ (after a name change too)
 ```
 
-`iap.mjs` is the iPhone app 1.1's Apple In-App Purchase (the iPhone and our server are FAKED; a throwaway key from `paykey.mjs`): `KEY=$(node e2e/paykey.mjs); NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app`, then `PORT=3103 node e2e/serve-app.mjs .next-app &` and `BASE=http://localhost:3103 node e2e/iap.mjs`. Delete `.next-app` afterwards: it carries the throwaway key.
+`iap.mjs` is the iPhone app 1.1's Apple In-App Purchase (the iPhone and our server are FAKED; a throwaway key from `paykey.mjs`): `KEY=$(node e2e/paykey.mjs); NEXT_PUBLIC_SIGN_IN_REQUIRED=0 NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app`, then `PORT=3103 node e2e/serve-app.mjs .next-app &` and `BASE=http://localhost:3103 node e2e/iap.mjs`. Delete `.next-app` afterwards: it carries the throwaway key.
 
 `pay.mjs` is for paid access (Stripe and our payment routes are FAKED in the browser; nothing reaches Stripe or a database). It needs its own build with payments on and a throwaway key:
 `PUB=$(node e2e/paykey.mjs); NEXT_PUBLIC_WEB_PRO=1 NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$PUB" NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 npm run build && npm start -- -p 3104` then `BASE=http://localhost:3104 node e2e/pay.mjs`.
 It checks the free tier's limits, the plans, the checkout request and a creator code, the return from Stripe, the signed token (forged, expired and foreign tokens refused), the 48-hour WhatsApp unlock, restore, and the legal pages' paid-access text.
 
+**Sign-in is required for everyone** (founder 2026-11-17, `SIGN_IN_REQUIRED` in `lib/mm/config.ts`). It is off on builds with `NEXT_PUBLIC_SHOW_SAMPLE_DATA=1`
+(the feature suites above), on everywhere else. `signin.mjs` tests it: `NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 NEXT_PUBLIC_SIGN_IN_REQUIRED=1 npm run build && npm start -- -p 3101`, then
+`BASE=http://localhost:3101 node e2e/signin.mjs`. The builds below have no sample data, so add `NEXT_PUBLIC_SIGN_IN_REQUIRED=0` to them (they check other things).
+
 `prodmode.mjs` is for the **production default** as it ships for the free launch (no sample data, Pro and Pip's recipe maker off):
-build without `NEXT_PUBLIC_SHOW_SAMPLE_DATA` and `NEXT_PUBLIC_PRO`, start on port 3102 (`BASE=http://localhost:3102 node prodmode.mjs`).
+build without `NEXT_PUBLIC_SHOW_SAMPLE_DATA` and `NEXT_PUBLIC_PRO` (with `NEXT_PUBLIC_SIGN_IN_REQUIRED=0`), start on port 3102 (`BASE=http://localhost:3102 node prodmode.mjs`).
 It checks that only real chains show, that every feature works with no paywall, that no screen or legal page mentions Pro, subscriptions,
 purchases or the AI recipe maker, and the honest empty state (with an empty manifest).
 
 `app-build.mjs` is for the **iPhone app's copy** (the static export packed inside the app), served the way the app serves it:
-`npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/app-build.mjs`.
+`NEXT_PUBLIC_SIGN_IN_REQUIRED=0 npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &) && BASE=http://localhost:3103 node e2e/app-build.mjs`.
 **`npm run build:app` also writes its working files into `.next`**, so it breaks a `npm start` server that is running from `.next`: run it
 last, never while another suite is running, and build the test copy again before starting the test server.
 

@@ -35,6 +35,15 @@ export const LANGUAGES_ENABLED = false;
 
 export const COMMUNITY_FRIENDS_ENABLED = process.env.NEXT_PUBLIC_COMMUNITY_FRIENDS !== "0";
 
+/**
+ * Everyone signs in (founder 2026-11-17: "Sign up screen shouldn't be skippable, required for everyone"). Until someone is signed in, every app screen shows the
+ * sign-in screen (_components/SignInScreen.tsx) instead; the welcome screen and the privacy, terms and support pages stay open. On for the real website and the
+ * iPhone app. Off for the browser tests' builds (they turn the sample chains on; NEXT_PUBLIC_SIGN_IN_REQUIRED=1 forces it on there) and with
+ * NEXT_PUBLIC_SIGN_IN_REQUIRED=0: the one-line fallback if App Review objects under guideline 5.1.1(v) (sign-in then goes back to being optional).
+ */
+export const SIGN_IN_REQUIRED =
+  process.env.NEXT_PUBLIC_SIGN_IN_REQUIRED === "1" || (process.env.NEXT_PUBLIC_SIGN_IN_REQUIRED !== "0" && !SAMPLES_ENABLED);
+
 /** Flip to true once payments exist (docs/WEB_BUILD_PLAN.md). Until then the paywall is honest about it. */
 export const PAYMENTS_ENABLED = false;
 

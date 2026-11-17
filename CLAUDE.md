@@ -72,10 +72,12 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    (`web/app-content.json`; false = names and cuisine icons everywhere, the one-line fallback if App Review objects under 5.2.1); store screenshots never show a logo or a photo (`web/e2e/store-shots.mjs`).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
    Reminder names and times are the person's own: the app gives no medication guidance and never calls a reminder missed or late.
-4. **Privacy:** accounts are **optional** (founder 2026-10-12, "Sync across devices"; docs/ACCOUNTS_SYNC.md). With no account nothing leaves
-   the device (except what the user chooses to send through the API: reports, chain requests, support messages). If the person signs in (Apple,
+4. **Privacy:** **everyone signs in** (founder 2026-11-17, "Sign up screen shouldn't be skippable, required for everyone"): `SIGN_IN_REQUIRED` in `web/lib/mm/config.ts`
+   puts the sign-in screen in front of every app page until someone is signed in; its fallback (`NEXT_PUBLIC_SIGN_IN_REQUIRED=0`, if App Review objects under 5.1.1(v)) is the
+   optional accounts of 2026-10-12 ("Sync across devices"; docs/ACCOUNTS_SYNC.md), where with no account nothing leaves
+   the device (except what the user chooses to send through the API: reports, chain requests, support messages). When the person signs in (Apple,
    Google or an email code) we keep their email address, a user ID and only the stores they sync (`user_data`: settings, diet and allergies, saved
-   meals and recipes, shopping list, favourites, comparison list, today's log); never recently viewed dishes, reminders (medication or otherwise), location or the offline cache. Sign-in
+   meals and recipes, shopping list, favourites, comparison list, today's log); never recently viewed dishes, reminders (medication or otherwise), location or the offline cache. With the switch off, sign-in
    is never required for a feature **except Community's friends** (founder 2026-10-16, "add a friend ... send them shopping lists"; the food blogs and everything else stay
    account-free): adding friends and sending a friend a shopping list need an account, so there is something to send to. For a signed-in person who uses it, Community keeps, in its own
    `community_*` tables (never in `user_data`, never in `SYNC_STORES`; docs/BACKEND.md "Community"): a username (chosen once; shown, instead of an email address, to friends and to anyone who enters the person's friend code), a friend code,
