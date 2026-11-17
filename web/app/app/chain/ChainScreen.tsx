@@ -14,11 +14,11 @@ import { settingsStore, favoritesStore, recentStore, toggleFavorite } from "@/li
 import { recentFor } from "@/lib/mm/recent";
 import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences } from "@/lib/mm/types";
 import { BestForYou } from "../_components/BestForYou";
-import { DietPicker, dietWords } from "../_components/DietPicker";
+import { ALLERGEN_SHORT, DietPicker, dietWords } from "../_components/DietPicker";
 import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
 import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
-import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, InfoIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { PresetPills } from "../_components/truth/PresetPills";
@@ -108,9 +108,15 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const halal = halalFor(chain.id);
   const hasAllergenData = useMemo(() => chain.items.some((i) => i.allergens), [chain.items]);
   const avoiding = prefs.avoidAllergens?.length ?? 0;
+  // founder 2026-11-17 ("I clicked on McDonald's, but I can't see anything ... it should show the foods"): 98 of 241 restaurants publish no allergen details we can read,
+  // and hiding every unchecked dish left their menus empty for anyone with an allergy set. Such a menu is now shown with the person's other diet choices applied and a
+  // warning at the top that nothing on it is checked for their allergies (the dish pages already say the allergens aren't published).
+  const allergiesUnchecked = avoiding > 0 && !hasAllergenData;
+  const menuPrefs = useMemo<Preferences>(() => (allergiesUnchecked ? { ...prefs, avoidAllergens: [] } : prefs), [allergiesUnchecked, prefs]);
+  const allergyNames = (prefs.avoidAllergens ?? []).map((a) => t(ALLERGEN_SHORT[a]).toLowerCase());
 
   const searching = query.trim().length > 0;
-  const filtered = useMemo(() => filterItems(chain.items, prefs), [chain.items, prefs]);
+  const filtered = useMemo(() => filterItems(chain.items, menuPrefs), [chain.items, menuPrefs]);
   const fitting = useMemo(() => (hasLimits(limits) ? filtered.filter((i) => fitsLimits(i, limits)) : filtered), [filtered, limits]);
   // Best for you picks from the dishes that fit the numbers typed on Eat out too (the ranking itself is untouched: its pool is just narrower),
   // so the picks never contradict the "Your numbers" line above them.
@@ -211,6 +217,17 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           </p>
         </div>
       </div>
+
+      {allergiesUnchecked && (
+        <div role="note" className="mt-3 flex gap-3 rounded-[1.25rem] border-2 border-[#d97706] bg-[#fffbeb] p-4 text-[0.9375rem] leading-snug text-[#3b2a06]">
+          <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-[#b45309]" />
+          <div className="min-w-0">
+            <p className="font-bold">{t("Allergens aren't checked here")}</p>
+            <p className="mt-1">{t("{chain} doesn't publish allergen details we can read, so these dishes aren't checked for {allergens}. Check with {chain} before you order.", { chain: chain.name, allergens: allergyNames.join(", ") })}</p>
+            {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`mt-1 inline-flex min-h-11 items-center font-semibold text-[#92400e] ${QUIET_LINK}`}>{t("See its own allergen information")}</a>}
+          </div>
+        </div>
+      )}
       <PresetPills chain={chain} items={filtered} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} />} />
       {recent.length > 0 && (
         <section aria-labelledby="recent-heading" className="mt-7">
@@ -248,16 +265,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         )}
         {caution && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{caution}</p>}
         {prefs.halalOnly && !halal && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("{chain}'s website doesn't say its food is halal.", { chain: chain.name })} {t(HALAL_CAUTION)}</p>}
-        {avoiding > 0 && !hasAllergenData && (
-          <div role="note" className="mt-3 rounded-2xl bg-[var(--fill)] p-3.5 text-[0.9375rem] leading-snug">
-            <p className="font-semibold">{t("{chain} hasn't published allergen details we can read, so its dishes can't be checked for allergies.", { chain: chain.name })}</p>
-            <div className="mt-2 flex flex-wrap items-center gap-3">
-              {chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`min-h-11 py-3 font-semibold text-accent ${QUIET_LINK}`}>{t("See its own allergen information")}</a>}
-              <Button variant="secondary" onClick={() => setPrefs({ ...prefs, avoidAllergens: [] })}>{t("Show all dishes")}</Button>
-            </div>
-          </div>
-        )}
-        {!caloriesOnly && <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={prefs} onClearFilters={clearFilters} /></div>}
+        {!caloriesOnly && <div className="mt-5"><BestForYou bare index={bestIndex} meal={meal} preferences={menuPrefs} onClearFilters={clearFilters} /></div>}
       </section>
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />
@@ -319,8 +327,14 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       <div className="mt-3">
         {visible.length === 0 ? (
           <EmptyState
-            title={searching ? t("Nothing on this menu matches “{query}”.", { query: query.trim() }) : t("Nothing here matches your filters.")}
-            action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>{t("Clear search")}</Button> : anyFilter ? <Button variant="secondary" onClick={clearFilters}>{t("Clear filters")}</Button> : undefined}
+            title={searching ? t("Nothing on this menu matches “{query}”.", { query: query.trim() }) : anyFilter ? t("Your diet settings hide every dish here") : t("Nothing here matches your filters.")}
+            body={!searching && anyFilter ? t("None of {chain}'s {n} dishes fits your settings ({settings}). You can see them all for this visit, or change your diet.", { chain: chain.name, n: chain.items.length, settings: [...dietWords(t, menuPrefs), ...(hasLimits(limits) ? limitWords(limits, t) : [])].join(", ").toLowerCase() }) : undefined}
+            action={searching ? <Button variant="secondary" onClick={() => setQuery("")}>{t("Clear search")}</Button> : anyFilter ? (
+              <div className="flex flex-wrap justify-center gap-2.5">
+                <Button onClick={clearFilters}>{t("Show every dish")}</Button>
+                <Button variant="secondary" aria-haspopup="dialog" onClick={() => setDietOpen(true)}>{t("Change my diet")}</Button>
+              </div>
+            ) : undefined}
           />
         ) : grouped ? (
           <div className="space-y-8">

@@ -2464,6 +2464,21 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   saved straight away." (replaces "...Change it any time in Settings."), "Done" (existing). (5) A recipe's "What to buy" rows show the supermarket's own logo beside each product's name
   (today always Sainsbury's: the only shop whose labels are read; ready for more). e2e recipes.mjs 15 of 15.
 
+- 2026-11-17 — **Restaurants show their dishes even when your allergies can't be checked, and recipe ingredients come from small shops** (founder, on McDonald's showing nothing:
+  "when you click on a thingy, it should show ... the foods that there are for that specific restaurant"; and "all the ingredients should be able to be found [at a Sainsbury's Local or Tesco Express]").
+  - **The empty McDonald's:** with any allergy chosen, a restaurant whose allergens we can't read (98 of 241, McDonald's among them) hid every dish, because a dish with no allergen information is
+    hidden while allergies are chosen. Now such a restaurant shows its menu (the other diet settings still apply) under an amber note: "Allergens aren't checked here" / "{chain} doesn't publish
+    allergen details we can read, so these dishes aren't checked for {allergens}. Check with {chain} before you order." with its allergen guide link; Best for you follows the same rule. When the diet
+    settings still leave nothing, the page says so plainly ("Your diet settings hide every dish here", "None of {chain}'s {n} dishes fits your settings ({settings}). You can see them all for this visit, or
+    change your diet.") with **Show every dish** and **Change my diet**. Restaurants with allergen data are unchanged (a dish with an allergy you avoid stays hidden).
+  - **Small-shop ingredients:** three judges went through the 732 Sainsbury's products recipes can pick and agreed on 110 that a typical small shop (Sainsbury's Local, Tesco Express, Co-op) stocks
+    (`web/lib/mm/localRange.ts`); recipes now pick those first whenever their label can be used (1,037 of 1,268 picks). Where no such product has a usable label (Sainsbury's own rice, pasta and eggs
+    print cooked figures; small packs of spices, bacon, berries and the Christmas foods aren't on the list), the ingredient says what to buy instead ("In a small local shop, look for any bag of basmati
+    or long-grain rice.", `web/lib/mm/localTips.ts`, 29 ingredients), and the Ingredients tab says the numbers are for the product shown. `tests/localRange.test.ts` fails any ingredient of any recipe that is
+    neither a small-shop product nor has a tip. It's a judgement: no supermarket publishes its small-shop range.
+  - **New copy (rule 8, logged here; English only):** the two allergy sentences and the empty-state lines above, "Show every dish", "Change my diet", "In a small local shop, look for {tip}.", the 29 tips,
+    and "Small local shops, such as a Sainsbury's Local or a Tesco Express, usually sell everything here. Where a small shop is likely to stock a different pack, we say what to look for; the numbers are for the product shown."
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

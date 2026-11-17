@@ -6,6 +6,7 @@ import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { firstMentions } from "@/lib/mm/stepIngredients";
+import { localTipFor } from "@/lib/mm/localTips";
 import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleMethodMl, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
@@ -381,6 +382,7 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
             </div>
           )}
           <h2 id="ingredients-heading" className={`mt-6 ${HEADING}`}>{t("What to buy")}</h2>
+          <p className="mt-1.5 px-1 text-[0.8125rem] leading-snug text-muted">{t("Small local shops, such as a Sainsbury's Local or a Tesco Express, usually sell everything here. Where a small shop is likely to stock a different pack, we say what to look for; the numbers are for the product shown.")}</p>
           <ul className={`${CARD} mt-3 divide-y divide-line px-4`}>
             {view.recipe.ingredients.map((written, i) => {
               const p = picks[i];
@@ -406,6 +408,11 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
                             <ShopMark shopId={file.retailer} size="xs" />
                             <span className="min-w-0 self-center">{p.product.name}</span>
                           </Link>
+                          {(() => {
+                            // founder 2026-11-17: everything can be bought at a small local shop; where this product isn't one a small shop usually stocks, say what to look for there
+                            const tip = localTipFor(spec.pantry, p.product.id);
+                            return tip ? <p className="mt-1 text-[0.8125rem] leading-snug text-muted">{t("In a small local shop, look for {tip}.", { tip: t(tip) })}</p> : null;
+                          })()}
                           <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                             <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                             <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">

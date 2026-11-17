@@ -2,6 +2,7 @@ import { formatInt } from "./format";
 import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind } from "./pantry";
 import { normalizeForSearch } from "./search";
 import { hasPrice, type PricedProduct, type ShopProduct } from "./shopProducts";
+import { LOCAL_SHOP_PRODUCTS } from "./localRange";
 
 export type { IngredientMatch } from "./pantry";
 
@@ -361,7 +362,10 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
     if (!n || !inBand(c)) return 0;
     return 10 * [n.saturates, n.sugars, n.salt].filter((v) => v === null).length + Number(n.fibre === null);
   };
-  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
+  // a product a typical small shop stocks comes before any other usable one, even when a big-store pack is a few pence cheaper (founder 2026-11-17: ingredients
+  // a person can buy at a Sainsbury's Local or a Tesco Express; lib/mm/localRange.ts)
+  const notLocal = (c: IngredientPick) => Number(!LOCAL_SHOP_PRODUCTS.has(c.product.id));
+  return out.sort((a, b) => Number(a.usedCost === null) - Number(b.usedCost === null) || Number(!a.product.nutrition) - Number(!b.product.nutrition) || notLocal(a) - notLocal(b) || Number(!inBand(a)) - Number(!inBand(b)) || unpreferred(a) - unpreferred(b) || gaps(a) - gaps(b) || a.basketCost - b.basketCost || (a.product.unitPrice ?? Infinity) - (b.product.unitPrice ?? Infinity) || a.product.name.localeCompare(b.product.name, "en-GB"));
 }
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
