@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { methodAmount, placeAmounts, spoonText } from "../lib/mm/kitchenAmount";
+import { methodAmount, placeAmounts, scaleMethodStep, spoonText } from "../lib/mm/kitchenAmount";
+import { scaleServings } from "../lib/mm/recipes";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { splitStep } from "../lib/mm/recipeSteps";
 import { firstMentions } from "../lib/mm/stepIngredients";
@@ -55,5 +56,105 @@ describe("amounts in the steps", () => {
       });
     }
     expect(lost).toEqual([]);
+  });
+});
+
+// Review of 17 Nov: a step's own words must never contradict the amount placed beside them.
+const show = (r: { pieces: ReturnType<typeof placeAmounts>["pieces"] }) => r.pieces.map((p) => ("amount" in p ? `[${p.amount}]` : p.text)).join("");
+const yogurt = { key: "y", pantry: "natural-yogurt", label: "Natural yogurt", amount: { full: "50 g", short: "50 g" } };
+const oil = { key: "o", pantry: "vegetable-oil", label: "Vegetable or sunflower oil", amount: { full: "2 tbsp, 30 ml", short: "2 tbsp" } };
+const salt = { key: "s", pantry: "salt", label: "Salt", amount: { full: "a pinch", short: "a pinch" } };
+const pepper = { key: "p", pantry: "black-pepper", label: "Ground black pepper", amount: { full: "½ tsp, 1 g", short: "½ tsp" } };
+
+describe("words in the step that measure part of an ingredient", () => {
+  it("says the amount is the recipe's total after 'half the', 'most of the', '20 ml of the'", () => {
+    expect(show(placeAmounts("Stir half the yogurt until smooth.", [yogurt]))).toBe("Stir half the yogurt[50 g in all] until smooth.");
+    expect(show(placeAmounts("Toss with 20 ml of the oil.", [oil]))).toBe("Toss with 20 ml of the oil[2 tbsp vegetable or sunflower oil in all].");
+    expect(show(placeAmounts("Heat most of the oil.", [oil]))).toBe("Heat most of the oil[2 tbsp vegetable or sunflower oil in all].");
+    expect(show(placeAmounts("Stir in the yogurt.", [yogurt]))).toBe("Stir in the yogurt[50 g].");
+  });
+  it("also after 'a small spoonful of', 'a big handful of', 'a spoonful each of A and B' and a large scaled 'N ml of the oil'", () => {
+    expect(show(placeAmounts("Add a small spoonful of yogurt on the side.", [yogurt]))).toBe("Add a small spoonful of yogurt[50 g in all] on the side.");
+    expect(show(placeAmounts("Top with a big spoonful of yogurt.", [yogurt]))).toBe("Top with a big spoonful of yogurt[50 g in all].");
+    expect(show(placeAmounts("Scatter over a heaped handful of yogurt.", [yogurt]))).toBe("Scatter over a heaped handful of yogurt[50 g in all].");
+    const salsa = { key: "x", pantry: "salsa", label: "Salsa", amount: { full: "200 g", short: "200 g" } };
+    expect(show(placeAmounts("Add a spoonful each of salsa and yogurt.", [salsa, yogurt]))).toBe("Add a spoonful each of salsa[200 g in all] and yogurt[50 g in all].");
+    expect(show(placeAmounts("Pour in 80\u00a0ml of the oil.", [oil]))).toBe("Pour in 80\u00a0ml of the oil[2 tbsp vegetable or sunflower oil in all].");
+    expect(show(placeAmounts("Add the salsa and yogurt.", [salsa, yogurt]))).toBe("Add the salsa[200 g] and yogurt[50 g].");
+  });
+  it("also after 'two thirds of the', 'three quarters of the', 'a few drops of', 'a thin layer of' and 'a little more salt or'", () => {
+    const mince = { key: "m", pantry: "mincemeat", label: "Mincemeat", amount: { full: "1½ tbsp, 30 g", short: "1½ tbsp" } };
+    expect(show(placeAmounts("Stir in two thirds of the mincemeat for 1 minute.", [mince]))).toBe("Stir in two thirds of the mincemeat[1½ tbsp, 30 g in all] for 1 minute.");
+    expect(show(placeAmounts("Stir in two-thirds of the mincemeat.", [mince]))).toBe("Stir in two-thirds of the mincemeat[1½ tbsp, 30 g in all].");
+    expect(show(placeAmounts("Stir in three quarters of the yogurt.", [yogurt]))).toBe("Stir in three quarters of the yogurt[50 g in all].");
+    const lemon = { key: "l", pantry: "lemon-juice", label: "Lemon juice", amount: { full: "4 tbsp, 60 ml", short: "4 tbsp" } };
+    expect(show(placeAmounts("Sprinkle a few drops of lemon juice over each bite.", [lemon]))).toBe("Sprinkle a few drops of lemon juice[4 tbsp, 60 ml in all] over each bite.");
+    expect(show(placeAmounts("Spread a thin layer of yogurt over each slice.", [yogurt]))).toBe("Spread a thin layer of yogurt[50 g in all] over each slice.");
+    expect(show(placeAmounts("Spread a very thin layer of yogurt over the cheese.", [yogurt]))).toBe("Spread a very thin layer of yogurt[50 g in all] over the cheese.");
+    expect(show(placeAmounts("Taste and add a little more salt or black pepper if it needs it.", [pepper]))).toBe("Taste and add a little more salt or black pepper[½ tsp, 1 g in all] if it needs it.");
+  });
+  it("leaves 'a pinch of' as the step says it, with no spoon amount beside it", () => {
+    const r = placeAmounts("Add a pinch of black pepper and stir.", [pepper]);
+    expect(show(r)).toBe("Add a pinch of black pepper and stir.");
+    expect(r.unplaced).toEqual([]);
+    expect(show(placeAmounts("Toss with a pinch of salt and black pepper.", [salt, pepper]))).toBe("Toss with a pinch of salt and black pepper.");
+    expect(show(placeAmounts("Add a good grind of black pepper.", [pepper]))).toBe("Add a good grind of black pepper.");
+  });
+  it("puts a shared bracket after 'salt and pepper', whatever the order of the ingredients", () => {
+    const want = "Add salt and pepper[a pinch of salt, ½ tsp ground black pepper] to taste.";
+    expect(show(placeAmounts("Add salt and pepper to taste.", [salt, pepper]))).toBe(want);
+    expect(show(placeAmounts("Add salt and pepper to taste.", [pepper, salt]))).toBe("Add salt and pepper[½ tsp ground black pepper, a pinch of salt] to taste.");
+  });
+  it("keeps 'slices', 'strips' and 'wedges' with the name", () => {
+    const ham = { key: "h", pantry: "ham", label: "Ham", amount: { full: "60 g", short: "60 g" } };
+    expect(show(placeAmounts("Peel the ham slices apart.", [ham]))).toBe("Peel the ham slices[60 g] apart.");
+  });
+});
+
+describe("oil measured in a step follows the servings in spoons", () => {
+  it("scales 'N ml of the oil' exactly, and water by the usual rule", () => {
+    expect(scaleMethodStep("Heat 20 ml of the oil and 800 ml of water.", 1, 4)).toBe("Heat 1 tsp of the oil and 200 ml of water.");
+    expect(scaleMethodStep("Toss with the last 5 ml of oil.", 1, 4)).toBe("Toss with the last ¼ tsp of oil.");
+    expect(scaleMethodStep("Toss with the last 5 ml of oil.", 8, 4)).toBe("Toss with the last 2 tsp of oil.");
+    expect(scaleMethodStep("Heat 20 ml of the oil.", 4, 4)).toBe("Heat 20 ml of the oil.");
+    expect(scaleMethodStep("Heat 40 ml of the oil.", 12, 4)).toBe("Heat 120\u00a0ml of the oil."); // scaled once, never again as water
+  });
+});
+
+describe("every recipe's method, as the page shows it", () => {
+  const render = (n: number) => {
+    const out: Array<{ id: string; text: string; scaled: boolean }> = [];
+    for (const r of RECIPES) {
+      const v = scaleServings(r, n);
+      const uses = firstMentions(r.method, v.ingredients);
+      const byKey = new Map(v.ingredients.map((s) => [s.key, s]));
+      r.method.forEach((step, i) => {
+        const { text } = splitStep(scaleMethodStep(step, v.servings, r.servings));
+        const items = (uses.get(i) ?? []).map((key) => {
+          const spec = byKey.get(key)!;
+          const count = spec.note && /^about \d/.test(spec.note) ? spec.note : null;
+          return { key, pantry: spec.original?.pantry ?? spec.pantry, label: spec.label, amount: methodAmount(spec, count, `${spec.amount} ${spec.unit}`) };
+        });
+        out.push({ id: `${r.id} @${n} step ${i + 1}`, text: show(placeAmounts(text, items)), scaled: v.servings !== r.servings });
+      });
+    }
+    return out;
+  };
+  const steps = [1, 2, 4, 12].flatMap(render);
+  it("never puts a measured amount after 'a pinch of' or 'a grind of'", () => {
+    expect(steps.filter((s) => /\b(?:pinch|grind)(?: each)? of (?:the )?(?:salt and )?(?:ground )?[a-z]+(?: [a-z]+)?\[/i.test(s.text)).map((s) => `${s.id}: ${s.text}`)).toEqual([]);
+  });
+  it("marks the total after words that take only part of it", () => {
+    // every partial word the book uses, spelt with or without a hyphen ("two thirds of the mincemeat", "a few drops of lemon juice", "a thin layer of soft cheese")
+    const partial = /\b(?:half|most|two[- ]thirds|three[- ]quarters|(?:a|one) (?:third|quarter)|a little(?: more)?|a few(?: (?:drops|specks))?|some|a splash|a (?:very )?thin layer|a (?:[a-z]+ )?(?:spoonful|handful|drizzle|sprinkle)(?: each)?|the rest|(?:the )?remaining|another|\d+[ \u00a0](?:ml|g|tsp|tbsp))(?: of)?(?: the)? (?:salt (?:or|and) )?(?!each\b)[a-z]+(?: [a-z]+)?\[(?![^\]]*in all\])/i;
+    expect(steps.filter((s) => partial.test(s.text)).map((s) => `${s.id}: ${s.text}`)).toEqual([]);
+    // "a spoonful each of salsa and yogurt": every name in that list is part of the whole
+    expect(steps.filter((s) => /\beach of [^.[]*\[[^\]]*in all\](?:,| and) [a-z]+(?: [a-z]+)?\[(?![^\]]*in all\])/i.test(s.text)).map((s) => `${s.id}: ${s.text}`)).toEqual([]);
+  });
+  it("never says more oil in a step than the recipe has: no 'N ml of the oil' once the servings change", () => {
+    expect(steps.filter((s) => s.scaled && /\d ml of (?:the )?oil\b/.test(s.text)).map((s) => `${s.id}: ${s.text}`)).toEqual([]);
+  });
+  it("puts a shared salt-and-pepper bracket after both words, and never inside a name", () => {
+    expect(steps.filter((s) => /\bsalt\[[^\]]*\] and pepper|\] (?:slices|strips|wedges)\b/.test(s.text)).map((s) => `${s.id}: ${s.text}`)).toEqual([]);
   });
 });

@@ -1,3 +1,4 @@
+import { scaleMethodMl } from "./recipes";
 import { USED_AS } from "./stepIngredients";
 
 // Amounts a first-time cook can measure (founder 2026-11-17: "the method doesn't specify how much to add ... you need to be very specific with these
@@ -68,6 +69,28 @@ export function methodAmount(spec: { amount: number; unit: "g" | "ml"; pantry?: 
 
 export type MethodPiece = { text: string } | { text: string; amount: string };
 
+/** Words just before a name that measure it themselves: "a pinch of", "a good grind of", "a pinch of salt and" (black pepper). */
+const OWN_MEASURE = /\b(?:a|the) (?:small |good |tiny |large |big )?(?:pinch|grind|twist)(?:es)?(?: each)? of (?:the )?(?:ground |dried )?(?:salt(?:,| and) (?:ground )?)?$/i;
+/** Words just before a name that take only part of the recipe's amount: "half the", "two thirds of the", "most of the", "a little", "a few drops of",
+ *  "a thin layer of", "a little more salt or" (black pepper), "20 ml of the", "the rest of the". */
+const SCOOP = String.raw`a (?:(?:small|big|large|good|heaped|generous) )?(?:spoonful|drizzle|handful|sprinkle)`;
+const PARTIAL = new RegExp(String.raw`(?:\b(?:half|most|two[- ]thirds|three[- ]quarters|(?:a |one )?(?:third|quarter)|a little(?: more(?: salt(?:,| or| and))?)?|a few(?: (?:drops|specks))?|some|a splash|a (?:very )?thin layer|${SCOOP}(?: each)?|the rest|(?:the )?remaining|another)|(?:\d|[¼½¾])(?:[\d.]*[¼½¾]?)?[ \u00a0](?:ml|g|tsp|tbsp))(?: of)?(?: the)? $`, "i");
+/** The later names in "a spoonful each of salsa and yogurt": each is part of the whole too. */
+const PARTIAL_LIST = new RegExp(String.raw`\b(?:half|some|a little|${SCOOP}) each of (?:the )?(?:(?:[a-z'-]+ ){0,2}[a-z'-]+(?:,| and) )+$`, "i");
+
+/** A step's words for this many people: oil the step measures ("20 ml of the oil", "the last 5 ml of oil") in level spoons scaled exactly (it is never
+ *  more than the recipe has), then water and stock as before (scaleMethodMl). Unchanged at the recipe's own servings. */
+export function scaleMethodStep(step: string, servings: number, written: number): string {
+  if (servings === written || written <= 0) return step;
+  const oil = step.replace(/\b(\d+(?:\.\d+)?) ml(?= of (?:the )?oil\b)/g, (_all, ml: string) => {
+    const scaled = (Number(ml) * servings) / written;
+    const spoons = spoonText(scaled, "ml", "vegetable-oil");
+    // a no-break space keeps a large amount from being scaled a second time as if it were water
+    return spoons === "a pinch" ? "¼ tsp" : spoons ?? `${Math.round(scaled / 5) * 5}\u00a0ml`;
+  });
+  return scaleMethodMl(oil, servings, written);
+}
+
 /**
  * A step's words with each ingredient's amount placed right after the words that name it ("Stir the mayonnaise (2 tbsp), mustard (1 tsp) and ..."). Ingredients
  * named by the same general word ("spices", "season") share one bracket that names each ("the spices (1 tsp cumin, ½ tsp turmeric)"). `items` are the
@@ -82,11 +105,14 @@ export function placeAmounts(text: string, items: ReadonlyArray<{ key: string; p
     if (!m) { unplaced.push(i.key); continue; }
     const word = m[0].toLowerCase();
     // "lemon" juice, "curry" paste, "chilli" flakes: the amount goes after the whole name, never inside it
-    const tail = /^(?:\s+(?:juice|sauce|paste|pur[ée]e|powder|seeds|flakes|milk|oil|cubes?|cheese|leaves|fillets?|breasts?|thighs?|mince|noodles|beans|tomatoes))+/i.exec(text.slice(m.index + m[0].length));
+    const tail = /^(?:\s+(?:juice|sauce|paste|pur[ée]e|powder|seeds|flakes|milk|oil|cubes?|cheese|leaves|fillets?|breasts?|thighs?|mince|noodles|beans|tomatoes|slices?|strips?|wedges?|florets?|chunks?|pieces|rashers?|halves))+/i.exec(text.slice(m.index + m[0].length));
     const end = m.index + m[0].length + (tail ? tail[0].length : 0);
     // the label's own word ("mustard") names this one ingredient; "spices", "season", "herbs", "oil" may stand for several, so the amount names which
     const specific = !/^(spices?|season(ing|ed)?|herbs|oil|spray)$/.test(word);
+    // "a pinch of salt and pepper": the step's own words are the measure, and a spoon amount beside them would say something else
+    if (OWN_MEASURE.test(text.slice(0, m.index))) continue;
     const slot = at.get(m.index) ?? { end, parts: [] };
+    slot.end = Math.max(slot.end, end); // "salt" and "salt and pepper" start together: the bracket goes after both words
     slot.parts.push({ label: i.label, amount: i.amount, specific });
     at.set(m.index, slot);
   }
@@ -97,9 +123,11 @@ export function placeAmounts(text: string, items: ReadonlyArray<{ key: string; p
     const one = slot.parts.length === 1 && slot.parts[0]!.specific;
     // under a general word each part says what it is: "1 tsp ground cumin", "a pinch of salt", "about 5 sprays of oil spray"
     const named = (p: { label: string; amount: MethodAmount }) => `${p.amount.short}${/^(a pinch|about)/.test(p.amount.short) ? " of" : ""} ${p.label.toLowerCase()}`;
-    pieces.push({ text: "", amount: one ? slot.parts[0]!.amount.full : slot.parts.map(named).join(", ") });
+    // "half the yogurt", "20 ml of the oil": the step uses part of it, so the bracket says it is the recipe's whole amount
+    const before = text.slice(0, start);
+    const all = PARTIAL.test(before) || PARTIAL_LIST.test(before) ? " in all" : "";
+    pieces.push({ text: "", amount: (one ? slot.parts[0]!.amount.full : slot.parts.map(named).join(", ")) + all });
     pos = slot.end;
-    void start;
   }
   pieces.push({ text: text.slice(pos) });
   return { pieces: pieces.filter((p) => p.text !== "" || "amount" in p), unplaced };

@@ -6,10 +6,10 @@ import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
 import { formatDate, formatInt, nutrientAriaLabel } from "@/lib/mm/format";
 import { tk, type T } from "@/lib/mm/i18n";
 import { firstMentions } from "@/lib/mm/stepIngredients";
-import { methodAmount, placeAmounts } from "@/lib/mm/kitchenAmount";
-import { LOCAL_RANGE_SHOP } from "@/lib/mm/localRange";
+import { methodAmount, placeAmounts, scaleMethodStep } from "@/lib/mm/kitchenAmount";
+import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "@/lib/mm/localRange";
 import { localTipFor } from "@/lib/mm/localTips";
-import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleMethodMl, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
+import { MEAL_TYPES, candidates, isMeatFree, pickFor, recipeTotals, recipeView, roundedAmountsMatter, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type Recipe } from "@/lib/mm/recipes";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
 import { productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
@@ -169,6 +169,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const current = picks[swapIndex]?.product;
   const currentKey = current ? productKey(current) : undefined;
   const options = useMemo(() => (swapSpec ? candidates(products, swapSpec, meatFree).filter((c) => c.usedCost !== null || productKey(c.product) === currentKey) : []), [swapSpec, products, meatFree, currentKey]);
+  // candidates() puts a product a typical small shop stocks before a cheaper one (lib/mm/localRange.ts), so the line above the list says so when it applies
+  const localFirst = options.some((o) => fileOf(o.product).retailer === LOCAL_RANGE_SHOP && LOCAL_SHOP_PRODUCTS.has(o.product.id));
   // what a serving costs with each option: the amount the recipe as written uses (the same for any number of people) over the servings it makes
   const basis = view.resolved.basis ?? view.resolved;
   const basisSpec = swapIndex >= 0 ? basis.picks[swapIndex]?.spec : undefined;
@@ -495,7 +497,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           <ol className={`${CARD} mt-3 divide-y divide-line px-4`}>
             {recipe.method.map((step, i) => {
               // founder 2026-11-16: clear steps, each with a short bold title and its cooking time beside it (lib/mm/recipeSteps.ts)
-              const { title, text } = splitStep(scaleMethodMl(rt(step), view.recipe.servings, recipe.scaledFrom?.servings ?? recipe.servings));
+              // oil the step measures goes in level spoons scaled exactly, water and stock as before (lib/mm/kitchenAmount.ts)
+              const { title, text } = splitStep(scaleMethodStep(rt(step), view.recipe.servings, recipe.scaledFrom?.servings ?? recipe.servings));
               const time = stepTime(text);
               return (
                 <li key={i} className="flex gap-3.5 py-4">
@@ -606,7 +609,13 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               </section>
             )}
             <h3 className="text-base font-bold">{insteadOptions.length > 0 ? t("Or pick a different product") : t("Pick a different product")}</h3>
-            <p className="mb-3 mt-1 text-[0.8125rem] leading-snug text-muted">{several ? t("Products at your shops that fit this recipe, {shop} first, then the cheapest. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) }) : t("Products at {shop} that fit this recipe, cheapest to buy first. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) })}</p>
+            <p className="mb-3 mt-1 text-[0.8125rem] leading-snug text-muted">{several
+              ? localFirst
+                ? t("Products at your shops that fit this recipe, {shop} first. At each shop, those a small local shop usually sells come first, then the cheapest to buy. It uses {amount}.", { shop: poss(first.name), amount: amountText(swapSpec) })
+                : t("Products at your shops that fit this recipe, {shop} first, then the cheapest. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) })
+              : localFirst
+                ? t("Products at {shop} that fit this recipe: those a small local shop usually sells first, then the cheapest to buy. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) })
+                : t("Products at {shop} that fit this recipe, cheapest to buy first. It uses {amount}.", { shop: first.name, amount: amountText(swapSpec) })}</p>
             <ul className="space-y-2">
               {options.map((o) => {
                 const key = productKey(o.product);
