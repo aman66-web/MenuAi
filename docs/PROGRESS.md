@@ -2459,6 +2459,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   (3) "Remove AI illustration please from on all the photos": recipe cards no longer carry "AI illustration" and a recipe page no longer captions its picture "Illustration made
   with AI, not a photo of the products below."; screen readers still hear "An illustration of …" (the picture's alt text); a person's own photo keeps "Your photo". CLAUDE.md rule 2
   amended (no visible caption). The App Store What's New draft still says the pictures are made with AI.
+  (4) Recipes › "Your supermarkets" (founder: "people have to scroll down and press confirm ... they'll tick it, but it doesn't save"): every tick is saved at once (closing the sheet
+  any way keeps it) and a **Done** button stays pinned at the foot of the sheet; Done shows the short "working" moment only when something changed. New copy: "Tap all that apply. Each tap is
+  saved straight away." (replaces "...Change it any time in Settings."), "Done" (existing). (5) A recipe's "What to buy" rows show the supermarket's own logo beside each product's name
+  (today always Sainsbury's: the only shop whose labels are read; ready for more). e2e recipes.mjs 15 of 15.
 
 ## Known issues
 

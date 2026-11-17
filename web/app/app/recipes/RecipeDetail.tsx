@@ -401,7 +401,11 @@ export function RecipeDetail({ recipe, file, products, backHref, actions, photo 
                       )}
                       {p ? (
                         <>
-                          <Link href={`/app/groceries/shop/item?r=${file.retailer}&id=${encodeURIComponent(p.product.id)}`} prefetch={false} className="mt-1 block rounded-lg text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere] hover:underline">{p.product.name}</Link>
+                          {/* founder 2026-11-17: the logo of the supermarket each product is bought from, beside its name (the name is the link; the logo is silent) */}
+                          <Link href={`/app/groceries/shop/item?r=${file.retailer}&id=${encodeURIComponent(p.product.id)}`} prefetch={false} className="mt-1.5 flex items-start gap-2 rounded-lg text-[0.875rem] leading-snug text-muted [overflow-wrap:anywhere] hover:underline">
+                            <ShopMark shopId={file.retailer} size="xs" />
+                            <span className="min-w-0 self-center">{p.product.name}</span>
+                          </Link>
                           <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                             <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                             <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className="ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">

@@ -187,8 +187,16 @@ function RecipesScreen() {
   const [shopsOpen, setShopsOpen] = useState(false);
   const [draftShops, setDraftShops] = useState<string[]>([]);
   const [working, setWorking] = useState(false);
+  // whether a shop was ticked or unticked since the sheet opened: Done then shows the short "working" moment
+  const [shopsChanged, setShopsChanged] = useState(false);
   const chosenShops = settings.shops ?? [];
   const closeShops = useCallback(() => { setShopsOpen(false); setWorking(false); }, []);
+  // founder 2026-11-17: "they'll tick it, but it doesn't save ... should we just like still tick it for them?" Every tick is saved at once, so closing the sheet any way keeps it.
+  const pickShops = (shops: string[]) => {
+    setDraftShops(shops);
+    setShopsChanged(true);
+    updateSettings({ shops: shops.length ? shops : undefined });
+  };
   const [query, setQuery] = useState("");
   const [limit, setLimit] = useState(PAGE);
   const [sort, setSort] = useState<Sort | null>(null);
@@ -263,19 +271,22 @@ function RecipesScreen() {
           <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder={t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`glass min-h-[3.25rem] w-full rounded-full ps-12 pe-4 ${DONE_ROOM} text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent`} />
           <SearchDone />
         </div>
-        <ShopsButton shops={chosenShops} onClick={() => { setDraftShops([...chosenShops]); setWorking(false); setShopsOpen(true); }} />
+        <ShopsButton shops={chosenShops} onClick={() => { setDraftShops([...chosenShops]); setShopsChanged(false); setWorking(false); setShopsOpen(true); }} />
       </div>
-      {/* The choice is saved on Continue (Close leaves it as it was), then a short "working" moment, then back to the recipes. */}
+      {/* Each tick is saved at once (closing keeps it); Done stays in view at the foot of the sheet and, when something changed, shows a short "working" moment. */}
       <Sheet open={shopsOpen} onClose={closeShops} title={t("Your supermarkets")}>
         {working ? (
           <ShopsWorking onDone={closeShops} />
         ) : (
           <>
-            <p className="text-[0.9375rem] leading-snug text-muted">{t("Tap all that apply. Change it any time in Settings.")}</p>
+            <p className="text-[0.9375rem] leading-snug text-muted">{t("Tap all that apply. Each tap is saved straight away.")}</p>
             <div className="mt-3">
-              <ShopPicker value={draftShops} onChange={setDraftShops} />
+              <ShopPicker value={draftShops} onChange={pickShops} />
             </div>
-            <Button full className="mt-4" onClick={() => { updateSettings({ shops: draftShops.length ? draftShops : undefined }); setWorking(true); }}>{t("Continue")}</Button>
+            {/* kept in view while the list scrolls under it, so nobody has to find it */}
+            <div className="sticky bottom-0 z-10 -mx-5 mt-2 bg-gradient-to-t from-white from-70% to-transparent px-5 pb-1 pt-5">
+              <Button size="lg" full onClick={() => (shopsChanged ? setWorking(true) : closeShops())}>{t("Done")}</Button>
+            </div>
           </>
         )}
       </Sheet>

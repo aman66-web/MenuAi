@@ -554,7 +554,7 @@ await step("cuisine and occasion: two fields with counts, one tap to choose, AND
   await b.ctx.close();
 });
 
-await step("Your supermarkets beside the search: the chosen shops' logos, a tap opens the same list as Settings, Continue saves and shows a short working moment, Close leaves it as it was, recipes still say Sainsbury's, axe", async () => {
+await step("Your supermarkets beside the search: the chosen shops' logos, a tap opens the same list as Settings, every tick is saved at once, Done stays in view and shows a short working moment, Close keeps the ticks, recipes still say Sainsbury's, axe", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/recipes");
   await page.getByText(/Every ingredient is a real product at Sainsbury's/).waitFor();
@@ -577,7 +577,13 @@ await step("Your supermarkets beside the search: the chosen shops' logos, a tap 
   const tesco = sheet.getByRole("button", { name: /Tesco/ });
   await tesco.click();
   expect((await tesco.getAttribute("aria-pressed")) === "true", "Tesco was not chosen");
-  await sheet.getByRole("button", { name: "Continue" }).click();
+  // founder 2026-11-17: the tick is saved at once, and Done is on the screen without scrolling
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings")).data.shops);
+  expect(JSON.stringify(saved) === JSON.stringify(["sainsburys", "tesco"]), "saved at once: " + JSON.stringify(saved));
+  const done = sheet.getByRole("button", { name: "Done" });
+  const db = await done.boundingBox();
+  expect(db && db.y + db.height <= 844 && db.height >= 44, `Done is in view without scrolling (at ${db && Math.round(db.y)})`);
+  await done.click();
   await sheet.getByRole("status").filter({ hasText: /Saving your supermarkets/ }).waitFor({ timeout: 1500 });
   await sheet.getByText("Working out each serving's price and nutrition…").waitFor();
   const t0 = Date.now();
@@ -592,7 +598,7 @@ await step("Your supermarkets beside the search: the chosen shops' logos, a tap 
   await sheet.getByRole("button", { name: /Asda/ }).click();
   await sheet.getByRole("button", { name: "Close" }).click();
   await sheet.waitFor({ state: "hidden" });
-  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's, Tesco", "Close should leave the shops as they were");
+  expect((await shops.getAttribute("aria-label")) === "Your supermarkets: Sainsbury's, Tesco, Asda", "Close keeps what was ticked: " + (await shops.getAttribute("aria-label")));
   await ctx.close();
 });
 
