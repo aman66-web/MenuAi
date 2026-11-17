@@ -18,7 +18,7 @@ import { CARD, FootNote, HEADING, ListLink, TITLE } from "./PageBits";
 import { Scanner } from "./Scanner";
 
 // Groceries puts its tools first, laid out like Eat out (founder 2026-11-17: the tools at the bottom were being ignored): the white "Search every shop
-// at once" pill, then one card of Eat out's shortcut rows (Scan a barcode in lime, the one highlighted thing; Cheapest protein; Compare products), so they
+// at once" pill, then one card of Eat out's shortcut rows (every icon in lime: Scan a barcode; Cheapest protein; Compare products), so they
 // work at once even while the shop list loads. Then the unchanged plain question, "Which shop?" (founder 2026-10-11: simple enough for a 90-year-old).
 // Each big tile opens that shop's own list: every product its pages showed, with its own photo and price, and the numbers where we have them. The person's
 // own shops (onboarding, Settings) come first, each as a wide tile across the row with a small lime "Your shop" mark under its count, so the two-across
@@ -67,7 +67,7 @@ export default function GroceriesPage() {
       </Link>
 
       <div className={`mt-3.5 ${chainGroupClass}`}>
-        <Shortcut onClick={() => setScanning(true)} highlight icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
+        <Shortcut onClick={() => setScanning(true)} icon={<ScanIcon />} title={t("Scan a barcode")} line={t("Look up a product you're holding")} />
         <Shortcut href="/app/groceries/protein" icon={<CoinIcon />} title={t("Cheapest protein")} line={t("What 10 g of protein costs")} />
         <Shortcut href="/app/compare?tab=food" icon={<CompareIcon />} title={t("Compare products")} line={t("Put products side by side, even from different shops")} />
       </div>

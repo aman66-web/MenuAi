@@ -26,7 +26,7 @@ import { FinderResults, NumbersPanel, useFinderResults, useNumbersFinder } from 
 // Kept plain for older users (founder 2026-10-11): the type, "Full nutrition only" and "Halal" choices sit behind one "More ways to find a
 // restaurant" button instead of a sideways row of chips; closing it goes back to every restaurant.
 // Look (founder 2026-10-15, "the rest of the app should match that elegance"): Home's language. A compact heavy title, one white search
-// pill, the three shortcuts as rows of one card (Near me's icon in the brand lime, the one highlighted thing), "More ways" as a row of
+// pill, the three shortcuts as rows of one card (every icon in the brand lime), "More ways" as a row of
 // its own with a round grid icon, Popular as 20 px tiles, the A to Z jump as Home's grey day circles, and restaurants in grouped cards
 // under small spaced letter labels that line up with the names. Every word, role and name is as before.
 
@@ -86,7 +86,7 @@ export default function EatOutPage() {
       </Link>
 
       <div className={`mt-3.5 ${chainGroupClass}`}>
-        <Shortcut href="/app/map" highlight icon={<PinIcon />} title={t("Near me")} line={t("See the places to eat around you on a map.")} />
+        <Shortcut href="/app/map" icon={<PinIcon />} title={t("Near me")} line={t("See the places to eat around you on a map.")} />
         <Shortcut
           href="/app/eat-out/favourites"
           icon={<StarIcon filled={favoriteChains.length > 0} />}
@@ -123,7 +123,7 @@ export default function EatOutPage() {
           </div>
           {types.length > 1 && (
             <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3.5 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition-colors hover:bg-[var(--fill)] active:bg-soft-strong">
-              <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${moreOpen ? "bg-foreground text-background" : "bg-soft-strong text-foreground"}`}><GridIcon className="h-[18px] w-[18px]" /></span>
+              <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${moreOpen ? "bg-foreground text-background" : "bg-sun text-[var(--on-accent)]"}`}><GridIcon className="h-[18px] w-[18px]" /></span>
               <span className="min-w-0 flex-1">{t("More ways to find a restaurant")}</span>
               <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform rtl:scale-x-100! ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
             </button>
@@ -143,7 +143,7 @@ export default function EatOutPage() {
 
           {/* a second way in, of its own: type calories, protein, carbs or fat and pick allergies, and only the restaurants with dishes that fit are listed */}
           <button type="button" aria-expanded={finder.open} aria-controls="find-by-numbers" onClick={toggleFinder} className="glass mt-3 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-semibold transition hover:bg-soft-strong active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${finder.open ? "bg-foreground text-background" : "bg-soft-strong text-foreground"}`}><ScaleIcon className="h-5 w-5" /></span>
+            <span aria-hidden className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${finder.open ? "bg-foreground text-background" : "bg-sun text-[var(--on-accent)]"}`}><ScaleIcon className="h-5 w-5" /></span>
             <span className="min-w-0 flex-1">{t("Find by numbers or allergies")}</span>
             <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform rtl:scale-x-100! ${finder.open ? "-rotate-90" : "rotate-90"}`} />
           </button>
