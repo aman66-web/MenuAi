@@ -276,6 +276,13 @@ function PhotoScreen() {
   }
 
   if (step === "done" && recipe && ready && shop) {
+    const saveRecipe = () => {
+      if (savedId) return;
+      myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30));
+      setSavedId(recipe.id);
+      // the person's photo becomes the saved recipe's picture, kept on this phone only (lib/mm/recipePhotos.ts)
+      if (photo) void recipeThumbnail(photo.url).then((thumb) => thumb && keepRecipePhoto(recipe.id, thumb));
+    };
     return (
       <RecipeDetail
         recipe={recipe}
@@ -284,17 +291,13 @@ function PhotoScreen() {
         backHref="/app/recipes"
         photo={photo?.url}
         diet={diet}
+        save={{ saved: !!savedId, onSave: saveRecipe }}
         actions={
           <>
             {savedId ? (
               <p role="status" className="glass rounded-[1.25rem] p-4 text-center font-semibold">{t("Saved to Your recipes.")} <Link href={`/app/recipes/view?mine=${savedId}&r=${shop}`} className="text-accent underline underline-offset-2">{t("Open it")}</Link></p>
             ) : (
-              <Button full className="min-h-14 text-base" onClick={() => {
-                myRecipesStore.update((l) => [recipeToSaved(recipe, shop), ...l.filter((s) => s.id !== recipe.id)].slice(0, 30));
-                setSavedId(recipe.id);
-                // the person's photo becomes the saved recipe's picture, kept on this phone only (lib/mm/recipePhotos.ts)
-                if (photo) void recipeThumbnail(photo.url).then((thumb) => thumb && keepRecipePhoto(recipe.id, thumb));
-              }}>{t("Save this recipe")}</Button>
+              <Button full className="min-h-14 text-base" onClick={saveRecipe}>{t("Save this recipe")}</Button>
             )}
             <Button full variant="secondary" className="min-h-14 text-base" onClick={() => { setRecipe(null); setPhoto(null); setName(""); setAbout(""); setOwnDiet(null); setAllergiesOpen(null); setNudged(false); setStep("describe"); }}>{t("Make another")}</Button>
           </>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { Preferences } from "@/lib/mm/types";
 import { useEffect, useMemo, useState } from "react";
 import { addToList, formatPrice, withPhoto } from "@/lib/mm/groceries";
@@ -19,7 +20,7 @@ import { cupboardStore, savedRecipesStore, shoppingStore, toggleCupboard, toggle
 import { site } from "@/site.config";
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
 import { Button, Chip, Sheet, radioKeyNav } from "../_components/ui";
-import { backName, useBack } from "../_lib/backNav";
+import { backName, travelBack, useBack } from "../_lib/backNav";
 import { useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { PhotoTile } from "../groceries/ProductPhoto";
@@ -126,7 +127,7 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
  *  `products` are theirs, tagged with their shop. Every ingredient comes from the first shop unless the person swaps it to another shop's product.
  *  `onChangeShops`: when given, the shop in the header is a button that opens the screen's choice of shop. `onNeedOtherShops`: called when the Swap sheet opens,
  *  so the screen loads the other shops (they're not loaded for a plain look at a recipe); `othersLoading` says they are on their way. */
-export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet }: { recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude"), when it isn't the one in Settings. */ diet?: Preferences }) {
+export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save }: { recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude"), when it isn't the one in Settings. */ diet?: Preferences; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
   const t = useT();
   const poss = usePossessive();
   const first = files[0]!;
@@ -138,6 +139,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const several = files.length > 1;
   // Back goes to the page before when this one was reached from another page of the app; `backHref` (the recipes, at the right shop) is the fallback
   const back = useBack(backHref);
+  const router = useRouter();
+  // Back on a recipe Pip has just written that isn't saved yet asks first (founder 2026-11-17: "would you like to save your recipe first? So that they don't lose it")
+  const [leaving, setLeaving] = useState(false);
+  const goBack = () => { if (!travelBack(router, backHref)) router.push(back.href); };
   // our recipe book's words are translated; what Pip wrote with AI is shown as it wrote it. Ingredient labels and notes come from our pantry either way.
   const rt = (s: string) => (recipe.ai ? s : t(s));
   const settings = useSettings();
@@ -296,8 +301,12 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} />
         )}
         <div className="absolute inset-x-0 top-0 flex flex-wrap items-start justify-between gap-2 px-4 pt-[max(0.75rem,env(safe-area-inset-top))]">
-          <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to recipes"), back.cameFromApp)} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
-          {!recipe.ai && <SaveRecipeButton id={recipe.id} />}
+          <Link href={back.href} onClick={(e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); return; } back.onClick(e); }} aria-label={backName(t("Back"), t("Back to recipes"), back.cameFromApp)} className={`${ON_PICTURE} ps-2.5 pe-4`}><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+          {!recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save && (
+            <button type="button" aria-pressed={save.saved} aria-label={save.saved ? t("Saved to Your recipes.") : t("Save this recipe")} onClick={() => { if (!save.saved) save.onSave(); }} className={`${ON_PICTURE} ms-auto ps-3.5 pe-4`}>
+              <HeartIcon filled={save.saved} className={`h-5 w-5 ${save.saved ? "text-[#e11d48]" : ""}`} />{save.saved ? t("Saved") : t("Save")}
+            </button>
+          )}
         </div>
       </div>
 
@@ -605,6 +614,15 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
         )}
       </div>
 
+      {save && (
+        <Sheet open={leaving} onClose={() => setLeaving(false)} title={t("Save your recipe first?")}>
+          <p className="text-base leading-snug">{t("If you go back without saving, this recipe will be gone.")}</p>
+          <div className="mt-5 grid gap-3">
+            <Button size="lg" full onClick={() => { save.onSave(); setLeaving(false); goBack(); }}>{t("Save and go back")}</Button>
+            <Button size="lg" full variant="secondary" onClick={() => { setLeaving(false); goBack(); }}>{t("Go back without saving")}</Button>
+          </div>
+        </Sheet>
+      )}
       <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: t(swapSpec.label).toLowerCase() }) : t("Swap")}>
         {swapSpec && (
           <>
