@@ -2609,7 +2609,15 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     files type-check against the iPhone SDK with no error. **A full Xcode build is blocked:** Xcode 26.6 now wants its "iOS 26.5" component downloaded (Xcode › Settings › Components,
     about 8 GB) even to build for a phone, and the Mac has about 12 GB free: founder step below.
   - **Checked:** 2,082 unit tests, tsc, eslint (0 errors); browser suites on a fresh test build: smoke 24, extra 16, a11y 0 violations, largetext no overflow at 200%, browse 9, recipes 17,
-    diet 7, compare 4, firstvisit 10, truth 14, numbers 12, addfood 15, listadd 8, listphotos 11 (the rest in the morning summary).
+    diet 7, compare 4, firstvisit 10, truth 14, numbers 12, addfood 15, listadd 8, listphotos 11, tour 14, back 42 + 13, done 13, water 14, calories 4, onboarding-body 22 (all 21 suites pass).
+  - **Later the same morning:** the menu refresh was stopped to save the founder's usage: 136 restaurants A to T are refreshed, checked and committed. The last five it had re-read
+    (Wagamama, Wahaca, Wendy's, Yalla Yalla, Yo! Sushi) are committed **without a second reader** (`ca0aa2e4`; they pass `check_chain` and the pipeline builds 241 chains with 0 errors) and are
+    **not** in `web/public/menus`, which was built from checked data only; Vintage Inns, Waterfields and Wetherspoon were not refreshed. Rebuild the menu data (`./scripts/publish_menus.sh --web-only`)
+    only after those five have had a second read, or step their folders back to `f3f4bf0e`.
+  - **Test copy with every photo packed inside (founder: "Pack the photos into the test build"):** `MenuMacros/Resources/WebApp.bundle` is currently the 223 MB test copy (menu photos 132 MB incl.
+    small copies, recipe 19, product 10), made by flipping `remoteImages` off for one build and putting it back (`web/app-content.json` is unchanged: true). **It must not ship:** run
+    `NEXT_PUBLIC_SUPPORT_EMAIL=… ./scripts/build_app_web.sh` again (about 62 MB) before any archive. The founder's limit is **100 MB on the phone** (about 70 MB expected; not measured, because Xcode
+    needs its "iOS 26.5" component before it will build). Not done: the build-script size check (fail above 85 MB), which the founder has not yet said yes to.
 
 ## Known issues
 
