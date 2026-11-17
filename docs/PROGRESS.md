@@ -2637,6 +2637,18 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     search, shop chip, sort, the product page, one shop uses the single list, bad address, a failed shop, 360 px and Extra large text, axe 0 on both screens), groceries-all 8, groceries 6,
     groceries-compare 8, groceries-photos 4, listadd 8, listphotos 11, smoke 24, a11y 0 violations, largetext no overflow, tsc, eslint, i18n test.
 
+- 2026-11-17 (midday, Mac) — **Live on numbite.com, and the new app on the founder's iPhone** (founder: "Update Numbite with everything", then "Yes, please do all of that for me").
+  - **numbite.com:** `main` fast-forwarded to `961c282e` (45 commits: the 1.1 screens, recipes from chosen shops, dish photos 5,441 on 129 restaurants, menu data `20261117052758` with 241 restaurants,
+    the review fixes, Select on Groceries). Vercel deployed it to Production; checked live: /app, /app/groceries/shops, /app/recipes/photo, /chains/kfc, /privacy, /api/health 200, the menu manifest,
+    a dish thumbnail and a recipe picture serve, and **no "AI illustration" label is left in the live site's code** (it was still on the site until this push; the removal had been on the Mac only).
+    The five restaurants committed without a second read are **not** in the published menus. Pip's pick, Make it at home on the website, and payments on the website stay off.
+  - **iPhone:** freed 8 GB (the founder approved deleting ten unfinished Chrome downloads, "Unconfirmed … .crdownload"), downloaded the iOS 26.5 platform with `xcodebuild -downloadPlatform iOS`
+    (8.52 GB), rebuilt the app's website copy in the shipped form (62.5 MB, photos loaded from numbite.com, no purchase flags), built **Numbite 1.1 (6)** for the iPhone 16 (development signing)
+    and installed and launched it with `devicectl`. **The app is 66 MB** (limit the founder set: 100 MB), measured. Not tried on the phone by Claude: every screen, the camera scanner, notifications.
+  - **Premium is not testable in this build:** it was built without the purchase flags because the payment key in Vercel is still the wrong value (see the to-do), so the trial offer and Make it at home
+    don't appear. To test them, make the key, then build with `NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1` (docs/APP_BUILD.md "Testing 1.1").
+  - **Disk:** the Mac is down to about 3 GB free after the platform install (the Claude app's background VM still holds about 8 GB of the deleted downloads until the Claude app is restarted).
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
@@ -2645,7 +2657,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 
 ## Founder to-do (things Claude can't do)
 
-- [ ] **To build the app for your iPhone again: Xcode › Settings › Components › download "iOS 26.5"** (about 8 GB; Xcode 26.6 refuses to build without it). Free about 10 GB first (Downloads is the big one)
+- [x] The iOS 26.5 platform is installed (17 Nov). **Restart the Claude app when convenient:** its background VM still holds about 8 GB of the deleted downloads, and the Mac has only about 3 GB free
 - [ ] **Fix `ENTITLEMENT_PRIVATE_JWK` in Vercel:** it holds a value starting "sk-ant-" (an Anthropic key, pasted by mistake). Run `node tools/payments/make_entitlement_key.mjs` in Terminal in the repo folder and paste what it puts on the clipboard (it starts `{"kty":"EC"`) in its place; then tell Claude so the public key can be committed
 - [ ] **If you want Pip's pick on Compare:** paste `supabase/migrations/20261117120000_compare_picks.sql` in the Supabase SQL Editor and say "switch on Pip's pick" (`NEXT_PUBLIC_COMPARE_PICK=1`); it works without the table, only without the shared cache
 - [x] **Decide: should logging meals be free?** No, it stays Pro (2026-10-11).
