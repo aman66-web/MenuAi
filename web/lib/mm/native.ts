@@ -23,7 +23,8 @@ export type NativeAction =
   | "iap.purchase"
   | "iap.entitlements"
   | "iap.restore"
-  | "iap.manage";
+  | "iap.manage"
+  | "review.request";
 
 /** "iap.products": one App Store product as StoreKit gives it (the price is StoreKit's own localised text, never ours). */
 export interface NativeProduct {

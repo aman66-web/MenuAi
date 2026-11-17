@@ -29,6 +29,7 @@ import { refreshAppStoreAccess } from "@/lib/payments/iap";
 import { CommunityBadge } from "./CommunityBadge";
 import { PaywallProvider } from "./Paywall";
 import { TrialOffer } from "./TrialOffer";
+import { RatingPrompt } from "./RatingPrompt";
 import { SignInScreen } from "./SignInScreen";
 import { Spinner } from "./ui";
 
@@ -177,6 +178,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         )}
       </div>
       {gate === "open" && <TrialOffer />}
+      {gate === "open" && <RatingPrompt />}
     </PaywallProvider>
   );
 }

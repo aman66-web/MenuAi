@@ -1,5 +1,6 @@
 import Foundation
 import OSLog
+import StoreKit
 import WebKit
 
 /// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet, sign-in sheets, reminder notifications and the App
@@ -105,6 +106,10 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
             }
         case .iapManage:
             await purchases.manageSubscriptions()
+            return BridgeReply(done: true)
+        case .requestReview:
+            // the page asks only after someone rated the app 5 (web/app/app/_components/RatingPrompt.tsx); Apple shows its pop-up or, past its yearly limit, nothing
+            if let scene = webView?.window?.windowScene { AppStore.requestReview(in: scene) }
             return BridgeReply(done: true)
         }
     }

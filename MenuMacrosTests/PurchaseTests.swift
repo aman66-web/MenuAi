@@ -64,6 +64,7 @@ struct PurchaseBridgeParsingTests {
         #expect(request("iap.entitlements") == .iapEntitlements(id: "iap-1"))
         #expect(request("iap.restore") == .iapRestore(id: "iap-1"))
         #expect(request("iap.manage") == .iapManage(id: "iap-1"))
+        #expect(request("review.request") == .requestReview(id: "iap-1"))
         // no payload at all is the same as an empty one
         #expect(request("iap.entitlements", nil) == .iapEntitlements(id: "iap-1"))
         #expect(request("iap.restore", nil) == .iapRestore(id: "iap-1"))

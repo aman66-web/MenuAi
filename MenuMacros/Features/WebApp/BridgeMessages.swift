@@ -22,6 +22,8 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     case iapEntitlements(id: String)
     case iapRestore(id: String)
     case iapManage(id: String)
+    /// Apple's own "rate this app" pop-up (StoreKit's requestReview); Apple decides whether it actually appears (at most three times a year).
+    case requestReview(id: String)
 
     /// The most product ids one `iap.products` request may list (there are three products; anything longer is not a real request).
     static let maxProductIDs = 20
@@ -30,7 +32,7 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
         switch self {
         case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _),
              .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id), .hideKeyboard(let id),
-             .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id): id
+             .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id), .requestReview(let id): id
         }
     }
 
@@ -78,6 +80,8 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
             self = .iapRestore(id: id)
         case "iap.manage":
             self = .iapManage(id: id)
+        case "review.request":
+            self = .requestReview(id: id)
         default:
             return nil
         }

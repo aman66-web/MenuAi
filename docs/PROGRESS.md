@@ -2805,6 +2805,17 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
     numbers and sources was made for it) and a cook's read of all 165 methods were started with seven reviewers, but they stopped when the weekly usage limit was reached
     (resets 19 November, 8am). Not started yet: the design and onboarding pass, and the check that every product has its image, allergens and barcode.
 
+- 2026-11-17 (night, Mac) — **"Are you enjoying Numbite?" in the iPhone app** (founder: "after they use it for a while they are asked if they are liking it on a scale of 1-5; if they
+  choose 5 and only if they choose 5 a pop up comes up after that asking to leave a review; if they've already pressed they will leave a review then don't show that pop up again";
+  "show them the pop up only every so often"; then, told that showing Apple's review pop-up only after a 5 is "review gating" and a known App Review risk under guideline 5.6.1:
+  "do 1 im allowed to do that" = the founder's decision and accepted risk). `lib/mm/ratingPrompt.ts` (unit-tested) + `_components/RatingPrompt.tsx`: in the iPhone app only, on
+  Home only, never over another sheet; first asked once the app has been used on 5 different days and 14 days after the first; 1-4 shows "Thanks for telling us. If anything could
+  be better, tell us in Settings › Contact us." and waits 90 days, as does Not now; a 5 asks for Apple's own review pop-up (new bridge action `review.request`, StoreKit
+  `AppStore.requestReview(in:)`, `NativeBridge.swift`) and the question never comes back. Apple decides whether its pop-up appears (at most three times a year) and never tells the
+  app whether a review was left. Kept on the phone only (`mm.v1.rating`), never synced; Clear data resets it. New copy (rule 8, logged here): "Are you enjoying {app}?", "Tap a number:
+  1 is not really, 5 is love it.", "Your rating, 1 to 5", "{n} out of 5", "Not really", "Love it", "Thank you", the thank-you sentence above. Checked: unit 6, `e2e/rating.mjs` 4 on the
+  packed app with a pretend iPhone (axe 0), the Swift compiles with a bridge test line.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.

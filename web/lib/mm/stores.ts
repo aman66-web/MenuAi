@@ -6,6 +6,7 @@ import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
 import { sanitizeComparePicks, type PickEntry } from "./comparePick";
+import { EMPTY_RATING, sanitizeRating, type RatingState } from "./ratingPrompt";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
 import type { PlanId } from "../payments/plans";
@@ -30,6 +31,8 @@ export const paidStore = createStore<PaidState>("mm.v1.paid", NO_PAID, { sanitiz
 export const truthDayStore = createStore<TruthDay>("mm.v1.truthDay", NO_TRUTH_DAY, { sanitize: sanitizeTruthDay });
 /** The iPhone app has shown its one-time "try Premium free" offer after setup on this phone (founder 2026-11-16). Never synced: it belongs to the phone. */
 export const trialOfferStore = createStore<boolean>("mm.v1.trialOffer", false, { sanitize: (v) => v === true });
+/** "Are you enjoying Numbite?" in the iPhone app (lib/mm/ratingPrompt.ts): the days the app was used and when it last asked. On this phone only, never synced. */
+export const ratingStore = createStore<RatingState>("mm.v1.rating", EMPTY_RATING, { sanitize: sanitizeRating });
 /** The welcome tour's version this phone has seen (lib/mm/tour.ts TOUR_VERSION; 0 = not seen). On this device only: not synced, never sent anywhere. */
 export const tourStore = createStore<number>("mm.v1.tour", 0, { sanitize: (v) => (Number.isInteger(v) && (v as number) >= 0 && (v as number) < 100 ? (v as number) : 0) });
 export const favoritesStore = createStore<Favorite[]>("mm.v1.favorites", [], { sanitize: sanitizeFavorites });
