@@ -436,38 +436,43 @@ function Welcome() {
   if (step === 0) {
     return (
       <div className={SCREEN}>
-        {/* Someone already set up who opened this from Settings › Set up with Pip has a way back; a first-time visitor has Skip only. */}
-        <TopBar
-          onBack={hydrated && wasOnboarded ? leave : undefined}
-          end={<TopButton onClick={lookAround}>{t("Skip")}</TopButton>}
-          segments={INTRO_SEGMENTS}
-          current={0}
-        />
-        {/* the greeting comes first, then the line that sums the app up, then the picture (founder, 2026-10-15) */}
-        <p className="mt-6 flex items-center gap-3 text-[1.125rem] font-semibold leading-snug">
-          <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
-          <span className="min-w-0">{t("Welcome to {app}", { app: site.name })}</span>
-        </p>
-        <h1 tabIndex={-1} className={`mt-4 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em] ${H1}`}>
-          {t("Eat out, shop and cook.")} {t("Know the numbers first.")}
-        </h1>
-        <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-semibold text-muted">
-          {[
-            { Icon: ShieldIcon, text: t("No account needed") },
-            { Icon: CheckIcon, text: t("Stays on your phone") },
-            { Icon: GiftIcon, text: t("Every menu free") },
-          ].map(({ Icon, text }) => (
-            <li key={text} className="flex items-center gap-1.5"><Icon aria-hidden className="h-4 w-4 text-accent" />{text}</li>
-          ))}
-        </ul>
-        {/* the picture: the restaurants and shops in the app drifting by, with two labels floating over it */}
-        <div className="relative -mx-5 mt-2 flex-1">
+        {/* Someone already set up who opened this from Settings › Set up with Pip has a way back. No Skip here (founder 2026-11-17): a first-time visitor starts with
+            Get started. Laid out with CSS `order`, so the reading order stays the greeting, the headline and the promises, then the picture. */}
+        <div className="order-1">
+          <TopBar
+            onBack={hydrated && wasOnboarded ? leave : undefined}
+            segments={INTRO_SEGMENTS}
+            current={0}
+          />
+        </div>
+        {/* the picture first (founder 2026-11-17: "put the restaurants moving on the top and then the writing below"): the restaurants and shops in the app drifting by,
+            with two labels floating over it, fading into the page at its top and bottom edges */}
+        <div className="relative order-2 -mx-5 mt-1">
           <LogoWall hero items={wallItems} namesOnly={!LOGOS_ENABLED} label={!LOGOS_ENABLED ? t("Names of restaurants and shops in the app") : t("Logos of restaurants and shops in the app")} />
           {restaurants > 0 && <span className="bob app-numbers absolute start-6 top-[22%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} UK restaurants", { n: restaurants })}</span>}
           {/* the supermarkets whose products are in the app (Groceries' list), once that list has loaded: not every shop named on the wall */}
-          {shopLists && shopLists.retailers.length > 0 && <span className="bob-slow app-numbers absolute end-6 top-[48%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: shopLists.retailers.length })}</span>}
+          {shopLists && shopLists.retailers.length > 0 && <span className="bob-slow app-numbers absolute end-6 top-[52%] rounded-full bg-white px-3.5 py-2 text-sm font-bold text-foreground shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]">{t("{n} supermarkets", { n: shopLists.retailers.length })}</span>}
         </div>
-        <Bottom>
+        {/* then the greeting, the line that sums the app up and the three promises */}
+        <div className="order-3">
+          <p className="mt-2 flex items-center gap-3 text-[1.125rem] font-semibold leading-snug">
+            <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full ${LIME}`}><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
+            <span className="min-w-0">{t("Welcome to {app}", { app: site.name })}</span>
+          </p>
+          <h1 tabIndex={-1} className={`mt-4 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em] ${H1}`}>
+            {t("Eat out, shop and cook.")} {t("Know the numbers first.")}
+          </h1>
+          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-semibold text-muted">
+            {[
+              { Icon: ShieldIcon, text: t("No account needed") },
+              { Icon: CheckIcon, text: t("Stays on your phone") },
+              { Icon: GiftIcon, text: t("Every menu free") },
+            ].map(({ Icon, text }) => (
+              <li key={text} className="flex items-center gap-1.5"><Icon aria-hidden className="h-4 w-4 text-accent" />{text}</li>
+            ))}
+          </ul>
+        </div>
+        <Bottom className="order-4">
           <BottomButton light onClick={next}>{t("Get started")}</BottomButton>
           <button type="button" onClick={() => setSignInOpen(true)} className="mt-1 min-h-11 w-full text-center text-[15px] font-semibold text-accent underline-offset-2 hover:underline">{t("Already have an account? Sign in")}</button>
           <SignInSheet open={signInOpen} onClose={() => setSignInOpen(false)} />
@@ -711,8 +716,8 @@ function HeadPill({ Icon }: { Icon: (p: React.SVGProps<SVGSVGElement>) => React.
 }
 
 /** The bar that stays at the bottom of the screen (so the next step is never below the fold on small or notched phones). */
-function Bottom({ children }: { children: React.ReactNode }) {
-  return <div className="sticky bottom-0 z-10 -mx-5 mt-auto w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6">{children}</div>;
+function Bottom({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`${className} sticky bottom-0 z-10 -mx-5 mt-auto w-[calc(100%+2.5rem)] bg-gradient-to-t from-background via-background/95 to-transparent px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-6`}>{children}</div>;
 }
 
 /** How long after a screen appears a finger's tap on its button is ignored (see BottomButton). */

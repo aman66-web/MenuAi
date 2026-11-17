@@ -303,7 +303,7 @@ await step("Settings › Daily targets: an empty protein box says 'Worked out'; 
   await vis(notSaved);
   await ctx.close();
 });
-await step("Settings › Set up with Pip opens the welcome screen with a way back to Settings; a first visit to the welcome screen has no such button", async () => {
+await step("Settings › Set up with Pip opens the welcome screen with a way back to Settings; a first visit to the welcome screen has no such button and no Skip", async () => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   await ctx.addInitScript(() => { if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", JSON.stringify({ v: 1, data: { hasCompletedOnboarding: true, hasSetTargets: true, goal: "maintain", dailyCalories: 2000 } })); });
   const page = await ctx.newPage();
@@ -329,7 +329,7 @@ await step("Settings › Set up with Pip opens the welcome screen with a way bac
   await vis(p2.getByRole("button", { name: "Get started" }));
   await p2.waitForTimeout(600);
   if (await p2.getByRole("button", { name: "Back to the previous step" }).count()) throw new Error("a first visit has a Back button on the welcome screen");
-  await vis(p2.getByRole("button", { name: "Skip", exact: true }));
+  if (await p2.getByRole("button", { name: "Skip", exact: true }).count()) throw new Error("the welcome screen has a Skip button (founder 2026-11-17: none)");
   await first.close();
 });
 console.log(`\n${pass} passed, ${fail} failed`);

@@ -100,19 +100,24 @@ const page = await main.newPage();
 const requests = [];
 page.on("request", (r) => requests.push({ url: r.url(), body: r.postData() ?? "" }));
 
-await step("1. a plain first visit to /app ends on the welcome screens without Home ever showing; Skip goes to Home with the setup card, marks the tour seen, and a reload stays on Home", async () => {
+await step("1. a plain first visit to /app ends on the welcome screens without Home ever showing; no Skip on the cover; Look around first goes to Home with the setup card, marks the tour seen, and a reload stays on Home", async () => {
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome$/);
   await page.getByRole("button", { name: "Get started" }).waitFor();
   expect(!(await page.evaluate(() => sessionStorage.getItem("homeSeen"))), "Home's heading showed before the welcome screens");
-  // a separate visitor tries Skip (this one goes on with the tour)
+  // founder 2026-11-17: no Skip on the welcome screen itself; a separate visitor goes Get started > Show me around > Skip tour > Look around first
   const ctx = await fresh(); const p = await ctx.newPage();
   await p.goto(BASE + "/app");
   await p.waitForURL(/\/app\/welcome$/);
-  await p.getByRole("button", { name: "Skip", exact: true }).click();
+  await p.getByRole("button", { name: "Get started" }).waitFor();
+  expect((await p.getByRole("button", { name: "Skip", exact: true }).count()) === 0, "the welcome screen has no Skip");
+  await p.getByRole("button", { name: "Get started" }).click();
+  await p.getByRole("button", { name: "Show me around" }).click();
+  await p.getByRole("button", { name: "Skip tour" }).click();
+  await p.getByRole("button", { name: "Look around first" }).click();
   await p.waitForURL(/\/app\/?$/);
   await card(p).waitFor();
-  expect((await tourOf(p)) === 1, "mm.v1.tour after Skip: " + (await tourOf(p)));
+  expect((await tourOf(p)) === 1, "mm.v1.tour after Look around first: " + (await tourOf(p)));
   await p.reload();
   await homeHeading(p).waitFor();
   expect(!/welcome/.test(p.url()), "sent to the welcome screens again: " + p.url());

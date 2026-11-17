@@ -140,13 +140,12 @@ await step("no offer when this Apple ID has had its trial, before setup is finis
   }
 });
 
-await step("after the welcome tour's 'Look around first', or Skip on its first screen, the offer rises once on Home about 1.2 s later", async () => {
-  for (const way of ["Look around first", "Skip"]) {
+await step("after the welcome tour's 'Look around first' (the welcome screen has no Skip), the offer rises once on Home about 1.2 s later", async () => {
+  for (const way of ["Look around first"]) {
     const { ctx, page } = await newPage({ settings: null });
     await page.goto(BASE + "/app");
     await page.waitForURL(/\/app\/welcome/);
-    if (way === "Skip") await page.getByRole("button", { name: "Skip", exact: true }).click();
-    else {
+    {
       await page.getByRole("button", { name: "Get started" }).click();
       await page.getByRole("button", { name: "Show me around" }).click();
       await page.getByRole("button", { name: "Skip tour" }).click();
