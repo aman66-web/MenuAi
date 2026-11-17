@@ -285,7 +285,8 @@ export function pieceWeight(name: string): number | null {
   const size = packSize(name, "g");
   if (count > 1 && size) return Math.round((size / count) * 10) / 10;
   // "Oxo Vegetable Stock Cubes 24s 142g", "12's 120g": the count written as 24s or 12's
-  const s = /\b(\d{1,2})['’]?s\b/.exec(n);
+  // ...or "Oxo 24 Vegetable Stock Cubes 142g": the count before the words naming the cubes
+  const s = /\b(\d{1,2})['’]?s\b/.exec(n) ?? /\b(\d{1,2})\s+(?:[a-z-]+\s+){0,3}cubes\b/.exec(n);
   const c = s ? Number(s[1]) : 0;
   return c > 1 && c <= 96 && size ? Math.round((size / c) * 10) / 10 : null;
 }
@@ -476,7 +477,11 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     else used += p.usedCost;
     if (!r.basis && kept(p)) basket += p.basketCost;
     const n = p.product.nutrition;
-    if (!n) { notCounted.push(p.spec.label); continue; }
+    if (!n) {
+      notCounted.push(p.spec.label);
+      if (p.spec.pantry === "salt") more.salt = null; // salt we can't count: the serving's salt figure would be wrong, so it shows as not on every label
+      continue;
+    }
     if (n.community && !community.includes(p.spec.label)) community.push(p.spec.label);
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;

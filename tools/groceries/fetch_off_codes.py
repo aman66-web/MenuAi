@@ -86,7 +86,7 @@ def main() -> int:
             try:
                 ans = fetch(code)
                 break
-            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError) as e:
+            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError) as e:  # OSError: socket.timeout on Python 3.9
                 wait = 60 * (attempt + 1)
                 print(f"  {code}: {getattr(e, 'code', type(e).__name__)}; waiting {wait}s", flush=True)
                 time.sleep(wait)

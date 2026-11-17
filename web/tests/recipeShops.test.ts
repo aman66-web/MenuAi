@@ -25,14 +25,15 @@ const manifest = (ready: string[], other: string[] = []): ShopManifest => ({
 });
 
 describe("which shops a recipe uses", () => {
-  const m = manifest(["sainsburys", "tesco"], ["asda"]);
+  // "cornershop" is a made-up second shop: for real ones (Tesco makes only a few recipes) the coverage table in lib/mm/recipeCoverage.ts also decides
+  const m = manifest(["sainsburys", "cornershop"], ["asda"]);
   it("is the first of the person's shops whose labels we've read", () => {
-    expect(recipeShopSet(m, null, ["asda", "tesco", "sainsburys"])).toEqual(["tesco"]);
+    expect(recipeShopSet(m, null, ["asda", "cornershop", "sainsburys"])).toEqual(["cornershop"]);
     expect(recipeShopSet(m, null, ["sainsburys"])).toEqual(["sainsburys"]);
   });
   it("is the shop the link asks for, when its labels are read", () => {
-    expect(recipeShopSet(m, "sainsburys", ["tesco", "sainsburys"])).toEqual(["sainsburys"]);
-    expect(recipeShopSet(m, "asda", ["tesco"])).toEqual(["tesco"]);
+    expect(recipeShopSet(m, "sainsburys", ["cornershop", "sainsburys"])).toEqual(["sainsburys"]);
+    expect(recipeShopSet(m, "asda", ["cornershop"])).toEqual(["cornershop"]);
   });
   it("falls back to the first ready shop when none of theirs is ready, and is empty with no ready shop", () => {
     expect(recipeShopSet(m, null, ["asda"])).toEqual(["sainsburys"]);
@@ -159,13 +160,13 @@ describe("one shop alone, against Sainsbury's published list", () => {
 });
 
 describe("every shop a recipe page can load, its own first", () => {
-  const m = manifest(["sainsburys", "tesco"], ["asda"]);
+  const m = manifest(["sainsburys", "cornershop"], ["asda"]);
   it("lists the ready shops with the recipe's shop first, in their own order otherwise", () => {
-    expect(recipeShopsFrom(m, "tesco")).toEqual(["tesco", "sainsburys"]);
-    expect(recipeShopsFrom(m, "sainsburys")).toEqual(["sainsburys", "tesco"]);
-    expect(recipeShopsFrom(m, "asda")).toEqual(["sainsburys", "tesco"]); // not ready: left out, the recipe's shop isn't forced in
-    expect(recipeShopsFrom(m, null)).toEqual(["sainsburys", "tesco"]);
-    expect(recipeShopsFrom(null, "tesco")).toEqual([]);
+    expect(recipeShopsFrom(m, "cornershop")).toEqual(["cornershop", "sainsburys"]);
+    expect(recipeShopsFrom(m, "sainsburys")).toEqual(["sainsburys", "cornershop"]);
+    expect(recipeShopsFrom(m, "asda")).toEqual(["sainsburys", "cornershop"]); // not ready: left out, the recipe's shop isn't forced in
+    expect(recipeShopsFrom(m, null)).toEqual(["sainsburys", "cornershop"]);
+    expect(recipeShopsFrom(null, "cornershop")).toEqual([]);
   });
 });
 
