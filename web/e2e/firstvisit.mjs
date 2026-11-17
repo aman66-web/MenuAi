@@ -6,6 +6,8 @@ import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
+// a build with no sample chains (production default): CHAIN="kfc:KFC"
+const [CHAIN_ID, CHAIN_NAME] = (process.env.CHAIN ?? "cluck-house:Cluck House").split(":");
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
@@ -53,7 +55,7 @@ await step("a first visit to Eat out lists the restaurants with the same card ab
 
 await step("links straight to a restaurant, a dish and the search open at once", async () => {
   const ctx = await fresh(); const page = await ctx.newPage();
-  for (const [path, heading] of [["/app/chain?id=cluck-house", "Cluck House"], ["/app/search", null]]) {
+  for (const [path, heading] of [["/app/chain?id=" + CHAIN_ID, CHAIN_NAME], ["/app/search", null]]) {
     await page.goto(BASE + path);
     if (heading) await page.getByRole("heading", { name: heading }).waitFor();
     else await page.locator("input").first().waitFor();
