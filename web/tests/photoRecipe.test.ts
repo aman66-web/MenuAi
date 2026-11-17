@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import {
-  PHOTO_SYSTEM_PROMPT, cleanSuggestion, needsMoreDetail, photoRecipeFromAi, photoUserPrompt, type PhotoRecipeRequest,
+  PHOTO_SYSTEM_PROMPT, cleanSuggestion, needsMoreDetail, photoPantryPrompt, photoRecipeFromAi, photoUserPrompt, type PhotoRecipeRequest,
 } from "../lib/mm/photoRecipe";
 import { handleDescribePhoto, handlePhotoRecipe, isJpeg, type AskPhotoRecipe, type DescribePhoto, type PhotoCtx } from "../lib/photoRecipeHandler";
 
@@ -54,7 +54,11 @@ describe("Make it at home: the description", () => {
     const p = photoUserPrompt(request({ description: 'peri-peri "wings" with rice', diet: { halalOnly: true } }));
     expect(p).toContain(`The dish, as the person describes it: "peri-peri 'wings' with rice"`);
     expect(p).toContain("Diet: halal");
-    expect(p).toContain("chicken | Chicken breast | Chicken breast 500g | per 100 g: 110 kcal");
+    // the shop's ingredient list is its own (cached) part, with nothing about the person or the dish in it
+    expect(p).not.toContain("Chicken breast 500g");
+    const pantry = photoPantryPrompt(request({}).pantry);
+    expect(pantry).toContain("chicken | Chicken breast | Chicken breast 500g | per 100 g: 110 kcal");
+    expect(pantry).not.toMatch(/peri-peri|Diet:|People:/);
     expect(PHOTO_SYSTEM_PROMPT).toMatch(/Short title: instruction\./);
     expect(PHOTO_SYSTEM_PROMPT).toMatch(/never name a restaurant, chain or brand/);
     expect(PHOTO_SYSTEM_PROMPT).toMatch(/Never write calories/);
@@ -122,11 +126,12 @@ describe("Make it at home: the server", () => {
     const res = await handlePhotoRecipe(request(), ctx({ ask }));
     expect(res.status).toBe(200);
     expect((res.body as { recipe: { name: string } }).recipe.name).toBe(GOOD.name);
-    const [system, user, image, keys] = ask.mock.calls[0]!;
+    const [system, user, image, keys, pantry] = ask.mock.calls[0]!;
     expect(system).toBe(PHOTO_SYSTEM_PROMPT);
     expect(user).toContain("peri-peri chicken wings with spicy rice");
     expect(image).toBe(JPEG);
     expect(keys).toEqual(PANTRY.map((p) => p.key));
+    expect(pantry).toBe(photoPantryPrompt(PANTRY));
   });
 
   it("asks once more with a reminder when the first answer breaks the rules, and gives up after that", async () => {

@@ -253,9 +253,12 @@ Do **not** delete the person's account to remove them: that lets the same Apple,
   (`NEXT_PUBLIC_PRO=1`) skip it. → 200 `{ recipe }` that passes `photoRecipeFromAi` (pantry kinds for the diet, 4 to 11 titled steps of ≤45 words, a doneness sign
   for meat/fish/eggs, no claims, figures or restaurant/brand names), asked once more with a reminder if the first answer fails. 400 bad body or not a JPEG,
   402 no Premium, 403 not from our pages or the iPhone app (Origin; CORS for `app://menumath`), 404 switched off, 422 not enough ingredients for the diet,
-  429 too many (5 per 10 minutes, 25 a day), 502 no usable recipe, 503 no key. Model: Claude Haiku 5.5 with the photo (`web/lib/photoRecipeAi.ts`). Nothing stored.
-  Cost: about 0.1p to 2p a recipe.
-- `POST /api/v1/recipe/photo/describe` — Make it at home's "Suggest from my photo": `{ image }` → 200 `{ description }` (≤24 words, what the dish looks like),
+  429 too many (5 per 10 minutes, 25 a day), 502 no usable recipe, 503 no key. Model: Claude Sonnet 5.5 at high effort with the photo (`web/lib/photoRecipeAi.ts`,
+  founder 2026-11-17 after a 10-dish test, `docs/MODEL_COMPARISON_2026-11-17.md`), with prompt caching: the house rules and the shop's ingredient list are two cached
+  system blocks (the same for everyone at that shop with that diet), then the photo and the person's words; each call logs its token counts and cache reads and writes
+  to Vercel's logs ("photo recipe: …", no content). Route `maxDuration` 150 s, 75 s an answer. Nothing stored. Cost: about $0.045 a recipe without a cache read, about
+  $0.02 with one (Sonnet $2/$10 per million tokens in/out; a cache read is $0.10 per million; a 5-minute cache write costs 1.25x).
+- `POST /api/v1/recipe/photo/describe` — Make it at home's food check while "Scanning" (was "Suggest from my photo"; Claude Haiku 5.5, low effort): `{ image }` → 200 `{ description }` (≤24 words, what the dish looks like),
   422 no food in the photo, 502 no usable suggestion; same switch, Premium check, Origin and CORS rules; 10 per 10 minutes, 40 a day.
 
 - `POST /api/v1/compare/pick` — **Pip's pick** on the Compare screen (founder 17 November 2026). Off unless `NEXT_PUBLIC_COMPARE_PICK=1` (`web/lib/mm/comparePick.ts`); the route

@@ -3,7 +3,7 @@ import { ALLERGEN_KEYS } from "./mm/types";
 import { PANTRY, kindExcluded } from "./mm/pantry";
 import {
   DESCRIBE_SYSTEM_PROMPT, MAX_DESCRIPTION, MAX_PHOTO_BASE64, PHOTO_MESSAGES, PHOTO_SYSTEM_PROMPT,
-  cleanSuggestion, photoRecipeFromAi, photoUserPrompt, wordCount, type PhotoRecipeRequest,
+  cleanSuggestion, photoPantryPrompt, photoRecipeFromAi, photoUserPrompt, wordCount, type PhotoRecipeRequest,
 } from "./mm/photoRecipe";
 import type { Result } from "./handlers";
 
@@ -45,7 +45,8 @@ export function isJpeg(base64: string): boolean {
 
 type Answer = { status: "ok"; value: unknown } | { status: "refused" } | { status: "error" };
 /** The AI call that writes the recipe: the system prompt, the text, the photo (base64 JPEG) and the pantry keys it may use. */
-export type AskPhotoRecipe = (system: string, user: string, image: string, allowedKeys: string[]) => Promise<Answer>;
+/** `pantry` is the shop's ingredient list (photoPantryPrompt): sent after the system prompt and cached; `user` is what this person asked for. */
+export type AskPhotoRecipe = (system: string, user: string, image: string, allowedKeys: string[], pantry: string) => Promise<Answer>;
 /** The AI call that suggests what the dish is. */
 export type DescribePhoto = (system: string, image: string) => Promise<Answer>;
 
@@ -84,13 +85,14 @@ export async function handlePhotoRecipe(body: unknown, ctx: PhotoCtx): Promise<R
   if (!ctx.allow()) return tooMany;
   const keys = req.pantry.map((p) => p.key);
   let user = photoUserPrompt(req);
+  const pantry = photoPantryPrompt(req.pantry);
   for (let attempt = 0; attempt < 2; attempt++) {
-    const answer = await ctx.ask(PHOTO_SYSTEM_PROMPT, user, req.image, keys);
+    const answer = await ctx.ask(PHOTO_SYSTEM_PROMPT, user, req.image, keys, pantry);
     if (answer.status !== "ok") return say(502, "no_recipe", PHOTO_MESSAGES.noRecipe);
     if (photoRecipeFromAi(answer.value, req, "ai-check")) return { status: 200, body: { recipe: answer.value } };
     if (ctx.timeLeft && ctx.timeLeft() < 75_000) break; // not enough time left for another full answer
     // one more go, with a reminder of the rules it broke
-    user = `${photoUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys above with amounts between 5 and 3000; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish and eggs are cooked; no nutrition figures, prices, health claims, or restaurant or brand names.`;
+    user = `${photoUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys in the pantry list with amounts between 5 and 3000; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish and eggs are cooked; no nutrition figures, prices, health claims, or restaurant or brand names.`;
   }
   return say(502, "no_recipe", PHOTO_MESSAGES.noRecipe);
 }
