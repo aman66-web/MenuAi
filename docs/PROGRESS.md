@@ -2827,6 +2827,22 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   Next (founder's go-ahead, accepted risk of the shops' terms): read every product's own page in the founder's Chrome, one at a time, starting with the products recipes use, at
   Tesco, Waitrose, Aldi, Asda and M&S (Lidl's pages print no nutrition: rechecked before giving up).
 
+- 2026-11-17 (late night, Mac) — **Release checks for iPhone 1.1 (build 6), and the Chrome label reading started.** Checked: 2,105 website unit tests, 231 Python, 84 Swift
+  (one stale test fixed: the App Store product reply carries the free week), tsc, eslint (0 errors); every browser suite on a test build (smoke 24, extra 16, firstvisit 10, tour 14,
+  back 42 + 13, browse 9, calories 4, diet 7, done 13, favnote 4, listadd 8, listphotos 11, sharelist 11, water 14, reminders 26, days 10, numbers 12, truth 14, shoppick 5, recipes 17,
+  groceries 6, groceries-all 8, groceries-compare 8, groceries-photos 4, compare 4, protein 6, addfood 15, photorecipe 15, account 8, community 10, community-friends 26,
+  onboarding-body 22, tabs 3, scan 8, mapfs 19, map 7, share, a11y 0 violations, largetext no overflow); on the packed app app-build 10, rating 4 (and 4 with purchases on), iap 11; prodmode 9;
+  signin 6. The app ran in the "Numbite Test iPhone 17 Pro" simulator: the sign-in screen stands in front of the app (release settings), and with sign-in off Home and Eat out work.
+  **Archive:** `build/Numbite-1.1-build6.xcarchive` (1.1 (6), Release, sign-in required, Premium/IAP and Make it at home on, Light, Sign in with Apple and applinks, 68 MB;
+  `MenuMacros/Resources/WebApp.bundle` is the release copy, 62.8 MB). Not uploaded (the founder uploads). **Not tried by Claude:** a real sign-in, sign-out and delete with a real
+  account; a real App Store purchase on this build (the purchase flow was tried in the simulator earlier the same evening and its code hasn't changed).
+  **Chrome label reading** (founder: "for all these supermarkets get all the full nutritional information ... and also the allergens"): `tools/groceries/labels_chrome.js` now also
+  copies the ingredients list, the words the shop prints in bold (allergens) and its allergy and may-contain notes; `labels_chrome_next.py --install` / `--short` store the reader in the
+  tab once (window.name, run as an inline script: the shops' CSP forbids eval) and read each page with a one-line call (about 200 bytes instead of 2.9 KB). Still read-only: no clicks, no
+  extra requests, stop on any robot check. A background helper is reading Aldi (390 recipe products), then Tesco (721) and Asda (about 1,080) in the founder's Chrome; ingesting the
+  ingredients and allergens into the app is still to build (the nutrition goes through `labels_chrome_ingest.py` as before; Tesco's address to be added there). Lidl prints no nutrition;
+  Waitrose's list has no page addresses (to find); M&S's priced range is small.
+
 ## Known issues
 
 - Web: no nearby chains and no Apple Health (by design, see WEB_BUILD_PLAN.md); payments not wired.
