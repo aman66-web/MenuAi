@@ -2723,6 +2723,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
   - **The phone's purchase:** Xcode signs test purchases with a test certificate made per device/session, so the phone's (made 16:22) differed from the simulator's (16:27) and the server answered `untrusted_root`. `APPLE_XCODE_TEST_CERT` now holds the phone's certificate and production was redeployed (dpl_Fz3Vy2Zu5NDiicjohkNFTSipYbbU, same code 5bb4b013). Restore purchases picks up the trial already bought. **Still test only: remove it when testing is finished.**
   - **"Nothing happened":** the purchase result line appears under the buy button, where the floating tab bar can cover it; it is now scrolled into view when it appears (`AppStorePlans.tsx`, also Settings › Subscription). No new copy.
   - Checked: tsc, eslint, e2e photorecipe 11, recipes 17, a11y 0 violations, largetext no overflow; looked at in the browser at 375 px.
+  - **Recipes header** (founder, same evening: "Remove this at the top left and move everything up"): the Pip avatar and the small "Recipes" label are gone; "What's cooking today?" now shares the top row with the heart (My meals), so the page starts about 100 points higher. Checked: e2e recipes 17, back 42, tour 14 (run with the build's switches), a11y 0, largetext, photorecipe 11.
 
 ## Known issues
 
