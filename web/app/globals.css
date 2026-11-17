@@ -91,6 +91,11 @@ body {
 h1, h2, h3 { text-wrap: balance; overflow-wrap: anywhere; } /* a long name at 200% text breaks rather than pushing the page sideways */
 p { text-wrap: pretty; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; } /* the outline follows each element's own rounding */
+/* A title or message the app moves focus to itself (tabindex="-1": a sheet's title, a page's heading, a "thanks" line, so a screen reader reads it out) and a
+   sheet itself are never shown in a box: they can't be tapped or typed into, and on an iPhone focus moved by the page counts as "visible", which drew a green
+   box round "Your supermarkets" and other titles (founder 2026-11-17: "make sure the app doesn't have those boxes"). Buttons, links and boxes you type in keep
+   their outline for keyboard users. */
+[tabindex="-1"]:focus, [tabindex="-1"]:focus-visible, dialog:focus, dialog:focus-visible, .sheet-panel:focus, .sheet-panel:focus-visible { outline: none; }
 
 /* Editorial accents */
 .serif-em { font-family: var(--font-serif); font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
